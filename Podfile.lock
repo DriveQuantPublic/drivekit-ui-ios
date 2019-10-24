@@ -1,0 +1,61 @@
+PODS:
+  - DriveKitCore (1.1.0-beta2):
+    - Networking
+  - DriveKitDriverData (1.1.0-beta2):
+    - DriveKitCore
+    - Networking
+  - DriveKitTripAnalysis (1.1.0-beta2):
+    - DriveKitCore
+    - Networking
+  - Networking (1.1.0-beta2)
+  - UICircularProgressRing (6.3.0)
+
+DEPENDENCIES:
+  - DriveKitCore (from `https://github.com/DriveQuantPublic/drivekit-ios-sdk.git`, tag `1.1.0-beta2`)
+  - DriveKitDriverData (from `https://github.com/DriveQuantPublic/drivekit-ios-sdk.git`, tag `1.1.0-beta2`)
+  - DriveKitTripAnalysis (from `https://github.com/DriveQuantPublic/drivekit-ios-sdk.git`, tag `1.1.0-beta2`)
+  - Networking (from `https://github.com/DriveQuantPublic/drivekit-ios-sdk.git`, tag `1.1.0-beta2`)
+  - UICircularProgressRing
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - UICircularProgressRing
+
+EXTERNAL SOURCES:
+  DriveKitCore:
+    :git: https://github.com/DriveQuantPublic/drivekit-ios-sdk.git
+    :tag: 1.1.0-beta2
+  DriveKitDriverData:
+    :git: https://github.com/DriveQuantPublic/drivekit-ios-sdk.git
+    :tag: 1.1.0-beta2
+  DriveKitTripAnalysis:
+    :git: https://github.com/DriveQuantPublic/drivekit-ios-sdk.git
+    :tag: 1.1.0-beta2
+  Networking:
+    :git: https://github.com/DriveQuantPublic/drivekit-ios-sdk.git
+    :tag: 1.1.0-beta2
+
+CHECKOUT OPTIONS:
+  DriveKitCore:
+    :git: https://github.com/DriveQuantPublic/drivekit-ios-sdk.git
+    :tag: 1.1.0-beta2
+  DriveKitDriverData:
+    :git: https://github.com/DriveQuantPublic/drivekit-ios-sdk.git
+    :tag: 1.1.0-beta2
+  DriveKitTripAnalysis:
+    :git: https://github.com/DriveQuantPublic/drivekit-ios-sdk.git
+    :tag: 1.1.0-beta2
+  Networking:
+    :git: https://github.com/DriveQuantPublic/drivekit-ios-sdk.git
+    :tag: 1.1.0-beta2
+
+SPEC CHECKSUMS:
+  DriveKitCore: e80faed2e470fe6504f428c29baa16217b497d79
+  DriveKitDriverData: 72669cbf60b04a3da6c73dd63088eb9ac1925d3a
+  DriveKitTripAnalysis: 698bd88582417c7b71ddd1ef38f725a6761ca287
+  Networking: 24b145f5d13077dcd5f71e552e673db7e70b74d4
+  UICircularProgressRing: e700fb0505328e88ee53c4ed92bee6d1a5b8bbe3
+
+PODFILE CHECKSUM: 1a2f987a225b9d53a38251eaffd5dded10b93fc3
+
+COCOAPODS: 1.6.1

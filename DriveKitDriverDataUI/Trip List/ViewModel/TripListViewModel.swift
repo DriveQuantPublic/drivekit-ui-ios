@@ -1,0 +1,43 @@
+//
+//  TripListViewModel.swift
+//  drivekit-test-app
+//
+//  Created by Meryl Barantal on 02/10/2019.
+//  Copyright © 2019 DriveQuant. All rights reserved.
+//
+
+import Foundation
+import DriveKitDriverData
+
+class TripListViewModel {
+    var trips : [TripsByDate] = []
+    var dayTripDescendingOrder: Bool
+    var status: TripSyncStatus = .noError
+    var delegate: TripsDelegate? = nil {
+        didSet {
+            self.fetchTrips()
+        }
+    }
+    
+    public init(dayTripDescendingOrder: Bool) {
+        self.dayTripDescendingOrder = dayTripDescendingOrder
+    }
+    
+    public func fetchTrips() {
+        DriveKitDriverData.shared.getTripsOrderByDateDesc(completionHandler: {status, trips in
+            self.status = status
+            self.trips = self.sortTrips(trips: trips)
+        })
+    }
+    
+    
+    func sortTrips(trips : [Trip]) -> [TripsByDate] {
+        let tripSorted = trips.orderByDay(descOrder: dayTripDescendingOrder)
+        self.delegate?.onTripsAvailable()
+        return tripSorted
+    }
+}
+
+protocol TripsDelegate {
+    func onTripsAvailable()
+}

@@ -1,0 +1,6 @@
+framework module Pods_DriveKitApp {
+  umbrella header "Pods-DriveKitApp-umbrella.h"
+
+  export *
+  module * { export * }
+}

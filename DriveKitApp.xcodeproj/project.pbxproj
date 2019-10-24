@@ -1,0 +1,1051 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A32665AE235F64EB00B529B0 /* SettingsBundleKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32665AD235F64EB00B529B0 /* SettingsBundleKey.swift */; };
+		A342380A2361A1FA0001E15D /* DriveKitDriveDataUI.h in Headers */ = {isa = PBXBuildFile; fileRef = A34238082361A1FA0001E15D /* DriveKitDriveDataUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A342380D2361A1FA0001E15D /* DriveKitDriverDataUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */; };
+		A342380E2361A1FA0001E15D /* DriveKitDriverDataUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A34238132361A2390001E15D /* DriverDataStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238122361A2390001E15D /* DriverDataStyles.swift */; };
+		A34238622361A2430001E15D /* CalloutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238162361A2430001E15D /* CalloutViewModel.swift */; };
+		A34238632361A2430001E15D /* TripDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238172361A2430001E15D /* TripDetailViewModel.swift */; };
+		A34238642361A2430001E15D /* SafetyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238192361A2430001E15D /* SafetyPageViewModel.swift */; };
+		A34238652361A2430001E15D /* ShortTripPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342381A2361A2430001E15D /* ShortTripPageViewModel.swift */; };
+		A34238662361A2430001E15D /* EcoDrivingPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342381B2361A2430001E15D /* EcoDrivingPageViewModel.swift */; };
+		A34238672361A2430001E15D /* HistoryPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342381C2361A2430001E15D /* HistoryPageViewModel.swift */; };
+		A34238682361A2430001E15D /* DistractionPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342381D2361A2430001E15D /* DistractionPageViewModel.swift */; };
+		A34238692361A2430001E15D /* TripDetailViewConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342381E2361A2430001E15D /* TripDetailViewConfig.swift */; };
+		A342386A2361A2430001E15D /* MapItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238202361A2430001E15D /* MapItem.swift */; };
+		A342386B2361A2430001E15D /* TripEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238212361A2430001E15D /* TripEvent.swift */; };
+		A342386C2361A2430001E15D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238232361A2430001E15D /* MapViewController.swift */; };
+		A342386D2361A2430001E15D /* TripDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238242361A2430001E15D /* TripDetailVC.swift */; };
+		A342386E2361A2430001E15D /* TripDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34238252361A2430001E15D /* TripDetailVC.xib */; };
+		A342386F2361A2430001E15D /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34238262361A2430001E15D /* MapViewController.xib */; };
+		A34238702361A2430001E15D /* DistractionPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238282361A2430001E15D /* DistractionPageVC.swift */; };
+		A34238712361A2430001E15D /* DistractionPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34238292361A2430001E15D /* DistractionPageVC.xib */; };
+		A34238722361A2430001E15D /* ShortTripPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A342382A2361A2430001E15D /* ShortTripPageVC.xib */; };
+		A34238732361A2430001E15D /* ShortTripPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342382B2361A2430001E15D /* ShortTripPageVC.swift */; };
+		A34238742361A2430001E15D /* HistoryPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342382C2361A2430001E15D /* HistoryPageVC.swift */; };
+		A34238752361A2430001E15D /* EcoDrivingPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A342382D2361A2430001E15D /* EcoDrivingPageVC.xib */; };
+		A34238762361A2440001E15D /* SafetyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342382E2361A2430001E15D /* SafetyPageVC.swift */; };
+		A34238772361A2440001E15D /* EcoDrivingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342382F2361A2430001E15D /* EcoDrivingPageVC.swift */; };
+		A34238782361A2440001E15D /* SafetyPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34238302361A2430001E15D /* SafetyPageVC.xib */; };
+		A34238792361A2440001E15D /* HistoryPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34238312361A2430001E15D /* HistoryPageVC.xib */; };
+		A342387A2361A2440001E15D /* ResistantLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238332361A2430001E15D /* ResistantLayer.swift */; };
+		A342387B2361A2440001E15D /* CalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238342361A2430001E15D /* CalloutView.swift */; };
+		A342387C2361A2440001E15D /* CalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34238352361A2430001E15D /* CalloutView.xib */; };
+		A342387D2361A2440001E15D /* EcoDrivingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238372361A2430001E15D /* EcoDrivingPageView.swift */; };
+		A342387E2361A2440001E15D /* HistoryPageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34238382361A2430001E15D /* HistoryPageView.xib */; };
+		A342387F2361A2440001E15D /* HistoryPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238392361A2430001E15D /* HistoryPageView.swift */; };
+		A34238802361A2440001E15D /* DistractionPageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A342383A2361A2430001E15D /* DistractionPageView.xib */; };
+		A34238812361A2440001E15D /* SafetyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342383B2361A2430001E15D /* SafetyPageView.swift */; };
+		A34238822361A2440001E15D /* DistractionPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342383C2361A2430001E15D /* DistractionPageView.swift */; };
+		A34238832361A2440001E15D /* EcoDrivingPageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A342383D2361A2430001E15D /* EcoDrivingPageView.xib */; };
+		A34238842361A2440001E15D /* SafetyPageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A342383E2361A2430001E15D /* SafetyPageView.xib */; };
+		A34238852361A2440001E15D /* TripListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238412361A2430001E15D /* TripListViewModel.swift */; };
+		A34238862361A2440001E15D /* Extension + DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238432361A2430001E15D /* Extension + DK.swift */; };
+		A34238872361A2440001E15D /* Nibable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238442361A2430001E15D /* Nibable.swift */; };
+		A34238882361A2440001E15D /* Extensions + UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238452361A2430001E15D /* Extensions + UI.swift */; };
+		A34238892361A2440001E15D /* ScoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238472361A2430001E15D /* ScoreType.swift */; };
+		A342388A2361A2440001E15D /* TripListSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238482361A2430001E15D /* TripListSeparator.swift */; };
+		A342388B2361A2440001E15D /* TripInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238492361A2430001E15D /* TripInfo.swift */; };
+		A342388C2361A2440001E15D /* TripsByDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342384A2361A2430001E15D /* TripsByDate.swift */; };
+		A342388D2361A2440001E15D /* ConfigurationCircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342384B2361A2430001E15D /* ConfigurationCircularProgressView.swift */; };
+		A342388E2361A2440001E15D /* HeaderDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342384C2361A2430001E15D /* HeaderDay.swift */; };
+		A342388F2361A2440001E15D /* TripData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342384D2361A2430001E15D /* TripData.swift */; };
+		A34238912361A2440001E15D /* TripListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238522361A2430001E15D /* TripListVC.swift */; };
+		A34238922361A2440001E15D /* TripTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238542361A2430001E15D /* TripTableViewDelegate.swift */; };
+		A34238942361A2440001E15D /* NoScoreImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34238582361A2430001E15D /* NoScoreImageView.xib */; };
+		A34238952361A2440001E15D /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238592361A2430001E15D /* CircularProgressView.swift */; };
+		A34238962361A2440001E15D /* NoScoreImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342385A2361A2430001E15D /* NoScoreImageView.swift */; };
+		A34238972361A2440001E15D /* TripTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A342385B2361A2430001E15D /* TripTableViewCell.xib */; };
+		A34238982361A2440001E15D /* HeaderDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342385C2361A2430001E15D /* HeaderDayView.swift */; };
+		A34238992361A2440001E15D /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342385D2361A2430001E15D /* TripTableViewCell.swift */; };
+		A342389A2361A2440001E15D /* HeaderDayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A342385E2361A2430001E15D /* HeaderDayView.xib */; };
+		A342389B2361A2440001E15D /* CircularProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A342385F2361A2430001E15D /* CircularProgressView.xib */; };
+		A342389C2361A2440001E15D /* TripListViewConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238602361A2430001E15D /* TripListViewConfig.swift */; };
+		A342389D2361A2440001E15D /* DriverData.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A34238612361A2430001E15D /* DriverData.xcassets */; };
+		A34238A02361A2730001E15D /* DriverDataLocalizables.strings in Resources */ = {isa = PBXBuildFile; fileRef = A342389E2361A2730001E15D /* DriverDataLocalizables.strings */; };
+		A34238A92361B0DE0001E15D /* TripListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34238A82361B0DE0001E15D /* TripListVC.xib */; };
+		A3B7B384235F124F0065A332 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B7B383235F124F0065A332 /* AppDelegate.swift */; };
+		A3B7B388235F124F0065A332 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B7B387235F124F0065A332 /* ViewController.swift */; };
+		A3B7B38B235F124F0065A332 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3B7B389235F124F0065A332 /* Main.storyboard */; };
+		A3B7B38E235F124F0065A332 /* DriveKitApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A3B7B38C235F124F0065A332 /* DriveKitApp.xcdatamodeld */; };
+		A3B7B390235F12510065A332 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3B7B38F235F12510065A332 /* Assets.xcassets */; };
+		A3B7B393235F12510065A332 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3B7B391235F12510065A332 /* LaunchScreen.storyboard */; };
+		A3B7B39D235F2E130065A332 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B7B39B235F2E130065A332 /* SettingsViewController.swift */; };
+		E4D35F8F20B6F31D9B5AC6FD /* Pods_DriveKitApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4009FE234BC3EC14A349F8D3 /* Pods_DriveKitApp.framework */; };
+		FE2C04BD97A78F4B22CD7008 /* Pods_DriveKitDriverDataUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55652B494DACA2423EDB5A8E /* Pods_DriveKitDriverDataUI.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A342380B2361A1FA0001E15D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3B7B378235F124F0065A332 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A34238052361A1FA0001E15D;
+			remoteInfo = DriveKitDriveDataUI;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A32665C02360931500B529B0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A342380E2361A1FA0001E15D /* DriveKitDriverDataUI.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		10107C08082CCF492923D28F /* Pods-DriveKitDriverDataUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverDataUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverDataUI/Pods-DriveKitDriverDataUI.debug.xcconfig"; sourceTree = "<group>"; };
+		4009FE234BC3EC14A349F8D3 /* Pods_DriveKitApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		453D6BC570583B1D6DC16DBC /* Pods-DriveKitApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitApp.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitApp/Pods-DriveKitApp.debug.xcconfig"; sourceTree = "<group>"; };
+		55652B494DACA2423EDB5A8E /* Pods_DriveKitDriverDataUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitDriverDataUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DCC63E1FD4A8A79E2ED8F27 /* Pods_DriveKitDriverData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitDriverData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		845F2C5F9472B0D7B5972830 /* Pods-DriveKitDriverData.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverData.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverData/Pods-DriveKitDriverData.debug.xcconfig"; sourceTree = "<group>"; };
+		A32665AD235F64EB00B529B0 /* SettingsBundleKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleKey.swift; sourceTree = "<group>"; };
+		A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DriveKitDriverDataUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A34238082361A1FA0001E15D /* DriveKitDriveDataUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DriveKitDriveDataUI.h; sourceTree = "<group>"; };
+		A34238092361A1FA0001E15D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A34238122361A2390001E15D /* DriverDataStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverDataStyles.swift; sourceTree = "<group>"; };
+		A34238162361A2430001E15D /* CalloutViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalloutViewModel.swift; sourceTree = "<group>"; };
+		A34238172361A2430001E15D /* TripDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDetailViewModel.swift; sourceTree = "<group>"; };
+		A34238192361A2430001E15D /* SafetyPageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafetyPageViewModel.swift; sourceTree = "<group>"; };
+		A342381A2361A2430001E15D /* ShortTripPageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortTripPageViewModel.swift; sourceTree = "<group>"; };
+		A342381B2361A2430001E15D /* EcoDrivingPageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EcoDrivingPageViewModel.swift; sourceTree = "<group>"; };
+		A342381C2361A2430001E15D /* HistoryPageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryPageViewModel.swift; sourceTree = "<group>"; };
+		A342381D2361A2430001E15D /* DistractionPageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistractionPageViewModel.swift; sourceTree = "<group>"; };
+		A342381E2361A2430001E15D /* TripDetailViewConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDetailViewConfig.swift; sourceTree = "<group>"; };
+		A34238202361A2430001E15D /* MapItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapItem.swift; sourceTree = "<group>"; };
+		A34238212361A2430001E15D /* TripEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripEvent.swift; sourceTree = "<group>"; };
+		A34238232361A2430001E15D /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		A34238242361A2430001E15D /* TripDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDetailVC.swift; sourceTree = "<group>"; };
+		A34238252361A2430001E15D /* TripDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripDetailVC.xib; sourceTree = "<group>"; };
+		A34238262361A2430001E15D /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		A34238282361A2430001E15D /* DistractionPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistractionPageVC.swift; sourceTree = "<group>"; };
+		A34238292361A2430001E15D /* DistractionPageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DistractionPageVC.xib; sourceTree = "<group>"; };
+		A342382A2361A2430001E15D /* ShortTripPageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShortTripPageVC.xib; sourceTree = "<group>"; };
+		A342382B2361A2430001E15D /* ShortTripPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShortTripPageVC.swift; sourceTree = "<group>"; };
+		A342382C2361A2430001E15D /* HistoryPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryPageVC.swift; sourceTree = "<group>"; };
+		A342382D2361A2430001E15D /* EcoDrivingPageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EcoDrivingPageVC.xib; sourceTree = "<group>"; };
+		A342382E2361A2430001E15D /* SafetyPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafetyPageVC.swift; sourceTree = "<group>"; };
+		A342382F2361A2430001E15D /* EcoDrivingPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EcoDrivingPageVC.swift; sourceTree = "<group>"; };
+		A34238302361A2430001E15D /* SafetyPageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SafetyPageVC.xib; sourceTree = "<group>"; };
+		A34238312361A2430001E15D /* HistoryPageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryPageVC.xib; sourceTree = "<group>"; };
+		A34238332361A2430001E15D /* ResistantLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResistantLayer.swift; sourceTree = "<group>"; };
+		A34238342361A2430001E15D /* CalloutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalloutView.swift; sourceTree = "<group>"; };
+		A34238352361A2430001E15D /* CalloutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalloutView.xib; sourceTree = "<group>"; };
+		A34238372361A2430001E15D /* EcoDrivingPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EcoDrivingPageView.swift; sourceTree = "<group>"; };
+		A34238382361A2430001E15D /* HistoryPageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryPageView.xib; sourceTree = "<group>"; };
+		A34238392361A2430001E15D /* HistoryPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryPageView.swift; sourceTree = "<group>"; };
+		A342383A2361A2430001E15D /* DistractionPageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DistractionPageView.xib; sourceTree = "<group>"; };
+		A342383B2361A2430001E15D /* SafetyPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafetyPageView.swift; sourceTree = "<group>"; };
+		A342383C2361A2430001E15D /* DistractionPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistractionPageView.swift; sourceTree = "<group>"; };
+		A342383D2361A2430001E15D /* EcoDrivingPageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EcoDrivingPageView.xib; sourceTree = "<group>"; };
+		A342383E2361A2430001E15D /* SafetyPageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SafetyPageView.xib; sourceTree = "<group>"; };
+		A34238412361A2430001E15D /* TripListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripListViewModel.swift; sourceTree = "<group>"; };
+		A34238432361A2430001E15D /* Extension + DK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension + DK.swift"; sourceTree = "<group>"; };
+		A34238442361A2430001E15D /* Nibable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nibable.swift; sourceTree = "<group>"; };
+		A34238452361A2430001E15D /* Extensions + UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extensions + UI.swift"; sourceTree = "<group>"; };
+		A34238472361A2430001E15D /* ScoreType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreType.swift; sourceTree = "<group>"; };
+		A34238482361A2430001E15D /* TripListSeparator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripListSeparator.swift; sourceTree = "<group>"; };
+		A34238492361A2430001E15D /* TripInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripInfo.swift; sourceTree = "<group>"; };
+		A342384A2361A2430001E15D /* TripsByDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripsByDate.swift; sourceTree = "<group>"; };
+		A342384B2361A2430001E15D /* ConfigurationCircularProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationCircularProgressView.swift; sourceTree = "<group>"; };
+		A342384C2361A2430001E15D /* HeaderDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderDay.swift; sourceTree = "<group>"; };
+		A342384D2361A2430001E15D /* TripData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripData.swift; sourceTree = "<group>"; };
+		A34238522361A2430001E15D /* TripListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripListVC.swift; sourceTree = "<group>"; };
+		A34238542361A2430001E15D /* TripTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTableViewDelegate.swift; sourceTree = "<group>"; };
+		A34238582361A2430001E15D /* NoScoreImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoScoreImageView.xib; sourceTree = "<group>"; };
+		A34238592361A2430001E15D /* CircularProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		A342385A2361A2430001E15D /* NoScoreImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoScoreImageView.swift; sourceTree = "<group>"; };
+		A342385B2361A2430001E15D /* TripTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripTableViewCell.xib; sourceTree = "<group>"; };
+		A342385C2361A2430001E15D /* HeaderDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderDayView.swift; sourceTree = "<group>"; };
+		A342385D2361A2430001E15D /* TripTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
+		A342385E2361A2430001E15D /* HeaderDayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderDayView.xib; sourceTree = "<group>"; };
+		A342385F2361A2430001E15D /* CircularProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CircularProgressView.xib; sourceTree = "<group>"; };
+		A34238602361A2430001E15D /* TripListViewConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripListViewConfig.swift; sourceTree = "<group>"; };
+		A34238612361A2430001E15D /* DriverData.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DriverData.xcassets; sourceTree = "<group>"; };
+		A342389F2361A2730001E15D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DriverDataLocalizables.strings; sourceTree = "<group>"; };
+		A34238A12361A27A0001E15D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/DriverDataLocalizables.strings; sourceTree = "<group>"; };
+		A34238A22361A27C0001E15D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/DriverDataLocalizables.strings; sourceTree = "<group>"; };
+		A34238A32361A27E0001E15D /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/DriverDataLocalizables.strings; sourceTree = "<group>"; };
+		A34238A42361A2800001E15D /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/DriverDataLocalizables.strings; sourceTree = "<group>"; };
+		A34238A82361B0DE0001E15D /* TripListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripListVC.xib; sourceTree = "<group>"; };
+		A3B7B380235F124F0065A332 /* DriveKitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DriveKitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3B7B383235F124F0065A332 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A3B7B387235F124F0065A332 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A3B7B38A235F124F0065A332 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A3B7B38D235F124F0065A332 /* DriveKitApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DriveKitApp.xcdatamodel; sourceTree = "<group>"; };
+		A3B7B38F235F12510065A332 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A3B7B392235F12510065A332 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A3B7B394235F12510065A332 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A3B7B39B235F2E130065A332 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B4FFF17661FD795E73C76EC7 /* Pods-DriveKitDriverData.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverData.release.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverData/Pods-DriveKitDriverData.release.xcconfig"; sourceTree = "<group>"; };
+		DCBF31C151237FEA8EDE3CF0 /* Pods-DriveKitDriverDataUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverDataUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverDataUI/Pods-DriveKitDriverDataUI.release.xcconfig"; sourceTree = "<group>"; };
+		F4E7AE929F1C5F8DBFAE3E0C /* Pods-DriveKitApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitApp.release.xcconfig"; path = "Target Support Files/Pods-DriveKitApp/Pods-DriveKitApp.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A34238032361A1FA0001E15D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE2C04BD97A78F4B22CD7008 /* Pods_DriveKitDriverDataUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3B7B37D235F124F0065A332 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4D35F8F20B6F31D9B5AC6FD /* Pods_DriveKitApp.framework in Frameworks */,
+				A342380D2361A1FA0001E15D /* DriveKitDriverDataUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0507D67F4F2198BE920311FE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4009FE234BC3EC14A349F8D3 /* Pods_DriveKitApp.framework */,
+				5DCC63E1FD4A8A79E2ED8F27 /* Pods_DriveKitDriverData.framework */,
+				55652B494DACA2423EDB5A8E /* Pods_DriveKitDriverDataUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A34238072361A1FA0001E15D /* DriveKitDriverDataUI */ = {
+			isa = PBXGroup;
+			children = (
+				A342389E2361A2730001E15D /* DriverDataLocalizables.strings */,
+				A34238612361A2430001E15D /* DriverData.xcassets */,
+				A34238142361A2430001E15D /* Trip Detail */,
+				A342383F2361A2430001E15D /* Trip List */,
+				A34238122361A2390001E15D /* DriverDataStyles.swift */,
+				A34238082361A1FA0001E15D /* DriveKitDriveDataUI.h */,
+				A34238092361A1FA0001E15D /* Info.plist */,
+			);
+			path = DriveKitDriverDataUI;
+			sourceTree = "<group>";
+		};
+		A34238142361A2430001E15D /* Trip Detail */ = {
+			isa = PBXGroup;
+			children = (
+				A34238152361A2430001E15D /* ViewModels */,
+				A342381E2361A2430001E15D /* TripDetailViewConfig.swift */,
+				A342381F2361A2430001E15D /* Models */,
+				A34238222361A2430001E15D /* ViewControllers */,
+				A34238322361A2430001E15D /* Views */,
+			);
+			path = "Trip Detail";
+			sourceTree = "<group>";
+		};
+		A34238152361A2430001E15D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A34238162361A2430001E15D /* CalloutViewModel.swift */,
+				A34238172361A2430001E15D /* TripDetailViewModel.swift */,
+				A34238182361A2430001E15D /* Pages */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A34238182361A2430001E15D /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				A34238192361A2430001E15D /* SafetyPageViewModel.swift */,
+				A342381A2361A2430001E15D /* ShortTripPageViewModel.swift */,
+				A342381B2361A2430001E15D /* EcoDrivingPageViewModel.swift */,
+				A342381C2361A2430001E15D /* HistoryPageViewModel.swift */,
+				A342381D2361A2430001E15D /* DistractionPageViewModel.swift */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		A342381F2361A2430001E15D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A34238202361A2430001E15D /* MapItem.swift */,
+				A34238212361A2430001E15D /* TripEvent.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A34238222361A2430001E15D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A34238232361A2430001E15D /* MapViewController.swift */,
+				A34238242361A2430001E15D /* TripDetailVC.swift */,
+				A34238252361A2430001E15D /* TripDetailVC.xib */,
+				A34238262361A2430001E15D /* MapViewController.xib */,
+				A34238272361A2430001E15D /* Pages */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A34238272361A2430001E15D /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				A34238282361A2430001E15D /* DistractionPageVC.swift */,
+				A34238292361A2430001E15D /* DistractionPageVC.xib */,
+				A342382A2361A2430001E15D /* ShortTripPageVC.xib */,
+				A342382B2361A2430001E15D /* ShortTripPageVC.swift */,
+				A342382C2361A2430001E15D /* HistoryPageVC.swift */,
+				A342382D2361A2430001E15D /* EcoDrivingPageVC.xib */,
+				A342382E2361A2430001E15D /* SafetyPageVC.swift */,
+				A342382F2361A2430001E15D /* EcoDrivingPageVC.swift */,
+				A34238302361A2430001E15D /* SafetyPageVC.xib */,
+				A34238312361A2430001E15D /* HistoryPageVC.xib */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		A34238322361A2430001E15D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A34238332361A2430001E15D /* ResistantLayer.swift */,
+				A34238342361A2430001E15D /* CalloutView.swift */,
+				A34238352361A2430001E15D /* CalloutView.xib */,
+				A34238362361A2430001E15D /* Pages */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A34238362361A2430001E15D /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				A34238372361A2430001E15D /* EcoDrivingPageView.swift */,
+				A34238382361A2430001E15D /* HistoryPageView.xib */,
+				A34238392361A2430001E15D /* HistoryPageView.swift */,
+				A342383A2361A2430001E15D /* DistractionPageView.xib */,
+				A342383B2361A2430001E15D /* SafetyPageView.swift */,
+				A342383C2361A2430001E15D /* DistractionPageView.swift */,
+				A342383D2361A2430001E15D /* EcoDrivingPageView.xib */,
+				A342383E2361A2430001E15D /* SafetyPageView.xib */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		A342383F2361A2430001E15D /* Trip List */ = {
+			isa = PBXGroup;
+			children = (
+				A34238402361A2430001E15D /* ViewModel */,
+				A34238422361A2430001E15D /* Extension */,
+				A34238462361A2430001E15D /* Models */,
+				A342384E2361A2430001E15D /* ViewControllers */,
+				A34238572361A2430001E15D /* Views */,
+				A34238602361A2430001E15D /* TripListViewConfig.swift */,
+			);
+			path = "Trip List";
+			sourceTree = "<group>";
+		};
+		A34238402361A2430001E15D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A34238412361A2430001E15D /* TripListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A34238422361A2430001E15D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A34238432361A2430001E15D /* Extension + DK.swift */,
+				A34238442361A2430001E15D /* Nibable.swift */,
+				A34238452361A2430001E15D /* Extensions + UI.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		A34238462361A2430001E15D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A34238472361A2430001E15D /* ScoreType.swift */,
+				A34238482361A2430001E15D /* TripListSeparator.swift */,
+				A34238492361A2430001E15D /* TripInfo.swift */,
+				A342384A2361A2430001E15D /* TripsByDate.swift */,
+				A342384B2361A2430001E15D /* ConfigurationCircularProgressView.swift */,
+				A342384C2361A2430001E15D /* HeaderDay.swift */,
+				A342384D2361A2430001E15D /* TripData.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A342384E2361A2430001E15D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A34238A82361B0DE0001E15D /* TripListVC.xib */,
+				A34238522361A2430001E15D /* TripListVC.swift */,
+				A34238542361A2430001E15D /* TripTableViewDelegate.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A34238572361A2430001E15D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A34238582361A2430001E15D /* NoScoreImageView.xib */,
+				A34238592361A2430001E15D /* CircularProgressView.swift */,
+				A342385A2361A2430001E15D /* NoScoreImageView.swift */,
+				A342385B2361A2430001E15D /* TripTableViewCell.xib */,
+				A342385C2361A2430001E15D /* HeaderDayView.swift */,
+				A342385D2361A2430001E15D /* TripTableViewCell.swift */,
+				A342385E2361A2430001E15D /* HeaderDayView.xib */,
+				A342385F2361A2430001E15D /* CircularProgressView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A3B7B377235F124F0065A332 = {
+			isa = PBXGroup;
+			children = (
+				A3B7B382235F124F0065A332 /* DriveKitApp */,
+				A34238072361A1FA0001E15D /* DriveKitDriverDataUI */,
+				A3B7B381235F124F0065A332 /* Products */,
+				A9BC2334DC2216D3626EE223 /* Pods */,
+				0507D67F4F2198BE920311FE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A3B7B381235F124F0065A332 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A3B7B380235F124F0065A332 /* DriveKitApp.app */,
+				A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A3B7B382235F124F0065A332 /* DriveKitApp */ = {
+			isa = PBXGroup;
+			children = (
+				A3B7B39A235F2DF30065A332 /* Settings */,
+				A3B7B383235F124F0065A332 /* AppDelegate.swift */,
+				A3B7B387235F124F0065A332 /* ViewController.swift */,
+				A3B7B389235F124F0065A332 /* Main.storyboard */,
+				A3B7B38F235F12510065A332 /* Assets.xcassets */,
+				A3B7B391235F12510065A332 /* LaunchScreen.storyboard */,
+				A3B7B394235F12510065A332 /* Info.plist */,
+				A3B7B38C235F124F0065A332 /* DriveKitApp.xcdatamodeld */,
+			);
+			path = DriveKitApp;
+			sourceTree = "<group>";
+		};
+		A3B7B39A235F2DF30065A332 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A3B7B39B235F2E130065A332 /* SettingsViewController.swift */,
+				A32665AD235F64EB00B529B0 /* SettingsBundleKey.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		A9BC2334DC2216D3626EE223 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				453D6BC570583B1D6DC16DBC /* Pods-DriveKitApp.debug.xcconfig */,
+				F4E7AE929F1C5F8DBFAE3E0C /* Pods-DriveKitApp.release.xcconfig */,
+				845F2C5F9472B0D7B5972830 /* Pods-DriveKitDriverData.debug.xcconfig */,
+				B4FFF17661FD795E73C76EC7 /* Pods-DriveKitDriverData.release.xcconfig */,
+				10107C08082CCF492923D28F /* Pods-DriveKitDriverDataUI.debug.xcconfig */,
+				DCBF31C151237FEA8EDE3CF0 /* Pods-DriveKitDriverDataUI.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A34238012361A1FA0001E15D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A342380A2361A1FA0001E15D /* DriveKitDriveDataUI.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		A34238052361A1FA0001E15D /* DriveKitDriverDataUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A342380F2361A1FA0001E15D /* Build configuration list for PBXNativeTarget "DriveKitDriverDataUI" */;
+			buildPhases = (
+				D63208A8B1F6AD81DE2E763F /* [CP] Check Pods Manifest.lock */,
+				A34238012361A1FA0001E15D /* Headers */,
+				A34238022361A1FA0001E15D /* Sources */,
+				A34238032361A1FA0001E15D /* Frameworks */,
+				A34238042361A1FA0001E15D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DriveKitDriverDataUI;
+			productName = DriveKitDriveDataUI;
+			productReference = A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A3B7B37F235F124F0065A332 /* DriveKitApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3B7B397235F12510065A332 /* Build configuration list for PBXNativeTarget "DriveKitApp" */;
+			buildPhases = (
+				BD66610C27CF2276019E3C9F /* [CP] Check Pods Manifest.lock */,
+				A3B7B37C235F124F0065A332 /* Sources */,
+				A3B7B37D235F124F0065A332 /* Frameworks */,
+				A3B7B37E235F124F0065A332 /* Resources */,
+				2A3E6AFAFCB0882EB1C9717A /* [CP] Embed Pods Frameworks */,
+				A32665C02360931500B529B0 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A342380C2361A1FA0001E15D /* PBXTargetDependency */,
+			);
+			name = DriveKitApp;
+			productName = DriveKitApp;
+			productReference = A3B7B380235F124F0065A332 /* DriveKitApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A3B7B378235F124F0065A332 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1110;
+				ORGANIZATIONNAME = DriveQuant;
+				TargetAttributes = {
+					A34238052361A1FA0001E15D = {
+						CreatedOnToolsVersion = 11.1;
+						LastSwiftMigration = 1110;
+					};
+					A3B7B37F235F124F0065A332 = {
+						CreatedOnToolsVersion = 11.0;
+					};
+				};
+			};
+			buildConfigurationList = A3B7B37B235F124F0065A332 /* Build configuration list for PBXProject "DriveKitApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				es,
+				de,
+				it,
+				fr,
+			);
+			mainGroup = A3B7B377235F124F0065A332;
+			productRefGroup = A3B7B381235F124F0065A332 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A3B7B37F235F124F0065A332 /* DriveKitApp */,
+				A34238052361A1FA0001E15D /* DriveKitDriverDataUI */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A34238042361A1FA0001E15D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A342389A2361A2440001E15D /* HeaderDayView.xib in Resources */,
+				A342386E2361A2430001E15D /* TripDetailVC.xib in Resources */,
+				A342389B2361A2440001E15D /* CircularProgressView.xib in Resources */,
+				A34238782361A2440001E15D /* SafetyPageVC.xib in Resources */,
+				A342389D2361A2440001E15D /* DriverData.xcassets in Resources */,
+				A34238A02361A2730001E15D /* DriverDataLocalizables.strings in Resources */,
+				A34238942361A2440001E15D /* NoScoreImageView.xib in Resources */,
+				A34238792361A2440001E15D /* HistoryPageVC.xib in Resources */,
+				A34238752361A2430001E15D /* EcoDrivingPageVC.xib in Resources */,
+				A34238722361A2430001E15D /* ShortTripPageVC.xib in Resources */,
+				A34238832361A2440001E15D /* EcoDrivingPageView.xib in Resources */,
+				A34238972361A2440001E15D /* TripTableViewCell.xib in Resources */,
+				A342386F2361A2430001E15D /* MapViewController.xib in Resources */,
+				A34238712361A2430001E15D /* DistractionPageVC.xib in Resources */,
+				A342387C2361A2440001E15D /* CalloutView.xib in Resources */,
+				A34238A92361B0DE0001E15D /* TripListVC.xib in Resources */,
+				A34238802361A2440001E15D /* DistractionPageView.xib in Resources */,
+				A342387E2361A2440001E15D /* HistoryPageView.xib in Resources */,
+				A34238842361A2440001E15D /* SafetyPageView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3B7B37E235F124F0065A332 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3B7B393235F12510065A332 /* LaunchScreen.storyboard in Resources */,
+				A3B7B390235F12510065A332 /* Assets.xcassets in Resources */,
+				A3B7B38B235F124F0065A332 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2A3E6AFAFCB0882EB1C9717A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DriveKitApp/Pods-DriveKitApp-frameworks.sh",
+				"${PODS_ROOT}/DriveKitCore/DriveKitCore.framework",
+				"${PODS_ROOT}/DriveKitDriverData/DriveKitDriverData.framework",
+				"${PODS_ROOT}/DriveKitTripAnalysis/DriveKitTripAnalysis.framework",
+				"${PODS_ROOT}/Networking/Networking.framework",
+				"${BUILT_PRODUCTS_DIR}/UICircularProgressRing/UICircularProgressRing.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DriveKitCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DriveKitDriverData.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DriveKitTripAnalysis.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Networking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICircularProgressRing.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DriveKitApp/Pods-DriveKitApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD66610C27CF2276019E3C9F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DriveKitApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D63208A8B1F6AD81DE2E763F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DriveKitDriverDataUI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A34238022361A1FA0001E15D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A34238982361A2440001E15D /* HeaderDayView.swift in Sources */,
+				A34238822361A2440001E15D /* DistractionPageView.swift in Sources */,
+				A34238882361A2440001E15D /* Extensions + UI.swift in Sources */,
+				A34238952361A2440001E15D /* CircularProgressView.swift in Sources */,
+				A342388A2361A2440001E15D /* TripListSeparator.swift in Sources */,
+				A34238812361A2440001E15D /* SafetyPageView.swift in Sources */,
+				A342386D2361A2430001E15D /* TripDetailVC.swift in Sources */,
+				A34238132361A2390001E15D /* DriverDataStyles.swift in Sources */,
+				A34238872361A2440001E15D /* Nibable.swift in Sources */,
+				A342387A2361A2440001E15D /* ResistantLayer.swift in Sources */,
+				A34238962361A2440001E15D /* NoScoreImageView.swift in Sources */,
+				A342388D2361A2440001E15D /* ConfigurationCircularProgressView.swift in Sources */,
+				A342388F2361A2440001E15D /* TripData.swift in Sources */,
+				A342388E2361A2440001E15D /* HeaderDay.swift in Sources */,
+				A34238912361A2440001E15D /* TripListVC.swift in Sources */,
+				A34238892361A2440001E15D /* ScoreType.swift in Sources */,
+				A342387B2361A2440001E15D /* CalloutView.swift in Sources */,
+				A34238702361A2430001E15D /* DistractionPageVC.swift in Sources */,
+				A34238692361A2430001E15D /* TripDetailViewConfig.swift in Sources */,
+				A342386B2361A2430001E15D /* TripEvent.swift in Sources */,
+				A34238772361A2440001E15D /* EcoDrivingPageVC.swift in Sources */,
+				A34238642361A2430001E15D /* SafetyPageViewModel.swift in Sources */,
+				A34238742361A2430001E15D /* HistoryPageVC.swift in Sources */,
+				A342387D2361A2440001E15D /* EcoDrivingPageView.swift in Sources */,
+				A34238652361A2430001E15D /* ShortTripPageViewModel.swift in Sources */,
+				A342389C2361A2440001E15D /* TripListViewConfig.swift in Sources */,
+				A34238992361A2440001E15D /* TripTableViewCell.swift in Sources */,
+				A34238672361A2430001E15D /* HistoryPageViewModel.swift in Sources */,
+				A34238922361A2440001E15D /* TripTableViewDelegate.swift in Sources */,
+				A342388B2361A2440001E15D /* TripInfo.swift in Sources */,
+				A342386A2361A2430001E15D /* MapItem.swift in Sources */,
+				A34238862361A2440001E15D /* Extension + DK.swift in Sources */,
+				A342387F2361A2440001E15D /* HistoryPageView.swift in Sources */,
+				A342388C2361A2440001E15D /* TripsByDate.swift in Sources */,
+				A342386C2361A2430001E15D /* MapViewController.swift in Sources */,
+				A34238732361A2430001E15D /* ShortTripPageVC.swift in Sources */,
+				A34238662361A2430001E15D /* EcoDrivingPageViewModel.swift in Sources */,
+				A34238852361A2440001E15D /* TripListViewModel.swift in Sources */,
+				A34238622361A2430001E15D /* CalloutViewModel.swift in Sources */,
+				A34238762361A2440001E15D /* SafetyPageVC.swift in Sources */,
+				A34238682361A2430001E15D /* DistractionPageViewModel.swift in Sources */,
+				A34238632361A2430001E15D /* TripDetailViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3B7B37C235F124F0065A332 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3B7B388235F124F0065A332 /* ViewController.swift in Sources */,
+				A3B7B384235F124F0065A332 /* AppDelegate.swift in Sources */,
+				A3B7B38E235F124F0065A332 /* DriveKitApp.xcdatamodeld in Sources */,
+				A32665AE235F64EB00B529B0 /* SettingsBundleKey.swift in Sources */,
+				A3B7B39D235F2E130065A332 /* SettingsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A342380C2361A1FA0001E15D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A34238052361A1FA0001E15D /* DriveKitDriverDataUI */;
+			targetProxy = A342380B2361A1FA0001E15D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A342389E2361A2730001E15D /* DriverDataLocalizables.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A342389F2361A2730001E15D /* en */,
+				A34238A12361A27A0001E15D /* fr */,
+				A34238A22361A27C0001E15D /* de */,
+				A34238A32361A27E0001E15D /* it */,
+				A34238A42361A2800001E15D /* es */,
+			);
+			name = DriverDataLocalizables.strings;
+			sourceTree = "<group>";
+		};
+		A3B7B389235F124F0065A332 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3B7B38A235F124F0065A332 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A3B7B391235F12510065A332 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A3B7B392235F12510065A332 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A34238102361A1FA0001E15D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10107C08082CCF492923D28F /* Pods-DriveKitDriverDataUI.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = DM95YM67TK;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = DriveKitDriverDataUI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.drivequant.drivekit-driverdata-ui";
+				PRODUCT_NAME = DriveKitDriverDataUI;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A34238112361A1FA0001E15D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCBF31C151237FEA8EDE3CF0 /* Pods-DriveKitDriverDataUI.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = DM95YM67TK;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = DriveKitDriverDataUI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.drivequant.drivekit-driverdata-ui";
+				PRODUCT_NAME = DriveKitDriverDataUI;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A3B7B395235F12510065A332 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A3B7B396235F12510065A332 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A3B7B398235F12510065A332 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 453D6BC570583B1D6DC16DBC /* Pods-DriveKitApp.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = DriveKitApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.drivequant.DriveKitApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A3B7B399235F12510065A332 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4E7AE929F1C5F8DBFAE3E0C /* Pods-DriveKitApp.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = DriveKitApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.drivequant.DriveKitApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A342380F2361A1FA0001E15D /* Build configuration list for PBXNativeTarget "DriveKitDriverDataUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A34238102361A1FA0001E15D /* Debug */,
+				A34238112361A1FA0001E15D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A3B7B37B235F124F0065A332 /* Build configuration list for PBXProject "DriveKitApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3B7B395235F12510065A332 /* Debug */,
+				A3B7B396235F12510065A332 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A3B7B397235F12510065A332 /* Build configuration list for PBXNativeTarget "DriveKitApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3B7B398235F12510065A332 /* Debug */,
+				A3B7B399235F12510065A332 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A3B7B38C235F124F0065A332 /* DriveKitApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A3B7B38D235F124F0065A332 /* DriveKitApp.xcdatamodel */,
+			);
+			currentVersion = A3B7B38D235F124F0065A332 /* DriveKitApp.xcdatamodel */;
+			path = DriveKitApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = A3B7B378235F124F0065A332 /* Project object */;
+}

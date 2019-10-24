@@ -1,4 +1,0 @@
-framework module Networking {
-  header "Networking-Swift.h"
-  requires objc
-}

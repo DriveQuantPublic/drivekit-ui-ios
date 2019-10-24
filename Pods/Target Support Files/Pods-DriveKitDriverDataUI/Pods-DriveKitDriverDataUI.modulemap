@@ -1,6 +1,0 @@
-framework module Pods_DriveKitDriverDataUI {
-  umbrella header "Pods-DriveKitDriverDataUI-umbrella.h"
-
-  export *
-  module * { export * }
-}

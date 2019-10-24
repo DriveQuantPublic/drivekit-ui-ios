@@ -1,4 +1,0 @@
-framework module DriveKitDriverData {
-  header "DriveKitDriverData-Swift.h"
-  requires objc
-}

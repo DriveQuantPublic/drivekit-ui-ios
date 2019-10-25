@@ -40,7 +40,7 @@ extension Array where Element: Trip {
     }
     
     var totalDuration: Double {
-        return map { Double($0.tripStatistics?.duration ?? 0) / 60 }.reduce(0, +)
+        return map { Double($0.tripStatistics?.duration ?? 0) }.reduce(0, +)
     }
     
     func orderByDay(descOrder: Bool = true) -> [TripsByDate] {
@@ -116,13 +116,24 @@ extension Double {
         let minPattern = "dk_unit_minute".dkLocalized()
         let hourPattern = "dk_unit_hour".dkLocalized()
         if self < 60  {
-            let minutesString = String(format: "%.0f ", self) + minPattern
+            let secString = "1\(minPattern)"
+            return secString
+        }
+        var minutes = self / 60
+        if (Int(self) % 60 > 0) {
+            minutes += 1
+        }
+        if minutes > 60 {
+            let hours = minutes / 60
+            let remainingMinutes = Int(minutes) % 60
+            let minutesString = remainingMinutes < 10 ? "0\(remainingMinutes)" : "\(remainingMinutes)"
+            return "\(Int(hours))\(hourPattern)\(minutesString)"
+        }else{
+            let minutesString = String(format: "%.0f \(minPattern)", minutes)
             return minutesString
         }
-        let hours = self / 60
-        let remainingMinutes = Int(self) % 60
-        let minutesString = remainingMinutes < 10 ? "0\(remainingMinutes)" : "\(remainingMinutes)"
-        return "\(Int(hours))\(hourPattern)\(minutesString)"
+        
+        
     }
     
     func asDistanceInKm() -> Double {

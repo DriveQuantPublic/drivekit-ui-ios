@@ -77,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitTripAnalysis.shared.initialize(tripListener: self, appLaunchOptions: launchOptions)
         DriveKitDriverData.shared.initialize()
         if !DriveKit.shared.isConfigured() {
-            DriveKit.shared.setApiKey(key: "qDcgo5W2I1p3u5STEhuQ1AJo")
+            DriveKit.shared.setApiKey(key: "Your API key here")
                        self.configureDefaultValuesIfNeeded()
         }
         

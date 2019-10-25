@@ -9,7 +9,7 @@
 import UIKit
 
 public enum MapItem {
-    case ecoDriving, safety, distraction, history
+    case ecoDriving, safety, distraction, interactiveMap
     
     func normalImageID() -> String {
         switch self {
@@ -17,7 +17,7 @@ public enum MapItem {
             return "dk_safety"
         case .ecoDriving:
             return "dk_ecoDriving"
-        case .history:
+        case .interactiveMap:
             return "dk_history"
         case .distraction:
             return "dk_distraction"
@@ -30,7 +30,7 @@ public enum MapItem {
             return "dk_safety_filled"
         case .ecoDriving:
             return "dk_ecoDriving_filled"
-        case .history:
+        case .interactiveMap:
             return "dk_history_filled"
         case .distraction:
             return "dk_distraction_filled"
@@ -54,7 +54,7 @@ public enum MapItem {
             return 0
         case .ecoDriving:
             return 1
-        case .history:
+        case .interactiveMap:
             return 2
         case .distraction:
             return 3

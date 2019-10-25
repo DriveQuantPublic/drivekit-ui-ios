@@ -78,7 +78,7 @@ class TripDetailViewModel {
                                     self.configurableMapItems.append(item)
                                 }
                             }
-                        case .history:
+                        case .interactiveMap:
                             self.configurableMapItems.append(item)
                         }
                     }

@@ -69,7 +69,7 @@ public class TripDetailViewConfig {
     var eventDecelExplain: String
     var eventDecelCritExplain: String*/
     
-    public init( mapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .history],
+    public init( mapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .interactiveMap],
           headerSummary: HeaderDay = .distanceDuration,
           displayAdvices: Bool = true,
           mapTrace: UIColor = .dkMapTrace,

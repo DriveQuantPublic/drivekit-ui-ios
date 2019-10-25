@@ -101,7 +101,7 @@ extension TripDetailVC {
                 self.setupEcoDriving()
             case .distraction:
                 self.setupDistraction()
-            case .history:
+            case .interactiveMap:
                 self.setupHistory()
             }
         }
@@ -148,7 +148,7 @@ extension TripDetailVC {
             case 1:
                 self.viewModel.displayMapItem = .ecoDriving
             case 2:
-                self.viewModel.displayMapItem = .history
+                self.viewModel.displayMapItem = .interactiveMap
             case 3:
                 self.viewModel.displayMapItem = .distraction
             default:
@@ -263,7 +263,7 @@ extension TripDetailVC: TripDetailDelegate {
     
     func onEventSelected(event: TripEvent, position: Int){
         mapViewController.zoomToEvent(event: event)
-        if let pos = viewModel.configurableMapItems.firstIndex(of: .history) {
+        if let pos = viewModel.configurableMapItems.firstIndex(of: .interactiveMap) {
             (self.swipableViewControllers[pos] as! HistoryPageVC).setToPosition(position: position)
         }
     }

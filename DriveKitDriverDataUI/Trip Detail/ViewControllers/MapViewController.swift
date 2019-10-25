@@ -65,7 +65,7 @@ class MapViewController: UIViewController {
                     self.polyLine = MKPolyline.init(coordinates: route.polyLine, count: route.numberOfCoordinates)
                     self.mapView.addOverlay(self.polyLine!, level: MKOverlayLevel.aboveRoads)
                 }
-                if (mapItem == .distraction || (self.viewModel.configurableMapItems.contains(.distraction) && mapItem == .history)){
+                if (mapItem == .distraction || (self.viewModel.configurableMapItems.contains(.distraction) && mapItem == .interactiveMap)){
                     self.drawDistraction(route: route)
                 }else{
                     if let distractionPolyLines = self.distractionPolyLines{
@@ -109,7 +109,7 @@ class MapViewController: UIViewController {
             case .distraction:
                 cleanAllMarkers()
                 drawDistractionMarker()
-            case .history:
+            case .interactiveMap:
                 cleanSafetyDistractionMarkers()
                 cleanStartEndMarkers()
                 drawAllMarker()
@@ -336,7 +336,7 @@ extension MapViewController: MKMapViewDelegate {
                 }
             }
         } else {
-            if viewModel.displayMapItem != .history {
+            if viewModel.displayMapItem != .interactiveMap {
                 if let safetyEvents = safetyAnnotations as NSArray?{
                     let indexForSafetyEvent = safetyEvents.index(of: annotation)
                     if indexForSafetyEvent != NSNotFound {

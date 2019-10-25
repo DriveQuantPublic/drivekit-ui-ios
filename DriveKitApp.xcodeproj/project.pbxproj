@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3FFD7FCC2362D5B000BD2F0D /* DriveKitDriverDataUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */; };
-		3FFD7FCD2362D5B000BD2F0D /* DriveKitDriverDataUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3FFD7FD12363002B00BD2F0D /* DriveKitDriverDataUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */; };
+		3FFD7FD22363002B00BD2F0D /* DriveKitDriverDataUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A32665AE235F64EB00B529B0 /* SettingsBundleKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32665AD235F64EB00B529B0 /* SettingsBundleKey.swift */; };
 		A342380A2361A1FA0001E15D /* DriveKitDriveDataUI.h in Headers */ = {isa = PBXBuildFile; fileRef = A34238082361A1FA0001E15D /* DriveKitDriveDataUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A34238132361A2390001E15D /* DriverDataStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238122361A2390001E15D /* DriverDataStyles.swift */; };
@@ -84,7 +84,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3FFD7FCE2362D5B000BD2F0D /* PBXContainerItemProxy */ = {
+		3FFD7FD32363002B00BD2F0D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A3B7B378235F124F0065A332 /* Project object */;
 			proxyType = 1;
@@ -94,13 +94,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		3FFD7FD02362D5B000BD2F0D /* Embed Frameworks */ = {
+		3FFD7FD52363002B00BD2F0D /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3FFD7FCD2362D5B000BD2F0D /* DriveKitDriverDataUI.framework in Embed Frameworks */,
+				3FFD7FD22363002B00BD2F0D /* DriveKitDriverDataUI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,7 +210,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FFD7FCC2362D5B000BD2F0D /* DriveKitDriverDataUI.framework in Frameworks */,
+				3FFD7FD12363002B00BD2F0D /* DriveKitDriverDataUI.framework in Frameworks */,
 				E4D35F8F20B6F31D9B5AC6FD /* Pods_DriveKitApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,12 +509,12 @@
 				A3B7B37D235F124F0065A332 /* Frameworks */,
 				A3B7B37E235F124F0065A332 /* Resources */,
 				2A3E6AFAFCB0882EB1C9717A /* [CP] Embed Pods Frameworks */,
-				3FFD7FD02362D5B000BD2F0D /* Embed Frameworks */,
+				3FFD7FD52363002B00BD2F0D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3FFD7FCF2362D5B000BD2F0D /* PBXTargetDependency */,
+				3FFD7FD42363002B00BD2F0D /* PBXTargetDependency */,
 			);
 			name = DriveKitApp;
 			productName = DriveKitApp;
@@ -744,10 +744,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		3FFD7FCF2362D5B000BD2F0D /* PBXTargetDependency */ = {
+		3FFD7FD42363002B00BD2F0D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A34238052361A1FA0001E15D /* DriveKitDriverDataUI */;
-			targetProxy = 3FFD7FCE2362D5B000BD2F0D /* PBXContainerItemProxy */;
+			targetProxy = 3FFD7FD32363002B00BD2F0D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

@@ -40,11 +40,14 @@ public class TripListVC: UIViewController {
         if #available(iOS 11, *) {
           tableView.separatorInset = .zero
         }
-        self.showLoader()
         self.tableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: #selector(refreshTripList(_ :)), for: .valueChanged)
         self.tableView.delegate = self
         self.tableView.dataSource = self
+    }
+    
+    override public func viewWillAppear(_ animated: Bool) {
+        self.showLoader()
         self.viewModel.delegate = self
     }
     

@@ -12,7 +12,7 @@ import CoreLocation
 
 class TripDetailViewModel {
 
-    private let itinId : String
+    let itinId : String
     private let mapItems: [MapItem]
     
     var trip : Trip? = nil

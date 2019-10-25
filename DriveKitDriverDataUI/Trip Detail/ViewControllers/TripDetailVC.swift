@@ -47,6 +47,23 @@ class TripDetailVC: UIViewController {
         showLoader()
         setupMapView()
         self.viewModel.delegate = self
+        let deleteButton = UIButton(type: .system)
+        // TODO add correct image + add button configurable
+        deleteButton.setImage(UIImage(named: "dk_no_score")?.resizeImage(25, opaque: false), for: .normal)
+        deleteButton.addTarget(self, action: #selector(deleteTrip), for: .touchUpInside)
+        self.navigationItem.rightBarButtonItem  = UIBarButtonItem(customView: deleteButton)
+    }
+    
+    @objc private func deleteTrip(){
+        DriveKitDriverData.shared.deleteTrip(itinId: viewModel.itinId, completionHandler: {deleteSuccessful in
+            DispatchQueue.main.async {
+                if deleteSuccessful {
+                    self.navigationController?.popViewController(animated: true)
+                }else{
+                    // TODO : show alert with failed message
+                }
+            }
+        })
     }
     
     private func showLoader(){

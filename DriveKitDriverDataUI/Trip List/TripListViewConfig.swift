@@ -20,6 +20,7 @@ public class TripListViewConfig {
     var secondaryColor: UIColor
     var okText : String
     var viewTitleText : String
+    var cancelText: String
     
     
     public init(tripData: TripData = .safety,
@@ -32,7 +33,8 @@ public class TripListViewConfig {
          primaryColor: UIColor = UIColor.dkPrimaryColor,
          secondaryColor: UIColor = UIColor.dkSecondaryColor,
          okText: String = "dk_ok".dkLocalized(),
-         viewTitleText : String = "dk_trips_list_title".dkLocalized()) {
+         viewTitleText : String = "dk_trips_list_title".dkLocalized(),
+         cancelText: String = "dk_cancel".dkLocalized()) {
         
         self.tripData = tripData
         self.tripInfo = tripInfo
@@ -45,7 +47,7 @@ public class TripListViewConfig {
         self.secondaryColor = secondaryColor
         self.okText = okText
         self.viewTitleText = viewTitleText
-        
+        self.cancelText = cancelText
     }
     
 }

@@ -21,6 +21,7 @@ class SettingsViewController: UITableViewController {
     @IBOutlet var beaconSwitch: UISwitch!
     @IBOutlet var beaconConfigurationSwitch: UISwitch!
     @IBOutlet var positionSwitch: UISwitch!
+    @IBOutlet var userIdLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,17 @@ class SettingsViewController: UITableViewController {
     }
     
     func setup() {
+        if SettingsBundleKeys.getDefaultValuePref() {
+            // DriveKit default value
+            SettingsBundleKeys.setLoggingPref(logging: false)
+            SettingsBundleKeys.setSandboxPref(sandbox: false)
+            SettingsBundleKeys.setPositionPref(share: false)
+            SettingsBundleKeys.setAutoStartPref(autoStart: false)
+            SettingsBundleKeys.setBeaconPref(required: false)
+            SettingsBundleKeys.setBeaconConfigPref(configurable: false)
+            SettingsBundleKeys.setTimeoutPref(timeout: 4)
+            SettingsBundleKeys.setDefaultValuePref(share: false)
+        }
         timeOutValue.text = String(SettingsBundleKeys.getTimeoutPref())
         loggingSwitch.isOn = SettingsBundleKeys.getLoggingPref()
         sandBoxSwitch.isOn = SettingsBundleKeys.getSandboxPref()
@@ -36,6 +48,7 @@ class SettingsViewController: UITableViewController {
         beaconSwitch.isOn = SettingsBundleKeys.getBeaconPref()
         beaconConfigurationSwitch.isOn = SettingsBundleKeys.getBeaconConfigPref()
         positionSwitch.isOn = SettingsBundleKeys.getPositionPref()
+        userIdLabel.text = "User id : \(SettingsBundleKeys.getUserId() ?? "")"
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -64,7 +77,7 @@ class SettingsViewController: UITableViewController {
     func setUserId(userId: String) {
         SettingsBundleKeys.setUserId(userId: userId)
         DriveKit.shared.registerUser(userId: userId)
-        
+        userIdLabel.text = "User id : \(SettingsBundleKeys.getUserId() ?? "")"
         self.tableView.reloadData()
     }
 

@@ -811,6 +811,7 @@
                         <outlet property="timeOutSlider" destination="CJm-VA-xdO" id="uTX-7O-nAM"/>
                         <outlet property="timeOutValue" destination="9jX-34-cJH" id="z5n-qu-2n8"/>
                         <outlet property="userIdCell" destination="SlA-Cp-ksm" id="bIy-yh-BEm"/>
+                        <outlet property="userIdLabel" destination="n3K-ei-7ym" id="MQh-J0-y4G"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SRX-r4-EVl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

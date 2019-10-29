@@ -21,7 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     static let tag = "DriveKit test app"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        var options = ""
+        if let opt = launchOptions {
+            for opti in opt {
+                options = "\(options) \(opti.key.rawValue)"
+            }
+        }else{
+            options = "none"
+        }
+        DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options : \(options)")
         requestNotificationPermission()
         configureDriveKit(launchOptions: launchOptions)
         return true
@@ -37,16 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
-    }
-    
-    func configureDefaultValuesIfNeeded() {
-        SettingsBundleKeys.setLoggingPref(logging: false)
-        SettingsBundleKeys.setSandboxPref(sandbox: false)
-        SettingsBundleKeys.setPositionPref(share: true)
-        SettingsBundleKeys.setAutoStartPref(autoStart: true)
-        SettingsBundleKeys.setBeaconPref(required: false)
-        SettingsBundleKeys.setBeaconConfigPref(configurable: false)
-        SettingsBundleKeys.setTimeoutPref(timeout: 4)
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -78,25 +76,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitDriverData.shared.initialize()
         if !DriveKit.shared.isConfigured() {
             DriveKit.shared.setApiKey(key: "Your API key here")
-                       self.configureDefaultValuesIfNeeded()
+            DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "DriveKit configured with API key")
         }
-        
-        if SettingsBundleKeys.getLoggingPref() {
-            DriveKit.shared.enableLogging()
-        } else {
-            DriveKit.shared.disableLogging()
-        }
-        DriveKit.shared.enableSandboxMode(enable: SettingsBundleKeys.getSandboxPref())
-        DriveKitTripAnalysis.shared.activateAutoStart(enable: SettingsBundleKeys.getAutoStartPref())
-        DriveKitTripAnalysis.shared.setStopTimeOut(timeOut: SettingsBundleKeys.getTimeoutPref())
-        DriveKitTripAnalysis.shared.setBeaconRequired(required: SettingsBundleKeys.getBeaconPref())
-        var beacons: [Beacon] = []
-        if SettingsBundleKeys.getBeaconConfigPref() {
-             beacons.append(Beacon(proximityUuid: "699ebc80-e1f3-11e3-9a0f-0cf3ee3bc012"))
-        }
-        DriveKitTripAnalysis.shared.setBeacons(beacons: beacons)
-        DriveKitTripAnalysis.shared.enableSharePosition(enable: SettingsBundleKeys.getPositionPref())
-        DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Configuration refreshed")
     }
 }
 

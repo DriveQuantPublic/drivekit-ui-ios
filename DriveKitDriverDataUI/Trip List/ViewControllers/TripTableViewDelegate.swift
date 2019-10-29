@@ -47,6 +47,7 @@ extension TripListVC : UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let tripDetail = TripDetailVC(itinId: self.viewModel.trips[indexPath.section].trips[indexPath.row].itinId!, tripListViewConfig: config, tripDetailViewConfig: detailConfig)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationController?.pushViewController(tripDetail, animated: true)
     }
 }

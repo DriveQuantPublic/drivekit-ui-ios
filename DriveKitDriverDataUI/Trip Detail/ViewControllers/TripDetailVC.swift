@@ -47,23 +47,49 @@ class TripDetailVC: UIViewController {
         showLoader()
         setupMapView()
         self.viewModel.delegate = self
-        let deleteButton = UIButton(type: .system)
-        // TODO add correct image + add button configurable
-        deleteButton.setImage(UIImage(named: "dk_no_score")?.resizeImage(25, opaque: false), for: .normal)
-        deleteButton.addTarget(self, action: #selector(deleteTrip), for: .touchUpInside)
-        self.navigationItem.rightBarButtonItem  = UIBarButtonItem(customView: deleteButton)
+        self.configureDeleteButton()
+    }
+    
+    private func configureDeleteButton(){
+        if detailConfig.enableDeleteTrip {
+            let image = UIImage(named: "dk_delete_trip", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.resizeImage(25, opaque: false).withRenderingMode(.alwaysTemplate)
+            let deleteButton = UIBarButtonItem(image: image , style: .plain, target: self, action: #selector(deleteTrip))
+            deleteButton.tintColor = .white
+            self.navigationItem.rightBarButtonItem = deleteButton
+        }
     }
     
     @objc private func deleteTrip(){
-        DriveKitDriverData.shared.deleteTrip(itinId: viewModel.itinId, completionHandler: {deleteSuccessful in
-            DispatchQueue.main.async {
-                if deleteSuccessful {
-                    self.navigationController?.popViewController(animated: true)
-                }else{
-                    // TODO : show alert with failed message
+        let alert = UIAlertController(title: "", message: "dk_trip_deleted".dkLocalized(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: config.cancelText, style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: config.okText, style: .default, handler: { action in
+            self.showLoader()
+            DriveKitDriverData.shared.deleteTrip(itinId: self.viewModel.itinId, completionHandler: {deleteSuccessful in
+                DispatchQueue.main.async {
+                    self.hideLoader()
+                    if deleteSuccessful {
+                        self.showSuccessDelete()
+                    }else{
+                        self.showErrorDelete()
+                    }
                 }
-            }
-        })
+            })
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func showErrorDelete() {
+        let alert = UIAlertController(title: "", message: "dk_failed_to_delete_trip".dkLocalized(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: config.okText, style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func showSuccessDelete() {
+        let alert = UIAlertController(title: "", message: "dk_trip_deleted".dkLocalized(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: config.okText, style: .cancel, handler: { action in
+            self.navigationController?.popViewController(animated: true)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     private func showLoader(){

@@ -16,10 +16,12 @@ class EcoDrivingPageVC: UIViewController {
     
     var viewModel: EcoDrivingPageViewModel
     var detailConfig: TripDetailViewConfig
+    var config: TripListViewConfig
     
-    init(viewModel: EcoDrivingPageViewModel, detailConfig: TripDetailViewConfig) {
+    init(viewModel: EcoDrivingPageViewModel, config: TripListViewConfig, detailConfig: TripDetailViewConfig) {
         self.viewModel = viewModel
         self.detailConfig = detailConfig
+        self.config = config
         super.init(nibName: String(describing: EcoDrivingPageVC.self), bundle: Bundle.driverDataUIBundle)
     }
     
@@ -39,7 +41,7 @@ class EcoDrivingPageVC: UIViewController {
     func configure() {
         let score = CircularProgressView.viewFromNib
         let configScore = ConfigurationCircularProgressView(scoreType: viewModel.scoreType, trip: viewModel.trip, size: .large)
-        score.configure(configuration: configScore)
+        score.configure(configuration: configScore, scoreFont: config.primaryFont)
         score.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         score.center = circularRingContainer.center
         circularRingContainer.embedSubview(score)

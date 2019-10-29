@@ -42,7 +42,7 @@ class SafetyPageVC: UIViewController {
     func configure() {
         let score = CircularProgressView.viewFromNib
         let configScore = ConfigurationCircularProgressView(scoreType: viewModel.scoreType, trip: viewModel.trip, size: .large)
-        score.configure(configuration: configScore)
+        score.configure(configuration: configScore, scoreFont: config.primaryFont)
         score.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         progressRingContainer.embedSubview(score)
         DriverDataStyle.applyCircularRingTitle(label: progressRingTitle)

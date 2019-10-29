@@ -56,7 +56,7 @@ final class TripTableViewCell: UITableViewCell, Nibable {
                 let score = CircularProgressView.viewFromNib
                 let scoreType: ScoreType = ScoreType(rawValue: tripListViewConfig.tripData.rawValue) ?? .safety
                 let configScore = ConfigurationCircularProgressView(scoreType: scoreType, trip: trip, size: .small)
-                score.configure(configuration: configScore)
+                score.configure(configuration: configScore, scoreFont: tripListViewConfig.primaryFont)
                 score.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
                 score.center = dataView.center
                 dataView.embedSubview(score)

@@ -60,7 +60,7 @@ class TripDetailVC: UIViewController {
     }
     
     @objc private func deleteTrip(){
-        let alert = UIAlertController(title: "", message: "dk_trip_deleted".dkLocalized(), preferredStyle: .alert)
+        let alert = UIAlertController(title: "", message: detailConfig.deleteText, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: config.cancelText, style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: config.okText, style: .default, handler: { action in
             self.showLoader()
@@ -79,13 +79,13 @@ class TripDetailVC: UIViewController {
     }
     
     private func showErrorDelete() {
-        let alert = UIAlertController(title: "", message: "dk_failed_to_delete_trip".dkLocalized(), preferredStyle: .alert)
+        let alert = UIAlertController(title: "", message: detailConfig.failedToDeleteTrip, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: config.okText, style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
     private func showSuccessDelete() {
-        let alert = UIAlertController(title: "", message: "dk_trip_deleted".dkLocalized(), preferredStyle: .alert)
+        let alert = UIAlertController(title: "", message: detailConfig.tripDeleted, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: config.okText, style: .cancel, handler: { action in
             self.navigationController?.popViewController(animated: true)
         }))
@@ -216,7 +216,7 @@ extension TripDetailVC {
     
     func setupEcoDriving(){
         let ecoDrivingViewModel = EcoDrivingPageViewModel(trip: self.viewModel.trip!, detailConfig: detailConfig)
-        let ecoDrivingVC = EcoDrivingPageVC(viewModel: ecoDrivingViewModel, detailConfig: detailConfig)
+        let ecoDrivingVC = EcoDrivingPageVC(viewModel: ecoDrivingViewModel, config: config, detailConfig: detailConfig)
         swipableViewControllers.append(ecoDrivingVC)
     }
     

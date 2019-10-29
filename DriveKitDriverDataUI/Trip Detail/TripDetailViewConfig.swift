@@ -71,6 +71,8 @@ public class TripDetailViewConfig {
     
     var enableDeleteTrip: Bool
     var deleteText: String
+    var tripDeleted:String
+    var failedToDeleteTrip: String
     
     public init( mapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .interactiveMap],
           headerSummary: HeaderDay = .distanceDuration,
@@ -120,7 +122,9 @@ public class TripDetailViewConfig {
           errorRouteText: String = "dk_trip_detail_get_road_failed".dkLocalized(),
           errorEventText: String = "dk_trip_detail_data_error".dkLocalized(),
           enableDeleteTrip: Bool = true,
-          deleteText: String = "dk_confirm_delete_trip".dkLocalized()
+          deleteText: String = "dk_confirm_delete_trip".dkLocalized(),
+          tripDeleted: String = "dk_trip_deleted".dkLocalized(),
+          failedToDeleteTrip: String = "dk_failed_to_delete_trip".dkLocalized()
           /*eventAccelExplain: String = "dk_safety_explain_acceleration".dkLocalized(),
           eventAccelCritExplain: String = "dk_safety_explain_acceleration_critical".dkLocalized(),
           eventAdhExplain: String = "dk_safety_explain_adherence".dkLocalized(),
@@ -177,6 +181,8 @@ public class TripDetailViewConfig {
         self.errorRouteText = errorRouteText
         self.enableDeleteTrip = enableDeleteTrip
         self.deleteText = deleteText
+        self.tripDeleted = tripDeleted
+        self.failedToDeleteTrip = failedToDeleteTrip
         /*self.eventAccelExplain = eventAccelExplain
         self.eventAccelCritExplain = eventAccelCritExplain
         self.eventAdhExplain = eventAdhExplain

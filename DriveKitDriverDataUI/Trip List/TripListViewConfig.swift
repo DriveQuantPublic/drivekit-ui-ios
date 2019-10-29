@@ -21,7 +21,7 @@ public class TripListViewConfig {
     var okText : String
     var viewTitleText : String
     var cancelText: String
-    
+    var primaryFont: UIFont
     
     public init(tripData: TripData = .safety,
          tripInfo: TripInfo = .safety,
@@ -34,7 +34,8 @@ public class TripListViewConfig {
          secondaryColor: UIColor = UIColor.dkSecondaryColor,
          okText: String = "dk_ok".dkLocalized(),
          viewTitleText : String = "dk_trips_list_title".dkLocalized(),
-         cancelText: String = "dk_cancel".dkLocalized()) {
+         cancelText: String = "dk_cancel".dkLocalized(),
+         primaryFont : UIFont = UIFont.systemFont(ofSize: CGFloat(UIFont.systemFontSize), weight: .medium)) {
         
         self.tripData = tripData
         self.tripInfo = tripInfo
@@ -48,6 +49,7 @@ public class TripListViewConfig {
         self.okText = okText
         self.viewTitleText = viewTitleText
         self.cancelText = cancelText
+        self.primaryFont = primaryFont
     }
     
 }

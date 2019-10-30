@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3F38C26123696EE0002E873A /* AdviceCountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F38C25F23696EE0002E873A /* AdviceCountView.xib */; };
 		3F38C26223696EE0002E873A /* AdviceCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C26023696EE0002E873A /* AdviceCountView.swift */; };
+		3F38C2692369BD60002E873A /* TripTipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C2672369BD5F002E873A /* TripTipViewController.swift */; };
+		3F38C26A2369BD60002E873A /* TripTipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F38C2682369BD60002E873A /* TripTipViewController.xib */; };
 		3FFD7FD12363002B00BD2F0D /* DriveKitDriverDataUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */; };
 		3FFD7FD22363002B00BD2F0D /* DriveKitDriverDataUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A32665AE235F64EB00B529B0 /* SettingsBundleKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32665AD235F64EB00B529B0 /* SettingsBundleKey.swift */; };
@@ -113,6 +115,8 @@
 		10107C08082CCF492923D28F /* Pods-DriveKitDriverDataUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverDataUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverDataUI/Pods-DriveKitDriverDataUI.debug.xcconfig"; sourceTree = "<group>"; };
 		3F38C25F23696EE0002E873A /* AdviceCountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdviceCountView.xib; sourceTree = "<group>"; };
 		3F38C26023696EE0002E873A /* AdviceCountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdviceCountView.swift; sourceTree = "<group>"; };
+		3F38C2672369BD5F002E873A /* TripTipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTipViewController.swift; sourceTree = "<group>"; };
+		3F38C2682369BD60002E873A /* TripTipViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripTipViewController.xib; sourceTree = "<group>"; };
 		4009FE234BC3EC14A349F8D3 /* Pods_DriveKitApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		453D6BC570583B1D6DC16DBC /* Pods-DriveKitApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitApp.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitApp/Pods-DriveKitApp.debug.xcconfig"; sourceTree = "<group>"; };
 		55652B494DACA2423EDB5A8E /* Pods_DriveKitDriverDataUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitDriverDataUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -292,6 +296,8 @@
 		A34238222361A2430001E15D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				3F38C2672369BD5F002E873A /* TripTipViewController.swift */,
+				3F38C2682369BD60002E873A /* TripTipViewController.xib */,
 				A34238232361A2430001E15D /* MapViewController.swift */,
 				A34238242361A2430001E15D /* TripDetailVC.swift */,
 				A34238252361A2430001E15D /* TripDetailVC.xib */,
@@ -574,6 +580,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F38C26A2369BD60002E873A /* TripTipViewController.xib in Resources */,
 				A342389A2361A2440001E15D /* HeaderDayView.xib in Resources */,
 				A342386E2361A2430001E15D /* TripDetailVC.xib in Resources */,
 				A342389B2361A2440001E15D /* CircularProgressView.xib in Resources */,
@@ -712,6 +719,7 @@
 				A34238702361A2430001E15D /* DistractionPageVC.swift in Sources */,
 				A34238692361A2430001E15D /* TripDetailViewConfig.swift in Sources */,
 				A342386B2361A2430001E15D /* TripEvent.swift in Sources */,
+				3F38C2692369BD60002E873A /* TripTipViewController.swift in Sources */,
 				A34238772361A2440001E15D /* EcoDrivingPageVC.swift in Sources */,
 				A34238642361A2430001E15D /* SafetyPageViewModel.swift in Sources */,
 				A34238742361A2430001E15D /* HistoryPageVC.swift in Sources */,

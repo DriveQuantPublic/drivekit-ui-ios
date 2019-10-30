@@ -1,8 +1,10 @@
 "dk_bad_maintain"="Vitesse très irrégulière";
+"dk_cancel"="Annuler";
 "dk_confirm_delete_trip"="Supprimer le trajet ?";
 "dk_distraction_gauge_title"="Distraction";
 "dk_ecodriving_gauge_title"="Ecoconduite";
 "dk_end_event"="Fin du trajet";
+"dk_failed_to_delete_trip"="Le trajet n\'a pas pu être supprimé, réessayer ultérieurement.";
 "dk_failed_to_sync_trips"="Impossible de synchroniser les trajets, veuillez réessayer plus tard.";
 "dk_good_accel"="Bonne accélération";
 "dk_good_decel"="Freinage idéal";
@@ -17,7 +19,6 @@
 "dk_safety_accel"="Accélérations fortes";
 "dk_safety_acceleration"="Accélérations fortes";
 "dk_safety_adherence"="Limites d\'adhérence";
-"dk_safety_adherence"="Limites d\'adhérence";
 "dk_safety_brake"="Freinages forts";
 "dk_safety_decel"="Freinages forts";
 "dk_safety_explain_acceleration"="Votre accélération est un peu trop forte. Un évènement a été détecté car l\'accélération du véhicule est supérieure à 2,0 m/s². Pour votre sécurité et le confort de vos passagers, adoptez une conduite souple. De plus, une conduite sportive use plus vite les pneus, les freins et les amortisseurs.";
@@ -31,13 +32,14 @@
 "dk_safety_list_adherence"="Limite d\'adhérence";
 "dk_safety_list_adherence_critical"="Limite d\'adhérence";
 "dk_safety_list_brake_critical"="Freinage brutal";
-"dk_screen_lock"="Fermeture de l\'écran";
 "dk_screen_lock_text"="L\'application a détecté une fermeture de l’écran de votre téléphone mobile. Manipuler son téléphone au volant est très dangereux. Pensez à vous protéger ainsi que vos passagers et les autres utilisateurs de la route. Si vous devez téléphoner ou envoyer un message, il faut que votre véhicule soit garé sur une place de stationnement avec le moteur éteint.";
-"dk_screen_unlock"="Déverrouillage de l\'écran";
 "dk_screen_unlock_text"="L\'application a détecté une ouverture de l’écran de votre téléphone mobile. Manipuler son téléphone au volant est très dangereux. Pensez à vous protéger ainsi que vos passagers et les autres utilisateurs de la route. Si vous devez téléphoner ou envoyer un message, il faut que votre véhicule soit garé sur une place de stationnement avec le moteur éteint.";
 "dk_start_event"="Début de trajet";
 "dk_strong_accel"="Accélération forte";
 "dk_strong_decel"="Freinage fort";
+"dk_trip_deleted"="Votre trajet a été supprimé.";
+"dk_trip_detail_data_error"="Les données du trajet n\'ont pas pu être récupérées";
+"dk_trip_detail_get_road_failed"="La route n\'a pas pu être récupérée. Assurez vous d\'être connecté au réseau.";
 "dk_trip_detail_no_score"="Le trajet a été enregistré mais la distance parcourue est trop faible pour évaluer votre conduite.";
 "dk_trip_detail_title"="Détail du trajet";
 "dk_trips_list_title"="Mes trajets";
@@ -52,8 +54,6 @@
 "dk_unlock_event"="Déverrouillage de l\'écran";
 "dk_unlock_number"="Nombre de déverrouillages";
 "dk_value"="Valeur =";
-"dk_weak_accel"="Freinage faible";
+"dk_weak_accel"="Accélération faible";
 "dk_weak_decel"="Freinage faible";
 "dk_weak_maintain"="Vitesse irrégulière";
-"dk_trip_detail_get_road_failed"="La route n\'a pas pu être récupérée. Assurez vous d\'être connecté au réseau.";
-"dk_trip_detail_data_error"="Les données du trajet n\'ont pas pu être récupérées";

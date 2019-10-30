@@ -18,4 +18,5 @@ target 'DriveKitDriverDataUI' do
   use_frameworks!
   pod 'UICircularProgressRing'
   pod 'DriveKitDriverData', :git => 'https://github.com/DriveQuantPublic/drivekit-ios-sdk.git', :tag => '1.1.0'
+  pod 'DriveKitTripAnalysis', :git => 'https://github.com/DriveQuantPublic/drivekit-ios-sdk.git', :tag => '1.1.0'
 end

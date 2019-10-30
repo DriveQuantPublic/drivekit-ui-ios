@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TripTipViewController" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+            <connections>
+                <outlet property="contentTextView" destination="hIc-QO-CtP" id="KPY-KZ-voZ"/>
+                <outlet property="okButton" destination="UU7-5m-yr6" id="WXC-Yt-ZJa"/>
+                <outlet property="titleLabel" destination="AZD-g1-kHl" id="L7m-I3-AkE"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZD-g1-kHl">
+                    <rect key="frame" x="0.0" y="44" width="414" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="0Qe-VB-OIZ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UU7-5m-yr6">
+                    <rect key="frame" x="0.0" y="814" width="414" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="8Tk-fU-F7s"/>
+                    </constraints>
+                    <state key="normal" title="OK"/>
+                    <connections>
+                        <action selector="closeClicked:" destination="-1" eventType="touchUpInside" id="vmN-Cl-emj"/>
+                    </connections>
+                </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hIc-QO-CtP">
+                    <rect key="frame" x="16" y="100" width="382" height="706"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AZD-g1-kHl" secondAttribute="trailing" id="7dJ-11-SO2"/>
+                <constraint firstItem="hIc-QO-CtP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="DIa-cY-fX7"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UU7-5m-yr6" secondAttribute="trailing" id="LS1-28-zdI"/>
+                <constraint firstItem="hIc-QO-CtP" firstAttribute="top" secondItem="AZD-g1-kHl" secondAttribute="bottom" constant="8" id="VwJ-jO-wIQ"/>
+                <constraint firstItem="AZD-g1-kHl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="XES-SL-Vs4"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="UU7-5m-yr6" secondAttribute="bottom" id="aua-e2-Q2h"/>
+                <constraint firstItem="AZD-g1-kHl" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="b2d-GL-c2S"/>
+                <constraint firstItem="UU7-5m-yr6" firstAttribute="top" secondItem="hIc-QO-CtP" secondAttribute="bottom" constant="8" id="bQz-WV-q9c"/>
+                <constraint firstItem="UU7-5m-yr6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="qYG-TM-RLm"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hIc-QO-CtP" secondAttribute="trailing" constant="16" id="unL-oe-vfb"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="132" y="140"/>
+        </view>
+    </objects>
+</document>

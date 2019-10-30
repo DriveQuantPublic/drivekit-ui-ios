@@ -20,6 +20,7 @@ class TripDetailVC: UIViewController {
     @IBOutlet var headerContainer: UIView!
     @IBOutlet weak var loaderView: UIView!
     @IBOutlet weak var loader: UIActivityIndicatorView!
+    @IBOutlet var tipButton: UIButton!
     
     var pageViewController: UIPageViewController!
     var viewModel: TripDetailViewModel
@@ -248,6 +249,31 @@ extension TripDetailVC {
         cameraButton.addTarget(self, action: #selector(tapOnCamera(_:)), for: .touchUpInside)
     }
     
+    func setupTipButton(){
+        if let trip = viewModel.trip, let advice = viewModel.displayMapItem?.getAdvice(trip: trip) {
+            tipButton.layer.borderColor = UIColor.black.cgColor
+            tipButton.layer.cornerRadius = tipButton.bounds.size.width / 2
+            tipButton.layer.masksToBounds = true
+            tipButton.backgroundColor = config.secondaryColor
+            let image = UIImage(named: advice.getTripInfo()?.imageID() ?? "", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.resizeImage(32, opaque: false).withRenderingMode(.alwaysTemplate)
+            tipButton.setImage(image, for: .normal)
+            tipButton.tintColor = .white
+            tipButton.imageEdgeInsets = UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
+            tipButton.isHidden = false
+            self.mapContainer.bringSubviewToFront(tipButton)
+        }else{
+            tipButton.isHidden = true
+        }
+        
+    }
+    
+    @IBAction func clickedAdvices(_ sender: Any) {
+        if let trip = viewModel.trip, let advice = viewModel.displayMapItem?.getAdvice(trip: trip) {
+            let tripTipVC = TripTipViewController(config: config, advice: advice)
+            self.present(tripTipVC, animated: true, completion: nil)
+        }
+    }
+    
     @objc func tapOnCamera(_ sender: Any) {
         self.viewModel.setSelectedEvent(position: nil)
         self.mapViewController.fitPath()
@@ -264,6 +290,7 @@ extension TripDetailVC: TripDetailDelegate {
             self.setupHeadeContainer()
             self.setupPageContainer()
             self.updateViewToCurrentMapItem()
+            self.setupTipButton()
             self.hideLoader()
         }
     }
@@ -300,6 +327,7 @@ extension TripDetailVC: TripDetailDelegate {
             self.setupHeadeContainer()
             self.setupPageContainer()
             self.updateViewToCurrentMapItem()
+            self.setupTipButton()
             self.hideLoader()
         }
     }
@@ -328,6 +356,7 @@ extension TripDetailVC: UIPageViewControllerDelegate {
         mapItemButtons.forEach { $0.isSelected = false }
         mapItemButtons[viewControllerIndex].isSelected = true
         mapViewController.traceRoute(mapItem: mapItem)
+        self.setupTipButton()
     }
 }
 

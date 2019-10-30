@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TripDetailVC" customModule="drivekit_test_app" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TripDetailVC" customModule="DriveKitDriverDataUI" customModuleProvider="target">
             <connections>
                 <outlet property="actionView" destination="ebB-WE-1ZQ" id="rnu-md-l0B"/>
                 <outlet property="cameraButton" destination="8ca-Py-8CR" id="wwD-ku-uQ3"/>
@@ -19,6 +19,7 @@
                 <outlet property="mapItemViewConstraint" destination="mgm-5y-hz9" id="pGw-E9-pxT"/>
                 <outlet property="mapItemsView" destination="UyT-ez-EW6" id="9Hv-ne-Zft"/>
                 <outlet property="pageContainer" destination="tiz-pR-dfm" id="UNP-z9-clA"/>
+                <outlet property="tipButton" destination="DLg-Uu-wvA" id="tad-52-RTs"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -29,7 +30,23 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X26-Oo-J45">
                     <rect key="frame" x="0.0" y="44" width="414" height="604"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLg-Uu-wvA">
+                            <rect key="frame" x="354" y="544" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="Eol-Pe-uOd"/>
+                                <constraint firstAttribute="width" constant="44" id="SoX-Ux-IoO"/>
+                            </constraints>
+                            <connections>
+                                <action selector="clickedAdvices:" destination="-1" eventType="touchUpInside" id="eec-3Y-7hp"/>
+                            </connections>
+                        </button>
+                    </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="DLg-Uu-wvA" secondAttribute="bottom" constant="16" id="78x-HE-Me9"/>
+                        <constraint firstAttribute="trailing" secondItem="DLg-Uu-wvA" secondAttribute="trailing" constant="16" id="r6f-KT-mpf"/>
+                    </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ebB-WE-1ZQ">
                     <rect key="frame" x="0.0" y="44" width="414" height="44"/>

@@ -56,7 +56,7 @@ final class CircularProgressView: UIView, Nibable {
         progressRing.innerRingWidth = CGFloat(configuration.ringWidth)
         progressRing.outerCapStyle = .round
         progressRing.fontColor = configuration.fontColor
-        progressRing.font = UIFont(name: scoreFont.fontName, size: CGFloat(configuration.fontSize)) ?? UIFont.systemFont(ofSize: CGFloat(configuration.fontSize), weight: .medium)
+        progressRing.font = scoreFont.withSize(CGFloat(configuration.fontSize))
         progressRing.valueFormatter = UICircularProgressRingFormatter(valueIndicator: configuration.valueIndicator, rightToLeft: false, showFloatingPoint: configuration.showFloatingPoint, decimalPlaces: configuration.decimalPlaces)
         
     }

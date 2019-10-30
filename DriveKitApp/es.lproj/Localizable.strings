@@ -1,0 +1,48 @@
+/* 
+  localizables.strings
+  DriveKitApp
+
+  Created by Jérémy Bayle on 30/10/2019.
+  Copyright © 2019 DriveQuant. All rights reserved.
+*/
+"activity_permission"="Moción";
+"add_beacon_off"="El Beacon no está configurado";
+"add_beacon_on"="El Beacon está configurado";
+"add_beacon_title"="Configuración del Beacon";
+"auto_start_off"="Activar para detectar automáticamente sus viajes";
+"autostart_on"="Los viajes se detectarán automáticamente";
+"autostart_title"="Inicio automático";
+"battery_permission"="Batería";
+"beacon_required_on"="Beacon es necesario para validar un viaje";
+"beacon_required_on"="Beacon no es necesario para validar un viaje";
+"beacon_required_title"="¿ Necesita beacon ?";
+"cancel_trip"="Cancelar el viaje";
+"driver_data_explanation"="Un ejemplo de implementación de DriveKit DriverData con su interfaz de usuario para la Lista de Viaje y el Detalle de Viaje";
+"enable_logging_pref_off"="Habilite esta opción para escribir el registro en el dispositivo";
+"enable_logging_pref_on"="Los archivos de registro estarán disponibles en la carpeta \"DriveKit\" del teléfono.";
+"enable_logging_title"="Logging";
+"enable_share_position_off"="Habilitar esta opción para compartir su posición durante el viaje";
+"enable_share_position_on"="Desactive esta opción para no compartir su posición durante el viaje.";
+"enable_share_position_title"="¿Posición compartida habilitada?";
+"external_storage_logging_permission"="Logging";
+"global_config_settings"="Opciones generales";
+"location_permission"="Permitir el acceso a la ubicación.";
+"notification_permission"="Notificaciones";
+"sandbox_mode_off"="DriveKit está conectado al entorno de producción DriveQuant";
+"sandbox_mode_on"="DriveKit está conectado al entorno de integración DriveQuant";
+"sandbox_mode_title"="Modo Sandbox";
+"start_trip"="Iniciar un viaje";
+"stop_timeout_title"="Tiempo límite de parada (en minutos)";
+"stop_trip"="Detener el viaje";
+"train_trip"="Tu viaje se hizo en tren";
+"trip_analysis_settings"="Configuración de Trip Analysis";
+"trip_cancelled_highspeed"="Su viaje ha sido cancelado porque viaja en tren o avión";
+"trip_cancelled_no_beacon"="Su viaje ha sido cancelado porque su carcasa Bluetooth no ha sido reconocida";
+"trip_cancelled_no_gps_data"="El viaje no pudo analizarse porque no se pudieron recuperar los datos del GPS.";
+"trip_cancelled_reset"="Rearme del DriveKit durante el viaje";
+"trip_cancelled_user"="Viaje cancelado por el usuario";
+"trip_finished"="Se acaba de analizar un nuevo viaje";
+"trip_save_for_repost"="El viaje no pudo analizarse porque la conexión a Internet es demasiado lenta. Será analizado más tarde.";
+"trip_started"="Se está registrando un viaje";
+"user_id_description"="Haga clic para rellenar su identificador de usuario";
+"user_id_title"="Identificador de usuario";

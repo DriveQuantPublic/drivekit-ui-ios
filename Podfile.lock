@@ -1,20 +1,20 @@
 PODS:
-  - DriveKitCore (1.1.0):
+  - DriveKitCore (1.1.1-alpha):
     - Networking
-  - DriveKitDriverData (1.1.0):
+  - DriveKitDriverData (1.1.1-alpha):
     - DriveKitCore
     - Networking
-  - DriveKitTripAnalysis (1.1.0):
+  - DriveKitTripAnalysis (1.1.1-alpha):
     - DriveKitCore
     - Networking
-  - Networking (1.1.0)
+  - Networking (1.1.1-alpha)
   - UICircularProgressRing (6.3.0)
 
 DEPENDENCIES:
-  - DriveKitCore (from `https://github.com/DriveQuantPublic/drivekit-ios-sdk.git`, tag `1.1.0`)
-  - DriveKitDriverData (from `https://github.com/DriveQuantPublic/drivekit-ios-sdk.git`, tag `1.1.0`)
-  - DriveKitTripAnalysis (from `https://github.com/DriveQuantPublic/drivekit-ios-sdk.git`, tag `1.1.0`)
-  - Networking (from `https://github.com/DriveQuantPublic/drivekit-ios-sdk.git`, tag `1.1.0`)
+  - DriveKitCore (from `https://github.com/DriveQuantPublic/drivekit-ios-sdk.git`, tag `1.1.1-alpha`)
+  - DriveKitDriverData (from `https://github.com/DriveQuantPublic/drivekit-ios-sdk.git`, tag `1.1.1-alpha`)
+  - DriveKitTripAnalysis (from `https://github.com/DriveQuantPublic/drivekit-ios-sdk.git`, tag `1.1.1-alpha`)
+  - Networking (from `https://github.com/DriveQuantPublic/drivekit-ios-sdk.git`, tag `1.1.1-alpha`)
   - UICircularProgressRing
 
 SPEC REPOS:
@@ -24,38 +24,38 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   DriveKitCore:
     :git: https://github.com/DriveQuantPublic/drivekit-ios-sdk.git
-    :tag: 1.1.0
+    :tag: 1.1.1-alpha
   DriveKitDriverData:
     :git: https://github.com/DriveQuantPublic/drivekit-ios-sdk.git
-    :tag: 1.1.0
+    :tag: 1.1.1-alpha
   DriveKitTripAnalysis:
     :git: https://github.com/DriveQuantPublic/drivekit-ios-sdk.git
-    :tag: 1.1.0
+    :tag: 1.1.1-alpha
   Networking:
     :git: https://github.com/DriveQuantPublic/drivekit-ios-sdk.git
-    :tag: 1.1.0
+    :tag: 1.1.1-alpha
 
 CHECKOUT OPTIONS:
   DriveKitCore:
     :git: https://github.com/DriveQuantPublic/drivekit-ios-sdk.git
-    :tag: 1.1.0
+    :tag: 1.1.1-alpha
   DriveKitDriverData:
     :git: https://github.com/DriveQuantPublic/drivekit-ios-sdk.git
-    :tag: 1.1.0
+    :tag: 1.1.1-alpha
   DriveKitTripAnalysis:
     :git: https://github.com/DriveQuantPublic/drivekit-ios-sdk.git
-    :tag: 1.1.0
+    :tag: 1.1.1-alpha
   Networking:
     :git: https://github.com/DriveQuantPublic/drivekit-ios-sdk.git
-    :tag: 1.1.0
+    :tag: 1.1.1-alpha
 
 SPEC CHECKSUMS:
-  DriveKitCore: 49b8cb3b98a78af6683746d472af5e8c1182c745
-  DriveKitDriverData: 50fc70b222c10b1214298e5bc006be454f50b907
-  DriveKitTripAnalysis: a6aa03805d196402f1a763166abd08f011325194
-  Networking: 8e2ef0f13a170b45c0d435df70a26cba2fe859b3
+  DriveKitCore: 057c4dfd4b3361bedb330b249f63790c2a03d991
+  DriveKitDriverData: ffa2766dbc874c071d935812be81fbbcc177f849
+  DriveKitTripAnalysis: 342c4e7f4b0676d0d2a62b9ab67a299539877de3
+  Networking: 75eee7f8c8a8db2d52dc744d20420b3f38646d7c
   UICircularProgressRing: e700fb0505328e88ee53c4ed92bee6d1a5b8bbe3
 
-PODFILE CHECKSUM: 867d0d7e1bdc387488014b38d3792262d8575351
+PODFILE CHECKSUM: efe54e44877bef0710e6cc1d4fd73d1f8beffa2d
 
 COCOAPODS: 1.6.1

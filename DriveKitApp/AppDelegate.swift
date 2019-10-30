@@ -75,7 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitTripAnalysis.shared.initialize(tripListener: self, appLaunchOptions: launchOptions)
         DriveKitDriverData.shared.initialize()
         if !DriveKit.shared.isConfigured() {
-            DriveKit.shared.setApiKey(key: "Your API key here")
+            DriveKit.shared.setApiKey(key: "qDcgo5W2I1p3u5STEhuQ1AJo")
             DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "DriveKit configured with API key")
         }
     }
@@ -83,23 +83,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: TripListener {
     func tripStarted(startMode: StartMode) {
-        print("Trip Started")
+        NotificationSender.shared.sendNotification(message: "trip_started".keyLocalized())
     }
     
     func tripPoint(tripPoint: TripPoint) {
-        print("Trip Point")
+        print("New trip point")
     }
     
     func tripFinished(post: PostGeneric, response: PostGenericResponse) {
-        print("Trip Finished")
+        if response.itineraryStatistics?.transportationMode == TransportationMode.train.rawValue {
+            NotificationSender.shared.sendNotification(message: "train_trip".keyLocalized())
+        }else{
+            NotificationSender.shared.sendNotification(message: "trip_finished".keyLocalized())
+        }
     }
     
     func tripCancelled(cancelTrip: CancelTrip) {
-        print("Trip Cancelled")
+        NotificationSender.shared.sendNotification(message: cancelTrip.reason())
     }
     
     func tripSavedForRepost() {
-        print("Trip Saved for Repost")
+        NotificationSender.shared.sendNotification(message: "trip_save_for_repost".keyLocalized())
     }
     
     func beaconDetected() {
@@ -111,4 +115,28 @@ extension AppDelegate: TripListener {
     }
     
     
+}
+
+extension CancelTrip {
+    func reason() -> String{
+        switch self {
+        case .beaconNoSpeed, .noSpeed, .noGPSData:
+            return "trip_cancelled_no_gps_data".keyLocalized()
+        case .user:
+            return "trip_cancelled_user".keyLocalized()
+        case .highspeed:
+            return "trip_cancelled_highspeed".keyLocalized()
+        case .noBeacon:
+            return "trip_cancelled_no_beacon".keyLocalized()
+        case .reset,.missingConfiguration:
+            return "trip_cancelled_reset".keyLocalized()
+        }
+    }
+}
+
+extension String {
+   func keyLocalized() -> String {
+        let localizedValue = Bundle.main.localizedString(forKey: self, value: NSLocalizedString(self, comment: ""), table: "Localizable")
+        return localizedValue
+    }
 }

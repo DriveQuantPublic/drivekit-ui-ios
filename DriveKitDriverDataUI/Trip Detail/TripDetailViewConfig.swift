@@ -10,7 +10,7 @@ import UIKit
 
 public class TripDetailViewConfig {
     var mapItems: [MapItem]
-    var headerSummary: HeaderDay
+    var headerSummary: HeaderDay = .distanceDuration
     var displayAdvices: Bool
     var mapTrace: UIColor
     var mapTraceWarningColor: UIColor
@@ -75,7 +75,6 @@ public class TripDetailViewConfig {
     var failedToDeleteTrip: String
     
     public init( mapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .interactiveMap],
-          headerSummary: HeaderDay = .distanceDuration,
           displayAdvices: Bool = true,
           mapTrace: UIColor = .dkMapTrace,
           mapTraceWarningColor: UIColor = .dkMapTraceWarning,
@@ -133,7 +132,6 @@ public class TripDetailViewConfig {
           eventDecelCritExplain: String = "dk_safety_explain_brake_critical".dkLocalized()*/){
         
         self.mapItems = mapItems
-        self.headerSummary = headerSummary
         self.displayAdvices = displayAdvices
         self.mapTrace = mapTrace
         self.mapTraceWarningColor = mapTraceWarningColor

@@ -10,8 +10,7 @@ import UIKit
 
 public class TripListViewConfig {
     var tripData: TripData
-    var tripInfo: TripInfo
-    var headerDay: HeaderDay
+    var headerDay: HeaderDay = .distanceDuration
     var dayTripDescendingOrder: Bool
     var noTripsRecordedText: String
     var noTripsRecordedImage: String
@@ -24,8 +23,6 @@ public class TripListViewConfig {
     var primaryFont: UIFont
     
     public init(tripData: TripData = .safety,
-         tripInfo: TripInfo = .safety,
-         headerDay: HeaderDay = .distanceDuration,
          dayTripDescendingOrder: Bool = false,
          noTripsRecordedText: String = "dk_no_trips_recorded".dkLocalized(),
          noTripsRecordedImage: String = "dk_no_trips_recorded",
@@ -38,8 +35,6 @@ public class TripListViewConfig {
          primaryFont : UIFont = UIFont.systemFont(ofSize: CGFloat(UIFont.systemFontSize), weight: .medium)) {
         
         self.tripData = tripData
-        self.tripInfo = tripInfo
-        self.headerDay = headerDay
         self.dayTripDescendingOrder = dayTripDescendingOrder
         self.noTripsRecordedText = noTripsRecordedText
         self.noTripsRecordedImage = noTripsRecordedImage

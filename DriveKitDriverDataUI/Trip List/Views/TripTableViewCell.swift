@@ -18,6 +18,8 @@ final class TripTableViewCell: UITableViewCell, Nibable {
     @IBOutlet weak var arrivalCityLabel: UILabel!
     @IBOutlet weak var tripLineView: TripListSeparator!
     
+    var adviceButton: AdviceButton? = nil
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -56,7 +58,7 @@ final class TripTableViewCell: UITableViewCell, Nibable {
                 let score = CircularProgressView.viewFromNib
                 let scoreType: ScoreType = ScoreType(rawValue: tripListViewConfig.tripData.rawValue) ?? .safety
                 let configScore = ConfigurationCircularProgressView(scoreType: scoreType, trip: trip, size: .small)
-                score.configure(configuration: configScore)
+                score.configure(configuration: configScore, scoreFont: tripListViewConfig.primaryFont)
                 score.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
                 score.center = dataView.center
                 dataView.embedSubview(score)
@@ -75,28 +77,44 @@ final class TripTableViewCell: UITableViewCell, Nibable {
     }
     
     private func configureTripInfo(trip: Trip,  tripListViewConfig: TripListViewConfig){
-       if tripListViewConfig.tripInfo.shouldDisplay(trip: trip) {
-            let button = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 32))
-            let imageID = tripListViewConfig.tripInfo.imageID()
-            if let image =  UIImage(named: imageID ?? "", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.resizeImage(24, opaque: false).withRenderingMode(.alwaysTemplate) {
-                button.setImage(image, for: .normal)
-            } else {
-                button.setTitle(tripListViewConfig.tripInfo.text(trip: trip), for: .normal)
+        if let advices = trip.tripAdvices?.allObjects as! [TripAdvice]? , advices.count > 0 {
+            var tripInfo : TripInfo? = nil
+            if advices.count > 1 {
+                tripInfo = .count
+            }else{
+                let advice = advices[0]
+                if advice.theme == "SAFETY" {
+                    tripInfo = .safety
+                }else if advice.theme == "ECODRIVING" {
+                    tripInfo = .ecoDriving
+                }
             }
-            button.tintColor = .white
-            button.backgroundColor = tripListViewConfig.secondaryColor
-            button.layer.cornerRadius = 5
-            button.layer.masksToBounds = true
-            
-            button.addTarget(self, action: #selector(openTips), for: .touchUpInside)
-            accessoryView = button
+            if let info = tripInfo{
+                if info == .count {
+                    let adviceCountView = AdviceCountView.viewFromNib
+                    adviceCountView.setAdviceCount(count: info.text(trip: trip) ?? "")
+                    adviceCountView.backgroundColor = tripListViewConfig.secondaryColor
+                    adviceCountView.layer.cornerRadius = 5
+                    adviceCountView.layer.masksToBounds = true
+                    accessoryView = adviceCountView
+                } else {
+                    adviceButton = AdviceButton(frame: CGRect(x: 0, y: 0, width: 44, height: 32), trip: trip)
+                    let imageID = info.imageID()
+                    if let image =  UIImage(named: imageID ?? "", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.resizeImage(24, opaque: false).withRenderingMode(.alwaysTemplate) {
+                       adviceButton?.setImage(image, for: .normal)
+                    } else {
+                       adviceButton?.setTitle(info.text(trip: trip), for: .normal)
+                    }
+                    adviceButton?.tintColor = .white
+                    adviceButton?.backgroundColor = tripListViewConfig.secondaryColor
+                    adviceButton?.layer.cornerRadius = 5
+                    adviceButton?.layer.masksToBounds = true
+                    accessoryView = adviceButton
+                }
+            }
         }
     }
-    
-    @objc func openTips(){
-        // Release in future version of Driver data UI
-    }
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
         dataView.subviews.forEach({  $0.removeFromSuperview() })

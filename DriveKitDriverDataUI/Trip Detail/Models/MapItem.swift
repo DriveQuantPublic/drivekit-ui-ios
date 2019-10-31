@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitDriverData
 
 public enum MapItem {
     case ecoDriving, safety, distraction, interactiveMap
@@ -58,6 +59,27 @@ public enum MapItem {
             return 2
         case .distraction:
             return 3
+        }
+    }
+    
+    func getAdvice(trip: Trip) -> TripAdvice? {
+        if let advices = trip.tripAdvices?.allObjects as! [TripAdvice]? {
+            if advices.count > 0 {
+                switch self {
+                case .safety:
+                    return advices.filter({$0.theme == "SAFETY"}).first
+                case .ecoDriving:
+                    return advices.filter({$0.theme == "ECODRIVING"}).first
+                case .interactiveMap:
+                    return nil
+                case .distraction:
+                    return nil
+                }
+            }else{
+                return nil
+            }
+        }else{
+            return nil
         }
     }
 }

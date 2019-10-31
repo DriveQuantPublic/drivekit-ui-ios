@@ -21,7 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     static let tag = "DriveKit test app"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        var options = ""
+        if let opt = launchOptions {
+            for opti in opt {
+                options = "\(options) \(opti.key.rawValue)"
+            }
+        }else{
+            options = "none"
+        }
+        DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options : \(options)")
         requestNotificationPermission()
         configureDriveKit(launchOptions: launchOptions)
         return true
@@ -37,16 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
-    }
-    
-    func configureDefaultValuesIfNeeded() {
-        SettingsBundleKeys.setLoggingPref(logging: false)
-        SettingsBundleKeys.setSandboxPref(sandbox: false)
-        SettingsBundleKeys.setPositionPref(share: true)
-        SettingsBundleKeys.setAutoStartPref(autoStart: true)
-        SettingsBundleKeys.setBeaconPref(required: false)
-        SettingsBundleKeys.setBeaconConfigPref(configurable: false)
-        SettingsBundleKeys.setTimeoutPref(timeout: 4)
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -77,48 +75,54 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitTripAnalysis.shared.initialize(tripListener: self, appLaunchOptions: launchOptions)
         DriveKitDriverData.shared.initialize()
         if !DriveKit.shared.isConfigured() {
-            DriveKit.shared.setApiKey(key: "Your API key here")
-                       self.configureDefaultValuesIfNeeded()
+            DriveKit.shared.setApiKey(key: "your API key here")
+            DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "DriveKit configured with API key")
         }
-        
+        if SettingsBundleKeys.getDefaultValuePref() {
+            // DriveKit default value
+            SettingsBundleKeys.setLoggingPref(logging: false)
+            SettingsBundleKeys.setSandboxPref(sandbox: false)
+            SettingsBundleKeys.setPositionPref(share: false)
+            SettingsBundleKeys.setAutoStartPref(autoStart: true)
+            SettingsBundleKeys.setBeaconPref(required: false)
+            SettingsBundleKeys.setBeaconConfigPref(configurable: false)
+            SettingsBundleKeys.setTimeoutPref(timeout: 4)
+            SettingsBundleKeys.setDefaultValuePref(share: false)
+            DriveKitTripAnalysis.shared.activateAutoStart(enable: true)
+            DriveKitTripAnalysis.shared.enableSharePosition(enable: false)
+            DriveKitTripAnalysis.shared.setBeaconRequired(required: false)
+            DriveKitTripAnalysis.shared.setStopTimeOut(timeOut: 4 * 60)
+            DriveKitTripAnalysis.shared.setBeacons(beacons: [])
+        }
         if SettingsBundleKeys.getLoggingPref() {
             DriveKit.shared.enableLogging()
-        } else {
-            DriveKit.shared.disableLogging()
         }
-        DriveKit.shared.enableSandboxMode(enable: SettingsBundleKeys.getSandboxPref())
-        DriveKitTripAnalysis.shared.activateAutoStart(enable: SettingsBundleKeys.getAutoStartPref())
-        DriveKitTripAnalysis.shared.setStopTimeOut(timeOut: SettingsBundleKeys.getTimeoutPref())
-        DriveKitTripAnalysis.shared.setBeaconRequired(required: SettingsBundleKeys.getBeaconPref())
-        var beacons: [Beacon] = []
-        if SettingsBundleKeys.getBeaconConfigPref() {
-             beacons.append(Beacon(proximityUuid: "699ebc80-e1f3-11e3-9a0f-0cf3ee3bc012"))
-        }
-        DriveKitTripAnalysis.shared.setBeacons(beacons: beacons)
-        DriveKitTripAnalysis.shared.enableSharePosition(enable: SettingsBundleKeys.getPositionPref())
-        DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Configuration refreshed")
     }
 }
 
 extension AppDelegate: TripListener {
     func tripStarted(startMode: StartMode) {
-        print("Trip Started")
+        NotificationSender.shared.sendNotification(message: "\("trip_started".keyLocalized()) : \(startMode.rawValue)")
     }
     
     func tripPoint(tripPoint: TripPoint) {
-        print("Trip Point")
+        print("New trip point")
     }
     
     func tripFinished(post: PostGeneric, response: PostGenericResponse) {
-        print("Trip Finished")
+        if response.itineraryStatistics?.transportationMode == TransportationMode.train.rawValue {
+            NotificationSender.shared.sendNotification(message: "train_trip".keyLocalized())
+        }else{
+            NotificationSender.shared.sendNotification(message: "trip_finished".keyLocalized())
+        }
     }
     
     func tripCancelled(cancelTrip: CancelTrip) {
-        print("Trip Cancelled")
+        NotificationSender.shared.sendNotification(message: cancelTrip.reason())
     }
     
     func tripSavedForRepost() {
-        print("Trip Saved for Repost")
+        NotificationSender.shared.sendNotification(message: "trip_save_for_repost".keyLocalized())
     }
     
     func beaconDetected() {
@@ -130,4 +134,28 @@ extension AppDelegate: TripListener {
     }
     
     
+}
+
+extension CancelTrip {
+    func reason() -> String{
+        switch self {
+        case .beaconNoSpeed, .noSpeed, .noGPSData:
+            return "trip_cancelled_no_gps_data".keyLocalized()
+        case .user:
+            return "trip_cancelled_user".keyLocalized()
+        case .highspeed:
+            return "trip_cancelled_highspeed".keyLocalized()
+        case .noBeacon:
+            return "trip_cancelled_no_beacon".keyLocalized()
+        case .reset,.missingConfiguration:
+            return "trip_cancelled_reset".keyLocalized()
+        }
+    }
+}
+
+extension String {
+   func keyLocalized() -> String {
+        let localizedValue = Bundle.main.localizedString(forKey: self, value: NSLocalizedString(self, comment: ""), table: "Localizable")
+        return localizedValue
+    }
 }

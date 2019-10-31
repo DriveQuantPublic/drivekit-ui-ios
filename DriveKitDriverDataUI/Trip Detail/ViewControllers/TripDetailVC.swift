@@ -20,6 +20,7 @@ class TripDetailVC: UIViewController {
     @IBOutlet var headerContainer: UIView!
     @IBOutlet weak var loaderView: UIView!
     @IBOutlet weak var loader: UIActivityIndicatorView!
+    @IBOutlet var tipButton: UIButton!
     
     var pageViewController: UIPageViewController!
     var viewModel: TripDetailViewModel
@@ -29,11 +30,13 @@ class TripDetailVC: UIViewController {
     
     let config: TripListViewConfig
     let detailConfig : TripDetailViewConfig
+    private let showAdvice : Bool
     
-    init(itinId: String, tripListViewConfig: TripListViewConfig, tripDetailViewConfig: TripDetailViewConfig) {
+    init(itinId: String, tripListViewConfig: TripListViewConfig, tripDetailViewConfig: TripDetailViewConfig, showAdvice: Bool) {
         self.viewModel = TripDetailViewModel(itinId: itinId, mapItems: tripDetailViewConfig.mapItems)
         self.config = tripListViewConfig
         self.detailConfig = tripDetailViewConfig
+        self.showAdvice = showAdvice
         super.init(nibName: String(describing: TripDetailVC.self), bundle: Bundle.driverDataUIBundle)
     }
     
@@ -47,6 +50,53 @@ class TripDetailVC: UIViewController {
         showLoader()
         setupMapView()
         self.viewModel.delegate = self
+        self.configureDeleteButton()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.viewModel.delegate = nil
+    }
+    
+    private func configureDeleteButton(){
+        if detailConfig.enableDeleteTrip {
+            let image = UIImage(named: "dk_delete_trip", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.resizeImage(25, opaque: false).withRenderingMode(.alwaysTemplate)
+            let deleteButton = UIBarButtonItem(image: image , style: .plain, target: self, action: #selector(deleteTrip))
+            deleteButton.tintColor = .white
+            self.navigationItem.rightBarButtonItem = deleteButton
+        }
+    }
+    
+    @objc private func deleteTrip(){
+        let alert = UIAlertController(title: "", message: detailConfig.deleteText, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: config.cancelText, style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: config.okText, style: .default, handler: { action in
+            self.showLoader()
+            DriveKitDriverData.shared.deleteTrip(itinId: self.viewModel.itinId, completionHandler: {deleteSuccessful in
+                DispatchQueue.main.async {
+                    self.hideLoader()
+                    if deleteSuccessful {
+                        self.showSuccessDelete()
+                    }else{
+                        self.showErrorDelete()
+                    }
+                }
+            })
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func showErrorDelete() {
+        let alert = UIAlertController(title: "", message: detailConfig.failedToDeleteTrip, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: config.okText, style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func showSuccessDelete() {
+        let alert = UIAlertController(title: "", message: detailConfig.tripDeleted, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: config.okText, style: .cancel, handler: { action in
+            self.navigationController?.popViewController(animated: true)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     private func showLoader(){
@@ -66,6 +116,15 @@ class TripDetailVC: UIViewController {
 extension TripDetailVC {
     
     func updateViewToCurrentMapItem(direction: UIPageViewController.NavigationDirection? = nil) {
+        if showAdvice {
+            if let trip = viewModel.trip {
+                for mapItem in self.viewModel.configurableMapItems {
+                    if mapItem.getAdvice(trip: trip) != nil {
+                        self.viewModel.displayMapItem = mapItem
+                    }
+                }
+            }
+        }
         var index = 0
         if let mapItem = self.viewModel.displayMapItem {
             mapItemButtons.forEach { $0.isSelected = false }
@@ -173,7 +232,7 @@ extension TripDetailVC {
     
     func setupEcoDriving(){
         let ecoDrivingViewModel = EcoDrivingPageViewModel(trip: self.viewModel.trip!, detailConfig: detailConfig)
-        let ecoDrivingVC = EcoDrivingPageVC(viewModel: ecoDrivingViewModel, detailConfig: detailConfig)
+        let ecoDrivingVC = EcoDrivingPageVC(viewModel: ecoDrivingViewModel, config: config, detailConfig: detailConfig)
         swipableViewControllers.append(ecoDrivingVC)
     }
     
@@ -205,6 +264,34 @@ extension TripDetailVC {
         cameraButton.addTarget(self, action: #selector(tapOnCamera(_:)), for: .touchUpInside)
     }
     
+    func setupTipButton(){
+        if let trip = viewModel.trip, let advice = viewModel.displayMapItem?.getAdvice(trip: trip) {
+            tipButton.layer.borderColor = UIColor.black.cgColor
+            tipButton.layer.cornerRadius = tipButton.bounds.size.width / 2
+            tipButton.layer.masksToBounds = true
+            tipButton.backgroundColor = config.secondaryColor
+            let image = UIImage(named: advice.getTripInfo()?.imageID() ?? "", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.resizeImage(32, opaque: false).withRenderingMode(.alwaysTemplate)
+            tipButton.setImage(image, for: .normal)
+            tipButton.tintColor = .white
+            tipButton.imageEdgeInsets = UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
+            tipButton.isHidden = false
+            self.mapContainer.bringSubviewToFront(tipButton)
+            if showAdvice {
+                self.clickedAdvices(tipButton)
+            }
+        }else{
+            tipButton.isHidden = true
+        }
+        
+    }
+    
+    @IBAction func clickedAdvices(_ sender: Any) {
+        if let trip = viewModel.trip, let advice = viewModel.displayMapItem?.getAdvice(trip: trip) {
+            let tripTipVC = TripTipViewController(config: config, advice: advice)
+            self.present(tripTipVC, animated: true, completion: nil)
+        }
+    }
+    
     @objc func tapOnCamera(_ sender: Any) {
         self.viewModel.setSelectedEvent(position: nil)
         self.mapViewController.fitPath()
@@ -221,6 +308,7 @@ extension TripDetailVC: TripDetailDelegate {
             self.setupHeadeContainer()
             self.setupPageContainer()
             self.updateViewToCurrentMapItem()
+            self.setupTipButton()
             self.hideLoader()
         }
     }
@@ -257,6 +345,7 @@ extension TripDetailVC: TripDetailDelegate {
             self.setupHeadeContainer()
             self.setupPageContainer()
             self.updateViewToCurrentMapItem()
+            self.setupTipButton()
             self.hideLoader()
         }
     }
@@ -285,6 +374,7 @@ extension TripDetailVC: UIPageViewControllerDelegate {
         mapItemButtons.forEach { $0.isSelected = false }
         mapItemButtons[viewControllerIndex].isSelected = true
         mapViewController.traceRoute(mapItem: mapItem)
+        self.setupTipButton()
     }
 }
 

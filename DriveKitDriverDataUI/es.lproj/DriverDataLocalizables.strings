@@ -1,8 +1,10 @@
 "dk_bad_maintain"="Velocidad muy irregular";
+"dk_cancel"="Anulador";
 "dk_confirm_delete_trip"="Eliminar el viaje?";
 "dk_distraction_gauge_title"="Distracción";
 "dk_ecodriving_gauge_title"="Eco-conducción";
 "dk_end_event"="Fin del viaje";
+"dk_failed_to_delete_trip"="El viaje no pudo ser borrado, intente de nuevo más tarde.";
 "dk_failed_to_sync_trips"="No se sincronizaron los disparos, inténtelo de nuevo más tarde.";
 "dk_good_accel"="Buena aceleración";
 "dk_good_decel"="Frenos ideales";
@@ -17,7 +19,6 @@
 "dk_safety_accel"="Aceleraciones bruscas";
 "dk_safety_acceleration"="Aceleraciones bruscas";
 "dk_safety_adherence"="Límites de adherencia";
-"dk_safety_adherence"="Límites de adherencia";
 "dk_safety_brake"="Frenadas fuertes";
 "dk_safety_decel"="Frenadas fuertes";
 "dk_safety_explain_acceleration"="Tu aceleración es un poco demasiado fuerte. Se ha detectado un evento porque la aceleración del vehículo es mayor de 2,0 m/s². Para su seguridad y la comodidad de sus pasajeros, adopte un viaje flexible. Además, la conducción deportiva utiliza neumáticos, frenos y amortiguadores más rápido.";
@@ -31,13 +32,14 @@
 "dk_safety_list_adherence"="Límite de adherencia";
 "dk_safety_list_adherence_critical"="Límite de adherencia";
 "dk_safety_list_brake_critical"="Frenado crítico";
-"dk_screen_lock"="Blocco dello schermo";
 "dk_screen_lock_text"="La aplicación ha detectado un bloqueo de pantalla. Manejar su teléfono mientras conduce es muy peligroso. Recuerde siempre protegerse, así como a sus pasajeros y a los demás usuarios de la carretera. Si debe llamar o enviar un mensaje, su vehículo debe estar estacionado en un lugar de estacionamiento con el motor apagado.";
-"dk_screen_unlock"="Desbloqueo de pantalla";
 "dk_screen_unlock_text"="La aplicación ha detectado una apertura de pantalla. Manejar su teléfono mientras conduce es muy peligroso. Recuerde siempre protegerse, así como a sus pasajeros y a los demás usuarios de la carretera. Si debe llamar o enviar un mensaje, su vehículo debe estar estacionado en un lugar de estacionamiento con el motor apagado.";
 "dk_start_event"="Inicio de viaje";
 "dk_strong_accel"="Fuerte Aceleración";
 "dk_strong_decel"="Fuerte frenado";
+"dk_trip_deleted"="Tu viaje ha sido eliminado.";
+"dk_trip_detail_data_error"="Los datos del viaje no se pudieron recuperar.";
+"dk_trip_detail_get_road_failed"="El camino no pudo ser recuperado. Asegúrate de estar conectado a la red.";
 "dk_trip_detail_no_score"="El viaje ha sido grabado pero la distancia recorrida es demasiado pequeña para evaluar su conducción.";
 "dk_trip_detail_title"="Detalle del viaje";
 "dk_trips_list_title"="Mis viajes";
@@ -52,8 +54,6 @@
 "dk_unlock_event"="Desbloqueo de pantalla";
 "dk_unlock_number"="Cantidad de desbloqueo";
 "dk_value"="Valore =";
-"dk_weak_accel"="Frenado bajo";
+"dk_weak_accel"="Baja aceleración";
 "dk_weak_decel"="Frenado bajo";
 "dk_weak_maintain"="Velocidad irregular";
-"dk_trip_detail_get_road_failed"="El camino no pudo ser recuperado. Asegúrate de estar conectado a la red.";
-"dk_trip_detail_data_error"="Los datos del viaje no se pudieron recuperar.";

@@ -95,5 +95,17 @@ struct SettingsBundleKeys {
     static func getPositionPref() -> Bool {
         return userDefaults.bool(forKey: sharePositionPref)
     }
+        
+    static func setDefaultValuePref(share: Bool) {
+        userDefaults.set(share, forKey: defaultValuePref)
+        userDefaults.synchronize()
+    }
     
+    static func getDefaultValuePref() -> Bool {
+        if userDefaults.object(forKey: defaultValuePref) != nil {
+            return userDefaults.bool(forKey: defaultValuePref)
+        }else{
+            return true
+        }
+    }
 }

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F38C26123696EE0002E873A /* AdviceCountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F38C25F23696EE0002E873A /* AdviceCountView.xib */; };
+		3F38C26223696EE0002E873A /* AdviceCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C26023696EE0002E873A /* AdviceCountView.swift */; };
+		3F38C2692369BD60002E873A /* TripTipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C2672369BD5F002E873A /* TripTipViewController.swift */; };
+		3F38C26A2369BD60002E873A /* TripTipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F38C2682369BD60002E873A /* TripTipViewController.xib */; };
+		3F38C26D2369CC10002E873A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F38C26F2369CC10002E873A /* Localizable.strings */; };
+		3F38C2752369D6ED002E873A /* NotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C2742369D6ED002E873A /* NotificationSender.swift */; };
+		3F38C279236AE210002E873A /* AdviceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C278236AE210002E873A /* AdviceButton.swift */; };
 		3FFD7FD12363002B00BD2F0D /* DriveKitDriverDataUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */; };
 		3FFD7FD22363002B00BD2F0D /* DriveKitDriverDataUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A32665AE235F64EB00B529B0 /* SettingsBundleKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32665AD235F64EB00B529B0 /* SettingsBundleKey.swift */; };
@@ -109,6 +116,17 @@
 
 /* Begin PBXFileReference section */
 		10107C08082CCF492923D28F /* Pods-DriveKitDriverDataUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverDataUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverDataUI/Pods-DriveKitDriverDataUI.debug.xcconfig"; sourceTree = "<group>"; };
+		3F38C25F23696EE0002E873A /* AdviceCountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdviceCountView.xib; sourceTree = "<group>"; };
+		3F38C26023696EE0002E873A /* AdviceCountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdviceCountView.swift; sourceTree = "<group>"; };
+		3F38C2672369BD5F002E873A /* TripTipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTipViewController.swift; sourceTree = "<group>"; };
+		3F38C2682369BD60002E873A /* TripTipViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripTipViewController.xib; sourceTree = "<group>"; };
+		3F38C26E2369CC10002E873A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3F38C2702369CC13002E873A /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3F38C2712369CC14002E873A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3F38C2722369CC14002E873A /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3F38C2732369CC15002E873A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3F38C2742369D6ED002E873A /* NotificationSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSender.swift; sourceTree = "<group>"; };
+		3F38C278236AE210002E873A /* AdviceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdviceButton.swift; sourceTree = "<group>"; };
 		4009FE234BC3EC14A349F8D3 /* Pods_DriveKitApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		453D6BC570583B1D6DC16DBC /* Pods-DriveKitApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitApp.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitApp/Pods-DriveKitApp.debug.xcconfig"; sourceTree = "<group>"; };
 		55652B494DACA2423EDB5A8E /* Pods_DriveKitDriverDataUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitDriverDataUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -288,6 +306,8 @@
 		A34238222361A2430001E15D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				3F38C2672369BD5F002E873A /* TripTipViewController.swift */,
+				3F38C2682369BD60002E873A /* TripTipViewController.xib */,
 				A34238232361A2430001E15D /* MapViewController.swift */,
 				A34238242361A2430001E15D /* TripDetailVC.swift */,
 				A34238252361A2430001E15D /* TripDetailVC.xib */,
@@ -398,6 +418,8 @@
 		A34238572361A2430001E15D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3F38C26023696EE0002E873A /* AdviceCountView.swift */,
+				3F38C25F23696EE0002E873A /* AdviceCountView.xib */,
 				A34238582361A2430001E15D /* NoScoreImageView.xib */,
 				A34238592361A2430001E15D /* CircularProgressView.swift */,
 				A342385A2361A2430001E15D /* NoScoreImageView.swift */,
@@ -406,6 +428,7 @@
 				A342385D2361A2430001E15D /* TripTableViewCell.swift */,
 				A342385E2361A2430001E15D /* HeaderDayView.xib */,
 				A342385F2361A2430001E15D /* CircularProgressView.xib */,
+				3F38C278236AE210002E873A /* AdviceButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -441,6 +464,8 @@
 				A3B7B391235F12510065A332 /* LaunchScreen.storyboard */,
 				A3B7B394235F12510065A332 /* Info.plist */,
 				A3B7B38C235F124F0065A332 /* DriveKitApp.xcdatamodeld */,
+				3F38C26F2369CC10002E873A /* Localizable.strings */,
+				3F38C2742369D6ED002E873A /* NotificationSender.swift */,
 			);
 			path = DriveKitApp;
 			sourceTree = "<group>";
@@ -568,10 +593,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F38C26A2369BD60002E873A /* TripTipViewController.xib in Resources */,
 				A342389A2361A2440001E15D /* HeaderDayView.xib in Resources */,
 				A342386E2361A2430001E15D /* TripDetailVC.xib in Resources */,
 				A342389B2361A2440001E15D /* CircularProgressView.xib in Resources */,
 				A34238782361A2440001E15D /* SafetyPageVC.xib in Resources */,
+				3F38C26123696EE0002E873A /* AdviceCountView.xib in Resources */,
 				A342389D2361A2440001E15D /* DriverData.xcassets in Resources */,
 				A34238A02361A2730001E15D /* DriverDataLocalizables.strings in Resources */,
 				A34238942361A2440001E15D /* NoScoreImageView.xib in Resources */,
@@ -595,6 +622,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3B7B393235F12510065A332 /* LaunchScreen.storyboard in Resources */,
+				3F38C26D2369CC10002E873A /* Localizable.strings in Resources */,
 				A3B7B390235F12510065A332 /* Assets.xcassets in Resources */,
 				A3B7B38B235F124F0065A332 /* Main.storyboard in Resources */,
 			);
@@ -697,13 +725,16 @@
 				A34238962361A2440001E15D /* NoScoreImageView.swift in Sources */,
 				A342388D2361A2440001E15D /* ConfigurationCircularProgressView.swift in Sources */,
 				A342388F2361A2440001E15D /* TripData.swift in Sources */,
+				3F38C26223696EE0002E873A /* AdviceCountView.swift in Sources */,
 				A342388E2361A2440001E15D /* HeaderDay.swift in Sources */,
 				A34238912361A2440001E15D /* TripListVC.swift in Sources */,
 				A34238892361A2440001E15D /* ScoreType.swift in Sources */,
 				A342387B2361A2440001E15D /* CalloutView.swift in Sources */,
+				3F38C279236AE210002E873A /* AdviceButton.swift in Sources */,
 				A34238702361A2430001E15D /* DistractionPageVC.swift in Sources */,
 				A34238692361A2430001E15D /* TripDetailViewConfig.swift in Sources */,
 				A342386B2361A2430001E15D /* TripEvent.swift in Sources */,
+				3F38C2692369BD60002E873A /* TripTipViewController.swift in Sources */,
 				A34238772361A2440001E15D /* EcoDrivingPageVC.swift in Sources */,
 				A34238642361A2430001E15D /* SafetyPageViewModel.swift in Sources */,
 				A34238742361A2430001E15D /* HistoryPageVC.swift in Sources */,
@@ -736,6 +767,7 @@
 				A3B7B388235F124F0065A332 /* ViewController.swift in Sources */,
 				A3B7B384235F124F0065A332 /* AppDelegate.swift in Sources */,
 				A3B7B38E235F124F0065A332 /* DriveKitApp.xcdatamodeld in Sources */,
+				3F38C2752369D6ED002E873A /* NotificationSender.swift in Sources */,
 				A32665AE235F64EB00B529B0 /* SettingsBundleKey.swift in Sources */,
 				A3B7B39D235F2E130065A332 /* SettingsViewController.swift in Sources */,
 			);
@@ -752,6 +784,18 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		3F38C26F2369CC10002E873A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3F38C26E2369CC10002E873A /* en */,
+				3F38C2702369CC13002E873A /* fr */,
+				3F38C2712369CC14002E873A /* de */,
+				3F38C2722369CC14002E873A /* it */,
+				3F38C2732369CC15002E873A /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		A342389E2361A2730001E15D /* DriverDataLocalizables.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -970,7 +1014,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = DM95YM67TK;
 				INFOPLIST_FILE = DriveKitApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -990,7 +1034,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = DM95YM67TK;
 				INFOPLIST_FILE = DriveKitApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -15,39 +15,64 @@ class SettingsViewController: UITableViewController {
     @IBOutlet var userIdCell: UITableViewCell!
     @IBOutlet var timeOutValue: UILabel!
     @IBOutlet var loggingSwitch: UISwitch!
-    @IBOutlet var sandBoxSwitch: UISwitch!
     @IBOutlet var autoStartSwitch: UISwitch!
     @IBOutlet var timeOutSlider: UISlider!
     @IBOutlet var beaconSwitch: UISwitch!
     @IBOutlet var beaconConfigurationSwitch: UISwitch!
     @IBOutlet var positionSwitch: UISwitch!
+    @IBOutlet var userIdLabel: UILabel!
+    
+    @IBOutlet var loggingTitle: UILabel!
+    @IBOutlet var loggingDescription: UILabel!
+    @IBOutlet var autoStartTitle: UILabel!
+    @IBOutlet var autoStartDescription: UILabel!
+    @IBOutlet var timeoutTitle: UILabel!
+    @IBOutlet var beaconRequiredTitle: UILabel!
+    @IBOutlet var beaconRequiredDescription: UILabel!
+    @IBOutlet var beaconConfiguration: UILabel!
+    @IBOutlet var sharePositionTitle: UILabel!
+    @IBOutlet var sharePositionDescription: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
+        self.configuretext()
     }
     
     func setup() {
         timeOutValue.text = String(SettingsBundleKeys.getTimeoutPref())
         loggingSwitch.isOn = SettingsBundleKeys.getLoggingPref()
-        sandBoxSwitch.isOn = SettingsBundleKeys.getSandboxPref()
         autoStartSwitch.isOn = SettingsBundleKeys.getAutoStartPref()
         timeOutSlider.value = Float(SettingsBundleKeys.getTimeoutPref())
         beaconSwitch.isOn = SettingsBundleKeys.getBeaconPref()
         beaconConfigurationSwitch.isOn = SettingsBundleKeys.getBeaconConfigPref()
         positionSwitch.isOn = SettingsBundleKeys.getPositionPref()
+        userIdLabel.text = "\("user_id_title".keyLocalized()) : \(SettingsBundleKeys.getUserId() ?? "")"
+    }
+    
+    private func configuretext(){
+        loggingTitle.text = "enable_logging_title".keyLocalized()
+        loggingDescription.text = "enable_logging_pref_off".keyLocalized()
+        autoStartTitle.text = "autostart_title".keyLocalized()
+        autoStartDescription.text = "auto_start_off".keyLocalized()
+        timeoutTitle.text = "stop_timeout_title".keyLocalized()
+        beaconRequiredTitle.text = "beacon_required_title".keyLocalized()
+        beaconRequiredDescription.text = "beacon_required_on".keyLocalized()
+        beaconConfiguration.text = "add_beacon_title".keyLocalized()
+        sharePositionTitle.text = "enable_share_position_title".keyLocalized()
+        sharePositionDescription.text = "enable_share_position_on".keyLocalized()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 && indexPath.section == 0 {
             
-            let alert = UIAlertController(title: "Update User id", message: nil, preferredStyle: .alert)
+            let alert = UIAlertController(title: "user_id_title".keyLocalized(), message: nil, preferredStyle: .alert)
             alert.addTextField(configurationHandler: { (textField) in
                 textField.keyboardType = UIKeyboardType.default
                 textField.text = SettingsBundleKeys.getUserId() ?? ""
             })
             
-            let save = UIAlertAction(title: "Save", style: .default, handler: { _ in
+            let save = UIAlertAction(title: "OK", style: .default, handler: { _ in
                 if let textField = alert.textFields?.first, let text = textField.text {
                     self.setUserId(userId: text)
                 }
@@ -64,7 +89,7 @@ class SettingsViewController: UITableViewController {
     func setUserId(userId: String) {
         SettingsBundleKeys.setUserId(userId: userId)
         DriveKit.shared.registerUser(userId: userId)
-        
+        userIdLabel.text = "\("user_id_title".keyLocalized()) : \(SettingsBundleKeys.getUserId() ?? "")"
         self.tableView.reloadData()
     }
 
@@ -76,11 +101,6 @@ class SettingsViewController: UITableViewController {
         } else {
             DriveKit.shared.disableLogging()
         }
-    }
-    
-    @IBAction func didChangeSandBoxValue(_ sender: Any) {
-        SettingsBundleKeys.setSandboxPref(sandbox: sandBoxSwitch.isOn)
-        DriveKit.shared.enableSandboxMode(enable: sandBoxSwitch.isOn)
     }
     
     @IBAction func didChangeAutoStartValue(_ sender: Any) {

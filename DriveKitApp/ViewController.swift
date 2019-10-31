@@ -9,17 +9,67 @@
 import UIKit
 import DriveKitDriverData
 import DriveKitDriverDataUI
+import DriveKitTripAnalysis
 import CoreLocation
 import CoreMotion
 
 class ViewController: UITableViewController {
+    
+    @IBOutlet var startTripButton: UIButton!
+    @IBOutlet var stopTripButton: UIButton!
+    @IBOutlet var cancelTripButton: UIButton!
+    
+    @IBOutlet var driverDataExplanation: UILabel!
+    @IBOutlet var locationButton: UIButton!
+    @IBOutlet var motionButton: UIButton!
+    @IBOutlet var notificationButton: UIButton!
+    
     
     let location = CLLocationManager()
     let motion = CMMotionActivityManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        configureTripAnalysisButton()
+        configureText()
+    }
+    
+    private func configureText(){
+        startTripButton.setTitle("start_trip".keyLocalized(), for: .normal)
+        stopTripButton.setTitle("stop_trip".keyLocalized(), for: .normal)
+        cancelTripButton.setTitle("cancel_trip".keyLocalized(), for: .normal)
+        
+        locationButton.setTitle("location_permission".keyLocalized(), for: .normal)
+        motionButton.setTitle("activity_permission".keyLocalized(), for: .normal)
+        notificationButton.setTitle("notification_permission".keyLocalized(), for: .normal)
+        
+        driverDataExplanation.text = "driver_data_explanation".keyLocalized()
+    }
+    
+    private func configureTripAnalysisButton(){
+        let tripAnalysisState = DriveKitTripAnalysis.shared.getRecorderState()
+        switch tripAnalysisState {
+        case .inactive:
+            stopTripButton.isEnabled = false
+            startTripButton.isEnabled = true
+            cancelTripButton.isEnabled = false
+        case .starting:
+            stopTripButton.isEnabled = false
+            startTripButton.isEnabled = false
+            cancelTripButton.isEnabled = true
+        case .running:
+            stopTripButton.isEnabled = true
+            startTripButton.isEnabled = false
+            cancelTripButton.isEnabled = true
+        case .stopping:
+            stopTripButton.isEnabled = true
+            startTripButton.isEnabled = false
+            cancelTripButton.isEnabled = true
+        case .sending:
+            stopTripButton.isEnabled = false
+            startTripButton.isEnabled = false
+            cancelTripButton.isEnabled = false
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -111,9 +161,23 @@ class ViewController: UITableViewController {
             let tripDetailConfig = TripDetailViewConfig()
             
             let tripListVC = TripListVC(config: tripListConfig, detailConfig: tripDetailConfig)
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
             self.navigationController?.pushViewController(tripListVC, animated: true)
         }
     }
     
+    @IBAction func startTrip(_ sender: Any) {
+        DriveKitTripAnalysis.shared.startTrip()
+        configureTripAnalysisButton()
+    }
+    
+    @IBAction func stopTrip(_ sender: Any) {
+        DriveKitTripAnalysis.shared.stopTrip()
+        configureTripAnalysisButton()
+    }
+    @IBAction func cancelTrip(_ sender: Any) {
+        DriveKitTripAnalysis.shared.cancelTrip()
+        configureTripAnalysisButton()
+    }
 }
 

@@ -12,7 +12,7 @@ import CoreLocation
 
 class TripDetailViewModel {
 
-    private let itinId : String
+    let itinId : String
     private let mapItems: [MapItem]
     
     var trip : Trip? = nil
@@ -34,7 +34,9 @@ class TripDetailViewModel {
     
     var delegate: TripDetailDelegate? = nil {
         didSet {
-            self.fetchTripData()
+            if self.delegate != nil {
+                self.fetchTripData()
+            }
         }
     }
     
@@ -89,10 +91,11 @@ class TripDetailViewModel {
        })
     }
     
-    
-    
     private func computeEvents(){
         if let routeSync = self.routeSync, let tripSyncStatus = self.tripSyncStatus {
+            if let trip = trip, route != nil {
+                DriveKitDriverData.shared.getMissingCities(trip: trip)
+            }
             if routeSync, let trip = trip, !trip.unscored {
                 addStartAndEndEvents(trip: trip)
                 if let safetyEvents = trip.safetyEvents, mapItems.contains(.safety) {

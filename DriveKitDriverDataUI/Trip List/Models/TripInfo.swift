@@ -34,8 +34,8 @@ public enum TripInfo {
             return "dk_eco_advice"
         case .safety:
             return "dk_safety_advice"
-        default:
-            return nil
+        case .count:
+            return "dk_safety_advice"
         }
     }
     

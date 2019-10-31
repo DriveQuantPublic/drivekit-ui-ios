@@ -10,7 +10,7 @@ import UIKit
 
 public class TripDetailViewConfig {
     var mapItems: [MapItem]
-    var headerSummary: HeaderDay
+    var headerSummary: HeaderDay = .distanceDuration
     var displayAdvices: Bool
     var mapTrace: UIColor
     var mapTraceWarningColor: UIColor
@@ -69,8 +69,12 @@ public class TripDetailViewConfig {
     var eventDecelExplain: String
     var eventDecelCritExplain: String*/
     
+    var enableDeleteTrip: Bool
+    var deleteText: String
+    var tripDeleted:String
+    var failedToDeleteTrip: String
+    
     public init( mapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .interactiveMap],
-          headerSummary: HeaderDay = .distanceDuration,
           displayAdvices: Bool = true,
           mapTrace: UIColor = .dkMapTrace,
           mapTraceWarningColor: UIColor = .dkMapTraceWarning,
@@ -115,7 +119,11 @@ public class TripDetailViewConfig {
           viewTitleText: String = "dk_trip_detail_title".dkLocalized(),
           noScoreText: String = "dk_trip_detail_no_score".dkLocalized(),
           errorRouteText: String = "dk_trip_detail_get_road_failed".dkLocalized(),
-          errorEventText: String = "dk_trip_detail_data_error".dkLocalized()
+          errorEventText: String = "dk_trip_detail_data_error".dkLocalized(),
+          enableDeleteTrip: Bool = true,
+          deleteText: String = "dk_confirm_delete_trip".dkLocalized(),
+          tripDeleted: String = "dk_trip_deleted".dkLocalized(),
+          failedToDeleteTrip: String = "dk_failed_to_delete_trip".dkLocalized()
           /*eventAccelExplain: String = "dk_safety_explain_acceleration".dkLocalized(),
           eventAccelCritExplain: String = "dk_safety_explain_acceleration_critical".dkLocalized(),
           eventAdhExplain: String = "dk_safety_explain_adherence".dkLocalized(),
@@ -124,7 +132,6 @@ public class TripDetailViewConfig {
           eventDecelCritExplain: String = "dk_safety_explain_brake_critical".dkLocalized()*/){
         
         self.mapItems = mapItems
-        self.headerSummary = headerSummary
         self.displayAdvices = displayAdvices
         self.mapTrace = mapTrace
         self.mapTraceWarningColor = mapTraceWarningColor
@@ -170,6 +177,10 @@ public class TripDetailViewConfig {
         self.noScoreText = noScoreText
         self.errorEventText = errorEventText
         self.errorRouteText = errorRouteText
+        self.enableDeleteTrip = enableDeleteTrip
+        self.deleteText = deleteText
+        self.tripDeleted = tripDeleted
+        self.failedToDeleteTrip = failedToDeleteTrip
         /*self.eventAccelExplain = eventAccelExplain
         self.eventAccelCritExplain = eventAccelCritExplain
         self.eventAdhExplain = eventAdhExplain

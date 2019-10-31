@@ -10,8 +10,7 @@ import UIKit
 
 public class TripListViewConfig {
     var tripData: TripData
-    var tripInfo: TripInfo
-    var headerDay: HeaderDay
+    var headerDay: HeaderDay = .distanceDuration
     var dayTripDescendingOrder: Bool
     var noTripsRecordedText: String
     var noTripsRecordedImage: String
@@ -20,11 +19,10 @@ public class TripListViewConfig {
     var secondaryColor: UIColor
     var okText : String
     var viewTitleText : String
-    
+    var cancelText: String
+    var primaryFont: UIFont
     
     public init(tripData: TripData = .safety,
-         tripInfo: TripInfo = .safety,
-         headerDay: HeaderDay = .distanceDuration,
          dayTripDescendingOrder: Bool = false,
          noTripsRecordedText: String = "dk_no_trips_recorded".dkLocalized(),
          noTripsRecordedImage: String = "dk_no_trips_recorded",
@@ -32,11 +30,11 @@ public class TripListViewConfig {
          primaryColor: UIColor = UIColor.dkPrimaryColor,
          secondaryColor: UIColor = UIColor.dkSecondaryColor,
          okText: String = "dk_ok".dkLocalized(),
-         viewTitleText : String = "dk_trips_list_title".dkLocalized()) {
+         viewTitleText : String = "dk_trips_list_title".dkLocalized(),
+         cancelText: String = "dk_cancel".dkLocalized(),
+         primaryFont : UIFont = UIFont.systemFont(ofSize: CGFloat(UIFont.systemFontSize), weight: .medium)) {
         
         self.tripData = tripData
-        self.tripInfo = tripInfo
-        self.headerDay = headerDay
         self.dayTripDescendingOrder = dayTripDescendingOrder
         self.noTripsRecordedText = noTripsRecordedText
         self.noTripsRecordedImage = noTripsRecordedImage
@@ -45,7 +43,8 @@ public class TripListViewConfig {
         self.secondaryColor = secondaryColor
         self.okText = okText
         self.viewTitleText = viewTitleText
-        
+        self.cancelText = cancelText
+        self.primaryFont = primaryFont
     }
     
 }

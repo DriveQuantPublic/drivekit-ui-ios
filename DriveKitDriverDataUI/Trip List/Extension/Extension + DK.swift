@@ -205,3 +205,15 @@ extension Route {
         return CLLocationCoordinate2DMake(latitude![index], longitude![index])
     }
 }
+
+extension TripAdvice {
+    func getTripInfo() -> TripInfo?{
+        if theme == "SAFETY"{
+            return .safety
+        }else if theme == "ECODRIVING" {
+            return .ecoDriving
+        }else{
+            return nil
+        }
+    }
+}

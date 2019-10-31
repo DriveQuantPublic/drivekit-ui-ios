@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitTripAnalysis
 
 public class TripListVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -33,6 +34,7 @@ public class TripListVC: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+
     override public func viewDidLoad() {
         super.viewDidLoad()
         self.title = config.viewTitleText
@@ -44,6 +46,10 @@ public class TripListVC: UIViewController {
         refreshControl.addTarget(self, action: #selector(refreshTripList(_ :)), for: .valueChanged)
         self.tableView.delegate = self
         self.tableView.dataSource = self
+    }
+    
+    public override func viewDidDisappear(_ animated: Bool) {
+        self.viewModel.delegate = nil
     }
     
     override public func viewWillAppear(_ animated: Bool) {
@@ -92,6 +98,7 @@ public class TripListVC: UIViewController {
 
     @objc func refreshTripList(_ sender: Any) {
         self.viewModel.fetchTrips()
+        DriveKitTripAnalysis.shared.checkTripToRepost()
     }
 
 }

@@ -40,17 +40,6 @@ class SettingsViewController: UITableViewController {
     }
     
     func setup() {
-        if SettingsBundleKeys.getDefaultValuePref() {
-            // DriveKit default value
-            SettingsBundleKeys.setLoggingPref(logging: false)
-            SettingsBundleKeys.setSandboxPref(sandbox: false)
-            SettingsBundleKeys.setPositionPref(share: false)
-            SettingsBundleKeys.setAutoStartPref(autoStart: false)
-            SettingsBundleKeys.setBeaconPref(required: false)
-            SettingsBundleKeys.setBeaconConfigPref(configurable: false)
-            SettingsBundleKeys.setTimeoutPref(timeout: 4)
-            SettingsBundleKeys.setDefaultValuePref(share: false)
-        }
         timeOutValue.text = String(SettingsBundleKeys.getTimeoutPref())
         loggingSwitch.isOn = SettingsBundleKeys.getLoggingPref()
         autoStartSwitch.isOn = SettingsBundleKeys.getAutoStartPref()

@@ -30,11 +30,13 @@ class TripDetailVC: UIViewController {
     
     let config: TripListViewConfig
     let detailConfig : TripDetailViewConfig
+    private let showAdvice : Bool
     
-    init(itinId: String, tripListViewConfig: TripListViewConfig, tripDetailViewConfig: TripDetailViewConfig) {
+    init(itinId: String, tripListViewConfig: TripListViewConfig, tripDetailViewConfig: TripDetailViewConfig, showAdvice: Bool) {
         self.viewModel = TripDetailViewModel(itinId: itinId, mapItems: tripDetailViewConfig.mapItems)
         self.config = tripListViewConfig
         self.detailConfig = tripDetailViewConfig
+        self.showAdvice = showAdvice
         super.init(nibName: String(describing: TripDetailVC.self), bundle: Bundle.driverDataUIBundle)
     }
     
@@ -49,6 +51,10 @@ class TripDetailVC: UIViewController {
         setupMapView()
         self.viewModel.delegate = self
         self.configureDeleteButton()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.viewModel.delegate = nil
     }
     
     private func configureDeleteButton(){
@@ -110,6 +116,15 @@ class TripDetailVC: UIViewController {
 extension TripDetailVC {
     
     func updateViewToCurrentMapItem(direction: UIPageViewController.NavigationDirection? = nil) {
+        if showAdvice {
+            if let trip = viewModel.trip {
+                for mapItem in self.viewModel.configurableMapItems {
+                    if mapItem.getAdvice(trip: trip) != nil {
+                        self.viewModel.displayMapItem = mapItem
+                    }
+                }
+            }
+        }
         var index = 0
         if let mapItem = self.viewModel.displayMapItem {
             mapItemButtons.forEach { $0.isSelected = false }
@@ -261,6 +276,9 @@ extension TripDetailVC {
             tipButton.imageEdgeInsets = UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
             tipButton.isHidden = false
             self.mapContainer.bringSubviewToFront(tipButton)
+            if showAdvice {
+                self.clickedAdvices(tipButton)
+            }
         }else{
             tipButton.isHidden = true
         }

@@ -35,10 +35,19 @@ extension TripListVC : UITableViewDataSource {
         if let cell : TripTableViewCell = tableView.dequeueReusableCell(withIdentifier: "TripTableViewCell") as? TripTableViewCell {
             cell.selectionStyle = .none
             cell.configure(trip: self.viewModel.trips[indexPath.section].trips[indexPath.row], tripListViewConfig: config)
+            if let adviceButton = cell.adviceButton {
+                adviceButton.addTarget(self, action: #selector(openTips), for: .touchUpInside)
+            }
             return cell
         } else {
             return UITableViewCell()
         }
+    }
+    
+    @objc func openTips(sender: AdviceButton){
+        let tripDetail = TripDetailVC(itinId: sender.trip.itinId!, tripListViewConfig: config, tripDetailViewConfig: detailConfig, showAdvice: true)
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.navigationController?.pushViewController(tripDetail, animated: true)
     }
 
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -46,7 +55,7 @@ extension TripListVC : UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let tripDetail = TripDetailVC(itinId: self.viewModel.trips[indexPath.section].trips[indexPath.row].itinId!, tripListViewConfig: config, tripDetailViewConfig: detailConfig)
+        let tripDetail = TripDetailVC(itinId: self.viewModel.trips[indexPath.section].trips[indexPath.row].itinId!, tripListViewConfig: config, tripDetailViewConfig: detailConfig, showAdvice: false)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationController?.pushViewController(tripDetail, animated: true)
     }

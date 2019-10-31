@@ -18,6 +18,8 @@ final class TripTableViewCell: UITableViewCell, Nibable {
     @IBOutlet weak var arrivalCityLabel: UILabel!
     @IBOutlet weak var tripLineView: TripListSeparator!
     
+    var adviceButton: AdviceButton? = nil
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -90,36 +92,29 @@ final class TripTableViewCell: UITableViewCell, Nibable {
             if let info = tripInfo{
                 if info == .count {
                     let adviceCountView = AdviceCountView.viewFromNib
-                    // TODO : add right image
                     adviceCountView.setAdviceCount(count: info.text(trip: trip) ?? "")
                     adviceCountView.backgroundColor = tripListViewConfig.secondaryColor
                     adviceCountView.layer.cornerRadius = 5
                     adviceCountView.layer.masksToBounds = true
                     accessoryView = adviceCountView
                 } else {
-                    let button = UIButton(frame: CGRect(x: 0, y: 0, width: 44, height: 32))
+                    adviceButton = AdviceButton(frame: CGRect(x: 0, y: 0, width: 44, height: 32), trip: trip)
                     let imageID = info.imageID()
                     if let image =  UIImage(named: imageID ?? "", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.resizeImage(24, opaque: false).withRenderingMode(.alwaysTemplate) {
-                       button.setImage(image, for: .normal)
+                       adviceButton?.setImage(image, for: .normal)
                     } else {
-                       button.setTitle(info.text(trip: trip), for: .normal)
+                       adviceButton?.setTitle(info.text(trip: trip), for: .normal)
                     }
-                    button.tintColor = .white
-                    button.backgroundColor = tripListViewConfig.secondaryColor
-                    button.layer.cornerRadius = 5
-                    button.layer.masksToBounds = true
-                   
-                    button.addTarget(self, action: #selector(openTips), for: .touchUpInside)
-                    accessoryView = button
+                    adviceButton?.tintColor = .white
+                    adviceButton?.backgroundColor = tripListViewConfig.secondaryColor
+                    adviceButton?.layer.cornerRadius = 5
+                    adviceButton?.layer.masksToBounds = true
+                    accessoryView = adviceButton
                 }
             }
         }
     }
-    
-    @objc func openTips(){
-        // Release in future version of Driver data UI
-    }
-    
+
     override func prepareForReuse() {
         super.prepareForReuse()
         dataView.subviews.forEach({  $0.removeFromSuperview() })

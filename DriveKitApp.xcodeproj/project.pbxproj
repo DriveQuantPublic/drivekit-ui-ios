@@ -13,6 +13,7 @@
 		3F38C26A2369BD60002E873A /* TripTipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F38C2682369BD60002E873A /* TripTipViewController.xib */; };
 		3F38C26D2369CC10002E873A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F38C26F2369CC10002E873A /* Localizable.strings */; };
 		3F38C2752369D6ED002E873A /* NotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C2742369D6ED002E873A /* NotificationSender.swift */; };
+		3F38C279236AE210002E873A /* AdviceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C278236AE210002E873A /* AdviceButton.swift */; };
 		3FFD7FD12363002B00BD2F0D /* DriveKitDriverDataUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */; };
 		3FFD7FD22363002B00BD2F0D /* DriveKitDriverDataUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A32665AE235F64EB00B529B0 /* SettingsBundleKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32665AD235F64EB00B529B0 /* SettingsBundleKey.swift */; };
@@ -125,6 +126,7 @@
 		3F38C2722369CC14002E873A /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3F38C2732369CC15002E873A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3F38C2742369D6ED002E873A /* NotificationSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSender.swift; sourceTree = "<group>"; };
+		3F38C278236AE210002E873A /* AdviceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdviceButton.swift; sourceTree = "<group>"; };
 		4009FE234BC3EC14A349F8D3 /* Pods_DriveKitApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		453D6BC570583B1D6DC16DBC /* Pods-DriveKitApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitApp.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitApp/Pods-DriveKitApp.debug.xcconfig"; sourceTree = "<group>"; };
 		55652B494DACA2423EDB5A8E /* Pods_DriveKitDriverDataUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitDriverDataUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -426,6 +428,7 @@
 				A342385D2361A2430001E15D /* TripTableViewCell.swift */,
 				A342385E2361A2430001E15D /* HeaderDayView.xib */,
 				A342385F2361A2430001E15D /* CircularProgressView.xib */,
+				3F38C278236AE210002E873A /* AdviceButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -727,6 +730,7 @@
 				A34238912361A2440001E15D /* TripListVC.swift in Sources */,
 				A34238892361A2440001E15D /* ScoreType.swift in Sources */,
 				A342387B2361A2440001E15D /* CalloutView.swift in Sources */,
+				3F38C279236AE210002E873A /* AdviceButton.swift in Sources */,
 				A34238702361A2430001E15D /* DistractionPageVC.swift in Sources */,
 				A34238692361A2430001E15D /* TripDetailViewConfig.swift in Sources */,
 				A342386B2361A2430001E15D /* TripEvent.swift in Sources */,

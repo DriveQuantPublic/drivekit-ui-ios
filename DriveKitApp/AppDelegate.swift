@@ -78,6 +78,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             DriveKit.shared.setApiKey(key: "qDcgo5W2I1p3u5STEhuQ1AJo")
             DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "DriveKit configured with API key")
         }
+        if SettingsBundleKeys.getDefaultValuePref() {
+            // DriveKit default value
+            SettingsBundleKeys.setLoggingPref(logging: false)
+            SettingsBundleKeys.setSandboxPref(sandbox: false)
+            SettingsBundleKeys.setPositionPref(share: false)
+            SettingsBundleKeys.setAutoStartPref(autoStart: true)
+            SettingsBundleKeys.setBeaconPref(required: false)
+            SettingsBundleKeys.setBeaconConfigPref(configurable: false)
+            SettingsBundleKeys.setTimeoutPref(timeout: 4)
+            SettingsBundleKeys.setDefaultValuePref(share: false)
+            DriveKitTripAnalysis.shared.activateAutoStart(enable: true)
+            DriveKitTripAnalysis.shared.enableSharePosition(enable: false)
+            DriveKitTripAnalysis.shared.setBeaconRequired(required: false)
+            DriveKitTripAnalysis.shared.setStopTimeOut(timeOut: 4 * 60)
+            DriveKitTripAnalysis.shared.setBeacons(beacons: [])
+        }
     }
 }
 

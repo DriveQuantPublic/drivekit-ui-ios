@@ -15,7 +15,9 @@ class TripListViewModel {
     var status: TripSyncStatus = .noError
     var delegate: TripsDelegate? = nil {
         didSet {
-            self.fetchTrips()
+            if self.delegate != nil {
+                self.fetchTrips()
+            }
         }
     }
     

@@ -94,12 +94,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             DriveKitTripAnalysis.shared.setStopTimeOut(timeOut: 4 * 60)
             DriveKitTripAnalysis.shared.setBeacons(beacons: [])
         }
+        if SettingsBundleKeys.getLoggingPref() {
+            DriveKit.shared.enableLogging()
+        }
     }
 }
 
 extension AppDelegate: TripListener {
     func tripStarted(startMode: StartMode) {
-        NotificationSender.shared.sendNotification(message: "trip_started".keyLocalized())
+        NotificationSender.shared.sendNotification(message: "\("trip_started".keyLocalized()) : \(startMode.rawValue)")
     }
     
     func tripPoint(tripPoint: TripPoint) {

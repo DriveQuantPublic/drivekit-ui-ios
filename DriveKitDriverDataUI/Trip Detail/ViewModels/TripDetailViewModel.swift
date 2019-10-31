@@ -34,7 +34,9 @@ class TripDetailViewModel {
     
     var delegate: TripDetailDelegate? = nil {
         didSet {
-            self.fetchTripData()
+            if self.delegate != nil {
+                self.fetchTripData()
+            }
         }
     }
     

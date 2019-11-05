@@ -29,9 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }else{
             options = "none"
         }
-        DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options : \(options)")
+        
         requestNotificationPermission()
         configureDriveKit(launchOptions: launchOptions)
+        DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options : \(options)")
         return true
     }
     
@@ -72,10 +73,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func configureDriveKit(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         DriveKit.shared.initialize()
+        if SettingsBundleKeys.getLoggingPref() {
+            DriveKit.shared.enableLogging()
+        }
         DriveKitTripAnalysis.shared.initialize(tripListener: self, appLaunchOptions: launchOptions)
         DriveKitDriverData.shared.initialize()
         if !DriveKit.shared.isConfigured() {
-            DriveKit.shared.setApiKey(key: "your API key here")
+            DriveKit.shared.setApiKey(key: "Your API key here")
             DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "DriveKit configured with API key")
         }
         if SettingsBundleKeys.getDefaultValuePref() {
@@ -93,9 +97,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             DriveKitTripAnalysis.shared.setBeaconRequired(required: false)
             DriveKitTripAnalysis.shared.setStopTimeOut(timeOut: 4 * 60)
             DriveKitTripAnalysis.shared.setBeacons(beacons: [])
-        }
-        if SettingsBundleKeys.getLoggingPref() {
-            DriveKit.shared.enableLogging()
         }
     }
 }

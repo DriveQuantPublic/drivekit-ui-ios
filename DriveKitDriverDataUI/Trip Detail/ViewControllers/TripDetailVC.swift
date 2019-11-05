@@ -30,7 +30,7 @@ class TripDetailVC: UIViewController {
     
     let config: TripListViewConfig
     let detailConfig : TripDetailViewConfig
-    private let showAdvice : Bool
+    private var showAdvice : Bool
     
     init(itinId: String, tripListViewConfig: TripListViewConfig, tripDetailViewConfig: TripDetailViewConfig, showAdvice: Bool) {
         self.viewModel = TripDetailViewModel(itinId: itinId, mapItems: tripDetailViewConfig.mapItems)
@@ -49,8 +49,11 @@ class TripDetailVC: UIViewController {
         self.title = detailConfig.viewTitleText
         showLoader()
         setupMapView()
-        self.viewModel.delegate = self
         self.configureDeleteButton()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.viewModel.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -277,6 +280,7 @@ extension TripDetailVC {
             tipButton.isHidden = false
             self.mapContainer.bringSubviewToFront(tipButton)
             if showAdvice {
+                showAdvice = false
                 self.clickedAdvices(tipButton)
             }
         }else{

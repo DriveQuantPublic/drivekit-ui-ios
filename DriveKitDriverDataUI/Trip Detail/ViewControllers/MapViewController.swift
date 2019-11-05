@@ -61,12 +61,17 @@ class MapViewController: UIViewController {
         adviceButton.isHidden = true
         if let route = viewModel.route {
             DispatchQueue.main.async {
-                if (self.polyLine == nil){
-                    self.polyLine = MKPolyline.init(coordinates: route.polyLine, count: route.numberOfCoordinates)
-                    self.mapView.addOverlay(self.polyLine!, level: MKOverlayLevel.aboveRoads)
+                if let route = self.viewModel.route {
+                    if (self.polyLine == nil){
+                        self.polyLine = MKPolyline.init(coordinates: route.polyLine, count: route.numberOfCoordinates)
+                        self.mapView.addOverlay(self.polyLine!, level: MKOverlayLevel.aboveRoads)
+                    }
                 }
+                
                 if (mapItem == .distraction || (self.viewModel.configurableMapItems.contains(.distraction) && mapItem == .interactiveMap)){
-                    self.drawDistraction(route: route)
+                    self.computeDistractionPolylines {
+                        self.drawDistraction(route: route)
+                    }
                 }else{
                     if let distractionPolyLines = self.distractionPolyLines{
                         for distractionPolyline in distractionPolyLines {
@@ -81,17 +86,40 @@ class MapViewController: UIViewController {
         }
     }
     
+    private func computeDistractionPolylines(completion: @escaping () -> Void){
+        DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
+            if let route = self.viewModel.route {
+                if self.viewModel.configurableMapItems.contains(.distraction) && self.distractionPolyLines == nil{
+                    self.distractionPolyLines = []
+                    for distractionPolylinePart in route.distractionPolyLine {
+                        let distractionPolyLine = MKPolyline.init(coordinates: distractionPolylinePart, count: distractionPolylinePart.count)
+                        self.distractionPolyLines?.append(distractionPolyLine)
+                    }
+                }
+            }
+            completion()
+        }
+    }
+    
     private func drawDistraction(route: Route){
         if  let distractionPolyLines = self.distractionPolyLines {
             for distractionPolyline in distractionPolyLines {
-                 self.mapView.addOverlay(distractionPolyline, level: MKOverlayLevel.aboveRoads)
+                if let line = self.polyLine {
+                    self.mapView.insertOverlay(distractionPolyline, above: line)
+                }else{
+                     self.mapView.addOverlay(distractionPolyline, level: MKOverlayLevel.aboveRoads)
+                }
             }
         }else{
             self.distractionPolyLines = []
             for distractionPolylinePart in route.distractionPolyLine {
                 let distractionPolyLine = MKPolyline.init(coordinates: distractionPolylinePart, count: distractionPolylinePart.count)
                 self.distractionPolyLines?.append(distractionPolyLine)
-                self.mapView.addOverlay(distractionPolyLine, level: MKOverlayLevel.aboveRoads)
+                if let line = self.polyLine {
+                    self.mapView.insertOverlay(distractionPolyLine, above: line)
+                }else{
+                     self.mapView.addOverlay(distractionPolyLine, level: MKOverlayLevel.aboveRoads)
+                }
             }
         }
     }

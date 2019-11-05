@@ -13,7 +13,8 @@ class TripTipViewController: UIViewController {
 
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var okButton: UIButton!
-    @IBOutlet var contentTextView: UITextView!
+    @IBOutlet var contentView: UIView!
+
     
     private let config: TripListViewConfig
     private let advice: TripAdvice
@@ -40,10 +41,14 @@ class TripTipViewController: UIViewController {
         okButton.setTitleColor(.white, for: .normal)
         okButton.backgroundColor = config.secondaryColor
         
+        let contentTextView = UITextView(frame: contentView.frame)
+        self.automaticallyAdjustsScrollViewInsets = false
+
         if let htmlData = NSString(string: advice.message ?? "").data(using: String.Encoding.unicode.rawValue){
             let attributedString = try! NSMutableAttributedString(data: htmlData, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
             contentTextView.attributedText = NSAttributedString(attributedString: attributedString)
             contentTextView.font = config.primaryFont
+            contentView.embedSubview(contentTextView)
         }else{
             self.dismiss(animated: true)
         }

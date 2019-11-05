@@ -30,7 +30,9 @@ class TripDetailVC: UIViewController {
     
     let config: TripListViewConfig
     let detailConfig : TripDetailViewConfig
-    private let showAdvice : Bool
+  
+    private var showAdvice : Bool
+
     
     init(itinId: String, tripListViewConfig: TripListViewConfig, tripDetailViewConfig: TripDetailViewConfig, showAdvice: Bool) {
         self.viewModel = TripDetailViewModel(itinId: itinId, mapItems: tripDetailViewConfig.mapItems)
@@ -49,8 +51,58 @@ class TripDetailVC: UIViewController {
         self.title = detailConfig.viewTitleText
         showLoader()
         setupMapView()
+        self.configureDeleteButton()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         self.viewModel.delegate = self
         self.configureDeleteButton()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.viewModel.delegate = nil
+    }
+    
+    private func configureDeleteButton(){
+        if detailConfig.enableDeleteTrip {
+            let image = UIImage(named: "dk_delete_trip", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.resizeImage(25, opaque: false).withRenderingMode(.alwaysTemplate)
+            let deleteButton = UIBarButtonItem(image: image , style: .plain, target: self, action: #selector(deleteTrip))
+            deleteButton.tintColor = .white
+            self.navigationItem.rightBarButtonItem = deleteButton
+        }
+    }
+    
+    @objc private func deleteTrip(){
+        let alert = UIAlertController(title: "", message: detailConfig.deleteText, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: config.cancelText, style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: config.okText, style: .default, handler: { action in
+            self.showLoader()
+            DriveKitDriverData.shared.deleteTrip(itinId: self.viewModel.itinId, completionHandler: {deleteSuccessful in
+                DispatchQueue.main.async {
+                    self.hideLoader()
+                    if deleteSuccessful {
+                        self.showSuccessDelete()
+                    }else{
+                        self.showErrorDelete()
+                    }
+                }
+            })
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func showErrorDelete() {
+        let alert = UIAlertController(title: "", message: detailConfig.failedToDeleteTrip, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: config.okText, style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func showSuccessDelete() {
+        let alert = UIAlertController(title: "", message: detailConfig.tripDeleted, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: config.okText, style: .cancel, handler: { action in
+            self.navigationController?.popViewController(animated: true)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -277,6 +329,7 @@ extension TripDetailVC {
             tipButton.isHidden = false
             self.mapContainer.bringSubviewToFront(tipButton)
             if showAdvice {
+                showAdvice = false
                 self.clickedAdvices(tipButton)
             }
         }else{

@@ -121,7 +121,11 @@ class SettingsViewController: UITableViewController {
     
     @IBAction func didChangeBeaconConfigValue(_ sender: Any) {
         SettingsBundleKeys.setBeaconConfigPref(configurable: beaconConfigurationSwitch.isOn)
-        
+        var beacons : [Beacon] = []
+        if  UserDefaults.standard.bool(forKey: SettingsBundleKeys.beaconConfigurationPref)  {
+            beacons.append(Beacon(proximityUuid: "699ebc80-e1f3-11e3-9a0f-0cf3ee3bc012"))
+        }
+        DriveKitTripAnalysis.shared.setBeacons(beacons: beacons)
     }
     
     @IBAction func didChangePositionValue(_ sender: Any) {

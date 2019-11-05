@@ -29,7 +29,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }else{
             options = "none"
         }
-        
         requestNotificationPermission()
         configureDriveKit(launchOptions: launchOptions)
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options : \(options)")

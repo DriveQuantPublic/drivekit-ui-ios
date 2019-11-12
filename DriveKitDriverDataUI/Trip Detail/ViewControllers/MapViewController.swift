@@ -63,7 +63,8 @@ class MapViewController: UIViewController {
             DispatchQueue.main.async {
                 if let route = self.viewModel.route {
                     if (self.polyLine == nil){
-                        self.polyLine = MKPolyline.init(coordinates: route.polyLine, count: route.numberOfCoordinates)
+                        
+                        self.polyLine = MKPolyline.init(coordinates: self.getPolyline(longitude: route.longitude!, latitude: route.latitude!), count: route.numberOfCoordinates)
                         self.mapView.addOverlay(self.polyLine!, level: MKOverlayLevel.aboveRoads)
                     }
                 }
@@ -86,12 +87,35 @@ class MapViewController: UIViewController {
         }
     }
     
+    private func getPolyline(longitude: [Double], latitude: [Double]) -> [CLLocationCoordinate2D]{
+        var line : [CLLocationCoordinate2D] = []
+        for i in 0...longitude.count - 1 {
+            line.append(CLLocationCoordinate2D(latitude: latitude[i], longitude: longitude[i]))
+        }
+        return line
+    }
+    
+    private func getDistractionPolyline(route: Route) -> [[CLLocationCoordinate2D]]{
+        var distractionPolylines : [[CLLocationCoordinate2D]] = []
+        let routePolyline = self.getPolyline(longitude: route.longitude!, latitude: route.latitude!)
+        if let indexes = route.screenLockedIndex, indexes.count > 1 {
+            for i in 1...indexes.count - 1{
+                var line : [CLLocationCoordinate2D] = []
+                if route.screenStatus![i - 1] == 1 {
+                    line = Array(routePolyline[indexes[i - 1]...indexes[i]])
+                    distractionPolylines.append(line)
+                }
+            }
+        }
+        return distractionPolylines
+    }
+    
     private func computeDistractionPolylines(completion: @escaping () -> Void){
         DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
             if let route = self.viewModel.route {
                 if self.viewModel.configurableMapItems.contains(.distraction) && self.distractionPolyLines == nil{
                     self.distractionPolyLines = []
-                    for distractionPolylinePart in route.distractionPolyLine {
+                    for distractionPolylinePart in self.getDistractionPolyline(route: route) {
                         let distractionPolyLine = MKPolyline.init(coordinates: distractionPolylinePart, count: distractionPolylinePart.count)
                         self.distractionPolyLines?.append(distractionPolyLine)
                     }
@@ -112,7 +136,7 @@ class MapViewController: UIViewController {
             }
         }else{
             self.distractionPolyLines = []
-            for distractionPolylinePart in route.distractionPolyLine {
+            for distractionPolylinePart in self.getDistractionPolyline(route: route) {
                 let distractionPolyLine = MKPolyline.init(coordinates: distractionPolylinePart, count: distractionPolylinePart.count)
                 self.distractionPolyLines?.append(distractionPolyLine)
                 if let line = self.polyLine {

@@ -162,30 +162,7 @@ extension Double {
 }
 
 extension Route {
-    
-    var polyLine: [CLLocationCoordinate2D] {
-       let line = longitude!.enumerated().map { (arg) -> CLLocationCoordinate2D in
-           let (index, longitude) = arg
-           return CLLocationCoordinate2D(latitude: latitude![index], longitude: longitude)
-       }
-       return line
-   }
-    
-    var distractionPolyLine: [[CLLocationCoordinate2D]] {
-        var distractionPolylines : [[CLLocationCoordinate2D]] = []
-        let routePolyline = self.polyLine
-        if let indexes = screenLockedIndex, indexes.count > 1 {
-            for i in 1...indexes.count - 1{
-                var line : [CLLocationCoordinate2D] = []
-                if screenStatus![i - 1] == 1 {
-                    line = Array(routePolyline[indexes[i - 1]...indexes[i]])
-                    distractionPolylines.append(line)
-                }
-            }
-        }
-        return distractionPolylines
-    }
-    
+        
     var startLocation: CLLocationCoordinate2D {
         return coordinate(at: 0)
     }

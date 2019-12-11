@@ -293,8 +293,13 @@ extension TripDetailVC {
     
     @IBAction func clickedAdvices(_ sender: Any) {
         if let trip = viewModel.trip, let advice = viewModel.displayMapItem?.getAdvice(trip: trip) {
-            let tripTipVC = TripTipViewController(config: config, advice: advice)
-            self.present(tripTipVC, animated: true, completion: nil)
+            let tripTipVC = TripTipViewController(config: config, trip: trip, advice: advice, tripDetailVC: self, detailConfig: detailConfig)
+            let navigationTripTip = UINavigationController(rootViewController: tripTipVC)
+            
+            navigationTripTip.navigationBar.barTintColor = self.navigationController?.navigationBar.barTintColor
+            navigationTripTip.navigationBar.isTranslucent = self.navigationController?.navigationBar.isTranslucent ?? false
+            navigationTripTip.navigationBar.titleTextAttributes = self.navigationController?.navigationBar.titleTextAttributes
+            self.present(navigationTripTip, animated: true, completion: nil)
         }
     }
     

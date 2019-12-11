@@ -8,7 +8,7 @@ PODS:
     - DriveKitCore
     - Networking
   - Networking (1.1.10)
-  - UICircularProgressRing (6.3.0)
+  - UICircularProgressRing (6.4.0)
 
 DEPENDENCIES:
   - DriveKitCore (from `https://github.com/DriveQuantPublic/drivekit-ios-sdk.git`, tag `1.1.10`)
@@ -54,7 +54,7 @@ SPEC CHECKSUMS:
   DriveKitDriverData: 3187d8e34b7c8879613794240db6cb7a4b32b6b6
   DriveKitTripAnalysis: adb8d6ad02f685a5c7589067eb61c117153a2af3
   Networking: 8dd80a6d0143df60f0d839a0a4a70dcfcfeeb312
-  UICircularProgressRing: e700fb0505328e88ee53c4ed92bee6d1a5b8bbe3
+  UICircularProgressRing: 907613633e76e561b972a3868c95517d14c71006
 
 PODFILE CHECKSUM: f10e851c988511214733b98c32a8b350d81b6c38
 

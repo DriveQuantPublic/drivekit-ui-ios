@@ -33,6 +33,27 @@ extension UIView {
     }
 }
 
+extension UIViewController {
+    func showAlertMessage(title: String?, message: String?, back: Bool, cancel: Bool, completion: (() -> Void)? = nil) {
+           
+           let alert = UIAlertController(title: title,
+                                         message: message,
+                                         preferredStyle: .alert)
+           let okAction = UIAlertAction(title: "dk_ok".dkLocalized(), style: .default, handler: {action in
+               if back {
+                   self.dismiss(animated: false, completion: completion)
+               }
+           })
+        
+            if cancel {
+                let cancelAction = UIAlertAction(title: "dk_cancel".dkLocalized(), style: .cancel, handler: nil)
+                alert.addAction(cancelAction)
+            }
+           alert.addAction(okAction)
+           self.present(alert, animated: true)
+       }
+}
+
 extension UIFont {
     var bold: UIFont {
         return with(.traitBold)

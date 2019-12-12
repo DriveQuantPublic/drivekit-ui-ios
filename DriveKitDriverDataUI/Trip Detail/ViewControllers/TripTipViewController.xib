@@ -13,13 +13,13 @@
                 <outlet property="closeButton" destination="9rJ-f6-bUT" id="q5p-F7-H7J"/>
                 <outlet property="contentView" destination="k6r-rj-qYI" id="DWf-QP-ruB"/>
                 <outlet property="evaluationButtons" destination="RhL-wX-8RZ" id="8vP-si-Sn8"/>
-                <outlet property="noButtonView" destination="eDz-wQ-Pnj" id="RGW-q6-Bo3"/>
-                <outlet property="noImage" destination="zvz-OY-IGA" id="A8F-K3-n6G"/>
-                <outlet property="noLabel" destination="FvX-7b-xRZ" id="a8k-Y0-qfg"/>
+                <outlet property="noButtonView" destination="mXi-oq-R4a" id="e8c-Ih-xqF"/>
+                <outlet property="noImage" destination="iKg-Pz-LMs" id="OYT-eH-aQL"/>
+                <outlet property="noLabel" destination="e8C-Du-abG" id="80E-Uu-oMx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="yesButtonView" destination="mXi-oq-R4a" id="OgC-cq-yh8"/>
-                <outlet property="yesImage" destination="iKg-Pz-LMs" id="rDW-CA-1du"/>
-                <outlet property="yesLabel" destination="e8C-Du-abG" id="iFe-VM-wRd"/>
+                <outlet property="yesButtonView" destination="eDz-wQ-Pnj" id="a2b-T0-j8L"/>
+                <outlet property="yesImage" destination="zvz-OY-IGA" id="hZj-Ug-DKX"/>
+                <outlet property="yesLabel" destination="FvX-7b-xRZ" id="KoR-rU-Sfe"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

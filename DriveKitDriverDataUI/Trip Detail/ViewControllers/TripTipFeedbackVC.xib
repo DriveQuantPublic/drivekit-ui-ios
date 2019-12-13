@@ -10,11 +10,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TripTipFeedbackVC" customModule="DriveKitDriverDataUI" customModuleProvider="target">
             <connections>
-                <outlet property="cancelButton" destination="Eha-B2-zfn" id="BHT-zp-9uo"/>
+                <outlet property="cancelButton" destination="l8I-H1-iEf" id="j7I-uh-9PT"/>
                 <outlet property="choicesTableView" destination="YsV-ct-RgS" id="VDR-k6-MhO"/>
                 <outlet property="commentTextView" destination="IrY-IZ-Gb7" id="aU3-D8-AS9"/>
                 <outlet property="contentLabel" destination="Ugd-UI-oAp" id="Xyb-6H-NTQ"/>
-                <outlet property="sendButton" destination="l8I-H1-iEf" id="Dke-Ez-zsf"/>
+                <outlet property="sendButton" destination="Eha-B2-zfn" id="iRt-j0-cpb"/>
                 <outlet property="view" destination="iN0-l3-epB" id="OH9-f7-jAH"/>
             </connections>
         </placeholder>
@@ -53,7 +53,7 @@
                     </constraints>
                     <state key="normal" title="Button"/>
                     <connections>
-                        <action selector="sendAction:" destination="-1" eventType="touchUpInside" id="ScY-1n-yCe"/>
+                        <action selector="cancelAction:" destination="-1" eventType="touchUpInside" id="KB9-bp-wqT"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eha-B2-zfn">
@@ -63,7 +63,7 @@
                     </constraints>
                     <state key="normal" title="Button"/>
                     <connections>
-                        <action selector="cancelAction:" destination="-1" eventType="touchUpInside" id="43A-q7-mXV"/>
+                        <action selector="sendAction:" destination="-1" eventType="touchUpInside" id="U7Q-MR-rMZ"/>
                     </connections>
                 </button>
             </subviews>

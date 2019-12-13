@@ -139,6 +139,7 @@ extension TripDetailVC {
             index = self.viewModel.configurableMapItems.firstIndex(of: mapItem) ?? 0
         }
        
+        self.setupTipButton()
         self.pageViewController.setViewControllers([self.swipableViewControllers[index]], direction: direction ?? .forward, animated: true, completion: nil)
         self.mapViewController.traceRoute(mapItem: self.viewModel.displayMapItem)
     }
@@ -356,7 +357,6 @@ extension TripDetailVC: TripDetailDelegate {
             self.setupHeadeContainer()
             self.setupPageContainer()
             self.updateViewToCurrentMapItem()
-            self.setupTipButton()
             self.hideLoader()
         }
     }

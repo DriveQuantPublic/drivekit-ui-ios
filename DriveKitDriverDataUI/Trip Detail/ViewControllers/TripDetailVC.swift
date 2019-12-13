@@ -122,11 +122,15 @@ extension TripDetailVC {
     
     func updateViewToCurrentMapItem(direction: UIPageViewController.NavigationDirection? = nil) {
         if showAdvice {
+            var mapItemsWithAdvices: [MapItem] = []
             if let trip = viewModel.trip {
                 for mapItem in self.viewModel.configurableMapItems {
                     if mapItem.getAdvice(trip: trip) != nil {
-                        self.viewModel.displayMapItem = mapItem
+                        mapItemsWithAdvices.append(mapItem)
                     }
+                }
+                if mapItemsWithAdvices.count > 0 {
+                    self.viewModel.displayMapItem = mapItemsWithAdvices.first
                 }
             }
         }

@@ -19,6 +19,7 @@ final class TripTableViewCell: UITableViewCell, Nibable {
     @IBOutlet weak var tripLineView: TripListSeparator!
     
     var adviceButton: AdviceButton? = nil
+    var adviceCountView: AdviceCountView? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -91,11 +92,12 @@ final class TripTableViewCell: UITableViewCell, Nibable {
             }
             if let info = tripInfo{
                 if info == .count {
-                    let adviceCountView = AdviceCountView.viewFromNib
-                    adviceCountView.setAdviceCount(count: info.text(trip: trip) ?? "")
-                    adviceCountView.backgroundColor = tripListViewConfig.secondaryColor
-                    adviceCountView.layer.cornerRadius = 5
-                    adviceCountView.layer.masksToBounds = true
+                    adviceCountView = AdviceCountView.viewFromNib
+                    adviceCountView?.setTrip(trip: trip)
+                    adviceCountView?.setAdviceCount(count: info.text(trip: trip) ?? "")
+                    adviceCountView?.backgroundColor = tripListViewConfig.secondaryColor
+                    adviceCountView?.layer.cornerRadius = 5
+                    adviceCountView?.layer.masksToBounds = true
                     accessoryView = adviceCountView
                 } else {
                     adviceButton = AdviceButton(frame: CGRect(x: 0, y: 0, width: 44, height: 32), trip: trip)
@@ -119,5 +121,7 @@ final class TripTableViewCell: UITableViewCell, Nibable {
         super.prepareForReuse()
         dataView.subviews.forEach({  $0.removeFromSuperview() })
         accessoryView = nil
+        adviceCountView = nil
+        adviceButton = nil
     }
 }

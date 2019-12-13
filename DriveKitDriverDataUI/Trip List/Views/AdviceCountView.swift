@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import DriveKitDriverData
 
 final class AdviceCountView: UIView, Nibable  {
 
     @IBOutlet weak var adviceCountLabel: UILabel!
+    
+    var trip: Trip? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,6 +22,10 @@ final class AdviceCountView: UIView, Nibable  {
     func setAdviceCount(count: String){
         adviceCountLabel.textColor = .white
         adviceCountLabel.text = count
+    }
+    
+    func setTrip(trip: Trip) {
+        self.trip = trip
     }
 
 }

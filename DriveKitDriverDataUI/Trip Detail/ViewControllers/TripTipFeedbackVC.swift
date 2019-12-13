@@ -10,42 +10,44 @@ import Foundation
 import UIKit
 import DriveKitDriverData
 
-class TripTipFeedbackVC: UIViewController {
+class TripTipFeedbackVC: UITableViewController {
     @IBOutlet var contentLabel: UILabel!
-    @IBOutlet var choicesTableView: UITableView!
     @IBOutlet var commentTextView: UITextView!
     @IBOutlet var sendButton: UIButton!
     @IBOutlet var cancelButton: UIButton!
     
-    var viewModel: TripTipFeedbackViewModel
-    var detailConfig: TripDetailViewConfig
-    var config: TripListViewConfig
-    var tripDetailVC: TripDetailVC
+    @IBOutlet var feedbackLabel1: UILabel!
+    @IBOutlet var feedbackLabel2: UILabel!
+    @IBOutlet var feedbackLabel3: UILabel!
+    @IBOutlet var feedbackLabel4: UILabel!
+    @IBOutlet var feedbackLabel5: UILabel!
+    
+    var viewModel: TripTipFeedbackViewModel!
+    var detailConfig: TripDetailViewConfig!
+    var config: TripListViewConfig!
+    var tripDetailVC: TripDetailVC? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = viewModel.title
+        self.title = viewModel?.title
+        tableView.cellForRow(at: IndexPath(row: 0, section: 0))?.tintColor = config.secondaryColor
+        tableView.cellForRow(at: IndexPath(row: 0, section: 0))?.accessoryType = .checkmark
         self.configureContent()
+        self.configureFeedbacks()
         self.configureSend()
         self.configureCancel()
         self.configureComment()
-        choicesTableView.register(TripTipFeedbackChoicesCell.nib, forCellReuseIdentifier: "TripTipFeedbackChoicesCell")
-        choicesTableView.delegate = self
-        choicesTableView.dataSource = self
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 44
     }
     
-    init(viewModel: TripTipFeedbackViewModel, tripDetailVC: TripDetailVC) {
+    func configure(viewModel: TripTipFeedbackViewModel, tripDetailVC: TripDetailVC) {
         self.viewModel = viewModel
         self.config = viewModel.config
         self.detailConfig = viewModel.detailConfig
         self.tripDetailVC = tripDetailVC
-        super.init(nibName: String(describing: TripTipFeedbackVC.self), bundle: Bundle.driverDataUIBundle)
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     
     @IBAction func sendAction(_ sender: Any) {
         self.viewModel.evaluation = 2
@@ -79,7 +81,7 @@ class TripTipFeedbackVC: UIViewController {
                 DispatchQueue.main.async {
                     self.showAlertMessage(title: nil, message: self.detailConfig.adviceFeedbackSuccessText, back: true, cancel: false, completion: {
                         DriveKitDriverData.shared.getTrip(itinId: self.viewModel.itinId, completionHandler: { status, trip in
-                            self.tripDetailVC.viewModel.trip = trip
+                            self.tripDetailVC?.viewModel.trip = trip
                         })
                     })
                 }
@@ -97,9 +99,24 @@ class TripTipFeedbackVC: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row > 0 && indexPath.row < 6 {
+            viewModel.selectedChoice = indexPath.row - 1
+            tableView.cellForRow(at: indexPath as IndexPath)?.tintColor = config.secondaryColor
+            tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .checkmark
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+         if indexPath.row > 0 && indexPath.row < 6 {
+            viewModel.selectedChoice = 0
+            tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .none
+        }
+    }
+    
 }
 
-extension TripTipFeedbackVC: UITableViewDataSource {
+/*extension TripTipFeedbackVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.choices.count
     }
@@ -127,21 +144,7 @@ extension TripTipFeedbackVC: UITableViewDataSource {
             return UITableViewCell()
         }
         }
-}
-
-
-extension TripTipFeedbackVC : UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.selectedChoice = indexPath.row
-        tableView.cellForRow(at: indexPath as IndexPath)?.tintColor = config.secondaryColor
-        tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .checkmark
-    }
-    
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        viewModel.selectedChoice = 0
-        tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .none
-    }
-}
+}*/
 
 fileprivate extension TripTipFeedbackVC {
     func configureContent() {
@@ -150,10 +153,32 @@ fileprivate extension TripTipFeedbackVC {
         contentLabel.attributedText = contentAttributedText
     }
     
+    func configureFeedbacks() {
+        let choicesAttribute = [NSAttributedString.Key.foregroundColor: UIColor.dkGrayText]
+        self.feedbackLabel1.attributedText = NSAttributedString(string: viewModel.choices[0], attributes: choicesAttribute)
+        self.feedbackLabel2.attributedText = NSAttributedString(string: viewModel.choices[1], attributes: choicesAttribute)
+        self.feedbackLabel3.attributedText = NSAttributedString(string: viewModel.choices[2], attributes: choicesAttribute)
+        self.feedbackLabel4.attributedText = NSAttributedString(string: viewModel.choices[3], attributes: choicesAttribute)
+        self.feedbackLabel5.attributedText = NSAttributedString(string: viewModel.choices[4], attributes: choicesAttribute)
+    }
+    
     func configureComment() {
+        let doneToolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
+        doneToolBar.barStyle = .default
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: config.okText, style: .done, target: self, action: #selector(self.doneButtonAction))
+        
+        let items = [flexSpace, done]
+        doneToolBar.items = items
+        doneToolBar.sizeToFit()
+        commentTextView.inputAccessoryView = doneToolBar
         commentTextView.layer.borderWidth = 1
         commentTextView.layer.borderColor = UIColor.dkGrayText.cgColor
         commentTextView.layer.cornerRadius = 5
+    }
+    
+    @objc func doneButtonAction(){
+        commentTextView.resignFirstResponder()
     }
     
     func configureSend(){

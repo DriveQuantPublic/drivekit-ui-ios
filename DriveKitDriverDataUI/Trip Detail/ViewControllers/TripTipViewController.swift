@@ -126,8 +126,10 @@ class TripTipViewController: UIViewController {
     
     @objc func tapOnNoButton(_ sender: UITapGestureRecognizer)  {
         let feedbackViewModel = TripTipFeedbackViewModel(trip: self.trip, tripAdvice: self.advice, detailConfig: self.detailConfig, config: self.config)
-        let feedbackVC = TripTipFeedbackVC(viewModel: feedbackViewModel, tripDetailVC: tripDetailVC)
-        self.navigationController?.pushViewController(feedbackVC, animated: true)
+        if let feedbackVC = UIStoryboard.init(name: String(describing: TripTipFeedbackVC.self), bundle: Bundle.driverDataUIBundle).instantiateViewController(withIdentifier: String(describing: TripTipFeedbackVC.self)) as? TripTipFeedbackVC {
+            feedbackVC.configure(viewModel: feedbackViewModel, tripDetailVC: self.tripDetailVC)
+            self.navigationController?.pushViewController(feedbackVC, animated: true)
+        }
     }
     
     @IBAction func tapOnCloseButton(_ sender: Any) {

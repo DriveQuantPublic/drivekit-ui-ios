@@ -304,6 +304,7 @@ extension TripDetailVC {
             navigationTripTip.navigationBar.barTintColor = self.navigationController?.navigationBar.barTintColor
             navigationTripTip.navigationBar.isTranslucent = self.navigationController?.navigationBar.isTranslucent ?? false
             navigationTripTip.navigationBar.titleTextAttributes = self.navigationController?.navigationBar.titleTextAttributes
+            navigationTripTip.navigationBar.tintColor = self.navigationController?.navigationBar.tintColor
             self.present(navigationTripTip, animated: true, completion: nil)
         }
     }

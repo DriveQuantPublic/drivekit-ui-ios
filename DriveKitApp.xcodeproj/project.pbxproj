@@ -654,24 +654,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DriveKitApp/Pods-DriveKitApp-frameworks.sh",
-				"${PODS_ROOT}/DriveKitCore/DriveKitCore.framework",
-				"${PODS_ROOT}/DriveKitDriverData/DriveKitDriverData.framework",
-				"${PODS_ROOT}/DriveKitTripAnalysis/DriveKitTripAnalysis.framework",
-				"${PODS_ROOT}/Networking/Networking.framework",
-				"${BUILT_PRODUCTS_DIR}/UICircularProgressRing/UICircularProgressRing.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-DriveKitApp/Pods-DriveKitApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DriveKitCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DriveKitDriverData.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DriveKitTripAnalysis.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Networking.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICircularProgressRing.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-DriveKitApp/Pods-DriveKitApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

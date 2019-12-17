@@ -104,13 +104,17 @@ class TripTipViewController: UIViewController {
         
         feedbackViewModel.sendFeedback(completion: { status in
             if status {
-                self.showAlertMessage(title: nil, message: self.detailConfig.adviceFeedbackSuccessText, back: true, cancel: false, completion: {
-                    DriveKitDriverData.shared.getTrip(itinId: self.trip.itinId ?? "", completionHandler: { status, trip in
-                        self.tripDetailVC.viewModel.trip = trip
+                DispatchQueue.main.async {
+                    self.showAlertMessage(title: nil, message: self.detailConfig.adviceFeedbackSuccessText, back: true, cancel: false, completion: {
+                        DriveKitDriverData.shared.getTrip(itinId: self.trip.itinId ?? "", completionHandler: { status, trip in
+                            self.tripDetailVC.viewModel.trip = trip
+                        })
                     })
-                })
+                }
             } else {
-               self.showAlertMessage(title: nil, message: self.detailConfig.adviceFeedbackErrorText, back: false, cancel: false)
+                DispatchQueue.main.async {
+                    self.showAlertMessage(title: nil, message: self.detailConfig.adviceFeedbackErrorText, back: false, cancel: false)
+                }
             }
         })
     }

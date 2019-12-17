@@ -116,36 +116,6 @@ class TripTipFeedbackVC: UITableViewController {
     
 }
 
-/*extension TripTipFeedbackVC: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.choices.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell : TripTipFeedbackChoicesCell = choicesTableView.dequeueReusableCell(withIdentifier: "TripTipFeedbackChoicesCell") as? TripTipFeedbackChoicesCell {
-        let choicesAttribute = [NSAttributedString.Key.foregroundColor: UIColor.dkGrayText]
-            let choiceAttributedText = NSAttributedString(string: viewModel.choices[indexPath.row], attributes: choicesAttribute)
-            cell.choiceLabel.attributedText = choiceAttributedText
-         
-
-            if indexPath.row == 0 {
-                tableView.cellForRow(at: IndexPath(row: 0, section: 0))?.tintColor = config.secondaryColor
-                tableView.cellForRow(at: IndexPath(row: 0, section: 0))?.accessoryType = .checkmark
-            }
-        
-            let row = choicesTableView.dequeueReusableCell(withIdentifier: "TripTipFeedbackChoicesCell", for: indexPath)
-            let height = row.bounds.height
-            var frame: CGRect = choicesTableView.frame
-            frame.size.height = height * CGFloat(viewModel.choices.count)
-            choicesTableView.frame = frame
-            
-            return cell
-        } else {
-            return UITableViewCell()
-        }
-        }
-}*/
-
 fileprivate extension TripTipFeedbackVC {
     func configureContent() {
         let contentAttribute = [NSAttributedString.Key.foregroundColor: UIColor.dkGrayText]

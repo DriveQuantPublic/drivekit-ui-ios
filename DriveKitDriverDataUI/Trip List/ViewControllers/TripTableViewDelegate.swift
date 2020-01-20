@@ -37,6 +37,9 @@ extension TripListVC : UITableViewDataSource {
             cell.configure(trip: self.viewModel.trips[indexPath.section].trips[indexPath.row], tripListViewConfig: config)
             if let adviceButton = cell.adviceButton {
                 adviceButton.addTarget(self, action: #selector(openTips), for: .touchUpInside)
+            } else if let adviceCountView = cell.adviceCountView {
+                let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(openSelectedTips(_:)))
+                adviceCountView.addGestureRecognizer(gestureRecognizer)
             }
             return cell
         } else {
@@ -50,6 +53,14 @@ extension TripListVC : UITableViewDataSource {
         self.navigationController?.pushViewController(tripDetail, animated: true)
     }
 
+    @objc func openSelectedTips(_ sender: UITapGestureRecognizer) {
+        if let adviceCountView = sender.view as? AdviceCountView, let trip = adviceCountView.trip {
+            let tripDetail = TripDetailVC(itinId: trip.itinId!, tripListViewConfig: config, tripDetailViewConfig: detailConfig, showAdvice: true)
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+            self.navigationController?.pushViewController(tripDetail, animated: true)
+        }
+    }
+    
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 58
     }

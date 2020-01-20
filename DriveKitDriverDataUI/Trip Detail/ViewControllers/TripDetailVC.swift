@@ -122,11 +122,15 @@ extension TripDetailVC {
     
     func updateViewToCurrentMapItem(direction: UIPageViewController.NavigationDirection? = nil) {
         if showAdvice {
+            var mapItemsWithAdvices: [MapItem] = []
             if let trip = viewModel.trip {
                 for mapItem in self.viewModel.configurableMapItems {
                     if mapItem.getAdvice(trip: trip) != nil {
-                        self.viewModel.displayMapItem = mapItem
+                        mapItemsWithAdvices.append(mapItem)
                     }
+                }
+                if mapItemsWithAdvices.count > 0 {
+                    self.viewModel.displayMapItem = mapItemsWithAdvices.first
                 }
             }
         }
@@ -139,6 +143,7 @@ extension TripDetailVC {
             index = self.viewModel.configurableMapItems.firstIndex(of: mapItem) ?? 0
         }
        
+        self.setupTipButton()
         self.pageViewController.setViewControllers([self.swipableViewControllers[index]], direction: direction ?? .forward, animated: true, completion: nil)
         self.mapViewController.traceRoute(mapItem: self.viewModel.displayMapItem)
     }
@@ -293,8 +298,14 @@ extension TripDetailVC {
     
     @IBAction func clickedAdvices(_ sender: Any) {
         if let trip = viewModel.trip, let advice = viewModel.displayMapItem?.getAdvice(trip: trip) {
-            let tripTipVC = TripTipViewController(config: config, advice: advice)
-            self.present(tripTipVC, animated: true, completion: nil)
+            let tripTipVC = TripTipViewController(config: config, trip: trip, advice: advice, tripDetailVC: self, detailConfig: detailConfig)
+            let navigationTripTip = UINavigationController(rootViewController: tripTipVC)
+            
+            navigationTripTip.navigationBar.barTintColor = self.navigationController?.navigationBar.barTintColor
+            navigationTripTip.navigationBar.isTranslucent = self.navigationController?.navigationBar.isTranslucent ?? false
+            navigationTripTip.navigationBar.titleTextAttributes = self.navigationController?.navigationBar.titleTextAttributes
+            navigationTripTip.navigationBar.tintColor = self.navigationController?.navigationBar.tintColor
+            self.present(navigationTripTip, animated: true, completion: nil)
         }
     }
     
@@ -351,7 +362,6 @@ extension TripDetailVC: TripDetailDelegate {
             self.setupHeadeContainer()
             self.setupPageContainer()
             self.updateViewToCurrentMapItem()
-            self.setupTipButton()
             self.hideLoader()
         }
     }

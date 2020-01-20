@@ -57,3 +57,14 @@
 "dk_weak_accel"="Weak acceleration";
 "dk_weak_decel"="Weak deceleration";
 "dk_weak_maintain"="Irregular speed";
+"dk_advice_agree"="I understood";
+"dk_advice_disagree"="I did not understand";
+"dk_advice_feedback_success"="Your review has been taken into account. Thank you !";
+"dk_advice_feedback_error"="An error occurred, please retry later.";
+"dk_advice_feedback_disagree_title"="Your opinion";
+"dk_advice_feedback_disagree_desc"="If you do not understand the advice or it does not seem useful, you can evaluate it. We thank you in advance for your contribution, your feedback helps improve the application as well as driving tips and it will benefit the entire community of users.";
+"dk_advice_feedback_01"="The advice does not match the conditions of my trip";
+"dk_advice_feedback_02"="I do not agree with the advice.";
+"dk_advice_feedback_03"="The advice is not clear enough.";
+"dk_advice_feedback_04"="I receive this advice very often.";
+"dk_advice_feedback_05"="Another reason. Leave a comment.";

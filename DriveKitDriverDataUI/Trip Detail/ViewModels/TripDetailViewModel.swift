@@ -82,6 +82,8 @@ class TripDetailViewModel {
                             }
                         case .interactiveMap:
                             self.configurableMapItems.append(item)
+                        case .synthesis:
+                            self.configurableMapItems.append(item)
                         }
                     }
                     self.displayMapItem = self.configurableMapItems[0]

@@ -34,4 +34,9 @@ class DriverDataStyle {
         label.font = label.font.withSize(20)
         label.textColor = .black
     }
+    
+    static func applyTitleSynthesis(label: UILabel) {
+        label.font = label.font.withSize(12)
+        label.textColor = UIColor.dkGrayText
+    }
 }

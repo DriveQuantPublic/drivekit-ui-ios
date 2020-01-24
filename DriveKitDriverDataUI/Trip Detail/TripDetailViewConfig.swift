@@ -86,7 +86,7 @@ public class TripDetailViewConfig {
     var adviceFeedbackChoice04Text: String
     var adviceFeedbackChoice05Text: String
     
-    public init( mapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .interactiveMap],
+    public init( mapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .interactiveMap, .synthesis],
                  displayAdvices: Bool = true,
                  mapTrace: UIColor = .dkMapTrace,
                  mapTraceWarningColor: UIColor = .dkMapTraceWarning,

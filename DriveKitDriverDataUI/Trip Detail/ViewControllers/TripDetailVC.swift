@@ -172,6 +172,8 @@ extension TripDetailVC {
                 self.setupDistraction()
             case .interactiveMap:
                 self.setupHistory()
+            case .synthesis:
+                self.setupSynthesis()
             }
         }
     }
@@ -220,6 +222,8 @@ extension TripDetailVC {
                 self.viewModel.displayMapItem = .interactiveMap
             case 3:
                 self.viewModel.displayMapItem = .distraction
+            case 4:
+                self.viewModel.displayMapItem = .synthesis
             default:
                 self.viewModel.displayMapItem = .safety
             }
@@ -256,6 +260,12 @@ extension TripDetailVC {
         let historyViewModel = HistoryPageViewModel(events: self.viewModel.events, tripDetailViewModel: viewModel)
         let historyVC = HistoryPageVC(viewModel: historyViewModel, detailConfig: detailConfig, config: config)
         swipableViewControllers.append(historyVC)
+    }
+    
+    func setupSynthesis() {
+        let synthesisViewModel = SynthesisPageViewModel(tripDetailViewModel: self.viewModel, trip: self.viewModel.trip!)
+        let synthesisPageVC = SynthesisPageVC(viewModel: synthesisViewModel, detailConfig: self.detailConfig, config: self.config)
+        swipableViewControllers.append(synthesisPageVC)
     }
     
     func setupPageContainer() {

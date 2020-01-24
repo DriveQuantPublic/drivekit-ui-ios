@@ -10,7 +10,7 @@ import UIKit
 import DriveKitDriverData
 
 public enum MapItem {
-    case ecoDriving, safety, distraction, interactiveMap
+    case ecoDriving, safety, distraction, interactiveMap, synthesis
     
     func normalImageID() -> String {
         switch self {
@@ -22,6 +22,8 @@ public enum MapItem {
             return "dk_history"
         case .distraction:
             return "dk_distraction"
+        case .synthesis:
+            return "dk_synthesis"
         }
     }
     
@@ -35,6 +37,8 @@ public enum MapItem {
             return "dk_history_filled"
         case .distraction:
             return "dk_distraction_filled"
+        case .synthesis:
+            return "dk_synthesis_filled"
         }
     }
     
@@ -59,6 +63,8 @@ public enum MapItem {
             return 2
         case .distraction:
             return 3
+        case .synthesis:
+            return 4
         }
     }
     
@@ -73,6 +79,8 @@ public enum MapItem {
                 case .interactiveMap:
                     return nil
                 case .distraction:
+                    return nil
+                case .synthesis:
                     return nil
                 }
             }else{

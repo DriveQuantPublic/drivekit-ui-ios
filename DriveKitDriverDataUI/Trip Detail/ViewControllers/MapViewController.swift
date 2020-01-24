@@ -165,6 +165,9 @@ class MapViewController: UIViewController {
                 cleanSafetyDistractionMarkers()
                 cleanStartEndMarkers()
                 drawAllMarker()
+            case .synthesis:
+                cleanAllMarkers()
+                cleanSafetyDistractionMarkers()
             }
         } else {
             cleanAllMarkers()

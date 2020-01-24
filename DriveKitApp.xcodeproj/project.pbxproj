@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,9 +16,12 @@
 		3F38C279236AE210002E873A /* AdviceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C278236AE210002E873A /* AdviceButton.swift */; };
 		3FFD7FD12363002B00BD2F0D /* DriveKitDriverDataUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */; };
 		3FFD7FD22363002B00BD2F0D /* DriveKitDriverDataUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A30F4F1523D5DA08009A37C2 /* SynthesisPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30F4F1423D5DA08009A37C2 /* SynthesisPageViewModel.swift */; };
+		A30F4F1823D5DA14009A37C2 /* SynthesisPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30F4F1623D5DA14009A37C2 /* SynthesisPageVC.swift */; };
+		A30F4F1923D5DA14009A37C2 /* SynthesisPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30F4F1723D5DA14009A37C2 /* SynthesisPageVC.xib */; };
+		A30F4F1B23D5DB18009A37C2 /* TripTipFeedbackVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A30F4F1A23D5DB18009A37C2 /* TripTipFeedbackVC.storyboard */; };
 		A317F82923A137B600AD22A2 /* TripTipFeedbackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A317F82823A137B600AD22A2 /* TripTipFeedbackViewModel.swift */; };
 		A317F82C23A137C700AD22A2 /* TripTipFeedbackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A317F82A23A137C700AD22A2 /* TripTipFeedbackVC.swift */; };
-		A317F82D23A137C700AD22A2 /* TripTipFeedbackVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A317F82B23A137C700AD22A2 /* TripTipFeedbackVC.xib */; };
 		A317F83023A1383B00AD22A2 /* TripTipFeedbackChoicesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A317F82E23A1383B00AD22A2 /* TripTipFeedbackChoicesCell.xib */; };
 		A317F83123A1383B00AD22A2 /* TripTipFeedbackChoicesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A317F82F23A1383B00AD22A2 /* TripTipFeedbackChoicesCell.swift */; };
 		A32665AE235F64EB00B529B0 /* SettingsBundleKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32665AD235F64EB00B529B0 /* SettingsBundleKey.swift */; };
@@ -91,7 +94,7 @@
 		A3B7B390235F12510065A332 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3B7B38F235F12510065A332 /* Assets.xcassets */; };
 		A3B7B393235F12510065A332 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3B7B391235F12510065A332 /* LaunchScreen.storyboard */; };
 		A3B7B39D235F2E130065A332 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B7B39B235F2E130065A332 /* SettingsViewController.swift */; };
-		E4D35F8F20B6F31D9B5AC6FD /* Pods_DriveKitApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4009FE234BC3EC14A349F8D3 /* Pods_DriveKitApp.framework */; };
+		A3D7013F7B04AC8C56676DE4 /* Pods_DriveKitApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4009FE234BC3EC14A349F8D3 /* Pods_DriveKitApp.framework */; };
 		FE2C04BD97A78F4B22CD7008 /* Pods_DriveKitDriverDataUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55652B494DACA2423EDB5A8E /* Pods_DriveKitDriverDataUI.framework */; };
 /* End PBXBuildFile section */
 
@@ -137,9 +140,12 @@
 		55652B494DACA2423EDB5A8E /* Pods_DriveKitDriverDataUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitDriverDataUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DCC63E1FD4A8A79E2ED8F27 /* Pods_DriveKitDriverData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitDriverData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		845F2C5F9472B0D7B5972830 /* Pods-DriveKitDriverData.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverData.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverData/Pods-DriveKitDriverData.debug.xcconfig"; sourceTree = "<group>"; };
+		A30F4F1423D5DA08009A37C2 /* SynthesisPageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynthesisPageViewModel.swift; sourceTree = "<group>"; };
+		A30F4F1623D5DA14009A37C2 /* SynthesisPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynthesisPageVC.swift; sourceTree = "<group>"; };
+		A30F4F1723D5DA14009A37C2 /* SynthesisPageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SynthesisPageVC.xib; sourceTree = "<group>"; };
+		A30F4F1A23D5DB18009A37C2 /* TripTipFeedbackVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TripTipFeedbackVC.storyboard; sourceTree = "<group>"; };
 		A317F82823A137B600AD22A2 /* TripTipFeedbackViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTipFeedbackViewModel.swift; sourceTree = "<group>"; };
 		A317F82A23A137C700AD22A2 /* TripTipFeedbackVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTipFeedbackVC.swift; sourceTree = "<group>"; };
-		A317F82B23A137C700AD22A2 /* TripTipFeedbackVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripTipFeedbackVC.xib; sourceTree = "<group>"; };
 		A317F82E23A1383B00AD22A2 /* TripTipFeedbackChoicesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripTipFeedbackChoicesCell.xib; sourceTree = "<group>"; };
 		A317F82F23A1383B00AD22A2 /* TripTipFeedbackChoicesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTipFeedbackChoicesCell.swift; sourceTree = "<group>"; };
 		A32665AD235F64EB00B529B0 /* SettingsBundleKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleKey.swift; sourceTree = "<group>"; };
@@ -239,7 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FFD7FD12363002B00BD2F0D /* DriveKitDriverDataUI.framework in Frameworks */,
-				E4D35F8F20B6F31D9B5AC6FD /* Pods_DriveKitApp.framework in Frameworks */,
+				A3D7013F7B04AC8C56676DE4 /* Pods_DriveKitApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +302,7 @@
 		A34238182361A2430001E15D /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				A30F4F1423D5DA08009A37C2 /* SynthesisPageViewModel.swift */,
 				A34238192361A2430001E15D /* SafetyPageViewModel.swift */,
 				A342381A2361A2430001E15D /* ShortTripPageViewModel.swift */,
 				A342381B2361A2430001E15D /* EcoDrivingPageViewModel.swift */,
@@ -317,8 +324,8 @@
 		A34238222361A2430001E15D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A30F4F1A23D5DB18009A37C2 /* TripTipFeedbackVC.storyboard */,
 				A317F82A23A137C700AD22A2 /* TripTipFeedbackVC.swift */,
-				A317F82B23A137C700AD22A2 /* TripTipFeedbackVC.xib */,
 				3F38C2672369BD5F002E873A /* TripTipViewController.swift */,
 				3F38C2682369BD60002E873A /* TripTipViewController.xib */,
 				A34238232361A2430001E15D /* MapViewController.swift */,
@@ -333,6 +340,8 @@
 		A34238272361A2430001E15D /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				A30F4F1623D5DA14009A37C2 /* SynthesisPageVC.swift */,
+				A30F4F1723D5DA14009A37C2 /* SynthesisPageVC.xib */,
 				A34238282361A2430001E15D /* DistractionPageVC.swift */,
 				A34238292361A2430001E15D /* DistractionPageVC.xib */,
 				A342382A2361A2430001E15D /* ShortTripPageVC.xib */,
@@ -617,10 +626,11 @@
 				3F38C26123696EE0002E873A /* AdviceCountView.xib in Resources */,
 				A342389D2361A2440001E15D /* DriverData.xcassets in Resources */,
 				A34238A02361A2730001E15D /* DriverDataLocalizables.strings in Resources */,
-				A317F82D23A137C700AD22A2 /* TripTipFeedbackVC.xib in Resources */,
 				A34238942361A2440001E15D /* NoScoreImageView.xib in Resources */,
 				A34238792361A2440001E15D /* HistoryPageVC.xib in Resources */,
+				A30F4F1923D5DA14009A37C2 /* SynthesisPageVC.xib in Resources */,
 				A34238752361A2430001E15D /* EcoDrivingPageVC.xib in Resources */,
+				A30F4F1B23D5DB18009A37C2 /* TripTipFeedbackVC.storyboard in Resources */,
 				A34238722361A2430001E15D /* ShortTripPageVC.xib in Resources */,
 				A34238832361A2440001E15D /* EcoDrivingPageView.xib in Resources */,
 				A34238972361A2440001E15D /* TripTableViewCell.xib in Resources */,
@@ -743,6 +753,7 @@
 				A342386B2361A2430001E15D /* TripEvent.swift in Sources */,
 				3F38C2692369BD60002E873A /* TripTipViewController.swift in Sources */,
 				A34238772361A2440001E15D /* EcoDrivingPageVC.swift in Sources */,
+				A30F4F1523D5DA08009A37C2 /* SynthesisPageViewModel.swift in Sources */,
 				A34238642361A2430001E15D /* SafetyPageViewModel.swift in Sources */,
 				A34238742361A2430001E15D /* HistoryPageVC.swift in Sources */,
 				A342387D2361A2440001E15D /* EcoDrivingPageView.swift in Sources */,
@@ -751,6 +762,7 @@
 				A34238992361A2440001E15D /* TripTableViewCell.swift in Sources */,
 				A34238672361A2430001E15D /* HistoryPageViewModel.swift in Sources */,
 				A34238922361A2440001E15D /* TripTableViewDelegate.swift in Sources */,
+				A30F4F1823D5DA14009A37C2 /* SynthesisPageVC.swift in Sources */,
 				A342388B2361A2440001E15D /* TripInfo.swift in Sources */,
 				A342386A2361A2430001E15D /* MapItem.swift in Sources */,
 				A34238862361A2440001E15D /* Extension + DK.swift in Sources */,

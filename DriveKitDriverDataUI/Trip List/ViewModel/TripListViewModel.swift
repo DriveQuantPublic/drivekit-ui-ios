@@ -8,6 +8,7 @@
 
 import Foundation
 import DriveKitDriverData
+import DriveKitDBTripAccess
 
 class TripListViewModel {
     var trips : [TripsByDate] = []
@@ -27,9 +28,11 @@ class TripListViewModel {
     
     public func fetchTrips() {
         DriveKitDriverData.shared.getTripsOrderByDateDesc(completionHandler: {status, trips in
-            self.status = status
-            self.trips = self.sortTrips(trips: trips)
-            self.delegate?.onTripsAvailable()
+            DispatchQueue.main.async {
+                self.status = status
+                self.trips = self.sortTrips(trips: trips)
+                self.delegate?.onTripsAvailable()
+            }
         })
     }
     

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import DriveKitDBTripAccess
 import DriveKitDriverData
 
 class TripTipFeedbackViewModel {

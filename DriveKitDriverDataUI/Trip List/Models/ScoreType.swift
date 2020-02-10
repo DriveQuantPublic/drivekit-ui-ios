@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import DriveKitDriverData
+import DriveKitDBTripAccess
 
 enum ScoreType: String {
     case safety, ecoDriving, distraction

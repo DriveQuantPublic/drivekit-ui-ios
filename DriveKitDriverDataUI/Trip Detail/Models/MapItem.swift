@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import DriveKitDriverData
+import DriveKitDBTripAccess
 
 public enum MapItem {
     case ecoDriving, safety, distraction, interactiveMap, synthesis

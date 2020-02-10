@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import DriveKitDriverData
+import DriveKitDBTripAccess
 
 final class TripTableViewCell: UITableViewCell, Nibable {
 

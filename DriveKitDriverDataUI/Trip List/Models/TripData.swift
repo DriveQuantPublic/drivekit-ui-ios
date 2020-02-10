@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import DriveKitDriverData
+import DriveKitDBTripAccess
 
 public enum TripData: String {
     case ecoDriving, safety, distraction, distance, duration

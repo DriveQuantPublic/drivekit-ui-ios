@@ -1,20 +1,27 @@
 PODS:
-  - DriveKitCore (1.2.1):
+  - DriveKitCore (1.3.0):
     - Networking
-  - DriveKitDriverData (1.2.1):
+  - DriveKitDBAchievementAccess (1.3.0):
+    - DriveKitCore
+  - DriveKitDBTripAccess (1.3.0):
+    - DriveKitCore
+  - DriveKitDriverData (1.3.0):
+    - DriveKitCore
+    - DriveKitDBTripAccess
+    - Networking
+  - DriveKitTripAnalysis (1.3.0):
     - DriveKitCore
     - Networking
-  - DriveKitTripAnalysis (1.2.1):
-    - DriveKitCore
-    - Networking
-  - Networking (1.2.1)
+  - Networking (1.3.0)
   - UICircularProgressRing (6.3.0)
 
 DEPENDENCIES:
-  - DriveKitCore (from `https://github.com/DriveQuantPublic/drivekit-ios-sdk.git`, tag `1.2.1`)
-  - DriveKitDriverData (from `https://github.com/DriveQuantPublic/drivekit-ios-sdk.git`, tag `1.2.1`)
-  - DriveKitTripAnalysis (from `https://github.com/DriveQuantPublic/drivekit-ios-sdk.git`, tag `1.2.1`)
-  - Networking (from `https://github.com/DriveQuantPublic/drivekit-ios-sdk.git`, tag `1.2.1`)
+  - DriveKitCore (from `https://github.com/DriveQuantPublic/drivekit-ios-sdk.git`, tag `1.3.0-alpha`)
+  - DriveKitDBAchievementAccess (from `https://github.com/DriveQuantPublic/drivekit-ios-sdk.git`, tag `1.3.0-alpha`)
+  - DriveKitDBTripAccess (from `https://github.com/DriveQuantPublic/drivekit-ios-sdk.git`, tag `1.3.0-alpha`)
+  - DriveKitDriverData (from `https://github.com/DriveQuantPublic/drivekit-ios-sdk.git`, tag `1.3.0-alpha`)
+  - DriveKitTripAnalysis (from `https://github.com/DriveQuantPublic/drivekit-ios-sdk.git`, tag `1.3.0-alpha`)
+  - Networking (from `https://github.com/DriveQuantPublic/drivekit-ios-sdk.git`, tag `1.3.0-alpha`)
   - UICircularProgressRing
 
 SPEC REPOS:
@@ -24,38 +31,52 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   DriveKitCore:
     :git: https://github.com/DriveQuantPublic/drivekit-ios-sdk.git
-    :tag: 1.2.1
+    :tag: 1.3.0-alpha
+  DriveKitDBAchievementAccess:
+    :git: https://github.com/DriveQuantPublic/drivekit-ios-sdk.git
+    :tag: 1.3.0-alpha
+  DriveKitDBTripAccess:
+    :git: https://github.com/DriveQuantPublic/drivekit-ios-sdk.git
+    :tag: 1.3.0-alpha
   DriveKitDriverData:
     :git: https://github.com/DriveQuantPublic/drivekit-ios-sdk.git
-    :tag: 1.2.1
+    :tag: 1.3.0-alpha
   DriveKitTripAnalysis:
     :git: https://github.com/DriveQuantPublic/drivekit-ios-sdk.git
-    :tag: 1.2.1
+    :tag: 1.3.0-alpha
   Networking:
     :git: https://github.com/DriveQuantPublic/drivekit-ios-sdk.git
-    :tag: 1.2.1
+    :tag: 1.3.0-alpha
 
 CHECKOUT OPTIONS:
   DriveKitCore:
     :git: https://github.com/DriveQuantPublic/drivekit-ios-sdk.git
-    :tag: 1.2.1
+    :tag: 1.3.0-alpha
+  DriveKitDBAchievementAccess:
+    :git: https://github.com/DriveQuantPublic/drivekit-ios-sdk.git
+    :tag: 1.3.0-alpha
+  DriveKitDBTripAccess:
+    :git: https://github.com/DriveQuantPublic/drivekit-ios-sdk.git
+    :tag: 1.3.0-alpha
   DriveKitDriverData:
     :git: https://github.com/DriveQuantPublic/drivekit-ios-sdk.git
-    :tag: 1.2.1
+    :tag: 1.3.0-alpha
   DriveKitTripAnalysis:
     :git: https://github.com/DriveQuantPublic/drivekit-ios-sdk.git
-    :tag: 1.2.1
+    :tag: 1.3.0-alpha
   Networking:
     :git: https://github.com/DriveQuantPublic/drivekit-ios-sdk.git
-    :tag: 1.2.1
+    :tag: 1.3.0-alpha
 
 SPEC CHECKSUMS:
-  DriveKitCore: 9a8eef91d19c2e8d05fd46c7e2d4a1669b3bccf1
-  DriveKitDriverData: d60b3f9e8635b1b70a0cfdcbe8eeca0bd4f7fe24
-  DriveKitTripAnalysis: b355920f288df251daaec439554475b9cb23aebd
-  Networking: 09e7980c0a37c7dbaa4baed8a97a3f9dd59b4d42
+  DriveKitCore: 2b89ca0d19dbb9343f8d140189a9794a5652db43
+  DriveKitDBAchievementAccess: d5266c9be4984be70f45684abf12e6c22875a195
+  DriveKitDBTripAccess: 7469a5ac1d27fbecea018482732bae95576b0b13
+  DriveKitDriverData: 0a4cb4c865dc73260409251a83836ccc51eb288f
+  DriveKitTripAnalysis: 0d58a0297dfb316bec4fa0616817966f4d19dbba
+  Networking: 53a0a4a238e85e70f7508658bf28a344f6eacf27
   UICircularProgressRing: e700fb0505328e88ee53c4ed92bee6d1a5b8bbe3
 
-PODFILE CHECKSUM: b3642b1adb52aef788d0802792220ef1143ae468
+PODFILE CHECKSUM: 7d7e120ffed13a60ce308d60cdcb61e26d2d8ef0
 
 COCOAPODS: 1.8.4

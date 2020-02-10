@@ -8,6 +8,7 @@
 
 import Foundation
 import DriveKitDriverData
+import DriveKitDBTripAccess
 
 class SynthesisPageViewModel {
     let tripDetailViewModel : TripDetailViewModel

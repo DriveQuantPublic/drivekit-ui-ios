@@ -8,7 +8,7 @@
 
 import UIKit
 import UICircularProgressRing
-import DriveKitDriverData
+import DriveKitDBTripAccess
 
 enum CircularProgressViewSize {
     case small, medium, large

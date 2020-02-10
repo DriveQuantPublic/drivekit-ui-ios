@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitDBTripAccess
 import DriveKitDriverData
 import CoreLocation
 
@@ -57,38 +58,40 @@ class TripDetailViewModel {
         })
         DriveKitDriverData.shared.getTrip(itinId: itinId, completionHandler: {status, trip in
             if let trip = trip {
-                self.tripSyncStatus = status
-                self.trip = trip
-                if !trip.unscored {
-                    for item in self.mapItems {
-                        switch item {
-                        case .safety:
-                            if let safety = trip.safety{
-                                if safety.safetyScore <= 10 {
-                                    self.configurableMapItems.append(item)
+                DispatchQueue.main.async {
+                    self.tripSyncStatus = status
+                    self.trip = trip
+                    if !trip.unscored {
+                        for item in self.mapItems {
+                            switch item {
+                            case .safety:
+                                if let safety = trip.safety{
+                                    if safety.safetyScore <= 10 {
+                                        self.configurableMapItems.append(item)
+                                    }
                                 }
-                            }
-                        case .ecoDriving:
-                            if let ecoDriving = trip.ecoDriving{
-                                if ecoDriving.score <= 10 {
-                                    self.configurableMapItems.append(item)
+                            case .ecoDriving:
+                                if let ecoDriving = trip.ecoDriving{
+                                    if ecoDriving.score <= 10 {
+                                        self.configurableMapItems.append(item)
+                                    }
                                 }
-                            }
-                        case .distraction:
-                            if let distraction = trip.driverDistraction{
-                                if distraction.score <= 10 {
-                                    self.configurableMapItems.append(item)
+                            case .distraction:
+                                if let distraction = trip.driverDistraction{
+                                    if distraction.score <= 10 {
+                                        self.configurableMapItems.append(item)
+                                    }
                                 }
+                            case .interactiveMap:
+                                self.configurableMapItems.append(item)
+                            case .synthesis:
+                                self.configurableMapItems.append(item)
                             }
-                        case .interactiveMap:
-                            self.configurableMapItems.append(item)
-                        case .synthesis:
-                            self.configurableMapItems.append(item)
                         }
+                        self.displayMapItem = self.configurableMapItems[0]
                     }
-                    self.displayMapItem = self.configurableMapItems[0]
+                    self.computeEvents()
                 }
-                self.computeEvents()
            }
        })
     }

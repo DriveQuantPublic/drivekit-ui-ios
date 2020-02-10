@@ -12,6 +12,7 @@ import DriveKitCore
 import DriveKitTripAnalysis
 import DriveKitDriverData
 import CoreLocation
+import DriveKitDBTripAccess
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -78,7 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitTripAnalysis.shared.initialize(tripListener: self, appLaunchOptions: launchOptions)
         DriveKitDriverData.shared.initialize()
         if !DriveKit.shared.isConfigured() {
-            DriveKit.shared.setApiKey(key: "Your API key here")
+            DriveKit.shared.setApiKey(key: "qDcgo5W2I1p3u5STEhuQ1AJo")
             DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "DriveKit configured with API key")
         }
         if SettingsBundleKeys.getDefaultValuePref() {

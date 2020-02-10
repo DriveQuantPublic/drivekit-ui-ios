@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitDBTripAccess
 import DriveKitDriverData
 
 class TripTipViewController: UIViewController {

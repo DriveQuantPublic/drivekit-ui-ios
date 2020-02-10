@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitDBTripAccess
 import DriveKitDriverData
 
 class TripDetailVC: UIViewController {
@@ -303,7 +304,6 @@ extension TripDetailVC {
         }else{
             tipButton.isHidden = true
         }
-        
     }
     
     @IBAction func clickedAdvices(_ sender: Any) {

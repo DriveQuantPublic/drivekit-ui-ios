@@ -12,6 +12,7 @@ import DriveKitDriverDataUI
 import DriveKitTripAnalysis
 import CoreLocation
 import CoreMotion
+import DriveKitDriverAchievementUI
 
 class ViewController: UITableViewController {
     
@@ -156,13 +157,16 @@ class ViewController: UITableViewController {
     
     func configureDriverDataUI() {
         DispatchQueue.main.async {
-            let tripListConfig = TripListViewConfig()
+            /*let tripListConfig = TripListViewConfig()
             
             let tripDetailConfig = TripDetailViewConfig()
             
             let tripListVC = TripListVC(config: tripListConfig, detailConfig: tripDetailConfig)
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-            self.navigationController?.pushViewController(tripListVC, animated: true)
+            self.navigationController?.pushViewController(tripListVC, animated: true)*/
+            let streakVC = StreakViewController()
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+            self.navigationController?.pushViewController(streakVC, animated: true)
         }
     }
     

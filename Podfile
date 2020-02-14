@@ -28,8 +28,8 @@ target 'DriveKitDriverAchievementUI' do
   drivekitVersion = '1.3.0-alpha'
   platform :ios, '10.0'
   use_frameworks!
-  pod 'DriveKitDriverData', :git => 'https://github.com/DriveQuantPublic/drivekit-ios-sdk.git', :tag => drivekitVersion
-  pod 'DriveKitTripAnalysis', :git => 'https://github.com/DriveQuantPublic/drivekit-ios-sdk.git', :tag => drivekitVersion
+  pod 'DriveKitCore', :git => 'https://github.com/DriveQuantPublic/drivekit-ios-sdk.git', :tag => drivekitVersion
   pod 'DriveKitDBAchievementAccess', :git => 'https://github.com/DriveQuantPublic/drivekit-ios-sdk.git', :tag => drivekitVersion
+  pod 'DriveKitDriverAchievement', :git => 'https://github.com/DriveQuantPublic/drivekit-ios-sdk.git', :tag => drivekitVersion
 end
 

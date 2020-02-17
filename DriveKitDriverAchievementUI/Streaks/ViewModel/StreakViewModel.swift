@@ -53,13 +53,17 @@ struct StreakData {
                 progressPercent = 100
             }
         }else{
-            status = .inProgress
-            if let currentTripNumber = streak.current?.tripNumber, let bestTripNumber = streak.best?.tripNumber {
-                progressPercent = Int((currentTripNumber / bestTripNumber) * 100)
-            }else{
+            if streak.current?.tripNumber == 0 {
+                status = .reset
                 progressPercent = 0
+            }else{
+                status = .inProgress
+                if let currentTripNumber = streak.current?.tripNumber, let bestTripNumber = streak.best?.tripNumber {
+                    progressPercent = Int((Float(currentTripNumber) / Float(bestTripNumber)) * 100)
+                }else{
+                    progressPercent = 0
+                }
             }
-            
         }
     }
     

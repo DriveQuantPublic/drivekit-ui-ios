@@ -164,7 +164,7 @@ class ViewController: UITableViewController {
             let tripListVC = TripListVC(config: tripListConfig, detailConfig: tripDetailConfig)
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
             self.navigationController?.pushViewController(tripListVC, animated: true)*/
-            let streakVC = StreakViewController()
+            let streakVC = StreakViewController(config : DriverAchievementConfig())
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
             self.navigationController?.pushViewController(streakVC, animated: true)
         }

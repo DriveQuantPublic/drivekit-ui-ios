@@ -26,24 +26,30 @@ class StreakTableViewCell: UITableViewCell {
     @IBOutlet weak var currentTripNumberView: UIView!
     @IBOutlet weak var currentTripNumberLabel: UILabel!
     
+    @IBOutlet weak var helpButton: UIButton!
+    
+    private var streak : StreakData!
+    private var parentViewController: UIViewController?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         currentTitle.text = "dk_streaks_current_title".dkAchievementLocalized()
         bestTitle.text = "dk_streaks_best_title".dkAchievementLocalized()
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
-    func configure(streakData : StreakData){
+    func configure(streakData : StreakData, config : DriverAchievementConfig, viewController: UIViewController){
+        self.streak = streakData
+        self.parentViewController = viewController
         streakIcon.image = streakData.getIcon()
         theme.text = streakData.getTitle()
-        configureCurrent(streak: streakData)
-        configureBest(streak: streakData)
+        configureCurrent()
+        configureBest()
+        configureSlider(config: config)
+        configureTripNumber(config: config)
+        helpButton.addTarget(self, action: #selector(helpClicked), for: .touchUpInside)
     }
     
-    private func configureCurrent(streak : StreakData) {
+    private func configureCurrent() {
         currentStats.text = "\(streak.getCurrentTripNumber()) - \(streak.getCurrentDistance()) - \(streak.getCurrentDuration())"
         switch streak.status {
         case .best,.inProgress, .initialization:
@@ -51,10 +57,9 @@ class StreakTableViewCell: UITableViewCell {
         case .reset:
             currentDate.text = streak.getResetText()
         }
-        
     }
     
-    private func configureBest(streak : StreakData) {
+    private func configureBest() {
         switch streak.status {
         case .initialization:
             currentStats.text = "\(streak.getBestTripNumber()) - \(streak.getBestDistance()) - \(streak.getBestDuration())"
@@ -68,7 +73,51 @@ class StreakTableViewCell: UITableViewCell {
         }
     }
     
-    @IBAction func helpClicked(_ sender: Any) {
+    private func configureSlider(config : DriverAchievementConfig) {
+        currentTripNumberLabel.text = String(format: "%d", streak.streak.current?.tripNumber ?? 0)
+        slider.setValue(Float(streak.progressPercent), animated: false)
+        switch streak.status {
+        case .best, .inProgress:
+            slider.setThumbImage(makeCircleWith(size: CGSize(width: 10, height: 10), backgroundColor: config.secondaryColor), for: .normal)
+        case .initialization,.reset:
+            slider.setThumbImage(UIImage(), for: .normal)
+        }
         
+        slider.minimumTrackTintColor = config.secondaryColor
+        slider.maximumTrackTintColor = UIColor.dkGrayText
+    }
+    
+    private func configureTripNumber(config : DriverAchievementConfig){
+        currentTripNumberView.layer.cornerRadius = 16
+        currentTripNumberView.layer.borderWidth = 2.0
+        var color = UIColor.dkGrayText
+        if streak.status == .best {
+            color = config.secondaryColor
+        }
+        currentTripNumberView.layer.borderColor = color.cgColor
+        currentTripNumberLabel.textColor = color
+        currentTripNumberLabel.text = String(format: "%d", streak.streak.current?.tripNumber ?? 0)
+    }
+    
+    @objc func helpClicked() {
+        let alert = UIAlertController(title: streak.getTitle(), message: streak.getDescriptionText(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "dk_ok".dkAchievementLocalized(), style: .default, handler: nil))
+        if let viewController = parentViewController {
+            viewController.present(alert, animated: true)
+        }
+        
+    }
+    
+    fileprivate func makeCircleWith(size: CGSize, backgroundColor: UIColor) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+        let context = UIGraphicsGetCurrentContext()
+        context?.setFillColor(backgroundColor.cgColor)
+        context?.setStrokeColor(UIColor.clear.cgColor)
+        let bounds = CGRect(origin: .zero, size: size)
+        context?.addEllipse(in: bounds)
+        context?.drawPath(using: .fill)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
     }
 }

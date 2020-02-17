@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F0740CD23FA6FAA005A8D07 /* DriverAchievementConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0740CC23FA6FAA005A8D07 /* DriverAchievementConfig.swift */; };
 		3F38C26123696EE0002E873A /* AdviceCountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F38C25F23696EE0002E873A /* AdviceCountView.xib */; };
 		3F38C26223696EE0002E873A /* AdviceCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C26023696EE0002E873A /* AdviceCountView.swift */; };
 		3F38C2692369BD60002E873A /* TripTipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C2672369BD5F002E873A /* TripTipViewController.swift */; };
@@ -153,6 +154,7 @@
 		10107C08082CCF492923D28F /* Pods-DriveKitDriverDataUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverDataUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverDataUI/Pods-DriveKitDriverDataUI.debug.xcconfig"; sourceTree = "<group>"; };
 		20B69960974EEE2DEB3E079F /* Pods-DriveKitDriverAchievementUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverAchievementUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverAchievementUI/Pods-DriveKitDriverAchievementUI.release.xcconfig"; sourceTree = "<group>"; };
 		36173251B2A47392720E8B05 /* Pods_DriveKitDriverAchievementUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitDriverAchievementUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F0740CC23FA6FAA005A8D07 /* DriverAchievementConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverAchievementConfig.swift; sourceTree = "<group>"; };
 		3F38C25F23696EE0002E873A /* AdviceCountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdviceCountView.xib; sourceTree = "<group>"; };
 		3F38C26023696EE0002E873A /* AdviceCountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdviceCountView.swift; sourceTree = "<group>"; };
 		3F38C2672369BD5F002E873A /* TripTipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTipViewController.swift; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 				3FFAD1FC23EDBCD500D1A16C /* DriveKitDriverAchievementUI.h */,
 				3FFAD1FD23EDBCD500D1A16C /* Info.plist */,
 				3FFAD20623EDBD7100D1A16C /* DKDriverAchievement.xcassets */,
+				3F0740CC23FA6FAA005A8D07 /* DriverAchievementConfig.swift */,
 			);
 			path = DriveKitDriverAchievementUI;
 			sourceTree = "<group>";
@@ -923,6 +926,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F0740CD23FA6FAA005A8D07 /* DriverAchievementConfig.swift in Sources */,
 				3FB5642E23F53F3C00F010E3 /* CardViewCollectionReusableView.swift in Sources */,
 				3FB5643423F5AA2900F010E3 /* StreakTableViewCell.swift in Sources */,
 				3FB5642B23F53EE000F010E3 /* CustomLayoutAttributes.swift in Sources */,

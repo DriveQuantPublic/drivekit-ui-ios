@@ -76,6 +76,8 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 1 && indexPath.section == 0 {
             self.configureDriverDataUI()
+        }else if indexPath.row == 3 && indexPath.section == 0 {
+            self.configureDriverStreak()
         }
     }
     
@@ -157,17 +159,20 @@ class ViewController: UITableViewController {
     
     func configureDriverDataUI() {
         DispatchQueue.main.async {
-            /*let tripListConfig = TripListViewConfig()
+            let tripListConfig = TripListViewConfig()
             
             let tripDetailConfig = TripDetailViewConfig()
             
             let tripListVC = TripListVC(config: tripListConfig, detailConfig: tripDetailConfig)
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-            self.navigationController?.pushViewController(tripListVC, animated: true)*/
-            let streakVC = StreakViewController(config : DriverAchievementConfig())
-            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-            self.navigationController?.pushViewController(streakVC, animated: true)
+            self.navigationController?.pushViewController(tripListVC, animated: true)
         }
+    }
+    
+    func configureDriverStreak() {
+        let streakVC = StreakViewController(config : DriverAchievementConfig())
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.navigationController?.pushViewController(streakVC, animated: true)
     }
     
     @IBAction func startTrip(_ sender: Any) {

@@ -28,6 +28,7 @@ public class StreakViewController: UIViewController {
     
     override public func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "dk_menu_streaks".dkAchievementLocalized()
         self.viewModel.delegate = self
         self.viewModel.getStreakData()
         self.tableView.dataSource = self

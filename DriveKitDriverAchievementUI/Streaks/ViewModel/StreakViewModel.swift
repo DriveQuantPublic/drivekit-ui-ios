@@ -144,7 +144,7 @@ struct StreakData {
     }
     
     func getBestDates() -> String {
-        if let start = streak.current?.endDate, let end = streak.best?.endDate {
+        if let start = streak.best?.startDate, let end = streak.best?.endDate {
             return String(format: "dk_streaks_since_to".dkAchievementLocalized(), start.format(with: "dd/MM/yyyy"), end.format(with: "dd/MM/yyyy"))
         }else{
             return "dk_streaks_empty".dkAchievementLocalized()

@@ -78,10 +78,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         DriveKitTripAnalysis.shared.initialize(tripListener: self, appLaunchOptions: launchOptions)
         DriveKitDriverData.shared.initialize()
-        //if !DriveKit.shared.isConfigured() {
-            DriveKit.shared.setApiKey(key: "qDcgo5W2I1p3u5STEhuQ1AJo")
-            DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "DriveKit configured with API key")
-       // }
+        let processInfo = ProcessInfo.processInfo
+        let apiKey = processInfo.environment["DriveKit-API-Key"] ?? ""
+        DriveKit.shared.setApiKey(key: apiKey)
+        DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "DriveKit configured with API key")
         if SettingsBundleKeys.getDefaultValuePref() {
             // DriveKit default value
             SettingsBundleKeys.setLoggingPref(logging: false)

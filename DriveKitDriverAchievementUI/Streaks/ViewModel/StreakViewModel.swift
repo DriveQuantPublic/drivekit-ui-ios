@@ -84,19 +84,27 @@ struct StreakData {
     }
     
     func getCurrentTripNumber() -> String {
-        return getTripNumber(tripNumber: streak.current?.tripNumber)
+        return "\(streak.current?.tripNumber ?? 0)"
+    }
+    
+    func getCurrentTripNumberText() -> String {
+        return getTripNumberText(tripNumber: streak.current?.tripNumber)
     }
     
     func getBestTripNumber() -> String {
-        return getTripNumber(tripNumber: streak.best?.tripNumber)
+        return "\(streak.best?.tripNumber ?? 0)"
     }
     
-    private func getTripNumber(tripNumber : Int32?) -> String {
+    func getBestTripNumberText() -> String {
+        return getTripNumberText(tripNumber: self.streak.best?.tripNumber ?? 0)
+    }
+    
+    private func getTripNumberText(tripNumber : Int32?) -> String {
         var tripsText = "dk_streaks_trip".dkAchievementLocalized()
         if let tripNb = tripNumber, tripNb > 1 {
             tripsText = "dk_streaks_trips".dkAchievementLocalized()
         }
-        return "\(tripNumber ?? 0) \(tripsText)"
+        return tripsText
     }
     
     func getCurrentDistance() -> String {

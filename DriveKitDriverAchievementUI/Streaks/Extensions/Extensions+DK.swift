@@ -38,9 +38,9 @@ extension Double {
             if nbHour > 23 {
                 nbDay = nbHour / 24
                 nbHour = nbHour - (24 * nbDay)
-                return "\(nbDay)\("dk_unit_day".dkAchievementLocalized()) \(nbHour)\("dk_unit_hour".dkAchievementLocalized()) \(nbMinute))"
+                return "\(nbDay)\("dk_unit_day".dkAchievementLocalized()) \(nbHour)\("dk_unit_hour".dkAchievementLocalized()) \(nbMinute)"
             }else{
-                return "\(nbHour)\("dk_unit_hour".dkAchievementLocalized()) \(nbMinute))"
+                return "\(nbHour)\("dk_unit_hour".dkAchievementLocalized()) \(nbMinute)"
             }
         }else{
             return "\(nbMinute) \("dk_unit_minute".dkAchievementLocalized())"

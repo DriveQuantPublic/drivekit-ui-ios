@@ -12,10 +12,13 @@ public class DriverAchievementConfig {
     
     var primaryColor: UIColor
     var secondaryColor: UIColor
+    var primaryFont : UIFont
     
     public init(primaryColor: UIColor = UIColor.dkPrimaryColor,
-         secondaryColor: UIColor = UIColor.dkSecondaryColor) {
+         secondaryColor: UIColor = UIColor.dkSecondaryColor,
+         primaryFont : UIFont = UIFont.systemFont(ofSize: CGFloat(UIFont.systemFontSize), weight: .medium)) {
         self.primaryColor = primaryColor
         self.secondaryColor =  secondaryColor
+        self.primaryFont = primaryFont
     }
 }

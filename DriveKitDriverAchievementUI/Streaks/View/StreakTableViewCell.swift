@@ -26,15 +26,16 @@ class StreakTableViewCell: UITableViewCell {
     @IBOutlet weak var currentTripNumberView: UIView!
     @IBOutlet weak var currentTripNumberLabel: UILabel!
     
-    @IBOutlet weak var helpButton: UIButton!
+    @IBOutlet weak var helpView: UIImageView!
     
     private var streak : StreakData!
     private var parentViewController: UIViewController?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        currentTitle.text = "dk_streaks_current_title".dkAchievementLocalized()
-        bestTitle.text = "dk_streaks_best_title".dkAchievementLocalized()
+        currentTitle.attributedText = "dk_streaks_current_title".dkAchievementLocalized().dkAttributedString().font(UIFont.systemFont(ofSize: 16)).bold().build()
+        bestTitle.attributedText = "dk_streaks_best_title".dkAchievementLocalized().dkAchievementLocalized().dkAttributedString().font(UIFont.systemFont(ofSize: 16)).bold().build()
+        
     }
     
     func configure(streakData : StreakData, config : DriverAchievementConfig, viewController: UIViewController){
@@ -42,44 +43,51 @@ class StreakTableViewCell: UITableViewCell {
         self.parentViewController = viewController
         streakIcon.image = streakData.getIcon()
         theme.text = streakData.getTitle()
-        configureCurrent()
-        configureBest()
+        configureCurrent(config: config)
+        configureBest(config: config)
         configureSlider(config: config)
         configureTripNumber(config: config)
-        helpButton.addTarget(self, action: #selector(helpClicked), for: .touchUpInside)
+        configureHelpButton(config: config)
     }
     
-    private func configureCurrent() {
-        currentStats.text = "\(streak.getCurrentTripNumber()) - \(streak.getCurrentDistance()) - \(streak.getCurrentDuration())"
+    private func configureCurrent(config : DriverAchievementConfig) {
+        let stats = streak.getCurrentTripNumber().dkAttributedString().font(UIFont.systemFont(ofSize: 22)).bold().color(config.secondaryColor).build()
+        let tripText = streak.getCurrentTripNumberText().dkAttributedString().font(UIFont.systemFont(ofSize: 12)).normal().color(config.secondaryColor).build()
+        let secondaryString = " - \(streak.getCurrentDistance()) - \(streak.getCurrentDuration())".dkAttributedString().font(UIFont.systemFont(ofSize: 12)).normal().build()
+        stats.append(NSAttributedString(string: " "))
+        stats.append(tripText)
+        stats.append(secondaryString)
+        currentStats.attributedText = stats
         switch streak.status {
         case .best,.inProgress, .initialization:
-            currentDate.text = streak.getCurrentDate()
+            currentDate.attributedText = streak.getCurrentDate().dkAttributedString().font(UIFont.systemFont(ofSize: 12)).normal().build()
         case .reset:
-            currentDate.text = streak.getResetText()
+            currentDate.attributedText = streak.getResetText().dkAttributedString().font(UIFont.systemFont(ofSize: 12)).normal().build()
         }
     }
     
-    private func configureBest() {
+    private func configureBest(config : DriverAchievementConfig) {
+        let stats = streak.getBestTripNumber().dkAttributedString().font(UIFont.systemFont(ofSize: 18)).bold().build()
+        let secondaryString = " \(streak.getBestTripNumberText()) - \(streak.getBestDistance()) - \(streak.getBestDuration())".dkAttributedString().font(UIFont.systemFont(ofSize: 12)).normal().build()
+        stats.append(secondaryString)
+        bestStats.attributedText = stats
         switch streak.status {
         case .initialization:
-            currentStats.text = "\(streak.getBestTripNumber()) - \(streak.getBestDistance()) - \(streak.getBestDuration())"
-            currentDate.text = "dk_streaks_empty".dkAchievementLocalized()
+            bestDate.attributedText = "dk_streaks_empty".dkAchievementLocalized().dkAttributedString().font(UIFont.systemFont(ofSize: 12)).normal().build()
         case .inProgress, .reset:
-            bestStats.text = "\(streak.getBestTripNumber()) - \(streak.getBestDistance()) - \(streak.getBestDuration())"
-            bestDate.text = streak.getBestDates()
+            bestDate.attributedText = streak.getBestDates().dkAttributedString().font(UIFont.systemFont(ofSize: 12)).normal().build()
         case .best:
-            bestStats.text = "dk_streaks_congrats".dkAchievementLocalized()
-            bestDate.text = "dk_streaks_congrats_text".dkAchievementLocalized()
+            bestStats.attributedText = "dk_streaks_congrats".dkAchievementLocalized().dkAttributedString().font(UIFont.systemFont(ofSize: 18)).bold().build()
+            bestDate.attributedText = "dk_streaks_congrats_text".dkAchievementLocalized().dkAttributedString().font(UIFont.systemFont(ofSize: 12)).normal().build()
         }
     }
     
     private func configureSlider(config : DriverAchievementConfig) {
-        currentTripNumberLabel.text = String(format: "%d", streak.streak.current?.tripNumber ?? 0)
         slider.setValue(Float(streak.progressPercent), animated: false)
         switch streak.status {
-        case .best, .inProgress:
+        case .inProgress:
             slider.setThumbImage(makeCircleWith(size: CGSize(width: 10, height: 10), backgroundColor: config.secondaryColor), for: .normal)
-        case .initialization,.reset:
+        case .initialization,.reset, .best:
             slider.setThumbImage(UIImage(), for: .normal)
         }
         
@@ -95,8 +103,16 @@ class StreakTableViewCell: UITableViewCell {
             color = config.secondaryColor
         }
         currentTripNumberView.layer.borderColor = color.cgColor
-        currentTripNumberLabel.textColor = color
-        currentTripNumberLabel.text = String(format: "%d", streak.streak.current?.tripNumber ?? 0)
+        currentTripNumberLabel.attributedText = self.streak.getBestTripNumber().dkAttributedString().font(UIFont.systemFont(ofSize: 18)).bold().color(color).build()
+    }
+    
+    private func configureHelpButton(config : DriverAchievementConfig) {
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(helpClicked))
+        helpView.isUserInteractionEnabled = true
+        helpView.addGestureRecognizer(singleTap)
+        let helpImage = UIImage(named: "dk_help", in: Bundle.driverAchievementUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+        helpView.image = helpImage
+        helpView.tintColor = config.secondaryColor
     }
     
     @objc func helpClicked() {

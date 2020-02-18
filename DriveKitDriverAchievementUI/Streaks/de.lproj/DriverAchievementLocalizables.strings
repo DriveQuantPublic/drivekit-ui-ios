@@ -5,7 +5,6 @@
   Created by Jérémy Bayle on 14/02/2020.
   Copyright © 2020 DriveQuant. All rights reserved.
 */
-
 "dk_failed_to_sync_streaks"="Erfolgssequenzen können nicht synchronisiert werden, bitte versuchen Sie es später noch einmal.";
 "dk_menu_streaks"="Streifen von Treffern";
 "dk_ok"="OK";
@@ -36,3 +35,8 @@
 "dk_streaks_speeding_title"="Keine Geschwindigkeitsübertretung";
 "dk_streaks_trip"="fahrt";
 "dk_streaks_trips"="fahrten";
+"dk_unit_day"="t";
+"dk_unit_hour"="s";
+"dk_unit_km"="km";
+"dk_unit_minute"="min";
+"dk_unit_second"="s";

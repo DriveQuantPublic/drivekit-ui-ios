@@ -264,9 +264,9 @@ extension TripDetailVC {
     }
     
     func setupSynthesis() {
-        let synthesisViewModel = SynthesisPageViewModel(tripDetailViewModel: self.viewModel, trip: self.viewModel.trip!)
-        let synthesisPageVC = SynthesisPageVC(viewModel: synthesisViewModel, detailConfig: self.detailConfig, config: self.config)
-        swipableViewControllers.append(synthesisPageVC)
+        //let synthesisViewModel = SynthesisPageViewModel(tripDetailViewModel: self.viewModel, trip: self.viewModel.trip!)
+       // let synthesisPageVC = SynthesisPageVC(viewModel: synthesisViewModel, detailConfig: self.detailConfig, config: self.config)
+        //swipableViewControllers.append(synthesisPageVC)
     }
     
     func setupPageContainer() {

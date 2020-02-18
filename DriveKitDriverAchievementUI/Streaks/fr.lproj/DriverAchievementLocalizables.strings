@@ -24,7 +24,7 @@
 "dk_streaks_current_title"="En cours";
 "dk_streaks_empty"="Vous n\'avez pas encore réalisé de trajets pour compléter cette séquence";
 "dk_streaks_phone_distraction_reset"="Vous avez manipulé votre téléphone lors de votre dernier trajet";
-"dk_streaks_phone_distraction_text"="séquences de succès";
+"dk_streaks_phone_distraction_text"="Essayez d\'enchaîner une série de trajets sans manipuler votre smartphone lorsque vous conduisez. \n \n A chaque succès, le compteur du nombre de trajets augmente. \n \n En cas d\'échec, le compteur est réinitialisé et vous devez reprendre à zéro. \n \n Le nombre de trajets de votre meilleure séquence de succès est mémorisé et vous pouvez tenter de le dépasser.";
 "dk_streaks_phone_distraction_title"="Pas d\'utilisation du téléphone";
 "dk_streaks_safety_reset"="Le score de sécurité de votre dernier trajet est inférieur à 9.8/10";
 "dk_streaks_safety_text"="Essayez d\'enchaîner une série de trajets avec des scores de sécurité supérieurs à 9.8/10. \n \n A chaque succès, le compteur du nombre de trajets augmente. \n \n En cas d\'échec, le compteur est réinitialisé et vous devez reprendre à zéro. \n \n Le nombre de trajets de votre meilleure séquence de succès est mémorisé et vous pouvez tenter de le dépasser.";
@@ -36,3 +36,9 @@
 "dk_streaks_speeding_title"="Pas d\'excès de vitesse";
 "dk_streaks_trip"="trajet";
 "dk_streaks_trips"="trajets";
+"dk_unit_day"="j";
+"dk_unit_hour"="h";
+"dk_unit_km"="km";
+"dk_unit_minute"="min";
+"dk_unit_second"="s";
+

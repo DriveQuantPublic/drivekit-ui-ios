@@ -36,3 +36,8 @@
 "dk_streaks_speeding_title"="Nessuna velocità";
 "dk_streaks_trip"="viaggio";
 "dk_streaks_trips"="viaggi";
+"dk_unit_day"="g";
+"dk_unit_hour"="o";
+"dk_unit_km"="km";
+"dk_unit_minute"="min";
+"dk_unit_second"="s";

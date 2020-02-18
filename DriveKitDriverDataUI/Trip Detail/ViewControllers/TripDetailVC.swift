@@ -31,9 +31,9 @@ class TripDetailVC: UIViewController {
     
     let config: TripListViewConfig
     let detailConfig : TripDetailViewConfig
-  
+    
     private var showAdvice : Bool
-
+    
     
     init(itinId: String, tripListViewConfig: TripListViewConfig, tripDetailViewConfig: TripDetailViewConfig, showAdvice: Bool) {
         self.viewModel = TripDetailViewModel(itinId: itinId, mapItems: tripDetailViewConfig.mapItems)
@@ -140,10 +140,10 @@ extension TripDetailVC {
             mapItemButtons.forEach { $0.isSelected = false }
             let indexItem = self.viewModel.configurableMapItems.firstIndex(of: mapItem)
             mapItemButtons[indexItem ?? 0].isSelected = true
-                   
+            
             index = self.viewModel.configurableMapItems.firstIndex(of: mapItem) ?? 0
         }
-       
+        
         self.setupTipButton()
         self.pageViewController.setViewControllers([self.swipableViewControllers[index]], direction: direction ?? .forward, animated: true, completion: nil)
         self.mapViewController.traceRoute(mapItem: self.viewModel.displayMapItem)
@@ -264,9 +264,9 @@ extension TripDetailVC {
     }
     
     func setupSynthesis() {
-        //let synthesisViewModel = SynthesisPageViewModel(tripDetailViewModel: self.viewModel, trip: self.viewModel.trip!)
-       // let synthesisPageVC = SynthesisPageVC(viewModel: synthesisViewModel, detailConfig: self.detailConfig, config: self.config)
-        //swipableViewControllers.append(synthesisPageVC)
+        let synthesisViewModel = SynthesisPageViewModel(tripDetailViewModel: self.viewModel, trip: self.viewModel.trip!)
+        let synthesisPageVC = SynthesisPageVC(viewModel: synthesisViewModel, detailConfig: self.detailConfig, config: self.config)
+        swipableViewControllers.append(synthesisPageVC)
     }
     
     func setupPageContainer() {

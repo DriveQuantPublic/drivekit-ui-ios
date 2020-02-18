@@ -85,9 +85,9 @@ class StreakTableViewCell: UITableViewCell {
     private func configureSlider(config : DriverAchievementConfig) {
         slider.setValue(Float(streak.progressPercent), animated: false)
         switch streak.status {
-        case .inProgress:
-            slider.setThumbImage(makeCircleWith(size: CGSize(width: 10, height: 10), backgroundColor: config.secondaryColor), for: .normal)
-        case .initialization,.reset, .best:
+        case .inProgress, .initialization, .reset:
+            slider.setThumbImage(makeCircleWith(size: CGSize(width: 15, height: 15), backgroundColor: config.secondaryColor), for: .normal)
+        case .best:
             slider.setThumbImage(UIImage(), for: .normal)
         }
         

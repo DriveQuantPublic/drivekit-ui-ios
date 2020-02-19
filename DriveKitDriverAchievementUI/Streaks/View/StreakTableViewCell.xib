@@ -200,12 +200,12 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="bestDate" destination="U4x-mZ-n1y" id="10U-MB-PXM"/>
-                <outlet property="bestStats" destination="KW9-SY-bM0" id="UaS-80-GfI"/>
-                <outlet property="bestTitle" destination="CLM-L5-nBQ" id="KrO-EA-bSu"/>
-                <outlet property="currentDate" destination="AG6-jm-aOz" id="xwt-dh-f2m"/>
-                <outlet property="currentStats" destination="Qlm-x3-BPg" id="d4o-QO-200"/>
-                <outlet property="currentTitle" destination="tpw-r6-IIg" id="CRa-Jt-c6Q"/>
+                <outlet property="bestDate" destination="AG6-jm-aOz" id="71S-qV-gm3"/>
+                <outlet property="bestStats" destination="Qlm-x3-BPg" id="8lT-8y-spo"/>
+                <outlet property="bestTitle" destination="tpw-r6-IIg" id="7G8-Wq-YK7"/>
+                <outlet property="currentDate" destination="U4x-mZ-n1y" id="YAZ-ZA-IGR"/>
+                <outlet property="currentStats" destination="KW9-SY-bM0" id="XdG-AW-PTc"/>
+                <outlet property="currentTitle" destination="CLM-L5-nBQ" id="BDN-62-PGu"/>
                 <outlet property="currentTripNumberLabel" destination="qzy-ar-JKd" id="cyt-o1-z79"/>
                 <outlet property="currentTripNumberView" destination="WS6-Zu-aQH" id="zSS-sb-Jan"/>
                 <outlet property="helpView" destination="GvA-YM-qcE" id="K4M-Sb-T3x"/>

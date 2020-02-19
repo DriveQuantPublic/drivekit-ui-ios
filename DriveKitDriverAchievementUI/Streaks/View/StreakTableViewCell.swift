@@ -42,7 +42,7 @@ class StreakTableViewCell: UITableViewCell {
         self.streak = streakData
         self.parentViewController = viewController
         streakIcon.image = streakData.getIcon()
-        theme.text = streakData.getTitle()
+        theme.attributedText = streakData.getTitle().dkAttributedString().font(UIFont.systemFont(ofSize: 18)).bold().build()
         configureCurrent(config: config)
         configureBest(config: config)
         configureSlider(config: config)

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F0740CD23FA6FAA005A8D07 /* DriverAchievementConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0740CC23FA6FAA005A8D07 /* DriverAchievementConfig.swift */; };
 		3F0740D023FADDEB005A8D07 /* AttributedStringBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0740CF23FADDEB005A8D07 /* AttributedStringBuilder.swift */; };
 		3F0740DE2403BB65005A8D07 /* DriveKitCommonUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0740DC2403BB65005A8D07 /* DriveKitCommonUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F0740E12403BB65005A8D07 /* DriveKitCommonUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F0740DA2403BB65005A8D07 /* DriveKitCommonUI.framework */; };
@@ -25,6 +24,7 @@
 		3F38C26D2369CC10002E873A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F38C26F2369CC10002E873A /* Localizable.strings */; };
 		3F38C2752369D6ED002E873A /* NotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C2742369D6ED002E873A /* NotificationSender.swift */; };
 		3F38C279236AE210002E873A /* AdviceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C278236AE210002E873A /* AdviceButton.swift */; };
+		3F7524CB2406C4CC00AC22CC /* DKUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7524CA2406C4CC00AC22CC /* DKUIViewController.swift */; };
 		3FB5643423F5AA2900F010E3 /* StreakTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5643223F5AA2900F010E3 /* StreakTableViewCell.swift */; };
 		3FB5643523F5AA2900F010E3 /* StreakTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FB5643323F5AA2900F010E3 /* StreakTableViewCell.xib */; };
 		3FB5643A23F68BBE00F010E3 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5643923F68BBE00F010E3 /* CardView.swift */; };
@@ -131,6 +131,20 @@
 			remoteGlobalIDString = 3F0740D92403BB65005A8D07;
 			remoteInfo = DriveKitCommonUI;
 		};
+		3F7524C52406B06C00AC22CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3B7B378235F124F0065A332 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F0740D92403BB65005A8D07;
+			remoteInfo = DriveKitCommonUI;
+		};
+		3F7524C72406B07200AC22CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3B7B378235F124F0065A332 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F0740D92403BB65005A8D07;
+			remoteInfo = DriveKitCommonUI;
+		};
 		3FFAD1FF23EDBCD500D1A16C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A3B7B378235F124F0065A332 /* Project object */;
@@ -167,7 +181,6 @@
 		10107C08082CCF492923D28F /* Pods-DriveKitDriverDataUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverDataUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverDataUI/Pods-DriveKitDriverDataUI.debug.xcconfig"; sourceTree = "<group>"; };
 		20B69960974EEE2DEB3E079F /* Pods-DriveKitDriverAchievementUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverAchievementUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverAchievementUI/Pods-DriveKitDriverAchievementUI.release.xcconfig"; sourceTree = "<group>"; };
 		36173251B2A47392720E8B05 /* Pods_DriveKitDriverAchievementUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitDriverAchievementUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3F0740CC23FA6FAA005A8D07 /* DriverAchievementConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverAchievementConfig.swift; sourceTree = "<group>"; };
 		3F0740CF23FADDEB005A8D07 /* AttributedStringBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringBuilder.swift; sourceTree = "<group>"; };
 		3F0740DA2403BB65005A8D07 /* DriveKitCommonUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DriveKitCommonUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F0740DC2403BB65005A8D07 /* DriveKitCommonUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DriveKitCommonUI.h; sourceTree = "<group>"; };
@@ -189,6 +202,7 @@
 		3F38C2732369CC15002E873A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3F38C2742369D6ED002E873A /* NotificationSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSender.swift; sourceTree = "<group>"; };
 		3F38C278236AE210002E873A /* AdviceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdviceButton.swift; sourceTree = "<group>"; };
+		3F7524CA2406C4CC00AC22CC /* DKUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKUIViewController.swift; sourceTree = "<group>"; };
 		3FB5643223F5AA2900F010E3 /* StreakTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakTableViewCell.swift; sourceTree = "<group>"; };
 		3FB5643323F5AA2900F010E3 /* StreakTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StreakTableViewCell.xib; sourceTree = "<group>"; };
 		3FB5643923F68BBE00F010E3 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -363,6 +377,7 @@
 		3F0740DB2403BB65005A8D07 /* DriveKitCommonUI */ = {
 			isa = PBXGroup;
 			children = (
+				3F7524C92406C4B400AC22CC /* Component */,
 				3F0740F424042BB6005A8D07 /* Utils */,
 				3F0740F12404269E005A8D07 /* Extensions */,
 				3F0740E82403BBD9005A8D07 /* Graphical */,
@@ -399,6 +414,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		3F7524C92406C4B400AC22CC /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				3F7524CA2406C4CC00AC22CC /* DKUIViewController.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		3FB5642923F53EB900F010E3 /* CardView */ = {
 			isa = PBXGroup;
 			children = (
@@ -424,7 +447,6 @@
 				3FFAD1FC23EDBCD500D1A16C /* DriveKitDriverAchievementUI.h */,
 				3FFAD1FD23EDBCD500D1A16C /* Info.plist */,
 				3FFAD20623EDBD7100D1A16C /* DKDriverAchievement.xcassets */,
-				3F0740CC23FA6FAA005A8D07 /* DriverAchievementConfig.swift */,
 			);
 			path = DriveKitDriverAchievementUI;
 			sourceTree = "<group>";
@@ -781,6 +803,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3F7524C62406B06C00AC22CC /* PBXTargetDependency */,
 			);
 			name = DriveKitDriverAchievementUI;
 			productName = DriveKitDriverAchievementUI;
@@ -800,6 +823,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3F7524C82406B07200AC22CC /* PBXTargetDependency */,
 			);
 			name = DriveKitDriverDataUI;
 			productName = DriveKitDriveDataUI;
@@ -1041,6 +1065,7 @@
 				3F0740E72403BB9A005A8D07 /* DriveKitUI.swift in Sources */,
 				3F0740F3240426C0005A8D07 /* UIColor+DK.swift in Sources */,
 				3F0740EC240400E0005A8D07 /* DKFonts.swift in Sources */,
+				3F7524CB2406C4CC00AC22CC /* DKUIViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1048,7 +1073,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F0740CD23FA6FAA005A8D07 /* DriverAchievementConfig.swift in Sources */,
 				3FB5643423F5AA2900F010E3 /* StreakTableViewCell.swift in Sources */,
 				3FB5643E23F6B47E00F010E3 /* StreakDataType.swift in Sources */,
 				3FFAD21123EDC0FF00D1A16C /* StreakViewModel.swift in Sources */,
@@ -1136,6 +1160,16 @@
 			isa = PBXTargetDependency;
 			target = 3F0740D92403BB65005A8D07 /* DriveKitCommonUI */;
 			targetProxy = 3F0740DF2403BB65005A8D07 /* PBXContainerItemProxy */;
+		};
+		3F7524C62406B06C00AC22CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F0740D92403BB65005A8D07 /* DriveKitCommonUI */;
+			targetProxy = 3F7524C52406B06C00AC22CC /* PBXContainerItemProxy */;
+		};
+		3F7524C82406B07200AC22CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F0740D92403BB65005A8D07 /* DriveKitCommonUI */;
+			targetProxy = 3F7524C72406B07200AC22CC /* PBXContainerItemProxy */;
 		};
 		3FFAD20023EDBCD500D1A16C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

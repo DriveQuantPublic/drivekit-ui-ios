@@ -17,16 +17,21 @@ import UIKit
     @objc var fontColorOnSecondaryColor : UIColor { get }
     @objc var warningColor : UIColor { get }
     @objc var criticalColor : UIColor { get }
+    @objc var neutralColor : UIColor { get }
+    @objc var backgroundViewColor : UIColor { get }
 }
 
 public class DKDefaultColors : DKColors {
+   
     public init() {}
     public var primaryColor : UIColor { get { return UIColor(hex:0x0B4D6E) }}
-    public var secondaryColor : UIColor { get { return UIColor(hex: 0x00EBB8) }}
+    public var secondaryColor : UIColor { get { return UIColor(hex: 0x77E2B2) }}
     public var mainFontColor : UIColor { get { return UIColor(hex: 0x616161) }}
     public var complementaryFontColor : UIColor { get { UIColor(hex: 0x9E9E9E) }}
     public var fontColorOnPrimaryColor : UIColor { get { return UIColor.white }}
     public var fontColorOnSecondaryColor : UIColor { get { return UIColor.white }}
     public var warningColor : UIColor { get { return UIColor(hex: 0xff6e57) }}
-    public var criticalColor : UIColor { get { return UIColor(hex: 0xf2a365) }}
+    public var criticalColor : UIColor { get { return UIColor(hex: 0xE52027) }}
+    public var neutralColor: UIColor { get { return UIColor(hex: 0xF0F0F0) }}
+    public var backgroundViewColor: UIColor { get { return UIColor(hex: 0xFAFAFA) }}
 }

@@ -7,18 +7,17 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 
-public class StreakViewController: UIViewController {
+public class StreakViewController: DKUIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
     private let viewModel : StreakViewModel
     
-    private let config : DriverAchievementConfig
     
-    public init(config : DriverAchievementConfig) {
+    public init() {
         self.viewModel = StreakViewModel()
-        self.config = config
         super.init(nibName: String(describing: StreakViewController.self), bundle: Bundle.driverAchievementUIBundle)
     }
     
@@ -53,7 +52,7 @@ extension StreakViewController : UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell : StreakTableViewCell = tableView.dequeueReusableCell(withIdentifier: "StreakTableViewCell", for: indexPath) as? StreakTableViewCell {
-            cell.configure(streakData: self.viewModel.streakData[indexPath.row], config: config, viewController: self)
+            cell.configure(streakData: self.viewModel.streakData[indexPath.row], viewController: self)
             return cell
         } else {
             return UITableViewCell()

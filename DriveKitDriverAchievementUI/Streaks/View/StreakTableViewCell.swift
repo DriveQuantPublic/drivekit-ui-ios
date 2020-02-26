@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 
 class StreakTableViewCell: UITableViewCell {
     
@@ -33,86 +34,86 @@ class StreakTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        currentTitle.attributedText = "dk_streaks_current_title".dkAchievementLocalized().dkAttributedString().font(UIFont.systemFont(ofSize: 16)).bold().build()
-        bestTitle.attributedText = "dk_streaks_best_title".dkAchievementLocalized().dkAchievementLocalized().dkAttributedString().font(UIFont.systemFont(ofSize: 16)).bold().build()
+        currentTitle.attributedText = "dk_streaks_current_title".dkAchievementLocalized().dkAttributedString().font(DriveKitUI.shared.secondaryFont(size: 16)).bold().color(DriveKitUI.shared.colors.mainFontColor).build()
+        bestTitle.attributedText = "dk_streaks_best_title".dkAchievementLocalized().dkAchievementLocalized().dkAttributedString().font(DriveKitUI.shared.secondaryFont(size: 16)).bold().color(DriveKitUI.shared.colors.mainFontColor).build()
         
     }
     
-    func configure(streakData : StreakData, config : DriverAchievementConfig, viewController: UIViewController){
+    func configure(streakData : StreakData, viewController: UIViewController){
         self.streak = streakData
         self.parentViewController = viewController
         streakIcon.image = streakData.getIcon()
-        theme.attributedText = streakData.getTitle().dkAttributedString().font(UIFont.systemFont(ofSize: 18)).bold().build()
-        configureCurrent(config: config)
-        configureBest(config: config)
-        configureSlider(config: config)
-        configureTripNumber(config: config)
-        configureHelpButton(config: config)
+        theme.attributedText = streakData.getTitle().dkAttributedString().font(DriveKitUI.shared.secondaryFont(size: 18)).bold().color(DriveKitUI.shared.colors.mainFontColor).build()
+        configureCurrent()
+        configureBest()
+        configureSlider()
+        configureTripNumber()
+        configureHelpButton()
     }
     
-    private func configureCurrent(config : DriverAchievementConfig) {
-        let stats = streak.getCurrentTripNumber().dkAttributedString().font(UIFont.systemFont(ofSize: 22)).bold().color(config.secondaryColor).build()
-        let tripText = streak.getCurrentTripNumberText().dkAttributedString().font(UIFont.systemFont(ofSize: 12)).normal().color(config.secondaryColor).build()
-        let secondaryString = " - \(streak.getCurrentDistance()) - \(streak.getCurrentDuration())".dkAttributedString().font(UIFont.systemFont(ofSize: 12)).normal().build()
+    private func configureCurrent() {
+        let stats = streak.getCurrentTripNumber().dkAttributedString().font(DriveKitUI.shared.secondaryFont(size: 22)).bold().color(DriveKitUI.shared.colors.secondaryColor).build()
+        let tripText = streak.getCurrentTripNumberText().dkAttributedString().font(DriveKitUI.shared.secondaryFont(size: 12)).normal().color(DriveKitUI.shared.colors.secondaryColor).build()
+        let secondaryString = " - \(streak.getCurrentDistance()) - \(streak.getCurrentDuration())".dkAttributedString().font(DriveKitUI.shared.secondaryFont(size: 12)).normal().color(DriveKitUI.shared.colors.mainFontColor).build()
         stats.append(NSAttributedString(string: " "))
         stats.append(tripText)
         stats.append(secondaryString)
         currentStats.attributedText = stats
         switch streak.status {
         case .best,.inProgress, .initialization:
-            currentDate.attributedText = streak.getCurrentDate().dkAttributedString().font(UIFont.systemFont(ofSize: 12)).normal().build()
+            currentDate.attributedText = streak.getCurrentDate().dkAttributedString().font(DriveKitUI.shared.secondaryFont(size: 12)).normal().color(DriveKitUI.shared.colors.mainFontColor).build()
         case .reset:
-            currentDate.attributedText = streak.getResetText().dkAttributedString().font(UIFont.systemFont(ofSize: 12)).normal().build()
+            currentDate.attributedText = streak.getResetText().dkAttributedString().font(DriveKitUI.shared.secondaryFont(size: 12)).normal().color(DriveKitUI.shared.colors.mainFontColor).build()
         }
     }
     
-    private func configureBest(config : DriverAchievementConfig) {
-        let stats = streak.getBestTripNumber().dkAttributedString().font(UIFont.systemFont(ofSize: 18)).bold().build()
-        let secondaryString = " \(streak.getBestTripNumberText()) - \(streak.getBestDistance()) - \(streak.getBestDuration())".dkAttributedString().font(UIFont.systemFont(ofSize: 12)).normal().build()
+    private func configureBest() {
+        let stats = streak.getBestTripNumber().dkAttributedString().font(DriveKitUI.shared.secondaryFont(size: 18)).bold().color(DriveKitUI.shared.colors.mainFontColor).build()
+        let secondaryString = " \(streak.getBestTripNumberText()) - \(streak.getBestDistance()) - \(streak.getBestDuration())".dkAttributedString().font(DriveKitUI.shared.secondaryFont(size: 12)).normal().color(DriveKitUI.shared.colors.mainFontColor).build()
         stats.append(secondaryString)
         bestStats.attributedText = stats
         switch streak.status {
         case .initialization:
-            bestDate.attributedText = "dk_streaks_empty".dkAchievementLocalized().dkAttributedString().font(UIFont.systemFont(ofSize: 12)).normal().build()
+            bestDate.attributedText = "dk_streaks_empty".dkAchievementLocalized().dkAttributedString().font(DriveKitUI.shared.secondaryFont(size: 12)).normal().color(DriveKitUI.shared.colors.mainFontColor).build()
         case .inProgress, .reset:
-            bestDate.attributedText = streak.getBestDates().dkAttributedString().font(UIFont.systemFont(ofSize: 12)).normal().build()
+            bestDate.attributedText = streak.getBestDates().dkAttributedString().font(DriveKitUI.shared.secondaryFont(size: 12)).normal().color(DriveKitUI.shared.colors.mainFontColor).build()
         case .best:
-            bestStats.attributedText = "dk_streaks_congrats".dkAchievementLocalized().dkAttributedString().font(UIFont.systemFont(ofSize: 18)).bold().build()
-            bestDate.attributedText = "dk_streaks_congrats_text".dkAchievementLocalized().dkAttributedString().font(UIFont.systemFont(ofSize: 12)).normal().build()
+            bestStats.attributedText = "dk_streaks_congrats".dkAchievementLocalized().dkAttributedString().font(DriveKitUI.shared.secondaryFont(size: 18)).bold().color(DriveKitUI.shared.colors.mainFontColor).build()
+            bestDate.attributedText = "dk_streaks_congrats_text".dkAchievementLocalized().dkAttributedString().font(DriveKitUI.shared.secondaryFont(size: 12)).normal().color(DriveKitUI.shared.colors.mainFontColor).build()
         }
     }
     
-    private func configureSlider(config : DriverAchievementConfig) {
+    private func configureSlider() {
         slider.setValue(Float(streak.progressPercent), animated: false)
         switch streak.status {
         case .inProgress, .initialization, .reset:
-            slider.setThumbImage(makeCircleWith(size: CGSize(width: 15, height: 15), backgroundColor: config.secondaryColor), for: .normal)
+            slider.setThumbImage(makeCircleWith(size: CGSize(width: 15, height: 15), backgroundColor: DriveKitUI.shared.colors.secondaryColor), for: .normal)
         case .best:
             slider.setThumbImage(UIImage(), for: .normal)
         }
         
-        slider.minimumTrackTintColor = config.secondaryColor
-        slider.maximumTrackTintColor = UIColor.dkGrayText
+        slider.minimumTrackTintColor = DriveKitUI.shared.colors.secondaryColor
+        slider.maximumTrackTintColor = DriveKitUI.shared.colors.mainFontColor
     }
     
-    private func configureTripNumber(config : DriverAchievementConfig){
+    private func configureTripNumber(){
         currentTripNumberView.layer.cornerRadius = 16
         currentTripNumberView.layer.borderWidth = 2.0
-        var color = UIColor.dkGrayText
+        var color = DriveKitUI.shared.colors.mainFontColor
         if streak.status == .best {
-            color = config.secondaryColor
+            color = DriveKitUI.shared.colors.secondaryColor
         }
         currentTripNumberView.layer.borderColor = color.cgColor
-        currentTripNumberLabel.attributedText = self.streak.getBestTripNumber().dkAttributedString().font(UIFont.systemFont(ofSize: 18)).bold().color(color).build()
+        currentTripNumberLabel.attributedText = self.streak.getBestTripNumber().dkAttributedString().font(DriveKitUI.shared.secondaryFont(size: 18)).bold().color(color).build()
     }
     
-    private func configureHelpButton(config : DriverAchievementConfig) {
+    private func configureHelpButton() {
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(helpClicked))
         helpView.isUserInteractionEnabled = true
         helpView.addGestureRecognizer(singleTap)
         let helpImage = UIImage(named: "dk_help", in: Bundle.driverAchievementUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         helpView.image = helpImage
-        helpView.tintColor = config.secondaryColor
+        helpView.tintColor = DriveKitUI.shared.colors.secondaryColor
     }
     
     @objc func helpClicked() {

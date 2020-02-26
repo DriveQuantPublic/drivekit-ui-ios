@@ -191,6 +191,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="HuX-zm-2SQ" secondAttribute="trailing" constant="8" id="9Ng-qt-Lz0"/>
                     <constraint firstItem="HuX-zm-2SQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="DRG-ht-rxC"/>
@@ -198,6 +199,7 @@
                     <constraint firstAttribute="bottom" secondItem="HuX-zm-2SQ" secondAttribute="bottom" constant="8" id="FJY-zV-3he"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="bestDate" destination="AG6-jm-aOz" id="71S-qV-gm3"/>

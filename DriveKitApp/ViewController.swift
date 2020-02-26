@@ -170,7 +170,7 @@ class ViewController: UITableViewController {
     }
     
     func configureDriverStreak() {
-        let streakVC = StreakViewController(config : DriverAchievementConfig())
+        let streakVC = StreakViewController()
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationController?.pushViewController(streakVC, animated: true)
     }

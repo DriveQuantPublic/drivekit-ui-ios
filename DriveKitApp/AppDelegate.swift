@@ -33,9 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         requestNotificationPermission()
         configureDriveKit(launchOptions: launchOptions)
+        DriveKitUI.shared.initialize(colors: self, fonts: self)
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options : \(options)")
-        var sdkBundle = Bundle(for: DriveKit.self)
-        print(sdkBundle.bundleIdentifier)
         return true
     }
     
@@ -140,8 +139,6 @@ extension AppDelegate: TripListener {
     func significantLocationChangeDetected(location: CLLocation) {
         print("Trip Location significant change detected")
     }
-    
-    
 }
 
 extension CancelTrip {
@@ -170,11 +167,25 @@ extension String {
 
 extension AppDelegate : DKColors {
     var primaryColor : UIColor { get { return UIColor(hex:0x0B4D6E) }}
-    var secondaryColor : UIColor { get { return UIColor(hex: 0x00EBB8) }}
+    var secondaryColor : UIColor { get { return UIColor(hex: 0x77E2B2) }}
     var mainFontColor : UIColor { get { return UIColor(hex: 0x616161) }}
-    var complementaryFontColor : UIColor { get { UIColor(hex: 0x9E9E9E) }}
+    var complementaryFontColor : UIColor { get { UIColor(hex: 0x0B4D6E) }}
     var fontColorOnPrimaryColor : UIColor { get { return UIColor.white }}
     var fontColorOnSecondaryColor : UIColor { get { return UIColor.white }}
     var warningColor : UIColor { get { return UIColor(hex: 0xff6e57) }}
-    var criticalColor : UIColor { get { return UIColor(hex: 0xf2a365) }}
+    var criticalColor : UIColor { get { return UIColor(hex: 0xE52027) }}
+    var neutralColor: UIColor { get { return UIColor(hex: 0xF0F0F0) }}
+    var backgroundViewColor: UIColor { get { return /*UIColor(hex: 0xFAFAFA)*/UIColor.red }}
+}
+
+extension AppDelegate : DKFonts {
+    var primaryFont: String {
+        get { return "CourierNewPSMT"}
+    }
+    
+    var secondaryFont: String {
+        get { return "SnellRoundhand"}
+    }
+    
+    
 }

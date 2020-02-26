@@ -10,7 +10,7 @@ import UIKit
 
 extension String {
     public func dkAchievementLocalized() -> String {
-        return NSLocalizedString(self, tableName: "DriverAchievementLocalizables", bundle: Bundle.driverAchievementUIBundle ?? .main, value: self, comment: "")
+        return NSLocalizedString(self, tableName: "DriverAchievementLocalizables", bundle: Bundle.driverAchievementUIBundle ?? .main, value: "", comment: "")
     }
 }
 

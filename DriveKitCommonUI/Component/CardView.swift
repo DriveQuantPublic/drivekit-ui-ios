@@ -8,8 +8,8 @@
 
 import UIKit
 
-class CardView: UIView {
-    override func awakeFromNib() {
+public class CardView: UIView {
+    override public func awakeFromNib() {
         super.awakeFromNib()
         setup()
     }

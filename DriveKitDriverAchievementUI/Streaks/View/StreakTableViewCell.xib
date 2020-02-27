@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="293"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HuX-zm-2SQ" customClass="CardView" customModule="DriveKitDriverAchievementUI" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HuX-zm-2SQ" customClass="CardView" customModule="DriveKitCommonUI">
                         <rect key="frame" x="8" y="8" width="304" height="277"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tSb-7T-okt">

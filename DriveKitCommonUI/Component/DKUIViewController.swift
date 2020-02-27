@@ -10,23 +10,28 @@ import UIKit
 
 open class DKUIViewController : UIViewController{
     
+    private var overlay: UIView? = nil
+    private var loader: UIActivityIndicatorView = UIActivityIndicatorView()
+    
     open override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = DriveKitUI.shared.colors.backgroundViewColor
     }
     
     open func showLoader() {
-        let alert = UIAlertController(title: nil, message: DKCommonLocalizable.loading.text(), preferredStyle: .alert)
-        let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.style = UIActivityIndicatorView.Style.gray
-        loadingIndicator.startAnimating();
-        alert.view.addSubview(loadingIndicator)
-        present(alert, animated: false, completion: nil)
+        let darkView = UIView(frame: UIScreen.main.bounds)
+        darkView.backgroundColor = UIColor.darkGray.withAlphaComponent(0.8)
+        let loaderView = UIActivityIndicatorView(style: .whiteLarge)
+        loaderView.center = darkView.center
+        darkView.tag = 1000
+        darkView.addSubview(loaderView)
+        view.addSubview(darkView)
+        loaderView.startAnimating()
     }
     
     open func hideLoader() {
-        dismiss(animated: true, completion: nil)
+        if let loaderView = view.viewWithTag(1000) {
+            loaderView.removeFromSuperview()
+        }
     }
-    
 }

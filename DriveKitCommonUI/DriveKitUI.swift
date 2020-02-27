@@ -13,7 +13,7 @@ import UIKit
     @objc public static let shared = DriveKitUI()
     
     public var colors : DKColors!
-    private var fonts : DKFonts!
+    var fonts : DKFonts!
     var overridedStringFileName : String?
     
     private override init() {}
@@ -24,11 +24,5 @@ import UIKit
         self.overridedStringFileName = overridedStringsFileName
     }
     
-    @objc public func primaryFont(size: CGFloat) -> UIFont {
-        return UIFont(name: fonts.primaryFont, size: size) ?? UIFont.systemFont(ofSize: size)
-    }
     
-    @objc public func secondaryFont(size: CGFloat) -> UIFont {
-        return UIFont(name: fonts.secondaryFont, size: size) ?? UIFont.systemFont(ofSize: size)
-    }
 }

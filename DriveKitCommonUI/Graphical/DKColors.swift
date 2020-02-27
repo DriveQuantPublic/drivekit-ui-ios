@@ -22,7 +22,7 @@ import UIKit
 }
 
 public class DKDefaultColors : DKColors {
-   
+    
     public init() {}
     public var primaryColor : UIColor { get { return UIColor(hex:0x0B4D6E) }}
     public var secondaryColor : UIColor { get { return UIColor(hex: 0x77E2B2) }}
@@ -34,4 +34,42 @@ public class DKDefaultColors : DKColors {
     public var criticalColor : UIColor { get { return UIColor(hex: 0xE52027) }}
     public var neutralColor: UIColor { get { return UIColor(hex: 0xF0F0F0) }}
     public var backgroundViewColor: UIColor { get { return UIColor(hex: 0xFAFAFA) }}
+}
+
+public enum DKUIColors {
+    case primaryColor,
+    secondaryColor,
+    mainFontColor,
+    complementaryFontColor,
+    fontColorOnPrimaryColor,
+    fontColorOnSecondar,
+    warningColor,
+    criticalColor,
+    neutralColor,
+    backgroundView
+    
+    public var color : UIColor {
+        switch self {
+        case .primaryColor:
+            return DriveKitUI.shared.colors.primaryColor
+        case .secondaryColor:
+            return DriveKitUI.shared.colors.secondaryColor
+        case .mainFontColor:
+            return DriveKitUI.shared.colors.mainFontColor
+        case .complementaryFontColor:
+            return DriveKitUI.shared.colors.complementaryFontColor
+        case .fontColorOnPrimaryColor:
+            return DriveKitUI.shared.colors.fontColorOnPrimaryColor
+        case .fontColorOnSecondar:
+            return DriveKitUI.shared.colors.fontColorOnSecondaryColor
+        case .warningColor:
+            return DriveKitUI.shared.colors.warningColor
+        case .criticalColor:
+            return DriveKitUI.shared.colors.criticalColor
+        case .neutralColor:
+            return DriveKitUI.shared.colors.neutralColor
+        case .backgroundView:
+            return DriveKitUI.shared.colors.backgroundViewColor
+        }
+    }
 }

@@ -34,12 +34,14 @@ public class StreakViewController: DKUIViewController {
         self.tableView.delegate = self
         let nib = UINib(nibName: "StreakTableViewCell", bundle: Bundle.driverAchievementUIBundle)
         tableView.register(nib, forCellReuseIdentifier: "StreakTableViewCell")
+        self.showLoader()
     }
 }
 
 extension StreakViewController : StreakVMDelegate {
     func streaksUpdated() {
         DispatchQueue.main.async{
+            self.hideLoader()
             self.tableView.reloadData()
         }
     }

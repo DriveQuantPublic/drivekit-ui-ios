@@ -10,6 +10,7 @@ import Foundation
 import DriveKitDriverAchievement
 import DriveKitDBAchievementAccess
 import UIKit
+import DriveKitCommonUI
 
 class StreakViewModel {
     
@@ -100,9 +101,9 @@ struct StreakData {
     }
     
     private func getTripNumberText(tripNumber : Int32?) -> String {
-        var tripsText = "dk_streaks_trip".dkAchievementLocalized()
+        var tripsText = DKCommonLocalizable.tripSingular.text()
         if let tripNb = tripNumber, tripNb > 1 {
-            tripsText = "dk_streaks_trips".dkAchievementLocalized()
+            tripsText = DKCommonLocalizable.tripPlural.text()
         }
         return tripsText
     }
@@ -137,17 +138,17 @@ struct StreakData {
     
     func getCurrentDate() -> String {
         if let date = streak.current?.startDate {
-            return String(format: "dk_streaks_since".dkAchievementLocalized(), date.format(with: "dd/MM/yyyy"))
+            return String(format: "dk_achievements_streaks_since".dkAchievementLocalized(), date.format(with: "dd/MM/yyyy"))
         }else{
-            return String(format: "dk_streaks_since".dkAchievementLocalized(), Date().format(with: "dd/MM/yyyy"))
+            return String(format: "dk_achievements_streaks_since".dkAchievementLocalized(), Date().format(with: "dd/MM/yyyy"))
         }
     }
     
     func getBestDates() -> String {
         if let start = streak.best?.startDate, let end = streak.best?.endDate {
-            return String(format: "dk_streaks_since_to".dkAchievementLocalized(), start.format(with: "dd/MM/yyyy"), end.format(with: "dd/MM/yyyy"))
+            return String(format: "dk_achievements_streaks_since_to".dkAchievementLocalized(), start.format(with: "dd/MM/yyyy"), end.format(with: "dd/MM/yyyy"))
         }else{
-            return "dk_streaks_empty".dkAchievementLocalized()
+            return "dk_achievements_streaks_empty".dkAchievementLocalized()
         }
     }
 }

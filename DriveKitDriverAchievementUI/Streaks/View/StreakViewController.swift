@@ -27,7 +27,7 @@ public class StreakViewController: DKUIViewController {
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "dk_menu_streaks".dkAchievementLocalized()
+        self.title = "dk_achievements_menu_streaks".dkAchievementLocalized()
         self.viewModel.delegate = self
         self.viewModel.getStreakData()
         self.tableView.dataSource = self
@@ -66,6 +66,3 @@ extension StreakViewController : UITableViewDelegate {
     }
 }
 
-extension Bundle {
-    static let driverAchievementUIBundle = Bundle(identifier: "com.drivequant.drivekit-driver-achievement-ui")
-}

@@ -33,68 +33,68 @@ enum StreakDataType {
     var theme : String {
         switch self {
         case .acceleration:
-            return "dk_streaks_acceleration_title".dkAchievementLocalized()
+            return "dk_achievements_streaks_acceleration_title".dkAchievementLocalized()
         case .adherence:
-            return "dk_streaks_adherence_title".dkAchievementLocalized()
+            return "dk_achievements_streaks_adherence_title".dkAchievementLocalized()
         case .brake:
-            return "dk_streaks_brake_title".dkAchievementLocalized()
+            return "dk_achievements_streaks_brake_title".dkAchievementLocalized()
         case .phoneDistraction:
-            return "dk_streaks_phone_distraction_title".dkAchievementLocalized()
+            return "dk_achievements_streaks_phone_distraction_title".dkAchievementLocalized()
         case .safety:
-            return "dk_streaks_safety_title".dkAchievementLocalized()
+            return "dk_achievements_streaks_safety_title".dkAchievementLocalized()
         case .speedLimits:
-            return "dk_streaks_speeding_title".dkAchievementLocalized()
+            return "dk_achievements_streaks_speeding_title".dkAchievementLocalized()
         }
     }
     
     var icon : UIImage? {
         switch self {
         case .acceleration:
-            return UIImage(named: "dk_safety_accel", in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
+            return UIImage(named: "dk_achievements_safety_accel", in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
         case .adherence:
-            return UIImage(named: "dk_safety_adherence", in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
+            return UIImage(named: "dk_achievements_safety_adherence", in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
         case .brake:
-            return UIImage(named: "dk_safety_decel", in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
+            return UIImage(named: "dk_achievements_safety_decel", in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
         case .phoneDistraction:
-            return UIImage(named: "dk_distraction", in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
+            return UIImage(named: "dk_achievements_distraction", in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
         case .safety:
-            return UIImage(named: "dk_safety", in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
+            return UIImage(named: "dk_achievements_safety", in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
         case .speedLimits:
-            return UIImage(named: "dk_eco_accel", in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
+            return UIImage(named: "dk_achievements_eco_accel", in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
         }
     }
     
     var description : String {
         switch self {
         case .acceleration:
-            return "dk_streaks_acceleration_text".dkAchievementLocalized()
+            return "dk_achievements_streaks_acceleration_text".dkAchievementLocalized()
         case .adherence:
-            return "dk_streaks_adherence_text".dkAchievementLocalized()
+            return "dk_achievements_streaks_adherence_text".dkAchievementLocalized()
         case .brake:
-            return "dk_streaks_brake_text".dkAchievementLocalized()
+            return "dk_achievements_streaks_brake_text".dkAchievementLocalized()
         case .phoneDistraction:
-            return "dk_streaks_phone_distraction_text".dkAchievementLocalized()
+            return "dk_achievements_streaks_phone_distraction_text".dkAchievementLocalized()
         case .safety:
-            return "dk_streaks_safety_text".dkAchievementLocalized()
+            return "dk_achievements_streaks_safety_text".dkAchievementLocalized()
         case .speedLimits:
-            return "dk_streaks_speeding_text".dkAchievementLocalized()
+            return "dk_achievements_streaks_speeding_text".dkAchievementLocalized()
         }
     }
     
     var resetText : String {
         switch self {
         case .acceleration:
-            return "dk_streaks_acceleration_reset".dkAchievementLocalized()
+            return "dk_achievements_streaks_acceleration_reset".dkAchievementLocalized()
         case .adherence:
-            return "dk_streaks_adherence_reset".dkAchievementLocalized()
+            return "dk_achievements_streaks_adherence_reset".dkAchievementLocalized()
         case .brake:
-            return "dk_streaks_brake_reset".dkAchievementLocalized()
+            return "dk_achievements_streaks_brake_reset".dkAchievementLocalized()
         case .phoneDistraction:
-            return "dk_streaks_phone_distraction_reset".dkAchievementLocalized()
+            return "dk_achievements_streaks_phone_distraction_reset".dkAchievementLocalized()
         case .safety:
-            return "dk_streaks_safety_reset".dkAchievementLocalized()
+            return "dk_achievements_streaks_safety_reset".dkAchievementLocalized()
         case .speedLimits:
-            return "dk_streaks_speeding_reset".dkAchievementLocalized()
+            return "dk_achievements_streaks_speeding_reset".dkAchievementLocalized()
         }
     }
 }

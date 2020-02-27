@@ -34,8 +34,8 @@ class StreakTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        currentTitle.attributedText = "dk_streaks_current_title".dkAchievementLocalized().dkAttributedString().font(DriveKitUI.shared.secondaryFont(size: 16)).bold().color(DriveKitUI.shared.colors.mainFontColor).build()
-        bestTitle.attributedText = "dk_streaks_best_title".dkAchievementLocalized().dkAchievementLocalized().dkAttributedString().font(DriveKitUI.shared.secondaryFont(size: 16)).bold().color(DriveKitUI.shared.colors.mainFontColor).build()
+        currentTitle.attributedText = "dk_achievements_streaks_current_title".dkAchievementLocalized().dkAttributedString().font(DriveKitUI.shared.secondaryFont(size: 16)).bold().color(DriveKitUI.shared.colors.mainFontColor).build()
+        bestTitle.attributedText = "dk_achievements_streaks_best_title".dkAchievementLocalized().dkAchievementLocalized().dkAttributedString().font(DriveKitUI.shared.secondaryFont(size: 16)).bold().color(DriveKitUI.shared.colors.mainFontColor).build()
         
     }
     
@@ -74,12 +74,12 @@ class StreakTableViewCell: UITableViewCell {
         bestStats.attributedText = stats
         switch streak.status {
         case .initialization:
-            bestDate.attributedText = "dk_streaks_empty".dkAchievementLocalized().dkAttributedString().font(DriveKitUI.shared.secondaryFont(size: 12)).normal().color(DriveKitUI.shared.colors.mainFontColor).build()
+            bestDate.attributedText = "dk_achievements_streaks_empty".dkAchievementLocalized().dkAttributedString().font(DriveKitUI.shared.secondaryFont(size: 12)).normal().color(DriveKitUI.shared.colors.mainFontColor).build()
         case .inProgress, .reset:
             bestDate.attributedText = streak.getBestDates().dkAttributedString().font(DriveKitUI.shared.secondaryFont(size: 12)).normal().color(DriveKitUI.shared.colors.mainFontColor).build()
         case .best:
-            bestStats.attributedText = "dk_streaks_congrats".dkAchievementLocalized().dkAttributedString().font(DriveKitUI.shared.secondaryFont(size: 18)).bold().color(DriveKitUI.shared.colors.mainFontColor).build()
-            bestDate.attributedText = "dk_streaks_congrats_text".dkAchievementLocalized().dkAttributedString().font(DriveKitUI.shared.secondaryFont(size: 12)).normal().color(DriveKitUI.shared.colors.mainFontColor).build()
+            bestStats.attributedText = "dk_achievements_streaks_congrats".dkAchievementLocalized().dkAttributedString().font(DriveKitUI.shared.secondaryFont(size: 18)).bold().color(DriveKitUI.shared.colors.mainFontColor).build()
+            bestDate.attributedText = "dk_achievements_streaks_congrats_text".dkAchievementLocalized().dkAttributedString().font(DriveKitUI.shared.secondaryFont(size: 12)).normal().color(DriveKitUI.shared.colors.mainFontColor).build()
         }
     }
     
@@ -118,7 +118,7 @@ class StreakTableViewCell: UITableViewCell {
     
     @objc func helpClicked() {
         let alert = UIAlertController(title: streak.getTitle(), message: streak.getDescriptionText(), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "dk_ok".dkAchievementLocalized(), style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default, handler: nil))
         if let viewController = parentViewController {
             viewController.present(alert, animated: true)
         }

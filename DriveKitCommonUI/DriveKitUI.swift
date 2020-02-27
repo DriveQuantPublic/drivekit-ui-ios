@@ -14,12 +14,14 @@ import UIKit
     
     public var colors : DKColors!
     private var fonts : DKFonts!
+    var overridedStringFileName : String?
     
     private override init() {}
     
-    @objc public func initialize(colors : DKColors = DKDefaultColors(), fonts: DKFonts = DKDefaultFonts()) {
+    @objc public func initialize(colors : DKColors = DKDefaultColors(), fonts: DKFonts = DKDefaultFonts(), overridedStringsFileName : String? = nil) {
         self.colors = colors
         self.fonts = fonts
+        self.overridedStringFileName = overridedStringsFileName
     }
     
     @objc public func primaryFont(size: CGFloat) -> UIFont {

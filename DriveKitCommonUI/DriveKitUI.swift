@@ -23,6 +23,4 @@ import UIKit
         self.fonts = fonts
         self.overridedStringFileName = overridedStringsFileName
     }
-    
-    
 }

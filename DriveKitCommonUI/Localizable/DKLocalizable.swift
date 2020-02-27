@@ -62,7 +62,7 @@ public extension String {
     func dkLocalized(tableName: String, bundle : Bundle) -> String {
         if let overridedFile = DriveKitUI.shared.overridedStringFileName {
             let localizedString = NSLocalizedString(self, tableName: overridedFile, bundle: .main, value: "", comment: "")
-            if localizedString.isEmpty {
+            if localizedString.isEmpty || localizedString == self {
                 return NSLocalizedString(self, tableName: tableName, bundle: bundle, value: self, comment: "")
             } else {
                 return localizedString

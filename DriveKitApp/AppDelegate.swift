@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         requestNotificationPermission()
         configureDriveKit(launchOptions: launchOptions)
-        DriveKitUI.shared.initialize(colors: self, fonts: self)
+        DriveKitUI.shared.initialize(colors: self, fonts: self, overridedStringsFileName: "Localizable")
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options : \(options)")
         return true
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 
 enum StreakDataType {
     case phoneDistraction, safety, adherence, brake, acceleration, speedLimits
@@ -50,17 +51,17 @@ enum StreakDataType {
     var icon : UIImage? {
         switch self {
         case .acceleration:
-            return UIImage(named: "dk_achievements_safety_accel", in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
+            return DKImages.safetyAccel.image
         case .adherence:
-            return UIImage(named: "dk_achievements_safety_adherence", in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
+            return DKImages.safetyAdherence.image
         case .brake:
-            return UIImage(named: "dk_achievements_safety_decel", in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
+            return DKImages.safetyDecel.image
         case .phoneDistraction:
-            return UIImage(named: "dk_achievements_distraction", in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
+            return DKImages.distractionFilled.image
         case .safety:
-            return UIImage(named: "dk_achievements_safety", in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
+            return DKImages.safety.image
         case .speedLimits:
-            return UIImage(named: "dk_achievements_eco_accel", in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
+            return DKImages.ecoAccel.image
         }
     }
     

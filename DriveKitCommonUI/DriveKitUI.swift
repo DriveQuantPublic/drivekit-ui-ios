@@ -24,3 +24,7 @@ import UIKit
         self.overridedStringFileName = overridedStringsFileName
     }
 }
+
+extension Bundle {
+    static let driveKitCommonUIBundle = Bundle(identifier: "com.drivequant.drivekit-common-ui")
+}

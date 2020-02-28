@@ -43,6 +43,7 @@ class StreakTableViewCell: UITableViewCell {
         self.streak = streakData
         self.parentViewController = viewController
         streakIcon.image = streakData.getIcon()
+        streakIcon.tintColor = .black
         theme.attributedText = streakData.getTitle().dkAttributedString().font(dkFont: .secondary, style: .headLine1).color(.mainFontColor).build()
         configureCurrent()
         configureBest()
@@ -111,7 +112,7 @@ class StreakTableViewCell: UITableViewCell {
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(helpClicked))
         helpView.isUserInteractionEnabled = true
         helpView.addGestureRecognizer(singleTap)
-        let helpImage = UIImage(named: "dk_help", in: Bundle.driverAchievementUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+        let helpImage = DKImages.info.image
         helpView.image = helpImage
         helpView.tintColor = DriveKitUI.shared.colors.secondaryColor
     }

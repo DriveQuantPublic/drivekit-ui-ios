@@ -39,10 +39,11 @@
 		3FF68E7C240938CD0071D74C /* DriveKitNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68E7B240938CD0071D74C /* DriveKitNavigationController.swift */; };
 		3FF68E7E240939040071D74C /* DriveKitDriverAchievementUIEntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68E7D240939040071D74C /* DriveKitDriverAchievementUIEntryPoint.swift */; };
 		3FF68E80240939BC0071D74C /* DriveKitDriverDataUIEntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68E7F240939BC0071D74C /* DriveKitDriverDataUIEntryPoint.swift */; };
+		3FF68E82240965E10071D74C /* DKImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF68E81240965E10071D74C /* DKImages.xcassets */; };
+		3FF68E84240966120071D74C /* DKImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68E83240966120071D74C /* DKImages.swift */; };
 		3FFAD1FE23EDBCD500D1A16C /* DriveKitDriverAchievementUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FFAD1FC23EDBCD500D1A16C /* DriveKitDriverAchievementUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3FFAD20123EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFAD1FA23EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework */; };
 		3FFAD20223EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFAD1FA23EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3FFAD20723EDBD7100D1A16C /* DKDriverAchievement.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FFAD20623EDBD7100D1A16C /* DKDriverAchievement.xcassets */; };
 		3FFAD20E23EDBF2F00D1A16C /* StreakViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFAD20C23EDBF2F00D1A16C /* StreakViewController.swift */; };
 		3FFAD20F23EDBF2F00D1A16C /* StreakViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FFAD20D23EDBF2F00D1A16C /* StreakViewController.xib */; };
 		3FFAD21123EDC0FF00D1A16C /* StreakViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFAD21023EDC0FF00D1A16C /* StreakViewModel.swift */; };
@@ -233,10 +234,11 @@
 		3FF68E7B240938CD0071D74C /* DriveKitNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveKitNavigationController.swift; sourceTree = "<group>"; };
 		3FF68E7D240939040071D74C /* DriveKitDriverAchievementUIEntryPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveKitDriverAchievementUIEntryPoint.swift; sourceTree = "<group>"; };
 		3FF68E7F240939BC0071D74C /* DriveKitDriverDataUIEntryPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveKitDriverDataUIEntryPoint.swift; sourceTree = "<group>"; };
+		3FF68E81240965E10071D74C /* DKImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DKImages.xcassets; sourceTree = "<group>"; };
+		3FF68E83240966120071D74C /* DKImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKImages.swift; sourceTree = "<group>"; };
 		3FFAD1FA23EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DriveKitDriverAchievementUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FFAD1FC23EDBCD500D1A16C /* DriveKitDriverAchievementUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DriveKitDriverAchievementUI.h; sourceTree = "<group>"; };
 		3FFAD1FD23EDBCD500D1A16C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3FFAD20623EDBD7100D1A16C /* DKDriverAchievement.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DKDriverAchievement.xcassets; sourceTree = "<group>"; };
 		3FFAD20C23EDBF2F00D1A16C /* StreakViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakViewController.swift; sourceTree = "<group>"; };
 		3FFAD20D23EDBF2F00D1A16C /* StreakViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StreakViewController.xib; sourceTree = "<group>"; };
 		3FFAD21023EDC0FF00D1A16C /* StreakViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakViewModel.swift; sourceTree = "<group>"; };
@@ -410,6 +412,8 @@
 				3F0740E92403BBFC005A8D07 /* DKColors.swift */,
 				3F0740EB240400E0005A8D07 /* DKFonts.swift */,
 				3FF68E6D24081A5A0071D74C /* DKStyles.swift */,
+				3FF68E81240965E10071D74C /* DKImages.xcassets */,
+				3FF68E83240966120071D74C /* DKImages.swift */,
 			);
 			path = Graphical;
 			sourceTree = "<group>";
@@ -476,7 +480,6 @@
 				3FF68E6B2407F8110071D74C /* DriveKitDriverAchievementUI.swift */,
 				3FFAD1FC23EDBCD500D1A16C /* DriveKitDriverAchievementUI.h */,
 				3FFAD1FD23EDBCD500D1A16C /* Info.plist */,
-				3FFAD20623EDBD7100D1A16C /* DKDriverAchievement.xcassets */,
 			);
 			path = DriveKitDriverAchievementUI;
 			sourceTree = "<group>";
@@ -940,6 +943,7 @@
 			files = (
 				3F0740F02404263D005A8D07 /* Roboto-Bold.ttf in Resources */,
 				3F0740EF2404263D005A8D07 /* Roboto-Regular.ttf in Resources */,
+				3FF68E82240965E10071D74C /* DKImages.xcassets in Resources */,
 				3FF68E642407F56F0071D74C /* CommonLocalizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -948,7 +952,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FFAD20723EDBD7100D1A16C /* DKDriverAchievement.xcassets in Resources */,
 				3FB5643523F5AA2900F010E3 /* StreakTableViewCell.xib in Resources */,
 				3FFAD20F23EDBF2F00D1A16C /* StreakViewController.xib in Resources */,
 				3FB5644123F6B4F000F010E3 /* DriverAchievementLocalizables.strings in Resources */,
@@ -1100,6 +1103,7 @@
 				3FF68E752408390A0071D74C /* CardView.swift in Sources */,
 				3F0740EC240400E0005A8D07 /* DKFonts.swift in Sources */,
 				3F7524CE2407A89100AC22CC /* DKLocalizable.swift in Sources */,
+				3FF68E84240966120071D74C /* DKImages.swift in Sources */,
 				3FF68E7024081F060071D74C /* DKAttributedStringBuilder.swift in Sources */,
 				3F7524CB2406C4CC00AC22CC /* DKUIViewController.swift in Sources */,
 				3FF68E72240823190071D74C /* UIFont+DK.swift in Sources */,

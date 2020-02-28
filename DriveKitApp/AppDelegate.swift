@@ -14,6 +14,7 @@ import DriveKitDriverData
 import CoreLocation
 import DriveKitDBTripAccess
 import DriveKitCommonUI
+import DriveKitDriverAchievementUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -34,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         requestNotificationPermission()
         configureDriveKit(launchOptions: launchOptions)
         DriveKitUI.shared.initialize(colors: self, fonts: self, overridedStringsFileName: "Localizable")
+        DriveKitDriverAchievementUI.shared.initialize()
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options : \(options)")
         return true
     }

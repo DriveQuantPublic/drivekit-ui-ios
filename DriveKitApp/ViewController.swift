@@ -12,7 +12,7 @@ import DriveKitDriverDataUI
 import DriveKitTripAnalysis
 import CoreLocation
 import CoreMotion
-import DriveKitDriverAchievementUI
+import DriveKitCommonUI
 
 class ViewController: UITableViewController {
     
@@ -170,9 +170,12 @@ class ViewController: UITableViewController {
     }
     
     func configureDriverStreak() {
-        let streakVC = StreakViewController()
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        self.navigationController?.pushViewController(streakVC, animated: true)
+        if let driverAchievementUI = DriveKitNavigationController.shared.driverAchievementUI {
+            let streakVC = driverAchievementUI.getStreakViewController()
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+            self.navigationController?.pushViewController(streakVC, animated: true)
+        }
+        
     }
     
     @IBAction func startTrip(_ sender: Any) {

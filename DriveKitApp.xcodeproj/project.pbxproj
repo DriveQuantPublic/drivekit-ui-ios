@@ -36,6 +36,9 @@
 		3FF68E7024081F060071D74C /* DKAttributedStringBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68E6F24081F060071D74C /* DKAttributedStringBuilder.swift */; };
 		3FF68E72240823190071D74C /* UIFont+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68E71240823190071D74C /* UIFont+DK.swift */; };
 		3FF68E752408390A0071D74C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5643923F68BBE00F010E3 /* CardView.swift */; };
+		3FF68E7C240938CD0071D74C /* DriveKitNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68E7B240938CD0071D74C /* DriveKitNavigationController.swift */; };
+		3FF68E7E240939040071D74C /* DriveKitDriverAchievementUIEntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68E7D240939040071D74C /* DriveKitDriverAchievementUIEntryPoint.swift */; };
+		3FF68E80240939BC0071D74C /* DriveKitDriverDataUIEntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68E7F240939BC0071D74C /* DriveKitDriverDataUIEntryPoint.swift */; };
 		3FFAD1FE23EDBCD500D1A16C /* DriveKitDriverAchievementUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FFAD1FC23EDBCD500D1A16C /* DriveKitDriverAchievementUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3FFAD20123EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFAD1FA23EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework */; };
 		3FFAD20223EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFAD1FA23EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -227,6 +230,9 @@
 		3FF68E6F24081F060071D74C /* DKAttributedStringBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKAttributedStringBuilder.swift; sourceTree = "<group>"; };
 		3FF68E71240823190071D74C /* UIFont+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+DK.swift"; sourceTree = "<group>"; };
 		3FF68E7624083E500071D74C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/DriverAchievementLocalizables.strings; sourceTree = "<group>"; };
+		3FF68E7B240938CD0071D74C /* DriveKitNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveKitNavigationController.swift; sourceTree = "<group>"; };
+		3FF68E7D240939040071D74C /* DriveKitDriverAchievementUIEntryPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveKitDriverAchievementUIEntryPoint.swift; sourceTree = "<group>"; };
+		3FF68E7F240939BC0071D74C /* DriveKitDriverDataUIEntryPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveKitDriverDataUIEntryPoint.swift; sourceTree = "<group>"; };
 		3FFAD1FA23EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DriveKitDriverAchievementUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FFAD1FC23EDBCD500D1A16C /* DriveKitDriverAchievementUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DriveKitDriverAchievementUI.h; sourceTree = "<group>"; };
 		3FFAD1FD23EDBCD500D1A16C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -383,6 +389,7 @@
 		3F0740DB2403BB65005A8D07 /* DriveKitCommonUI */ = {
 			isa = PBXGroup;
 			children = (
+				3FF68E7724083F000071D74C /* Navigation */,
 				3F7524CC2407A84400AC22CC /* Localizable */,
 				3F7524C92406C4B400AC22CC /* Component */,
 				3F0740F424042BB6005A8D07 /* Utils */,
@@ -448,6 +455,16 @@
 				3FB5643B23F6B43C00F010E3 /* Extensions+DK.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3FF68E7724083F000071D74C /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				3FF68E7B240938CD0071D74C /* DriveKitNavigationController.swift */,
+				3FF68E7D240939040071D74C /* DriveKitDriverAchievementUIEntryPoint.swift */,
+				3FF68E7F240939BC0071D74C /* DriveKitDriverDataUIEntryPoint.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		3FFAD1FB23EDBCD500D1A16C /* DriveKitDriverAchievementUI */ = {
@@ -1075,6 +1092,9 @@
 			files = (
 				3F0740EA2403BBFC005A8D07 /* DKColors.swift in Sources */,
 				3F0740E72403BB9A005A8D07 /* DriveKitUI.swift in Sources */,
+				3FF68E7C240938CD0071D74C /* DriveKitNavigationController.swift in Sources */,
+				3FF68E7E240939040071D74C /* DriveKitDriverAchievementUIEntryPoint.swift in Sources */,
+				3FF68E80240939BC0071D74C /* DriveKitDriverDataUIEntryPoint.swift in Sources */,
 				3FF68E6E24081A5A0071D74C /* DKStyles.swift in Sources */,
 				3F0740F3240426C0005A8D07 /* UIColor+DK.swift in Sources */,
 				3FF68E752408390A0071D74C /* CardView.swift in Sources */,

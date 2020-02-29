@@ -117,12 +117,12 @@ struct StreakData {
     }
     
     private func getDistance(distance: Double) -> String {
-        return "\(Int(distance.metersToKilometers(places: 0))) \("dk_unit_km".dkAchievementLocalized())"
+        return distance.formatMeterDistance()
     }
     
     func getCurrentDuration() -> String {
         if let duration = streak.current?.duration {
-            return Double(duration).secondToDayHourMinute()
+            return Double(duration).formatSecondDuration()
         }else{
             return "0 \("dk_unit_minute".dkAchievementLocalized())"
         }
@@ -130,7 +130,7 @@ struct StreakData {
     
     func getBestDuration() -> String {
         if let duration = streak.best?.duration {
-            return Double(duration).secondToDayHourMinute()
+            return Double(duration).formatSecondDuration()
         }else{
             return "0 \("dk_unit_minute".dkAchievementLocalized())"
         }
@@ -138,15 +138,15 @@ struct StreakData {
     
     func getCurrentDate() -> String {
         if let date = streak.current?.startDate {
-            return String(format: "dk_achievements_streaks_since".dkAchievementLocalized(), date.format(with: "dd/MM/yyyy"))
+            return String(format: "dk_achievements_streaks_since".dkAchievementLocalized(), date.format(pattern: .standardDate))
         }else{
-            return String(format: "dk_achievements_streaks_since".dkAchievementLocalized(), Date().format(with: "dd/MM/yyyy"))
+            return String(format: "dk_achievements_streaks_since".dkAchievementLocalized(), Date().format(pattern: .standardDate))
         }
     }
     
     func getBestDates() -> String {
         if let start = streak.best?.startDate, let end = streak.best?.endDate {
-            return String(format: "dk_achievements_streaks_since_to".dkAchievementLocalized(), start.format(with: "dd/MM/yyyy"), end.format(with: "dd/MM/yyyy"))
+            return String(format: "dk_achievements_streaks_since_to".dkAchievementLocalized(), start.format(pattern: .standardDate), end.format(pattern: .standardDate))
         }else{
             return "dk_achievements_streaks_empty".dkAchievementLocalized()
         }

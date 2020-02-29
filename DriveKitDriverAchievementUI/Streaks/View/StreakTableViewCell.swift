@@ -43,7 +43,7 @@ class StreakTableViewCell: UITableViewCell {
         self.streak = streakData
         self.parentViewController = viewController
         streakIcon.image = streakData.getIcon()
-        streakIcon.tintColor = .black
+        streakIcon.tintColor = DKUIColors.mainFontColor.color
         theme.attributedText = streakData.getTitle().dkAttributedString().font(dkFont: .secondary, style: .headLine1).color(.mainFontColor).build()
         configureCurrent()
         configureBest()

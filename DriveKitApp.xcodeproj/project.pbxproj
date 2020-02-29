@@ -27,7 +27,6 @@
 		3F7524CE2407A89100AC22CC /* DKLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7524CD2407A89100AC22CC /* DKLocalizable.swift */; };
 		3FB5643423F5AA2900F010E3 /* StreakTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5643223F5AA2900F010E3 /* StreakTableViewCell.swift */; };
 		3FB5643523F5AA2900F010E3 /* StreakTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FB5643323F5AA2900F010E3 /* StreakTableViewCell.xib */; };
-		3FB5643C23F6B43C00F010E3 /* Extensions+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5643B23F6B43C00F010E3 /* Extensions+DK.swift */; };
 		3FB5643E23F6B47E00F010E3 /* StreakDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5643D23F6B47E00F010E3 /* StreakDataType.swift */; };
 		3FB5644123F6B4F000F010E3 /* DriverAchievementLocalizables.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FB5644323F6B4F000F010E3 /* DriverAchievementLocalizables.strings */; };
 		3FF68E642407F56F0071D74C /* CommonLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FF68E662407F56F0071D74C /* CommonLocalizable.strings */; };
@@ -41,6 +40,8 @@
 		3FF68E80240939BC0071D74C /* DriveKitDriverDataUIEntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68E7F240939BC0071D74C /* DriveKitDriverDataUIEntryPoint.swift */; };
 		3FF68E82240965E10071D74C /* DKImages.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF68E81240965E10071D74C /* DKImages.xcassets */; };
 		3FF68E84240966120071D74C /* DKImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68E83240966120071D74C /* DKImages.swift */; };
+		3FF68E86240A68D90071D74C /* DKDataFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68E85240A68D90071D74C /* DKDataFormatter.swift */; };
+		3FF68E88240A727D0071D74C /* DKDatePattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68E87240A727D0071D74C /* DKDatePattern.swift */; };
 		3FFAD1FE23EDBCD500D1A16C /* DriveKitDriverAchievementUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FFAD1FC23EDBCD500D1A16C /* DriveKitDriverAchievementUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3FFAD20123EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFAD1FA23EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework */; };
 		3FFAD20223EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFAD1FA23EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -215,7 +216,6 @@
 		3FB5643223F5AA2900F010E3 /* StreakTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakTableViewCell.swift; sourceTree = "<group>"; };
 		3FB5643323F5AA2900F010E3 /* StreakTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StreakTableViewCell.xib; sourceTree = "<group>"; };
 		3FB5643923F68BBE00F010E3 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		3FB5643B23F6B43C00F010E3 /* Extensions+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+DK.swift"; sourceTree = "<group>"; };
 		3FB5643D23F6B47E00F010E3 /* StreakDataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakDataType.swift; sourceTree = "<group>"; };
 		3FB5644223F6B4F000F010E3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DriverAchievementLocalizables.strings; sourceTree = "<group>"; };
 		3FB5644523F6B4F700F010E3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/DriverAchievementLocalizables.strings; sourceTree = "<group>"; };
@@ -236,6 +236,8 @@
 		3FF68E7F240939BC0071D74C /* DriveKitDriverDataUIEntryPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveKitDriverDataUIEntryPoint.swift; sourceTree = "<group>"; };
 		3FF68E81240965E10071D74C /* DKImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DKImages.xcassets; sourceTree = "<group>"; };
 		3FF68E83240966120071D74C /* DKImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKImages.swift; sourceTree = "<group>"; };
+		3FF68E85240A68D90071D74C /* DKDataFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDataFormatter.swift; sourceTree = "<group>"; };
+		3FF68E87240A727D0071D74C /* DKDatePattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDatePattern.swift; sourceTree = "<group>"; };
 		3FFAD1FA23EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DriveKitDriverAchievementUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FFAD1FC23EDBCD500D1A16C /* DriveKitDriverAchievementUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DriveKitDriverAchievementUI.h; sourceTree = "<group>"; };
 		3FFAD1FD23EDBCD500D1A16C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -431,6 +433,8 @@
 			isa = PBXGroup;
 			children = (
 				3FF68E6F24081F060071D74C /* DKAttributedStringBuilder.swift */,
+				3FF68E85240A68D90071D74C /* DKDataFormatter.swift */,
+				3FF68E87240A727D0071D74C /* DKDatePattern.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -453,14 +457,6 @@
 			path = Localizable;
 			sourceTree = "<group>";
 		};
-		3FB5643623F5B22400F010E3 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				3FB5643B23F6B43C00F010E3 /* Extensions+DK.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		3FF68E7724083F000071D74C /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -475,7 +471,6 @@
 			isa = PBXGroup;
 			children = (
 				3FB5644323F6B4F000F010E3 /* DriverAchievementLocalizables.strings */,
-				3FB5643623F5B22400F010E3 /* Extensions */,
 				3FFAD20923EDBEBA00D1A16C /* Streaks */,
 				3FF68E6B2407F8110071D74C /* DriveKitDriverAchievementUI.swift */,
 				3FFAD1FC23EDBCD500D1A16C /* DriveKitDriverAchievementUI.h */,
@@ -1095,12 +1090,14 @@
 			files = (
 				3F0740EA2403BBFC005A8D07 /* DKColors.swift in Sources */,
 				3F0740E72403BB9A005A8D07 /* DriveKitUI.swift in Sources */,
+				3FF68E86240A68D90071D74C /* DKDataFormatter.swift in Sources */,
 				3FF68E7C240938CD0071D74C /* DriveKitNavigationController.swift in Sources */,
 				3FF68E7E240939040071D74C /* DriveKitDriverAchievementUIEntryPoint.swift in Sources */,
 				3FF68E80240939BC0071D74C /* DriveKitDriverDataUIEntryPoint.swift in Sources */,
 				3FF68E6E24081A5A0071D74C /* DKStyles.swift in Sources */,
 				3F0740F3240426C0005A8D07 /* UIColor+DK.swift in Sources */,
 				3FF68E752408390A0071D74C /* CardView.swift in Sources */,
+				3FF68E88240A727D0071D74C /* DKDatePattern.swift in Sources */,
 				3F0740EC240400E0005A8D07 /* DKFonts.swift in Sources */,
 				3F7524CE2407A89100AC22CC /* DKLocalizable.swift in Sources */,
 				3FF68E84240966120071D74C /* DKImages.swift in Sources */,
@@ -1118,7 +1115,6 @@
 				3FB5643E23F6B47E00F010E3 /* StreakDataType.swift in Sources */,
 				3FFAD21123EDC0FF00D1A16C /* StreakViewModel.swift in Sources */,
 				3FF68E6C2407F8110071D74C /* DriveKitDriverAchievementUI.swift in Sources */,
-				3FB5643C23F6B43C00F010E3 /* Extensions+DK.swift in Sources */,
 				3FFAD20E23EDBF2F00D1A16C /* StreakViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

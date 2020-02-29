@@ -10,7 +10,6 @@ import Foundation
 
 public extension Double {
     
-    //MARK : Distance methods
     func formatMeterDistance() -> String {
         let km = self.metersToKilometers(places: 1)
         return "\(km.stringWithoutZeroFraction) \(DKCommonLocalizable.unitKilometer.text())"
@@ -18,15 +17,18 @@ public extension Double {
     
     func metersToKilometers(places : Int) -> Double {
         let km = self / 1000.0
+        return km.round(places: places)
+    }
+    
+    func round(places : Int) -> Double {
         let divisor = pow(10.0, Double(places))
-        return (km * divisor).rounded() / divisor
+        return (self * divisor).rounded() / divisor
     }
     
     var stringWithoutZeroFraction: String {
         return truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%.0f", self) : String(self)
     }
     
-    // MARK : Duration methods
     func formatSecondDuration() -> String {
         var nbMinute = 0
         var nbHour = 0
@@ -50,8 +52,27 @@ public extension Double {
             return "\(nbMinute) \(DKCommonLocalizable.unitMinute.text())"
         }
     }
+    
+    func formatCO2Mass() -> String {
+        if self < 1000 {
+            return "\(self.round(places: 0)) \(DKCommonLocalizable.unitGram.text())"
+        }else{
+            return "\((self / 1000.0).round(places: 2).stringWithoutZeroFraction) \(DKCommonLocalizable.unitKilogram.text())"
+        }
+    }
+    
+    func formatCO2Emission() -> String {
+        return "\(self.round(places: 0)) \(DKCommonLocalizable.unitGperKM.text())"
+    }
+    
+    func formatSpeedMean() -> String {
+        return "\(self.round(places: 0)) \(DKCommonLocalizable.unitKmPerHour.text())"
+    }
+    
+    func formatConsumption() -> String {
+        return "\(self.round(places: 1)) \(DKCommonLocalizable.unitLPer100Km.text())"
+    }
 }
-
 
 public extension Date {
     func format(with pattern : String) -> String {

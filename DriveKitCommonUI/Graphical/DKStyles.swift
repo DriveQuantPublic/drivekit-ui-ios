@@ -55,6 +55,11 @@ public struct DKStyle {
     let size: CGFloat
     let traits: UIFontDescriptor.SymbolicTraits?
     
+    public init(size : CGFloat, traits: UIFontDescriptor.SymbolicTraits?) {
+        self.size = size
+        self.traits = traits
+    }
+    
     public func applyTo(font: DKUIFonts) -> UIFont {
         let font =  UIFont(name: font.name, size: size) ?? UIFont.systemFont(ofSize: size)
         return applyTraits(font: font)

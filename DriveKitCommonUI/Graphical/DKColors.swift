@@ -42,7 +42,7 @@ public enum DKUIColors {
     mainFontColor,
     complementaryFontColor,
     fontColorOnPrimaryColor,
-    fontColorOnSecondar,
+    fontColorOnSecondaryColor,
     warningColor,
     criticalColor,
     neutralColor,
@@ -60,7 +60,7 @@ public enum DKUIColors {
             return DriveKitUI.shared.colors.complementaryFontColor
         case .fontColorOnPrimaryColor:
             return DriveKitUI.shared.colors.fontColorOnPrimaryColor
-        case .fontColorOnSecondar:
+        case .fontColorOnSecondaryColor:
             return DriveKitUI.shared.colors.fontColorOnSecondaryColor
         case .warningColor:
             return DriveKitUI.shared.colors.warningColor

@@ -22,12 +22,16 @@ public class DKDefaultFonts :  DKFonts {
 public enum DKUIFonts {
     case primary, secondary
     
-    var name : String {
+    public var name : String {
         switch self{
         case .primary:
             return DriveKitUI.shared.fonts.primaryFont
         case .secondary:
             return DriveKitUI.shared.fonts.secondaryFont
         }
+    }
+    
+    public func fonts(size: CGFloat) -> UIFont {
+        return UIFont(name: name, size: size) ?? UIFont.systemFont(ofSize: size)
     }
 }

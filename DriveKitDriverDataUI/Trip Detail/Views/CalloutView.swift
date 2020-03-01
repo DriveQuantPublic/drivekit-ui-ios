@@ -18,7 +18,7 @@ final class CalloutView: UIView, Nibable {
     override func awakeFromNib() {
         super.awakeFromNib()    }
     
-    func configure(viewModel: TripEventCalloutViewModel, config: TripListViewConfig) {        
+    func configure(viewModel: TripEventCalloutViewModel) {        
         DriverDataStyle.applyTripHour(label: timeLabel)
         timeLabel.text = viewModel.time
         titleLabel.font = titleLabel.font.bold.withSize(16)

@@ -70,7 +70,15 @@ public extension Double {
     }
     
     func formatConsumption() -> String {
-        return "\(self.round(places: 1)) \(DKCommonLocalizable.unitLPer100Km.text())"
+        return "\(self.round(places: 1).stringWithoutZeroFraction) \(DKCommonLocalizable.unitLPer100Km.text())"
+    }
+    
+    func formatDouble(places : Int) -> String {
+        return "\(self.round(places: 1).stringWithoutZeroFraction)"
+    }
+    
+    var asDate : Date {
+        return Date(timeIntervalSince1970: self)
     }
 }
 

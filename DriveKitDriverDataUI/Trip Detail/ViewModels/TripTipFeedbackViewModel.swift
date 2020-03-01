@@ -9,10 +9,10 @@
 import Foundation
 import DriveKitDBTripAccess
 import DriveKitDriverData
+import DriveKitCommonUI
 
 class TripTipFeedbackViewModel {
     var detailConfig: TripDetailViewConfig
-    var config: TripListViewConfig
     var title : String
     var content : String
     var send : String
@@ -27,13 +27,12 @@ class TripTipFeedbackViewModel {
     var comment: String = ""
     var feedBack: Int = 0
     
-    init(trip: Trip, tripAdvice: TripAdvice, detailConfig: TripDetailViewConfig, config: TripListViewConfig){
+    init(trip: Trip, tripAdvice: TripAdvice, detailConfig: TripDetailViewConfig){
         self.detailConfig = detailConfig
-        self.config = config
         self.title = detailConfig.adviceDisagreeTitleText
         self.content = detailConfig.adviceDisagreeDescText
-        self.cancel = config.cancelText
-        self.send = config.okText
+        self.cancel = DKCommonLocalizable.cancel.text()
+        self.send = DKCommonLocalizable.ok.text()
         self.choices = [
             detailConfig.adviceFeedbackChoice01Text,
             detailConfig.adviceFeedbackChoice02Text,

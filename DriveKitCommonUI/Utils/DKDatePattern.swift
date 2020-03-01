@@ -12,7 +12,7 @@ public enum DKDatePattern : String {
     case weekLetter = "EEEE d MMMM",
     standardDate = "dd/MM/yyyy",
     hourMinute = "HH:mm",
-    hourMinutLetter = "HH'h'mm",
+    hourMinuteLetter = "HH'h'mm",
     fullDate = "EEEE d MMMM yyyy",
     dayMonth = "dd/MM",
     yearOnly = "E",

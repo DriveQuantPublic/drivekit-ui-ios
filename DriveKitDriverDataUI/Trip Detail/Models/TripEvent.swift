@@ -123,19 +123,19 @@ class TripEvent {
     func getExplanation() -> String{
         switch type {
         case .adherence:
-            return isHigh ? "dk_safety_explain_adherence_critical".dkLocalized() : "dk_safety_explain_adherence".dkLocalized()
+            return isHigh ? "dk_safety_explain_adherence_critical".dkDriverDataLocalized() : "dk_safety_explain_adherence".dkDriverDataLocalized()
         case .acceleration:
-            return isHigh ? "dk_safety_explain_acceleration_critical".dkLocalized() : "dk_safety_explain_acceleration".dkLocalized()
+            return isHigh ? "dk_safety_explain_acceleration_critical".dkDriverDataLocalized() : "dk_safety_explain_acceleration".dkDriverDataLocalized()
         case .brake:
-            return isHigh ? "dk_safety_explain_brake_critical".dkLocalized() : "dk_safety_explain_brake".dkLocalized()
+            return isHigh ? "dk_safety_explain_brake_critical".dkDriverDataLocalized() : "dk_safety_explain_brake".dkDriverDataLocalized()
         case .start:
             return ""
         case .end:
             return ""
         case .unlock:
-            return "dk_screen_unlock_text".dkLocalized()
+            return "dk_screen_unlock_text".dkDriverDataLocalized()
         case .lock:
-            return "dk_screen_lock_text".dkLocalized()
+            return "dk_screen_lock_text".dkDriverDataLocalized()
         }
     }
 }

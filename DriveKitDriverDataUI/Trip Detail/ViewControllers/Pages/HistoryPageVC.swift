@@ -7,18 +7,17 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 
 class HistoryPageVC: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     var viewModel: HistoryPageViewModel
     var detailConfig: TripDetailViewConfig
-    var config: TripListViewConfig
     
-    init(viewModel: HistoryPageViewModel, detailConfig: TripDetailViewConfig, config: TripListViewConfig) {
+    init(viewModel: HistoryPageViewModel, detailConfig: TripDetailViewConfig) {
         self.viewModel = viewModel
         self.detailConfig =  detailConfig
-        self.config = config
         super.init(nibName: String(describing: HistoryPageVC.self), bundle: Bundle.driverDataUIBundle)
     }
     
@@ -49,7 +48,7 @@ extension HistoryPageVC: UITableViewDataSource {
         if let cell : HistoryPageView = tableView.dequeueReusableCell(withIdentifier: "HistoryPageView") as? HistoryPageView {
             let event = self.viewModel.events[indexPath.row]
             cell.configure(event: event, detailConfig: self.detailConfig)
-            cell.selectedBackgroundView?.backgroundColor = config.secondaryColor.withAlphaComponent(0.5)
+            cell.selectedBackgroundView?.backgroundColor = DKUIColors.secondaryColor.color.withAlphaComponent(0.5)
             return cell
         } else {
             return UITableViewCell()

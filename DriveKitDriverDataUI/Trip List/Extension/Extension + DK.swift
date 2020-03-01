@@ -10,15 +10,7 @@ import DriveKitDriverData
 import DriveKitDBTripAccess
 import CoreLocation
 
-extension Trip {
-    var formattedDuration : String {
-        if let tripDuration = self.tripStatistics?.duration {
-            return Double(tripDuration).formattedDuration
-        } else {
-            return "0 \("dk_unit_minute".dkLocalized())"
-        }
-    }
-    
+extension Trip {    
     var duration : Int {
         guard let duration = self.tripStatistics?.duration else {
             return 0
@@ -75,90 +67,6 @@ extension Array where Element: Trip {
             }
         }
         return tripsSorted
-    }
-}
-
-extension Date {
-    func dateToDay() -> String {
-        return DateFormatter.day.string(from: self).capitalized
-    }
-    
-    func dateToTime() -> String {
-        return DateFormatter.time.string(from: self)
-    }
-}
-
-extension DateFormatter {
-    static let day: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE d MMMM"
-        return formatter
-    }()
-    
-    static let time: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH'\("dk_unit_hour".dkLocalized())'mm"
-        return formatter
-    }()
-}
-
-
-
-
-extension String {
-    public func dkLocalized() -> String {
-        return NSLocalizedString(self, tableName: "DriverDataLocalizables", bundle: Bundle.driverDataUIBundle ?? .main, value: self, comment: "")
-    }
-}
-
-
-extension Double {
-    var formattedDuration : String {
-        let minPattern = "dk_unit_minute".dkLocalized()
-        let hourPattern = "dk_unit_hour".dkLocalized()
-        if self < 60  {
-            let secString = "1\(minPattern)"
-            return secString
-        }
-        var minutes = self / 60
-        if (Int(self) % 60 > 0) {
-            minutes += 1
-        }
-        if minutes > 60 {
-            let hours = minutes / 60
-            let remainingMinutes = Int(minutes) % 60
-            let minutesString = remainingMinutes < 10 ? "0\(remainingMinutes)" : "\(remainingMinutes)"
-            return "\(Int(hours))\(hourPattern)\(minutesString)"
-        }else{
-            let minutesString = String(format: "%.0f \(minPattern)", minutes)
-            return minutesString
-        }
-        
-        
-    }
-    
-    func asDistanceInKm() -> Double {
-        return self / 1000
-    }
-    
-    var plainFormattedDistance: String {
-        return String(format: "%.1f", self.asDistanceInKm())
-    }
-    
-    var formattedDistance: String {
-        return plainFormattedDistance + " " + "dk_unit_km".dkLocalized()
-    }
-    
-    var formattedDistanceNoDigits: String {
-        return String(format: "%.0f", self)
-    }
-    
-    var formattedScore: String {
-        return String(format: "%.1f", self)
-    }
-    
-    var asDate : Date {
-        return Date(timeIntervalSince1970: self)
     }
 }
 

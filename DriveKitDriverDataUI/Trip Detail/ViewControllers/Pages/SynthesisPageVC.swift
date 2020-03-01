@@ -7,11 +7,11 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 
 class SynthesisPageVC: UIViewController {
     var viewModel: SynthesisPageViewModel
     var detailConfig: TripDetailViewConfig
-    var config: TripListViewConfig
     
     @IBOutlet var vehicleTitle: UILabel!
     @IBOutlet var vehicleValue: UILabel!
@@ -41,10 +41,9 @@ class SynthesisPageVC: UIViewController {
     @IBOutlet var contextTitle: UILabel!
     @IBOutlet var contextValue: UILabel!
     
-    init(viewModel: SynthesisPageViewModel, detailConfig: TripDetailViewConfig, config: TripListViewConfig) {
+    init(viewModel: SynthesisPageViewModel, detailConfig: TripDetailViewConfig) {
         self.viewModel = viewModel
         self.detailConfig =  detailConfig
-        self.config = config
         super.init(nibName: String(describing: SynthesisPageVC.self), bundle: Bundle.driverDataUIBundle)
     }
     
@@ -59,60 +58,59 @@ class SynthesisPageVC: UIViewController {
     }
     
     func setup() {        
-        vehicleTitle.text = viewModel.synthesisVehicle
+        vehicleTitle.text = "dk_synthesis_vehicle".dkDriverDataLocalized()
         DriverDataStyle.applyTitleSynthesis(label: vehicleTitle)
-        vehicleValue.text = "-"
-        DriverDataStyle.applyTripMainValue(label: vehicleValue, color: config.secondaryColor)
         
-        consumptionTitle.text = viewModel.fuelConsumption
+        vehicleValue.text = "-"
+        DriverDataStyle.applyTripMainValue(label: vehicleValue, color: DKUIColors.secondaryColor.color)
+        
+        consumptionTitle.text = "dk_synthesis_fuel_consumption".dkDriverDataLocalized()
         DriverDataStyle.applyTitleSynthesis(label: consumptionTitle)
         
         consumptionValue.text = viewModel.fuelConsumptionValue
-        DriverDataStyle.applyTripMainValue(label: consumptionValue, color: config.primaryColor)
+        DriverDataStyle.applyTripMainValue(label: consumptionValue, color: DKUIColors.primaryColor.color)
 
-        conditionTitle.text = viewModel.condition
+        conditionTitle.text = "dk_synthesis_condition".dkDriverDataLocalized()
         DriverDataStyle.applyTitleSynthesis(label: conditionTitle)
 
         conditionValue.text = viewModel.conditionValue
-        DriverDataStyle.applyTripMainValue(label: conditionValue, color: config.primaryColor)
+        DriverDataStyle.applyTripMainValue(label: conditionValue, color: DKUIColors.primaryColor.color)
         
-        speedTitle.text = viewModel.meanSpeed
+        speedTitle.text = "dk_synthesis_mean_speed".dkDriverDataLocalized()
         DriverDataStyle.applyTitleSynthesis(label: speedTitle)
 
         speedValue.text = viewModel.meanSpeedValue
-        DriverDataStyle.applyTripMainValue(label: speedValue, color: config.primaryColor)
+        DriverDataStyle.applyTripMainValue(label: speedValue, color: DKUIColors.primaryColor.color)
 
-        stopTimeTitle.text = viewModel.stopTime
+        stopTimeTitle.text = "dk_synthesis_mean_speed".dkDriverDataLocalized()
         DriverDataStyle.applyTitleSynthesis(label: stopTimeTitle)
 
         stopTimeValue.text = viewModel.stopTimeValue
-        DriverDataStyle.applyTripMainValue(label: stopTimeValue, color: config.primaryColor)
+        DriverDataStyle.applyTripMainValue(label: stopTimeValue, color: DKUIColors.primaryColor.color)
 
-        
-        carbonTitle.text = viewModel.co2Emissions
+        carbonTitle.text = "dk_synthesis_co2_emmissions".dkDriverDataLocalized()
         DriverDataStyle.applyTitleSynthesis(label: carbonTitle)
 
         carbonValue.text = viewModel.co2EmissionValue
-        DriverDataStyle.applyTripMainValue(label: carbonValue, color: config.primaryColor)
+        DriverDataStyle.applyTripMainValue(label: carbonValue, color: DKUIColors.primaryColor.color)
         
-        weatherTitle.text = viewModel.weather
+        weatherTitle.text = "dk_synthesis_weather".dkDriverDataLocalized()
         DriverDataStyle.applyTitleSynthesis(label: weatherTitle)
         
         weatherValue.text = viewModel.weatherValue
-        DriverDataStyle.applyTripMainValue(label: weatherValue, color: config.primaryColor)
+        DriverDataStyle.applyTripMainValue(label: weatherValue, color: DKUIColors.primaryColor.color)
 
-        carbonVolumeTitle.text = viewModel.co2Mass
+        carbonVolumeTitle.text = "dk_synthesis_co2_mass".dkDriverDataLocalized()
         DriverDataStyle.applyTitleSynthesis(label: carbonVolumeTitle)
 
         carbonVolumeValue.text = viewModel.co2MassValue
-        DriverDataStyle.applyTripMainValue(label: carbonVolumeValue, color: config.primaryColor)
+        DriverDataStyle.applyTripMainValue(label: carbonVolumeValue, color: DKUIColors.primaryColor.color)
 
-        
-        contextTitle.text = viewModel.roadContext
+        contextTitle.text = "dk_synthesis_road_context".dkDriverDataLocalized()
         DriverDataStyle.applyTitleSynthesis(label: contextTitle)
 
         contextValue.text = viewModel.contextValue
-        DriverDataStyle.applyTripMainValue(label: contextValue, color: config.primaryColor)
+        DriverDataStyle.applyTripMainValue(label: contextValue, color: DKUIColors.primaryColor.color)
         
     }
 }

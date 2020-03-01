@@ -8,6 +8,7 @@
 
 import UIKit
 import DriveKitDBTripAccess
+import DriveKitCommonUI
 
 public enum TripData: String {
     case ecoDriving, safety, distraction, distance, duration
@@ -43,9 +44,9 @@ public enum TripData: String {
         case .distraction:
             return String(format: "%.1f", trip.driverDistraction?.score ?? 0)
         case .distance:
-            return trip.tripStatistics?.distance.formattedDistance ?? "0 \("dk_unit_km".dkLocalized())"
+            return trip.tripStatistics?.distance.formatMeterDistance() ?? "0 \(DKCommonLocalizable.unitKilometer.text())"
         case .duration:
-            return trip.formattedDuration
+            return Double(trip.duration).formatSecondDuration()
         }
     }
     

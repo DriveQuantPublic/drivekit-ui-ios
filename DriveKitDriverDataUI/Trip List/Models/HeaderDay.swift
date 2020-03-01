@@ -15,11 +15,11 @@ public enum HeaderDay {
     func text(trips: [Trip]) -> String {
         switch self {
         case .distance:
-            return trips.totalDistance.formattedDistance
+            return trips.totalDistance.formatMeterDistance()
         case .duration:
-            return trips.totalDuration.formattedDuration
+            return trips.totalDuration.formatSecondDuration()
         case .distanceDuration:
-            return trips.totalDuration.formattedDuration + " | " + trips.totalDistance.formattedDistance
+            return trips.totalDuration.formatSecondDuration() + " | " + trips.totalDistance.formatMeterDistance()
         }
     }
 }

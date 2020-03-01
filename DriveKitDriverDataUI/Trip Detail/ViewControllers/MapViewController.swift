@@ -33,10 +33,9 @@ class MapViewController: UIViewController {
     
     let lineWidth: CGFloat = 3.0
     
-    let config : TripListViewConfig
     let detailConfig: TripDetailViewConfig
     
-    init(viewModel: TripDetailViewModel, config: TripListViewConfig, detailConfig: TripDetailViewConfig) {
+    init(viewModel: TripDetailViewModel, detailConfig: TripDetailViewConfig) {
         self.viewModel = viewModel
         self.config = config
         self.detailConfig = detailConfig

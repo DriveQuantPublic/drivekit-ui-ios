@@ -9,6 +9,7 @@
 import UIKit
 import UICircularProgressRing
 import DriveKitDBTripAccess
+import DriveKitCommonUI
 
 enum CircularProgressViewSize {
     case small, medium, large
@@ -58,7 +59,7 @@ class ConfigurationCircularProgressView {
         self.steps = steps
         self.image = image
         self.ringWidth = ringWidth ?? 4
-        self.fontColor = fontColor ?? UIColor.dkDarkGrayText
+        self.fontColor = fontColor ?? DKUIColors.mainFontColor.color
         self.fontSize = fontSize ?? 11
         self.valueIndicator = indicator ?? ""
         self.showFloatingPoint = floatingPoint
@@ -75,7 +76,7 @@ class ConfigurationCircularProgressView {
         self.steps = scoreType.getSteps()
         self.image = UIImage(named: scoreType.imageID(), in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         self.ringWidth = size.ringWidth
-        self.fontColor = .dkDarkGrayText
+        self.fontColor = DKUIColors.mainFontColor.color
         self.fontSize = size.fontSize
         self.valueIndicator = ""
         self.showFloatingPoint = true

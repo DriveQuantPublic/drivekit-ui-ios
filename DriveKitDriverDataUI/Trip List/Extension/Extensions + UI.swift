@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 
 extension UIView {
     
@@ -33,62 +34,8 @@ extension UIView {
     }
 }
 
-extension UIViewController {
-    func showAlertMessage(title: String?, message: String?, back: Bool, cancel: Bool, completion: (() -> Void)? = nil) {
-           
-           let alert = UIAlertController(title: title,
-                                         message: message,
-                                         preferredStyle: .alert)
-           let okAction = UIAlertAction(title: "dk_ok".dkLocalized(), style: .default, handler: {action in
-               if back {
-                   self.dismiss(animated: false, completion: completion)
-               }
-           })
-        
-            if cancel {
-                let cancelAction = UIAlertAction(title: "dk_cancel".dkLocalized(), style: .cancel, handler: nil)
-                alert.addAction(cancelAction)
-            }
-           alert.addAction(okAction)
-           self.present(alert, animated: true)
-       }
-}
-
-extension UIFont {
-    var bold: UIFont {
-        return with(.traitBold)
-    }
-
-    var italic: UIFont {
-        return with(.traitItalic)
-    }
-
-    var boldItalic: UIFont {
-        return with([.traitBold, .traitItalic])
-    }
-
-    func with(_ traits: UIFontDescriptor.SymbolicTraits...) -> UIFont {
-        guard let descriptor = self.fontDescriptor.withSymbolicTraits(UIFontDescriptor.SymbolicTraits(traits).union(self.fontDescriptor.symbolicTraits)) else {
-            return self
-        }
-        return UIFont(descriptor: descriptor, size: 0)
-    }
-
-    func without(_ traits: UIFontDescriptor.SymbolicTraits...) -> UIFont {
-        guard let descriptor = self.fontDescriptor.withSymbolicTraits(self.fontDescriptor.symbolicTraits.subtracting(UIFontDescriptor.SymbolicTraits(traits))) else {
-            return self
-        }
-        return UIFont(descriptor: descriptor, size: 0)
-    }
-}
-
 extension UIColor {
-    public static let dkPrimaryColor = UIColor(hex:0x0B4D6E)
-    public static let dkSecondaryColor = UIColor(hex: 0x00EBB8)
     
-    static let dkHeaderTripListBackground = UIColor(hex: 0xF0F0F0)
-    static let dkDarkGrayText = UIColor(hex: 0x616161)
-    static let dkGrayText = UIColor(hex: 0x9E9E9E)
     static let dkGaugeGray = UIColor(hex: 0xE0E0E0)
     
     static let dkVeryBad = UIColor(hex: 0xff6e57)
@@ -101,23 +48,9 @@ extension UIColor {
     
     public static let dkMapTrace = UIColor(hex: 0x116ea9)
     public static let dkMapTraceWarning = UIColor(hex: 0xed4f3b)
-    static let dkWarning = UIColor(hex: 0xff6e57)
     
-    static let dkHighEvent = UIColor(hex: 0xf2a365)
-    static let dkCriticalEvent = UIColor(hex: 0xef775f)
-    
-    
-    convenience init(red: Int, green: Int, blue: Int) {
-       assert(red >= 0 && red <= 255, "Invalid red component")
-       assert(green >= 0 && green <= 255, "Invalid green component")
-       assert(blue >= 0 && blue <= 255, "Invalid blue component")
-       
-       self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
-    }
-       
-   convenience init(hex:Int) {
-       self.init(red:(hex >> 16) & 0xff, green:(hex >> 8) & 0xff, blue:hex & 0xff)
-   }
+    /*static let dkHighEvent = UIColor(hex: 0xf2a365)
+    static let dkCriticalEvent = UIColor(hex: 0xef775f)*/
 }
 
 extension UIImage {
@@ -171,8 +104,4 @@ extension UIStackView {
             }
         }
     }
-}
-
-extension Bundle {
-    static let driverDataUIBundle = Bundle(identifier: "com.drivequant.drivekit-driverdata-ui")
 }

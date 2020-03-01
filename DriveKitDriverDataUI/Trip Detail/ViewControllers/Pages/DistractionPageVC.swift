@@ -16,10 +16,9 @@ class DistractionPageVC: UIViewController {
     @IBOutlet var eventContainer: UIStackView!
     
     var viewModel: DistractionPageViewModel
-    var config: TripListViewConfig
     var detailConfig: TripDetailViewConfig
     
-    init(viewModel: DistractionPageViewModel, config: TripListViewConfig, detailConfig: TripDetailViewConfig) {
+    init(viewModel: DistractionPageViewModel, detailConfig: TripDetailViewConfig) {
         self.viewModel = viewModel
         self.config = config
         self.detailConfig = detailConfig
@@ -43,7 +42,7 @@ class DistractionPageVC: UIViewController {
     func configure() {
         let score = CircularProgressView.viewFromNib
         let configScore = ConfigurationCircularProgressView(scoreType: viewModel.scoreType, trip: viewModel.trip, size: .large)
-        score.configure(configuration: configScore, scoreFont: config.primaryFont)
+        score.configure(configuration: configScore)
         score.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         score.center = circularRingContainer.center
         circularRingContainer.embedSubview(score)

@@ -8,6 +8,7 @@
 
 import UIKit
 import DriveKitDBTripAccess
+import DriveKitCommonUI
 
 final class TripTableViewCell: UITableViewCell, Nibable {
 
@@ -33,18 +34,18 @@ final class TripTableViewCell: UITableViewCell, Nibable {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(trip: Trip, tripListViewConfig: TripListViewConfig){
-        tripLineView.color = tripListViewConfig.secondaryColor
+    func configure(trip: Trip){
+        tripLineView.color = DKUIColors.secondaryColor.color
         configureLabels(trip: trip)
-        configureTripData(trip: trip, tripListViewConfig: tripListViewConfig)
-        configureTripInfo(trip: trip, tripListViewConfig: tripListViewConfig)
+        configureTripData(trip: trip)
+        configureTripInfo(trip: trip)
     }
     
     private func configureLabels(trip: Trip){
         DriverDataStyle.applyTripHour(label: self.departureHourLabel)
         DriverDataStyle.applyTripHour(label: self.arrivalHourLabel)
-        self.departureHourLabel.text = trip.startDate?.dateToTime()
-        self.arrivalHourLabel.text = trip.endDate?.dateToTime()
+        self.departureHourLabel.text = trip.startDate?.format(pattern: .hourMinute)
+        self.arrivalHourLabel.text = trip.endDate?.format(pattern: .hourMinute)
 
         DriverDataStyle.applyTripListCity(label: self.departureCityLabel)
         DriverDataStyle.applyTripListCity(label: self.arrivalCityLabel)
@@ -52,14 +53,14 @@ final class TripTableViewCell: UITableViewCell, Nibable {
         self.arrivalCityLabel.text = trip.arrivalCity ?? ""
     }
     
-    private func configureTripData(trip: Trip, tripListViewConfig: TripListViewConfig){
-        switch tripListViewConfig.tripData.displayType() {
+    private func configureTripData(trip: Trip){
+        switch DriveKitDriverDataUI.shared.tripData.displayType() {
         case .gauge:
-            if tripListViewConfig.tripData.isScored(trip: trip) {
+            if DriveKitDriverDataUI.shared.tripData.isScored(trip: trip) {
                 let score = CircularProgressView.viewFromNib
-                let scoreType: ScoreType = ScoreType(rawValue: tripListViewConfig.tripData.rawValue) ?? .safety
+                let scoreType: ScoreType = ScoreType(rawValue: DriveKitDriverDataUI.shared.tripData.rawValue) ?? .safety
                 let configScore = ConfigurationCircularProgressView(scoreType: scoreType, trip: trip, size: .small)
-                score.configure(configuration: configScore, scoreFont: tripListViewConfig.primaryFont)
+                score.configure(configuration: configScore)
                 score.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
                 score.center = dataView.center
                 dataView.embedSubview(score)
@@ -68,16 +69,16 @@ final class TripTableViewCell: UITableViewCell, Nibable {
             }
         case .text:
             let label = UILabel()
-            label.text = tripListViewConfig.tripData.stringValue(trip: trip)
+            label.text = DriveKitDriverDataUI.shared.tripData.stringValue(trip: trip)
             label.font = UIFont.systemFont(ofSize: 11, weight: .bold)
-            label.textColor = tripListViewConfig.secondaryColor
+            label.textColor = DKUIColors.secondaryColor.color
             label.frame = CGRect(x: 0, y: 0, width: 56, height: 56)
             label.center = dataView.center
             dataView.embedSubview(label)
         }
     }
     
-    private func configureTripInfo(trip: Trip,  tripListViewConfig: TripListViewConfig){
+    private func configureTripInfo(trip: Trip){
         if let advices = trip.tripAdvices?.allObjects as! [TripAdvice]? , advices.count > 0 {
             var tripInfo : TripInfo? = nil
             if advices.count > 1 {
@@ -95,7 +96,7 @@ final class TripTableViewCell: UITableViewCell, Nibable {
                     adviceCountView = AdviceCountView.viewFromNib
                     adviceCountView?.setTrip(trip: trip)
                     adviceCountView?.setAdviceCount(count: info.text(trip: trip) ?? "")
-                    adviceCountView?.backgroundColor = tripListViewConfig.secondaryColor
+                    adviceCountView?.backgroundColor = DKUIColors.secondaryColor.color
                     adviceCountView?.layer.cornerRadius = 5
                     adviceCountView?.layer.masksToBounds = true
                     accessoryView = adviceCountView
@@ -107,8 +108,8 @@ final class TripTableViewCell: UITableViewCell, Nibable {
                     } else {
                        adviceButton?.setTitle(info.text(trip: trip), for: .normal)
                     }
-                    adviceButton?.tintColor = .white
-                    adviceButton?.backgroundColor = tripListViewConfig.secondaryColor
+                    adviceButton?.tintColor = DKUIColors.fontColorOnSecondaryColor.color
+                    adviceButton?.backgroundColor = DKUIColors.secondaryColor.color
                     adviceButton?.layer.cornerRadius = 5
                     adviceButton?.layer.masksToBounds = true
                     accessoryView = adviceButton

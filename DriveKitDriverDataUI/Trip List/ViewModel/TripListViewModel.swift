@@ -12,7 +12,6 @@ import DriveKitDBTripAccess
 
 class TripListViewModel {
     var trips : [TripsByDate] = []
-    var dayTripDescendingOrder: Bool
     var status: TripSyncStatus = .noError
     var delegate: TripsDelegate? = nil {
         didSet {
@@ -20,10 +19,6 @@ class TripListViewModel {
                 self.fetchTrips()
             }
         }
-    }
-    
-    public init(dayTripDescendingOrder: Bool) {
-        self.dayTripDescendingOrder = dayTripDescendingOrder
     }
     
     public func fetchTrips() {
@@ -38,7 +33,7 @@ class TripListViewModel {
     
     
     func sortTrips(trips : [Trip]) -> [TripsByDate] {
-        let tripSorted = trips.orderByDay(descOrder: dayTripDescendingOrder)
+        let tripSorted = trips.orderByDay(descOrder: DriveKitDriverDataUI.shared.dayTripDescendingOrder)
         return tripSorted
     }
 }

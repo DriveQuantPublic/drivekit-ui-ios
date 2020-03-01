@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import DriveKitDriverData
+import DriveKitCommonUI
 
 class TripTipFeedbackVC: UITableViewController {
     @IBOutlet var contentLabel: UILabel!
@@ -24,13 +25,12 @@ class TripTipFeedbackVC: UITableViewController {
     
     var viewModel: TripTipFeedbackViewModel!
     var detailConfig: TripDetailViewConfig!
-    var config: TripListViewConfig!
     var tripDetailVC: TripDetailVC? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = viewModel?.title
-        tableView.cellForRow(at: IndexPath(row: 0, section: 0))?.tintColor = config.secondaryColor
+        tableView.cellForRow(at: IndexPath(row: 0, section: 0))?.tintColor = DKUIColors.secondaryColor.color
         tableView.cellForRow(at: IndexPath(row: 0, section: 0))?.accessoryType = .checkmark
         self.configureContent()
         self.configureFeedbacks()
@@ -44,7 +44,6 @@ class TripTipFeedbackVC: UITableViewController {
     
     func configure(viewModel: TripTipFeedbackViewModel, tripDetailVC: TripDetailVC) {
         self.viewModel = viewModel
-        self.config = viewModel.config
         self.detailConfig = viewModel.detailConfig
         self.tripDetailVC = tripDetailVC
     }
@@ -71,7 +70,7 @@ class TripTipFeedbackVC: UITableViewController {
                                       message: detailConfig.adviceFeedbackSuccessText,
                                       preferredStyle: .alert)
         
-        let ok = UIAlertAction(title: config.okText, style: .default) { _ in
+        let ok = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default) { _ in
             self.dismiss(animated: true)
         }
         alert.addAction(ok)
@@ -102,7 +101,7 @@ class TripTipFeedbackVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row > 0 && indexPath.row < 6 {
             viewModel.selectedChoice = indexPath.row - 1
-            tableView.cellForRow(at: indexPath as IndexPath)?.tintColor = config.secondaryColor
+            tableView.cellForRow(at: indexPath as IndexPath)?.tintColor = DKUIColors.secondaryColor.color
             tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .checkmark
         }
     }
@@ -118,13 +117,13 @@ class TripTipFeedbackVC: UITableViewController {
 
 fileprivate extension TripTipFeedbackVC {
     func configureContent() {
-        let contentAttribute = [NSAttributedString.Key.foregroundColor: UIColor.dkGrayText]
+        let contentAttribute = [NSAttributedString.Key.foregroundColor: DKUIColors.mainFontColor.color]
         let contentAttributedText = NSAttributedString(string: viewModel.content, attributes: contentAttribute)
         contentLabel.attributedText = contentAttributedText
     }
     
     func configureFeedbacks() {
-        let choicesAttribute = [NSAttributedString.Key.foregroundColor: UIColor.dkGrayText]
+        let choicesAttribute = [NSAttributedString.Key.foregroundColor: DKUIColors.complementaryFontColor.color]
         self.feedbackLabel1.attributedText = NSAttributedString(string: viewModel.choices[0], attributes: choicesAttribute)
         self.feedbackLabel2.attributedText = NSAttributedString(string: viewModel.choices[1], attributes: choicesAttribute)
         self.feedbackLabel3.attributedText = NSAttributedString(string: viewModel.choices[2], attributes: choicesAttribute)
@@ -136,14 +135,14 @@ fileprivate extension TripTipFeedbackVC {
         let doneToolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
         doneToolBar.barStyle = .default
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let done: UIBarButtonItem = UIBarButtonItem(title: config.okText, style: .done, target: self, action: #selector(self.doneButtonAction))
+        let done: UIBarButtonItem = UIBarButtonItem(title: DKCommonLocalizable.ok.text(), style: .done, target: self, action: #selector(self.doneButtonAction))
         
         let items = [flexSpace, done]
         doneToolBar.items = items
         doneToolBar.sizeToFit()
         commentTextView.inputAccessoryView = doneToolBar
         commentTextView.layer.borderWidth = 1
-        commentTextView.layer.borderColor = UIColor.dkGrayText.cgColor
+        commentTextView.layer.borderColor = DKUIColors.complementaryFontColor.color.cgColor
         commentTextView.layer.cornerRadius = 5
     }
     
@@ -153,13 +152,13 @@ fileprivate extension TripTipFeedbackVC {
     
     func configureSend(){
         sendButton.setTitle(self.viewModel.send, for: .normal)
-        sendButton.setTitleColor(config.secondaryColor, for: .normal)
-        sendButton.setTitleColor(UIColor.dkGrayText, for: .disabled)
+        sendButton.setTitleColor(DKUIColors.secondaryColor.color, for: .normal)
+        sendButton.setTitleColor(DKUIColors.complementaryFontColor.color, for: .disabled)
     }
     
     func configureCancel(){
         cancelButton.setTitle(self.viewModel.cancel, for: .normal)
-        cancelButton.setTitleColor(config.secondaryColor, for: .normal)
-        cancelButton.setTitleColor(UIColor.dkGrayText, for: .disabled)
+        cancelButton.setTitleColor(DKUIColors.secondaryColor.color, for: .normal)
+        cancelButton.setTitleColor(DKUIColors.complementaryFontColor.color, for: .disabled)
     }
 }

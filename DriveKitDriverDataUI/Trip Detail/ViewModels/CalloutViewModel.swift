@@ -31,7 +31,7 @@ struct TripEventCalloutViewModel {
     var subtitle: NSAttributedString {
         
         let attributes = [NSAttributedString.Key.foregroundColor: highColor]
-        let valuePrefix = NSMutableAttributedString(string: "dk_value".dkLocalized(),
+        let valuePrefix = NSMutableAttributedString(string: "dk_value".dkDriverDataLocalized(),
                                         attributes: [NSAttributedString.Key.foregroundColor : UIColor.black])
         
         switch event.type {

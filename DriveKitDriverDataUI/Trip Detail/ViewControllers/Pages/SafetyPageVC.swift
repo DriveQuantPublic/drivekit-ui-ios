@@ -15,12 +15,10 @@ class SafetyPageVC: UIViewController {
     @IBOutlet var eventContainer: UIStackView!
     
     var viewModel : SafetyPageViewModel
-    var config : TripListViewConfig
     var detailConfig: TripDetailViewConfig
     
-    init(viewModel: SafetyPageViewModel, config: TripListViewConfig, detailConfig: TripDetailViewConfig) {
+    init(viewModel: SafetyPageViewModel, detailConfig: TripDetailViewConfig) {
         self.viewModel = viewModel
-        self.config = config
         self.detailConfig = detailConfig
         super.init(nibName: String(describing: SafetyPageVC.self), bundle: Bundle.driverDataUIBundle)
     }
@@ -42,7 +40,7 @@ class SafetyPageVC: UIViewController {
     func configure() {
         let score = CircularProgressView.viewFromNib
         let configScore = ConfigurationCircularProgressView(scoreType: viewModel.scoreType, trip: viewModel.trip, size: .large)
-        score.configure(configuration: configScore, scoreFont: config.primaryFont)
+        score.configure(configuration: configScore)
         score.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         progressRingContainer.embedSubview(score)
         DriverDataStyle.applyCircularRingTitle(label: progressRingTitle)
@@ -53,17 +51,14 @@ class SafetyPageVC: UIViewController {
     func setupEventContainer() {
         eventContainer.removeAllSubviews()
         let accelerationView = SafetyPageView.viewFromNib
-        accelerationView.config = self.config
         accelerationView.configure(title: detailConfig.accelerationText, image: "dk_safety_accel", count: viewModel.getAccelerations())
         eventContainer.addArrangedSubview(accelerationView)
         
         let brakeView = SafetyPageView.viewFromNib
-        brakeView.config = self.config
         brakeView.configure(title: detailConfig.decelText, image: "dk_safety_decel", count: viewModel.getBrakes())
         eventContainer.addArrangedSubview(brakeView)
         
         let adherenceView = SafetyPageView.viewFromNib
-        adherenceView.config = self.config
         adherenceView.configure(title: detailConfig.adherenceText, image: "dk_safety_adherence", count: viewModel.getAdherences())
         eventContainer.addArrangedSubview(adherenceView)
         

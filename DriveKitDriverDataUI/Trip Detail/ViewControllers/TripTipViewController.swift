@@ -9,6 +9,7 @@
 import UIKit
 import DriveKitDBTripAccess
 import DriveKitDriverData
+import DriveKitCommonUI
 
 class TripTipViewController: UIViewController {
 
@@ -24,14 +25,12 @@ class TripTipViewController: UIViewController {
     @IBOutlet var noImage: UIImageView!
     @IBOutlet var noLabel: UILabel!
     
-    private let config: TripListViewConfig
     private let detailConfig: TripDetailViewConfig
     private let advice: TripAdvice
     private let trip: Trip
     private let tripDetailVC: TripDetailVC
     
-    init(config: TripListViewConfig, trip: Trip, advice: TripAdvice, tripDetailVC: TripDetailVC, detailConfig: TripDetailViewConfig) {
-        self.config = config
+    init(trip: Trip, advice: TripAdvice, tripDetailVC: TripDetailVC, detailConfig: TripDetailViewConfig) {
         self.trip = trip
         self.tripDetailVC = tripDetailVC
         self.detailConfig = detailConfig
@@ -64,9 +63,9 @@ class TripTipViewController: UIViewController {
     }
     
     func configureCloseButton() {
-        closeButton.setTitle(config.okText, for: .normal)
+        closeButton.setTitle(DKCommonLocalizable.ok.text(), for: .normal)
         closeButton.setTitleColor(.white, for: .normal)
-        closeButton.backgroundColor = config.secondaryColor
+        closeButton.backgroundColor = DKUIColors.secondaryColor.color
     }
     
     func configureHeaderNavigation() {
@@ -80,7 +79,7 @@ class TripTipViewController: UIViewController {
         if let htmlData = NSString(string: advice.message ?? "").data(using: String.Encoding.unicode.rawValue){
             let attributedString = try! NSMutableAttributedString(data: htmlData, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
             contentTextView.attributedText = NSAttributedString(attributedString: attributedString)
-            contentTextView.font = config.primaryFont
+            contentTextView.font = DKUIFonts.primary.fonts(size: 16)
             contentTextView.isEditable = false
             contentView.embedSubview(contentTextView)
         }else{
@@ -99,7 +98,7 @@ class TripTipViewController: UIViewController {
     }
     
     @objc func tapOnYesButton(_ sender: UITapGestureRecognizer)  {
-        let feedbackViewModel = TripTipFeedbackViewModel(trip: self.trip, tripAdvice: self.advice, detailConfig: self.detailConfig, config: self.config)
+        let feedbackViewModel = TripTipFeedbackViewModel(trip: self.trip, tripAdvice: self.advice, detailConfig: self.detailConfig)
         feedbackViewModel.evaluation = 1
         feedbackViewModel.itinId = self.trip.itinId ?? ""
         
@@ -130,7 +129,7 @@ class TripTipViewController: UIViewController {
     }
     
     @objc func tapOnNoButton(_ sender: UITapGestureRecognizer)  {
-        let feedbackViewModel = TripTipFeedbackViewModel(trip: self.trip, tripAdvice: self.advice, detailConfig: self.detailConfig, config: self.config)
+        let feedbackViewModel = TripTipFeedbackViewModel(trip: self.trip, tripAdvice: self.advice, detailConfig: self.detailConfig)
         if let feedbackVC = UIStoryboard.init(name: String(describing: TripTipFeedbackVC.self), bundle: Bundle.driverDataUIBundle).instantiateViewController(withIdentifier: String(describing: TripTipFeedbackVC.self)) as? TripTipFeedbackVC {
             feedbackVC.configure(viewModel: feedbackViewModel, tripDetailVC: self.tripDetailVC)
             self.navigationController?.pushViewController(feedbackVC, animated: true)

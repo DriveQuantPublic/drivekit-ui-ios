@@ -14,12 +14,14 @@ class SynthesisPageViewModel {
     let tripDetailViewModel : TripDetailViewModel
     let trip : Trip
     
+    let unknown = "dk_unknown".dkDriverDataLocalized()
+    
     init(tripDetailViewModel: TripDetailViewModel, trip: Trip) {
         self.trip = trip
         self.tripDetailViewModel = tripDetailViewModel
     }
     
-    let synthesisVehicle = "dk_synthesis_vehicle".dkLocalized()
+    /*let synthesisVehicle = "dk_synthesis_vehicle".dkLocalized()
     let meanSpeed = "dk_synthesis_mean_speed".dkLocalized()
     let stopTime = "dk_synthesis_stop_time".dkLocalized()
     let fuelConsumption = "dk_synthesis_fuel_consumption".dkLocalized()
@@ -28,29 +30,13 @@ class SynthesisPageViewModel {
     let condition = "dk_synthesis_condition".dkLocalized()
     let weather = "dk_synthesis_weather".dkLocalized()
     let roadContext = "dk_synthesis_road_context".dkLocalized()
-    let unitKg = "dk_unit_kg".dkLocalized()
-    let unitG = "dk_unit_g".dkLocalized()
-    let unitGperKm = "dk_unit_g_per_km".dkLocalized()
-    let unitLiterPerKm = "dk_unit_liter_per_100km".dkLocalized()
-    let unitKmPerHour = "dk_unit_km_per_hour".dkLocalized()
-    let unknown = "dk_unknown".dkLocalized()
-    let drivingContextDense = "dk_driving_context_city_dense".dkLocalized()
-    let drivingContextCity = "dk_driving_context_city".dkLocalized()
-    let drivingContextExternal = "dk_driving_context_external".dkLocalized()
-    let drivingContextFastlane = "dk_driving_context_fastlane".dkLocalized()
-    let weatherSun = "dk_weather_sun".dkLocalized()
-    let weatherCloud = "dk_weather_cloud".dkLocalized()
-    let weatherFog = "dk_weather_fog".dkLocalized()
-    let weatherRain = "dk_weather_rain".dkLocalized()
-    let weatherSnow = "dk_weather_snow".dkLocalized()
-    let weatherHail = "dk_weather_hail".dkLocalized()
-    let day = "dk_day".dkLocalized()
-    let night = "dk_night".dkLocalized()
+    
+     
+*/
 
     var fuelConsumptionValue : String {
-        let unit = unitLiterPerKm
         if let value = trip.fuelEstimation?.fuelConsumption, value != 0{
-            return String(format: "%.1f %@", value, unit)
+            return value.formatConsumption()
         } else {
             return unknown
         }
@@ -58,7 +44,7 @@ class SynthesisPageViewModel {
     
     var conditionValue: String {
         if let dayValue = trip.tripStatistics?.day {
-            return dayValue ? day : night
+            return dayValue ? "dk_day".dkDriverDataLocalized() : "dk_night".dkDriverDataLocalized()
         } else {
             return unknown
         }
@@ -66,7 +52,7 @@ class SynthesisPageViewModel {
     
     var meanSpeedValue : String {
         if let value = trip.tripStatistics?.speedMean {
-            return String(format: "%.0f %@", value, unitKmPerHour)
+            return value.formatSpeedMean()
         } else {
             return unknown
         }
@@ -74,8 +60,7 @@ class SynthesisPageViewModel {
     
     var stopTimeValue : String {
         if let value = trip.tripStatistics?.idlingDuration {
-            let durationInMinutes = value / 60
-            return durationInMinutes.formattedDuration
+            return value.formatSecondDuration()
         } else {
             return unknown
         }
@@ -83,7 +68,7 @@ class SynthesisPageViewModel {
     
     var co2EmissionValue : String {
         if let value = trip.fuelEstimation?.co2Emission {
-            return String(format: "%.0f %@", value, unitGperKm)
+            return value.formatCO2Emission()
         } else {
             return unknown
         }
@@ -93,19 +78,19 @@ class SynthesisPageViewModel {
         if let meteo = trip.tripStatistics?.meteo {
             switch meteo {
                 case 1:
-                    return weatherSun
+                    return "dk_weather_sun".dkDriverDataLocalized()
                 case 2:
-                    return weatherCloud
+                    return "dk_weather_cloud".dkDriverDataLocalized()
                 case 3:
-                    return weatherRain
+                    return "dk_weather_rain".dkDriverDataLocalized()
                 case 4:
-                    return weatherFog
+                    return "dk_weather_fog".dkDriverDataLocalized()
                 case 5:
-                    return weatherSnow
+                    return "dk_weather_snow".dkDriverDataLocalized()
                 case 6:
-                    return weatherHail
+                    return "dk_weather_hail".dkDriverDataLocalized()
                 default:
-                    return weatherSun
+                    return "dk_weather_sun".dkDriverDataLocalized()
             }
         } else {
             return unknown
@@ -114,12 +99,7 @@ class SynthesisPageViewModel {
     
     var co2MassValue: String {
         if let value = trip.fuelEstimation?.co2Mass {
-            if value < 1 {
-                let co2Value = value * 1000
-                return String(format: "%.0f %@", co2Value, unitG)
-            } else {
-                return String(format: "%.0f %@", value, unitKg)
-            }
+            return value.formatCO2Mass()
         } else {
             return unknown
         }
@@ -136,15 +116,15 @@ class SynthesisPageViewModel {
             }
             switch mainContext.contextId {
             case 0, 1:
-                return drivingContextDense
+                return "dk_driving_context_city_dense".dkDriverDataLocalized()
             case 2:
-                return drivingContextCity
+                return "dk_driving_context_city".dkDriverDataLocalized()
             case 3:
-                return drivingContextExternal
+                return "dk_driving_context_external".dkDriverDataLocalized()
             case 4:
-                return drivingContextFastlane
+                return "dk_driving_context_fastlane".dkDriverDataLocalized()
             default:
-                return drivingContextExternal
+                return "dk_driving_context_external".dkDriverDataLocalized()
             }
         } else {
             return unknown

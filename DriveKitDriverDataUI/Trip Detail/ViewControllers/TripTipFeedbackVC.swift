@@ -115,18 +115,15 @@ class TripTipFeedbackVC: UITableViewController {
 
 fileprivate extension TripTipFeedbackVC {
     func configureContent() {
-        let contentAttribute = [NSAttributedString.Key.foregroundColor: DKUIColors.mainFontColor.color]
-        let contentAttributedText = NSAttributedString(string: viewModel.content, attributes: contentAttribute)
-        contentLabel.attributedText = contentAttributedText
+        contentLabel.attributedText = viewModel.content.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
     }
     
     func configureFeedbacks() {
-        let choicesAttribute = [NSAttributedString.Key.foregroundColor: DKUIColors.complementaryFontColor.color]
-        self.feedbackLabel1.attributedText = NSAttributedString(string: viewModel.choices[0], attributes: choicesAttribute)
-        self.feedbackLabel2.attributedText = NSAttributedString(string: viewModel.choices[1], attributes: choicesAttribute)
-        self.feedbackLabel3.attributedText = NSAttributedString(string: viewModel.choices[2], attributes: choicesAttribute)
-        self.feedbackLabel4.attributedText = NSAttributedString(string: viewModel.choices[3], attributes: choicesAttribute)
-        self.feedbackLabel5.attributedText = NSAttributedString(string: viewModel.choices[4], attributes: choicesAttribute)
+        self.feedbackLabel1.attributedText = viewModel.choices[0].dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
+        self.feedbackLabel2.attributedText = viewModel.choices[1].dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
+        self.feedbackLabel3.attributedText = viewModel.choices[2].dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
+        self.feedbackLabel4.attributedText = viewModel.choices[3].dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
+        self.feedbackLabel5.attributedText = viewModel.choices[4].dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
     }
     
     func configureComment() {
@@ -140,7 +137,7 @@ fileprivate extension TripTipFeedbackVC {
         doneToolBar.sizeToFit()
         commentTextView.inputAccessoryView = doneToolBar
         commentTextView.layer.borderWidth = 1
-        commentTextView.layer.borderColor = DKUIColors.complementaryFontColor.color.cgColor
+        commentTextView.layer.borderColor = DKUIColors.mainFontColor.color.cgColor
         commentTextView.layer.cornerRadius = 5
     }
     
@@ -149,14 +146,10 @@ fileprivate extension TripTipFeedbackVC {
     }
     
     func configureSend(){
-        sendButton.setTitle(self.viewModel.send, for: .normal)
-        sendButton.setTitleColor(DKUIColors.secondaryColor.color, for: .normal)
-        sendButton.setTitleColor(DKUIColors.complementaryFontColor.color, for: .disabled)
+        sendButton.setAttributedTitle(self.viewModel.send.dkAttributedString().font(dkFont: .primary, style: .button).color(.secondaryColor).uppercased().build(), for: .normal)
     }
     
     func configureCancel(){
-        cancelButton.setTitle(self.viewModel.cancel, for: .normal)
-        cancelButton.setTitleColor(DKUIColors.secondaryColor.color, for: .normal)
-        cancelButton.setTitleColor(DKUIColors.complementaryFontColor.color, for: .disabled)
+        cancelButton.setAttributedTitle(self.viewModel.cancel.dkAttributedString().font(dkFont: .primary, style: .button).color(.secondaryColor).uppercased().build(), for: .normal)
     }
 }

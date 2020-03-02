@@ -10,7 +10,7 @@ import UIKit
 
 public class DKAttributedStringBuilder {
     
-    private let text : String
+    private var text : String
     var attributes : [NSAttributedString.Key: Any] = [:]
     
     init(text: String) {
@@ -28,6 +28,11 @@ public class DKAttributedStringBuilder {
     
     public func color(_ color: DKUIColors) -> DKAttributedStringBuilder{
         attributes[.foregroundColor] = color.color
+        return self
+    }
+    
+    public func uppercased() -> DKAttributedStringBuilder {
+        self.text = text.uppercased()
         return self
     }
     

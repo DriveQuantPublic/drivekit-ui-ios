@@ -16,7 +16,8 @@ public enum DKStyles {
     smallText,
     highlightBig,
     highlightNormal,
-    highlightSmall
+    highlightSmall,
+    button
     
     var style : DKStyle {
         var size : CGFloat = 14
@@ -45,6 +46,9 @@ public enum DKStyles {
             traits = .traitBold
         case .highlightSmall:
             size = 24
+            traits = .traitBold
+        case .button:
+            size = 18
             traits = .traitBold
         }
         return DKStyle(size: size, traits: traits)

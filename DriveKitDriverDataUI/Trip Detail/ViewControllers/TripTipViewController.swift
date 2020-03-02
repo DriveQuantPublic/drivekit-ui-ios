@@ -61,7 +61,7 @@ class TripTipViewController: UIViewController {
     }
     
     func configureCloseButton() {
-        closeButton.setTitle(DKCommonLocalizable.ok.text(), for: .normal)
+        closeButton.setAttributedTitle(DKCommonLocalizable.ok.text().dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).uppercased().build(), for: .normal)
         closeButton.setTitleColor(.white, for: .normal)
         closeButton.backgroundColor = DKUIColors.secondaryColor.color
     }
@@ -87,8 +87,8 @@ class TripTipViewController: UIViewController {
     
     func configureYesButton() {
         yesImage.image = UIImage(named: "dk_advice_agree", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
-        yesImage.tintColor = .black
-        yesLabel.text = "dk_advice_agree".dkDriverDataLocalized()
+        yesImage.tintColor = DKUIColors.mainFontColor.color
+        yesLabel.attributedText = "dk_advice_agree".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.mainFontColor).build()
         
         yesButtonView.isUserInteractionEnabled = true
         let yesButtonGesture = UITapGestureRecognizer(target: self, action: #selector(tapOnYesButton(_:)))
@@ -118,8 +118,8 @@ class TripTipViewController: UIViewController {
     }
     func configureNoButton() {
         noImage.image = UIImage(named: "dk_advice_disagree", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
-        noImage.tintColor = .black
-        noLabel.text = "dk_advice_disagree".dkDriverDataLocalized()
+        noImage.tintColor = DKUIColors.mainFontColor.color
+        noLabel.attributedText = "dk_advice_disagree".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.mainFontColor).build()
                 
         noButtonView.isUserInteractionEnabled = true
         let noButtonGesture = UITapGestureRecognizer(target: self, action: #selector(tapOnNoButton(_:)))

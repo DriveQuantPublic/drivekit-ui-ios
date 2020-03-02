@@ -159,11 +159,8 @@ class ViewController: UITableViewController {
     
     func configureDriverDataUI() {
         DispatchQueue.main.async {
-            let tripListConfig = TripListViewConfig()
-            
-            let tripDetailConfig = TripDetailViewConfig()
-            
-            let tripListVC = TripListVC(config: tripListConfig, detailConfig: tripDetailConfig)
+
+            let tripListVC = TripListVC()
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
             self.navigationController?.pushViewController(tripListVC, animated: true)
         }

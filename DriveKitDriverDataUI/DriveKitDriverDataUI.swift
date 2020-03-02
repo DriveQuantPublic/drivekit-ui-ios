@@ -14,17 +14,20 @@ public class DriveKitDriverDataUI {
     var tripData: TripData = .safety
     var headerDay: HeaderDay = .distanceDuration
     var dayTripDescendingOrder: Bool = false
+    var mapItems : [MapItem] = [.safety, .ecoDriving, .distraction, .interactiveMap, .synthesis]
+    var enableDeleteTrip = true
     
     public static let shared = DriveKitDriverDataUI()
     
     private init() {}
     
-    public func initialize(tripData : TripData = .safety, headerDay : HeaderDay = .distanceDuration, dayTripDescendingOrder : Bool = false) {
+    public func initialize(tripData : TripData = .safety, headerDay : HeaderDay = .distanceDuration, dayTripDescendingOrder : Bool = false, mapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .interactiveMap, .synthesis], enableDeleteTrip : Bool = true) {
         self.tripData = tripData
         self.headerDay = headerDay
         self.dayTripDescendingOrder = dayTripDescendingOrder
+        self.mapItems = mapItems
+        self.enableDeleteTrip = enableDeleteTrip
     }
-
 }
 
 extension Bundle {
@@ -39,10 +42,15 @@ extension String {
 
 extension DriveKitDriverDataUI : DriveKitDriverDataUIEntryPoint {
     public func getTripListViewController() -> UIViewController {
-        return UIViewController()
+        return TripListVC()
     }
     
-    public func getTripDetailViewController() -> UIViewController {
-        return UIViewController()
+    public func getTripDetailViewController(itinId : String) -> UIViewController {
+        return TripDetailVC(itinId: itinId, showAdvice: false)
     }
+}
+
+extension UIColor {
+    public static let dkMapTrace = UIColor(hex: 0x116ea9)
+    public static let dkMapTraceWarning = UIColor(hex: 0xed4f3b)
 }

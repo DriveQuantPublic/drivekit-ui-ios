@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 
 class SafetyPageVC: UIViewController {
     @IBOutlet var progressRingContainer: UIView!
@@ -15,11 +16,9 @@ class SafetyPageVC: UIViewController {
     @IBOutlet var eventContainer: UIStackView!
     
     var viewModel : SafetyPageViewModel
-    var detailConfig: TripDetailViewConfig
     
-    init(viewModel: SafetyPageViewModel, detailConfig: TripDetailViewConfig) {
+    init(viewModel: SafetyPageViewModel) {
         self.viewModel = viewModel
-        self.detailConfig = detailConfig
         super.init(nibName: String(describing: SafetyPageVC.self), bundle: Bundle.driverDataUIBundle)
     }
     
@@ -39,27 +38,27 @@ class SafetyPageVC: UIViewController {
 
     func configure() {
         let score = CircularProgressView.viewFromNib
-        let configScore = ConfigurationCircularProgressView(scoreType: viewModel.scoreType, trip: viewModel.trip, size: .large)
+        let configScore = ConfigurationCircularProgressView(scoreType: viewModel.scoreType, value: viewModel.scoreType.rawValue(trip: viewModel.trip), size: .large)
         score.configure(configuration: configScore)
         score.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         progressRingContainer.embedSubview(score)
         DriverDataStyle.applyCircularRingTitle(label: progressRingTitle)
-        progressRingTitle.text = viewModel.scoreType.stringValue(detailConfig: detailConfig)
+        progressRingTitle.text = viewModel.scoreType.stringValue()
         setupEventContainer()
     }
     
     func setupEventContainer() {
         eventContainer.removeAllSubviews()
         let accelerationView = SafetyPageView.viewFromNib
-        accelerationView.configure(title: detailConfig.accelerationText, image: "dk_safety_accel", count: viewModel.getAccelerations())
+        accelerationView.configure(title: "dk_safety_accel".dkDriverDataLocalized(), image: "dk_safety_accel", count: viewModel.getAccelerations())
         eventContainer.addArrangedSubview(accelerationView)
         
         let brakeView = SafetyPageView.viewFromNib
-        brakeView.configure(title: detailConfig.decelText, image: "dk_safety_decel", count: viewModel.getBrakes())
+        brakeView.configure(title: "dk_safety_decel".dkDriverDataLocalized(), image: "dk_safety_decel", count: viewModel.getBrakes())
         eventContainer.addArrangedSubview(brakeView)
         
         let adherenceView = SafetyPageView.viewFromNib
-        adherenceView.configure(title: detailConfig.adherenceText, image: "dk_safety_adherence", count: viewModel.getAdherences())
+        adherenceView.configure(title: "dk_safety_adherence".dkDriverDataLocalized(), image: "dk_safety_adherence", count: viewModel.getAdherences())
         eventContainer.addArrangedSubview(adherenceView)
         
         

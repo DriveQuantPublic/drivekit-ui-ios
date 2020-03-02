@@ -9,6 +9,7 @@
 import UIKit
 import DriveKitDBTripAccess
 import CoreLocation
+import DriveKitCommonUI
 
 class DistractionPageViewModel {
     var scoreType: ScoreType = .distraction

@@ -17,7 +17,6 @@ target 'DriveKitApp' do
   use_frameworks!
   pod 'DriveKitTripAnalysis', drivekitVersion
   pod 'DriveKitDriverData', drivekitVersion
-  pod 'UICircularProgressRing'
 end
 
 
@@ -37,3 +36,7 @@ target 'DriveKitDriverAchievementUI' do
   pod 'DriveKitDriverAchievement', drivekitVersion
 end
 
+target 'DriveKitCommonUI' do
+  platform :ios, '10.0'
+  pod 'UICircularProgressRing'
+end

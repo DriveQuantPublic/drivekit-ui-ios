@@ -7,25 +7,24 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 
 struct TripEventCalloutViewModel {
 
     let event: TripEvent
     let location: String
-    var detailConfig: TripDetailViewConfig
 
-    init(event: TripEvent, location: String, detailConfig: TripDetailViewConfig) {
+    init(event: TripEvent, location: String) {
         self.event = event
-        self.detailConfig = detailConfig
         self.location = location
     }
 
     var time: String {
-        return event.date.dateToTime()
+        return event.date.format(pattern: .hourMinute)
     }
 
     var title: String {
-        return event.getTitle(detailConfig: detailConfig)
+        return event.getTitle()
     }
 
     var subtitle: NSAttributedString {
@@ -38,7 +37,7 @@ struct TripEventCalloutViewModel {
         case .acceleration, .brake:
             let attString = NSMutableAttributedString()
             attString.append(valuePrefix)
-            attString.append(NSAttributedString(string: " \(String(format: "%.2f", event.value)) \(detailConfig.accelUnitText)", attributes: attributes))
+            attString.append(NSAttributedString(string: " \(String(format: "%.2f", event.value)) \(DKCommonLocalizable.unitAcceleration.text())", attributes: attributes))
             return attString
         case .adherence:
             let attString = NSMutableAttributedString()
@@ -54,9 +53,9 @@ struct TripEventCalloutViewModel {
     
     var highColor: UIColor {
         if event.isHigh {
-            return UIColor.dkCriticalEvent
+            return DKUIColors.criticalColor.color
         } else {
-            return UIColor.dkHighEvent
+            return DKUIColors.warningColor.color
         }
     }
 }

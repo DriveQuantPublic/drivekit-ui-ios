@@ -34,14 +34,14 @@ class ResistantAnnotationView: MKAnnotationView {
 
 extension ResistantAnnotationView {
     
-    func setupAsTripEventCallout(with event: TripEvent, location: String, detailConfig: TripDetailViewConfig, config : TripListViewConfig) {
+    func setupAsTripEventCallout(with event: TripEvent, location: String) {
         
         guard canShowCallout else {
             return
         }
         
         let calloutView = CalloutView.viewFromNib
-        calloutView.configure(viewModel: TripEventCalloutViewModel(event: event, location: location, detailConfig: detailConfig), config: config)
+        calloutView.configure(viewModel: TripEventCalloutViewModel(event: event, location: location))
         detailCalloutAccessoryView = calloutView
         
         switch event.type {

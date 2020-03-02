@@ -33,22 +33,22 @@ enum EventType {
         }
     }
     
-    func name(detailConfig: TripDetailViewConfig) -> String {
+    func name() -> String {
         switch self {
         case .adherence:
-            return detailConfig.adherenceText
+            return "dk_safety_adherence".dkDriverDataLocalized()
         case .brake:
-            return detailConfig.decelText
+            return "dk_safety_decel".dkDriverDataLocalized()
         case .acceleration:
-            return detailConfig.accelerationText
+            return "dk_safety_accel".dkDriverDataLocalized()
         case .lock:
-            return detailConfig.lockText
+            return "dk_lock_event".dkDriverDataLocalized()
         case .unlock:
-            return detailConfig.unlockText
+            return "dk_unlock_event".dkDriverDataLocalized()
         case .end:
-            return detailConfig.endText
+            return "dk_end_event".dkDriverDataLocalized()
         case .start:
-            return detailConfig.startText
+            return "dk_start_event".dkDriverDataLocalized()
         }
     }
 }
@@ -101,22 +101,22 @@ class TripEvent {
         }
     }
     
-    func getTitle(detailConfig: TripDetailViewConfig) -> String{
+    func getTitle() -> String{
         switch type {
         case .adherence:
-            return isHigh ? detailConfig.eventAdherenceCritText : detailConfig.eventAdherenceText
+            return isHigh ? "dk_safety_list_adherence_critical".dkDriverDataLocalized() : "dk_safety_list_adherence".dkDriverDataLocalized()
         case .acceleration:
-            return isHigh ? detailConfig.eventAccelCritText : detailConfig.eventAccelText
+            return isHigh ? "dk_safety_list_acceleration_critical".dkDriverDataLocalized() : "dk_safety_acceleration".dkDriverDataLocalized()
         case .brake:
-            return isHigh ? detailConfig.eventDecelCritText : detailConfig.eventDecelText
+            return isHigh ? "dk_safety_list_brake_critical".dkDriverDataLocalized() : "dk_safety_brake".dkDriverDataLocalized()
         case .start:
-            return detailConfig.startText
+            return "dk_start_event".dkDriverDataLocalized()
         case .end:
-            return detailConfig.endText
+            return "dk_end_event".dkDriverDataLocalized()
         case .unlock:
-            return detailConfig.unlockText
+            return "dk_unlock_event".dkDriverDataLocalized()
         case .lock:
-            return detailConfig.lockText
+            return "dk_lock_event".dkDriverDataLocalized()
         }
     }
     

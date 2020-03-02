@@ -21,10 +21,8 @@ public class TripListVC: UIViewController {
     private let refreshControl = UIRefreshControl()
     
     let viewModel: TripListViewModel
-    let detailConfig: TripDetailViewConfig
     
-    public init(detailConfig: TripDetailViewConfig) {
-        self.detailConfig = detailConfig
+    public init() {
         self.viewModel = TripListViewModel() 
         super.init(nibName: String(describing: TripListVC.self), bundle: Bundle.driverDataUIBundle)
     }

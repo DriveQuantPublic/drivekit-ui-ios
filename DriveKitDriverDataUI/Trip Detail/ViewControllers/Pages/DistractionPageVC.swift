@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 
 class DistractionPageVC: UIViewController {
     
@@ -16,12 +17,9 @@ class DistractionPageVC: UIViewController {
     @IBOutlet var eventContainer: UIStackView!
     
     var viewModel: DistractionPageViewModel
-    var detailConfig: TripDetailViewConfig
     
-    init(viewModel: DistractionPageViewModel, detailConfig: TripDetailViewConfig) {
+    init(viewModel: DistractionPageViewModel) {
         self.viewModel = viewModel
-        self.config = config
-        self.detailConfig = detailConfig
         super.init(nibName: String(describing: DistractionPageVC.self), bundle: Bundle.driverDataUIBundle)
     }
     
@@ -41,28 +39,28 @@ class DistractionPageVC: UIViewController {
     
     func configure() {
         let score = CircularProgressView.viewFromNib
-        let configScore = ConfigurationCircularProgressView(scoreType: viewModel.scoreType, trip: viewModel.trip, size: .large)
+        let configScore = ConfigurationCircularProgressView(scoreType: viewModel.scoreType, value: viewModel.scoreType.rawValue(trip: viewModel.trip), size: .large)
         score.configure(configuration: configScore)
         score.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         score.center = circularRingContainer.center
         circularRingContainer.embedSubview(score)
         DriverDataStyle.applyCircularRingTitle(label: circularRingTitle)
-        circularRingTitle.text = self.viewModel.scoreType.stringValue(detailConfig: detailConfig)
+        circularRingTitle.text = self.viewModel.scoreType.stringValue()
         setupEventContainer()
     }
     
     func setupEventContainer() {
         eventContainer.removeAllSubviews()
         let nbUnlockView = DistractionPageView.viewFromNib
-        nbUnlockView.configure(title: detailConfig.nbUnlockText, count: self.getNumberUnlocks())
+        nbUnlockView.configure(title: "dk_unlock_number".dkDriverDataLocalized(), count: self.getNumberUnlocks())
         eventContainer.addArrangedSubview(nbUnlockView)
         
         let unlockDurationView = DistractionPageView.viewFromNib
-        unlockDurationView.configure(title: detailConfig.durationUnlockText, count: self.getScreenUnlockDuration())
+        unlockDurationView.configure(title: "dk_unlock_duration".dkDriverDataLocalized(), count: self.getScreenUnlockDuration())
         eventContainer.addArrangedSubview(unlockDurationView)
         
         let unlockDistanceView = DistractionPageView.viewFromNib
-        unlockDistanceView.configure(title: detailConfig.distanceUnlockText, count: self.getScreenUnlockDistance())
+        unlockDistanceView.configure(title: "dk_unlock_distance".dkDriverDataLocalized(), count: self.getScreenUnlockDistance())
         eventContainer.addArrangedSubview(unlockDistanceView)
         
     }
@@ -75,20 +73,20 @@ class DistractionPageVC: UIViewController {
     func getScreenUnlockDuration() -> NSAttributedString {
         var firstValue = "0"
         var secondValue = ""
-        var unit = detailConfig.durationSecondUnit
+        var unit = DKCommonLocalizable.unitSecond.text()
         if let driverdistraction = viewModel.trip.driverDistraction {
             if driverdistraction.durationUnlock >= 3600 {
                 firstValue = "\(Int(floor(driverdistraction.durationUnlock/3600)))"
                 let leftSecond = Int(driverdistraction.durationUnlock) % 3600
                 secondValue = " \(Int(leftSecond / 60))"
-                unit = detailConfig.durationHourUnit
+                unit = DKCommonLocalizable.unitHour.text()
             }else if driverdistraction.durationUnlock >= 60{
                 firstValue = "\(Int(floor(driverdistraction.durationUnlock/60)))"
                 secondValue = " \(Int(driverdistraction.durationUnlock) % 60)"
-                unit = detailConfig.durationMinUnit
+                unit = DKCommonLocalizable.unitMinute.text()
             }else{
                 firstValue = "\(Int(driverdistraction.durationUnlock)) "
-                unit = detailConfig.durationSecondUnit
+                unit = DKCommonLocalizable.unitSecond.text()
             }
         }
         let attributedString = NSMutableAttributedString()
@@ -102,10 +100,10 @@ class DistractionPageVC: UIViewController {
     func getScreenUnlockDistance() -> NSAttributedString {
         let distance = Double(self.viewModel.trip.driverDistraction?.distanceUnlock ?? 0)
          var text = "0"
-        var unit = "dk_unit_meter".dkLocalized()
+        var unit = DKCommonLocalizable.unitMeter.text()
         if distance > 1000{
             text = String(format: "%.1f ", distance / 1000)
-            unit = "dk_unit_km".dkLocalized()
+            unit = DKCommonLocalizable.unitKilometer.text()
         } else {
             text = "\(Int(distance)) "
         }
@@ -116,11 +114,11 @@ class DistractionPageVC: UIViewController {
     }
     
     private func valueAttributedText(value: String) -> NSAttributedString {
-        return NSAttributedString(string: value, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 22, weight: .bold), NSAttributedString.Key.foregroundColor : config.primaryColor])
+        return NSAttributedString(string: value, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 22, weight: .bold), NSAttributedString.Key.foregroundColor : DKUIColors.primaryColor.color])
     }
     
     private func unitAttributedText(value: String) -> NSAttributedString {
-        return NSAttributedString(string: value, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor : UIColor.dkDarkGrayText])
+        return NSAttributedString(string: value, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16), NSAttributedString.Key.foregroundColor : DKUIColors.mainFontColor.color])
     }
     
 }

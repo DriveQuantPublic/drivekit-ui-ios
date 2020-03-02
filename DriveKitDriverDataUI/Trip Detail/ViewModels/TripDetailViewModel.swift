@@ -41,9 +41,9 @@ class TripDetailViewModel {
         }
     }
     
-    init(itinId: String, mapItems: [MapItem]) {
+    init(itinId: String) {
         self.itinId = itinId
-        self.mapItems = mapItems
+        self.mapItems = DriveKitDriverDataUI.shared.mapItems
     }
     
     private func fetchTripData(){

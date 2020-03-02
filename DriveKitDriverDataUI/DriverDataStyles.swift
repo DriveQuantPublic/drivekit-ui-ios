@@ -7,26 +7,27 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 
 class DriverDataStyle {
 
     static func applyTripHour(label : UILabel){
         label.font = label.font.withSize(14)
-        label.textColor = UIColor.dkGrayText
+        label.textColor = DKUIColors.complementaryFontColor.color
     }
     
     static func applyTripDarkGrey(label : UILabel){
           label.font = label.font.withSize(14)
-          label.textColor = UIColor.dkDarkGrayText
+          label.textColor = DKUIColors.mainFontColor.color
     }
     
     static func applyTripListCity(label : UILabel){
         label.font = label.font.withSize(14)
-        label.textColor = UIColor.black
+        label.textColor = DKUIColors.mainFontColor.color
     }
     
     static func applyTripMainValue(label : UILabel, color: UIColor){
-        label.font = label.font.bold.withSize(14)
+        label.font = label.font.withSize(14)
         label.textColor =  color
     }
     
@@ -37,6 +38,6 @@ class DriverDataStyle {
     
     static func applyTitleSynthesis(label: UILabel) {
         label.font = label.font.withSize(12)
-        label.textColor = UIColor.dkGrayText
+        label.textColor = DKUIColors.complementaryFontColor.color
     }
 }

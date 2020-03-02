@@ -46,7 +46,7 @@ public extension Double {
                 nbHour = nbHour - (24 * nbDay)
                 return "\(nbDay)\(DKCommonLocalizable.unitDay.text()) \(nbHour)\(DKCommonLocalizable.unitHour.text())"
             }else{
-                return "\(nbHour)\(DKCommonLocalizable.unitHour.text()) \(nbMinute)"
+                return "\(nbHour)\(DKCommonLocalizable.unitHour.text())\(nbMinute)"
             }
         }else{
             return "\(nbMinute) \(DKCommonLocalizable.unitMinute.text())"

@@ -8,18 +8,17 @@
 
 import UIKit
 import UICircularProgressRing
-import DriveKitCommonUI
 
-final class CircularProgressView: UIView, Nibable {
+public final class CircularProgressView: UIView, Nibable {
     @IBOutlet var progressRing: UICircularProgressRing!
     
     @IBOutlet var imageView: UIImageView!
     
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    func getScoreColor(value: Double, steps: [Double]) -> UIColor {
+    public func getScoreColor(value: Double, steps: [Double]) -> UIColor {
         if value <= steps[0]{
             return UIColor.dkVeryBad
         }else if value <= steps[1]{
@@ -36,7 +35,7 @@ final class CircularProgressView: UIView, Nibable {
         return UIColor.dkExcellent
     }
     
-    func configure(configuration: ConfigurationCircularProgressView){
+    public func configure(configuration: ConfigurationCircularProgressView){
         if let image = configuration.image {
             self.imageView.isHidden = false
             self.imageView.image = image

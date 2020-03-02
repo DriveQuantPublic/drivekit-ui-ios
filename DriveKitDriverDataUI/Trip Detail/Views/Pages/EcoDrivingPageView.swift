@@ -6,6 +6,7 @@
 //  Copyright © 2019 DriveQuant. All rights reserved.
 //
 import UIKit
+import DriveKitCommonUI
 
 final class EcoDrivingPageView : UIView, Nibable {
 
@@ -14,7 +15,6 @@ final class EcoDrivingPageView : UIView, Nibable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     func configure(title: String, image: String) {

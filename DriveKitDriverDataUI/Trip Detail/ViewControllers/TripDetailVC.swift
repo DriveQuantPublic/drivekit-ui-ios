@@ -29,15 +29,12 @@ class TripDetailVC: UIViewController {
     var swipableViewControllers: [UIViewController] = []
     var mapViewController: MapViewController!
     var mapItemButtons: [UIButton] = []
-
-    let detailConfig : TripDetailViewConfig
     
     private var showAdvice : Bool
     
     
-    init(itinId: String, tripDetailViewConfig: TripDetailViewConfig, showAdvice: Bool) {
-        self.viewModel = TripDetailViewModel(itinId: itinId, mapItems: tripDetailViewConfig.mapItems)
-        self.detailConfig = tripDetailViewConfig
+    init(itinId: String, showAdvice: Bool) {
+        self.viewModel = TripDetailViewModel(itinId: itinId)
         self.showAdvice = showAdvice
         super.init(nibName: String(describing: TripDetailVC.self), bundle: Bundle.driverDataUIBundle)
     }
@@ -48,7 +45,7 @@ class TripDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = detailConfig.viewTitleText
+        self.title = "dk_trip_detail_title".dkDriverDataLocalized()
         showLoader()
         setupMapView()
         self.configureDeleteButton()
@@ -63,7 +60,7 @@ class TripDetailVC: UIViewController {
     }
     
     private func configureDeleteButton(){
-        if detailConfig.enableDeleteTrip {
+        if DriveKitDriverDataUI.shared.enableDeleteTrip {
             let image = UIImage(named: "dk_delete_trip", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.resizeImage(25, opaque: false).withRenderingMode(.alwaysTemplate)
             let deleteButton = UIBarButtonItem(image: image , style: .plain, target: self, action: #selector(deleteTrip))
             deleteButton.tintColor = .white
@@ -72,7 +69,7 @@ class TripDetailVC: UIViewController {
     }
     
     @objc private func deleteTrip(){
-        let alert = UIAlertController(title: "", message: detailConfig.deleteText, preferredStyle: .alert)
+        let alert = UIAlertController(title: "", message: "dk_confirm_delete_trip".dkDriverDataLocalized(), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default, handler: { action in
             self.showLoader()
@@ -91,13 +88,13 @@ class TripDetailVC: UIViewController {
     }
     
     private func showErrorDelete() {
-        let alert = UIAlertController(title: "", message: detailConfig.failedToDeleteTrip, preferredStyle: .alert)
+        let alert = UIAlertController(title: "", message: "dk_failed_to_delete_trip".dkDriverDataLocalized(), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
     private func showSuccessDelete() {
-        let alert = UIAlertController(title: "", message: detailConfig.tripDeleted, preferredStyle: .alert)
+        let alert = UIAlertController(title: "", message: "dk_trip_deleted".dkDriverDataLocalized(), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: { action in
             self.navigationController?.popViewController(animated: true)
         }))
@@ -164,7 +161,7 @@ extension TripDetailVC {
     }
     
     func setupMapView() {
-        self.mapViewController = MapViewController(viewModel: viewModel, detailConfig: detailConfig)
+        self.mapViewController = MapViewController(viewModel: viewModel)
         mapViewController.view.frame = CGRect(x: 0, y: 0, width: self.mapContainer.frame.width, height: self.mapContainer.frame.height)
         mapContainer.addSubview(mapViewController.view)
         mapViewController.didMove(toParent: self)
@@ -219,37 +216,37 @@ extension TripDetailVC {
     
     func setupShortTrip(){
         let shortTripViewModel = ShortTripPageViewModel(trip: self.viewModel.trip!)
-        let shortTripVC = ShortTripPageVC(viewModel: shortTripViewModel, detailConfig: detailConfig)
+        let shortTripVC = ShortTripPageVC(viewModel: shortTripViewModel)
         swipableViewControllers.append(shortTripVC)
     }
     
     func setupSafety(){
         let safetyViewModel = SafetyPageViewModel(trip: self.viewModel.trip!)
-        let safetyVC = SafetyPageVC(viewModel: safetyViewModel, detailConfig: detailConfig)
+        let safetyVC = SafetyPageVC(viewModel: safetyViewModel)
         swipableViewControllers.append(safetyVC)
     }
     
     func setupEcoDriving(){
-        let ecoDrivingViewModel = EcoDrivingPageViewModel(trip: self.viewModel.trip!, detailConfig: detailConfig)
-        let ecoDrivingVC = EcoDrivingPageVC(viewModel: ecoDrivingViewModel, detailConfig: detailConfig)
+        let ecoDrivingViewModel = EcoDrivingPageViewModel(trip: self.viewModel.trip!)
+        let ecoDrivingVC = EcoDrivingPageVC(viewModel: ecoDrivingViewModel)
         swipableViewControllers.append(ecoDrivingVC)
     }
     
     func setupDistraction(){
         let distractionViewModel = DistractionPageViewModel(trip: self.viewModel.trip!)
-        let distractionVC = DistractionPageVC(viewModel: distractionViewModel, detailConfig: detailConfig)
+        let distractionVC = DistractionPageVC(viewModel: distractionViewModel)
         swipableViewControllers.append(distractionVC)
     }
     
     func setupHistory(){
         let historyViewModel = HistoryPageViewModel(events: self.viewModel.events, tripDetailViewModel: viewModel)
-        let historyVC = HistoryPageVC(viewModel: historyViewModel, detailConfig: detailConfig)
+        let historyVC = HistoryPageVC(viewModel: historyViewModel)
         swipableViewControllers.append(historyVC)
     }
     
     func setupSynthesis() {
         let synthesisViewModel = SynthesisPageViewModel(tripDetailViewModel: self.viewModel, trip: self.viewModel.trip!)
-        let synthesisPageVC = SynthesisPageVC(viewModel: synthesisViewModel, detailConfig: self.detailConfig)
+        let synthesisPageVC = SynthesisPageVC(viewModel: synthesisViewModel)
         swipableViewControllers.append(synthesisPageVC)
     }
     
@@ -292,7 +289,7 @@ extension TripDetailVC {
     
     @IBAction func clickedAdvices(_ sender: Any) {
         if let trip = viewModel.trip, let advice = viewModel.displayMapItem?.getAdvice(trip: trip) {
-            let tripTipVC = TripTipViewController(trip: trip, advice: advice, tripDetailVC: self, detailConfig: detailConfig)
+            let tripTipVC = TripTipViewController(trip: trip, advice: advice, tripDetailVC: self)
             let navigationTripTip = UINavigationController(rootViewController: tripTipVC)
             
             navigationTripTip.navigationBar.barTintColor = self.navigationController?.navigationBar.barTintColor
@@ -326,7 +323,7 @@ extension TripDetailVC: TripDetailDelegate {
     
     func noData() {
         DispatchQueue.main.async {
-            let alert = UIAlertController(title: nil, message: self.detailConfig.errorEventText, preferredStyle: .alert)
+            let alert = UIAlertController(title: nil, message: "dk_trip_detail_data_error".dkDriverDataLocalized(), preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: { action in
                 self.navigationController?.popViewController(animated: true)
             }))
@@ -368,7 +365,7 @@ extension TripDetailVC: TripDetailDelegate {
     }
     
     private func showNoRouteAlert(){
-        let alert = UIAlertController(title: nil, message: self.detailConfig.errorRouteText, preferredStyle: .alert)
+        let alert = UIAlertController(title: nil, message: "dk_trip_detail_get_road_failed".dkDriverDataLocalized(), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }

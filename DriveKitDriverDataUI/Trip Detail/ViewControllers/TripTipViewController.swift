@@ -25,15 +25,13 @@ class TripTipViewController: UIViewController {
     @IBOutlet var noImage: UIImageView!
     @IBOutlet var noLabel: UILabel!
     
-    private let detailConfig: TripDetailViewConfig
     private let advice: TripAdvice
     private let trip: Trip
     private let tripDetailVC: TripDetailVC
     
-    init(trip: Trip, advice: TripAdvice, tripDetailVC: TripDetailVC, detailConfig: TripDetailViewConfig) {
+    init(trip: Trip, advice: TripAdvice, tripDetailVC: TripDetailVC) {
         self.trip = trip
         self.tripDetailVC = tripDetailVC
-        self.detailConfig = detailConfig
         self.advice = advice
         super.init(nibName: String(describing: TripTipViewController.self), bundle: Bundle.driverDataUIBundle)
     }
@@ -90,7 +88,7 @@ class TripTipViewController: UIViewController {
     func configureYesButton() {
         yesImage.image = UIImage(named: "dk_advice_agree", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         yesImage.tintColor = .black
-        yesLabel.text = detailConfig.adviceAgreeText
+        yesLabel.text = "dk_advice_agree".dkDriverDataLocalized()
         
         yesButtonView.isUserInteractionEnabled = true
         let yesButtonGesture = UITapGestureRecognizer(target: self, action: #selector(tapOnYesButton(_:)))
@@ -98,14 +96,14 @@ class TripTipViewController: UIViewController {
     }
     
     @objc func tapOnYesButton(_ sender: UITapGestureRecognizer)  {
-        let feedbackViewModel = TripTipFeedbackViewModel(trip: self.trip, tripAdvice: self.advice, detailConfig: self.detailConfig)
+        let feedbackViewModel = TripTipFeedbackViewModel(trip: self.trip, tripAdvice: self.advice)
         feedbackViewModel.evaluation = 1
         feedbackViewModel.itinId = self.trip.itinId ?? ""
         
         feedbackViewModel.sendFeedback(completion: { status in
             if status {
                 DispatchQueue.main.async {
-                    self.showAlertMessage(title: nil, message: self.detailConfig.adviceFeedbackSuccessText, back: true, cancel: false, completion: {
+                    self.showAlertMessage(title: nil, message: "dk_advice_feedback_success".dkDriverDataLocalized(), back: true, cancel: false, completion: {
                         DriveKitDriverData.shared.getTrip(itinId: self.trip.itinId ?? "", completionHandler: { status, trip in
                             self.tripDetailVC.viewModel.trip = trip
                         })
@@ -113,7 +111,7 @@ class TripTipViewController: UIViewController {
                 }
             } else {
                 DispatchQueue.main.async {
-                    self.showAlertMessage(title: nil, message: self.detailConfig.adviceFeedbackErrorText, back: false, cancel: false)
+                    self.showAlertMessage(title: nil, message: "dk_advice_feedback_error".dkDriverDataLocalized(), back: false, cancel: false)
                 }
             }
         })
@@ -121,7 +119,7 @@ class TripTipViewController: UIViewController {
     func configureNoButton() {
         noImage.image = UIImage(named: "dk_advice_disagree", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         noImage.tintColor = .black
-        noLabel.text = detailConfig.adviceDisagreeText
+        noLabel.text = "dk_advice_disagree".dkDriverDataLocalized()
                 
         noButtonView.isUserInteractionEnabled = true
         let noButtonGesture = UITapGestureRecognizer(target: self, action: #selector(tapOnNoButton(_:)))
@@ -129,7 +127,7 @@ class TripTipViewController: UIViewController {
     }
     
     @objc func tapOnNoButton(_ sender: UITapGestureRecognizer)  {
-        let feedbackViewModel = TripTipFeedbackViewModel(trip: self.trip, tripAdvice: self.advice, detailConfig: self.detailConfig)
+        let feedbackViewModel = TripTipFeedbackViewModel(trip: self.trip, tripAdvice: self.advice)
         if let feedbackVC = UIStoryboard.init(name: String(describing: TripTipFeedbackVC.self), bundle: Bundle.driverDataUIBundle).instantiateViewController(withIdentifier: String(describing: TripTipFeedbackVC.self)) as? TripTipFeedbackVC {
             feedbackVC.configure(viewModel: feedbackViewModel, tripDetailVC: self.tripDetailVC)
             self.navigationController?.pushViewController(feedbackVC, animated: true)

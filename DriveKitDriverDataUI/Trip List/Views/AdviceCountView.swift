@@ -8,6 +8,7 @@
 
 import UIKit
 import DriveKitDBTripAccess
+import DriveKitCommonUI
 
 final class AdviceCountView: UIView, Nibable  {
 

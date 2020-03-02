@@ -24,7 +24,6 @@ class TripTipFeedbackVC: UITableViewController {
     @IBOutlet var feedbackLabel5: UILabel!
     
     var viewModel: TripTipFeedbackViewModel!
-    var detailConfig: TripDetailViewConfig!
     var tripDetailVC: TripDetailVC? = nil
     
     override func viewDidLoad() {
@@ -44,7 +43,6 @@ class TripTipFeedbackVC: UITableViewController {
     
     func configure(viewModel: TripTipFeedbackViewModel, tripDetailVC: TripDetailVC) {
         self.viewModel = viewModel
-        self.detailConfig = viewModel.detailConfig
         self.tripDetailVC = tripDetailVC
     }
     
@@ -53,13 +51,13 @@ class TripTipFeedbackVC: UITableViewController {
         self.viewModel.feedBack = self.viewModel.selectedChoice
         switch self.viewModel.feedBack {
             case 0:
-                self.viewModel.comment = detailConfig.adviceFeedbackChoice01Text
+                self.viewModel.comment = "dk_advice_feedback_01".dkDriverDataLocalized()
             case 1:
-                self.viewModel.comment = detailConfig.adviceFeedbackChoice02Text
+                self.viewModel.comment = "dk_advice_feedback_02".dkDriverDataLocalized()
             case 2:
-                self.viewModel.comment = detailConfig.adviceFeedbackChoice03Text
+                self.viewModel.comment = "dk_advice_feedback_03".dkDriverDataLocalized()
             case 3:
-                self.viewModel.comment = detailConfig.adviceFeedbackChoice04Text
+                self.viewModel.comment = "dk_advice_feedback_04".dkDriverDataLocalized()
             case 4:
                 self.viewModel.comment = self.commentTextView.text
         default:
@@ -67,7 +65,7 @@ class TripTipFeedbackVC: UITableViewController {
         }
         
         let alert = UIAlertController(title: nil,
-                                      message: detailConfig.adviceFeedbackSuccessText,
+                                      message: "dk_advice_feedback_success".dkDriverDataLocalized(),
                                       preferredStyle: .alert)
         
         let ok = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default) { _ in
@@ -78,7 +76,7 @@ class TripTipFeedbackVC: UITableViewController {
         self.viewModel.sendFeedback( completion: { status in
             if status {
                 DispatchQueue.main.async {
-                    self.showAlertMessage(title: nil, message: self.detailConfig.adviceFeedbackSuccessText, back: true, cancel: false, completion: {
+                    self.showAlertMessage(title: nil, message: "dk_advice_feedback_success".dkDriverDataLocalized(), back: true, cancel: false, completion: {
                         DriveKitDriverData.shared.getTrip(itinId: self.viewModel.itinId, completionHandler: { status, trip in
                             self.tripDetailVC?.viewModel.trip = trip
                         })
@@ -86,7 +84,7 @@ class TripTipFeedbackVC: UITableViewController {
                 }
             } else {
                 DispatchQueue.main.async {
-                     self.showAlertMessage(title: nil, message: self.detailConfig.adviceFeedbackErrorText, back: false, cancel: true)
+                     self.showAlertMessage(title: nil, message: "dk_advice_feedback_error".dkDriverDataLocalized(), back: false, cancel: true)
                 }
             }
         })

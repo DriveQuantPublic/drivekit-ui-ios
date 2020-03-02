@@ -16,11 +16,9 @@ class EcoDrivingPageVC: UIViewController {
     @IBOutlet var eventContainer: UIStackView!
     
     var viewModel: EcoDrivingPageViewModel
-    var detailConfig: TripDetailViewConfig
     
-    init(viewModel: EcoDrivingPageViewModel, detailConfig: TripDetailViewConfig) {
+    init(viewModel: EcoDrivingPageViewModel) {
         self.viewModel = viewModel
-        self.detailConfig = detailConfig
         super.init(nibName: String(describing: EcoDrivingPageVC.self), bundle: Bundle.driverDataUIBundle)
     }
     
@@ -39,13 +37,13 @@ class EcoDrivingPageVC: UIViewController {
     
     func configure() {
         let score = CircularProgressView.viewFromNib
-        let configScore = ConfigurationCircularProgressView(scoreType: viewModel.scoreType, trip: viewModel.trip, size: .large)
+        let configScore = ConfigurationCircularProgressView(scoreType: viewModel.scoreType, value: viewModel.scoreType.rawValue(trip: viewModel.trip), size: .large)
         score.configure(configuration: configScore)
         score.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         score.center = circularRingContainer.center
         circularRingContainer.embedSubview(score)
         DriverDataStyle.applyCircularRingTitle(label: circularRingTitle)
-        circularRingTitle.text = viewModel.scoreType.stringValue(detailConfig: detailConfig)
+        circularRingTitle.text = viewModel.scoreType.stringValue()
         setupEventContainer()
     }
     

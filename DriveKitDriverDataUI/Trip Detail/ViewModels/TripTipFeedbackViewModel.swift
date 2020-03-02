@@ -12,7 +12,6 @@ import DriveKitDriverData
 import DriveKitCommonUI
 
 class TripTipFeedbackViewModel {
-    var detailConfig: TripDetailViewConfig
     var title : String
     var content : String
     var send : String
@@ -27,18 +26,17 @@ class TripTipFeedbackViewModel {
     var comment: String = ""
     var feedBack: Int = 0
     
-    init(trip: Trip, tripAdvice: TripAdvice, detailConfig: TripDetailViewConfig){
-        self.detailConfig = detailConfig
-        self.title = detailConfig.adviceDisagreeTitleText
-        self.content = detailConfig.adviceDisagreeDescText
+    init(trip: Trip, tripAdvice: TripAdvice){
+        self.title = "dk_advice_feedback_disagree_title".dkDriverDataLocalized()
+        self.content = "dk_advice_feedback_disagree_desc".dkDriverDataLocalized()
         self.cancel = DKCommonLocalizable.cancel.text()
         self.send = DKCommonLocalizable.ok.text()
         self.choices = [
-            detailConfig.adviceFeedbackChoice01Text,
-            detailConfig.adviceFeedbackChoice02Text,
-            detailConfig.adviceFeedbackChoice03Text,
-            detailConfig.adviceFeedbackChoice04Text,
-            detailConfig.adviceFeedbackChoice05Text
+            "dk_advice_feedback_01".dkDriverDataLocalized(),
+            "dk_advice_feedback_02".dkDriverDataLocalized(),
+            "dk_advice_feedback_03".dkDriverDataLocalized(),
+            "dk_advice_feedback_04".dkDriverDataLocalized(),
+            "dk_advice_feedback_05".dkDriverDataLocalized()
         ]
         
         selectedChoice = 0
@@ -51,7 +49,7 @@ class TripTipFeedbackViewModel {
     func sendFeedback(completion: @escaping (Bool) -> ()) {
         if evaluation == 1 {
             self.feedBack = 4
-            self.comment = detailConfig.adviceAgreeText
+            self.comment = "dk_advice_agree".dkDriverDataLocalized()
         }
         
         DriveKitDriverData.shared.sendTripAdviceFeedback(itinId: itinId, adviceId: adviceID, evaluation: evaluation, feedback: feedBack, comment: comment, completionHandler : { sucess in

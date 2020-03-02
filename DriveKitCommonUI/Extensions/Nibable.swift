@@ -8,18 +8,18 @@
 
 import UIKit
 
-protocol Nibable {
+public protocol Nibable {
     static var viewFromNib: Self { get }
     static var nib: UINib { get }
 }
 
-extension Nibable where Self: UIView {
+public extension Nibable where Self: UIView {
     static var viewFromNib: Self {
         return nib.instantiate(withOwner: self, options: nil).first as! Self
     }
     
     static var nib: UINib {
-        return UINib(nibName: nibName, bundle: Bundle.driverDataUIBundle)
+        return UINib(nibName: nibName, bundle: Bundle(for: self))
     }
     
     fileprivate static var nibName: String {

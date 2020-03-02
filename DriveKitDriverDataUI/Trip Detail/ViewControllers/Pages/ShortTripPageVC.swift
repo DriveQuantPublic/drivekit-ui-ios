@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 
 class ShortTripPageVC: UIViewController {
     @IBOutlet var durationLabel: UILabel!
@@ -16,11 +17,9 @@ class ShortTripPageVC: UIViewController {
     @IBOutlet var messageBackGround: UIView!
     
     var viewModel: ShortTripPageViewModel
-    var detailConfig : TripDetailViewConfig
     
-    init(viewModel: ShortTripPageViewModel, detailConfig: TripDetailViewConfig) {
+    init(viewModel: ShortTripPageViewModel) {
         self.viewModel = viewModel
-        self.detailConfig = detailConfig
         super.init(nibName: String(describing: ShortTripPageVC.self), bundle: Bundle.driverDataUIBundle)
     }
     
@@ -40,20 +39,20 @@ class ShortTripPageVC: UIViewController {
     }
 
     func configure() {
-        durationLabel.font = durationLabel.font.bold.withSize(36)
+        durationLabel.font = durationLabel.font.withSize(36)
         durationLabel.textColor = .black
-        durationLabel.text = self.viewModel.trip.formattedDuration
+        durationLabel.text = Double(self.viewModel.trip.duration).formatSecondDuration()
         
         DriverDataStyle.applyTripDarkGrey(label: timeSlotLabel)
         timeSlotLabel.text = self.viewModel.timeSlotLabelText
         
-        messageBackGround.backgroundColor = .dkWarning
+        messageBackGround.backgroundColor = DKUIColors.warningColor.color
         messageBackGround.layer.cornerRadius = 4
         messageBackGround.layer.masksToBounds = true
         
         messageImage.image = UIImage(named: "dk_info", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
-        messageImage.tintColor = .dkWarning
-        messageLabel.text = detailConfig.noScoreText
+        messageImage.tintColor = DKUIColors.warningColor.color
+        messageLabel.text = "dk_trip_detail_no_score".dkDriverDataLocalized()
         messageLabel.font = messageLabel.font.withSize(14)
         messageLabel.textColor = .white
     }

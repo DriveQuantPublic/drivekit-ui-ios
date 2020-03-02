@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 
 final class HistoryPageView : UITableViewCell, Nibable {
     
@@ -23,14 +24,14 @@ final class HistoryPageView : UITableViewCell, Nibable {
         self.selectionStyle = .default
     }
     
-    func configure(event: TripEvent, detailConfig: TripDetailViewConfig) {
+    func configure(event: TripEvent) {
         DriverDataStyle.applyTripHour(label: historyTimeLabel)
-        historyTimeLabel.text = event.date.dateToTime()
+        historyTimeLabel.text = event.date.format(pattern: .hourMinute)
         
         topLine.isHidden = false
         bottomLine.isHidden = false
-        topLine.backgroundColor = detailConfig.mapTrace.withAlphaComponent(0.5)
-        bottomLine.backgroundColor = detailConfig.mapTrace.withAlphaComponent(0.5)
+        topLine.backgroundColor = UIColor.dkMapTrace.withAlphaComponent(0.5)
+        bottomLine.backgroundColor = UIColor.dkMapTrace.withAlphaComponent(0.5)
         
         if event.type == .start {
             topLine.isHidden = true
@@ -42,8 +43,7 @@ final class HistoryPageView : UITableViewCell, Nibable {
         historyImage.image = image
         historyImage.tintColor = .black
         DriverDataStyle.applyTripDarkGrey(label: descriptionLabel)
-        descriptionLabel.text = event.type.name(detailConfig: detailConfig)
+        descriptionLabel.text = event.type.name()
     }
-    
 }
 

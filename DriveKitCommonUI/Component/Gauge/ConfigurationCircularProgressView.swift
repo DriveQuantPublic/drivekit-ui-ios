@@ -8,10 +8,8 @@
 
 import UIKit
 import UICircularProgressRing
-import DriveKitDBTripAccess
-import DriveKitCommonUI
 
-enum CircularProgressViewSize {
+public enum CircularProgressViewSize {
     case small, medium, large
     
     var ringWidth: Int {
@@ -37,7 +35,7 @@ enum CircularProgressViewSize {
     }
 }
 
-class ConfigurationCircularProgressView {
+public class ConfigurationCircularProgressView {
     
     var style: UICircularRingStyle
     var maxValue: Double
@@ -51,7 +49,7 @@ class ConfigurationCircularProgressView {
     var steps: [Double]
     var image: UIImage?
     
-    init(style: UICircularRingStyle?, maxValue: Double, value: Double, steps: [Double], image: UIImage? = nil, ringWidth: Int?, fontColor: UIColor?, fontSize: Int?, indicator: String?, floatingPoint: Bool = true, decimalPlaces: Int = 1) {
+    public init(style: UICircularRingStyle?, maxValue: Double, value: Double, steps: [Double], image: UIImage? = nil, ringWidth: Int?, fontColor: UIColor?, fontSize: Int?, indicator: String?, floatingPoint: Bool = true, decimalPlaces: Int = 1) {
         
         self.style = style ?? .ontop
         self.maxValue = maxValue
@@ -69,12 +67,12 @@ class ConfigurationCircularProgressView {
         }
     }
     
-    init(scoreType: ScoreType, trip: Trip, size: CircularProgressViewSize) {
+    public init(scoreType: ScoreType, value: Double, size: CircularProgressViewSize) {
         self.style = .ontop
         self.maxValue = 10
-        self.value = scoreType.rawValue(trip: trip)
+        self.value = value.round(places: 1)
         self.steps = scoreType.getSteps()
-        self.image = UIImage(named: scoreType.imageID(), in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+        self.image = scoreType.image()
         self.ringWidth = size.ringWidth
         self.fontColor = DKUIColors.mainFontColor.color
         self.fontSize = size.fontSize

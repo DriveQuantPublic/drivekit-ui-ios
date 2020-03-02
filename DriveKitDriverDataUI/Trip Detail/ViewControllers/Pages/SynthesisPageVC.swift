@@ -11,7 +11,6 @@ import DriveKitCommonUI
 
 class SynthesisPageVC: UIViewController {
     var viewModel: SynthesisPageViewModel
-    var detailConfig: TripDetailViewConfig
     
     @IBOutlet var vehicleTitle: UILabel!
     @IBOutlet var vehicleValue: UILabel!
@@ -41,9 +40,8 @@ class SynthesisPageVC: UIViewController {
     @IBOutlet var contextTitle: UILabel!
     @IBOutlet var contextValue: UILabel!
     
-    init(viewModel: SynthesisPageViewModel, detailConfig: TripDetailViewConfig) {
+    init(viewModel: SynthesisPageViewModel) {
         self.viewModel = viewModel
-        self.detailConfig =  detailConfig
         super.init(nibName: String(describing: SynthesisPageVC.self), bundle: Bundle.driverDataUIBundle)
     }
     

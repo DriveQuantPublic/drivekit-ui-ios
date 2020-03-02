@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 
 final class CalloutView: UIView, Nibable {
     
@@ -18,20 +19,17 @@ final class CalloutView: UIView, Nibable {
     override func awakeFromNib() {
         super.awakeFromNib()    }
     
-    func configure(viewModel: TripEventCalloutViewModel) {        
+    func configure(viewModel: TripEventCalloutViewModel) {
         DriverDataStyle.applyTripHour(label: timeLabel)
         timeLabel.text = viewModel.time
-        titleLabel.font = titleLabel.font.bold.withSize(16)
-        
-        titleLabel.textColor = config.primaryColor
-        titleLabel.text = viewModel.title
+        titleLabel.attributedText = viewModel.title.dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 16, traits: .traitBold)).color(.primaryColor).build()
         
         if viewModel.event.type == .start || viewModel.event.type == .end {
             subtitleLabel.font = subtitleLabel.font.withSize(14)
             subtitleLabel.textColor = .black
         } else {
-            subtitleLabel.font = subtitleLabel.font.bold.withSize(14)
-            subtitleLabel.textColor = config.primaryColor
+            subtitleLabel.font = subtitleLabel.font.withSize(14)
+            subtitleLabel.textColor = DKUIColors.primaryColor.color
         }
         subtitleLabel.attributedText = viewModel.subtitle
     }

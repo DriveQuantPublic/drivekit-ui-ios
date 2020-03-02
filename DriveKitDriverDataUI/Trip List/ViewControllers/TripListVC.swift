@@ -32,7 +32,7 @@ public class TripListVC: DKUIViewController {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "dk_trip_detail_title".dkDriverDataLocalized()
+        self.title = "dk_driverdata_trip_detail_title".dkDriverDataLocalized()
         self.tableView.register(TripTableViewCell.nib, forCellReuseIdentifier: "TripTableViewCell")
         if #available(iOS 11, *) {
           tableView.separatorInset = .zero
@@ -54,7 +54,7 @@ public class TripListVC: DKUIViewController {
 
     func updateUI() {
         if self.viewModel.status == .failedToSyncTripsCacheOnly {
-            let alert = UIAlertController(title: nil, message: "dk_failed_to_sync_trips".dkDriverDataLocalized(), preferredStyle: .alert)
+            let alert = UIAlertController(title: nil, message: "dk_driverdata_failed_to_sync_trips".dkDriverDataLocalized(), preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: { action in
                 if self.refreshControl.isRefreshing {
                     self.refreshControl.endRefreshing()
@@ -74,7 +74,7 @@ public class TripListVC: DKUIViewController {
             self.noTripsView.isHidden = false
             self.tableView.isHidden = true
             self.noTripsImage.image = UIImage(named: "dk_no_trips_recorded", in: Bundle.driverDataUIBundle, compatibleWith: nil)
-            self.noTripsLabel.text = "dk_no_trips_recorded".dkDriverDataLocalized()
+            self.noTripsLabel.text = "dk_driverdata_no_trips_recorded".dkDriverDataLocalized()
         }
     }
 

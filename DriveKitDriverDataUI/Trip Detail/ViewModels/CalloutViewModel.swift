@@ -29,7 +29,7 @@ struct TripEventCalloutViewModel {
 
     var subtitle: NSAttributedString {
         
-        let valuePrefix = "\("dk_value".dkDriverDataLocalized() )".dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        let valuePrefix = "\("dk_driverdata_value".dkDriverDataLocalized() )".dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         
         switch event.type {
         case .acceleration, .brake:

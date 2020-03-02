@@ -51,15 +51,15 @@ class DistractionPageVC: UIViewController {
     func setupEventContainer() {
         eventContainer.removeAllSubviews()
         let nbUnlockView = DistractionPageView.viewFromNib
-        nbUnlockView.configure(title: "dk_unlock_number".dkDriverDataLocalized(), count: self.getNumberUnlocks())
+        nbUnlockView.configure(title: "dk_driverdata_unlock_number".dkDriverDataLocalized(), count: self.getNumberUnlocks())
         eventContainer.addArrangedSubview(nbUnlockView)
         
         let unlockDurationView = DistractionPageView.viewFromNib
-        unlockDurationView.configure(title: "dk_unlock_duration".dkDriverDataLocalized(), count: self.getScreenUnlockDuration())
+        unlockDurationView.configure(title: "dk_driverdata_unlock_duration".dkDriverDataLocalized(), count: self.getScreenUnlockDuration())
         eventContainer.addArrangedSubview(unlockDurationView)
         
         let unlockDistanceView = DistractionPageView.viewFromNib
-        unlockDistanceView.configure(title: "dk_unlock_distance".dkDriverDataLocalized(), count: self.getScreenUnlockDistance())
+        unlockDistanceView.configure(title: "dk_driverdata_unlock_distance".dkDriverDataLocalized(), count: self.getScreenUnlockDistance())
         eventContainer.addArrangedSubview(unlockDistanceView)
         
     }

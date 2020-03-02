@@ -49,15 +49,15 @@ class SafetyPageVC: UIViewController {
     func setupEventContainer() {
         eventContainer.removeAllSubviews()
         let accelerationView = SafetyPageView.viewFromNib
-        accelerationView.configure(title: "dk_safety_accel".dkDriverDataLocalized(), image: DKImages.safetyAccel.image, count: viewModel.getAccelerations())
+        accelerationView.configure(title: "dk_driverdata_safety_accel".dkDriverDataLocalized(), image: DKImages.safetyAccel.image, count: viewModel.getAccelerations())
         eventContainer.addArrangedSubview(accelerationView)
         
         let brakeView = SafetyPageView.viewFromNib
-        brakeView.configure(title: "dk_safety_decel".dkDriverDataLocalized(), image: DKImages.safetyDecel.image, count: viewModel.getBrakes())
+        brakeView.configure(title: "dk_driverdata_safety_decel".dkDriverDataLocalized(), image: DKImages.safetyDecel.image, count: viewModel.getBrakes())
         eventContainer.addArrangedSubview(brakeView)
         
         let adherenceView = SafetyPageView.viewFromNib
-        adherenceView.configure(title: "dk_safety_adherence".dkDriverDataLocalized(), image: DKImages.safetyAdherence.image, count: viewModel.getAdherences())
+        adherenceView.configure(title: "dk_driverdata_safety_adherence".dkDriverDataLocalized(), image: DKImages.safetyAdherence.image, count: viewModel.getAdherences())
         eventContainer.addArrangedSubview(adherenceView)
         
         

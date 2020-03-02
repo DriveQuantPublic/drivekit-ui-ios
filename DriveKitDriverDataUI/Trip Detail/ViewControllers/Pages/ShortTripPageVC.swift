@@ -49,7 +49,7 @@ class ShortTripPageVC: UIViewController {
         
         messageImage.image = DKImages.info.image
         messageImage.tintColor = DKUIColors.warningColor.color
-        messageLabel.attributedText = "dk_trip_detail_no_score".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.white).build()
+        messageLabel.attributedText = "dk_driverdata_trip_detail_no_score".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.white).build()
     }
 
 }

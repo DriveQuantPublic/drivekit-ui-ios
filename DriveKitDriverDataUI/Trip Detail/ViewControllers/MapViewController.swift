@@ -365,7 +365,7 @@ extension MapViewController: MKMapViewDelegate {
                     view.setupAsTripEventCallout(with: start, location: city!)
                 }
                 else {
-                    view.setupAsTripEventCallout(with: start, location: "dk_start_event".dkDriverDataLocalized())
+                    view.setupAsTripEventCallout(with: start, location: "dk_driverdata_start_event".dkDriverDataLocalized())
                 }
             }
         }
@@ -383,7 +383,7 @@ extension MapViewController: MKMapViewDelegate {
                 if city != nil {
                     view.setupAsTripEventCallout(with: end, location: city!)
                 }else {
-                    view.setupAsTripEventCallout(with: end, location:"dk_end_event".dkDriverDataLocalized())
+                    view.setupAsTripEventCallout(with: end, location:"dk_driverdata_end_event".dkDriverDataLocalized())
                 }
             }
         } else {

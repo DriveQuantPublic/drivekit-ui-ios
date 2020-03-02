@@ -37,19 +37,19 @@ enum EventType {
     func name() -> String {
         switch self {
         case .adherence:
-            return "dk_safety_adherence".dkDriverDataLocalized()
+            return "dk_driverdata_safety_adherence".dkDriverDataLocalized()
         case .brake:
-            return "dk_safety_decel".dkDriverDataLocalized()
+            return "dk_driverdata_safety_decel".dkDriverDataLocalized()
         case .acceleration:
-            return "dk_safety_accel".dkDriverDataLocalized()
+            return "dk_driverdata_safety_accel".dkDriverDataLocalized()
         case .lock:
-            return "dk_lock_event".dkDriverDataLocalized()
+            return "dk_driverdata_lock_event".dkDriverDataLocalized()
         case .unlock:
-            return "dk_unlock_event".dkDriverDataLocalized()
+            return "dk_driverdata_unlock_event".dkDriverDataLocalized()
         case .end:
-            return "dk_end_event".dkDriverDataLocalized()
+            return "dk_driverdata_end_event".dkDriverDataLocalized()
         case .start:
-            return "dk_start_event".dkDriverDataLocalized()
+            return "dk_driverdata_start_event".dkDriverDataLocalized()
         }
     }
 }
@@ -105,38 +105,38 @@ class TripEvent {
     func getTitle() -> String{
         switch type {
         case .adherence:
-            return isHigh ? "dk_safety_list_adherence_critical".dkDriverDataLocalized() : "dk_safety_list_adherence".dkDriverDataLocalized()
+            return isHigh ? "dk_driverdata_safety_list_adherence_critical".dkDriverDataLocalized() : "dk_driverdata_safety_list_adherence".dkDriverDataLocalized()
         case .acceleration:
-            return isHigh ? "dk_safety_list_acceleration_critical".dkDriverDataLocalized() : "dk_safety_acceleration".dkDriverDataLocalized()
+            return isHigh ? "dk_driverdata_safety_list_acceleration_critical".dkDriverDataLocalized() : "dk_driverdata_safety_accel".dkDriverDataLocalized()
         case .brake:
-            return isHigh ? "dk_safety_list_brake_critical".dkDriverDataLocalized() : "dk_safety_brake".dkDriverDataLocalized()
+            return isHigh ? "dk_driverdata_safety_list_brake_critical".dkDriverDataLocalized() : "dk_driverdata_safety_decel".dkDriverDataLocalized()
         case .start:
-            return "dk_start_event".dkDriverDataLocalized()
+            return "dk_driverdata_start_event".dkDriverDataLocalized()
         case .end:
-            return "dk_end_event".dkDriverDataLocalized()
+            return "dk_driverdata_end_event".dkDriverDataLocalized()
         case .unlock:
-            return "dk_unlock_event".dkDriverDataLocalized()
+            return "dk_driverdata_unlock_event".dkDriverDataLocalized()
         case .lock:
-            return "dk_lock_event".dkDriverDataLocalized()
+            return "dk_driverdata_lock_event".dkDriverDataLocalized()
         }
     }
     
     func getExplanation() -> String{
         switch type {
         case .adherence:
-            return isHigh ? "dk_safety_explain_adherence_critical".dkDriverDataLocalized() : "dk_safety_explain_adherence".dkDriverDataLocalized()
+            return isHigh ? "dk_driverdata_safety_explain_adherence_critical".dkDriverDataLocalized() : "dk_driverdata_safety_explain_adherence".dkDriverDataLocalized()
         case .acceleration:
-            return isHigh ? "dk_safety_explain_acceleration_critical".dkDriverDataLocalized() : "dk_safety_explain_acceleration".dkDriverDataLocalized()
+            return isHigh ? "dk_driverdata_safety_explain_acceleration_critical".dkDriverDataLocalized() : "dk_driverdata_safety_explain_acceleration".dkDriverDataLocalized()
         case .brake:
-            return isHigh ? "dk_safety_explain_brake_critical".dkDriverDataLocalized() : "dk_safety_explain_brake".dkDriverDataLocalized()
+            return isHigh ? "dk_driverdata_safety_explain_brake_critical".dkDriverDataLocalized() : "dk_driverdata_safety_explain_brake".dkDriverDataLocalized()
         case .start:
             return ""
         case .end:
             return ""
         case .unlock:
-            return "dk_screen_unlock_text".dkDriverDataLocalized()
+            return "dk_driverdata_screen_unlock_text".dkDriverDataLocalized()
         case .lock:
-            return "dk_screen_lock_text".dkDriverDataLocalized()
+            return "dk_driverdata_screen_lock_text".dkDriverDataLocalized()
         }
     }
 }

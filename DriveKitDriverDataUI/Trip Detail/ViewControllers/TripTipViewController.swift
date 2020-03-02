@@ -88,7 +88,7 @@ class TripTipViewController: UIViewController {
     func configureYesButton() {
         yesImage.image = UIImage(named: "dk_advice_agree", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         yesImage.tintColor = DKUIColors.mainFontColor.color
-        yesLabel.attributedText = "dk_advice_agree".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.mainFontColor).build()
+        yesLabel.attributedText = "dk_driverdata_advice_agree".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.mainFontColor).build()
         
         yesButtonView.isUserInteractionEnabled = true
         let yesButtonGesture = UITapGestureRecognizer(target: self, action: #selector(tapOnYesButton(_:)))
@@ -103,7 +103,7 @@ class TripTipViewController: UIViewController {
         feedbackViewModel.sendFeedback(completion: { status in
             if status {
                 DispatchQueue.main.async {
-                    self.showAlertMessage(title: nil, message: "dk_advice_feedback_success".dkDriverDataLocalized(), back: true, cancel: false, completion: {
+                    self.showAlertMessage(title: nil, message: "dk_driverdata_advice_feedback_success".dkDriverDataLocalized(), back: true, cancel: false, completion: {
                         DriveKitDriverData.shared.getTrip(itinId: self.trip.itinId ?? "", completionHandler: { status, trip in
                             self.tripDetailVC.viewModel.trip = trip
                         })
@@ -111,7 +111,7 @@ class TripTipViewController: UIViewController {
                 }
             } else {
                 DispatchQueue.main.async {
-                    self.showAlertMessage(title: nil, message: "dk_advice_feedback_error".dkDriverDataLocalized(), back: false, cancel: false)
+                    self.showAlertMessage(title: nil, message: "dk_driverdata_advice_feedback_error".dkDriverDataLocalized(), back: false, cancel: false)
                 }
             }
         })
@@ -119,7 +119,7 @@ class TripTipViewController: UIViewController {
     func configureNoButton() {
         noImage.image = UIImage(named: "dk_advice_disagree", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         noImage.tintColor = DKUIColors.mainFontColor.color
-        noLabel.attributedText = "dk_advice_disagree".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.mainFontColor).build()
+        noLabel.attributedText = "dk_driverdata_advice_disagree".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.mainFontColor).build()
                 
         noButtonView.isUserInteractionEnabled = true
         let noButtonGesture = UITapGestureRecognizer(target: self, action: #selector(tapOnNoButton(_:)))

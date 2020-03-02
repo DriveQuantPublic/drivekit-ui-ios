@@ -9,31 +9,19 @@
 import Foundation
 import DriveKitDriverData
 import DriveKitDBTripAccess
+import DriveKitCommonUI
 
 class SynthesisPageViewModel {
     let tripDetailViewModel : TripDetailViewModel
     let trip : Trip
     
-    let unknown = "dk_unknown".dkDriverDataLocalized()
+    let unknown = "dk_driverdata_unknown".dkDriverDataLocalized()
     
     init(tripDetailViewModel: TripDetailViewModel, trip: Trip) {
         self.trip = trip
         self.tripDetailViewModel = tripDetailViewModel
     }
     
-    /*let synthesisVehicle = "dk_synthesis_vehicle".dkLocalized()
-    let meanSpeed = "dk_synthesis_mean_speed".dkLocalized()
-    let stopTime = "dk_synthesis_stop_time".dkLocalized()
-    let fuelConsumption = "dk_synthesis_fuel_consumption".dkLocalized()
-    let co2Emissions = "dk_synthesis_co2_emmissions".dkLocalized()
-    let co2Mass = "dk_synthesis_co2_mass".dkLocalized()
-    let condition = "dk_synthesis_condition".dkLocalized()
-    let weather = "dk_synthesis_weather".dkLocalized()
-    let roadContext = "dk_synthesis_road_context".dkLocalized()
-    
-     
-*/
-
     var fuelConsumptionValue : String {
         if let value = trip.fuelEstimation?.fuelConsumption, value != 0{
             return value.formatConsumption()
@@ -44,7 +32,7 @@ class SynthesisPageViewModel {
     
     var conditionValue: String {
         if let dayValue = trip.tripStatistics?.day {
-            return dayValue ? "dk_day".dkDriverDataLocalized() : "dk_night".dkDriverDataLocalized()
+            return dayValue ? "dk_driverdata_day".dkDriverDataLocalized() : "dk_driverdata_night".dkDriverDataLocalized()
         } else {
             return unknown
         }
@@ -78,19 +66,19 @@ class SynthesisPageViewModel {
         if let meteo = trip.tripStatistics?.meteo {
             switch meteo {
                 case 1:
-                    return "dk_weather_sun".dkDriverDataLocalized()
+                    return "dk_driverdata_weather_sun".dkDriverDataLocalized()
                 case 2:
-                    return "dk_weather_cloud".dkDriverDataLocalized()
+                    return "dk_driverdata_weather_cloud".dkDriverDataLocalized()
                 case 3:
-                    return "dk_weather_rain".dkDriverDataLocalized()
+                    return "dk_driverdata_weather_rain".dkDriverDataLocalized()
                 case 4:
-                    return "dk_weather_fog".dkDriverDataLocalized()
+                    return "dk_driverdata_weather_fog".dkDriverDataLocalized()
                 case 5:
-                    return "dk_weather_snow".dkDriverDataLocalized()
+                    return "dk_driverdata_weather_snow".dkDriverDataLocalized()
                 case 6:
-                    return "dk_weather_hail".dkDriverDataLocalized()
+                    return "dk_driverdata_weather_hail".dkDriverDataLocalized()
                 default:
-                    return "dk_weather_sun".dkDriverDataLocalized()
+                    return "dk_driverdata_weather_sun".dkDriverDataLocalized()
             }
         } else {
             return unknown
@@ -116,15 +104,15 @@ class SynthesisPageViewModel {
             }
             switch mainContext.contextId {
             case 0, 1:
-                return "dk_driving_context_city_dense".dkDriverDataLocalized()
+                return DKCommonLocalizable.contextCityDense.text()
             case 2:
-                return "dk_driving_context_city".dkDriverDataLocalized()
+                return DKCommonLocalizable.contextCity.text()
             case 3:
-                return "dk_driving_context_external".dkDriverDataLocalized()
+                return DKCommonLocalizable.contextExternal.text()
             case 4:
-                return "dk_driving_context_fastlane".dkDriverDataLocalized()
+                return DKCommonLocalizable.contextFastlane.text()
             default:
-                return "dk_driving_context_external".dkDriverDataLocalized()
+                return DKCommonLocalizable.contextExternal.text()
             }
         } else {
             return unknown

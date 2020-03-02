@@ -23,8 +23,14 @@ class StreakViewModel {
     
     func getStreakData() {
         DriveKitDriverAchievement.shared.getStreaks(completionHandler: {status, streaks in
+            var allStreaks : [StreakData] = []
             for streak in streaks {
-                self.streakData.append(StreakData(streak: streak))
+                allStreaks.append(StreakData(streak: streak))
+            }
+            for configuredStreak in DriveKitDriverAchievementUI.shared.streakData {
+                if let streak = (allStreaks.filter { configuredStreak == $0.type }).first {
+                    self.streakData.append(streak)
+                }
             }
             self.delegate?.streaksUpdated()
         })

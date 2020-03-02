@@ -13,10 +13,16 @@ public class DriveKitDriverAchievementUI {
     
     public static let shared = DriveKitDriverAchievementUI()
     
+    var streakData : [StreakDataType] = [.phoneDistraction, .safety, .acceleration, .brake, .adherence, .speedLimits]
+    
     private init() {}
     
     public func initialize() {
         DriveKitNavigationController.shared.driverAchievementUI = self
+    }
+    
+    public func setStreakData(streakData : [StreakDataType]) {
+        self.streakData = streakData
     }
 }
 

@@ -9,7 +9,7 @@
 import UIKit
 import DriveKitCommonUI
 
-enum StreakDataType {
+public enum StreakDataType {
     case phoneDistraction, safety, adherence, brake, acceleration, speedLimits
     
     static func getEnumFromStreakTheme(theme : String) -> StreakDataType {

@@ -12,7 +12,7 @@ public extension UIViewController {
     
     func showLoader() {
         let darkView = UIView(frame: UIScreen.main.bounds)
-        darkView.backgroundColor = UIColor.darkGray.withAlphaComponent(0.8)
+        darkView.backgroundColor = UIColor.darkGray.withAlphaComponent(0.7)
         let loaderView = UIActivityIndicatorView(style: .whiteLarge)
         loaderView.center = darkView.center
         darkView.tag = 1000

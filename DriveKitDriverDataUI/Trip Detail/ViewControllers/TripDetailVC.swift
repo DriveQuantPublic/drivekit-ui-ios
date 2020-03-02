@@ -11,7 +11,7 @@ import DriveKitDBTripAccess
 import DriveKitDriverData
 import DriveKitCommonUI
 
-class TripDetailVC: UIViewController {
+class TripDetailVC: DKUIViewController {
     
     @IBOutlet var mapContainer: UIView!
     @IBOutlet var pageContainer: UIView!

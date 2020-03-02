@@ -13,7 +13,7 @@ import MapKit
 import DriveKitCommonUI
 
 
-class MapViewController: UIViewController {
+class MapViewController: DKUIViewController {
     
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var adviceButton: UIButton!

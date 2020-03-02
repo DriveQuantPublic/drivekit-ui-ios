@@ -15,6 +15,7 @@ import CoreLocation
 import DriveKitDBTripAccess
 import DriveKitCommonUI
 import DriveKitDriverAchievementUI
+import DriveKitDriverDataUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -36,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         configureDriveKit(launchOptions: launchOptions)
         DriveKitUI.shared.initialize(colors: self, fonts: self, overridedStringsFileName: "Localizable")
         DriveKitDriverAchievementUI.shared.initialize()
+        DriveKitDriverDataUI.shared.initialize()
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options : \(options)")
         return true
     }
@@ -171,22 +173,22 @@ extension AppDelegate : DKColors {
     var primaryColor : UIColor { get { return UIColor(hex:0x0B4D6E) }}
     var secondaryColor : UIColor { get { return UIColor(hex: 0x77E2B2) }}
     var mainFontColor : UIColor { get { return UIColor(hex: 0x616161) }}
-    var complementaryFontColor : UIColor { get { UIColor(hex: 0x0B4D6E) }}
+    var complementaryFontColor : UIColor { get { UIColor(hex: 0x9E9E9E) }}
     var fontColorOnPrimaryColor : UIColor { get { return UIColor.white }}
     var fontColorOnSecondaryColor : UIColor { get { return UIColor.white }}
-    var warningColor : UIColor { get { return UIColor(hex: 0xff6e57) }}
+    var warningColor : UIColor { get { return UIColor(hex: 0xF7A334) }}
     var criticalColor : UIColor { get { return UIColor(hex: 0xE52027) }}
     var neutralColor: UIColor { get { return UIColor(hex: 0xF0F0F0) }}
-    var backgroundViewColor: UIColor { get { return UIColor(hex: 0xFAFAFA)/*UIColor.red*/ }}
+    var backgroundViewColor: UIColor { get { return UIColor(hex: 0xFAFAFA)/* UIColor.red*/}}
 }
 
 extension AppDelegate : DKFonts {
     var primaryFont: String {
-        get { return "CourierNewPSMT"}
+        get { return "SnellRoundhand"}
     }
     
     var secondaryFont: String {
-        get { return "SnellRoundhand"}
+        get { return "CourierNewPSMT"}
     }
     
     

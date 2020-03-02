@@ -10,7 +10,7 @@ import UIKit
 import DriveKitTripAnalysis
 import DriveKitCommonUI
 
-public class TripListVC: UIViewController {
+public class TripListVC: DKUIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var loaderView: UIView!
     @IBOutlet var loader: UIActivityIndicatorView!

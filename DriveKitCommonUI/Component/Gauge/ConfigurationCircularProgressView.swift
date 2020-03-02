@@ -79,7 +79,7 @@ public class ConfigurationCircularProgressView {
         self.valueIndicator = ""
         self.showFloatingPoint = true
         self.decimalPlaces = 1
-        if self.value == self.maxValue {
+        if self.value.truncatingRemainder(dividingBy: 1) == 0 {
             self.showFloatingPoint = false
         }
     }

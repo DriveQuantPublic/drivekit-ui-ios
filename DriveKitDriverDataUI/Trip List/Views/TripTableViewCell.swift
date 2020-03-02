@@ -42,15 +42,11 @@ final class TripTableViewCell: UITableViewCell, Nibable {
     }
     
     private func configureLabels(trip: Trip){
-        DriverDataStyle.applyTripHour(label: self.departureHourLabel)
-        DriverDataStyle.applyTripHour(label: self.arrivalHourLabel)
-        self.departureHourLabel.text = trip.startDate?.format(pattern: .hourMinute)
-        self.arrivalHourLabel.text = trip.endDate?.format(pattern: .hourMinute)
+        self.departureHourLabel.attributedText = trip.startDate?.format(pattern: .hourMinute).dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
+        self.arrivalHourLabel.attributedText = trip.endDate?.format(pattern: .hourMinute).dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
 
-        DriverDataStyle.applyTripListCity(label: self.departureCityLabel)
-        DriverDataStyle.applyTripListCity(label: self.arrivalCityLabel)
-        self.departureCityLabel.text = trip.departureCity ?? ""
-        self.arrivalCityLabel.text = trip.arrivalCity ?? ""
+        self.departureCityLabel.attributedText = (trip.departureCity ?? "").dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        self.arrivalCityLabel.attributedText = (trip.arrivalCity ?? "").dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
     }
     
     private func configureTripData(trip: Trip){

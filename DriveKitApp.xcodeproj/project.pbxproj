@@ -70,7 +70,6 @@
 		A317F83123A1383B00AD22A2 /* TripTipFeedbackChoicesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A317F82F23A1383B00AD22A2 /* TripTipFeedbackChoicesCell.swift */; };
 		A32665AE235F64EB00B529B0 /* SettingsBundleKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32665AD235F64EB00B529B0 /* SettingsBundleKey.swift */; };
 		A342380A2361A1FA0001E15D /* DriveKitDriveDataUI.h in Headers */ = {isa = PBXBuildFile; fileRef = A34238082361A1FA0001E15D /* DriveKitDriveDataUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A34238132361A2390001E15D /* DriverDataStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238122361A2390001E15D /* DriverDataStyles.swift */; };
 		A34238622361A2430001E15D /* CalloutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238162361A2430001E15D /* CalloutViewModel.swift */; };
 		A34238632361A2430001E15D /* TripDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238172361A2430001E15D /* TripDetailViewModel.swift */; };
 		A34238642361A2430001E15D /* SafetyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238192361A2430001E15D /* SafetyPageViewModel.swift */; };
@@ -272,7 +271,6 @@
 		A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DriveKitDriverDataUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A34238082361A1FA0001E15D /* DriveKitDriveDataUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DriveKitDriveDataUI.h; sourceTree = "<group>"; };
 		A34238092361A1FA0001E15D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A34238122361A2390001E15D /* DriverDataStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriverDataStyles.swift; sourceTree = "<group>"; };
 		A34238162361A2430001E15D /* CalloutViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalloutViewModel.swift; sourceTree = "<group>"; };
 		A34238172361A2430001E15D /* TripDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDetailViewModel.swift; sourceTree = "<group>"; };
 		A34238192361A2430001E15D /* SafetyPageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafetyPageViewModel.swift; sourceTree = "<group>"; };
@@ -548,7 +546,6 @@
 				A34238612361A2430001E15D /* DriverData.xcassets */,
 				A34238142361A2430001E15D /* Trip Detail */,
 				A342383F2361A2430001E15D /* Trip List */,
-				A34238122361A2390001E15D /* DriverDataStyles.swift */,
 				A34238082361A1FA0001E15D /* DriveKitDriveDataUI.h */,
 				A34238092361A1FA0001E15D /* Info.plist */,
 				3FF68E89240ACD620071D74C /* DriveKitDriverDataUI.swift */,
@@ -1178,7 +1175,6 @@
 				A342388A2361A2440001E15D /* TripListSeparator.swift in Sources */,
 				A34238812361A2440001E15D /* SafetyPageView.swift in Sources */,
 				A342386D2361A2430001E15D /* TripDetailVC.swift in Sources */,
-				A34238132361A2390001E15D /* DriverDataStyles.swift in Sources */,
 				A317F82C23A137C700AD22A2 /* TripTipFeedbackVC.swift in Sources */,
 				A342387A2361A2440001E15D /* ResistantLayer.swift in Sources */,
 				A34238962361A2440001E15D /* NoScoreImageView.swift in Sources */,

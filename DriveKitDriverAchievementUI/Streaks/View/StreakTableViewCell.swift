@@ -34,8 +34,8 @@ class StreakTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        currentTitle.attributedText = "dk_achievements_streaks_current_title".dkAchievementLocalized().dkAttributedString().font(dkFont: .secondary, style: .headLine2).color(.mainFontColor).build()
-        bestTitle.attributedText = "dk_achievements_streaks_best_title".dkAchievementLocalized().dkAttributedString().font(dkFont: .secondary, style: .headLine2).color(.mainFontColor).build()
+        currentTitle.attributedText = "dk_achievements_streaks_current_title".dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .headLine2).color(.mainFontColor).build()
+        bestTitle.attributedText = "dk_achievements_streaks_best_title".dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .headLine2).color(.mainFontColor).build()
         
     }
     
@@ -44,7 +44,7 @@ class StreakTableViewCell: UITableViewCell {
         self.parentViewController = viewController
         streakIcon.image = streakData.getIcon()
         streakIcon.tintColor = DKUIColors.mainFontColor.color
-        theme.attributedText = streakData.getTitle().dkAttributedString().font(dkFont: .secondary, style: .headLine1).color(.mainFontColor).build()
+        theme.attributedText = streakData.getTitle().dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.mainFontColor).build()
         configureCurrent()
         configureBest()
         configureSlider()
@@ -53,34 +53,34 @@ class StreakTableViewCell: UITableViewCell {
     }
     
     private func configureCurrent() {
-        let stats = streak.getCurrentTripNumber().dkAttributedString().font(dkFont: .secondary, style: .highlightSmall).color(.secondaryColor).build()
-        let tripText = streak.getCurrentTripNumberText().dkAttributedString().font(dkFont: .secondary, style: .smallText).color(.secondaryColor).build()
-        let secondaryString = " - \(streak.getCurrentDistance()) - \(streak.getCurrentDuration())".dkAttributedString().font(dkFont: .secondary, style: .smallText).color(.mainFontColor).build()
+        let stats = streak.getCurrentTripNumber().dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.secondaryColor).build()
+        let tripText = streak.getCurrentTripNumberText().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.secondaryColor).build()
+        let secondaryString = " - \(streak.getCurrentDistance()) - \(streak.getCurrentDuration())".dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
         stats.append(NSAttributedString(string: " "))
         stats.append(tripText)
         stats.append(secondaryString)
         currentStats.attributedText = stats
         switch streak.status {
         case .best,.inProgress, .initialization:
-            currentDate.attributedText = streak.getCurrentDate().dkAttributedString().font(dkFont: .secondary, style: .smallText).color(.mainFontColor).build()
+            currentDate.attributedText = streak.getCurrentDate().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
         case .reset:
-            currentDate.attributedText = streak.getResetText().dkAttributedString().font(dkFont: .secondary, style: .smallText).color(.mainFontColor).build()
+            currentDate.attributedText = streak.getResetText().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
         }
     }
     
     private func configureBest() {
-        let stats = streak.getBestTripNumber().dkAttributedString().font(dkFont: .secondary, style: .highlightSmall).color(.mainFontColor).build()
-        let secondaryString = " \(streak.getBestTripNumberText()) - \(streak.getBestDistance()) - \(streak.getBestDuration())".dkAttributedString().font(dkFont: .secondary, style: .smallText).color(.mainFontColor).build()
+        let stats = streak.getBestTripNumber().dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
+        let secondaryString = " \(streak.getBestTripNumberText()) - \(streak.getBestDistance()) - \(streak.getBestDuration())".dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
         stats.append(secondaryString)
         bestStats.attributedText = stats
         switch streak.status {
         case .initialization:
-            bestDate.attributedText = "dk_achievements_streaks_empty".dkAchievementLocalized().dkAttributedString().font(dkFont: .secondary, style: .smallText).color(.mainFontColor).build()
+            bestDate.attributedText = "dk_achievements_streaks_empty".dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
         case .inProgress, .reset:
-            bestDate.attributedText = streak.getBestDates().dkAttributedString().font(dkFont: .secondary, style: .smallText).color(.mainFontColor).build()
+            bestDate.attributedText = streak.getBestDates().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
         case .best:
-            bestStats.attributedText = "dk_achievements_streaks_congrats".dkAchievementLocalized().dkAttributedString().font(dkFont: .secondary, style: .headLine1).color(.mainFontColor).build()
-            bestDate.attributedText = "dk_achievements_streaks_congrats_text".dkAchievementLocalized().dkAttributedString().font(dkFont: .secondary, style: .smallText).color(.mainFontColor).build()
+            bestStats.attributedText = "dk_achievements_streaks_congrats".dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.mainFontColor).build()
+            bestDate.attributedText = "dk_achievements_streaks_congrats_text".dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
         }
     }
     
@@ -105,7 +105,7 @@ class StreakTableViewCell: UITableViewCell {
             color = .secondaryColor
         }
         currentTripNumberView.layer.borderColor = color.color.cgColor
-        currentTripNumberLabel.attributedText = self.streak.getBestTripNumber().dkAttributedString().font(dkFont: .secondary, style: .highlightSmall).color(color).build()
+        currentTripNumberLabel.attributedText = self.streak.getBestTripNumber().dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(color).build()
     }
     
     private func configureHelpButton() {

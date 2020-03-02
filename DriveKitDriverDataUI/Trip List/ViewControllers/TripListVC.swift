@@ -12,8 +12,6 @@ import DriveKitCommonUI
 
 public class TripListVC: DKUIViewController {
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet var loaderView: UIView!
-    @IBOutlet var loader: UIActivityIndicatorView!
     @IBOutlet var noTripsView: UIView!
     @IBOutlet var noTripsImage: UIImageView!
     @IBOutlet var noTripsLabel: UILabel!

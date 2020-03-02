@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,8 +13,6 @@
                 <outlet property="actionView" destination="ebB-WE-1ZQ" id="rnu-md-l0B"/>
                 <outlet property="cameraButton" destination="8ca-Py-8CR" id="wwD-ku-uQ3"/>
                 <outlet property="headerContainer" destination="jJ1-3V-66M" id="Oh9-nd-ANQ"/>
-                <outlet property="loader" destination="1nY-WS-ck6" id="z7t-eX-OVp"/>
-                <outlet property="loaderView" destination="2L3-Sv-vsg" id="H60-OR-vt6"/>
                 <outlet property="mapContainer" destination="X26-Oo-J45" id="UgS-re-gNT"/>
                 <outlet property="mapItemViewConstraint" destination="mgm-5y-hz9" id="pGw-E9-pxT"/>
                 <outlet property="mapItemsView" destination="UyT-ez-EW6" id="9Hv-ne-Zft"/>
@@ -90,34 +88,13 @@
                         <constraint firstAttribute="height" constant="186" id="Job-RG-qp6"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2L3-Sv-vsg" userLabel="Loader view">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                    <subviews>
-                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="1nY-WS-ck6">
-                            <rect key="frame" x="187" y="389" width="40" height="40"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="40" id="5uv-V8-c2v"/>
-                                <constraint firstAttribute="width" constant="40" id="nNB-YY-nUE"/>
-                            </constraints>
-                        </activityIndicatorView>
-                    </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    <constraints>
-                        <constraint firstItem="1nY-WS-ck6" firstAttribute="centerY" secondItem="2L3-Sv-vsg" secondAttribute="centerY" id="FDf-YY-XBh"/>
-                        <constraint firstItem="1nY-WS-ck6" firstAttribute="centerX" secondItem="2L3-Sv-vsg" secondAttribute="centerX" id="pjX-Yd-v41"/>
-                    </constraints>
-                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="ebB-WE-1ZQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="6aW-DX-cKe"/>
-                <constraint firstItem="2L3-Sv-vsg" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="9A4-4G-a34"/>
                 <constraint firstItem="X26-Oo-J45" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="F7Y-ba-Oqj"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2L3-Sv-vsg" secondAttribute="trailing" id="RzA-9M-Why"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tiz-pR-dfm" secondAttribute="trailing" id="Uay-fu-wPw"/>
-                <constraint firstItem="2L3-Sv-vsg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="VGX-RN-Bbz"/>
                 <constraint firstItem="jJ1-3V-66M" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Yhf-sh-gKs"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="2L3-Sv-vsg" secondAttribute="bottom" id="c1q-f1-KnN"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="tiz-pR-dfm" secondAttribute="bottom" id="dPT-Vl-Ph4"/>
                 <constraint firstItem="tiz-pR-dfm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="dh0-nw-4tf"/>
                 <constraint firstItem="tiz-pR-dfm" firstAttribute="top" secondItem="jJ1-3V-66M" secondAttribute="bottom" id="dlR-gK-0dM"/>

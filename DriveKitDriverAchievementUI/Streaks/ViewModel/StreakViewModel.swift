@@ -117,7 +117,7 @@ struct StreakData {
     }
     
     private func getDistance(distance: Double) -> String {
-        return distance.formatMeterDistance()
+        return distance.formatMeterDistanceInKm()
     }
     
     func getCurrentDuration() -> String {

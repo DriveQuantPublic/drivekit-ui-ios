@@ -19,11 +19,10 @@ final class SafetyPageView : UIView, Nibable {
         super.awakeFromNib()
     }
     
-    func configure(title: String, image: String, count: Int) {
-        DriverDataStyle.applyTripDarkGrey(label: eventTitle)
-        eventTitle.text = title
-        eventImage.image = UIImage(named: image, in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
-        eventImage.tintColor = .black
-        eventCount.attributedText = String(count).dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 16, traits: .traitBold)).color(.primaryColor).build()
+    func configure(title: String, image: UIImage?, count: Int) {
+        eventTitle.attributedText = title.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        eventImage.image = image
+        eventImage.tintColor = DKUIColors.mainFontColor.color
+        eventCount.attributedText = String(count).dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()
     }
 }

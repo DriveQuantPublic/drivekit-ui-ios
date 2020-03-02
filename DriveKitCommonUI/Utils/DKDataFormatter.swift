@@ -10,9 +10,17 @@ import Foundation
 
 public extension Double {
     
-    func formatMeterDistance() -> String {
+    func formatMeterDistanceInKm() -> String {
         let km = self.metersToKilometers(places: 1)
         return "\(km.stringWithoutZeroFraction) \(DKCommonLocalizable.unitKilometer.text())"
+    }
+    
+    func formatMeterDistance() -> String {
+        if self < 1000 {
+            return "\(self.stringWithoutZeroFraction) \(DKCommonLocalizable.unitMeter.text())"
+        } else {
+            return formatMeterDistanceInKm()
+        }
     }
     
     func metersToKilometers(places : Int) -> Double {
@@ -54,23 +62,27 @@ public extension Double {
     }
     
     func formatCO2Mass() -> String {
-        if self < 1000 {
-            return "\(self.round(places: 0)) \(DKCommonLocalizable.unitGram.text())"
+        if self < 1 {
+            return "\((self * 1000).round(places: 0).stringWithoutZeroFraction) \(DKCommonLocalizable.unitGram.text())"
         }else{
-            return "\((self / 1000.0).round(places: 2).stringWithoutZeroFraction) \(DKCommonLocalizable.unitKilogram.text())"
+            return "\(self.round(places: 2).stringWithoutZeroFraction) \(DKCommonLocalizable.unitKilogram.text())"
         }
     }
     
     func formatCO2Emission() -> String {
-        return "\(self.round(places: 0)) \(DKCommonLocalizable.unitGperKM.text())"
+        return "\(self.round(places: 0).stringWithoutZeroFraction) \(DKCommonLocalizable.unitGperKM.text())"
     }
     
     func formatSpeedMean() -> String {
-        return "\(self.round(places: 0)) \(DKCommonLocalizable.unitKmPerHour.text())"
+        return "\(self.round(places: 0).stringWithoutZeroFraction) \(DKCommonLocalizable.unitKmPerHour.text())"
     }
     
     func formatConsumption() -> String {
         return "\(self.round(places: 1).stringWithoutZeroFraction) \(DKCommonLocalizable.unitLPer100Km.text())"
+    }
+    
+    func formatAcceleration() -> String {
+        return "\(self.round(places: 2).stringWithoutZeroFraction) \(DKCommonLocalizable.unitAcceleration.text())"
     }
     
     func formatDouble(places : Int) -> String {

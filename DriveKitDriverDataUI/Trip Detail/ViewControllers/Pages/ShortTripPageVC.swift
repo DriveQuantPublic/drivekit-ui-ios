@@ -39,22 +39,17 @@ class ShortTripPageVC: UIViewController {
     }
 
     func configure() {
-        durationLabel.font = durationLabel.font.withSize(36)
-        durationLabel.textColor = .black
-        durationLabel.text = Double(self.viewModel.trip.duration).formatSecondDuration()
+        durationLabel.attributedText = Double(self.viewModel.trip.duration).formatSecondDuration().dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.primaryColor).build()
         
-        DriverDataStyle.applyTripDarkGrey(label: timeSlotLabel)
-        timeSlotLabel.text = self.viewModel.timeSlotLabelText
+        timeSlotLabel.attributedText = self.viewModel.timeSlotLabelText.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         
         messageBackGround.backgroundColor = DKUIColors.warningColor.color
         messageBackGround.layer.cornerRadius = 4
         messageBackGround.layer.masksToBounds = true
         
-        messageImage.image = UIImage(named: "dk_info", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+        messageImage.image = DKImages.info.image
         messageImage.tintColor = DKUIColors.warningColor.color
-        messageLabel.text = "dk_trip_detail_no_score".dkDriverDataLocalized()
-        messageLabel.font = messageLabel.font.withSize(14)
-        messageLabel.textColor = .white
+        messageLabel.attributedText = "dk_trip_detail_no_score".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.white).build()
     }
 
 }

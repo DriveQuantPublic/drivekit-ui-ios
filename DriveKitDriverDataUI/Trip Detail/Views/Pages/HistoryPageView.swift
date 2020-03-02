@@ -25,8 +25,7 @@ final class HistoryPageView : UITableViewCell, Nibable {
     }
     
     func configure(event: TripEvent) {
-        DriverDataStyle.applyTripHour(label: historyTimeLabel)
-        historyTimeLabel.text = event.date.format(pattern: .hourMinute)
+        historyTimeLabel.attributedText = event.date.format(pattern: .hourMinute).dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
         
         topLine.isHidden = false
         bottomLine.isHidden = false
@@ -39,11 +38,9 @@ final class HistoryPageView : UITableViewCell, Nibable {
             bottomLine.isHidden = true
         }
         
-        let image = UIImage(named: event.type.getImageID(), in: Bundle.driverDataUIBundle, compatibleWith: nil)
-        historyImage.image = image
-        historyImage.tintColor = .black
-        DriverDataStyle.applyTripDarkGrey(label: descriptionLabel)
-        descriptionLabel.text = event.type.name()
+        historyImage.image = event.type.getImage()
+        historyImage.tintColor = DKUIColors.mainFontColor.color
+        descriptionLabel.attributedText = event.type.name().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
     }
 }
 

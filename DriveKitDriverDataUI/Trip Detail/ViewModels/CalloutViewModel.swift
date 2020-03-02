@@ -29,25 +29,23 @@ struct TripEventCalloutViewModel {
 
     var subtitle: NSAttributedString {
         
-        let attributes = [NSAttributedString.Key.foregroundColor: highColor]
-        let valuePrefix = NSMutableAttributedString(string: "dk_value".dkDriverDataLocalized(),
-                                        attributes: [NSAttributedString.Key.foregroundColor : UIColor.black])
+        let valuePrefix = "\("dk_value".dkDriverDataLocalized() )".dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         
         switch event.type {
         case .acceleration, .brake:
             let attString = NSMutableAttributedString()
             attString.append(valuePrefix)
-            attString.append(NSAttributedString(string: " \(String(format: "%.2f", event.value)) \(DKCommonLocalizable.unitAcceleration.text())", attributes: attributes))
+            attString.append(event.value.formatAcceleration().dkAttributedString().font(dkFont: .primary, style: .normalText).color(highColor).build())
             return attString
         case .adherence:
             let attString = NSMutableAttributedString()
             attString.append(valuePrefix)
-            attString.append(NSAttributedString(string: " \(String(format: "%.1f", event.value))",attributes: attributes))
+            attString.append(event.value.formatDouble(places: 1).dkAttributedString().font(dkFont: .primary, style: .normalText).color(highColor).build())
             return attString
         case .unlock, .lock :
             return NSAttributedString(string: "")
         default:
-            return NSAttributedString(string: location)
+            return location.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         }
     }
     

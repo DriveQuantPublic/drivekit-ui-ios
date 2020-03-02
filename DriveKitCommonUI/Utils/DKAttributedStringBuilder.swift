@@ -31,6 +31,11 @@ public class DKAttributedStringBuilder {
         return self
     }
     
+    public func color(_ color: UIColor) -> DKAttributedStringBuilder{
+        attributes[.foregroundColor] = color
+        return self
+    }
+    
     public func build() -> NSMutableAttributedString {
         return NSMutableAttributedString(string: text, attributes: attributes)
     }

@@ -18,8 +18,7 @@ final class DistractionPageView : UIView, Nibable {
     }
     
     func configure(title: String, count: NSAttributedString) {
-        DriverDataStyle.applyTripDarkGrey(label: eventTitle)
-        eventTitle.text = title
+        eventTitle.attributedText = title.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         eventCount.attributedText = count
     }
     

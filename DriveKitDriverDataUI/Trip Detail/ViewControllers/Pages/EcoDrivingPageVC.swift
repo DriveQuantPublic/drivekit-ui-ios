@@ -42,23 +42,22 @@ class EcoDrivingPageVC: UIViewController {
         score.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         score.center = circularRingContainer.center
         circularRingContainer.embedSubview(score)
-        DriverDataStyle.applyCircularRingTitle(label: circularRingTitle)
-        circularRingTitle.text = viewModel.scoreType.stringValue()
+        circularRingTitle.attributedText = viewModel.scoreType.stringValue().dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.mainFontColor).build()
         setupEventContainer()
     }
     
     func setupEventContainer() {
         eventContainer.removeAllSubviews()
         let accelerationView = EcoDrivingPageView.viewFromNib
-        accelerationView.configure(title: viewModel.getAccelerations(), image: "dk_eco_accel")
+        accelerationView.configure(title: viewModel.getAccelerations(), image: DKImages.ecoAccel.image)
         eventContainer.addArrangedSubview(accelerationView)
         
         let speedView = EcoDrivingPageView.viewFromNib
-        speedView.configure(title: viewModel.getMaintain(), image: "dk_eco_maintain")
+        speedView.configure(title: viewModel.getMaintain(), image: DKImages.ecoMaintain.image)
         eventContainer.addArrangedSubview(speedView)
         
         let brakeView = EcoDrivingPageView.viewFromNib
-        brakeView.configure(title: viewModel.getDecel(), image: "dk_eco_decel")
+        brakeView.configure(title: viewModel.getDecel(), image: DKImages.ecoDecel.image)
         eventContainer.addArrangedSubview(brakeView)
         
     }

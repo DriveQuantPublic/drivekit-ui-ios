@@ -42,23 +42,22 @@ class SafetyPageVC: UIViewController {
         score.configure(configuration: configScore)
         score.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         progressRingContainer.embedSubview(score)
-        DriverDataStyle.applyCircularRingTitle(label: progressRingTitle)
-        progressRingTitle.text = viewModel.scoreType.stringValue()
+        progressRingTitle.attributedText = viewModel.scoreType.stringValue().dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.mainFontColor).build()
         setupEventContainer()
     }
     
     func setupEventContainer() {
         eventContainer.removeAllSubviews()
         let accelerationView = SafetyPageView.viewFromNib
-        accelerationView.configure(title: "dk_safety_accel".dkDriverDataLocalized(), image: "dk_safety_accel", count: viewModel.getAccelerations())
+        accelerationView.configure(title: "dk_safety_accel".dkDriverDataLocalized(), image: DKImages.safetyAccel.image, count: viewModel.getAccelerations())
         eventContainer.addArrangedSubview(accelerationView)
         
         let brakeView = SafetyPageView.viewFromNib
-        brakeView.configure(title: "dk_safety_decel".dkDriverDataLocalized(), image: "dk_safety_decel", count: viewModel.getBrakes())
+        brakeView.configure(title: "dk_safety_decel".dkDriverDataLocalized(), image: DKImages.safetyDecel.image, count: viewModel.getBrakes())
         eventContainer.addArrangedSubview(brakeView)
         
         let adherenceView = SafetyPageView.viewFromNib
-        adherenceView.configure(title: "dk_safety_adherence".dkDriverDataLocalized(), image: "dk_safety_adherence", count: viewModel.getAdherences())
+        adherenceView.configure(title: "dk_safety_adherence".dkDriverDataLocalized(), image: DKImages.safetyAdherence.image, count: viewModel.getAdherences())
         eventContainer.addArrangedSubview(adherenceView)
         
         

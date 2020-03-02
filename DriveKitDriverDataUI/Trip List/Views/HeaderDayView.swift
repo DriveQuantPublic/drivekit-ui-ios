@@ -23,15 +23,18 @@ final class HeaderDayView: UIView, Nibable {
     }
     
     func setupAsHeader(leftText: String, rightText: String, isRounded: Bool = false) {
-        self.rightLabel.attributedText = rightText.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
-        self.leftLabel.attributedText = leftText.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
-
         self.backgroundView.backgroundColor = DKUIColors.neutralColor.color
         if isRounded {
+            self.backgroundView.backgroundColor = DKUIColors.neutralColor.color
+            self.rightLabel.attributedText = rightText.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+            self.leftLabel.attributedText = leftText.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
             self.backgroundView.layer.cornerRadius = 4
             self.backgroundView.layer.masksToBounds = true
         } else {
-            self.backgroundColor = DKUIColors.neutralColor.color
+            self.backgroundView.backgroundColor = DKUIColors.primaryColor.color
+            self.rightLabel.attributedText = rightText.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.fontColorOnPrimaryColor).build()
+            self.leftLabel.attributedText = leftText.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.fontColorOnPrimaryColor).build()
+            self.backgroundColor = DKUIColors.primaryColor.color
         }
     }
 }

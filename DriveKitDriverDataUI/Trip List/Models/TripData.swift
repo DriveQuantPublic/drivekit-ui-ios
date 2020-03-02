@@ -44,7 +44,7 @@ public enum TripData: String {
         case .distraction:
             return String(format: "%.1f", trip.driverDistraction?.score ?? 0)
         case .distance:
-            return trip.tripStatistics?.distance.formatMeterDistance() ?? "0 \(DKCommonLocalizable.unitKilometer.text())"
+            return trip.tripStatistics?.distance.formatMeterDistanceInKm() ?? "0 \(DKCommonLocalizable.unitKilometer.text())"
         case .duration:
             return Double(trip.duration).formatSecondDuration()
         }

@@ -20,8 +20,6 @@ class TripDetailVC: DKUIViewController {
     @IBOutlet var mapItemViewConstraint: NSLayoutConstraint!
     @IBOutlet var cameraButton: UIButton!
     @IBOutlet var headerContainer: UIView!
-    @IBOutlet weak var loaderView: UIView!
-    @IBOutlet weak var loader: UIActivityIndicatorView!
     @IBOutlet var tipButton: UIButton!
     
     var pageViewController: UIPageViewController!
@@ -171,8 +169,8 @@ extension TripDetailVC {
         self.actionView.backgroundColor = UIColor(red: 255, green: 255, blue: 255).withAlphaComponent(0.75)
         for item in self.viewModel.configurableMapItems {
             let button = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
-            button.setImage(UIImage(named: item.normalImageID(), in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate), for: .normal)
-            button.setImage(UIImage(named: item.selectedImageID(), in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate), for: .selected)
+            button.setImage(item.normalImage(), for: .normal)
+            button.setImage(item.selectedImage(), for: .selected)
             button.tintColor = DKUIColors.primaryColor.color
             button.tag = item.tag
             button.addTarget(self, action: #selector(selectMapItem), for: .touchUpInside)

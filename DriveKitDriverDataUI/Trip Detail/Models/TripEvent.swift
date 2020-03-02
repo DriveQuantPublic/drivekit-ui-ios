@@ -9,27 +9,28 @@
 import UIKit
 import DriveKitDriverData
 import CoreLocation
+import DriveKitCommonUI
 
 
 enum EventType {
     case adherence, brake, acceleration, lock, unlock, end, start
     
-    func getImageID() -> String {
+    func getImage() -> UIImage? {
         switch self {
         case .adherence:
-            return "dk_safety_adherence"
+            return DKImages.safetyAdherence.image
         case .brake:
-            return "dk_safety_decel"
+            return DKImages.safetyDecel.image
         case .acceleration:
-            return "dk_safety_accel"
+            return DKImages.safetyAccel.image
         case .lock:
-            return "dk_lock_event"
+            return UIImage(named: "dk_lock_event", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         case .unlock:
-            return "dk_unlock_event"
+            return UIImage(named: "dk_unlock_event", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         case .end:
-            return "dk_end_event_black"
+            return UIImage(named: "dk_end_event_black", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         case .start:
-            return "dk_start_event_black"
+            return UIImage(named: "dk_start_event_black", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         }
     }
     

@@ -21,11 +21,20 @@ public class DriveKitDriverDataUI {
     
     private init() {}
     
-    public func initialize(tripData : TripData = .safety, headerDay : HeaderDay = .distanceDuration, dayTripDescendingOrder : Bool = false, mapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .interactiveMap, .synthesis], enableDeleteTrip : Bool = true) {
+    public func initialize(tripData : TripData = .safety, mapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .interactiveMap, .synthesis]) {
         self.tripData = tripData
-        self.headerDay = headerDay
-        self.dayTripDescendingOrder = dayTripDescendingOrder
         self.mapItems = mapItems
+    }
+    
+    public func setHeaderDay(headerDay : HeaderDay) {
+        self.headerDay = headerDay
+    }
+    
+    public func setDayTripDescendingOrder(dayTripDescendingOrder : Bool) {
+        self.dayTripDescendingOrder = dayTripDescendingOrder
+    }
+    
+    public func enableDeleteTrip(enableDeleteTrip : Bool) {
         self.enableDeleteTrip = enableDeleteTrip
     }
 }

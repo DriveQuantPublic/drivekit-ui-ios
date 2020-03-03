@@ -24,7 +24,7 @@
 		3F38C2752369D6ED002E873A /* NotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C2742369D6ED002E873A /* NotificationSender.swift */; };
 		3F38C279236AE210002E873A /* AdviceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C278236AE210002E873A /* AdviceButton.swift */; };
 		3F7524CB2406C4CC00AC22CC /* DKUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7524CA2406C4CC00AC22CC /* DKUIViewController.swift */; };
-		3F7524CE2407A89100AC22CC /* DKLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7524CD2407A89100AC22CC /* DKLocalizable.swift */; };
+		3F7524CE2407A89100AC22CC /* DKCommonLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7524CD2407A89100AC22CC /* DKCommonLocalizable.swift */; };
 		3FB5643423F5AA2900F010E3 /* StreakTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5643223F5AA2900F010E3 /* StreakTableViewCell.swift */; };
 		3FB5643523F5AA2900F010E3 /* StreakTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FB5643323F5AA2900F010E3 /* StreakTableViewCell.xib */; };
 		3FB5643E23F6B47E00F010E3 /* StreakDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5643D23F6B47E00F010E3 /* StreakDataType.swift */; };
@@ -215,7 +215,7 @@
 		3F38C2742369D6ED002E873A /* NotificationSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSender.swift; sourceTree = "<group>"; };
 		3F38C278236AE210002E873A /* AdviceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdviceButton.swift; sourceTree = "<group>"; };
 		3F7524CA2406C4CC00AC22CC /* DKUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKUIViewController.swift; sourceTree = "<group>"; };
-		3F7524CD2407A89100AC22CC /* DKLocalizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKLocalizable.swift; sourceTree = "<group>"; };
+		3F7524CD2407A89100AC22CC /* DKCommonLocalizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKCommonLocalizable.swift; sourceTree = "<group>"; };
 		3FB5643223F5AA2900F010E3 /* StreakTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakTableViewCell.swift; sourceTree = "<group>"; };
 		3FB5643323F5AA2900F010E3 /* StreakTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StreakTableViewCell.xib; sourceTree = "<group>"; };
 		3FB5643923F68BBE00F010E3 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -442,6 +442,7 @@
 		3F0740F424042BB6005A8D07 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3F7524CD2407A89100AC22CC /* DKCommonLocalizable.swift */,
 				3FF68E6F24081F060071D74C /* DKAttributedStringBuilder.swift */,
 				3FF68E85240A68D90071D74C /* DKDataFormatter.swift */,
 				3FF68E87240A727D0071D74C /* DKDatePattern.swift */,
@@ -462,7 +463,6 @@
 		3F7524CC2407A84400AC22CC /* Localizable */ = {
 			isa = PBXGroup;
 			children = (
-				3F7524CD2407A89100AC22CC /* DKLocalizable.swift */,
 				3FF68E662407F56F0071D74C /* CommonLocalizable.strings */,
 			);
 			path = Localizable;
@@ -497,10 +497,26 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		3FFAD1FB23EDBCD500D1A16C /* DriveKitDriverAchievementUI */ = {
+		3FF68E99240E47550071D74C /* Localizable */ = {
 			isa = PBXGroup;
 			children = (
 				3FB5644323F6B4F000F010E3 /* DriverAchievementLocalizables.strings */,
+			);
+			path = Localizable;
+			sourceTree = "<group>";
+		};
+		3FF68E9A240E493F0071D74C /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				A342389E2361A2730001E15D /* DriverDataLocalizables.strings */,
+			);
+			path = Localizable;
+			sourceTree = "<group>";
+		};
+		3FFAD1FB23EDBCD500D1A16C /* DriveKitDriverAchievementUI */ = {
+			isa = PBXGroup;
+			children = (
+				3FF68E99240E47550071D74C /* Localizable */,
 				3FFAD20923EDBEBA00D1A16C /* Streaks */,
 				3FF68E6B2407F8110071D74C /* DriveKitDriverAchievementUI.swift */,
 				3FFAD1FC23EDBCD500D1A16C /* DriveKitDriverAchievementUI.h */,
@@ -541,8 +557,8 @@
 		A34238072361A1FA0001E15D /* DriveKitDriverDataUI */ = {
 			isa = PBXGroup;
 			children = (
+				3FF68E9A240E493F0071D74C /* Localizable */,
 				3FF68E94240D4B900071D74C /* Extensions */,
-				A342389E2361A2730001E15D /* DriverDataLocalizables.strings */,
 				A34238612361A2430001E15D /* DriverData.xcassets */,
 				A34238142361A2430001E15D /* Trip Detail */,
 				A342383F2361A2430001E15D /* Trip List */,
@@ -1144,7 +1160,7 @@
 				3FF68E88240A727D0071D74C /* DKDatePattern.swift in Sources */,
 				3F0740EC240400E0005A8D07 /* DKFonts.swift in Sources */,
 				3FF68E98240D59000071D74C /* UIImage+DK.swift in Sources */,
-				3F7524CE2407A89100AC22CC /* DKLocalizable.swift in Sources */,
+				3F7524CE2407A89100AC22CC /* DKCommonLocalizable.swift in Sources */,
 				3FF68E84240966120071D74C /* DKImages.swift in Sources */,
 				3FF68E92240CF1300071D74C /* ScoreType.swift in Sources */,
 				3FF68E7024081F060071D74C /* DKAttributedStringBuilder.swift in Sources */,

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import MapKit
+import DriveKitCommonUI
 
 class ResistantLayer: CALayer {
     
@@ -46,11 +47,12 @@ extension ResistantAnnotationView {
         
         switch event.type {
         case .adherence, .acceleration, .brake, .unlock, .lock:
-            let image = UIImage(named: "dk_info", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            let image = DKImages.info.image
             let imageButton = UIButton(type: .custom)
             imageButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
             let img = image?.resizeImage(30, opaque: false).withRenderingMode(.alwaysTemplate)
             imageButton.setImage(img, for: .normal)
+            imageButton.tintColor = DKUIColors.secondaryColor.color
             rightCalloutAccessoryView = imageButton
         case .start, .end:
             rightCalloutAccessoryView = nil

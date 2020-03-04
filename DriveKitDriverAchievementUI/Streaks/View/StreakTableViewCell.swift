@@ -94,13 +94,13 @@ class StreakTableViewCell: UITableViewCell {
         }
         
         slider.minimumTrackTintColor = DriveKitUI.shared.colors.secondaryColor
-        slider.maximumTrackTintColor = DriveKitUI.shared.colors.mainFontColor
+        slider.maximumTrackTintColor = DriveKitUI.shared.colors.complementaryFontColor
     }
     
     private func configureTripNumber(){
         currentTripNumberView.layer.cornerRadius = 16
         currentTripNumberView.layer.borderWidth = 2.0
-        var color = DKUIColors.mainFontColor
+        var color = DKUIColors.complementaryFontColor
         if streak.status == .best {
             color = .secondaryColor
         }

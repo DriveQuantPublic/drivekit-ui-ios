@@ -19,7 +19,7 @@ public enum HeaderDay {
         case .duration:
             return trips.totalDuration.formatSecondDuration()
         case .distanceDuration:
-            return trips.totalDuration.formatSecondDuration() + " | " + trips.totalDistance.formatMeterDistanceInKm()
+            return  trips.totalDistance.formatMeterDistanceInKm() + " | " +  trips.totalDuration.formatSecondDuration()
         }
     }
 }

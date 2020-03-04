@@ -83,13 +83,13 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tiz-pR-dfm">
                     <rect key="frame" x="0.0" y="676" width="414" height="186"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="186" id="Job-RG-qp6"/>
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="ebB-WE-1ZQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="6aW-DX-cKe"/>
                 <constraint firstItem="X26-Oo-J45" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="F7Y-ba-Oqj"/>

@@ -179,7 +179,7 @@ extension AppDelegate : DKColors {
     var warningColor : UIColor { get { return UIColor(hex: 0xF7A334) }}
     var criticalColor : UIColor { get { return UIColor(hex: 0xE52027) }}
     var neutralColor: UIColor { get { return UIColor(hex: 0xF0F0F0) }}
-    var backgroundViewColor: UIColor { get { return UIColor(hex: 0xFAFAFA)/* UIColor.red*/}}
+    var backgroundViewColor: UIColor { get { return /*UIColor(hex: 0xFAFAFA)*/UIColor.red}}
 }
 
 extension AppDelegate : DKFonts {

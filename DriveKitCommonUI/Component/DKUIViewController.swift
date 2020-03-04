@@ -12,7 +12,7 @@ open class DKUIViewController : UIViewController{
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = DriveKitUI.shared.colors.backgroundViewColor
+        self.view.backgroundColor = DKUIColors.backgroundView.color
     }
     
     

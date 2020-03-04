@@ -11,7 +11,7 @@ import DriveKitDBTripAccess
 import DriveKitDriverData
 import DriveKitCommonUI
 
-class TripTipViewController: UIViewController {
+class TripTipViewController: DKUIViewController {
 
     @IBOutlet var contentView: UIView!
     @IBOutlet var closeButton: UIButton!
@@ -79,6 +79,7 @@ class TripTipViewController: UIViewController {
             contentTextView.attributedText = NSAttributedString(attributedString: attributedString)
             contentTextView.font = DKUIFonts.primary.fonts(size: 16)
             contentTextView.isEditable = false
+            contentTextView.backgroundColor = DKUIColors.backgroundView.color
             contentView.embedSubview(contentTextView)
         }else{
             self.dismiss(animated: true)

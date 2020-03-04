@@ -17,7 +17,13 @@ Pod::Spec.new do |s|
   s.resource = ['DriveKitDriverDataUI/DriverData.xcassets', 'DriveKitDriverDataUI/Localizable/*']
 
   s.dependency 'DriveKitCommonUI', s.version.to_s
-
+  s.dependency 'DriveKitDriverData'
+  s.dependency 'DriveKitTripAnalysis'
+  s.resource_bundles = {
+    'com.drivequant.drivekit-driverdata-ui' => [
+        'DriveKitDriverDataUI/**/*.xib'
+    ]
+  }
   s.info_plist = {
     'CFBundleIdentifier' => 'com.drivequant.drivekit-driverdata-ui'
   }

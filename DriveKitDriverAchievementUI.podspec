@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'DriveKitDriverAchievementUI'
-  s.version          = '1.3-beta2'
+  s.version          = '1.3-beta3'
   s.summary          = 'DriveKit Driver Achievement UI Framework'
 
   s.description      = 'DriveKit Driver Achievement features : Streaks'
@@ -14,15 +14,10 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '10.0'
 
   s.source_files = 'DriveKitDriverAchievementUI/**/*.swift'
-  s.resource = 'DriveKitDriverAchievementUI/Localizable/*'
+  s.resource = ['DriveKitDriverAchievementUI/Localizable/*', 'DriveKitDriverAchievementUI/**/*.xib']
 
   s.dependency 'DriveKitCommonUI', s.version.to_s
   s.dependency 'DriveKitDriverAchievement'
-  s.resource_bundles = {
-    'com.drivequant.drivekit-driver-achievement-ui' => [
-        'DriveKitDriverAchievementUI/**/*.xib'
-    ]
-  }
 
   s.info_plist = {
     'CFBundleIdentifier' => 'com.drivequant.drivekit-driver-achievement-ui'

@@ -8,15 +8,18 @@
 
 import UIKit
 
-@objc public protocol DKFonts {
-    @objc var primaryFont : String { get }
-    @objc var secondaryFont : String { get }
+public protocol DKFonts {
+    func primaryFont() -> String
+    func secondaryFont() -> String
 }
 
-public class DKDefaultFonts :  DKFonts {
+public extension DKFonts {
+    func primaryFont() -> String {return "Roboto"}
+    func secondaryFont() -> String {return "Roboto"}
+}
+
+public class DKDefaultFonts : DKFonts {
     public init() {}
-    public var primaryFont : String { get { return "Roboto" }}
-    public var secondaryFont : String { get { return "Roboto" }}
 }
 
 public enum DKUIFonts {
@@ -25,9 +28,9 @@ public enum DKUIFonts {
     public var name : String {
         switch self{
         case .primary:
-            return DriveKitUI.shared.fonts.primaryFont
+            return DriveKitUI.shared.fonts.primaryFont()
         case .secondary:
-            return DriveKitUI.shared.fonts.secondaryFont
+            return DriveKitUI.shared.fonts.secondaryFont()
         }
     }
     

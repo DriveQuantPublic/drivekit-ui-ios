@@ -42,7 +42,7 @@ public extension Double {
         var nbHour = 0
         var nbDay = 0
         if self > 60 {
-            nbMinute = Int((self / 60).rounded(.down))
+            nbMinute = Int((self / 60).rounded(.up))
         }else {
             return "\(Int(self)) \(DKCommonLocalizable.unitSecond.text())"
         }

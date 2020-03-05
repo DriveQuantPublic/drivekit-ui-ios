@@ -18,7 +18,7 @@ import UIKit
     
     private override init() {}
     
-    @objc public func initialize(colors : DKColors = DKDefaultColors(), fonts: DKFonts = DKDefaultFonts(), overridedStringsFileName : String? = nil) {
+    public func initialize(colors : DKColors = DKDefaultColors(), fonts: DKFonts = DKDefaultFonts(), overridedStringsFileName : String? = nil) {
         self.colors = colors
         self.fonts = fonts
         self.overridedStringFileName = overridedStringsFileName

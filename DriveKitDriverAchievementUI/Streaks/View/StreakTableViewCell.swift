@@ -88,13 +88,13 @@ class StreakTableViewCell: UITableViewCell {
         slider.setValue(Float(streak.progressPercent), animated: false)
         switch streak.status {
         case .inProgress, .initialization, .reset:
-            slider.setThumbImage(makeCircleWith(size: CGSize(width: 15, height: 15), backgroundColor: DriveKitUI.shared.colors.secondaryColor), for: .normal)
+            slider.setThumbImage(makeCircleWith(size: CGSize(width: 15, height: 15), backgroundColor: DKUIColors.secondaryColor.color), for: .normal)
         case .best:
             slider.setThumbImage(UIImage(), for: .normal)
         }
         
-        slider.minimumTrackTintColor = DriveKitUI.shared.colors.secondaryColor
-        slider.maximumTrackTintColor = DriveKitUI.shared.colors.complementaryFontColor
+        slider.minimumTrackTintColor = DKUIColors.secondaryColor.color
+        slider.maximumTrackTintColor = DKUIColors.complementaryFontColor.color
     }
     
     private func configureTripNumber(){
@@ -114,7 +114,7 @@ class StreakTableViewCell: UITableViewCell {
         helpView.addGestureRecognizer(singleTap)
         let helpImage = DKImages.info.image
         helpView.image = helpImage
-        helpView.tintColor = DriveKitUI.shared.colors.secondaryColor
+        helpView.tintColor = DKUIColors.secondaryColor.color
     }
     
     @objc func helpClicked() {

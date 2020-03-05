@@ -28,7 +28,7 @@ class TripTipFeedbackVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = DriveKitUI.shared.colors.backgroundViewColor
+        self.view.backgroundColor = DKUIColors.backgroundView.color
         self.title = viewModel?.title
         tableView.cellForRow(at: IndexPath(row: 0, section: 0))?.tintColor = DKUIColors.secondaryColor.color
         tableView.cellForRow(at: IndexPath(row: 0, section: 0))?.accessoryType = .checkmark

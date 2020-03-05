@@ -285,7 +285,7 @@ extension TripDetailVC {
         }
     }
     
-    @IBAction func clickedAdvices(_ sender: Any) {
+    @IBAction func clickedAdvices(_ sender: UIButton) {
         if let trip = viewModel.trip, let advice = viewModel.displayMapItem?.getAdvice(trip: trip) {
             let tripTipVC = TripTipViewController(trip: trip, advice: advice, tripDetailVC: self)
             let navigationTripTip = UINavigationController(rootViewController: tripTipVC)

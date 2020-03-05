@@ -8,6 +8,7 @@
 
 import UIKit
 import DriveKitCommonUI
+import DriveKitDriverAchievement
 
 public class StreakViewController: DKUIViewController {
     
@@ -39,10 +40,17 @@ public class StreakViewController: DKUIViewController {
 }
 
 extension StreakViewController : StreakVMDelegate {
-    func streaksUpdated() {
+    func failedToUpdateStreak(status: StreakSyncStatus) {
+        self.showAlertMessage(title: nil, message: "dk_achievements_failed_to_sync_streaks".dkAchievementLocalized(), back: false, cancel: false)
+    }
+    
+    func streaksUpdated(status: StreakSyncStatus) {
         DispatchQueue.main.async{
             self.hideLoader()
             self.tableView.reloadData()
+            if status == .failedToSyncStreakCacheOnly {
+                self.showAlertMessage(title: nil, message: "dk_achievements_failed_to_sync_streaks".dkAchievementLocalized(), back: false, cancel: false)
+            }
         }
     }
 }

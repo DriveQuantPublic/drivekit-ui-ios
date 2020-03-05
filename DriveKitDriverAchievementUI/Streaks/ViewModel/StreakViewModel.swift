@@ -18,28 +18,40 @@ class StreakViewModel {
     
     var streakData : [StreakData] = []
     
-    init() {
-    }
+    init() {}
     
     func getStreakData() {
         DriveKitDriverAchievement.shared.getStreaks(completionHandler: {status, streaks in
-            var allStreaks : [StreakData] = []
-            for streak in streaks {
-                allStreaks.append(StreakData(streak: streak))
-            }
-            for configuredStreak in DriveKitDriverAchievementUI.shared.streakThemes {
-                if let streak = (allStreaks.filter { configuredStreak == $0.type }).first {
-                    self.streakData.append(streak)
+            self.computeStreak(streaks: streaks)
+            if self.streakData.isEmpty {
+                if let delegate = self.delegate {
+                    delegate.failedToUpdateStreak(status: status)
+                }
+            } else {
+                if let delegate = self.delegate {
+                    delegate.streaksUpdated(status: status)
                 }
             }
-            self.delegate?.streaksUpdated()
         })
+    }
+    
+    private func computeStreak(streaks : [Streak]) {
+        var allStreaks : [StreakData] = []
+        for streak in streaks {
+            allStreaks.append(StreakData(streak: streak))
+        }
+        for configuredStreak in DriveKitDriverAchievementUI.shared.streakThemes {
+            if let streak = (allStreaks.filter { configuredStreak == $0.type }).first {
+                self.streakData.append(streak)
+            }
+        }
     }
     
 }
 
 protocol StreakVMDelegate {
-    func streaksUpdated()
+    func streaksUpdated(status: StreakSyncStatus)
+    func failedToUpdateStreak(status: StreakSyncStatus)
 }
 
 struct StreakData {

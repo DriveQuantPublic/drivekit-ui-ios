@@ -48,7 +48,7 @@ class TripTipViewController: DKUIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if self.advice.evaluation != 0 {
+        if self.advice.evaluation != 0 || !DriveKitDriverDataUI.shared.enableAdviceFeedback {
             evaluationButtons.isHidden = true
             closeButton.isHidden = false
             self.configureCloseButton()

@@ -16,6 +16,7 @@ public class DriveKitDriverDataUI {
     var dayTripDescendingOrder: Bool = false
     var mapItems : [MapItem] = [.safety, .ecoDriving, .distraction, .interactiveMap, .synthesis]
     var enableDeleteTrip = true
+    var enableAdviceFeedback = true
     
     public static let shared = DriveKitDriverDataUI()
     
@@ -26,16 +27,20 @@ public class DriveKitDriverDataUI {
         self.mapItems = mapItems
     }
     
-    public func setHeaderDay(headerDay : HeaderDay) {
+    public func configureHeaderDay(headerDay : HeaderDay) {
         self.headerDay = headerDay
     }
     
-    public func setDayTripDescendingOrder(dayTripDescendingOrder : Bool) {
+    public func configureDayTripDescendingOrder(dayTripDescendingOrder : Bool) {
         self.dayTripDescendingOrder = dayTripDescendingOrder
     }
     
-    public func enableDeleteTrip(enableDeleteTrip : Bool) {
-        self.enableDeleteTrip = enableDeleteTrip
+    public func enableDeleteTrip(enable : Bool) {
+        self.enableDeleteTrip = enable
+    }
+    
+    public func enableAdviceFeedback(enable: Bool) {
+        self.enableAdviceFeedback = enable
     }
 }
 

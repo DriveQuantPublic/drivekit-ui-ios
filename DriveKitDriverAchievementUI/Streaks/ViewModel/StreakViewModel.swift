@@ -27,7 +27,7 @@ class StreakViewModel {
             for streak in streaks {
                 allStreaks.append(StreakData(streak: streak))
             }
-            for configuredStreak in DriveKitDriverAchievementUI.shared.streakData {
+            for configuredStreak in DriveKitDriverAchievementUI.shared.streakThemes {
                 if let streak = (allStreaks.filter { configuredStreak == $0.type }).first {
                     self.streakData.append(streak)
                 }

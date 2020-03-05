@@ -173,11 +173,4 @@ extension AppDelegate : DKColors {
 }
 
 extension AppDelegate : DKFonts {
-    func primaryFont() -> String {
-        return "SnellRoundhand"
-    }
-    
-    func secondaryFont() -> String {
-        return "CourierNewPSMT"
-    }
 }

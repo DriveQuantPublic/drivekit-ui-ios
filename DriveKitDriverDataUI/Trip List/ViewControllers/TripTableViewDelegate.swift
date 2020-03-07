@@ -12,7 +12,7 @@ import UIKit
 extension TripListVC: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = HeaderDayView.viewFromNib
-        header.configure(headerDay: config.headerDay, trips: self.viewModel.trips[section])
+        header.configure(trips: self.viewModel.trips[section])
         return header
     }
     
@@ -34,7 +34,7 @@ extension TripListVC : UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell : TripTableViewCell = tableView.dequeueReusableCell(withIdentifier: "TripTableViewCell") as? TripTableViewCell {
             cell.selectionStyle = .none
-            cell.configure(trip: self.viewModel.trips[indexPath.section].trips[indexPath.row], tripListViewConfig: config)
+            cell.configure(trip: self.viewModel.trips[indexPath.section].trips[indexPath.row])
             if let adviceButton = cell.adviceButton {
                 adviceButton.addTarget(self, action: #selector(openTips), for: .touchUpInside)
             } else if let adviceCountView = cell.adviceCountView {
@@ -48,14 +48,14 @@ extension TripListVC : UITableViewDataSource {
     }
     
     @objc func openTips(sender: AdviceButton){
-        let tripDetail = TripDetailVC(itinId: sender.trip.itinId!, tripListViewConfig: config, tripDetailViewConfig: detailConfig, showAdvice: true)
+        let tripDetail = TripDetailVC(itinId: sender.trip.itinId!, showAdvice: true)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationController?.pushViewController(tripDetail, animated: true)
     }
 
     @objc func openSelectedTips(_ sender: UITapGestureRecognizer) {
         if let adviceCountView = sender.view as? AdviceCountView, let trip = adviceCountView.trip {
-            let tripDetail = TripDetailVC(itinId: trip.itinId!, tripListViewConfig: config, tripDetailViewConfig: detailConfig, showAdvice: true)
+            let tripDetail = TripDetailVC(itinId: trip.itinId!, showAdvice: true)
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
             self.navigationController?.pushViewController(tripDetail, animated: true)
         }
@@ -66,7 +66,7 @@ extension TripListVC : UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let tripDetail = TripDetailVC(itinId: self.viewModel.trips[indexPath.section].trips[indexPath.row].itinId!, tripListViewConfig: config, tripDetailViewConfig: detailConfig, showAdvice: false)
+        let tripDetail = TripDetailVC(itinId: self.viewModel.trips[indexPath.section].trips[indexPath.row].itinId!, showAdvice: false)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationController?.pushViewController(tripDetail, animated: true)
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 
 class ShortTripPageVC: UIViewController {
     @IBOutlet var durationLabel: UILabel!
@@ -16,11 +17,9 @@ class ShortTripPageVC: UIViewController {
     @IBOutlet var messageBackGround: UIView!
     
     var viewModel: ShortTripPageViewModel
-    var detailConfig : TripDetailViewConfig
     
-    init(viewModel: ShortTripPageViewModel, detailConfig: TripDetailViewConfig) {
+    init(viewModel: ShortTripPageViewModel) {
         self.viewModel = viewModel
-        self.detailConfig = detailConfig
         super.init(nibName: String(describing: ShortTripPageVC.self), bundle: Bundle.driverDataUIBundle)
     }
     
@@ -40,22 +39,17 @@ class ShortTripPageVC: UIViewController {
     }
 
     func configure() {
-        durationLabel.font = durationLabel.font.bold.withSize(36)
-        durationLabel.textColor = .black
-        durationLabel.text = self.viewModel.trip.formattedDuration
+        durationLabel.attributedText = Double(self.viewModel.trip.duration).formatSecondDuration().dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.primaryColor).build()
         
-        DriverDataStyle.applyTripDarkGrey(label: timeSlotLabel)
-        timeSlotLabel.text = self.viewModel.timeSlotLabelText
+        timeSlotLabel.attributedText = self.viewModel.timeSlotLabelText.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         
-        messageBackGround.backgroundColor = .dkWarning
+        messageBackGround.backgroundColor = DKUIColors.warningColor.color
         messageBackGround.layer.cornerRadius = 4
         messageBackGround.layer.masksToBounds = true
         
-        messageImage.image = UIImage(named: "dk_info", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
-        messageImage.tintColor = .dkWarning
-        messageLabel.text = detailConfig.noScoreText
-        messageLabel.font = messageLabel.font.withSize(14)
-        messageLabel.textColor = .white
+        messageImage.image = DKImages.info.image
+        messageImage.tintColor = DKUIColors.warningColor.color
+        messageLabel.attributedText = "dk_driverdata_trip_detail_no_score".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.white).build()
     }
 
 }

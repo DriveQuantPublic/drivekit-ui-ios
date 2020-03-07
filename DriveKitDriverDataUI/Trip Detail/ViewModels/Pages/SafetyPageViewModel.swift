@@ -7,8 +7,9 @@
 //
 
 import UIKit
-import DriveKitDriverData
+import DriveKitDBTripAccess
 import CoreLocation
+import DriveKitCommonUI
 
 class SafetyPageViewModel {
     var scoreType: ScoreType = .safety

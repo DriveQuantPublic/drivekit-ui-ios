@@ -9,46 +9,47 @@
 import UIKit
 import DriveKitDriverData
 import CoreLocation
+import DriveKitCommonUI
 
 
 enum EventType {
     case adherence, brake, acceleration, lock, unlock, end, start
     
-    func getImageID() -> String {
+    func getImage() -> UIImage? {
         switch self {
         case .adherence:
-            return "dk_safety_adherence"
+            return DKImages.safetyAdherence.image
         case .brake:
-            return "dk_safety_decel"
+            return DKImages.safetyDecel.image
         case .acceleration:
-            return "dk_safety_accel"
+            return DKImages.safetyAccel.image
         case .lock:
-            return "dk_lock_event"
+            return UIImage(named: "dk_lock_event", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         case .unlock:
-            return "dk_unlock_event"
+            return UIImage(named: "dk_unlock_event", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         case .end:
-            return "dk_end_event_black"
+            return UIImage(named: "dk_end_event_black", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         case .start:
-            return "dk_start_event_black"
+            return UIImage(named: "dk_start_event_black", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         }
     }
     
-    func name(detailConfig: TripDetailViewConfig) -> String {
+    func name() -> String {
         switch self {
         case .adherence:
-            return detailConfig.adherenceText
+            return "dk_driverdata_safety_adherence".dkDriverDataLocalized()
         case .brake:
-            return detailConfig.decelText
+            return "dk_driverdata_safety_decel".dkDriverDataLocalized()
         case .acceleration:
-            return detailConfig.accelerationText
+            return "dk_driverdata_safety_accel".dkDriverDataLocalized()
         case .lock:
-            return detailConfig.lockText
+            return "dk_driverdata_lock_event".dkDriverDataLocalized()
         case .unlock:
-            return detailConfig.unlockText
+            return "dk_driverdata_unlock_event".dkDriverDataLocalized()
         case .end:
-            return detailConfig.endText
+            return "dk_driverdata_end_event".dkDriverDataLocalized()
         case .start:
-            return detailConfig.startText
+            return "dk_driverdata_start_event".dkDriverDataLocalized()
         }
     }
 }
@@ -101,41 +102,41 @@ class TripEvent {
         }
     }
     
-    func getTitle(detailConfig: TripDetailViewConfig) -> String{
+    func getTitle() -> String{
         switch type {
         case .adherence:
-            return isHigh ? detailConfig.eventAdherenceCritText : detailConfig.eventAdherenceText
+            return isHigh ? "dk_driverdata_safety_list_adherence_critical".dkDriverDataLocalized() : "dk_driverdata_safety_list_adherence".dkDriverDataLocalized()
         case .acceleration:
-            return isHigh ? detailConfig.eventAccelCritText : detailConfig.eventAccelText
+            return isHigh ? "dk_driverdata_safety_list_acceleration_critical".dkDriverDataLocalized() : "dk_driverdata_safety_accel".dkDriverDataLocalized()
         case .brake:
-            return isHigh ? detailConfig.eventDecelCritText : detailConfig.eventDecelText
+            return isHigh ? "dk_driverdata_safety_list_brake_critical".dkDriverDataLocalized() : "dk_driverdata_safety_decel".dkDriverDataLocalized()
         case .start:
-            return detailConfig.startText
+            return "dk_driverdata_start_event".dkDriverDataLocalized()
         case .end:
-            return detailConfig.endText
+            return "dk_driverdata_end_event".dkDriverDataLocalized()
         case .unlock:
-            return detailConfig.unlockText
+            return "dk_driverdata_unlock_event".dkDriverDataLocalized()
         case .lock:
-            return detailConfig.lockText
+            return "dk_driverdata_lock_event".dkDriverDataLocalized()
         }
     }
     
     func getExplanation() -> String{
         switch type {
         case .adherence:
-            return isHigh ? "dk_safety_explain_adherence_critical".dkLocalized() : "dk_safety_explain_adherence".dkLocalized()
+            return isHigh ? "dk_driverdata_safety_explain_adherence_critical".dkDriverDataLocalized() : "dk_driverdata_safety_explain_adherence".dkDriverDataLocalized()
         case .acceleration:
-            return isHigh ? "dk_safety_explain_acceleration_critical".dkLocalized() : "dk_safety_explain_acceleration".dkLocalized()
+            return isHigh ? "dk_driverdata_safety_explain_acceleration_critical".dkDriverDataLocalized() : "dk_driverdata_safety_explain_acceleration".dkDriverDataLocalized()
         case .brake:
-            return isHigh ? "dk_safety_explain_brake_critical".dkLocalized() : "dk_safety_explain_brake".dkLocalized()
+            return isHigh ? "dk_driverdata_safety_explain_brake_critical".dkDriverDataLocalized() : "dk_driverdata_safety_explain_brake".dkDriverDataLocalized()
         case .start:
             return ""
         case .end:
             return ""
         case .unlock:
-            return "dk_screen_unlock_text".dkLocalized()
+            return "dk_driverdata_screen_unlock_text".dkDriverDataLocalized()
         case .lock:
-            return "dk_screen_lock_text".dkLocalized()
+            return "dk_driverdata_screen_lock_text".dkDriverDataLocalized()
         }
     }
 }

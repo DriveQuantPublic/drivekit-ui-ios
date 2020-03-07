@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import DriveKitDriverData
+import DriveKitDBTripAccess
+import DriveKitCommonUI
 
 final class AdviceCountView: UIView, Nibable  {
 
@@ -20,8 +21,7 @@ final class AdviceCountView: UIView, Nibable  {
     }
     
     func setAdviceCount(count: String){
-        adviceCountLabel.textColor = .white
-        adviceCountLabel.text = count
+        adviceCountLabel.attributedText = count.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.fontColorOnSecondaryColor).build()
     }
     
     func setTrip(trip: Trip) {

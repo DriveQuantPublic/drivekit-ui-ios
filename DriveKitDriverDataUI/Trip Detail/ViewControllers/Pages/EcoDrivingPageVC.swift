@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 
 class EcoDrivingPageVC: UIViewController {
     
@@ -15,13 +16,9 @@ class EcoDrivingPageVC: UIViewController {
     @IBOutlet var eventContainer: UIStackView!
     
     var viewModel: EcoDrivingPageViewModel
-    var detailConfig: TripDetailViewConfig
-    var config: TripListViewConfig
     
-    init(viewModel: EcoDrivingPageViewModel, config: TripListViewConfig, detailConfig: TripDetailViewConfig) {
+    init(viewModel: EcoDrivingPageViewModel) {
         self.viewModel = viewModel
-        self.detailConfig = detailConfig
-        self.config = config
         super.init(nibName: String(describing: EcoDrivingPageVC.self), bundle: Bundle.driverDataUIBundle)
     }
     
@@ -40,28 +37,27 @@ class EcoDrivingPageVC: UIViewController {
     
     func configure() {
         let score = CircularProgressView.viewFromNib
-        let configScore = ConfigurationCircularProgressView(scoreType: viewModel.scoreType, trip: viewModel.trip, size: .large)
-        score.configure(configuration: configScore, scoreFont: config.primaryFont)
+        let configScore = ConfigurationCircularProgressView(scoreType: viewModel.scoreType, value: viewModel.scoreType.rawValue(trip: viewModel.trip), size: .large)
+        score.configure(configuration: configScore)
         score.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         score.center = circularRingContainer.center
         circularRingContainer.embedSubview(score)
-        DriverDataStyle.applyCircularRingTitle(label: circularRingTitle)
-        circularRingTitle.text = viewModel.scoreType.stringValue(detailConfig: detailConfig)
+        circularRingTitle.attributedText = viewModel.scoreType.stringValue().dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.mainFontColor).build()
         setupEventContainer()
     }
     
     func setupEventContainer() {
         eventContainer.removeAllSubviews()
         let accelerationView = EcoDrivingPageView.viewFromNib
-        accelerationView.configure(title: viewModel.getAccelerations(), image: "dk_eco_accel")
+        accelerationView.configure(title: viewModel.getAccelerations(), image: DKImages.ecoAccel.image)
         eventContainer.addArrangedSubview(accelerationView)
         
         let speedView = EcoDrivingPageView.viewFromNib
-        speedView.configure(title: viewModel.getMaintain(), image: "dk_eco_maintain")
+        speedView.configure(title: viewModel.getMaintain(), image: DKImages.ecoMaintain.image)
         eventContainer.addArrangedSubview(speedView)
         
         let brakeView = EcoDrivingPageView.viewFromNib
-        brakeView.configure(title: viewModel.getDecel(), image: "dk_eco_decel")
+        brakeView.configure(title: viewModel.getDecel(), image: DKImages.ecoDecel.image)
         eventContainer.addArrangedSubview(brakeView)
         
     }

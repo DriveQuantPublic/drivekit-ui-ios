@@ -6,6 +6,7 @@
 //  Copyright © 2019 DriveQuant. All rights reserved.
 //
 import UIKit
+import DriveKitCommonUI
 
 final class EcoDrivingPageView : UIView, Nibable {
 
@@ -14,14 +15,12 @@ final class EcoDrivingPageView : UIView, Nibable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
-    func configure(title: String, image: String) {
-        DriverDataStyle.applyTripDarkGrey(label: eventTitle)
-        eventTitle.text = title
-        eventImage.image = UIImage(named: image, in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
-        eventImage.tintColor = .black
+    func configure(title: String, image: UIImage?) {
+        eventTitle.attributedText = title.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        eventImage.image = image
+        eventImage.tintColor = DKUIColors.mainFontColor.color
     }
     
 }

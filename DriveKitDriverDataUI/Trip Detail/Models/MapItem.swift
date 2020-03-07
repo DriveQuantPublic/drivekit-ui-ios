@@ -7,38 +7,39 @@
 //
 
 import UIKit
-import DriveKitDriverData
+import DriveKitDBTripAccess
+import DriveKitCommonUI
 
 public enum MapItem {
     case ecoDriving, safety, distraction, interactiveMap, synthesis
     
-    func normalImageID() -> String {
+    func normalImage() -> UIImage? {
         switch self {
         case .safety:
-            return "dk_safety"
+            return DKImages.safety.image
         case .ecoDriving:
-            return "dk_ecoDriving"
+            return DKImages.ecoDriving.image
         case .interactiveMap:
-            return "dk_history"
+            return UIImage(named: "dk_history", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         case .distraction:
-            return "dk_distraction"
+            return DKImages.distraction.image
         case .synthesis:
-            return "dk_synthesis"
+            return DKImages.info.image
         }
     }
     
-    func selectedImageID() -> String {
+    func selectedImage() -> UIImage? {
         switch self {
         case .safety:
-            return "dk_safety_filled"
+            return DKImages.safetyFilled.image
         case .ecoDriving:
-            return "dk_ecoDriving_filled"
+            return DKImages.ecoDrivingFilled.image
         case .interactiveMap:
-            return "dk_history_filled"
+            return UIImage(named: "dk_history_filled", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         case .distraction:
-            return "dk_distraction_filled"
+            return DKImages.distractionFilled.image
         case .synthesis:
-            return "dk_synthesis_filled"
+            return DKImages.infoFilled.image
         }
     }
     

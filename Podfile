@@ -2,15 +2,20 @@
 platform :ios, '10.0'
 use_frameworks!
 
+source 'https://gitlab.com/drivequant/drivekit/drivekit-specs.git'
+source 'https://github.com/CocoaPods/Specs.git'
+
+#pod 'Networking', :git => 'https://github.com/DriveQuantPublic/drivekit-ios-sdk.git', :tag => drivekitVersion
+# pod 'DriveKitCore', :git => 'https://github.com/DriveQuantPublic/drivekit-ios-sdk.git', :tag => drivekitVersion
+# pod 'DriveKitTripAnalysis', :git => 'https://github.com/DriveQuantPublic/drivekit-ios-sdk.git', :tag => drivekitVersion
+# pod 'DriveKitDriverData', :git => 'https://github.com/DriveQuantPublic/drivekit-ios-sdk.git', :tag => drivekitVersion
+
+
 target 'DriveKitApp' do
   platform :ios, '10.0'
   use_frameworks!
-  pod 'Networking', :git => 'https://github.com/DriveQuantPublic/drivekit-ios-sdk.git', :tag => '1.2.1'
-  pod 'DriveKitCore', :git => 'https://github.com/DriveQuantPublic/drivekit-ios-sdk.git', :tag => '1.2.1'
-  pod 'DriveKitTripAnalysis', :git => 'https://github.com/DriveQuantPublic/drivekit-ios-sdk.git', :tag => '1.2.1'
-  pod 'DriveKitDriverData', :git => 'https://github.com/DriveQuantPublic/drivekit-ios-sdk.git', :tag => '1.2.1'
-  #pod 'DriveKitDriverDataUI', :git => 'https://github.com/DriveQuantPublic/drivekit-ui-frameworks.git', :tag => '1.1.3'
-  pod 'UICircularProgressRing'
+  pod 'DriveKitTripAnalysis'
+  pod 'DriveKitDriverData'
 end
 
 
@@ -18,7 +23,17 @@ target 'DriveKitDriverDataUI' do
   platform :ios, '10.0'
   use_frameworks!
   pod 'UICircularProgressRing'
-  pod 'DriveKitDriverData', :git => 'https://github.com/DriveQuantPublic/drivekit-ios-sdk.git', :tag => '1.2.1'
-  pod 'DriveKitTripAnalysis', :git => 'https://github.com/DriveQuantPublic/drivekit-ios-sdk.git', :tag => '1.2.1'
+  pod 'DriveKitDriverData'
+  pod 'DriveKitTripAnalysis'
 end
 
+target 'DriveKitDriverAchievementUI' do
+  platform :ios, '10.0'
+  use_frameworks!
+  pod 'DriveKitDriverAchievement'
+end
+
+target 'DriveKitCommonUI' do
+  platform :ios, '10.0'
+  pod 'UICircularProgressRing'
+end

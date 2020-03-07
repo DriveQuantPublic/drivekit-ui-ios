@@ -8,10 +8,10 @@
 
 import Foundation
 import DriveKitDriverData
+import DriveKitDBTripAccess
 
 class TripListViewModel {
     var trips : [TripsByDate] = []
-    var dayTripDescendingOrder: Bool
     var status: TripSyncStatus = .noError
     var delegate: TripsDelegate? = nil {
         didSet {
@@ -21,21 +21,19 @@ class TripListViewModel {
         }
     }
     
-    public init(dayTripDescendingOrder: Bool) {
-        self.dayTripDescendingOrder = dayTripDescendingOrder
-    }
-    
     public func fetchTrips() {
         DriveKitDriverData.shared.getTripsOrderByDateDesc(completionHandler: {status, trips in
-            self.status = status
-            self.trips = self.sortTrips(trips: trips)
-            self.delegate?.onTripsAvailable()
+            DispatchQueue.main.async {
+                self.status = status
+                self.trips = self.sortTrips(trips: trips)
+                self.delegate?.onTripsAvailable()
+            }
         })
     }
     
     
     func sortTrips(trips : [Trip]) -> [TripsByDate] {
-        let tripSorted = trips.orderByDay(descOrder: dayTripDescendingOrder)
+        let tripSorted = trips.orderByDay(descOrder: DriveKitDriverDataUI.shared.dayTripDescendingOrder)
         return tripSorted
     }
 }

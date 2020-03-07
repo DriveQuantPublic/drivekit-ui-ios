@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import DriveKitDriverData
+import DriveKitDBTripAccess
 
 public enum TripInfo {
     case ecoDriving, safety, count

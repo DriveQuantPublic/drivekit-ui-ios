@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShortTripPageVC" customModule="drivekit_test_app" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShortTripPageVC" customModule="DriveKitDriverDataUI" customModuleProvider="target">
             <connections>
                 <outlet property="durationLabel" destination="GSg-TS-Wit" id="N4G-ab-bSF"/>
                 <outlet property="messageBackGround" destination="eWg-QI-WL0" id="QHl-xA-2Ob"/>
@@ -51,7 +51,7 @@
                                             </constraints>
                                         </imageView>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="pce-ii-IqY" firstAttribute="centerX" secondItem="L5I-Bd-d7c" secondAttribute="centerX" id="2M6-T7-KNB"/>
                                         <constraint firstAttribute="width" constant="40" id="tmU-Cu-HtZ"/>
@@ -68,7 +68,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="L4Y-uO-Eg5" firstAttribute="leading" secondItem="eWg-QI-WL0" secondAttribute="leading" constant="8" id="JF2-5M-cdn"/>
                                         <constraint firstAttribute="trailing" secondItem="L4Y-uO-Eg5" secondAttribute="trailing" constant="8" id="Jcl-yV-c8d"/>
@@ -76,7 +76,7 @@
                                     </constraints>
                                 </view>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="L5I-Bd-d7c" firstAttribute="top" secondItem="mhw-NV-9IU" secondAttribute="top" id="Pni-hf-p6b"/>
                                 <constraint firstItem="L5I-Bd-d7c" firstAttribute="leading" secondItem="mhw-NV-9IU" secondAttribute="leading" id="TXP-yk-grB"/>
@@ -90,7 +90,7 @@
                     </subviews>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="dAc-2Q-8pq" secondAttribute="bottom" id="0Cw-3E-tKP"/>
                 <constraint firstItem="dAc-2Q-8pq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9VW-qQ-uFc"/>

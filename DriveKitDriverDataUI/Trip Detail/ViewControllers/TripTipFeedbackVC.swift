@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import DriveKitDriverData
+import DriveKitCommonUI
 
 class TripTipFeedbackVC: UITableViewController {
     @IBOutlet var contentLabel: UILabel!
@@ -23,14 +24,13 @@ class TripTipFeedbackVC: UITableViewController {
     @IBOutlet var feedbackLabel5: UILabel!
     
     var viewModel: TripTipFeedbackViewModel!
-    var detailConfig: TripDetailViewConfig!
-    var config: TripListViewConfig!
     var tripDetailVC: TripDetailVC? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = DKUIColors.backgroundView.color
         self.title = viewModel?.title
-        tableView.cellForRow(at: IndexPath(row: 0, section: 0))?.tintColor = config.secondaryColor
+        tableView.cellForRow(at: IndexPath(row: 0, section: 0))?.tintColor = DKUIColors.secondaryColor.color
         tableView.cellForRow(at: IndexPath(row: 0, section: 0))?.accessoryType = .checkmark
         self.configureContent()
         self.configureFeedbacks()
@@ -44,8 +44,6 @@ class TripTipFeedbackVC: UITableViewController {
     
     func configure(viewModel: TripTipFeedbackViewModel, tripDetailVC: TripDetailVC) {
         self.viewModel = viewModel
-        self.config = viewModel.config
-        self.detailConfig = viewModel.detailConfig
         self.tripDetailVC = tripDetailVC
     }
     
@@ -54,13 +52,13 @@ class TripTipFeedbackVC: UITableViewController {
         self.viewModel.feedBack = self.viewModel.selectedChoice
         switch self.viewModel.feedBack {
             case 0:
-                self.viewModel.comment = detailConfig.adviceFeedbackChoice01Text
+                self.viewModel.comment = "dk_driverdata_advice_feedback_01".dkDriverDataLocalized()
             case 1:
-                self.viewModel.comment = detailConfig.adviceFeedbackChoice02Text
+                self.viewModel.comment = "dk_driverdata_advice_feedback_02".dkDriverDataLocalized()
             case 2:
-                self.viewModel.comment = detailConfig.adviceFeedbackChoice03Text
+                self.viewModel.comment = "dk_driverdata_advice_feedback_03".dkDriverDataLocalized()
             case 3:
-                self.viewModel.comment = detailConfig.adviceFeedbackChoice04Text
+                self.viewModel.comment = "dk_driverdata_advice_feedback_04".dkDriverDataLocalized()
             case 4:
                 self.viewModel.comment = self.commentTextView.text
         default:
@@ -68,10 +66,10 @@ class TripTipFeedbackVC: UITableViewController {
         }
         
         let alert = UIAlertController(title: nil,
-                                      message: detailConfig.adviceFeedbackSuccessText,
+                                      message: "dk_driverdata_advice_feedback_success".dkDriverDataLocalized(),
                                       preferredStyle: .alert)
         
-        let ok = UIAlertAction(title: config.okText, style: .default) { _ in
+        let ok = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default) { _ in
             self.dismiss(animated: true)
         }
         alert.addAction(ok)
@@ -79,7 +77,7 @@ class TripTipFeedbackVC: UITableViewController {
         self.viewModel.sendFeedback( completion: { status in
             if status {
                 DispatchQueue.main.async {
-                    self.showAlertMessage(title: nil, message: self.detailConfig.adviceFeedbackSuccessText, back: true, cancel: false, completion: {
+                    self.showAlertMessage(title: nil, message: "dk_driverdata_advice_feedback_success".dkDriverDataLocalized(), back: true, cancel: false, completion: {
                         DriveKitDriverData.shared.getTrip(itinId: self.viewModel.itinId, completionHandler: { status, trip in
                             self.tripDetailVC?.viewModel.trip = trip
                         })
@@ -87,7 +85,7 @@ class TripTipFeedbackVC: UITableViewController {
                 }
             } else {
                 DispatchQueue.main.async {
-                     self.showAlertMessage(title: nil, message: self.detailConfig.adviceFeedbackErrorText, back: false, cancel: true)
+                     self.showAlertMessage(title: nil, message: "dk_driverdata_advice_feedback_error".dkDriverDataLocalized(), back: false, cancel: true)
                 }
             }
         })
@@ -102,7 +100,7 @@ class TripTipFeedbackVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row > 0 && indexPath.row < 6 {
             viewModel.selectedChoice = indexPath.row - 1
-            tableView.cellForRow(at: indexPath as IndexPath)?.tintColor = config.secondaryColor
+            tableView.cellForRow(at: indexPath as IndexPath)?.tintColor = DKUIColors.secondaryColor.color
             tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .checkmark
         }
     }
@@ -118,32 +116,29 @@ class TripTipFeedbackVC: UITableViewController {
 
 fileprivate extension TripTipFeedbackVC {
     func configureContent() {
-        let contentAttribute = [NSAttributedString.Key.foregroundColor: UIColor.dkGrayText]
-        let contentAttributedText = NSAttributedString(string: viewModel.content, attributes: contentAttribute)
-        contentLabel.attributedText = contentAttributedText
+        contentLabel.attributedText = viewModel.content.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
     }
     
     func configureFeedbacks() {
-        let choicesAttribute = [NSAttributedString.Key.foregroundColor: UIColor.dkGrayText]
-        self.feedbackLabel1.attributedText = NSAttributedString(string: viewModel.choices[0], attributes: choicesAttribute)
-        self.feedbackLabel2.attributedText = NSAttributedString(string: viewModel.choices[1], attributes: choicesAttribute)
-        self.feedbackLabel3.attributedText = NSAttributedString(string: viewModel.choices[2], attributes: choicesAttribute)
-        self.feedbackLabel4.attributedText = NSAttributedString(string: viewModel.choices[3], attributes: choicesAttribute)
-        self.feedbackLabel5.attributedText = NSAttributedString(string: viewModel.choices[4], attributes: choicesAttribute)
+        self.feedbackLabel1.attributedText = viewModel.choices[0].dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
+        self.feedbackLabel2.attributedText = viewModel.choices[1].dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
+        self.feedbackLabel3.attributedText = viewModel.choices[2].dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
+        self.feedbackLabel4.attributedText = viewModel.choices[3].dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
+        self.feedbackLabel5.attributedText = viewModel.choices[4].dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
     }
     
     func configureComment() {
         let doneToolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50))
         doneToolBar.barStyle = .default
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let done: UIBarButtonItem = UIBarButtonItem(title: config.okText, style: .done, target: self, action: #selector(self.doneButtonAction))
+        let done: UIBarButtonItem = UIBarButtonItem(title: DKCommonLocalizable.ok.text(), style: .done, target: self, action: #selector(self.doneButtonAction))
         
         let items = [flexSpace, done]
         doneToolBar.items = items
         doneToolBar.sizeToFit()
         commentTextView.inputAccessoryView = doneToolBar
         commentTextView.layer.borderWidth = 1
-        commentTextView.layer.borderColor = UIColor.dkGrayText.cgColor
+        commentTextView.layer.borderColor = DKUIColors.mainFontColor.color.cgColor
         commentTextView.layer.cornerRadius = 5
     }
     
@@ -152,14 +147,10 @@ fileprivate extension TripTipFeedbackVC {
     }
     
     func configureSend(){
-        sendButton.setTitle(self.viewModel.send, for: .normal)
-        sendButton.setTitleColor(config.secondaryColor, for: .normal)
-        sendButton.setTitleColor(UIColor.dkGrayText, for: .disabled)
+        sendButton.setAttributedTitle(self.viewModel.send.dkAttributedString().font(dkFont: .primary, style: .button).color(.secondaryColor).uppercased().build(), for: .normal)
     }
     
     func configureCancel(){
-        cancelButton.setTitle(self.viewModel.cancel, for: .normal)
-        cancelButton.setTitleColor(config.secondaryColor, for: .normal)
-        cancelButton.setTitleColor(UIColor.dkGrayText, for: .disabled)
+        cancelButton.setAttributedTitle(self.viewModel.cancel.dkAttributedString().font(dkFont: .primary, style: .button).color(.secondaryColor).uppercased().build(), for: .normal)
     }
 }

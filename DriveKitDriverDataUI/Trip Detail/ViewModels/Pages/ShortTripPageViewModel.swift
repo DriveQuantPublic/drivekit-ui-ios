@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import DriveKitDriverData
+import DriveKitDBTripAccess
 
 class ShortTripPageViewModel {
     var trip: Trip
@@ -17,6 +17,6 @@ class ShortTripPageViewModel {
     }
     
     var timeSlotLabelText: String {
-        return "\(trip.tripStartDate.dateToTime()) - \(trip.tripEndDate.dateToTime())"
+        return "\(trip.tripStartDate.format(pattern: .hourMinuteLetter)) - \(trip.tripEndDate.format(pattern: .hourMinuteLetter))"
     }
 }

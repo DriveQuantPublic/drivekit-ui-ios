@@ -31,10 +31,13 @@ extension VehiclePickerStep : VehiclePickerTableViewDelegate {
             if let years = viewModel.years {
                 return years
             }
+        case .versions:
+            if let versions = viewModel.versions {
+                return versions
+            }
         default:
             break
         }
-        
         return []
     }
     
@@ -45,6 +48,10 @@ extension VehiclePickerStep : VehiclePickerTableViewDelegate {
             viewModel.currentStep = .category
             completion(.noError)
             break
+        case .brandsFull:
+            viewModel.vehicleBrand = (self.getTableViewItems(viewModel: viewModel)[pos] as! DKVehicleBrand)
+            viewModel.currentStep = .engine
+            completion(.noError)
         case .engine:
             viewModel.vehicleEngineIndex = (self.getTableViewItems(viewModel: viewModel)[pos] as! DKVehicleEngineIndex)
             viewModel.getModels(completion: {status in
@@ -65,26 +72,46 @@ extension VehiclePickerStep : VehiclePickerTableViewDelegate {
                 }
                 completion(status)
             })
+        case .years:
+            viewModel.vehicleYear = (self.getTableViewItems(viewModel: viewModel)[pos] as! String)
+            viewModel.getVersions(completion: {status in
+                if status == .noError {
+                    viewModel.currentStep = .versions
+                }else{
+                    viewModel.vehicleVersion = nil
+                }
+                completion(status)
+            })
+        case .versions:
+            viewModel.vehicleVersion = (self.getTableViewItems(viewModel: viewModel)[pos] as! DKVehicleVersion)
+            viewModel.getCharacteristics(completion: {status in
+                if status == .noError {
+                    viewModel.currentStep = .name
+                }else{
+                    viewModel.vehicleVersion = nil
+                }
+                completion(status)
+            })
         default:
             completion(.noData)
         }
     }
     
     func description() -> String? {
-        /*switch self {
-         case .engine:
-         return "dk_vehicle_engine_description"
-         case .models:
-         return "dk_vehicle_model_description"
-         case .years:
-         return "dk_vehicle_year_description"
-         case .versions:
-         return "dk_vehicle_version_description"
-         case .brandsFull :
-         return "dk_vehicle_brand_description"
-         default:
-         return nil
-         }*/
+        switch self {
+        case .engine:
+            return "dk_vehicle_engine_description"
+        case .models:
+            return "dk_vehicle_model_description"
+        case .years:
+            return "dk_vehicle_year_description"
+        case .versions:
+            return "dk_vehicle_version_description"
+        case .brandsFull :
+            return "dk_vehicle_brand_description"
+        default:
+            break
+        }
         return nil
     }
 }

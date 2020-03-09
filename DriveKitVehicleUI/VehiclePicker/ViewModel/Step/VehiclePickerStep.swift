@@ -9,7 +9,7 @@
 import UIKit
 
 enum VehiclePickerStep {
-    case type, category, categoryDescription, brandsIcons, brandsFull, engine, models, years//, versions, name
+    case type, category, categoryDescription, brandsIcons, brandsFull, engine, models, years, versions, name
     
     
     func getViewController(viewModel: VehiclePickerViewModel) -> UIViewController? {
@@ -19,7 +19,7 @@ enum VehiclePickerStep {
         case .category:
             return VehiclePickerCollectionViewVC(viewModel: viewModel)
         case .categoryDescription:
-            return nil
+            return VehiclePickerTextVC(viewModel: viewModel)
         case .brandsIcons:
             return VehiclePickerCollectionViewVC(viewModel: viewModel)
         case .brandsFull:
@@ -30,6 +30,10 @@ enum VehiclePickerStep {
             return VehiclePickerTableViewVC(viewModel: viewModel)
         case .years:
             return VehiclePickerTableViewVC(viewModel: viewModel)
+        case .versions:
+            return VehiclePickerTableViewVC(viewModel: viewModel)
+        case .name:
+            return VehiclePickerInputVC(viewModel: viewModel)
         }
     }
     
@@ -46,6 +50,10 @@ enum VehiclePickerStep {
         case .models:
             return ""
         case .years:
+            return ""
+        case .versions:
+            return ""
+        case .name:
             return ""
         }
     }

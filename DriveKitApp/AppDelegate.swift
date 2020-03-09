@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitDriverDataUI.shared.initialize()
         DriveKitVehiculeUI.shared.initialize()
         DriveKitVehiculeUI.shared.configureVehicleType(types: [.car, .motorbike])
-        DriveKitVehiculeUI.shared.configureLiteConfig(enable: false)
+        DriveKitVehiculeUI.shared.configureLiteConfig(enable: true)
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options : \(options)")
         return true
     }

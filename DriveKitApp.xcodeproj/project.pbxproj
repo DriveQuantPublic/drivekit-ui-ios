@@ -81,6 +81,12 @@
 		3FF68F3F24154ADB0071D74C /* DriveKitVehicle.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF68F3E24154ADB0071D74C /* DriveKitVehicle.xcassets */; };
 		3FF68F41241557C20071D74C /* DKVehicleEngineIndex+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68F40241557C20071D74C /* DKVehicleEngineIndex+UI.swift */; };
 		3FF68F4424161F5A0071D74C /* String+DKUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68F4324161F5A0071D74C /* String+DKUI.swift */; };
+		3FF68F46241640720071D74C /* DKVehicleVersion+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68F45241640720071D74C /* DKVehicleVersion+UI.swift */; };
+		3FF68F49241642D50071D74C /* VehiclePickerTextVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FF68F47241642D50071D74C /* VehiclePickerTextVC.xib */; };
+		3FF68F4A241642D50071D74C /* VehiclePickerTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68F48241642D50071D74C /* VehiclePickerTextVC.swift */; };
+		3FF68F4C241643B70071D74C /* VehiclePickerTextDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68F4B241643B70071D74C /* VehiclePickerTextDelegate.swift */; };
+		3FF68F4F24164E040071D74C /* VehiclePickerInputVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FF68F4D24164E040071D74C /* VehiclePickerInputVC.xib */; };
+		3FF68F5024164E040071D74C /* VehiclePickerInputVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68F4E24164E040071D74C /* VehiclePickerInputVC.swift */; };
 		3FFAD1FE23EDBCD500D1A16C /* DriveKitDriverAchievementUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FFAD1FC23EDBCD500D1A16C /* DriveKitDriverAchievementUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3FFAD20123EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFAD1FA23EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework */; };
 		3FFAD20223EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFAD1FA23EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -319,6 +325,12 @@
 		3FF68F3E24154ADB0071D74C /* DriveKitVehicle.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DriveKitVehicle.xcassets; sourceTree = "<group>"; };
 		3FF68F40241557C20071D74C /* DKVehicleEngineIndex+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DKVehicleEngineIndex+UI.swift"; sourceTree = "<group>"; };
 		3FF68F4324161F5A0071D74C /* String+DKUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DKUI.swift"; sourceTree = "<group>"; };
+		3FF68F45241640720071D74C /* DKVehicleVersion+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DKVehicleVersion+UI.swift"; sourceTree = "<group>"; };
+		3FF68F47241642D50071D74C /* VehiclePickerTextVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VehiclePickerTextVC.xib; sourceTree = "<group>"; };
+		3FF68F48241642D50071D74C /* VehiclePickerTextVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiclePickerTextVC.swift; sourceTree = "<group>"; };
+		3FF68F4B241643B70071D74C /* VehiclePickerTextDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclePickerTextDelegate.swift; sourceTree = "<group>"; };
+		3FF68F4D24164E040071D74C /* VehiclePickerInputVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VehiclePickerInputVC.xib; sourceTree = "<group>"; };
+		3FF68F4E24164E040071D74C /* VehiclePickerInputVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiclePickerInputVC.swift; sourceTree = "<group>"; };
 		3FFAD1FA23EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DriveKitDriverAchievementUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FFAD1FC23EDBCD500D1A16C /* DriveKitDriverAchievementUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DriveKitDriverAchievementUI.h; sourceTree = "<group>"; };
 		3FFAD1FD23EDBCD500D1A16C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -638,6 +650,10 @@
 				3FF68F1824150D040071D74C /* VehiclePickerTableViewVC.xib */,
 				3FF68F2D241532EB0071D74C /* VehiclePickerCollectionViewVC.swift */,
 				3FF68F2C241532EB0071D74C /* VehiclePickerCollectionViewVC.xib */,
+				3FF68F48241642D50071D74C /* VehiclePickerTextVC.swift */,
+				3FF68F47241642D50071D74C /* VehiclePickerTextVC.xib */,
+				3FF68F4E24164E040071D74C /* VehiclePickerInputVC.swift */,
+				3FF68F4D24164E040071D74C /* VehiclePickerInputVC.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -657,6 +673,7 @@
 			children = (
 				3FF68F1C24150D9E0071D74C /* VehiclePickerTableViewDelegate.swift */,
 				3FF68F302415330A0071D74C /* VehiclePickerCollectionViewDelegate.swift */,
+				3FF68F4B241643B70071D74C /* VehiclePickerTextDelegate.swift */,
 			);
 			path = Delegate;
 			sourceTree = "<group>";
@@ -679,6 +696,7 @@
 				3FF68F3C2415437A0071D74C /* DKvehicleBrand+UI.swift */,
 				3FF68F40241557C20071D74C /* DKVehicleEngineIndex+UI.swift */,
 				3FF68F4324161F5A0071D74C /* String+DKUI.swift */,
+				3FF68F45241640720071D74C /* DKVehicleVersion+UI.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1205,7 +1223,9 @@
 				3FF68F272415198D0071D74C /* VehiclePickerTableViewCell.xib in Resources */,
 				3FF68F052414FD870071D74C /* DKVehicleLocalizable.strings in Resources */,
 				3FF68F1A24150D040071D74C /* VehiclePickerTableViewVC.xib in Resources */,
+				3FF68F49241642D50071D74C /* VehiclePickerTextVC.xib in Resources */,
 				3FF68F3B241535130071D74C /* VehiclePickerLabelCollectionViewCell.xib in Resources */,
+				3FF68F4F24164E040071D74C /* VehiclePickerInputVC.xib in Resources */,
 				3FF68F34241533480071D74C /* VehiclePickerImageCollectionViewCell.xib in Resources */,
 				3FF68F3F24154ADB0071D74C /* DriveKitVehicle.xcassets in Resources */,
 			);
@@ -1430,10 +1450,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FF68F1D24150D9E0071D74C /* VehiclePickerTableViewDelegate.swift in Sources */,
+				3FF68F5024164E040071D74C /* VehiclePickerInputVC.swift in Sources */,
 				3FF68F35241533480071D74C /* VehiclePickerImageCollectionViewCell.swift in Sources */,
+				3FF68F4C241643B70071D74C /* VehiclePickerTextDelegate.swift in Sources */,
 				3FF68EFF2413EEF80071D74C /* DriveKitVehiclUI.swift in Sources */,
 				3FF68F1924150D040071D74C /* VehiclePickerTableViewVC.swift in Sources */,
 				3FF68F10241501D20071D74C /* VehiclePickerStep.swift in Sources */,
+				3FF68F4A241642D50071D74C /* VehiclePickerTextVC.swift in Sources */,
 				3FF68F2024150E5F0071D74C /* VehiclePickerStep+TableView.swift in Sources */,
 				3FF68F312415330A0071D74C /* VehiclePickerCollectionViewDelegate.swift in Sources */,
 				3FF68F12241502E80071D74C /* VehiclePickerViewModel.swift in Sources */,
@@ -1447,6 +1470,7 @@
 				3FF68F41241557C20071D74C /* DKVehicleEngineIndex+UI.swift in Sources */,
 				3FF68F2A24152BE30071D74C /* VehiclePickerStepView.swift in Sources */,
 				3FF68F282415198D0071D74C /* VehiclePickerTableViewCell.swift in Sources */,
+				3FF68F46241640720071D74C /* DKVehicleVersion+UI.swift in Sources */,
 				3FF68F23241510F50071D74C /* DKVehicleCategory+UI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

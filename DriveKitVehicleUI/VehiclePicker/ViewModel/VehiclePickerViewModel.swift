@@ -19,10 +19,16 @@ class VehiclePickerViewModel {
     var vehicleBrand : DKVehicleBrand? = nil
     var vehicleEngineIndex : DKVehicleEngineIndex? = nil
     var vehicleModel : String? = nil
+    var vehicleYear : String? = nil
+    var vehicleVersion : DKVehicleVersion? = nil
+    var liteConfig: Bool = false
+    var vehicleName : String? = nil
+    var vehicleCharacteristics : DKVehicleCharacteristics? = nil
     
     
     var models : [String]? = nil
     var years : [String]? = nil
+    var versions : [DKVehicleVersion]? = nil
     
     init(coordinator : VehiclePickerCoordinator) {
         self.coordinator = coordinator
@@ -52,6 +58,10 @@ class VehiclePickerViewModel {
     
     func onCollectionViewItemSelected(pos: Int, completion : (StepStatus) -> ()){
         self.currentStep.onCollectionViewItemSelected(pos: pos, viewModel: self, completion: completion)
+    }
+    
+    func getCategoryItem() -> VehiclePickerTextDelegate? {
+        return vehicleCategory
     }
     
     func getModels(completion: @escaping (StepStatus) -> ()) {
@@ -90,5 +100,50 @@ class VehiclePickerViewModel {
                 completion(.failedToRetreiveData)
             }
         })
+    }
+    
+    func getVersions(completion: @escaping (StepStatus) -> ()) {
+        guard let selectedBrand = vehicleBrand, let selectedEngineIndex = vehicleEngineIndex, let selectedModel = vehicleModel, let selectedYear = vehicleYear else {
+            completion(.failedToRetreiveData)
+            return
+        }
+        DriveKitVehiclePicker.shared.getVersions(brand: selectedBrand, engineIndex: selectedEngineIndex, model: selectedModel, year: selectedYear, completionHandler: { status, response in
+            if status {
+                if let vehicleVersions = response, !vehicleVersions.isEmpty {
+                    self.versions = vehicleVersions
+                    completion(.noError)
+                } else {
+                    completion(.noData)
+                }
+            } else {
+                completion(.failedToRetreiveData)
+            }
+        })
+    }
+    
+    func getCharacteristics(completion: @escaping (StepStatus) -> ()) {
+        guard let selectedVersion = vehicleVersion else {
+            return
+        }
+        DriveKitVehiclePicker.shared.getCharacteristics(version: selectedVersion, completionHandler: { status, response in
+            if status {
+                if let vehicleCharacteristics = response {
+                    self.vehicleCharacteristics = vehicleCharacteristics
+                    completion(.noError)
+                } else {
+                    completion(.noData)
+                }
+            } else {
+                completion(.failedToRetreiveData)
+            }
+        })
+    }
+
+    func addVehicle(completion : @escaping (DKVehicleManagerStatus) -> ()) {
+        if let characteristics = vehicleCharacteristics {
+            DriveKitVehicleManager.shared.createVehicle(characteristics: characteristics, name: vehicleName, completionHandler: { status, vehicle in
+                completion(status)
+            })
+        }
     }
 }

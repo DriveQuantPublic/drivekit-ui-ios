@@ -13,6 +13,7 @@ class VehiclePickerImageCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var iconTitle: UILabel!
+    @IBOutlet weak var cardView: CardView!
     
     func configure(image: UIImage?, text: String?, showLabel : Bool) {
         self.iconImageView.image = image

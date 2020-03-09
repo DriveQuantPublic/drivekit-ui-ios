@@ -10,26 +10,52 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VehiclePickerLabelCollectionViewCell" id="gTV-IL-0wX" customClass="VehiclePickerLabelCollectionViewCell" customModule="drivekit_test_app" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VehiclePickerLabelCollectionViewCell" id="gTV-IL-0wX" customClass="VehiclePickerLabelCollectionViewCell" customModule="DriveKitVehicleUI" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koF-c7-gog">
-                        <rect key="frame" x="4" y="15" width="42" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KFm-xT-yCY">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IlC-1m-XfH" customClass="CardView" customModule="DriveKitCommonUI">
+                                <rect key="frame" x="4" y="4" width="42" height="42"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koF-c7-gog">
+                                        <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="koF-c7-gog" secondAttribute="trailing" id="6s3-sj-gAr"/>
+                                    <constraint firstItem="koF-c7-gog" firstAttribute="top" secondItem="IlC-1m-XfH" secondAttribute="top" id="Ee2-li-EHf"/>
+                                    <constraint firstItem="koF-c7-gog" firstAttribute="centerX" secondItem="IlC-1m-XfH" secondAttribute="centerX" id="HyE-IX-YzU"/>
+                                    <constraint firstAttribute="bottom" secondItem="koF-c7-gog" secondAttribute="bottom" id="rDc-RG-zMN"/>
+                                    <constraint firstItem="koF-c7-gog" firstAttribute="centerY" secondItem="IlC-1m-XfH" secondAttribute="centerY" id="sqF-le-6x3"/>
+                                    <constraint firstItem="koF-c7-gog" firstAttribute="leading" secondItem="IlC-1m-XfH" secondAttribute="leading" id="vyR-jT-0Da"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="IlC-1m-XfH" secondAttribute="trailing" constant="4" id="BUy-aA-GUV"/>
+                            <constraint firstAttribute="bottom" secondItem="IlC-1m-XfH" secondAttribute="bottom" constant="4" id="HNx-KY-Yza"/>
+                            <constraint firstItem="IlC-1m-XfH" firstAttribute="top" secondItem="KFm-xT-yCY" secondAttribute="top" constant="4" id="IBq-80-DUq"/>
+                            <constraint firstItem="IlC-1m-XfH" firstAttribute="leading" secondItem="KFm-xT-yCY" secondAttribute="leading" constant="4" id="bNc-IA-VCt"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="koF-c7-gog" secondAttribute="trailing" constant="4" id="GMo-Nc-vIO"/>
-                <constraint firstItem="koF-c7-gog" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Htg-Pa-R3N"/>
-                <constraint firstItem="koF-c7-gog" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="ZIe-O5-p8Q"/>
-                <constraint firstItem="koF-c7-gog" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="lFG-i1-Kdf"/>
+                <constraint firstAttribute="bottom" secondItem="KFm-xT-yCY" secondAttribute="bottom" id="U6e-6x-6fF"/>
+                <constraint firstAttribute="trailing" secondItem="KFm-xT-yCY" secondAttribute="trailing" id="aN8-aP-w4y"/>
+                <constraint firstItem="KFm-xT-yCY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="fzW-AQ-sxg"/>
+                <constraint firstItem="KFm-xT-yCY" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="wat-Yu-Sxv"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>

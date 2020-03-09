@@ -39,12 +39,12 @@ extension VehiclePickerStep : VehiclePickerCollectionViewDelegate {
             let items = DriveKitVehiclePicker.shared.getCategories(vehicleType: viewModel.vehicleType!)
             viewModel.vehicleCategory = items[pos]
             if DriveKitVehiculeUI.shared.liteConfig {
-                viewModel.currentStep = .categoryDescription
+                viewModel.updateCurrentStep(step: .categoryDescription)
             } else {
                 if VehiclePickerStep.brandsIcons.getCollectionViewItems(viewModel: viewModel).isEmpty {
-                    viewModel.currentStep = .brandsFull
+                    viewModel.updateCurrentStep(step: .brandsFull)
                 } else {
-                    viewModel.currentStep = .brandsIcons
+                    viewModel.updateCurrentStep(step: .brandsIcons)
                 }
             }
             completion(.noError)
@@ -54,9 +54,9 @@ extension VehiclePickerStep : VehiclePickerCollectionViewDelegate {
             let item = items[pos]
             if item is DKVehicleBrand {
                 viewModel.vehicleBrand = (item as! DKVehicleBrand)
-                viewModel.currentStep = .engine
+                viewModel.updateCurrentStep(step: .engine)
             } else {
-                viewModel.currentStep = .brandsFull
+                viewModel.updateCurrentStep(step: .brandsFull)
             }
             completion(.noError)
         default:

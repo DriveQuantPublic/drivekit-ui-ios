@@ -12,7 +12,9 @@ import DriveKitVehicle
 class VehiclePickerViewModel {
     
     var coordinator : VehiclePickerCoordinator
-    var currentStep : VehiclePickerStep
+    private var currentStep : VehiclePickerStep
+    
+    var previousSteps : [VehiclePickerStep] = []
     
     var vehicleType : DKVehicleType? = nil
     var vehicleCategory : DKVehicleCategory? = nil
@@ -38,6 +40,11 @@ class VehiclePickerViewModel {
             self.vehicleType = DriveKitVehiculeUI.shared.vehicleTypes[0]
             self.currentStep = .category
         }
+    }
+    
+    func updateCurrentStep(step : VehiclePickerStep) {
+        previousSteps.append(currentStep)
+        currentStep = step
     }
     
     func getViewController() -> UIViewController? {
@@ -145,5 +152,23 @@ class VehiclePickerViewModel {
                 completion(status)
             })
         }
+    }
+    
+    func showPreviousStep() {
+        if let step = previousSteps.last {
+            self.currentStep = step
+            previousSteps.removeLast(1)
+            coordinator.showPrevious()
+        } else {
+            coordinator.navigationController.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    func getStepDescription() -> String? {
+        return currentStep.description()
+    }
+    
+    func showStepLabel() -> Bool {
+        return currentStep.showLabel()
     }
 }

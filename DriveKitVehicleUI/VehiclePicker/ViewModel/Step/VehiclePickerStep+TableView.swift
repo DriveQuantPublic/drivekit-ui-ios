@@ -45,18 +45,18 @@ extension VehiclePickerStep : VehiclePickerTableViewDelegate {
         switch self {
         case .type:
             viewModel.vehicleType = DriveKitVehiculeUI.shared.vehicleTypes[pos]
-            viewModel.currentStep = .category
+            viewModel.updateCurrentStep(step: .category)
             completion(.noError)
             break
         case .brandsFull:
             viewModel.vehicleBrand = (self.getTableViewItems(viewModel: viewModel)[pos] as! DKVehicleBrand)
-            viewModel.currentStep = .engine
+            viewModel.updateCurrentStep(step: .engine)
             completion(.noError)
         case .engine:
             viewModel.vehicleEngineIndex = (self.getTableViewItems(viewModel: viewModel)[pos] as! DKVehicleEngineIndex)
             viewModel.getModels(completion: {status in
                 if status == .noError {
-                    viewModel.currentStep = .models
+                    viewModel.updateCurrentStep(step: .models)
                 }else {
                     viewModel.vehicleEngineIndex = nil
                 }
@@ -66,7 +66,7 @@ extension VehiclePickerStep : VehiclePickerTableViewDelegate {
             viewModel.vehicleModel = (self.getTableViewItems(viewModel: viewModel)[pos] as! String)
             viewModel.getYears(completion: {status in
                 if status == .noError {
-                    viewModel.currentStep = .years
+                    viewModel.updateCurrentStep(step: .years)
                 }else{
                     viewModel.vehicleModel = nil
                 }
@@ -76,7 +76,7 @@ extension VehiclePickerStep : VehiclePickerTableViewDelegate {
             viewModel.vehicleYear = (self.getTableViewItems(viewModel: viewModel)[pos] as! String)
             viewModel.getVersions(completion: {status in
                 if status == .noError {
-                    viewModel.currentStep = .versions
+                    viewModel.updateCurrentStep(step: .versions)
                 }else{
                     viewModel.vehicleVersion = nil
                 }
@@ -86,7 +86,7 @@ extension VehiclePickerStep : VehiclePickerTableViewDelegate {
             viewModel.vehicleVersion = (self.getTableViewItems(viewModel: viewModel)[pos] as! DKVehicleVersion)
             viewModel.getCharacteristics(completion: {status in
                 if status == .noError {
-                    viewModel.currentStep = .name
+                    viewModel.updateCurrentStep(step: .name)
                 }else{
                     viewModel.vehicleVersion = nil
                 }
@@ -100,15 +100,15 @@ extension VehiclePickerStep : VehiclePickerTableViewDelegate {
     func description() -> String? {
         switch self {
         case .engine:
-            return "dk_vehicle_engine_description"
+            return "dk_vehicle_engine_description".dkVehicleLocalized()
         case .models:
-            return "dk_vehicle_model_description"
+            return "dk_vehicle_model_description".dkVehicleLocalized()
         case .years:
-            return "dk_vehicle_year_description"
+            return "dk_vehicle_year_description".dkVehicleLocalized()
         case .versions:
-            return "dk_vehicle_version_description"
+            return "dk_vehicle_version_description".dkVehicleLocalized()
         case .brandsFull :
-            return "dk_vehicle_brand_description"
+            return "dk_vehicle_brand_description".dkVehicleLocalized()
         default:
             break
         }

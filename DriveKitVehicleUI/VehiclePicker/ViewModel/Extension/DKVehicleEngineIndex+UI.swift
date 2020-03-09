@@ -13,15 +13,15 @@ extension DKVehicleEngineIndex : VehiclePickerTableViewItem {
     func text() -> String {
         switch self {
         case .gasoline:
-            return "GASOLINE"
+            return "dk_vehicle_engine_gasoline".dkVehicleLocalized()
         case .diesel:
-            return "DIESEL"
+            return "dk_vehicle_engine_diesel".dkVehicleLocalized()
         case .electric:
-            return "ELECTRIC"
+            return "dk_vehicle_engine_electric".dkVehicleLocalized()
         case .gasolineHybrid:
-            return "GASOLINE_HYBRID"
+            return "dk_vehicle_engine_gasoline_hybrid".dkVehicleLocalized()
         case .dieselHybrid:
-            return "DIESEL_HYBRID"
+            return "dk_vehicle_engine_diesel_hybrid".dkVehicleLocalized()
         }
     }
 }

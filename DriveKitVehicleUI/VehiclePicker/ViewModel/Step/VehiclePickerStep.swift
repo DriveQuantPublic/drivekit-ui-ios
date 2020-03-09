@@ -39,22 +39,8 @@ enum VehiclePickerStep {
     
     func getTitle() -> String {
         switch self {
-        case .type:
-            return ""
-        case .category, .categoryDescription:
-            return ""
-        case .brandsIcons, .brandsFull:
-            return ""
-        case .engine:
-            return ""
-        case .models:
-            return ""
-        case .years:
-            return ""
-        case .versions:
-            return ""
-        case .name:
-            return ""
+        default:
+            return "dk_vehicle_my_vehicle".dkVehicleLocalized()
         }
     }
 }

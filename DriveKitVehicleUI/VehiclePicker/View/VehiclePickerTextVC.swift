@@ -15,12 +15,10 @@ class VehiclePickerTextVC: VehiclePickerStepView {
     @IBOutlet weak var textDescriptionLabel: UILabel!
     @IBOutlet weak var textConfirmButton: UIButton!
     @IBOutlet weak var textContinueButton: UIButton!
-    
-    let viewModel : VehiclePickerViewModel
-    
+
     init (viewModel: VehiclePickerViewModel) {
-        self.viewModel = viewModel
         super.init(nibName: String(describing: VehiclePickerTextVC.self), bundle: .vehicleUIBundle)
+        self.viewModel = viewModel
     }
     
     required init?(coder: NSCoder) {
@@ -36,13 +34,13 @@ class VehiclePickerTextVC: VehiclePickerStepView {
         if let category = self.viewModel.vehicleCategory {
             textImageView.image = category.categoryImage()
             textDescriptionLabel.attributedText = category.categoryDescription().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
-            textConfirmButton.setAttributedTitle("dk_validate".dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).build(), for: .normal)
+            textConfirmButton.setAttributedTitle(DKCommonLocalizable.validate.text().dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).build(), for: .normal)
             textConfirmButton.backgroundColor = DKUIColors.secondaryColor.color
-            textContinueButton.setAttributedTitle("dk_vehicle_category_display_brands".dkAttributedString().font(dkFont: .primary, style: .button).color(.secondaryColor).build(), for: .normal)
+            textContinueButton.setAttributedTitle("dk_vehicle_category_display_brands".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .button).color(.secondaryColor).build(), for: .normal)
+            textContinueButton.titleLabel?.textAlignment = .center
         } else {
             textConfirmButton.isEnabled = false
             textContinueButton.isEnabled = false
-            self.showAlertMessage(title: "", message: "Unable to retrieve category", back: true, cancel: false)
         }
     }
 

@@ -56,7 +56,7 @@ Vous êtes définitivement accro aux trails.
                                         <action selector="didConfirmText:" destination="-1" eventType="touchUpInside" id="uOJ-fe-RTs"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Cz-fs-Xgx">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="7Cz-fs-Xgx">
                                     <rect key="frame" x="30" y="521" width="354" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="7OD-vq-Z7k"/>

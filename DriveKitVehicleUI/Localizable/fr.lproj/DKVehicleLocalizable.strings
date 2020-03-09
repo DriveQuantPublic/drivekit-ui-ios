@@ -5,3 +5,35 @@
   Created by Jérémy Bayle on 08/03/2020.
   Copyright © 2020 DriveQuant. All rights reserved.
 */
+
+"dk_empty_vehicle_name"="Veuillez renseigner un nom pour le véhicule";
+"dk_vehicle_brand_description"="Marque du véhicule ?";
+"dk_vehicle_category_car_commercial_title"="Utilitaires";
+"dk_vehicle_category_car_compact_title"="Citadine";
+"dk_vehicle_category_car_luxury_title"="Grande Berline";
+"dk_vehicle_category_car_micro_title"="Micro citadine";
+"dk_vehicle_category_car_minivan_title"="Monospace";
+"dk_vehicle_category_car_sedan_title"="Berline";
+"dk_vehicle_category_car_sport_title"="Coupé";
+"dk_vehicle_category_car_suv_title"="SUV";
+"dk_vehicle_category_display_brands"="Continuer pour sélectionner la marque et le modèle de votre véhicule";
+"dk_vehicle_detection_mode_title"="Démarrage auto :";
+"dk_vehicle_engine_description"="Motorisation ?";
+"dk_vehicle_engine_diesel"="Diesel";
+"dk_vehicle_engine_diesel_hybrid"="Hybride Diesel Electrique";
+"dk_vehicle_engine_electric"="Electrique";
+"dk_vehicle_engine_gasoline"="Essence";
+"dk_vehicle_engine_gasoline_hybrid"="Hybride Essence Electrique";
+"dk_vehicle_model_description"="Modèle du véhicule ?";
+"dk_vehicle_my_vehicle"="Mon véhicule";
+"dk_vehicle_my_vehicles"="Mes véhicules";
+"dk_vehicle_name"="Nom du véhicule";
+"dk_vehicle_name_chooser_description"="Vous pouvez personnaliser le nom de votre véhicule. Si vous ne choississez pas de nom, l\'application attribuera un nom par défaut";
+"dk_vehicle_no_data"="Aucun modèle trouvé pour ce type de moteur.";
+"dk_vehicle_other_brands"="Autres marques";
+"dk_vehicle_other_brands"="Autres marques";
+"dk_vehicle_type_car_title"="Voiture";
+"dk_vehicle_type_motorbike_title"="Moto";
+"dk_vehicle_type_truck_title"="Camion";
+"dk_vehicle_version_description"="Version du véhicule ?";
+"dk_vehicle_year_description"="Année de mise en circulation ?";

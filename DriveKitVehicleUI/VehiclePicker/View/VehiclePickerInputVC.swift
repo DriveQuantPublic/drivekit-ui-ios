@@ -17,11 +17,9 @@ class VehiclePickerInputVC: VehiclePickerStepView {
     @IBOutlet weak var inputErrorLabel: UILabel!
     @IBOutlet weak var inputConfirmButton: UIButton!
     
-    let viewModel : VehiclePickerViewModel
-    
     init (viewModel: VehiclePickerViewModel) {
-        self.viewModel = viewModel
         super.init(nibName: String(describing: VehiclePickerInputVC.self), bundle: .vehicleUIBundle)
+        self.viewModel = viewModel
     }
     
     required init?(coder: NSCoder) {
@@ -30,18 +28,15 @@ class VehiclePickerInputVC: VehiclePickerStepView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.inputTextField.delegate = self
         self.setup()
     }
     
     func setup() {
-        if self.viewModel.currentStep == .name {
-            inputImageView.image = UIImage(named: "dk_vehicle_name_chooser")
-            inputTextLabel.attributedText = "dk_vehicle_name_chooser_description".dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
-            inputConfirmButton.setAttributedTitle("dk_validate".dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).build(), for: .normal)
-            inputConfirmButton.backgroundColor = DKUIColors.secondaryColor.color
-            self.configureTextField(placeholder: "dk_vehicle_name".dkVehicleLocalized())
-        }
+        inputImageView.image = UIImage(named: "dk_vehicle_name_chooser",in: .vehicleUIBundle, compatibleWith: nil)
+        inputTextLabel.attributedText = "dk_vehicle_name_chooser_description".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        inputConfirmButton.setAttributedTitle(DKCommonLocalizable.validate.text().dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).build(), for: .normal)
+        inputConfirmButton.backgroundColor = DKUIColors.secondaryColor.color
+        self.configureTextField(placeholder: "dk_vehicle_name".dkVehicleLocalized())
     }
     
     func configureTextField(placeholder: String) {
@@ -53,27 +48,11 @@ class VehiclePickerInputVC: VehiclePickerStepView {
         self.inputTextField.placeholder = placeholder
         self.inputTextField.keyboardType = .asciiCapable
         self.inputTextField.returnKeyType = .done
+        self.inputTextField.backgroundColor = DKUIColors.neutralColor.color
         if let name = viewModel.vehicleName {
             self.inputTextField.text = name
         } else {
-            //self.inputTextField.text =  viewModel.defaultName
-        }
-    }
-    
-    func warningField(error: String) {
-        self.inputErrorLabel.text = error
-        self.inputErrorLabel.textColor = UIColor.orange
-        self.inputErrorLabel.isHidden = false
-    }
-    
-    @IBAction func didEndEditing(_ sender: Any) {
-        if self.viewModel.currentStep == .name {
-            if self.inputTextField.text == nil {
-                self.warningField(error: "dk_empty_vehicle_name")
-            } else {
-                self.viewModel.vehicleName = self.inputTextField.text
-                self.configureTextField(placeholder: "dk_vehicle_name")
-            }
+            self.inputTextField.becomeFirstResponder()
         }
     }
     
@@ -93,11 +72,5 @@ class VehiclePickerInputVC: VehiclePickerStepView {
             }
         })
     }
-}
-
-extension VehiclePickerInputVC: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
-    }
+    
 }

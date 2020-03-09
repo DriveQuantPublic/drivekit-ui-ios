@@ -13,7 +13,7 @@ class VehiclePickerLabelCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var textLabel: UILabel!
     
     func configure(text: String) {
-        self.textLabel.attributedText = text.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        self.textLabel.attributedText = text.dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.primaryColor).build()
         
     }
 

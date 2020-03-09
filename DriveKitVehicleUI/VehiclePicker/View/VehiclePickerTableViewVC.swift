@@ -12,11 +12,9 @@ import DriveKitCommonUI
 class VehiclePickerTableViewVC: VehiclePickerStepView {
     @IBOutlet weak var tableView: UITableView!
     
-    let viewModel : VehiclePickerViewModel
-    
     init (viewModel: VehiclePickerViewModel) {
-        self.viewModel = viewModel
         super.init(nibName: String(describing: VehiclePickerTableViewVC.self), bundle: .vehicleUIBundle)
+        self.viewModel = viewModel
     }
     
     required init?(coder: NSCoder) {
@@ -65,9 +63,9 @@ extension VehiclePickerTableViewVC: UITableViewDataSource {
                 case .noError:
                     self.viewModel.coordinator.showStep(viewController: self.viewModel.getViewController())
                 case .noData:
-                    self.showAlertMessage(title: nil, message: "No data retrieved for selection", back: false, cancel: false)
+                    self.showAlertMessage(title: nil, message: "dk_vehicle_no_data".dkVehicleLocalized(), back: false, cancel: false)
                 case .failedToRetreiveData:
-                    self.showAlertMessage(title: nil, message: "Failed to retreive data", back: false, cancel: false)
+                    self.showAlertMessage(title: nil, message: "dk_vehicle_failed_to_retrieve_vehicle_data".dkVehicleLocalized(), back: false, cancel: false)
                 }
             }
         })
@@ -75,18 +73,18 @@ extension VehiclePickerTableViewVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView.init(frame: CGRect.init(x: 0.0, y: 0.0, width: tableView.frame.width, height: 70))
-        if let description = viewModel.currentStep.description() {
+        if let description = viewModel.getStepDescription() {
             let label = UILabel()
             label.frame = CGRect.init(x: 0.0, y: 0.0, width: headerView.frame.width, height: headerView.frame.height)
             label.textAlignment = .center
-            label.text = description
+            label.attributedText = description.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
             headerView.addSubview(label)
         }
         return headerView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if let _ = viewModel.currentStep.description() {
+        if let _ = viewModel.getStepDescription() {
             return 70
         } else {
             return 0

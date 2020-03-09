@@ -5,3 +5,35 @@
   Created by Jérémy Bayle on 08/03/2020.
   Copyright © 2020 DriveQuant. All rights reserved.
 */
+
+"dk_empty_vehicle_name"="Indique un nombre de\vehículo";
+"dk_vehicle_brand_description"="¿Marca del vehículo?";
+"dk_vehicle_category_car_commercial_title"="Vehículo comercial";
+"dk_vehicle_category_car_compact_title"="Compacto";
+"dk_vehicle_category_car_luxury_title"="Vehículo de lujo";
+"dk_vehicle_category_car_micro_title"="Microcoche de ciudad";
+"dk_vehicle_category_car_minivan_title"="Monovolumen";
+"dk_vehicle_category_car_sedan_title"="Berlina";
+"dk_vehicle_category_car_sport_title"="Coche deportivo";
+"dk_vehicle_category_car_suv_title"="4X4, SUV, Crossover";
+"dk_vehicle_category_display_brands"="Continúe seleccionando la marca y el modelo de su vehículo";
+"dk_vehicle_detection_mode_title"="Auto inicio:";
+"dk_vehicle_engine_description"="¿Tipo de motor?";
+"dk_vehicle_engine_diesel"="Diésel";
+"dk_vehicle_engine_diesel_hybrid"="Híbrido diésel-eléctrico";
+"dk_vehicle_engine_electric"="Eléctrico";
+"dk_vehicle_engine_gasoline"="Gasolina";
+"dk_vehicle_engine_gasoline_hybrid"="Híbrido gasolina-eléctrico";
+"dk_vehicle_model_description"="¿Modelo de vehículo?";
+"dk_vehicle_my_vehicle"="Mi vehículo";
+"dk_vehicle_my_vehicles"="Mis vehículos";
+"dk_vehicle_name"="Nombre del vehículo";
+"dk_vehicle_name_chooser_description"="Puede personalizar el nombre de su vehículo. Si no elige un nombre, la aplicación le asignará un nombre predeterminado";
+"dk_vehicle_no_data"="No se ha encontrado modelo para este tipo de motor";
+"dk_vehicle_other_brands"="Otras marcas";
+"dk_vehicle_other_brands"="Otras marcas";
+"dk_vehicle_type_car_title"="Auto";
+"dk_vehicle_type_motorbike_title"="Motocicleta";
+"dk_vehicle_type_truck_title"="Camión";
+"dk_vehicle_version_description"="¿Versión del vehículo?";
+"dk_vehicle_year_description"="¿Año de lanzamiento?";

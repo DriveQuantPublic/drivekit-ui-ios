@@ -43,4 +43,8 @@ public class VehiclePickerCoordinator {
             navigationController.show(view, sender: nil)
         }
     }
+    
+    func showPrevious() {
+        navigationController.popViewController(animated: true)
+    }
 }

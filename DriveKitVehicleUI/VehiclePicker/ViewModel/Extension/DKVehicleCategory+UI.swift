@@ -13,21 +13,21 @@ extension DKVehicleCategory : VehiclePickerCollectionViewItem {
     func title() -> String {
         switch self {
         case .micro:
-            return "micro"
+            return "dk_vehicle_category_car_micro_title".dkVehicleLocalized()
         case .compact:
-            return "compact"
+            return "dk_vehicle_category_car_compact_title".dkVehicleLocalized()
         case .sedan:
-            return "sedan"
+            return "dk_vehicle_category_car_sedan_title".dkVehicleLocalized()
         case .suv:
-            return "suv"
+            return "dk_vehicle_category_car_suv_title".dkVehicleLocalized()
         case .minivan:
-            return "minivan"
+            return "dk_vehicle_category_car_minivan_title".dkVehicleLocalized()
         case .commercial:
-            return "commercial"
+            return "dk_vehicle_category_car_commercial_title".dkVehicleLocalized()
         case .luxury:
-            return "luxury"
+            return "dk_vehicle_category_car_luxury_title".dkVehicleLocalized()
         case .sport:
-            return "sport"
+            return "dk_vehicle_category_car_sport_title".dkVehicleLocalized()
         }
     }
     
@@ -56,7 +56,7 @@ extension DKVehicleCategory : VehiclePickerCollectionViewItem {
 extension DKVehicleCategory : VehiclePickerTextDelegate {
     func onLiteConfigSelected(viewModel : VehiclePickerViewModel) {
         viewModel.liteConfig = true
-        viewModel.currentStep = .name
+        viewModel.updateCurrentStep(step: .name)
         viewModel.vehicleCharacteristics = DKVehicleCharacteristics()
         viewModel.vehicleCharacteristics?.dqIndex = self.liteConfigId()
     }
@@ -64,30 +64,30 @@ extension DKVehicleCategory : VehiclePickerTextDelegate {
     func onFullConfigSelected(viewModel : VehiclePickerViewModel) {
         viewModel.liteConfig = false
         if VehiclePickerStep.brandsIcons.getCollectionViewItems(viewModel: viewModel).isEmpty {
-            viewModel.currentStep = .brandsFull
+            viewModel.updateCurrentStep(step: .brandsFull)
         } else {
-            viewModel.currentStep = .brandsIcons
+            viewModel.updateCurrentStep(step: .brandsIcons)
         }
     }
     
     func categoryDescription() -> String {
         switch self {
         case .micro:
-            return "category_car_micro_compact_description".dkVehicleLocalized()
+            return "dk_vehicle_category_car_micro_compact_description".dkVehicleLocalized()
         case .compact:
-            return "category_car_compact_description".dkVehicleLocalized()
+            return "dk_vehicle_category_car_compact_description".dkVehicleLocalized()
         case .sedan:
-            return "category_car_sedan_description".dkVehicleLocalized()
+            return "dk_vehicle_category_car_sedan_description".dkVehicleLocalized()
         case .suv:
-            return "category_car_suv_description".dkVehicleLocalized()
+            return "dk_vehicle_category_car_suv_description".dkVehicleLocalized()
         case .minivan:
-            return "category_car_minivan_description".dkVehicleLocalized()
+            return "dk_vehicle_category_car_minivan_description".dkVehicleLocalized()
         case .commercial:
-            return "category_car_commercial_description".dkVehicleLocalized()
+            return "dk_vehicle_category_car_commercial_description".dkVehicleLocalized()
         case .luxury:
-            return "category_car_luxury_description".dkVehicleLocalized()
+            return "dk_vehicle_category_car_luxury_description".dkVehicleLocalized()
         case .sport:
-            return "category_car_sport_description".dkVehicleLocalized()
+            return "dk_vehicle_category_car_sport_description".dkVehicleLocalized()
         }
     }
     

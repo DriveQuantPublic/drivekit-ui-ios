@@ -16,12 +16,10 @@ private struct Constants {
 
 class VehiclePickerCollectionViewVC: VehiclePickerStepView {
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    let viewModel : VehiclePickerViewModel
-    
+
     init (viewModel: VehiclePickerViewModel) {
-        self.viewModel = viewModel
         super.init(nibName: String(describing: VehiclePickerCollectionViewVC.self), bundle: .vehicleUIBundle)
+        self.viewModel = viewModel
     }
     
     required init?(coder: NSCoder) {
@@ -55,7 +53,7 @@ extension VehiclePickerCollectionViewVC: UICollectionViewDelegate, UICollectionV
         let value = viewModel.getCollectionViewItems()[indexPath.row]
         if let image = value.image() {
             let cell: VehiclePickerImageCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "VehiclePickerImageCollectionViewCell", for: indexPath) as! VehiclePickerImageCollectionViewCell
-                   cell.configure(image: image, text: value.title(), showLabel: viewModel.currentStep.showLabel())
+                   cell.configure(image: image, text: value.title(), showLabel: viewModel.showStepLabel())
                    return cell
         }else{
             let cell : VehiclePickerLabelCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "VehiclePickerLabelCollectionViewCell", for: indexPath) as! VehiclePickerLabelCollectionViewCell

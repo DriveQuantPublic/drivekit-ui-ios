@@ -13,6 +13,7 @@ import DriveKitTripAnalysis
 import CoreLocation
 import CoreMotion
 import DriveKitCommonUI
+import DriveKitVehicleUI
 
 class ViewController: UITableViewController {
     
@@ -78,6 +79,8 @@ class ViewController: UITableViewController {
             self.configureDriverDataUI()
         }else if indexPath.row == 3 && indexPath.section == 0 {
             self.configureDriverStreak()
+        }else if indexPath.row == 4 && indexPath.section == 0 {
+            self.configureVehiclePicker()
         }
     }
     
@@ -172,7 +175,11 @@ class ViewController: UITableViewController {
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
             self.navigationController?.pushViewController(streakVC, animated: true)
         }
-        
+    }
+    func configureVehiclePicker() {
+        DispatchQueue.main.async {
+            let vehiclePicker = VehiclePickerCoordinator(parentView: self)
+        }
     }
     
     @IBAction func startTrip(_ sender: Any) {

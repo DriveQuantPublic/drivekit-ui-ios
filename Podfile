@@ -12,28 +12,23 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 
 target 'DriveKitApp' do
-  platform :ios, '10.0'
-  use_frameworks!
-  pod 'DriveKitTripAnalysis'
-  pod 'DriveKitDriverData'
+
 end
 
 
 target 'DriveKitDriverDataUI' do
-  platform :ios, '10.0'
-  use_frameworks!
-  pod 'UICircularProgressRing'
-  pod 'DriveKitDriverData'
-  pod 'DriveKitTripAnalysis'
+  pod 'DriveKitDriverData', '1.4-beta1'
+  pod 'DriveKitTripAnalysis', '1.4-beta1'
 end
 
 target 'DriveKitDriverAchievementUI' do
-  platform :ios, '10.0'
-  use_frameworks!
-  pod 'DriveKitDriverAchievement'
+  pod 'DriveKitDriverAchievement', '1.4-beta1'
 end
 
 target 'DriveKitCommonUI' do
-  platform :ios, '10.0'
   pod 'UICircularProgressRing'
+end
+
+target 'DriveKitVehicleUI' do
+  pod 'DriveKitVehicle', '1.4-beta1'
 end

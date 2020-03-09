@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2BCAA6C1AC3CC1C2B0E98D77 /* Pods_DriveKitVehicleUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20449AFA2A35A174B99296E3 /* Pods_DriveKitVehicleUI.framework */; };
 		3F0740DE2403BB65005A8D07 /* DriveKitCommonUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0740DC2403BB65005A8D07 /* DriveKitCommonUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F0740E12403BB65005A8D07 /* DriveKitCommonUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F0740DA2403BB65005A8D07 /* DriveKitCommonUI.framework */; };
 		3F0740E22403BB65005A8D07 /* DriveKitCommonUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3F0740DA2403BB65005A8D07 /* DriveKitCommonUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -51,6 +52,35 @@
 		3FF68E93240CF5670071D74C /* Nibable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238442361A2430001E15D /* Nibable.swift */; };
 		3FF68E96240D58DC0071D74C /* UIView+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68E95240D58DC0071D74C /* UIView+DK.swift */; };
 		3FF68E98240D59000071D74C /* UIImage+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68E97240D59000071D74C /* UIImage+DK.swift */; };
+		3FF68EF62413ECC00071D74C /* DriveKitVehicleUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FF68EF42413ECC00071D74C /* DriveKitVehicleUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3FF68EF92413ECC00071D74C /* DriveKitVehicleUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FF68EF22413ECC00071D74C /* DriveKitVehicleUI.framework */; };
+		3FF68EFA2413ECC00071D74C /* DriveKitVehicleUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3FF68EF22413ECC00071D74C /* DriveKitVehicleUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3FF68EFF2413EEF80071D74C /* DriveKitVehiclUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68EFE2413EEF80071D74C /* DriveKitVehiclUI.swift */; };
+		3FF68F052414FD870071D74C /* DKVehicleLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FF68F072414FD870071D74C /* DKVehicleLocalizable.strings */; };
+		3FF68F10241501D20071D74C /* VehiclePickerStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68F0F241501D20071D74C /* VehiclePickerStep.swift */; };
+		3FF68F12241502E80071D74C /* VehiclePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68F11241502E80071D74C /* VehiclePickerViewModel.swift */; };
+		3FF68F14241504A10071D74C /* DKVehicleType+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68F13241504A10071D74C /* DKVehicleType+UI.swift */; };
+		3FF68F1624150B3E0071D74C /* VehiclePickerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68F1524150B3E0071D74C /* VehiclePickerCoordinator.swift */; };
+		3FF68F1924150D040071D74C /* VehiclePickerTableViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68F1724150D040071D74C /* VehiclePickerTableViewVC.swift */; };
+		3FF68F1A24150D040071D74C /* VehiclePickerTableViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FF68F1824150D040071D74C /* VehiclePickerTableViewVC.xib */; };
+		3FF68F1D24150D9E0071D74C /* VehiclePickerTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68F1C24150D9E0071D74C /* VehiclePickerTableViewDelegate.swift */; };
+		3FF68F2024150E5F0071D74C /* VehiclePickerStep+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68F1F24150E5F0071D74C /* VehiclePickerStep+TableView.swift */; };
+		3FF68F23241510F50071D74C /* DKVehicleCategory+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68F22241510F50071D74C /* DKVehicleCategory+UI.swift */; };
+		3FF68F272415198D0071D74C /* VehiclePickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FF68F252415198D0071D74C /* VehiclePickerTableViewCell.xib */; };
+		3FF68F282415198D0071D74C /* VehiclePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68F262415198D0071D74C /* VehiclePickerTableViewCell.swift */; };
+		3FF68F2A24152BE30071D74C /* VehiclePickerStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68F2924152BE20071D74C /* VehiclePickerStepView.swift */; };
+		3FF68F2E241532EB0071D74C /* VehiclePickerCollectionViewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FF68F2C241532EB0071D74C /* VehiclePickerCollectionViewVC.xib */; };
+		3FF68F2F241532EB0071D74C /* VehiclePickerCollectionViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68F2D241532EB0071D74C /* VehiclePickerCollectionViewVC.swift */; };
+		3FF68F312415330A0071D74C /* VehiclePickerCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68F302415330A0071D74C /* VehiclePickerCollectionViewDelegate.swift */; };
+		3FF68F34241533480071D74C /* VehiclePickerImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FF68F32241533480071D74C /* VehiclePickerImageCollectionViewCell.xib */; };
+		3FF68F35241533480071D74C /* VehiclePickerImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68F33241533480071D74C /* VehiclePickerImageCollectionViewCell.swift */; };
+		3FF68F37241534220071D74C /* VehiclePickerStep+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68F36241534220071D74C /* VehiclePickerStep+CollectionView.swift */; };
+		3FF68F3A241535130071D74C /* VehiclePickerLabelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68F38241535130071D74C /* VehiclePickerLabelCollectionViewCell.swift */; };
+		3FF68F3B241535130071D74C /* VehiclePickerLabelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FF68F39241535130071D74C /* VehiclePickerLabelCollectionViewCell.xib */; };
+		3FF68F3D2415437A0071D74C /* DKvehicleBrand+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68F3C2415437A0071D74C /* DKvehicleBrand+UI.swift */; };
+		3FF68F3F24154ADB0071D74C /* DriveKitVehicle.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF68F3E24154ADB0071D74C /* DriveKitVehicle.xcassets */; };
+		3FF68F41241557C20071D74C /* DKVehicleEngineIndex+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68F40241557C20071D74C /* DKVehicleEngineIndex+UI.swift */; };
+		3FF68F4424161F5A0071D74C /* String+DKUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68F4324161F5A0071D74C /* String+DKUI.swift */; };
 		3FFAD1FE23EDBCD500D1A16C /* DriveKitDriverAchievementUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FFAD1FC23EDBCD500D1A16C /* DriveKitDriverAchievementUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3FFAD20123EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFAD1FA23EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework */; };
 		3FFAD20223EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFAD1FA23EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -156,6 +186,13 @@
 			remoteGlobalIDString = 3F0740D92403BB65005A8D07;
 			remoteInfo = DriveKitCommonUI;
 		};
+		3FF68EF72413ECC00071D74C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3B7B378235F124F0065A332 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3FF68EF12413ECC00071D74C;
+			remoteInfo = DriveKitVehicleUI;
+		};
 		3FFAD1FF23EDBCD500D1A16C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A3B7B378235F124F0065A332 /* Project object */;
@@ -182,6 +219,7 @@
 				3FFAD20223EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework in Embed Frameworks */,
 				3FFD7FD22363002B00BD2F0D /* DriveKitDriverDataUI.framework in Embed Frameworks */,
 				3F0740E22403BB65005A8D07 /* DriveKitCommonUI.framework in Embed Frameworks */,
+				3FF68EFA2413ECC00071D74C /* DriveKitVehicleUI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,8 +230,10 @@
 		0425AC91525E20565C140CA4 /* Pods_DriveKitCommonUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitCommonUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DCA7A09AC2410A44084435A /* Pods-DriveKitCommonUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitCommonUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitCommonUI/Pods-DriveKitCommonUI.debug.xcconfig"; sourceTree = "<group>"; };
 		10107C08082CCF492923D28F /* Pods-DriveKitDriverDataUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverDataUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverDataUI/Pods-DriveKitDriverDataUI.debug.xcconfig"; sourceTree = "<group>"; };
+		20449AFA2A35A174B99296E3 /* Pods_DriveKitVehicleUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitVehicleUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20B69960974EEE2DEB3E079F /* Pods-DriveKitDriverAchievementUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverAchievementUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverAchievementUI/Pods-DriveKitDriverAchievementUI.release.xcconfig"; sourceTree = "<group>"; };
 		36173251B2A47392720E8B05 /* Pods_DriveKitDriverAchievementUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitDriverAchievementUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		38FD5C43C51C0CF5151B396D /* Pods-DriveKitVehicleUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitVehicleUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitVehicleUI/Pods-DriveKitVehicleUI.release.xcconfig"; sourceTree = "<group>"; };
 		3F0740DA2403BB65005A8D07 /* DriveKitCommonUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DriveKitCommonUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F0740DC2403BB65005A8D07 /* DriveKitCommonUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DriveKitCommonUI.h; sourceTree = "<group>"; };
 		3F0740DD2403BB65005A8D07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -246,6 +286,39 @@
 		3FF68E91240CF1300071D74C /* ScoreType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreType.swift; sourceTree = "<group>"; };
 		3FF68E95240D58DC0071D74C /* UIView+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+DK.swift"; sourceTree = "<group>"; };
 		3FF68E97240D59000071D74C /* UIImage+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+DK.swift"; sourceTree = "<group>"; };
+		3FF68EF22413ECC00071D74C /* DriveKitVehicleUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DriveKitVehicleUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FF68EF42413ECC00071D74C /* DriveKitVehicleUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DriveKitVehicleUI.h; sourceTree = "<group>"; };
+		3FF68EF52413ECC00071D74C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FF68EFE2413EEF80071D74C /* DriveKitVehiclUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveKitVehiclUI.swift; sourceTree = "<group>"; };
+		3FF68F062414FD870071D74C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DKVehicleLocalizable.strings; sourceTree = "<group>"; };
+		3FF68F082414FD880071D74C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/DKVehicleLocalizable.strings; sourceTree = "<group>"; };
+		3FF68F092414FD890071D74C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/DKVehicleLocalizable.strings; sourceTree = "<group>"; };
+		3FF68F0A2414FD8A0071D74C /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/DKVehicleLocalizable.strings; sourceTree = "<group>"; };
+		3FF68F0B2414FD8A0071D74C /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/DKVehicleLocalizable.strings; sourceTree = "<group>"; };
+		3FF68F0F241501D20071D74C /* VehiclePickerStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclePickerStep.swift; sourceTree = "<group>"; };
+		3FF68F11241502E80071D74C /* VehiclePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclePickerViewModel.swift; sourceTree = "<group>"; };
+		3FF68F13241504A10071D74C /* DKVehicleType+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DKVehicleType+UI.swift"; sourceTree = "<group>"; };
+		3FF68F1524150B3E0071D74C /* VehiclePickerCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiclePickerCoordinator.swift; sourceTree = "<group>"; };
+		3FF68F1724150D040071D74C /* VehiclePickerTableViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiclePickerTableViewVC.swift; sourceTree = "<group>"; };
+		3FF68F1824150D040071D74C /* VehiclePickerTableViewVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VehiclePickerTableViewVC.xib; sourceTree = "<group>"; };
+		3FF68F1C24150D9E0071D74C /* VehiclePickerTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclePickerTableViewDelegate.swift; sourceTree = "<group>"; };
+		3FF68F1F24150E5F0071D74C /* VehiclePickerStep+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VehiclePickerStep+TableView.swift"; sourceTree = "<group>"; };
+		3FF68F22241510F50071D74C /* DKVehicleCategory+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DKVehicleCategory+UI.swift"; sourceTree = "<group>"; };
+		3FF68F252415198D0071D74C /* VehiclePickerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VehiclePickerTableViewCell.xib; sourceTree = "<group>"; };
+		3FF68F262415198D0071D74C /* VehiclePickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiclePickerTableViewCell.swift; sourceTree = "<group>"; };
+		3FF68F2924152BE20071D74C /* VehiclePickerStepView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiclePickerStepView.swift; sourceTree = "<group>"; };
+		3FF68F2C241532EB0071D74C /* VehiclePickerCollectionViewVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VehiclePickerCollectionViewVC.xib; sourceTree = "<group>"; };
+		3FF68F2D241532EB0071D74C /* VehiclePickerCollectionViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiclePickerCollectionViewVC.swift; sourceTree = "<group>"; };
+		3FF68F302415330A0071D74C /* VehiclePickerCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclePickerCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		3FF68F32241533480071D74C /* VehiclePickerImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VehiclePickerImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		3FF68F33241533480071D74C /* VehiclePickerImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiclePickerImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		3FF68F36241534220071D74C /* VehiclePickerStep+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VehiclePickerStep+CollectionView.swift"; sourceTree = "<group>"; };
+		3FF68F38241535130071D74C /* VehiclePickerLabelCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiclePickerLabelCollectionViewCell.swift; sourceTree = "<group>"; };
+		3FF68F39241535130071D74C /* VehiclePickerLabelCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VehiclePickerLabelCollectionViewCell.xib; sourceTree = "<group>"; };
+		3FF68F3C2415437A0071D74C /* DKvehicleBrand+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DKvehicleBrand+UI.swift"; sourceTree = "<group>"; };
+		3FF68F3E24154ADB0071D74C /* DriveKitVehicle.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DriveKitVehicle.xcassets; sourceTree = "<group>"; };
+		3FF68F40241557C20071D74C /* DKVehicleEngineIndex+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DKVehicleEngineIndex+UI.swift"; sourceTree = "<group>"; };
+		3FF68F4324161F5A0071D74C /* String+DKUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DKUI.swift"; sourceTree = "<group>"; };
 		3FFAD1FA23EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DriveKitDriverAchievementUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FFAD1FC23EDBCD500D1A16C /* DriveKitDriverAchievementUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DriveKitDriverAchievementUI.h; sourceTree = "<group>"; };
 		3FFAD1FD23EDBCD500D1A16C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -259,6 +332,7 @@
 		71C90D9FE8ADAE9597A8BE8A /* Pods-DriveKitDriverAchievementUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverAchievementUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverAchievementUI/Pods-DriveKitDriverAchievementUI.debug.xcconfig"; sourceTree = "<group>"; };
 		845F2C5F9472B0D7B5972830 /* Pods-DriveKitDriverData.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverData.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverData/Pods-DriveKitDriverData.debug.xcconfig"; sourceTree = "<group>"; };
 		88D27862C0BB1621E356D771 /* Pods-DriveKitCommonUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitCommonUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitCommonUI/Pods-DriveKitCommonUI.release.xcconfig"; sourceTree = "<group>"; };
+		96151588B94F1AEF000E110A /* Pods-DriveKitVehicleUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitVehicleUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitVehicleUI/Pods-DriveKitVehicleUI.debug.xcconfig"; sourceTree = "<group>"; };
 		A30F4F1423D5DA08009A37C2 /* SynthesisPageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynthesisPageViewModel.swift; sourceTree = "<group>"; };
 		A30F4F1623D5DA14009A37C2 /* SynthesisPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynthesisPageVC.swift; sourceTree = "<group>"; };
 		A30F4F1723D5DA14009A37C2 /* SynthesisPageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SynthesisPageVC.xib; sourceTree = "<group>"; };
@@ -354,6 +428,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3FF68EEF2413ECC00071D74C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BCAA6C1AC3CC1C2B0E98D77 /* Pods_DriveKitVehicleUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3FFAD1F723EDBCD500D1A16C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -378,6 +460,7 @@
 				A3D7013F7B04AC8C56676DE4 /* Pods_DriveKitApp.framework in Frameworks */,
 				3FFAD20123EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework in Frameworks */,
 				3F0740E12403BB65005A8D07 /* DriveKitCommonUI.framework in Frameworks */,
+				3FF68EF92413ECC00071D74C /* DriveKitVehicleUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +475,7 @@
 				55652B494DACA2423EDB5A8E /* Pods_DriveKitDriverDataUI.framework */,
 				36173251B2A47392720E8B05 /* Pods_DriveKitDriverAchievementUI.framework */,
 				0425AC91525E20565C140CA4 /* Pods_DriveKitCommonUI.framework */,
+				20449AFA2A35A174B99296E3 /* Pods_DriveKitVehicleUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -511,6 +595,105 @@
 				A342389E2361A2730001E15D /* DriverDataLocalizables.strings */,
 			);
 			path = Localizable;
+			sourceTree = "<group>";
+		};
+		3FF68EF32413ECC00071D74C /* DriveKitVehicleUI */ = {
+			isa = PBXGroup;
+			children = (
+				3FF68F022414FD5B0071D74C /* Localizable */,
+				3FF68F002414F7070071D74C /* VehiclePicker */,
+				3FF68EF42413ECC00071D74C /* DriveKitVehicleUI.h */,
+				3FF68EF52413ECC00071D74C /* Info.plist */,
+				3FF68EFE2413EEF80071D74C /* DriveKitVehiclUI.swift */,
+				3FF68F3E24154ADB0071D74C /* DriveKitVehicle.xcassets */,
+			);
+			path = DriveKitVehicleUI;
+			sourceTree = "<group>";
+		};
+		3FF68F002414F7070071D74C /* VehiclePicker */ = {
+			isa = PBXGroup;
+			children = (
+				3FF68F0E241501770071D74C /* ViewModel */,
+				3FF68F0D241500360071D74C /* View */,
+				3FF68F1524150B3E0071D74C /* VehiclePickerCoordinator.swift */,
+			);
+			path = VehiclePicker;
+			sourceTree = "<group>";
+		};
+		3FF68F022414FD5B0071D74C /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				3FF68F072414FD870071D74C /* DKVehicleLocalizable.strings */,
+			);
+			path = Localizable;
+			sourceTree = "<group>";
+		};
+		3FF68F0D241500360071D74C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3FF68F1B24150D660071D74C /* Delegate */,
+				3FF68F242415197A0071D74C /* Cell */,
+				3FF68F2924152BE20071D74C /* VehiclePickerStepView.swift */,
+				3FF68F1724150D040071D74C /* VehiclePickerTableViewVC.swift */,
+				3FF68F1824150D040071D74C /* VehiclePickerTableViewVC.xib */,
+				3FF68F2D241532EB0071D74C /* VehiclePickerCollectionViewVC.swift */,
+				3FF68F2C241532EB0071D74C /* VehiclePickerCollectionViewVC.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3FF68F0E241501770071D74C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3FF68F21241510DA0071D74C /* Extension */,
+				3FF68F1E24150E330071D74C /* Step */,
+				3FF68F11241502E80071D74C /* VehiclePickerViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3FF68F1B24150D660071D74C /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				3FF68F1C24150D9E0071D74C /* VehiclePickerTableViewDelegate.swift */,
+				3FF68F302415330A0071D74C /* VehiclePickerCollectionViewDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		3FF68F1E24150E330071D74C /* Step */ = {
+			isa = PBXGroup;
+			children = (
+				3FF68F0F241501D20071D74C /* VehiclePickerStep.swift */,
+				3FF68F1F24150E5F0071D74C /* VehiclePickerStep+TableView.swift */,
+				3FF68F36241534220071D74C /* VehiclePickerStep+CollectionView.swift */,
+			);
+			path = Step;
+			sourceTree = "<group>";
+		};
+		3FF68F21241510DA0071D74C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3FF68F13241504A10071D74C /* DKVehicleType+UI.swift */,
+				3FF68F22241510F50071D74C /* DKVehicleCategory+UI.swift */,
+				3FF68F3C2415437A0071D74C /* DKvehicleBrand+UI.swift */,
+				3FF68F40241557C20071D74C /* DKVehicleEngineIndex+UI.swift */,
+				3FF68F4324161F5A0071D74C /* String+DKUI.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		3FF68F242415197A0071D74C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3FF68F262415198D0071D74C /* VehiclePickerTableViewCell.swift */,
+				3FF68F252415198D0071D74C /* VehiclePickerTableViewCell.xib */,
+				3FF68F33241533480071D74C /* VehiclePickerImageCollectionViewCell.swift */,
+				3FF68F32241533480071D74C /* VehiclePickerImageCollectionViewCell.xib */,
+				3FF68F38241535130071D74C /* VehiclePickerLabelCollectionViewCell.swift */,
+				3FF68F39241535130071D74C /* VehiclePickerLabelCollectionViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		3FFAD1FB23EDBCD500D1A16C /* DriveKitDriverAchievementUI */ = {
@@ -740,6 +923,7 @@
 				A34238072361A1FA0001E15D /* DriveKitDriverDataUI */,
 				3FFAD1FB23EDBCD500D1A16C /* DriveKitDriverAchievementUI */,
 				3F0740DB2403BB65005A8D07 /* DriveKitCommonUI */,
+				3FF68EF32413ECC00071D74C /* DriveKitVehicleUI */,
 				A3B7B381235F124F0065A332 /* Products */,
 				A9BC2334DC2216D3626EE223 /* Pods */,
 				0507D67F4F2198BE920311FE /* Frameworks */,
@@ -753,6 +937,7 @@
 				A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */,
 				3FFAD1FA23EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework */,
 				3F0740DA2403BB65005A8D07 /* DriveKitCommonUI.framework */,
+				3FF68EF22413ECC00071D74C /* DriveKitVehicleUI.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -796,6 +981,8 @@
 				20B69960974EEE2DEB3E079F /* Pods-DriveKitDriverAchievementUI.release.xcconfig */,
 				0DCA7A09AC2410A44084435A /* Pods-DriveKitCommonUI.debug.xcconfig */,
 				88D27862C0BB1621E356D771 /* Pods-DriveKitCommonUI.release.xcconfig */,
+				96151588B94F1AEF000E110A /* Pods-DriveKitVehicleUI.debug.xcconfig */,
+				38FD5C43C51C0CF5151B396D /* Pods-DriveKitVehicleUI.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -808,6 +995,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F0740DE2403BB65005A8D07 /* DriveKitCommonUI.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FF68EED2413ECC00071D74C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FF68EF62413ECC00071D74C /* DriveKitVehicleUI.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -847,6 +1042,25 @@
 			name = DriveKitCommonUI;
 			productName = DriveKitCommonUI;
 			productReference = 3F0740DA2403BB65005A8D07 /* DriveKitCommonUI.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3FF68EF12413ECC00071D74C /* DriveKitVehicleUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3FF68EFD2413ECC00071D74C /* Build configuration list for PBXNativeTarget "DriveKitVehicleUI" */;
+			buildPhases = (
+				98C8051E32A90E1567696C92 /* [CP] Check Pods Manifest.lock */,
+				3FF68EED2413ECC00071D74C /* Headers */,
+				3FF68EEE2413ECC00071D74C /* Sources */,
+				3FF68EEF2413ECC00071D74C /* Frameworks */,
+				3FF68EF02413ECC00071D74C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DriveKitVehicleUI;
+			productName = DriveKitVehicleUI;
+			productReference = 3FF68EF22413ECC00071D74C /* DriveKitVehicleUI.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		3FFAD1F923EDBCD500D1A16C /* DriveKitDriverAchievementUI */ = {
@@ -906,6 +1120,7 @@
 				3FFD7FD42363002B00BD2F0D /* PBXTargetDependency */,
 				3FFAD20023EDBCD500D1A16C /* PBXTargetDependency */,
 				3F0740E02403BB65005A8D07 /* PBXTargetDependency */,
+				3FF68EF82413ECC00071D74C /* PBXTargetDependency */,
 			);
 			name = DriveKitApp;
 			productName = DriveKitApp;
@@ -923,6 +1138,10 @@
 				ORGANIZATIONNAME = DriveQuant;
 				TargetAttributes = {
 					3F0740D92403BB65005A8D07 = {
+						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
+					};
+					3FF68EF12413ECC00071D74C = {
 						CreatedOnToolsVersion = 11.3.1;
 						LastSwiftMigration = 1130;
 					};
@@ -960,6 +1179,7 @@
 				A34238052361A1FA0001E15D /* DriveKitDriverDataUI */,
 				3FFAD1F923EDBCD500D1A16C /* DriveKitDriverAchievementUI */,
 				3F0740D92403BB65005A8D07 /* DriveKitCommonUI */,
+				3FF68EF12413ECC00071D74C /* DriveKitVehicleUI */,
 			);
 		};
 /* End PBXProject section */
@@ -974,6 +1194,20 @@
 				3FF68E82240965E10071D74C /* DKImages.xcassets in Resources */,
 				3FF68E8F240CF0460071D74C /* CircularProgressView.xib in Resources */,
 				3FF68E642407F56F0071D74C /* CommonLocalizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3FF68EF02413ECC00071D74C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FF68F2E241532EB0071D74C /* VehiclePickerCollectionViewVC.xib in Resources */,
+				3FF68F272415198D0071D74C /* VehiclePickerTableViewCell.xib in Resources */,
+				3FF68F052414FD870071D74C /* DKVehicleLocalizable.strings in Resources */,
+				3FF68F1A24150D040071D74C /* VehiclePickerTableViewVC.xib in Resources */,
+				3FF68F3B241535130071D74C /* VehiclePickerLabelCollectionViewCell.xib in Resources */,
+				3FF68F34241533480071D74C /* VehiclePickerImageCollectionViewCell.xib in Resources */,
+				3FF68F3F24154ADB0071D74C /* DriveKitVehicle.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1046,6 +1280,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DriveKitApp/Pods-DriveKitApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98C8051E32A90E1567696C92 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DriveKitVehicleUI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BD66610C27CF2276019E3C9F /* [CP] Check Pods Manifest.lock */ = {
@@ -1169,6 +1425,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3FF68EEE2413ECC00071D74C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FF68F1D24150D9E0071D74C /* VehiclePickerTableViewDelegate.swift in Sources */,
+				3FF68F35241533480071D74C /* VehiclePickerImageCollectionViewCell.swift in Sources */,
+				3FF68EFF2413EEF80071D74C /* DriveKitVehiclUI.swift in Sources */,
+				3FF68F1924150D040071D74C /* VehiclePickerTableViewVC.swift in Sources */,
+				3FF68F10241501D20071D74C /* VehiclePickerStep.swift in Sources */,
+				3FF68F2024150E5F0071D74C /* VehiclePickerStep+TableView.swift in Sources */,
+				3FF68F312415330A0071D74C /* VehiclePickerCollectionViewDelegate.swift in Sources */,
+				3FF68F12241502E80071D74C /* VehiclePickerViewModel.swift in Sources */,
+				3FF68F4424161F5A0071D74C /* String+DKUI.swift in Sources */,
+				3FF68F37241534220071D74C /* VehiclePickerStep+CollectionView.swift in Sources */,
+				3FF68F14241504A10071D74C /* DKVehicleType+UI.swift in Sources */,
+				3FF68F3A241535130071D74C /* VehiclePickerLabelCollectionViewCell.swift in Sources */,
+				3FF68F3D2415437A0071D74C /* DKvehicleBrand+UI.swift in Sources */,
+				3FF68F1624150B3E0071D74C /* VehiclePickerCoordinator.swift in Sources */,
+				3FF68F2F241532EB0071D74C /* VehiclePickerCollectionViewVC.swift in Sources */,
+				3FF68F41241557C20071D74C /* DKVehicleEngineIndex+UI.swift in Sources */,
+				3FF68F2A24152BE30071D74C /* VehiclePickerStepView.swift in Sources */,
+				3FF68F282415198D0071D74C /* VehiclePickerTableViewCell.swift in Sources */,
+				3FF68F23241510F50071D74C /* DKVehicleCategory+UI.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3FFAD1F623EDBCD500D1A16C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1262,6 +1544,11 @@
 			target = 3F0740D92403BB65005A8D07 /* DriveKitCommonUI */;
 			targetProxy = 3F7524C72406B07200AC22CC /* PBXContainerItemProxy */;
 		};
+		3FF68EF82413ECC00071D74C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3FF68EF12413ECC00071D74C /* DriveKitVehicleUI */;
+			targetProxy = 3FF68EF72413ECC00071D74C /* PBXContainerItemProxy */;
+		};
 		3FFAD20023EDBCD500D1A16C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3FFAD1F923EDBCD500D1A16C /* DriveKitDriverAchievementUI */;
@@ -1309,6 +1596,18 @@
 				3FF68E6A2407F5730071D74C /* es */,
 			);
 			name = CommonLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		3FF68F072414FD870071D74C /* DKVehicleLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FF68F062414FD870071D74C /* en */,
+				3FF68F082414FD880071D74C /* fr */,
+				3FF68F092414FD890071D74C /* de */,
+				3FF68F0A2414FD8A0071D74C /* it */,
+				3FF68F0B2414FD8A0071D74C /* es */,
+			);
+			name = DKVehicleLocalizable.strings;
 			sourceTree = "<group>";
 		};
 		A342389E2361A2730001E15D /* DriverDataLocalizables.strings */ = {
@@ -1394,6 +1693,67 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.drivequant.drivekit-common-ui";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3FF68EFB2413ECC00071D74C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96151588B94F1AEF000E110A /* Pods-DriveKitVehicleUI.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = DM95YM67TK;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = DriveKitVehicleUI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.drivequant.drivekit-vehicle-ui";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3FF68EFC2413ECC00071D74C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38FD5C43C51C0CF5151B396D /* Pods-DriveKitVehicleUI.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = DM95YM67TK;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = DriveKitVehicleUI/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.drivequant.drivekit-vehicle-ui";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -1695,6 +2055,15 @@
 			buildConfigurations = (
 				3F0740E32403BB65005A8D07 /* Debug */,
 				3F0740E42403BB65005A8D07 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3FF68EFD2413ECC00071D74C /* Build configuration list for PBXNativeTarget "DriveKitVehicleUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3FF68EFB2413ECC00071D74C /* Debug */,
+				3FF68EFC2413ECC00071D74C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

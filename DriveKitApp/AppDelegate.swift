@@ -16,6 +16,7 @@ import DriveKitDBTripAccess
 import DriveKitCommonUI
 import DriveKitDriverAchievementUI
 import DriveKitDriverDataUI
+import DriveKitVehicleUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -38,6 +39,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitUI.shared.initialize(colors: self, fonts: self, overridedStringsFileName: "Localizable")
         DriveKitDriverAchievementUI.shared.initialize()
         DriveKitDriverDataUI.shared.initialize()
+        DriveKitVehiculeUI.shared.initialize()
+        DriveKitVehiculeUI.shared.configureVehicleType(types: [.car, .motorbike])
+        DriveKitVehiculeUI.shared.configureLiteConfig(enable: false)
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options : \(options)")
         return true
     }

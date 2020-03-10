@@ -24,6 +24,16 @@
 		3F38C26D2369CC10002E873A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F38C26F2369CC10002E873A /* Localizable.strings */; };
 		3F38C2752369D6ED002E873A /* NotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C2742369D6ED002E873A /* NotificationSender.swift */; };
 		3F38C279236AE210002E873A /* AdviceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C278236AE210002E873A /* AdviceButton.swift */; };
+		3F50D6F52417945B001226F7 /* BluetoothViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D6F42417945B001226F7 /* BluetoothViewModel.swift */; };
+		3F50D6FE24179467001226F7 /* SuccessBluetoothVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D6F624179466001226F7 /* SuccessBluetoothVC.swift */; };
+		3F50D6FF24179467001226F7 /* SelectBluetoothVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D6F724179466001226F7 /* SelectBluetoothVC.swift */; };
+		3F50D70024179467001226F7 /* SelectBluetoothVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F50D6F824179466001226F7 /* SelectBluetoothVC.xib */; };
+		3F50D70124179467001226F7 /* SuccessBluetoothVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F50D6F924179466001226F7 /* SuccessBluetoothVC.xib */; };
+		3F50D70224179467001226F7 /* ErrorBluetoothVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D6FA24179466001226F7 /* ErrorBluetoothVC.swift */; };
+		3F50D70324179467001226F7 /* ConnectBluetoothVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F50D6FB24179466001226F7 /* ConnectBluetoothVC.xib */; };
+		3F50D70424179467001226F7 /* ErrorBluetoothVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F50D6FC24179466001226F7 /* ErrorBluetoothVC.xib */; };
+		3F50D70524179467001226F7 /* ConnectBluetoothVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D6FD24179467001226F7 /* ConnectBluetoothVC.swift */; };
+		3F50D7082417ADDD001226F7 /* DKVehicle+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D7072417ADDD001226F7 /* DKVehicle+UI.swift */; };
 		3F7524CB2406C4CC00AC22CC /* DKUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7524CA2406C4CC00AC22CC /* DKUIViewController.swift */; };
 		3F7524CE2407A89100AC22CC /* DKCommonLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7524CD2407A89100AC22CC /* DKCommonLocalizable.swift */; };
 		3FA3C4562416A96500BD4E14 /* DKCategoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA3C4552416A96400BD4E14 /* DKCategoryType.swift */; };
@@ -207,6 +217,13 @@
 			remoteGlobalIDString = 3FFAD1F923EDBCD500D1A16C;
 			remoteInfo = DriveKitDriverAchievementUI;
 		};
+		3FFB2D612417D202003E6A06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3B7B378235F124F0065A332 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F0740D92403BB65005A8D07;
+			remoteInfo = DriveKitCommonUI;
+		};
 		3FFD7FD32363002B00BD2F0D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A3B7B378235F124F0065A332 /* Project object */;
@@ -261,6 +278,16 @@
 		3F38C2732369CC15002E873A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3F38C2742369D6ED002E873A /* NotificationSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSender.swift; sourceTree = "<group>"; };
 		3F38C278236AE210002E873A /* AdviceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdviceButton.swift; sourceTree = "<group>"; };
+		3F50D6F42417945B001226F7 /* BluetoothViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothViewModel.swift; sourceTree = "<group>"; };
+		3F50D6F624179466001226F7 /* SuccessBluetoothVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessBluetoothVC.swift; sourceTree = "<group>"; };
+		3F50D6F724179466001226F7 /* SelectBluetoothVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectBluetoothVC.swift; sourceTree = "<group>"; };
+		3F50D6F824179466001226F7 /* SelectBluetoothVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectBluetoothVC.xib; sourceTree = "<group>"; };
+		3F50D6F924179466001226F7 /* SuccessBluetoothVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuccessBluetoothVC.xib; sourceTree = "<group>"; };
+		3F50D6FA24179466001226F7 /* ErrorBluetoothVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorBluetoothVC.swift; sourceTree = "<group>"; };
+		3F50D6FB24179466001226F7 /* ConnectBluetoothVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectBluetoothVC.xib; sourceTree = "<group>"; };
+		3F50D6FC24179466001226F7 /* ErrorBluetoothVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorBluetoothVC.xib; sourceTree = "<group>"; };
+		3F50D6FD24179467001226F7 /* ConnectBluetoothVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectBluetoothVC.swift; sourceTree = "<group>"; };
+		3F50D7072417ADDD001226F7 /* DKVehicle+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DKVehicle+UI.swift"; sourceTree = "<group>"; };
 		3F7524CA2406C4CC00AC22CC /* DKUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKUIViewController.swift; sourceTree = "<group>"; };
 		3F7524CD2407A89100AC22CC /* DKCommonLocalizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKCommonLocalizable.swift; sourceTree = "<group>"; };
 		3FA3C4552416A96400BD4E14 /* DKCategoryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKCategoryType.swift; sourceTree = "<group>"; };
@@ -548,6 +575,46 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		3F50D6F1241784B3001226F7 /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				3F50D6F3241785AB001226F7 /* ViewModel */,
+				3F50D6F2241785A5001226F7 /* View */,
+			);
+			path = Bluetooth;
+			sourceTree = "<group>";
+		};
+		3F50D6F2241785A5001226F7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3F50D6FD24179467001226F7 /* ConnectBluetoothVC.swift */,
+				3F50D6FB24179466001226F7 /* ConnectBluetoothVC.xib */,
+				3F50D6FA24179466001226F7 /* ErrorBluetoothVC.swift */,
+				3F50D6FC24179466001226F7 /* ErrorBluetoothVC.xib */,
+				3F50D6F724179466001226F7 /* SelectBluetoothVC.swift */,
+				3F50D6F824179466001226F7 /* SelectBluetoothVC.xib */,
+				3F50D6F624179466001226F7 /* SuccessBluetoothVC.swift */,
+				3F50D6F924179466001226F7 /* SuccessBluetoothVC.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3F50D6F3241785AB001226F7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3F50D6F42417945B001226F7 /* BluetoothViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3F50D7062417ADC9001226F7 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3F50D7072417ADDD001226F7 /* DKVehicle+UI.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		3F7524C92406C4B400AC22CC /* Component */ = {
 			isa = PBXGroup;
 			children = (
@@ -614,6 +681,8 @@
 		3FF68EF32413ECC00071D74C /* DriveKitVehicleUI */ = {
 			isa = PBXGroup;
 			children = (
+				3F50D7062417ADC9001226F7 /* Extension */,
+				3F50D6F1241784B3001226F7 /* Bluetooth */,
 				3FF68F022414FD5B0071D74C /* Localizable */,
 				3FF68F002414F7070071D74C /* VehiclePicker */,
 				3FF68EF42413ECC00071D74C /* DriveKitVehicleUI.h */,
@@ -1078,6 +1147,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3FFB2D622417D202003E6A06 /* PBXTargetDependency */,
 			);
 			name = DriveKitVehicleUI;
 			productName = DriveKitVehicleUI;
@@ -1225,10 +1295,14 @@
 				3FF68F2E241532EB0071D74C /* VehiclePickerCollectionViewVC.xib in Resources */,
 				3FF68F272415198D0071D74C /* VehiclePickerTableViewCell.xib in Resources */,
 				3FF68F052414FD870071D74C /* DKVehicleLocalizable.strings in Resources */,
+				3F50D70124179467001226F7 /* SuccessBluetoothVC.xib in Resources */,
+				3F50D70324179467001226F7 /* ConnectBluetoothVC.xib in Resources */,
 				3FF68F1A24150D040071D74C /* VehiclePickerTableViewVC.xib in Resources */,
 				3FF68F49241642D50071D74C /* VehiclePickerTextVC.xib in Resources */,
+				3F50D70024179467001226F7 /* SelectBluetoothVC.xib in Resources */,
 				3FF68F3B241535130071D74C /* VehiclePickerLabelCollectionViewCell.xib in Resources */,
 				3FF68F4F24164E040071D74C /* VehiclePickerInputVC.xib in Resources */,
+				3F50D70424179467001226F7 /* ErrorBluetoothVC.xib in Resources */,
 				3FF68F34241533480071D74C /* VehiclePickerImageCollectionViewCell.xib in Resources */,
 				3FF68F3F24154ADB0071D74C /* DriveKitVehicle.xcassets in Resources */,
 			);
@@ -1454,12 +1528,15 @@
 			files = (
 				3FF68F1D24150D9E0071D74C /* VehiclePickerTableViewDelegate.swift in Sources */,
 				3FF68F5024164E040071D74C /* VehiclePickerInputVC.swift in Sources */,
+				3F50D70524179467001226F7 /* ConnectBluetoothVC.swift in Sources */,
 				3FF68F35241533480071D74C /* VehiclePickerImageCollectionViewCell.swift in Sources */,
 				3FF68F4C241643B70071D74C /* VehiclePickerTextDelegate.swift in Sources */,
 				3FF68EFF2413EEF80071D74C /* DriveKitVehiclUI.swift in Sources */,
 				3FF68F1924150D040071D74C /* VehiclePickerTableViewVC.swift in Sources */,
+				3F50D70224179467001226F7 /* ErrorBluetoothVC.swift in Sources */,
 				3FA3C4562416A96500BD4E14 /* DKCategoryType.swift in Sources */,
 				3FF68F10241501D20071D74C /* VehiclePickerStep.swift in Sources */,
+				3F50D6F52417945B001226F7 /* BluetoothViewModel.swift in Sources */,
 				3FF68F4A241642D50071D74C /* VehiclePickerTextVC.swift in Sources */,
 				3FF68F2024150E5F0071D74C /* VehiclePickerStep+TableView.swift in Sources */,
 				3FF68F312415330A0071D74C /* VehiclePickerCollectionViewDelegate.swift in Sources */,
@@ -1471,11 +1548,14 @@
 				3FF68F3D2415437A0071D74C /* DKvehicleBrand+UI.swift in Sources */,
 				3FF68F1624150B3E0071D74C /* VehiclePickerCoordinator.swift in Sources */,
 				3FF68F2F241532EB0071D74C /* VehiclePickerCollectionViewVC.swift in Sources */,
+				3F50D6FF24179467001226F7 /* SelectBluetoothVC.swift in Sources */,
 				3FF68F41241557C20071D74C /* DKVehicleEngineIndex+UI.swift in Sources */,
 				3FF68F2A24152BE30071D74C /* VehiclePickerStepView.swift in Sources */,
+				3F50D7082417ADDD001226F7 /* DKVehicle+UI.swift in Sources */,
 				3FF68F282415198D0071D74C /* VehiclePickerTableViewCell.swift in Sources */,
 				3FF68F46241640720071D74C /* DKVehicleVersion+UI.swift in Sources */,
 				3FF68F23241510F50071D74C /* DKVehicleCategory+UI.swift in Sources */,
+				3F50D6FE24179467001226F7 /* SuccessBluetoothVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1581,6 +1661,11 @@
 			isa = PBXTargetDependency;
 			target = 3FFAD1F923EDBCD500D1A16C /* DriveKitDriverAchievementUI */;
 			targetProxy = 3FFAD1FF23EDBCD500D1A16C /* PBXContainerItemProxy */;
+		};
+		3FFB2D622417D202003E6A06 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F0740D92403BB65005A8D07 /* DriveKitCommonUI */;
+			targetProxy = 3FFB2D612417D202003E6A06 /* PBXContainerItemProxy */;
 		};
 		3FFD7FD42363002B00BD2F0D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

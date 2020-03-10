@@ -17,6 +17,7 @@ import DriveKitCommonUI
 import DriveKitDriverAchievementUI
 import DriveKitDriverDataUI
 import DriveKitVehicleUI
+import DriveKitVehicle
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -90,6 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         DriveKitTripAnalysis.shared.initialize(tripListener: self, appLaunchOptions: launchOptions)
         DriveKitDriverData.shared.initialize()
+        DriveKitVehicleManager.shared.initialize()
         let processInfo = ProcessInfo.processInfo
         let apiKey = processInfo.environment["DriveKit-API-Key"] ?? ""
         DriveKit.shared.setApiKey(key: apiKey)

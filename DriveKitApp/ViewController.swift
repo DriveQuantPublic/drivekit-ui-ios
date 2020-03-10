@@ -14,6 +14,7 @@ import CoreLocation
 import CoreMotion
 import DriveKitCommonUI
 import DriveKitVehicleUI
+import DriveKitVehicle
 
 class ViewController: UITableViewController {
     
@@ -81,6 +82,8 @@ class ViewController: UITableViewController {
             self.configureDriverStreak()
         }else if indexPath.row == 4 && indexPath.section == 0 {
             self.configureVehiclePicker()
+        }else if indexPath.row == 5 && indexPath.section == 0 {
+            self.configureBluetoothPairing()
         }
     }
     
@@ -162,7 +165,7 @@ class ViewController: UITableViewController {
     
     func configureDriverDataUI() {
         DispatchQueue.main.async {
-
+            
             let tripListVC = TripListVC()
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
             self.navigationController?.pushViewController(tripListVC, animated: true)
@@ -181,6 +184,17 @@ class ViewController: UITableViewController {
             let vehiclePicker = VehiclePickerCoordinator(parentView: self)
         }
     }
+    
+    func configureBluetoothPairing() {
+        DriveKitVehicleManager.shared.getVehiclesOrderByNameAsc(completionHandler: {status, vehicles in
+            DispatchQueue.main.async {
+                self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+                self.navigationController?.pushViewController(ConnectBluetoothVC(vehicle: vehicles[0], parentView: self), animated: true)
+            }
+        })
+        
+    }
+    
     
     @IBAction func startTrip(_ sender: Any) {
         DriveKitTripAnalysis.shared.startTrip()

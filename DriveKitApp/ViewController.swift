@@ -189,7 +189,7 @@ class ViewController: UITableViewController {
         DriveKitVehicleManager.shared.getVehiclesOrderByNameAsc(completionHandler: {status, vehicles in
             DispatchQueue.main.async {
                 self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-                self.navigationController?.pushViewController(ConnectBluetoothVC(vehicle: vehicles[0], parentView: self), animated: true)
+                self.navigationController?.pushViewController(ConnectBeaconVC(vehicle: vehicles[0], parentView: self), animated: true)
             }
         })
         

@@ -104,6 +104,11 @@
 		3FFAD20E23EDBF2F00D1A16C /* StreakViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFAD20C23EDBF2F00D1A16C /* StreakViewController.swift */; };
 		3FFAD20F23EDBF2F00D1A16C /* StreakViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FFAD20D23EDBF2F00D1A16C /* StreakViewController.xib */; };
 		3FFAD21123EDC0FF00D1A16C /* StreakViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFAD21023EDC0FF00D1A16C /* StreakViewModel.swift */; };
+		3FFB2D682417E2C9003E6A06 /* ConnectBeaconVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFB2D662417E2C9003E6A06 /* ConnectBeaconVC.swift */; };
+		3FFB2D692417E2C9003E6A06 /* ConnectBeaconVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FFB2D672417E2C9003E6A06 /* ConnectBeaconVC.xib */; };
+		3FFB2D6C2417E45D003E6A06 /* BeaconViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFB2D6B2417E45D003E6A06 /* BeaconViewModel.swift */; };
+		3FFB2D6F2417E55A003E6A06 /* BeaconInputIdVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFB2D6D2417E55A003E6A06 /* BeaconInputIdVC.swift */; };
+		3FFB2D702417E55A003E6A06 /* BeaconInputIdVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FFB2D6E2417E55A003E6A06 /* BeaconInputIdVC.xib */; };
 		3FFD7FD12363002B00BD2F0D /* DriveKitDriverDataUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */; };
 		3FFD7FD22363002B00BD2F0D /* DriveKitDriverDataUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6FEDF9ABE856C7367CDBBC69 /* Pods_DriveKitCommonUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0425AC91525E20565C140CA4 /* Pods_DriveKitCommonUI.framework */; };
@@ -366,6 +371,11 @@
 		3FFAD20C23EDBF2F00D1A16C /* StreakViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakViewController.swift; sourceTree = "<group>"; };
 		3FFAD20D23EDBF2F00D1A16C /* StreakViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StreakViewController.xib; sourceTree = "<group>"; };
 		3FFAD21023EDC0FF00D1A16C /* StreakViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakViewModel.swift; sourceTree = "<group>"; };
+		3FFB2D662417E2C9003E6A06 /* ConnectBeaconVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectBeaconVC.swift; sourceTree = "<group>"; };
+		3FFB2D672417E2C9003E6A06 /* ConnectBeaconVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConnectBeaconVC.xib; sourceTree = "<group>"; };
+		3FFB2D6B2417E45D003E6A06 /* BeaconViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconViewModel.swift; sourceTree = "<group>"; };
+		3FFB2D6D2417E55A003E6A06 /* BeaconInputIdVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconInputIdVC.swift; sourceTree = "<group>"; };
+		3FFB2D6E2417E55A003E6A06 /* BeaconInputIdVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeaconInputIdVC.xib; sourceTree = "<group>"; };
 		4009FE234BC3EC14A349F8D3 /* Pods_DriveKitApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		453D6BC570583B1D6DC16DBC /* Pods-DriveKitApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitApp.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitApp/Pods-DriveKitApp.debug.xcconfig"; sourceTree = "<group>"; };
 		55652B494DACA2423EDB5A8E /* Pods_DriveKitDriverDataUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitDriverDataUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -681,6 +691,7 @@
 		3FF68EF32413ECC00071D74C /* DriveKitVehicleUI */ = {
 			isa = PBXGroup;
 			children = (
+				3FFB2D642417E17C003E6A06 /* Beacon */,
 				3F50D7062417ADC9001226F7 /* Extension */,
 				3F50D6F1241784B3001226F7 /* Bluetooth */,
 				3FF68F022414FD5B0071D74C /* Localizable */,
@@ -823,6 +834,34 @@
 			children = (
 				3FFAD21023EDC0FF00D1A16C /* StreakViewModel.swift */,
 				3FB5643D23F6B47E00F010E3 /* StreakDataType.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3FFB2D642417E17C003E6A06 /* Beacon */ = {
+			isa = PBXGroup;
+			children = (
+				3FFB2D6A2417E3F0003E6A06 /* ViewModel */,
+				3FFB2D652417E26D003E6A06 /* View */,
+			);
+			path = Beacon;
+			sourceTree = "<group>";
+		};
+		3FFB2D652417E26D003E6A06 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3FFB2D662417E2C9003E6A06 /* ConnectBeaconVC.swift */,
+				3FFB2D672417E2C9003E6A06 /* ConnectBeaconVC.xib */,
+				3FFB2D6D2417E55A003E6A06 /* BeaconInputIdVC.swift */,
+				3FFB2D6E2417E55A003E6A06 /* BeaconInputIdVC.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3FFB2D6A2417E3F0003E6A06 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3FFB2D6B2417E45D003E6A06 /* BeaconViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1297,6 +1336,7 @@
 				3FF68F052414FD870071D74C /* DKVehicleLocalizable.strings in Resources */,
 				3F50D70124179467001226F7 /* SuccessBluetoothVC.xib in Resources */,
 				3F50D70324179467001226F7 /* ConnectBluetoothVC.xib in Resources */,
+				3FFB2D702417E55A003E6A06 /* BeaconInputIdVC.xib in Resources */,
 				3FF68F1A24150D040071D74C /* VehiclePickerTableViewVC.xib in Resources */,
 				3FF68F49241642D50071D74C /* VehiclePickerTextVC.xib in Resources */,
 				3F50D70024179467001226F7 /* SelectBluetoothVC.xib in Resources */,
@@ -1305,6 +1345,7 @@
 				3F50D70424179467001226F7 /* ErrorBluetoothVC.xib in Resources */,
 				3FF68F34241533480071D74C /* VehiclePickerImageCollectionViewCell.xib in Resources */,
 				3FF68F3F24154ADB0071D74C /* DriveKitVehicle.xcassets in Resources */,
+				3FFB2D692417E2C9003E6A06 /* ConnectBeaconVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1528,7 +1569,9 @@
 			files = (
 				3FF68F1D24150D9E0071D74C /* VehiclePickerTableViewDelegate.swift in Sources */,
 				3FF68F5024164E040071D74C /* VehiclePickerInputVC.swift in Sources */,
+				3FFB2D682417E2C9003E6A06 /* ConnectBeaconVC.swift in Sources */,
 				3F50D70524179467001226F7 /* ConnectBluetoothVC.swift in Sources */,
+				3FFB2D6C2417E45D003E6A06 /* BeaconViewModel.swift in Sources */,
 				3FF68F35241533480071D74C /* VehiclePickerImageCollectionViewCell.swift in Sources */,
 				3FF68F4C241643B70071D74C /* VehiclePickerTextDelegate.swift in Sources */,
 				3FF68EFF2413EEF80071D74C /* DriveKitVehiclUI.swift in Sources */,
@@ -1553,6 +1596,7 @@
 				3FF68F2A24152BE30071D74C /* VehiclePickerStepView.swift in Sources */,
 				3F50D7082417ADDD001226F7 /* DKVehicle+UI.swift in Sources */,
 				3FF68F282415198D0071D74C /* VehiclePickerTableViewCell.swift in Sources */,
+				3FFB2D6F2417E55A003E6A06 /* BeaconInputIdVC.swift in Sources */,
 				3FF68F46241640720071D74C /* DKVehicleVersion+UI.swift in Sources */,
 				3FF68F23241510F50071D74C /* DKVehicleCategory+UI.swift in Sources */,
 				3F50D6FE24179467001226F7 /* SuccessBluetoothVC.swift in Sources */,

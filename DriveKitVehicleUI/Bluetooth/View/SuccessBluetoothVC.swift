@@ -43,6 +43,7 @@ class SuccessBluetoothVC: DKUIViewController {
     func setupDesc() {
         
         let descString = String(format: "dk_vehicle_bluetooth_congrats_desc".dkVehicleLocalized(), viewModel.bluetoothName, viewModel.vehicleName)
+        successDesc.attributedText = descString.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         /*let descAttributedString = NSMutableAttributedString(string: descString, attributes: Attributes.primaryAttributes(size: 16))
         let rangeBluetooth = (descAttributedString.string as NSString).range(of: bluetoothName)
         let rangeVehicle = (descAttributedString.string as NSString).range(of: vehicleName)
@@ -53,6 +54,7 @@ class SuccessBluetoothVC: DKUIViewController {
     
     func setupNotice() {
         let noticeString = String(format: "dk_vehicle_bluetooth_congrats_notice".dkVehicleLocalized(), viewModel.bluetoothName)
+        successNotice.attributedText = noticeString.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         /*let noticeAttributedString = NSMutableAttributedString(string: noticeString, attributes: Attributes.primaryAttributes(size: 16))
         let rangeBluetooth = (noticeAttributedString.string as NSString).range(of: bluetoothName)
         noticeAttributedString.setAttributes(Attributes.primaryBoldAttributes(size: 16), range: rangeBluetooth)

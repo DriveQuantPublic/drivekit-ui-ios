@@ -54,6 +54,7 @@ class VehiclePickerInputVC: VehiclePickerStepView {
         } else {
             self.inputTextField.becomeFirstResponder()
         }
+        self.inputTextField.delegate = self
     }
     
     @IBAction func didConfirmInput(_ sender: Any) {
@@ -73,4 +74,27 @@ class VehiclePickerInputVC: VehiclePickerStepView {
         })
     }
     
+}
+
+extension VehiclePickerInputVC : UITextFieldDelegate {
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let text = textField.text, !text.isEmpty {
+            inputConfirmButton.isEnabled = true
+        }else{
+            inputConfirmButton.isEnabled = false
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        inputTextField.resignFirstResponder()
+        return true
+    }
 }

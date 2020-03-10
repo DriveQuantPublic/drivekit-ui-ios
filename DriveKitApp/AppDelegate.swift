@@ -40,8 +40,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitDriverAchievementUI.shared.initialize()
         DriveKitDriverDataUI.shared.initialize()
         DriveKitVehiculeUI.shared.initialize()
-        DriveKitVehiculeUI.shared.configureVehicleType(types: [.car, .motorbike])
-        DriveKitVehiculeUI.shared.configureLiteConfig(enable: true)
+        /*DriveKitVehiculeUI.shared.configureVehicleType(types: [.car])
+        DriveKitVehiculeUI.shared.configureCategoryType(type: .brandsConfigOnly)
+        DriveKitVehiculeUI.shared.showBrandsWithIcons(show: false)
+        DriveKitVehiculeUI.shared.configureBrands(brands: [.bmw])*/
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options : \(options)")
         return true
     }

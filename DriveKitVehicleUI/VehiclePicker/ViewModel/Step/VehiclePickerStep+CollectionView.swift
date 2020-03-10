@@ -20,11 +20,13 @@ extension VehiclePickerStep : VehiclePickerCollectionViewDelegate {
             if let type = viewModel.vehicleType {
                 var brands : [VehiclePickerCollectionViewItem] = []
                 for brand in DriveKitVehiclePicker.shared.getBrands(vehicleType: type) {
-                    if brand.hasImage() {
+                    if brand.hasImage() && DriveKitVehiculeUI.shared.brands.contains(brand) {
                         brands.append(brand)
                     }
                 }
-                brands.append(OtherVehicles())
+                if !brands.isEmpty && brands.count != DriveKitVehiculeUI.shared.brands.count {
+                    brands.append(OtherVehicles())
+                }
                 return brands
             }
         default:
@@ -38,14 +40,20 @@ extension VehiclePickerStep : VehiclePickerCollectionViewDelegate {
         case .category:
             let items = DriveKitVehiclePicker.shared.getCategories(vehicleType: viewModel.vehicleType!)
             viewModel.vehicleCategory = items[pos]
-            if DriveKitVehiculeUI.shared.liteConfig {
+            if DriveKitVehiculeUI.shared.categoryType != .brandsConfigOnly {
                 viewModel.updateCurrentStep(step: .categoryDescription)
             } else {
-                if VehiclePickerStep.brandsIcons.getCollectionViewItems(viewModel: viewModel).isEmpty {
-                    viewModel.updateCurrentStep(step: .brandsFull)
-                } else {
-                    viewModel.updateCurrentStep(step: .brandsIcons)
+                if DriveKitVehiculeUI.shared.brands.count > 1 {
+                    if !DriveKitVehiculeUI.shared.brandsWithIcons || VehiclePickerStep.brandsIcons.getCollectionViewItems(viewModel: viewModel).isEmpty {
+                        viewModel.updateCurrentStep(step: .brandsFull)
+                    } else {
+                        viewModel.updateCurrentStep(step: .brandsIcons)
+                    }
+                }else{
+                    viewModel.vehicleBrand = DriveKitVehiculeUI.shared.brands[0]
+                    viewModel.updateCurrentStep(step: .engine)
                 }
+                
             }
             completion(.noError)
             break

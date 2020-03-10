@@ -16,6 +16,7 @@ class VehiclePickerStepView: DKUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupNavigation()
+        self.title = self.viewModel.getTitle()
     }
     
     func setupNavigation() {

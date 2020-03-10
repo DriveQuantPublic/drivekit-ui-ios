@@ -17,7 +17,13 @@ extension VehiclePickerStep : VehiclePickerTableViewDelegate {
             return DriveKitVehiculeUI.shared.vehicleTypes
         case .brandsFull:
             if let type = viewModel.vehicleType {
-                return  DriveKitVehiclePicker.shared.getBrands(vehicleType: type)
+                var brands : [VehiclePickerTableViewItem] = []
+                for brand in  DriveKitVehiclePicker.shared.getBrands(vehicleType: type) {
+                    if DriveKitVehiculeUI.shared.brands.contains(brand) {
+                        brands.append(brand)
+                    }
+                }
+                return brands
             }
         case .engine:
             if let type = viewModel.vehicleType {

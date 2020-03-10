@@ -171,4 +171,8 @@ class VehiclePickerViewModel {
     func showStepLabel() -> Bool {
         return currentStep.showLabel()
     }
+    
+    func getTitle() -> String {
+        return currentStep.getTitle(viewModel: self)
+    }
 }

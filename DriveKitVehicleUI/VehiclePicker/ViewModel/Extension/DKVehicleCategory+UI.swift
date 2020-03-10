@@ -63,10 +63,15 @@ extension DKVehicleCategory : VehiclePickerTextDelegate {
     
     func onFullConfigSelected(viewModel : VehiclePickerViewModel) {
         viewModel.liteConfig = false
-        if VehiclePickerStep.brandsIcons.getCollectionViewItems(viewModel: viewModel).isEmpty {
-            viewModel.updateCurrentStep(step: .brandsFull)
-        } else {
-            viewModel.updateCurrentStep(step: .brandsIcons)
+        if DriveKitVehiculeUI.shared.brands.count > 1 {
+            if !DriveKitVehiculeUI.shared.brandsWithIcons || VehiclePickerStep.brandsIcons.getCollectionViewItems(viewModel: viewModel).isEmpty {
+                viewModel.updateCurrentStep(step: .brandsFull)
+            } else {
+                viewModel.updateCurrentStep(step: .brandsIcons)
+            }
+        }else{
+            viewModel.vehicleBrand = DriveKitVehiculeUI.shared.brands[0]
+            viewModel.updateCurrentStep(step: .engine)
         }
     }
     

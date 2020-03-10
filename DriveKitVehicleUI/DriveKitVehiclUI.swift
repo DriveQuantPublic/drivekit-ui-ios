@@ -15,7 +15,9 @@ public class DriveKitVehiculeUI {
     public static let shared = DriveKitVehiculeUI()
     
     var vehicleTypes : [DKVehicleType] = [.car]
-    var liteConfig : Bool = true
+    var brands : [DKVehicleBrand] = DKVehicleBrand.allCases
+    var categoryType : DKCategoryType = .bothConfig
+    var brandsWithIcons : Bool = true
     
     private init() {}
     
@@ -30,8 +32,19 @@ public class DriveKitVehiculeUI {
         self.vehicleTypes = types
     }
     
-    public func configureLiteConfig(enable: Bool) {
-        self.liteConfig = enable
+    public func configureBrands(brands : [DKVehicleBrand]) {
+        if brands.isEmpty {
+            fatalError("At least 1 brand must be configured")
+        }
+        self.brands = brands
+    }
+    
+    public func configureCategoryType(type : DKCategoryType) {
+        self.categoryType = type
+    }
+    
+    public func showBrandsWithIcons(show : Bool) {
+        self.brandsWithIcons = show
     }
 }
 

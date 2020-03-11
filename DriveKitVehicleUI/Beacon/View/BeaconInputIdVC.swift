@@ -57,16 +57,18 @@ class BeaconInputIdVC: DKUIViewController {
     
     @IBAction func checkBeaconCode(_ sender: Any) {
         if let code = textField.text, !code.isEmpty {
-            self.viewModel.checkCode(code: code, completion: {status, beacon in
+            self.showLoader()
+            self.viewModel.checkCode(code: code, completion: {status in
                 DispatchQueue.main.async {
+                    self.hideLoader()
                     switch status {
                     case .success:
-                        // Go to beacon validation
+                        self.navigationController?.pushViewController(BeaconScannerVC(viewModel: self.viewModel, step: .scan, parentView: self), animated: true)
                         break
                     case .error, .unknownVehicle, .unavailableBeacon, .invalidBeacon :
-                        self.showAlertMessage(title: "", message: "dk_vehicle_failed_to_retrieve_beacon", back: false, cancel: false)
+                        self.showAlertMessage(title: "", message: "dk_vehicle_failed_to_retrieve_beacon".dkVehicleLocalized(), back: false, cancel: false)
                     case .unknownBeacon:
-                        self.showAlertMessage(title: "", message: "dk_vehicle_beacon_unknown", back: false, cancel: false)
+                        self.showAlertMessage(title: "", message: "dk_vehicle_beacon_unknown".dkVehicleLocalized(), back: false, cancel: false)
                     }
                 }
             })

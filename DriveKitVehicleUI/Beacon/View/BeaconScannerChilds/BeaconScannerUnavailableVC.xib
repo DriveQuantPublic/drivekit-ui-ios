@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BeaconScannerUnavailableVC" customModule="DriveKitVehicleUI" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelButton" destination="mOo-5T-MQp" id="W6a-zm-7Sf"/>
+                <outlet property="descriptionLabel" destination="u3j-Sf-Q7k" id="JUg-gM-yAR"/>
+                <outlet property="retryButton" destination="YgV-a5-UME" id="cy1-e2-An2"/>
+                <outlet property="view" destination="jgl-oc-mBn" id="tmc-e0-afo"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="jgl-oc-mBn">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3j-Sf-Q7k">
+                    <rect key="frame" x="16" y="52" width="382" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="XpP-vl-pqD"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YgV-a5-UME">
+                    <rect key="frame" x="16" y="130" width="382" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="XPU-Nx-tDH"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="retryClicked:" destination="-1" eventType="touchUpInside" id="DHl-so-aVj"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mOo-5T-MQp">
+                    <rect key="frame" x="16" y="188" width="382" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="0VE-Wk-QKe"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="cancelClicked:" destination="-1" eventType="touchUpInside" id="oUO-TE-ifb"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="mOo-5T-MQp" firstAttribute="leading" secondItem="gRY-Lw-WqF" secondAttribute="leading" constant="16" id="0cV-A5-vt2"/>
+                <constraint firstItem="mOo-5T-MQp" firstAttribute="centerX" secondItem="jgl-oc-mBn" secondAttribute="centerX" id="0pR-EB-t1S"/>
+                <constraint firstItem="gRY-Lw-WqF" firstAttribute="trailing" secondItem="YgV-a5-UME" secondAttribute="trailing" constant="16" id="6HU-aY-jQy"/>
+                <constraint firstItem="u3j-Sf-Q7k" firstAttribute="centerX" secondItem="jgl-oc-mBn" secondAttribute="centerX" id="9zL-ID-bZq"/>
+                <constraint firstItem="YgV-a5-UME" firstAttribute="top" secondItem="u3j-Sf-Q7k" secondAttribute="bottom" constant="8" id="Elk-HB-ZBv"/>
+                <constraint firstItem="mOo-5T-MQp" firstAttribute="top" secondItem="YgV-a5-UME" secondAttribute="bottom" constant="8" id="Lb3-5q-yTC"/>
+                <constraint firstItem="gRY-Lw-WqF" firstAttribute="trailing" secondItem="mOo-5T-MQp" secondAttribute="trailing" constant="16" id="Q7r-Dk-7DR"/>
+                <constraint firstItem="YgV-a5-UME" firstAttribute="leading" secondItem="gRY-Lw-WqF" secondAttribute="leading" constant="16" id="RuS-k7-QpI"/>
+                <constraint firstItem="gRY-Lw-WqF" firstAttribute="trailing" secondItem="u3j-Sf-Q7k" secondAttribute="trailing" constant="16" id="Udq-6A-Yno"/>
+                <constraint firstItem="u3j-Sf-Q7k" firstAttribute="top" secondItem="gRY-Lw-WqF" secondAttribute="top" constant="8" id="dDK-nt-SMV"/>
+                <constraint firstItem="YgV-a5-UME" firstAttribute="centerX" secondItem="jgl-oc-mBn" secondAttribute="centerX" id="ppV-tb-wc6"/>
+                <constraint firstItem="u3j-Sf-Q7k" firstAttribute="leading" secondItem="gRY-Lw-WqF" secondAttribute="leading" constant="16" id="x3R-gN-SRi"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="gRY-Lw-WqF"/>
+            <point key="canvasLocation" x="132" y="-510"/>
+        </view>
+    </objects>
+</document>

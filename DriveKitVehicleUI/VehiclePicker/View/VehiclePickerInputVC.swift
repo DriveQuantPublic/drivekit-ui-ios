@@ -51,9 +51,9 @@ class VehiclePickerInputVC: VehiclePickerStepView {
         self.inputTextField.backgroundColor = DKUIColors.neutralColor.color
         if let name = viewModel.vehicleName {
             self.inputTextField.text = name
-        } else {
+        } /*else {
             self.inputTextField.becomeFirstResponder()
-        }
+        }*/
         self.inputTextField.delegate = self
     }
     
@@ -66,9 +66,10 @@ class VehiclePickerInputVC: VehiclePickerStepView {
                 case .success:
                     self.navigationController?.dismiss(animated: true, completion: nil)
                 case .unknownVehicle:
-                    self.showAlertMessage(title: "", message: "Unknown vehicle index", back: false, cancel: false)
+                    // We can have this error, vehicle picker always return a known vehicle
+                    break
                 case .error:
-                    self.showAlertMessage(title: "", message: "Failed to create vehicle, please retry later", back: false, cancel: false)
+                    self.showAlertMessage(title: "", message: "dk_vehicle_failed_to_retrieve_vehicle_data".dkVehicleLocalized(), back: false, cancel: false)
                 }
             }
         })
@@ -83,9 +84,11 @@ extension VehiclePickerInputVC : UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        moveTextField(textField, moveDistance: -250, up: true)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        moveTextField(textField, moveDistance: -250, up: false)
         if let text = textField.text, !text.isEmpty {
             inputConfirmButton.isEnabled = true
         }else{
@@ -96,5 +99,16 @@ extension VehiclePickerInputVC : UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         inputTextField.resignFirstResponder()
         return true
+    }
+    
+    func moveTextField(_ textField: UITextField, moveDistance: Int, up: Bool) {
+        let moveDuration = 0.3
+        let movement: CGFloat = CGFloat(up ? moveDistance : -moveDistance)
+        
+        UIView.beginAnimations("animateTextField", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(moveDuration)
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
     }
 }

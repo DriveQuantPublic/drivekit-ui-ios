@@ -78,7 +78,7 @@ extension DKVehicleCategory : VehiclePickerTextDelegate {
     func categoryDescription() -> String {
         switch self {
         case .micro:
-            return "dk_vehicle_category_car_micro_compact_description".dkVehicleLocalized()
+            return "dk_vehicle_category_car_micro_description".dkVehicleLocalized()
         case .compact:
             return "dk_vehicle_category_car_compact_description".dkVehicleLocalized()
         case .sedan:

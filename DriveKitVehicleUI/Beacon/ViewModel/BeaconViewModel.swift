@@ -31,7 +31,7 @@ class BeaconViewModel {
     }
     
     func checkVehiclePaired(completion: @escaping (Bool) -> ()) {
-        DriveKitVehicleManager.shared.getVehiclesOrderByNameAsc(type: .cache, completionHandler: {status, vehicles in
+        DriveKitVehicleManager.shared.getVehiclesOrderByNameAsc(completionHandler: {status, vehicles in
             for vehicle in vehicles {
                 if let vehicleBeacon = vehicle.beacon, let beacon = self.beacon  {
                     if vehicleBeacon.proximityUuid == beacon.proximityUuid && vehicleBeacon.major == beacon.major && vehicleBeacon.minor == beacon.minor {

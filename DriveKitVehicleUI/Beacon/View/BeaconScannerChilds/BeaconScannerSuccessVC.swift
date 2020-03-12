@@ -9,7 +9,7 @@
 import UIKit
 import DriveKitCommonUI
 
-class BeaconScannerValidateVC: UIViewController {
+class BeaconScannerSuccessVC: UIViewController {
     
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var confirmButton: UIButton!
@@ -20,7 +20,7 @@ class BeaconScannerValidateVC: UIViewController {
     init(viewModel: BeaconViewModel, step: BeaconStep) {
         self.viewModel = viewModel
         self.step = step
-        super.init(nibName: "BeaconScannerValidateVC", bundle: .vehicleUIBundle)
+        super.init(nibName: "BeaconScannerSuccessVC", bundle: .vehicleUIBundle)
     }
     
     required init?(coder: NSCoder) {
@@ -39,7 +39,7 @@ class BeaconScannerValidateVC: UIViewController {
             self.viewModel.showLoader()
             self.viewModel.addBeaconToVehicle(completion: {status in
                 DispatchQueue.main.async {
-                    self.hideLoader()
+                    self.viewModel.hideLoader()
                     switch status {
                     case .success:
                         self.viewModel.updateScanState(step: .congrats)
@@ -51,17 +51,13 @@ class BeaconScannerValidateVC: UIViewController {
                     case .unknownVehicle:
                         self.vehicleUnknown()
                     case .unavailableBeacon:
-                        self.beaconAlreadyPaired()
+                        self.viewModel.updateScanState(step: .beaconUnavailable)
                     }
                 }
             })
         } else {
             self.viewModel.scanValidationFinished()
         }
-    }
-    
-    private func beaconAlreadyPaired() {
-        self.showAlertMessage(title: "", message: "dk_vehicle_beacon_already_paired".dkVehicleLocalized(), back: false, cancel: false)
     }
     
     private func vehicleUnknown() {

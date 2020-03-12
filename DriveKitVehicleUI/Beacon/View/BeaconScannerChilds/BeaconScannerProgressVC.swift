@@ -11,10 +11,10 @@ import DriveKitCommonUI
 import CoreLocation
 
 class BeaconScannerProgressVC: UIViewController {
-
+    
     @IBOutlet weak var progressViewTitleLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
-
+    
     private let viewModel: BeaconViewModel
     
     private var timer: Timer? = nil
@@ -33,7 +33,7 @@ class BeaconScannerProgressVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureProgressView()
-        progressViewTitleLabel.text = "beacon_wait_scan".dkVehicleLocalized()
+        progressViewTitleLabel.text = "dk_vehicle_beacon_wait_scan".dkVehicleLocalized()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,12 +47,12 @@ class BeaconScannerProgressVC: UIViewController {
         timer?.invalidate()
         stopBeaconScan()
     }
-
+    
     @objc func refreshProgress() {
         progressView.progress += 1/1000
         if progressView.progress == 1 {
             timer?.invalidate()
-            viewModel.updateScanState(step: .failure)
+            viewModel.updateScanState(step: .beaconNotFound)
         }
     }
     
@@ -91,19 +91,21 @@ class BeaconScannerProgressVC: UIViewController {
         timer?.invalidate()
         self.stopBeaconScan()
         DispatchQueue.main.async {
+            self.viewModel.showLoader()
             self.viewModel.checkVehiclePaired { isSameVehicle in
-                if self.viewModel.vehiclePaired != nil {
-                    if isSameVehicle {
-                        self.showAlertMessage(title: "", message: "beacon already paired to the vehicle", back: false, cancel: false, completion: {
-                            DispatchQueue.main.async {
+                DispatchQueue.main.async {
+                    self.viewModel.hideLoader()
+                    if self.viewModel.vehiclePaired != nil {
+                        if isSameVehicle {
+                            self.showAlertMessage(title: "", message: "dk_vehicle_beacon_already_paired_to_vehicle".dkVehicleLocalized(), back: true, cancel: false, completion: {
                                 self.viewModel.scanValidationFinished()
-                            }
-                        })
-                    }else{
-                        self.viewModel.updateScanState(step: .beaconAlreadyPaired)
+                            })
+                        }else{
+                            self.viewModel.updateScanState(step: .beaconAlreadyPaired)
+                        }
+                    } else{
+                        self.viewModel.updateScanState(step: .success)
                     }
-                } else{
-                    self.viewModel.updateScanState(step: .success)
                 }
             }
         }

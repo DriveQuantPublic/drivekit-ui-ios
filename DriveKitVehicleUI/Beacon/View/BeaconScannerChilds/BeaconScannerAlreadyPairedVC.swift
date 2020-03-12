@@ -40,7 +40,7 @@ class BeaconScannerAlreadyPairedVC: UIViewController {
     }
     
     private func configureDescription() {
-        descriptionLabel.text = "test"
+        descriptionLabel.attributedText = "dk_vehicle_beacon_setup_replace_description".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
     }
 
     @IBAction func cancelClicked(_ sender: Any) {

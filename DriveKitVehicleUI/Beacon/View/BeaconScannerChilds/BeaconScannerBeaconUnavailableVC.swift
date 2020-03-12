@@ -9,8 +9,8 @@
 import UIKit
 import DriveKitCommonUI
 
-class BeaconScannerUnavailableVC: UIViewController {
-
+class BeaconScannerBeaconUnavailableVC: UIViewController {
+    
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var retryButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
@@ -19,7 +19,7 @@ class BeaconScannerUnavailableVC: UIViewController {
     
     init(viewModel: BeaconViewModel){
         self.viewModel = viewModel
-        super.init(nibName: "BeaconScannerUnavailableVC", bundle: .vehicleUIBundle)
+        super.init(nibName: "BeaconScannerBeaconUnavailableVC", bundle: .vehicleUIBundle)
     }
     
     required init?(coder: NSCoder) {
@@ -29,6 +29,7 @@ class BeaconScannerUnavailableVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureButton()
+        self.configureDescription()
     }
     
     private func configureButton() {
@@ -39,7 +40,7 @@ class BeaconScannerUnavailableVC: UIViewController {
     }
     
     private func configureDescription() {
-        
+        descriptionLabel.attributedText = "dk_vehicle_beacon_setup_code_retry_title".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
     }
     
     @IBAction func retryClicked(_ sender: Any) {

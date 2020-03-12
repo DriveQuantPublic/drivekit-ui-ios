@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 
-class BeaconFailureVC: UIViewController {
+class BeaconScanFailureVC: UIViewController {
 
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
@@ -28,6 +29,22 @@ class BeaconFailureVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.configureButton()
+    }
+    
+    private func configureButton() {
+        backButton.backgroundColor = DKUIColors.secondaryColor.color
+        backButton.setAttributedTitle(DKCommonLocalizable.cancel.text().dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).uppercased().build(), for: .normal)
+        
+        cancelButton.setAttributedTitle(DKCommonLocalizable.finish.text().dkAttributedString().font(dkFont: .primary, style: .button).color(.secondaryColor).uppercased().build(), for: .normal)
+        
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(tapDetected))
+        retryImageView.isUserInteractionEnabled = true
+        retryImageView.addGestureRecognizer(singleTap)
+    }
+    
+    @objc func tapDetected() {
+        self.viewModel.updateScanState(step: .scan)
     }
     
     @IBAction func backClicked(_ sender: Any) {

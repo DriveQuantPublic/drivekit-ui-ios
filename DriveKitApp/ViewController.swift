@@ -84,6 +84,8 @@ class ViewController: UITableViewController {
             self.configureVehiclePicker()
         }else if indexPath.row == 5 && indexPath.section == 0 {
             self.configureBluetoothPairing()
+        } else if indexPath.row == 6 && indexPath.section == 0 {
+            self.configureVehiclesList()
         }
     }
     
@@ -193,6 +195,13 @@ class ViewController: UITableViewController {
             }
         })
         
+    }
+    
+    func configureVehiclesList(){
+        DispatchQueue.main.async {
+            let listVC = VehiclesListVC()
+            self.navigationController?.pushViewController(listVC, animated: true)
+        }
     }
     
     

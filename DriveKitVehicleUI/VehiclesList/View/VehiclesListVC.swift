@@ -14,18 +14,28 @@ public class VehiclesListVC: DKUIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addVehicleButton: UIButton!
     
-    var viewModel : VehiclesListViewModel = VehiclesListViewModel()
+    var viewModel : VehiclesListViewModel
     
     private let refreshControl = UIRefreshControl()
     
+    public init() {
+        self.viewModel = VehiclesListViewModel()
+        super.init(nibName: String(describing: VehiclesListVC.self), bundle: Bundle.vehicleUIBundle)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
-        self.viewModel.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 250
+        self.tableView.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: #selector(refreshVehiclesList(_ :)), for: .valueChanged)
         tableView.delegate = self
         tableView.dataSource = self
-        self.tableView.register(UINib(nibName: "VehiclesListCell", bundle: nil), forCellReuseIdentifier: "VehiclesListCell")
+        self.tableView.register(UINib(nibName: "VehiclesListCell", bundle: Bundle.vehicleUIBundle), forCellReuseIdentifier: "VehiclesListCell")
         self.configure()
     }
     
@@ -35,9 +45,14 @@ public class VehiclesListVC: DKUIViewController {
         addVehicleButton.setAttributedTitle(addTitle, for: .normal)
     }
     
+    public override func viewDidDisappear(_ animated: Bool) {
+        self.viewModel.delegate = nil
+    }
+    
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+        self.viewModel.delegate = self
+        self.showLoader()
     }
     
     func confirmDeleteAlert(type: DeleteAlertType, vehicle: DKVehicle){
@@ -55,7 +70,7 @@ public class VehiclesListVC: DKUIViewController {
         
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         
-        let yesAction = UIAlertAction(title: "button_ok".dkVehicleLocalized(), style: .default , handler: {  _ in
+        let yesAction = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default , handler: {  _ in
             switch type {
             case .vehicle:
                 self.viewModel.deleteVehicle(vehicle: vehicle)
@@ -66,7 +81,7 @@ public class VehiclesListVC: DKUIViewController {
             }
         })
         alert.addAction(yesAction)
-        let cancelAction = UIAlertAction(title: "dk_cancel".dkVehicleLocalized(), style: .cancel)
+        let cancelAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel)
         alert.addAction(cancelAction)
         self.present(alert, animated: true)
     }
@@ -97,17 +112,16 @@ public class VehiclesListVC: DKUIViewController {
     @IBAction func goToVehiclePicker(_ sender: Any) {
         let vehiclePicker = VehiclePickerCoordinator(parentView: self, detectionMode: self.viewModel.computeDetectionMode())
     }
+    
+    @objc func refreshVehiclesList(_ sender: Any) {
+           self.viewModel.fetchVehicles()
+       }
 }
 
 extension VehiclesListVC: UITableViewDelegate {
-    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 8
-    }
-    
-    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 8))
-        return headerView
-    }
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+           return UITableView.automaticDimension
+       }
 }
 
 extension VehiclesListVC: UITableViewDataSource {
@@ -134,6 +148,9 @@ extension VehiclesListVC: VehiclesListDelegate {
     func onVehiclesAvailable() {
         DispatchQueue.main.async {
             self.hideLoader()
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
             self.tableView.reloadData()
         }
     }

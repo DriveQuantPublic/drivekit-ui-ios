@@ -33,21 +33,21 @@ enum AutoStart {
         case .empty:
             return ""
         case .disabled:
-            return "dk_disabled_detection_mode_title".dkVehicleLocalized()
+            return "dk_detection_mode_disabled_title".dkVehicleLocalized()
         case .gps :
-            return "dk_gps_detection_mode_title".dkVehicleLocalized()
+            return "dk_detection_mode_gps_title".dkVehicleLocalized()
         case .beacon:
-            return "dk_beacon_detection_mode_title".dkVehicleLocalized()
+            return "dk_detection_mode_beacon_title".dkVehicleLocalized()
         case .beacon_disabled:
-            return "dk_beacon_disabled_detection_mode_title".dkVehicleLocalized()
+            return "dk_detection_mode_beacon_disabled_title".dkVehicleLocalized()
         case .bluetooth:
-            return "dk_bluetooth_detection_mode_title".dkVehicleLocalized()
+            return "dk_detection_mode_bluetooth_title".dkVehicleLocalized()
         case .bluetooth_disabled:
-            return "dk_bluetooth_disabled_detection_mode_title".dkVehicleLocalized()
+            return "dk_detection_mode_bluetooth_disabled_title".dkVehicleLocalized()
         }
     }
     
-    var description: String {
+    func getDescription(vehicle: DKVehicle) -> String {
         switch self {
         case .empty:
             return ""
@@ -56,11 +56,11 @@ enum AutoStart {
         case .gps :
             return "dk_detection_mode_gps_desc".dkVehicleLocalized()
         case .beacon:
-            return "dk_detection_mode_beacon_desc_configured".dkVehicleLocalized()
+            return String(format: "dk_detection_mode_beacon_desc_configured".dkVehicleLocalized(), vehicle.beacon?.code ?? "")
         case .beacon_disabled:
             return "dk_detection_mode_beacon_desc_not_configured".dkVehicleLocalized()
         case .bluetooth:
-            return "dk_detection_mode_bluetooth_desc_configured".dkVehicleLocalized()
+            return String(format: "dk_detection_mode_bluetooth_desc_configured".dkVehicleLocalized(), vehicle.bluetooth?.name ?? "")
         case .bluetooth_disabled:
             return "dk_detection_mode_bluetooth_desc_not_configured".dkVehicleLocalized()
         }
@@ -71,9 +71,9 @@ enum AutoStart {
         case .empty, .disabled, .gps:
             return nil
         case .beacon, .beacon_disabled:
-            return "dk_vehicle_configure_beacon_desc".dkVehicleLocalized()
+            return "dk_vehicle_configure_beacon_title".dkVehicleLocalized().uppercased()
         case .bluetooth, .bluetooth_disabled:
-            return "dk_vehicle_configure_bluetooth_desc".dkVehicleLocalized()
+            return "dk_vehicle_configure_bluetooth_title".dkVehicleLocalized().uppercased()
         }
     }
     
@@ -96,13 +96,13 @@ extension DKDetectionMode {
     func title() -> String {
         switch (self) {
         case .disabled:
-            return "dk_disabled_detection_mode_title".dkVehicleLocalized()
+            return "dk_detection_mode_disabled_desc".dkVehicleLocalized()
         case .gps:
-            return "dk_gps_detection_mode_title".dkVehicleLocalized()
+            return "dk_detection_mode_gps_title".dkVehicleLocalized()
         case .beacon:
-            return "dk_beacon_detection_mode_title".dkVehicleLocalized()
+            return "dk_detection_mode_beacon_title".dkVehicleLocalized()
         case .bluetooth:
-            return "dk_bluetooth_detection_mode_title".dkVehicleLocalized()
+            return "dk_detection_mode_bluetooth_title".dkVehicleLocalized()
         }
     }
 }

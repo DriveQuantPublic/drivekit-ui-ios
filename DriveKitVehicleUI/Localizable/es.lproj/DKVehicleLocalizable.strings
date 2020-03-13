@@ -10,10 +10,7 @@
 "dk_detection_mode_gps_title"="GPS";
 "dk_empty_vehicle_name"="Indique un nombre de\vehículo";
 "dk_vehicle_add"="Añadir un vehículo";
-"dk_vehicle_beacon_already_paired"="La beacon no está disponible. Ya está acoplada a otro vehículo.";
-"dk_vehicle_beacon_already_paired_to_vehicle"="Esta beacon ya está emparejada con este vehículo.";
 "dk_vehicle_beacon_deactivate_alert"="La baliza %@ se disociará del vehículo %@. \n ¿Estás seguro de que quieres continuar?";
-"dk_vehicle_beacon_scan_retry"="Toca la pantalla para volver a intentarlo";
 "dk_vehicle_beacon_scan_wrong_beacon"="La baliza detectada no coincide con la que estaba asociada con su vehículo";
 "dk_vehicle_beacon_setup_code_hint"="Identificador del beacon";
 "dk_vehicle_beacon_setup_code_invalid_id"="El identificador del beacon %@ no es válido";
@@ -30,11 +27,9 @@
 "dk_vehicle_beacon_setup_guide_desc2"="Asegúrese de que el número de identificación del beacon sea legible";
 "dk_vehicle_beacon_setup_guide_desc3"="Retire la lengüeta que protege la batería del beacon";
 "dk_vehicle_beacon_setup_guide_title"="Antes de empezar";
-"dk_vehicle_beacon_setup_replace_description"="Si confirma su elección, el beacon %@ estará asociada al vehículo %@.\n\n El %@ de su vehículo ya no estará asociado a este beacon.";
 "dk_vehicle_beacon_setup_scan_title"="La aplicación recupera la información de la baliza y comprueba que funciona correctamente";
 "dk_vehicle_beacon_setup_store_notice"="Le invitamos a colocar el beacon en la guantera de su vehículo";
 "dk_vehicle_beacon_verify_wrong_vehicle"="La baliza detectada no está asociada a este vehículo.";
-"dk_vehicle_beacon_wait_scan"="Espera unos 10 segundos ...";
 "dk_vehicle_begin"="Comenzar";
 "dk_vehicle_begin"="Comenzar";
 "dk_vehicle_bluetooth_already_paired"="El dispositivo Bluetooth %@ ya está conectado a otro vehículo. Primero debe liberar este dispositivo antes de emparejarlo con %@.";
@@ -42,7 +37,6 @@
 "dk_vehicle_bluetooth_congrats_desc"="El dispositivo Bluetooth %@ está ahora conectado al vehículo %@";
 "dk_vehicle_bluetooth_congrats_notice"="A partir de ahora, la grabación de sus viajes se iniciará automáticamente tan pronto como su teléfono se conecte al dispositivo Bluetooth %@";
 "dk_vehicle_bluetooth_congrats_title"="Felicitaciones!";
-"dk_vehicle_bluetooth_deactivate_alert"="El dispositivo %@ se disociará del vehículo %@. \n ¿Estás seguro de que quieres seguir con esto?";
 "dk_vehicle_bluetooth_guide_desc1"="Compruebe que el dispositivo Bluetooth ya ha sido emparejado con su iPhone. Esta información está disponible en el menú Bluetooth de la configuración del teléfono.";
 "dk_vehicle_bluetooth_guide_desc2"="Tome asiento en su vehículo.";
 "dk_vehicle_bluetooth_guide_desc3"="Conecte el encendido. El teléfono debe estar conectado al vehículo para hacer la asociación.";
@@ -81,7 +75,6 @@
 "dk_vehicle_engine_gasoline"="Gasolina";
 "dk_vehicle_engine_gasoline_hybrid"="Híbrido gasolina-eléctrico";
 "dk_vehicle_error_message"="Se ha producido un error durante la solicitud, vuelva a intentarlo más tarde.";
-"dk_vehicle_failed_to_paired_beacon"="La beacon no pudo ser asociada con el vehículo, por favor inténtelo de nuevo más tarde.";
 "dk_vehicle_failed_to_paired_bluetooth"="La conexión Bluetooth del vehículo falló, por favor inténtalo de nuevo más tarde.";
 "dk_vehicle_failed_to_retrieve_vehicle_data"="Las características del vehículo no pudieron ser recuperadas.";
 "dk_vehicle_failed_to_sync"="Error al recuperar datos del vehículo, vuelva a intentarlo más tarde.";
@@ -104,6 +97,5 @@
 "dk_vehicle_type_motorbike_title"="Motocicleta";
 "dk_vehicle_type_truck_title"="Camión";
 "dk_vehicle_unknown"="El vehículo no existe.";
-"dk_vehicle_unknown"="El vehículo es desconocido, por favor seleccione otro vehículo.";
 "dk_vehicle_version_description"="¿Versión del vehículo?";
 "dk_vehicle_year_description"="¿Año de lanzamiento?";

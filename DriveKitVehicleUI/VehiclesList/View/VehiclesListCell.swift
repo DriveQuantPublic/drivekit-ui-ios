@@ -58,7 +58,7 @@ class VehiclesListCell: UITableViewCell {
             autoStartView.isHidden = true
         }
         autoStartSelection.attributedText = viewModel.autoStart.title.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
-        descriptionLabel.attributedText = viewModel.autoStart.description.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+        descriptionLabel.attributedText = viewModel.autoStart.getDescription(vehicle: self.viewModel.vehicle).dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
         if let buttonText = viewModel.autoStart.buttonTitle {
             configureButton.isHidden = false
             let buttonTitle = buttonText.dkAttributedString().font(dkFont: .primary, style: .button).color(.secondaryColor).build()
@@ -130,8 +130,7 @@ class VehiclesListCell: UITableViewCell {
                 }
             case .replace:
                 let replaceVehicle = vehicleOption.alertAction(completionHandler: {  _ in
-                    let coordinator = VehiclePickerCoordinator(parentView: self.viewModel.listView, detectionMode: self.viewModel.autoStart.detectionModeValue ?? .disabled)
-                    coordinator.setVehicle(vehicle: self.viewModel.vehicle)
+                    let coordinator = VehiclePickerCoordinator(parentView: self.viewModel.listView, detectionMode: self.viewModel.autoStart.detectionModeValue ?? .disabled, vehicle: self.viewModel.vehicle)
                 })
                 alert.addAction(replaceVehicle)
             case .show:

@@ -215,7 +215,7 @@
                 <outlet property="streakIcon" destination="1C2-q0-Uh6" id="Ivp-1q-fwa"/>
                 <outlet property="theme" destination="B32-bk-MnM" id="TZH-05-Lc8"/>
             </connections>
-            <point key="canvasLocation" x="131.19999999999999" y="214.28571428571431"/>
+            <point key="canvasLocation" x="131.19999999999999" y="213.91625615763547"/>
         </tableViewCell>
     </objects>
 </document>

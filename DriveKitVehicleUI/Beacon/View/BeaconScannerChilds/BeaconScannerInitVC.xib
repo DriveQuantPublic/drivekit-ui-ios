@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BeaconScannerInitVC" customModule="DriveKitVehicleUI" customModuleProvider="target">
+            <connections>
+                <outlet property="startButton" destination="wn5-9K-w1s" id="oWA-ZN-p3r"/>
+                <outlet property="view" destination="Y91-r2-kpg" id="Ww7-Y5-D4m"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Y91-r2-kpg">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wn5-9K-w1s">
+                    <rect key="frame" x="16" y="52" width="382" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="yjx-B3-7me"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="startClicked:" destination="-1" eventType="touchUpInside" id="JT5-I5-EJe"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="wn5-9K-w1s" firstAttribute="top" secondItem="OO9-SY-r66" secondAttribute="top" constant="8" id="9vf-XK-kDW"/>
+                <constraint firstItem="wn5-9K-w1s" firstAttribute="centerX" secondItem="Y91-r2-kpg" secondAttribute="centerX" id="JAv-8M-28A"/>
+                <constraint firstItem="OO9-SY-r66" firstAttribute="trailing" secondItem="wn5-9K-w1s" secondAttribute="trailing" constant="16" id="Ou6-bS-Nkt"/>
+                <constraint firstItem="wn5-9K-w1s" firstAttribute="leading" secondItem="OO9-SY-r66" secondAttribute="leading" constant="16" id="ZQO-kO-ep2"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="OO9-SY-r66"/>
+            <point key="canvasLocation" x="132" y="-510"/>
+        </view>
+    </objects>
+</document>

@@ -33,7 +33,7 @@ class BeaconScannerProgressVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureProgressView()
-        progressViewTitleLabel.text = "dk_vehicle_beacon_wait_scan".dkVehicleLocalized()
+        progressViewTitleLabel.attributedText = "dk_vehicle_beacon_wait_scan".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,9 +70,9 @@ class BeaconScannerProgressVC: UIViewController {
         locationManager.delegate = self
         if let beacon = self.viewModel.beacon {
             if #available(iOS 13.0, *) {
-                locationManager.startRangingBeacons(satisfying: beacon.toCLBeaconIdentityConstraint())
+                locationManager.startRangingBeacons(satisfying: beacon.toCLBeaconIdentityConstraint(noMajorMinor: self.viewModel.scanType == .diagnostic))
             } else {
-                locationManager.startRangingBeacons(in: beacon.toCLBeaconRegion())
+                locationManager.startRangingBeacons(in: beacon.toCLBeaconRegion(noMajorMinor: self.viewModel.scanType == .diagnostic))
             }
         }
     }
@@ -80,9 +80,9 @@ class BeaconScannerProgressVC: UIViewController {
     private func stopBeaconScan() {
         if let beacon = self.viewModel.beacon {
             if #available(iOS 13.0, *) {
-                locationManager.stopRangingBeacons(satisfying: beacon.toCLBeaconIdentityConstraint())
+                locationManager.stopRangingBeacons(satisfying: beacon.toCLBeaconIdentityConstraint(noMajorMinor: self.viewModel.scanType == .diagnostic))
             } else {
-                locationManager.stopRangingBeacons(in: beacon.toCLBeaconRegion())
+                locationManager.stopRangingBeacons(in: beacon.toCLBeaconRegion(noMajorMinor: self.viewModel.scanType == .diagnostic))
             }
         }
     }

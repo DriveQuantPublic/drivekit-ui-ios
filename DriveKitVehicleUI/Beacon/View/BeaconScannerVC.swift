@@ -9,7 +9,7 @@
 import UIKit
 import DriveKitCommonUI
 
-class BeaconScannerVC : DKUIViewController {
+public class BeaconScannerVC : DKUIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var bottomStackView: UIStackView!
@@ -19,7 +19,7 @@ class BeaconScannerVC : DKUIViewController {
     private let viewModel : BeaconViewModel
     private let parentView : UIViewController
     
-    init(viewModel: BeaconViewModel, step: BeaconStep, parentView: UIViewController) {
+    public init(viewModel: BeaconViewModel, step: BeaconStep, parentView: UIViewController) {
         self.viewModel = viewModel
         self.step = step
         self.parentView = parentView
@@ -30,7 +30,7 @@ class BeaconScannerVC : DKUIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         self.viewModel.delegate = self
         updateStep(step: self.step)

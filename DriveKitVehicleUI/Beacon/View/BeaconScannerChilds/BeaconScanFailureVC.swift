@@ -20,7 +20,7 @@ class BeaconScanFailureVC: UIViewController {
     
     init(viewModel: BeaconViewModel) {
         self.viewModel = viewModel
-        super.init(nibName: "BeaconFailureVC", bundle: .vehicleUIBundle)
+        super.init(nibName: "BeaconScanFailureVC", bundle: .vehicleUIBundle)
     }
     
     required init?(coder: NSCoder) {
@@ -30,6 +30,7 @@ class BeaconScanFailureVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureButton()
+        descriptionLabel.attributedText = "dk_vehicle_beacon_scan_retry".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
     }
     
     private func configureButton() {

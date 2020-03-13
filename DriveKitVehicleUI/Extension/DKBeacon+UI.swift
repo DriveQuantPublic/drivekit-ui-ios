@@ -11,9 +11,9 @@ import DriveKitVehicle
 import CoreLocation
 
 extension DKVehicleGetBeaconResponse {
-    func toCLBeaconRegion() -> CLBeaconRegion {
+    func toCLBeaconRegion(noMajorMinor : Bool) -> CLBeaconRegion {
         var region = CLBeaconRegion(proximityUUID: UUID(uuidString: proximityUuid)!, identifier: "DKscannedBeacon")
-        if major >= 0{
+        if major >= 0 && !noMajorMinor{
             region = CLBeaconRegion(proximityUUID: UUID(uuidString: proximityUuid)!, major : CLBeaconMajorValue(major), identifier: "DKscannedBeacon")
             if minor >= 0 {
                 region = CLBeaconRegion(proximityUUID: UUID(uuidString: proximityUuid)!, major : CLBeaconMajorValue(major), minor : CLBeaconMinorValue(minor), identifier: "DKscannedBeacon")
@@ -23,9 +23,9 @@ extension DKVehicleGetBeaconResponse {
     }
     
     @available(iOS 13.0, *)
-    func toCLBeaconIdentityConstraint() -> CLBeaconIdentityConstraint {
+    func toCLBeaconIdentityConstraint(noMajorMinor : Bool) -> CLBeaconIdentityConstraint {
         var constraint = CLBeaconIdentityConstraint(uuid: UUID(uuidString: proximityUuid)!)
-        if major >= 0{
+        if major >= 0 && !noMajorMinor{
             constraint = CLBeaconIdentityConstraint(uuid: UUID(uuidString: proximityUuid)!, major : CLBeaconMajorValue(major))
             if minor >= 0 {
                 constraint = CLBeaconIdentityConstraint(uuid: UUID(uuidString: proximityUuid)!, major : CLBeaconMajorValue(major), minor : CLBeaconMinorValue(minor))

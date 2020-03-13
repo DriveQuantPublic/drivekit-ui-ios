@@ -9,7 +9,7 @@
 import UIKit
 import DriveKitCommonUI
 
-enum BeaconStep {
+public enum BeaconStep {
 
     //case initial
     case scan

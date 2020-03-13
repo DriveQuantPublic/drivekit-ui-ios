@@ -32,7 +32,7 @@ public class ConnectBeaconVC: DKUIViewController {
     private let parentView : UIViewController
     
     public init(vehicle: DKVehicle, parentView: UIViewController) {
-        self.viewModel = BeaconViewModel(vehicle: vehicle)
+        self.viewModel = BeaconViewModel(vehicle: vehicle, scanType: .pairing)
         self.parentView = parentView
         super.init(nibName: "ConnectBeaconVC", bundle: .vehicleUIBundle)
     }
@@ -51,15 +51,15 @@ public class ConnectBeaconVC: DKUIViewController {
         
         configureCircle(view: step1Circle)
         step1ValueCircle.attributedText = "1".dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
-        step1Label.attributedText = "dk_vehicle_beacon_setup_guide_desc1".dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
+        step1Label.attributedText = "dk_vehicle_beacon_setup_guide_desc1".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
         
         configureCircle(view: step2Circle)
         step2ValueCircle.attributedText = "2".dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
-        step2Label.attributedText = "dk_vehicle_beacon_setup_guide_desc2".dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
+        step2Label.attributedText = "dk_vehicle_beacon_setup_guide_desc2".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
         
         configureCircle(view: step3Circle)
         step3ValueCircle.attributedText = "3".dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
-        step3Label.attributedText = "dk_vehicle_beacon_setup_guide_desc3".dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
+        step3Label.attributedText = "dk_vehicle_beacon_setup_guide_desc3".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
     
         confirmButton.backgroundColor = DKUIColors.secondaryColor.color
         confirmButton.setAttributedTitle("dk_vehicle_begin".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).uppercased().build(), for: .normal)

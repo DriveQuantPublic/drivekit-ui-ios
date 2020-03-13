@@ -10,17 +10,24 @@ import Foundation
 import DriveKitDBVehicleAccess
 import DriveKitVehicle
 
-class BeaconViewModel {
+public class BeaconViewModel {
     
-    private let vehicle : DKVehicle
+    private let vehicle : DKVehicle?
+    let scanType : BeaconScanType
     var beacon : DKVehicleGetBeaconResponse? = nil
     var delegate : ScanStateDelegate? = nil
-    var isDiag : Bool = false
     
     var vehiclePaired : DKVehicle?
     
-    init(vehicle: DKVehicle) {
+    public init(vehicle: DKVehicle, scanType: BeaconScanType) {
         self.vehicle = vehicle
+        self.scanType = scanType
+    }
+    
+    public init(scanType: BeaconScanType, beacon : DKVehicleGetBeaconResponse) {
+        self.vehicle = nil
+        self.scanType = scanType
+        self.beacon = beacon
     }
     
     func checkCode(code: String, completion: @escaping (DKVehicleBeaconStatus) -> ()) {
@@ -39,7 +46,20 @@ class BeaconViewModel {
                     }
                 }
             }
-            completion(self.vehicle.vehicleId == self.vehiclePaired?.vehicleId ?? "")
+            switch self.scanType {
+            case .pairing:
+                if let vehicle = self.vehicle {
+                    completion(vehicle.vehicleId == self.vehiclePaired?.vehicleId ?? "")
+                }
+            case .diagnostic:
+                completion(self.vehiclePaired != nil)
+            case .verify:
+                if let vehicle = self.vehicle {
+                    completion(vehicle.vehicleId == self.vehiclePaired?.vehicleId ?? "")
+                }
+            }
+            
+                
         })
     }
     
@@ -68,7 +88,7 @@ class BeaconViewModel {
     }
     
     func addBeaconToVehicle(completion: @escaping (DKVehicleBeaconStatus) -> ()) {
-        guard let beacon = self.beacon else {
+        guard let beacon = self.beacon, let vehicle = self.vehicle else {
             completion(.invalidBeacon)
             return
         }
@@ -82,4 +102,8 @@ protocol ScanStateDelegate {
     func onScanFinished()
     func shouldShowLoader()
     func shouldHideLoader()
+}
+
+public enum BeaconScanType {
+    case pairing, diagnostic, verify
 }

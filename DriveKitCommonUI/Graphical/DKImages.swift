@@ -22,7 +22,11 @@ public enum DKImages : String {
     safety = "dk_common_safety",
     safetyFilled = "dk_common_safety_filled",
     distraction = "dk_common_distraction",
-    distractionFilled = "dk_common_distraction_filled"
+    distractionFilled = "dk_common_distraction_filled",
+    warning = "dk_common_warning",
+    dots = "dk_common_dots",
+    arrowDown = "dk_common_arrow_down",
+    back = "dk_common_back"
     
     public var image : UIImage? {
         if let image = UIImage(named: self.rawValue, in: .main, compatibleWith: nil) {

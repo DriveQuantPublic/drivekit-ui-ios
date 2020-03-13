@@ -24,7 +24,7 @@ class VehiclePickerStepView: DKUIViewController {
         navigationItem.rightBarButtonItem = dismissItem
         let backButton = UIButton(type: .custom)
         backButton.frame = CGRect(x: 0, y: 0, width: 36, height: 36)
-        let backImage = UIImage(named: "dk_back", in: .vehicleUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+        let backImage = DKImages.back.image
         backButton.setImage(backImage, for: .normal)
         backButton.addTarget(self, action: #selector(showPreviousStep), for: .touchUpInside)
         backButton.tintColor = DKUIColors.fontColorOnPrimaryColor.color

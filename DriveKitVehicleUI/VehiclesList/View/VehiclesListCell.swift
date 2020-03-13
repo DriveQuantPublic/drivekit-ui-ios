@@ -39,9 +39,9 @@ class VehiclesListCell: UITableViewCell {
     
     func configure(viewModel: VehiclesListCellViewModel) {
         self.viewModel = viewModel
-        vehicleTitle.text = viewModel.getDisplayName()
-        vehicleSubtitle.text = viewModel.getSubtitle()
-        let editImage = UIImage(named: "dk_dots", in: .vehicleUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+        vehicleTitle.attributedText = viewModel.getDisplayName().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        vehicleSubtitle.attributedText = viewModel.getSubtitle()?.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+        let editImage = DKImages.dots.image
         editButton.setImage(editImage, for: .normal)
         editButton.tintColor = DKUIColors.secondaryColor.color
         self.configureAutoStart()
@@ -49,16 +49,16 @@ class VehiclesListCell: UITableViewCell {
     }
     
     func configureAutoStart() {
-        autoStartLabel.text = "dk_vehicle_detection_mode_title".dkVehicleLocalized()
+        autoStartLabel.attributedText = "dk_vehicle_detection_mode_title".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         autoStartSelectView.backgroundColor = DKUIColors.neutralColor.color
-        autoStartDelimiter.backgroundColor = UIColor.lightGray
-        autoStartSelectImage.image = UIImage(named: "dk_arrow_down", in: .vehicleUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
-        autoStartSelectImage.tintColor = UIColor.darkGray
+        autoStartDelimiter.backgroundColor = DKUIColors.neutralColor.color
+        autoStartSelectImage.image = DKImages.arrowDown.image
+        autoStartSelectImage.tintColor = DKUIColors.complementaryFontColor.color
         if DriveKitVehiculeUI.shared.detectionModes.count <= 1 {
             autoStartView.isHidden = true
         }
-        autoStartSelection.text = viewModel.autoStart.title
-        descriptionLabel.text = viewModel.autoStart.description
+        autoStartSelection.attributedText = viewModel.autoStart.title.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        descriptionLabel.attributedText = viewModel.autoStart.description.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
         if let buttonText = viewModel.autoStart.buttonTitle {
             configureButton.isHidden = false
             let buttonTitle = buttonText.dkAttributedString().font(dkFont: .primary, style: .button).color(.secondaryColor).build()
@@ -189,7 +189,7 @@ class VehiclesListCell: UITableViewCell {
     }
     
     func bluetoothActionsAlert() {
-        let alert = UIAlertController(title: "bluetooth_chooser_title".uppercased().dkVehicleLocalized(), message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "bluetooth_chooser_title".dkVehicleLocalized(), message: nil, preferredStyle: .actionSheet)
         
         let deleteAction = UIAlertAction(title: DKCommonLocalizable.delete.text(), style: .default , handler: {  _ in
             self.viewModel.listView.confirmDeleteAlert(type: .bluetooth, vehicle: self.viewModel.vehicle)

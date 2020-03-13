@@ -10,7 +10,7 @@ import UIKit
 import DriveKitDBVehicleAccess
 import DriveKitCommonUI
 
-public class VehiclesListVC: UIViewController {
+public class VehiclesListVC: DKUIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addVehicleButton: UIButton!
     
@@ -82,14 +82,14 @@ public class VehiclesListVC: UIViewController {
             textField.text = vehicle.getDisplayNameInList(vehiclesList: self.viewModel.vehicles)
         }
         
-        let ok = UIAlertAction(title: "dk_ok",
+        let ok = UIAlertAction(title: DKCommonLocalizable.ok.text(),
                                style: .default) { [weak alert] _ in
                                 
                                 guard let alert = alert, let textField = alert.textFields?.first, let newValue = textField.text else { return }
                                 self.viewModel.renameVehicle(vehicle: vehicle, name: newValue)
         }
         alert.addAction(ok)
-        let cancelAction = UIAlertAction(title: "dk_cancel".dkVehicleLocalized(), style: .cancel)
+        let cancelAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel)
         alert.addAction(cancelAction)
         self.present(alert, animated: true)
     }
@@ -128,7 +128,6 @@ extension VehiclesListVC: UITableViewDataSource {
         cellViewModel.delegate = self
         cell.configure(viewModel: cellViewModel)
         return cell
-        
     }
 }
 
@@ -136,20 +135,23 @@ extension VehiclesListVC: UITableViewDataSource {
 extension VehiclesListVC: VehiclesListDelegate {
     func onVehiclesAvailable() {
         DispatchQueue.main.async {
+            self.hideLoader()
             self.tableView.reloadData()
         }
     }
     
     func didUpdateVehicle() {
         DispatchQueue.main.async {
+            self.showLoader()
             self.viewModel.fetchVehicles()
         }
     }
     
     func didReceiveErrorFromService() {
         DispatchQueue.main.async {
+            self.hideLoader()
             let alert = UIAlertController(title: nil, message: "dk_vehicle_error_message".dkVehicleLocalized(), preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "dk_ok".dkVehicleLocalized(), style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
             self.present(alert, animated: true)
         }
     }

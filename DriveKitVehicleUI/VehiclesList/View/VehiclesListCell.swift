@@ -130,11 +130,8 @@ class VehiclesListCell: UITableViewCell {
                 }
             case .replace:
                 let replaceVehicle = vehicleOption.alertAction(completionHandler: {  _ in
-                    let coordinator = VehiclePickerCoordinator(parentView: self.viewModel.listView)
-                    //TO DO
-                   /*let pickerViewModel = VehiclePickerViewModel(detectionMode: self.viewModel.autoStart.detectionModeValue ?? .disabled)
-                    pickerViewModel.vehicle = self.viewModel.vehicle
-                    coordinator.showFirstStep(viewModel: pickerViewModel)*/
+                    let coordinator = VehiclePickerCoordinator(parentView: self.viewModel.listView, detectionMode: self.viewModel.autoStart.detectionModeValue ?? .disabled)
+                    coordinator.setVehicle(vehicle: self.viewModel.vehicle)
                 })
                 alert.addAction(replaceVehicle)
             case .show:

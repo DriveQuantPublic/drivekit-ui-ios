@@ -12,9 +12,13 @@ import DriveKitDBVehicleAccess
 public class VehiclePickerCoordinator {
     var parentView: UIViewController
     let navigationController: UINavigationController
+    var vehicle: DKVehicle?
+    var detectionMode: DKDetectionMode
     
-    public init(parentView: UIViewController) {
+    public init(parentView: UIViewController, detectionMode: DKDetectionMode = .disabled, vehicle: DKVehicle? = nil) {
         self.parentView = parentView
+        self.detectionMode = detectionMode
+        self.vehicle = vehicle
         self.navigationController = UINavigationController()
         self.setupNavigationBar()
         self.navigationController.modalPresentationStyle = .overFullScreen

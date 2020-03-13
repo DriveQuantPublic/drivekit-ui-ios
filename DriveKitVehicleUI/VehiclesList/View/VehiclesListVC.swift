@@ -95,9 +95,7 @@ public class VehiclesListVC: DKUIViewController {
     }
     
     @IBAction func goToVehiclePicker(_ sender: Any) {
-        let coordinator = VehiclePickerCoordinator(parentView: self)
-       // let pickerViewModel = VehiclePickerViewModel(detectionMode: viewModel.computeDetectionMode())
-       // coordinator.showFirstStep(viewModel: pickerViewModel)
+        let vehiclePicker = VehiclePickerCoordinator(parentView: self, detectionMode: self.viewModel.computeDetectionMode())
     }
 }
 

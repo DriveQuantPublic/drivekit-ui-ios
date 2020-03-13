@@ -9,6 +9,7 @@
 import Foundation
 import DriveKitCommonUI
 import DriveKitVehicle
+import DriveKitDBVehicleAccess
 
 public class DriveKitVehiculeUI {
     
@@ -18,6 +19,15 @@ public class DriveKitVehiculeUI {
     var brands : [DKVehicleBrand] = DKVehicleBrand.allCases
     var categoryType : DKCategoryType = .bothConfig
     var brandsWithIcons : Bool = true
+    
+    var enableAddVehicles: Bool = true
+    var enableReplaceVehicles : Bool = true
+    var enableDeleteVehicles: Bool = true
+    var enableRenameVehicles: Bool = true
+    var displayVehicleDetails: Bool = true
+    
+    var maxVehicles: Int = -1
+    var detectionModes: [DKDetectionMode] = [.disabled, .gps, .beacon, .bluetooth]
     
     private init() {}
     
@@ -45,6 +55,34 @@ public class DriveKitVehiculeUI {
     
     public func showBrandsWithIcons(show : Bool) {
         self.brandsWithIcons = show
+    }
+    
+    public func enableAddVehicles(enable: Bool) {
+        self.enableAddVehicles = enable
+    }
+    
+    public func enableReplaceVehicles(enable: Bool) {
+        self.enableReplaceVehicles = enable
+    }
+    
+    public func enableDeleteVehicles(enable: Bool) {
+        self.enableDeleteVehicles = enable
+    }
+    
+    public func enableRenameVehicles(enable: Bool) {
+        self.enableRenameVehicles = enable
+    }
+    
+    public func displayVehicleDetails(enable: Bool) {
+        self.displayVehicleDetails = enable
+    }
+    
+    public func setMaxVehicles(max: Int) {
+        self.maxVehicles = max
+    }
+    
+    public func configureDetectionModes(detectionModes: [DKDetectionMode]) {
+        self.detectionModes = detectionModes
     }
 }
 

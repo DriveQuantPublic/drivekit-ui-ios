@@ -34,6 +34,9 @@ public class BeaconScannerVC : DKUIViewController {
         super.viewDidLoad()
         self.viewModel.delegate = self
         updateStep(step: self.step)
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(tapDetected))
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(singleTap)
     }
     
     private func updateStep(step: BeaconStep) {
@@ -47,6 +50,10 @@ public class BeaconScannerVC : DKUIViewController {
             bottomStackView.addArrangedSubview(viewController.view)
             viewController.didMove(toParent: self)
         }
+    }
+    
+    @objc func tapDetected() {
+        self.step.onImageClicked(viewModel: self.viewModel)
     }
 }
 

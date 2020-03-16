@@ -15,6 +15,7 @@ import CoreMotion
 import DriveKitCommonUI
 import DriveKitVehicleUI
 import DriveKitVehicle
+import DriveKitDBVehicleAccess
 
 class ViewController: UITableViewController {
     
@@ -188,12 +189,15 @@ class ViewController: UITableViewController {
     }
     
     func configureBluetoothPairing() {
-        DriveKitVehicleManager.shared.getVehiclesOrderByNameAsc(completionHandler: {status, vehicles in
+        /*DriveKitVehicleManager.shared.getVehiclesOrderByNameAsc(completionHandler: {status, vehicles in
             DispatchQueue.main.async {
                 self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
                 self.navigationController?.pushViewController(ConnectBeaconVC(vehicle: vehicles[0], parentView: self), animated: true)
             }
-        })
+        })*/
+        let viewModel = BeaconViewModel(scanType: .diagnostic, beacon: DKBeacon(code: "FsZq", proximityUuid: "699EBC80-E1F3-11E3-9A0F-0CF3EE3BC012", major: 0, minor: 136))
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        //self.navigationController?.pushViewController(BeaconScannerVC(vehicle: vehicles[0], parentView: self), animated: true)
         
     }
     

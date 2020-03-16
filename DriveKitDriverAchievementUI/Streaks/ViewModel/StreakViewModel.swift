@@ -35,7 +35,7 @@ class StreakViewModel {
         })
     }
     
-    private func computeStreak(streaks : [Streak]) {
+    private func computeStreak(streaks : [DKStreak]) {
         var allStreaks : [StreakData] = []
         for streak in streaks {
             allStreaks.append(StreakData(streak: streak))
@@ -55,16 +55,16 @@ protocol StreakVMDelegate {
 }
 
 struct StreakData {
-    let type : StreakDataType
+    let type : DKStreakTheme
     let status : StreakStatus
-    let streak : Streak
+    let streak : DKStreak
     let progressPercent : Int
     
-    init(streak: Streak) {
+    init(streak: DKStreak) {
         self.streak = streak
-        self.type = StreakDataType.getEnumFromStreakTheme(theme: streak.theme!)
-        if streak.best?.tripNumber == streak.current?.tripNumber {
-            if streak.current?.tripNumber == 0 {
+        self.type = streak.theme
+        if streak.best.tripNumber == streak.current.tripNumber {
+            if streak.current.tripNumber == 0 {
                 status = .initialization
                 progressPercent = 0
             }else{
@@ -72,16 +72,12 @@ struct StreakData {
                 progressPercent = 100
             }
         }else{
-            if streak.current?.tripNumber == 0 {
+            if streak.current.tripNumber == 0 {
                 status = .reset
                 progressPercent = 0
             }else{
                 status = .inProgress
-                if let currentTripNumber = streak.current?.tripNumber, let bestTripNumber = streak.best?.tripNumber {
-                    progressPercent = Int((Float(currentTripNumber) / Float(bestTripNumber)) * 100)
-                }else{
-                    progressPercent = 0
-                }
+                progressPercent = Int((Float(streak.current.tripNumber) / Float(streak.best.tripNumber)) * 100)
             }
         }
     }
@@ -103,22 +99,22 @@ struct StreakData {
     }
     
     func getCurrentTripNumber() -> String {
-        return "\(streak.current?.tripNumber ?? 0)"
+        return "\(streak.current.tripNumber)"
     }
     
     func getCurrentTripNumberText() -> String {
-        return getTripNumberText(tripNumber: streak.current?.tripNumber)
+        return getTripNumberText(tripNumber: streak.current.tripNumber)
     }
     
     func getBestTripNumber() -> String {
-        return "\(streak.best?.tripNumber ?? 0)"
+        return "\(streak.best.tripNumber)"
     }
     
     func getBestTripNumberText() -> String {
-        return getTripNumberText(tripNumber: self.streak.best?.tripNumber ?? 0)
+        return getTripNumberText(tripNumber: self.streak.best.tripNumber)
     }
     
-    private func getTripNumberText(tripNumber : Int32?) -> String {
+    private func getTripNumberText(tripNumber : Int?) -> String {
         var tripsText = DKCommonLocalizable.tripSingular.text()
         if let tripNb = tripNumber, tripNb > 1 {
             tripsText = DKCommonLocalizable.tripPlural.text()
@@ -127,11 +123,11 @@ struct StreakData {
     }
     
     func getCurrentDistance() -> String {
-        return getDistance(distance: streak.current?.distance ?? 0)
+        return getDistance(distance: streak.current.distance)
     }
     
     func getBestDistance() -> String {
-        return getDistance(distance: streak.best?.distance ?? 0)
+        return getDistance(distance: streak.best.distance)
     }
     
     private func getDistance(distance: Double) -> String {
@@ -139,35 +135,19 @@ struct StreakData {
     }
     
     func getCurrentDuration() -> String {
-        if let duration = streak.current?.duration {
-            return Double(duration).formatSecondDuration()
-        }else{
-            return "0 \("dk_unit_minute".dkAchievementLocalized())"
-        }
+        return Double(streak.current.duration).formatSecondDuration()
     }
     
     func getBestDuration() -> String {
-        if let duration = streak.best?.duration {
-            return Double(duration).formatSecondDuration()
-        }else{
-            return "0 \("dk_unit_minute".dkAchievementLocalized())"
-        }
+        return Double(streak.best.duration).formatSecondDuration()
     }
     
     func getCurrentDate() -> String {
-        if let date = streak.current?.startDate {
-            return String(format: "dk_achievements_streaks_since".dkAchievementLocalized(), date.format(pattern: .standardDate))
-        }else{
-            return String(format: "dk_achievements_streaks_since".dkAchievementLocalized(), Date().format(pattern: .standardDate))
-        }
+        return String(format: "dk_achievements_streaks_since".dkAchievementLocalized(), streak.current.startDate.format(pattern: .standardDate))
     }
     
     func getBestDates() -> String {
-        if let start = streak.best?.startDate, let end = streak.best?.endDate {
-            return String(format: "dk_achievements_streaks_since_to".dkAchievementLocalized(), start.format(pattern: .standardDate), end.format(pattern: .standardDate))
-        }else{
-            return "dk_achievements_streaks_empty".dkAchievementLocalized()
-        }
+        return String(format: "dk_achievements_streaks_since_to".dkAchievementLocalized(), streak.best.startDate.format(pattern: .standardDate), streak.best.endDate.format(pattern: .standardDate))
     }
 }
 

@@ -18,7 +18,7 @@ class VehiclesListCellViewModel {
     var delegate: VehiclesListDelegate? = nil
     var autoStart: AutoStart {
         if let detectionMode = vehicle.detectionMode {
-            let mode = DKDetectionMode(value: detectionMode)
+            let mode = detectionMode
             switch mode {
             case .disabled:
                 return .disabled
@@ -49,8 +49,8 @@ class VehiclesListCellViewModel {
     }
     
     func updateDetectionMode(detectionMode: DKDetectionMode) {
-        if let vehicleId = vehicle.vehicleId {
-            let previousDetectionMode = DKDetectionMode(value: vehicle.detectionMode ?? "DISABLED")
+        let vehicleId = vehicle.vehicleId
+        let previousDetectionMode = vehicle.detectionMode ?? .disabled
             self.checkPreviousDetectionMode(previous: previousDetectionMode, new: detectionMode, completionHandler: { status in
                 if status {
                     DriveKitVehicleManager.shared.updateDetectionMode(vehicleId: vehicleId, detectionMode: detectionMode, forceGPSVehicleUpdate: true, completionHandler: { status in
@@ -62,13 +62,13 @@ class VehiclesListCellViewModel {
                     })
                 }
             })
-        }
+        
     }
     
     func checkPreviousDetectionMode(previous: DKDetectionMode, new: DKDetectionMode, completionHandler: @escaping(Bool) -> ()) {
-        if let vehicleId = vehicle.vehicleId, previous != new {
+        if previous != new {
             if previous == .beacon {
-                DriveKitVehicleManager.shared.removeBeacon(vehicleId: vehicleId, completionHandler: { status in
+                DriveKitVehicleManager.shared.removeBeacon(vehicleId: vehicle.vehicleId, completionHandler: { status in
                     if status == .success {
                         completionHandler(true)
                     } else {
@@ -76,7 +76,7 @@ class VehiclesListCellViewModel {
                     }
                 })
             } else if previous == .bluetooth {
-                DriveKitVehicleManager.shared.removeBluetooth(vehicleId: vehicleId, completionHandler: { status in
+                DriveKitVehicleManager.shared.removeBluetooth(vehicleId: vehicle.vehicleId, completionHandler: { status in
                     if status == .success {
                         completionHandler(true)
                     } else {
@@ -98,7 +98,7 @@ class VehiclesListCellViewModel {
     }
     
     func getSubtitle() -> String? {
-        if vehicle.lightConfig {
+        if vehicle.liteConfig {
             if vehicle.name == vehicle.getCategoryName() {
                 return nil
             } else {
@@ -112,7 +112,7 @@ class VehiclesListCellViewModel {
     func computeVehicleOptions() -> [VehicleOption] {
         var options : [VehicleOption] = []
         
-        if !vehicle.lightConfig {
+        if !vehicle.liteConfig {
             options.append(.show)
         }
         

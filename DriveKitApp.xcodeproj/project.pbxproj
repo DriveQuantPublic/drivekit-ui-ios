@@ -695,6 +695,20 @@
 			path = Localizable;
 			sourceTree = "<group>";
 		};
+		3FBAE398241B905500B2FBFB /* VehicleList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VehicleList;
+			sourceTree = "<group>";
+		};
+		3FBAE399241B906300B2FBFB /* VehicleDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VehicleDetail;
+			sourceTree = "<group>";
+		};
 		3FF68E7724083F000071D74C /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -746,6 +760,8 @@
 				A3D51F3E241BA2E6006DACE2 /* VehiclesList */,
 				3FF68F022414FD5B0071D74C /* Localizable */,
 				3F50D7062417ADC9001226F7 /* Extension */,
+				3FBAE398241B905500B2FBFB /* VehicleList */,
+				3FBAE399241B906300B2FBFB /* VehicleDetail */,
 				3FFB2D642417E17C003E6A06 /* Beacon */,
 				3F50D6F1241784B3001226F7 /* Bluetooth */,
 				3FF68F002414F7070071D74C /* VehiclePicker */,

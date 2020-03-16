@@ -32,53 +32,45 @@ class VehiclesListViewModel {
     }
     
     func getDetectionMode(vehicle: DKVehicle) -> DKDetectionMode {
-        return DKDetectionMode(value: vehicle.detectionMode ?? "DISABLED")
+        return vehicle.detectionMode ?? .disabled
     }
     
     func renameVehicle(vehicle: DKVehicle, name: String) {
-        if let vehicleId = vehicle.vehicleId {
-            DriveKitVehicleManager.shared.renameVehicle(name: name, vehicleId: vehicleId, completionHandler: { status in
+            DriveKitVehicleManager.shared.renameVehicle(name: name, vehicleId: vehicle.vehicleId, completionHandler: { status in
                 if status == .success {
                     self.delegate?.didUpdateVehicle()
                 } else {
                     self .delegate?.didReceiveErrorFromService()
                 }
             })
-        }
     }
     
     func deleteVehicle(vehicle: DKVehicle) {
-        if let vehicleId = vehicle.vehicleId {
-            DriveKitVehicleManager.shared.deleteVehicle(vehicleId: vehicleId, completionHandler: { status in
-                if status == .success {
-                    self.delegate?.didUpdateVehicle()
-                } else {
-                    self .delegate?.didReceiveErrorFromService()
-                }
-            })
-        }
+        DriveKitVehicleManager.shared.deleteVehicle(vehicleId: vehicle.vehicleId, completionHandler: { status in
+            if status == .success {
+                self.delegate?.didUpdateVehicle()
+            } else {
+                self .delegate?.didReceiveErrorFromService()
+            }
+        })
     }
     
     func deleteBluetooth(vehicle: DKVehicle) {
-        if let vehicleId = vehicle.vehicleId {
-            DriveKitVehicleManager.shared.removeBluetooth(vehicleId: vehicleId, completionHandler: { status in
-                if status == .success {
-                    self.delegate?.didUpdateVehicle()
-                } else {
-                    self .delegate?.didReceiveErrorFromService()
-                }
-            })
-        }
+        DriveKitVehicleManager.shared.removeBluetooth(vehicleId: vehicle.vehicleId, completionHandler: { status in
+            if status == .success {
+                self.delegate?.didUpdateVehicle()
+            } else {
+                self .delegate?.didReceiveErrorFromService()
+            }
+        })
     }
     
     func deleteBeacon(vehicle: DKVehicle) {
-        if let vehicleId = vehicle.vehicleId {
-            DriveKitVehicleManager.shared.removeBeacon(vehicleId: vehicleId, completionHandler: { status in
-                if status == .success {
-                    self.delegate?.didUpdateVehicle()
-                }
-            })
-        }
+        DriveKitVehicleManager.shared.removeBeacon(vehicleId: vehicle.vehicleId, completionHandler: { status in
+            if status == .success {
+                self.delegate?.didUpdateVehicle()
+            }
+        })
     }
     
     func computeDetectionMode() -> DKDetectionMode {
@@ -86,7 +78,7 @@ class VehiclesListViewModel {
         if detectionModes.isEmpty {
             return .disabled
         } else if detectionModes.contains(.gps) {
-            let vehiclesGPS = vehicles.filter { $0.detectionMode == DKDetectionMode.gps.value }
+            let vehiclesGPS = vehicles.filter { $0.detectionMode ?? .disabled == DKDetectionMode.gps }
             if vehiclesGPS.isEmpty {
                 return .gps
             } else {

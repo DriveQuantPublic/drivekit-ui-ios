@@ -54,7 +54,7 @@ public enum DKCommonLocalizable : String {
     contextFastlane = "dk_common_driving_context_fastlane"
     
     public func text() -> String {
-        return self.rawValue.dkLocalized(tableName: "CommonLocalizable", bundle: Bundle(identifier: "com.drivequant.drivekit-common-ui") ?? .main)
+        return self.rawValue.dkLocalized(tableName: "CommonLocalizable", bundle: .driveKitCommonUIBundle ?? .main)
     }
 }
 

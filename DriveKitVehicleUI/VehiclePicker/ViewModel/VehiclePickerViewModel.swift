@@ -132,7 +132,7 @@ class VehiclePickerViewModel {
         guard let selectedVersion = vehicleVersion else {
             return
         }
-        DriveKitVehiclePicker.shared.getCharacteristics(version: selectedVersion, completionHandler: { status, response in
+        DriveKitVehiclePicker.shared.getCharacteristics(dqIndex: selectedVersion.dqIndex, completionHandler: { status, response in
             if status {
                 if let vehicleCharacteristics = response {
                     self.vehicleCharacteristics = vehicleCharacteristics
@@ -156,9 +156,9 @@ class VehiclePickerViewModel {
     
     func replaceVehicle(completion : @escaping (DKVehicleManagerStatus) -> ()) {
         if let characteristics = vehicleCharacteristics, let previousVehicle = coordinator.vehicle {
-            let detectionMode = DKDetectionMode(value : previousVehicle.detectionMode ?? "DISABLED")
-            let minor = previousVehicle.beacon?.minor as! Int?
-            let major = previousVehicle.beacon?.major as! Int?
+            let detectionMode = previousVehicle.detectionMode
+            let minor = previousVehicle.beacon?.minor
+            let major = previousVehicle.beacon?.major
             let proximityUuid = previousVehicle.beacon?.proximityUuid
             let uniqueId = previousVehicle.beacon?.code
             let bluetoothName = previousVehicle.bluetooth?.name
@@ -167,10 +167,10 @@ class VehiclePickerViewModel {
             
             // TO DO : Add liteConfig and detectionMode
             DriveKitVehicleManager.shared.createVehicle(characteristics: characteristics, name: vehicleName, completionHandler: { status, vehicle in
-                DriveKitVehicleManager.shared.deleteVehicle(vehicleId: previousVehicle.vehicleId!, completionHandler: { deleteStatus in
+                DriveKitVehicleManager.shared.deleteVehicle(vehicleId: previousVehicle.vehicleId, completionHandler: { deleteStatus in
                     if deleteStatus == .success {
                         if proximityUuid != nil, minor != nil, major != nil {
-                            DriveKitVehicleManager.shared.removeBeacon(vehicleId: oldVehicleId ?? "", completionHandler: { deleteBeaconStatus in
+                            DriveKitVehicleManager.shared.removeBeacon(vehicleId: oldVehicleId, completionHandler: { deleteBeaconStatus in
                                 if status == .success {
                                     DriveKitVehicleManager.shared.addBeacon(vehicleId: vehicle?.vehicleId ?? "", minor: minor!, major: major!, proximityUuid: proximityUuid!, uniqueId: uniqueId, completionHandler: { beaconStatus in
                                         if beaconStatus == .success {
@@ -180,7 +180,7 @@ class VehiclePickerViewModel {
                                 }
                             })
                         } else if macAddress != nil {
-                            DriveKitVehicleManager.shared.removeBluetooth(vehicleId: oldVehicleId ?? "", completionHandler: { deleteBluetoothStatus in
+                            DriveKitVehicleManager.shared.removeBluetooth(vehicleId: oldVehicleId, completionHandler: { deleteBluetoothStatus in
                                 if status == .success {
                                     DriveKitVehicleManager.shared.addBluetooth(vehicleId: vehicle?.vehicleId ?? "", name: bluetoothName ?? "", macAddress: macAddress!, completionHandler: { bluetoothSuccess in
                                         if bluetoothSuccess == .success {

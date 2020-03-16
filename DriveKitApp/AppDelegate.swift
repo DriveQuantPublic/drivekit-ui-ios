@@ -46,6 +46,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitVehiculeUI.shared.showBrandsWithIcons(show: false)
         DriveKitVehiculeUI.shared.configureBrands(brands: [.bmw])*/
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options : \(options)")
+        /*DriveKitVehicleManager.shared.getVehiclesOrderByNameAsc(type: .cache, completionHandler: {status, vehicles in
+            DispatchQueue.main.async {
+                DriveKitVehicleManager.shared.removeBeacon(vehicleId: vehicles[0].vehicleId ?? "", completionHandler: {status in
+                    print(status)
+                })
+            }
+        })*/
         return true
     }
     
@@ -178,6 +185,9 @@ extension String {
 }
 
 extension AppDelegate : DKColors {
+    func primaryColor() -> UIColor {
+        return UIColor.red
+    }
 }
 
 extension AppDelegate : DKFonts {

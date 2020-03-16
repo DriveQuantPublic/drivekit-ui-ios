@@ -14,7 +14,7 @@ public class BeaconViewModel {
     
     private let vehicle : DKVehicle?
     let scanType : BeaconScanType
-    var beacon : DKVehicleGetBeaconResponse? = nil
+    var beacon : DKBeacon? = nil
     var delegate : ScanStateDelegate? = nil
     
     var vehiclePaired : DKVehicle?
@@ -24,7 +24,7 @@ public class BeaconViewModel {
         self.scanType = scanType
     }
     
-    public init(scanType: BeaconScanType, beacon : DKVehicleGetBeaconResponse) {
+    public init(scanType: BeaconScanType, beacon : DKBeacon) {
         self.vehicle = nil
         self.scanType = scanType
         self.beacon = beacon
@@ -92,7 +92,7 @@ public class BeaconViewModel {
             completion(.invalidBeacon)
             return
         }
-        DriveKitVehicleManager.shared.addBeacon(vehicleId: vehicle.vehicleId ?? "", minor: beacon.minor, major: beacon.major, proximityUuid: beacon.proximityUuid, uniqueId: beacon.uniqueId, completionHandler: completion)
+        DriveKitVehicleManager.shared.addBeacon(vehicleId: vehicle.vehicleId ?? "", minor: beacon.minor, major: beacon.major, proximityUuid: beacon.proximityUuid, uniqueId: beacon.code, completionHandler: completion)
     }
 }
 

@@ -9,8 +9,9 @@
 import Foundation
 import DriveKitVehicle
 import CoreLocation
+import DriveKitDBVehicleAccess
 
-extension DKVehicleGetBeaconResponse {
+extension DKBeacon {
     func toCLBeaconRegion(noMajorMinor : Bool) -> CLBeaconRegion {
         var region = CLBeaconRegion(proximityUUID: UUID(uuidString: proximityUuid)!, identifier: "DKscannedBeacon")
         if major >= 0 && !noMajorMinor{

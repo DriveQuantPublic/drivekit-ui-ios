@@ -11,7 +11,7 @@ import DriveKitCommonUI
 
 public enum BeaconStep {
 
-    //case initial
+    case initial
     case scan
     case success
     case beaconNotFound
@@ -23,8 +23,8 @@ public enum BeaconStep {
 
     var title: String {
         switch self {
-       // case .initial:
-           // return "beacon_start_scan".dkVehicleLocalized()
+        case .initial:
+            return "beacon_start_scan".dkVehicleLocalized()
         case .scan:
             return "dk_vehicle_beacon_setup_scan_title".dkVehicleLocalized()
         case .success:
@@ -34,7 +34,7 @@ public enum BeaconStep {
         case .beaconAlreadyPaired:
             return "dk_vehicle_beacon_already_paired".dkVehicleLocalized()
         case .congrats:
-            return "dk_vehicle_beacon_setup_congrats".dkVehicleLocalized()
+            return "dk_vehicle_beacon_setup_successlink_message".dkVehicleLocalized()
         /*case .verify:
             return "beacon_verify_wrong_vehicle".dkVehicleLocalized()
         case .unknown:
@@ -68,8 +68,8 @@ public enum BeaconStep {
 
     var image: UIImage? {
         switch self {
-        //case .initial:
-           // return nil
+        case .initial:
+            return UIImage(named: "dk_beacon_start", in: .vehicleUIBundle, compatibleWith: nil)
         case .scan:
             return UIImage(named: "dk_beacon_scan_running", in: .vehicleUIBundle, compatibleWith: nil)
         case .success:
@@ -87,8 +87,8 @@ public enum BeaconStep {
     
     func viewController(viewModel: BeaconViewModel) -> UIViewController? {
         switch self {
-        //case .initial:
-           // return nil
+        case .initial:
+            return BeaconScannerInitVC(viewModel: viewModel)
         case .scan:
             return BeaconScannerProgressVC(viewModel: viewModel)
         case .success, .congrats:
@@ -103,6 +103,15 @@ public enum BeaconStep {
             return BeaconScannerAlreadyPairedVC(viewModel: viewModel)
         case .beaconUnavailable:
             return BeaconScannerBeaconUnavailableVC(viewModel: viewModel)
+        }
+    }
+    
+    func onImageClicked(viewModel: BeaconViewModel) {
+        switch self {
+        case .initial, .beaconNotFound:
+            viewModel.updateScanState(step: .scan)
+        default:
+            break
         }
     }
 }

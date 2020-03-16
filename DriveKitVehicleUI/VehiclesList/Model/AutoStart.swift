@@ -36,33 +36,33 @@ enum AutoStart {
             return "dk_detection_mode_disabled_title".dkVehicleLocalized()
         case .gps :
             return "dk_detection_mode_gps_title".dkVehicleLocalized()
-        case .beacon:
+        case .beacon, .beacon_disabled:
             return "dk_detection_mode_beacon_title".dkVehicleLocalized()
-        case .beacon_disabled:
-            return "dk_detection_mode_beacon_disabled_title".dkVehicleLocalized()
-        case .bluetooth:
+        case .bluetooth, .bluetooth_disabled:
             return "dk_detection_mode_bluetooth_title".dkVehicleLocalized()
-        case .bluetooth_disabled:
-            return "dk_detection_mode_bluetooth_disabled_title".dkVehicleLocalized()
         }
     }
     
-    func getDescription(vehicle: DKVehicle) -> String {
+    func getDescription(vehicle: DKVehicle) -> NSAttributedString {
         switch self {
         case .empty:
-            return ""
+            return "".dkAttributedString().build()
         case .disabled:
-            return "dk_detection_mode_disabled_desc".dkVehicleLocalized()
+            return "dk_detection_mode_disabled_desc".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
         case .gps :
-            return "dk_detection_mode_gps_desc".dkVehicleLocalized()
+            return "dk_detection_mode_gps_desc".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
         case .beacon:
-            return String(format: "dk_detection_mode_beacon_desc_configured".dkVehicleLocalized(), vehicle.beacon?.code ?? "")
+            let beaconCode = String(vehicle.beacon?.code ?? "").dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
+            let description = "dk_detection_mode_beacon_desc_configured".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).buildWithArgs(beaconCode)
+            return description
         case .beacon_disabled:
-            return "dk_detection_mode_beacon_desc_not_configured".dkVehicleLocalized()
+            return "dk_detection_mode_beacon_desc_not_configured".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.warningColor).build()
         case .bluetooth:
-            return String(format: "dk_detection_mode_bluetooth_desc_configured".dkVehicleLocalized(), vehicle.bluetooth?.name ?? "")
+            let bluetoothName = String(vehicle.bluetooth?.name ??  "").dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
+            let description = "dk_detection_mode_bluetooth_desc_configured".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).buildWithArgs(bluetoothName)
+            return description
         case .bluetooth_disabled:
-            return "dk_detection_mode_bluetooth_desc_not_configured".dkVehicleLocalized()
+            return "dk_detection_mode_bluetooth_desc_not_configured".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.warningColor).build()
         }
     }
     
@@ -80,7 +80,7 @@ enum AutoStart {
     var descriptionImage: UIImage? {
         switch self {
         case .beacon_disabled, .bluetooth_disabled:
-            return UIImage(named: "dk_warning", in: .vehicleUIBundle, compatibleWith: nil)
+            return DKImages.warning.image
         case .empty, .disabled, .gps, .bluetooth, .beacon:
             return nil
         }

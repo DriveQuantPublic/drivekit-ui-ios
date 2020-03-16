@@ -58,7 +58,7 @@ class VehiclesListCell: UITableViewCell {
             autoStartView.isHidden = true
         }
         autoStartSelection.attributedText = viewModel.autoStart.title.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
-        descriptionLabel.attributedText = viewModel.autoStart.getDescription(vehicle: self.viewModel.vehicle).dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+        descriptionLabel.attributedText = viewModel.autoStart.getDescription(vehicle: self.viewModel.vehicle)
         if let buttonText = viewModel.autoStart.buttonTitle {
             configureButton.isHidden = false
             let buttonTitle = buttonText.dkAttributedString().font(dkFont: .primary, style: .button).color(.secondaryColor).build()
@@ -70,6 +70,7 @@ class VehiclesListCell: UITableViewCell {
         if let descImage = viewModel.autoStart.descriptionImage {
             descriptionImageView.isHidden = false
             descriptionImage.image = descImage
+            descriptionImage.tintColor = DKUIColors.warningColor.color
         } else {
             descriptionImageView.isHidden = true
         }

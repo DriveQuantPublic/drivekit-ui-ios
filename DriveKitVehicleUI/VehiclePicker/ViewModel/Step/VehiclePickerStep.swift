@@ -40,7 +40,7 @@ enum VehiclePickerStep {
     func getTitle(viewModel: VehiclePickerViewModel) -> String {
         switch self {
         case.categoryDescription:
-            return viewModel.vehicleCategory?.title() ?? ""
+            return viewModel.vehicleCategory?.title().dkVehicleLocalized() ?? ""
         case .name:
             return "dk_vehicle_name".dkVehicleLocalized()
         default:

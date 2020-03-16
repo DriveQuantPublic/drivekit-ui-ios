@@ -12,7 +12,11 @@ import DriveKitVehicle
 
 extension DKVehicle {
     var defaultName: String {
-        return String(format: "%@ %@ %@", self.brand ?? "", self.model ?? "", self.version ?? "")
+        if self.liteConfig {
+            return getCategoryName()
+        } else {
+            return String(format: "%@ %@ %@", self.brand ?? "", self.model ?? "", self.version ?? "")
+        }
     }
     
     func getModel() -> String {
@@ -44,21 +48,21 @@ extension DKVehicle {
             if category.liteConfigDqIndex == self.dqIndex ?? "" {
                 switch category {
                 case .micro:
-                    categoryName = "dk_vehicle_category_car_micro_title".dkVehicleLocalized()
+                    categoryName = "dk_vehicle_category_car_micro_title"
                 case .compact:
-                    categoryName = "dk_vehicle_category_car_compact_title".dkVehicleLocalized()
+                    categoryName = "dk_vehicle_category_car_compact_title"
                 case .sedan:
-                    categoryName = "dk_vehicle_category_car_sedan_title".dkVehicleLocalized()
+                    categoryName = "dk_vehicle_category_car_sedan_title"
                 case .suv:
-                    categoryName = "dk_vehicle_category_car_suv_title".dkVehicleLocalized()
+                    categoryName = "dk_vehicle_category_car_suv_title"
                 case .minivan:
-                    categoryName = "dk_vehicle_category_car_minivan_title".dkVehicleLocalized()
+                    categoryName = "dk_vehicle_category_car_minivan_title"
                 case .commercial:
-                    categoryName = "dk_vehicle_category_car_commercial_title".dkVehicleLocalized()
+                    categoryName = "dk_vehicle_category_car_commercial_title"
                 case .luxury:
-                    categoryName = "dk_vehicle_category_car_luxury_title".dkVehicleLocalized()
+                    categoryName = "dk_vehicle_category_car_luxury_title"
                 case .sport:
-                    categoryName = "dk_vehicle_category_car_sport_title".dkVehicleLocalized()
+                    categoryName = "dk_vehicle_category_car_sport_title"
                 }
             }
         }

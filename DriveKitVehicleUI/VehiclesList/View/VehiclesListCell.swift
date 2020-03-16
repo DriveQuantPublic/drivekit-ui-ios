@@ -54,7 +54,7 @@ class VehiclesListCell: UITableViewCell {
         autoStartDelimiter.backgroundColor = DKUIColors.neutralColor.color
         autoStartSelectImage.image = DKImages.arrowDown.image
         autoStartSelectImage.tintColor = DKUIColors.complementaryFontColor.color
-        if DriveKitVehiculeUI.shared.detectionModes.count <= 1 {
+        if DriveKitVehicleUI.shared.detectionModes.count <= 1 {
             autoStartView.isHidden = true
         }
         autoStartSelection.attributedText = viewModel.autoStart.title.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
@@ -84,7 +84,7 @@ class VehiclesListCell: UITableViewCell {
     }
     
     @objc func autoStartAlert(_ sender: UITapGestureRecognizer) {
-        let detectionModes: [DKDetectionMode] = DriveKitVehiculeUI.shared.detectionModes
+        let detectionModes: [DKDetectionMode] = DriveKitVehicleUI.shared.detectionModes
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         for detectionMode in detectionModes {
             let action = detectionMode.alertAction(completionHandler: {  _ in
@@ -117,7 +117,7 @@ class VehiclesListCell: UITableViewCell {
     }
     
     func editVehicleAlert(){
-        let vehicleOptions: [VehicleOption] = viewModel.computeVehicleOptions()
+        let vehicleOptions: [VehicleAction] = viewModel.computeVehicleOptions()
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         for vehicleOption in vehicleOptions {

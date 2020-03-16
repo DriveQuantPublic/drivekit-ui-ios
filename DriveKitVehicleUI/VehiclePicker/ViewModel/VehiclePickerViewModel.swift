@@ -34,10 +34,10 @@ class VehiclePickerViewModel {
     
     init(coordinator : VehiclePickerCoordinator) {
         self.coordinator = coordinator
-        if DriveKitVehiculeUI.shared.vehicleTypes.count > 1 {
+        if DriveKitVehicleUI.shared.vehicleTypes.count > 1 {
             self.currentStep = .type
         } else {
-            self.vehicleType = DriveKitVehiculeUI.shared.vehicleTypes[0]
+            self.vehicleType = DriveKitVehicleUI.shared.vehicleTypes[0]
             self.currentStep = .category
         }
     }

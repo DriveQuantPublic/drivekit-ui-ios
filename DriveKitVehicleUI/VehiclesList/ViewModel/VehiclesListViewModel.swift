@@ -74,7 +74,7 @@ class VehiclesListViewModel {
     }
     
     func computeDetectionMode() -> DKDetectionMode {
-        let detectionModes = DriveKitVehiculeUI.shared.detectionModes
+        let detectionModes = DriveKitVehicleUI.shared.detectionModes
         if detectionModes.isEmpty {
             return .disabled
         } else if detectionModes.contains(.gps) {

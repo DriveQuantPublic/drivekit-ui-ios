@@ -8,6 +8,6 @@
 
 import Foundation
 
-public enum DKCategoryType {
+public enum DKCategoryConfigType {
     case liteConfigOnly, brandsConfigOnly, bothConfig
 }

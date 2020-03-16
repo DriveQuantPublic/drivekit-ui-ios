@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitUI.shared.initialize(colors: self, fonts: self, overridedStringsFileName: "Localizable")
         DriveKitDriverAchievementUI.shared.initialize()
         DriveKitDriverDataUI.shared.initialize()
-        DriveKitVehiculeUI.shared.initialize()
+        DriveKitVehicleUI.shared.initialize()
         /*DriveKitVehiculeUI.shared.configureVehicleType(types: [.car])
         DriveKitVehiculeUI.shared.configureCategoryType(type: .brandsConfigOnly)
         DriveKitVehiculeUI.shared.showBrandsWithIcons(show: false)

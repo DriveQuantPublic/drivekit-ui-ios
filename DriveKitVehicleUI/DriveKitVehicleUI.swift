@@ -11,22 +11,28 @@ import DriveKitCommonUI
 import DriveKitVehicle
 import DriveKitDBVehicleAccess
 
-public class DriveKitVehiculeUI {
+public class DriveKitVehicleUI {
     
-    public static let shared = DriveKitVehiculeUI()
+    public static let shared = DriveKitVehicleUI()
     
     var vehicleTypes : [DKVehicleType] = [.car]
     var brands : [DKVehicleBrand] = DKVehicleBrand.allCases
-    var categoryType : DKCategoryType = .bothConfig
+    var categoryConfigType : DKCategoryConfigType = .bothConfig
+    var vehicleEngineIndexes : [DKVehicleEngineIndex] = DKVehicleEngineIndex.allCases
     var brandsWithIcons : Bool = true
     
-    var enableAddVehicles: Bool = true
+    var canAddVehicle: Bool = true
+    var maxVehicles: Int? = nil
+    
+    var vehicleActions : [VehicleAction] = VehicleAction.allCases
+    
+    
     var enableReplaceVehicles : Bool = true
     var enableDeleteVehicles: Bool = true
     var enableRenameVehicles: Bool = true
     var displayVehicleDetails: Bool = true
     
-    var maxVehicles: Int = -1
+    
     var detectionModes: [DKDetectionMode] = [.disabled, .gps, .beacon, .bluetooth]
     
     private init() {}
@@ -35,30 +41,34 @@ public class DriveKitVehiculeUI {
         // TODO : register to navigation controller
     }
     
-    public func configureVehicleType(types: [DKVehicleType]){
-        if types.isEmpty {
-            fatalError("At least 1 VehicleType must be configured")
+    public func configureVehicleTypes(types: [DKVehicleType]){
+        if !types.isEmpty {
+            self.vehicleTypes = types
         }
-        self.vehicleTypes = types
     }
     
     public func configureBrands(brands : [DKVehicleBrand]) {
-        if brands.isEmpty {
-            fatalError("At least 1 brand must be configured")
+        if !brands.isEmpty {
+            self.brands = brands
         }
-        self.brands = brands
     }
     
-    public func configureCategoryType(type : DKCategoryType) {
-        self.categoryType = type
+    public func configureCategoryConfigType(type : DKCategoryConfigType) {
+        self.categoryConfigType = type
     }
     
+    public func configureEngineIndexes(engineIndexes: [DKVehicleEngineIndex]) {
+        if !engineIndexes.isEmpty {
+            self.vehicleEngineIndexes = engineIndexes
+        }
+    }
+
     public func showBrandsWithIcons(show : Bool) {
         self.brandsWithIcons = show
     }
     
-    public func enableAddVehicles(enable: Bool) {
-        self.enableAddVehicles = enable
+    public func enableAddVehicle(enable: Bool) {
+        self.canAddVehicle = enable
     }
     
     public func enableReplaceVehicles(enable: Bool) {
@@ -77,12 +87,14 @@ public class DriveKitVehiculeUI {
         self.displayVehicleDetails = enable
     }
     
-    public func setMaxVehicles(max: Int) {
+    public func configureMaxVehicles(max: Int?) {
         self.maxVehicles = max
     }
     
     public func configureDetectionModes(detectionModes: [DKDetectionMode]) {
-        self.detectionModes = detectionModes
+        if !detectionModes.isEmpty {
+            self.detectionModes = detectionModes
+        }
     }
 }
 

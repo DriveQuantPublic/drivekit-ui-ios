@@ -38,7 +38,7 @@ class VehiclePickerTextVC: VehiclePickerStepView {
             textConfirmButton.backgroundColor = DKUIColors.secondaryColor.color
             textContinueButton.setAttributedTitle("dk_vehicle_category_display_brands".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .button).color(.secondaryColor).build(), for: .normal)
             textContinueButton.titleLabel?.textAlignment = .center
-            if DriveKitVehiculeUI.shared.categoryType == .liteConfigOnly {
+            if DriveKitVehicleUI.shared.categoryConfigType == .liteConfigOnly {
                 textContinueButton.isHidden = true
             }
         } else {

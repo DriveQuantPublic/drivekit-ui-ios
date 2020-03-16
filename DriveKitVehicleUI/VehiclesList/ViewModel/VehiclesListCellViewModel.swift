@@ -109,22 +109,22 @@ class VehiclesListCellViewModel {
         }
     }
     
-    func computeVehicleOptions() -> [VehicleOption] {
-        var options : [VehicleOption] = []
+    func computeVehicleOptions() -> [VehicleAction] {
+        var options : [VehicleAction] = []
         
         if !vehicle.liteConfig {
             options.append(.show)
         }
         
-        if DriveKitVehiculeUI.shared.enableRenameVehicles {
+        if DriveKitVehicleUI.shared.enableRenameVehicles {
             options.append(.rename)
         }
         
-        if DriveKitVehiculeUI.shared.enableReplaceVehicles {
+        if DriveKitVehicleUI.shared.enableReplaceVehicles {
             options.append(.replace)
         }
         
-        if DriveKitVehiculeUI.shared.enableDeleteVehicles {
+        if DriveKitVehicleUI.shared.enableDeleteVehicles {
             options.append(.delete)
         }
         

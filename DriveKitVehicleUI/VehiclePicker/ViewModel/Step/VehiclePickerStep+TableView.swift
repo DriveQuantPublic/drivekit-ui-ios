@@ -14,12 +14,12 @@ extension VehiclePickerStep : VehiclePickerTableViewDelegate {
     func getTableViewItems(viewModel : VehiclePickerViewModel) -> [VehiclePickerTableViewItem] {
         switch self {
         case .type:
-            return DriveKitVehiculeUI.shared.vehicleTypes
+            return DriveKitVehicleUI.shared.vehicleTypes
         case .brandsFull:
             if let type = viewModel.vehicleType {
                 var brands : [VehiclePickerTableViewItem] = []
                 for brand in  DriveKitVehiclePicker.shared.getBrands(vehicleType: type) {
-                    if DriveKitVehiculeUI.shared.brands.contains(brand) {
+                    if DriveKitVehicleUI.shared.brands.contains(brand) {
                         brands.append(brand)
                     }
                 }
@@ -50,7 +50,7 @@ extension VehiclePickerStep : VehiclePickerTableViewDelegate {
     func onTableViewItemSelected(pos: Int, viewModel : VehiclePickerViewModel, completion : @escaping (StepStatus) -> ()) {
         switch self {
         case .type:
-            viewModel.vehicleType = DriveKitVehiculeUI.shared.vehicleTypes[pos]
+            viewModel.vehicleType = DriveKitVehicleUI.shared.vehicleTypes[pos]
             viewModel.updateCurrentStep(step: .category)
             completion(.noError)
             break

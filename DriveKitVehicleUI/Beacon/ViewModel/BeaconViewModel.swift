@@ -92,7 +92,7 @@ public class BeaconViewModel {
             completion(.invalidBeacon)
             return
         }
-        DriveKitVehicleManager.shared.addBeacon(vehicleId: vehicle.vehicleId ?? "", minor: beacon.minor, major: beacon.major, proximityUuid: beacon.proximityUuid, uniqueId: beacon.code, completionHandler: completion)
+        DriveKitVehicleManager.shared.addBeacon(vehicleId: vehicle.vehicleId, minor: beacon.minor, major: beacon.major, proximityUuid: beacon.proximityUuid, uniqueId: beacon.code, completionHandler: completion)
     }
 }
 

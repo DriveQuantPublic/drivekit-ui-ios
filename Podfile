@@ -17,12 +17,12 @@ end
 
 
 target 'DriveKitDriverDataUI' do
-  pod 'DriveKitDriverData', '1.4-beta2'
-  pod 'DriveKitTripAnalysis', '1.4-beta2'
+  pod 'DriveKitDriverData', '1.4-beta3'
+  pod 'DriveKitTripAnalysis', '1.4-beta3'
 end
 
 target 'DriveKitDriverAchievementUI' do
-  pod 'DriveKitDriverAchievement', '1.4-beta2'
+  pod 'DriveKitDriverAchievement', '1.4-beta3'
 end
 
 target 'DriveKitCommonUI' do
@@ -30,6 +30,6 @@ target 'DriveKitCommonUI' do
 end
 
 target 'DriveKitVehicleUI' do
-  pod 'DriveKitVehicle', '1.4-beta2'
-  pod 'DriveKitTripAnalysis', '1.4-beta2'
+  pod 'DriveKitVehicle', '1.4-beta3'
+  pod 'DriveKitTripAnalysis', '1.4-beta3'
 end

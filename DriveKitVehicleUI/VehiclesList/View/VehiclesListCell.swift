@@ -131,7 +131,7 @@ class VehiclesListCell: UITableViewCell {
                 }
             case .replace:
                 let replaceVehicle = vehicleOption.alertAction(completionHandler: {  _ in
-                    let coordinator = VehiclePickerCoordinator(parentView: self.viewModel.listView, detectionMode: self.viewModel.autoStart.detectionModeValue ?? .disabled, vehicle: self.viewModel.vehicle)
+                    _ = VehiclePickerCoordinator(parentView: self.viewModel.listView, detectionMode: self.viewModel.autoStart.detectionModeValue ?? .disabled, vehicle: self.viewModel.vehicle)
                 })
                 alert.addAction(replaceVehicle)
             case .show:
@@ -181,8 +181,8 @@ class VehiclesListCell: UITableViewCell {
     }
     
     func newBeacon() {
-        // TO DO Connect Beacon Scan
-        print("NEW BEACON")
+        let viewController = ConnectBeaconVC(vehicle: self.viewModel.vehicle, parentView: self.viewModel.listView)
+        self.viewModel.listView.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func bluetoothActionsAlert() {
@@ -199,7 +199,7 @@ class VehiclesListCell: UITableViewCell {
     }
     
     func newBluetooth(){
-        // TO DO Connect Bluetooth Pairing
-        print("NEW BLUETOOTH")
+        let viewController = ConnectBluetoothVC(vehicle: self.viewModel.vehicle, parentView: self.viewModel.listView)
+        self.viewModel.listView.navigationController?.pushViewController(viewController, animated: true)
     }
 }

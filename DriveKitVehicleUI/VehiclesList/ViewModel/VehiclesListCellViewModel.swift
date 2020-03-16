@@ -110,24 +110,12 @@ class VehiclesListCellViewModel {
     }
     
     func computeVehicleOptions() -> [VehicleAction] {
-        var options : [VehicleAction] = []
-        
-        if !vehicle.liteConfig {
-            options.append(.show)
+        var actions : [VehicleAction] = DriveKitVehicleUI.shared.vehicleActions
+        if vehicle.liteConfig {
+            if let index = actions.firstIndex(of: .show){
+                actions.remove(at: index)
+            }
         }
-        
-        if DriveKitVehicleUI.shared.enableRenameVehicles {
-            options.append(.rename)
-        }
-        
-        if DriveKitVehicleUI.shared.enableReplaceVehicles {
-            options.append(.replace)
-        }
-        
-        if DriveKitVehicleUI.shared.enableDeleteVehicles {
-            options.append(.delete)
-        }
-        
-        return options
+        return actions
     }
 }

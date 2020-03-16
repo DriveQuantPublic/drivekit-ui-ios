@@ -31,10 +31,6 @@ class VehiclesListViewModel {
         })
     }
     
-    func getDetectionMode(vehicle: DKVehicle) -> DKDetectionMode {
-        return vehicle.detectionMode ?? .disabled
-    }
-    
     func renameVehicle(vehicle: DKVehicle, name: String) {
             DriveKitVehicleManager.shared.renameVehicle(name: name, vehicleId: vehicle.vehicleId, completionHandler: { status in
                 if status == .success {

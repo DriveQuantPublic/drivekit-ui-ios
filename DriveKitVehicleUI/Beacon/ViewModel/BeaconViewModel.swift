@@ -13,18 +13,18 @@ import DriveKitVehicle
 public class BeaconViewModel {
     
     private let vehicle : DKVehicle?
-    let scanType : BeaconScanType
+    let scanType : DKBeaconScanType
     var beacon : DKBeacon? = nil
     var delegate : ScanStateDelegate? = nil
     
     var vehiclePaired : DKVehicle?
     
-    public init(vehicle: DKVehicle, scanType: BeaconScanType) {
+    public init(vehicle: DKVehicle, scanType: DKBeaconScanType) {
         self.vehicle = vehicle
         self.scanType = scanType
     }
     
-    public init(scanType: BeaconScanType, beacon : DKBeacon) {
+    public init(scanType: DKBeaconScanType, beacon : DKBeacon) {
         self.vehicle = nil
         self.scanType = scanType
         self.beacon = beacon
@@ -104,6 +104,6 @@ protocol ScanStateDelegate {
     func shouldHideLoader()
 }
 
-public enum BeaconScanType {
+public enum DKBeaconScanType {
     case pairing, diagnostic, verify
 }

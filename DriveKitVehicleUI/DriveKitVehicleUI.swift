@@ -26,13 +26,6 @@ public class DriveKitVehicleUI {
     
     var vehicleActions : [VehicleAction] = VehicleAction.allCases
     
-    
-    var enableReplaceVehicles : Bool = true
-    var enableDeleteVehicles: Bool = true
-    var enableRenameVehicles: Bool = true
-    var displayVehicleDetails: Bool = true
-    
-    
     var detectionModes: [DKDetectionMode] = [.disabled, .gps, .beacon, .bluetooth]
     
     private init() {}
@@ -71,22 +64,6 @@ public class DriveKitVehicleUI {
         self.canAddVehicle = enable
     }
     
-    public func enableReplaceVehicles(enable: Bool) {
-        self.enableReplaceVehicles = enable
-    }
-    
-    public func enableDeleteVehicles(enable: Bool) {
-        self.enableDeleteVehicles = enable
-    }
-    
-    public func enableRenameVehicles(enable: Bool) {
-        self.enableRenameVehicles = enable
-    }
-    
-    public func displayVehicleDetails(enable: Bool) {
-        self.displayVehicleDetails = enable
-    }
-    
     public func configureMaxVehicles(max: Int?) {
         self.maxVehicles = max
     }
@@ -95,6 +72,10 @@ public class DriveKitVehicleUI {
         if !detectionModes.isEmpty {
             self.detectionModes = detectionModes
         }
+    }
+    
+    public func configureVehicleActions(vehicleActions : [VehicleAction]) {
+        self.vehicleActions = vehicleActions
     }
 }
 

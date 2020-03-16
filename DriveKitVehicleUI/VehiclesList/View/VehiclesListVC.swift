@@ -40,9 +40,13 @@ public class VehiclesListVC: DKUIViewController {
     }
     
     func configure() {
-        addVehicleButton.backgroundColor = DKUIColors.secondaryColor.color
-        let addTitle = "dk_vehicle_add".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).build()
-        addVehicleButton.setAttributedTitle(addTitle, for: .normal)
+        if DriveKitVehicleUI.shared.canAddVehicle {
+            addVehicleButton.backgroundColor = DKUIColors.secondaryColor.color
+            let addTitle = "dk_vehicle_add".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).build()
+            addVehicleButton.setAttributedTitle(addTitle, for: .normal)
+        } else{
+            addVehicleButton.isHidden = true
+        }
     }
     
     public override func viewDidDisappear(_ animated: Bool) {
@@ -110,7 +114,11 @@ public class VehiclesListVC: DKUIViewController {
     }
     
     @IBAction func goToVehiclePicker(_ sender: Any) {
-        let vehiclePicker = VehiclePickerCoordinator(parentView: self, detectionMode: self.viewModel.computeDetectionMode())
+        if let maxVehicles = DriveKitVehicleUI.shared.maxVehicles, maxVehicles <= self.viewModel.vehicles.count {
+            self.showAlertMessage(title: "", message: "Too many vehicle", back: false, cancel: false)
+        }else{
+            _ = VehiclePickerCoordinator(parentView: self, detectionMode: self.viewModel.computeDetectionMode())
+        }
     }
     
     @objc func refreshVehiclesList(_ sender: Any) {
@@ -148,6 +156,11 @@ extension VehiclesListVC: VehiclesListDelegate {
     func onVehiclesAvailable() {
         DispatchQueue.main.async {
             self.hideLoader()
+            if let maxVehicle = DriveKitVehicleUI.shared.maxVehicles, self.viewModel.vehicles.count >= maxVehicle {
+                self.addVehicleButton.isHidden = true
+            }else{
+                self.addVehicleButton.isHidden = false
+            }
             if self.refreshControl.isRefreshing {
                 self.refreshControl.endRefreshing()
             }

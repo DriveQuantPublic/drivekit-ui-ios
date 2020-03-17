@@ -36,7 +36,6 @@ class BeaconInputIdVC: DKUIViewController {
     
     private func configureView() {
         titleLabel.attributedText = "dk_vehicle_beacon_setup_code_title".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.mainFontColor).build()
-        button.isEnabled = false
         button.backgroundColor = DKUIColors.secondaryColor.color
         button.setAttributedTitle(DKCommonLocalizable.validate.text().dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).uppercased().build(), for: .normal)
     }
@@ -92,11 +91,7 @@ extension BeaconInputIdVC : UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if let text = textField.text, !text.isEmpty {
-            button.isEnabled = true
-        }else{
-            button.isEnabled = false
-        }
+        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -41,7 +41,7 @@ public class BeaconScannerVC : DKUIViewController {
     
     private func updateStep(step: BeaconStep) {
         self.step = step
-        descriptionLabel.attributedText = step.title.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        descriptionLabel.attributedText = step.title(viewModel: viewModel)
         UIView.transition(with: self.imageView, duration: 0.4, options: .transitionFlipFromTop, animations: { self.imageView.image = step.image })
         view.gestureRecognizers?.removeAll()
         bottomStackView.removeAllSubviews()

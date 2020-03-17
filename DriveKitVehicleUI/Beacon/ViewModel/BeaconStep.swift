@@ -18,29 +18,35 @@ public enum BeaconStep {
     case beaconAlreadyPaired
     case congrats
     case beaconUnavailable
-    //case verify
-    //case unknown
+    case verified
+    case wrongBeacon
 
-    var title: String {
+    func title(viewModel: BeaconViewModel) -> NSAttributedString {
+        var beaconCode = NSMutableAttributedString(string: "")
+        if let beaconId = viewModel.beacon?.code {
+            beaconCode = beaconId.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
+        }
+        let vehicleName = viewModel.vehicleName.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
+        
         switch self {
         case .initial:
-            return "beacon_start_scan".dkVehicleLocalized()
+            return "dk_vehicle_beacon_start_scan".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         case .scan:
-            return "dk_vehicle_beacon_setup_scan_title".dkVehicleLocalized()
+            return "dk_vehicle_beacon_setup_scan_title".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         case .success:
-            return "dk_vehicle_beacon_setup_code_success_message".dkVehicleLocalized()
+            return "dk_vehicle_beacon_setup_code_success_message".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         case .beaconNotFound:
-            return "dk_vehicle_beacon_setup_code_not_matched".dkVehicleLocalized()
+            return "dk_vehicle_beacon_setup_code_not_matched".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).buildWithArgs(beaconCode)
         case .beaconAlreadyPaired:
-            return "dk_vehicle_beacon_already_paired".dkVehicleLocalized()
+            return "dk_vehicle_beacon_already_paired".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         case .congrats:
-            return "dk_vehicle_beacon_setup_successlink_message".dkVehicleLocalized()
-        /*case .verify:
-            return "beacon_verify_wrong_vehicle".dkVehicleLocalized()
-        case .unknown:
-            return "beacon_scan_wrong_beacon".dkVehicleLocalized()*/
+            return "dk_vehicle_beacon_setup_successlink_message".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).buildWithArgs(beaconCode, vehicleName)
+        case .verified:
+                return "dk_vehicle_beacon_setup_code_success_message".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        case .wrongBeacon:
+                return "dk_vehicle_beacon_verify_wrong_vehicle".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         case .beaconUnavailable:
-            return "dk_vehicle_beacon_setup_code_unavailable_id".dkVehicleLocalized()
+            return "dk_vehicle_beacon_setup_code_unavailable_id".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).buildWithArgs(beaconCode)
         }
     }
     
@@ -78,27 +84,27 @@ public enum BeaconStep {
             return UIImage(named: "dk_beacon_not_found", in: .vehicleUIBundle, compatibleWith: nil)
         case .congrats:
             return UIImage(named: "dk_vehicle_congrats", in: .vehicleUIBundle, compatibleWith: nil)
-        /*case .verify:
-            return nil
-        case .unknown:
-            return nil*/
+        case .verified:
+                return UIImage(named: "dk_beacon_ok", in: .vehicleUIBundle, compatibleWith: nil)
+        case .wrongBeacon:
+                return UIImage(named: "dk_beacon_not_found", in: .vehicleUIBundle, compatibleWith: nil)
         }
     }
     
     func viewController(viewModel: BeaconViewModel) -> UIViewController? {
         switch self {
         case .initial:
-            return BeaconScannerInitVC(viewModel: viewModel)
+            return nil
         case .scan:
             return BeaconScannerProgressVC(viewModel: viewModel)
         case .success, .congrats:
             return BeaconScannerSuccessVC(viewModel: viewModel, step: self)
         case .beaconNotFound:
             return BeaconScanFailureVC(viewModel: viewModel)
-        /*case .verify:
-            return nil
-        case .unknown:
-            return nil*/
+        case .verified:
+            return BeaconScannerInfoVC(viewModel: viewModel, valid : true)
+        case .wrongBeacon:
+            return BeaconScannerInfoVC(viewModel: viewModel, valid : false)
         case .beaconAlreadyPaired:
             return BeaconScannerAlreadyPairedVC(viewModel: viewModel)
         case .beaconUnavailable:

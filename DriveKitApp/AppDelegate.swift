@@ -186,9 +186,6 @@ extension String {
 }
 
 extension AppDelegate : DKColors {
-    func primaryColor() -> UIColor {
-        return UIColor.red
-    }
 }
 
 extension AppDelegate : DKFonts {

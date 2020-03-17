@@ -9,6 +9,7 @@
 import Foundation
 import DriveKitDBVehicleAccess
 import DriveKitVehicle
+import CoreLocation
 
 public class BeaconViewModel {
     
@@ -18,6 +19,8 @@ public class BeaconViewModel {
     var delegate : ScanStateDelegate? = nil
     
     var vehiclePaired : DKVehicle?
+    var beaconBattery : Int? = nil
+    var clBeacon : CLBeacon? = nil
     
     public init(vehicle: DKVehicle, scanType: DKBeaconScanType) {
         self.vehicle = vehicle
@@ -28,6 +31,24 @@ public class BeaconViewModel {
         self.vehicle = nil
         self.scanType = scanType
         self.beacon = beacon
+    }
+    
+    public init(vehicle: DKVehicle, scanType: DKBeaconScanType, beacon : DKBeacon) {
+        self.vehicle = vehicle
+        self.scanType = scanType
+        self.beacon = beacon
+    }
+    
+    var vehicleName : String {
+        return vehicle?.displayName ?? ""
+    }
+    
+    func isBeaconValid() -> Bool {
+        if let beacon = self.beacon, let clBeacon = self.clBeacon {
+            return beacon.proximityUuid.uppercased() == clBeacon.proximityUUID.uuidString.uppercased() && beacon.major == Int(truncating: clBeacon.major) && beacon.minor == Int(truncating: clBeacon.minor)
+        }else{
+            return false
+        }
     }
     
     func checkCode(code: String, completion: @escaping (DKVehicleBeaconStatus) -> ()) {

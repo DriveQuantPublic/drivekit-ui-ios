@@ -157,8 +157,11 @@ class VehiclesListCell: UITableViewCell {
     func beaconActionsAlert() {
         let alert = UIAlertController(title: "beacon_chooser_title".dkVehicleLocalized(), message: nil, preferredStyle: .actionSheet)
         let checkAction = UIAlertAction(title: "verify".dkVehicleLocalized(), style: .default , handler: {  _ in
-            // TO DO Connect BeaconScan
-            print("CHECK BEACON")
+            if let beacon = self.viewModel.vehicle.beacon {
+                let beaconViewModel = BeaconViewModel(vehicle: self.viewModel.vehicle ,scanType: .verify, beacon: beacon)
+                let beaconScannerVC = BeaconScannerVC(viewModel: beaconViewModel, step: .initial, parentView: self.viewModel.listView)
+                self.viewModel.listView.navigationController?.pushViewController(beaconScannerVC, animated: true)
+            }
         })
         alert.addAction(checkAction)
 

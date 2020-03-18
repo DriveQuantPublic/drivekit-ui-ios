@@ -22,6 +22,7 @@ class BeaconInputIdVC: DKUIViewController {
         self.viewModel = viewModel
         self.parentView = parentView
         super.init(nibName: "BeaconInputIdVC", bundle: .vehicleUIBundle)
+        self.title = "dk_beacon_paired_title".dkVehicleLocalized()
     }
     
     required init?(coder: NSCoder) {

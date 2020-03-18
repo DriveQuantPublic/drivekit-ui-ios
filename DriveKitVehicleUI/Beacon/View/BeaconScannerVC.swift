@@ -37,6 +37,12 @@ public class BeaconScannerVC : DKUIViewController {
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(tapDetected))
         imageView.isUserInteractionEnabled = true
         imageView.addGestureRecognizer(singleTap)
+        switch self.viewModel.scanType {
+        case .pairing:
+            self.title = "dk_beacon_paired_title".dkVehicleLocalized()
+        case .diagnostic,.verify:
+            self.title = "dk_beacon_diagnostic_title".dkVehicleLocalized()
+        }
     }
     
     private func updateStep(step: BeaconStep) {

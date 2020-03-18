@@ -35,6 +35,7 @@ public class ConnectBeaconVC: DKUIViewController {
         self.viewModel = BeaconViewModel(vehicle: vehicle, scanType: .pairing)
         self.parentView = parentView
         super.init(nibName: "ConnectBeaconVC", bundle: .vehicleUIBundle)
+        self.title = "dk_beacon_paired_title".dkVehicleLocalized()
     }
     
     required init?(coder: NSCoder) {

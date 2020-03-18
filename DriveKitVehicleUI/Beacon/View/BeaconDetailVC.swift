@@ -29,6 +29,7 @@ class BeaconDetailVC: DKUIViewController {
         self.tableView.register(UINib(nibName: "BeaconDetailTableViewCell", bundle: Bundle.vehicleUIBundle), forCellReuseIdentifier: "BeaconDetailTableViewCell")
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        self.title = "dk_beacon_diagnostic_title".dkVehicleLocalized()
     }
 }
 

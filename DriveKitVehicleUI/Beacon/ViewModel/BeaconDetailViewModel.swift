@@ -19,7 +19,7 @@ class BeaconDetailViewModel {
         if let vehicleName = vehicle?.displayName.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build() {
             data.append(["dk_beacon_vehicule_linked": vehicleName])
         }else{
-            data.append(["dk_beacon_vehicule_linked": "dk_beacon_vehicle_unknown".dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()])
+            data.append(["dk_beacon_vehicule_linked": "dk_beacon_vehicle_unknown".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()])
         }
         let idx = beacon.proximityUUID.uuidString.index(beacon.proximityUUID.uuidString.startIndex, offsetBy: 7)
         let uuid = String(beacon.proximityUUID.uuidString.lowercased()[...idx]) + "..."

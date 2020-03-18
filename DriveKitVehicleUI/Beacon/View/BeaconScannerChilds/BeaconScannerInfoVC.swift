@@ -9,6 +9,7 @@
 import UIKit
 import DriveKitCommonUI
 import CoreLocation
+import DriveKitDBVehicleAccess
 
 class BeaconScannerInfoVC: UIViewController {
 
@@ -83,7 +84,11 @@ class BeaconScannerInfoVC: UIViewController {
             if let batteryLevel = self.viewModel.beaconBattery {
                 battery = "\(batteryLevel) %"
             }
-            let beaconDetailViewModel = BeaconDetailViewModel(vehicle: self.viewModel.vehicle, beacon: beacon, batteryLevel: battery)
+            var vehicle : DKVehicle? = nil
+            if valid {
+                vehicle = self.viewModel.vehicle
+            }
+            let beaconDetailViewModel = BeaconDetailViewModel(vehicle: vehicle, beacon: beacon, batteryLevel: battery)
             self.navigationController?.pushViewController(BeaconDetailVC(viewModel: beaconDetailViewModel), animated: true)
         }
         

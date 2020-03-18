@@ -69,6 +69,24 @@ class BeaconScannerInfoVC: UIViewController {
             batteryContainerView.embedSubview(batteryIndicatorView)
             batteryIndicatorView.configure(title: "\(level) %", image: batteryImage(level: level))
         }
+        
+        infoImageView.image = DKImages.info.image
+        infoImageView.tintColor = DKUIColors.secondaryColor.color
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(showBeaconDetail))
+        infoImageView.isUserInteractionEnabled = true
+        infoImageView.addGestureRecognizer(singleTap)
+    }
+    
+    @objc private func showBeaconDetail() {
+        if let beacon = self.viewModel.clBeacon {
+            var battery = "--"
+            if let batteryLevel = self.viewModel.beaconBattery {
+                battery = "\(batteryLevel) %"
+            }
+            let beaconDetailViewModel = BeaconDetailViewModel(vehicle: self.viewModel.vehicle, beacon: beacon, batteryLevel: battery)
+            self.navigationController?.pushViewController(BeaconDetailVC(viewModel: beaconDetailViewModel), animated: true)
+        }
+        
     }
     
     private func batteryImage(level: Int) -> UIImage? {

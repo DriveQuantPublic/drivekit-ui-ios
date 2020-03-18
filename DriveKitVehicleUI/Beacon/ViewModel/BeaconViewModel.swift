@@ -13,7 +13,7 @@ import CoreLocation
 
 public class BeaconViewModel {
     
-    private let vehicle : DKVehicle?
+    var vehicle : DKVehicle?
     let scanType : DKBeaconScanType
     var beacon : DKBeacon? = nil
     var delegate : ScanStateDelegate? = nil
@@ -21,16 +21,23 @@ public class BeaconViewModel {
     var vehiclePaired : DKVehicle?
     var beaconBattery : Int? = nil
     var clBeacon : CLBeacon? = nil
+    var vehicles: [DKVehicle] = []
     
     public init(vehicle: DKVehicle, scanType: DKBeaconScanType) {
         self.vehicle = vehicle
         self.scanType = scanType
     }
+
+    public init(scanType : DKBeaconScanType){
+        self.scanType = scanType
+        self.vehicle = nil
+    }
     
-    public init(scanType: DKBeaconScanType, beacon : DKBeacon) {
+    public init(scanType: DKBeaconScanType, beacon : DKBeacon, vehicles: [DKVehicle]) {
         self.vehicle = nil
         self.scanType = scanType
         self.beacon = beacon
+        self.vehicles = vehicles
     }
     
     public init(vehicle: DKVehicle, scanType: DKBeaconScanType, beacon : DKBeacon) {
@@ -45,10 +52,24 @@ public class BeaconViewModel {
     
     func isBeaconValid() -> Bool {
         if let beacon = self.beacon, let clBeacon = self.clBeacon {
-            return beacon.proximityUuid.uppercased() == clBeacon.proximityUUID.uuidString.uppercased() && beacon.major == Int(truncating: clBeacon.major) && beacon.minor == Int(truncating: clBeacon.minor)
+            return isBeaconValid(beacon: beacon, clBeacon: clBeacon)
         }else{
             return false
         }
+    }
+    
+    private func isBeaconValid(beacon: DKBeacon, clBeacon: CLBeacon) -> Bool {
+        return beacon.proximityUuid.uppercased() == clBeacon.proximityUUID.uuidString.uppercased() && beacon.major == Int(truncating: clBeacon.major) && beacon.minor == Int(truncating: clBeacon.minor)
+    }
+    
+    func vehicleFromBeacon() -> DKVehicle? {
+        var vehicle: DKVehicle? = nil
+        for veh in vehicles {
+            if let beacon = veh.beacon, let clBeacon = self.clBeacon, isBeaconValid(beacon: beacon, clBeacon: clBeacon) {
+                vehicle = veh
+            }
+        }
+        return vehicle
     }
     
     func checkCode(code: String, completion: @escaping (DKVehicleBeaconStatus) -> ()) {

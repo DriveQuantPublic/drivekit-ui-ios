@@ -20,6 +20,7 @@ public enum BeaconStep {
     case beaconUnavailable
     case verified
     case wrongBeacon
+    case beaconNotConfigured
 
     func title(viewModel: BeaconViewModel) -> NSAttributedString {
         var beaconCode = NSMutableAttributedString(string: "")
@@ -47,6 +48,8 @@ public enum BeaconStep {
                 return "dk_vehicle_beacon_verify_wrong_vehicle".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         case .beaconUnavailable:
             return "dk_vehicle_beacon_setup_code_unavailable_id".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).buildWithArgs(beaconCode)
+        case .beaconNotConfigured:
+            return "dk_vehicle_beacon_diagnostic_alert".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         }
     }
     
@@ -80,7 +83,7 @@ public enum BeaconStep {
             return UIImage(named: "dk_beacon_scan_running", in: .vehicleUIBundle, compatibleWith: nil)
         case .success:
             return UIImage(named: "dk_beacon_ok", in: .vehicleUIBundle, compatibleWith: nil)
-        case .beaconNotFound, .beaconAlreadyPaired, .beaconUnavailable:
+        case .beaconNotFound, .beaconAlreadyPaired, .beaconUnavailable, .beaconNotConfigured:
             return UIImage(named: "dk_beacon_not_found", in: .vehicleUIBundle, compatibleWith: nil)
         case .congrats:
             return UIImage(named: "dk_vehicle_congrats", in: .vehicleUIBundle, compatibleWith: nil)
@@ -109,6 +112,8 @@ public enum BeaconStep {
             return BeaconScannerAlreadyPairedVC(viewModel: viewModel)
         case .beaconUnavailable:
             return BeaconScannerBeaconUnavailableVC(viewModel: viewModel)
+        case .beaconNotConfigured:
+            return BeaconScannerNotConfiguredVC(viewModel: viewModel)
         }
     }
     

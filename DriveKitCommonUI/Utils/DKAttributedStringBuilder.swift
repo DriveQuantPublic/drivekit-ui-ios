@@ -58,6 +58,10 @@ public class DKAttributedStringBuilder {
         }
         return attributedString
     }
+    
+    public func primaryFontNormalTextMainFontColor() -> NSMutableAttributedString {
+        return self.font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+    }
 }
 
 public extension String {

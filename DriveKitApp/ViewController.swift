@@ -84,7 +84,7 @@ class ViewController: UITableViewController {
         }else if indexPath.row == 4 && indexPath.section == 0 {
             self.configureVehiclePicker()
         }else if indexPath.row == 5 && indexPath.section == 0 {
-            self.configureBluetoothPairing()
+            self.configureBeaconPairing()
         } else if indexPath.row == 6 && indexPath.section == 0 {
             self.configureVehiclesList()
         }
@@ -188,16 +188,28 @@ class ViewController: UITableViewController {
         }
     }
     
-    func configureBluetoothPairing() {
-        /*DriveKitVehicleManager.shared.getVehiclesOrderByNameAsc(completionHandler: {status, vehicles in
+    func configureBeaconPairing() {
+        DriveKitVehicleManager.shared.getVehiclesOrderByNameAsc(type: .cache, completionHandler: {status, vehicles in
             DispatchQueue.main.async {
-                self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-                self.navigationController?.pushViewController(ConnectBeaconVC(vehicle: vehicles[0], parentView: self), animated: true)
+                var uuid : String? = nil
+                for vehicle in vehicles {
+                    if let beacon = vehicle.beacon {
+                        uuid = beacon.proximityUuid
+                        break
+                    }
+                }
+                if let proxUuid = uuid {
+                    let beacon = DKBeacon(code: nil, proximityUuid: proxUuid, major: -1, minor: -1)
+                    let viewModel = BeaconViewModel(scanType: .diagnostic, beacon: beacon, vehicles: vehicles)
+                    self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+                    self.navigationController?.pushViewController(BeaconScannerVC(viewModel: viewModel, step: .initial, parentView: self), animated: true)
+                } else {
+                    let viewModel = BeaconViewModel(scanType: .diagnostic)
+                    self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+                    self.navigationController?.pushViewController(BeaconScannerVC(viewModel: viewModel, step: .beaconNotConfigured, parentView: self), animated: true)
+                }
             }
-        })*/
-        let viewModel = BeaconViewModel(scanType: .diagnostic, beacon: DKBeacon(code: "FsZq", proximityUuid: "699EBC80-E1F3-11E3-9A0F-0CF3EE3BC012", major: 0, minor: 136))
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        //self.navigationController?.pushViewController(BeaconScannerVC(vehicle: vehicles[0], parentView: self), animated: true)
+        })
         
     }
     

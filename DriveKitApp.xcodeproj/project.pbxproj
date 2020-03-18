@@ -45,6 +45,13 @@
 		3FE6A4432420BEC300E24C1C /* BeaconScannerInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE6A4412420BEC300E24C1C /* BeaconScannerInfoVC.xib */; };
 		3FE6A4462420C72800E24C1C /* PicturedIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6A4442420C72800E24C1C /* PicturedIndicatorView.swift */; };
 		3FE6A4472420C72800E24C1C /* PicturedIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE6A4452420C72800E24C1C /* PicturedIndicatorView.xib */; };
+		3FE6A44A242122C600E24C1C /* BeaconScannerNotConfiguredVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6A448242122C600E24C1C /* BeaconScannerNotConfiguredVC.swift */; };
+		3FE6A44B242122C600E24C1C /* BeaconScannerNotConfiguredVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE6A449242122C600E24C1C /* BeaconScannerNotConfiguredVC.xib */; };
+		3FE6A44E242136D900E24C1C /* BeaconDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6A44C242136D900E24C1C /* BeaconDetailVC.swift */; };
+		3FE6A44F242136D900E24C1C /* BeaconDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE6A44D242136D900E24C1C /* BeaconDetailVC.xib */; };
+		3FE6A45324213ABE00E24C1C /* BeaconDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6A45124213ABE00E24C1C /* BeaconDetailTableViewCell.swift */; };
+		3FE6A45424213ABE00E24C1C /* BeaconDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE6A45224213ABE00E24C1C /* BeaconDetailTableViewCell.xib */; };
+		3FE6A45624213EC600E24C1C /* BeaconDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6A45524213EC600E24C1C /* BeaconDetailViewModel.swift */; };
 		3FF68E642407F56F0071D74C /* CommonLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FF68E662407F56F0071D74C /* CommonLocalizable.strings */; };
 		3FF68E6C2407F8110071D74C /* DriveKitDriverAchievementUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68E6B2407F8110071D74C /* DriveKitDriverAchievementUI.swift */; };
 		3FF68E6E24081A5A0071D74C /* DKStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68E6D24081A5A0071D74C /* DKStyles.swift */; };
@@ -335,6 +342,13 @@
 		3FE6A4412420BEC300E24C1C /* BeaconScannerInfoVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeaconScannerInfoVC.xib; sourceTree = "<group>"; };
 		3FE6A4442420C72800E24C1C /* PicturedIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicturedIndicatorView.swift; sourceTree = "<group>"; };
 		3FE6A4452420C72800E24C1C /* PicturedIndicatorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PicturedIndicatorView.xib; sourceTree = "<group>"; };
+		3FE6A448242122C600E24C1C /* BeaconScannerNotConfiguredVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconScannerNotConfiguredVC.swift; sourceTree = "<group>"; };
+		3FE6A449242122C600E24C1C /* BeaconScannerNotConfiguredVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BeaconScannerNotConfiguredVC.xib; sourceTree = "<group>"; };
+		3FE6A44C242136D900E24C1C /* BeaconDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconDetailVC.swift; sourceTree = "<group>"; };
+		3FE6A44D242136D900E24C1C /* BeaconDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeaconDetailVC.xib; sourceTree = "<group>"; };
+		3FE6A45124213ABE00E24C1C /* BeaconDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconDetailTableViewCell.swift; sourceTree = "<group>"; };
+		3FE6A45224213ABE00E24C1C /* BeaconDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeaconDetailTableViewCell.xib; sourceTree = "<group>"; };
+		3FE6A45524213EC600E24C1C /* BeaconDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconDetailViewModel.swift; sourceTree = "<group>"; };
 		3FF68E652407F56F0071D74C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CommonLocalizable.strings; sourceTree = "<group>"; };
 		3FF68E672407F5710071D74C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/CommonLocalizable.strings; sourceTree = "<group>"; };
 		3FF68E682407F5710071D74C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/CommonLocalizable.strings; sourceTree = "<group>"; };
@@ -706,6 +720,15 @@
 			path = VehicleDetail;
 			sourceTree = "<group>";
 		};
+		3FE6A45024213A8400E24C1C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				3FE6A45124213ABE00E24C1C /* BeaconDetailTableViewCell.swift */,
+				3FE6A45224213ABE00E24C1C /* BeaconDetailTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		3FF68E7724083F000071D74C /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -915,6 +938,7 @@
 		3FFB2D652417E26D003E6A06 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3FE6A45024213A8400E24C1C /* Cell */,
 				3FFB2D792418FF6D003E6A06 /* BeaconScannerChilds */,
 				3FFB2D662417E2C9003E6A06 /* ConnectBeaconVC.swift */,
 				3FFB2D672417E2C9003E6A06 /* ConnectBeaconVC.xib */,
@@ -922,6 +946,8 @@
 				3FFB2D6E2417E55A003E6A06 /* BeaconInputIdVC.xib */,
 				3FFB2D732418F719003E6A06 /* BeaconScannerVC.swift */,
 				3FFB2D742418F719003E6A06 /* BeaconScannerVC.xib */,
+				3FE6A44C242136D900E24C1C /* BeaconDetailVC.swift */,
+				3FE6A44D242136D900E24C1C /* BeaconDetailVC.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -931,6 +957,7 @@
 			children = (
 				3FFB2D6B2417E45D003E6A06 /* BeaconViewModel.swift */,
 				3FFB2D772418F937003E6A06 /* BeaconStep.swift */,
+				3FE6A45524213EC600E24C1C /* BeaconDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -952,6 +979,8 @@
 				3FFB2D9024194909003E6A06 /* BeaconScanFailureVC.xib */,
 				3FE6A4402420BEC300E24C1C /* BeaconScannerInfoVC.swift */,
 				3FE6A4412420BEC300E24C1C /* BeaconScannerInfoVC.xib */,
+				3FE6A448242122C600E24C1C /* BeaconScannerNotConfiguredVC.swift */,
+				3FE6A449242122C600E24C1C /* BeaconScannerNotConfiguredVC.xib */,
 			);
 			path = BeaconScannerChilds;
 			sourceTree = "<group>";
@@ -1460,6 +1489,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FE6A44F242136D900E24C1C /* BeaconDetailVC.xib in Resources */,
 				3FF68F2E241532EB0071D74C /* VehiclePickerCollectionViewVC.xib in Resources */,
 				3FF68F272415198D0071D74C /* VehiclePickerTableViewCell.xib in Resources */,
 				3FF68F052414FD870071D74C /* DKVehicleLocalizable.strings in Resources */,
@@ -1471,12 +1501,14 @@
 				3FFB2D702417E55A003E6A06 /* BeaconInputIdVC.xib in Resources */,
 				3FFB2D8824193778003E6A06 /* BeaconScannerAlreadyPairedVC.xib in Resources */,
 				3FFB2D9224194909003E6A06 /* BeaconScanFailureVC.xib in Resources */,
+				3FE6A45424213ABE00E24C1C /* BeaconDetailTableViewCell.xib in Resources */,
 				3FF68F1A24150D040071D74C /* VehiclePickerTableViewVC.xib in Resources */,
 				3FF68F49241642D50071D74C /* VehiclePickerTextVC.xib in Resources */,
 				3F50D70024179467001226F7 /* SelectBluetoothVC.xib in Resources */,
 				3FF68F3B241535130071D74C /* VehiclePickerLabelCollectionViewCell.xib in Resources */,
 				3FE6A4472420C72800E24C1C /* PicturedIndicatorView.xib in Resources */,
 				3FF68F4F24164E040071D74C /* VehiclePickerInputVC.xib in Resources */,
+				3FE6A44B242122C600E24C1C /* BeaconScannerNotConfiguredVC.xib in Resources */,
 				3F50D70424179467001226F7 /* ErrorBluetoothVC.xib in Resources */,
 				3FF68F34241533480071D74C /* VehiclePickerImageCollectionViewCell.xib in Resources */,
 				3FF68F3F24154ADB0071D74C /* DriveKitVehicle.xcassets in Resources */,
@@ -1720,15 +1752,19 @@
 				3FF68EFF2413EEF80071D74C /* DriveKitVehicleUI.swift in Sources */,
 				3FF68F1924150D040071D74C /* VehiclePickerTableViewVC.swift in Sources */,
 				3F50D70224179467001226F7 /* ErrorBluetoothVC.swift in Sources */,
+				3FE6A45624213EC600E24C1C /* BeaconDetailViewModel.swift in Sources */,
 				3FE6A4462420C72800E24C1C /* PicturedIndicatorView.swift in Sources */,
 				3FA3C4562416A96500BD4E14 /* DKCategoryConfigType.swift in Sources */,
 				3FF68F10241501D20071D74C /* VehiclePickerStep.swift in Sources */,
 				3F50D6F52417945B001226F7 /* BluetoothViewModel.swift in Sources */,
 				3FF68F4A241642D50071D74C /* VehiclePickerTextVC.swift in Sources */,
 				3FF68F2024150E5F0071D74C /* VehiclePickerStep+TableView.swift in Sources */,
+				3FE6A44A242122C600E24C1C /* BeaconScannerNotConfiguredVC.swift in Sources */,
 				3FF68F312415330A0071D74C /* VehiclePickerCollectionViewDelegate.swift in Sources */,
 				3FFB2D7F241913D0003E6A06 /* DKBeacon+UI.swift in Sources */,
 				A3D51F45241BA39D006DACE2 /* VehicleAction.swift in Sources */,
+				3FE6A44E242136D900E24C1C /* BeaconDetailVC.swift in Sources */,
+				3FE6A45324213ABE00E24C1C /* BeaconDetailTableViewCell.swift in Sources */,
 				3FF68F12241502E80071D74C /* VehiclePickerViewModel.swift in Sources */,
 				3FF68F4424161F5A0071D74C /* String+DKUI.swift in Sources */,
 				3FF68F37241534220071D74C /* VehiclePickerStep+CollectionView.swift in Sources */,

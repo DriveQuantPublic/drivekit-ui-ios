@@ -47,6 +47,19 @@ class VehiclePickerViewModel {
         currentStep = step
     }
     
+    func getDefaultName() -> String {
+        if liteConfig {
+            guard let category = vehicleCategory else {
+                return ""
+            }
+            vehicleName = category.titleRawValue()
+            return category.title()
+        } else {
+            vehicleName = String(format: "%@ %@ %@", self.vehicleBrand?.name ?? "", self.vehicleModel ?? "", self.vehicleVersion?.version ?? "")
+            return vehicleName ?? ""
+        }
+    }
+    
     func getViewController() -> UIViewController? {
         return currentStep.getViewController(viewModel: self)
     }
@@ -148,7 +161,7 @@ class VehiclePickerViewModel {
 
     func addVehicle(completion : @escaping (DKVehicleManagerStatus) -> ()) {
         if let characteristics = vehicleCharacteristics {
-            DriveKitVehicleManager.shared.createVehicle(characteristics: characteristics, name: vehicleName, completionHandler: { status, vehicle in
+            DriveKitVehicleManager.shared.createVehicle(characteristics: characteristics, name: vehicleName, liteConfig: liteConfig, detectionMode: coordinator.detectionMode, completionHandler: { status, vehicle in
                 completion(status)
             })
         }

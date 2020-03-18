@@ -11,24 +11,28 @@ import DriveKitVehicle
 
 extension DKVehicleCategory : VehiclePickerCollectionViewItem {
     func title() -> String {
+        return titleRawValue().dkVehicleLocalized()
+    }
+    
+    func titleRawValue() -> String {
         switch self {
-        case .micro:
-            return "dk_vehicle_category_car_micro_title".dkVehicleLocalized()
-        case .compact:
-            return "dk_vehicle_category_car_compact_title".dkVehicleLocalized()
-        case .sedan:
-            return "dk_vehicle_category_car_sedan_title".dkVehicleLocalized()
-        case .suv:
-            return "dk_vehicle_category_car_suv_title".dkVehicleLocalized()
-        case .minivan:
-            return "dk_vehicle_category_car_minivan_title".dkVehicleLocalized()
-        case .commercial:
-            return "dk_vehicle_category_car_commercial_title".dkVehicleLocalized()
-        case .luxury:
-            return "dk_vehicle_category_car_luxury_title".dkVehicleLocalized()
-        case .sport:
-            return "dk_vehicle_category_car_sport_title".dkVehicleLocalized()
-        }
+               case .micro:
+                   return "dk_vehicle_category_car_micro_title"
+               case .compact:
+                   return "dk_vehicle_category_car_compact_title"
+               case .sedan:
+                   return "dk_vehicle_category_car_sedan_title"
+               case .suv:
+                   return "dk_vehicle_category_car_suv_title"
+               case .minivan:
+                   return "dk_vehicle_category_car_minivan_title"
+               case .commercial:
+                   return "dk_vehicle_category_car_commercial_title"
+               case .luxury:
+                   return "dk_vehicle_category_car_luxury_title"
+               case .sport:
+                   return "dk_vehicle_category_car_sport_title"
+               }
     }
     
     func image() -> UIImage? {

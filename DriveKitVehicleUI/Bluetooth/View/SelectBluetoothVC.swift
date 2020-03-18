@@ -68,7 +68,8 @@ class SelectBluetoothVC: DKUIViewController {
     }
     
     private func bluetoothAlreadyPaired() {
-        self.showAlertMessage(title: "", message: "dk_vehicle_bluetooth_already_paired".dkVehicleLocalized(), back: false, cancel: false)
+        let message = String(format: "dk_vehicle_bluetooth_already_paired".dkVehicleLocalized(), viewModel.bluetoothName, viewModel.vehicleName)
+        self.showAlertMessage(title: "", message: message, back: false, cancel: false)
     }
     
     private func vehicleUnknown() {

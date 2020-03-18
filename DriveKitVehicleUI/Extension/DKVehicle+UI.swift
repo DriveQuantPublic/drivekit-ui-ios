@@ -12,11 +12,7 @@ import DriveKitVehicle
 
 extension DKVehicle {
     var defaultName: String {
-        if self.liteConfig {
-            return getCategoryName()
-        } else {
-            return String(format: "%@ %@ %@", self.brand ?? "", self.model ?? "", self.version ?? "")
-        }
+        return String(format: "%@ %@ %@", self.brand ?? "", self.model ?? "", self.version ?? "")
     }
     
     func getModel() -> String {
@@ -35,7 +31,7 @@ extension DKVehicle {
         let position = getPosition(vehiclesList: vehiclesList)
         let displayName = "dk_vehicle_my_vehicle".dkVehicleLocalized() + " - " + String(position)
         if let name = self.name, name != defaultName {
-            return name
+            return self.liteConfig ? name.dkVehicleLocalized() : name
         } else {
             return displayName
         }
@@ -48,21 +44,21 @@ extension DKVehicle {
             if category.liteConfigDqIndex == self.dqIndex ?? "" {
                 switch category {
                 case .micro:
-                    categoryName = "dk_vehicle_category_car_micro_title"
+                    categoryName = "dk_vehicle_category_car_micro_title".dkVehicleLocalized()
                 case .compact:
-                    categoryName = "dk_vehicle_category_car_compact_title"
+                    categoryName = "dk_vehicle_category_car_compact_title".dkVehicleLocalized()
                 case .sedan:
-                    categoryName = "dk_vehicle_category_car_sedan_title"
+                    categoryName = "dk_vehicle_category_car_sedan_title".dkVehicleLocalized()
                 case .suv:
-                    categoryName = "dk_vehicle_category_car_suv_title"
+                    categoryName = "dk_vehicle_category_car_suv_title".dkVehicleLocalized()
                 case .minivan:
-                    categoryName = "dk_vehicle_category_car_minivan_title"
+                    categoryName = "dk_vehicle_category_car_minivan_title".dkVehicleLocalized()
                 case .commercial:
-                    categoryName = "dk_vehicle_category_car_commercial_title"
+                    categoryName = "dk_vehicle_category_car_commercial_title".dkVehicleLocalized()
                 case .luxury:
-                    categoryName = "dk_vehicle_category_car_luxury_title"
+                    categoryName = "dk_vehicle_category_car_luxury_title".dkVehicleLocalized()
                 case .sport:
-                    categoryName = "dk_vehicle_category_car_sport_title"
+                    categoryName = "dk_vehicle_category_car_sport_title".dkVehicleLocalized()
                 }
             }
         }

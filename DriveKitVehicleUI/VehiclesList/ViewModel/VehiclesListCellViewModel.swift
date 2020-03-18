@@ -99,7 +99,7 @@ class VehiclesListCellViewModel {
     
     func getSubtitle() -> String? {
         if vehicle.liteConfig {
-            if vehicle.name == vehicle.getCategoryName() {
+            if vehicle.name?.dkVehicleLocalized() == vehicle.getCategoryName() {
                 return nil
             } else {
                 return vehicle.getCategoryName()

@@ -96,7 +96,7 @@ extension DKDetectionMode {
     func title() -> String {
         switch (self) {
         case .disabled:
-            return "dk_detection_mode_disabled_desc".dkVehicleLocalized()
+            return "dk_detection_mode_disabled_title".dkVehicleLocalized()
         case .gps:
             return "dk_detection_mode_gps_title".dkVehicleLocalized()
         case .beacon:

@@ -1,8 +1,10 @@
 "dk_beacon_battery"="Akkuladestand";
 "dk_beacon_code"="Beacon erkennen";
+"dk_beacon_diagnostic_title"="Diagnose meines Beacon";
 "dk_beacon_distance"="Entfernung (m)";
 "dk_beacon_major"="Major";
 "dk_beacon_minor"="Minor";
+"dk_beacon_paired_title"="Einen BEACON dazufügen";
 "dk_beacon_rssi"="RSSI (dBm)";
 "dk_beacon_uuid"="UUID";
 "dk_beacon_vehicle_unknown"="Unbekanntes Fahrzeug";

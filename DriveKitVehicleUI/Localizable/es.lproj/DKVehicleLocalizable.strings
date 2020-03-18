@@ -1,8 +1,10 @@
 "dk_beacon_battery"="Nivel de batería (%)";
 "dk_beacon_code"="Identificador del beacon";
+"dk_beacon_diagnostic_title"="Diagnóstico de mi baliza";
 "dk_beacon_distance"="Distancia (m)";
 "dk_beacon_major"="Major";
 "dk_beacon_minor"="Minor";
+"dk_beacon_paired_title"="Asociar una beacon";
 "dk_beacon_rssi"="RSSI (dBm)";
 "dk_beacon_uuid"="UUID";
 "dk_beacon_vehicle_unknown"="Vehículo desconocido";

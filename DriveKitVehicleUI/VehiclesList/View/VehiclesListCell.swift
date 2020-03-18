@@ -155,7 +155,7 @@ class VehiclesListCell: UITableViewCell {
     }
     
     func beaconActionsAlert() {
-        let alert = UIAlertController(title: "beacon_chooser_title".dkVehicleLocalized(), message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "dk_vehicle_configure_beacon_title".dkVehicleLocalized(), message: nil, preferredStyle: .actionSheet)
         let checkAction = UIAlertAction(title: "verify".dkVehicleLocalized(), style: .default , handler: {  _ in
             if let beacon = self.viewModel.vehicle.beacon {
                 let beaconViewModel = BeaconViewModel(vehicle: self.viewModel.vehicle ,scanType: .verify, beacon: beacon)
@@ -189,7 +189,7 @@ class VehiclesListCell: UITableViewCell {
     }
     
     func bluetoothActionsAlert() {
-        let alert = UIAlertController(title: "bluetooth_chooser_title".dkVehicleLocalized(), message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "dk_vehicle_configure_bluetooth_title".dkVehicleLocalized(), message: nil, preferredStyle: .actionSheet)
         
         let deleteAction = UIAlertAction(title: DKCommonLocalizable.delete.text(), style: .default , handler: {  _ in
             self.viewModel.listView.confirmDeleteAlert(type: .bluetooth, vehicle: self.viewModel.vehicle)

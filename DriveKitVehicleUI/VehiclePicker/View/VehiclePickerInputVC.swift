@@ -51,9 +51,9 @@ class VehiclePickerInputVC: VehiclePickerStepView {
         self.inputTextField.backgroundColor = DKUIColors.neutralColor.color
         if let name = viewModel.vehicleName {
             self.inputTextField.text = name
-        } /*else {
-            self.inputTextField.becomeFirstResponder()
-        }*/
+        } else {
+            self.inputTextField.text = viewModel.getDefaultName()
+        }
         self.inputTextField.delegate = self
     }
     
@@ -64,9 +64,12 @@ class VehiclePickerInputVC: VehiclePickerStepView {
                 self.hideLoader()
                 switch status {
                 case .success:
+                    if let parentView = self.viewModel.coordinator.parentView as? VehiclesListVC {
+                        parentView.viewModel.fetchVehicles()
+                    }
                     self.navigationController?.dismiss(animated: true, completion: nil)
                 case .unknownVehicle:
-                    // We can have this error, vehicle picker always return a known vehicle
+                    // We can't have this error, vehicle picker always return a known vehicle
                     break
                 case .error:
                     self.showAlertMessage(title: "", message: "dk_vehicle_failed_to_retrieve_vehicle_data".dkVehicleLocalized(), back: false, cancel: false)

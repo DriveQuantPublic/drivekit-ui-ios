@@ -6,4 +6,9 @@
 //  Copyright © 2020 DriveQuant. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import DriveKitCommonUI
+
+class VehicleDetailVC : DKUIViewController {
+    
+}

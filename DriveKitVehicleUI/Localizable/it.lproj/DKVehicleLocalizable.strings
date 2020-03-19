@@ -38,6 +38,7 @@
 "dk_power"="Potenza";
 "dk_select_image_gallery"="";
 "dk_take_picture"="";
+"dk_too_many_vehicles_alert"="Avete superato il limite del numero di veicoli consentiti, vi preghiamo di cancellarne uno prima di crearne uno nuovo.";
 "dk_update_photo_title"="Cambiare l\'immagine";
 "dk_vehicle_add"="Aggiungi un veicolo";
 "dk_vehicle_beacon_already_paired"="Il beacon non è disponibile, è già abbinato ad un altro veicolo.";
@@ -78,9 +79,13 @@
 "dk_vehicle_bluetooth_congrats_notice"="D\'ora in poi, la registrazione dei tuoi viaggi inizierà automaticamente non appena il telefono si connette al dispositivo Bluetooth %@";
 "dk_vehicle_bluetooth_congrats_title"="Congratulazioni!";
 "dk_vehicle_bluetooth_deactivate_alert"="Il dispositivo %@ sarà dissociato dal veicolo %@. \n Sei sicuro di voler andare fino in fondo?";
-"dk_vehicle_bluetooth_guide_desc1"="Verificare che il dispositivo Bluetooth sia già stato accoppiato con l\'iPhone. Queste informazioni sono disponibili nel menu Bluetooth delle impostazioni del telefono.";
-"dk_vehicle_bluetooth_guide_desc2"="Siediti nel tuo veicolo.";
-"dk_vehicle_bluetooth_guide_desc3"="Inserire l\'accensione. Il telefono deve essere collegato al veicolo per fare l\'associazione.";
+"dk_vehicle_bluetooth_devices_list_title"="Dispositivi Bluetooth :";
+"dk_vehicle_bluetooth_guide_desc1_android"="Accertarsi che il sistema Bluetooth del veicolo sia già accoppiato al telefono prima di iniziare.";
+"dk_vehicle_bluetooth_guide_desc1_ios"="Verificare che il dispositivo Bluetooth sia già stato accoppiato con l\'iPhone. Queste informazioni sono disponibili nel menu Bluetooth delle impostazioni del telefono.";
+"dk_vehicle_bluetooth_guide_desc2_android"="L\'applicazione cercherà tutti i dispositivi che sono già stati collegati al telefono.";
+"dk_vehicle_bluetooth_guide_desc2_ios"="Siediti nel tuo veicolo.";
+"dk_vehicle_bluetooth_guide_desc3_android"="Sarà necessario selezionare quello che corrisponde al sistema Bluetooth del veicolo.";
+"dk_vehicle_bluetooth_guide_desc3_ios"="Inserire l\'accensione. Il telefono deve essere collegato al veicolo per fare l\'associazione.";
 "dk_vehicle_bluetooth_guide_header"="Prima di iniziare";
 "dk_vehicle_bluetooth_not_found"="Non sono stati rilevati dispositivi Bluetooth. \n \n Per attivare l\'avvio automatico, assicurarsi che il telefono sia collegato al sistema Bluetooth. \n \n Può verificare nelle impostazioni del telefono che il sistema Bluetooth sia collegato al suo telefono?";
 "dk_vehicle_brand_description"="Marchio del veicolo";

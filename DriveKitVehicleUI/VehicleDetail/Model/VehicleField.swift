@@ -7,46 +7,41 @@
 //
 
 import UIKit
+import DriveKitDBVehicleAccess
+import DriveKitVehicle
 
 protocol VehicleField {
     var title: String { get }
-    var value: String { get }
     var isEditable: Bool { get }
     var keyBoardType: UIKeyboardType { get }
+    func getValue(vehicle: DKVehicle) -> String?
 }
 
 enum EngineField: VehicleField, CaseIterable {
-    case engine, consumption, usageConsumption
-
+    
+    case motor, consumption
+    
     var title: String {
         switch self {
-        case .engine:
-            return "ENGINE"
+        case .motor:
+            return "dk_motor".dkVehicleLocalized()
         case .consumption:
-            return "CONSUMPTION"
-        case .usageConsumption:
-            return "USAGE CONSUMPTION"
+            return "dk_consumption".dkVehicleLocalized()
         }
     }
     
-    var value: String {
+    func getValue(vehicle: DKVehicle) -> String? {
         switch self {
-        case .engine:
-            return "ENGINE"
+        case .motor:
+            return DKVehicleEngineIndex(rawValue: vehicle.engineIndex)?.text()
         case .consumption:
-            return "CONSUMPTION"
-        case .usageConsumption:
-            return "USAGE CONSUMPTION"
+            return String(format: "%.1f %@", vehicle.consumption, "dk_common_unit_l_per_100km".dkVehicleLocalized())
         }
     }
     
     var isEditable: Bool {
         switch self {
-        case .engine:
-            return false
-        case .consumption:
-            return false
-        case .usageConsumption:
+        case .motor, .consumption:
             return false
         }
     }
@@ -57,44 +52,49 @@ enum EngineField: VehicleField, CaseIterable {
 }
 
 enum GeneralField: VehicleField, CaseIterable {
-    case name, category, brand, model, version, year
-
+    case name, category, brand, model, version
+    
     var title: String {
         switch self {
         case .name:
-            return "NAME"
+            return "dk_name".dkVehicleLocalized()
         case .category:
-            return "CATEGORY"
+            return "dk_category".dkVehicleLocalized()
         case .brand:
-            return "BRAND"
+            return "dk_brand".dkVehicleLocalized()
         case .model:
-            return "MODEL"
+            return "dk_model".dkVehicleLocalized()
         case .version:
-            return "VERSION"
-        case .year:
-            return "YEAR"
+            return "dk_version".dkVehicleLocalized()
         }
     }
     
-    var value: String {
+    func getValue(vehicle: DKVehicle) -> String? {
         switch self {
         case .name:
-            return "NAME"
+            return vehicle.displayName
         case .category:
-            return "CATEGORY"
+            return vehicle.getCategoryName()
         case .brand:
-            return "BRAND"
+            if let brand = vehicle.brand {
+                return DKVehicleBrand(value: brand).title()
+            } else {
+                return nil
+            }
         case .model:
-            return "MODEL"
+            return vehicle.model
         case .version:
-            return "VERSION"
-        case .year:
-            return "YEAR"
+            return vehicle.version
         }
     }
     
     var isEditable: Bool {
-        return false
+        switch self {
+        case .name:
+            return true
+        case .category, .brand, .model, .version:
+            return false
+        }
     }
     
     var keyBoardType: UIKeyboardType {
@@ -109,18 +109,18 @@ enum BluetoothField: VehicleField, CaseIterable {
     var title: String {
         switch self {
         case .macAddress:
-            return "MAC ADDRESS"
+            return "dk_bluetooth_address".dkVehicleLocalized()
         case .bluetoothName:
-            return "BLUETOOTH NAME"
+            return "dk_bluetooth_name".dkVehicleLocalized()
         }
     }
     
-    var value: String {
+    func getValue(vehicle: DKVehicle) -> String? {
         switch self {
         case .macAddress:
-            return "MAC ADDRESS"
+            return vehicle.bluetooth?.macAddress
         case .bluetoothName:
-            return "BLUETOOTH NAME"
+            return vehicle.bluetooth?.name
         }
     }
     
@@ -134,31 +134,35 @@ enum BluetoothField: VehicleField, CaseIterable {
 }
 
 enum BeaconField: VehicleField, CaseIterable {
-    case uniqueId, proximityUuid, minor, major
-
+    case uniqueId, minor, major
+    
     var title: String {
         switch self {
         case .uniqueId:
-            return "UNIQUE ID"
-        case .proximityUuid:
-            return "PROXIMITY UUID"
+            return "dk_beacon_code".dkVehicleLocalized()
         case .minor:
-            return "MINOR"
+            return "dk_beacon_minor".dkVehicleLocalized()
         case .major:
-            return "MAJOR"
+            return "dk_beacon_major".dkVehicleLocalized()
         }
     }
     
-    var value: String {
+    func getValue(vehicle: DKVehicle) -> String? {
         switch self {
         case .uniqueId:
-            return "UNIQUE ID"
-        case .proximityUuid:
-            return "PROXIMITY UUID"
+            return vehicle.beacon?.code
         case .minor:
-            return "MINOR"
+            if let minor = vehicle.beacon?.minor {
+                return String(minor)
+            } else {
+                return nil
+            }
         case .major:
-            return "MAJOR"
+            if let major = vehicle.beacon?.major {
+                return String(major)
+            } else {
+                return nil
+            }
         }
     }
     
@@ -177,22 +181,36 @@ enum CharacteristicsField: VehicleField, CaseIterable {
     var title: String {
         switch self {
         case .power:
-            return "POWER"
+            return "dk_power".dkVehicleLocalized()
         case .gearbox:
-            return "GEARBOX"
+            return "dk_gearbox".dkVehicleLocalized()
         case .mass:
-            return "MASS"
+            return "dk_mass".dkVehicleLocalized()
         }
     }
     
-    var value: String {
+    func getValue(vehicle: DKVehicle) -> String? {
         switch self {
         case .power:
-            return "POWER"
+            return String(format: "%.0f %@", vehicle.power / 0.7355, "dk_common_unit_power".dkVehicleLocalized())
         case .gearbox:
-            return "GEARBOX"
+            let carGearBoxIndex = vehicle.gearboxIndex - 1
+            switch carGearBoxIndex {
+            case 0:
+                return "dk_gearbox_automatic".dkVehicleLocalized()
+            case 1:
+                return "dk_gearbox_manual_5".dkVehicleLocalized()
+            case 2:
+                return "dk_gearbox_manual_6".dkVehicleLocalized()
+            case 3:
+                return "dk_gearbox_manual_7".dkVehicleLocalized()
+            case 4:
+                return "dk_gearbox_manual_8".dkVehicleLocalized()
+            default:
+                return nil
+            }
         case .mass:
-            return "MASS"
+            return String(format: "%.0f %@", vehicle.mass, "dk_common_unit_kg".dkVehicleLocalized())
         }
     }
     

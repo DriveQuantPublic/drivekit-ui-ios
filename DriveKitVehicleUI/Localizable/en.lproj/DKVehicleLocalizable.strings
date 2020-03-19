@@ -38,6 +38,7 @@
 "dk_power"="Power";
 "dk_select_image_gallery"="";
 "dk_take_picture"="";
+"dk_too_many_vehicles_alert"="You have exceeded the vehicle limit, please delete one before creating a new one.";
 "dk_update_photo_title"="Edit the picture";
 "dk_vehicle_add"="Add a vehicle";
 "dk_vehicle_beacon_already_paired"="The beacon is not available. It\'s already paired to another vehicle.";
@@ -78,9 +79,13 @@
 "dk_vehicle_bluetooth_congrats_notice"="From now on, recording your trips will start automatically as soon as your phone connects to the Bluetooth device %@";
 "dk_vehicle_bluetooth_congrats_title"="Congratulations!";
 "dk_vehicle_bluetooth_deactivate_alert"="The %@ device will be disassociated from the %@ vehicle. \n Are you sure you want to proceed?";
-"dk_vehicle_bluetooth_guide_desc1"="Check that the Bluetooth device has already been paired with your iPhone. This information is available in the Bluetooth menu of the phone\'s settings.";
-"dk_vehicle_bluetooth_guide_desc2"="Take a seat in your vehicle.";
-"dk_vehicle_bluetooth_guide_desc3"="Switch on the ignition. The phone must be connected to the vehicle to make the association.";
+"dk_vehicle_bluetooth_devices_list_title"="Bluetooth devices:";
+"dk_vehicle_bluetooth_guide_desc1_android"="Make sure that your vehicle\'s Bluetooth system is already paired with your phone before you start.";
+"dk_vehicle_bluetooth_guide_desc1_ios"="Check that the Bluetooth device has already been paired with your iPhone. This information is available in the Bluetooth menu of the phone\'s settings.";
+"dk_vehicle_bluetooth_guide_desc2_android"="The application will search for all devices that have already been connected to your phone.";
+"dk_vehicle_bluetooth_guide_desc2_ios"="Take a seat in your vehicle.";
+"dk_vehicle_bluetooth_guide_desc3_android"="You will need to select the one that matches your vehicle\'s Bluetooth system.";
+"dk_vehicle_bluetooth_guide_desc3_ios"="Switch on the ignition. The phone must be connected to the vehicle to make the association.";
 "dk_vehicle_bluetooth_guide_header"="Before you start";
 "dk_vehicle_bluetooth_not_found"="No Bluetooth devices were detected. \n \n To enable auto start, make sure your phone is connected to the Bluetooth system. \n \n Can you verify in the phone settings that the Bluetooth system is connected to your phone?";
 "dk_vehicle_brand_description"="Vehicle brand?";

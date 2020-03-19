@@ -47,5 +47,6 @@
 "dk_common_unit_minute"="min";
 "dk_common_unit_mpg"="mpg";
 "dk_common_unit_mph"="mph";
+"dk_common_unit_power"="ch";
 "dk_common_unit_second"="s";
 "dk_common_validate"="Valider";

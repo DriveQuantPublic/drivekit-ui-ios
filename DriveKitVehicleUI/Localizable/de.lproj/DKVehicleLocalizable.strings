@@ -38,6 +38,7 @@
 "dk_power"="Leistung";
 "dk_select_image_gallery"="";
 "dk_take_picture"="";
+"dk_too_many_vehicles_alert"="Sie haben die Grenze der erlaubten Anzahl von Fahrzeugen überschritten, bitte löschen Sie ein Fahrzeug, bevor Sie ein neues erstellen.";
 "dk_update_photo_title"="Ändern des Bildes";
 "dk_vehicle_add"="Eine Fahrt hinzufügen";
 "dk_vehicle_beacon_already_paired"="Die Beacon ist nicht verfügbar. Sie ist bereits an ein anderes Fahrzeug gekoppelt.";
@@ -78,9 +79,13 @@
 "dk_vehicle_bluetooth_congrats_notice"="Von nun an startet die Aufzeichnung Ihrer Fahrten automatisch, sobald sich Ihr Handy mit dem Bluetooth-Gerät verbindet %@";
 "dk_vehicle_bluetooth_congrats_title"="Herzlichen Glückwunsch!";
 "dk_vehicle_bluetooth_deactivate_alert"="Das %@-Gerät wird vom %@-Fahrzeug abgekoppelt. \n Bist du sicher, dass du das durchziehen willst?";
-"dk_vehicle_bluetooth_guide_desc1"="Überprüfen Sie, ob das Bluetooth-Gerät bereits mit Ihrem iPhone verbunden ist. Diese Informationen sind im Bluetooth-Menü der Telefoneinstellungen verfügbar.";
-"dk_vehicle_bluetooth_guide_desc2"="Nehmen Sie Platz in Ihrem Fahrzeug.";
-"dk_vehicle_bluetooth_guide_desc3"="Schalten Sie die Zündung ein. Das Telefon muss mit dem Fahrzeug verbunden sein, um die Zuordnung herzustellen.";
+"dk_vehicle_bluetooth_devices_list_title"="Bluetooth-Geräte :";
+"dk_vehicle_bluetooth_guide_desc1_android"="Vergewissern Sie sich vor dem Start, dass das Bluetooth-System Ihres Fahrzeugs bereits mit Ihrem Handy gekoppelt ist.";
+"dk_vehicle_bluetooth_guide_desc1_ios"="Überprüfen Sie, ob das Bluetooth-Gerät bereits mit Ihrem iPhone verbunden ist. Diese Informationen sind im Bluetooth-Menü der Telefoneinstellungen verfügbar.";
+"dk_vehicle_bluetooth_guide_desc2_android"="Die Anwendung sucht nach allen Geräten, die bereits mit Ihrem Telefon verbunden sind.";
+"dk_vehicle_bluetooth_guide_desc2_ios"="Nehmen Sie Platz in Ihrem Fahrzeug.";
+"dk_vehicle_bluetooth_guide_desc3_android"="Sie müssen diejenige auswählen, die dem Bluetooth-System Ihres Fahrzeugs entspricht.";
+"dk_vehicle_bluetooth_guide_desc3_ios"="Schalten Sie die Zündung ein. Das Telefon muss mit dem Fahrzeug verbunden sein, um die Zuordnung herzustellen.";
 "dk_vehicle_bluetooth_guide_header"="Bevor Sie beginnen";
 "dk_vehicle_bluetooth_not_found"="Es wurden keine Bluetooth-Geräte erkannt. \n \n Um den automatischen Start zu aktivieren, stellen Sie sicher, dass Ihr Telefon mit dem Bluetooth-System verbunden ist. \n \n Können Sie in den Telefoneinstellungen überprüfen, ob das Bluetooth-System mit Ihrem Telefon verbunden ist?";
 "dk_vehicle_brand_description"="Fahrzeugmarke?";

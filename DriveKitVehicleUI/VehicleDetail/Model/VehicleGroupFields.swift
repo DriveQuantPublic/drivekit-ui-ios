@@ -9,36 +9,33 @@
 import Foundation
 import DriveKitDBVehicleAccess
 
-enum VehicleGroupField {
+enum VehicleGroupField: CaseIterable {
     case general, engine, characteristics, beacon, bluetooth
     
-    func isDisplayable() -> Bool {
-        switch self {
-        case .general:
-            return true
-        case .engine:
-            return true
-        case .characteristics:
-            return true
-        case .beacon:
-            return true
-        case .bluetooth:
-            return true
-        }
+    func isDisplayable(vehicle: DKVehicle) -> Bool {
+        return self.getFields(vehicle: vehicle).count > 0 ? true : false
     }
     
     func getFields(vehicle: DKVehicle) -> [VehicleField] {
+        var fields: [VehicleField] = []
+        var allFields: [VehicleField] = []
         switch self {
         case .general:
-            return GeneralField.allCases
+            allFields = GeneralField.allCases
         case .characteristics:
-            return CharacteristicsField.allCases
+            allFields = CharacteristicsField.allCases
         case .engine:
-            return EngineField.allCases
+            allFields = EngineField.allCases
         case .beacon:
-            return BeaconField.allCases
+            allFields = BeaconField.allCases
         case .bluetooth:
-            return BluetoothField.allCases
+            allFields = BluetoothField.allCases
         }
+        for field in allFields {
+            if field.getValue(vehicle: vehicle) != nil {
+                fields.append(field)
+            }
+        }
+        return fields
     }
 }

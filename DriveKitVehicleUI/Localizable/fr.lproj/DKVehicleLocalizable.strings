@@ -38,6 +38,7 @@
 "dk_power"="Puissance";
 "dk_select_image_gallery"="Sélectionner une photo existante";
 "dk_take_picture"="Prendre une photo";
+"dk_too_many_vehicles_alert"="Vous avez dépassé la limite autorisée du nombre de véhicules, veuillez en supprimer un avant d\'en créer un nouveau.";
 "dk_update_photo_title"="Changer l\'image";
 "dk_vehicle_add"="Ajouter un véhicule";
 "dk_vehicle_beacon_already_paired"="Le beacon n\'est pas disponible, il est déjà appairé à un autre véhicule.";
@@ -78,9 +79,13 @@
 "dk_vehicle_bluetooth_congrats_notice"="Désormais l\'enregistrement de vos trajets démarrera automatiquement dès que votre téléphone se connecte à l\'appareil Bluetooth %@";
 "dk_vehicle_bluetooth_congrats_title"="Félicitations !";
 "dk_vehicle_bluetooth_deactivate_alert"="L\'appareil %@ sera dissocié du véhicule %@. \n Êtes-vous sûr de vouloir continuer ?";
-"dk_vehicle_bluetooth_guide_desc1"="Vérifier que l’appareil Bluetooth a déjà été jumelé avec votre iPhone. Cette information est disponible dans le menu Bluetooth des paramètres du téléphone.";
-"dk_vehicle_bluetooth_guide_desc2"="Installez-vous dans votre véhicule.";
-"dk_vehicle_bluetooth_guide_desc3"="Allumer le contact. Le téléphone doit être connecté au véhicule pour réaliser l\'association.";
+"dk_vehicle_bluetooth_devices_list_title"="Appareils Bluetooth :";
+"dk_vehicle_bluetooth_guide_desc1_android"="Assurez-vous que le système Bluetooth de votre véhicule est déjà jumelé avec votre téléphone avant de commencer.";
+"dk_vehicle_bluetooth_guide_desc1_ios"="Vérifier que l’appareil Bluetooth a déjà été jumelé avec votre iPhone. Cette information est disponible dans le menu Bluetooth des paramètres du téléphone.";
+"dk_vehicle_bluetooth_guide_desc2_android"="L\'application va rechercher tous les appareils qui ont déjà été connectés à votre téléphone.";
+"dk_vehicle_bluetooth_guide_desc2_ios"="Installez-vous dans votre véhicule.";
+"dk_vehicle_bluetooth_guide_desc3_android"="Vous devrez sélectionner celui qui correspond au système Bluetooth de votre véhicule.";
+"dk_vehicle_bluetooth_guide_desc3_ios"="Allumer le contact. Le téléphone doit être connecté au véhicule pour réaliser l\'association.";
 "dk_vehicle_bluetooth_guide_header"="Avant de commencer";
 "dk_vehicle_bluetooth_not_found"="Aucun appareil Bluetooth n\'a été détecté. \n \n Pour activer le démarrage automatique, assurez-vous que votre téléphone soit connecté au système Bluetooth. \n \n Pouvez-vous vérifier dans les paramètres du téléphone que le système Bluetooth est bien connecté à votre téléphone ?";
 "dk_vehicle_brand_description"="Marque du véhicule ?";
@@ -117,7 +122,7 @@
 "dk_vehicle_engine_gasoline_hybrid"="Hybride Essence Electrique";
 "dk_vehicle_error_message"="Une erreur est survenue, veuillez réessayer ultérieurement.";
 "dk_vehicle_failed_to_paired_beacon"="Le beacon n\'a pas pu être associé au véhicule, veuillez réessayer ultérieurement.";
-"dk_vehicle_failed_to_paired_bluetooth"="L\association du bluetooth au véhicule a échoué, veuillez réessayer ultérieurement.";
+"dk_vehicle_failed_to_paired_bluetooth"="L\'association du bluetooth au véhicule a échoué, veuillez réessayer ultérieurement.";
 "dk_vehicle_failed_to_retrieve_vehicle_data"="Les caractéristiques véhicule n\'ont pas pu être récupérées.";
 "dk_vehicle_failed_to_sync"="Impossible de récupérer les données du véhicule, réessayez plus tard";
 "dk_vehicle_gps_already_exists_confirm"="Voulez-vous paramétrer le mode de détection %@ pour le véhicule %@ ? \n\nLe mode de détection du véhicule %@ sera basculé à %@.";
@@ -133,7 +138,7 @@
 "dk_vehicle_rename_description"="Choisissez un nom pour identifier votre véhicule";
 "dk_vehicle_rename_title"="Renommer ce véhicule";
 "dk_vehicle_replace"="Remplacer";
-"dk_vehicle_select_bluetooth_description"="Sélectionner un appareil Bluetooth pour déclencher l’enregistrement de vos trajets. \n \n Dès que le téléphone se connecte à cet appareil, l\'application démarre l\'analyse de votre trajet. \n \n Vous ne pouvez sélectionner qu\'un seul appareil pour ce véhicule.";
+"dk_vehicle_select_bluetooth_description"="Sélectionner un appareil Bluetooth pour déclencher l’enregistrement de vos trajets. \n \nDès que le téléphone se connecte à cet appareil, l\'application démarre l\'analyse de votre trajet. \n \nVous ne pouvez sélectionner qu\'un seul appareil pour ce véhicule.";
 "dk_vehicle_show"="Afficher";
 "dk_vehicle_type_car_title"="Voiture";
 "dk_vehicle_type_motorbike_title"="Moto";

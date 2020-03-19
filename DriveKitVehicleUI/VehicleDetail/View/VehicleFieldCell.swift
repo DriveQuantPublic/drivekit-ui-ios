@@ -2,23 +2,30 @@
 //  VehicleFieldCell.swift
 //  DriveKitVehicleUI
 //
-//  Created by Meryl Barantal on 12/03/2020.
+//  Created by Meryl Barantal on 19/03/2020.
 //  Copyright © 2020 DriveQuant. All rights reserved.
 //
 
 import UIKit
+import DriveKitCommonUI
+
+protocol VehicleFieldCellDelegate {
+    func didEndEditing(cell: VehicleFieldCell, value: String)
+}
 
 class VehicleFieldCell: UITableViewCell {
-
+    @IBOutlet weak var textField: DKTextField!
+    
+    var delegate : VehicleFieldCellDelegate? = nil
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.textField.delegate = self
     }
+}
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+extension VehicleFieldCell : DKTextFieldDelegate {
+    func userDidEndEditing(textField: DKTextField) {
+        self.delegate?.didEndEditing(cell: self, value: textField.getTextFieldValue())
     }
-    
 }

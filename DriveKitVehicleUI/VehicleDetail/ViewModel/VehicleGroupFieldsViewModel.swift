@@ -10,12 +10,16 @@ import Foundation
 import DriveKitDBVehicleAccess
 
 class VehicleGroupFieldViewModel {
-    var fields : VehicleGroupField
+    var groupField : VehicleGroupField
+    var fields: [VehicleField]
     var vehicleCore : VehicleDetailVC
     var delegate : VehicleDetailDelegate? = nil
+    let vehicle: DKVehicle
     
-    init(fields: VehicleGroupField, vehicleCore: VehicleDetailVC) {
-        self.fields = fields
+    init(groupField: VehicleGroupField, vehicleCore: VehicleDetailVC, vehicle: DKVehicle) {
+        self.groupField = groupField
         self.vehicleCore = vehicleCore
+        self.vehicle = vehicle
+        self.fields = groupField.getFields(vehicle: vehicle)
     }
 }

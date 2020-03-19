@@ -24,6 +24,7 @@ class VehicleDetailViewModel {
     
     init(vehicle: DKVehicle, vehicleDisplayName: String) {
         self.vehicle = vehicle
+        self.vehicleDisplayName = vehicleDisplayName
         let groupFields = VehicleGroupField.allCases
         for groupField in groupFields {
             if groupField.isDisplayable(vehicle: vehicle) {
@@ -31,6 +32,5 @@ class VehicleDetailViewModel {
             }
         }
     }
-    
     
 }

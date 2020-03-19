@@ -51,7 +51,9 @@ public enum DKCommonLocalizable : String {
     contextCityDense = "dk_common_driving_context_city_dense",
     contextCity = "dk_common_driving_context_city",
     contextExternal = "dk_common_driving_context_external",
-    contextFastlane = "dk_common_driving_context_fastlane"
+    contextFastlane = "dk_common_driving_context_fastlane",
+    errorEmptyField = "dk_common_error_empty_field"
+    
     
     public func text() -> String {
         return self.rawValue.dkLocalized(tableName: "CommonLocalizable", bundle: .driveKitCommonUIBundle ?? .main)

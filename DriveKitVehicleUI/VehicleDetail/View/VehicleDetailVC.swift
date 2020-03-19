@@ -10,5 +10,53 @@ import UIKit
 import DriveKitCommonUI
 
 class VehicleDetailVC : DKUIViewController {
+    @IBOutlet weak var tableView: UITableView!
+    let viewModel : VehicleDetailViewModel
     
+    public init(viewModel: VehicleDetailViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: String(describing: VehicleDetailVC.self), bundle: Bundle.vehicleUIBundle)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.tableView.register(UINib(nibName: "VehicleGroupFieldsCell", bundle: Bundle.vehicleUIBundle), forCellReuseIdentifier: "VehicleGroupFieldsCell")
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+    }
+}
+extension VehicleDetailVC: UITableViewDelegate {
+    
+}
+
+extension VehicleDetailVC: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.viewModel.fields.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell : VehicleGroupFieldsCell = self.tableView.dequeueReusableCell(withIdentifier: "VehicleGroupFieldsCell", for: indexPath) as! VehicleGroupFieldsCell
+        cell.clipsToBounds = false
+        cell.selectionStyle = .none
+        let groupField = self.viewModel.fields[indexPath.section]
+        cell.viewModel = VehicleGroupFieldViewModel(groupField: groupField, vehicleCore: self, vehicle: viewModel.vehicle)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let groupFields = self.viewModel.fields
+        var fieldsNb = 0
+        for group in groupFields {
+            fieldsNb += group.getFields(vehicle: self.viewModel.vehicle).count
+        }
+        return CGFloat(fieldsNb * 74)
+    }
 }

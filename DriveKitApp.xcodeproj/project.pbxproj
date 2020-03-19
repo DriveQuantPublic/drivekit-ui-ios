@@ -204,13 +204,16 @@
 		A34FC71F24227556000734AB /* VehicleField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34FC71D24227556000734AB /* VehicleField.swift */; };
 		A34FC7272422755F000734AB /* VehicleGroupFieldsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34FC7202422755F000734AB /* VehicleGroupFieldsCell.xib */; };
 		A34FC7282422755F000734AB /* VehicleDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34FC7212422755F000734AB /* VehicleDetailVC.swift */; };
-		A34FC7292422755F000734AB /* VehicleFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34FC7222422755F000734AB /* VehicleFieldCell.swift */; };
 		A34FC72A2422755F000734AB /* VehicleDetailHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34FC7232422755F000734AB /* VehicleDetailHeaderCell.xib */; };
 		A34FC72B2422755F000734AB /* VehicleGroupFieldsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34FC7242422755F000734AB /* VehicleGroupFieldsCell.swift */; };
-		A34FC72C2422755F000734AB /* VehicleFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34FC7252422755F000734AB /* VehicleFieldCell.xib */; };
 		A34FC72D2422755F000734AB /* VehicleDetailHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34FC7262422755F000734AB /* VehicleDetailHeaderCell.swift */; };
 		A34FC73024227567000734AB /* VehicleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34FC72E24227567000734AB /* VehicleDetailViewModel.swift */; };
 		A34FC73124227567000734AB /* VehicleGroupFieldsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34FC72F24227567000734AB /* VehicleGroupFieldsViewModel.swift */; };
+		A34FC7332423A1AA000734AB /* VehicleDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34FC7322423A1AA000734AB /* VehicleDetailVC.xib */; };
+		A34FC7362423CDDA000734AB /* DKTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34FC7342423CDDA000734AB /* DKTextField.swift */; };
+		A34FC7372423CDDA000734AB /* DKTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34FC7352423CDDA000734AB /* DKTextField.xib */; };
+		A34FC73A2423EE81000734AB /* VehicleFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34FC7382423EE81000734AB /* VehicleFieldCell.swift */; };
+		A34FC73B2423EE81000734AB /* VehicleFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34FC7392423EE81000734AB /* VehicleFieldCell.xib */; };
 		A3B7B384235F124F0065A332 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B7B383235F124F0065A332 /* AppDelegate.swift */; };
 		A3B7B388235F124F0065A332 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B7B387235F124F0065A332 /* ViewController.swift */; };
 		A3B7B38B235F124F0065A332 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3B7B389235F124F0065A332 /* Main.storyboard */; };
@@ -531,13 +534,16 @@
 		A34FC71D24227556000734AB /* VehicleField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleField.swift; sourceTree = "<group>"; };
 		A34FC7202422755F000734AB /* VehicleGroupFieldsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VehicleGroupFieldsCell.xib; sourceTree = "<group>"; };
 		A34FC7212422755F000734AB /* VehicleDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleDetailVC.swift; sourceTree = "<group>"; };
-		A34FC7222422755F000734AB /* VehicleFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleFieldCell.swift; sourceTree = "<group>"; };
 		A34FC7232422755F000734AB /* VehicleDetailHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VehicleDetailHeaderCell.xib; sourceTree = "<group>"; };
 		A34FC7242422755F000734AB /* VehicleGroupFieldsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleGroupFieldsCell.swift; sourceTree = "<group>"; };
-		A34FC7252422755F000734AB /* VehicleFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VehicleFieldCell.xib; sourceTree = "<group>"; };
 		A34FC7262422755F000734AB /* VehicleDetailHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleDetailHeaderCell.swift; sourceTree = "<group>"; };
 		A34FC72E24227567000734AB /* VehicleDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleDetailViewModel.swift; sourceTree = "<group>"; };
 		A34FC72F24227567000734AB /* VehicleGroupFieldsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleGroupFieldsViewModel.swift; sourceTree = "<group>"; };
+		A34FC7322423A1AA000734AB /* VehicleDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VehicleDetailVC.xib; sourceTree = "<group>"; };
+		A34FC7342423CDDA000734AB /* DKTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTextField.swift; sourceTree = "<group>"; };
+		A34FC7352423CDDA000734AB /* DKTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DKTextField.xib; sourceTree = "<group>"; };
+		A34FC7382423EE81000734AB /* VehicleFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleFieldCell.swift; sourceTree = "<group>"; };
+		A34FC7392423EE81000734AB /* VehicleFieldCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VehicleFieldCell.xib; sourceTree = "<group>"; };
 		A3B7B380235F124F0065A332 /* DriveKitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DriveKitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3B7B383235F124F0065A332 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3B7B387235F124F0065A332 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -723,6 +729,8 @@
 				3FB5643923F68BBE00F010E3 /* CardView.swift */,
 				3F7524CA2406C4CC00AC22CC /* DKUIViewController.swift */,
 				3FFB2D712418C023003E6A06 /* DKKeyboardViewController.swift */,
+				A34FC7342423CDDA000734AB /* DKTextField.swift */,
+				A34FC7352423CDDA000734AB /* DKTextField.xib */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -1204,10 +1212,11 @@
 				A34FC7262422755F000734AB /* VehicleDetailHeaderCell.swift */,
 				A34FC7232422755F000734AB /* VehicleDetailHeaderCell.xib */,
 				A34FC7212422755F000734AB /* VehicleDetailVC.swift */,
-				A34FC7222422755F000734AB /* VehicleFieldCell.swift */,
-				A34FC7252422755F000734AB /* VehicleFieldCell.xib */,
 				A34FC7242422755F000734AB /* VehicleGroupFieldsCell.swift */,
 				A34FC7202422755F000734AB /* VehicleGroupFieldsCell.xib */,
+				A34FC7322423A1AA000734AB /* VehicleDetailVC.xib */,
+				A34FC7382423EE81000734AB /* VehicleFieldCell.swift */,
+				A34FC7392423EE81000734AB /* VehicleFieldCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1536,6 +1545,7 @@
 			files = (
 				3F0740F02404263D005A8D07 /* Roboto-Bold.ttf in Resources */,
 				3F0740EF2404263D005A8D07 /* Roboto-Regular.ttf in Resources */,
+				A34FC7372423CDDA000734AB /* DKTextField.xib in Resources */,
 				3FF68E82240965E10071D74C /* DKImages.xcassets in Resources */,
 				3FF68E8F240CF0460071D74C /* CircularProgressView.xib in Resources */,
 				3FF68E642407F56F0071D74C /* CommonLocalizable.strings in Resources */,
@@ -1550,18 +1560,19 @@
 				3FF68F2E241532EB0071D74C /* VehiclePickerCollectionViewVC.xib in Resources */,
 				3FF68F272415198D0071D74C /* VehiclePickerTableViewCell.xib in Resources */,
 				3FF68F052414FD870071D74C /* DKVehicleLocalizable.strings in Resources */,
-				A34FC72C2422755F000734AB /* VehicleFieldCell.xib in Resources */,
 				3F50D70124179467001226F7 /* SuccessBluetoothVC.xib in Resources */,
 				A3D51F51241BA3AE006DACE2 /* VehiclesListCell.xib in Resources */,
 				3F50D70324179467001226F7 /* ConnectBluetoothVC.xib in Resources */,
 				3FFB2D8324191BC3003E6A06 /* BeaconScannerSuccessVC.xib in Resources */,
 				3FE6A4432420BEC300E24C1C /* BeaconScannerInfoVC.xib in Resources */,
+				A34FC73B2423EE81000734AB /* VehicleFieldCell.xib in Resources */,
 				3FFB2D702417E55A003E6A06 /* BeaconInputIdVC.xib in Resources */,
 				3FFB2D8824193778003E6A06 /* BeaconScannerAlreadyPairedVC.xib in Resources */,
 				3FFB2D9224194909003E6A06 /* BeaconScanFailureVC.xib in Resources */,
 				3FE6A45424213ABE00E24C1C /* BeaconDetailTableViewCell.xib in Resources */,
 				3FF68F1A24150D040071D74C /* VehiclePickerTableViewVC.xib in Resources */,
 				A34FC72A2422755F000734AB /* VehicleDetailHeaderCell.xib in Resources */,
+				A34FC7332423A1AA000734AB /* VehicleDetailVC.xib in Resources */,
 				3FF68F49241642D50071D74C /* VehiclePickerTextVC.xib in Resources */,
 				3F50D70024179467001226F7 /* SelectBluetoothVC.xib in Resources */,
 				3FF68F3B241535130071D74C /* VehiclePickerLabelCollectionViewCell.xib in Resources */,
@@ -1778,6 +1789,7 @@
 				3FF68E80240939BC0071D74C /* DriveKitDriverDataUIEntryPoint.swift in Sources */,
 				3FF68E6E24081A5A0071D74C /* DKStyles.swift in Sources */,
 				3F0740F3240426C0005A8D07 /* UIColor+DK.swift in Sources */,
+				A34FC7362423CDDA000734AB /* DKTextField.swift in Sources */,
 				3FF68E752408390A0071D74C /* CardView.swift in Sources */,
 				3FF68E8C240C0A430071D74C /* UIViewController+DK.swift in Sources */,
 				3FF68E8E240CF0420071D74C /* CircularProgressView.swift in Sources */,
@@ -1801,7 +1813,7 @@
 			files = (
 				3FF68F1D24150D9E0071D74C /* VehiclePickerTableViewDelegate.swift in Sources */,
 				3FF68F5024164E040071D74C /* VehiclePickerInputVC.swift in Sources */,
-				A34FC7292422755F000734AB /* VehicleFieldCell.swift in Sources */,
+				A34FC73A2423EE81000734AB /* VehicleFieldCell.swift in Sources */,
 				3FFB2D682417E2C9003E6A06 /* ConnectBeaconVC.swift in Sources */,
 				3FE6A4422420BEC300E24C1C /* BeaconScannerInfoVC.swift in Sources */,
 				A34FC71F24227556000734AB /* VehicleField.swift in Sources */,

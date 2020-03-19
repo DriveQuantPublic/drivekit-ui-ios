@@ -137,7 +137,8 @@ class VehiclesListCell: UITableViewCell {
             case .show:
                 let showVehicle = vehicleOption.alertAction(completionHandler: {  _ in
                     // TODO : VehicleDetail
-                    print("SHOW DETAIL")
+                    let detailVC = VehicleDetailVC(viewModel: VehicleDetailViewModel(vehicle: self.viewModel.vehicle, vehicleDisplayName: self.viewModel.getDisplayName()))
+                    self.viewModel.listView.navigationController?.pushViewController(detailVC, animated: true)
                 })
                 alert.addAction(showVehicle)
             case .rename:

@@ -24,11 +24,28 @@ class VehicleDetailVC : DKUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupNavigationBar()
         self.tableView.register(UINib(nibName: "VehicleGroupFieldsCell", bundle: Bundle.vehicleUIBundle), forCellReuseIdentifier: "VehicleGroupFieldsCell")
         self.tableView.register(UINib(nibName: "VehicleDetailHeader", bundle: Bundle.vehicleUIBundle), forCellReuseIdentifier: "VehicleDetailHeader")
         self.tableView.backgroundColor = DKUIColors.backgroundView.color
         self.tableView.delegate = self
         self.tableView.dataSource = self
+    }
+    
+    func setupNavigationBar() {
+        self.title = self.viewModel.vehicleDisplayName
+        let checkButton = UIButton(type: .custom)
+        let image = UIImage(named: "dk_check", in: Bundle.vehicleUIBundle, compatibleWith: nil)
+        checkButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        let img = image?.resizeImage(30, opaque: false).withRenderingMode(.alwaysTemplate)
+        checkButton.setImage(img, for: .normal)
+        checkButton.tintColor = .white
+        checkButton.addTarget(target, action:#selector(updateVehicle), for: .touchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: checkButton)
+    }
+    
+    @objc func updateVehicle(sender: UIBarButtonItem) {
+        // TO DO SAVE CHANGES
     }
 }
 extension VehicleDetailVC: UITableViewDelegate {
@@ -81,6 +98,12 @@ extension VehicleDetailVC: UITableViewDataSource {
 
 extension VehicleDetailVC: VehicleDetailHeaderDelegate {
     func didSelectAddImage(cell: VehicleDetailHeader) {
-        print("ADD")
+       if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
+           let imagePicker = DKImagePickerManager()
+        imagePicker.selectedImageTag = viewModel.vehicleImage
+           imagePicker.pickImage(self){ image in
+            self.tableView.reloadData()
+           }
+       }
     }
 }

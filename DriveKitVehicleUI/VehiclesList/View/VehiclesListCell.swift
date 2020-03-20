@@ -167,8 +167,8 @@ class VehiclesListCell: UITableViewCell {
         alert.addAction(checkAction)
 
         let replaceAction = UIAlertAction(title: "replace".dkVehicleLocalized(), style: .default , handler: {  _ in
-            // TO DO Connect BeaconScan
-            print("REPLACE BEACON")
+            let viewController = ConnectBeaconVC(vehicle: self.viewModel.vehicle, parentView: self.viewModel.listView)
+            self.viewModel.listView.navigationController?.pushViewController(viewController, animated: true)
         })
         alert.addAction(replaceAction)
 

@@ -115,7 +115,7 @@ public class VehiclesListVC: DKUIViewController {
     
     @IBAction func goToVehiclePicker(_ sender: Any) {
         if let maxVehicles = DriveKitVehicleUI.shared.maxVehicles, maxVehicles <= self.viewModel.vehicles.count {
-            self.showAlertMessage(title: "", message: "Too many vehicle", back: false, cancel: false)
+            self.showAlertMessage(title: "", message: "dk_too_many_vehicles_alert".dkVehicleLocalized(), back: false, cancel: false)
         }else{
             _ = VehiclePickerCoordinator(parentView: self, detectionMode: self.viewModel.computeDetectionMode())
         }

@@ -24,6 +24,7 @@ public enum DKCommonLocalizable : String {
     unitGperKM = "dk_common_unit_g_per_km",
     unitKmPerHour = "dk_common_unit_km_per_hour",
     unitLPer100Km = "dk_common_unit_l_per_100km",
+    unitPower = "dk_common_unit_power",
     unitMPG = "dk_common_unit_mpg",
     unitMPH = "dk_common_unit_mph",
     unitAcceleration = "dk_common_unit_accel_meter_per_second_square",
@@ -51,8 +52,7 @@ public enum DKCommonLocalizable : String {
     contextCityDense = "dk_common_driving_context_city_dense",
     contextCity = "dk_common_driving_context_city",
     contextExternal = "dk_common_driving_context_external",
-    contextFastlane = "dk_common_driving_context_fastlane",
-    errorEmptyField = "dk_common_error_empty_field"
+    contextFastlane = "dk_common_driving_context_fastlane"
     
     
     public func text() -> String {

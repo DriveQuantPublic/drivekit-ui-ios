@@ -9,6 +9,7 @@
 import UIKit
 import DriveKitDBVehicleAccess
 import DriveKitVehicle
+import DriveKitCommonUI
 
 protocol VehicleField {
     var title: String { get }
@@ -35,7 +36,7 @@ enum EngineField: VehicleField, CaseIterable {
         case .motor:
             return DKVehicleEngineIndex(rawValue: vehicle.engineIndex)?.text()
         case .consumption:
-            return String(format: "%.1f %@", vehicle.consumption, "dk_common_unit_l_per_100km".dkVehicleLocalized())
+            return String(format: "%.1f %@", vehicle.consumption, DKCommonLocalizable.unitLPer100Km.text())
         }
     }
     
@@ -74,7 +75,7 @@ enum GeneralField: VehicleField, CaseIterable {
         case .name:
             return vehicle.displayName
         case .category:
-            return vehicle.getCategoryName()
+            return vehicle.getCategoryName() != "" ? vehicle.getCategoryName() : nil
         case .brand:
             if let brand = vehicle.brand {
                 return DKVehicleBrand(value: brand).title()
@@ -192,7 +193,7 @@ enum CharacteristicsField: VehicleField, CaseIterable {
     func getValue(vehicle: DKVehicle) -> String? {
         switch self {
         case .power:
-            return String(format: "%.0f %@", vehicle.power / 0.7355, "dk_common_unit_power".dkVehicleLocalized())
+            return String(format: "%.0f %@", vehicle.power / 0.7355, DKCommonLocalizable.unitPower.text())
         case .gearbox:
             let carGearBoxIndex = vehicle.gearboxIndex - 1
             switch carGearBoxIndex {
@@ -210,7 +211,7 @@ enum CharacteristicsField: VehicleField, CaseIterable {
                 return nil
             }
         case .mass:
-            return String(format: "%.0f %@", vehicle.mass, "dk_common_unit_kg".dkVehicleLocalized())
+            return String(format: "%.0f %@", vehicle.mass, DKCommonLocalizable.unitKilogram.text())
         }
     }
     

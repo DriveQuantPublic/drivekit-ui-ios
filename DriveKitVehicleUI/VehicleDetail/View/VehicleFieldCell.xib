@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Na3-C1-weQ" customClass="DKTextField" customModule="DriveKitCommonUI">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Na3-C1-weQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     </view>
@@ -31,7 +31,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="textField" destination="Na3-C1-weQ" id="o7W-ke-BTy"/>
+                <outlet property="textField" destination="Na3-C1-weQ" id="c14-Hc-mSl"/>
             </connections>
             <point key="canvasLocation" x="139" y="92"/>
         </tableViewCell>

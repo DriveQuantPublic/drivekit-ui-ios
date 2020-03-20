@@ -10,62 +10,70 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1HW-ng-QZm" customClass="DKTextField" customModule="DriveKitCommonUI" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="567" height="83"/>
+            <rect key="frame" x="0.0" y="0.0" width="652" height="75"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oKw-wQ-iXj">
-                    <rect key="frame" x="8" y="8" width="551" height="50"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8T4-an-20Q">
+                    <rect key="frame" x="8" y="4" width="636" height="20"/>
                     <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="81u-7C-4qK"/>
-                        <constraint firstAttribute="height" constant="50" id="EHi-OT-tv9"/>
-                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="XUA-vt-XoZ"/>
+                        <constraint firstAttribute="height" constant="20" id="fNz-kA-CfS"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <action selector="didEndEditing:" destination="1HW-ng-QZm" eventType="editingDidEnd" id="tiI-db-6Kx"/>
-                    </connections>
-                </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17 caractères" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0f-NK-FCT">
-                    <rect key="frame" x="8" y="67" width="551" height="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="caB-sw-nrV">
+                    <rect key="frame" x="8" y="54" width="636" height="1"/>
+                    <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="12" id="LqM-n0-RIe"/>
-                        <constraint firstAttribute="height" constant="12" id="elv-qn-zTh"/>
+                        <constraint firstAttribute="height" constant="1" id="kYk-Bu-041"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17 caractères" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0f-NK-FCT">
+                    <rect key="frame" x="8" y="63" width="636" height="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="12" id="ErN-jd-LJG"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="caB-sw-nrV">
-                    <rect key="frame" x="8" y="62" width="551" height="1"/>
-                    <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oKw-wQ-iXj">
+                    <rect key="frame" x="8" y="24" width="636" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="1" id="IQ0-QT-vjV"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="b5W-a2-NL5"/>
-                        <constraint firstAttribute="height" constant="1" id="kYk-Bu-041"/>
+                        <constraint firstAttribute="height" constant="30" id="W8l-nO-LBT"/>
                     </constraints>
-                </view>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="didEndEditing:" destination="1HW-ng-QZm" eventType="editingDidEnd" id="Q4B-Rm-5qD"/>
+                    </connections>
+                </textField>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="oKw-wQ-iXj" firstAttribute="top" secondItem="1HW-ng-QZm" secondAttribute="top" constant="8" id="BpA-o9-Gr3"/>
-                <constraint firstItem="oKw-wQ-iXj" firstAttribute="leading" secondItem="1HW-ng-QZm" secondAttribute="leading" constant="8" id="D3E-jx-2G2"/>
-                <constraint firstAttribute="trailing" secondItem="E0f-NK-FCT" secondAttribute="trailing" constant="8" id="Een-pq-pDJ"/>
-                <constraint firstItem="E0f-NK-FCT" firstAttribute="top" secondItem="caB-sw-nrV" secondAttribute="bottom" constant="4" id="Mfq-ey-gtr"/>
-                <constraint firstAttribute="bottom" secondItem="E0f-NK-FCT" secondAttribute="bottom" constant="4" id="REw-eY-ZYj"/>
-                <constraint firstItem="caB-sw-nrV" firstAttribute="leading" secondItem="1HW-ng-QZm" secondAttribute="leading" constant="8" id="YiS-Pn-fTC"/>
-                <constraint firstItem="caB-sw-nrV" firstAttribute="top" secondItem="oKw-wQ-iXj" secondAttribute="bottom" constant="4" id="bfA-Dx-cja"/>
-                <constraint firstAttribute="trailing" secondItem="caB-sw-nrV" secondAttribute="trailing" constant="8" id="euG-c7-wtl"/>
-                <constraint firstAttribute="trailing" secondItem="oKw-wQ-iXj" secondAttribute="trailing" constant="8" id="gdX-lm-dWV"/>
-                <constraint firstItem="E0f-NK-FCT" firstAttribute="leading" secondItem="1HW-ng-QZm" secondAttribute="leading" constant="8" id="hTZ-I1-UMl"/>
+                <constraint firstAttribute="trailing" secondItem="oKw-wQ-iXj" secondAttribute="trailing" constant="8" id="1FD-pc-lZH"/>
+                <constraint firstItem="oKw-wQ-iXj" firstAttribute="top" secondItem="8T4-an-20Q" secondAttribute="bottom" id="65T-8Q-5aA"/>
+                <constraint firstAttribute="trailing" secondItem="E0f-NK-FCT" secondAttribute="trailing" constant="8" id="GNa-K3-1iO"/>
+                <constraint firstItem="oKw-wQ-iXj" firstAttribute="leading" secondItem="1HW-ng-QZm" secondAttribute="leading" constant="8" id="IXH-hf-WYS"/>
+                <constraint firstItem="caB-sw-nrV" firstAttribute="leading" secondItem="1HW-ng-QZm" secondAttribute="leading" constant="8" id="Iqh-VI-GVf"/>
+                <constraint firstItem="E0f-NK-FCT" firstAttribute="top" secondItem="caB-sw-nrV" secondAttribute="bottom" constant="8" symbolic="YES" id="JnK-tq-OM6"/>
+                <constraint firstItem="8T4-an-20Q" firstAttribute="leading" secondItem="1HW-ng-QZm" secondAttribute="leading" constant="8" id="KAF-aG-IWc"/>
+                <constraint firstAttribute="trailing" secondItem="8T4-an-20Q" secondAttribute="trailing" constant="8" id="bwg-KO-6In"/>
+                <constraint firstAttribute="trailing" secondItem="caB-sw-nrV" secondAttribute="trailing" constant="8" id="c0w-vI-Uqk"/>
+                <constraint firstItem="caB-sw-nrV" firstAttribute="top" secondItem="oKw-wQ-iXj" secondAttribute="bottom" id="ct7-1d-aTs"/>
+                <constraint firstAttribute="bottom" secondItem="E0f-NK-FCT" secondAttribute="bottom" id="d5e-xE-xgJ"/>
+                <constraint firstItem="E0f-NK-FCT" firstAttribute="leading" secondItem="1HW-ng-QZm" secondAttribute="leading" constant="8" id="g5L-h3-i9W"/>
+                <constraint firstItem="8T4-an-20Q" firstAttribute="top" secondItem="1HW-ng-QZm" secondAttribute="top" constant="4" id="oCj-ZB-rPL"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="subtitle" destination="E0f-NK-FCT" id="Fmz-QR-SMx"/>
-                <outlet property="textField" destination="oKw-wQ-iXj" id="t2w-6t-aZf"/>
-                <outlet property="underline" destination="caB-sw-nrV" id="zHu-V7-HVj"/>
+                <outlet property="subtitle" destination="E0f-NK-FCT" id="qpe-YC-1jU"/>
+                <outlet property="textField" destination="oKw-wQ-iXj" id="PyS-Qd-WP4"/>
+                <outlet property="titleTextField" destination="8T4-an-20Q" id="pA8-xh-19Q"/>
+                <outlet property="underline" destination="caB-sw-nrV" id="ISI-6t-pOJ"/>
             </connections>
-            <point key="canvasLocation" x="287.68115942028987" y="-37.834821428571423"/>
+            <point key="canvasLocation" x="349.27536231884062" y="32.477678571428569"/>
         </view>
     </objects>
 </document>

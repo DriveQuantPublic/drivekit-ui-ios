@@ -1,11 +1,3 @@
-/* 
-  CommonLocalizable.strings
-  DriveKitApp
-
-  Created by Jérémy Bayle on 27/02/2020.
-  Copyright © 2020 DriveQuant. All rights reserved.
-*/
-
 "dk_common_cancel"="Cancel";
 "dk_common_close"="Close";
 "dk_common_confirm"="Confirm";

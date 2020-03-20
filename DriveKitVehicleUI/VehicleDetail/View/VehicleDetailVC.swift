@@ -52,11 +52,14 @@ extension VehicleDetailVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let groupFields = self.viewModel.fields
+        let groupFields = self.viewModel.fields[indexPath.section]
         var fieldsNb = 0
-        for group in groupFields {
-            fieldsNb += group.getFields(vehicle: self.viewModel.vehicle).count
+        let fields = groupFields.getFields(vehicle: self.viewModel.vehicle)
+        for field in fields {
+            if field.getValue(vehicle: self.viewModel.vehicle) != nil {
+                fieldsNb += 1
+            }
         }
-        return CGFloat(fieldsNb * 74)
+        return CGFloat(fieldsNb * 85)
     }
 }

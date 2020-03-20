@@ -25,6 +25,7 @@ class VehicleGroupFieldsCell: UITableViewCell {
         tableView.layer.cornerRadius = 5
         tableView.register(UINib(nibName: "VehicleFieldCell", bundle: Bundle.vehicleUIBundle), forCellReuseIdentifier: "VehicleFieldCell")
         tableView.separatorStyle = .none
+        tableView.isScrollEnabled = false
         tableView.rowHeight = UITableView.automaticDimension
         tableView.delegate = self
         tableView.dataSource = self
@@ -33,7 +34,7 @@ class VehicleGroupFieldsCell: UITableViewCell {
 
 extension VehicleGroupFieldsCell: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 74
+        return UITableView.automaticDimension
     }
 }
 
@@ -43,13 +44,13 @@ extension VehicleGroupFieldsCell: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return viewModel?.fields.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: VehicleFieldCell = self.tableView.dequeueReusableCell(withIdentifier: "VehicleFieldCell", for: indexPath) as! VehicleFieldCell
         if let vehicleItem = self.viewModel?.fields[indexPath.row] {
-            cell.textField.configure(placeholder: vehicleItem.title, value: vehicleItem.getValue(vehicle: viewModel!.vehicle) ?? "", keyBoardType: vehicleItem.keyBoardType, isEnabled: vehicleItem.isEditable)
+            cell.configure(field: vehicleItem, vehicle: viewModel!.vehicle)
             cell.delegate = self
             cell.selectionStyle = .none
         }
@@ -59,6 +60,7 @@ extension VehicleGroupFieldsCell: UITableViewDataSource {
 
 extension VehicleGroupFieldsCell: VehicleFieldCellDelegate {
     func didEndEditing(cell: VehicleFieldCell, value: String) {
+        cell.textFieldView.configure()
         if let indexPath = tableView.indexPath(for: cell) {
             if let field = self.viewModel?.fields[indexPath.row] as? GeneralField, field == .name {
                 if value != viewModel?.vehicle.name {

@@ -33,26 +33,5 @@ class VehicleDetailViewModel {
                 fields.append(groupField)
             }
         }
-    }
-    
-    func getVehicleImage() -> UIImage? {
-        let fileManager = FileManager.default
-        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let documentPath = documentsURL.path
-        let filePath = documentsURL.appendingPathComponent("\(vehicleImage).jpeg")
-        var image = UIImage(named: "dk_vehicle_default", in: Bundle.vehicleUIBundle, compatibleWith: nil)
-               do {
-                   let files = try fileManager.contentsOfDirectory(atPath: "\(documentPath)")
-                   for file in files {
-                       if "\(documentPath)/\(file)" == filePath.path {
-                           image = UIImage(contentsOfFile: filePath.path)
-                       }
-                   }
-               } catch {
-                   print("Could not add image from document directory: \(error)")
-               }
-
-       return image
-    }
-    
+    }    
 }

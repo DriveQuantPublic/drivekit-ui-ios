@@ -26,13 +26,17 @@ class VehicleFieldCell: UITableViewCell {
     
     func configure(field: VehicleField, vehicle: DKVehicle) {
         textFieldView.delegate = self
-        textFieldView.setValues(placeholder: field.title, value: field.getValue(vehicle: vehicle) ?? "", keyBoardType: field.keyBoardType, isEnabled: field.isEditable, emptyErrorText: "dk_empty_vehicle_name".dkVehicleLocalized())
+        textFieldView.placeholder = field.title
+        textFieldView.value = field.getValue(vehicle: vehicle) ?? ""
+        textFieldView.enable = field.isEditable
+        textFieldView.keyBoardType = field.keyBoardType
+        
         textField.embedSubview(textFieldView)
 
     }
     
     func configureError(error: String) {
-        textFieldView.configureError(error: error)
+        textFieldView.errorMessage = error
     }
 }
 

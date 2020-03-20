@@ -60,7 +60,6 @@ extension VehicleGroupFieldsCell: UITableViewDataSource {
 
 extension VehicleGroupFieldsCell: VehicleFieldCellDelegate {
     func didEndEditing(cell: VehicleFieldCell, value: String) {
-        cell.textFieldView.configure()
         if let indexPath = tableView.indexPath(for: cell) {
             if let field = self.viewModel?.fields[indexPath.row] as? GeneralField, field == .name {
                 if value != viewModel?.vehicle.name {

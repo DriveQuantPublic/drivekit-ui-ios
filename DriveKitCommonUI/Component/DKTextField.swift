@@ -12,17 +12,6 @@ public protocol DKTextFieldDelegate: class {
     func userDidEndEditing(textField: DKTextField)
 }
 
-class DKTextFieldViewModel {
-    var placeholder: String = ""
-    var value: String = ""
-    var subtitleText: String? = nil
-    var errorText: String? = nil
-    var isError: Bool = false
-    var keyBoardType: UIKeyboardType = .default
-    var isEnabled: Bool = false
-    var emptyErrorText: String? = nil
-}
-
 public final class DKTextField: UIView, Nibable {
     @IBOutlet var titleTextField: UILabel!
     @IBOutlet var textField: UITextField!
@@ -31,49 +20,68 @@ public final class DKTextField: UIView, Nibable {
     
     public var delegate: DKTextFieldDelegate? = nil
     
-    var viewModel = DKTextFieldViewModel()
+    public var placeholder: String = "" {
+        didSet {
+            textField.placeholder = placeholder
+            titleTextField.attributedText = placeholder.dkAttributedString().font(dkFont: .primary, style: .normalText).color(DKUIColors.complementaryFontColor).build()
+        }
+    }
+    
+    public var errorMessage: String? = nil {
+        didSet {
+            configureError()
+        }
+    }
+    
+    public var value: String = "" {
+        didSet {
+            textField.text = value
+        }
+    }
+    
+    public var enable : Bool = true {
+        didSet {
+            textField.isEnabled = enable
+            configureUnderline()
+        }
+    }
+    
+    public var keyBoardType: UIKeyboardType = .default {
+        didSet {
+            textField.keyboardType = keyBoardType
+        }
+    }
+    
+    public var subtitleText: String? = nil {
+        didSet {
+        }
+    }
     
     override public func awakeFromNib() {
         super.awakeFromNib()
-        textField.delegate = self
-        textField.returnKeyType = .done
+        setup()
     }
     
     public func getTextFieldValue() -> String {
         return textField.text ?? ""
     }
     
-    public func setValues(placeholder: String, value: String = "", subtitleText: String? = nil, isError: Bool = false, keyBoardType: UIKeyboardType = .default, isEnabled: Bool = false, emptyErrorText: String? = nil) {
-        self.viewModel.placeholder = placeholder
-        self.viewModel.value = value
-        self.viewModel.subtitleText = subtitleText
-        self.viewModel.isError = isError
-        self.viewModel.keyBoardType = keyBoardType
-        self.viewModel.isEnabled = isEnabled
-        self.viewModel.emptyErrorText = emptyErrorText
     
-        titleTextField.attributedText =  self.viewModel.placeholder.dkAttributedString().font(dkFont: .primary, style: .normalText).color(DKUIColors.primaryColor).build()
-        textField.placeholder = self.viewModel.placeholder
-        textField.text = self.viewModel.value
-        textField.isEnabled = self.viewModel.isEnabled
+    private func setup() {
+        textField.placeholder = placeholder
+        titleTextField.attributedText = placeholder.dkAttributedString().font(dkFont: .primary, style: .normalText).color(DKUIColors.complementaryFontColor).build()
+        textField.text = value
+        textField.textColor = DKUIColors.mainFontColor.color
+        textField.isEnabled = enable
+        textField.keyboardType = keyBoardType
         textField.clearButtonMode = .whileEditing
-        textField.keyboardType = self.viewModel.keyBoardType
-        if self.viewModel.isError {
-            self.configureError(error: subtitleText)
-        } else {
-            self.configure()
-        }
+        textField.delegate = self
+        textField.returnKeyType = .done
+        configureSubtitleLabel()
     }
     
-    public func configure() {
-        if self.viewModel.isEnabled {
-            underline.isHidden = false
-            underline.backgroundColor = DKUIColors.secondaryColor.color
-        } else {
-            underline.isHidden = true
-        }
-        if let desc = self.viewModel.subtitleText {
-            self.viewModel.subtitleText = desc
+    private func configureSubtitleLabel() {
+        if let desc = subtitleText {
             subtitle.isHidden = false
             subtitle.attributedText = desc.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
         } else {
@@ -81,28 +89,37 @@ public final class DKTextField: UIView, Nibable {
         }
     }
     
-    public func configureError(error: String?) {
-        underline.isHidden = false
-        underline.backgroundColor = DKUIColors.warningColor.color
-        self.viewModel.errorText = error
-        if let textError = self.viewModel.errorText {
+    private func configureUnderline(isError: Bool = false) {
+        if enable {
+            underline.isHidden = false
+            if isError {
+                 underline.backgroundColor = DKUIColors.warningColor.color
+            } else {
+                underline.backgroundColor = DKUIColors.complementaryFontColor.color
+            }
+        } else {
+            underline.isHidden = true
+        }
+    }
+    
+    private func configureError() {
+        if let textError = errorMessage {
+            self.configureUnderline(isError: true)
             subtitle.isHidden = false
             subtitle.attributedText = textError.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.warningColor).build()
         } else {
+            self.configureUnderline(isError: false)
             subtitle.isHidden = true
         }
     }
     
+    @IBAction func didStartEditing(_ sender: Any) {
+        underline.backgroundColor = DKUIColors.secondaryColor.color
+    }
+    
     @IBAction func didEndEditing(_ sender: Any) {
-        self.viewModel.value = textField.text ?? ""
-        if let emptyError = self.viewModel.emptyErrorText , self.viewModel.value == "" {
-            self.viewModel.isError = true
-            self.configureError(error: emptyError)
-        } else {
-            self.viewModel.isError = false
-            self.configure()
-            self.delegate?.userDidEndEditing(textField: self)
-        }
+        underline.backgroundColor = DKUIColors.complementaryFontColor.color
+        self.delegate?.userDidEndEditing(textField: self)
     }
 }
 

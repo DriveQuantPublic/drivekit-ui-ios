@@ -30,9 +30,9 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17 caractères" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0f-NK-FCT">
-                    <rect key="frame" x="8" y="63" width="636" height="12"/>
+                    <rect key="frame" x="8" y="63" width="636" height="15"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="12" id="ErN-jd-LJG"/>
+                        <constraint firstAttribute="height" constant="15" id="ErN-jd-LJG"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <nil key="textColor"/>
@@ -47,6 +47,7 @@
                     <textInputTraits key="textInputTraits"/>
                     <connections>
                         <action selector="didEndEditing:" destination="1HW-ng-QZm" eventType="editingDidEnd" id="Q4B-Rm-5qD"/>
+                        <action selector="didStartEditing:" destination="1HW-ng-QZm" eventType="editingDidBegin" id="oJD-Nb-NQd"/>
                     </connections>
                 </textField>
             </subviews>

@@ -27,6 +27,7 @@ class VehicleFieldCell: UITableViewCell {
     func configure(field: VehicleField, vehicle: DKVehicle) {
         textFieldView.delegate = self
         textFieldView.placeholder = field.title
+        textFieldView.title = field.title
         textFieldView.value = field.getValue(vehicle: vehicle) ?? ""
         textFieldView.enable = field.isEditable
         textFieldView.keyBoardType = field.keyBoardType

@@ -18,10 +18,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="88T-ML-pku" customClass="CardView" customModule="DriveKitCommonUI">
-                        <rect key="frame" x="16" y="16" width="428" height="306"/>
+                        <rect key="frame" x="8" y="8" width="444" height="322"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QsG-EN-VIc">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="306"/>
+                                <rect key="frame" x="0.0" y="0.0" width="444" height="322"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
@@ -36,10 +36,10 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="88T-ML-pku" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="1Yt-np-MMy"/>
-                    <constraint firstAttribute="trailing" secondItem="88T-ML-pku" secondAttribute="trailing" constant="16" id="elq-GO-GuE"/>
-                    <constraint firstAttribute="bottom" secondItem="88T-ML-pku" secondAttribute="bottom" constant="16" id="iwS-Uq-9Wu"/>
-                    <constraint firstItem="88T-ML-pku" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="qar-Ib-qLR"/>
+                    <constraint firstItem="88T-ML-pku" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="1Yt-np-MMy"/>
+                    <constraint firstAttribute="trailing" secondItem="88T-ML-pku" secondAttribute="trailing" constant="8" id="elq-GO-GuE"/>
+                    <constraint firstAttribute="bottom" secondItem="88T-ML-pku" secondAttribute="bottom" constant="8" id="iwS-Uq-9Wu"/>
+                    <constraint firstItem="88T-ML-pku" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="qar-Ib-qLR"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -20,8 +20,8 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Yvf-ID-1ea">
-                    <rect key="frame" x="8" y="44" width="398" height="760"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Yvf-ID-1ea">
+                    <rect key="frame" x="0.0" y="44" width="414" height="760"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wln-qS-NJQ">
@@ -39,11 +39,11 @@
             <constraints>
                 <constraint firstItem="Yvf-ID-1ea" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="A8s-Ob-Ug6"/>
                 <constraint firstItem="wln-qS-NJQ" firstAttribute="top" secondItem="Yvf-ID-1ea" secondAttribute="bottom" constant="8" symbolic="YES" id="YQ3-b3-cVP"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Yvf-ID-1ea" secondAttribute="trailing" constant="8" id="buL-2b-pXa"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Yvf-ID-1ea" secondAttribute="trailing" id="buL-2b-pXa"/>
                 <constraint firstItem="wln-qS-NJQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="g2f-rr-C0O"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="wln-qS-NJQ" secondAttribute="trailing" id="mTU-3t-K6r"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="wln-qS-NJQ" secondAttribute="bottom" id="mbr-WY-LBC"/>
-                <constraint firstItem="Yvf-ID-1ea" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="sph-Ip-Fbi"/>
+                <constraint firstItem="Yvf-ID-1ea" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="sph-Ip-Fbi"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="137.68115942028987" y="127.90178571428571"/>

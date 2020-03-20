@@ -41,6 +41,7 @@ public final class DKTextField: UIView, Nibable {
     public var value: String = "" {
         didSet {
             textField.text = value
+            configureTitle()
         }
     }
     
@@ -74,7 +75,6 @@ public final class DKTextField: UIView, Nibable {
     
     private func setup() {
         textField.placeholder = placeholder
-        titleTextField.attributedText = placeholder.dkAttributedString().font(dkFont: .primary, style: .normalText).color(DKUIColors.complementaryFontColor).build()
         textField.text = value
         textField.textColor = DKUIColors.mainFontColor.color
         textField.isEnabled = enable
@@ -87,11 +87,16 @@ public final class DKTextField: UIView, Nibable {
     
     private func configureTitle() {
         if let title = self.title {
-            if placeholder == "" || value != "" || textField.text != "" {
+            if enable {
+                if placeholder == "" || textField.text != "" {
+                    titleTextField.isHidden = false
+                    titleTextField.attributedText = title.dkAttributedString().font(dkFont: .primary, style: .normalText).color(DKUIColors.complementaryFontColor).build()
+                } else {
+                    titleTextField.isHidden = true
+                }
+            } else {
                 titleTextField.isHidden = false
                 titleTextField.attributedText = title.dkAttributedString().font(dkFont: .primary, style: .normalText).color(DKUIColors.complementaryFontColor).build()
-            } else {
-                titleTextField.isHidden = true
             }
         } else {
             titleTextField.isHidden = true

@@ -39,7 +39,7 @@ class VehiclesListCell: UITableViewCell {
     
     func configure(viewModel: VehiclesListCellViewModel) {
         self.viewModel = viewModel
-        vehicleTitle.attributedText = viewModel.getDisplayName().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        vehicleTitle.attributedText = viewModel.getDisplayName().dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.mainFontColor).build()
         vehicleSubtitle.attributedText = viewModel.getSubtitle()?.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
         let editImage = DKImages.dots.image
         editButton.setImage(editImage, for: .normal)
@@ -61,7 +61,7 @@ class VehiclesListCell: UITableViewCell {
         descriptionLabel.attributedText = viewModel.autoStart.getDescription(vehicle: self.viewModel.vehicle)
         if let buttonText = viewModel.autoStart.buttonTitle {
             configureButton.isHidden = false
-            let buttonTitle = buttonText.dkAttributedString().font(dkFont: .primary, style: .button).color(.secondaryColor).build()
+            let buttonTitle = buttonText.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.secondaryColor).build()
             configureButton.setAttributedTitle(buttonTitle, for: .normal)
         } else {
             configureButton.isHidden = true

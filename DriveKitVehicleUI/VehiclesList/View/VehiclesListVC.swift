@@ -42,7 +42,7 @@ public class VehiclesListVC: DKUIViewController {
     func configure() {
         if DriveKitVehicleUI.shared.canAddVehicle {
             addVehicleButton.backgroundColor = DKUIColors.secondaryColor.color
-            let addTitle = "dk_vehicle_add".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).build()
+            let addTitle = "dk_vehicle_add".dkVehicleLocalized().uppercased().dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).build()
             addVehicleButton.setAttributedTitle(addTitle, for: .normal)
         } else{
             addVehicleButton.isHidden = true
@@ -143,7 +143,6 @@ extension VehiclesListVC: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let vehicle = viewModel.vehicles[indexPath.section]
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "VehiclesListCell", for: indexPath) as! VehiclesListCell
-        cell.selectionStyle = .none
         let cellViewModel = VehiclesListCellViewModel(listView: self, vehicle: vehicle, vehicles: viewModel.vehicles)
         cellViewModel.delegate = self
         cell.configure(viewModel: cellViewModel)

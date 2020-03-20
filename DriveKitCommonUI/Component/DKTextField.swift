@@ -23,7 +23,12 @@ public final class DKTextField: UIView, Nibable {
     public var placeholder: String = "" {
         didSet {
             textField.placeholder = placeholder
-            titleTextField.attributedText = placeholder.dkAttributedString().font(dkFont: .primary, style: .normalText).color(DKUIColors.complementaryFontColor).build()
+        }
+    }
+    
+    public var title: String? = nil {
+        didSet {
+            configureTitle()
         }
     }
     
@@ -62,8 +67,8 @@ public final class DKTextField: UIView, Nibable {
         setup()
     }
     
-    public func getTextFieldValue() -> String {
-        return textField.text ?? ""
+    public func getTextFieldValue() -> String? {
+        return textField.text
     }
     
     
@@ -80,6 +85,19 @@ public final class DKTextField: UIView, Nibable {
         configureSubtitleLabel()
     }
     
+    private func configureTitle() {
+        if let title = self.title {
+            if placeholder == "" || value != "" || textField.text != "" {
+                titleTextField.isHidden = false
+                titleTextField.attributedText = title.dkAttributedString().font(dkFont: .primary, style: .normalText).color(DKUIColors.complementaryFontColor).build()
+            } else {
+                titleTextField.isHidden = true
+            }
+        } else {
+            titleTextField.isHidden = true
+        }
+    }
+    
     private func configureSubtitleLabel() {
         if let desc = subtitleText {
             subtitle.isHidden = false
@@ -93,7 +111,7 @@ public final class DKTextField: UIView, Nibable {
         if enable {
             underline.isHidden = false
             if isError {
-                 underline.backgroundColor = DKUIColors.warningColor.color
+                 underline.backgroundColor = DKUIColors.criticalColor.color
             } else {
                 underline.backgroundColor = DKUIColors.complementaryFontColor.color
             }
@@ -106,7 +124,7 @@ public final class DKTextField: UIView, Nibable {
         if let textError = errorMessage {
             self.configureUnderline(isError: true)
             subtitle.isHidden = false
-            subtitle.attributedText = textError.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.warningColor).build()
+            subtitle.attributedText = textError.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.criticalColor).build()
         } else {
             self.configureUnderline(isError: false)
             subtitle.isHidden = true
@@ -114,10 +132,12 @@ public final class DKTextField: UIView, Nibable {
     }
     
     @IBAction func didStartEditing(_ sender: Any) {
+        configureTitle()
         underline.backgroundColor = DKUIColors.secondaryColor.color
     }
     
     @IBAction func didEndEditing(_ sender: Any) {
+        configureTitle()
         underline.backgroundColor = DKUIColors.complementaryFontColor.color
         self.delegate?.userDidEndEditing(textField: self)
     }

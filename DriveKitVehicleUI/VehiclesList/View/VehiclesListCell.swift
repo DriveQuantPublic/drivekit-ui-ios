@@ -70,7 +70,7 @@ class VehiclesListCell: UITableViewCell {
         if let descImage = viewModel.autoStart.descriptionImage {
             descriptionImageView.isHidden = false
             descriptionImage.image = descImage
-            descriptionImage.tintColor = DKUIColors.warningColor.color
+            descriptionImage.tintColor = DKUIColors.criticalColor.color
         } else {
             descriptionImageView.isHidden = true
         }

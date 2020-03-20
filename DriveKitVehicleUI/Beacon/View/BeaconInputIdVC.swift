@@ -12,11 +12,12 @@ import DriveKitCommonUI
 class BeaconInputIdVC: DKUIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var textField: UIView!
     
     private let viewModel : BeaconViewModel
     private let parentView : UIViewController
+    private let filterView = DKTextField.viewFromNib
     
     public init(viewModel: BeaconViewModel, parentView: UIViewController) {
         self.viewModel = viewModel
@@ -42,21 +43,16 @@ class BeaconInputIdVC: DKUIViewController {
     }
     
     private func configureTextField() {
-        let leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 8, height: 2.0))
-        textField.leftView = leftView
-        textField.leftViewMode = .always
-        textField.autocorrectionType = .no
-        textField.backgroundColor = DKUIColors.neutralColor.color
-        textField.borderStyle = .none
-        textField.keyboardType = .asciiCapable
-        textField.returnKeyType = .done
-        textField.placeholder = "dk_vehicle_beacon_setup_code_hint".dkVehicleLocalized()
-        textField.delegate = self
-        textField.becomeFirstResponder()
+        filterView.delegate = self
+        filterView.placeholder = "dk_vehicle_beacon_setup_code_hint".dkVehicleLocalized()
+        filterView.title = "dk_vehicle_beacon_setup_code_hint".dkVehicleLocalized()
+        filterView.keyBoardType = .asciiCapable
+        filterView.enable = true
+        textField.embedSubview(filterView)
     }
     
     @IBAction func checkBeaconCode(_ sender: Any) {
-        if let code = textField.text, !code.isEmpty {
+        if let code = filterView.getTextFieldValue(), !code.isEmpty {
             self.showLoader()
             self.viewModel.checkCode(code: code, completion: {status in
                 DispatchQueue.main.async {
@@ -82,21 +78,8 @@ class BeaconInputIdVC: DKUIViewController {
     }
 }
 
-extension BeaconInputIdVC : UITextFieldDelegate {
-    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        return true
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
+extension BeaconInputIdVC : DKTextFieldDelegate {
+    func userDidEndEditing(textField: DKTextField) {
+        return
     }
 }

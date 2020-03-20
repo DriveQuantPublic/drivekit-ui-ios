@@ -59,10 +59,10 @@ extension VehicleGroupFieldsCell: UITableViewDataSource {
 }
 
 extension VehicleGroupFieldsCell: VehicleFieldCellDelegate {
-    func didEndEditing(cell: VehicleFieldCell, value: String) {
-        if let indexPath = tableView.indexPath(for: cell) {
+    func didEndEditing(cell: VehicleFieldCell, value: String?) {
+        if let indexPath = tableView.indexPath(for: cell), let text = value {
             if let field = self.viewModel?.fields[indexPath.row] as? GeneralField, field == .name {
-                if value != viewModel?.vehicle.name {
+                if text != viewModel?.vehicle.name {
                     viewModel?.delegate?.didUpdateField()
                 }
             }

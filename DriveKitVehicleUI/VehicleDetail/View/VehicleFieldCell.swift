@@ -11,7 +11,7 @@ import DriveKitCommonUI
 import DriveKitDBVehicleAccess
 
 protocol VehicleFieldCellDelegate {
-    func didEndEditing(cell: VehicleFieldCell, value: String)
+    func didEndEditing(cell: VehicleFieldCell, value: String?)
 }
 
 class VehicleFieldCell: UITableViewCell {

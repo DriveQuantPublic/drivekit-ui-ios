@@ -60,10 +60,15 @@ extension VehicleGroupFieldsCell: UITableViewDataSource {
 
 extension VehicleGroupFieldsCell: VehicleFieldCellDelegate {
     func didEndEditing(cell: VehicleFieldCell, value: String?) {
-        if let indexPath = tableView.indexPath(for: cell), let text = value {
+        if let indexPath = tableView.indexPath(for: cell)  {
             if let field = self.viewModel?.fields[indexPath.row] as? GeneralField, field == .name {
-                if text != viewModel?.vehicle.name {
-                    viewModel?.delegate?.didUpdateField()
+                if let text = value, text != "" {
+                    cell.textFieldView.errorMessage = nil
+                    if text != viewModel?.vehicle.name {
+                        viewModel?.delegate?.didUpdateField()
+                    }
+                } else {
+                    cell.textFieldView.errorMessage = "dk_empty_vehicle_name".dkVehicleLocalized()
                 }
             }
         }

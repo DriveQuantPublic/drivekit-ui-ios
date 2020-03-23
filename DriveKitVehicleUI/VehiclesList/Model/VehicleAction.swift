@@ -11,11 +11,10 @@ import DriveKitCommonUI
 import DriveKitDBVehicleAccess
 
 public enum VehicleAction : String, CaseIterable  {
-    
-    case delete
-    case replace
     case show
     case rename
+    case replace
+    case delete
     
     func title() -> String {
         switch (self) {

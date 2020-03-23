@@ -169,7 +169,7 @@ class VehiclePickerViewModel {
     
     func replaceVehicle(completion : @escaping (DKVehicleManagerStatus) -> ()) {
         if let characteristics = vehicleCharacteristics, let previousVehicle = coordinator.vehicle {
-            let detectionMode = previousVehicle.detectionMode
+            let detectionMode = previousVehicle.detectionMode ?? .disabled
             let minor = previousVehicle.beacon?.minor
             let major = previousVehicle.beacon?.major
             let proximityUuid = previousVehicle.beacon?.proximityUuid
@@ -178,8 +178,7 @@ class VehiclePickerViewModel {
             let macAddress = previousVehicle.bluetooth?.macAddress
             let oldVehicleId = previousVehicle.vehicleId
             
-            // TO DO : Add liteConfig and detectionMode
-            DriveKitVehicleManager.shared.createVehicle(characteristics: characteristics, name: vehicleName, completionHandler: { status, vehicle in
+            DriveKitVehicleManager.shared.createVehicle(characteristics: characteristics, name: vehicleName, liteConfig: liteConfig, detectionMode: detectionMode, completionHandler: { status, vehicle in
                 DriveKitVehicleManager.shared.deleteVehicle(vehicleId: previousVehicle.vehicleId, completionHandler: { deleteStatus in
                     if deleteStatus == .success {
                         if proximityUuid != nil, minor != nil, major != nil {

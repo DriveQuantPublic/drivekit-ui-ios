@@ -25,10 +25,14 @@ class VehiclesListViewModel {
         DriveKitVehicleManager.shared.getVehiclesOrderByNameAsc(completionHandler : { status, vehicles in
             DispatchQueue.main.async {
                 self.status = status
-                self.vehicles = vehicles
+                self.vehicles = self.orderVehiclesByDisplayName(vehicles: vehicles)
                 self.delegate?.onVehiclesAvailable()
             }
         })
+    }
+    
+    func orderVehiclesByDisplayName(vehicles: [DKVehicle]) -> [DKVehicle] {
+        return vehicles.sorted { $0.getDisplayNameInList(vehiclesList: vehicles).lowercased() < $1.getDisplayNameInList(vehiclesList: vehicles).lowercased() }
     }
     
     func renameVehicle(vehicle: DKVehicle, name: String) {

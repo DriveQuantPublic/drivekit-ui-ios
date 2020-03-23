@@ -122,18 +122,6 @@ class VehiclesListCell: UITableViewCell {
         
         for vehicleOption in vehicleOptions {
             switch vehicleOption {
-            case .delete:
-                if viewModel.vehicles.count > 1 {
-                    let deleteVehicle = vehicleOption.alertAction(completionHandler: {  _ in
-                        self.viewModel.listView.confirmDeleteAlert(type: .vehicle, vehicle: self.viewModel.vehicle)
-                    })
-                    alert.addAction(deleteVehicle)
-                }
-            case .replace:
-                let replaceVehicle = vehicleOption.alertAction(completionHandler: {  _ in
-                    _ = VehiclePickerCoordinator(parentView: self.viewModel.listView, detectionMode: self.viewModel.autoStart.detectionModeValue ?? .disabled, vehicle: self.viewModel.vehicle)
-                })
-                alert.addAction(replaceVehicle)
             case .show:
                 let showVehicle = vehicleOption.alertAction(completionHandler: {  _ in
                     // TODO : VehicleDetail
@@ -146,12 +134,27 @@ class VehiclesListCell: UITableViewCell {
                     self.viewModel.listView.editVehicleNameAlert(vehicle: self.viewModel.vehicle)
                 })
                 alert.addAction(renameVehicle)
+                
+            case .replace:
+                let replaceVehicle = vehicleOption.alertAction(completionHandler: {  _ in
+                    _ = VehiclePickerCoordinator(parentView: self.viewModel.listView, detectionMode: self.viewModel.autoStart.detectionModeValue ?? .disabled, vehicle: self.viewModel.vehicle)
+                })
+                alert.addAction(replaceVehicle)
+            case .delete:
+                if viewModel.vehicles.count > 1 {
+                    let deleteVehicle = vehicleOption.alertAction(completionHandler: {  _ in
+                        self.viewModel.listView.confirmDeleteAlert(type: .vehicle, vehicle: self.viewModel.vehicle)
+                    })
+                    alert.addAction(deleteVehicle)
+                }
+                
+                
             }
         }
         
         let cancelAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel)
         alert.addAction(cancelAction)
-
+        
         viewModel.listView.present(alert, animated: true)
     }
     
@@ -165,21 +168,21 @@ class VehiclesListCell: UITableViewCell {
             }
         })
         alert.addAction(checkAction)
-
+        
         let replaceAction = UIAlertAction(title: "replace".dkVehicleLocalized(), style: .default , handler: {  _ in
             let viewController = ConnectBeaconVC(vehicle: self.viewModel.vehicle, parentView: self.viewModel.listView)
             self.viewModel.listView.navigationController?.pushViewController(viewController, animated: true)
         })
         alert.addAction(replaceAction)
-
+        
         let deleteAction = UIAlertAction(title: DKCommonLocalizable.delete.text(), style: .default , handler: {  _ in
             self.viewModel.listView.confirmDeleteAlert(type: .beacon, vehicle: self.viewModel.vehicle)
         })
         alert.addAction(deleteAction)
-
+        
         let cancelAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel)
         alert.addAction(cancelAction)
-
+        
         viewModel.listView.present(alert, animated: true)
         
     }
@@ -196,7 +199,7 @@ class VehiclesListCell: UITableViewCell {
             self.viewModel.listView.confirmDeleteAlert(type: .bluetooth, vehicle: self.viewModel.vehicle)
         })
         alert.addAction(deleteAction)
-
+        
         let cancelAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel)
         alert.addAction(cancelAction)
         viewModel.listView.present(alert, animated: true)

@@ -1211,9 +1211,9 @@
 		A34FC71A242274E0000734AB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A34FC7212422755F000734AB /* VehicleDetailVC.swift */,
 				A34FC7242422755F000734AB /* VehicleGroupFieldsCell.swift */,
 				A34FC7202422755F000734AB /* VehicleGroupFieldsCell.xib */,
+				A34FC7212422755F000734AB /* VehicleDetailVC.swift */,
 				A34FC7322423A1AA000734AB /* VehicleDetailVC.xib */,
 				A34FC7382423EE81000734AB /* VehicleFieldCell.swift */,
 				A34FC7392423EE81000734AB /* VehicleFieldCell.xib */,

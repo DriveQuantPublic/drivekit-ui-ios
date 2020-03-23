@@ -29,6 +29,7 @@ public class VehiclesListVC: DKUIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
+        title = "dk_vehicle_my_vehicles".dkVehicleLocalized()
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 250
         self.tableView.addSubview(refreshControl)

@@ -65,9 +65,10 @@ extension VehicleGroupFieldsCell: VehicleFieldCellDelegate {
                 if let text = value, text != "" {
                     cell.textFieldView.errorMessage = nil
                     if text != viewModel?.vehicle.name {
-                        viewModel?.delegate?.didUpdateField()
+                        viewModel?.delegate?.didUpdateField(field: field, value: text)
                     }
                 } else {
+                    viewModel?.delegate?.didFailUpdateField(field: field)
                     cell.textFieldView.errorMessage = "dk_empty_vehicle_name".dkVehicleLocalized()
                 }
             }

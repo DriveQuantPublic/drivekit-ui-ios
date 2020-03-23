@@ -75,7 +75,12 @@ enum GeneralField: VehicleField, CaseIterable {
         case .name:
             return vehicle.displayName
         case .category:
-            return vehicle.getCategoryName() != "" ? vehicle.getCategoryName() : nil
+            if let typeIndex = vehicle.typeIndex {
+                let category = DKVehicleCategory(rawValue: typeIndex)
+                return category?.title()
+            } else {
+                return " - "
+            }
         case .brand:
             if let brand = vehicle.brand {
                 return DKVehicleBrand(value: brand).title()

@@ -8,20 +8,23 @@
 
 import Foundation
 import DriveKitDBVehicleAccess
+import DriveKitVehicle
 
 protocol VehicleDetailDelegate {
     func didUpdateVehicle()
-    func didUpdateField()
+    func didUpdateField(field: VehicleField, value: String)
+    func didFailUpdateField(field: VehicleField)
 }
 
 class VehicleDetailViewModel {
     var fields: [VehicleGroupField] = []
     var vehicleDisplayName: String
     var vehicle: DKVehicle
-    var updatedName: String = ""
-    var hasError: Bool = false
+    var updatedName: String? = nil
+    var errorFields: [VehicleField] = []
     var delegate : VehicleDetailDelegate? = nil
     var vehicleImage : String = ""
+    var updatedFields: [VehicleField] = []
     
     init(vehicle: DKVehicle, vehicleDisplayName: String) {
         self.vehicle = vehicle
@@ -33,5 +36,21 @@ class VehicleDetailViewModel {
                 fields.append(groupField)
             }
         }
-    }    
+    }
+    
+    var hasError: Bool {
+        return errorFields.count > 0 ? true : false
+    }
+    
+    func updateFields(completion: @escaping((Bool) -> ())) {
+        if let newName = updatedName {
+            DriveKitVehicleManager.shared.renameVehicle(name: newName, vehicleId: vehicle.vehicleId, completionHandler: { status in
+                if status == .success {
+                    completion(true)
+                } else {
+                    completion(false)
+                }
+            })
+        }
+    }
 }

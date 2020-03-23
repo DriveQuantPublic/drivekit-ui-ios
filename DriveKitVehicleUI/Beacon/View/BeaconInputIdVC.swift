@@ -44,6 +44,7 @@ class BeaconInputIdVC: DKUIViewController {
     
     private func configureTextField() {
         filterView.delegate = self
+        filterView.target = view
         filterView.placeholder = "dk_vehicle_beacon_setup_code_hint".dkVehicleLocalized()
         filterView.title = "dk_vehicle_beacon_setup_code_hint".dkVehicleLocalized()
         filterView.keyBoardType = .asciiCapable

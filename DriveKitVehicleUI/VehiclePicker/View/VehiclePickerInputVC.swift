@@ -13,10 +13,11 @@ class VehiclePickerInputVC: VehiclePickerStepView {
     
     @IBOutlet weak var inputImageView: UIImageView!
     @IBOutlet weak var inputTextLabel: UILabel!
-    @IBOutlet weak var inputTextField: UITextField!
-    @IBOutlet weak var inputErrorLabel: UILabel!
+    @IBOutlet weak var inputTextField: UIView!
     @IBOutlet weak var inputConfirmButton: UIButton!
     
+    var textFieldView: DKTextField = DKTextField.viewFromNib
+
     init (viewModel: VehiclePickerViewModel) {
         super.init(nibName: String(describing: VehiclePickerInputVC.self), bundle: .vehicleUIBundle)
         self.viewModel = viewModel
@@ -40,25 +41,23 @@ class VehiclePickerInputVC: VehiclePickerStepView {
     }
     
     func configureTextField(placeholder: String) {
-        self.inputErrorLabel.isHidden = true
-        self.inputTextField.borderStyle = .none
-        let leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 8, height: 2.0))
-        self.inputTextField.leftView = leftView
-        self.inputTextField.leftViewMode = .always
-        self.inputTextField.placeholder = placeholder
-        self.inputTextField.keyboardType = .asciiCapable
-        self.inputTextField.returnKeyType = .done
-        self.inputTextField.backgroundColor = DKUIColors.neutralColor.color
+        textFieldView.delegate = self
+        textFieldView.target = view
+        textFieldView.placeholder = placeholder
+        textFieldView.title = placeholder
+        textFieldView.enable = true
+        textFieldView.keyBoardType = .asciiCapable
         if let name = viewModel.vehicleName {
-            self.inputTextField.text = name
+            textFieldView.value = name
         } else {
-            self.inputTextField.text = viewModel.getDefaultName()
+             textFieldView.value = viewModel.getDefaultName()
         }
-        self.inputTextField.delegate = self
+        inputTextField.embedSubview(textFieldView)
     }
     
     @IBAction func didConfirmInput(_ sender: Any) {
         self.showLoader()
+        self.viewModel.vehicleName = textFieldView.getTextFieldValue()
         self.viewModel.addVehicle(completion: {status in
             DispatchQueue.main.async {
                 self.hideLoader()
@@ -80,38 +79,8 @@ class VehiclePickerInputVC: VehiclePickerStepView {
     
 }
 
-extension VehiclePickerInputVC : UITextFieldDelegate {
-    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        return true
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        moveTextField(textField, moveDistance: -250, up: true)
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        moveTextField(textField, moveDistance: -250, up: false)
-        if let text = textField.text, !text.isEmpty {
-            inputConfirmButton.isEnabled = true
-        }else{
-            inputConfirmButton.isEnabled = false
-        }
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        inputTextField.resignFirstResponder()
-        return true
-    }
-    
-    func moveTextField(_ textField: UITextField, moveDistance: Int, up: Bool) {
-        let moveDuration = 0.3
-        let movement: CGFloat = CGFloat(up ? moveDistance : -moveDistance)
-        
-        UIView.beginAnimations("animateTextField", context: nil)
-        UIView.setAnimationBeginsFromCurrentState(true)
-        UIView.setAnimationDuration(moveDuration)
-        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
-        UIView.commitAnimations()
+extension VehiclePickerInputVC : DKTextFieldDelegate {
+    func userDidEndEditing(textField: DKTextField) {
+        self.viewModel.vehicleName = textField.getTextFieldValue()
     }
 }

@@ -1,5 +1,5 @@
 //
-//  DKTextFieldCell.swift
+//  DKTextField.swift
 //  DriveKitCommonUI
 //
 //  Created by Meryl Barantal on 19/03/2020.
@@ -19,6 +19,8 @@ public final class DKTextField: UIView, Nibable {
     @IBOutlet var subtitle: UILabel!
     
     public var delegate: DKTextFieldDelegate? = nil
+    
+    public var target: UIView? = nil
     
     public var placeholder: String = "" {
         didSet {
@@ -149,8 +151,33 @@ public final class DKTextField: UIView, Nibable {
 }
 
 extension DKTextField : UITextFieldDelegate {
+    public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        return true
+    }
+    
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
+        moveTextField(textField, moveDistance: -250, up: true)
+    }
+    
+    public func textFieldDidEndEditing(_ textField: UITextField) {
+        moveTextField(textField, moveDistance: -250, up: false)
+    }
+    
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    func moveTextField(_ textField: UITextField, moveDistance: Int, up: Bool) {
+        let moveDuration = 0.3
+        let movement: CGFloat = CGFloat(up ? moveDistance : -moveDistance)
+        
+        UIView.beginAnimations("animateTextField", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(moveDuration)
+        if let targetView = target {
+            targetView.frame = targetView.frame.offsetBy(dx: 0, dy: movement)
+        }
+        UIView.commitAnimations()
     }
 }

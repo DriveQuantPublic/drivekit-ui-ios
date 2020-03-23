@@ -11,9 +11,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VehiclePickerInputVC" customModule="DriveKitVehicleUI" customModuleProvider="target">
             <connections>
                 <outlet property="inputConfirmButton" destination="1eg-d6-2hG" id="tqO-wJ-3ZF"/>
-                <outlet property="inputErrorLabel" destination="PIX-lw-9qc" id="Y3h-ly-uxf"/>
                 <outlet property="inputImageView" destination="f3q-A2-oIX" id="QSP-Xs-Bjj"/>
-                <outlet property="inputTextField" destination="5t3-D0-8zz" id="s5W-8T-j3b"/>
+                <outlet property="inputTextField" destination="TDf-u3-tPM" id="uJ2-lg-2Yk"/>
                 <outlet property="inputTextLabel" destination="kF8-to-t92" id="Zu0-Pk-65r"/>
                 <outlet property="view" destination="S4t-Nz-FK9" id="Ys3-0H-1ax"/>
             </connections>
@@ -48,22 +47,8 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Test" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5t3-D0-8zz">
-                    <rect key="frame" x="16" y="326.5" width="382" height="50"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="50" id="gkR-S3-UHJ"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIX-lw-9qc">
-                    <rect key="frame" x="16" y="381.5" width="382" height="12"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eg-d6-2hG">
-                    <rect key="frame" x="16" y="429.5" width="382" height="50"/>
+                    <rect key="frame" x="16" y="412.5" width="382" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="0AB-SG-VHL"/>
                     </constraints>
@@ -72,27 +57,31 @@
                         <action selector="didConfirmInput:" destination="-1" eventType="touchUpInside" id="ZJC-cN-xNa"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TDf-u3-tPM">
+                    <rect key="frame" x="16" y="326.5" width="382" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="7Ad-FA-w0N"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="5t3-D0-8zz" firstAttribute="top" secondItem="kF8-to-t92" secondAttribute="bottom" constant="36" id="4yJ-JC-sZG"/>
+                <constraint firstItem="TDf-u3-tPM" firstAttribute="leading" secondItem="Fia-Lz-M9g" secondAttribute="leading" constant="16" id="1sw-bn-UPW"/>
                 <constraint firstItem="1eg-d6-2hG" firstAttribute="leading" secondItem="Fia-Lz-M9g" secondAttribute="leading" constant="16" id="Ah6-Ki-bNa"/>
-                <constraint firstItem="Fia-Lz-M9g" firstAttribute="trailing" secondItem="PIX-lw-9qc" secondAttribute="trailing" constant="16" id="Coa-Wx-UWP"/>
-                <constraint firstItem="PIX-lw-9qc" firstAttribute="leading" secondItem="Fia-Lz-M9g" secondAttribute="leading" constant="16" id="E0l-Rv-qIB"/>
                 <constraint firstItem="Fia-Lz-M9g" firstAttribute="trailing" secondItem="kF8-to-t92" secondAttribute="trailing" constant="16" id="IbA-B4-ldg"/>
-                <constraint firstItem="1eg-d6-2hG" firstAttribute="top" secondItem="PIX-lw-9qc" secondAttribute="bottom" constant="36" id="LVT-f7-msY"/>
+                <constraint firstItem="TDf-u3-tPM" firstAttribute="top" secondItem="kF8-to-t92" secondAttribute="bottom" constant="36" id="Rdp-zW-8W8"/>
                 <constraint firstItem="hMJ-zC-3Qc" firstAttribute="top" secondItem="Fia-Lz-M9g" secondAttribute="top" constant="70" id="RmH-Cy-OIR"/>
                 <constraint firstItem="Fia-Lz-M9g" firstAttribute="trailing" secondItem="1eg-d6-2hG" secondAttribute="trailing" constant="16" id="UDN-gV-fQq"/>
-                <constraint firstItem="Fia-Lz-M9g" firstAttribute="trailing" secondItem="5t3-D0-8zz" secondAttribute="trailing" constant="16" id="V35-qn-Q7h"/>
                 <constraint firstItem="kF8-to-t92" firstAttribute="leading" secondItem="Fia-Lz-M9g" secondAttribute="leading" constant="16" id="bzD-xw-3i1"/>
+                <constraint firstItem="Fia-Lz-M9g" firstAttribute="trailing" secondItem="TDf-u3-tPM" secondAttribute="trailing" constant="16" id="d5J-Az-fCz"/>
                 <constraint firstItem="kF8-to-t92" firstAttribute="top" secondItem="hMJ-zC-3Qc" secondAttribute="bottom" constant="36" id="eA5-pI-NkK"/>
-                <constraint firstItem="PIX-lw-9qc" firstAttribute="top" secondItem="5t3-D0-8zz" secondAttribute="bottom" constant="5" id="jKf-gg-uX3"/>
-                <constraint firstItem="5t3-D0-8zz" firstAttribute="leading" secondItem="Fia-Lz-M9g" secondAttribute="leading" constant="16" id="mbG-L3-tnz"/>
+                <constraint firstItem="1eg-d6-2hG" firstAttribute="top" secondItem="TDf-u3-tPM" secondAttribute="bottom" constant="36" id="tE2-6l-e2c"/>
                 <constraint firstItem="hMJ-zC-3Qc" firstAttribute="leading" secondItem="Fia-Lz-M9g" secondAttribute="leading" id="wZH-S5-LGE"/>
                 <constraint firstItem="hMJ-zC-3Qc" firstAttribute="trailing" secondItem="Fia-Lz-M9g" secondAttribute="trailing" id="x0j-me-Jim"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Fia-Lz-M9g"/>
-            <point key="canvasLocation" x="-390" y="-33"/>
+            <point key="canvasLocation" x="-391.304347826087" y="-33.482142857142854"/>
         </view>
     </objects>
 </document>

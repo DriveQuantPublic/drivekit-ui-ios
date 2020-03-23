@@ -52,7 +52,12 @@ public enum DKCommonLocalizable : String {
     contextCityDense = "dk_common_driving_context_city_dense",
     contextCity = "dk_common_driving_context_city",
     contextExternal = "dk_common_driving_context_external",
-    contextFastlane = "dk_common_driving_context_fastlane"
+    contextFastlane = "dk_common_driving_context_fastlane",
+    updatePhotoTitle = "dk_update_photo_title",
+    camera = "dk_take_picture",
+    gallery = "dk_select_image_gallery",
+    cameraPermission = "dk_common_permission_camera_rationale"
+    
     
     
     public func text() -> String {

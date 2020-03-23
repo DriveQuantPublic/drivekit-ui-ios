@@ -146,6 +146,7 @@
 		A317F82C23A137C700AD22A2 /* TripTipFeedbackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A317F82A23A137C700AD22A2 /* TripTipFeedbackVC.swift */; };
 		A317F83023A1383B00AD22A2 /* TripTipFeedbackChoicesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A317F82E23A1383B00AD22A2 /* TripTipFeedbackChoicesCell.xib */; };
 		A317F83123A1383B00AD22A2 /* TripTipFeedbackChoicesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A317F82F23A1383B00AD22A2 /* TripTipFeedbackChoicesCell.swift */; };
+		A322728C2429125700BF69E1 /* DKImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3905557242538E500537EB5 /* DKImagePicker.swift */; };
 		A32665AE235F64EB00B529B0 /* SettingsBundleKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32665AD235F64EB00B529B0 /* SettingsBundleKey.swift */; };
 		A342380A2361A1FA0001E15D /* DriveKitDriveDataUI.h in Headers */ = {isa = PBXBuildFile; fileRef = A34238082361A1FA0001E15D /* DriveKitDriveDataUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A34238622361A2430001E15D /* CalloutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238162361A2430001E15D /* CalloutViewModel.swift */; };
@@ -214,7 +215,6 @@
 		A34FC73B2423EE81000734AB /* VehicleFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34FC7392423EE81000734AB /* VehicleFieldCell.xib */; };
 		A39055552424FA4100537EB5 /* VehicleDetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39055532424FA4000537EB5 /* VehicleDetailHeader.swift */; };
 		A39055562424FA4100537EB5 /* VehicleDetailHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A39055542424FA4000537EB5 /* VehicleDetailHeader.xib */; };
-		A39055592425396B00537EB5 /* DKImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3905557242538E500537EB5 /* DKImagePicker.swift */; };
 		A3B7B384235F124F0065A332 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B7B383235F124F0065A332 /* AppDelegate.swift */; };
 		A3B7B388235F124F0065A332 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B7B387235F124F0065A332 /* ViewController.swift */; };
 		A3B7B38B235F124F0065A332 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3B7B389235F124F0065A332 /* Main.storyboard */; };
@@ -729,6 +729,7 @@
 			children = (
 				3FF68E8D240CF0220071D74C /* Gauge */,
 				3FB5643923F68BBE00F010E3 /* CardView.swift */,
+				A3905557242538E500537EB5 /* DKImagePicker.swift */,
 				3F7524CA2406C4CC00AC22CC /* DKUIViewController.swift */,
 				3FFB2D712418C023003E6A06 /* DKKeyboardViewController.swift */,
 				A34FC7342423CDDA000734AB /* DKTextField.swift */,
@@ -1227,7 +1228,6 @@
 			isa = PBXGroup;
 			children = (
 				A34FC71D24227556000734AB /* VehicleField.swift */,
-				A3905557242538E500537EB5 /* DKImagePicker.swift */,
 				A34FC71C24227556000734AB /* VehicleGroupFields.swift */,
 			);
 			path = Model;
@@ -1798,6 +1798,7 @@
 				3FF68E8E240CF0420071D74C /* CircularProgressView.swift in Sources */,
 				3FF68E90240CF0510071D74C /* ConfigurationCircularProgressView.swift in Sources */,
 				3FF68E88240A727D0071D74C /* DKDatePattern.swift in Sources */,
+				A322728C2429125700BF69E1 /* DKImagePicker.swift in Sources */,
 				3F0740EC240400E0005A8D07 /* DKFonts.swift in Sources */,
 				3FF68E98240D59000071D74C /* UIImage+DK.swift in Sources */,
 				3F7524CE2407A89100AC22CC /* DKCommonLocalizable.swift in Sources */,
@@ -1860,7 +1861,6 @@
 				3F50D6FF24179467001226F7 /* SelectBluetoothVC.swift in Sources */,
 				3FF68F41241557C20071D74C /* DKVehicleEngineIndex+UI.swift in Sources */,
 				A3D51F48241BA3A5006DACE2 /* VehiclesListCellViewModel.swift in Sources */,
-				A39055592425396B00537EB5 /* DKImagePicker.swift in Sources */,
 				3FFB2D8D241942FB003E6A06 /* BeaconScannerBeaconUnavailableVC.swift in Sources */,
 				3FFB2D8724193778003E6A06 /* BeaconScannerAlreadyPairedVC.swift in Sources */,
 				A3D51F44241BA39D006DACE2 /* AutoStart.swift in Sources */,

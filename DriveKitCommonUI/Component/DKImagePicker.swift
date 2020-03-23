@@ -8,29 +8,28 @@
 
 import Foundation
 import UIKit
-import DriveKitCommonUI
 
-class DKImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+public class DKImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var picker = UIImagePickerController();
-    var alert = UIAlertController(title: "dk_update_photo_title".dkVehicleLocalized(), message: nil, preferredStyle: .actionSheet)
+    var alert = UIAlertController(title: DKCommonLocalizable.updatePhotoTitle.text(), message: nil, preferredStyle: .actionSheet)
     var viewController: UIViewController?
-    var pickImageCallback : ((UIImage) -> ())?;
-    var selectedImageTag: String = NSUUID().uuidString
+    public var pickImageCallback : ((UIImage) -> ())?;
+    public var selectedImageTag: String = NSUUID().uuidString
     
-    override init(){
+    public override init(){
         super.init()
     }
     
-    func pickImage(_ viewController: UIViewController, _ callback: @escaping ((UIImage) -> ())) {
+    public func pickImage(_ viewController: UIViewController, _ callback: @escaping ((UIImage) -> ())) {
         pickImageCallback = callback;
         self.viewController = viewController;
         
-        let cameraAction = UIAlertAction(title: "dk_take_picture".dkVehicleLocalized(), style: .default){
+        let cameraAction = UIAlertAction(title: DKCommonLocalizable.camera.text(), style: .default){
             UIAlertAction in
             self.openCamera()
         }
-        let galleryAction = UIAlertAction(title: "dk_select_image_gallery".dkVehicleLocalized(), style: .default){
+        let galleryAction = UIAlertAction(title: DKCommonLocalizable.gallery.text(), style: .default){
             UIAlertAction in
             self.openGallery()
         }
@@ -46,6 +45,7 @@ class DKImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigat
         alert.popoverPresentationController?.sourceView = self.viewController!.view
         viewController.present(alert, animated: true, completion: nil)
     }
+    
     func openCamera(){
         alert.dismiss(animated: true, completion: nil)
         if(UIImagePickerController .isSourceTypeAvailable(.camera)){
@@ -53,11 +53,12 @@ class DKImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigat
             picker.allowsEditing = true
             self.viewController!.present(picker, animated: true, completion: nil)
         } else {
-            let alertWarning = UIAlertController(title: nil, message: "dk_camera_permission".dkVehicleLocalized(), preferredStyle: .alert)
+            let alertWarning = UIAlertController(title: nil, message: DKCommonLocalizable.cameraPermission.text(), preferredStyle: .alert)
             alertWarning.addAction(UIAlertAction(title: "OK", style: .default))
             self.viewController!.present(alertWarning, animated: true)
         }
     }
+    
     func openGallery(){
         alert.dismiss(animated: true, completion: nil)
         picker.sourceType = .photoLibrary
@@ -66,11 +67,11 @@ class DKImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigat
     }
     
     
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.originalImage] as? UIImage else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }

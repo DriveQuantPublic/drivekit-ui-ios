@@ -41,7 +41,7 @@ class VehicleDetailHeader: UITableViewCell {
         if let headerIcon = UIImage(named: "dk_gallery_image", in: Bundle.vehicleUIBundle, compatibleWith: nil) {
             headerIcon.withRenderingMode(.alwaysTemplate)
             addVehicleImageButton.setImage(headerIcon, for: .normal)
-            addVehicleImageButton.tintColor = .white
+            addVehicleImageButton.tintColor = DKUIColors.fontColorOnSecondaryColor.color
             addVehicleImageButton.imageEdgeInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
         } else {
             addVehicleImageButton.isHidden = true

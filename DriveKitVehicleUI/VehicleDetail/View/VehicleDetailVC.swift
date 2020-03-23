@@ -35,6 +35,7 @@ class VehicleDetailVC : DKUIViewController {
     
     func setupNavigationBar() {
         self.title = self.viewModel.vehicleDisplayName
+        
         let backButton = UIButton(type: .custom)
         backButton.frame = CGRect(x: 0, y: 0, width: 36, height: 36)
         let backImage = DKImages.back.image
@@ -42,12 +43,13 @@ class VehicleDetailVC : DKUIViewController {
         backButton.addTarget(self, action: #selector(onBack), for: .touchUpInside)
         backButton.tintColor = DKUIColors.fontColorOnPrimaryColor.color
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+        
         let checkButton = UIButton(type: .custom)
         let image = UIImage(named: "dk_check", in: Bundle.vehicleUIBundle, compatibleWith: nil)
         checkButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         let img = image?.resizeImage(30, opaque: false).withRenderingMode(.alwaysTemplate)
         checkButton.setImage(img, for: .normal)
-        checkButton.tintColor = .white
+        checkButton.tintColor = DKUIColors.fontColorOnPrimaryColor.color
         checkButton.addTarget(self, action:#selector(updateVehicle), for: .touchUpInside)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: checkButton)
     }

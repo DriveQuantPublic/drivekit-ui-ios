@@ -38,9 +38,9 @@ public class ConnectBluetoothVC: DKUIViewController {
     
     func setup(){
         setupTitle.attributedText = "dk_vehicle_bluetooth_guide_header".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).uppercased().build()
-        setupDesc1.attributedText = "dk_vehicle_bluetooth_guide_desc1".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
-        setupDesc2.attributedText = "dk_vehicle_bluetooth_guide_desc2".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
-        setupDesc3.attributedText = "dk_vehicle_bluetooth_guide_desc3".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        setupDesc1.attributedText = "dk_vehicle_bluetooth_guide_desc1_ios".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        setupDesc2.attributedText = "dk_vehicle_bluetooth_guide_desc2_ios".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        setupDesc3.attributedText = "dk_vehicle_bluetooth_guide_desc3_ios".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         startButton.backgroundColor = DKUIColors.secondaryColor.color
         startButton.setAttributedTitle("dk_vehicle_begin".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).uppercased().build(), for: .normal)
     }

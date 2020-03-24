@@ -26,10 +26,10 @@ public extension DKColors {
         return UIColor(hex:0x0B4D6E)
     }
     func secondaryColor() -> UIColor {
-        return UIColor(hex: 0x77E2B2)
+        return UIColor(hex: 0x00EBB8)
     }
     func mainFontColor() -> UIColor {
-        return UIColor(hex: 0x616161)
+        return UIColor(hex: 0x161616)
     }
     func complementaryFontColor() -> UIColor {
         return UIColor(hex: 0x9E9E9E)

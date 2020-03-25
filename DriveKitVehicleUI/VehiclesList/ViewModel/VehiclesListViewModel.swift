@@ -22,7 +22,7 @@ class VehiclesListViewModel {
     }
     
     func fetchVehicles() {
-        DriveKitVehicleManager.shared.getVehiclesOrderByNameAsc(completionHandler : { status, vehicles in
+        DriveKitVehicle.shared.getVehiclesOrderByNameAsc(completionHandler : { status, vehicles in
             DispatchQueue.main.async {
                 self.status = status
                 self.vehicles = self.orderVehiclesByDisplayName(vehicles: vehicles)
@@ -36,7 +36,7 @@ class VehiclesListViewModel {
     }
     
     func renameVehicle(vehicle: DKVehicle, name: String) {
-            DriveKitVehicleManager.shared.renameVehicle(name: name, vehicleId: vehicle.vehicleId, completionHandler: { status in
+            DriveKitVehicle.shared.renameVehicle(name: name, vehicleId: vehicle.vehicleId, completionHandler: { status in
                 if status == .success {
                     self.delegate?.didUpdateVehicle()
                 } else {
@@ -46,7 +46,7 @@ class VehiclesListViewModel {
     }
     
     func deleteVehicle(vehicle: DKVehicle) {
-        DriveKitVehicleManager.shared.deleteVehicle(vehicleId: vehicle.vehicleId, completionHandler: { status in
+        DriveKitVehicle.shared.deleteVehicle(vehicleId: vehicle.vehicleId, completionHandler: { status in
             if status == .success {
                 self.delegate?.didUpdateVehicle()
             } else {
@@ -56,7 +56,7 @@ class VehiclesListViewModel {
     }
     
     func deleteBluetooth(vehicle: DKVehicle) {
-        DriveKitVehicleManager.shared.removeBluetooth(vehicleId: vehicle.vehicleId, completionHandler: { status in
+        DriveKitVehicle.shared.removeBluetooth(vehicleId: vehicle.vehicleId, completionHandler: { status in
             if status == .success {
                 self.delegate?.didUpdateVehicle()
             } else {
@@ -66,7 +66,7 @@ class VehiclesListViewModel {
     }
     
     func deleteBeacon(vehicle: DKVehicle) {
-        DriveKitVehicleManager.shared.removeBeacon(vehicleId: vehicle.vehicleId, completionHandler: { status in
+        DriveKitVehicle.shared.removeBeacon(vehicleId: vehicle.vehicleId, completionHandler: { status in
             if status == .success {
                 self.delegate?.didUpdateVehicle()
             }

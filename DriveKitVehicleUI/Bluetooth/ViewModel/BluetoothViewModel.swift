@@ -37,7 +37,8 @@ public class BluetoothViewModel {
     
     func addBluetoothToVehicle(pos: Int, completion : @escaping (DKVehicleBluetoothStatus) -> ()){
         device = self.devices[pos]
-        DriveKitVehicleManager.shared.addBluetooth(vehicleId: vehicle.vehicleId, name: device!.name, macAddress: device!.macAddress, completionHandler: completion)
+        let bluetooth = DKBluetooth(name: device?.name ?? "", macAddress: device?.macAddress ?? "")
+        DriveKitVehicle.shared.addBluetooth(vehicleId: vehicle.vehicleId, bluetooth: bluetooth, completionHandler: completion)
     }
     
     

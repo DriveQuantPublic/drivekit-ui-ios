@@ -68,7 +68,7 @@ public class VehiclesListVC: DKUIViewController {
         case .vehicle:
             title = String(format: "dk_vehicle_delete_confirm".dkVehicleLocalized(), vehicleName)
         case .beacon:
-            title = String(format: "dk_vehicle_beacon_deactivate_alert".dkVehicleLocalized(), vehicle.beacon?.code ?? "", vehicleName)
+            title = String(format: "dk_vehicle_beacon_deactivate_alert".dkVehicleLocalized(), vehicle.beacon?.uniqueId ?? "", vehicleName)
         case .bluetooth:
             title = String(format: "dk_vehicle_bluetooth_deactivate_alert".dkVehicleLocalized(), vehicle.bluetooth?.name ?? "", vehicleName)
         }

@@ -30,6 +30,6 @@ target 'DriveKitCommonUI' do
 end
 
 target 'DriveKitVehicleUI' do
-  pod 'DriveKitVehicle', '1.4-beta4'
-  pod 'DriveKitTripAnalysis', '1.4-beta4'
+  pod 'DriveKitVehicle', '1.4-beta5'
+  pod 'DriveKitTripAnalysis', '1.4-beta5'
 end

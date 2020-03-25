@@ -30,7 +30,7 @@ class BeaconScannerSuccessVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         var beaconCode = NSMutableAttributedString(string: "")
-        if let beaconId = viewModel.beacon?.code {
+        if let beaconId = viewModel.beacon?.uniqueId {
             beaconCode = beaconId.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
         }
         let vehicleName = viewModel.vehicleName.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
@@ -50,9 +50,6 @@ class BeaconScannerSuccessVC: UIViewController {
                         self.viewModel.updateScanState(step: .congrats)
                     case .error:
                         self.failedToPairedBeacon()
-                    case .unknownBeacon, .invalidBeacon:
-                        // Beacon is always known on this screen
-                        break
                     case .unknownVehicle:
                         self.vehicleUnknown()
                     case .unavailableBeacon:

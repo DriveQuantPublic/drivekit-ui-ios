@@ -15,10 +15,6 @@ extension DKVehicleType : VehiclePickerTableViewItem {
         switch self {
         case .car:
             return "dk_vehicle_type_car_title".dkVehicleLocalized()
-        case .motorbike:
-            return "dk_vehicle_type_motorbike_title".dkVehicleLocalized()
-        case .truck:
-            return "dk_vehicle_type_truck_title".dkVehicleLocalized()
         }
     }
 }

@@ -61,15 +61,9 @@ class BeaconInputIdVC: DKUIViewController {
                     case .success:
                         self.navigationController?.pushViewController(BeaconScannerVC(viewModel: self.viewModel, step: .scan, parentView: self.parentView), animated: true)
                         break
-                    case .error, .unknownVehicle :
+                    case .error :
                         self.showAlertMessage(title: "", message: "dk_vehicle_failed_to_retrieve_beacon".dkVehicleLocalized(), back: false, cancel: false)
                     case .unknownBeacon:
-                        self.showAlertMessage(title: "", message: String.init(format: "dk_vehicle_beacon_setup_code_unknown_id".dkVehicleLocalized(), self.viewModel
-                        .beacon?.code ?? ""), back: false, cancel: false)
-                    case .invalidBeacon:
-                        self.showAlertMessage(title: "", message: String.init(format: "dk_vehicle_beacon_setup_code_invalid_id".dkVehicleLocalized(), self.viewModel
-                        .beacon?.code ?? ""), back: false, cancel: false)
-                    case.unavailableBeacon:
                         self.showAlertMessage(title: "", message: "dk_vehicle_beacon_setup_code_unavailable_id".dkVehicleLocalized(), back: false, cancel: false)
                     }
                 }

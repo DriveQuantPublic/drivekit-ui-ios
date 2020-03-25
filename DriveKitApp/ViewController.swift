@@ -189,7 +189,7 @@ class ViewController: UITableViewController {
     }
     
     func configureBeaconPairing() {
-        DriveKitVehicleManager.shared.getVehiclesOrderByNameAsc(type: .cache, completionHandler: {status, vehicles in
+        DriveKitVehicle.shared.getVehiclesOrderByNameAsc(type: .cache, completionHandler: {status, vehicles in
             DispatchQueue.main.async {
                 var uuid : String? = nil
                 for vehicle in vehicles {
@@ -199,7 +199,7 @@ class ViewController: UITableViewController {
                     }
                 }
                 if let proxUuid = uuid {
-                    let beacon = DKBeacon(code: nil, proximityUuid: proxUuid, major: -1, minor: -1)
+                    let beacon = DKBeacon(uniqueId: nil, proximityUuid: proxUuid, major: -1, minor: -1)
                     let viewModel = BeaconViewModel(scanType: .diagnostic, beacon: beacon, vehicles: vehicles)
                     self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
                     self.navigationController?.pushViewController(BeaconScannerVC(viewModel: viewModel, step: .initial, parentView: self), animated: true)

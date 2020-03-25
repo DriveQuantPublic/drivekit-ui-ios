@@ -59,7 +59,7 @@ class SelectBluetoothVC: DKUIViewController {
                         self.bluetoothAlreadyPaired()
                     case .unknownVehicle:
                         self.vehicleUnknown()
-                    case .error, .invalidBluetooth:
+                    case .error:
                         self.failedToPairedBluetooth()
                     }
                 }

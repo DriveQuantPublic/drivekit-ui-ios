@@ -51,71 +51,55 @@ class VehiclesListCellViewModel {
     func updateDetectionMode(detectionMode: DKDetectionMode) {
         let vehicleId = vehicle.vehicleId
         let previousDetectionMode = vehicle.detectionMode ?? .disabled
-            self.checkPreviousDetectionMode(previous: previousDetectionMode, new: detectionMode, completionHandler: { status in
-                if status {
-                    DriveKitVehicleManager.shared.updateDetectionMode(vehicleId: vehicleId, detectionMode: detectionMode, forceGPSVehicleUpdate: true, completionHandler: { status in
-                        if status == .success {
-                            self.delegate?.didUpdateVehicle()
-                        } else {
-                            self .delegate?.didReceiveErrorFromService()
-                        }
-                    })
-                }
+        self.checkPreviousDetectionMode(previous: previousDetectionMode, new: detectionMode)
+        DriveKitVehicle.shared.updateDetectionMode(vehicleId: vehicleId, detectionMode: detectionMode, forceGPSVehicleUpdate: true, completionHandler: { status in
+            if status == .success {
+                self.delegate?.didUpdateVehicle()
+            } else {
+                self .delegate?.didReceiveErrorFromService()
+            }
+        })
+    }
+
+func checkPreviousDetectionMode(previous: DKDetectionMode, new: DKDetectionMode) {
+    if let vehicleDB = DriveKitDBVehicleAccess.shared.findManaged(vehicleId: vehicle.vehicleId), previous != new {
+        if let beacon = vehicleDB.beacon, previous == .beacon {
+            DriveKitDBVehicleAccess.shared.update(block: { context in
+                context.delete(beacon)
             })
-        
+        } else if let bluetooth = vehicleDB.bluetooth, previous == .bluetooth {
+            DriveKitDBVehicleAccess.shared.update(block: { context in
+                context.delete(bluetooth)
+            })
+        }
     }
-    
-    func checkPreviousDetectionMode(previous: DKDetectionMode, new: DKDetectionMode, completionHandler: @escaping(Bool) -> ()) {
-        if previous != new {
-            if previous == .beacon {
-                DriveKitVehicleManager.shared.removeBeacon(vehicleId: vehicle.vehicleId, completionHandler: { status in
-                    if status == .success {
-                        completionHandler(true)
-                    } else {
-                        completionHandler(false)
-                    }
-                })
-            } else if previous == .bluetooth {
-                DriveKitVehicleManager.shared.removeBluetooth(vehicleId: vehicle.vehicleId, completionHandler: { status in
-                    if status == .success {
-                        completionHandler(true)
-                    } else {
-                        completionHandler(false)
-                    }
-                })
-            } else {
-                completionHandler(true)
-            }
+}
+
+
+
+func getDisplayName() -> String {
+    return vehicle.getDisplayNameInList(vehiclesList: vehicles)
+}
+
+func getSubtitle() -> String? {
+    if vehicle.liteConfig {
+        if vehicle.name?.dkVehicleLocalized() == vehicle.getCategoryName() {
+            return nil
         } else {
-            completionHandler(true)
+            return vehicle.getCategoryName()
+        }
+    } else {
+        return vehicle.getModel()
+    }
+}
+
+func computeVehicleOptions() -> [VehicleAction] {
+    var actions : [VehicleAction] = DriveKitVehicleUI.shared.vehicleActions
+    if vehicle.liteConfig {
+        if let index = actions.firstIndex(of: .show){
+            actions.remove(at: index)
         }
     }
-    
-    
-    
-    func getDisplayName() -> String {
-        return vehicle.getDisplayNameInList(vehiclesList: vehicles)
-    }
-    
-    func getSubtitle() -> String? {
-        if vehicle.liteConfig {
-            if vehicle.name?.dkVehicleLocalized() == vehicle.getCategoryName() {
-                return nil
-            } else {
-                return vehicle.getCategoryName()
-            }
-        } else {
-            return vehicle.getModel()
-        }
-    }
-    
-    func computeVehicleOptions() -> [VehicleAction] {
-        var actions : [VehicleAction] = DriveKitVehicleUI.shared.vehicleActions
-        if vehicle.liteConfig {
-            if let index = actions.firstIndex(of: .show){
-                actions.remove(at: index)
-            }
-        }
-        return actions
-    }
+    return actions
+}
 }

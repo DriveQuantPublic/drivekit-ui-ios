@@ -24,7 +24,7 @@ public enum BeaconStep {
 
     func title(viewModel: BeaconViewModel) -> NSAttributedString {
         var beaconCode = NSMutableAttributedString(string: "")
-        if let beaconId = viewModel.beacon?.code {
+        if let beaconId = viewModel.beacon?.uniqueId {
             beaconCode = beaconId.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
         }
         let vehicleName = viewModel.vehicleName.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()

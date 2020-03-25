@@ -41,18 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitDriverAchievementUI.shared.initialize()
         DriveKitDriverDataUI.shared.initialize()
         DriveKitVehicleUI.shared.initialize()
-        /*DriveKitVehiculeUI.shared.configureVehicleType(types: [.car])
-        DriveKitVehiculeUI.shared.configureCategoryType(type: .brandsConfigOnly)
-        DriveKitVehiculeUI.shared.showBrandsWithIcons(show: false)
-        DriveKitVehiculeUI.shared.configureBrands(brands: [.bmw])*/
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options : \(options)")
-        /*DriveKitVehicleManager.shared.getVehiclesOrderByNameAsc(type: .cache, completionHandler: {status, vehicles in
-            DispatchQueue.main.async {
-                DriveKitVehicleManager.shared.removeBeacon(vehicleId: vehicles[0].vehicleId ?? "", completionHandler: {status in
-                    print(status)
-                })
-            }
-        })*/
         
         return true
     }
@@ -99,7 +88,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         DriveKitTripAnalysis.shared.initialize(tripListener: self, appLaunchOptions: launchOptions)
         DriveKitDriverData.shared.initialize()
-        DriveKitVehicleManager.shared.initialize()
         DriveKitTripAnalysis.shared.setVehiclesConfigTakeover(vehiclesConfigTakeOver: true)
         let processInfo = ProcessInfo.processInfo
         let apiKey = processInfo.environment["DriveKit-API-Key"] ?? ""

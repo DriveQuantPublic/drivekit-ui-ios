@@ -52,7 +52,7 @@ enum AutoStart {
         case .gps :
             return "dk_detection_mode_gps_desc".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
         case .beacon:
-            let beaconCode = String(vehicle.beacon?.code ?? "").dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
+            let beaconCode = String(vehicle.beacon?.uniqueId ?? "").dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
             let description = "dk_detection_mode_beacon_desc_configured".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).buildWithArgs(beaconCode)
             return description
         case .beacon_disabled:

@@ -156,7 +156,7 @@ enum BeaconField: VehicleField, CaseIterable {
     func getValue(vehicle: DKVehicle) -> String? {
         switch self {
         case .uniqueId:
-            return vehicle.beacon?.code
+            return vehicle.beacon?.uniqueId
         case .minor:
             if let minor = vehicle.beacon?.minor {
                 return String(minor)

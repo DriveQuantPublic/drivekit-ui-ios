@@ -72,15 +72,15 @@ public class BeaconViewModel {
         return vehicle
     }
     
-    func checkCode(code: String, completion: @escaping (DKVehicleBeaconStatus) -> ()) {
-        DriveKitVehicleManager.shared.getBeacon(uniqueId: code, completionHandler: {status, beacon in
+    func checkCode(code: String, completion: @escaping (DKVehicleBeaconInfoStatus) -> ()) {
+        DriveKitVehicle.shared.getBeacon(uniqueId: code, completionHandler: {status, beacon in
             self.beacon = beacon
             completion(status)
         })
     }
     
     func checkVehiclePaired(completion: @escaping (Bool) -> ()) {
-        DriveKitVehicleManager.shared.getVehiclesOrderByNameAsc(completionHandler: {status, vehicles in
+        DriveKitVehicle.shared.getVehiclesOrderByNameAsc(completionHandler: {status, vehicles in
             for vehicle in vehicles {
                 if let vehicleBeacon = vehicle.beacon, let beacon = self.beacon  {
                     if vehicleBeacon.proximityUuid == beacon.proximityUuid && vehicleBeacon.major == beacon.major && vehicleBeacon.minor == beacon.minor {
@@ -131,10 +131,10 @@ public class BeaconViewModel {
     
     func addBeaconToVehicle(completion: @escaping (DKVehicleBeaconStatus) -> ()) {
         guard let beacon = self.beacon, let vehicle = self.vehicle else {
-            completion(.invalidBeacon)
+            completion(.error)
             return
         }
-        DriveKitVehicleManager.shared.addBeacon(vehicleId: vehicle.vehicleId, minor: beacon.minor, major: beacon.major, proximityUuid: beacon.proximityUuid, uniqueId: beacon.code, completionHandler: completion)
+        DriveKitVehicle.shared.addBeacon(vehicleId: vehicle.vehicleId, beacon: beacon, completionHandler: completion)
     }
 }
 

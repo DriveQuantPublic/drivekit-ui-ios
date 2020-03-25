@@ -44,7 +44,7 @@ class VehicleDetailViewModel {
     
     func updateFields(completion: @escaping((Bool) -> ())) {
         if let newName = updatedName {
-            DriveKitVehicleManager.shared.renameVehicle(name: newName, vehicleId: vehicle.vehicleId, completionHandler: { status in
+            DriveKitVehicle.shared.renameVehicle(name: newName, vehicleId: vehicle.vehicleId, completionHandler: { status in
                 if status == .success {
                     completion(true)
                 } else {

@@ -17,7 +17,7 @@ class BeaconInputIdVC: DKUIViewController {
     
     private let viewModel : BeaconViewModel
     private let parentView : UIViewController
-    private let filterView = DKTextField.viewFromNib
+    private let textFieldView = DKTextField.viewFromNib
     
     public init(viewModel: BeaconViewModel, parentView: UIViewController) {
         self.viewModel = viewModel
@@ -43,16 +43,16 @@ class BeaconInputIdVC: DKUIViewController {
     }
     
     private func configureTextField() {
-        filterView.delegate = self
-        filterView.placeholder = "dk_vehicle_beacon_setup_code_hint".dkVehicleLocalized()
-        filterView.title = "dk_vehicle_beacon_setup_code_hint".dkVehicleLocalized()
-        filterView.keyBoardType = .asciiCapable
-        filterView.enable = true
-        textField.embedSubview(filterView)
+        textFieldView.delegate = self
+        textFieldView.placeholder = "dk_vehicle_beacon_setup_code_hint".dkVehicleLocalized()
+        textFieldView.title = "dk_vehicle_beacon_setup_code_hint".dkVehicleLocalized()
+        textFieldView.keyBoardType = .asciiCapable
+        textFieldView.enable = true
+        textField.embedSubview(textFieldView)
     }
     
     @IBAction func checkBeaconCode(_ sender: Any) {
-        if let code = filterView.getTextFieldValue(), !code.isEmpty {
+        if let code = textFieldView.getTextFieldValue(), !code.isEmpty {
             self.showLoader()
             self.viewModel.checkCode(code: code, completion: {status in
                 DispatchQueue.main.async {
@@ -62,9 +62,9 @@ class BeaconInputIdVC: DKUIViewController {
                         self.navigationController?.pushViewController(BeaconScannerVC(viewModel: self.viewModel, step: .scan, parentView: self.parentView), animated: true)
                         break
                     case .error :
-                        self.showAlertMessage(title: "", message: "dk_vehicle_failed_to_retrieve_beacon".dkVehicleLocalized(), back: false, cancel: false)
+                        self.showAlertMessage(title: "", message: "dk_vehicle_error_message".dkVehicleLocalized(), back: false, cancel: false)
                     case .unknownBeacon:
-                        self.showAlertMessage(title: "", message: "dk_vehicle_beacon_setup_code_unavailable_id".dkVehicleLocalized(), back: false, cancel: false)
+                        self.showAlertMessage(title: "", message: String(format: "dk_vehicle_beacon_setup_code_unavailable_id".dkVehicleLocalized(), self.textFieldView.getTextFieldValue() ?? ""), back: false, cancel: false)
                     }
                 }
             })

@@ -30,7 +30,7 @@ extension DKVehicle {
     func getDisplayNameInList(vehiclesList: [DKVehicle]) -> String {
         let position = getPosition(vehiclesList: vehiclesList)
         let displayName = "dk_vehicle_my_vehicle".dkVehicleLocalized() + " - " + String(position)
-        if let name = self.name, name != defaultName {
+        if let name = self.name, name.lowercased() != defaultName.lowercased() {
             return self.liteConfig ? name.dkVehicleLocalized() : name
         } else {
             return displayName

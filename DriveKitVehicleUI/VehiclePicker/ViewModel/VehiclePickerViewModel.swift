@@ -72,12 +72,11 @@ class VehiclePickerViewModel {
             guard let category = vehicleCategory else {
                 return ""
             }
-            vehicleName = category.titleRawValue()
-            return category.title()
+            vehicleName = category.title()
         } else {
             vehicleName = String(format: "%@ %@ %@", self.vehicleBrand?.name ?? "", self.vehicleModel ?? "", self.vehicleVersion?.version ?? "")
-            return vehicleName ?? ""
         }
+        return vehicleName ?? ""
     }
     
     func getViewController() -> UIViewController? {

@@ -147,6 +147,7 @@
 		A317F83023A1383B00AD22A2 /* TripTipFeedbackChoicesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A317F82E23A1383B00AD22A2 /* TripTipFeedbackChoicesCell.xib */; };
 		A317F83123A1383B00AD22A2 /* TripTipFeedbackChoicesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A317F82F23A1383B00AD22A2 /* TripTipFeedbackChoicesCell.swift */; };
 		A322728C2429125700BF69E1 /* DKImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3905557242538E500537EB5 /* DKImagePicker.swift */; };
+		A322728E242BD64500BF69E1 /* TestCustomFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = A322728D242BD64500BF69E1 /* TestCustomFields.swift */; };
 		A32665AE235F64EB00B529B0 /* SettingsBundleKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32665AD235F64EB00B529B0 /* SettingsBundleKey.swift */; };
 		A342380A2361A1FA0001E15D /* DriveKitDriveDataUI.h in Headers */ = {isa = PBXBuildFile; fileRef = A34238082361A1FA0001E15D /* DriveKitDriveDataUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A34238622361A2430001E15D /* CalloutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238162361A2430001E15D /* CalloutViewModel.swift */; };
@@ -467,6 +468,7 @@
 		A317F82A23A137C700AD22A2 /* TripTipFeedbackVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTipFeedbackVC.swift; sourceTree = "<group>"; };
 		A317F82E23A1383B00AD22A2 /* TripTipFeedbackChoicesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripTipFeedbackChoicesCell.xib; sourceTree = "<group>"; };
 		A317F82F23A1383B00AD22A2 /* TripTipFeedbackChoicesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTipFeedbackChoicesCell.swift; sourceTree = "<group>"; };
+		A322728D242BD64500BF69E1 /* TestCustomFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCustomFields.swift; sourceTree = "<group>"; };
 		A32665AD235F64EB00B529B0 /* SettingsBundleKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleKey.swift; sourceTree = "<group>"; };
 		A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DriveKitDriverDataUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A34238082361A1FA0001E15D /* DriveKitDriveDataUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DriveKitDriveDataUI.h; sourceTree = "<group>"; };
@@ -1272,6 +1274,7 @@
 				A3B7B38C235F124F0065A332 /* DriveKitApp.xcdatamodeld */,
 				3F38C26F2369CC10002E873A /* Localizable.strings */,
 				3F38C2742369D6ED002E873A /* NotificationSender.swift */,
+				A322728D242BD64500BF69E1 /* TestCustomFields.swift */,
 			);
 			path = DriveKitApp;
 			sourceTree = "<group>";
@@ -1948,6 +1951,7 @@
 				A3B7B388235F124F0065A332 /* ViewController.swift in Sources */,
 				A3B7B384235F124F0065A332 /* AppDelegate.swift in Sources */,
 				A3B7B38E235F124F0065A332 /* DriveKitApp.xcdatamodeld in Sources */,
+				A322728E242BD64500BF69E1 /* TestCustomFields.swift in Sources */,
 				3F38C2752369D6ED002E873A /* NotificationSender.swift in Sources */,
 				A32665AE235F64EB00B529B0 /* SettingsBundleKey.swift in Sources */,
 				A3B7B39D235F2E130065A332 /* SettingsViewController.swift in Sources */,

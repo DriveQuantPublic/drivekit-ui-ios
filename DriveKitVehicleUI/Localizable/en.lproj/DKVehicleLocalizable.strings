@@ -4,8 +4,10 @@
 "dk_beacon_distance"="Distance (m)";
 "dk_beacon_major"="Major";
 "dk_beacon_minor"="Minor";
+"dk_beacon_not_seen"="Your beacon has not been detected";
 "dk_beacon_paired_title"="Add a beacon";
 "dk_beacon_rssi"="RSSI (dBm)";
+"dk_beacon_tx"="Tx (dBm)";
 "dk_beacon_uuid"="UUID";
 "dk_beacon_vehicle_unknown"="Unknown vehicle";
 "dk_beacon_vehicule_linked"="Associated vehicle";
@@ -13,6 +15,7 @@
 "dk_bluetooth_name"="Bluetooth device name";
 "dk_brand"="Brand";
 "dk_category"="Category";
+"dk_change_success"="The changes have been successfully applied.";
 "dk_consumption"="Fuel consumption";
 "dk_detection_mode_beacon_desc_configured"="The beacon %@ has been linked with this vehicle. The application will automatically record your trip when the beacon is close to your smartphone.";
 "dk_detection_mode_beacon_desc_not_configured"="You must associate a beacon for this vehicle";
@@ -25,6 +28,7 @@
 "dk_detection_mode_gps_desc"="The application uses the phone\'s sensors to automatically detect your trips. This mode has been optimized to limit battery consumption.";
 "dk_detection_mode_gps_title"="GPS";
 "dk_empty_vehicle_name"="Please give a vehicle\'s name";
+"dk_fields_not_valid"="Please check the data you entered";
 "dk_gearbox"="Gearbox";
 "dk_gearbox_automatic"="Automatic";
 "dk_gearbox_manual_5"="Manual 5 gears";
@@ -36,10 +40,7 @@
 "dk_motor"="Engine type";
 "dk_name"="Name";
 "dk_power"="Power";
-"dk_select_image_gallery"="";
-"dk_take_picture"="";
 "dk_too_many_vehicles_alert"="You have exceeded the vehicle limit, please delete one before creating a new one.";
-"dk_update_photo_title"="Edit the picture";
 "dk_vehicle_add"="Add a vehicle";
 "dk_vehicle_beacon_already_paired"="The beacon is not available. It\'s already paired to another vehicle.";
 "dk_vehicle_beacon_already_paired_to_vehicle"="This beacon is already paired to this vehicle.";
@@ -112,7 +113,6 @@
 "dk_vehicle_configure_bluetooth_title"="Configuring Bluetooth";
 "dk_vehicle_delete"="Delete";
 "dk_vehicle_delete_confirm"="Do you confirm the suppression of the vehicle %@? Mileage monitoring and maintenance data will be definitively deleted.";
-"dk_vehicle_detection_mode_desc_beacon_configured"="The beacon %@ has been linked with this vehicle. The application will automatically record your trip when the beacon is close to your smartphone.";
 "dk_vehicle_detection_mode_title"="Auto start:";
 "dk_vehicle_engine_description"="Engine type ?";
 "dk_vehicle_engine_diesel"="Diesel";

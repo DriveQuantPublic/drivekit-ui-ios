@@ -140,11 +140,13 @@ public final class DKTextField: UIView, Nibable {
     
     @IBAction func didStartEditing(_ sender: Any) {
         configureTitle()
+        titleTextField.textColor = DKUIColors.secondaryColor.color
         underline.backgroundColor = DKUIColors.secondaryColor.color
     }
     
     @IBAction func didEndEditing(_ sender: Any) {
         configureTitle()
+        titleTextField.textColor = DKUIColors.complementaryFontColor.color
         underline.backgroundColor = DKUIColors.complementaryFontColor.color
         self.delegate?.userDidEndEditing(textField: self)
     }

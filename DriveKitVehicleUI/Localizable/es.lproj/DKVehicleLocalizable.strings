@@ -4,8 +4,10 @@
 "dk_beacon_distance"="Distancia (m)";
 "dk_beacon_major"="Major";
 "dk_beacon_minor"="Minor";
+"dk_beacon_not_seen"="Tu beacon no ha sido detectad";
 "dk_beacon_paired_title"="Asociar una beacon";
 "dk_beacon_rssi"="RSSI (dBm)";
+"dk_beacon_tx"="Tx (dBm)";
 "dk_beacon_uuid"="UUID";
 "dk_beacon_vehicle_unknown"="Vehículo desconocido";
 "dk_beacon_vehicule_linked"="Vehículo asociado";
@@ -13,6 +15,7 @@
 "dk_bluetooth_name"="Nombre del dispositivo Bluetooth";
 "dk_brand"="Marca";
 "dk_category"="Categoría";
+"dk_change_success"="Los cambios se han tenido en cuenta.";
 "dk_consumption"="Consumo de combustible";
 "dk_detection_mode_beacon_desc_configured"="La baliza %@ ha sido asociada con este vehículo. La aplicación registra automáticamente su viaje cuando la baliza está cerca de su smartphone.";
 "dk_detection_mode_beacon_desc_not_configured"="Debe asociar una baliza para este vehículo";
@@ -25,6 +28,7 @@
 "dk_detection_mode_gps_desc"="La aplicación utiliza los sensores del teléfono para detectar automáticamente sus rutas. Este modo ha sido optimizado para limitar el consumo de la batería.";
 "dk_detection_mode_gps_title"="GPS";
 "dk_empty_vehicle_name"="Indique un nombre de\vehículo";
+"dk_fields_not_valid"="Por favor, compruebe los datos introducidos";
 "dk_gearbox"="Caja de cambios";
 "dk_gearbox_automatic"="Automático";
 "dk_gearbox_manual_5"="Manual 5 marchas";
@@ -36,10 +40,7 @@
 "dk_motor"="Tipo de motor";
 "dk_name"="Nombre";
 "dk_power"="Potencia";
-"dk_select_image_gallery"="";
-"dk_take_picture"="";
 "dk_too_many_vehicles_alert"="Ha excedido el límite del número de vehículos permitidos, por favor, borre uno antes de crear uno nuevo.";
-"dk_update_photo_title"="Cambiar la imagen";
 "dk_vehicle_add"="Añadir un vehículo";
 "dk_vehicle_beacon_already_paired"="La beacon no está disponible. Ya está acoplada a otro vehículo.";
 "dk_vehicle_beacon_already_paired_to_vehicle"="Esta beacon ya está emparejada con este vehículo.";
@@ -112,7 +113,6 @@
 "dk_vehicle_configure_bluetooth_title"="Configuración de Bluetooth";
 "dk_vehicle_delete"="Borrar";
 "dk_vehicle_delete_confirm"="¿Confirma la retirada de los %@ del vehículo? Los datos de seguimiento y mantenimiento del kilometraje se perderán permanentemente.";
-"dk_vehicle_detection_mode_desc_beacon_configured"="La baliza %@ ha sido asociada con este vehículo. La aplicación registra automáticamente su viaje cuando la baliza está cerca de su smartphone.";
 "dk_vehicle_detection_mode_title"="Auto inicio:";
 "dk_vehicle_engine_description"="¿Tipo de motor?";
 "dk_vehicle_engine_diesel"="Diésel";

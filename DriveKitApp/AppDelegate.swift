@@ -18,6 +18,42 @@ import DriveKitDriverAchievementUI
 import DriveKitDriverDataUI
 import DriveKitVehicleUI
 import DriveKitVehicle
+import DriveKitDBVehicleAccess
+
+enum TestField : VehicleField {
+    case number, ascii
+    
+    var title: String {
+        switch self {
+        case .number:
+            return "Test Field Number"
+        case .ascii:
+            return "Test Field ASCII"
+        }
+    }
+    
+    var isEditable: Bool {
+        return true
+    }
+    
+    var keyBoardType: UIKeyboardType {
+        switch self {
+        case .number:
+            return .numberPad
+        case .ascii:
+            return .asciiCapableNumberPad
+        }
+    }
+    
+    func getValue(vehicle: DKVehicle) -> String? {
+        switch self {
+        case .number:
+           return String(vehicle.consumption)
+        case .ascii:
+            return vehicle.brand
+        }
+    }
+}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -41,6 +77,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitDriverAchievementUI.shared.initialize()
         DriveKitDriverDataUI.shared.initialize()
         DriveKitVehicleUI.shared.initialize()
+        
+        DriveKitVehicleUI.shared.addCustomVehicleField(groupField: .general, fieldsToAdd: [TestField.number, TestField.ascii])
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options : \(options)")
         
         return true

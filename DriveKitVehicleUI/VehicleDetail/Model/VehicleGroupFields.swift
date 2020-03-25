@@ -9,7 +9,7 @@
 import Foundation
 import DriveKitDBVehicleAccess
 
-enum VehicleGroupField: CaseIterable {
+public enum VehicleGroupField: CaseIterable {
     case general, engine, characteristics, beacon, bluetooth
     
     func isDisplayable(vehicle: DKVehicle) -> Bool {
@@ -36,6 +36,16 @@ enum VehicleGroupField: CaseIterable {
                 fields.append(field)
             }
         }
+        
+        if let customFields = getCustomFields() {
+            fields.append(contentsOf: customFields)
+        }
+        
         return fields
     }
+    
+    func getCustomFields() -> [VehicleField]? {
+        return DriveKitVehicleUI.shared.customFields[self]
+    }
+    
 }

@@ -11,7 +11,7 @@ import DriveKitDBVehicleAccess
 import DriveKitVehicle
 import DriveKitCommonUI
 
-protocol VehicleField {
+public protocol VehicleField {
     var title: String { get }
     var isEditable: Bool { get }
     var keyBoardType: UIKeyboardType { get }

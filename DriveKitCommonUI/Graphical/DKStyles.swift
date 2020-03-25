@@ -36,7 +36,7 @@ public enum DKStyles {
             size = 18
             traits = nil
         case .smallText:
-            size = 12
+            size = 13
             traits = nil
         case .highlightBig:
             size = 28

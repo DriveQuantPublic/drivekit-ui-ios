@@ -28,6 +28,7 @@ public class DriveKitVehicleUI {
     var vehicleActions : [VehicleAction] = VehicleAction.allCases
     
     var detectionModes: [DKDetectionMode] = [.disabled, .gps, .beacon, .bluetooth]
+    var customFields = [VehicleGroupField: [VehicleField]]()
     
     private init() {}
     
@@ -85,6 +86,10 @@ public class DriveKitVehicleUI {
     
     public func configureVehicleActions(vehicleActions : [VehicleAction]) {
         self.vehicleActions = vehicleActions
+    }
+    
+    public func addCustomVehicleField(groupField: VehicleGroupField, fieldsToAdd: [VehicleField]) {
+        self.customFields = [groupField : fieldsToAdd]
     }
 }
 

@@ -72,7 +72,9 @@ public class DriveKitVehicleUI {
     }
     
     public func configureMaxVehicles(max: Int?) {
-        self.maxVehicles = max
+        if let max = max, max >= 0 {
+            self.maxVehicles = max
+        }
     }
     
     public func configureDetectionModes(detectionModes: [DKDetectionMode]) {

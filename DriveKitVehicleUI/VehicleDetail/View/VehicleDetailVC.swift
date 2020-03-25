@@ -36,13 +36,7 @@ class VehicleDetailVC : DKUIViewController {
     func setupNavigationBar() {
         self.title = self.viewModel.vehicleDisplayName
         
-        let backButton = UIButton(type: .custom)
-        backButton.frame = CGRect(x: 0, y: 0, width: 36, height: 36)
-        let backImage = DKImages.back.image
-        backButton.setImage(backImage, for: .normal)
-        backButton.addTarget(self, action: #selector(onBack), for: .touchUpInside)
-        backButton.tintColor = DKUIColors.fontColorOnPrimaryColor.color
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+        self.configureBackButton(selector: #selector(onDetailBack))
         
         let checkButton = UIButton(type: .custom)
         let image = UIImage(named: "dk_check", in: Bundle.vehicleUIBundle, compatibleWith: nil)
@@ -54,7 +48,7 @@ class VehicleDetailVC : DKUIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: checkButton)
     }
     
-    @objc func onBack(sender: UIBarButtonItem) {
+    @objc func onDetailBack(sender: UIBarButtonItem) {
         if viewModel.updatedFields.count > 0 {
             let alert = UIAlertController(title: nil,
                                           message: "vehicle_detail_back_edit_alert".dkVehicleLocalized(), preferredStyle: .alert)

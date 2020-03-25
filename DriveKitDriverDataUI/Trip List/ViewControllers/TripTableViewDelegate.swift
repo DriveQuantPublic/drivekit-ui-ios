@@ -49,14 +49,12 @@ extension TripListVC : UITableViewDataSource {
     
     @objc func openTips(sender: AdviceButton){
         let tripDetail = TripDetailVC(itinId: sender.trip.itinId!, showAdvice: true)
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationController?.pushViewController(tripDetail, animated: true)
     }
 
     @objc func openSelectedTips(_ sender: UITapGestureRecognizer) {
         if let adviceCountView = sender.view as? AdviceCountView, let trip = adviceCountView.trip {
             let tripDetail = TripDetailVC(itinId: trip.itinId!, showAdvice: true)
-            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
             self.navigationController?.pushViewController(tripDetail, animated: true)
         }
     }
@@ -67,7 +65,6 @@ extension TripListVC : UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let tripDetail = TripDetailVC(itinId: self.viewModel.trips[indexPath.section].trips[indexPath.row].itinId!, showAdvice: false)
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         self.navigationController?.pushViewController(tripDetail, animated: true)
     }
 }

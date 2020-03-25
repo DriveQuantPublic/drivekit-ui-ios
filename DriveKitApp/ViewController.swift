@@ -170,7 +170,6 @@ class ViewController: UITableViewController {
         DispatchQueue.main.async {
             
             let tripListVC = TripListVC()
-            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
             self.navigationController?.pushViewController(tripListVC, animated: true)
         }
     }
@@ -178,7 +177,6 @@ class ViewController: UITableViewController {
     func configureDriverStreak() {
         if let driverAchievementUI = DriveKitNavigationController.shared.driverAchievementUI {
             let streakVC = driverAchievementUI.getStreakViewController()
-            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
             self.navigationController?.pushViewController(streakVC, animated: true)
         }
     }
@@ -201,11 +199,9 @@ class ViewController: UITableViewController {
                 if let proxUuid = uuid {
                     let beacon = DKBeacon(uniqueId: nil, proximityUuid: proxUuid, major: -1, minor: -1)
                     let viewModel = BeaconViewModel(scanType: .diagnostic, beacon: beacon, vehicles: vehicles)
-                    self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
                     self.navigationController?.pushViewController(BeaconScannerVC(viewModel: viewModel, step: .initial, parentView: self), animated: true)
                 } else {
                     let viewModel = BeaconViewModel(scanType: .diagnostic)
-                    self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
                     self.navigationController?.pushViewController(BeaconScannerVC(viewModel: viewModel, step: .beaconNotConfigured, parentView: self), animated: true)
                 }
             }

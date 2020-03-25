@@ -36,9 +36,29 @@ class VehiclePickerViewModel {
         self.coordinator = coordinator
         if DriveKitVehicleUI.shared.vehicleTypes.count > 1 {
             self.currentStep = .type
-        } else {
+        } else if DriveKitVehicleUI.shared.categories.count > 1 {
             self.vehicleType = DriveKitVehicleUI.shared.vehicleTypes[0]
             self.currentStep = .category
+        } else if DriveKitVehicleUI.shared.categoryConfigType == .liteConfigOnly {
+            self.vehicleType = DriveKitVehicleUI.shared.vehicleTypes[0]
+            self.vehicleCategory = DriveKitVehicleUI.shared.categories[0]
+            self.liteConfig = true
+            self.currentStep = .name
+            self.vehicleCharacteristics = DKVehicleCharacteristics()
+            self.vehicleCharacteristics?.dqIndex = self.vehicleCategory!.liteConfigId()
+        } else if DriveKitVehicleUI.shared.brands.count > 1 {
+            self.vehicleType = DriveKitVehicleUI.shared.vehicleTypes[0]
+            self.vehicleCategory = DriveKitVehicleUI.shared.categories[0]
+            if !DriveKitVehicleUI.shared.brandsWithIcons {
+                    self.currentStep = .brandsFull
+                } else {
+                    self.currentStep = .brandsIcons
+                }
+        } else {
+            self.vehicleType = DriveKitVehicleUI.shared.vehicleTypes[0]
+            self.vehicleCategory = DriveKitVehicleUI.shared.categories[0]
+            self.vehicleBrand = DriveKitVehicleUI.shared.brands[0]
+            self.currentStep = .engine
         }
     }
     

@@ -17,6 +17,7 @@ public class DriveKitVehicleUI {
     
     var vehicleTypes : [DKVehicleType] = [.car]
     var brands : [DKVehicleBrand] = DKVehicleBrand.allCases
+    var categories : [DKVehicleCategory] = DKVehicleCategory.allCases
     var categoryConfigType : DKCategoryConfigType = .bothConfig
     var vehicleEngineIndexes : [DKVehicleEngineIndex] = DKVehicleEngineIndex.allCases
     var brandsWithIcons : Bool = true
@@ -43,6 +44,12 @@ public class DriveKitVehicleUI {
     public func configureBrands(brands : [DKVehicleBrand]) {
         if !brands.isEmpty {
             self.brands = brands
+        }
+    }
+    
+    public func configureCategories(categories: [DKVehicleCategory]) {
+        if !categories.isEmpty {
+            self.categories = categories
         }
     }
     

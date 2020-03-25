@@ -14,7 +14,13 @@ extension VehiclePickerStep : VehiclePickerCollectionViewDelegate {
         switch self {
         case .category:
             if let type = viewModel.vehicleType {
-                return DriveKitVehiclePicker.shared.getCategories(vehicleType: type)
+                var categories : [VehiclePickerCollectionViewItem] = []
+                for category in DriveKitVehiclePicker.shared.getCategories(vehicleType: type) {
+                    if DriveKitVehicleUI.shared.categories.contains(category) {
+                        categories.append(category)
+                    }
+                }
+                return categories
             }
         case .brandsIcons:
             if let type = viewModel.vehicleType {

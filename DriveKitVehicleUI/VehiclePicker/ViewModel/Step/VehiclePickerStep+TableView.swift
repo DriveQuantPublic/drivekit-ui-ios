@@ -56,8 +56,22 @@ extension VehiclePickerStep : VehiclePickerTableViewDelegate {
     func onTableViewItemSelected(pos: Int, viewModel : VehiclePickerViewModel, completion : @escaping (StepStatus) -> ()) {
         switch self {
         case .type:
-            viewModel.vehicleType = DriveKitVehicleUI.shared.vehicleTypes[pos]
-            viewModel.updateCurrentStep(step: .category)
+            if DriveKitVehicleUI.shared.categories.count > 1 {
+                viewModel.vehicleType = DriveKitVehicleUI.shared.vehicleTypes[pos]
+                viewModel.updateCurrentStep(step: .category)
+            } else {
+                viewModel.vehicleCategory = DriveKitVehicleUI.shared.categories[0]
+                if DriveKitVehicleUI.shared.brands.count > 1 {
+                    if !DriveKitVehicleUI.shared.brandsWithIcons || VehiclePickerStep.brandsIcons.getCollectionViewItems(viewModel: viewModel).isEmpty {
+                        viewModel.updateCurrentStep(step: .brandsFull)
+                    } else {
+                        viewModel.updateCurrentStep(step: .brandsIcons)
+                    }
+                } else {
+                    viewModel.vehicleBrand = DriveKitVehicleUI.shared.brands[0]
+                    viewModel.updateCurrentStep(step: .engine)
+                }
+            }
             completion(.noError)
             break
         case .brandsFull:

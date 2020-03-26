@@ -140,7 +140,13 @@ public class BeaconViewModel {
             completion(.error)
             return
         }
-        DriveKitVehicle.shared.addBeacon(vehicleId: vehicle.vehicleId, beacon: beacon, completionHandler: completion)
+        if vehicle.beacon == nil {
+            DriveKitVehicle.shared.addBeacon(vehicleId: vehicle.vehicleId, beacon: beacon, completionHandler: completion)
+        }else{
+            DriveKitVehicle.shared.removeBeacon(vehicleId: vehicle.vehicleId, completionHandler: { _ in
+                DriveKitVehicle.shared.addBeacon(vehicleId: vehicle.vehicleId, beacon: beacon, completionHandler: completion)
+            })
+        }
     }
 }
 

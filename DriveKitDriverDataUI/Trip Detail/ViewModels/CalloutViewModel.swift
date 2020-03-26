@@ -7,56 +7,53 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 
 struct TripEventCalloutViewModel {
 
     let event: TripEvent
     let location: String
-    var detailConfig: TripDetailViewConfig
 
-    init(event: TripEvent, location: String, detailConfig: TripDetailViewConfig) {
+    init(event: TripEvent, location: String) {
         self.event = event
-        self.detailConfig = detailConfig
         self.location = location
     }
 
     var time: String {
-        return event.date.dateToTime()
+        return event.date.format(pattern: .hourMinute)
     }
 
     var title: String {
-        return event.getTitle(detailConfig: detailConfig)
+        return event.getTitle()
     }
 
     var subtitle: NSAttributedString {
         
-        let attributes = [NSAttributedString.Key.foregroundColor: highColor]
-        let valuePrefix = NSMutableAttributedString(string: "dk_value".dkLocalized(),
-                                        attributes: [NSAttributedString.Key.foregroundColor : UIColor.black])
+        let valuePrefix = "\("dk_driverdata_value".dkDriverDataLocalized() )".dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         
         switch event.type {
         case .acceleration, .brake:
             let attString = NSMutableAttributedString()
             attString.append(valuePrefix)
-            attString.append(NSAttributedString(string: " \(String(format: "%.2f", event.value)) \(detailConfig.accelUnitText)", attributes: attributes))
+            attString.append(event.value.formatAcceleration().dkAttributedString().font(dkFont: .primary, style: .normalText).color(highColor).build())
             return attString
         case .adherence:
             let attString = NSMutableAttributedString()
             attString.append(valuePrefix)
-            attString.append(NSAttributedString(string: " \(String(format: "%.1f", event.value))",attributes: attributes))
+            attString.append(event.value.formatDouble(places: 1).dkAttributedString().font(dkFont: .primary, style: .normalText).color(highColor).build())
             return attString
         case .unlock, .lock :
             return NSAttributedString(string: "")
         default:
-            return NSAttributedString(string: location)
+            return location.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         }
     }
     
     var highColor: UIColor {
         if event.isHigh {
-            return UIColor.dkCriticalEvent
+            return DKUIColors.criticalColor.color
         } else {
-            return UIColor.dkHighEvent
+            return DKUIColors.warningColor.color
         }
     }
 }

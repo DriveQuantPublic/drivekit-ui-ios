@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EvoDrivingPageVC" customModule="drivekit_test_app" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EvoDrivingPageVC" customModule="DriveKitDriverDataUI" customModuleProvider="target">
             <connections>
                 <outlet property="circularRingContainer" destination="9b2-la-zHH" id="Kpp-EV-fGR"/>
                 <outlet property="circularRingTitle" destination="icM-A9-3b7" id="YlR-lM-oDE"/>
@@ -25,7 +25,7 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9b2-la-zHH">
                             <rect key="frame" x="8" y="8" width="100" height="100"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="100" id="ukY-JY-9u2"/>
                                 <constraint firstAttribute="height" constant="100" id="xvX-g7-Uax"/>
@@ -38,7 +38,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="9b2-la-zHH" secondAttribute="trailing" constant="8" id="6xO-Ej-jS8"/>
                         <constraint firstItem="icM-A9-3b7" firstAttribute="top" secondItem="9b2-la-zHH" secondAttribute="bottom" constant="16" id="Hjn-as-kK8"/>
@@ -52,7 +52,7 @@
                     <rect key="frame" x="116" y="0.0" width="298" height="300"/>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Uy3-Pk-OeG" secondAttribute="bottom" id="9Wc-qB-fJl"/>
                 <constraint firstAttribute="trailing" secondItem="cdR-CR-0sH" secondAttribute="trailing" id="Mgj-fo-6wE"/>

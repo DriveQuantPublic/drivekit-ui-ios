@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 
 final class HistoryPageView : UITableViewCell, Nibable {
     
@@ -23,14 +24,13 @@ final class HistoryPageView : UITableViewCell, Nibable {
         self.selectionStyle = .default
     }
     
-    func configure(event: TripEvent, detailConfig: TripDetailViewConfig) {
-        DriverDataStyle.applyTripHour(label: historyTimeLabel)
-        historyTimeLabel.text = event.date.dateToTime()
+    func configure(event: TripEvent) {
+        historyTimeLabel.attributedText = event.date.format(pattern: .hourMinute).dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
         
         topLine.isHidden = false
         bottomLine.isHidden = false
-        topLine.backgroundColor = detailConfig.mapTrace.withAlphaComponent(0.5)
-        bottomLine.backgroundColor = detailConfig.mapTrace.withAlphaComponent(0.5)
+        topLine.backgroundColor = UIColor.dkMapTrace.withAlphaComponent(0.5)
+        bottomLine.backgroundColor = UIColor.dkMapTrace.withAlphaComponent(0.5)
         
         if event.type == .start {
             topLine.isHidden = true
@@ -38,12 +38,9 @@ final class HistoryPageView : UITableViewCell, Nibable {
             bottomLine.isHidden = true
         }
         
-        let image = UIImage(named: event.type.getImageID(), in: Bundle.driverDataUIBundle, compatibleWith: nil)
-        historyImage.image = image
-        historyImage.tintColor = .black
-        DriverDataStyle.applyTripDarkGrey(label: descriptionLabel)
-        descriptionLabel.text = event.type.name(detailConfig: detailConfig)
+        historyImage.image = event.type.getImage()
+        historyImage.tintColor = DKUIColors.mainFontColor.color
+        descriptionLabel.attributedText = event.type.name().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
     }
-    
 }
 

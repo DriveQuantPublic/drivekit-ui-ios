@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import DriveKitDriverData
+import DriveKitDBTripAccess
 
 class AdviceButton: UIButton {
 

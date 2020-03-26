@@ -1,0 +1,37 @@
+/* 
+  DriverAchievementLocalizables.strings
+  DriveKitApp
+
+  Created by Jérémy Bayle on 14/02/2020.
+  Copyright © 2020 DriveQuant. All rights reserved.
+*/
+
+"dk_achievements_failed_to_sync_streaks"="Impossibile sincronizzare le sequenze di successo, si prega di riprovare più tardi.";
+"dk_achievements_menu_streaks"="Vena di successi";
+"dk_achievements_streaks_acceleration_reset"="Hai accelerato bruscamente nel tuo ultimo viaggio";
+"dk_achievements_streaks_acceleration_text"="Provate a fare una serie di viaggi senza brusche accelerazioni. \n \n Ad ogni successo, il contatore del numero di viaggi aumenta. \n \n In caso di fallimento, il contatore si resetta e si deve ricominciare da capo. \n \n Il numero di viaggi nella vostra migliore sequenza di passaggi è memorizzato e potete tentare di superarlo.";
+"dk_achievements_streaks_acceleration_title"="Nessuna forte accelerazione";
+"dk_achievements_streaks_adherence_reset"="Hai superato il limite di aderenza nel tuo ultimo viaggio";
+"dk_achievements_streaks_adherence_text"="Cercate di fare una serie di viaggi senza superare alcun limite di aderenza. \n \n Ad ogni successo, il contatore del numero di viaggi aumenta. \n \n In caso di fallimento, il contatore si resetta e si deve ricominciare da capo. \n \n Il numero di viaggi nella vostra migliore sequenza di passaggi è memorizzato e potete tentare di superarlo.";
+"dk_achievements_streaks_adherence_title"="Nessun limite di aderenza";
+"dk_achievements_streaks_best_title"="Migliore sequenza";
+"dk_achievements_streaks_brake_reset"="Hai premuto il freno durante il tuo ultimo viaggio";
+"dk_achievements_streaks_brake_text"="Provate a fare una serie di viaggi senza frenate brusche. \n \n Ad ogni successo, il contatore del numero di viaggi aumenta. \n \n In caso di fallimento, il contatore si resetta e si deve ricominciare da capo. \n \n Il numero di viaggi nella vostra migliore sequenza di passaggi è memorizzato e potete tentare di superarlo.";
+"dk_achievements_streaks_brake_title"="Nessuna frenata brusca";
+"dk_achievements_streaks_congrats"="Bravo!";
+"dk_achievements_streaks_congrats_text"="Attualmente state facendo la vostra migliore sequenza di successi. Continua a superare te stesso!";
+"dk_achievements_streaks_current_title"="Corrente";
+"dk_achievements_streaks_empty"="Non hai ancora fatto nessun viaggio per completare questa sequenza";
+"dk_achievements_streaks_phone_distraction_reset"="Hai maneggiato il tuo telefono durante il tuo ultimo viaggio";
+"dk_achievements_streaks_phone_distraction_text"="Provate a fare una serie di viaggi senza manipolare il vostro smartphone mentre guidate. \n \n Ad ogni successo, il contatore del numero di viaggi aumenta. \n \n In caso di fallimento, il contatore si resetta e si deve ricominciare da capo. \n \n Il numero di viaggi nella vostra migliore sequenza di passaggi è memorizzato e potete tentare di superarlo.";
+"dk_achievements_streaks_phone_distraction_title"="Non si usa il telefono";
+"dk_achievements_streaks_safety_reset"="Il punteggio di sicurezza dell\'ultimo viaggio è inferiore a 9,8/10";
+"dk_achievements_streaks_safety_text"="Provate a concatenare una serie di viaggi con punteggi di sicurezza superiori a 9,8/10. \n \n Ad ogni successo, il contatore del numero di viaggi aumenta. \n \n In caso di fallimento, il contatore si resetta e si deve ricominciare da capo. \n \n Il numero di viaggi nella vostra migliore sequenza di passaggi è memorizzato e potete tentare di superarlo.";
+"dk_achievements_streaks_safety_title"="Guida sicura";
+"dk_achievements_streaks_since"="Dal momento che la %@";
+"dk_achievements_streaks_since_to"="Dal %@ al %@";
+"dk_achievements_streaks_speeding_reset"="Avete superato il limite di velocità durante l\'ultimo viaggio";
+"dk_achievements_streaks_speeding_text"="Cercate di fare una serie di viaggi entro il limite di velocità. Il punteggio del limite di velocità deve essere superiore a 9,8/10. Ad ogni successo, il contatore del numero di viaggi aumenta. \n \n In caso di fallimento, il contatore si resetta e si deve ricominciare da capo. \n \n Il numero di viaggi nella vostra migliore sequenza di passaggi è memorizzato e potete tentare di superarlo.";
+"dk_achievements_streaks_speeding_title"="Nessuna velocità";
+"dk_achievements_streaks_trip"="viaggio";
+"dk_achievements_streaks_trips"="viaggi";

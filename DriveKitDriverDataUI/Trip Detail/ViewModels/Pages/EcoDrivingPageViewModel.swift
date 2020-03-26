@@ -7,17 +7,16 @@
 //
 
 import UIKit
-import DriveKitDriverData
+import DriveKitDBTripAccess
 import CoreLocation
+import DriveKitCommonUI
 
 class EcoDrivingPageViewModel {
     var scoreType: ScoreType = .ecoDriving
     var trip: Trip
-    var detailConfig: TripDetailViewConfig
     
-    init(trip: Trip, detailConfig: TripDetailViewConfig) {
+    init(trip: Trip) {
         self.trip = trip
-        self.detailConfig = detailConfig
     }
     
     func getScore() -> Double {
@@ -27,41 +26,41 @@ class EcoDrivingPageViewModel {
     func getAccelerations() -> String {
         let score = trip.ecoDriving?.scoreAccel ?? 0
         if score < -4 {
-            return detailConfig.lowAccelText
+            return "dk_driverdata_low_accel".dkDriverDataLocalized()
         } else if score < -2 {
-            return detailConfig.weakAccelText
+            return "dk_driverdata_weak_accel".dkDriverDataLocalized()
         }else if score < 1 {
-            return detailConfig.goodAccelText
+            return "dk_driverdata_good_accel".dkDriverDataLocalized()
         }else if score < 3 {
-            return detailConfig.strongAccelText
+            return "dk_driverdata_strong_accel".dkDriverDataLocalized()
         }else{
-           return detailConfig.highAccelText
+           return "dk_driverdata_high_accel".dkDriverDataLocalized()
         }
     }
     
     func getMaintain() -> String {
         let score = trip.ecoDriving?.scoreMain ?? 0
         if score < 1.5 {
-            return detailConfig.goodMaintainText
+            return "dk_driverdata_good_maintain".dkDriverDataLocalized()
         }else if score < 3.5 {
-            return detailConfig.weakMaintainText
+            return "dk_driverdata_weak_maintain".dkDriverDataLocalized()
         }else {
-            return detailConfig.badMaintainText
+            return "dk_driverdata_bad_maintain".dkDriverDataLocalized()
         }
     }
     
     func getDecel() -> String {
         let score = trip.ecoDriving?.scoreDecel ?? 0
         if score < -4 {
-            return detailConfig.lowDecelText
+            return "dk_driverdata_low_decel".dkDriverDataLocalized()
         }else if score < -2 {
-            return detailConfig.weakDecelText
+            return "dk_driverdata_weak_decel".dkDriverDataLocalized()
         }else if score < 1 {
-            return detailConfig.goodDecelText
+            return "dk_driverdata_good_decel".dkDriverDataLocalized()
         }else if score < 3 {
-            return detailConfig.strongDecelText
+            return "dk_driverdata_strong_decel".dkDriverDataLocalized()
         }else{
-            return detailConfig.highDecelText
+            return "dk_driverdata_high_decel".dkDriverDataLocalized()
         }
     }
 }

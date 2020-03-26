@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 
 final class HeaderDayView: UIView, Nibable {
     @IBOutlet var leftLabel: UILabel!
@@ -17,25 +18,23 @@ final class HeaderDayView: UIView, Nibable {
         super.awakeFromNib()
     }
     
-    func configure(headerDay: HeaderDay, trips: TripsByDate) {
-        self.setupAsHeader(leftText: trips.date.dateToDay(), rightText: headerDay.text(trips: trips.trips), isRounded: true)
+    func configure(trips: TripsByDate) {
+        self.setupAsHeader(leftText: trips.date.format(pattern: .weekLetter), rightText: DriveKitDriverDataUI.shared.headerDay.text(trips: trips.trips), isRounded: true)
     }
     
-    func setupAsHeader(backGroundColor: UIColor = UIColor.dkHeaderTripListBackground, fontColor: UIColor = .black, fontSize: CGFloat = 14, leftText: String, rightText: String, isRounded: Bool = false) {
-        self.rightLabel.text = rightText
-        self.rightLabel.font = rightLabel.font.withSize(fontSize)
-        self.rightLabel.textColor = fontColor
-        
-        self.leftLabel.text = leftText
-        self.leftLabel.font = leftLabel.font.withSize(fontSize)
-        self.leftLabel.textColor = fontColor
-        
-        self.backgroundView.backgroundColor = backGroundColor
+    func setupAsHeader(leftText: String, rightText: String, isRounded: Bool = false) {
+        self.backgroundView.backgroundColor = DKUIColors.neutralColor.color
         if isRounded {
+            self.backgroundView.backgroundColor = DKUIColors.neutralColor.color
+            self.rightLabel.attributedText = rightText.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+            self.leftLabel.attributedText = leftText.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
             self.backgroundView.layer.cornerRadius = 4
             self.backgroundView.layer.masksToBounds = true
         } else {
-            self.backgroundColor = backGroundColor
+            self.backgroundView.backgroundColor = DKUIColors.primaryColor.color
+            self.rightLabel.attributedText = rightText.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.fontColorOnPrimaryColor).build()
+            self.leftLabel.attributedText = leftText.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.fontColorOnPrimaryColor).build()
+            self.backgroundColor = DKUIColors.primaryColor.color
         }
     }
 }

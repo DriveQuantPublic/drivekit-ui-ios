@@ -8,11 +8,12 @@
 
 import UIKit
 import CoreLocation
-import DriveKitDriverData
+import DriveKitDBTripAccess
 import MapKit
+import DriveKitCommonUI
 
 
-class MapViewController: UIViewController {
+class MapViewController: DKUIViewController {
     
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var adviceButton: UIButton!
@@ -32,14 +33,9 @@ class MapViewController: UIViewController {
     var allAnnotations: [MKPointAnnotation]? = nil
     
     let lineWidth: CGFloat = 3.0
-    
-    let config : TripListViewConfig
-    let detailConfig: TripDetailViewConfig
-    
-    init(viewModel: TripDetailViewModel, config: TripListViewConfig, detailConfig: TripDetailViewConfig) {
+
+    init(viewModel: TripDetailViewModel) {
         self.viewModel = viewModel
-        self.config = config
-        self.detailConfig = detailConfig
         super.init(nibName: String(describing: MapViewController.self), bundle: Bundle.driverDataUIBundle)
     }
     
@@ -165,6 +161,9 @@ class MapViewController: UIViewController {
                 cleanSafetyDistractionMarkers()
                 cleanStartEndMarkers()
                 drawAllMarker()
+            case .synthesis:
+                cleanAllMarkers()
+                cleanSafetyDistractionMarkers()
             }
         } else {
             cleanAllMarkers()
@@ -266,7 +265,7 @@ class MapViewController: UIViewController {
         self.adviceButton.layer.cornerRadius = adviceButton.bounds.size.width / 2
         adviceButton.setTitle("", for: .normal)
         adviceButton.layer.masksToBounds = true
-        adviceButton.backgroundColor = config.secondaryColor
+        adviceButton.backgroundColor = DKUIColors.secondaryColor.color
         adviceButton.tintColor = .white
     }
     
@@ -307,13 +306,13 @@ extension MapViewController: MKMapViewDelegate {
         
         if overlay === self.polyLine {
             let polylineRenderer = MKPolylineRenderer(overlay: overlay)
-            polylineRenderer.strokeColor = detailConfig.mapTrace
+            polylineRenderer.strokeColor = UIColor.dkMapTrace
             polylineRenderer.lineWidth = self.lineWidth
             return polylineRenderer
         }
         
         let polylineRenderer = MKPolylineRenderer(overlay: overlay)
-        polylineRenderer.strokeColor = detailConfig.mapTraceWarningColor
+        polylineRenderer.strokeColor = UIColor.dkMapTraceWarning
         polylineRenderer.lineWidth = self.lineWidth
         return polylineRenderer
         
@@ -363,10 +362,10 @@ extension MapViewController: MKMapViewDelegate {
                     city = tripViewModel.trip!.departureAddress
                 }
                 if city != nil {
-                    view.setupAsTripEventCallout(with: start, location: city!, detailConfig: detailConfig, config: self.config)
+                    view.setupAsTripEventCallout(with: start, location: city!)
                 }
                 else {
-                    view.setupAsTripEventCallout(with: start, location: detailConfig.startText, detailConfig: detailConfig, config: self.config)
+                    view.setupAsTripEventCallout(with: start, location: "dk_driverdata_start_event".dkDriverDataLocalized())
                 }
             }
         }
@@ -382,9 +381,9 @@ extension MapViewController: MKMapViewDelegate {
                     city = tripViewModel.trip!.arrivalAddress
                 }
                 if city != nil {
-                    view.setupAsTripEventCallout(with: end, location: city!, detailConfig: detailConfig, config: self.config)
+                    view.setupAsTripEventCallout(with: end, location: city!)
                 }else {
-                    view.setupAsTripEventCallout(with: end, location:detailConfig.endText, detailConfig: detailConfig, config: self.config)
+                    view.setupAsTripEventCallout(with: end, location:"dk_driverdata_end_event".dkDriverDataLocalized())
                 }
             }
         } else {
@@ -398,7 +397,7 @@ extension MapViewController: MKMapViewDelegate {
                         view.image = annotationView?.image?.resizeImage(36, opaque: false, contentMode: .scaleAspectFit)
                         view.centerOffset = CGPoint(x: 0, y: -(annotationView?.image?.size.height)! / 2)
                         view.resistantLayer.resistantZPosition = CGFloat(event.getZIndex())
-                        view.setupAsTripEventCallout(with: event, location: "", detailConfig: detailConfig, config: config)
+                        view.setupAsTripEventCallout(with: event, location: "")
                         if let infoView = view.rightCalloutAccessoryView as! UIButton? {
                             infoView.tag = indexForSafetyEvent
                             infoView.addTarget(self, action: #selector(safetyInfoClicked), for: .touchUpInside)
@@ -413,7 +412,7 @@ extension MapViewController: MKMapViewDelegate {
                         view.image = UIImage(named: event.getMapImageID(), in: Bundle.driverDataUIBundle, compatibleWith: nil)
                         view.image = annotationView?.image?.resizeImage(36, opaque: false, contentMode: .scaleAspectFit)
                         view.centerOffset = CGPoint(x: 0, y: -(annotationView?.image?.size.height)! / 2)
-                        view.setupAsTripEventCallout(with: event, location: "", detailConfig: detailConfig, config: config)
+                        view.setupAsTripEventCallout(with: event, location: "")
                         if let infoView = view.rightCalloutAccessoryView as! UIButton? {
                             infoView.tag = indexForDistractionEvent
                             infoView.addTarget(self, action: #selector(distractionInfoClicked), for: .touchUpInside)
@@ -430,7 +429,7 @@ extension MapViewController: MKMapViewDelegate {
                         view.image = annotationView?.image?.resizeImage(36, opaque: false, contentMode: .scaleAspectFit)
                         view.centerOffset = CGPoint(x: 0, y: -(annotationView?.image?.size.height)! / 2)
                         view.resistantLayer.resistantZPosition = CGFloat(event.getZIndex())
-                        view.setupAsTripEventCallout(with: event, location: "", detailConfig: detailConfig, config: config)
+                        view.setupAsTripEventCallout(with: event, location: "")
                         if let infoView = view.rightCalloutAccessoryView as! UIButton?, event.type != .start && event.type != .end {
                             infoView.tag = indexForEvent
                             infoView.addTarget(self, action: #selector(allInfoClicked(_:)), for: .touchUpInside)
@@ -446,22 +445,22 @@ extension MapViewController: MKMapViewDelegate {
     
     @objc private func safetyInfoClicked(_ sender: UIButton) {
         let safetyEvent = viewModel.safetyEvents[sender.tag]
-        let alert = UIAlertController(title: safetyEvent.getTitle(detailConfig: detailConfig), message: safetyEvent.getExplanation(), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: config.okText, style: .cancel, handler: nil))
+        let alert = UIAlertController(title: safetyEvent.getTitle(), message: safetyEvent.getExplanation(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
     @objc private func distractionInfoClicked(_ sender: UIButton) {
         let distractionEvent = viewModel.distractionEvents[sender.tag]
-        let alert = UIAlertController(title: distractionEvent.getTitle(detailConfig: detailConfig), message: distractionEvent.getExplanation(), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title:config.okText, style: .cancel, handler: nil))
+        let alert = UIAlertController(title: distractionEvent.getTitle(), message: distractionEvent.getExplanation(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title:DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
     @objc private func allInfoClicked(_ sender: UIButton) {
         let event = viewModel.events[sender.tag]
-        let alert = UIAlertController(title: event.getTitle(detailConfig: detailConfig), message: event.getExplanation(), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title:config.okText, style: .cancel, handler: nil))
+        let alert = UIAlertController(title: event.getTitle(), message: event.getExplanation(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title:DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
 }

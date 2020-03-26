@@ -7,18 +7,15 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 
 class HistoryPageVC: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     var viewModel: HistoryPageViewModel
-    var detailConfig: TripDetailViewConfig
-    var config: TripListViewConfig
     
-    init(viewModel: HistoryPageViewModel, detailConfig: TripDetailViewConfig, config: TripListViewConfig) {
+    init(viewModel: HistoryPageViewModel) {
         self.viewModel = viewModel
-        self.detailConfig =  detailConfig
-        self.config = config
         super.init(nibName: String(describing: HistoryPageVC.self), bundle: Bundle.driverDataUIBundle)
     }
     
@@ -28,7 +25,8 @@ class HistoryPageVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.register(HistoryPageView.nib, forCellReuseIdentifier: "HistoryPageView")
+        let nib = UINib(nibName: "HistoryPageView", bundle: Bundle.driverDataUIBundle)
+        self.tableView.register(nib, forCellReuseIdentifier: "HistoryPageView")
         self.tableView.separatorStyle = .none
         self.tableView.rowHeight = 50
         self.tableView.dataSource = self
@@ -48,8 +46,8 @@ extension HistoryPageVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell : HistoryPageView = tableView.dequeueReusableCell(withIdentifier: "HistoryPageView") as? HistoryPageView {
             let event = self.viewModel.events[indexPath.row]
-            cell.configure(event: event, detailConfig: self.detailConfig)
-            cell.selectedBackgroundView?.backgroundColor = config.secondaryColor.withAlphaComponent(0.5)
+            cell.configure(event: event)
+            cell.selectedBackgroundView?.backgroundColor = DKUIColors.secondaryColor.color.withAlphaComponent(0.5)
             return cell
         } else {
             return UITableViewCell()

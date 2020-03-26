@@ -12,6 +12,10 @@ import DriveKitCore
 import DriveKitTripAnalysis
 import DriveKitDriverData
 import CoreLocation
+import DriveKitDBTripAccess
+import DriveKitCommonUI
+import DriveKitDriverAchievementUI
+import DriveKitDriverDataUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -31,6 +35,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         requestNotificationPermission()
         configureDriveKit(launchOptions: launchOptions)
+        DriveKitUI.shared.initialize(colors: self, fonts: self, overridedStringsFileName: "Localizable")
+        DriveKitDriverAchievementUI.shared.initialize()
+        DriveKitDriverDataUI.shared.initialize()
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options : \(options)")
         return true
     }
@@ -77,10 +84,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         DriveKitTripAnalysis.shared.initialize(tripListener: self, appLaunchOptions: launchOptions)
         DriveKitDriverData.shared.initialize()
-        if !DriveKit.shared.isConfigured() {
-            DriveKit.shared.setApiKey(key: "Your API key here")
-            DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "DriveKit configured with API key")
-        }
+        let processInfo = ProcessInfo.processInfo
+        let apiKey = processInfo.environment["DriveKit-API-Key"] ?? ""
+        DriveKit.shared.setApiKey(key: apiKey)
+        DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "DriveKit configured with API key")
         if SettingsBundleKeys.getDefaultValuePref() {
             // DriveKit default value
             SettingsBundleKeys.setLoggingPref(logging: false)
@@ -101,6 +108,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate: TripListener {
+    func sdkStateChanged(state: State) {
+        
+    }
+    
     func tripStarted(startMode: StartMode) {
         NotificationSender.shared.sendNotification(message: "\("trip_started".keyLocalized()) : \(startMode.rawValue)")
     }
@@ -132,8 +143,6 @@ extension AppDelegate: TripListener {
     func significantLocationChangeDetected(location: CLLocation) {
         print("Trip Location significant change detected")
     }
-    
-    
 }
 
 extension CancelTrip {
@@ -158,4 +167,10 @@ extension String {
         let localizedValue = Bundle.main.localizedString(forKey: self, value: NSLocalizedString(self, comment: ""), table: "Localizable")
         return localizedValue
     }
+}
+
+extension AppDelegate : DKColors {
+}
+
+extension AppDelegate : DKFonts {
 }

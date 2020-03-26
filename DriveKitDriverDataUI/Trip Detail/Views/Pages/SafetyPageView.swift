@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 
 final class SafetyPageView : UIView, Nibable {
 
@@ -14,21 +15,14 @@ final class SafetyPageView : UIView, Nibable {
     @IBOutlet var eventImage: UIImageView!
     @IBOutlet var eventCount: UILabel!
     
-    var config: TripListViewConfig = TripListViewConfig()
-    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
-    func configure(title: String, image: String, count: Int) {
-        DriverDataStyle.applyTripDarkGrey(label: eventTitle)
-        eventTitle.text = title
-        eventImage.image = UIImage(named: image, in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
-        eventImage.tintColor = .black
-        eventCount.font = eventCount.font.bold.withSize(16)
-        eventCount.textColor = config.primaryColor
-        eventCount.text = String(count)
+    func configure(title: String, image: UIImage?, count: Int) {
+        eventTitle.attributedText = title.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        eventImage.image = image
+        eventImage.tintColor = DKUIColors.mainFontColor.color
+        eventCount.attributedText = String(count).dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()
     }
-    
 }

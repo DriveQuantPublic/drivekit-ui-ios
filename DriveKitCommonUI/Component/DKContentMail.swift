@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol DKBeaconDiagnosticMail {
+public protocol DKContentMail {
     func getRecipients() -> [String]
     func getBccRecipients() -> [String]
     func getSubject() -> String

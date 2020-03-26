@@ -30,7 +30,7 @@ public class DriveKitVehicleUI {
     var detectionModes: [DKDetectionMode] = [.disabled, .gps, .beacon, .bluetooth]
     var customFields = [VehicleGroupField: [VehicleField]]()
     
-    var beaconDiagnosticEmail : DKBeaconDiagnosticMail? = nil
+    var beaconDiagnosticEmail : DKContentMail? = nil
     
     private init() {}
     
@@ -94,7 +94,7 @@ public class DriveKitVehicleUI {
         self.customFields = [groupField : fieldsToAdd]
     }
     
-    public func configureBeaconDetailEmail(beaconDiagnosticEmail: DKBeaconDiagnosticMail?) {
+    public func configureBeaconDetailEmail(beaconDiagnosticEmail: DKContentMail?) {
         self.beaconDiagnosticEmail = beaconDiagnosticEmail
     }
 }
@@ -106,5 +106,25 @@ extension Bundle {
 extension String {
     public func dkVehicleLocalized() -> String {
         return self.dkLocalized(tableName: "DKVehicleLocalizable", bundle: Bundle.vehicleUIBundle ?? .main)
+    }
+}
+
+extension DriveKitVehicleUI : DriveKitVehicleUIEntryPoint {
+    public func getVehicleListViewController() -> UIViewController {
+        return VehiclesListVC()
+    }
+    
+    public func getVehicleDetailViewController(vehicleId: String, completion : @escaping (UIViewController?) -> ()) {
+        DriveKitVehicle.shared.getVehicle(vehicleId: vehicleId, completionHandler: {status, vehicle in
+            DispatchQueue.main.async {
+                if let vehicle = vehicle {
+                    let viewModel = VehicleDetailViewModel(vehicle: vehicle, vehicleDisplayName: vehicle.displayName)
+                    completion(VehicleDetailVC(viewModel: viewModel))
+                }else{
+                    completion(nil)
+                }
+                
+            }
+        })
     }
 }

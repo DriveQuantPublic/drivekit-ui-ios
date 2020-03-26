@@ -184,7 +184,7 @@ extension AppDelegate : DKColors {
 extension AppDelegate : DKFonts {
 }
 
-extension AppDelegate : DKBeaconDiagnosticMail {
+extension AppDelegate : DKContentMail {
     func getRecipients() -> [String] {
         return []
     }

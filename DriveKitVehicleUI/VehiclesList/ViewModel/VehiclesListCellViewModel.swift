@@ -60,46 +60,46 @@ class VehiclesListCellViewModel {
             }
         })
     }
-
-func checkPreviousDetectionMode(previous: DKDetectionMode, new: DKDetectionMode) {
-    if let vehicleDB = DriveKitDBVehicleAccess.shared.findManaged(vehicleId: vehicle.vehicleId), previous != new {
-        if let beacon = vehicleDB.beacon, previous == .beacon {
-            DriveKitDBVehicleAccess.shared.update(block: { context in
-                context.delete(beacon)
-            })
-        } else if let bluetooth = vehicleDB.bluetooth, previous == .bluetooth {
-            DriveKitDBVehicleAccess.shared.update(block: { context in
-                context.delete(bluetooth)
-            })
+    
+    func checkPreviousDetectionMode(previous: DKDetectionMode, new: DKDetectionMode) {
+        if let vehicleDB = DriveKitDBVehicleAccess.shared.findManaged(vehicleId: vehicle.vehicleId), previous != new {
+            if let beacon = vehicleDB.beacon, previous == .beacon {
+                DriveKitDBVehicleAccess.shared.update(block: { context in
+                    context.delete(beacon)
+                })
+            } else if let bluetooth = vehicleDB.bluetooth, previous == .bluetooth {
+                DriveKitDBVehicleAccess.shared.update(block: { context in
+                    context.delete(bluetooth)
+                })
+            }
         }
     }
-}
-
-
-
-func getDisplayName() -> String {
-    return vehicle.getDisplayNameInList(vehiclesList: vehicles)
-}
-
-func getSubtitle() -> String? {
-    if vehicle.liteConfig {
-        if vehicle.name?.dkVehicleLocalized() == vehicle.getCategoryName() {
-            return nil
+    
+    
+    
+    func getDisplayName() -> String {
+        return vehicle.getDisplayNameInList(vehiclesList: vehicles)
+    }
+    
+    func getSubtitle() -> String? {
+        if vehicle.liteConfig {
+            if vehicle.name?.dkVehicleLocalized() == vehicle.getCategoryName() {
+                return nil
+            } else {
+                return vehicle.getCategoryName()
+            }
         } else {
-            return vehicle.getCategoryName()
-        }
-    } else {
-        return vehicle.getModel()
-    }
-}
-
-func computeVehicleOptions() -> [VehicleAction] {
-    var actions : [VehicleAction] = DriveKitVehicleUI.shared.vehicleActions
-    if vehicle.liteConfig {
-        if let index = actions.firstIndex(of: .show){
-            actions.remove(at: index)
+            return vehicle.getModel()
         }
     }
-    return actions
-}
+    
+    func computeVehicleOptions() -> [VehicleAction] {
+        var actions : [VehicleAction] = DriveKitVehicleUI.shared.vehicleActions
+        if vehicle.liteConfig {
+            if let index = actions.firstIndex(of: .show){
+                actions.remove(at: index)
+            }
+        }
+        return actions
+    }
 }

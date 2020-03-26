@@ -40,6 +40,12 @@ public class BeaconViewModel {
         self.vehicles = vehicles
     }
     
+    public init(scanType: DKBeaconScanType, beacon : DKBeacon) {
+        self.vehicle = nil
+        self.scanType = scanType
+        self.beacon = beacon
+    }
+    
     public init(vehicle: DKVehicle, scanType: DKBeaconScanType, beacon : DKBeacon) {
         self.vehicle = vehicle
         self.scanType = scanType

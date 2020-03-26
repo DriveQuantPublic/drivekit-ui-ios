@@ -143,11 +143,15 @@ class BeaconScannerProgressVC: UIViewController {
                     self.viewModel.updateScanState(step: .wrongBeacon)
                 }
             case .diagnostic:
-                if let vehicle = self.viewModel.vehicleFromBeacon() {
-                    self.viewModel.vehicle = vehicle
+                if self.viewModel.vehicles.isEmpty {
                     self.viewModel.updateScanState(step: .verified)
                 } else {
-                    self.viewModel.updateScanState(step: .wrongBeacon)
+                    if let vehicle = self.viewModel.vehicleFromBeacon() {
+                        self.viewModel.vehicle = vehicle
+                        self.viewModel.updateScanState(step: .verified)
+                    } else {
+                        self.viewModel.updateScanState(step: .wrongBeacon)
+                    }
                 }
             }
         }

@@ -39,13 +39,13 @@ public enum DKStyles {
             size = 12
             traits = nil
         case .highlightBig:
-            size = 48
+            size = 28
             traits = .traitBold
         case .highlightNormal:
-            size = 34
+            size = 20
             traits = .traitBold
         case .highlightSmall:
-            size = 24
+            size = 16
             traits = .traitBold
         case .button:
             size = 18

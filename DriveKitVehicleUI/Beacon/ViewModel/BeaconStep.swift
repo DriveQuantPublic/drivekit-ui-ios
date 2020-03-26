@@ -37,7 +37,11 @@ public enum BeaconStep {
         case .success:
             return "dk_vehicle_beacon_setup_code_success_message".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         case .beaconNotFound:
-            return "dk_vehicle_beacon_setup_code_not_matched".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).buildWithArgs(beaconCode)
+            if viewModel.scanType == .pairing {
+                return "dk_vehicle_beacon_setup_code_not_matched".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).buildWithArgs(beaconCode)
+            } else {
+                return "dk_beacon_not_seen".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+            }
         case .beaconAlreadyPaired:
             return "dk_vehicle_beacon_already_paired".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         case .congrats:

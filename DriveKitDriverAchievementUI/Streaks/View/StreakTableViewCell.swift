@@ -30,7 +30,7 @@ class StreakTableViewCell: UITableViewCell {
     @IBOutlet weak var helpView: UIImageView!
     
     private var streak : StreakData!
-    private var parentViewController: UIViewController?
+    private weak var parentViewController: UIViewController?
     
     override func awakeFromNib() {
         super.awakeFromNib()

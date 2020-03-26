@@ -42,6 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitDriverAchievementUI.shared.initialize()
         DriveKitDriverDataUI.shared.initialize()
         DriveKitVehicleUI.shared.initialize()
+        DriveKitVehicleUI.shared.configureBeaconDetailEmail(beaconDiagnosticEmail: self)
         
         DriveKitVehicleUI.shared.addCustomVehicleField(groupField: .general, fieldsToAdd: [TestField.number, TestField.ascii])
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options : \(options)")
@@ -181,4 +182,24 @@ extension AppDelegate : DKColors {
 }
 
 extension AppDelegate : DKFonts {
+}
+
+extension AppDelegate : DKBeaconDiagnosticMail {
+    func getRecipients() -> [String] {
+        return []
+    }
+    
+    func getBccRecipients() -> [String] {
+        return []
+    }
+    
+    func getSubject() -> String {
+        return "Test beacon"
+    }
+    
+    func getMailBody() -> String {
+        return "Test mail body"
+    }
+    
+    
 }

@@ -31,5 +31,13 @@ class BeaconDetailViewModel {
         data.append(["dk_beacon_rssi": "\(beacon.rssi) dBm".dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()])
     }
     
-    
+    func mailContent() -> String {
+        var content = ""
+        data.forEach {
+            if let key = $0.keys.first {
+                content += "\(key.dkVehicleLocalized()) : \($0[key]?.string ?? "")\n"
+            }
+        }
+        return content
+    }
 }

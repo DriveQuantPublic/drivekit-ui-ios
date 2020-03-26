@@ -26,7 +26,8 @@ public enum DKImages : String {
     warning = "dk_common_warning",
     dots = "dk_common_dots",
     arrowDown = "dk_common_arrow_down",
-    back = "dk_common_back"
+    back = "dk_common_back",
+    mail = "dk_common_mail"
     
     public var image : UIImage? {
         if let image = UIImage(named: self.rawValue, in: .main, compatibleWith: nil) {

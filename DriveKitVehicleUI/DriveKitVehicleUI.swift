@@ -30,6 +30,8 @@ public class DriveKitVehicleUI {
     var detectionModes: [DKDetectionMode] = [.disabled, .gps, .beacon, .bluetooth]
     var customFields = [VehicleGroupField: [VehicleField]]()
     
+    var beaconDiagnosticEmail : DKBeaconDiagnosticMail? = nil
+    
     private init() {}
     
     public func initialize() {
@@ -90,6 +92,10 @@ public class DriveKitVehicleUI {
     
     public func addCustomVehicleField(groupField: VehicleGroupField, fieldsToAdd: [VehicleField]) {
         self.customFields = [groupField : fieldsToAdd]
+    }
+    
+    public func configureBeaconDetailEmail(beaconDiagnosticEmail: DKBeaconDiagnosticMail?) {
+        self.beaconDiagnosticEmail = beaconDiagnosticEmail
     }
 }
 

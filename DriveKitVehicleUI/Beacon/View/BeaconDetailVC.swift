@@ -8,6 +8,7 @@
 
 import UIKit
 import DriveKitCommonUI
+import MessageUI
 
 class BeaconDetailVC: DKUIViewController {
 
@@ -30,6 +31,28 @@ class BeaconDetailVC: DKUIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.title = "dk_beacon_diagnostic_title".dkVehicleLocalized()
+        self.configureMailButton()
+    }
+    
+    private func configureMailButton() {
+        if DriveKitVehicleUI.shared.beaconDiagnosticEmail != nil {
+            let image = DKImages.mail.image?.resizeImage(25, opaque: false)
+            let mailButton = UIBarButtonItem(image: image , style: .plain, target: self, action: #selector(sendEmail))
+            mailButton.tintColor = .white
+            self.navigationItem.rightBarButtonItem = mailButton
+        }
+    }
+    
+    @objc private func sendEmail() {
+        if MFMailComposeViewController.canSendMail(), let mail = DriveKitVehicleUI.shared.beaconDiagnosticEmail  {
+            let mailComposerVC = MFMailComposeViewController()
+            mailComposerVC.mailComposeDelegate = self
+            mailComposerVC.setToRecipients(mail.getRecipients())
+            mailComposerVC.setBccRecipients(mail.getBccRecipients())
+            mailComposerVC.setSubject(mail.getSubject())
+            mailComposerVC.setMessageBody("\(mail.getMailBody())\n\n\(viewModel.mailContent())", isHTML: false)
+            present(mailComposerVC, animated: true)
+        }
     }
 }
 
@@ -48,5 +71,13 @@ extension BeaconDetailVC : UITableViewDataSource {
 extension BeaconDetailVC : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
+    }
+}
+
+extension BeaconDetailVC: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        if result != .failed {
+            controller.dismiss(animated: true)
+        }
     }
 }

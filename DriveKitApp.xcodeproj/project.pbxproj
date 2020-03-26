@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2BCAA6C1AC3CC1C2B0E98D77 /* Pods_DriveKitVehicleUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20449AFA2A35A174B99296E3 /* Pods_DriveKitVehicleUI.framework */; };
+		3F03A4DD242C8BD3000924A0 /* DKBeaconDiagnosticMail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F03A4DC242C8BD3000924A0 /* DKBeaconDiagnosticMail.swift */; };
 		3F0740DE2403BB65005A8D07 /* DriveKitCommonUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0740DC2403BB65005A8D07 /* DriveKitCommonUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F0740E12403BB65005A8D07 /* DriveKitCommonUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F0740DA2403BB65005A8D07 /* DriveKitCommonUI.framework */; };
 		3F0740E22403BB65005A8D07 /* DriveKitCommonUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3F0740DA2403BB65005A8D07 /* DriveKitCommonUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -313,6 +314,7 @@
 		20B69960974EEE2DEB3E079F /* Pods-DriveKitDriverAchievementUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverAchievementUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverAchievementUI/Pods-DriveKitDriverAchievementUI.release.xcconfig"; sourceTree = "<group>"; };
 		36173251B2A47392720E8B05 /* Pods_DriveKitDriverAchievementUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitDriverAchievementUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38FD5C43C51C0CF5151B396D /* Pods-DriveKitVehicleUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitVehicleUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitVehicleUI/Pods-DriveKitVehicleUI.release.xcconfig"; sourceTree = "<group>"; };
+		3F03A4DC242C8BD3000924A0 /* DKBeaconDiagnosticMail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKBeaconDiagnosticMail.swift; sourceTree = "<group>"; };
 		3F0740DA2403BB65005A8D07 /* DriveKitCommonUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DriveKitCommonUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F0740DC2403BB65005A8D07 /* DriveKitCommonUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DriveKitCommonUI.h; sourceTree = "<group>"; };
 		3F0740DD2403BB65005A8D07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -969,6 +971,7 @@
 			children = (
 				3FFB2D6A2417E3F0003E6A06 /* ViewModel */,
 				3FFB2D652417E26D003E6A06 /* View */,
+				3F03A4DC242C8BD3000924A0 /* DKBeaconDiagnosticMail.swift */,
 			);
 			path = Beacon;
 			sourceTree = "<group>";
@@ -1855,6 +1858,7 @@
 				A34FC71E24227556000734AB /* VehicleGroupFields.swift in Sources */,
 				3FFB2D9124194909003E6A06 /* BeaconScanFailureVC.swift in Sources */,
 				A3D51F4E241BA3AE006DACE2 /* VehiclesListCell.swift in Sources */,
+				3F03A4DD242C8BD3000924A0 /* DKBeaconDiagnosticMail.swift in Sources */,
 				3FF68F14241504A10071D74C /* DKVehicleType+UI.swift in Sources */,
 				3FF68F3A241535130071D74C /* VehiclePickerLabelCollectionViewCell.swift in Sources */,
 				A34FC73024227567000734AB /* VehicleDetailViewModel.swift in Sources */,

@@ -22,6 +22,10 @@ class SynthesisPageViewModel {
         self.tripDetailViewModel = tripDetailViewModel
     }
     
+    var vehicleId : String? {
+        return trip.vehicleId
+    }
+    
     var fuelConsumptionValue : String {
         if let value = trip.fuelEstimation?.fuelConsumption, value != 0{
             return value.formatConsumption()

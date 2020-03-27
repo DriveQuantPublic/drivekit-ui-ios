@@ -35,7 +35,7 @@ public class DriveKitVehicleUI {
     private init() {}
     
     public func initialize() {
-        // TODO : register to navigation controller
+        DriveKitNavigationController.shared.vehicleUI = self
     }
     
     public func configureVehicleTypes(types: [DKVehicleType]){
@@ -123,8 +123,13 @@ extension DriveKitVehicleUI : DriveKitVehicleUIEntryPoint {
                 }else{
                     completion(nil)
                 }
-                
             }
+        })
+    }
+    
+    public func getVehicleNameWith(vehicleId: String, completion: @escaping (String?) -> ()) {
+        DriveKitVehicle.shared.getVehicle(vehicleId: vehicleId, completionHandler: {status, vehicle in
+            completion(vehicle?.displayName)
         })
     }
 }

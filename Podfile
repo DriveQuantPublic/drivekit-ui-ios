@@ -37,3 +37,7 @@ target 'DriveKitCommonUI' do
   platform :ios, '10.0'
   pod 'UICircularProgressRing'
 end
+
+target 'DriveKitPermissionsUtilsUI' do
+  
+end

@@ -12,6 +12,7 @@ public class DriveKitNavigationController {
     
     public var driverDataUI : DriveKitDriverDataUIEntryPoint? = nil
     public var driverAchievementUI: DriveKitDriverAchievementUIEntryPoint? = nil
+    public var permissionsUtilsUI: DriveKitPermissionsUtilsUIEntryPoint? = nil
     
     public static let shared = DriveKitNavigationController()
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 import DriveKitCommonUI
 
 public class DriveKitPermissionsUtilsUI {
@@ -31,12 +32,10 @@ extension String {
 
 extension DriveKitPermissionsUtilsUI : DriveKitPermissionsUtilsUIEntryPoint {
     public func getActivityPermissionViewController(_ completionHandler: () -> Void) -> UIViewController {
-        #warning("TODO: Provide right ViewController")
-        return UIViewController()
+        return ActivityPermissionViewController()
     }
 
     public func getLocationPermissionViewController(_ completionHandler: () -> Void) -> UIViewController {
-        #warning("TODO: Provide right ViewController")
-        return UIViewController()
+        return LocationPermissionViewController()
     }
 }

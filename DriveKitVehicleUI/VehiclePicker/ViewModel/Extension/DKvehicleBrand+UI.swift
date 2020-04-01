@@ -55,6 +55,8 @@ extension DKVehicleBrand : VehiclePickerCollectionViewItem {
             return UIImage(named: "dk_volkswagen", in: .vehicleUIBundle, compatibleWith: nil)
         case .volvo:
             return UIImage(named: "dk_volvo", in: .vehicleUIBundle, compatibleWith: nil)
+        case .peugeot:
+            return UIImage(named: "dk_peugeot", in: .vehicleUIBundle, compatibleWith: nil)
         default:
             return nil
         }

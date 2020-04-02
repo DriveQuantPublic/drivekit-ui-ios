@@ -118,7 +118,7 @@ extension DriveKitVehicleUI : DriveKitVehicleUIEntryPoint {
         DriveKitVehicle.shared.getVehicle(vehicleId: vehicleId, completionHandler: {status, vehicle in
             DispatchQueue.main.async {
                 if let vehicle = vehicle {
-                    let viewModel = VehicleDetailViewModel(vehicle: vehicle, vehicleDisplayName: vehicle.displayName)
+                    let viewModel = VehicleDetailViewModel(vehicle: vehicle, vehicleDisplayName: vehicle.getDisplayNameInList(vehiclesList: DriveKitDBVehicleAccess.shared.findVehicles().execute()))
                     completion(VehicleDetailVC(viewModel: viewModel))
                 }else{
                     completion(nil)
@@ -129,7 +129,7 @@ extension DriveKitVehicleUI : DriveKitVehicleUIEntryPoint {
     
     public func getVehicleNameWith(vehicleId: String, completion: @escaping (String?) -> ()) {
         DriveKitVehicle.shared.getVehicle(vehicleId: vehicleId, completionHandler: {status, vehicle in
-            completion(vehicle?.displayName)
+            completion(vehicle?.getDisplayNameInList(vehiclesList: DriveKitDBVehicleAccess.shared.findVehicles().execute()))
         })
     }
 }

@@ -180,14 +180,18 @@ class VehiclePickerViewModel {
     
     func addVehicle(completion : @escaping (DKVehicleManagerStatus) -> ()) {
         if let characteristics = vehicleCharacteristics {
-            DriveKitVehicle.shared.createVehicle(characteristics: characteristics, vehicleType: vehicleType ?? .car, name: vehicleName, liteConfig: liteConfig, detectionMode: coordinator.detectionMode, completionHandler: { status, vehicle in
-                completion(status)
-            })
+            if let previousVehicle = coordinator.vehicle {
+                replaceVehicle(previousVehicle: previousVehicle, completion: completion)
+            }else{
+                DriveKitVehicle.shared.createVehicle(characteristics: characteristics, vehicleType: vehicleType ?? .car, name: vehicleName, liteConfig: liteConfig, detectionMode: coordinator.detectionMode, completionHandler: { status, vehicle in
+                    completion(status)
+                })
+            }
         }
     }
     
-    func replaceVehicle(completion : @escaping (DKVehicleManagerStatus) -> ()) {
-        if let characteristics = vehicleCharacteristics, let previousVehicle = coordinator.vehicle {
+    func replaceVehicle(previousVehicle: DKVehicle, completion : @escaping (DKVehicleManagerStatus) -> ()) {
+        if let characteristics = vehicleCharacteristics {
             let detectionMode = previousVehicle.detectionMode ?? .disabled
             let previousBeacon = previousVehicle.beacon
             let previousBluetooth = previousVehicle.bluetooth

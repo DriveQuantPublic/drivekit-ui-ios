@@ -63,10 +63,8 @@ class VehiclePickerInputVC: VehiclePickerStepView {
                 self.hideLoader()
                 switch status {
                 case .success:
-                    if let parentView = self.viewModel.coordinator.parentView as? VehiclesListVC {
-                        parentView.viewModel.fetchVehicles()
-                    }
                     self.navigationController?.dismiss(animated: true, completion: nil)
+                    self.viewModel.coordinator.completion?()
                 case .unknownVehicle:
                     // We can't have this error, vehicle picker always return a known vehicle
                     break

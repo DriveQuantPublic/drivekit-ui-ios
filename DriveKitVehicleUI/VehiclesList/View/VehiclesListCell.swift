@@ -30,9 +30,9 @@ class VehiclesListCell: UITableViewCell {
     
     @IBOutlet weak var configureButton: UIButton!
     
-    var viewModel: VehiclesListCellViewModel!
+    var viewModel: VehiclesListViewModel!
     
-    func configure(viewModel: VehiclesListCellViewModel) {
+    func configure(viewModel: VehiclesListViewModel) {
         self.viewModel = viewModel
         vehicleTitle.attributedText = viewModel.getDisplayName().dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.mainFontColor).build()
         vehicleSubtitle.attributedText = viewModel.getSubtitle()?.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
@@ -131,7 +131,9 @@ class VehiclesListCell: UITableViewCell {
                 
             case .replace:
                 let replaceVehicle = vehicleOption.alertAction(completionHandler: {  _ in
-                    _ = VehiclePickerCoordinator(parentView: self.viewModel.listView, detectionMode: self.viewModel.autoStart.detectionModeValue ?? .disabled, vehicle: self.viewModel.vehicle)
+                    _ = VehiclePickerCoordinator(parentView: self.viewModel.listView, detectionMode: self.viewModel.autoStart.detectionModeValue ?? .disabled, vehicle: self.viewModel.vehicle, completion: {
+                        self.viewModel.listView.viewModel.fetchVehicles()
+                    })
                 })
                 alert.addAction(replaceVehicle)
             case .delete:

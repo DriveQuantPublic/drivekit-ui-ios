@@ -55,6 +55,7 @@
 		3FE6A45424213ABE00E24C1C /* BeaconDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE6A45224213ABE00E24C1C /* BeaconDetailTableViewCell.xib */; };
 		3FE6A45624213EC600E24C1C /* BeaconDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6A45524213EC600E24C1C /* BeaconDetailViewModel.swift */; };
 		3FF542892435EE690063A5B9 /* VehicleListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF542882435EE690063A5B9 /* VehicleListHeaderView.swift */; };
+		3FF5428B243649390063A5B9 /* DKDetectionMode+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5428A243649390063A5B9 /* DKDetectionMode+UI.swift */; };
 		3FF68E642407F56F0071D74C /* CommonLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FF68E662407F56F0071D74C /* CommonLocalizable.strings */; };
 		3FF68E6C2407F8110071D74C /* DriveKitDriverAchievementUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68E6B2407F8110071D74C /* DriveKitDriverAchievementUI.swift */; };
 		3FF68E6E24081A5A0071D74C /* DKStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68E6D24081A5A0071D74C /* DKStyles.swift */; };
@@ -371,6 +372,7 @@
 		3FE6A45224213ABE00E24C1C /* BeaconDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeaconDetailTableViewCell.xib; sourceTree = "<group>"; };
 		3FE6A45524213EC600E24C1C /* BeaconDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconDetailViewModel.swift; sourceTree = "<group>"; };
 		3FF542882435EE690063A5B9 /* VehicleListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleListHeaderView.swift; sourceTree = "<group>"; };
+		3FF5428A243649390063A5B9 /* DKDetectionMode+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DKDetectionMode+UI.swift"; sourceTree = "<group>"; };
 		3FF68E652407F56F0071D74C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CommonLocalizable.strings; sourceTree = "<group>"; };
 		3FF68E672407F5710071D74C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/CommonLocalizable.strings; sourceTree = "<group>"; };
 		3FF68E682407F5710071D74C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/CommonLocalizable.strings; sourceTree = "<group>"; };
@@ -728,6 +730,7 @@
 			children = (
 				3F50D7072417ADDD001226F7 /* DKVehicle+UI.swift */,
 				3FFB2D7E241913D0003E6A06 /* DKBeacon+UI.swift */,
+				3FF5428A243649390063A5B9 /* DKDetectionMode+UI.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1299,7 +1302,6 @@
 		A3D51F3E241BA2E6006DACE2 /* VehiclesList */ = {
 			isa = PBXGroup;
 			children = (
-				A3D51F41241BA37F006DACE2 /* Model */,
 				A3D51F40241BA308006DACE2 /* ViewModel */,
 				A3D51F3F241BA301006DACE2 /* View */,
 			);
@@ -1321,19 +1323,12 @@
 		A3D51F40241BA308006DACE2 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A3D51F42241BA39D006DACE2 /* AutoStart.swift */,
+				A3D51F43241BA39D006DACE2 /* VehicleAction.swift */,
 				A3D51F46241BA3A4006DACE2 /* VehiclesListCellViewModel.swift */,
 				A3D51F47241BA3A4006DACE2 /* VehiclesListViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		A3D51F41241BA37F006DACE2 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				A3D51F42241BA39D006DACE2 /* AutoStart.swift */,
-				A3D51F43241BA39D006DACE2 /* VehicleAction.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		A9BC2334DC2216D3626EE223 /* Pods */ = {
@@ -1835,6 +1830,7 @@
 				3FFB2D682417E2C9003E6A06 /* ConnectBeaconVC.swift in Sources */,
 				3FE6A4422420BEC300E24C1C /* BeaconScannerInfoVC.swift in Sources */,
 				A34FC71F24227556000734AB /* VehicleField.swift in Sources */,
+				3FF5428B243649390063A5B9 /* DKDetectionMode+UI.swift in Sources */,
 				A3D51F49241BA3A5006DACE2 /* VehiclesListViewModel.swift in Sources */,
 				3FFB2D8224191BC3003E6A06 /* BeaconScannerSuccessVC.swift in Sources */,
 				3F50D70524179467001226F7 /* ConnectBluetoothVC.swift in Sources */,

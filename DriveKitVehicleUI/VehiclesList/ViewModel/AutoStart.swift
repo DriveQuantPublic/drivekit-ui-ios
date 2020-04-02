@@ -86,23 +86,3 @@ enum AutoStart {
         }
     }
 }
-
-extension DKDetectionMode {
-    func alertAction(completionHandler: ((UIAlertAction) -> Void)?) -> UIAlertAction {
-        let detectionAction = UIAlertAction(title: self.title(), style: .default, handler: completionHandler)
-        return detectionAction
-    }
-    
-    func title() -> String {
-        switch (self) {
-        case .disabled:
-            return "dk_detection_mode_disabled_title".dkVehicleLocalized()
-        case .gps:
-            return "dk_detection_mode_gps_title".dkVehicleLocalized()
-        case .beacon:
-            return "dk_detection_mode_beacon_title".dkVehicleLocalized()
-        case .bluetooth:
-            return "dk_detection_mode_bluetooth_title".dkVehicleLocalized()
-        }
-    }
-}

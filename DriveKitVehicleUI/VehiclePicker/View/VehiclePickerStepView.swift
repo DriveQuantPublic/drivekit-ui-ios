@@ -31,5 +31,6 @@ class VehiclePickerStepView: DKUIViewController {
     
     @objc func didDismissManually() {
         self.navigationController?.dismiss(animated: true, completion: nil)
+        self.viewModel.coordinator.completion?()
     }
 }

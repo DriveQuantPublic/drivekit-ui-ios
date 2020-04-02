@@ -14,7 +14,7 @@ public class VehiclesListVC: DKUIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addVehicleButton: UIButton!
     
-    var viewModel : VehiclesListViewModel
+    private let viewModel : VehiclesListViewModel
     
     private let refreshControl = UIRefreshControl()
     
@@ -30,6 +30,7 @@ public class VehiclesListVC: DKUIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         title = "dk_vehicle_my_vehicles".dkVehicleLocalized()
+        self.viewModel.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 250
         self.tableView.addSubview(refreshControl)
@@ -37,6 +38,7 @@ public class VehiclesListVC: DKUIViewController {
         self.tableView.register(UINib(nibName: "VehiclesListCell", bundle: Bundle.vehicleUIBundle), forCellReuseIdentifier: "VehiclesListCell")
         self.tableView.register(VehicleListHeaderView.self, forHeaderFooterViewReuseIdentifier: "VehicleListHeaderView")
         self.configure()
+        self.viewModel.fetchVehicles()
     }
     
     func configure() {
@@ -49,15 +51,12 @@ public class VehiclesListVC: DKUIViewController {
         }
     }
     
-    public override func viewDidDisappear(_ animated: Bool) {
-        self.viewModel.delegate = nil
-    }
-    
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.viewModel.delegate = self
         self.showLoader()
     }
+    
+    
     
     func confirmDeleteAlert(type: DeleteAlertType, vehicle: DKVehicle){
         var title = ""
@@ -114,10 +113,12 @@ public class VehiclesListVC: DKUIViewController {
     }
     
     @IBAction func goToVehiclePicker(_ sender: Any) {
-        if let maxVehicles = DriveKitVehicleUI.shared.maxVehicles, maxVehicles <= self.viewModel.vehicles.count {
+        if let maxVehicles = DriveKitVehicleUI.shared.maxVehicles, maxVehicles <= self.viewModel.vehiclesCount {
             self.showAlertMessage(title: "", message: "dk_too_many_vehicles_alert".dkVehicleLocalized(), back: false, cancel: false)
         }else{
-            _ = VehiclePickerCoordinator(parentView: self, detectionMode: self.viewModel.computeDetectionMode())
+            _ = VehiclePickerCoordinator(parentView: self, detectionMode: self.viewModel.computeDetectionMode(), completion: {
+                self.viewModel.fetchVehicles()
+            })
         }
     }
     
@@ -129,7 +130,7 @@ public class VehiclesListVC: DKUIViewController {
 extension VehiclesListVC: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if self.viewModel.vehicles.isEmpty {
+        if self.viewModel.vehiclesCount == 0 {
             let headerView = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "VehicleListHeaderView" ) as! VehicleListHeaderView
             headerView.image.image = DKImages.warning.image
             headerView.image.tintColor = DKUIColors.warningColor.color
@@ -141,7 +142,7 @@ extension VehiclesListVC: UITableViewDelegate {
     }
     
     public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if self.viewModel.vehicles.isEmpty {
+        if self.viewModel.vehiclesCount == 0 {
             return 80
         }else {
             return 0
@@ -158,25 +159,27 @@ extension VehiclesListVC: UITableViewDataSource {
         return 1
     }
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.vehicles.count
+        return viewModel.vehiclesCount
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let vehicle = viewModel.vehicles[indexPath.row]
+        //let vehicle = viewModel.vehicles[indexPath.row]
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "VehiclesListCell", for: indexPath) as! VehiclesListCell
-        let cellViewModel = VehiclesListCellViewModel(listView: self, vehicle: vehicle, vehicles: viewModel.vehicles)
-        cellViewModel.delegate = self
-        cell.configure(viewModel: cellViewModel)
+        cell.configure(viewModel: viewModel)
         return cell
     }
 }
 
 
 extension VehiclesListVC: VehiclesListDelegate {
+    func showAlert(_ alertController: UIAlertController) {
+        self.present(alertController, animated: true)
+    }
+    
     func onVehiclesAvailable() {
         DispatchQueue.main.async {
             self.hideLoader()
-            if let maxVehicle = DriveKitVehicleUI.shared.maxVehicles, self.viewModel.vehicles.count >= maxVehicle {
+            if let maxVehicle = DriveKitVehicleUI.shared.maxVehicles, self.viewModel.vehiclesCount >= maxVehicle {
                 self.addVehicleButton.isHidden = true
             }else{
                 self.addVehicleButton.isHidden = false

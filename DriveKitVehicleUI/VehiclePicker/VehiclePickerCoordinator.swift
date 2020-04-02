@@ -10,30 +10,30 @@ import UIKit
 import DriveKitDBVehicleAccess
 
 public class VehiclePickerCoordinator {
-    var parentView: UIViewController
     let navigationController: UINavigationController
     var vehicle: DKVehicle?
     var detectionMode: DKDetectionMode
+    var completion : (() -> ())? = nil
     
-    public init(parentView: UIViewController, detectionMode: DKDetectionMode = .disabled, vehicle: DKVehicle? = nil) {
-        self.parentView = parentView
+    public init(parentView: UIViewController, detectionMode: DKDetectionMode = .disabled, vehicle: DKVehicle? = nil, completion : (() -> ())? = nil) {
         self.detectionMode = detectionMode
         self.vehicle = vehicle
+        self.completion = completion
         self.navigationController = UINavigationController()
-        self.setupNavigationBar()
+        self.setupNavigationBar(parentView: parentView)
         self.navigationController.modalPresentationStyle = .overFullScreen
         let viewModel = VehiclePickerViewModel(coordinator: self)
-        self.showFirstStep(viewController: viewModel.getViewController())
+        self.showFirstStep(parentView: parentView, viewController: viewModel.getViewController())
     }
     
-    func setupNavigationBar() {
+    func setupNavigationBar(parentView: UIViewController) {
         self.navigationController.navigationBar.barTintColor = parentView.navigationController?.navigationBar.barTintColor
         navigationController.navigationBar.isTranslucent = parentView.navigationController?.navigationBar.isTranslucent ?? false
         navigationController.navigationBar.titleTextAttributes = parentView.navigationController?.navigationBar.titleTextAttributes
         navigationController.navigationBar.tintColor = parentView.navigationController?.navigationBar.tintColor        
     }
     
-    private func showFirstStep(viewController : UIViewController?) {
+    private func showFirstStep(parentView: UIViewController, viewController : UIViewController?) {
         if let view = viewController {
             navigationController.viewControllers.append(view)
             view.modalPresentationStyle = .overFullScreen

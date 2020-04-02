@@ -11,9 +11,6 @@ import DriveKitDBVehicleAccess
 import DriveKitVehicle
 
 extension DKVehicle {
-    var defaultName: String {
-        return String(format: "%@ %@ %@", self.brand ?? "", self.model ?? "", self.version ?? "")
-    }
     
     func getModel() -> String {
         return String(format: "%@ %@ %@", self.brand ?? "", self.model ?? "", self.version ?? "")
@@ -27,17 +24,16 @@ extension DKVehicle {
         }
     }
     
-    func getDisplayNameInList(vehiclesList: [DKVehicle]) -> String {
-        let position = getPosition(vehiclesList: vehiclesList)
-        let displayName = "dk_vehicle_my_vehicle".dkVehicleLocalized() + " - " + String(position)
-        if let name = self.name, name.lowercased() != defaultName.lowercased() {
+    func getDisplayName(position: Int) -> String {
+        if let name = self.name, name.lowercased() != getModel().lowercased() {
             return name
         } else {
+            let displayName = "dk_vehicle_my_vehicle".dkVehicleLocalized() + " - " + String(position)
             return displayName
         }
     }
     
-    func getCategoryName() -> String {
+    func getLiteConfigCategoryName() -> String {
         let categories = DKVehicleCategory.allCases
         var categoryName = ""
         for category in categories {
@@ -65,9 +61,9 @@ extension DKVehicle {
         return categoryName
     }
     
-    var displayName : String {
+    /*var displayName : String {
         return name ?? defaultName
-    }
+    }*/
     
     func getVehicleImage() -> UIImage? {
         let vehicleImage = "DQ_vehicle_" + self.vehicleId
@@ -88,5 +84,33 @@ extension DKVehicle {
                }
 
        return image
+    }
+    
+    
+    var detectionModeDescription :  NSAttributedString {
+        switch self.detectionMode {
+        case .disabled:
+            return "dk_detection_mode_disabled_desc".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+        case .gps :
+            return "dk_detection_mode_gps_desc".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+        case .beacon:
+            if beacon != nil {
+                let beaconCode = String(beacon?.uniqueId ?? "").dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
+                let description = "dk_detection_mode_beacon_desc_configured".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).buildWithArgs(beaconCode)
+                return description
+            }else {
+                return "dk_detection_mode_beacon_desc_not_configured".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.criticalColor).build()
+            }
+        case .bluetooth:
+            if bluetooth != nil {
+                let bluetoothName = String(bluetooth?.name ??  "").dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
+                let description = "dk_detection_mode_bluetooth_desc_configured".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).buildWithArgs(bluetoothName)
+                return description
+            }else{
+                return "dk_detection_mode_bluetooth_desc_not_configured".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.criticalColor).build()
+            }
+        case .none:
+            return "".dkAttributedString().build()
+        }
     }
 }

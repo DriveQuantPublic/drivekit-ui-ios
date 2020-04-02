@@ -25,7 +25,6 @@ class VehicleListHeaderView: UITableViewHeaderFooterView {
     
     func configureContents() {
         contentView.backgroundColor = DKUIColors.backgroundView.color
-        //backgroundColor = DKUIColors.backgroundView.color
         image.translatesAutoresizingMaskIntoConstraints = false
         title.translatesAutoresizingMaskIntoConstraints = false
 

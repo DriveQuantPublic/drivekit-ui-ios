@@ -10,30 +10,83 @@ import Foundation
 import DriveKitVehicle
 import DriveKitDBVehicleAccess
 
+protocol VehiclesListDelegate : AnyObject{
+    func onVehiclesAvailable()
+    func didUpdateVehicle()
+    func didReceiveErrorFromService()
+    func showAlert(_ alertController: UIAlertController)
+    func showLoader()
+    func hideLoader()
+}
+
+
 class VehiclesListViewModel {
-    var vehicles: [DKVehicle] = []
-    var status: DKVehicleSyncStatus = .noError
-    var delegate: VehiclesListDelegate? = nil {
-        didSet {
-            if self.delegate != nil {
-                self.fetchVehicles()
-            }
-        }
-    }
+    private var vehicles: [DKVehicle] = []
+    weak var delegate: VehiclesListDelegate? = nil
     
     func fetchVehicles() {
         DriveKitVehicle.shared.getVehiclesOrderByNameAsc(completionHandler : { status, vehicles in
             DispatchQueue.main.async {
-                self.status = status
                 self.vehicles = self.orderVehiclesByDisplayName(vehicles: vehicles)
                 self.delegate?.onVehiclesAvailable()
             }
         })
     }
     
-    func orderVehiclesByDisplayName(vehicles: [DKVehicle]) -> [DKVehicle] {
-        return vehicles.sorted { $0.getDisplayNameInList(vehiclesList: vehicles).lowercased() < $1.getDisplayNameInList(vehiclesList: vehicles).lowercased() }
+    private func orderVehiclesByDisplayName(vehicles: [DKVehicle]) -> [DKVehicle] {
+        return vehicles.sorted { $0.getDisplayName(position: $0.getPosition(vehiclesList: vehicles)).lowercased() < $1.getDisplayName(position: $0.getPosition(vehiclesList: vehicles)).lowercased() }
     }
+    
+    var vehiclesCount : Int {
+        return vehicles.count
+    }
+    
+    var vehicleActions : [VehicleAction] {
+        var actions = DriveKitVehicleUI.shared.vehicleActions
+        if vehiclesCount <= 1 {
+            actions.removeAll(where: {$0 == .delete})
+        }
+        return actions
+    }
+    
+    var detectionModes : [DKDetectionMode] {
+        return DriveKitVehicleUI.shared.detectionModes
+    }
+    
+    func vehicleName(pos : Int) -> String {
+        return vehicles[pos].getDisplayName(position: pos)
+    }
+    
+    func vehicleModel(pos: Int) -> String {
+        var model = ""
+        let vehicle = vehicles[pos]
+        if vehicle.liteConfig {
+            if vehicle.name != vehicle.getLiteConfigCategoryName(){
+                model =  vehicle.getLiteConfigCategoryName()
+            }
+        } else {
+            model = vehicle.getModel()
+        }
+        return model
+    }
+    
+    func detectionModeTitle(pos: Int) -> String {
+        return vehicles[pos].detectionMode?.title ?? ""
+    }
+    
+    func detectionModeDescription(pos: Int) -> NSAttributedString {
+        return vehicles[pos].detectionModeDescription
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     func renameVehicle(vehicle: DKVehicle, name: String) {
             DriveKitVehicle.shared.renameVehicle(name: name, vehicleId: vehicle.vehicleId, completionHandler: { status in
@@ -90,8 +143,3 @@ class VehiclesListViewModel {
     }
 }
 
-protocol VehiclesListDelegate {
-    func onVehiclesAvailable()
-    func didUpdateVehicle()
-    func didReceiveErrorFromService()
-}

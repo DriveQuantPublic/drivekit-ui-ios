@@ -11,7 +11,7 @@ import DriveKitDBVehicleAccess
 import DriveKitVehicle
 import DriveKitTripAnalysis
 
-class VehiclesListCellViewModel {
+class VehiclesListCellViewModel2 {
     let listView: VehiclesListVC
     let vehicle: DKVehicle
     let vehicles: [DKVehicle]

@@ -36,7 +36,7 @@ class VehiclePickerViewModel {
         self.coordinator = coordinator
         if DriveKitVehicleUI.shared.vehicleTypes.count > 1 {
             self.currentStep = .type
-        } else if DriveKitVehicleUI.shared.categories.count > 1 {
+        } else if DriveKitVehicleUI.shared.categories.count > 1 && DriveKitVehicleUI.shared.categoryConfigType != .brandsConfigOnly  {
             self.vehicleType = DriveKitVehicleUI.shared.vehicleTypes[0]
             self.currentStep = .category
         } else if DriveKitVehicleUI.shared.categories.count == 1 && DriveKitVehicleUI.shared.categoryConfigType == .liteConfigOnly {

@@ -32,11 +32,6 @@ class VehiclesListCell: UITableViewCell {
     
     var viewModel: VehiclesListCellViewModel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
     func configure(viewModel: VehiclesListCellViewModel) {
         self.viewModel = viewModel
         vehicleTitle.attributedText = viewModel.getDisplayName().dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.mainFontColor).build()
@@ -124,7 +119,6 @@ class VehiclesListCell: UITableViewCell {
             switch vehicleOption {
             case .show:
                 let showVehicle = vehicleOption.alertAction(completionHandler: {  _ in
-                    // TODO : VehicleDetail
                     let detailVC = VehicleDetailVC(viewModel: VehicleDetailViewModel(vehicle: self.viewModel.vehicle, vehicleDisplayName: self.viewModel.getDisplayName()))
                     self.viewModel.listView.navigationController?.pushViewController(detailVC, animated: true)
                 })
@@ -160,7 +154,7 @@ class VehiclesListCell: UITableViewCell {
     
     func beaconActionsAlert() {
         let alert = UIAlertController(title: "dk_vehicle_configure_beacon_title".dkVehicleLocalized(), message: nil, preferredStyle: .actionSheet)
-        let checkAction = UIAlertAction(title: "verify".dkVehicleLocalized(), style: .default , handler: {  _ in
+        let checkAction = UIAlertAction(title: "dk_beacon_verify".dkVehicleLocalized(), style: .default , handler: {  _ in
             if let beacon = self.viewModel.vehicle.beacon {
                 let beaconViewModel = BeaconViewModel(vehicle: self.viewModel.vehicle ,scanType: .verify, beacon: beacon)
                 let beaconScannerVC = BeaconScannerVC(viewModel: beaconViewModel, step: .initial, parentView: self.viewModel.listView)
@@ -169,7 +163,7 @@ class VehiclesListCell: UITableViewCell {
         })
         alert.addAction(checkAction)
         
-        let replaceAction = UIAlertAction(title: "replace".dkVehicleLocalized(), style: .default , handler: {  _ in
+        let replaceAction = UIAlertAction(title: "dk_vehicle_replace".dkVehicleLocalized(), style: .default , handler: {  _ in
             let viewController = ConnectBeaconVC(vehicle: self.viewModel.vehicle, parentView: self.viewModel.listView)
             self.viewModel.listView.navigationController?.pushViewController(viewController, animated: true)
         })

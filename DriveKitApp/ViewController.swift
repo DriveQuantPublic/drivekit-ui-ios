@@ -198,7 +198,7 @@ class ViewController: UITableViewController {
                 }
                 if let proxUuid = uuid {
                     let beacon = DKBeacon(uniqueId: nil, proximityUuid: proxUuid, major: -1, minor: -1)
-                    let viewModel = BeaconViewModel(scanType: .diagnostic, beacon: beacon)
+                    let viewModel = BeaconViewModel(scanType: .diagnostic, beacon: beacon, vehicles: vehicles)
                     self.navigationController?.pushViewController(BeaconScannerVC(viewModel: viewModel, step: .initial, parentView: self), animated: true)
                 } else {
                     let viewModel = BeaconViewModel(scanType: .diagnostic)

@@ -8,6 +8,18 @@
 
 import Foundation
 
-public class DKDiagnosisHelper {
-    
+@objc public class DKDiagnosisHelper : NSObject {
+
+    @objc public static let shared = DKDiagnosisHelper()
+
+    @objc public func isSensorActivated(_ sensor: DKSensorType) -> Bool {
+        #warning("TODO")
+        return false
+    }
+
+    @objc public func getPermissionStatus(_ permissionType: DKPermissionType) -> DKPermissionStatus {
+        #warning("TODO")
+        return .notDetermined
+    }
+
 }

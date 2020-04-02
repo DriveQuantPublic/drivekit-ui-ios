@@ -10,12 +10,50 @@ import UIKit
 
 import DriveKitCommonUI
 
-public class DriveKitPermissionsUtilsUI {
+@objc public class DriveKitPermissionsUtilsUI : NSObject {
 
-    public static let shared = DriveKitPermissionsUtilsUI()
+    @objc public static let shared = DriveKitPermissionsUtilsUI()
 
-    public func initialize() {
+    @objc public func initialize() {
         DriveKitNavigationController.shared.permissionsUtilsUI = self
+    }
+
+    public func showPermissionViews(_ permissionViews: [DKPermissionView], parentViewController: UIViewController, completionHandler: @escaping () -> Void) {
+        // Keep only needed permission views.
+        var neededPermissionViews = permissionViews.filter { (permissionView) -> Bool in
+            var permissionType: DKPermissionType
+            switch permissionView {
+                case .activity:
+                    permissionType = .activity
+                case .location:
+                    permissionType = .location
+            }
+            return DKDiagnosisHelper.shared.getPermissionStatus(permissionType) != .valid
+        }
+        if neededPermissionViews.isEmpty {
+            completionHandler()
+        } else {
+            // Try to find a UINavigationController to push screens inside.
+            var navigationController: UINavigationController? = nil
+            if let parentNavigationController = parentViewController as? UINavigationController {
+                navigationController = parentNavigationController
+            } else if let parentNavigationController = parentViewController.navigationController {
+                navigationController = parentNavigationController
+            }
+            let permissionView = neededPermissionViews.removeFirst()
+            let permissionViewController = permissionView.getViewController(nextPermissionViews: neededPermissionViews, completionHandler: completionHandler)
+            if let navigationController = navigationController {
+                // A UINavigationController has been found, push screen inside.
+                navigationController.pushViewController(permissionViewController, animated: true)
+            } else if neededPermissionViews.isEmpty {
+                // No UINavigationController found and just only one screen to show -> Present it.
+                parentViewController.present(permissionViewController, animated: true, completion: nil)
+            } else {
+                // No UINavigationController found and several screens to show -> Create a UINavigationController to push them inside and present this navigation controller.
+                let navigationController = UINavigationController(rootViewController: permissionViewController)
+                parentViewController.present(navigationController, animated: true, completion: nil)
+            }
+        }
     }
 
 }
@@ -38,4 +76,14 @@ extension DriveKitPermissionsUtilsUI : DriveKitPermissionsUtilsUIEntryPoint {
     public func getLocationPermissionViewController(_ completionHandler: () -> Void) -> UIViewController {
         return LocationPermissionViewController()
     }
+}
+
+
+extension DriveKitPermissionsUtilsUI {
+
+    @objc(showPermissionViews:::)
+    public func objc_showPermissionViews(_ permissionViews: [Int], parentViewController: UIViewController, completionHandler: @escaping () -> Void) {
+        showPermissionViews(permissionViews.map({ DKPermissionView(rawValue: $0)! }), parentViewController: parentViewController, completionHandler: completionHandler)
+    }
+
 }

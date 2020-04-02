@@ -8,6 +8,6 @@
 
 import Foundation
 
-public enum DKPermissionStatus {
+@objc public enum DKPermissionStatus : Int {
     case valid, invalid, notDetermined
 }

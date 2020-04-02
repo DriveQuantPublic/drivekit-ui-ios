@@ -59,9 +59,9 @@
 		3FFAD21123EDC0FF00D1A16C /* StreakViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFAD21023EDC0FF00D1A16C /* StreakViewModel.swift */; };
 		3FFD7FD12363002B00BD2F0D /* DriveKitDriverDataUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */; };
 		3FFD7FD22363002B00BD2F0D /* DriveKitDriverDataUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		610539092434B69800C00CAF /* ActivityPermissionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 610539082434B69800C00CAF /* ActivityPermissionViewController.xib */; };
+		6105390B2434B75200C00CAF /* LocationPermissionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6105390A2434B75200C00CAF /* LocationPermissionViewController.xib */; };
 		616946DD243337D600C8A965 /* DriveKitPermissionsUtilsUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 616946DB243337D600C8A965 /* DriveKitPermissionsUtilsUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		616946E0243337D600C8A965 /* DriveKitPermissionsUtilsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616946D9243337D600C8A965 /* DriveKitPermissionsUtilsUI.framework */; };
-		616946E1243337D600C8A965 /* DriveKitPermissionsUtilsUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 616946D9243337D600C8A965 /* DriveKitPermissionsUtilsUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		616946E624333C6900C8A965 /* DriveKitPermissionsUtilsUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616946E524333C6900C8A965 /* DriveKitPermissionsUtilsUI.swift */; };
 		616946E924338E3500C8A965 /* DriveKitPermissionsUtilsUIEntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616946E824338E3500C8A965 /* DriveKitPermissionsUtilsUIEntryPoint.swift */; };
 		616946F82433A34200C8A965 /* PermissionsUtilsLocalizables.strings in Resources */ = {isa = PBXBuildFile; fileRef = 616946FA2433A34200C8A965 /* PermissionsUtilsLocalizables.strings */; };
@@ -185,13 +185,6 @@
 			remoteGlobalIDString = A34238052361A1FA0001E15D;
 			remoteInfo = DriveKitDriverDataUI;
 		};
-		616946DE243337D600C8A965 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A3B7B378235F124F0065A332 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 616946D8243337D600C8A965;
-			remoteInfo = DriveKitPermissionsUtilsUI;
-		};
 		616946F324339C3300C8A965 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A3B7B378235F124F0065A332 /* Project object */;
@@ -209,7 +202,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				3FFAD20223EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework in Embed Frameworks */,
-				616946E1243337D600C8A965 /* DriveKitPermissionsUtilsUI.framework in Embed Frameworks */,
 				3FFD7FD22363002B00BD2F0D /* DriveKitDriverDataUI.framework in Embed Frameworks */,
 				3F0740E22403BB65005A8D07 /* DriveKitCommonUI.framework in Embed Frameworks */,
 			);
@@ -288,6 +280,8 @@
 		453D6BC570583B1D6DC16DBC /* Pods-DriveKitApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitApp.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitApp/Pods-DriveKitApp.debug.xcconfig"; sourceTree = "<group>"; };
 		55652B494DACA2423EDB5A8E /* Pods_DriveKitDriverDataUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitDriverDataUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DCC63E1FD4A8A79E2ED8F27 /* Pods_DriveKitDriverData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitDriverData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		610539082434B69800C00CAF /* ActivityPermissionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityPermissionViewController.xib; sourceTree = "<group>"; };
+		6105390A2434B75200C00CAF /* LocationPermissionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationPermissionViewController.xib; sourceTree = "<group>"; };
 		616946D9243337D600C8A965 /* DriveKitPermissionsUtilsUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DriveKitPermissionsUtilsUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		616946DB243337D600C8A965 /* DriveKitPermissionsUtilsUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DriveKitPermissionsUtilsUI.h; sourceTree = "<group>"; };
 		616946DC243337D600C8A965 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -436,7 +430,6 @@
 				3FFD7FD12363002B00BD2F0D /* DriveKitDriverDataUI.framework in Frameworks */,
 				A3D7013F7B04AC8C56676DE4 /* Pods_DriveKitApp.framework in Frameworks */,
 				3FFAD20123EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework in Frameworks */,
-				616946E0243337D600C8A965 /* DriveKitPermissionsUtilsUI.framework in Frameworks */,
 				3F0740E12403BB65005A8D07 /* DriveKitCommonUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -641,8 +634,10 @@
 			isa = PBXGroup;
 			children = (
 				6169470C2433AAB500C8A965 /* ActivityPermissionViewController.swift */,
+				610539082434B69800C00CAF /* ActivityPermissionViewController.xib */,
 				616947082433AA0300C8A965 /* DKPermissionView.swift */,
 				6169470E2433AAE300C8A965 /* LocationPermissionViewController.swift */,
+				6105390A2434B75200C00CAF /* LocationPermissionViewController.xib */,
 				6169470A2433AA4800C8A965 /* PermissionViewController.swift */,
 			);
 			path = Permissions;
@@ -1043,7 +1038,6 @@
 				3FFD7FD42363002B00BD2F0D /* PBXTargetDependency */,
 				3FFAD20023EDBCD500D1A16C /* PBXTargetDependency */,
 				3F0740E02403BB65005A8D07 /* PBXTargetDependency */,
-				616946DF243337D600C8A965 /* PBXTargetDependency */,
 			);
 			name = DriveKitApp;
 			productName = DriveKitApp;
@@ -1134,7 +1128,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				610539092434B69800C00CAF /* ActivityPermissionViewController.xib in Resources */,
 				616946F82433A34200C8A965 /* PermissionsUtilsLocalizables.strings in Resources */,
+				6105390B2434B75200C00CAF /* LocationPermissionViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1461,11 +1457,6 @@
 			isa = PBXTargetDependency;
 			target = A34238052361A1FA0001E15D /* DriveKitDriverDataUI */;
 			targetProxy = 3FFD7FD32363002B00BD2F0D /* PBXContainerItemProxy */;
-		};
-		616946DF243337D600C8A965 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 616946D8243337D600C8A965 /* DriveKitPermissionsUtilsUI */;
-			targetProxy = 616946DE243337D600C8A965 /* PBXContainerItemProxy */;
 		};
 		616946F424339C3300C8A965 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

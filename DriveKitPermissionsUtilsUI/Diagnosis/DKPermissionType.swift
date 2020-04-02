@@ -8,6 +8,6 @@
 
 import Foundation
 
-public enum DKPermissionType {
+@objc public enum DKPermissionType : Int {
     case activity, bluetooth, location, notification
 }

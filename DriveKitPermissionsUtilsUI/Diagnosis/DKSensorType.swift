@@ -8,6 +8,6 @@
 
 import Foundation
 
-public enum DKSensorType {
+@objc public enum DKSensorType : Int {
     case bluetooth, gps, network
 }

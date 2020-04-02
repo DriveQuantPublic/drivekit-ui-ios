@@ -54,6 +54,7 @@
 		3FE6A45324213ABE00E24C1C /* BeaconDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6A45124213ABE00E24C1C /* BeaconDetailTableViewCell.swift */; };
 		3FE6A45424213ABE00E24C1C /* BeaconDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE6A45224213ABE00E24C1C /* BeaconDetailTableViewCell.xib */; };
 		3FE6A45624213EC600E24C1C /* BeaconDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6A45524213EC600E24C1C /* BeaconDetailViewModel.swift */; };
+		3FF542892435EE690063A5B9 /* VehicleListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF542882435EE690063A5B9 /* VehicleListHeaderView.swift */; };
 		3FF68E642407F56F0071D74C /* CommonLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FF68E662407F56F0071D74C /* CommonLocalizable.strings */; };
 		3FF68E6C2407F8110071D74C /* DriveKitDriverAchievementUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68E6B2407F8110071D74C /* DriveKitDriverAchievementUI.swift */; };
 		3FF68E6E24081A5A0071D74C /* DKStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68E6D24081A5A0071D74C /* DKStyles.swift */; };
@@ -369,6 +370,7 @@
 		3FE6A45124213ABE00E24C1C /* BeaconDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconDetailTableViewCell.swift; sourceTree = "<group>"; };
 		3FE6A45224213ABE00E24C1C /* BeaconDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeaconDetailTableViewCell.xib; sourceTree = "<group>"; };
 		3FE6A45524213EC600E24C1C /* BeaconDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconDetailViewModel.swift; sourceTree = "<group>"; };
+		3FF542882435EE690063A5B9 /* VehicleListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleListHeaderView.swift; sourceTree = "<group>"; };
 		3FF68E652407F56F0071D74C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/CommonLocalizable.strings; sourceTree = "<group>"; };
 		3FF68E672407F5710071D74C /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/CommonLocalizable.strings; sourceTree = "<group>"; };
 		3FF68E682407F5710071D74C /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/CommonLocalizable.strings; sourceTree = "<group>"; };
@@ -1311,6 +1313,7 @@
 				A3D51F4D241BA3AE006DACE2 /* VehiclesListCell.xib */,
 				A3D51F4C241BA3AE006DACE2 /* VehiclesListVC.swift */,
 				A3D51F4B241BA3AE006DACE2 /* VehiclesListVC.xib */,
+				3FF542882435EE690063A5B9 /* VehicleListHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1849,6 +1852,7 @@
 				3FF68F10241501D20071D74C /* VehiclePickerStep.swift in Sources */,
 				3F50D6F52417945B001226F7 /* BluetoothViewModel.swift in Sources */,
 				3FF68F4A241642D50071D74C /* VehiclePickerTextVC.swift in Sources */,
+				3FF542892435EE690063A5B9 /* VehicleListHeaderView.swift in Sources */,
 				3FF68F2024150E5F0071D74C /* VehiclePickerStep+TableView.swift in Sources */,
 				3FE6A44A242122C600E24C1C /* BeaconScannerNotConfiguredVC.swift in Sources */,
 				3FF68F312415330A0071D74C /* VehiclePickerCollectionViewDelegate.swift in Sources */,

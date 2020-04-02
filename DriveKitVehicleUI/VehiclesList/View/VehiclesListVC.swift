@@ -34,9 +34,8 @@ public class VehiclesListVC: DKUIViewController {
         tableView.estimatedRowHeight = 250
         self.tableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: #selector(refreshVehiclesList(_ :)), for: .valueChanged)
-        tableView.delegate = self
-        tableView.dataSource = self
         self.tableView.register(UINib(nibName: "VehiclesListCell", bundle: Bundle.vehicleUIBundle), forCellReuseIdentifier: "VehiclesListCell")
+        self.tableView.register(VehicleListHeaderView.self, forHeaderFooterViewReuseIdentifier: "VehicleListHeaderView")
         self.configure()
     }
     
@@ -128,6 +127,27 @@ public class VehiclesListVC: DKUIViewController {
 }
 
 extension VehiclesListVC: UITableViewDelegate {
+    
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if self.viewModel.vehicles.isEmpty {
+            let headerView = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "VehicleListHeaderView" ) as! VehicleListHeaderView
+            headerView.image.image = DKImages.warning.image
+            headerView.image.tintColor = DKUIColors.warningColor.color
+            headerView.title.attributedText = "dk_vehicle_list_empty".dkVehicleLocalized().dkAttributedString().primaryFontNormalTextMainFontColor()
+            return headerView
+        } else{
+            return nil
+        }
+    }
+    
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if self.viewModel.vehicles.isEmpty {
+            return 80
+        }else {
+            return 0
+        }
+    }
+    
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
            return UITableView.automaticDimension
        }
@@ -135,14 +155,14 @@ extension VehiclesListVC: UITableViewDelegate {
 
 extension VehiclesListVC: UITableViewDataSource {
     public func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.vehicles.count
+        return 1
     }
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return viewModel.vehicles.count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let vehicle = viewModel.vehicles[indexPath.section]
+        let vehicle = viewModel.vehicles[indexPath.row]
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "VehiclesListCell", for: indexPath) as! VehiclesListCell
         let cellViewModel = VehiclesListCellViewModel(listView: self, vehicle: vehicle, vehicles: viewModel.vehicles)
         cellViewModel.delegate = self
@@ -164,6 +184,8 @@ extension VehiclesListVC: VehiclesListDelegate {
             if self.refreshControl.isRefreshing {
                 self.refreshControl.endRefreshing()
             }
+            self.tableView.delegate = self
+            self.tableView.dataSource = self
             self.tableView.reloadData()
         }
     }

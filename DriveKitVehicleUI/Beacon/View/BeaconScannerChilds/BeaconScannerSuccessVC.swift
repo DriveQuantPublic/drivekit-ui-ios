@@ -29,12 +29,7 @@ class BeaconScannerSuccessVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var beaconCode = NSMutableAttributedString(string: "")
-        if let beaconId = viewModel.beacon?.uniqueId {
-            beaconCode = beaconId.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
-        }
-        let vehicleName = viewModel.vehicleName.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
-        descriptionLabel.attributedText = step.description.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).buildWithArgs(beaconCode, vehicleName)
+        descriptionLabel.attributedText = step.description(viewModel: self.viewModel)
         confirmButton.setAttributedTitle(step.confirmButtonText.dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).uppercased().build(), for: .normal)
         confirmButton.backgroundColor = DKUIColors.secondaryColor.color
     }

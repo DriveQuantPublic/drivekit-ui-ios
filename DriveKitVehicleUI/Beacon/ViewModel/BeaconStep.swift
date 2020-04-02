@@ -57,14 +57,19 @@ public enum BeaconStep {
         }
     }
     
-    var description : String {
+    func description(viewModel: BeaconViewModel) -> NSAttributedString {
         switch self {
         case .success:
-            return "dk_vehicle_beacon_setup_code_success_recap".dkVehicleLocalized()
+            var beaconCode = NSMutableAttributedString(string: "")
+            if let beaconId = viewModel.beacon?.uniqueId {
+                beaconCode = beaconId.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
+            }
+            let vehicleName = viewModel.vehicleName.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
+            return "dk_vehicle_beacon_setup_code_success_recap".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).buildWithArgs(beaconCode, vehicleName)
         case .congrats:
-            return "dk_vehicle_beacon_setup_congrats_recap".dkVehicleLocalized()
+            return "dk_vehicle_beacon_setup_store_notice".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         default:
-            return ""
+            return NSAttributedString(string: "")
         }
     }
     

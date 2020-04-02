@@ -191,7 +191,6 @@ class VehiclePickerViewModel {
             let detectionMode = previousVehicle.detectionMode ?? .disabled
             let previousBeacon = previousVehicle.beacon
             let previousBluetooth = previousVehicle.bluetooth
-            let oldVehicleId = previousVehicle.vehicleId
             
             DriveKitVehicle.shared.createVehicle(characteristics: characteristics, vehicleType: vehicleType ?? .car, name: vehicleName, liteConfig: liteConfig, detectionMode: detectionMode, completionHandler: { status, vehicle in
                 DriveKitVehicle.shared.deleteVehicle(vehicleId: previousVehicle.vehicleId, completionHandler: { deleteStatus in

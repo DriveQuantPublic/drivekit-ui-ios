@@ -1311,6 +1311,7 @@
 		A3D51F3F241BA301006DACE2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A3D51F43241BA39D006DACE2 /* VehicleAction.swift */,
 				A3D51F4A241BA3AE006DACE2 /* VehiclesListCell.swift */,
 				A3D51F4D241BA3AE006DACE2 /* VehiclesListCell.xib */,
 				A3D51F4C241BA3AE006DACE2 /* VehiclesListVC.swift */,
@@ -1324,7 +1325,6 @@
 			isa = PBXGroup;
 			children = (
 				A3D51F42241BA39D006DACE2 /* AutoStart.swift */,
-				A3D51F43241BA39D006DACE2 /* VehicleAction.swift */,
 				A3D51F46241BA3A4006DACE2 /* VehiclesListCellViewModel.swift */,
 				A3D51F47241BA3A4006DACE2 /* VehiclesListViewModel.swift */,
 			);

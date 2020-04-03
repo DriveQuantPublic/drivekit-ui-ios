@@ -30,12 +30,18 @@ class VehiclesListCell: UITableViewCell {
     
     @IBOutlet weak var configureButton: UIButton!
     
-    var viewModel: VehiclesListViewModel!
+    private var viewModel: VehiclesListViewModel!
+    private var pos: Int!
+    private weak var vehicleListDelegate : VehiclesListDelegate?
+    private weak var parentView: UIViewController? = nil
     
-    func configure(viewModel: VehiclesListViewModel) {
+    func configure(viewModel: VehiclesListViewModel, pos: Int, parentView: UIViewController) {
         self.viewModel = viewModel
-        vehicleTitle.attributedText = viewModel.getDisplayName().dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.mainFontColor).build()
-        vehicleSubtitle.attributedText = viewModel.getSubtitle()?.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+        self.pos = pos
+        self.parentView = parentView
+        self.vehicleListDelegate = self.viewModel.delegate
+        vehicleTitle.attributedText = viewModel.vehicleName(pos: pos).dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.mainFontColor).build()
+        vehicleSubtitle.attributedText = viewModel.vehicleModel(pos: pos).dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
         let editImage = DKImages.dots.image
         editButton.setImage(editImage, for: .normal)
         editButton.tintColor = DKUIColors.secondaryColor.color
@@ -43,7 +49,7 @@ class VehiclesListCell: UITableViewCell {
         self.configureAutoStartSelection()
     }
     
-    func configureAutoStart() {
+    private func configureAutoStart() {
         autoStartLabel.attributedText = "dk_vehicle_detection_mode_title".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         autoStartSelectView.backgroundColor = DKUIColors.neutralColor.color
         autoStartDelimiter.backgroundColor = DKUIColors.neutralColor.color
@@ -52,17 +58,16 @@ class VehiclesListCell: UITableViewCell {
         if DriveKitVehicleUI.shared.detectionModes.count <= 1 {
             autoStartView.isHidden = true
         }
-        autoStartSelection.attributedText = viewModel.autoStart.title.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
-        descriptionLabel.attributedText = viewModel.autoStart.getDescription(vehicle: self.viewModel.vehicle)
-        if let buttonText = viewModel.autoStart.buttonTitle {
+        autoStartSelection.attributedText = viewModel.detectionModeTitle(pos: pos).dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        descriptionLabel.attributedText = viewModel.detectionModeDescription(pos: pos)
+        if let buttonText = viewModel.detectionModeConfigureButton(pos: pos){
             configureButton.isHidden = false
             let buttonTitle = buttonText.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.secondaryColor).build()
             configureButton.setAttributedTitle(buttonTitle, for: .normal)
         } else {
             configureButton.isHidden = true
         }
-        
-        if let descImage = viewModel.autoStart.descriptionImage {
+        if let descImage = viewModel.descriptionImage(pos: pos) {
             descriptionImageView.isHidden = false
             descriptionImage.image = descImage
             descriptionImage.tintColor = DKUIColors.criticalColor.color
@@ -71,121 +76,70 @@ class VehiclesListCell: UITableViewCell {
         }
     }
     
-    func configureAutoStartSelection() {
+    private func configureAutoStartSelection() {
         if !autoStartView.isHidden {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(autoStartAlert(_:)))
             autoStartSelectView.addGestureRecognizer(tapGesture)
         }
     }
     
-    @objc func autoStartAlert(_ sender: UITapGestureRecognizer) {
+    @IBAction func didSelectEditButton(_ sender: Any) {
+        let vehicleActions : [VehicleAction] = viewModel.vehicleActions
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        for vehicleAction in vehicleActions {
+            alert.addAction(vehicleAction.alertAction(pos: pos, viewModel: self.viewModel))
+        }
+        let cancelAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel)
+        alert.addAction(cancelAction)
+        viewModel.delegate?.showAlert(alert)
+    }
+
+    @objc private func autoStartAlert(_ sender: UITapGestureRecognizer) {
         let detectionModes: [DKDetectionMode] = DriveKitVehicleUI.shared.detectionModes
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         for detectionMode in detectionModes {
-            let action = detectionMode.alertAction(completionHandler: {  _ in
-                self.viewModel.updateDetectionMode(detectionMode: detectionMode)
-            })
-            alert.addAction(action)
+            alert.addAction(detectionMode.detectionModeSelected(pos: pos, viewModel: viewModel))
         }
         alert.addAction(UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel))
-        
-        viewModel.listView.present(alert, animated: true)
-    }
-    
-    @IBAction func didSelectEditButton(_ sender: Any) {
-        editVehicleAlert()
+        viewModel.delegate?.showAlert(alert)
     }
     
     @IBAction func didSelectConfigureButton(_ sender: Any) {
-        switch viewModel.autoStart {
+        switch viewModel.vehicleDetectionMode(pos: pos) {
         case .beacon:
-            self.beaconActionsAlert()
-        case .beacon_disabled:
-            self.newBeacon()
+            if let parent = parentView, viewModel.vehicleHasBeacon(pos: pos) {
+                if let alert = DKDetectionMode.beacon.detectionModeConfigureClicked(pos: pos, viewModel: viewModel, parentView: parent) {
+                    viewModel.delegate?.showAlert(alert)
+                }
+            }else{
+                self.newBeacon()
+            }
         case .bluetooth:
+            if let parent = parentView, viewModel.vehicleHasBluetooth(pos: pos) {
+                if let alert = DKDetectionMode.bluetooth.detectionModeConfigureClicked(pos: pos, viewModel: viewModel, parentView: parent) {
+                    viewModel.delegate?.showAlert(alert)
+                }
+            } else {
+                self.newBluetooth()
+            }
             self.bluetoothActionsAlert()
-        case .bluetooth_disabled:
-            self.newBluetooth()
-        default:
+        case .disabled, .gps:
             return
         }
     }
     
-    func editVehicleAlert(){
-        let vehicleOptions: [VehicleAction] = viewModel.computeVehicleOptions()
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
-        for vehicleOption in vehicleOptions {
-            switch vehicleOption {
-            case .show:
-                let showVehicle = vehicleOption.alertAction(completionHandler: {  _ in
-                    let detailVC = VehicleDetailVC(viewModel: VehicleDetailViewModel(vehicle: self.viewModel.vehicle, vehicleDisplayName: self.viewModel.getDisplayName()))
-                    self.viewModel.listView.navigationController?.pushViewController(detailVC, animated: true)
-                })
-                alert.addAction(showVehicle)
-            case .rename:
-                let renameVehicle = vehicleOption.alertAction(completionHandler: {  _ in
-                    self.viewModel.listView.editVehicleNameAlert(vehicle: self.viewModel.vehicle)
-                })
-                alert.addAction(renameVehicle)
-                
-            case .replace:
-                let replaceVehicle = vehicleOption.alertAction(completionHandler: {  _ in
-                    _ = VehiclePickerCoordinator(parentView: self.viewModel.listView, detectionMode: self.viewModel.autoStart.detectionModeValue ?? .disabled, vehicle: self.viewModel.vehicle, completion: {
-                        self.viewModel.listView.viewModel.fetchVehicles()
-                    })
-                })
-                alert.addAction(replaceVehicle)
-            case .delete:
-                if viewModel.vehicles.count > 1 {
-                    let deleteVehicle = vehicleOption.alertAction(completionHandler: {  _ in
-                        self.viewModel.listView.confirmDeleteAlert(type: .vehicle, vehicle: self.viewModel.vehicle)
-                    })
-                    alert.addAction(deleteVehicle)
-                }
-                
-                
-            }
+    private func newBeacon() {
+        if let parent = parentView {
+            let viewController = ConnectBeaconVC(vehicle: self.viewModel.vehicles[pos], parentView: parent)
+            self.viewModel.delegate?.pushViewController(viewController, animated: true)
         }
-        
-        let cancelAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel)
-        alert.addAction(cancelAction)
-        
-        viewModel.listView.present(alert, animated: true)
     }
     
-    func beaconActionsAlert() {
-        let alert = UIAlertController(title: "dk_vehicle_configure_beacon_title".dkVehicleLocalized(), message: nil, preferredStyle: .actionSheet)
-        let checkAction = UIAlertAction(title: "dk_beacon_verify".dkVehicleLocalized(), style: .default , handler: {  _ in
-            if let beacon = self.viewModel.vehicle.beacon {
-                let beaconViewModel = BeaconViewModel(vehicle: self.viewModel.vehicle ,scanType: .verify, beacon: beacon)
-                let beaconScannerVC = BeaconScannerVC(viewModel: beaconViewModel, step: .initial, parentView: self.viewModel.listView)
-                self.viewModel.listView.navigationController?.pushViewController(beaconScannerVC, animated: true)
-            }
-        })
-        alert.addAction(checkAction)
-        
-        let replaceAction = UIAlertAction(title: "dk_vehicle_replace".dkVehicleLocalized(), style: .default , handler: {  _ in
-            let viewController = ConnectBeaconVC(vehicle: self.viewModel.vehicle, parentView: self.viewModel.listView)
-            self.viewModel.listView.navigationController?.pushViewController(viewController, animated: true)
-        })
-        alert.addAction(replaceAction)
-        
-        let deleteAction = UIAlertAction(title: DKCommonLocalizable.delete.text(), style: .default , handler: {  _ in
-            self.viewModel.listView.confirmDeleteAlert(type: .beacon, vehicle: self.viewModel.vehicle)
-        })
-        alert.addAction(deleteAction)
-        
-        let cancelAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel)
-        alert.addAction(cancelAction)
-        
-        viewModel.listView.present(alert, animated: true)
-        
-    }
-    
-    func newBeacon() {
-        let viewController = ConnectBeaconVC(vehicle: self.viewModel.vehicle, parentView: self.viewModel.listView)
-        self.viewModel.listView.navigationController?.pushViewController(viewController, animated: true)
+    private func newBluetooth(){
+        if let parent = parentView {
+            let viewController = ConnectBluetoothVC(vehicle: self.viewModel.vehicles[pos], parentView: parent)
+             self.viewModel.delegate?.pushViewController(viewController, animated: true)
+        }
     }
     
     func bluetoothActionsAlert() {
@@ -201,8 +155,5 @@ class VehiclesListCell: UITableViewCell {
         viewModel.listView.present(alert, animated: true)
     }
     
-    func newBluetooth(){
-        let viewController = ConnectBluetoothVC(vehicle: self.viewModel.vehicle, parentView: self.viewModel.listView)
-        self.viewModel.listView.navigationController?.pushViewController(viewController, animated: true)
-    }
+    
 }

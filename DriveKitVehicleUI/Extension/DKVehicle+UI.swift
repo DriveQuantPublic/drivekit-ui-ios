@@ -9,6 +9,8 @@
 import Foundation
 import DriveKitDBVehicleAccess
 import DriveKitVehicle
+import DriveKitCommonUI
+
 
 extension DKVehicle {
     
@@ -61,10 +63,6 @@ extension DKVehicle {
         return categoryName
     }
     
-    /*var displayName : String {
-        return name ?? defaultName
-    }*/
-    
     func getVehicleImage() -> UIImage? {
         let vehicleImage = "DQ_vehicle_" + self.vehicleId
         let fileManager = FileManager.default
@@ -72,18 +70,18 @@ extension DKVehicle {
         let documentPath = documentsURL.path
         let filePath = documentsURL.appendingPathComponent("\(vehicleImage).jpeg")
         var image = UIImage(named: "dk_vehicle_default", in: Bundle.vehicleUIBundle, compatibleWith: nil)
-               do {
-                   let files = try fileManager.contentsOfDirectory(atPath: "\(documentPath)")
-                   for file in files {
-                       if "\(documentPath)/\(file)" == filePath.path {
-                           image = UIImage(contentsOfFile: filePath.path)
-                       }
-                   }
-               } catch {
-                   print("Could not add image from document directory: \(error)")
-               }
-
-       return image
+        do {
+            let files = try fileManager.contentsOfDirectory(atPath: "\(documentPath)")
+            for file in files {
+                if "\(documentPath)/\(file)" == filePath.path {
+                    image = UIImage(contentsOfFile: filePath.path)
+                }
+            }
+        } catch {
+            print("Could not add image from document directory: \(error)")
+        }
+        
+        return image
     }
     
     
@@ -111,6 +109,25 @@ extension DKVehicle {
             }
         case .none:
             return "".dkAttributedString().build()
+        }
+    }
+    
+    var detectionModeConfigurationButton : String? {
+        switch self.detectionMode {
+        case .disabled, .gps, .none:
+            return nil
+        case .beacon:
+            return "dk_vehicle_configure_beacon_title".dkVehicleLocalized().uppercased()
+        case .bluetooth:
+            return "dk_vehicle_configure_bluetooth_title".dkVehicleLocalized().uppercased()
+        }
+    }
+    
+    var descriptionImage: UIImage? {
+        if (self.detectionMode == .beacon && self.beacon == nil) || (self.detectionMode == .bluetooth && self.bluetooth == nil) {
+            return DKImages.warning.image
+        } else {
+            return nil
         }
     }
 }

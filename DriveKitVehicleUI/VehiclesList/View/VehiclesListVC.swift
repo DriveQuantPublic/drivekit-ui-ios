@@ -56,75 +56,17 @@ public class VehiclesListVC: DKUIViewController {
         self.showLoader()
     }
     
-    
-    
-    func confirmDeleteAlert(type: DeleteAlertType, vehicle: DKVehicle){
-        var title = ""
-        let vehicleName = vehicle.getDisplayNameInList(vehiclesList: self.viewModel.vehicles)
-        
-        switch type {
-        case .vehicle:
-            title = String(format: "dk_vehicle_delete_confirm".dkVehicleLocalized(), vehicleName)
-        case .beacon:
-            title = String(format: "dk_vehicle_beacon_deactivate_alert".dkVehicleLocalized(), vehicle.beacon?.uniqueId ?? "", vehicleName)
-        case .bluetooth:
-            title = String(format: "dk_vehicle_bluetooth_deactivate_alert".dkVehicleLocalized(), vehicle.bluetooth?.name ?? "", vehicleName)
-        }
-        
-        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
-        
-        let yesAction = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default , handler: {  _ in
-            switch type {
-            case .vehicle:
-                self.viewModel.deleteVehicle(vehicle: vehicle)
-            case .beacon:
-                self.viewModel.deleteBeacon(vehicle: vehicle)
-            case .bluetooth:
-                self.viewModel.deleteBluetooth(vehicle: vehicle)
-            }
-        })
-        alert.addAction(yesAction)
-        let cancelAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel)
-        alert.addAction(cancelAction)
-        self.present(alert, animated: true)
-    }
-    
-    func editVehicleNameAlert(vehicle: DKVehicle){
-        let alert = UIAlertController(title: "dk_vehicle_rename_title".dkVehicleLocalized(),
-                                      message: "dk_vehicle_rename_description".dkVehicleLocalized(),
-                                      preferredStyle: .alert)
-        
-        alert.addTextField { (textField) in
-            textField.keyboardType = UIKeyboardType.default
-            
-            textField.text = vehicle.getDisplayNameInList(vehiclesList: self.viewModel.vehicles)
-        }
-        
-        let ok = UIAlertAction(title: DKCommonLocalizable.ok.text(),
-                               style: .default) { [weak alert] _ in
-                                
-                                guard let alert = alert, let textField = alert.textFields?.first, let newValue = textField.text else { return }
-                                self.viewModel.renameVehicle(vehicle: vehicle, name: newValue)
-        }
-        alert.addAction(ok)
-        let cancelAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel)
-        alert.addAction(cancelAction)
-        self.present(alert, animated: true)
-    }
-    
     @IBAction func goToVehiclePicker(_ sender: Any) {
         if let maxVehicles = DriveKitVehicleUI.shared.maxVehicles, maxVehicles <= self.viewModel.vehiclesCount {
             self.showAlertMessage(title: "", message: "dk_too_many_vehicles_alert".dkVehicleLocalized(), back: false, cancel: false)
         }else{
-            _ = VehiclePickerCoordinator(parentView: self, detectionMode: self.viewModel.computeDetectionMode(), completion: {
-                self.viewModel.fetchVehicles()
-            })
+            self.showVehiclePicker()
         }
     }
     
     @objc func refreshVehiclesList(_ sender: Any) {
-           self.viewModel.fetchVehicles()
-       }
+        self.viewModel.fetchVehicles()
+    }
 }
 
 extension VehiclesListVC: UITableViewDelegate {
@@ -150,8 +92,8 @@ extension VehiclesListVC: UITableViewDelegate {
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-           return UITableView.automaticDimension
-       }
+        return UITableView.automaticDimension
+    }
 }
 
 extension VehiclesListVC: UITableViewDataSource {
@@ -163,15 +105,18 @@ extension VehiclesListVC: UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let vehicle = viewModel.vehicles[indexPath.row]
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "VehiclesListCell", for: indexPath) as! VehiclesListCell
-        cell.configure(viewModel: viewModel)
+        cell.configure(viewModel: viewModel, pos: indexPath.row)
         return cell
     }
 }
 
-
 extension VehiclesListVC: VehiclesListDelegate {
+    
+    func pushViewController(_ viewController: UIViewController, animated: Bool) {
+        self.navigationController?.pushViewController(viewController, animated: animated)
+    }
+    
     func showAlert(_ alertController: UIAlertController) {
         self.present(alertController, animated: true)
     }
@@ -207,5 +152,11 @@ extension VehiclesListVC: VehiclesListDelegate {
             alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
             self.present(alert, animated: true)
         }
+    }
+    
+    func showVehiclePicker(vehicle: DKVehicle? = nil) {
+        _ = VehiclePickerCoordinator(parentView: self, detectionMode: self.viewModel.computeDetectionMode(), vehicle: vehicle, completion: {
+            self.viewModel.fetchVehicles()
+        })
     }
 }

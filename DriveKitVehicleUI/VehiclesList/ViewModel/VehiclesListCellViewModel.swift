@@ -48,51 +48,6 @@ class VehiclesListCellViewModel2 {
         self.vehicles = vehicles
     }
     
-    func updateDetectionMode(detectionMode: DKDetectionMode) {
-        let vehicleId = vehicle.vehicleId
-        let previousDetectionMode = vehicle.detectionMode ?? .disabled
-        self.checkPreviousDetectionMode(previous: previousDetectionMode, new: detectionMode)
-        DriveKitVehicle.shared.updateDetectionMode(vehicleId: vehicleId, detectionMode: detectionMode, forceGPSVehicleUpdate: true, completionHandler: { status in
-            if status == .success {
-                self.delegate?.didUpdateVehicle()
-            } else {
-                self .delegate?.didReceiveErrorFromService()
-            }
-        })
-    }
-    
-    func checkPreviousDetectionMode(previous: DKDetectionMode, new: DKDetectionMode) {
-        if let vehicleDB = DriveKitDBVehicleAccess.shared.findManaged(vehicleId: vehicle.vehicleId), previous != new {
-            if let beacon = vehicleDB.beacon, previous == .beacon {
-                DriveKitDBVehicleAccess.shared.update(block: { context in
-                    context.delete(beacon)
-                })
-            } else if let bluetooth = vehicleDB.bluetooth, previous == .bluetooth {
-                DriveKitDBVehicleAccess.shared.update(block: { context in
-                    context.delete(bluetooth)
-                })
-            }
-        }
-    }
-    
-    
-    
-    func getDisplayName() -> String {
-        return vehicle.getDisplayNameInList(vehiclesList: vehicles)
-    }
-    
-    func getSubtitle() -> String? {
-        if vehicle.liteConfig {
-            if vehicle.name == vehicle.getCategoryName() {
-                return nil
-            } else {
-                return vehicle.getCategoryName()
-            }
-        } else {
-            return vehicle.getModel()
-        }
-    }
-    
     func computeVehicleOptions() -> [VehicleAction] {
         var actions : [VehicleAction] = DriveKitVehicleUI.shared.vehicleActions
         if vehicle.liteConfig {

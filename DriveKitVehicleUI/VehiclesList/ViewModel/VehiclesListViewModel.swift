@@ -9,6 +9,7 @@
 import Foundation
 import DriveKitVehicle
 import DriveKitDBVehicleAccess
+import DriveKitCommonUI
 
 protocol VehiclesListDelegate : AnyObject{
     func onVehiclesAvailable()
@@ -17,11 +18,13 @@ protocol VehiclesListDelegate : AnyObject{
     func showAlert(_ alertController: UIAlertController)
     func showLoader()
     func hideLoader()
+    func pushViewController(_ viewController: UIViewController, animated: Bool)
+    func showVehiclePicker(vehicle: DKVehicle?)
 }
 
 
 class VehiclesListViewModel {
-    private var vehicles: [DKVehicle] = []
+    var vehicles: [DKVehicle] = []
     weak var delegate: VehiclesListDelegate? = nil
     
     func fetchVehicles() {
@@ -53,6 +56,18 @@ class VehiclesListViewModel {
         return DriveKitVehicleUI.shared.detectionModes
     }
     
+    func vehicleDetectionMode(pos: Int) -> DKDetectionMode {
+        return vehicles[pos].detectionMode ?? .disabled
+    }
+    
+    func vehicleHasBeacon(pos: Int) -> Bool {
+        return vehicles[pos].beacon != nil
+    }
+    
+    func vehicleHasBluetooth(pos: Int) -> Bool {
+        return vehicles[pos].bluetooth != nil
+    }
+    
     func vehicleName(pos : Int) -> String {
         return vehicles[pos].getDisplayName(position: pos)
     }
@@ -70,6 +85,42 @@ class VehiclesListViewModel {
         return model
     }
     
+    func renameVehicle(pos: Int) {
+        let alert = UIAlertController(title: "dk_vehicle_rename_title".dkVehicleLocalized(),
+                                      message: "dk_vehicle_rename_description".dkVehicleLocalized(),
+                                      preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.keyboardType = UIKeyboardType.default
+            textField.text = self.vehicleName(pos: pos)
+        }
+        let ok = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default) { [weak alert] _ in
+            guard let alert = alert, let textField = alert.textFields?.first, let newValue = textField.text else { return }
+            self.renameVehicle(vehicle: self.vehicles[pos], name: newValue)
+        }
+        alert.addAction(ok)
+        let cancelAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel)
+        alert.addAction(cancelAction)
+        self.delegate?.showAlert(alert)
+    }
+    
+    func deleteVehicle(pos: Int) {
+        let vehicleName = self.vehicleName(pos: pos)
+        let title = String(format: "dk_vehicle_delete_confirm".dkVehicleLocalized(), vehicleName)
+        self.deleteAlert(title: title, handler: {  _ in
+            self.deleteVehicle(vehicle: self.vehicles[pos])
+        })
+    }
+    
+    private func deleteAlert(title: String, handler: ((UIAlertAction) -> Void)? = nil){
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default , handler: handler)
+        alert.addAction(yesAction)
+        let cancelAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel)
+        alert.addAction(cancelAction)
+        self.delegate?.showAlert(alert)
+    }
+    
+    
     func detectionModeTitle(pos: Int) -> String {
         return vehicles[pos].detectionMode?.title ?? ""
     }
@@ -77,28 +128,33 @@ class VehiclesListViewModel {
     func detectionModeDescription(pos: Int) -> NSAttributedString {
         return vehicles[pos].detectionModeDescription
     }
-
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    func renameVehicle(vehicle: DKVehicle, name: String) {
-            DriveKitVehicle.shared.renameVehicle(name: name, vehicleId: vehicle.vehicleId, completionHandler: { status in
-                if status == .success {
-                    self.delegate?.didUpdateVehicle()
-                } else {
-                    self .delegate?.didReceiveErrorFromService()
-                }
-            })
+    func descriptionImage(pos: Int) -> UIImage? {
+        return vehicles[pos].descriptionImage
     }
     
-    func deleteVehicle(vehicle: DKVehicle) {
+    func detectionModeConfigureButton(pos: Int) -> String? {
+        return vehicles[pos].detectionModeConfigurationButton
+    }
+    
+    func detectionModeClicked(detectionMode: DKDetectionMode, pos : Int) {
+        let vehicle = vehicles[pos]
+        if vehicle.detectionMode != detectionMode {
+            // TO DO
+        }
+    }
+    
+    private func renameVehicle(vehicle: DKVehicle, name: String) {
+        DriveKitVehicle.shared.renameVehicle(name: name, vehicleId: vehicle.vehicleId, completionHandler: { status in
+            if status == .success {
+                self.delegate?.didUpdateVehicle()
+            } else {
+                self .delegate?.didReceiveErrorFromService()
+            }
+        })
+    }
+    
+    private func deleteVehicle(vehicle: DKVehicle) {
         DriveKitVehicle.shared.deleteVehicle(vehicleId: vehicle.vehicleId, completionHandler: { status in
             if status == .success {
                 self.delegate?.didUpdateVehicle()
@@ -107,6 +163,23 @@ class VehiclesListViewModel {
             }
         })
     }
+    
+    func updateDetectionMode(pos: Int, detectionMode: DKDetectionMode, forceGPSUpdate: Bool = false) {
+        DriveKitVehicle.shared.updateDetectionMode(vehicleId: vehicles[pos].vehicleId, detectionMode: detectionMode, forceGPSVehicleUpdate: forceGPSUpdate, completionHandler: { status in
+            if status == .success {
+                self.delegate?.didUpdateVehicle()
+            } else {
+                self .delegate?.didReceiveErrorFromService()
+            }
+        })
+    }
+    
+    
+    
+    
+    
+    
+    
     
     func deleteBluetooth(vehicle: DKVehicle) {
         DriveKitVehicle.shared.removeBluetooth(vehicleId: vehicle.vehicleId, completionHandler: { status in
@@ -140,6 +213,10 @@ class VehiclesListViewModel {
         } else {
             return detectionModes[0]
         }
+    }
+    
+    func gpsVehicle() -> DKVehicle? {
+        return vehicles.filter { $0.detectionMode ?? .disabled == DKDetectionMode.gps }.first
     }
 }
 

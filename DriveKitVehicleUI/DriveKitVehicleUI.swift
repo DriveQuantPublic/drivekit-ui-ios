@@ -32,6 +32,8 @@ public class DriveKitVehicleUI {
     
     var beaconDiagnosticEmail : DKContentMail? = nil
     
+    var canRemoveBeacon : Bool = true
+    
     private init() {}
     
     public func initialize() {
@@ -96,6 +98,10 @@ public class DriveKitVehicleUI {
     
     public func configureBeaconDetailEmail(beaconDiagnosticEmail: DKContentMail?) {
         self.beaconDiagnosticEmail = beaconDiagnosticEmail
+    }
+    
+    public func enableRemoveBeacon(canRemoveBeacon: Bool){
+        self.canRemoveBeacon = canRemoveBeacon
     }
 }
 

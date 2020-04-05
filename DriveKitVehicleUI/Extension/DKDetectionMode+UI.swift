@@ -48,14 +48,24 @@ extension DKDetectionMode {
         return UIAlertAction(title: self.title, style: .default, handler: completionHandler)
     }
     
-    func detectionModeConfigureClicked(pos: Int, viewModel: VehiclesListViewModel, parentView: UIViewController) -> UIAlertController? {
+    func detectionModeConfigureClicked(pos: Int, viewModel: VehiclesListViewModel, parentView: UIViewController) {
         switch self {
         case .beacon:
-            return beaconAlertController(vehicle: viewModel.vehicles[pos], viewModel: viewModel, parentView: parentView)
+            if viewModel.vehicleHasBeacon(pos: pos) {
+                let alert = beaconAlertController(pos: pos, viewModel: viewModel, parentView: parentView)
+                viewModel.delegate?.showAlert(alert)
+            }else{
+                self.newBeacon(pos: pos, viewModel: viewModel, parentView: parentView)
+            }
         case .bluetooth:
-            return bluetoothAlertController(vehicle: viewModel.vehicles[pos])
-        case .gps, .disabled:
-            return nil
+            if viewModel.vehicleHasBluetooth(pos: pos) {
+                let alert = bluetoothAlertController(pos: pos, viewModel: viewModel)
+                viewModel.delegate?.showAlert(alert)
+            } else {
+                self.newBluetooth(pos: pos, viewModel: viewModel, parentView: parentView)
+            }
+        case .disabled, .gps:
+            return
         }
     }
     
@@ -70,11 +80,11 @@ extension DKDetectionMode {
         return alert
     }
     
-    private func beaconAlertController(vehicle: DKVehicle, viewModel: VehiclesListViewModel, parentView: UIViewController) -> UIAlertController {
+    private func beaconAlertController(pos: Int, viewModel: VehiclesListViewModel, parentView: UIViewController) -> UIAlertController {
         let alert = UIAlertController(title: "dk_vehicle_configure_beacon_title".dkVehicleLocalized(), message: nil, preferredStyle: .actionSheet)
         let checkAction = UIAlertAction(title: "dk_beacon_verify".dkVehicleLocalized(), style: .default , handler: {  _ in
-            if let beacon = vehicle.beacon {
-                let beaconViewModel = BeaconViewModel(vehicle: vehicle ,scanType: .verify, beacon: beacon)
+            if let beacon = viewModel.vehicles[pos].beacon {
+                let beaconViewModel = BeaconViewModel(vehicle: viewModel.vehicles[pos] ,scanType: .verify, beacon: beacon)
                 let beaconScannerVC = BeaconScannerVC(viewModel: beaconViewModel, step: .initial, parentView: parentView)
                 viewModel.delegate?.pushViewController(beaconScannerVC, animated: true)
             }
@@ -82,14 +92,14 @@ extension DKDetectionMode {
         alert.addAction(checkAction)
         
         let replaceAction = UIAlertAction(title: "dk_vehicle_replace".dkVehicleLocalized(), style: .default , handler: {  _ in
-            let viewController = ConnectBeaconVC(vehicle: vehicle, parentView: parentView)
+            let viewController = ConnectBeaconVC(vehicle: viewModel.vehicles[pos], parentView: parentView)
             viewModel.delegate?.pushViewController(viewController, animated: true)
         })
         alert.addAction(replaceAction)
         
         if DriveKitVehicleUI.shared.canRemoveBeacon {
             let deleteAction = UIAlertAction(title: DKCommonLocalizable.delete.text(), style: .default , handler: {  _ in
-                self.viewModel.listView.confirmDeleteAlert(type: .beacon, vehicle: self.viewModel.vehicle)
+                viewModel.deleteBeacon(pos: pos)
             })
             alert.addAction(deleteAction)
         }
@@ -99,7 +109,26 @@ extension DKDetectionMode {
         return alert
     }
     
-    private bluetoothAlertController(vehicle: DKVehicle) -> UIAlertController {
+    private func bluetoothAlertController(pos: Int, viewModel: VehiclesListViewModel) -> UIAlertController {
+        let alert = UIAlertController(title: "dk_vehicle_configure_bluetooth_title".dkVehicleLocalized(), message: nil, preferredStyle: .actionSheet)
         
+        let deleteAction = UIAlertAction(title: DKCommonLocalizable.delete.text(), style: .default , handler: {  _ in
+            viewModel.deleteBluetooth(pos: pos)
+        })
+        alert.addAction(deleteAction)
+        
+        let cancelAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel)
+        alert.addAction(cancelAction)
+        return alert
+    }
+    
+    private func newBeacon(pos: Int, viewModel: VehiclesListViewModel, parentView: UIViewController) {
+        let viewController = ConnectBeaconVC(vehicle: viewModel.vehicles[pos], parentView: parentView)
+        viewModel.delegate?.pushViewController(viewController, animated: true)
+    }
+    
+    private func newBluetooth(pos: Int, viewModel: VehiclesListViewModel, parentView: UIViewController){
+        let viewController = ConnectBluetoothVC(vehicle: viewModel.vehicles[pos], parentView: parentView)
+        viewModel.delegate?.pushViewController(viewController, animated: true)
     }
 }

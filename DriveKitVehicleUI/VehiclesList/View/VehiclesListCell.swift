@@ -105,55 +105,8 @@ class VehiclesListCell: UITableViewCell {
     }
     
     @IBAction func didSelectConfigureButton(_ sender: Any) {
-        switch viewModel.vehicleDetectionMode(pos: pos) {
-        case .beacon:
-            if let parent = parentView, viewModel.vehicleHasBeacon(pos: pos) {
-                if let alert = DKDetectionMode.beacon.detectionModeConfigureClicked(pos: pos, viewModel: viewModel, parentView: parent) {
-                    viewModel.delegate?.showAlert(alert)
-                }
-            }else{
-                self.newBeacon()
-            }
-        case .bluetooth:
-            if let parent = parentView, viewModel.vehicleHasBluetooth(pos: pos) {
-                if let alert = DKDetectionMode.bluetooth.detectionModeConfigureClicked(pos: pos, viewModel: viewModel, parentView: parent) {
-                    viewModel.delegate?.showAlert(alert)
-                }
-            } else {
-                self.newBluetooth()
-            }
-            self.bluetoothActionsAlert()
-        case .disabled, .gps:
-            return
-        }
-    }
-    
-    private func newBeacon() {
         if let parent = parentView {
-            let viewController = ConnectBeaconVC(vehicle: self.viewModel.vehicles[pos], parentView: parent)
-            self.viewModel.delegate?.pushViewController(viewController, animated: true)
+             viewModel.vehicleDetectionMode(pos: pos).detectionModeConfigureClicked(pos: pos, viewModel: viewModel, parentView: parent)
         }
     }
-    
-    private func newBluetooth(){
-        if let parent = parentView {
-            let viewController = ConnectBluetoothVC(vehicle: self.viewModel.vehicles[pos], parentView: parent)
-             self.viewModel.delegate?.pushViewController(viewController, animated: true)
-        }
-    }
-    
-    func bluetoothActionsAlert() {
-        let alert = UIAlertController(title: "dk_vehicle_configure_bluetooth_title".dkVehicleLocalized(), message: nil, preferredStyle: .actionSheet)
-        
-        let deleteAction = UIAlertAction(title: DKCommonLocalizable.delete.text(), style: .default , handler: {  _ in
-            self.viewModel.listView.confirmDeleteAlert(type: .bluetooth, vehicle: self.viewModel.vehicle)
-        })
-        alert.addAction(deleteAction)
-        
-        let cancelAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel)
-        alert.addAction(cancelAction)
-        viewModel.listView.present(alert, animated: true)
-    }
-    
-    
 }

@@ -73,7 +73,7 @@ enum GeneralField: VehicleField, CaseIterable {
     func getValue(vehicle: DKVehicle) -> String? {
         switch self {
         case .name:
-            return vehicle.displayName
+            return vehicle.computeName()
         case .category:
             if let typeIndex = vehicle.typeIndex {
                 let category = DKVehicleCategory(rawValue: typeIndex)

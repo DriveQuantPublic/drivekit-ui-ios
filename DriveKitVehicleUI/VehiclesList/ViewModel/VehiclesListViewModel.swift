@@ -111,6 +111,24 @@ class VehiclesListViewModel {
         })
     }
     
+    func deleteBeacon(pos: Int) {
+        let vehicleName = self.vehicleName(pos: pos)
+        let beaconCode = vehicles[pos].beacon?.uniqueId ?? ""
+        let title = String(format: "dk_vehicle_beacon_deactivate_alert".dkVehicleLocalized(), beaconCode, vehicleName)
+        self.deleteAlert(title: title, handler: {  _ in
+            self.deleteBeacon(vehicle: self.vehicles[pos])
+        })
+    }
+    
+    func deleteBluetooth(pos: Int) {
+        let vehicleName = self.vehicleName(pos: pos)
+        let bluetoothName = vehicles[pos].bluetooth?.name ?? ""
+        let title = String(format: "dk_vehicle_bluetooth_deactivate_alert".dkVehicleLocalized(), bluetoothName, vehicleName)
+        self.deleteAlert(title: title, handler: {  _ in
+            self.deleteBluetooth(vehicle: self.vehicles[pos])
+        })
+    }
+    
     private func deleteAlert(title: String, handler: ((UIAlertAction) -> Void)? = nil){
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         let yesAction = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default , handler: handler)
@@ -137,12 +155,12 @@ class VehiclesListViewModel {
         return vehicles[pos].detectionModeConfigurationButton
     }
     
-    func detectionModeClicked(detectionMode: DKDetectionMode, pos : Int) {
+    /*func detectionModeClicked(detectionMode: DKDetectionMode, pos : Int) {
         let vehicle = vehicles[pos]
         if vehicle.detectionMode != detectionMode {
             // TO DO
         }
-    }
+    }*/
     
     private func renameVehicle(vehicle: DKVehicle, name: String) {
         DriveKitVehicle.shared.renameVehicle(name: name, vehicleId: vehicle.vehicleId, completionHandler: { status in
@@ -174,14 +192,7 @@ class VehiclesListViewModel {
         })
     }
     
-    
-    
-    
-    
-    
-    
-    
-    func deleteBluetooth(vehicle: DKVehicle) {
+    private func deleteBluetooth(vehicle: DKVehicle) {
         DriveKitVehicle.shared.removeBluetooth(vehicleId: vehicle.vehicleId, completionHandler: { status in
             if status == .success {
                 self.delegate?.didUpdateVehicle()
@@ -191,7 +202,7 @@ class VehiclesListViewModel {
         })
     }
     
-    func deleteBeacon(vehicle: DKVehicle) {
+    private func deleteBeacon(vehicle: DKVehicle) {
         DriveKitVehicle.shared.removeBeacon(vehicleId: vehicle.vehicleId, completionHandler: { status in
             if status == .success {
                 self.delegate?.didUpdateVehicle()

@@ -106,7 +106,7 @@ extension VehiclesListVC: UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "VehiclesListCell", for: indexPath) as! VehiclesListCell
-        cell.configure(viewModel: viewModel, pos: indexPath.row)
+        cell.configure(viewModel: viewModel, pos: indexPath.row, parentView: self)
         return cell
     }
 }

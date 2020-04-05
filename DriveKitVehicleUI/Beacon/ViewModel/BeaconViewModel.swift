@@ -53,7 +53,7 @@ public class BeaconViewModel {
     }
     
     var vehicleName : String {
-        return vehicle?.displayName ?? ""
+        return vehicle?.computeName() ?? ""
     }
     
     func isBeaconValid() -> Bool {

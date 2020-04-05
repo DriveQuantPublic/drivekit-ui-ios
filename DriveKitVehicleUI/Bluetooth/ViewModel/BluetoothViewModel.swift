@@ -23,7 +23,7 @@ public class BluetoothViewModel {
     }
     
     var vehicleName : String {
-        return vehicle.displayName
+        return vehicle.computeName()
     }
     
     var bluetoothName : String {

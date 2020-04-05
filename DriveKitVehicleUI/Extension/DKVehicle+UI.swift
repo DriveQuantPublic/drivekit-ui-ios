@@ -20,9 +20,9 @@ extension DKVehicle {
     
     func getPosition(vehiclesList: [DKVehicle]) -> Int {
         if let index = vehiclesList.firstIndex(of: self) {
-            return index + 1
+            return index
         } else {
-            return 1
+            return 0
         }
     }
     
@@ -30,9 +30,13 @@ extension DKVehicle {
         if let name = self.name, name.lowercased() != getModel().lowercased() {
             return name
         } else {
-            let displayName = "dk_vehicle_my_vehicle".dkVehicleLocalized() + " - " + String(position)
+            let displayName = "dk_vehicle_my_vehicle".dkVehicleLocalized() + " - " + String(position + 1)
             return displayName
         }
+    }
+    
+    func computeName() -> String {
+        return getDisplayName(position: getPosition(vehiclesList: DriveKitDBVehicleAccess.shared.findVehiclesOrderByNameAsc().execute()))
     }
     
     func getLiteConfigCategoryName() -> String {

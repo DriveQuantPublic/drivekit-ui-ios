@@ -16,7 +16,7 @@ class BeaconDetailViewModel {
     
     init(vehicle: DKVehicle?, beacon: CLBeacon, batteryLevel: String) {
         self.data = []
-        if let vehicleName = vehicle?.displayName.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build() {
+        if let vehicleName = vehicle?.computeName().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build() {
             data.append(["dk_beacon_vehicule_linked": vehicleName])
         }else{
             data.append(["dk_beacon_vehicule_linked": "dk_beacon_vehicle_unknown".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()])

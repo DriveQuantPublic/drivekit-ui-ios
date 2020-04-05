@@ -100,33 +100,62 @@ extension VehiclePickerStep : VehiclePickerTableViewDelegate {
             })
         case .models:
             viewModel.vehicleModel = (self.getTableViewItems(viewModel: viewModel)[pos] as! String)
-            viewModel.getYears(completion: {status in
-                if status == .noError {
-                    viewModel.updateCurrentStep(step: .years)
-                }else{
-                    viewModel.vehicleModel = nil
+            guard let selectedBrand = viewModel.vehicleBrand, let selectedEngineIndex = viewModel.vehicleEngineIndex, let selectedModel = viewModel.vehicleModel else {
+                viewModel.vehicleDataDelegate?.onDataRetrieved(status: .failedToRetreiveData)
+                return
+            }
+            DriveKitVehiclePicker.shared.getYears(brand: selectedBrand, engineIndex: selectedEngineIndex, model: selectedModel, completionHandler: { [weak viewModel] status, response in
+                if status {
+                    if let modelYears = response, !modelYears.isEmpty {
+                        viewModel?.years = modelYears
+                        viewModel?.updateCurrentStep(step: .years)
+                        viewModel?.vehicleDataDelegate?.onDataRetrieved(status: .noError)
+                    } else {
+                        viewModel?.vehicleModel = nil
+                        viewModel?.vehicleDataDelegate?.onDataRetrieved(status: .noData)
+                    }
+                } else {
+                    viewModel?.vehicleDataDelegate?.onDataRetrieved(status: .failedToRetreiveData)
                 }
-                viewModel.vehicleDataDelegate?.onDataRetrieved(status: status)
             })
         case .years:
             viewModel.vehicleYear = (self.getTableViewItems(viewModel: viewModel)[pos] as! String)
-            viewModel.getVersions(completion: {status in
-                if status == .noError {
-                    viewModel.updateCurrentStep(step: .versions)
-                }else{
-                    viewModel.vehicleVersion = nil
+            guard let selectedBrand = viewModel.vehicleBrand, let selectedEngineIndex = viewModel.vehicleEngineIndex, let selectedModel = viewModel.vehicleModel, let selectedYear = viewModel.vehicleYear else {
+                viewModel.vehicleDataDelegate?.onDataRetrieved(status: .failedToRetreiveData)
+                return
+            }
+            DriveKitVehiclePicker.shared.getVersions(brand: selectedBrand, engineIndex: selectedEngineIndex, model: selectedModel, year: selectedYear, completionHandler: { [weak viewModel] status, response in
+                if status {
+                    if let vehicleVersions = response, !vehicleVersions.isEmpty {
+                        viewModel?.versions = vehicleVersions
+                        viewModel?.updateCurrentStep(step: .versions)
+                        viewModel?.vehicleDataDelegate?.onDataRetrieved(status: .noError)
+                    } else {
+                        viewModel?.vehicleVersion = nil
+                        viewModel?.vehicleDataDelegate?.onDataRetrieved(status: .noData)
+                    }
+                } else {
+                    viewModel?.vehicleDataDelegate?.onDataRetrieved(status: .failedToRetreiveData)
                 }
-                viewModel.vehicleDataDelegate?.onDataRetrieved(status: status)
             })
         case .versions:
             viewModel.vehicleVersion = (self.getTableViewItems(viewModel: viewModel)[pos] as! DKVehicleVersion)
-            viewModel.getCharacteristics(completion: {status in
-                if status == .noError {
-                    viewModel.updateCurrentStep(step: .name)
-                }else{
-                    viewModel.vehicleVersion = nil
+            guard let selectedVersion = viewModel.vehicleVersion else {
+                return
+            }
+            DriveKitVehiclePicker.shared.getCharacteristics(dqIndex: selectedVersion.dqIndex, completionHandler: { [weak viewModel] status, response in
+                if status {
+                    if let vehicleCharacteristics = response {
+                        viewModel?.vehicleCharacteristics = vehicleCharacteristics
+                        viewModel?.updateCurrentStep(step: .name)
+                        viewModel?.vehicleDataDelegate?.onDataRetrieved(status: .noError)
+                    } else {
+                        viewModel?.vehicleVersion = nil
+                        viewModel?.vehicleDataDelegate?.onDataRetrieved(status: .noData)
+                    }
+                } else {
+                    viewModel?.vehicleDataDelegate?.onDataRetrieved(status: .failedToRetreiveData)
                 }
-                viewModel.vehicleDataDelegate?.onDataRetrieved(status: status)
             })
         default:
             viewModel.vehicleDataDelegate?.onDataRetrieved(status: .noData)

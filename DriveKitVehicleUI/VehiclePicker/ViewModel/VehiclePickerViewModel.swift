@@ -119,63 +119,7 @@ class VehiclePickerViewModel {
     func getCategoryItem() -> VehiclePickerTextDelegate? {
         return vehicleCategory
     }
-    
-    func getYears(completion: @escaping (StepStatus) -> ()) {
-        guard let selectedBrand = vehicleBrand, let selectedEngineIndex = vehicleEngineIndex, let selectedModel = vehicleModel else {
-            completion(.failedToRetreiveData)
-            return
-        }
-        DriveKitVehiclePicker.shared.getYears(brand: selectedBrand, engineIndex: selectedEngineIndex, model: selectedModel, completionHandler: { status, response in
-            if status {
-                if let modelYears = response, !modelYears.isEmpty {
-                    self.years = modelYears
-                    completion(.noError)
-                } else {
-                    completion(.noData)
-                }
-            } else {
-                completion(.failedToRetreiveData)
-            }
-        })
-    }
-    
-    func getVersions(completion: @escaping (StepStatus) -> ()) {
-        guard let selectedBrand = vehicleBrand, let selectedEngineIndex = vehicleEngineIndex, let selectedModel = vehicleModel, let selectedYear = vehicleYear else {
-            completion(.failedToRetreiveData)
-            return
-        }
-        DriveKitVehiclePicker.shared.getVersions(brand: selectedBrand, engineIndex: selectedEngineIndex, model: selectedModel, year: selectedYear, completionHandler: { status, response in
-            if status {
-                if let vehicleVersions = response, !vehicleVersions.isEmpty {
-                    self.versions = vehicleVersions
-                    completion(.noError)
-                } else {
-                    completion(.noData)
-                }
-            } else {
-                completion(.failedToRetreiveData)
-            }
-        })
-    }
-    
-    func getCharacteristics(completion: @escaping (StepStatus) -> ()) {
-        guard let selectedVersion = vehicleVersion else {
-            return
-        }
-        DriveKitVehiclePicker.shared.getCharacteristics(dqIndex: selectedVersion.dqIndex, completionHandler: { status, response in
-            if status {
-                if let vehicleCharacteristics = response {
-                    self.vehicleCharacteristics = vehicleCharacteristics
-                    completion(.noError)
-                } else {
-                    completion(.noData)
-                }
-            } else {
-                completion(.failedToRetreiveData)
-            }
-        })
-    }
-    
+        
     func addVehicle(completion : @escaping (DKVehicleManagerStatus) -> ()) {
         if let characteristics = vehicleCharacteristics {
             if let previousVehicle = self.previousVehicle {

@@ -155,7 +155,10 @@ extension VehiclesListVC: VehiclesListDelegate {
     }
     
     func showVehiclePicker(vehicle: DKVehicle? = nil) {
-        _ = VehiclePickerCoordinator(parentView: self, detectionMode: self.viewModel.computeDetectionMode(), vehicle: vehicle, completion: {
+        /*_ = VehiclePickerCoordinator(parentView: self, detectionMode: self.viewModel.computeDetectionMode(), vehicle: vehicle, completion: {
+            self.viewModel.fetchVehicles()
+        })*/
+        _ = DKVehiclePickerNavigationController(parentView: self, detectionMode: self.viewModel.computeDetectionMode(), vehicle: vehicle, completion: {
             self.viewModel.fetchVehicles()
         })
     }

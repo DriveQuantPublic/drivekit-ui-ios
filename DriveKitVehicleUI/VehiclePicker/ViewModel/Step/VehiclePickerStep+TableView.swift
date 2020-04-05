@@ -53,7 +53,7 @@ extension VehiclePickerStep : VehiclePickerTableViewDelegate {
         return []
     }
     
-    func onTableViewItemSelected(pos: Int, viewModel : VehiclePickerViewModel, completion : @escaping (StepStatus) -> ()) {
+    func onTableViewItemSelected(pos: Int, viewModel : VehiclePickerViewModel) {
         switch self {
         case .type:
             if DriveKitVehicleUI.shared.categories.count > 1 {
@@ -72,21 +72,31 @@ extension VehiclePickerStep : VehiclePickerTableViewDelegate {
                     viewModel.updateCurrentStep(step: .engine)
                 }
             }
-            completion(.noError)
+            viewModel.vehicleDataDelegate?.onDataRetrieved(status: .noError)
             break
         case .brandsFull:
             viewModel.vehicleBrand = (self.getTableViewItems(viewModel: viewModel)[pos] as! DKVehicleBrand)
             viewModel.updateCurrentStep(step: .engine)
-            completion(.noError)
+            viewModel.vehicleDataDelegate?.onDataRetrieved(status: .noError)
         case .engine:
             viewModel.vehicleEngineIndex = (self.getTableViewItems(viewModel: viewModel)[pos] as! DKVehicleEngineIndex)
-            viewModel.getModels(completion: {status in
-                if status == .noError {
-                    viewModel.updateCurrentStep(step: .models)
-                }else {
-                    viewModel.vehicleEngineIndex = nil
+            guard let selectedBrand = viewModel.vehicleBrand, let selectedEngineIndex = viewModel.vehicleEngineIndex else {
+                viewModel.vehicleDataDelegate?.onDataRetrieved(status: .failedToRetreiveData)
+                return
+            }
+            DriveKitVehiclePicker.shared.getModels(brand: selectedBrand, engineIndex: selectedEngineIndex, completionHandler: { [weak viewModel] status, response in
+                if status {
+                    if let listModels = response, !listModels.isEmpty {
+                        viewModel?.models = listModels
+                        viewModel?.updateCurrentStep(step: .models)
+                        viewModel?.vehicleDataDelegate?.onDataRetrieved(status: .noError)
+                    } else {
+                        viewModel?.vehicleEngineIndex = nil
+                        viewModel?.vehicleDataDelegate?.onDataRetrieved(status: .noData)
+                    }
+                } else {
+                    viewModel?.vehicleDataDelegate?.onDataRetrieved(status: .failedToRetreiveData)
                 }
-                completion(status)
             })
         case .models:
             viewModel.vehicleModel = (self.getTableViewItems(viewModel: viewModel)[pos] as! String)
@@ -96,7 +106,7 @@ extension VehiclePickerStep : VehiclePickerTableViewDelegate {
                 }else{
                     viewModel.vehicleModel = nil
                 }
-                completion(status)
+                viewModel.vehicleDataDelegate?.onDataRetrieved(status: status)
             })
         case .years:
             viewModel.vehicleYear = (self.getTableViewItems(viewModel: viewModel)[pos] as! String)
@@ -106,7 +116,7 @@ extension VehiclePickerStep : VehiclePickerTableViewDelegate {
                 }else{
                     viewModel.vehicleVersion = nil
                 }
-                completion(status)
+                viewModel.vehicleDataDelegate?.onDataRetrieved(status: status)
             })
         case .versions:
             viewModel.vehicleVersion = (self.getTableViewItems(viewModel: viewModel)[pos] as! DKVehicleVersion)
@@ -116,10 +126,10 @@ extension VehiclePickerStep : VehiclePickerTableViewDelegate {
                 }else{
                     viewModel.vehicleVersion = nil
                 }
-                completion(status)
+                viewModel.vehicleDataDelegate?.onDataRetrieved(status: status)
             })
         default:
-            completion(.noData)
+            viewModel.vehicleDataDelegate?.onDataRetrieved(status: .noData)
         }
     }
     

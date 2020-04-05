@@ -18,9 +18,9 @@ public final class DKTextField: UIView, Nibable {
     @IBOutlet var underline: UIView!
     @IBOutlet var subtitle: UILabel!
     
-    public var delegate: DKTextFieldDelegate? = nil
+    public weak var delegate: DKTextFieldDelegate? = nil
     
-    public var target: UIView? = nil
+    public weak var target: UIView? = nil
     
     public var placeholder: String = "" {
         didSet {

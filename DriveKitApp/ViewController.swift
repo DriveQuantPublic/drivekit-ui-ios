@@ -182,7 +182,7 @@ class ViewController: UITableViewController {
     }
     func configureVehiclePicker() {
         DispatchQueue.main.async {
-           _ = VehiclePickerCoordinator(parentView: self)
+           _ = DKVehiclePickerNavigationController(parentView: self)
         }
     }
     

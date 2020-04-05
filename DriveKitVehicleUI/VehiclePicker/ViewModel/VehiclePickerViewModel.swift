@@ -10,11 +10,20 @@ import Foundation
 import DriveKitVehicle
 import DriveKitDBVehicleAccess
 
+protocol VehicleDataDelegate : AnyObject {
+    func onDataRetrieved(status: StepStatus)
+}
+
+protocol VehicleNavigationDelegate : AnyObject {
+    func showStep(viewController: UIViewController)
+}
+
 class VehiclePickerViewModel {
     
-    var coordinator : VehiclePickerCoordinator
-    private var currentStep : VehiclePickerStep
+    let detectionMode : DKDetectionMode
+    let previousVehicle: DKVehicle?
     
+    var currentStep : VehiclePickerStep
     var previousSteps : [VehiclePickerStep] = []
     
     var vehicleType : DKVehicleType? = nil
@@ -32,8 +41,12 @@ class VehiclePickerViewModel {
     var years : [String]? = nil
     var versions : [DKVehicleVersion]? = nil
     
-    init(coordinator : VehiclePickerCoordinator) {
-        self.coordinator = coordinator
+    weak var vehicleDataDelegate: VehicleDataDelegate? = nil
+    weak var vehicleNavigationDelegate: VehicleNavigationDelegate? = nil
+    
+    init(detectionMode : DKDetectionMode, previousVehicle: DKVehicle? = nil) {
+        self.detectionMode = detectionMode
+        self.previousVehicle = previousVehicle
         if DriveKitVehicleUI.shared.vehicleTypes.count > 1 {
             self.currentStep = .type
         } else if DriveKitVehicleUI.shared.categories.count > 1 && DriveKitVehicleUI.shared.categoryConfigType != .brandsConfigOnly  {
@@ -67,6 +80,10 @@ class VehiclePickerViewModel {
         currentStep = step
     }
     
+    func showStep() {
+        self.vehicleNavigationDelegate?.showStep(viewController: getViewController())
+    }
+    
     func getDefaultName() -> String {
         if liteConfig {
             guard let category = vehicleCategory else {
@@ -79,7 +96,7 @@ class VehiclePickerViewModel {
         return vehicleName ?? ""
     }
     
-    func getViewController() -> UIViewController? {
+    func getViewController() -> UIViewController {
         return currentStep.getViewController(viewModel: self)
     }
     
@@ -87,8 +104,8 @@ class VehiclePickerViewModel {
         return currentStep.getTableViewItems(viewModel: self)
     }
     
-    func onTableViewItemSelected(pos: Int, completion : @escaping (StepStatus) -> ()) {
-        self.currentStep.onTableViewItemSelected(pos: pos, viewModel: self, completion: completion)
+    func onTableViewItemSelected(pos: Int) {
+        self.currentStep.onTableViewItemSelected(pos: pos, viewModel: self)
     }
     
     func getCollectionViewItems() -> [VehiclePickerCollectionViewItem] {
@@ -101,25 +118,6 @@ class VehiclePickerViewModel {
     
     func getCategoryItem() -> VehiclePickerTextDelegate? {
         return vehicleCategory
-    }
-    
-    func getModels(completion: @escaping (StepStatus) -> ()) {
-        guard let selectedBrand = vehicleBrand, let selectedEngineIndex = vehicleEngineIndex else {
-            completion(.failedToRetreiveData)
-            return
-        }
-        DriveKitVehiclePicker.shared.getModels(brand: selectedBrand, engineIndex: selectedEngineIndex, completionHandler: { status, response in
-            if status {
-                if let listModels = response, !listModels.isEmpty {
-                    self.models = listModels
-                    completion(.noError)
-                } else {
-                    completion(.noData)
-                }
-            } else {
-                completion(.failedToRetreiveData)
-            }
-        })
     }
     
     func getYears(completion: @escaping (StepStatus) -> ()) {
@@ -180,10 +178,10 @@ class VehiclePickerViewModel {
     
     func addVehicle(completion : @escaping (DKVehicleManagerStatus) -> ()) {
         if let characteristics = vehicleCharacteristics {
-            if let previousVehicle = coordinator.vehicle {
+            if let previousVehicle = self.previousVehicle {
                 replaceVehicle(previousVehicle: previousVehicle, completion: completion)
             }else{
-                DriveKitVehicle.shared.createVehicle(characteristics: characteristics, vehicleType: vehicleType ?? .car, name: vehicleName, liteConfig: liteConfig, detectionMode: coordinator.detectionMode, completionHandler: { status, vehicle in
+                DriveKitVehicle.shared.createVehicle(characteristics: characteristics, vehicleType: vehicleType ?? .car, name: vehicleName, liteConfig: liteConfig, detectionMode: detectionMode, completionHandler: { status, vehicle in
                     completion(status)
                 })
             }
@@ -219,16 +217,6 @@ class VehiclePickerViewModel {
                     }
                 })
             })
-        }
-    }
-    
-    func showPreviousStep() {
-        if let step = previousSteps.last {
-            self.currentStep = step
-            previousSteps.removeLast(1)
-            coordinator.showPrevious()
-        } else {
-            coordinator.navigationController.dismiss(animated: true, completion: nil)
         }
     }
     

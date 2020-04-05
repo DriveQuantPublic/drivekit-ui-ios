@@ -88,7 +88,7 @@ extension VehiclePickerCollectionViewVC: UICollectionViewDelegateFlowLayout {
             self.hideLoader()
             switch status {
             case .noError:
-                self.viewModel.coordinator.showStep(viewController: self.viewModel.getViewController())
+                (self.navigationController as! DKVehiclePickerNavigationController).showStep(viewController: self.viewModel.getViewController())
             case .noData:
                 self.showAlertMessage(title: nil, message: "No data retrieved for selection", back: false, cancel: false)
             case .failedToRetreiveData:

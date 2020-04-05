@@ -10,7 +10,7 @@ import UIKit
 
 protocol VehiclePickerTableViewDelegate {
     func getTableViewItems(viewModel : VehiclePickerViewModel) -> [VehiclePickerTableViewItem]
-    func onTableViewItemSelected(pos: Int, viewModel : VehiclePickerViewModel, completion : @escaping (StepStatus) -> ())
+    func onTableViewItemSelected(pos: Int, viewModel : VehiclePickerViewModel)
     func description() -> String?
 }
 

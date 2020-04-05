@@ -12,7 +12,7 @@ enum VehiclePickerStep {
     case type, category, categoryDescription, brandsIcons, brandsFull, engine, models, years, versions, name
     
     
-    func getViewController(viewModel: VehiclePickerViewModel) -> UIViewController? {
+    func getViewController(viewModel: VehiclePickerViewModel) -> UIViewController {
         switch self {
         case .type:
             return VehiclePickerTableViewVC(viewModel: viewModel)

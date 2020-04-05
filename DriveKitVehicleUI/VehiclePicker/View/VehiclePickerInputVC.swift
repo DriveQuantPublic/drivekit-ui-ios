@@ -64,7 +64,7 @@ class VehiclePickerInputVC: VehiclePickerStepView {
                 switch status {
                 case .success:
                     self.navigationController?.dismiss(animated: true, completion: nil)
-                    self.viewModel.coordinator.completion?()
+                    (self.navigationController as! DKVehiclePickerNavigationController).completion?()
                 case .unknownVehicle:
                     // We can't have this error, vehicle picker always return a known vehicle
                     break

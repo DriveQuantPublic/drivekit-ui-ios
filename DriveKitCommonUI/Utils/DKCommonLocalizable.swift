@@ -53,9 +53,9 @@ public enum DKCommonLocalizable : String {
     contextCity = "dk_common_driving_context_city",
     contextExternal = "dk_common_driving_context_external",
     contextFastlane = "dk_common_driving_context_fastlane",
-    updatePhotoTitle = "dk_update_photo_title",
-    camera = "dk_take_picture",
-    gallery = "dk_select_image_gallery",
+    updatePhotoTitle = "dk_common_update_photo_title",
+    camera = "dk_common_take_picture",
+    gallery = "dk_common_select_image_gallery",
     cameraPermission = "dk_common_permission_camera_rationale"
     
     

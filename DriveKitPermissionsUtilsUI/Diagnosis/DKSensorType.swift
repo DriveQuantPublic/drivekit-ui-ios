@@ -9,5 +9,5 @@
 import Foundation
 
 @objc public enum DKSensorType : Int {
-    case bluetooth, gps, network
+    case bluetooth, gps
 }

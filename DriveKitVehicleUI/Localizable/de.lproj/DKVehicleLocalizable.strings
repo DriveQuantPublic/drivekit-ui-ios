@@ -4,10 +4,8 @@
 "dk_beacon_distance"="Entfernung (m)";
 "dk_beacon_major"="Major";
 "dk_beacon_minor"="Minor";
-"dk_beacon_not_seen"="Ihr BEACON wurde nicht erkannt";
 "dk_beacon_paired_title"="Einen BEACON dazufügen";
 "dk_beacon_rssi"="RSSI (dBm)";
-"dk_beacon_tx"="Tx (dBm)";
 "dk_beacon_uuid"="UUID";
 "dk_beacon_vehicle_unknown"="Unbekanntes Fahrzeug";
 "dk_beacon_vehicule_linked"="Zugehöriges Fahrzeug";
@@ -15,7 +13,6 @@
 "dk_bluetooth_name"="Bluetooth-Gerätename";
 "dk_brand"="Marke";
 "dk_category"="Kategorie";
-"dk_change_success"="Die Änderungen wurden berücksichtigt.";
 "dk_consumption"="Kraftstoffverbrauch";
 "dk_detection_mode_beacon_desc_configured"="Die Beacon %@ wurde diesem Fahrzeug zugeordnet. Die Anwendung zeichnet Ihre Fahrt automatisch auf, wenn sich das Signal in der Nähe Ihres Smartphones befindet.";
 "dk_detection_mode_beacon_desc_not_configured"="Sie müssen diesem Fahrzeug eine beacon zuordnen.";
@@ -28,7 +25,6 @@
 "dk_detection_mode_gps_desc"="Die Anwendung verwendet die Sensoren des Telefons, um Ihre Routen automatisch zu erkennen. Dieser Modus wurde optimiert, um den Batterieverbrauch zu begrenzen.";
 "dk_detection_mode_gps_title"="GPS";
 "dk_empty_vehicle_name"="Geben Sie einen Fahrzeugnamen ein";
-"dk_fields_not_valid"="Bitte überprüfen Sie die eingegebenen Daten.";
 "dk_gearbox"="Getriebe";
 "dk_gearbox_automatic"="Automatique";
 "dk_gearbox_manual_5"="Manuelle-5";
@@ -40,7 +36,10 @@
 "dk_motor"="Motortyp";
 "dk_name"="Name";
 "dk_power"="Leistung";
+"dk_select_image_gallery"="";
+"dk_take_picture"="";
 "dk_too_many_vehicles_alert"="Sie haben die Grenze der erlaubten Anzahl von Fahrzeugen überschritten, bitte löschen Sie ein Fahrzeug, bevor Sie ein neues erstellen.";
+"dk_update_photo_title"="Ändern des Bildes";
 "dk_vehicle_add"="Eine Fahrt hinzufügen";
 "dk_vehicle_beacon_already_paired"="Die Beacon ist nicht verfügbar. Sie ist bereits an ein anderes Fahrzeug gekoppelt.";
 "dk_vehicle_beacon_already_paired_to_vehicle"="Diese beacon ist bereits an dieses Fahrzeug gekoppelt.";
@@ -113,6 +112,7 @@
 "dk_vehicle_configure_bluetooth_title"="Konfigurieren von Bluetooth";
 "dk_vehicle_delete"="Löschen";
 "dk_vehicle_delete_confirm"="Bestätigen Sie die Entfernung des Fahrzeugs %@? Laufleistungstracking und Wartungsdaten gehen dauerhaft verloren.";
+"dk_vehicle_detection_mode_desc_beacon_configured"="Die Beacon %@ wurde diesem Fahrzeug zugeordnet. Die Anwendung zeichnet Ihre Fahrt automatisch auf, wenn sich das Signal in der Nähe Ihres Smartphones befindet.";
 "dk_vehicle_detection_mode_title"="Automatischer Start:";
 "dk_vehicle_engine_description"="Motortyp?";
 "dk_vehicle_engine_diesel"="Diesel";
@@ -148,3 +148,4 @@
 "dk_vehicle_version_description"="Version des Fahrzeugs?";
 "dk_vehicle_year_description"="Bauhjahr?";
 "dk_version"="Version";
+"dk_beacon_verify"="Auschecken";

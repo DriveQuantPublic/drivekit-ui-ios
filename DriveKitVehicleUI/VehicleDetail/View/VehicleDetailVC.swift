@@ -82,7 +82,7 @@ class VehicleDetailVC : DKUIViewController {
                     self?.present(alert, animated: true)
                 }else{
                     self?.tableView.reloadData()
-                    self?.showAlertMessage(title: nil, message: "dk_vehicle_error_message".dkVehicleLocalized(), back: false, cancel: false)
+                    self?.showAlertMessage(title: nil, message: "dk_fields_not_valid".dkVehicleLocalized(), back: false, cancel: false)
                 }
             }
         })

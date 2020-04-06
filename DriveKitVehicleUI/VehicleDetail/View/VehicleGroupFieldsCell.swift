@@ -22,7 +22,6 @@ class VehicleGroupFieldsCell: UITableViewCell {
         tableView.register(UINib(nibName: "VehicleFieldCell", bundle: Bundle.vehicleUIBundle), forCellReuseIdentifier: "VehicleFieldCell")
         tableView.separatorStyle = .none
         tableView.isScrollEnabled = false
-        tableView.rowHeight = UITableView.automaticDimension
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -30,12 +29,19 @@ class VehicleGroupFieldsCell: UITableViewCell {
     func configure(viewModel : VehicleDetailViewModel, groupField: VehicleGroupField) {
         self.viewModel = viewModel
         self.groupField  = groupField
+        self.tableView.reloadData()
     }
 }
 
 extension VehicleGroupFieldsCell: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        if let viewModel = self.viewModel, let groupField = self.groupField {
+            let field = viewModel.getField(groupField: groupField)[indexPath.row]
+            return field.cellHeight
+        }else {
+            return 0
+        }
+        
     }
 }
 
@@ -69,10 +75,21 @@ extension VehicleGroupFieldsCell: VehicleFieldCellDelegate {
             if let field = self.viewModel?.getField(groupField: groupField)[indexPath.row] {
                 if field.isValid(value: value) {
                     viewModel.addUpdatedField(field: field, value: value)
+                    cell.configureError(error: "")
                 }else{
                     cell.configureError(error: field.getErrorDescription() ?? "")
                 }
             }
         }
+    }
+}
+
+extension VehicleField {
+    var cellHeight : CGFloat {
+        var size : CGFloat = 58
+        if self.isEditable {
+            size += 20
+        }
+        return size
     }
 }

@@ -212,7 +212,6 @@
 		A34FC7282422755F000734AB /* VehicleDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34FC7212422755F000734AB /* VehicleDetailVC.swift */; };
 		A34FC72B2422755F000734AB /* VehicleGroupFieldsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34FC7242422755F000734AB /* VehicleGroupFieldsCell.swift */; };
 		A34FC73024227567000734AB /* VehicleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34FC72E24227567000734AB /* VehicleDetailViewModel.swift */; };
-		A34FC73124227567000734AB /* VehicleGroupFieldsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34FC72F24227567000734AB /* VehicleGroupFieldsViewModel.swift */; };
 		A34FC7332423A1AA000734AB /* VehicleDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34FC7322423A1AA000734AB /* VehicleDetailVC.xib */; };
 		A34FC7362423CDDA000734AB /* DKTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34FC7342423CDDA000734AB /* DKTextField.swift */; };
 		A34FC7372423CDDA000734AB /* DKTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34FC7352423CDDA000734AB /* DKTextField.xib */; };
@@ -545,7 +544,6 @@
 		A34FC7212422755F000734AB /* VehicleDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleDetailVC.swift; sourceTree = "<group>"; };
 		A34FC7242422755F000734AB /* VehicleGroupFieldsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleGroupFieldsCell.swift; sourceTree = "<group>"; };
 		A34FC72E24227567000734AB /* VehicleDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleDetailViewModel.swift; sourceTree = "<group>"; };
-		A34FC72F24227567000734AB /* VehicleGroupFieldsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehicleGroupFieldsViewModel.swift; sourceTree = "<group>"; };
 		A34FC7322423A1AA000734AB /* VehicleDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VehicleDetailVC.xib; sourceTree = "<group>"; };
 		A34FC7342423CDDA000734AB /* DKTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTextField.swift; sourceTree = "<group>"; };
 		A34FC7352423CDDA000734AB /* DKTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DKTextField.xib; sourceTree = "<group>"; };
@@ -1213,7 +1211,6 @@
 			isa = PBXGroup;
 			children = (
 				A34FC72E24227567000734AB /* VehicleDetailViewModel.swift */,
-				A34FC72F24227567000734AB /* VehicleGroupFieldsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1833,7 +1830,6 @@
 				3FF68F4C241643B70071D74C /* VehiclePickerTextDelegate.swift in Sources */,
 				3FF68EFF2413EEF80071D74C /* DriveKitVehicleUI.swift in Sources */,
 				3FF68F1924150D040071D74C /* VehiclePickerTableViewVC.swift in Sources */,
-				A34FC73124227567000734AB /* VehicleGroupFieldsViewModel.swift in Sources */,
 				3F50D70224179467001226F7 /* ErrorBluetoothVC.swift in Sources */,
 				A39055552424FA4100537EB5 /* VehicleDetailHeader.swift in Sources */,
 				3FE6A45624213EC600E24C1C /* BeaconDetailViewModel.swift in Sources */,

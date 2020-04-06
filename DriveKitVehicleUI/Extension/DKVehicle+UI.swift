@@ -67,8 +67,12 @@ extension DKVehicle {
         return categoryName
     }
     
+    var vehicleImageTag : String {
+        return "DQ_vehicle_" + self.vehicleId
+    }
+    
     func getVehicleImage() -> UIImage? {
-        let vehicleImage = "DQ_vehicle_" + self.vehicleId
+        let vehicleImage = vehicleImageTag
         let fileManager = FileManager.default
         let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
         let documentPath = documentsURL.path

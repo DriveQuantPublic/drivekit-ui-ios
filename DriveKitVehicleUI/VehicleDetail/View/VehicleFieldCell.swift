@@ -10,27 +10,31 @@ import UIKit
 import DriveKitCommonUI
 import DriveKitDBVehicleAccess
 
-protocol VehicleFieldCellDelegate {
-    func didEndEditing(cell: VehicleFieldCell, value: String?)
+protocol VehicleFieldCellDelegate : AnyObject {
+    func didEndEditing(cell: VehicleFieldCell, value: String)
 }
 
 class VehicleFieldCell: UITableViewCell {
     @IBOutlet weak var textField: UIView!
     
-    var delegate : VehicleFieldCellDelegate? = nil
+    weak var delegate : VehicleFieldCellDelegate? = nil
     var textFieldView: DKTextField = DKTextField.viewFromNib
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    func configure(field: VehicleField, vehicle: DKVehicle) {
+    func configure(field: VehicleField, value: String, delegate: VehicleFieldCellDelegate, hasError: Bool) {
         textFieldView.delegate = self
         textFieldView.placeholder = field.title
         textFieldView.title = field.title
-        textFieldView.value = field.getValue(vehicle: vehicle) ?? ""
+        textFieldView.value = value
         textFieldView.enable = field.isEditable
         textFieldView.keyBoardType = field.keyBoardType
+        if hasError {
+            configureError(error: field.getErrorDescription() ?? "")
+        }
+        self.delegate = delegate
         
         textField.embedSubview(textFieldView)
 
@@ -43,6 +47,6 @@ class VehicleFieldCell: UITableViewCell {
 
 extension VehicleFieldCell : DKTextFieldDelegate {
     func userDidEndEditing(textField: DKTextField) {
-        self.delegate?.didEndEditing(cell: self, value: textField.getTextFieldValue())
+        self.delegate?.didEndEditing(cell: self, value: textField.getTextFieldValue() ?? "")
     }
 }

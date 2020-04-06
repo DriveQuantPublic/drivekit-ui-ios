@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,16 +21,16 @@
                         <rect key="frame" x="8" y="8" width="444" height="322"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QsG-EN-VIc">
-                                <rect key="frame" x="0.0" y="0.0" width="444" height="322"/>
+                                <rect key="frame" x="4" y="4" width="436" height="314"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="QsG-EN-VIc" secondAttribute="trailing" id="1o0-ok-E7k"/>
-                            <constraint firstItem="QsG-EN-VIc" firstAttribute="leading" secondItem="88T-ML-pku" secondAttribute="leading" id="T8f-So-875"/>
-                            <constraint firstItem="QsG-EN-VIc" firstAttribute="top" secondItem="88T-ML-pku" secondAttribute="top" id="TXd-xo-tKg"/>
-                            <constraint firstAttribute="bottom" secondItem="QsG-EN-VIc" secondAttribute="bottom" id="nfi-bE-aSF"/>
+                            <constraint firstAttribute="trailing" secondItem="QsG-EN-VIc" secondAttribute="trailing" constant="4" id="1o0-ok-E7k"/>
+                            <constraint firstItem="QsG-EN-VIc" firstAttribute="leading" secondItem="88T-ML-pku" secondAttribute="leading" constant="4" id="T8f-So-875"/>
+                            <constraint firstItem="QsG-EN-VIc" firstAttribute="top" secondItem="88T-ML-pku" secondAttribute="top" constant="4" id="TXd-xo-tKg"/>
+                            <constraint firstAttribute="bottom" secondItem="QsG-EN-VIc" secondAttribute="bottom" constant="4" id="nfi-bE-aSF"/>
                         </constraints>
                     </view>
                 </subviews>

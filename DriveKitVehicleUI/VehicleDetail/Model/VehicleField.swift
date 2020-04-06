@@ -16,6 +16,9 @@ public protocol VehicleField {
     var isEditable: Bool { get }
     var keyBoardType: UIKeyboardType { get }
     func getValue(vehicle: DKVehicle) -> String?
+    func isValid(value : String) -> Bool
+    func getErrorDescription() -> String?
+    func onFieldUpdated(value: String, vehicle: DKVehicle, completion : @escaping (Bool) -> ())
 }
 
 enum EngineField: VehicleField, CaseIterable {
@@ -50,9 +53,23 @@ enum EngineField: VehicleField, CaseIterable {
     var keyBoardType: UIKeyboardType {
         return .default
     }
+    
+    func getErrorDescription() -> String? {
+        return nil
+    }
+    
+    func isValid(value: String) -> Bool {
+        return true
+    }
+    
+    func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> ()) {
+        completion(true)
+    }
+    
 }
 
 enum GeneralField: VehicleField, CaseIterable {
+    
     case name, category, brand, model, version
     
     var title: String {
@@ -107,9 +124,40 @@ enum GeneralField: VehicleField, CaseIterable {
         return .default
     }
     
+    func isValid(value: String) -> Bool {
+        if self == .name {
+            return value.count <= 50
+        } else {
+            return true
+        }
+    }
+    
+    func getErrorDescription() -> String? {
+        if self == .name {
+            return "dk_vehicle_field_name_error".dkVehicleLocalized()
+        }else{
+            return nil
+        }
+    }
+    
+    func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> ()) {
+        if self == .name {
+            DriveKitVehicle.shared.renameVehicle(name: value, vehicleId: vehicle.vehicleId, completionHandler: { status in
+                switch status {
+                case .success:
+                    completion(true)
+                case .unknownVehicle, .error:
+                    completion(false)
+                }
+            })
+        } else {
+            completion(true)
+        }
+    }
 }
 
 enum BluetoothField: VehicleField, CaseIterable {
+    
     case macAddress, bluetoothName
     
     var title: String {
@@ -136,6 +184,18 @@ enum BluetoothField: VehicleField, CaseIterable {
     
     var keyBoardType: UIKeyboardType {
         return .default
+    }
+    
+    func isValid(value: String) -> Bool {
+        return true
+    }
+    
+    func getErrorDescription() -> String? {
+        return nil
+    }
+    
+    func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> ()) {
+        completion(true)
     }
 }
 
@@ -178,6 +238,18 @@ enum BeaconField: VehicleField, CaseIterable {
     
     var keyBoardType: UIKeyboardType {
         return .default
+    }
+    
+    func isValid(value: String) -> Bool {
+        return true
+    }
+    
+    func getErrorDescription() -> String? {
+        return nil
+    }
+    
+    func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> ()) {
+        completion(true)
     }
 }
 
@@ -228,5 +300,16 @@ enum CharacteristicsField: VehicleField, CaseIterable {
         return .default
     }
     
+    func isValid(value: String) -> Bool {
+        return true
+    }
+    
+    func getErrorDescription() -> String? {
+        return nil
+    }
+    
+    func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> ()) {
+        completion(true)
+    }
     
 }

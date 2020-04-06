@@ -9,7 +9,7 @@
 import UIKit
 import DriveKitCommonUI
 
-protocol VehicleDetailHeaderDelegate {
+protocol VehicleDetailHeaderDelegate : AnyObject {
     func didSelectAddImage(cell: VehicleDetailHeader)
 }
 
@@ -18,7 +18,7 @@ class VehicleDetailHeader: UITableViewCell {
     @IBOutlet weak var vehicleName: UILabel!
     @IBOutlet weak var addVehicleImageButton: UIButton!
     
-    var delegate: VehicleDetailHeaderDelegate? = nil
+    weak var delegate: VehicleDetailHeaderDelegate? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,7 +29,6 @@ class VehicleDetailHeader: UITableViewCell {
     func configure(vehicleName: String, vehicleImage: UIImage?) {
         self.vehicleImage.image = vehicleImage
         self.vehicleName.attributedText = vehicleName.dkAttributedString().font(dkFont: .primary, style: .headLine1).color(DKUIColors.fontColorOnPrimaryColor).build()
-        
     }
     
     func configureHeaderButton() {

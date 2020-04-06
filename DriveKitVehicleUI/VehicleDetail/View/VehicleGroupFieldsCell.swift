@@ -13,22 +13,23 @@ class VehicleGroupFieldsCell: UITableViewCell {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cardView: CardView!
     
-    var viewModel: VehicleGroupFieldViewModel? = nil {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    private var viewModel: VehicleDetailViewModel?
+    private var groupField: VehicleGroupField?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         clipsToBounds = false
-        tableView.layer.cornerRadius = 5
         tableView.register(UINib(nibName: "VehicleFieldCell", bundle: Bundle.vehicleUIBundle), forCellReuseIdentifier: "VehicleFieldCell")
         tableView.separatorStyle = .none
         tableView.isScrollEnabled = false
         tableView.rowHeight = UITableView.automaticDimension
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    func configure(viewModel : VehicleDetailViewModel, groupField: VehicleGroupField) {
+        self.viewModel = viewModel
+        self.groupField  = groupField
     }
 }
 
@@ -44,14 +45,18 @@ extension VehicleGroupFieldsCell: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.fields.count ?? 0
+        if let viewModel = self.viewModel, let groupField = self.groupField {
+            return viewModel.getField(groupField: groupField).count
+        }else{
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: VehicleFieldCell = self.tableView.dequeueReusableCell(withIdentifier: "VehicleFieldCell", for: indexPath) as! VehicleFieldCell
-        if let vehicleItem = self.viewModel?.fields[indexPath.row] {
-            cell.configure(field: vehicleItem, vehicle: viewModel!.vehicle)
-            cell.delegate = self
+        if let viewModel = self.viewModel, let groupField = self.groupField {
+            let field = viewModel.getField(groupField: groupField)[indexPath.row]
+            cell.configure(field: field, value: viewModel.getFieldValue(field: field), delegate: self, hasError: viewModel.hasError(field: field))
             cell.selectionStyle = .none
         }
         return cell
@@ -59,17 +64,13 @@ extension VehicleGroupFieldsCell: UITableViewDataSource {
 }
 
 extension VehicleGroupFieldsCell: VehicleFieldCellDelegate {
-    func didEndEditing(cell: VehicleFieldCell, value: String?) {
-        if let indexPath = tableView.indexPath(for: cell)  {
-            if let field = self.viewModel?.fields[indexPath.row] as? GeneralField, field == .name {
-                if let text = value, text != "" {
-                    cell.textFieldView.errorMessage = nil
-                    if text != viewModel?.vehicle.name {
-                        viewModel?.delegate?.didUpdateField(field: field, value: text)
-                    }
-                } else {
-                    viewModel?.delegate?.didFailUpdateField(field: field)
-                    cell.textFieldView.errorMessage = "dk_empty_vehicle_name".dkVehicleLocalized()
+    func didEndEditing(cell: VehicleFieldCell, value: String) {
+        if let indexPath = tableView.indexPath(for: cell), let viewModel = self.viewModel, let groupField = self.groupField  {
+            if let field = self.viewModel?.getField(groupField: groupField)[indexPath.row] {
+                if field.isValid(value: value) {
+                    viewModel.addUpdatedField(field: field, value: value)
+                }else{
+                    cell.configureError(error: field.getErrorDescription() ?? "")
                 }
             }
         }

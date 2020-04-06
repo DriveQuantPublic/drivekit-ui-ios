@@ -187,7 +187,7 @@ class ViewController: UITableViewController {
     }
     
     func configureBeaconPairing() {
-        DriveKitVehicle.shared.getVehiclesOrderByNameAsc(type: .cache, completionHandler: {status, vehicles in
+        DriveKitVehicle.shared.getVehiclesOrderByNameAsc(type: .cache, completionHandler: {[unowned self]status, vehicles in
             DispatchQueue.main.async {
                 var uuid : String? = nil
                 for vehicle in vehicles {

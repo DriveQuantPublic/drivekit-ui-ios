@@ -120,19 +120,19 @@ class BeaconScannerProgressVC: UIViewController {
             switch self.viewModel.scanType {
             case .pairing:
                 self.viewModel.showLoader()
-                self.viewModel.checkVehiclePaired { isSameVehicle in
+                self.viewModel.checkVehiclePaired { [weak self] isSameVehicle in
                     DispatchQueue.main.async {
-                        self.viewModel.hideLoader()
-                        if self.viewModel.vehiclePaired != nil {
+                        self?.viewModel.hideLoader()
+                        if self?.viewModel.vehiclePaired != nil {
                             if isSameVehicle {
-                                self.showAlertMessage(title: "", message: "dk_vehicle_beacon_already_paired_to_vehicle".dkVehicleLocalized(), back: true, cancel: false, completion: {
-                                    self.viewModel.scanValidationFinished()
+                                self?.showAlertMessage(title: "", message: "dk_vehicle_beacon_already_paired_to_vehicle".dkVehicleLocalized(), back: true, cancel: false, completion: {
+                                    self?.viewModel.scanValidationFinished()
                                 })
                             }else{
-                                self.viewModel.updateScanState(step: .beaconAlreadyPaired)
+                                self?.viewModel.updateScanState(step: .beaconAlreadyPaired)
                             }
                         } else{
-                            self.viewModel.updateScanState(step: .success)
+                            self?.viewModel.updateScanState(step: .success)
                         }
                     }
                 }

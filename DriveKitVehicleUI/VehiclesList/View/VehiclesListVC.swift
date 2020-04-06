@@ -38,7 +38,6 @@ public class VehiclesListVC: DKUIViewController {
         self.tableView.register(UINib(nibName: "VehiclesListCell", bundle: Bundle.vehicleUIBundle), forCellReuseIdentifier: "VehiclesListCell")
         self.tableView.register(VehicleListHeaderView.self, forHeaderFooterViewReuseIdentifier: "VehicleListHeaderView")
         self.configure()
-        self.viewModel.fetchVehicles()
     }
     
     func configure() {
@@ -54,6 +53,7 @@ public class VehiclesListVC: DKUIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.showLoader()
+        self.viewModel.fetchVehicles()
     }
     
     @IBAction func goToVehiclePicker(_ sender: Any) {
@@ -155,9 +155,6 @@ extension VehiclesListVC: VehiclesListDelegate {
     }
     
     func showVehiclePicker(vehicle: DKVehicle? = nil) {
-        /*_ = VehiclePickerCoordinator(parentView: self, detectionMode: self.viewModel.computeDetectionMode(), vehicle: vehicle, completion: {
-            self.viewModel.fetchVehicles()
-        })*/
         _ = DKVehiclePickerNavigationController(parentView: self, detectionMode: self.viewModel.computeDetectionMode(), vehicle: vehicle, completion: {
             self.viewModel.fetchVehicles()
         })

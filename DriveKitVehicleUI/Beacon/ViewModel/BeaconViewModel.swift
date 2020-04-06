@@ -16,7 +16,7 @@ public class BeaconViewModel {
     var vehicle : DKVehicle?
     let scanType : DKBeaconScanType
     var beacon : DKBeacon? = nil
-    var delegate : ScanStateDelegate? = nil
+    weak var delegate : ScanStateDelegate? = nil
     
     var vehiclePaired : DKVehicle?
     var beaconBattery : Int? = nil
@@ -151,7 +151,7 @@ public class BeaconViewModel {
 }
 
 
-protocol ScanStateDelegate {
+protocol ScanStateDelegate : AnyObject{
     func onStateUpdated(step: BeaconStep)
     func onScanFinished()
     func shouldShowLoader()

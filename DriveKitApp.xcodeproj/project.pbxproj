@@ -820,9 +820,9 @@
 		3FF68EF32413ECC00071D74C /* DriveKitVehicleUI */ = {
 			isa = PBXGroup;
 			children = (
-				A3D51F3E241BA2E6006DACE2 /* VehiclesList */,
 				3FF68F022414FD5B0071D74C /* Localizable */,
 				3F50D7062417ADC9001226F7 /* Extension */,
+				A3D51F3E241BA2E6006DACE2 /* VehiclesList */,
 				3FBAE399241B906300B2FBFB /* VehicleDetail */,
 				3FFB2D642417E17C003E6A06 /* Beacon */,
 				3F50D6F1241784B3001226F7 /* Bluetooth */,

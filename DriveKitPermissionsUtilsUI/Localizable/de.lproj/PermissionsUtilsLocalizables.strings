@@ -46,6 +46,7 @@
 "dk_perm_utils_app_diag_loc_sensor_title"="Ortungssensor";
 "dk_perm_utils_app_diag_location_ko_android"="Sie müssen der App erlauben, auf den Standort des Telefons zuzugreifen, damit Ihre Fahrten erkannt und gescannt werden können.";
 "dk_perm_utils_app_diag_location_ko_ios"="Sie müssen der App erlauben, auf den Standort des Telefons zuzugreifen, damit Ihre Reisen erkannt und gescannt werden können. In den Telefoneinstellungen sind drei Optionen verfügbar: (1) nie, (2) wenn die App aktiv ist und (3) immer. Es ist wichtig, die Option (3) zu wählen, sonst funktioniert die Anwendung nicht.";
+"dk_perm_utils_app_diag_location_ko_ios13"="Sie müssen der Anwendung erlauben, auf die Position des Telefons zuzugreifen, damit sie Ihre Routen erkennen und analysieren kann. In den Telefoneinstellungen stehen vier Optionen zur Verfügung: (1) nie, (2) beim nächsten Mal fragen, (3) bei der Nutzung der App und (4) immer. Es ist notwendig, die Option (4) immer zu wählen, da sonst die Anwendung nicht funktioniert.";
 "dk_perm_utils_app_diag_location_link"="Zugriff auf den Standort zulassen";
 "dk_perm_utils_app_diag_location_ok"="Die Anwendung verwendet den Standort Ihres Telefons, um Ihre Reisen zu erkennen und zu analysieren. Es kann nicht funktionieren, wenn Sie der App nicht den Zugriff auf den Standort erlauben.";
 "dk_perm_utils_app_diag_location_title"="Lage";
@@ -75,12 +76,15 @@
 "dk_perm_utils_app_diag_activity_ko"="Sie müssen der Anwendung den Zugriff auf die Aktivitätsverfolgung ermöglichen, damit sie Ihre Routen erkennen und analysieren kann.";
 "dk_perm_utils_app_diag_activity_ok"="Die Anwendung verwendet die Aktivitätsverfolgung Ihres Telefons, um Ihre Routen zu erkennen und zu analysieren. Es kann nicht funktionieren, wenn Sie der Anwendung nicht erlauben, auf die Aktivitätsverfolgung zuzugreifen.";
 "dk_perm_utils_app_diag_email_activity"="Berechtigung zum Zugriff auf die Aktivitätsverfolgung:";
-"dk_perm_utils_permissions_location_ko_ios13"="Sie müssen der Anwendung erlauben, auf die Position des Telefons zuzugreifen, damit sie Ihre Routen erkennen und analysieren kann. In den Telefoneinstellungen stehen drei Optionen zur Verfügung: (1) nie, (2) beim nächsten Mal fragen, (3) bei der Nutzung der App und (4) immer. Es ist notwendig, die Option (4) immer zu wählen, da sonst die Anwendung nicht funktioniert.";
+"dk_perm_utils_permissions_location_pre_ios13"="Um von der automatischen Reiseaufzeichnung zu profitieren, muss die Anwendung auf den Standort des Telefons zugreifen. Wählen Sie dazu unten die Option \"Immer\".";
+"dk_perm_utils_permissions_location_ios13"="Um die Vorteile der automatischen Aufzeichnung Ihrer Fahrten zu nutzen, muss die Anwendung auf die Position des Telefons zugreifen. Wählen Sie dazu in den Telefoneinstellungen \"Immer\", indem Sie die folgenden Schritte ausführen";
+"dk_perm_utils_permissions_location_pre_ios13_ko"="Sie müssen der App erlauben, auf den Standort des Telefons zuzugreifen, damit Ihre Reisen erkannt und gescannt werden können. In den Telefoneinstellungen sind drei Optionen verfügbar: (1) nie, (2) wenn die App aktiv ist und (3) immer. Es ist wichtig, die Option (3) zu wählen, sonst funktioniert die Anwendung nicht.";
 "dk_perm_utils_permissions_location_title"="Tourenaufzeichnung";
 "dk_perm_utils_permissions_location_text1_android"="Die Anwendung muss auf die Position des Telefons zugreifen können, um Ihre Routen zu erkennen und zu analysieren.";
 "dk_perm_utils_permissions_location_text2_post_android10"="Wählen Sie dazu bei der Anzeige des nächsten Popups \"Immer\".";
 "dk_perm_utils_permissions_location_text2_pre_android10"="Wählen Sie dazu bei der Anzeige des nächsten Popups \"Zulassen\".";
-"dk_perm_utils_permissions_location_button_android"="Öffnen Sie die Einstellungen";
+"dk_perm_utils_permissions_location_button_android"="Standort zulassen";
+"dk_perm_utils_permissions_location_button_ios"="Öffnen Sie die Einstellungen";
 "dk_perm_utils_permissions_phone_settings_activity_title"="Aktivitätsüberwachung";
 "dk_perm_utils_permissions_phone_settings_activity_text"="Um die Analyse Ihrer Fahrten zu verbessern und den verwendeten Verkehrsträger zu identifizieren, müssen Sie der Anwendung den Zugriff auf die Telefonaktivität ermöglichen.";
 "dk_perm_utils_permissions_phone_settings_activity_button"="Berechtigung zur Aktivitätsverfolgung";
@@ -88,3 +92,6 @@
 "dk_perm_utils_permissions_phone_settings_background_text1"="Um zu verhindern, dass die Anwendung durch das Batteriesparsystem des Telefons gestoppt wird, müssen Sie die Ausführung im Hintergrund akzeptieren.";
 "dk_perm_utils_permissions_phone_settings_background_text2"="Die Anwendung verwendet den GPS-Sensor nur während der Fahrt. Er wurde optimiert, um eine Entladung der Batterie zu vermeiden.";
 "dk_perm_utils_permissions_phone_settings_background_button"="Ausführung im Hintergrund erlauben";
+"dk_perm_utils_permissions_phone_settings_location_step1"="Drücken Sie \"Öffnen Sie die Einstellungen\"";
+"dk_perm_utils_permissions_phone_settings_location_step2"="Tippen Sie auf die Position";
+"dk_perm_utils_permissions_phone_settings_location_step3"="Wählen Sie \"Immer\"";

@@ -200,7 +200,7 @@ enum BluetoothField: VehicleField, CaseIterable {
 }
 
 enum BeaconField: VehicleField, CaseIterable {
-    case uniqueId, minor, major
+    case uniqueId, major, minor
     
     var title: String {
         switch self {

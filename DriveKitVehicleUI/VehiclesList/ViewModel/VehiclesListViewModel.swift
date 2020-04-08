@@ -30,24 +30,23 @@ class VehiclesListViewModel {
     func fetchVehicles() {
         DriveKitVehicle.shared.getVehiclesOrderByNameAsc(completionHandler : { status, vehicles in
             DispatchQueue.main.async {
-                self.vehicles = self.orderVehiclesByDisplayName(vehicles: vehicles)
+                self.vehicles = vehicles.sortByDisplayNames()
                 self.delegate?.onVehiclesAvailable()
             }
         })
-    }
-    
-    private func orderVehiclesByDisplayName(vehicles: [DKVehicle]) -> [DKVehicle] {
-        return vehicles.sorted { $0.getDisplayName(position: $0.getPosition(vehiclesList: vehicles)).lowercased() < $1.getDisplayName(position: $0.getPosition(vehiclesList: vehicles)).lowercased() }
     }
     
     var vehiclesCount : Int {
         return vehicles.count
     }
     
-    var vehicleActions : [VehicleAction] {
+    func vehicleActions(pos: Int) -> [VehicleAction] {
         var actions = DriveKitVehicleUI.shared.vehicleActions
         if vehiclesCount <= 1 {
             actions.removeAll(where: {$0 == .delete})
+        }
+        if vehicles[pos].liteConfig {
+            actions.removeAll(where: {$0 == .show})
         }
         return actions
     }

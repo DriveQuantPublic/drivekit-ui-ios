@@ -24,7 +24,7 @@ extension DKVehicleBrand : VehiclePickerCollectionViewItem {
         case .bmw:
             return UIImage(named: "dk_bmw", in: .vehicleUIBundle, compatibleWith: nil)
         case .citroen:
-            return UIImage(named: "dk_citroenw", in: .vehicleUIBundle, compatibleWith: nil)
+            return UIImage(named: "dk_citroen", in: .vehicleUIBundle, compatibleWith: nil)
         case .dacia:
             return UIImage(named: "dk_dacia", in: .vehicleUIBundle, compatibleWith: nil)
         case .fiat:

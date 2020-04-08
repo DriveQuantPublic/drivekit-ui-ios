@@ -11,6 +11,11 @@ import DriveKitDBVehicleAccess
 import DriveKitVehicle
 import DriveKitCommonUI
 
+extension Array where Element:DKVehicle {
+    func sortByDisplayNames() -> [DKVehicle] {
+        return self.sorted { $0.getDisplayName(position: $0.getPosition(vehiclesList: self)).lowercased() < $1.getDisplayName(position: $0.getPosition(vehiclesList: self)).lowercased() }
+    }
+}
 
 extension DKVehicle {
     
@@ -19,7 +24,7 @@ extension DKVehicle {
     }
     
     func getPosition(vehiclesList: [DKVehicle]) -> Int {
-        if let index = vehiclesList.firstIndex(of: self) {
+        if let index = vehiclesList.firstIndex(where: {$0.vehicleId == self.vehicleId}) {
             return index
         } else {
             return 0
@@ -36,7 +41,7 @@ extension DKVehicle {
     }
     
     func computeName() -> String {
-        return getDisplayName(position: getPosition(vehiclesList: DriveKitDBVehicleAccess.shared.findVehiclesOrderByNameAsc().execute()))
+        return getDisplayName(position: getPosition(vehiclesList: DriveKitDBVehicleAccess.shared.findVehiclesOrderByNameAsc().execute().sortByDisplayNames()))
     }
     
     func getLiteConfigCategoryName() -> String {

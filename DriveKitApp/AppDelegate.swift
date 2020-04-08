@@ -180,6 +180,9 @@ extension String {
 }
 
 extension AppDelegate : DKColors {
+    func backgroundViewColor() -> UIColor {
+        return .red
+    }
 }
 
 extension AppDelegate : DKFonts {

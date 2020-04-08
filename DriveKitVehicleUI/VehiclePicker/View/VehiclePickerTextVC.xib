@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -67,7 +67,7 @@ Vous êtes définitivement accro aux trails.
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="7Cz-fs-Xgx" firstAttribute="leading" secondItem="9aF-wB-hd6" secondAttribute="leading" constant="30" id="551-kS-wjO"/>
                                 <constraint firstItem="aAL-ui-VkG" firstAttribute="top" secondItem="EA2-2r-yKq" secondAttribute="bottom" constant="32" id="5y9-qN-f4t"/>
@@ -84,7 +84,7 @@ Vous êtes définitivement accro aux trails.
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="9aF-wB-hd6" firstAttribute="leading" secondItem="UMZ-95-ZDn" secondAttribute="leading" id="KOm-Pd-9zC"/>
                         <constraint firstAttribute="trailing" secondItem="9aF-wB-hd6" secondAttribute="trailing" id="gwA-EQ-Ok4"/>
@@ -93,7 +93,7 @@ Vous êtes définitivement accro aux trails.
                     </constraints>
                 </scrollView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="UMZ-95-ZDn" firstAttribute="leading" secondItem="gJq-dS-0Xq" secondAttribute="leading" id="GY1-62-tgS"/>
                 <constraint firstItem="UMZ-95-ZDn" firstAttribute="bottom" secondItem="gJq-dS-0Xq" secondAttribute="bottom" id="INY-sO-iOX"/>

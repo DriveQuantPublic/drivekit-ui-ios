@@ -32,11 +32,8 @@ class BeaconScannerAlreadyPairedVC: UIViewController {
     }
     
     private func configureButton() {
-        cancelButton.backgroundColor = DKUIColors.secondaryColor.color
-        cancelButton.setAttributedTitle(DKCommonLocalizable.cancel.text().dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).uppercased().build(), for: .normal)
-        
-        confirmButton.backgroundColor = DKUIColors.secondaryColor.color
-        confirmButton.setAttributedTitle(DKCommonLocalizable.confirm.text().dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).uppercased().build(), for: .normal)
+        cancelButton.configure(text: DKCommonLocalizable.cancel.text(), style: .full)
+        confirmButton.configure(text: DKCommonLocalizable.confirm.text(), style: .full)
     }
     
     private func configureDescription() {

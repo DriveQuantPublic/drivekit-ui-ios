@@ -33,10 +33,8 @@ class BeaconScannerBeaconUnavailableVC: UIViewController {
     }
     
     private func configureButton() {
-        cancelButton.setAttributedTitle(DKCommonLocalizable.cancel.text().dkAttributedString().font(dkFont: .primary, style: .button).color(.secondaryColor).uppercased().build(), for: .normal)
-        
-        retryButton.backgroundColor = DKUIColors.secondaryColor.color
-        retryButton.setAttributedTitle(DKCommonLocalizable.confirm.text().dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).uppercased().build(), for: .normal)
+        cancelButton.configure(text: DKCommonLocalizable.cancel.text(), style: .empty)
+        retryButton.configure(text: DKCommonLocalizable.confirm.text(), style: .full)
     }
     
     private func configureDescription() {

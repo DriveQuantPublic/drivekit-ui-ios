@@ -201,6 +201,4 @@ extension AppDelegate : DKContentMail {
     func getMailBody() -> String {
         return "Test mail body"
     }
-    
-    
 }

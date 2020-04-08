@@ -41,8 +41,8 @@ public class ConnectBluetoothVC: DKUIViewController {
         setupDesc1.attributedText = "dk_vehicle_bluetooth_guide_desc1_ios".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         setupDesc2.attributedText = "dk_vehicle_bluetooth_guide_desc2_ios".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         setupDesc3.attributedText = "dk_vehicle_bluetooth_guide_desc3_ios".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
-        startButton.backgroundColor = DKUIColors.secondaryColor.color
-        startButton.setAttributedTitle("dk_vehicle_begin".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).uppercased().build(), for: .normal)
+        
+        startButton.configure(text: "dk_vehicle_begin".dkVehicleLocalized(), style: .full)
     }
     
     @IBAction func startAction(_ sender: Any) {

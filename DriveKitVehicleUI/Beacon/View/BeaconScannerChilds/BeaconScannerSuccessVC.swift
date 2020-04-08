@@ -30,8 +30,8 @@ class BeaconScannerSuccessVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         descriptionLabel.attributedText = step.description(viewModel: self.viewModel)
-        confirmButton.setAttributedTitle(step.confirmButtonText.dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).uppercased().build(), for: .normal)
-        confirmButton.backgroundColor = DKUIColors.secondaryColor.color
+        confirmButton.configure(text: step.confirmButtonText, style: .full)
+
     }
     
     @IBAction func confirmClicked(_ sender: Any) {

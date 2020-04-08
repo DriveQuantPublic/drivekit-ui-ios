@@ -35,8 +35,7 @@ class VehiclePickerInputVC: VehiclePickerStepView {
     func setup() {
         inputImageView.image = UIImage(named: "dk_vehicle_name_chooser",in: .vehicleUIBundle, compatibleWith: nil)
         inputTextLabel.attributedText = "dk_vehicle_name_chooser_description".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
-        inputConfirmButton.setAttributedTitle(DKCommonLocalizable.validate.text().dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).build(), for: .normal)
-        inputConfirmButton.backgroundColor = DKUIColors.secondaryColor.color
+        inputConfirmButton.configure(text: DKCommonLocalizable.validate.text(), style: .full)
         self.configureTextField(placeholder: "dk_vehicle_name".dkVehicleLocalized())
     }
     

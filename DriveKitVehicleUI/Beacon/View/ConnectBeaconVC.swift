@@ -62,8 +62,7 @@ public class ConnectBeaconVC: DKUIViewController {
         step3ValueCircle.attributedText = "3".dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         step3Label.attributedText = "dk_vehicle_beacon_setup_guide_desc3".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
     
-        confirmButton.backgroundColor = DKUIColors.secondaryColor.color
-        confirmButton.setAttributedTitle("dk_vehicle_begin".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).uppercased().build(), for: .normal)
+        confirmButton.configure(text: "dk_vehicle_begin".dkVehicleLocalized(), style: .full)
     }
     
     private func configureCircle(view: UIView) {

@@ -34,9 +34,8 @@ class VehiclePickerTextVC: VehiclePickerStepView {
         if let category = self.viewModel.vehicleCategory {
             textImageView.image = category.categoryImage()
             textDescriptionLabel.attributedText = category.categoryDescription().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
-            textConfirmButton.setAttributedTitle(DKCommonLocalizable.validate.text().dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).build(), for: .normal)
-            textConfirmButton.backgroundColor = DKUIColors.secondaryColor.color
-            textContinueButton.setAttributedTitle("dk_vehicle_category_display_brands".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .button).color(.secondaryColor).build(), for: .normal)
+            textConfirmButton.configure(text: DKCommonLocalizable.validate.text(), style: .full)
+            textContinueButton.configure(text: "dk_vehicle_category_display_brands".dkVehicleLocalized(), style: .empty)
             textContinueButton.titleLabel?.textAlignment = .center
             if DriveKitVehicleUI.shared.categoryConfigType == .liteConfigOnly {
                 textContinueButton.isHidden = true

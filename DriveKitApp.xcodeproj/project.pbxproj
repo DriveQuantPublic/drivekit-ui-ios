@@ -42,6 +42,7 @@
 		3FB5643523F5AA2900F010E3 /* StreakTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FB5643323F5AA2900F010E3 /* StreakTableViewCell.xib */; };
 		3FB5643E23F6B47E00F010E3 /* StreakDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5643D23F6B47E00F010E3 /* StreakDataType.swift */; };
 		3FB5644123F6B4F000F010E3 /* DriverAchievementLocalizables.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FB5644323F6B4F000F010E3 /* DriverAchievementLocalizables.strings */; };
+		3FCE6339243DF87A00CAB828 /* UIButton+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCE6338243DF87A00CAB828 /* UIButton+DK.swift */; };
 		3FE4B410242C9DC600564F19 /* DKContentMail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F03A4DC242C8BD3000924A0 /* DKContentMail.swift */; };
 		3FE6A4422420BEC300E24C1C /* BeaconScannerInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6A4402420BEC300E24C1C /* BeaconScannerInfoVC.swift */; };
 		3FE6A4432420BEC300E24C1C /* BeaconScannerInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE6A4412420BEC300E24C1C /* BeaconScannerInfoVC.xib */; };
@@ -357,6 +358,7 @@
 		3FB5644523F6B4F700F010E3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/DriverAchievementLocalizables.strings; sourceTree = "<group>"; };
 		3FB5644623F6B4F700F010E3 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/DriverAchievementLocalizables.strings; sourceTree = "<group>"; };
 		3FB5644723F6B4F800F010E3 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/DriverAchievementLocalizables.strings; sourceTree = "<group>"; };
+		3FCE6338243DF87A00CAB828 /* UIButton+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+DK.swift"; sourceTree = "<group>"; };
 		3FE6A4402420BEC300E24C1C /* BeaconScannerInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconScannerInfoVC.swift; sourceTree = "<group>"; };
 		3FE6A4412420BEC300E24C1C /* BeaconScannerInfoVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeaconScannerInfoVC.xib; sourceTree = "<group>"; };
 		3FE6A4442420C72800E24C1C /* PicturedIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicturedIndicatorView.swift; sourceTree = "<group>"; };
@@ -672,6 +674,7 @@
 				3FF68E8B240C0A430071D74C /* UIViewController+DK.swift */,
 				3FF68E95240D58DC0071D74C /* UIView+DK.swift */,
 				3FF68E97240D59000071D74C /* UIImage+DK.swift */,
+				3FCE6338243DF87A00CAB828 /* UIButton+DK.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1799,6 +1802,7 @@
 				3FF68E88240A727D0071D74C /* DKDatePattern.swift in Sources */,
 				A322728C2429125700BF69E1 /* DKImagePicker.swift in Sources */,
 				3F0740EC240400E0005A8D07 /* DKFonts.swift in Sources */,
+				3FCE6339243DF87A00CAB828 /* UIButton+DK.swift in Sources */,
 				3FF68E98240D59000071D74C /* UIImage+DK.swift in Sources */,
 				3F7524CE2407A89100AC22CC /* DKCommonLocalizable.swift in Sources */,
 				3FF68E84240966120071D74C /* DKImages.swift in Sources */,

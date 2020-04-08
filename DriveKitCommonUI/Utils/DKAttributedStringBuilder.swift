@@ -68,37 +68,4 @@ public extension String {
     func dkAttributedString() -> DKAttributedStringBuilder {
         return DKAttributedStringBuilder(text: self)
     }
-    
-    func dkAttributedString(
-        dkFont: DKUIFonts = .primary,
-        style: DKStyles = DKStyles.normalText,
-        color: UIColor = DKUIColors.mainFontColor.color,
-        uppercase: Bool = false,
-        args: NSMutableAttributedString...
-    ) -> NSMutableAttributedString {
-        var attributes : [NSAttributedString.Key: Any] = [:]
-        attributes[.font] = style.style.applyTo(font: dkFont)
-        attributes[.foregroundColor] = color
-        let text: String
-        if uppercase {
-            text = self.uppercased()
-        } else {
-            text = self
-        }
-        if !args.isEmpty {
-            let stringsPart = text.components(separatedBy: "%@")
-            let attributedString = NSMutableAttributedString(string: stringsPart[0], attributes: attributes)
-            for i in 0...stringsPart.count {
-                if args.count > i {
-                    attributedString.append(args[i])
-                }
-                if stringsPart.count > i + 1 {
-                    attributedString.append(NSMutableAttributedString(string: stringsPart[i + 1], attributes: attributes))
-                }
-            }
-            return attributedString
-        } else {
-            return NSMutableAttributedString(string: text, attributes: attributes)
-        }
-    }
 }

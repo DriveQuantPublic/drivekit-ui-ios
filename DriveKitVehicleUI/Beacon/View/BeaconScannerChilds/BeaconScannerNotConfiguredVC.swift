@@ -31,8 +31,7 @@ class BeaconScannerNotConfiguredVC: UIViewController {
     }
     
     private func configureButton() {
-        cancelButton.backgroundColor = DKUIColors.secondaryColor.color
-        cancelButton.setAttributedTitle(DKCommonLocalizable.cancel.text().dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).uppercased().build(), for: .normal)
+        cancelButton.configure(text: DKCommonLocalizable.cancel.text(), style: .full)
     }
     
     @IBAction func startClicked(_ sender: Any) {

@@ -58,13 +58,12 @@ class VehiclePickerInputVC: VehiclePickerStepView {
     @IBAction func didConfirmInput(_ sender: Any) {
         self.showLoader()
         self.viewModel.vehicleName = textFieldView.getTextFieldValue()
-        self.viewModel.addVehicle(completion: {status in
+        self.viewModel.addVehicle(completion: {status, vehicleId in
             DispatchQueue.main.async {
                 self.hideLoader()
                 switch status {
                 case .success:
-                    self.navigationController?.dismiss(animated: true, completion: nil)
-                    (self.navigationController as! DKVehiclePickerNavigationController).completion?()
+                    (self.navigationController as! DKVehiclePickerNavigationController).checkExtraStep(vehicleId: vehicleId!)
                 case .unknownVehicle:
                     // We can't have this error, vehicle picker always return a known vehicle
                     break

@@ -120,19 +120,19 @@ class VehiclePickerViewModel {
         return vehicleCategory
     }
         
-    func addVehicle(completion : @escaping (DKVehicleManagerStatus) -> ()) {
+    func addVehicle(completion : @escaping (DKVehicleManagerStatus, String?) -> ()) {
         if let characteristics = vehicleCharacteristics {
             if let previousVehicle = self.previousVehicle {
                 replaceVehicle(previousVehicle: previousVehicle, completion: completion)
             }else{
                 DriveKitVehicle.shared.createVehicle(characteristics: characteristics, vehicleType: vehicleType ?? .car, name: vehicleName, liteConfig: liteConfig, detectionMode: detectionMode, completionHandler: { status, vehicle in
-                    completion(status)
+                    completion(status, vehicle?.vehicleId)
                 })
             }
         }
     }
     
-    func replaceVehicle(previousVehicle: DKVehicle, completion : @escaping (DKVehicleManagerStatus) -> ()) {
+    func replaceVehicle(previousVehicle: DKVehicle, completion : @escaping (DKVehicleManagerStatus, String?) -> ()) {
         if let characteristics = vehicleCharacteristics {
             let detectionMode = previousVehicle.detectionMode ?? .disabled
             let previousBeacon = previousVehicle.beacon
@@ -145,18 +145,18 @@ class VehiclePickerViewModel {
                             
                             DriveKitVehicle.shared.addBeacon(vehicleId: vehicle?.vehicleId ?? "", beacon: previousBeacon!, completionHandler: { beaconStatus in
                                 if beaconStatus == .success {
-                                    completion(status)
+                                    completion(status, vehicle?.vehicleId)
                                 }
                             })
                             
                         } else if previousBluetooth != nil {
                             DriveKitVehicle.shared.addBluetooth(vehicleId: vehicle?.vehicleId ?? "", bluetooth: previousBluetooth!, completionHandler: { bluetoothSuccess in
                                 if bluetoothSuccess == .success {
-                                    completion(status)
+                                    completion(status, vehicle?.vehicleId)
                                 }
                             })
                         } else {
-                            completion(status)
+                            completion(status, vehicle?.vehicleId)
                         }
                     }
                 })

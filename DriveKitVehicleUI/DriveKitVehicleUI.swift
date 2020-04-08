@@ -24,15 +24,14 @@ public class DriveKitVehicleUI {
     
     var canAddVehicle: Bool = true
     var maxVehicles: Int? = nil
+     var canRemoveBeacon : Bool = true
     
     var vehicleActions : [VehicleAction] = VehicleAction.allCases
-    
     var detectionModes: [DKDetectionMode] = [.disabled, .gps, .beacon, .bluetooth]
     var customFields = [VehicleGroupField: [VehicleField]]()
     
     var beaconDiagnosticEmail : DKContentMail? = nil
-    
-    var canRemoveBeacon : Bool = true
+    var vehiclePickerExtraStep : DKVehiclePickerExtraStep? = nil
     
     private init() {}
     
@@ -103,6 +102,10 @@ public class DriveKitVehicleUI {
     public func enableRemoveBeacon(canRemoveBeacon: Bool){
         self.canRemoveBeacon = canRemoveBeacon
     }
+    
+    public func configureVehiclePickerExtraStep(extarStep: DKVehiclePickerExtraStep) {
+        self.vehiclePickerExtraStep = extarStep
+    }
 }
 
 extension Bundle {
@@ -138,4 +141,8 @@ extension DriveKitVehicleUI : DriveKitVehicleUIEntryPoint {
             completion(vehicle?.computeName())
         })
     }
+}
+
+public protocol DKVehiclePickerExtraStep {
+    func viewController(vehicleId: String) -> UIViewController?
 }

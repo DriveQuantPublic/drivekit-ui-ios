@@ -231,4 +231,3 @@ class ViewController: UITableViewController {
         configureTripAnalysisButton()
     }
 }
-

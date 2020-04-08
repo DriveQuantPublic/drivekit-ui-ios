@@ -37,6 +37,21 @@ public class DKVehiclePickerNavigationController : UINavigationController {
     func showPrevious() {
         self.popViewController(animated: true)
     }
+    
+    func checkExtraStep(vehicleId: String) {
+        if let extraStep = DriveKitVehicleUI.shared.vehiclePickerExtraStep, let viewController = extraStep.viewController(vehicleId: vehicleId) {
+            self.showStep(viewController: viewController)
+        }else{
+            endVehiclePicker()
+        }
+    }
+    
+    public func endVehiclePicker() {
+        dismiss(animated: true, completion: nil)
+        if let completion = completion {
+            completion()
+        }
+    }
 }
 
 extension DKVehiclePickerNavigationController : VehicleNavigationDelegate {

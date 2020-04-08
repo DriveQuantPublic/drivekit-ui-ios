@@ -44,12 +44,15 @@ import DriveKitCommonUI
             let permissionViewController = permissionView.getViewController(nextPermissionViews: neededPermissionViews, completionHandler: completionHandler)
             if let navigationController = navigationController {
                 // A UINavigationController has been found, push screen inside.
+                permissionViewController.isPresentedByModule = false
                 navigationController.pushViewController(permissionViewController, animated: true)
             } else if neededPermissionViews.isEmpty {
                 // No UINavigationController found and just only one screen to show -> Present it.
+                permissionViewController.isPresentedByModule = true
                 parentViewController.present(permissionViewController, animated: true, completion: nil)
             } else {
                 // No UINavigationController found and several screens to show -> Create a UINavigationController to push them inside and present this navigation controller.
+                permissionViewController.isPresentedByModule = true
                 let navigationController = UINavigationController(rootViewController: permissionViewController)
                 parentViewController.present(navigationController, animated: true, completion: nil)
             }

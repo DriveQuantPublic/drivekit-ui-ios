@@ -12,6 +12,7 @@ import DriveKitCommonUI
 
 class PermissionViewController : DKUIViewController {
 
+    var isPresentedByModule: Bool = false
     private var nextPermissionViews: [DKPermissionView]
     private let completionHandler: () -> Void
 
@@ -31,17 +32,28 @@ class PermissionViewController : DKUIViewController {
 
     func next() {
         if self.nextPermissionViews.isEmpty {
+            if let navigationController = self.navigationController, navigationController.viewControllers.last as? PermissionViewController != nil {
+                navigationController.popViewController(animated: true)
+            }
+            if self.isPresentedByModule && self.presentingViewController != nil {
+                self.dismiss(animated: true, completion: nil)
+            }
             self.completionHandler()
         } else {
-            if let navigationController = self.navigationController {
-                let permissionView = self.nextPermissionViews.removeFirst()
-                let permissionViewController = permissionView.getViewController(nextPermissionViews: self.nextPermissionViews, completionHandler: self.completionHandler)
-                var updatedViewControllers = navigationController.viewControllers
+            guard let navigationController = self.navigationController else {
+                // Should not happen. We should always be inside a UINavigationController.
+                print("Unexpected state in \(String(describing: self))")
+                return
+            }
+            let permissionView = self.nextPermissionViews.removeFirst()
+            let permissionViewController = permissionView.getViewController(nextPermissionViews: self.nextPermissionViews, completionHandler: self.completionHandler)
+            permissionViewController.isPresentedByModule = self.isPresentedByModule
+            var updatedViewControllers = navigationController.viewControllers
+            if updatedViewControllers.last as? PermissionViewController != nil {
                 updatedViewControllers[updatedViewControllers.count - 1] = permissionViewController
                 navigationController.setViewControllers(updatedViewControllers, animated: true)
             } else {
-                // Should not happen. We should always be inside a UINavigationController.
-                print("Unexpected state in \(String(describing: self))")
+                navigationController.pushViewController(permissionViewController, animated: true)
             }
         }
     }

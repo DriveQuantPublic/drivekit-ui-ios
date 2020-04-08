@@ -26,6 +26,7 @@ class LocationPermissionViewModel : NSObject {
                 askAuthorization()
                 break
             case .valid:
+                NotificationCenter.default.removeObserver(self)
                 self.view?.next()
                 break
             default:

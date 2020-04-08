@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreLocation
 
 import DriveKitCommonUI
 
@@ -22,25 +21,26 @@ class LocationPermissionViewController : PermissionViewController {
     @IBOutlet weak var settingsContainer3: UIView!
     @IBOutlet weak var settingsDescription3: UILabel!
     @IBOutlet weak var actionButton: UIButton!
-    private let locationManager = CLLocationManager()
+
+    private let viewModel = LocationPermissionViewModel()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
+        self.viewModel.view = self
         updateView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        checkState()
+        self.viewModel.checkState()
     }
 
 
-    @IBAction func openSettings(_ sender: UIButton) {
-        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
-        UIApplication.shared.open(settingsUrl)
+    @IBAction func openSettings() {
+        self.viewModel.openSettings()
     }
 
 
@@ -78,42 +78,9 @@ class LocationPermissionViewController : PermissionViewController {
         self.settingsContainer3.isHidden = true
     }
 
-
-    @objc private func checkState() {
-        switch DKDiagnosisHelper.shared.getPermissionStatus(.location) {
-            case .notDetermined:
-                askAuthorization()
-                break
-            case .valid:
-                next()
-                break
-            default:
-                break
-        }
-    }
-
-    @objc private func askAuthorization() {
-        if DKDiagnosisHelper.shared.getPermissionStatus(.location) == .notDetermined {
-            if #available(iOS 13.0, *) {
-                self.locationManager.requestWhenInUseAuthorization()
-            } else {
-                self.locationManager.requestAlwaysAuthorization()
-            }
-            self.locationManager.delegate = self
-        }
-    }
-
-
-    @objc private func appDidBecomeActive() {
-        checkState()
-    }
-
 }
 
-extension LocationPermissionViewController: CLLocationManagerDelegate {
 
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        checkState()
-    }
-
+extension LocationPermissionViewController : LocationPermissionView {
+    
 }

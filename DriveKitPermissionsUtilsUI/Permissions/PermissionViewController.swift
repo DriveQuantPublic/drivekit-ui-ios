@@ -13,8 +13,8 @@ import DriveKitCommonUI
 class PermissionViewController : DKUIViewController {
 
     var isPresentedByModule: Bool = false
-    private var nextPermissionViews: [DKPermissionView]
-    private let completionHandler: () -> Void
+    fileprivate var nextPermissionViews: [DKPermissionView]
+    fileprivate let completionHandler: () -> Void
 
     init(nibName: String, nextPermissionViews: [DKPermissionView], completionHandler: @escaping () -> Void) {
         self.nextPermissionViews = nextPermissionViews
@@ -29,6 +29,11 @@ class PermissionViewController : DKUIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+}
+
+
+extension PermissionViewController : PermissionView {
 
     func next() {
         if self.nextPermissionViews.isEmpty {

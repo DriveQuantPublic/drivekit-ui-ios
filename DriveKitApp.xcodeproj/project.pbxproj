@@ -63,6 +63,7 @@
 		6105390B2434B75200C00CAF /* LocationPermissionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6105390A2434B75200C00CAF /* LocationPermissionViewController.xib */; };
 		61199C68243B9C5F00F73F37 /* PermissionsUtils.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61199C67243B9C5E00F73F37 /* PermissionsUtils.xcassets */; };
 		61377B71243E00D700E2EC47 /* LocationPermissionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61377B70243E00D700E2EC47 /* LocationPermissionViewModel.swift */; };
+		61377B75243E0C4800E2EC47 /* ActivityPermissionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61377B74243E0C4800E2EC47 /* ActivityPermissionViewModel.swift */; };
 		61377B77243E0DFE00E2EC47 /* PermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61377B76243E0DFE00E2EC47 /* PermissionView.swift */; };
 		616946DD243337D600C8A965 /* DriveKitPermissionsUtilsUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 616946DB243337D600C8A965 /* DriveKitPermissionsUtilsUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		616946E624333C6900C8A965 /* DriveKitPermissionsUtilsUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616946E524333C6900C8A965 /* DriveKitPermissionsUtilsUI.swift */; };
@@ -288,6 +289,7 @@
 		6105390A2434B75200C00CAF /* LocationPermissionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationPermissionViewController.xib; sourceTree = "<group>"; };
 		61199C67243B9C5E00F73F37 /* PermissionsUtils.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PermissionsUtils.xcassets; sourceTree = "<group>"; };
 		61377B70243E00D700E2EC47 /* LocationPermissionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionViewModel.swift; sourceTree = "<group>"; };
+		61377B74243E0C4800E2EC47 /* ActivityPermissionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPermissionViewModel.swift; sourceTree = "<group>"; };
 		61377B76243E0DFE00E2EC47 /* PermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionView.swift; sourceTree = "<group>"; };
 		616946D9243337D600C8A965 /* DriveKitPermissionsUtilsUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DriveKitPermissionsUtilsUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		616946DB243337D600C8A965 /* DriveKitPermissionsUtilsUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DriveKitPermissionsUtilsUI.h; sourceTree = "<group>"; };
@@ -623,6 +625,7 @@
 			children = (
 				6169470C2433AAB500C8A965 /* ActivityPermissionViewController.swift */,
 				610539082434B69800C00CAF /* ActivityPermissionViewController.xib */,
+				61377B74243E0C4800E2EC47 /* ActivityPermissionViewModel.swift */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -1385,6 +1388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61377B75243E0C4800E2EC47 /* ActivityPermissionViewModel.swift in Sources */,
 				616947092433AA0300C8A965 /* DKPermissionView.swift in Sources */,
 				616947002433A89900C8A965 /* DKDiagnosisHelper.swift in Sources */,
 				61377B71243E00D700E2EC47 /* LocationPermissionViewModel.swift in Sources */,

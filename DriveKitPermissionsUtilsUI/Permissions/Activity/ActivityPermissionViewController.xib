@@ -10,6 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActivityPermissionViewController" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
             <connections>
+                <outlet property="actionButton" destination="Adl-gG-rVQ" id="1cy-SD-h7F"/>
+                <outlet property="descriptionLabel" destination="Wl7-84-5o4" id="KuJ-3v-4XJ"/>
+                <outlet property="titleLabel" destination="3t8-Z3-9Fj" id="rs7-FA-zMM"/>
                 <outlet property="view" destination="iN0-l3-epB" id="1Mr-Ia-LhF"/>
             </connections>
         </placeholder>
@@ -17,9 +20,56 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="permission_activity" translatesAutoresizingMaskIntoConstraints="NO" id="Daj-rB-hcj" userLabel="Icon">
+                    <rect key="frame" x="137" y="84" width="140" height="140"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="140" id="PLi-yR-DZc"/>
+                        <constraint firstAttribute="height" constant="140" id="Vux-1e-NlT"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3t8-Z3-9Fj" userLabel="Title">
+                    <rect key="frame" x="16" y="264" width="382" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wl7-84-5o4" userLabel="Description">
+                    <rect key="frame" x="16" y="300.5" width="382" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Adl-gG-rVQ">
+                    <rect key="frame" x="16" y="804" width="382" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Lgk-gv-GRj"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="openSettings" destination="-1" eventType="touchUpInside" id="iCk-da-FoJ"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="Daj-rB-hcj" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="40" id="GXP-ff-JsC"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="3t8-Z3-9Fj" secondAttribute="trailing" constant="16" id="IiZ-m9-3YW"/>
+                <constraint firstItem="Wl7-84-5o4" firstAttribute="top" secondItem="3t8-Z3-9Fj" secondAttribute="bottom" constant="16" id="JSH-At-QAs"/>
+                <constraint firstItem="Daj-rB-hcj" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="K4L-ti-hVs"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Adl-gG-rVQ" secondAttribute="trailing" constant="16" id="cDV-Jt-ZD2"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Adl-gG-rVQ" secondAttribute="bottom" constant="8" id="dRw-ZK-x9r"/>
+                <constraint firstItem="Wl7-84-5o4" firstAttribute="leading" secondItem="3t8-Z3-9Fj" secondAttribute="leading" id="gqo-wf-dHp"/>
+                <constraint firstItem="3t8-Z3-9Fj" firstAttribute="top" secondItem="Daj-rB-hcj" secondAttribute="bottom" constant="40" id="h6w-sj-4nG"/>
+                <constraint firstItem="Wl7-84-5o4" firstAttribute="trailing" secondItem="3t8-Z3-9Fj" secondAttribute="trailing" id="kaq-Bz-Cyx"/>
+                <constraint firstItem="3t8-Z3-9Fj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="zaD-xV-sgk"/>
+                <constraint firstItem="Adl-gG-rVQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="zaH-Pu-HbV"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="139" y="154"/>
         </view>
     </objects>
+    <resources>
+        <image name="permission_activity" width="170" height="170"/>
+    </resources>
 </document>

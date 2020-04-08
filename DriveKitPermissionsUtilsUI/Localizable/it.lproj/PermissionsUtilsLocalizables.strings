@@ -85,6 +85,7 @@
 "dk_perm_utils_permissions_location_text2_pre_android10"="Per fare questo, scegliere \"Consenti\" quando viene visualizzata la prossima finestra popup.";
 "dk_perm_utils_permissions_location_button_android"="Autorizzare la posizione";
 "dk_perm_utils_permissions_location_button_ios"="Aprire le impostazioni";
+"dk_perm_utils_permissions_activity_button_ios"="Aprire le impostazioni";
 "dk_perm_utils_permissions_phone_settings_activity_title"="Monitoraggio delle attività";
 "dk_perm_utils_permissions_phone_settings_activity_text"="Per migliorare l\'analisi dei vostri viaggi e identificare il modo di trasporto utilizzato, è necessario consentire all\'applicazione di accedere all\'attività telefonica.";
 "dk_perm_utils_permissions_phone_settings_activity_button"="Autorizzare il monitoraggio delle attività";

@@ -6,8 +6,50 @@
 //  Copyright © 2020 DriveQuant. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+import DriveKitCommonUI
 
 class ActivityPermissionViewController : PermissionViewController {
+
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var actionButton: UIButton!
+
+    private let viewModel = ActivityPermissionViewModel()
+
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.viewModel.view = self
+        updateView()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.viewModel.checkState()
+    }
+
+
+    @IBAction func openSettings() {
+        self.viewModel.openSettings()
+    }
+
+
+    private func updateView() {
+        self.titleLabel.attributedText = "dk_perm_utils_permissions_phone_settings_activity_title".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .highlightBig).color(.mainFontColor).build()
+
+        self.descriptionLabel.attributedText = "dk_perm_utils_permissions_phone_settings_activity_text".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+
+        self.actionButton.setAttributedTitle("dk_perm_utils_permissions_activity_button_ios".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).uppercased().build(), for: .normal)
+        self.actionButton.backgroundColor = DKUIColors.secondaryColor.color
+    }
+
+}
+
+
+extension ActivityPermissionViewController : ActivityPermissionView {
 
 }

@@ -85,6 +85,7 @@
 "dk_perm_utils_permissions_location_text2_pre_android10"="To do this, choose \"Allow\" when the next popup is displayed.";
 "dk_perm_utils_permissions_location_button_android"="Allow location";
 "dk_perm_utils_permissions_location_button_ios"="Open the settings";
+"dk_perm_utils_permissions_activity_button_ios"="Open the settings";
 "dk_perm_utils_permissions_phone_settings_activity_title"="Activity monitoring";
 "dk_perm_utils_permissions_phone_settings_activity_text"="To improve the analysis of your trips and identify the mode of transport used, you must allow the application to access the phone activity.";
 "dk_perm_utils_permissions_phone_settings_activity_button"="Authorize activity tracking";

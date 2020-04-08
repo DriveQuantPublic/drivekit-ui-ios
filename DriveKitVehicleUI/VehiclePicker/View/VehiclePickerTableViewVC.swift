@@ -25,13 +25,13 @@ class VehiclePickerTableViewVC: VehiclePickerStepView {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.viewModel.vehicleDataDelegate = self
         self.tableView.register(UINib(nibName: "VehiclePickerTableViewCell", bundle: .vehicleUIBundle), forCellReuseIdentifier: "VehiclePickerTableViewCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
+        self.viewModel.vehicleDataDelegate = self
     }
 }
 

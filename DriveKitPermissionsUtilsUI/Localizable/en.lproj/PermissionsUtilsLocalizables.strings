@@ -86,7 +86,7 @@
 "dk_perm_utils_permissions_location_text2_pre_android10"="To do this, choose \"Allow\" when the next popup is displayed.";
 "dk_perm_utils_permissions_location_title"="Trip recording";
 "dk_perm_utils_permissions_phone_settings_activity_button"="Authorize activity tracking";
-"dk_perm_utils_permissions_phone_settings_activity_text"="To improve the analysis of your trips and identify the mode of transport used, you must activate the option Motion and Fitness on your phone.";
+"dk_perm_utils_permissions_phone_settings_activity_text"="To improve the analysis of your trips and identify the mode of transport used, you must activate the option Motion & Fitness on your phone.";
 "dk_perm_utils_permissions_phone_settings_activity_title"="Activity monitoring";
 "dk_perm_utils_permissions_phone_settings_background_button"="Allow background task";
 "dk_perm_utils_permissions_phone_settings_background_text1"="To avoid the application being stopped by the phone\'s battery saving system, you must accept background task.";

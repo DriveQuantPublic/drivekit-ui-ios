@@ -8,12 +8,13 @@
 
 import UIKit
 import DriveKitCommonUI
+import DriveKitDBAchievementAccess
 
 public class DriveKitDriverAchievementUI {
     
     public static let shared = DriveKitDriverAchievementUI()
     
-    var streakThemes : [StreakDataType] = [.phoneDistraction, .safety, .acceleration, .brake, .adherence]
+    var streakThemes : [DKStreakTheme] = [.phoneDistraction, .safety, .acceleration, .brake, .adherence]
     
     private init() {}
     
@@ -21,7 +22,7 @@ public class DriveKitDriverAchievementUI {
         DriveKitNavigationController.shared.driverAchievementUI = self
     }
     
-    public func configureStreakThemes(streakThemes : [StreakDataType]) {
+    public func configureStreakThemes(streakThemes : [DKStreakTheme]) {
         self.streakThemes = streakThemes
     }
 }

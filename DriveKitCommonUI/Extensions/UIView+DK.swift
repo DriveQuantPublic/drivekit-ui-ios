@@ -39,6 +39,7 @@ public extension UIStackView {
         if subviews.count > 0 {
             for view in subviews {
                 self.removeArrangedSubview(view)
+                view.removeFromSuperview()
             }
         }
     }

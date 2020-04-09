@@ -9,14 +9,18 @@
 "add_beacon_off"="Le beacon n\'est pas configuré";
 "add_beacon_on"="Le beacon est configuré";
 "add_beacon_title"="Configuration du beacon";
+"app_name"="DriveKit Demo App";
 "auto_start_off"="Activer pour détecter automatiquement vos trajets";
 "autostart_on"="Vos trajets seront automatiquement détectés";
 "autostart_title"="Démarrage automatique";
 "battery_permission"="Batterie";
+"beacon_required_off"="Le beacon est requis pour valider un trajet";
 "beacon_required_on"="Le beacon n\'est pas requis pour valider un trajet";
-"beacon_required_on"="Le beacon est requis pour valider un trajet";
 "beacon_required_title"="Beacon requis ?";
 "cancel_trip"="Annuler le trajet";
+"driver_achievement_button"="Lancer Driver Achievement";
+"driver_achievement_explanation"="Exemple d\'implémentation de DriveKit Driver Achievement avec l\'interface affichant les séquences de succès";
+"driver_data_button"="Lancer DriverData";
 "driver_data_explanation"="Exemple d\'implémentation du SDK Driver Data avec la liste des trajets et le détail d\'un trajet";
 "enable_logging_pref_off"="Activer ce réglage pour écrire les logs sur le téléphone";
 "enable_logging_pref_on"="Les fichiers de log seront disponibles dans le dossier \"DriveKit\" du téléphone";
@@ -36,9 +40,12 @@
 "stop_trip"="Stopper le trajet";
 "train_trip"="Votre trajet a été réalisé en train";
 "trip_analysis_settings"="Configuration Trip Analysis";
+"trip_cancelled_beacon_no_speed"="Votre trajet a été annulé car aucune vitesse n\'a été détectée en présence du beacon";
 "trip_cancelled_highspeed"="Votre trajet a été annulé car vous êtes en train ou en avion";
+"trip_cancelled_missing_config"="Votre trajet a été annulé car la configuration du SDK est incorrecte";
 "trip_cancelled_no_beacon"="Votre trajet a été annulé car votre boîtier Bluetooth n\'a pas été détecté";
 "trip_cancelled_no_gps_data"="Le trajet n\'a pas pu être analysé car les données GPS n\'ont pas pu être récupérées.";
+"trip_cancelled_no_speed"="Votre trajet a été annulé car aucune vitesse n\'a été détectée";
 "trip_cancelled_reset"="DriveKit SDK a été réinitialisé";
 "trip_cancelled_user"="Le trajet a été annulé par l\'utilisateur";
 "trip_finished"="Un nouveau trajet vient d\'être analysé";
@@ -46,4 +53,6 @@
 "trip_started"="Un trajet est en cours d\'analyse";
 "user_id_description"="Cliquez pour renseigner votre identifiant";
 "user_id_title"="Identifiant";
-
+"vehicle_explanation"="Exemple d\'implémentation de DriveKit Vehicle avec la sélection d\'un véhicule, la liste la liste des véhicules, le détail d\'un véhicule, l\'appairage d\'un beacon et d\'un dispositif Bluetooth";
+"vehicle_list_button"="Liste des véhicules";
+"vehicle_picker_button"="Ajouter un véhicule";

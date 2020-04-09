@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PicturedIndicatorView" customModule="DriveKitVehicleUI" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="196" height="162"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1oy-oP-jBj">
+                    <rect key="frame" x="8" y="51" width="180" height="60"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Speed" translatesAutoresizingMaskIntoConstraints="NO" id="r7B-m7-cTu">
+                            <rect key="frame" x="71" y="0.0" width="38" height="38"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="38" id="14v-j1-WKu"/>
+                                <constraint firstAttribute="width" secondItem="r7B-m7-cTu" secondAttribute="height" multiplier="1:1" id="hOQ-Sn-snb"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVK-T6-9bT">
+                            <rect key="frame" x="82.5" y="38" width="15.5" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="3gh-Hs-siL"/>
+                        <constraint firstItem="r7B-m7-cTu" firstAttribute="centerX" secondItem="1oy-oP-jBj" secondAttribute="centerX" id="HBA-Xe-NTi"/>
+                        <constraint firstItem="NVK-T6-9bT" firstAttribute="top" secondItem="r7B-m7-cTu" secondAttribute="bottom" id="asq-EF-xXn"/>
+                        <constraint firstItem="r7B-m7-cTu" firstAttribute="top" secondItem="1oy-oP-jBj" secondAttribute="top" id="fNn-js-QUB"/>
+                        <constraint firstItem="NVK-T6-9bT" firstAttribute="centerX" secondItem="1oy-oP-jBj" secondAttribute="centerX" id="fif-Ot-mKL"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="1oy-oP-jBj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="5ph-4b-dmS"/>
+                <constraint firstAttribute="trailing" secondItem="1oy-oP-jBj" secondAttribute="trailing" constant="8" id="DYf-nQ-IL7"/>
+                <constraint firstItem="1oy-oP-jBj" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="uEb-bQ-cY4"/>
+                <constraint firstItem="1oy-oP-jBj" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="yRy-an-G1T"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="imageView" destination="r7B-m7-cTu" id="BVK-4E-kr9"/>
+                <outlet property="titleLabel" destination="NVK-T6-9bT" id="szl-JA-U8k"/>
+            </connections>
+            <point key="canvasLocation" x="-144" y="-121"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Speed" width="60" height="60"/>
+    </resources>
+</document>

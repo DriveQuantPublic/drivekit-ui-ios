@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VehiclePickerImageCollectionViewCell" id="gTV-IL-0wX" customClass="VehiclePickerImageCollectionViewCell" customModule="DriveKitVehicleUI" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="218" height="202"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="218" height="202"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N2x-Fa-Fki">
+                        <rect key="frame" x="0.0" y="0.0" width="218" height="202"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tVt-J9-xG9" customClass="CardView" customModule="DriveKitCommonUI">
+                                <rect key="frame" x="4" y="4" width="210" height="194"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ezc-rI-sHA">
+                                        <rect key="frame" x="8" y="8" width="194" height="178"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kky-5u-Pzl">
+                                                <rect key="frame" x="0.0" y="0.0" width="194" height="162"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vz-hr-yr5">
+                                                <rect key="frame" x="0.0" y="162" width="194" height="16"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Ezc-rI-sHA" firstAttribute="leading" secondItem="tVt-J9-xG9" secondAttribute="leading" constant="8" id="D3t-7b-aVl"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ezc-rI-sHA" secondAttribute="bottom" constant="8" id="Zwh-Rv-vo3"/>
+                                    <constraint firstItem="Ezc-rI-sHA" firstAttribute="top" secondItem="tVt-J9-xG9" secondAttribute="top" constant="8" id="afq-XB-kuY"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ezc-rI-sHA" secondAttribute="trailing" constant="8" id="n2v-4V-ep7"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tVt-J9-xG9" firstAttribute="leading" secondItem="N2x-Fa-Fki" secondAttribute="leading" constant="4" id="3Ui-SY-wXU"/>
+                            <constraint firstAttribute="bottom" secondItem="tVt-J9-xG9" secondAttribute="bottom" constant="4" id="KtS-KJ-0h5"/>
+                            <constraint firstAttribute="trailing" secondItem="tVt-J9-xG9" secondAttribute="trailing" constant="4" id="gg3-Js-XVk"/>
+                            <constraint firstItem="tVt-J9-xG9" firstAttribute="top" secondItem="N2x-Fa-Fki" secondAttribute="top" constant="4" id="reD-iN-ucI"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="N2x-Fa-Fki" secondAttribute="bottom" id="TyO-xg-WEO"/>
+                <constraint firstItem="N2x-Fa-Fki" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ZS1-g4-Kqq"/>
+                <constraint firstItem="N2x-Fa-Fki" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="e6n-p8-psl"/>
+                <constraint firstAttribute="trailing" secondItem="N2x-Fa-Fki" secondAttribute="trailing" id="vgC-sx-8nH"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="218" height="202"/>
+            <connections>
+                <outlet property="cardView" destination="tVt-J9-xG9" id="qhC-nV-W7y"/>
+                <outlet property="iconImageView" destination="kky-5u-Pzl" id="rqg-Y2-oj0"/>
+                <outlet property="iconTitle" destination="0vz-hr-yr5" id="lhI-gw-GHl"/>
+            </connections>
+            <point key="canvasLocation" x="259.4202898550725" y="85.714285714285708"/>
+        </collectionViewCell>
+    </objects>
+</document>

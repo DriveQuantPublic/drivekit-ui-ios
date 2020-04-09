@@ -13,7 +13,7 @@ import DriveKitDBTripAccess
 class TripListViewModel {
     var trips : [TripsByDate] = []
     var status: TripSyncStatus = .noError
-    var delegate: TripsDelegate? = nil {
+    weak var delegate: TripsDelegate? = nil {
         didSet {
             if self.delegate != nil {
                 self.fetchTrips()
@@ -38,6 +38,6 @@ class TripListViewModel {
     }
 }
 
-protocol TripsDelegate {
+protocol TripsDelegate : AnyObject {
     func onTripsAvailable()
 }

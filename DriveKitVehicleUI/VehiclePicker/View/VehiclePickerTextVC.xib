@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VehiclePickerTextVC" customModule="DriveKitVehicleUI" customModuleProvider="target">
+            <connections>
+                <outlet property="textConfirmButton" destination="aAL-ui-VkG" id="eSQ-Ln-NBL"/>
+                <outlet property="textContinueButton" destination="7Cz-fs-Xgx" id="66B-Nw-Pyf"/>
+                <outlet property="textDescriptionLabel" destination="EA2-2r-yKq" id="Osi-j8-HoG"/>
+                <outlet property="textImageView" destination="ixQ-dX-CKH" id="y64-Vb-W3G"/>
+                <outlet property="view" destination="ZTR-4n-LqW" id="b39-fU-C7r"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="ZTR-4n-LqW">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UMZ-95-ZDn">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9aF-wB-hd6" userLabel="Content View">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="585"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ixQ-dX-CKH">
+                                    <rect key="frame" x="82" y="16" width="250" height="250"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="ixQ-dX-CKH" secondAttribute="height" id="Cah-2k-BC7"/>
+                                        <constraint firstAttribute="width" constant="250" id="u0K-mN-6HW"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EA2-2r-yKq">
+                                    <rect key="frame" x="16" y="298" width="382" height="122"/>
+                                    <string key="text">Pour vous, une moto est faite pour sortir des sentiers battus ! Vous aimez passer de la route au chemins avec agilité et polyvalence.
+
+Vous êtes définitivement accro aux trails.
+</string>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAL-ui-VkG">
+                                    <rect key="frame" x="16" y="452" width="382" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="JzH-Hm-srK"/>
+                                    </constraints>
+                                    <state key="normal" title="Button"/>
+                                    <connections>
+                                        <action selector="didConfirmText:" destination="-1" eventType="touchUpInside" id="uOJ-fe-RTs"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="7Cz-fs-Xgx">
+                                    <rect key="frame" x="30" y="521" width="354" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="7OD-vq-Z7k"/>
+                                    </constraints>
+                                    <state key="normal" title="Button"/>
+                                    <connections>
+                                        <action selector="didContinueText:" destination="-1" eventType="touchUpInside" id="rJh-kG-k17"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="7Cz-fs-Xgx" firstAttribute="leading" secondItem="9aF-wB-hd6" secondAttribute="leading" constant="30" id="551-kS-wjO"/>
+                                <constraint firstItem="aAL-ui-VkG" firstAttribute="top" secondItem="EA2-2r-yKq" secondAttribute="bottom" constant="32" id="5y9-qN-f4t"/>
+                                <constraint firstAttribute="trailing" secondItem="EA2-2r-yKq" secondAttribute="trailing" constant="16" id="J4d-RG-sJd"/>
+                                <constraint firstAttribute="trailing" secondItem="7Cz-fs-Xgx" secondAttribute="trailing" constant="30" id="JSc-8j-gfr"/>
+                                <constraint firstItem="aAL-ui-VkG" firstAttribute="leading" secondItem="9aF-wB-hd6" secondAttribute="leading" constant="16" id="NRX-fr-7af"/>
+                                <constraint firstItem="EA2-2r-yKq" firstAttribute="leading" secondItem="9aF-wB-hd6" secondAttribute="leading" constant="16" id="Rw0-jG-c8e"/>
+                                <constraint firstAttribute="bottom" secondItem="7Cz-fs-Xgx" secondAttribute="bottom" constant="20" symbolic="YES" id="UWL-It-rf7"/>
+                                <constraint firstItem="ixQ-dX-CKH" firstAttribute="centerX" secondItem="9aF-wB-hd6" secondAttribute="centerX" id="bZD-Ss-TY4"/>
+                                <constraint firstItem="7Cz-fs-Xgx" firstAttribute="top" secondItem="aAL-ui-VkG" secondAttribute="bottom" constant="25" id="d1W-jG-fZZ"/>
+                                <constraint firstItem="ixQ-dX-CKH" firstAttribute="top" secondItem="9aF-wB-hd6" secondAttribute="top" constant="16" id="rS3-Fg-Ljf"/>
+                                <constraint firstItem="EA2-2r-yKq" firstAttribute="top" secondItem="ixQ-dX-CKH" secondAttribute="bottom" constant="32" id="rvR-8k-MSs"/>
+                                <constraint firstAttribute="trailing" secondItem="aAL-ui-VkG" secondAttribute="trailing" constant="16" id="sEy-9s-Puf"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="9aF-wB-hd6" firstAttribute="leading" secondItem="UMZ-95-ZDn" secondAttribute="leading" id="KOm-Pd-9zC"/>
+                        <constraint firstAttribute="trailing" secondItem="9aF-wB-hd6" secondAttribute="trailing" id="gwA-EQ-Ok4"/>
+                        <constraint firstAttribute="bottom" secondItem="9aF-wB-hd6" secondAttribute="bottom" id="p8q-yU-6Nr"/>
+                        <constraint firstItem="9aF-wB-hd6" firstAttribute="top" secondItem="UMZ-95-ZDn" secondAttribute="top" id="pB0-9Q-qIR"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="UMZ-95-ZDn" firstAttribute="leading" secondItem="gJq-dS-0Xq" secondAttribute="leading" id="GY1-62-tgS"/>
+                <constraint firstItem="UMZ-95-ZDn" firstAttribute="bottom" secondItem="gJq-dS-0Xq" secondAttribute="bottom" id="INY-sO-iOX"/>
+                <constraint firstItem="UMZ-95-ZDn" firstAttribute="top" secondItem="ZTR-4n-LqW" secondAttribute="top" id="XXS-To-maM"/>
+                <constraint firstItem="9aF-wB-hd6" firstAttribute="height" secondItem="ZTR-4n-LqW" secondAttribute="height" priority="250" id="bU5-yM-ceZ"/>
+                <constraint firstItem="UMZ-95-ZDn" firstAttribute="trailing" secondItem="gJq-dS-0Xq" secondAttribute="trailing" id="dvU-LF-5tp"/>
+                <constraint firstAttribute="width" secondItem="9aF-wB-hd6" secondAttribute="width" id="eaU-ad-Bx4"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="gJq-dS-0Xq"/>
+            <point key="canvasLocation" x="134.78260869565219" y="119.86607142857142"/>
+        </view>
+    </objects>
+</document>

@@ -46,7 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitVehicleUI.shared.configureCategoryConfigType(type: .bothConfig)
         DriveKitVehicleUI.shared.addCustomVehicleField(groupField: .general, fieldsToAdd: [TestField.number, TestField.ascii])
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options : \(options)")
-        
         return true
     }
     

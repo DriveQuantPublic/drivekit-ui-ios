@@ -148,6 +148,20 @@ public class BeaconViewModel {
             })
         }
     }
+    
+    func replaceBeacon(completion: @escaping (DKVehicleBeaconStatus) -> ()) {
+        guard let pairedVehicle = self.vehiclePaired else {
+            completion(.error)
+            return
+        }
+        if vehiclePaired?.beacon == nil {
+            addBeaconToVehicle(completion: completion)
+        }else{
+            DriveKitVehicle.shared.removeBeacon(vehicleId: pairedVehicle.vehicleId, completionHandler: { _ in
+                self.addBeaconToVehicle(completion: completion)
+            })
+        }
+    }
 }
 
 

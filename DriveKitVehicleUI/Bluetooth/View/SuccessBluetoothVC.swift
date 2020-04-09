@@ -29,6 +29,13 @@ class SuccessBluetoothVC: DKUIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = "dk_vehicle_bluetooth_combination_view_title".dkVehicleLocalized()
+        self.setup()
+        self.setupDesc()
+    }
+    
     func setup() {
         successTitle.attributedText = "dk_vehicle_bluetooth_congrats_title".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
         successButton.configure(text: DKCommonLocalizable.finish.text(), style: .full)
@@ -40,24 +47,16 @@ class SuccessBluetoothVC: DKUIViewController {
     }
     
     func setupDesc() {
-        
+        let bluetoothName = self.viewModel.bluetoothName.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
+        let vehicelName = self.viewModel.vehicleName.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
         let descString = String(format: "dk_vehicle_bluetooth_congrats_desc".dkVehicleLocalized(), viewModel.bluetoothName, viewModel.vehicleName)
-        successDesc.attributedText = descString.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
-        /*let descAttributedString = NSMutableAttributedString(string: descString, attributes: Attributes.primaryAttributes(size: 16))
-        let rangeBluetooth = (descAttributedString.string as NSString).range(of: bluetoothName)
-        let rangeVehicle = (descAttributedString.string as NSString).range(of: vehicleName)
-        descAttributedString.setAttributes(Attributes.primaryBoldAttributes(size: 16), range: rangeBluetooth)
-        descAttributedString.setAttributes(Attributes.primaryBoldAttributes(size: 16), range: rangeVehicle)
-        successDesc.attributedText = descAttributedString*/
+        successDesc.attributedText = descString.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).buildWithArgs(bluetoothName, vehicelName)
     }
     
     func setupNotice() {
+        let bluetoothName = self.viewModel.bluetoothName.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
         let noticeString = String(format: "dk_vehicle_bluetooth_congrats_notice".dkVehicleLocalized(), viewModel.bluetoothName)
-        successNotice.attributedText = noticeString.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
-        /*let noticeAttributedString = NSMutableAttributedString(string: noticeString, attributes: Attributes.primaryAttributes(size: 16))
-        let rangeBluetooth = (noticeAttributedString.string as NSString).range(of: bluetoothName)
-        noticeAttributedString.setAttributes(Attributes.primaryBoldAttributes(size: 16), range: rangeBluetooth)
-        successNotice.attributedText = noticeAttributedString*/
+        successNotice.attributedText = noticeString.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).buildWithArgs(bluetoothName)
     }
     
     @IBAction func successAction(_ sender: Any) {

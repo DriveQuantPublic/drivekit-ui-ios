@@ -32,6 +32,15 @@ class PermissionViewController : DKUIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        if self.navigationController != nil {
+            self.navigationItem.hidesBackButton = true
+            self.navigationItem.leftBarButtonItem = nil
+        }
+    }
+
 }
 
 

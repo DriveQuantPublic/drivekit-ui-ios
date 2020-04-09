@@ -1,3 +1,5 @@
+fastlane/report.xml
+fastlane/README.md
 .DS_store
 drivekit-core/drivekit-core.xcodeproj/project.xcworkspace/xcuserdata/*
 

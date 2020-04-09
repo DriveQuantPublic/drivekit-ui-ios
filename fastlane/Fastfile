@@ -17,7 +17,11 @@ default_platform(:ios)
 
 platform :ios do
   desc "Description of what the lane does"
-  lane :update_podspec do
-    version_bump_podspec(path: "#{ENV['BITRISE_DEPLOY_DIR']}/github-repo/drivekit-ui-frameworks/DriveKitDriverDataUI.podspec", version_number: "#{ENV['BITRISE_GIT_TAG']}")
+  lane :update_podspec do |values|
+    version = values[:pod_version]
+    version_bump_podspec(path: "DriveKitCommonUI.podspec", version_number: "#{version}")
+    version_bump_podspec(path: "DriveKitDriverDataUI.podspec", version_number: "#{version}")
+    version_bump_podspec(path: "DriveKitDriverAchievementUI.podspec", version_number: "#{version}")
+    version_bump_podspec(path: "DriveKitVehicleUI.podspec", version_number: "#{version}")
   end
 end

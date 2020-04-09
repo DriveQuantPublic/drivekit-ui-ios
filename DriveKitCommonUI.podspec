@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '10.0'
 
   s.source_files = 'DriveKitCommonUI/**/*.swift'
-  s.resource = ['DriveKitCommonUI/Graphical/DKImages.xcassets', 'DriveKitCommonUI/Localizable/*']
+  s.resource = ['DriveKitCommonUI/Graphical/DKImages.xcassets', 'DriveKitCommonUI/Localizable/*','DriveKitCommonUI/**/*.xib']
 
   s.dependency 'UICircularProgressRing'
 

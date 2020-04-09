@@ -39,7 +39,7 @@ class ActivityPermissionViewController : PermissionViewController {
 
 
     private func updateView() {
-        self.titleLabel.attributedText = "dk_perm_utils_permissions_phone_settings_activity_title".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .highlightBig).color(.mainFontColor).build()
+        self.titleLabel.attributedText = "dk_perm_utils_permissions_phone_settings_activity_title".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
 
         self.descriptionLabel.attributedText = "dk_perm_utils_permissions_phone_settings_activity_text".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
 

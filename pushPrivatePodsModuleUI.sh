@@ -1,4 +1,3 @@
-drivekit-database-utils
 #!/bin/bash
 
 pod repo push drivekit-specs DriveKitDriverDataUI.podspec --allow-warnings

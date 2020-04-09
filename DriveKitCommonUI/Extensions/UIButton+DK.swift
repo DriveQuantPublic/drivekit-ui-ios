@@ -22,9 +22,9 @@ public enum DKButtonStyle {
     func configureText(text: String, button: UIButton) {
         switch self {
         case .full:
-            button.setAttributedTitle(text.dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).build(), for: .normal)
+            button.setAttributedTitle(text.dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).uppercased().build(), for: .normal)
         case .empty:
-            button.setAttributedTitle(text.dkAttributedString().font(dkFont: .primary, style: .button).color(.secondaryColor).build(), for: .normal)
+            button.setAttributedTitle(text.dkAttributedString().font(dkFont: .primary, style: .button).color(.secondaryColor).uppercased().build(), for: .normal)
         }
     }
     

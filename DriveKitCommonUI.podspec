@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'DriveKitCommonUI'
-  s.version          = '1.4-beta1'
+  s.version          = '1.4-beta3'
   s.summary          = 'DriveKit Common UI Framework'
 
   s.description      = 'Common features of all DriveKit UI modules'

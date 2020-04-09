@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'DriveKitVehicleUI'
-  s.version          = '1.4-beta1'
+  s.version          = '1.4-beta3'
   s.summary          = 'DriveKit Vehicle UI Framework'
 
   s.description      = 'DriveKit Vehicle features : Vehicles list and detail, beacon and bluetooth management, vehicle selection features'
@@ -18,6 +18,7 @@ Pod::Spec.new do |s|
 
   s.dependency 'DriveKitCommonUI', s.version.to_s
   s.dependency 'DriveKitVehicle'
+  s.dependency 'DriveKitTripAnalysis'
 
   s.info_plist = {
     'CFBundleIdentifier' => 'com.drivequant.drivekit-vehicle-ui'

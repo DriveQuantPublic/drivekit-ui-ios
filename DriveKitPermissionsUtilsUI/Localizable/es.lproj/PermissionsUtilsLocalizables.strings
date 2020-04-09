@@ -78,7 +78,7 @@
 "dk_perm_utils_app_diag_email_activity"="Autorización para acceder al seguimiento de la actividad:";
 "dk_perm_utils_permissions_location_pre_ios13"="Para beneficiarse de la grabación automática del viaje, la aplicación debe acceder a la ubicación del teléfono. Para ello, seleccione la opción \"Siempre\" a continuación.";
 "dk_perm_utils_permissions_location_ios13"="Para aprovechar la grabación automática de sus viajes, la aplicación debe acceder a la posición del teléfono. Para ello, seleccione \"Siempre\" en la configuración del teléfono siguiendo los siguientes pasos";
-"dk_perm_utils_permissions_location_pre_ios13_ko"="Debe permitir que la aplicación acceda a la ubicación del teléfono para que detecte y escanee sus viajes. En la configuración del teléfono, hay tres opciones disponibles:\n(1) nunca\n(2) cuando la aplicación está activa\n(3) siempre\nEs esencial seleccionar la opción (3) siempre que lo contrario, la aplicación no funcionará.";
+"dk_perm_utils_permissions_location_pre_ios13_ko"="Debe permitir que la aplicación acceda a la ubicación del teléfono para que detecte y escanee sus viajes. En la configuración del teléfono, hay tres opciones disponibles:\n(1) Nunca\n(2) Al usar la app\n(3) Siempre\nEs esencial seleccionar la opción (3) Siempre que lo contrario, la aplicación no funcionará.";
 "dk_perm_utils_permissions_location_title"="Autoseguimiento de viajes";
 "dk_perm_utils_permissions_location_text1_android"="La aplicación debe poder acceder a la posición del teléfono para detectar y analizar sus rutas.";
 "dk_perm_utils_permissions_location_text2_post_android10"="Para ello, seleccione \"Siempre\" cuando aparezca la siguiente ventana emergente.";

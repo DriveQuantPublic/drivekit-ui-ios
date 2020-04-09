@@ -24,11 +24,11 @@ public class DriveKitVehicleUI {
     
     var canAddVehicle: Bool = true
     var maxVehicles: Int? = nil
-     var canRemoveBeacon : Bool = true
+    var canRemoveBeacon : Bool = true
     
-    var vehicleActions : [VehicleAction] = VehicleAction.allCases
+    var vehicleActions : [DKVehicleAction] = DKVehicleAction.allCases
     var detectionModes: [DKDetectionMode] = [.disabled, .gps, .beacon, .bluetooth]
-    var customFields = [VehicleGroupField: [VehicleField]]()
+    var customFields = [DKVehicleGroupField: [DKVehicleField]]()
     
     var beaconDiagnosticEmail : DKContentMail? = nil
     var vehiclePickerExtraStep : DKVehiclePickerExtraStep? = nil
@@ -87,11 +87,11 @@ public class DriveKitVehicleUI {
         }
     }
     
-    public func configureVehicleActions(vehicleActions : [VehicleAction]) {
+    public func configureVehicleActions(vehicleActions : [DKVehicleAction]) {
         self.vehicleActions = vehicleActions
     }
     
-    public func addCustomVehicleField(groupField: VehicleGroupField, fieldsToAdd: [VehicleField]) {
+    public func addCustomVehicleField(groupField: DKVehicleGroupField, fieldsToAdd: [DKVehicleField]) {
         self.customFields = [groupField : fieldsToAdd]
     }
     

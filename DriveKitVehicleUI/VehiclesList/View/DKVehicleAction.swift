@@ -10,7 +10,7 @@ import UIKit
 import DriveKitCommonUI
 import DriveKitDBVehicleAccess
 
-public enum VehicleAction : String, CaseIterable  {
+public enum DKVehicleAction : String, CaseIterable  {
     case show
     case rename
     case replace

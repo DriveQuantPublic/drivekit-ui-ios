@@ -24,7 +24,7 @@ class VehicleFieldCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func configure(field: VehicleField, value: String, delegate: VehicleFieldCellDelegate, hasError: Bool) {
+    func configure(field: DKVehicleField, value: String, delegate: VehicleFieldCellDelegate, hasError: Bool) {
         textFieldView.delegate = self
         textFieldView.placeholder = field.title
         textFieldView.title = field.title

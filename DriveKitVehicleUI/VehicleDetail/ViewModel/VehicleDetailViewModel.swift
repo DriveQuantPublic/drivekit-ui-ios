@@ -18,17 +18,17 @@ class VehicleDetailViewModel {
     
     let vehicleDisplayName: String
     let vehicle: DKVehicle
-    var groupFields: [VehicleGroupField] = []
-    private var updatedFields: [VehicleField] = []
+    var groupFields: [DKVehicleGroupField] = []
+    private var updatedFields: [DKVehicleField] = []
     private var updateFieldsValue: [String] = []
-    private var errorFields: [VehicleField] = []
+    private var errorFields: [DKVehicleField] = []
 
     weak var delegate : VehicleDetailDelegate? = nil
     
     init(vehicle: DKVehicle, vehicleDisplayName: String) {
         self.vehicle = vehicle
         self.vehicleDisplayName = vehicleDisplayName
-        let groups = VehicleGroupField.allCases
+        let groups = DKVehicleGroupField.allCases
         for groupField in groups {
             if groupField.isDisplayable(vehicle: vehicle) {
                 groupFields.append(groupField)
@@ -36,15 +36,15 @@ class VehicleDetailViewModel {
         }
     }
     
-    func getField(groupField: VehicleGroupField) -> [VehicleField] {
+    func getField(groupField: DKVehicleGroupField) -> [DKVehicleField] {
         return groupField.getFields(vehicle: vehicle)
     }
     
-    func getFieldValue(field: VehicleField) -> String {
+    func getFieldValue(field: DKVehicleField) -> String {
         return field.getValue(vehicle: vehicle) ?? ""
     }
     
-    func addUpdatedField(field: VehicleField, value: String) {
+    func addUpdatedField(field: DKVehicleField, value: String) {
         delegate?.needUpdate()
         if let index = updatedFields.firstIndex(where: {$0.title == field.title}) {
             updatedFields.remove(at: index)
@@ -86,11 +86,11 @@ class VehicleDetailViewModel {
         }
     }
     
-    func hasError(field: VehicleField) -> Bool {
+    func hasError(field: DKVehicleField) -> Bool {
         return errorFields.contains(where: {$0.title == field.title})
     }
     
-    private func addErrorField(field: VehicleField) {
+    private func addErrorField(field: DKVehicleField) {
         if !hasError(field: field) {
             errorFields.append(field)
         }

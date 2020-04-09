@@ -40,7 +40,7 @@ class VehiclesListViewModel {
         return vehicles.count
     }
     
-    func vehicleActions(pos: Int) -> [VehicleAction] {
+    func vehicleActions(pos: Int) -> [DKVehicleAction] {
         var actions = DriveKitVehicleUI.shared.vehicleActions
         if vehiclesCount <= 1 {
             actions.removeAll(where: {$0 == .delete})

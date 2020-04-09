@@ -98,31 +98,22 @@ class ViewController: UITableViewController {
     }
     
     @IBAction func didTouchLocalization(_ sender: Any) {
-        if #available(iOS 13.0, *) {
-            if CLLocationManager.authorizationStatus() == .notDetermined {
-                location.requestWhenInUseAuthorization()
-            } else {
-                self.alertAuthorizations()
-            }
+        if DKDiagnosisHelper.shared.getPermissionStatus(.location) == .valid {
+            self.alertAuthorizations()
         } else {
-            if CLLocationManager.authorizationStatus() == .notDetermined {
-                location.requestAlwaysAuthorization()
-            } else {
-                self.alertAuthorizations()
+            DriveKitPermissionsUtilsUI.shared.showPermissionViews([.location], parentViewController: self.navigationController!) {
+                self.showAlertMessage(title: "Location", message: "👍", back: false, cancel: false)
             }
         }
-        
     }
     
     @IBAction func didTouchActivity(_ sender: Any) {
-        if #available(iOS 11.0, *) {
-            if CMMotionActivityManager.authorizationStatus() == .notDetermined {
-                motion.startActivityUpdates(to: .main, withHandler: { _ in })
-            } else {
-                self.alertAuthorizations()
-            }
+        if DKDiagnosisHelper.shared.getPermissionStatus(.activity) == .valid {
+            self.alertAuthorizations()
         } else {
-            motion.startActivityUpdates(to: .main, withHandler: { _ in })
+            DriveKitPermissionsUtilsUI.shared.showPermissionViews([.activity], parentViewController: self.navigationController!) {
+                self.showAlertMessage(title: "Activity", message: "👍", back: false, cancel: false)
+            }
         }
     }
     

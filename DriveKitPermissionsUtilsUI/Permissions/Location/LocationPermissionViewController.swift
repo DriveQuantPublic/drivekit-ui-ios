@@ -47,8 +47,7 @@ class LocationPermissionViewController : PermissionViewController {
     private func updateView() {
         self.titleLabel.attributedText = "dk_perm_utils_permissions_location_title".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .highlightBig).color(.mainFontColor).build()
 
-        self.actionButton.setAttributedTitle("dk_perm_utils_permissions_location_button_ios".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).uppercased().build(), for: .normal)
-        self.actionButton.backgroundColor = DKUIColors.secondaryColor.color
+        self.actionButton.configure(text: "dk_perm_utils_permissions_location_button_ios".dkPermissionsUtilsLocalized(), style: .full)
 
         if #available(iOS 13.0, *) {
             updateViewIOS13()

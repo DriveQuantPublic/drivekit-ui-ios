@@ -87,7 +87,7 @@
 "dk_perm_utils_permissions_location_button_ios"="Abrir los ajustes";
 "dk_perm_utils_permissions_activity_button_ios"="Abrir los ajustes";
 "dk_perm_utils_permissions_phone_settings_activity_title"="Seguimiento de la actividad";
-"dk_perm_utils_permissions_phone_settings_activity_text"="Para mejorar el análisis de sus viajes e identificar el medio de transporte utilizado, debe permitir que la aplicación acceda a la actividad telefónica.";
+"dk_perm_utils_permissions_phone_settings_activity_text"="Para mejorar el análisis de sus viajes e identificar el medio de transporte utilizado, debe activar la opción Condición y actividad física.";
 "dk_perm_utils_permissions_phone_settings_activity_button"="Autorizar el seguimiento de la actividad";
 "dk_perm_utils_permissions_phone_settings_background_title"="Operación en segundo plano";
 "dk_perm_utils_permissions_phone_settings_background_text1"="Para evitar que la aplicación sea detenida por el sistema de ahorro de batería del teléfono, debe aceptar la ejecución en segundo plano.";

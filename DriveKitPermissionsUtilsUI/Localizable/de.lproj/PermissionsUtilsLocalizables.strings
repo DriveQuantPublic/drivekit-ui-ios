@@ -87,7 +87,7 @@
 "dk_perm_utils_permissions_location_button_ios"="Öffnen Sie die Einstellungen";
 "dk_perm_utils_permissions_activity_button_ios"="Öffnen Sie die Einstellungen";
 "dk_perm_utils_permissions_phone_settings_activity_title"="Aktivitätsüberwachung";
-"dk_perm_utils_permissions_phone_settings_activity_text"="Um die Analyse Ihrer Fahrten zu verbessern und den verwendeten Verkehrsträger zu identifizieren, müssen Sie der Anwendung den Zugriff auf die Telefonaktivität ermöglichen.";
+"dk_perm_utils_permissions_phone_settings_activity_text"="Um die Analyse Ihrer Fahrten zu verbessern und den verwendeten Verkehrsträger zu identifizieren, müssen Sie die Option Bewegung & Fitness.";
 "dk_perm_utils_permissions_phone_settings_activity_button"="Berechtigung zur Aktivitätsverfolgung";
 "dk_perm_utils_permissions_phone_settings_background_title"="Betrieb im Hintergrund";
 "dk_perm_utils_permissions_phone_settings_background_text1"="Um zu verhindern, dass die Anwendung durch das Batteriesparsystem des Telefons gestoppt wird, müssen Sie die Ausführung im Hintergrund akzeptieren.";

@@ -87,7 +87,7 @@
 "dk_perm_utils_permissions_location_button_ios"="Open the settings";
 "dk_perm_utils_permissions_activity_button_ios"="Open the settings";
 "dk_perm_utils_permissions_phone_settings_activity_title"="Activity monitoring";
-"dk_perm_utils_permissions_phone_settings_activity_text"="To improve the analysis of your trips and identify the mode of transport used, you must allow the application to access the phone activity.";
+"dk_perm_utils_permissions_phone_settings_activity_text"="To improve the analysis of your trips and identify the mode of transport used, you must activate the option Motion and Fitness on your phone.";
 "dk_perm_utils_permissions_phone_settings_activity_button"="Authorize activity tracking";
 "dk_perm_utils_permissions_phone_settings_background_title"="Background task";
 "dk_perm_utils_permissions_phone_settings_background_text1"="To avoid the application being stopped by the phone's battery saving system, you must accept background task.";

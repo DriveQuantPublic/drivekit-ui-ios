@@ -87,7 +87,7 @@
 "dk_perm_utils_permissions_location_button_ios"="Ouvrir les réglages";
 "dk_perm_utils_permissions_activity_button_ios"="Ouvrir les réglages";
 "dk_perm_utils_permissions_phone_settings_activity_title"="Suivi de l\'activité";
-"dk_perm_utils_permissions_phone_settings_activity_text"="Pour améliorer l\'analyse de vos trajets et identifier le mode de transport utilisé, vous devez autoriser l\'application à accéder à l\'activité du téléphone.";
+"dk_perm_utils_permissions_phone_settings_activity_text"="Pour améliorer l\'analyse de vos trajets et identifier le mode de transport utilisé, vous devez activer l\'option Mouvements et forme de votre téléphone";
 "dk_perm_utils_permissions_phone_settings_activity_button"="Autoriser le suivi de l\'activité";
 "dk_perm_utils_permissions_phone_settings_background_title"="Fonctionnement en arrière-plan";
 "dk_perm_utils_permissions_phone_settings_background_text1"="Pour éviter que l\’application soit stoppée par le système d'économie de la batterie du téléphone, vous devez accepter l\'exécution en arrière-plan.";

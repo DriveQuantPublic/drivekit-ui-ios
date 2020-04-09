@@ -57,7 +57,7 @@ class LocationPermissionViewController : PermissionViewController {
     }
 
     private func updateViewIOS13() {
-        self.descriptionLabel.attributedText = "dk_perm_utils_permissions_location_ios13".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        self.descriptionLabel.attributedText = "dk_perm_utils_permissions_location_ios13_ko".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
 
         self.settingsContainer1.isHidden = false
         self.settingsDescription1.attributedText = "dk_perm_utils_permissions_phone_settings_location_step1".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()

@@ -24,6 +24,7 @@ public enum DKCommonLocalizable : String {
     unitGperKM = "dk_common_unit_g_per_km",
     unitKmPerHour = "dk_common_unit_km_per_hour",
     unitLPer100Km = "dk_common_unit_l_per_100km",
+    unitPower = "dk_common_unit_power",
     unitMPG = "dk_common_unit_mpg",
     unitMPH = "dk_common_unit_mph",
     unitAcceleration = "dk_common_unit_accel_meter_per_second_square",
@@ -51,10 +52,16 @@ public enum DKCommonLocalizable : String {
     contextCityDense = "dk_common_driving_context_city_dense",
     contextCity = "dk_common_driving_context_city",
     contextExternal = "dk_common_driving_context_external",
-    contextFastlane = "dk_common_driving_context_fastlane"
+    contextFastlane = "dk_common_driving_context_fastlane",
+    updatePhotoTitle = "dk_common_update_photo_title",
+    camera = "dk_common_take_picture",
+    gallery = "dk_common_select_image_gallery",
+    cameraPermission = "dk_common_permission_camera_rationale"
+    
+    
     
     public func text() -> String {
-        return self.rawValue.dkLocalized(tableName: "CommonLocalizable", bundle: Bundle(identifier: "com.drivequant.drivekit-common-ui") ?? .main)
+        return self.rawValue.dkLocalized(tableName: "CommonLocalizable", bundle: .driveKitCommonUIBundle ?? .main)
     }
 }
 

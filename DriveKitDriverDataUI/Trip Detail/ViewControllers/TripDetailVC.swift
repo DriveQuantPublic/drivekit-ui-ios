@@ -45,16 +45,9 @@ class TripDetailVC: DKUIViewController {
         super.viewDidLoad()
         self.title = "dk_driverdata_trip_detail_title".dkDriverDataLocalized()
         showLoader()
+        self.viewModel.delegate = self
         setupMapView()
         self.configureDeleteButton()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.viewModel.delegate = self
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        self.viewModel.delegate = nil
     }
     
     private func configureDeleteButton(){
@@ -244,7 +237,7 @@ extension TripDetailVC {
     
     func setupSynthesis() {
         let synthesisViewModel = SynthesisPageViewModel(tripDetailViewModel: self.viewModel, trip: self.viewModel.trip!)
-        let synthesisPageVC = SynthesisPageVC(viewModel: synthesisViewModel)
+        let synthesisPageVC = SynthesisPageVC(viewModel: synthesisViewModel, parentView: self)
         swipableViewControllers.append(synthesisPageVC)
     }
     

@@ -13,6 +13,9 @@ import DriveKitTripAnalysis
 import CoreLocation
 import CoreMotion
 import DriveKitCommonUI
+import DriveKitVehicleUI
+import DriveKitVehicle
+import DriveKitDBVehicleAccess
 
 class ViewController: UITableViewController {
     
@@ -31,6 +34,8 @@ class ViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.title = "Sample app"
         configureTripAnalysisButton()
         configureText()
     }
@@ -78,6 +83,12 @@ class ViewController: UITableViewController {
             self.configureDriverDataUI()
         }else if indexPath.row == 3 && indexPath.section == 0 {
             self.configureDriverStreak()
+        }else if indexPath.row == 4 && indexPath.section == 0 {
+            self.configureVehiclePicker()
+        }else if indexPath.row == 5 && indexPath.section == 0 {
+            self.configureBeaconPairing()
+        } else if indexPath.row == 6 && indexPath.section == 0 {
+            self.configureVehiclesList()
         }
     }
     
@@ -159,9 +170,8 @@ class ViewController: UITableViewController {
     
     func configureDriverDataUI() {
         DispatchQueue.main.async {
-
+            
             let tripListVC = TripListVC()
-            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
             self.navigationController?.pushViewController(tripListVC, animated: true)
         }
     }
@@ -169,11 +179,45 @@ class ViewController: UITableViewController {
     func configureDriverStreak() {
         if let driverAchievementUI = DriveKitNavigationController.shared.driverAchievementUI {
             let streakVC = driverAchievementUI.getStreakViewController()
-            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
             self.navigationController?.pushViewController(streakVC, animated: true)
         }
+    }
+    func configureVehiclePicker() {
+        DispatchQueue.main.async {
+           _ = DKVehiclePickerNavigationController(parentView: self)
+        }
+    }
+    
+    func configureBeaconPairing() {
+        DriveKitVehicle.shared.getVehiclesOrderByNameAsc(type: .cache, completionHandler: {[unowned self]status, vehicles in
+            DispatchQueue.main.async {
+                var uuid : String? = nil
+                for vehicle in vehicles {
+                    if let beacon = vehicle.beacon {
+                        uuid = beacon.proximityUuid
+                        break
+                    }
+                }
+                if let proxUuid = uuid {
+                    let beacon = DKBeacon(uniqueId: nil, proximityUuid: proxUuid, major: -1, minor: -1)
+                    let viewModel = BeaconViewModel(scanType: .diagnostic, beacon: beacon, vehicles: vehicles)
+                    self.navigationController?.pushViewController(BeaconScannerVC(viewModel: viewModel, step: .initial, parentView: self), animated: true)
+                } else {
+                    let viewModel = BeaconViewModel(scanType: .diagnostic)
+                    self.navigationController?.pushViewController(BeaconScannerVC(viewModel: viewModel, step: .beaconNotConfigured, parentView: self), animated: true)
+                }
+            }
+        })
         
     }
+    
+    func configureVehiclesList(){
+        DispatchQueue.main.async {
+            let listVC = VehiclesListVC()
+            self.navigationController?.pushViewController(listVC, animated: true)
+        }
+    }
+    
     
     @IBAction func startTrip(_ sender: Any) {
         DriveKitTripAnalysis.shared.startTrip()
@@ -189,4 +233,3 @@ class ViewController: UITableViewController {
         configureTripAnalysisButton()
     }
 }
-

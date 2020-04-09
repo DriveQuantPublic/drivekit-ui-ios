@@ -33,7 +33,7 @@ class TripDetailViewModel {
     
     private var selection: Int? = nil
     
-    var delegate: TripDetailDelegate? = nil {
+    weak var delegate: TripDetailDelegate? = nil {
         didSet {
             if self.delegate != nil {
                 self.fetchTripData()
@@ -172,7 +172,7 @@ class TripDetailViewModel {
     }
 }
 
-protocol TripDetailDelegate {
+protocol TripDetailDelegate : AnyObject {
     func onDataAvailable(tripSyncStatus : TripSyncStatus, routeSync: Bool)
     func noRoute()
     func noData()

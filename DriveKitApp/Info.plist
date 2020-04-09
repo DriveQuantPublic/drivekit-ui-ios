@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app requires access to the photo library.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>This app requires access to the camera.</string>
+	<key>LSSupportsOpeningDocumentsInPlace - 2</key>
+	<true/>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
 	<key>CFBundleDevelopmentRegion</key>
@@ -55,5 +61,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>This app needs to access Bluetooth in order to get Beacon battery</string>
 </dict>
 </plist>

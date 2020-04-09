@@ -1,11 +1,3 @@
-/* 
-  CommonLocalizable.strings
-  DriveKitApp
-
-  Created by Jérémy Bayle on 27/02/2020.
-  Copyright © 2020 DriveQuant. All rights reserved.
-*/
-
 "dk_common_cancel"="Annuler";
 "dk_common_close"="Fermer";
 "dk_common_confirm"="Confirmer";
@@ -47,5 +39,6 @@
 "dk_common_unit_minute"="min";
 "dk_common_unit_mpg"="mpg";
 "dk_common_unit_mph"="mph";
+"dk_common_unit_power"="ch";
 "dk_common_unit_second"="s";
 "dk_common_validate"="Valider";

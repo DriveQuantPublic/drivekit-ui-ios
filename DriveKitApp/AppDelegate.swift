@@ -19,6 +19,7 @@ import DriveKitDriverDataUI
 import DriveKitVehicleUI
 import DriveKitVehicle
 import DriveKitDBVehicleAccess
+import DriveKitPermissionsUtilsUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -44,6 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitVehicleUI.shared.initialize()
         DriveKitVehicleUI.shared.configureBeaconDetailEmail(beaconDiagnosticEmail: self)
         DriveKitVehicleUI.shared.configureCategoryConfigType(type: .bothConfig)
+        DriveKitPermissionsUtilsUI.shared.initialize()
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options : \(options)")
         return true
     }

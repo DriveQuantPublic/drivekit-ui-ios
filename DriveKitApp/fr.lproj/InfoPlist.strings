@@ -1,0 +1,14 @@
+/* 
+  InfoPlist.strings
+  DriveKitApp
+
+  Created by David Bauduin on 08/04/2020.
+  Copyright © 2020 DriveQuant. All rights reserved.
+*/
+
+"NSLocationAlwaysUsageDescription"="Pour bénéficier de l'analyse de vos trajets et du mode automatique, sélectionnez l'option \"Toujours autoriser\". Bonne route...";
+"NSLocationWhenInUseUsageDescription"="Pour bénéficier de l'analyse de vos trajets et du mode automatique, sélectionnez l'option \"Toujours autoriser\". Bonne route...";
+"NSLocationAlwaysAndWhenInUseUsageDescription"="Pour bénéficier de la détection et de l'analyse automatique de votre conduite sans avoir à manipuler votre iPhone, sélectionnez l'option \"Toujours autoriser\". Bonne route...";
+"NSBluetoothAlwaysUsageDescription"="L'application a besoin du Bluetooth afin de récupérer le niveau de batterie du beacon";
+"NSBluetoothPeripheralUsageDescription"="L'application a besoin du Bluetooth afin de récupérer le niveau de batterie du beacon";
+"NSMotionUsageDescription"="Cette application a besoin de votre autorisation pour récupérer les données de mouvements afin de détecter votre mode de transport";

@@ -16,6 +16,7 @@ import DriveKitCommonUI
 import DriveKitVehicleUI
 import DriveKitVehicle
 import DriveKitDBVehicleAccess
+import DriveKitPermissionsUtilsUI
 
 class ViewController: UITableViewController {
     
@@ -79,16 +80,20 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 1 && indexPath.section == 0 {
-            self.configureDriverDataUI()
-        }else if indexPath.row == 3 && indexPath.section == 0 {
-            self.configureDriverStreak()
-        }else if indexPath.row == 4 && indexPath.section == 0 {
-            self.configureVehiclePicker()
-        }else if indexPath.row == 5 && indexPath.section == 0 {
-            self.configureBeaconPairing()
-        } else if indexPath.row == 6 && indexPath.section == 0 {
-            self.configureVehiclesList()
+        if indexPath.section == 0 {
+            if indexPath.row == 1 {
+                self.configureDriverDataUI()
+            } else if indexPath.row == 3 {
+                self.configureDriverStreak()
+            } else if indexPath.row == 4 {
+                self.configureVehiclePicker()
+            } else if indexPath.row == 5 {
+                self.configureBeaconPairing()
+            } else if indexPath.row == 6 {
+                self.configureVehiclesList()
+            } else if indexPath.row == 7 {
+                self.askOnboardingPermissions()
+            }
         }
     }
     
@@ -208,13 +213,18 @@ class ViewController: UITableViewController {
                 }
             }
         })
-        
     }
     
     func configureVehiclesList(){
         DispatchQueue.main.async {
             let listVC = VehiclesListVC()
             self.navigationController?.pushViewController(listVC, animated: true)
+        }
+    }
+
+    private func askOnboardingPermissions() {
+        DriveKitPermissionsUtilsUI.shared.showPermissionViews([.location, .activity], parentViewController: self.navigationController!) {
+            self.showAlertMessage(title: "Permissions", message: "👍", back: false, cancel: false)
         }
     }
     

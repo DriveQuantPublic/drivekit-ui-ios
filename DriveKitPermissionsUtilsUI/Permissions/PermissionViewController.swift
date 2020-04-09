@@ -20,6 +20,8 @@ class PermissionViewController : DKUIViewController {
         self.nextPermissionViews = nextPermissionViews
         self.completionHandler = completionHandler
         super.init(nibName: nibName, bundle: Bundle.permissionsUtilsUIBundle)
+
+        self.modalPresentationStyle = .overFullScreen
     }
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {

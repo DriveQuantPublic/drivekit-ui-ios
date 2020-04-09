@@ -78,7 +78,7 @@
 "dk_perm_utils_app_diag_email_activity"="Berechtigung zum Zugriff auf die Aktivitätsverfolgung:";
 "dk_perm_utils_permissions_location_pre_ios13"="Um von der automatischen Reiseaufzeichnung zu profitieren, muss die Anwendung auf den Standort des Telefons zugreifen. Wählen Sie dazu unten die Option \"Immer\".";
 "dk_perm_utils_permissions_location_ios13"="Um die Vorteile der automatischen Aufzeichnung Ihrer Fahrten zu nutzen, muss die Anwendung auf die Position des Telefons zugreifen. Wählen Sie dazu in den Telefoneinstellungen \"Immer\", indem Sie die folgenden Schritte ausführen";
-"dk_perm_utils_permissions_location_pre_ios13_ko"="Sie müssen der App erlauben, auf den Standort des Telefons zuzugreifen, damit Ihre Reisen erkannt und gescannt werden können. In den Telefoneinstellungen sind drei Optionen verfügbar: (1) nie, (2) wenn die App aktiv ist und (3) immer. Es ist wichtig, die Option (3) zu wählen, sonst funktioniert die Anwendung nicht.";
+"dk_perm_utils_permissions_location_pre_ios13_ko"="Sie müssen der App erlauben, auf den Standort des Telefons zuzugreifen, damit Ihre Reisen erkannt und gescannt werden können. In den Telefoneinstellungen sind drei Optionen verfügbar:\n(1) nie\n(2) wenn die App aktiv ist\n(3) immer.\nEs ist wichtig, die Option (3) zu wählen, sonst funktioniert die Anwendung nicht.";
 "dk_perm_utils_permissions_location_title"="Tourenaufzeichnung";
 "dk_perm_utils_permissions_location_text1_android"="Die Anwendung muss auf die Position des Telefons zugreifen können, um Ihre Routen zu erkennen und zu analysieren.";
 "dk_perm_utils_permissions_location_text2_post_android10"="Wählen Sie dazu bei der Anzeige des nächsten Popups \"Immer\".";

@@ -78,7 +78,7 @@
 "dk_perm_utils_app_diag_email_activity"="Authorization to access activity monitoring:";
 "dk_perm_utils_permissions_location_pre_ios13"="To enjoy automatic trip recording, the application must access the phone's location. To do this, select the \"Always Allow\" option below.";
 "dk_perm_utils_permissions_location_ios13"="To enjoy automatic recording of your trips, the application must access the phone\'s position. To do this, select \"Always\" in the phone settings by following the steps below";
-"dk_perm_utils_permissions_location_pre_ios13_ko"="You must allow the app to access the phone\'s location for it to detect and scan your trips. In the phone settings, three options are available: (1) never, (2) when the app is active and (3) always. It is essential to select option (3) always otherwise, the application will not work.";
+"dk_perm_utils_permissions_location_pre_ios13_ko"="You must allow the app to access the phone\'s location for it to detect and scan your trips. In the phone settings, three options are available:\n(1) never\n(2) when the app is active\n(3) always\nIt is essential to select option (3) always otherwise, the application will not work.";
 "dk_perm_utils_permissions_location_title"="Trip recording";
 "dk_perm_utils_permissions_location_text1_android"="The application must be allowed to access the phone\'s position to detect and analyze your trips.";
 "dk_perm_utils_permissions_location_text2_post_android10"="To do this, choose \"Always\" when the next popup is displayed.";

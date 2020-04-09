@@ -14,7 +14,7 @@ import DriveKitCommonUI
 
 class StreakViewModel {
     
-    var delegate : StreakVMDelegate? = nil
+    weak var delegate : StreakVMDelegate? = nil
     
     var streakData : [StreakData] = []
     
@@ -49,7 +49,7 @@ class StreakViewModel {
     
 }
 
-protocol StreakVMDelegate {
+protocol StreakVMDelegate : AnyObject {
     func streaksUpdated(status: StreakSyncStatus)
     func failedToUpdateStreak(status: StreakSyncStatus)
 }

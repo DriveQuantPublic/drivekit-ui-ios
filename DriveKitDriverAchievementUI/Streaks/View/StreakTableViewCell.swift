@@ -30,7 +30,7 @@ class StreakTableViewCell: UITableViewCell {
     @IBOutlet weak var helpView: UIImageView!
     
     private var streak : StreakData!
-    private var parentViewController: UIViewController?
+    private weak var parentViewController: UIViewController?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -53,7 +53,7 @@ class StreakTableViewCell: UITableViewCell {
     }
     
     private func configureCurrent() {
-        let stats = streak.getCurrentTripNumber().dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.secondaryColor).build()
+        let stats = streak.getCurrentTripNumber().dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.secondaryColor).build()
         let tripText = streak.getCurrentTripNumberText().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.secondaryColor).build()
         let secondaryString = " - \(streak.getCurrentDistance()) - \(streak.getCurrentDuration())".dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
         stats.append(NSAttributedString(string: " "))
@@ -69,7 +69,7 @@ class StreakTableViewCell: UITableViewCell {
     }
     
     private func configureBest() {
-        let stats = streak.getBestTripNumber().dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
+        let stats = streak.getBestTripNumber().dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
         let secondaryString = " \(streak.getBestTripNumberText()) - \(streak.getBestDistance()) - \(streak.getBestDuration())".dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
         stats.append(secondaryString)
         bestStats.attributedText = stats
@@ -94,18 +94,18 @@ class StreakTableViewCell: UITableViewCell {
         }
         
         slider.minimumTrackTintColor = DKUIColors.secondaryColor.color
-        slider.maximumTrackTintColor = DKUIColors.complementaryFontColor.color
+        slider.maximumTrackTintColor = .lightGray
     }
     
     private func configureTripNumber(){
         currentTripNumberView.layer.cornerRadius = 16
         currentTripNumberView.layer.borderWidth = 2.0
-        var color = DKUIColors.complementaryFontColor
+        var color = UIColor.lightGray
         if streak.status == .best {
-            color = .secondaryColor
+            color = DKUIColors.secondaryColor.color
         }
-        currentTripNumberView.layer.borderColor = color.color.cgColor
-        currentTripNumberLabel.attributedText = self.streak.getBestTripNumber().dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(color).build()
+        currentTripNumberView.layer.borderColor = color.cgColor
+        currentTripNumberLabel.attributedText = self.streak.getBestTripNumber().dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(color).build()
     }
     
     private func configureHelpButton() {

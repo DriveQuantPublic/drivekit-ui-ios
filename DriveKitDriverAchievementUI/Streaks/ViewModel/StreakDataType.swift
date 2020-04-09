@@ -38,7 +38,7 @@ public extension DKStreakTheme {
         case .brake:
             return DKImages.safetyDecel.image
         case .phoneDistraction:
-            return DKImages.distractionFilled.image
+            return DKImages.distraction.image
         case .safety:
             return DKImages.safety.image
         case .speedLimits:

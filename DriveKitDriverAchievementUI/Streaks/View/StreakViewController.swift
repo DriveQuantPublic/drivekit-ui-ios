@@ -41,7 +41,10 @@ public class StreakViewController: DKUIViewController {
 
 extension StreakViewController : StreakVMDelegate {
     func failedToUpdateStreak(status: StreakSyncStatus) {
-        self.showAlertMessage(title: nil, message: "dk_achievements_failed_to_sync_streaks".dkAchievementLocalized(), back: false, cancel: false)
+        DispatchQueue.main.async {
+            self.hideLoader()
+            self.showAlertMessage(title: nil, message: "dk_achievements_failed_to_sync_streaks".dkAchievementLocalized(), back: false, cancel: false)
+        }
     }
     
     func streaksUpdated(status: StreakSyncStatus) {

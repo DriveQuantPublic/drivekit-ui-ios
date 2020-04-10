@@ -77,10 +77,12 @@
 "dk_perm_utils_diag_app_ok"="Todo es normal";
 "dk_perm_utils_diag_app_ok_text"="La configuración de su teléfono es buena y los sensores necesarios para el análisis de sus viajes están activados.";
 "dk_perm_utils_permissions_activity_button_ios"="Abrir los ajustes";
+"dk_perm_utils_permissions_activity_popup_title"="Permisos";
 "dk_perm_utils_permissions_location_button_android"="Autorizar la ubicación";
 "dk_perm_utils_permissions_location_button_ios"="Abrir los ajustes";
 "dk_perm_utils_permissions_location_ios13_ko"="Para aprovechar la grabación automática de sus viajes, la aplicación debe acceder a la posición del teléfono. Para ello, seleccione \"Siempre\" en la configuración del teléfono siguiendo los siguientes pasos";
-"dk_perm_utils_permissions_location_pre_ios13_ko"="Debe permitir que la aplicación acceda a la ubicación del teléfono para que detecte y escanee sus viajes. En la configuración del teléfono, hay tres opciones disponibles:\n(1) Nunca\n(2) Al usar la app\n(3) Siempre\nEs esencial seleccionar la opción (3) Siempre que lo contrario, la aplicación no funcionará.";
+"dk_perm_utils_permissions_location_popup_title"="Permisos";
+"dk_perm_utils_permissions_location_pre_ios13_ko"="Debe permitir que la aplicación acceda a la ubicación del teléfono para que detecte y escanee sus viajes.\n\nEn la configuración del teléfono, hay tres opciones disponibles:\n(1) Nunca\n(2) Al usar la app\n(3) Siempre\n\nEs esencial seleccionar la opción (3) Siempre que lo contrario, la aplicación no funcionará.";
 "dk_perm_utils_permissions_location_text1_android"="La aplicación debe poder acceder a la posición del teléfono para detectar y analizar sus rutas.";
 "dk_perm_utils_permissions_location_text2_post_android10"="Para ello, seleccione \"Permitir siempre\" cuando aparezca la siguiente ventana emergente.";
 "dk_perm_utils_permissions_location_text2_pre_android10"="Para ello, seleccione \"Permitir\" cuando aparezca la siguiente ventana emergente.";
@@ -95,3 +97,6 @@
 "dk_perm_utils_permissions_phone_settings_location_step1"="Pulse \"Abrir los ajustes\"";
 "dk_perm_utils_permissions_phone_settings_location_step2"="Pulse sobre la posición";
 "dk_perm_utils_permissions_phone_settings_location_step3"="Seleccione \"Siempre\"";
+"dk_perm_utils_permissions_popup_button_settings"="Ajustes";
+"dk_perm_utils_permissions_text_button_activity_settings"="Abrir los ajustes";
+"dk_perm_utils_permissions_text_button_location_settings"="Abrir los ajustes";

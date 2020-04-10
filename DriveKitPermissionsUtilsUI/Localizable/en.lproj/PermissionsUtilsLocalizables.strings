@@ -77,10 +77,12 @@
 "dk_perm_utils_diag_app_ok"="Everything is normal";
 "dk_perm_utils_diag_app_ok_text"="The settings of your phone are good and the sensors necessary for the analysis of your trips are activated.";
 "dk_perm_utils_permissions_activity_button_ios"="Open the settings";
+"dk_perm_utils_permissions_activity_popup_title"="Permissions";
 "dk_perm_utils_permissions_location_button_android"="Allow location";
 "dk_perm_utils_permissions_location_button_ios"="Open the settings";
 "dk_perm_utils_permissions_location_ios13_ko"="To enjoy automatic recording of your trips, the application must access the phone\'s position. To do this, select \"Always\" in the phone settings by following the steps below";
-"dk_perm_utils_permissions_location_pre_ios13_ko"="You must allow the app to access the phone\'s location for it to detect and scan your trips. In the phone settings, three options are available:\n(1) Never\n(2) While Using the App\n(3) Always\nIt is essential to select option (3) Always otherwise, the application will not work.";
+"dk_perm_utils_permissions_location_popup_title"="Permissions";
+"dk_perm_utils_permissions_location_pre_ios13_ko"="You must allow the app to access the phone\'s location for it to detect and scan your trips.\n\nIn the phone settings, three options are available:\n(1) Never\n(2) While Using the App\n(3) Always\n\nIt is essential to select option (3) Always, otherwise, the application will not work.";
 "dk_perm_utils_permissions_location_text1_android"="The application must be allowed to access the phone\'s position to detect and analyze your trips.";
 "dk_perm_utils_permissions_location_text2_post_android10"="To do this, choose \"Allow all the time\" when the next popup is displayed.";
 "dk_perm_utils_permissions_location_text2_pre_android10"="To do this, choose \"Allow\" when the next popup is displayed.";
@@ -95,3 +97,6 @@
 "dk_perm_utils_permissions_phone_settings_location_step1"="Press \"Open the settings\"";
 "dk_perm_utils_permissions_phone_settings_location_step2"="Tap on location";
 "dk_perm_utils_permissions_phone_settings_location_step3"="Select \"Always\"";
+"dk_perm_utils_permissions_popup_button_settings"="Settings";
+"dk_perm_utils_permissions_text_button_activity_settings"="Open the settings";
+"dk_perm_utils_permissions_text_button_location_settings"="Open the settings";

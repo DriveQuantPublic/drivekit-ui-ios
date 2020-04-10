@@ -77,10 +77,12 @@
 "dk_perm_utils_diag_app_ok"="Tout est normal";
 "dk_perm_utils_diag_app_ok_text"="Les réglages de votre téléphone sont bons et les capteurs nécessaires à l\’analyse de vos trajets sont activés.";
 "dk_perm_utils_permissions_activity_button_ios"="Ouvrir les réglages";
+"dk_perm_utils_permissions_activity_popup_title"="Autorisations";
 "dk_perm_utils_permissions_location_button_android"="Autoriser la localisation";
 "dk_perm_utils_permissions_location_button_ios"="Ouvrir les réglages";
 "dk_perm_utils_permissions_location_ios13_ko"="Pour bénéficier de l\'enregistrement automatique de vos trajets, l\'application doit accéder à la position du téléphone. Pour cela, sélectionnez \"Toujours\" dans les réglages du téléphone en suivant les étapes ci-dessous.";
-"dk_perm_utils_permissions_location_pre_ios13_ko"="Vous devez autoriser l\'application à accéder à la position du téléphone pour qu\'elle détecte et qu\’elle analyse vos trajets. Dans les paramètres du téléphone, trois options sont proposées :\n(1) Jamais\n(2) Lorsque l\'app est active\n(3) Toujours\nIl est indispensable de sélectionner l\'option (3) Toujours sinon, l\'application ne fonctionnera pas.";
+"dk_perm_utils_permissions_location_popup_title"="Autorisations";
+"dk_perm_utils_permissions_location_pre_ios13_ko"="Vous devez autoriser l\'application à accéder à la position du téléphone pour qu\'elle détecte et qu\’elle analyse vos trajets.\n\nDans les paramètres du téléphone, trois options sont proposées :\n(1) Jamais\n(2) Lorsque l\'app est active\n(3) Toujours\n\nIl est indispensable de sélectionner l\'option (3) Toujours, sinon, l\'application ne fonctionnera pas.";
 "dk_perm_utils_permissions_location_text1_android"="Afin de bénéficier de l\'enregistrement automatique de vos trajets, l\'application doit accéder à la position du téléphone.";
 "dk_perm_utils_permissions_location_text2_post_android10"="Pour cela, choisissez \"Toujours autoriser\" lorsque la prochaine popup sera affichée.";
 "dk_perm_utils_permissions_location_text2_pre_android10"="Pour cela, choisissez \"Autoriser\" lorsque la prochaine popup sera affichée.";
@@ -95,3 +97,6 @@
 "dk_perm_utils_permissions_phone_settings_location_step1"="Appuyez sur \"Ouvrir les réglages\"";
 "dk_perm_utils_permissions_phone_settings_location_step2"="Tapez sur position";
 "dk_perm_utils_permissions_phone_settings_location_step3"="Sélectionnez \"Toujours\"";
+"dk_perm_utils_permissions_popup_button_settings"="Réglages";
+"dk_perm_utils_permissions_text_button_activity_settings"="Ouvrir les réglages";
+"dk_perm_utils_permissions_text_button_location_settings"="Ouvrir les réglages";

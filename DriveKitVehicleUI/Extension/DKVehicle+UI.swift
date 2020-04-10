@@ -40,7 +40,7 @@ extension DKVehicle {
         }
     }
     
-    func computeName() -> String {
+    public func computeName() -> String {
         return getDisplayName(position: getPosition(vehiclesList: DriveKitDBVehicleAccess.shared.findVehiclesOrderByNameAsc().execute().sortByDisplayNames()))
     }
     

@@ -228,7 +228,7 @@
 		A3B7B393235F12510065A332 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3B7B391235F12510065A332 /* LaunchScreen.storyboard */; };
 		A3B7B39D235F2E130065A332 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B7B39B235F2E130065A332 /* SettingsViewController.swift */; };
 		A3D51F45241BA39D006DACE2 /* DKVehicleAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D51F43241BA39D006DACE2 /* DKVehicleAction.swift */; };
-		A3D51F49241BA3A5006DACE2 /* VehiclesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D51F47241BA3A4006DACE2 /* VehiclesListViewModel.swift */; };
+		A3D51F49241BA3A5006DACE2 /* DKVehiclesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D51F47241BA3A4006DACE2 /* DKVehiclesListViewModel.swift */; };
 		A3D51F4E241BA3AE006DACE2 /* VehiclesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D51F4A241BA3AE006DACE2 /* VehiclesListCell.swift */; };
 		A3D51F4F241BA3AE006DACE2 /* VehiclesListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3D51F4B241BA3AE006DACE2 /* VehiclesListVC.xib */; };
 		A3D51F50241BA3AE006DACE2 /* VehiclesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D51F4C241BA3AE006DACE2 /* VehiclesListVC.swift */; };
@@ -564,7 +564,7 @@
 		A3B7B394235F12510065A332 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3B7B39B235F2E130065A332 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A3D51F43241BA39D006DACE2 /* DKVehicleAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKVehicleAction.swift; sourceTree = "<group>"; };
-		A3D51F47241BA3A4006DACE2 /* VehiclesListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiclesListViewModel.swift; sourceTree = "<group>"; };
+		A3D51F47241BA3A4006DACE2 /* DKVehiclesListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKVehiclesListViewModel.swift; sourceTree = "<group>"; };
 		A3D51F4A241BA3AE006DACE2 /* VehiclesListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiclesListCell.swift; sourceTree = "<group>"; };
 		A3D51F4B241BA3AE006DACE2 /* VehiclesListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VehiclesListVC.xib; sourceTree = "<group>"; };
 		A3D51F4C241BA3AE006DACE2 /* VehiclesListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiclesListVC.swift; sourceTree = "<group>"; };
@@ -1320,7 +1320,7 @@
 		A3D51F40241BA308006DACE2 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				A3D51F47241BA3A4006DACE2 /* VehiclesListViewModel.swift */,
+				A3D51F47241BA3A4006DACE2 /* DKVehiclesListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1826,7 +1826,7 @@
 				3FE6A4422420BEC300E24C1C /* BeaconScannerInfoVC.swift in Sources */,
 				A34FC71F24227556000734AB /* DKVehicleField.swift in Sources */,
 				3FF5428B243649390063A5B9 /* DKDetectionMode+UI.swift in Sources */,
-				A3D51F49241BA3A5006DACE2 /* VehiclesListViewModel.swift in Sources */,
+				A3D51F49241BA3A5006DACE2 /* DKVehiclesListViewModel.swift in Sources */,
 				3FFB2D8224191BC3003E6A06 /* BeaconScannerSuccessVC.swift in Sources */,
 				3F50D70524179467001226F7 /* ConnectBluetoothVC.swift in Sources */,
 				3FFB2D6C2417E45D003E6A06 /* BeaconViewModel.swift in Sources */,

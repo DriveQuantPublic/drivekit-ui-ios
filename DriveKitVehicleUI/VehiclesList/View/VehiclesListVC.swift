@@ -14,12 +14,12 @@ public class VehiclesListVC: DKUIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addVehicleButton: UIButton!
     
-    private let viewModel : VehiclesListViewModel
+    private let viewModel : DKVehiclesListViewModel
     
     private let refreshControl = UIRefreshControl()
     
     public init() {
-        self.viewModel = VehiclesListViewModel()
+        self.viewModel = DKVehiclesListViewModel()
         super.init(nibName: String(describing: VehiclesListVC.self), bundle: Bundle.vehicleUIBundle)
     }
     

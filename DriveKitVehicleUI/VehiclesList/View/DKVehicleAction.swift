@@ -10,13 +10,20 @@ import UIKit
 import DriveKitCommonUI
 import DriveKitDBVehicleAccess
 
-public enum DKVehicleAction : String, CaseIterable  {
+public protocol DKVehicleActionItem {
+    func title() -> String
+    func alertAction(pos: Int, viewModel: DKVehiclesListViewModel) -> UIAlertAction
+    func isDisplayable(vehicle: DKVehicle) -> Bool
+}
+
+public enum DKVehicleAction : String, CaseIterable, DKVehicleActionItem  {
+
     case show
     case rename
     case replace
     case delete
     
-    func title() -> String {
+    public func title() -> String {
         switch (self) {
         case .delete:
             return "dk_vehicle_delete".dkVehicleLocalized()
@@ -29,7 +36,7 @@ public enum DKVehicleAction : String, CaseIterable  {
         }
     }
     
-    func alertAction(pos: Int, viewModel: VehiclesListViewModel) -> UIAlertAction {
+    public func alertAction(pos: Int, viewModel: DKVehiclesListViewModel) -> UIAlertAction {
         var completionHandler : ((UIAlertAction) -> Void)? = nil
         switch self {
         case .show:
@@ -51,6 +58,15 @@ public enum DKVehicleAction : String, CaseIterable  {
             }
         }
         return UIAlertAction(title: self.title(), style: .default, handler: completionHandler)
+    }
+    
+    public func isDisplayable(vehicle: DKVehicle) -> Bool {
+        switch self {
+        case .show:
+            return !vehicle.liteConfig
+        case .rename, .replace, .delete:
+            return true
+        }
     }
     
 }

@@ -23,7 +23,7 @@ protocol VehiclesListDelegate : AnyObject{
 }
 
 
-class VehiclesListViewModel {
+public class DKVehiclesListViewModel {
     var vehicles: [DKVehicle] = []
     weak var delegate: VehiclesListDelegate? = nil
     
@@ -40,14 +40,12 @@ class VehiclesListViewModel {
         return vehicles.count
     }
     
-    func vehicleActions(pos: Int) -> [DKVehicleAction] {
+    func vehicleActions(pos: Int) -> [DKVehicleActionItem] {
         var actions = DriveKitVehicleUI.shared.vehicleActions
         if vehiclesCount <= 1 {
-            actions.removeAll(where: {$0 == .delete})
+            actions.removeAll(where: {$0 is DKVehicleAction && ($0 as! DKVehicleAction) == DKVehicleAction.delete})
         }
-        if vehicles[pos].liteConfig {
-            actions.removeAll(where: {$0 == .show})
-        }
+        actions.removeAll(where: {!$0.isDisplayable(vehicle: vehicles[pos])})
         return actions
     }
     

@@ -30,12 +30,12 @@ class VehiclesListCell: UITableViewCell {
     
     @IBOutlet weak var configureButton: UIButton!
     
-    private var viewModel: VehiclesListViewModel!
+    private var viewModel: DKVehiclesListViewModel!
     private var pos: Int!
     private weak var vehicleListDelegate : VehiclesListDelegate?
     private weak var parentView: UIViewController? = nil
     
-    func configure(viewModel: VehiclesListViewModel, pos: Int, parentView: UIViewController) {
+    func configure(viewModel: DKVehiclesListViewModel, pos: Int, parentView: UIViewController) {
         self.viewModel = viewModel
         self.pos = pos
         self.parentView = parentView
@@ -84,7 +84,7 @@ class VehiclesListCell: UITableViewCell {
     }
     
     @IBAction func didSelectEditButton(_ sender: Any) {
-        let vehicleActions : [DKVehicleAction] = viewModel.vehicleActions(pos: pos)
+        let vehicleActions : [DKVehicleActionItem] = viewModel.vehicleActions(pos: pos)
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         for vehicleAction in vehicleActions {
             alert.addAction(vehicleAction.alertAction(pos: pos, viewModel: self.viewModel))

@@ -9,6 +9,6 @@
 import UIKit
 
 public protocol DriveKitPermissionsUtilsUIEntryPoint {
-    func getActivityPermissionViewController(_ completionHandler: () -> Void) -> UIViewController
-    func getLocationPermissionViewController(_ completionHandler: () -> Void) -> UIViewController
+    func getActivityPermissionViewController(_ completionHandler: @escaping () -> Void) -> UIViewController
+    func getLocationPermissionViewController(_ completionHandler: @escaping () -> Void) -> UIViewController
 }

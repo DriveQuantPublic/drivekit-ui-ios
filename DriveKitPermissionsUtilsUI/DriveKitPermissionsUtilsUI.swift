@@ -72,12 +72,12 @@ extension String {
 }
 
 extension DriveKitPermissionsUtilsUI : DriveKitPermissionsUtilsUIEntryPoint {
-    public func getActivityPermissionViewController(_ completionHandler: () -> Void) -> UIViewController {
-        return ActivityPermissionViewController()
+    public func getActivityPermissionViewController(_ completionHandler: @escaping () -> Void) -> UIViewController {
+        return DKPermissionView.activity.getViewController(nextPermissionViews: [], completionHandler: completionHandler)
     }
 
-    public func getLocationPermissionViewController(_ completionHandler: () -> Void) -> UIViewController {
-        return LocationPermissionViewController()
+    public func getLocationPermissionViewController(_ completionHandler: @escaping () -> Void) -> UIViewController {
+        return DKPermissionView.location.getViewController(nextPermissionViews: [], completionHandler: completionHandler)
     }
 }
 

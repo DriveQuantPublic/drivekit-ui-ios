@@ -44,8 +44,8 @@ class ActivityPermissionViewModel : NSObject {
         if DKDiagnosisHelper.shared.getPermissionStatus(.activity) == .notDetermined {
             self.motionActivityManager.startActivityUpdates(to: .main) { (motionActivity) in
                 self.checkState()
-                self.motionActivityManager.stopActivityUpdates()
             }
+            self.motionActivityManager.stopActivityUpdates()
         }
     }
 

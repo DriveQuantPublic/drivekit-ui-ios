@@ -50,7 +50,7 @@ class VehiclesListCell: UITableViewCell {
     }
     
     private func configureAutoStart() {
-        autoStartLabel.attributedText = "dk_vehicle_detection_mode_title".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        autoStartLabel.attributedText = "dk_vehicle_detection_mode_title".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 16, traits: .traitBold)).color(.mainFontColor).build()
         autoStartSelectView.backgroundColor = DKUIColors.neutralColor.color
         autoStartDelimiter.backgroundColor = DKUIColors.neutralColor.color
         autoStartSelectImage.image = DKImages.arrowDown.image

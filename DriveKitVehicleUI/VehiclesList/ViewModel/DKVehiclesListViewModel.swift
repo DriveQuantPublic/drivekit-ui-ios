@@ -11,7 +11,7 @@ import DriveKitVehicle
 import DriveKitDBVehicleAccess
 import DriveKitCommonUI
 
-protocol VehiclesListDelegate : AnyObject{
+public protocol VehiclesListDelegate : AnyObject{
     func onVehiclesAvailable()
     func didUpdateVehicle()
     func didReceiveErrorFromService()
@@ -24,8 +24,8 @@ protocol VehiclesListDelegate : AnyObject{
 
 
 public class DKVehiclesListViewModel {
-    var vehicles: [DKVehicle] = []
-    weak var delegate: VehiclesListDelegate? = nil
+    public var vehicles: [DKVehicle] = []
+    public weak var delegate: VehiclesListDelegate? = nil
     
     func fetchVehicles() {
         DriveKitVehicle.shared.getVehiclesOrderByNameAsc(completionHandler : { status, vehicles in

@@ -113,15 +113,15 @@ extension VehiclesListVC: UITableViewDataSource {
 
 extension VehiclesListVC: VehiclesListDelegate {
     
-    func pushViewController(_ viewController: UIViewController, animated: Bool) {
+    public func pushViewController(_ viewController: UIViewController, animated: Bool) {
         self.navigationController?.pushViewController(viewController, animated: animated)
     }
     
-    func showAlert(_ alertController: UIAlertController) {
+    public func showAlert(_ alertController: UIAlertController) {
         self.present(alertController, animated: true)
     }
     
-    func onVehiclesAvailable() {
+    public func onVehiclesAvailable() {
         DispatchQueue.main.async {
             self.hideLoader()
             if let maxVehicle = DriveKitVehicleUI.shared.maxVehicles, self.viewModel.vehiclesCount >= maxVehicle {
@@ -138,14 +138,14 @@ extension VehiclesListVC: VehiclesListDelegate {
         }
     }
     
-    func didUpdateVehicle() {
+    public func didUpdateVehicle() {
         DispatchQueue.main.async {
             self.showLoader()
             self.viewModel.fetchVehicles()
         }
     }
     
-    func didReceiveErrorFromService() {
+    public func didReceiveErrorFromService() {
         DispatchQueue.main.async {
             self.hideLoader()
             let alert = UIAlertController(title: nil, message: "dk_vehicle_error_message".dkVehicleLocalized(), preferredStyle: .alert)
@@ -154,7 +154,7 @@ extension VehiclesListVC: VehiclesListDelegate {
         }
     }
     
-    func showVehiclePicker(vehicle: DKVehicle? = nil) {
+    public func showVehiclePicker(vehicle: DKVehicle? = nil) {
         _ = DKVehiclePickerNavigationController(parentView: self, detectionMode: self.viewModel.computeDetectionMode(), vehicle: vehicle, completion: {
             self.viewModel.fetchVehicles()
         })

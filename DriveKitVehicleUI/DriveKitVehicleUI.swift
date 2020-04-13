@@ -146,6 +146,25 @@ extension DriveKitVehicleUI : DriveKitVehicleUIEntryPoint {
             completion(vehicle?.computeName())
         })
     }
+    
+    public func getBeaconDiagnosticViewController(parentView: UIViewController) -> UIViewController {
+        let vehicles = DriveKitVehicle.shared.vehiclesQuery().noFilter().query().execute()
+        var uuid : String? = nil
+        for vehicle in vehicles {
+            if let beacon = vehicle.beacon {
+                uuid = beacon.proximityUuid
+                break
+            }
+        }
+        if let proxUuid = uuid {
+            let beacon = DKBeacon(uniqueId: nil, proximityUuid: proxUuid, major: -1, minor: -1)
+            let viewModel = BeaconViewModel(scanType: .diagnostic, beacon: beacon, vehicles: vehicles)
+            return BeaconScannerVC(viewModel: viewModel, step: .initial, parentView: parentView)
+        } else {
+            let viewModel = BeaconViewModel(scanType: .diagnostic)
+            return BeaconScannerVC(viewModel: viewModel, step: .beaconNotConfigured, parentView: parentView)
+        }
+    }
 }
 
 public protocol DKVehiclePickerExtraStep {

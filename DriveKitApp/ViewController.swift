@@ -189,26 +189,9 @@ class ViewController: UITableViewController {
     }
     
     func configureBeaconPairing() {
-        DriveKitVehicle.shared.getVehiclesOrderByNameAsc(type: .cache, completionHandler: {[unowned self]status, vehicles in
-            DispatchQueue.main.async {
-                var uuid : String? = nil
-                for vehicle in vehicles {
-                    if let beacon = vehicle.beacon {
-                        uuid = beacon.proximityUuid
-                        break
-                    }
-                }
-                if let proxUuid = uuid {
-                    let beacon = DKBeacon(uniqueId: nil, proximityUuid: proxUuid, major: -1, minor: -1)
-                    let viewModel = BeaconViewModel(scanType: .diagnostic, beacon: beacon, vehicles: vehicles)
-                    self.navigationController?.pushViewController(BeaconScannerVC(viewModel: viewModel, step: .initial, parentView: self), animated: true)
-                } else {
-                    let viewModel = BeaconViewModel(scanType: .diagnostic)
-                    self.navigationController?.pushViewController(BeaconScannerVC(viewModel: viewModel, step: .beaconNotConfigured, parentView: self), animated: true)
-                }
-            }
-        })
-        
+        if let vehicleUI = DriveKitNavigationController.shared.vehicleUI {
+            self.navigationController?.pushViewController(vehicleUI.getBeaconDiagnosticViewController(parentView: self), animated: true)
+        }
     }
     
     func configureVehiclesList(){

@@ -31,6 +31,7 @@ public class DriveKitVehicleUI {
     var customFields = [DKVehicleGroupField: [DKVehicleField]]()
     
     var beaconDiagnosticEmail : DKContentMail? = nil
+    var beaconDiagnosticSupportLink: String? = nil
     var vehiclePickerExtraStep : DKVehiclePickerExtraStep? = nil
     
     private init() {}
@@ -97,6 +98,10 @@ public class DriveKitVehicleUI {
     
     public func configureBeaconDetailEmail(beaconDiagnosticEmail: DKContentMail?) {
         self.beaconDiagnosticEmail = beaconDiagnosticEmail
+    }
+    
+    public func configureBeaconDiagnosticSupportURL(url: String?) {
+        self.beaconDiagnosticSupportLink = url
     }
     
     public func enableRemoveBeacon(canRemoveBeacon: Bool){

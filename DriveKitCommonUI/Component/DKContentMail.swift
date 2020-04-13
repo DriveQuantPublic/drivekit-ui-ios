@@ -1,5 +1,5 @@
 //
-//  BeaconDiagnosticMail.swift
+//  DKContentMail.swift
 //  DriveKitVehicleUI
 //
 //  Created by Jérémy Bayle on 26/03/2020.
@@ -13,4 +13,5 @@ public protocol DKContentMail {
     func getBccRecipients() -> [String]
     func getSubject() -> String
     func getMailBody() -> String
+    func overrideMailBodyContent() -> Bool
 }

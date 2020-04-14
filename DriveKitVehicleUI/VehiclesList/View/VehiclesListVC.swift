@@ -124,10 +124,14 @@ extension VehiclesListVC: VehiclesListDelegate {
     public func onVehiclesAvailable() {
         DispatchQueue.main.async {
             self.hideLoader()
-            if let maxVehicle = DriveKitVehicleUI.shared.maxVehicles, self.viewModel.vehiclesCount >= maxVehicle || !DriveKitVehicleUI.shared.canAddVehicle {
-                self.addVehicleButton.isHidden = true
+            if DriveKitVehicleUI.shared.canAddVehicle{
+                if let maxVehicle = DriveKitVehicleUI.shared.maxVehicles, self.viewModel.vehiclesCount >= maxVehicle{
+                    self.addVehicleButton.isHidden = true
+                }else{
+                    self.addVehicleButton.isHidden = false
+                }
             }else{
-                self.addVehicleButton.isHidden = false
+                self.addVehicleButton.isHidden = true
             }
             if self.refreshControl.isRefreshing {
                 self.refreshControl.endRefreshing()

@@ -12,7 +12,7 @@ import DriveKitVehicle
 extension DKVehicleBrand : VehiclePickerCollectionViewItem {
     
     func title() -> String {
-        return self.value
+        return self.name
     }
     
     func image() -> UIImage? {

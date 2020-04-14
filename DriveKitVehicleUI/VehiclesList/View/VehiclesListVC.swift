@@ -32,7 +32,7 @@ public class VehiclesListVC: DKUIViewController {
         title = "dk_vehicle_my_vehicles".dkVehicleLocalized()
         self.viewModel.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 250
+        tableView.estimatedRowHeight = 200
         self.tableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: #selector(refreshVehiclesList(_ :)), for: .valueChanged)
         self.tableView.register(UINib(nibName: "VehiclesListCell", bundle: Bundle.vehicleUIBundle), forCellReuseIdentifier: "VehiclesListCell")
@@ -124,7 +124,7 @@ extension VehiclesListVC: VehiclesListDelegate {
     public func onVehiclesAvailable() {
         DispatchQueue.main.async {
             self.hideLoader()
-            if let maxVehicle = DriveKitVehicleUI.shared.maxVehicles, self.viewModel.vehiclesCount >= maxVehicle {
+            if let maxVehicle = DriveKitVehicleUI.shared.maxVehicles, self.viewModel.vehiclesCount >= maxVehicle || !DriveKitVehicleUI.shared.canAddVehicle {
                 self.addVehicleButton.isHidden = true
             }else{
                 self.addVehicleButton.isHidden = false

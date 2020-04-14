@@ -80,6 +80,9 @@ import DriveKitCommonUI
                 case .authorized:
                     permissionStatus = .valid
                     break
+                case .restricted:
+                    permissionStatus = .phoneRestricted
+                    break
                 default:
                     permissionStatus = .invalid
                     break

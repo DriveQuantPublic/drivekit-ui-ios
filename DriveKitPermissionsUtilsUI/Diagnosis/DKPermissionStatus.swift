@@ -9,5 +9,5 @@
 import Foundation
 
 @objc public enum DKPermissionStatus : Int {
-    case valid, invalid, notDetermined
+    case valid, invalid, notDetermined, phoneRestricted
 }

@@ -28,7 +28,8 @@ import DriveKitCommonUI
                 case .location:
                     permissionType = .location
             }
-            return DKDiagnosisHelper.shared.getPermissionStatus(permissionType) != .valid
+            let status = DKDiagnosisHelper.shared.getPermissionStatus(permissionType)
+            return status != .valid && (permissionView != .activity || status != .phoneRestricted)
         }
         if neededPermissionViews.isEmpty {
             completionHandler()

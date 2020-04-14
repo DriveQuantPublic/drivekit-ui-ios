@@ -22,7 +22,7 @@ class LocationPermissionViewModel : NSObject {
 
     @objc func checkState() {
         switch DKDiagnosisHelper.shared.getPermissionStatus(.location) {
-            case .notDetermined:
+            case .notDetermined, .phoneRestricted:
                 askAuthorization()
                 break
             case .valid:
@@ -41,13 +41,22 @@ class LocationPermissionViewModel : NSObject {
 
 
     @objc private func askAuthorization() {
-        if DKDiagnosisHelper.shared.getPermissionStatus(.location) == .notDetermined {
-            if #available(iOS 13.0, *) {
-                self.locationManager.requestWhenInUseAuthorization()
-            } else {
-                self.locationManager.requestAlwaysAuthorization()
-            }
-            self.locationManager.delegate = self
+        switch DKDiagnosisHelper.shared.getPermissionStatus(.location) {
+            case .notDetermined:
+                if #available(iOS 13.0, *) {
+                    self.locationManager.requestWhenInUseAuthorization()
+                } else {
+                    self.locationManager.requestAlwaysAuthorization()
+                }
+                self.locationManager.delegate = self
+                break
+            case .phoneRestricted:
+                // Start updating location briefly to try to display a system alert to redirect to phone's settings.
+                self.locationManager.startUpdatingLocation()
+                self.locationManager.stopUpdatingLocation()
+                break
+            default:
+                return
         }
     }
 

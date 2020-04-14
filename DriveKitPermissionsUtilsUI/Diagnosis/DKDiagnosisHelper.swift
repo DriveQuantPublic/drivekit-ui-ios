@@ -141,6 +141,13 @@ import DriveKitCommonUI
             case .authorizedAlways:
                 permissionStatus = .valid
                 break
+            case .denied:
+                if isSensorActivated(.gps) {
+                    permissionStatus = .invalid
+                } else {
+                    permissionStatus = .phoneRestricted
+                }
+                break
             default:
                 permissionStatus = .invalid
                 break

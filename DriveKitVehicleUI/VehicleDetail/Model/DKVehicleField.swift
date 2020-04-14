@@ -100,7 +100,7 @@ enum GeneralField: DKVehicleField, CaseIterable {
             }
         case .brand:
             if let brand = vehicle.brand {
-                return DKVehicleBrand(value: brand.uppercased()).title()
+                return brand
             } else {
                 return nil
             }

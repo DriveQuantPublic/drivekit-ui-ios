@@ -73,7 +73,7 @@ extension DKVehicleBrand : VehiclePickerCollectionViewItem {
 
 extension DKVehicleBrand : VehiclePickerTableViewItem {
     func text() -> String {
-        return self.value
+        return self.name
     }
 }
 

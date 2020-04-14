@@ -93,7 +93,7 @@ public class DriveKitVehicleUI {
     }
     
     public func addCustomVehicleField(groupField: DKVehicleGroupField, fieldsToAdd: [DKVehicleField]) {
-        self.customFields = [groupField : fieldsToAdd]
+        self.customFields[groupField] = fieldsToAdd
     }
     
     public func configureBeaconDetailEmail(beaconDiagnosticEmail: DKContentMail?) {

@@ -151,14 +151,7 @@ public class DKVehiclesListViewModel {
     func detectionModeConfigureButton(pos: Int) -> String? {
         return vehicles[pos].detectionModeConfigurationButton
     }
-    
-    /*func detectionModeClicked(detectionMode: DKDetectionMode, pos : Int) {
-        let vehicle = vehicles[pos]
-        if vehicle.detectionMode != detectionMode {
-            // TO DO
-        }
-    }*/
-    
+
     private func renameVehicle(vehicle: DKVehicle, name: String) {
         DriveKitVehicle.shared.renameVehicle(name: name, vehicleId: vehicle.vehicleId, completionHandler: { status in
             if status == .success {

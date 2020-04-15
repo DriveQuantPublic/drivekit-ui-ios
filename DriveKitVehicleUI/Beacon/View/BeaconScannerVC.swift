@@ -69,7 +69,12 @@ extension BeaconScannerVC : ScanStateDelegate {
     }
     
     func onScanFinished() {
-        self.navigationController?.popToViewController(self.parentView, animated: true)
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+        if viewControllers.count >= 4 && self.viewModel.scanType == .pairing {
+            self.navigationController?.popToViewController(viewControllers[viewControllers.count - 4], animated: true)
+        } else{
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     func shouldShowLoader() {

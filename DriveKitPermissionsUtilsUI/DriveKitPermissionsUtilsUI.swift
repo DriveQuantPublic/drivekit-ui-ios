@@ -82,7 +82,7 @@ extension DriveKitPermissionsUtilsUI : DriveKitPermissionsUtilsUIEntryPoint {
 
 extension DriveKitPermissionsUtilsUI {
 
-    @objc(showPermissionViews:::)
+    @objc(showPermissionViews:parentViewController:completionHandler:) // Usage example: [DriveKitPermissionsUtilsUI.shared showPermissionViews:@[ @(DKPermissionViewLocation), @(DKPermissionViewActivity) ] parentViewController: ... completionHandler: ...];
     public func objc_showPermissionViews(_ permissionViews: [Int], parentViewController: UIViewController, completionHandler: @escaping () -> Void) {
         showPermissionViews(permissionViews.map({ DKPermissionView(rawValue: $0)! }), parentViewController: parentViewController, completionHandler: completionHandler)
     }

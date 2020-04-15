@@ -13,11 +13,11 @@ import DriveKitCommonUI
 class PermissionViewController : DKUIViewController {
 
     var isPresentedByModule: Bool = false
-    fileprivate var nextPermissionViews: [DKPermissionView]
+    fileprivate var permissionViews: [DKPermissionView] // Contains current permission view and the next ones, if exist.
     fileprivate let completionHandler: () -> Void
 
-    init(nibName: String, nextPermissionViews: [DKPermissionView], completionHandler: @escaping () -> Void) {
-        self.nextPermissionViews = nextPermissionViews
+    init(nibName: String, permissionViews: [DKPermissionView], completionHandler: @escaping () -> Void) {
+        self.permissionViews = permissionViews
         self.completionHandler = completionHandler
         super.init(nibName: nibName, bundle: Bundle.permissionsUtilsUIBundle)
 
@@ -25,7 +25,7 @@ class PermissionViewController : DKUIViewController {
     }
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        fatalError("Use designated initializer `init(nextPermissionViews:completionHandler:)`")
+        fatalError("Use designated initializer `init(permissionViews:completionHandler:)`")
     }
     
     required init?(coder: NSCoder) {
@@ -47,22 +47,18 @@ class PermissionViewController : DKUIViewController {
 extension PermissionViewController : PermissionView {
 
     func next() {
-        if self.nextPermissionViews.isEmpty {
-            if let navigationController = self.navigationController, navigationController.viewControllers.last as? PermissionViewController != nil {
-                navigationController.popViewController(animated: true)
-            }
-            if self.isPresentedByModule && self.presentingViewController != nil {
-                self.dismiss(animated: true, completion: nil)
-            }
-            self.completionHandler()
-        } else {
+        // Remove current permission view from the list.
+        if !self.permissionViews.isEmpty {
+            self.permissionViews.removeFirst()
+        }
+
+        if let nextPermissionView = self.permissionViews.first {
             guard let navigationController = self.navigationController else {
                 // Should not happen. We should always be inside a UINavigationController.
                 print("Unexpected state in \(String(describing: self))")
                 return
             }
-            let permissionView = self.nextPermissionViews.removeFirst()
-            let permissionViewController = permissionView.getViewController(nextPermissionViews: self.nextPermissionViews, completionHandler: self.completionHandler)
+            let permissionViewController = nextPermissionView.getViewController(permissionViews: self.permissionViews, completionHandler: self.completionHandler)
             permissionViewController.isPresentedByModule = self.isPresentedByModule
             var updatedViewControllers = navigationController.viewControllers
             if updatedViewControllers.last as? PermissionViewController != nil {
@@ -71,6 +67,14 @@ extension PermissionViewController : PermissionView {
             } else {
                 navigationController.pushViewController(permissionViewController, animated: true)
             }
+        } else {
+            if let navigationController = self.navigationController, navigationController.viewControllers.last as? PermissionViewController != nil {
+                navigationController.popViewController(animated: true)
+            }
+            if self.isPresentedByModule && self.presentingViewController != nil {
+                self.dismiss(animated: true, completion: nil)
+            }
+            self.completionHandler()
         }
     }
 

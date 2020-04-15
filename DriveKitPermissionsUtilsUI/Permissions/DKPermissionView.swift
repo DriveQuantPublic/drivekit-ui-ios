@@ -11,12 +11,12 @@ import UIKit
 @objc public enum DKPermissionView : Int {
     case activity, location
 
-    func getViewController(nextPermissionViews: [DKPermissionView], completionHandler: @escaping () -> Void) -> PermissionViewController {
+    func getViewController(permissionViews: [DKPermissionView], completionHandler: @escaping () -> Void) -> PermissionViewController {
         switch self {
             case .activity:
-                return ActivityPermissionViewController(nibName: "ActivityPermissionViewController", nextPermissionViews: nextPermissionViews, completionHandler: completionHandler)
+                return ActivityPermissionViewController(nibName: "ActivityPermissionViewController", permissionViews: permissionViews, completionHandler: completionHandler)
             case .location:
-                return LocationPermissionViewController(nibName: "LocationPermissionViewController", nextPermissionViews: nextPermissionViews, completionHandler: completionHandler)
+                return LocationPermissionViewController(nibName: "LocationPermissionViewController", permissionViews: permissionViews, completionHandler: completionHandler)
         }
     }
 

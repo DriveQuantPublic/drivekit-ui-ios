@@ -78,8 +78,3 @@ class LocationPermissionViewController : PermissionViewController {
     }
 
 }
-
-
-extension LocationPermissionViewController : LocationPermissionView {
-    
-}

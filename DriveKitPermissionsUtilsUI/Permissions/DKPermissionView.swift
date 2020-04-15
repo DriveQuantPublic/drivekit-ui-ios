@@ -19,4 +19,13 @@ import UIKit
                 return LocationPermissionViewController(nibName: "LocationPermissionViewController", nextPermissionViews: nextPermissionViews, completionHandler: completionHandler)
         }
     }
+
+    func getPermissionType() -> DKPermissionType {
+        switch self {
+            case .activity:
+                return .activity
+            case .location:
+                return .location
+        }
+    }
 }

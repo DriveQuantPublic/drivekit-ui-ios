@@ -47,8 +47,3 @@ class ActivityPermissionViewController : PermissionViewController {
     }
 
 }
-
-
-extension ActivityPermissionViewController : ActivityPermissionView {
-
-}

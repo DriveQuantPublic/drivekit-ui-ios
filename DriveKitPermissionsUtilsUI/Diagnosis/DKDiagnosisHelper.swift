@@ -19,15 +19,17 @@ import DriveKitCommonUI
     @objc public static let shared = DKDiagnosisHelper()
     private lazy var bluetoothManager = CBCentralManager()
 
+    private override init() {
+        super.init()
+    }
+
     @objc public func isSensorActivated(_ sensor: DKSensorType) -> Bool {
         var isSensorActivated = false
         switch sensor {
             case .bluetooth:
                 isSensorActivated = self.bluetoothManager.state != .poweredOff
-                break
             case .gps:
                 isSensorActivated = CLLocationManager.locationServicesEnabled()
-                break
         }
         return isSensorActivated
     }
@@ -37,13 +39,10 @@ import DriveKitCommonUI
         switch permissionType {
             case .activity:
                 permissionStatus = getActivityStatus()
-                break
             case .bluetooth:
                 permissionStatus = getBluetoothStatus()
-                break
             case .location:
                 permissionStatus = getLocationStatus()
-                break
         }
         return permissionStatus
     }
@@ -54,13 +53,13 @@ import DriveKitCommonUI
             switch settings.authorizationStatus {
                 case .denied:
                     completion(.invalid)
-                    break
                 case .notDetermined:
                     completion(.notDetermined)
-                    break
-                default:
+                case .authorized, .provisional:
                     completion(.valid)
-                    break
+                @unknown default:
+                    print("New case \"\(settings.authorizationStatus)\" in UNAuthorizationStatus. Need to manage it.")
+                    completion(.invalid)
             }
         }
     }
@@ -76,16 +75,16 @@ import DriveKitCommonUI
             switch CMMotionActivityManager.authorizationStatus() {
                 case .notDetermined:
                     permissionStatus = .notDetermined
-                    break
                 case .authorized:
                     permissionStatus = .valid
-                    break
                 case .restricted:
                     permissionStatus = .phoneRestricted
-                    break
-                default:
+                case .denied:
                     permissionStatus = .invalid
                     break
+                @unknown default:
+                    print("New case \"\(CMMotionActivityManager.authorizationStatus())\" in CMAuthorizationStatus. Need to manage it.")
+                    permissionStatus = .invalid
             }
         } else {
             if CMSensorRecorder.isAuthorizedForRecording() {
@@ -109,13 +108,13 @@ import DriveKitCommonUI
             switch authorization {
                 case .allowedAlways:
                     permissionStatus = .valid
-                    break
                 case .notDetermined:
                     permissionStatus = .notDetermined
-                    break
-                default :
+                case .denied, .restricted :
                     permissionStatus = .invalid
-                    break
+                @unknown default:
+                    print("New case \"\(authorization)\" in CBManagerAuthorization. Need to manage it.")
+                    permissionStatus = .invalid
             }
         } else {
             switch CBPeripheralManager.authorizationStatus() {
@@ -123,10 +122,11 @@ import DriveKitCommonUI
                     permissionStatus = .valid
                 case .notDetermined:
                     permissionStatus = .notDetermined
-                    break
-                default:
+                case .denied, .restricted:
                     permissionStatus = .invalid
-                    break
+                @unknown default:
+                    print("New case \"\(CBPeripheralManager.authorizationStatus())\" in CBPeripheralManagerAuthorizationStatus. Need to manage it.")
+                    permissionStatus = .invalid
             }
         }
         return permissionStatus
@@ -137,20 +137,19 @@ import DriveKitCommonUI
         switch CLLocationManager.authorizationStatus() {
             case .notDetermined:
                 permissionStatus = .notDetermined
-                break
             case .authorizedAlways:
                 permissionStatus = .valid
-                break
             case .denied:
                 if isSensorActivated(.gps) {
                     permissionStatus = .invalid
                 } else {
                     permissionStatus = .phoneRestricted
                 }
-                break
-            default:
+            case .authorizedWhenInUse, .restricted:
                 permissionStatus = .invalid
-                break
+            @unknown default:
+                print("New case \"\(CLLocationManager.authorizationStatus())\" in CLAuthorizationStatus. Need to manage it.")
+                permissionStatus = .invalid
         }
         return permissionStatus
     }

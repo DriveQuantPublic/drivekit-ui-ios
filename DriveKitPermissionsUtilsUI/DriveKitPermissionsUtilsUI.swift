@@ -14,6 +14,10 @@ import DriveKitCommonUI
 
     @objc public static let shared = DriveKitPermissionsUtilsUI()
 
+    private override init() {
+        super.init()
+    }
+
     @objc public func initialize() {
         DriveKitNavigationController.shared.permissionsUtilsUI = self
     }
@@ -21,13 +25,7 @@ import DriveKitCommonUI
     public func showPermissionViews(_ permissionViews: [DKPermissionView], parentViewController: UIViewController, completionHandler: @escaping () -> Void) {
         // Keep only needed permission views.
         var neededPermissionViews = permissionViews.filter { (permissionView) -> Bool in
-            var permissionType: DKPermissionType
-            switch permissionView {
-                case .activity:
-                    permissionType = .activity
-                case .location:
-                    permissionType = .location
-            }
+            let permissionType = permissionView.getPermissionType()
             let status = DKDiagnosisHelper.shared.getPermissionStatus(permissionType)
             return status != .valid && (permissionView != .activity || status != .phoneRestricted)
         }

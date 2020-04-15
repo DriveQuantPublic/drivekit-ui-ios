@@ -11,11 +11,13 @@ import CoreLocation
 
 class LocationPermissionViewModel : NSObject {
 
-    weak var view: LocationPermissionView? = nil
+    weak var view: PermissionView? = nil
     private let locationManager = CLLocationManager()
 
     override init() {
         super.init()
+
+        self.locationManager.delegate = self
 
         NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
@@ -24,12 +26,10 @@ class LocationPermissionViewModel : NSObject {
         switch DKDiagnosisHelper.shared.getPermissionStatus(.location) {
             case .notDetermined, .phoneRestricted:
                 askAuthorization()
-                break
             case .valid:
                 NotificationCenter.default.removeObserver(self)
                 self.view?.next()
-                break
-            default:
+            case .invalid:
                 break
         }
     }
@@ -48,15 +48,11 @@ class LocationPermissionViewModel : NSObject {
                 } else {
                     self.locationManager.requestAlwaysAuthorization()
                 }
-                self.locationManager.delegate = self
-                break
             case .phoneRestricted:
-                // Start updating location briefly to try to display a system alert to redirect to phone's settings.
-                self.locationManager.startUpdatingLocation()
-                self.locationManager.stopUpdatingLocation()
+                // Request location to try to display a system alert to redirect to phone's settings.
+                self.locationManager.requestLocation()
+            case .invalid, .valid:
                 break
-            default:
-                return
         }
     }
 
@@ -73,9 +69,12 @@ extension LocationPermissionViewModel: CLLocationManagerDelegate {
         checkState()
     }
 
-}
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
+    }
 
-protocol LocationPermissionView : PermissionView {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+
+    }
 
 }

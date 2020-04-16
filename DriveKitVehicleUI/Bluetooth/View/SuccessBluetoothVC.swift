@@ -17,11 +17,9 @@ class SuccessBluetoothVC: DKUIViewController {
     @IBOutlet var successButton: UIButton!
     
     private let viewModel: BluetoothViewModel
-    private let presentingView : UIViewController
     
-    public init(viewModel: BluetoothViewModel, parentView : UIViewController) {
+    public init(viewModel: BluetoothViewModel) {
         self.viewModel = viewModel
-        self.presentingView = parentView
         super.init(nibName: "SuccessBluetoothVC", bundle: .vehicleUIBundle)
     }
     
@@ -60,6 +58,11 @@ class SuccessBluetoothVC: DKUIViewController {
     }
     
     @IBAction func successAction(_ sender: Any) {
-        self.navigationController?.popToViewController(self.presentingView, animated: true)
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+        if viewControllers.count >= 4{
+            self.navigationController?.popToViewController(viewControllers[viewControllers.count - 4], animated: true)
+        } else{
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 }

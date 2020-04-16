@@ -129,7 +129,7 @@ extension DKDetectionMode {
     }
     
     private func newBluetooth(pos: Int, viewModel: DKVehiclesListViewModel, parentView: UIViewController){
-        let viewController = ConnectBluetoothVC(vehicle: viewModel.vehicles[pos], parentView: parentView)
+        let viewController = ConnectBluetoothVC(vehicle: viewModel.vehicles[pos])
         viewModel.delegate?.pushViewController(viewController, animated: true)
     }
 }

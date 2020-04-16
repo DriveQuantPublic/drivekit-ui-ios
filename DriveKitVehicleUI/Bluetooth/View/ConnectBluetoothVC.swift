@@ -18,11 +18,9 @@ public class ConnectBluetoothVC: DKUIViewController {
     @IBOutlet var startButton: UIButton!
     
     private let viewModel: BluetoothViewModel
-    private let presentingView : UIViewController
     
-    public init(vehicle: DKVehicle, parentView : UIViewController) {
+    public init(vehicle: DKVehicle) {
         self.viewModel = BluetoothViewModel(vehicle: vehicle)
-        self.presentingView = parentView
         super.init(nibName: "ConnectBluetoothVC", bundle: .vehicleUIBundle)
     }
     
@@ -47,10 +45,10 @@ public class ConnectBluetoothVC: DKUIViewController {
     
     @IBAction func startAction(_ sender: Any) {
         if self.viewModel.getBluetoothDevices().count == 0 {
-            let errorVC: ErrorBluetoothVC = ErrorBluetoothVC(parentView: presentingView)
+            let errorVC: ErrorBluetoothVC = ErrorBluetoothVC()
             self.navigationController?.pushViewController(errorVC, animated: true)
         } else {
-            let selectVC: SelectBluetoothVC = SelectBluetoothVC(viewModel: viewModel, parentView: presentingView)
+            let selectVC: SelectBluetoothVC = SelectBluetoothVC(viewModel: viewModel)
             self.navigationController?.pushViewController(selectVC, animated: true)
         }
     }

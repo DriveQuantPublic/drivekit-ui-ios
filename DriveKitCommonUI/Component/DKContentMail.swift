@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol DKContentMail {
+@objc public protocol DKContentMail {
     func getRecipients() -> [String]
     func getBccRecipients() -> [String]
     func getSubject() -> String

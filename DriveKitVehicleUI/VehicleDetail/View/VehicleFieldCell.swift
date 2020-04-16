@@ -40,7 +40,7 @@ class VehicleFieldCell: UITableViewCell {
 
     }
     
-    func configureError(error: String) {
+    func configureError(error: String?) {
         textFieldView.errorMessage = error
     }
 }

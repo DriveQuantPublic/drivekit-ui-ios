@@ -22,7 +22,7 @@ class VehicleDetailViewModel {
     private var updatedFields: [DKVehicleField] = []
     private var updateFieldsValue: [String] = []
     private var errorFields: [DKVehicleField] = []
-
+    
     weak var delegate : VehicleDetailDelegate? = nil
     
     init(vehicle: DKVehicle, vehicleDisplayName: String) {
@@ -41,7 +41,11 @@ class VehicleDetailViewModel {
     }
     
     func getFieldValue(field: DKVehicleField) -> String {
-        return field.getValue(vehicle: vehicle) ?? ""
+        if let index = updatedFields.firstIndex(where: {$0.title == field.title}), index < updateFieldsValue.count {
+            return updateFieldsValue[index]
+        } else{
+            return field.getValue(vehicle: vehicle) ?? ""
+        }
     }
     
     func addUpdatedField(field: DKVehicleField, value: String) {

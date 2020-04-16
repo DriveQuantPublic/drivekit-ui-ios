@@ -75,7 +75,7 @@ extension VehicleGroupFieldsCell: VehicleFieldCellDelegate {
             if let field = self.viewModel?.getField(groupField: groupField)[indexPath.row] {
                 if field.isValid(value: value) {
                     viewModel.addUpdatedField(field: field, value: value)
-                    cell.configureError(error: "")
+                    cell.configureError(error: nil)
                 }else{
                     cell.configureError(error: field.getErrorDescription() ?? "")
                 }

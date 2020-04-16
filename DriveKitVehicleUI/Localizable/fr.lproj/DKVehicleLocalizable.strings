@@ -84,11 +84,11 @@
 "dk_vehicle_bluetooth_guide_desc3_android"="Vous devrez sélectionner celui qui correspond au système Bluetooth de votre véhicule.";
 "dk_vehicle_bluetooth_guide_desc3_ios"="Allumer le contact. Le téléphone doit être connecté au véhicule pour réaliser l\'association.";
 "dk_vehicle_bluetooth_guide_header"="Avant de commencer";
-"dk_vehicle_bluetooth_not_found"="Aucun appareil Bluetooth n\'a été détecté. \n \n Pour activer le démarrage automatique, assurez-vous que votre téléphone soit connecté au système Bluetooth. \n \n Pouvez-vous vérifier dans les paramètres du téléphone que le système Bluetooth est bien connecté à votre téléphone ?";
+"dk_vehicle_bluetooth_not_found"="Aucun appareil Bluetooth n\'a été détecté. \n \nPour activer le démarrage automatique, assurez-vous que votre téléphone soit connecté au système Bluetooth. \n \nPouvez-vous vérifier dans les paramètres du téléphone que le système Bluetooth est bien connecté à votre téléphone ?";
 "dk_vehicle_brand_description"="Marque du véhicule ?";
-"dk_vehicle_category_car_commercial_description"="Cette catégorie correspond aux véhicule à usage professionnel généralement destinés au transport de marchandises. Ces véhicules ont un grande capacité de stockage et le poids total autorisé en charge est compris entre 1,5 tonne et 3,5 tonnes.";
+"dk_vehicle_category_car_commercial_description"="Cette catégorie correspond aux véhicules à usage professionnel généralement destinés au transport de marchandises. Ces véhicules ont une grande capacité de stockage et le poids total autorisé en charge est compris entre 1,5 tonne et 3,5 tonnes.";
 "dk_vehicle_category_car_commercial_title"="Utilitaires";
-"dk_vehicle_category_car_compact_description"="Cette catégorie correspond aux véhicules appartenant au segment B2. Il s\'agit de véhicules compacts qui sont adpatés en milieu urbain tout autant que sur route et dont la longueur varie entre 3,70 et 4,10 m.";
+"dk_vehicle_category_car_compact_description"="Cette catégorie correspond aux véhicules appartenant au segment B2. Il s\'agit de véhicules compacts qui sont adaptés en milieu urbain tout autant que sur route et dont la longueur varie entre 3,70 et 4,10 m.";
 "dk_vehicle_category_car_compact_title"="Citadine";
 "dk_vehicle_category_car_luxury_description"="Cette catégorie correspond aux berlines avec des finitions luxueuses et équipées de motorisations puissantes.";
 "dk_vehicle_category_car_luxury_title"="Grande Berline";
@@ -96,7 +96,7 @@
 "dk_vehicle_category_car_micro_title"="Micro citadine";
 "dk_vehicle_category_car_minivan_description"="Cette catégorie correspond aux véhicules dont le volume intérieur est optimisé pour les familles avec plusieurs enfants. Elles offrent en général cinq à sept places. Leur taille varie en moyenne de 4,80 à 5,00 m.";
 "dk_vehicle_category_car_minivan_title"="Monospace";
-"dk_vehicle_category_car_sedan_description"="Cette catégorie correspond aux véhicules appartenant au segment D. Il s\'agit de véhicules plus volumineux que les compactes, équippés de motorisations puissantes et dont la longueur varie entre 4,50 et 4,90 m.";
+"dk_vehicle_category_car_sedan_description"="Cette catégorie correspond aux véhicules appartenant au segment D. Il s\'agit de véhicules plus volumineux que les compactes, équipés de motorisations puissantes et dont la longueur varie entre 4,50 et 4,90 m.";
 "dk_vehicle_category_car_sedan_title"="Berline";
 "dk_vehicle_category_car_sport_description"="Cette catégorie correspond à des véhicules dotés de motorisation, de châssis et de système de freinage axés sur la performance.";
 "dk_vehicle_category_car_sport_title"="Coupé";

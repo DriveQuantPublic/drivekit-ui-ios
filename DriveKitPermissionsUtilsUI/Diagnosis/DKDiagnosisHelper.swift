@@ -17,6 +17,7 @@ import DriveKitCommonUI
 @objc public class DKDiagnosisHelper : NSObject {
 
     @objc public static let shared = DKDiagnosisHelper()
+    private lazy var requestPermissionHelper = RequestPermissionHelper()
     private lazy var bluetoothManager = CBCentralManager()
 
     private override init() {
@@ -66,6 +67,10 @@ import DriveKitCommonUI
 
     @objc public func isNetworkReachable() -> Bool {
         return DKReachability.isConnectedToNetwork()
+    }
+
+    @objc public func requestPermission(_ permissionType: DKPermissionType) {
+        self.requestPermissionHelper.requestPermission(permissionType)
     }
 
 

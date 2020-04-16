@@ -13,6 +13,9 @@ import DriveKitCommonUI
 @objc public class DriveKitPermissionsUtilsUI : NSObject {
 
     @objc public static let shared = DriveKitPermissionsUtilsUI()
+    private var isBluetoothNeeded = false
+    private var showDiagnosisLogs = false
+    private var contactType = DKContactType.none
 
     private override init() {
         super.init()
@@ -57,6 +60,28 @@ import DriveKitCommonUI
         }
     }
 
+    @objc public func getDiagnosisViewController() -> UIViewController {
+        #warning("TODO")
+        return UIViewController()
+    }
+
+    @objc public func hasError() -> Bool {
+        #warning("TODO")
+        return true
+    }
+
+    @objc public func configureBluetooth(needed: Bool) {
+        self.isBluetoothNeeded = needed
+    }
+
+    @objc public func configureDiagnosisLogs(show: Bool) {
+        self.showDiagnosisLogs = show
+    }
+
+    public func configureContactType(_ contactType: DKContactType) {
+        self.contactType = contactType
+    }
+
 }
 
 extension Bundle {
@@ -79,12 +104,23 @@ extension DriveKitPermissionsUtilsUI : DriveKitPermissionsUtilsUIEntryPoint {
     }
 }
 
+// MARK: - Objective-C extension
 
 extension DriveKitPermissionsUtilsUI {
 
     @objc(showPermissionViews:parentViewController:completionHandler:) // Usage example: [DriveKitPermissionsUtilsUI.shared showPermissionViews:@[ @(DKPermissionViewLocation), @(DKPermissionViewActivity) ] parentViewController: ... completionHandler: ...];
     public func objc_showPermissionViews(_ permissionViews: [Int], parentViewController: UIViewController, completionHandler: @escaping () -> Void) {
         showPermissionViews(permissionViews.map({ DKPermissionView(rawValue: $0)! }), parentViewController: parentViewController, completionHandler: completionHandler)
+    }
+
+    @objc(configureMailContactType:)
+    public func objc_configureContactType(contentMail: DKContentMail) {
+        self.configureContactType(.email(contentMail))
+    }
+
+    @objc(configureWebContactType:)
+    public func objc_configureContactType(contactUrl: NSURL) {
+        self.configureContactType(.web(contactUrl))
     }
 
 }

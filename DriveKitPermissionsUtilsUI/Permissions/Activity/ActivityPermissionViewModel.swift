@@ -7,12 +7,10 @@
 //
 
 import UIKit
-import CoreMotion
 
 class ActivityPermissionViewModel : NSObject {
 
     weak var view: PermissionView? = nil
-    private let motionActivityManager = CMMotionActivityManager()
 
     override init() {
         super.init()
@@ -23,7 +21,7 @@ class ActivityPermissionViewModel : NSObject {
     @objc func checkState() {
         switch DKDiagnosisHelper.shared.getPermissionStatus(.activity) {
             case .notDetermined:
-                askAuthorization()
+                requestPermission()
             case .valid:
                 NotificationCenter.default.removeObserver(self)
                 self.view?.next()
@@ -38,13 +36,8 @@ class ActivityPermissionViewModel : NSObject {
     }
 
 
-    @objc private func askAuthorization() {
-        if DKDiagnosisHelper.shared.getPermissionStatus(.activity) == .notDetermined {
-            self.motionActivityManager.startActivityUpdates(to: .main) { (motionActivity) in
-                self.checkState()
-            }
-            self.motionActivityManager.stopActivityUpdates()
-        }
+    @objc private func requestPermission() {
+        DKDiagnosisHelper.shared.requestPermission(.activity)
     }
 
     @objc private func appDidBecomeActive() {

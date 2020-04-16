@@ -1,6 +1,6 @@
 //
 //  BeaconDiagnosticMail.swift
-//  DriveKitVehicleUI
+//  DriveKitCommonUI
 //
 //  Created by Jérémy Bayle on 26/03/2020.
 //  Copyright © 2020 DriveQuant. All rights reserved.

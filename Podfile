@@ -28,8 +28,12 @@ end
 target 'DriveKitCommonUI' do
   pod 'UICircularProgressRing'
 end
-
+  
 target 'DriveKitVehicleUI' do
   pod 'DriveKitVehicle', '1.4-beta12'
   pod 'DriveKitTripAnalysis', '1.4-beta12'
+end
+
+target 'DriveKitPermissionsUtilsUI' do
+
 end

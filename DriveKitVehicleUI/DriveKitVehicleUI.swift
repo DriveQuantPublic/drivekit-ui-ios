@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import DriveKitCommonUI
 import DriveKitVehicle
 import DriveKitDBVehicleAccess

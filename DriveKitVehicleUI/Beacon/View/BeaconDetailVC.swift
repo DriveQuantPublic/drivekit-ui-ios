@@ -44,14 +44,24 @@ class BeaconDetailVC: DKUIViewController {
     }
     
     @objc private func sendEmail() {
-        if MFMailComposeViewController.canSendMail(), let mail = DriveKitVehicleUI.shared.beaconDiagnosticEmail  {
-            let mailComposerVC = MFMailComposeViewController()
-            mailComposerVC.mailComposeDelegate = self
-            mailComposerVC.setToRecipients(mail.getRecipients())
-            mailComposerVC.setBccRecipients(mail.getBccRecipients())
-            mailComposerVC.setSubject(mail.getSubject())
-            mailComposerVC.setMessageBody("\(mail.getMailBody())\n\n\(viewModel.mailContent())", isHTML: false)
-            present(mailComposerVC, animated: true)
+        if let urlString = DriveKitVehicleUI.shared.beaconDiagnosticSupportLink {
+            if let url = URL(string: urlString), UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url)
+            }
+        } else {
+            if MFMailComposeViewController.canSendMail(), let mail = DriveKitVehicleUI.shared.beaconDiagnosticEmail  {
+                let mailComposerVC = MFMailComposeViewController()
+                mailComposerVC.mailComposeDelegate = self
+                mailComposerVC.setToRecipients(mail.getRecipients())
+                mailComposerVC.setBccRecipients(mail.getBccRecipients())
+                mailComposerVC.setSubject(mail.getSubject())
+                if mail.overrideMailBodyContent() {
+                    mailComposerVC.setMessageBody("\(mail.getMailBody())", isHTML: false)
+                } else {
+                    mailComposerVC.setMessageBody("\(mail.getMailBody())\n\n\(viewModel.mailContent())", isHTML: false)
+                }
+                present(mailComposerVC, animated: true)
+            }
         }
     }
 }

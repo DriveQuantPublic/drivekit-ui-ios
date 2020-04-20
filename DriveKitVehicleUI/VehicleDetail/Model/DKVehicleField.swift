@@ -11,7 +11,7 @@ import DriveKitDBVehicleAccess
 import DriveKitVehicle
 import DriveKitCommonUI
 
-public protocol VehicleField {
+public protocol DKVehicleField {
     var title: String { get }
     var isEditable: Bool { get }
     var keyBoardType: UIKeyboardType { get }
@@ -21,7 +21,7 @@ public protocol VehicleField {
     func onFieldUpdated(value: String, vehicle: DKVehicle, completion : @escaping (Bool) -> ())
 }
 
-enum EngineField: VehicleField, CaseIterable {
+enum EngineField: DKVehicleField, CaseIterable {
     
     case motor, consumption
     
@@ -68,7 +68,7 @@ enum EngineField: VehicleField, CaseIterable {
     
 }
 
-enum GeneralField: VehicleField, CaseIterable {
+enum GeneralField: DKVehicleField, CaseIterable {
     
     case name, category, brand, model, version
     
@@ -100,7 +100,7 @@ enum GeneralField: VehicleField, CaseIterable {
             }
         case .brand:
             if let brand = vehicle.brand {
-                return DKVehicleBrand(value: brand).title()
+                return brand
             } else {
                 return nil
             }
@@ -156,7 +156,7 @@ enum GeneralField: VehicleField, CaseIterable {
     }
 }
 
-enum BluetoothField: VehicleField, CaseIterable {
+enum BluetoothField: DKVehicleField, CaseIterable {
     
     case macAddress, bluetoothName
     
@@ -199,7 +199,7 @@ enum BluetoothField: VehicleField, CaseIterable {
     }
 }
 
-enum BeaconField: VehicleField, CaseIterable {
+enum BeaconField: DKVehicleField, CaseIterable {
     case uniqueId, major, minor
     
     var title: String {
@@ -253,7 +253,7 @@ enum BeaconField: VehicleField, CaseIterable {
     }
 }
 
-enum CharacteristicsField: VehicleField, CaseIterable {
+enum CharacteristicsField: DKVehicleField, CaseIterable {
     case power, gearbox, mass
     
     var title: String {

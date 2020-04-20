@@ -2,14 +2,8 @@
 platform :ios, '10.0'
 use_frameworks!
 
-source 'https://gitlab.com/drivequant/drivekit/drivekit-specs.git'
+#source 'https://gitlab.com/drivequant/drivekit/drivekit-specs.git'
 source 'https://github.com/CocoaPods/Specs.git'
-
-#pod 'Networking', :git => 'https://github.com/DriveQuantPublic/drivekit-ios-sdk.git', :tag => drivekitVersion
-# pod 'DriveKitCore', :git => 'https://github.com/DriveQuantPublic/drivekit-ios-sdk.git', :tag => drivekitVersion
-# pod 'DriveKitTripAnalysis', :git => 'https://github.com/DriveQuantPublic/drivekit-ios-sdk.git', :tag => drivekitVersion
-# pod 'DriveKitDriverData', :git => 'https://github.com/DriveQuantPublic/drivekit-ios-sdk.git', :tag => drivekitVersion
-
 
 target 'DriveKitApp' do
 
@@ -17,12 +11,12 @@ end
 
 
 target 'DriveKitDriverDataUI' do
-  pod 'DriveKitDriverData', '1.4-beta12'
-  pod 'DriveKitTripAnalysis', '1.4-beta12'
+  pod 'DriveKitDriverData'
+  pod 'DriveKitTripAnalysis'
 end
 
 target 'DriveKitDriverAchievementUI' do
-  pod 'DriveKitDriverAchievement', '1.4-beta12'
+  pod 'DriveKitDriverAchievement'
 end
 
 target 'DriveKitCommonUI' do
@@ -30,8 +24,8 @@ target 'DriveKitCommonUI' do
 end
   
 target 'DriveKitVehicleUI' do
-  pod 'DriveKitVehicle', '1.4-beta12'
-  pod 'DriveKitTripAnalysis', '1.4-beta12'
+  pod 'DriveKitVehicle'
+  pod 'DriveKitTripAnalysis'
 end
 
 target 'DriveKitPermissionsUtilsUI' do

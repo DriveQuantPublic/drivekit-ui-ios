@@ -30,12 +30,12 @@ class VehiclesListCell: UITableViewCell {
     
     @IBOutlet weak var configureButton: UIButton!
     
-    private var viewModel: VehiclesListViewModel!
+    private var viewModel: DKVehiclesListViewModel!
     private var pos: Int!
     private weak var vehicleListDelegate : VehiclesListDelegate?
     private weak var parentView: UIViewController? = nil
     
-    func configure(viewModel: VehiclesListViewModel, pos: Int, parentView: UIViewController) {
+    func configure(viewModel: DKVehiclesListViewModel, pos: Int, parentView: UIViewController) {
         self.viewModel = viewModel
         self.pos = pos
         self.parentView = parentView
@@ -50,7 +50,7 @@ class VehiclesListCell: UITableViewCell {
     }
     
     private func configureAutoStart() {
-        autoStartLabel.attributedText = "dk_vehicle_detection_mode_title".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        autoStartLabel.attributedText = "dk_vehicle_detection_mode_title".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 16, traits: .traitBold)).color(.mainFontColor).build()
         autoStartSelectView.backgroundColor = DKUIColors.neutralColor.color
         autoStartDelimiter.backgroundColor = DKUIColors.neutralColor.color
         autoStartSelectImage.image = DKImages.arrowDown.image
@@ -84,7 +84,7 @@ class VehiclesListCell: UITableViewCell {
     }
     
     @IBAction func didSelectEditButton(_ sender: Any) {
-        let vehicleActions : [VehicleAction] = viewModel.vehicleActions(pos: pos)
+        let vehicleActions : [DKVehicleActionItem] = viewModel.vehicleActions(pos: pos)
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         for vehicleAction in vehicleActions {
             alert.addAction(vehicleAction.alertAction(pos: pos, viewModel: self.viewModel))

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import DriveKitCommonUI
 import DriveKitVehicle
 import DriveKitDBVehicleAccess
@@ -24,13 +25,14 @@ public class DriveKitVehicleUI {
     
     var canAddVehicle: Bool = true
     var maxVehicles: Int? = nil
-     var canRemoveBeacon : Bool = true
+    var canRemoveBeacon : Bool = true
     
-    var vehicleActions : [VehicleAction] = VehicleAction.allCases
+    var vehicleActions : [DKVehicleActionItem] = DKVehicleAction.allCases
     var detectionModes: [DKDetectionMode] = [.disabled, .gps, .beacon, .bluetooth]
-    var customFields = [VehicleGroupField: [VehicleField]]()
+    var customFields = [DKVehicleGroupField: [DKVehicleField]]()
     
     var beaconDiagnosticEmail : DKContentMail? = nil
+    var beaconDiagnosticSupportLink: String? = nil
     var vehiclePickerExtraStep : DKVehiclePickerExtraStep? = nil
     
     private init() {}
@@ -87,16 +89,20 @@ public class DriveKitVehicleUI {
         }
     }
     
-    public func configureVehicleActions(vehicleActions : [VehicleAction]) {
+    public func configureVehicleActions(vehicleActions : [DKVehicleActionItem]) {
         self.vehicleActions = vehicleActions
     }
     
-    public func addCustomVehicleField(groupField: VehicleGroupField, fieldsToAdd: [VehicleField]) {
-        self.customFields = [groupField : fieldsToAdd]
+    public func addCustomVehicleField(groupField: DKVehicleGroupField, fieldsToAdd: [DKVehicleField]) {
+        self.customFields[groupField] = fieldsToAdd
     }
     
     public func configureBeaconDetailEmail(beaconDiagnosticEmail: DKContentMail?) {
         self.beaconDiagnosticEmail = beaconDiagnosticEmail
+    }
+    
+    public func configureBeaconDiagnosticSupportURL(url: String?) {
+        self.beaconDiagnosticSupportLink = url
     }
     
     public func enableRemoveBeacon(canRemoveBeacon: Bool){
@@ -140,6 +146,25 @@ extension DriveKitVehicleUI : DriveKitVehicleUIEntryPoint {
         DriveKitVehicle.shared.getVehicle(vehicleId: vehicleId, completionHandler: {status, vehicle in
             completion(vehicle?.computeName())
         })
+    }
+    
+    public func getBeaconDiagnosticViewController(parentView: UIViewController) -> UIViewController {
+        let vehicles = DriveKitVehicle.shared.vehiclesQuery().noFilter().query().execute()
+        var uuid : String? = nil
+        for vehicle in vehicles {
+            if let beacon = vehicle.beacon {
+                uuid = beacon.proximityUuid
+                break
+            }
+        }
+        if let proxUuid = uuid {
+            let beacon = DKBeacon(uniqueId: nil, proximityUuid: proxUuid, major: -1, minor: -1)
+            let viewModel = BeaconViewModel(scanType: .diagnostic, beacon: beacon, vehicles: vehicles)
+            return BeaconScannerVC(viewModel: viewModel, step: .initial, parentView: parentView)
+        } else {
+            let viewModel = BeaconViewModel(scanType: .diagnostic)
+            return BeaconScannerVC(viewModel: viewModel, step: .beaconNotConfigured, parentView: parentView)
+        }
     }
 }
 

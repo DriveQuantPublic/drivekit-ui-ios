@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import UIKit
 import DriveKitVehicle
 
 extension DKVehicleBrand : VehiclePickerCollectionViewItem {
     
     func title() -> String {
-        return self.value
+        return self.name
     }
     
     func image() -> UIImage? {
@@ -73,7 +74,7 @@ extension DKVehicleBrand : VehiclePickerCollectionViewItem {
 
 extension DKVehicleBrand : VehiclePickerTableViewItem {
     func text() -> String {
-        return self.value
+        return self.name
     }
 }
 

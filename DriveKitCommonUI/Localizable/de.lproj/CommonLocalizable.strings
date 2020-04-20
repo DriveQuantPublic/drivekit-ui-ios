@@ -12,14 +12,21 @@
 "dk_common_duration"="Dauer";
 "dk_common_ecodriving"="Eco-Driving";
 "dk_common_edit"="Editieren";
+"dk_common_error_empty_field"="Dieses Feld darf nicht leer bleiben.";
 "dk_common_finish"="Ende";
 "dk_common_loading"="Lädt. Bitte warten...";
 "dk_common_mass"="Gewicht";
 "dk_common_mean_speed"="Mittlere Velocity";
 "dk_common_ok"="OK";
+"dk_common_permission_camera_rationale"="Für die Nutzung dieser Funktion benötigt die Anwendung die Berechtigung zum Zugriff auf die Kamera Ihres Smartphones.";
+"dk_common_permission_storage_rationale"="Für die Nutzung dieser Funktion benötigt die Anwendung die Berechtigung zum Zugriff auf den Speicher Ihres Smartphones.";
+"dk_common_permissions"="Genehmigungen";
 "dk_common_safety"="Sicherheit";
 "dk_common_save"="Speichern";
+"dk_common_select_image_gallery"="Wählen Sie ein vorhandenes Foto aus";
+"dk_common_settings"="Einstellungen";
 "dk_common_speed"="Geschwindigkeit";
+"dk_common_take_picture"="Ein Foto machen";
 "dk_common_trip_plural"="fahrten";
 "dk_common_trip_singular"="fahrt";
 "dk_common_unit_T"="T";
@@ -41,4 +48,5 @@
 "dk_common_unit_mph"="mph";
 "dk_common_unit_power"="PS";
 "dk_common_unit_second"="s";
+"dk_common_update_photo_title"="Ändern des Bildes";
 "dk_common_validate"="Gultig";

@@ -44,6 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitDriverDataUI.shared.initialize()
         DriveKitVehicleUI.shared.initialize()
         DriveKitVehicleUI.shared.configureBeaconDetailEmail(beaconDiagnosticEmail: self)
+        DriveKitVehicleUI.shared.configureBeaconDiagnosticSupportURL(url: "https://www.google.com")
         DriveKitVehicleUI.shared.configureCategoryConfigType(type: .bothConfig)
         DriveKitPermissionsUtilsUI.shared.initialize()
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options : \(options)")
@@ -186,6 +187,10 @@ extension AppDelegate : DKFonts {
 }
 
 extension AppDelegate : DKContentMail {
+    func overrideMailBodyContent() -> Bool {
+        return false
+    }
+    
     func getRecipients() -> [String] {
         return []
     }

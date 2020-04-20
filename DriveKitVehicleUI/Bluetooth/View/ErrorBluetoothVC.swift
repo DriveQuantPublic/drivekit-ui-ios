@@ -15,10 +15,7 @@ class ErrorBluetoothVC: DKUIViewController {
     @IBOutlet var cancelButton: UIButton!
     @IBOutlet var settingsButton: UIButton!
     
-    private let presentingView : UIViewController
-    
-    public init(parentView : UIViewController) {
-        self.presentingView = parentView
+    public init() {
         super.init(nibName: "ErrorBluetoothVC", bundle: .vehicleUIBundle)
     }
     
@@ -42,7 +39,12 @@ class ErrorBluetoothVC: DKUIViewController {
     
     
     @IBAction func cancelAction(_ sender: Any) {
-        self.navigationController?.popToViewController(self.presentingView, animated: true)
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
+        if viewControllers.count >= 3{
+            self.navigationController?.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
+        } else{
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     @IBAction func goToSettings(_ sender: Any) {

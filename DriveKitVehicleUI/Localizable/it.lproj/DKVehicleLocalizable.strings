@@ -122,6 +122,7 @@
 "dk_vehicle_failed_to_paired_bluetooth"="La connessione Bluetooth al veicolo non è riuscita, si prega di riprovare più tardi.";
 "dk_vehicle_failed_to_retrieve_vehicle_data"="Non è stato possibile recuperare le caratteristiche del veicolo.";
 "dk_vehicle_failed_to_sync"="Impossibile recuperare i dati del veicolo, riprova più tardi";
+"dk_vehicle_field_name_error"="Il nome del vostro veicolo non deve superare i 50 caratteri.";
 "dk_vehicle_gps_already_exists_confirm"="Si desidera impostare la modalità di rilevamento %@ per il veicolo %@? \n\nLa modalità di rilevamento del veicolo %@ sarà commutata a %@.";
 "dk_vehicle_list_empty"="Si prega di aggiungere almeno un veicolo";
 "dk_vehicle_model_description"="Modello del veicolo?";

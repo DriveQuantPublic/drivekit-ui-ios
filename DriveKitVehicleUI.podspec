@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
-  s.name             = 'DriveKitDriverDataUI'
+  s.name             = 'DriveKitVehicleUI'
   s.version          = '1.4-beta3'
-  s.summary          = 'DriveKit Driver Data UI Framework'
+  s.summary          = 'DriveKit Vehicle UI Framework'
 
-  s.description      = 'DriveKit Driver Data features : Trip list and detail'
+  s.description      = 'DriveKit Vehicle features : Vehicles list and detail, beacon and bluetooth management, vehicle selection features'
 
   s.homepage         = 'https://docs.drivequant.com'
   s.license          = 'Apache License, Version 2.0'
@@ -13,14 +13,14 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '10.0'
 
-  s.source_files = 'DriveKitDriverDataUI/**/*.swift'
-  s.resource = ['DriveKitDriverDataUI/DriverData.xcassets', 'DriveKitDriverDataUI/Localizable/*', 'DriveKitDriverDataUI/**/*.xib', 'DriveKitDriverDataUI/**/*.storyboard']
+  s.source_files = 'DriveKitVehicleUI/**/*.swift'
+  s.resource = ['DriveKitVehicleUI/DriveKitVehicle.xcassets', 'DriveKitVehicleUI/Localizable/*', 'DriveKitVehicleUI/**/*.xib']
 
   s.dependency 'DriveKitCommonUI', s.version.to_s
-  s.dependency 'DriveKitDriverData'
+  s.dependency 'DriveKitVehicle'
   s.dependency 'DriveKitTripAnalysis'
 
   s.info_plist = {
-    'CFBundleIdentifier' => 'com.drivequant.drivekit-driverdata-ui'
+    'CFBundleIdentifier' => 'com.drivequant.drivekit-vehicle-ui'
   }
 end

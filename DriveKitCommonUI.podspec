@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'DriveKitCommonUI'
-  s.version          = '1.3.2'
+  s.version          = '1.4-beta3'
   s.summary          = 'DriveKit Common UI Framework'
 
   s.description      = 'Common features of all DriveKit UI modules'
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '10.0'
 
   s.source_files = 'DriveKitCommonUI/**/*.swift'
-  s.resource = ['DriveKitCommonUI/Graphical/DKImages.xcassets', 'DriveKitCommonUI/Localizable/*']
+  s.resource = ['DriveKitCommonUI/Graphical/DKImages.xcassets', 'DriveKitCommonUI/Localizable/*','DriveKitCommonUI/**/*.xib']
 
   s.dependency 'UICircularProgressRing'
 

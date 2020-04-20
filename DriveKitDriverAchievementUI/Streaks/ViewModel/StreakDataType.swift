@@ -8,28 +8,9 @@
 
 import UIKit
 import DriveKitCommonUI
+import DriveKitDBAchievementAccess
 
-public enum StreakDataType {
-    case phoneDistraction, safety, adherence, brake, acceleration, speedLimits
-    
-    static func getEnumFromStreakTheme(theme : String) -> StreakDataType {
-        switch theme {
-        case "PHONE_DISTRACTION":
-            return .phoneDistraction
-        case "SAFETY":
-            return .safety
-        case "SPEEDING":
-            return .speedLimits
-        case "ACCELERATION":
-            return .acceleration
-        case "BRAKE":
-            return .brake
-        case "ADHERENCE":
-            return .adherence
-        default:
-            fatalError("Streak theme unknown")
-        }
-    }
+public extension DKStreakTheme {
     
     var theme : String {
         switch self {

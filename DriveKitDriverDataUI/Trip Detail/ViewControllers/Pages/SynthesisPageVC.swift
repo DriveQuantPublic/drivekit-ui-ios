@@ -40,8 +40,11 @@ class SynthesisPageVC: UIViewController {
     @IBOutlet var contextTitle: UILabel!
     @IBOutlet var contextValue: UILabel!
     
-    init(viewModel: SynthesisPageViewModel) {
+    private weak var parentView : UIViewController?
+    
+    init(viewModel: SynthesisPageViewModel, parentView : UIViewController) {
         self.viewModel = viewModel
+        self.parentView = parentView
         super.init(nibName: String(describing: SynthesisPageVC.self), bundle: Bundle.driverDataUIBundle)
     }
     
@@ -52,9 +55,11 @@ class SynthesisPageVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
+        self.configureVehicleName()
+        self.configureVehicleClick()
     }
     
-    func setup() {        
+    private func setup() {
         vehicleTitle.attributedText = "dk_driverdata_synthesis_vehicle".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
         vehicleValue.attributedText = "-".dkAttributedString().font(dkFont: .primary, style: .normalText).color(.secondaryColor).build()
 
@@ -81,5 +86,35 @@ class SynthesisPageVC: UIViewController {
 
         contextTitle.attributedText = "dk_driverdata_synthesis_road_context".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
         contextValue.attributedText = viewModel.contextValue.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.primaryColor).build()
+    }
+    
+    private func configureVehicleName() {
+        if let dKVehicleUI = DriveKitNavigationController.shared.vehicleUI, let vehicleId = self.viewModel.vehicleId {
+            dKVehicleUI.getVehicleNameWith(vehicleId: vehicleId, completion: { [weak self] name in
+                DispatchQueue.main.async {
+                    if let vehicleName = name {
+                        self?.vehicleValue.attributedText = vehicleName.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.secondaryColor).build()
+                    }
+                }
+            })
+        }
+    }
+    
+    private func configureVehicleClick() {
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(vehicleClicked))
+        vehicleValue.isUserInteractionEnabled = true
+        vehicleValue.addGestureRecognizer(singleTap)
+    }
+    
+    @objc private func vehicleClicked() {
+        if let dKVehicleUI = DriveKitNavigationController.shared.vehicleUI, let vehicleId = self.viewModel.vehicleId {
+            dKVehicleUI.getVehicleDetailViewController(vehicleId: vehicleId, completion: { [weak self] viewController in
+                DispatchQueue.main.async {
+                    if let vc = viewController {
+                        self?.parentView?.navigationController?.pushViewController(vc, animated: true)
+                    }
+                }
+            })
+        }
     }
 }

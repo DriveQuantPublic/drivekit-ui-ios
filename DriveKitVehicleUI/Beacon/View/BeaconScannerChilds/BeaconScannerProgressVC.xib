@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BeaconScannerProgressVC" customModule="DriveKitVehicleUI" customModuleProvider="target">
+            <connections>
+                <outlet property="progressView" destination="WoL-Os-3Yo" id="WTt-ES-EVs"/>
+                <outlet property="progressViewTitleLabel" destination="TTs-aI-FaV" id="DeK-nX-tKo"/>
+                <outlet property="view" destination="zQK-or-x0s" id="Uev-Lc-gI0"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="zQK-or-x0s">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="WoL-Os-3Yo">
+                    <rect key="frame" x="83" y="88.5" width="248" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="7nx-k9-wyh"/>
+                    </constraints>
+                </progressView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTs-aI-FaV">
+                    <rect key="frame" x="186" y="52" width="42" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="TTs-aI-FaV" firstAttribute="top" secondItem="J9f-ov-htD" secondAttribute="top" constant="8" id="8PP-zX-2l2"/>
+                <constraint firstItem="WoL-Os-3Yo" firstAttribute="width" secondItem="zQK-or-x0s" secondAttribute="width" multiplier="3:5" id="O4R-Br-FAX"/>
+                <constraint firstItem="WoL-Os-3Yo" firstAttribute="top" secondItem="TTs-aI-FaV" secondAttribute="bottom" constant="16" id="mg4-By-Ftb"/>
+                <constraint firstItem="TTs-aI-FaV" firstAttribute="centerX" secondItem="zQK-or-x0s" secondAttribute="centerX" id="pW6-Of-9Ka"/>
+                <constraint firstItem="WoL-Os-3Yo" firstAttribute="centerX" secondItem="zQK-or-x0s" secondAttribute="centerX" id="rj9-oK-aAc"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="J9f-ov-htD"/>
+            <point key="canvasLocation" x="131.8840579710145" y="-510.26785714285711"/>
+        </view>
+    </objects>
+</document>

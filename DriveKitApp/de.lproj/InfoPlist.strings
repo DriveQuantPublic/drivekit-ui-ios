@@ -1,0 +1,14 @@
+/* 
+  InfoPlist.strings
+  DriveKitApp
+
+  Created by David Bauduin on 08/04/2020.
+  Copyright © 2020 DriveQuant. All rights reserved.
+*/
+
+"NSLocationAlwaysUsageDescription"="Die Bewerbung muss Ihre Position kennen, um Ihre Reisen zu analysieren, Fahrspitzen zu liefern und den automatischen modus aktiviert.";
+"NSLocationWhenInUseUsageDescription"="Die Bewerbung muss Ihre Position kennen, um Ihre Reisen zu analysieren, Fahrspitzen zu liefern und den automatischen modus aktiviert.";
+"NSLocationAlwaysAndWhenInUseUsageDescription"="Um von der automatischen Erkennung und Analyse Ihres Fahrens zu profitieren, ohne Ihr iPhone zu manipulieren, wählen Sie die Option \"Immer erlauben\". Gute Straße ...";
+"NSBluetoothAlwaysUsageDescription"="Die Anwendung muss Bluetooth verwenden, um den Akku von ibeacon abzurufen";
+"NSBluetoothPeripheralUsageDescription"="Die Anwendung muss Bluetooth verwenden, um den Akku von ibeacon abzurufen";
+"NSMotionUsageDescription"="Diese Anwendung muss Bewegungsdaten verwenden, um den Transportmodus zu erkennen";

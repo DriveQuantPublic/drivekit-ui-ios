@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'DriveKitDriverAchievementUI'
-  s.version          = '1.3.2'
+  s.version          = '1.4-beta3'
   s.summary          = 'DriveKit Driver Achievement UI Framework'
 
   s.description      = 'DriveKit Driver Achievement features : Streaks'

@@ -16,6 +16,10 @@ import DriveKitDBTripAccess
 import DriveKitCommonUI
 import DriveKitDriverAchievementUI
 import DriveKitDriverDataUI
+import DriveKitVehicleUI
+import DriveKitVehicle
+import DriveKitDBVehicleAccess
+import DriveKitPermissionsUtilsUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -38,6 +42,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitUI.shared.initialize(colors: self, fonts: self, overridedStringsFileName: "Localizable")
         DriveKitDriverAchievementUI.shared.initialize()
         DriveKitDriverDataUI.shared.initialize()
+        DriveKitVehicleUI.shared.initialize()
+        DriveKitVehicleUI.shared.configureBeaconDetailEmail(beaconDiagnosticEmail: self)
+        DriveKitVehicleUI.shared.configureBeaconDiagnosticSupportURL(url: "https://www.google.com")
+        DriveKitVehicleUI.shared.configureCategoryConfigType(type: .bothConfig)
+        DriveKitPermissionsUtilsUI.shared.initialize()
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options : \(options)")
         return true
     }
@@ -87,6 +96,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let processInfo = ProcessInfo.processInfo
         let apiKey = processInfo.environment["DriveKit-API-Key"] ?? ""
         DriveKit.shared.setApiKey(key: apiKey)
+        DriveKitTripAnalysis.shared.setVehiclesConfigTakeover(vehiclesConfigTakeOver: false)
+        
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "DriveKit configured with API key")
         if SettingsBundleKeys.getDefaultValuePref() {
             // DriveKit default value
@@ -173,4 +184,26 @@ extension AppDelegate : DKColors {
 }
 
 extension AppDelegate : DKFonts {
+}
+
+extension AppDelegate : DKContentMail {
+    func overrideMailBodyContent() -> Bool {
+        return false
+    }
+    
+    func getRecipients() -> [String] {
+        return []
+    }
+    
+    func getBccRecipients() -> [String] {
+        return []
+    }
+    
+    func getSubject() -> String {
+        return "Test beacon"
+    }
+    
+    func getMailBody() -> String {
+        return "Test mail body"
+    }
 }

@@ -13,6 +13,10 @@ import DriveKitTripAnalysis
 import CoreLocation
 import CoreMotion
 import DriveKitCommonUI
+import DriveKitVehicleUI
+import DriveKitVehicle
+import DriveKitDBVehicleAccess
+import DriveKitPermissionsUtilsUI
 
 class ViewController: UITableViewController {
     
@@ -31,6 +35,8 @@ class ViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.title = "Sample app"
         configureTripAnalysisButton()
         configureText()
     }
@@ -74,39 +80,40 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 1 && indexPath.section == 0 {
-            self.configureDriverDataUI()
-        }else if indexPath.row == 3 && indexPath.section == 0 {
-            self.configureDriverStreak()
+        if indexPath.section == 0 {
+            if indexPath.row == 1 {
+                self.configureDriverDataUI()
+            } else if indexPath.row == 3 {
+                self.configureDriverStreak()
+            } else if indexPath.row == 4 {
+                self.configureVehiclePicker()
+            } else if indexPath.row == 5 {
+                self.configureBeaconPairing()
+            } else if indexPath.row == 6 {
+                self.configureVehiclesList()
+            } else if indexPath.row == 7 {
+                self.askOnboardingPermissions()
+            }
         }
     }
     
     @IBAction func didTouchLocalization(_ sender: Any) {
-        if #available(iOS 13.0, *) {
-            if CLLocationManager.authorizationStatus() == .notDetermined {
-                location.requestWhenInUseAuthorization()
-            } else {
-                self.alertAuthorizations()
-            }
+        if DKDiagnosisHelper.shared.getPermissionStatus(.location) == .valid {
+            self.alertAuthorizations()
         } else {
-            if CLLocationManager.authorizationStatus() == .notDetermined {
-                location.requestAlwaysAuthorization()
-            } else {
-                self.alertAuthorizations()
+            DriveKitPermissionsUtilsUI.shared.showPermissionViews([.location], parentViewController: self.navigationController!) {
+                self.showAlertMessage(title: "Location", message: "👍", back: false, cancel: false)
             }
         }
-        
     }
     
     @IBAction func didTouchActivity(_ sender: Any) {
-        if #available(iOS 11.0, *) {
-            if CMMotionActivityManager.authorizationStatus() == .notDetermined {
-                motion.startActivityUpdates(to: .main, withHandler: { _ in })
-            } else {
-                self.alertAuthorizations()
-            }
+        if DKDiagnosisHelper.shared.getPermissionStatus(.activity) == .valid {
+            self.alertAuthorizations()
         } else {
-            motion.startActivityUpdates(to: .main, withHandler: { _ in })
+            DriveKitPermissionsUtilsUI.shared.showPermissionViews([.activity], parentViewController: self.navigationController!) {
+                self.showAlertMessage(title: "Activity", message: "👍", back: false, cancel: false)
+            }
         }
     }
     
@@ -159,9 +166,8 @@ class ViewController: UITableViewController {
     
     func configureDriverDataUI() {
         DispatchQueue.main.async {
-
+            
             let tripListVC = TripListVC()
-            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
             self.navigationController?.pushViewController(tripListVC, animated: true)
         }
     }
@@ -169,11 +175,34 @@ class ViewController: UITableViewController {
     func configureDriverStreak() {
         if let driverAchievementUI = DriveKitNavigationController.shared.driverAchievementUI {
             let streakVC = driverAchievementUI.getStreakViewController()
-            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
             self.navigationController?.pushViewController(streakVC, animated: true)
         }
-        
     }
+    func configureVehiclePicker() {
+        DispatchQueue.main.async {
+           _ = DKVehiclePickerNavigationController(parentView: self)
+        }
+    }
+    
+    func configureBeaconPairing() {
+        if let vehicleUI = DriveKitNavigationController.shared.vehicleUI {
+            self.navigationController?.pushViewController(vehicleUI.getBeaconDiagnosticViewController(parentView: self), animated: true)
+        }
+    }
+    
+    func configureVehiclesList(){
+        DispatchQueue.main.async {
+            let listVC = VehiclesListVC()
+            self.navigationController?.pushViewController(listVC, animated: true)
+        }
+    }
+
+    private func askOnboardingPermissions() {
+        DriveKitPermissionsUtilsUI.shared.showPermissionViews([.location, .activity], parentViewController: self.navigationController!) {
+            self.showAlertMessage(title: "Permissions", message: "👍", back: false, cancel: false)
+        }
+    }
+    
     
     @IBAction func startTrip(_ sender: Any) {
         DriveKitTripAnalysis.shared.startTrip()
@@ -189,4 +218,3 @@ class ViewController: UITableViewController {
         configureTripAnalysisButton()
     }
 }
-

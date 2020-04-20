@@ -44,6 +44,24 @@ public class DKAttributedStringBuilder {
     public func build() -> NSMutableAttributedString {
         return NSMutableAttributedString(string: text, attributes: attributes)
     }
+    
+    public func buildWithArgs(_ args: NSMutableAttributedString... ) -> NSMutableAttributedString {
+        let stringsPart = self.text.components(separatedBy: "%@")
+        let attributedString = NSMutableAttributedString(string: stringsPart[0], attributes: attributes)
+        for i in 0...stringsPart.count {
+            if args.count >  i {
+                attributedString.append(args[i])
+            }
+            if stringsPart.count > i + 1 {
+                attributedString.append(NSMutableAttributedString(string: stringsPart[i + 1], attributes: attributes))
+            }
+        }
+        return attributedString
+    }
+    
+    public func primaryFontNormalTextMainFontColor() -> NSMutableAttributedString {
+        return self.font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+    }
 }
 
 public extension String {

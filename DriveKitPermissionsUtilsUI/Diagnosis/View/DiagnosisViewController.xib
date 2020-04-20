@@ -11,6 +11,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DiagnosisViewController" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
             <connections>
                 <outlet property="activityStatus" destination="SXy-Td-UGd" id="VFa-OZ-Fu4"/>
+                <outlet property="batteryOptimizationDescriptionPart1" destination="T6d-oH-oud" id="6cn-3o-H1j"/>
+                <outlet property="batteryOptimizationDescriptionPart2" destination="pFb-Jg-wgC" id="823-t8-Doq"/>
+                <outlet property="batteryOptimizationTitle" destination="fwf-BP-Our" id="yCz-I0-eut"/>
+                <outlet property="batteryOptimizationTouch" destination="Us3-eF-CRG" id="p30-7q-zvF"/>
                 <outlet property="bluetoothStatus" destination="nM1-Wg-kdG" id="CJF-KW-3VF"/>
                 <outlet property="connectionStatus" destination="BrQ-8E-NQe" id="qop-0V-MtV"/>
                 <outlet property="globalStatus" destination="FFX-If-NLK" id="sq4-2m-XBH"/>
@@ -28,7 +32,7 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4Li-NZ-qfG">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="541.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="574"/>
                             <subviews>
                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="FFX-If-NLK" userLabel="Global status" customClass="GlobalStateView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -56,7 +60,7 @@
                                     <rect key="frame" x="0.0" y="209" width="414" height="40"/>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vu0-Ld-eBQ" userLabel="Battery optimization container">
-                                    <rect key="frame" x="0.0" y="249" width="414" height="76"/>
+                                    <rect key="frame" x="0.0" y="249" width="414" height="108.5"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cam-ZY-Raf" userLabel="Separator" customClass="SeparatorView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="9"/>
@@ -65,6 +69,9 @@
                                                 <constraint firstAttribute="height" constant="9" id="8jS-rJ-NM0"/>
                                             </constraints>
                                         </view>
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Us3-eF-CRG" userLabel="Battery optimization touch">
+                                            <rect key="frame" x="0.0" y="15" width="414" height="94"/>
+                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwf-BP-Our">
                                             <rect key="frame" x="10" y="19" width="394" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -72,27 +79,40 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6d-oH-oud">
-                                            <rect key="frame" x="10" y="45.5" width="394" height="20.5"/>
+                                            <rect key="frame" x="10" y="47.5" width="394" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFb-Jg-wgC">
+                                            <rect key="frame" x="10" y="78" width="394" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="pFb-Jg-wgC" firstAttribute="leading" secondItem="T6d-oH-oud" secondAttribute="leading" id="Bxa-ac-WmX"/>
                                         <constraint firstItem="fwf-BP-Our" firstAttribute="top" secondItem="Cam-ZY-Raf" secondAttribute="bottom" constant="10" id="MOD-8I-Qly"/>
                                         <constraint firstItem="fwf-BP-Our" firstAttribute="leading" secondItem="vu0-Ld-eBQ" secondAttribute="leading" constant="10" id="NVl-re-sMU"/>
+                                        <constraint firstAttribute="bottom" secondItem="Us3-eF-CRG" secondAttribute="bottom" id="Ooo-Jr-Yv1"/>
+                                        <constraint firstItem="pFb-Jg-wgC" firstAttribute="top" secondItem="T6d-oH-oud" secondAttribute="bottom" constant="10" id="RXB-Ko-gFH"/>
+                                        <constraint firstAttribute="bottom" secondItem="pFb-Jg-wgC" secondAttribute="bottom" constant="10" id="ThU-qh-XtV"/>
                                         <constraint firstAttribute="trailing" secondItem="fwf-BP-Our" secondAttribute="trailing" constant="10" id="Ul2-J0-GOM"/>
-                                        <constraint firstItem="T6d-oH-oud" firstAttribute="top" secondItem="fwf-BP-Our" secondAttribute="bottom" constant="6" id="aZ0-Rs-sb3"/>
-                                        <constraint firstAttribute="bottom" secondItem="T6d-oH-oud" secondAttribute="bottom" constant="10" id="avs-jB-EKn"/>
+                                        <constraint firstItem="Us3-eF-CRG" firstAttribute="leading" secondItem="vu0-Ld-eBQ" secondAttribute="leading" id="ZVP-y0-QQP"/>
+                                        <constraint firstItem="T6d-oH-oud" firstAttribute="top" secondItem="fwf-BP-Our" secondAttribute="bottom" constant="8" id="aZ0-Rs-sb3"/>
                                         <constraint firstItem="T6d-oH-oud" firstAttribute="leading" secondItem="fwf-BP-Our" secondAttribute="leading" id="bvJ-yA-wxR"/>
+                                        <constraint firstItem="pFb-Jg-wgC" firstAttribute="trailing" secondItem="T6d-oH-oud" secondAttribute="trailing" id="hBr-Xb-xq1"/>
+                                        <constraint firstItem="Us3-eF-CRG" firstAttribute="top" secondItem="Cam-ZY-Raf" secondAttribute="bottom" id="hOM-be-Ogk"/>
                                         <constraint firstItem="Cam-ZY-Raf" firstAttribute="leading" secondItem="vu0-Ld-eBQ" secondAttribute="leading" id="nJp-2t-tCD"/>
+                                        <constraint firstAttribute="trailing" secondItem="Us3-eF-CRG" secondAttribute="trailing" id="ppl-ds-zHz"/>
                                         <constraint firstAttribute="trailing" secondItem="Cam-ZY-Raf" secondAttribute="trailing" id="rvm-wO-GKG"/>
                                         <constraint firstItem="T6d-oH-oud" firstAttribute="trailing" secondItem="fwf-BP-Our" secondAttribute="trailing" id="t3D-Qk-gRh"/>
                                         <constraint firstItem="Cam-ZY-Raf" firstAttribute="top" secondItem="vu0-Ld-eBQ" secondAttribute="top" id="xH8-BU-K9F"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bTe-gW-QxW" userLabel="Contact support container">
-                                    <rect key="frame" x="0.0" y="325" width="414" height="130"/>
+                                    <rect key="frame" x="0.0" y="357.5" width="414" height="130"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7bH-Bs-hvH" userLabel="Separator" customClass="SeparatorView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="9"/>
@@ -138,7 +158,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cl6-FZ-HaB" userLabel="Logging container">
-                                    <rect key="frame" x="0.0" y="455" width="414" height="86.5"/>
+                                    <rect key="frame" x="0.0" y="487.5" width="414" height="86.5"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTt-Yg-ZkE" userLabel="Separator" customClass="SeparatorView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="9"/>

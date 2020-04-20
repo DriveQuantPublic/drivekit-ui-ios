@@ -10,8 +10,14 @@ import UIKit
 
 import DriveKitCommonUI
 
-class SensorStateView : UIView {
+class SensorStateView : UIControl {
 
+    var viewModel: SensorStateViewModel? = nil {
+        didSet {
+            self.update()
+        }
+    }
+    @IBOutlet private weak var touchBackground: UIButton!
     @IBOutlet private weak var statusIcon: UIImageView!
     @IBOutlet private weak var sensorTitle: UILabel!
     @IBOutlet private weak var learnMoreLabel: UILabel!
@@ -28,6 +34,20 @@ class SensorStateView : UIView {
                 self.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
                 self.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
             ])
+        }
+
+        self.touchBackground.setBackgroundImage(UIImage(color: UIColor(white: 0.5, alpha: 0.5)), for: .highlighted)
+    }
+
+    private func update() {
+        if let viewModel = self.viewModel {
+            self.statusIcon.image = viewModel.statusIcon
+            self.statusIcon.tintColor = viewModel.statusIconTintColor
+            self.sensorTitle.attributedText = viewModel.title.dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.mainFontColor).build()
+            self.learnMoreLabel.attributedText = viewModel.learnMoreText.dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.secondaryColor).build()
+            self.isHidden = false
+        } else {
+            self.isHidden = true
         }
     }
 

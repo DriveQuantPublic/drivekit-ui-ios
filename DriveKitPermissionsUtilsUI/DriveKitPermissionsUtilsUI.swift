@@ -13,9 +13,9 @@ import DriveKitCommonUI
 @objc public class DriveKitPermissionsUtilsUI : NSObject {
 
     @objc public static let shared = DriveKitPermissionsUtilsUI()
-    private var isBluetoothNeeded = false
-    private var showDiagnosisLogs = false
-    private var contactType = DKContactType.none
+    public private(set) var isBluetoothNeeded = false
+    public private(set) var showDiagnosisLogs = false
+    public private(set) var contactType = DKContactType.none
 
     private override init() {
         super.init()
@@ -62,7 +62,7 @@ import DriveKitCommonUI
 
     @objc public func getDiagnosisViewController() -> UIViewController {
         #warning("TODO")
-        return UIViewController()
+        return DiagnosisViewController(nibName: "DiagnosisViewController", bundle: Bundle.permissionsUtilsUIBundle)
     }
 
     @objc public func hasError() -> Bool {

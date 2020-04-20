@@ -7,36 +7,32 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SensorStateView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GlobalStateView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
             <connections>
-                <outlet property="learnMoreLabel" destination="QGo-t0-P6e" id="Foh-0K-hjg"/>
-                <outlet property="sensorTitle" destination="RFH-fO-EZx" id="yWe-aO-xBf"/>
+                <outlet property="info" destination="QGo-t0-P6e" id="1bN-dP-Fb0"/>
                 <outlet property="statusIcon" destination="WmZ-og-JxG" id="eUY-nf-MZY"/>
-                <outlet property="touchBackground" destination="Wka-YB-mvX" id="cYu-FO-OW5"/>
+                <outlet property="title" destination="RFH-fO-EZx" id="q5a-KM-u1F"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DnA-X2-klA">
             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wka-YB-mvX" userLabel="Touch background">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
-                </button>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sensor-ok-empty" translatesAutoresizingMaskIntoConstraints="NO" id="WmZ-og-JxG" userLabel="Status icon">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sensor-ok-full" translatesAutoresizingMaskIntoConstraints="NO" id="WmZ-og-JxG" userLabel="Status icon">
                     <rect key="frame" x="8" y="28" width="44" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="L3d-nB-KmH"/>
                         <constraint firstAttribute="width" constant="44" id="Lva-sU-RXm"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFH-fO-EZx" userLabel="Status title">
-                    <rect key="frame" x="64" y="9.9999999999999982" width="301" height="20.333333333333329"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFH-fO-EZx" userLabel="Title">
+                    <rect key="frame" x="64" y="13.999999999999998" width="301" height="20.333333333333329"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGo-t0-P6e" userLabel="Learn more">
-                    <rect key="frame" x="64" y="34.333333333333343" width="301" height="55.666666666666657"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGo-t0-P6e" userLabel="Info">
+                    <rect key="frame" x="64" y="38.333333333333343" width="301" height="51.666666666666657"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -46,25 +42,21 @@
             <constraints>
                 <constraint firstItem="QGo-t0-P6e" firstAttribute="leading" secondItem="RFH-fO-EZx" secondAttribute="leading" id="3VG-Cy-hpm"/>
                 <constraint firstItem="WmZ-og-JxG" firstAttribute="leading" secondItem="DnA-X2-klA" secondAttribute="leading" constant="8" id="6ah-7S-BHJ"/>
-                <constraint firstItem="RFH-fO-EZx" firstAttribute="top" secondItem="DnA-X2-klA" secondAttribute="top" constant="10" id="7X2-7M-8XM"/>
-                <constraint firstAttribute="trailing" secondItem="Wka-YB-mvX" secondAttribute="trailing" id="EHD-Hn-U5c"/>
+                <constraint firstItem="RFH-fO-EZx" firstAttribute="top" secondItem="DnA-X2-klA" secondAttribute="top" constant="14" id="7X2-7M-8XM"/>
                 <constraint firstAttribute="bottom" secondItem="QGo-t0-P6e" secondAttribute="bottom" constant="10" id="Lh8-fU-T1I"/>
-                <constraint firstAttribute="bottom" secondItem="Wka-YB-mvX" secondAttribute="bottom" id="b5f-IO-v5D"/>
                 <constraint firstItem="QGo-t0-P6e" firstAttribute="top" secondItem="RFH-fO-EZx" secondAttribute="bottom" constant="4" id="ccr-0A-zVu"/>
-                <constraint firstItem="Wka-YB-mvX" firstAttribute="leading" secondItem="DnA-X2-klA" secondAttribute="leading" id="cv2-aE-sis"/>
                 <constraint firstItem="RFH-fO-EZx" firstAttribute="leading" secondItem="WmZ-og-JxG" secondAttribute="trailing" constant="12" id="ejA-Mb-Zlm"/>
                 <constraint firstAttribute="trailing" secondItem="RFH-fO-EZx" secondAttribute="trailing" constant="10" id="hQE-N2-sWQ"/>
                 <constraint firstItem="WmZ-og-JxG" firstAttribute="centerY" secondItem="DnA-X2-klA" secondAttribute="centerY" id="hRM-P9-bfl"/>
                 <constraint firstItem="QGo-t0-P6e" firstAttribute="trailing" secondItem="RFH-fO-EZx" secondAttribute="trailing" id="lRn-6k-LUO"/>
-                <constraint firstItem="Wka-YB-mvX" firstAttribute="top" secondItem="DnA-X2-klA" secondAttribute="top" id="mR8-IH-50p"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="133.59999999999999" y="681.2807881773399"/>
+            <point key="canvasLocation" x="135" y="682"/>
         </view>
     </objects>
     <resources>
-        <image name="sensor-ok-empty" width="64" height="64"/>
+        <image name="sensor-ok-full" width="64" height="64"/>
     </resources>
 </document>

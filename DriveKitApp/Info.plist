@@ -34,6 +34,8 @@
 	<string>Acces location to register your trip</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Acces location to register your trip</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Acces location to register your trip</string>
 	<key>NSMotionUsageDescription</key>
 	<string>Motion usage to detect transport mode</string>
 	<key>UIBackgroundModes</key>

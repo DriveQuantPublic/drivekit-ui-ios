@@ -170,6 +170,9 @@
 		639346B5244897C1000F42D4 /* DKContactType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639346B4244897C1000F42D4 /* DKContactType.swift */; };
 		639346B724489DDA000F42D4 /* DiagnosisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639346B624489DDA000F42D4 /* DiagnosisViewController.swift */; };
 		639346B92448A8FD000F42D4 /* RequestPermissionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639346B82448A8FD000F42D4 /* RequestPermissionHelper.swift */; };
+		63C3FD78244EDDA900C2FEEC /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3FD77244EDDA900C2FEEC /* ContactViewModel.swift */; };
+		63C3FD7A244EE42C00C2FEEC /* CustomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3FD79244EE42C00C2FEEC /* CustomScrollView.swift */; };
+		63C3FD7C244EE56C00C2FEEC /* LoggingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3FD7B244EE56C00C2FEEC /* LoggingViewModel.swift */; };
 		63F44E86244DDC8100C7F5CC /* GlobalStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F44E85244DDC8100C7F5CC /* GlobalStateViewModel.swift */; };
 		63F44E89244DDEE000C7F5CC /* GlobalStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F44E87244DDEE000C7F5CC /* GlobalStateView.swift */; };
 		63F44E8A244DDEE000C7F5CC /* GlobalStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F44E88244DDEE000C7F5CC /* GlobalStateView.xib */; };
@@ -553,6 +556,9 @@
 		639346B4244897C1000F42D4 /* DKContactType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKContactType.swift; sourceTree = "<group>"; };
 		639346B624489DDA000F42D4 /* DiagnosisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisViewController.swift; sourceTree = "<group>"; };
 		639346B82448A8FD000F42D4 /* RequestPermissionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPermissionHelper.swift; sourceTree = "<group>"; };
+		63C3FD77244EDDA900C2FEEC /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
+		63C3FD79244EE42C00C2FEEC /* CustomScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScrollView.swift; sourceTree = "<group>"; };
+		63C3FD7B244EE56C00C2FEEC /* LoggingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingViewModel.swift; sourceTree = "<group>"; };
 		63F44E85244DDC8100C7F5CC /* GlobalStateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalStateViewModel.swift; sourceTree = "<group>"; };
 		63F44E87244DDEE000C7F5CC /* GlobalStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalStateView.swift; sourceTree = "<group>"; };
 		63F44E88244DDEE000C7F5CC /* GlobalStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GlobalStateView.xib; sourceTree = "<group>"; };
@@ -1199,11 +1205,14 @@
 		616947012433A8C900C8A965 /* Diagnosis */ = {
 			isa = PBXGroup;
 			children = (
-				63FF6B58244A417E0006992E /* Model */,
 				63FF6B59244A41830006992E /* ViewModel */,
 				63FF6B56244A41550006992E /* View */,
 				616946FF2433A89800C8A965 /* DKDiagnosisHelper.swift */,
 				639346B82448A8FD000F42D4 /* RequestPermissionHelper.swift */,
+				639346B4244897C1000F42D4 /* DKContactType.swift */,
+				616947062433A97000C8A965 /* DKPermissionStatus.swift */,
+				616947042433A94D00C8A965 /* DKPermissionType.swift */,
+				616947022433A91300C8A965 /* DKSensorType.swift */,
 			);
 			path = Diagnosis;
 			sourceTree = "<group>";
@@ -1219,28 +1228,20 @@
 				63FF6B522449E7CF0006992E /* SensorStateView.xib */,
 				63F44E8D244DF2A200C7F5CC /* SeparatorView.swift */,
 				63F44E8B244DF16800C7F5CC /* SeparatorView.xib */,
+				63C3FD79244EE42C00C2FEEC /* CustomScrollView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		63FF6B58244A417E0006992E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				639346B4244897C1000F42D4 /* DKContactType.swift */,
-				616947062433A97000C8A965 /* DKPermissionStatus.swift */,
-				616947042433A94D00C8A965 /* DKPermissionType.swift */,
-				616947022433A91300C8A965 /* DKSensorType.swift */,
-				6378BBE3244DA47B0040A114 /* StatusType.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		63FF6B59244A41830006992E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				63C3FD77244EDDA900C2FEEC /* ContactViewModel.swift */,
 				6378BBE1244D9C060040A114 /* DiagnosisViewModel.swift */,
 				63F44E85244DDC8100C7F5CC /* GlobalStateViewModel.swift */,
+				63C3FD7B244EE56C00C2FEEC /* LoggingViewModel.swift */,
 				6378BBDF244D9BC70040A114 /* SensorStateViewModel.swift */,
+				6378BBE3244DA47B0040A114 /* StatusType.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2193,6 +2194,7 @@
 			files = (
 				63F44E8E244DF2A200C7F5CC /* SeparatorView.swift in Sources */,
 				6378BBE2244D9C060040A114 /* DiagnosisViewModel.swift in Sources */,
+				63C3FD78244EDDA900C2FEEC /* ContactViewModel.swift in Sources */,
 				639346B5244897C1000F42D4 /* DKContactType.swift in Sources */,
 				61377B75243E0C4800E2EC47 /* ActivityPermissionViewModel.swift in Sources */,
 				616947092433AA0300C8A965 /* DKPermissionView.swift in Sources */,
@@ -2204,12 +2206,14 @@
 				616947032433A91300C8A965 /* DKSensorType.swift in Sources */,
 				616946E624333C6900C8A965 /* DriveKitPermissionsUtilsUI.swift in Sources */,
 				639346B724489DDA000F42D4 /* DiagnosisViewController.swift in Sources */,
+				63C3FD7A244EE42C00C2FEEC /* CustomScrollView.swift in Sources */,
 				63F44E86244DDC8100C7F5CC /* GlobalStateViewModel.swift in Sources */,
 				6378BBE0244D9BC70040A114 /* SensorStateViewModel.swift in Sources */,
 				6378BBE4244DA47B0040A114 /* StatusType.swift in Sources */,
 				6169470B2433AA4800C8A965 /* PermissionViewController.swift in Sources */,
 				616947072433A97000C8A965 /* DKPermissionStatus.swift in Sources */,
 				61377B77243E0DFE00E2EC47 /* PermissionView.swift in Sources */,
+				63C3FD7C244EE56C00C2FEEC /* LoggingViewModel.swift in Sources */,
 				639346B92448A8FD000F42D4 /* RequestPermissionHelper.swift in Sources */,
 				6169470D2433AAB500C8A965 /* ActivityPermissionViewController.swift in Sources */,
 				616947052433A94D00C8A965 /* DKPermissionType.swift in Sources */,

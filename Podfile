@@ -35,5 +35,5 @@ target 'DriveKitVehicleUI' do
 end
 
 target 'DriveKitPermissionsUtilsUI' do
-
+  pod 'DriveKitCore'
 end

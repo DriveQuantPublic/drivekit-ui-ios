@@ -17,8 +17,16 @@
                 <outlet property="batteryOptimizationTouch" destination="Us3-eF-CRG" id="p30-7q-zvF"/>
                 <outlet property="bluetoothStatus" destination="nM1-Wg-kdG" id="CJF-KW-3VF"/>
                 <outlet property="connectionStatus" destination="BrQ-8E-NQe" id="qop-0V-MtV"/>
+                <outlet property="contactButton" destination="KIS-vp-9x3" id="FSr-Ww-T6y"/>
+                <outlet property="contactContainer" destination="bTe-gW-QxW" id="RTi-cn-UEy"/>
+                <outlet property="contactDescription" destination="fci-qV-EVW" id="0vl-OW-vlw"/>
+                <outlet property="contactTitle" destination="XRA-Vp-tRC" id="yqv-cL-2mt"/>
                 <outlet property="globalStatus" destination="FFX-If-NLK" id="sq4-2m-XBH"/>
                 <outlet property="locationStatus" destination="JYZ-eC-g3p" id="C1u-wD-27Y"/>
+                <outlet property="loggingButton" destination="X0z-K5-Mzi" id="Sej-bh-MLN"/>
+                <outlet property="loggingContainer" destination="cl6-FZ-HaB" id="g9v-3c-aLm"/>
+                <outlet property="loggingDescription" destination="dR1-jk-TFk" id="gfD-7k-e5M"/>
+                <outlet property="loggingTitle" destination="U6N-W5-5mq" id="OYB-mI-hxR"/>
                 <outlet property="notificationStatus" destination="dOV-aj-tCJ" id="1eT-2X-DSV"/>
                 <outlet property="view" destination="iN0-l3-epB" id="MBi-xz-bhl"/>
             </connections>
@@ -28,11 +36,11 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6CG-aY-Nca">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6CG-aY-Nca" customClass="CustomScrollView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4Li-NZ-qfG">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="574"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="586"/>
                             <subviews>
                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="FFX-If-NLK" userLabel="Global status" customClass="GlobalStateView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -112,7 +120,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bTe-gW-QxW" userLabel="Contact support container">
-                                    <rect key="frame" x="0.0" y="357.5" width="414" height="130"/>
+                                    <rect key="frame" x="0.0" y="357.5" width="414" height="140"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7bH-Bs-hvH" userLabel="Separator" customClass="SeparatorView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="9"/>
@@ -128,13 +136,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fci-qV-EVW">
-                                            <rect key="frame" x="10" y="45.5" width="394" height="20.5"/>
+                                            <rect key="frame" x="10" y="47.5" width="394" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIS-vp-9x3">
-                                            <rect key="frame" x="87" y="76" width="240" height="44"/>
+                                            <rect key="frame" x="87" y="86" width="240" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="85U-0l-U9T"/>
                                                 <constraint firstAttribute="width" constant="240" id="kCf-RJ-pcQ"/>
@@ -143,10 +151,10 @@
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="KIS-vp-9x3" firstAttribute="top" secondItem="fci-qV-EVW" secondAttribute="bottom" constant="10" id="06p-eE-wT2"/>
+                                        <constraint firstItem="KIS-vp-9x3" firstAttribute="top" secondItem="fci-qV-EVW" secondAttribute="bottom" constant="18" id="06p-eE-wT2"/>
                                         <constraint firstItem="fci-qV-EVW" firstAttribute="leading" secondItem="XRA-Vp-tRC" secondAttribute="leading" id="3EC-QI-RRw"/>
                                         <constraint firstAttribute="trailing" secondItem="XRA-Vp-tRC" secondAttribute="trailing" constant="10" id="AgY-sL-bVI"/>
-                                        <constraint firstItem="fci-qV-EVW" firstAttribute="top" secondItem="XRA-Vp-tRC" secondAttribute="bottom" constant="6" id="C7r-Be-vQh"/>
+                                        <constraint firstItem="fci-qV-EVW" firstAttribute="top" secondItem="XRA-Vp-tRC" secondAttribute="bottom" constant="8" id="C7r-Be-vQh"/>
                                         <constraint firstItem="XRA-Vp-tRC" firstAttribute="top" secondItem="7bH-Bs-hvH" secondAttribute="bottom" constant="10" id="EiC-SZ-Ot9"/>
                                         <constraint firstItem="7bH-Bs-hvH" firstAttribute="leading" secondItem="bTe-gW-QxW" secondAttribute="leading" id="GcR-pQ-y91"/>
                                         <constraint firstItem="fci-qV-EVW" firstAttribute="trailing" secondItem="XRA-Vp-tRC" secondAttribute="trailing" id="N5O-j6-3ve"/>
@@ -158,7 +166,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cl6-FZ-HaB" userLabel="Logging container">
-                                    <rect key="frame" x="0.0" y="487.5" width="414" height="86.5"/>
+                                    <rect key="frame" x="0.0" y="497.5" width="414" height="88.5"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTt-Yg-ZkE" userLabel="Separator" customClass="SeparatorView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="9"/>
@@ -177,7 +185,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dR1-jk-TFk">
-                                            <rect key="frame" x="10" y="56" width="394" height="20.5"/>
+                                            <rect key="frame" x="10" y="58" width="394" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -191,7 +199,7 @@
                                         <constraint firstItem="dR1-jk-TFk" firstAttribute="leading" secondItem="U6N-W5-5mq" secondAttribute="leading" id="Zsx-wE-ias"/>
                                         <constraint firstItem="X0z-K5-Mzi" firstAttribute="leading" secondItem="U6N-W5-5mq" secondAttribute="trailing" constant="10" id="aag-V0-EOU"/>
                                         <constraint firstItem="U6N-W5-5mq" firstAttribute="centerY" relation="greaterThanOrEqual" secondItem="X0z-K5-Mzi" secondAttribute="centerY" id="fWu-1U-Nej"/>
-                                        <constraint firstItem="dR1-jk-TFk" firstAttribute="top" secondItem="U6N-W5-5mq" secondAttribute="bottom" constant="6" id="jQc-Zo-rWI"/>
+                                        <constraint firstItem="dR1-jk-TFk" firstAttribute="top" secondItem="U6N-W5-5mq" secondAttribute="bottom" constant="8" id="jQc-Zo-rWI"/>
                                         <constraint firstAttribute="bottom" secondItem="dR1-jk-TFk" secondAttribute="bottom" constant="10" id="o5M-pp-gll"/>
                                         <constraint firstItem="U6N-W5-5mq" firstAttribute="top" secondItem="BTt-Yg-ZkE" secondAttribute="bottom" constant="10" id="qBM-vh-9sJ"/>
                                         <constraint firstAttribute="trailing" secondItem="X0z-K5-Mzi" secondAttribute="trailing" constant="10" id="ron-vK-nWY"/>

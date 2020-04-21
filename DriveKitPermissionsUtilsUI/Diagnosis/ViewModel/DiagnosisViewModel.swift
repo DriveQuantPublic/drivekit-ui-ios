@@ -9,7 +9,9 @@
 import UIKit
 
 protocol DiagnosisView : AnyObject {
-    func update()
+    func updateSensorsUI()
+    func updateContactUI()
+    func updateLoggingUI()
 }
 
 class DiagnosisViewModel : NSObject {
@@ -41,6 +43,8 @@ class DiagnosisViewModel : NSObject {
             self.viewModelByType[.notification]
         }
     }
+    private(set) var contactViewModel: ContactViewModel? = nil
+    private(set) var loggingViewModel: LoggingViewModel? = nil
     private var stateByType = [StatusType:Bool]()
     private var viewModelByType = [StatusType:SensorStateViewModel]()
 
@@ -59,8 +63,8 @@ class DiagnosisViewModel : NSObject {
     }
 
     private func updateState() {
+        // Sensors state.
         let manageBluetooth = DriveKitPermissionsUtilsUI.shared.isBluetoothNeeded
-
         let isActivityUpdated = self.updateState(.activity)
         let isLocationUpdated = self.updateState(.location)
         let isNetworkUpdated = self.updateState(.network)
@@ -77,10 +81,26 @@ class DiagnosisViewModel : NSObject {
                 isBluetoothUpdated = false
             }
         }
-
         let newState = self.globalStatusViewModel == nil || isActivityUpdated || isBluetoothUpdated || isLocationUpdated || isNetworkUpdated || isNotificationUpdated
         if newState {
-            self.updateView()
+            self.updateSensorsUI()
+        }
+
+        // Contact.
+        switch DriveKitPermissionsUtilsUI.shared.contactType {
+            case .none:
+                self.contactViewModel = nil
+            case .email(_), .web(_):
+                self.contactViewModel = ContactViewModel(contactType: DriveKitPermissionsUtilsUI.shared.contactType)
+
+        }
+        self.view?.updateContactUI()
+
+        // Logging.
+        if DriveKitPermissionsUtilsUI.shared.showDiagnosisLogs {
+            self.loggingViewModel = LoggingViewModel()
+        } else {
+            self.loggingViewModel = nil
         }
     }
 
@@ -104,7 +124,7 @@ class DiagnosisViewModel : NSObject {
                             let isValid = permissionStatus == .valid
                             let updated = self.updateInternalState(statusType, isValid: isValid)
                             if updated {
-                                self.updateView()
+                                self.updateSensorsUI()
                             }
                         }
                     }
@@ -126,7 +146,7 @@ class DiagnosisViewModel : NSObject {
         return updated
     }
 
-    private func updateGlobalStatus() {
+    private func updateSensorsUI() {
         var numberOfInvalidStates = 0
         for state in self.stateByType.values {
             if state == false {
@@ -134,11 +154,7 @@ class DiagnosisViewModel : NSObject {
             }
         }
         self.globalStatusViewModel = GlobalStateViewModel(errorNumber: numberOfInvalidStates)
-    }
-
-    private func updateView() {
-        self.updateGlobalStatus()
-        self.view?.update()
+        self.view?.updateSensorsUI()
     }
 
 }

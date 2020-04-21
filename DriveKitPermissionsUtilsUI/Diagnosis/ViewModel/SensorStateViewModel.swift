@@ -42,6 +42,6 @@ struct SensorStateViewModel {
         }
         self.statusIcon = icon?.withRenderingMode(.alwaysTemplate)
 
-        self.learnMoreText = "dk_perm_utils_permissions_learn_more".dkPermissionsUtilsLocalized()
+        self.learnMoreText = "dk_perm_utils_app_diag_learn_more".dkPermissionsUtilsLocalized()
     }
 }

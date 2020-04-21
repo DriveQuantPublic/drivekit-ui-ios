@@ -10,7 +10,7 @@ import UIKit
 
 import DriveKitCommonUI
 
-class SensorStateView : UIControl {
+class SensorStateView : UIView {
 
     var viewModel: SensorStateViewModel? = nil {
         didSet {
@@ -49,6 +49,10 @@ class SensorStateView : UIControl {
         } else {
             self.isHidden = true
         }
+    }
+
+    @IBAction private func showDialog() {
+        self.viewModel?.showDialog()
     }
 
 }

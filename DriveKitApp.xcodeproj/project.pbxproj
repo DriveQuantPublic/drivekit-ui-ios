@@ -173,6 +173,9 @@
 		63C3FD78244EDDA900C2FEEC /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3FD77244EDDA900C2FEEC /* ContactViewModel.swift */; };
 		63C3FD7A244EE42C00C2FEEC /* CustomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3FD79244EE42C00C2FEEC /* CustomScrollView.swift */; };
 		63C3FD7C244EE56C00C2FEEC /* LoggingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3FD7B244EE56C00C2FEEC /* LoggingViewModel.swift */; };
+		63C3FD80244F28B000C2FEEC /* SensorInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3FD7F244F28B000C2FEEC /* SensorInfoViewModel.swift */; };
+		63C3FD85244F89B300C2FEEC /* SensorInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3FD83244F89B300C2FEEC /* SensorInfoViewController.swift */; };
+		63C3FD86244F89B300C2FEEC /* SensorInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63C3FD84244F89B300C2FEEC /* SensorInfoViewController.xib */; };
 		63F44E86244DDC8100C7F5CC /* GlobalStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F44E85244DDC8100C7F5CC /* GlobalStateViewModel.swift */; };
 		63F44E89244DDEE000C7F5CC /* GlobalStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F44E87244DDEE000C7F5CC /* GlobalStateView.swift */; };
 		63F44E8A244DDEE000C7F5CC /* GlobalStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F44E88244DDEE000C7F5CC /* GlobalStateView.xib */; };
@@ -559,6 +562,9 @@
 		63C3FD77244EDDA900C2FEEC /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
 		63C3FD79244EE42C00C2FEEC /* CustomScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScrollView.swift; sourceTree = "<group>"; };
 		63C3FD7B244EE56C00C2FEEC /* LoggingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingViewModel.swift; sourceTree = "<group>"; };
+		63C3FD7F244F28B000C2FEEC /* SensorInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorInfoViewModel.swift; sourceTree = "<group>"; };
+		63C3FD83244F89B300C2FEEC /* SensorInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorInfoViewController.swift; sourceTree = "<group>"; };
+		63C3FD84244F89B300C2FEEC /* SensorInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SensorInfoViewController.xib; sourceTree = "<group>"; };
 		63F44E85244DDC8100C7F5CC /* GlobalStateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalStateViewModel.swift; sourceTree = "<group>"; };
 		63F44E87244DDEE000C7F5CC /* GlobalStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalStateView.swift; sourceTree = "<group>"; };
 		63F44E88244DDEE000C7F5CC /* GlobalStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GlobalStateView.xib; sourceTree = "<group>"; };
@@ -1224,6 +1230,8 @@
 				63FF6B4E244994B50006992E /* DiagnosisViewController.xib */,
 				63F44E87244DDEE000C7F5CC /* GlobalStateView.swift */,
 				63F44E88244DDEE000C7F5CC /* GlobalStateView.xib */,
+				63C3FD83244F89B300C2FEEC /* SensorInfoViewController.swift */,
+				63C3FD84244F89B300C2FEEC /* SensorInfoViewController.xib */,
 				63FF6B542449EC2B0006992E /* SensorStateView.swift */,
 				63FF6B522449E7CF0006992E /* SensorStateView.xib */,
 				63F44E8D244DF2A200C7F5CC /* SeparatorView.swift */,
@@ -1240,6 +1248,7 @@
 				6378BBE1244D9C060040A114 /* DiagnosisViewModel.swift */,
 				63F44E85244DDC8100C7F5CC /* GlobalStateViewModel.swift */,
 				63C3FD7B244EE56C00C2FEEC /* LoggingViewModel.swift */,
+				63C3FD7F244F28B000C2FEEC /* SensorInfoViewModel.swift */,
 				6378BBDF244D9BC70040A114 /* SensorStateViewModel.swift */,
 				6378BBE3244DA47B0040A114 /* StatusType.swift */,
 			);
@@ -1867,6 +1876,7 @@
 				616946F82433A34200C8A965 /* PermissionsUtilsLocalizables.strings in Resources */,
 				63FF6B532449E7CF0006992E /* SensorStateView.xib in Resources */,
 				63F44E8A244DDEE000C7F5CC /* GlobalStateView.xib in Resources */,
+				63C3FD86244F89B300C2FEEC /* SensorInfoViewController.xib in Resources */,
 				61199C68243B9C5F00F73F37 /* PermissionsUtils.xcassets in Resources */,
 				63FF6B4F244994B50006992E /* DiagnosisViewController.xib in Resources */,
 				63F44E8C244DF16800C7F5CC /* SeparatorView.xib in Resources */,
@@ -2194,6 +2204,7 @@
 			files = (
 				63F44E8E244DF2A200C7F5CC /* SeparatorView.swift in Sources */,
 				6378BBE2244D9C060040A114 /* DiagnosisViewModel.swift in Sources */,
+				63C3FD80244F28B000C2FEEC /* SensorInfoViewModel.swift in Sources */,
 				63C3FD78244EDDA900C2FEEC /* ContactViewModel.swift in Sources */,
 				639346B5244897C1000F42D4 /* DKContactType.swift in Sources */,
 				61377B75243E0C4800E2EC47 /* ActivityPermissionViewModel.swift in Sources */,
@@ -2202,6 +2213,7 @@
 				61377B71243E00D700E2EC47 /* LocationPermissionViewModel.swift in Sources */,
 				6169470F2433AAE300C8A965 /* LocationPermissionViewController.swift in Sources */,
 				63F44E89244DDEE000C7F5CC /* GlobalStateView.swift in Sources */,
+				63C3FD85244F89B300C2FEEC /* SensorInfoViewController.swift in Sources */,
 				63FF6B552449EC2B0006992E /* SensorStateView.swift in Sources */,
 				616947032433A91300C8A965 /* DKSensorType.swift in Sources */,
 				616946E624333C6900C8A965 /* DriveKitPermissionsUtilsUI.swift in Sources */,

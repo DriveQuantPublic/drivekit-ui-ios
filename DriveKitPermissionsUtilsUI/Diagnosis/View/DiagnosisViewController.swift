@@ -63,6 +63,20 @@ class DiagnosisViewController : DKUIViewController {
         self.updateLoggingUI()
     }
 
+
+    @IBAction private func batteryOptimizationDidTouch() {
+
+    }
+
+    @IBAction private func contactSupport() {
+
+    }
+
+    @IBAction private func loggingStateDidChange() {
+
+    }
+
+
 }
 
 extension DiagnosisViewController : DiagnosisView {

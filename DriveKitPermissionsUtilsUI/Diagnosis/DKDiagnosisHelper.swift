@@ -6,7 +6,7 @@
 //  Copyright © 2020 DriveQuant. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CoreBluetooth
 import CoreLocation
 import CoreMotion
@@ -71,6 +71,12 @@ import DriveKitCommonUI
 
     @objc public func requestPermission(_ permissionType: DKPermissionType) {
         self.requestPermissionHelper.requestPermission(permissionType)
+    }
+
+
+    public func openSettings() {
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
+        UIApplication.shared.open(settingsUrl)
     }
 
 

@@ -8,13 +8,11 @@
 
 import UIKit
 
-class ActivityPermissionViewModel : NSObject {
+class ActivityPermissionViewModel {
 
     weak var view: PermissionView? = nil
 
-    override init() {
-        super.init()
-
+    init() {
         NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
 
@@ -31,8 +29,7 @@ class ActivityPermissionViewModel : NSObject {
     }
 
     func openSettings() {
-        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
-        UIApplication.shared.open(settingsUrl)
+        DKDiagnosisHelper.shared.openSettings()
     }
 
 

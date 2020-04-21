@@ -34,6 +34,10 @@ class RequestPermissionHelper : NSObject {
         }
     }
 
+    func requestNotificationPermission() {
+        #warning("TODO")
+    }
+
 
     private func requestActivityPermission() {
         if DKDiagnosisHelper.shared.getPermissionStatus(.activity) == .notDetermined {

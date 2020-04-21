@@ -21,6 +21,9 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wka-YB-mvX" userLabel="Touch background">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                    <connections>
+                        <action selector="showDialog" destination="-1" eventType="touchUpInside" id="UVG-EM-tJ2"/>
+                    </connections>
                 </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sensor-ok-empty" translatesAutoresizingMaskIntoConstraints="NO" id="WmZ-og-JxG" userLabel="Status icon">
                     <rect key="frame" x="8" y="28" width="44" height="44"/>

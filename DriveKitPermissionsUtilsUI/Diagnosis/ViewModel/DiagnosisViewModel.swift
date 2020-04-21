@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol DiagnosisView : AnyObject {
+protocol DiagnosisView : UIViewController {
     func updateSensorsUI()
     func updateContactUI()
     func updateLoggingUI()
 }
 
-class DiagnosisViewModel : NSObject {
+class DiagnosisViewModel {
 
     weak var view: DiagnosisView? = nil
     private(set) var globalStatusViewModel: GlobalStateViewModel? = nil
@@ -45,21 +45,60 @@ class DiagnosisViewModel : NSObject {
     }
     private(set) var contactViewModel: ContactViewModel? = nil
     private(set) var loggingViewModel: LoggingViewModel? = nil
+    private lazy var requestPermissionHelper: RequestPermissionHelper = RequestPermissionHelper()
     private var stateByType = [StatusType:Bool]()
     private var viewModelByType = [StatusType:SensorStateViewModel]()
+    private var isAppActive = true
 
 
-    override init() {
-        super.init()
-
+    init() {
         NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(appWillResignActive), name: UIApplication.willResignActiveNotification, object: nil)
 
         self.updateState()
     }
 
 
+    func showDialog(for statusType: StatusType, isValid: Bool) {
+        if let view = self.view {
+            let sensorInfoViewModel = SensorInfoViewModel(statusType: statusType, isValid: isValid, diagnosisViewModel: self)
+            let sensorInfoViewController = SensorInfoViewController(viewModel: sensorInfoViewModel)
+            sensorInfoViewController.modalPresentationStyle = .overFullScreen
+            sensorInfoViewController.modalTransitionStyle = .crossDissolve
+            view.present(sensorInfoViewController, animated: true, completion: nil)
+        }
+    }
+
+    func performDialogAction(for statusType: StatusType, isValid: Bool) {
+        if !isValid {
+            switch statusType {
+                case .activity:
+                    self.requestPermissionHelper.requestPermission(.activity)
+                case .bluetooth:
+                    self.requestPermissionHelper.requestPermission(.bluetooth)
+                case .location:
+                    self.requestPermissionHelper.requestPermission(.location)
+                case .network:
+                    #warning("TODO")
+                case .notification:
+                    self.requestPermissionHelper.requestNotificationPermission()
+            }
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.2, execute: {
+                if self.isAppActive {
+                    // No system alert has been presented. Open settings.
+                    DKDiagnosisHelper.shared.openSettings()
+                }
+            })
+        }
+    }
+
     @objc private func appDidBecomeActive() {
+        self.isAppActive = true
         self.updateState()
+    }
+
+    @objc private func appWillResignActive() {
+        self.isAppActive = false
     }
 
     private func updateState() {
@@ -137,7 +176,7 @@ class DiagnosisViewModel : NSObject {
     private func updateInternalState(_ statusType: StatusType, isValid: Bool) -> Bool {
         let updated: Bool
         if self.viewModelByType[statusType] == nil || self.stateByType[statusType] != isValid {
-            self.viewModelByType[statusType] = SensorStateViewModel(statusType: statusType, valid: isValid)
+            self.viewModelByType[statusType] = SensorStateViewModel(statusType: statusType, valid: isValid, diagnosisViewModel: self)
             self.stateByType[statusType] = isValid
             updated = true
         } else {

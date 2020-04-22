@@ -48,6 +48,7 @@ class DiagnosisViewController : DKUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = "dk_perm_utils_app_diag_title".dkPermissionsUtilsLocalized()
         self.viewModel.view = self
         self.updateUI()
 
@@ -67,11 +68,13 @@ class DiagnosisViewController : DKUIViewController {
     }
 
     @IBAction private func contactSupport() {
-
+        if let contactViewModel = self.viewModel.contactViewModel {
+            contactViewModel.contactSupport()
+        }
     }
 
     @IBAction private func loggingStateDidChange() {
-
+        self.viewModel.setLoggingEnabled(self.loggingButton.isOn)
     }
 
 

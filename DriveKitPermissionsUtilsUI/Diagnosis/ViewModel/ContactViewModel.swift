@@ -13,11 +13,17 @@ struct ContactViewModel {
     let description: String
     let buttonTitle: String
     private let contactType: DKContactType
+    private weak var diagnosisViewModel: DiagnosisViewModel?
 
-    init(contactType: DKContactType) {
+    init(contactType: DKContactType, diagnosisViewModel: DiagnosisViewModel) {
+        self.contactType = contactType
+        self.diagnosisViewModel = diagnosisViewModel
         self.title = "dk_perm_utils_app_diag_help_request_title".dkPermissionsUtilsLocalized()
         self.description = "dk_perm_utils_app_diag_help_request_text".dkPermissionsUtilsLocalized()
         self.buttonTitle = "dk_perm_utils_app_diag_help_request_button".dkPermissionsUtilsLocalized()
-        self.contactType = contactType
+    }
+
+    func contactSupport() {
+        self.diagnosisViewModel?.contactSupport(contactType: self.contactType)
     }
 }

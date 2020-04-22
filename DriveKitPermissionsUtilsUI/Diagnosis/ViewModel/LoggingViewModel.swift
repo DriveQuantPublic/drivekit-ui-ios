@@ -17,7 +17,8 @@ class LoggingViewModel {
 
     init() {
         self.title = "dk_perm_utils_app_diag_log_title".dkPermissionsUtilsLocalized()
-        self.isLoggingEnabled = true //TODO
+        #warning("TODO: Retrieve state form DriveKitLog class")
+        self.isLoggingEnabled = false
         self.updateState()
     }
 
@@ -35,7 +36,8 @@ class LoggingViewModel {
 
     private func updateState() {
         if self.isLoggingEnabled {
-            self.description = "dk_perm_utils_app_diag_log_ok".dkPermissionsUtilsLocalized()
+            let appName = Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String ?? Bundle.main.infoDictionary?["CFBundleName"] as? String ?? "-"
+            self.description = String(format: "dk_perm_utils_app_diag_log_ok".dkPermissionsUtilsLocalized(), appName)
         } else {
             self.description = "dk_perm_utils_app_diag_log_ko".dkPermissionsUtilsLocalized()
         }

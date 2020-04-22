@@ -13,5 +13,5 @@ import DriveKitCommonUI
 public enum DKContactType {
     case none
     case email(DKContentMail)
-    case web(NSURL)
+    case web(URL)
 }

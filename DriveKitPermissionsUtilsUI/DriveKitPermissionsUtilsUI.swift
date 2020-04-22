@@ -119,7 +119,7 @@ extension DriveKitPermissionsUtilsUI {
     }
 
     @objc(configureWebContactType:)
-    public func objc_configureContactType(contactUrl: NSURL) {
+    public func objc_configureContactType(contactUrl: URL) {
         self.configureContactType(.web(contactUrl))
     }
 

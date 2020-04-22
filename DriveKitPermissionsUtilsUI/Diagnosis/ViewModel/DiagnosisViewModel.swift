@@ -8,6 +8,10 @@
 
 import UIKit
 
+import MessageUI
+
+import DriveKitCommonUI
+
 protocol DiagnosisView : UIViewController {
     func updateSensorsUI()
     func updateBatteryOptimizationUI()
@@ -15,7 +19,7 @@ protocol DiagnosisView : UIViewController {
     func updateLoggingUI()
 }
 
-class DiagnosisViewModel {
+class DiagnosisViewModel : NSObject {
 
     weak var view: DiagnosisView? = nil
     private(set) var globalStatusViewModel: GlobalStateViewModel? = nil
@@ -53,23 +57,15 @@ class DiagnosisViewModel {
     private var isAppActive = true
 
 
-    init() {
+    override init() {
+        super.init()
+
         NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(appWillResignActive), name: UIApplication.willResignActiveNotification, object: nil)
 
         self.updateState()
     }
 
-
-    func showDialog(for statusType: StatusType, isValid: Bool) {
-        if let view = self.view {
-            let sensorInfoViewModel = SensorInfoViewModel(statusType: statusType, isValid: isValid, diagnosisViewModel: self)
-            let sensorInfoViewController = SensorInfoViewController(viewModel: sensorInfoViewModel)
-            sensorInfoViewController.modalPresentationStyle = .overFullScreen
-            sensorInfoViewController.modalTransitionStyle = .crossDissolve
-            view.present(sensorInfoViewController, animated: true, completion: nil)
-        }
-    }
 
     func performDialogAction(for statusType: StatusType, isValid: Bool) {
         if !isValid {
@@ -91,6 +87,35 @@ class DiagnosisViewModel {
                     DKDiagnosisHelper.shared.openSettings()
                 }
             })
+        }
+    }
+
+    func showDialog(for statusType: StatusType, isValid: Bool) {
+        if let view = self.view {
+            let sensorInfoViewModel = SensorInfoViewModel(statusType: statusType, isValid: isValid, diagnosisViewModel: self)
+            let sensorInfoViewController = SensorInfoViewController(viewModel: sensorInfoViewModel)
+            sensorInfoViewController.modalPresentationStyle = .overFullScreen
+            sensorInfoViewController.modalTransitionStyle = .crossDissolve
+            view.present(sensorInfoViewController, animated: true, completion: nil)
+        }
+    }
+
+    func contactSupport(contactType: DKContactType) {
+        switch contactType {
+            case let .web(url):
+                openUrl(url)
+            case let .email(contentMail):
+                sendMail(contentMail)
+                break
+            case .none:
+                break
+        }
+    }
+
+    func setLoggingEnabled(_ enabled: Bool) {
+        if let loggingViewModel = self.loggingViewModel {
+            loggingViewModel.setLoggingEnabled(enabled)
+            self.view?.updateLoggingUI()
         }
     }
 
@@ -136,7 +161,7 @@ class DiagnosisViewModel {
             case .none:
                 self.contactViewModel = nil
             case .email(_), .web(_):
-                self.contactViewModel = ContactViewModel(contactType: DriveKitPermissionsUtilsUI.shared.contactType)
+                self.contactViewModel = ContactViewModel(contactType: DriveKitPermissionsUtilsUI.shared.contactType, diagnosisViewModel: self)
 
         }
         self.view?.updateContactUI()
@@ -203,4 +228,48 @@ class DiagnosisViewModel {
         self.view?.updateSensorsUI()
     }
 
+
+    private func openUrl(_ url: URL) {
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+
+    private func sendMail(_ contentMail: DKContentMail) {
+        if let view = self.view {
+            if MFMailComposeViewController.canSendMail()  {
+                let mailComposerVC = MFMailComposeViewController()
+                if self.loggingViewModel?.isLoggingEnabled ?? false {
+                    #warning("TODO: Get path of log file or let DriveKitLog insert it to mailComposerVC. Do not build it.")
+                    let calendar = Calendar.current
+                    let currentDate = Date()
+                    let logFileName = "log-" + String(calendar.component(.year, from: currentDate)) + "-" + String(calendar.component(.month, from: currentDate)) + ".txt"
+                    let filePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(logFileName)
+                    do {
+                        let attachementData = try Data(contentsOf: filePath)
+                        mailComposerVC.addAttachmentData(attachementData, mimeType: "text/plain", fileName: logFileName)
+                    } catch let error {
+                        print("Error while attaching LogFile to Mail : \(error.localizedDescription)")
+                    }
+                }
+                mailComposerVC.mailComposeDelegate = self
+                mailComposerVC.setToRecipients(contentMail.getRecipients())
+                mailComposerVC.setBccRecipients(contentMail.getBccRecipients())
+                mailComposerVC.setMessageBody(contentMail.getMailBody(), isHTML: false)
+                mailComposerVC.setSubject(contentMail.getSubject())
+                view.present(mailComposerVC, animated: true)
+            } else {
+                view.showAlertMessage(title: nil, message: "TODO", back: false, cancel: false)
+            }
+        }
+    }
+
+}
+
+extension DiagnosisViewModel : MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        if result != .failed {
+            controller.dismiss(animated: true)
+        }
+    }
 }

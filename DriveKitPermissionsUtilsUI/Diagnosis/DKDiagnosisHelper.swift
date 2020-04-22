@@ -35,6 +35,10 @@ import DriveKitCommonUI
         return isSensorActivated
     }
 
+    @objc public func isLowPowerModeEnabled() -> Bool {
+        return ProcessInfo.processInfo.isLowPowerModeEnabled
+    }
+
     @objc public func getPermissionStatus(_ permissionType: DKPermissionType) -> DKPermissionStatus {
         var permissionStatus: DKPermissionStatus
         switch permissionType {

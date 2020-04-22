@@ -21,8 +21,8 @@
 "dk_perm_utils_app_diag_battery_text_android_01"="Su alcuni modelli di telefono, i servizi di ottimizzazione della batteria possono arrestare l\'applicazione quando è in esecuzione in background.";
 "dk_perm_utils_app_diag_battery_text_android_02"="Se il tuo telefono funziona su una versione nativa di Android, puoi disabilitare l\'ottimizzazione della batteria. %@";
 "dk_perm_utils_app_diag_battery_text_android_03"="Se il tuo telefono funziona su una versione di Android con una sovrapposizione software del produttore, ti invitiamo a cercare nel menu batteria per disabilitare le ottimizzazioni.";
-"dk_perm_utils_app_diag_battery_text_ios_01"="Il tuo iPhone contiene una modalità di risparmio energetico per ottimizzare la batteria. Questa modalità può arrestare l\'applicazione quando è in esecuzione in background.";
-"dk_perm_utils_app_diag_battery_text_ios_02"="Ti invitiamo a disattivare la modalità di risparmio energetico per garantire il funzionamento ottimale dell\'applicazione.";
+"dk_perm_utils_app_diag_battery_text_ios_disabled"="L\'applicazione rileva automaticamente l\'inizio e la fine di un viaggio senza utilizzare il sensore GPS. Il sensore GPS viene attivato solo se è stato rilevato un viaggio motorizzato. Questo riduce al minimo la scarica della batteria del telefono.";
+"dk_perm_utils_app_diag_battery_text_ios_enabled"="Il dispositivo contiene una modalità di risparmio energetico per ottimizzare la durata della batteria. Questa modalità può arrestare l\'applicazione mentre è in esecuzione in background.\n\nSi prega di disattivare la modalità di risparmio energetico per garantire il funzionamento ottimale dell\'applicazione andando su: Impostazioni > Batteria > Risparmio energetico";
 "dk_perm_utils_app_diag_battery_title"="Ottimizzazione della batteria";
 "dk_perm_utils_app_diag_bluetooth_ko"="Il sensore Bluetooth sul telefono è spento. I tuoi viaggi non verranno analizzati se la custodia Bluetooth non viene rilevata.";
 "dk_perm_utils_app_diag_bluetooth_link"="Attiva il Bluetooth";
@@ -50,6 +50,7 @@
 "dk_perm_utils_app_diag_help_request_button"="Contatta l\'assistenza";
 "dk_perm_utils_app_diag_help_request_text"="Se il tuo telefono funziona su una versione di Android che include un\'interfaccia software personalizzata del produttore, ti invitiamo a cercare nel menu batteria per disabilitare le ottimizzazioni.";
 "dk_perm_utils_app_diag_help_request_title"="L\'app non registra i tuoi viaggi?";
+"dk_perm_utils_app_diag_learn_more"="Più informazioni";
 "dk_perm_utils_app_diag_loc_sensor_ko"="La geolocalización de su teléfono está desactivada. La aplicación no puede funcionar si no puede acceder a esta información.";
 "dk_perm_utils_app_diag_loc_sensor_link"="Attiva localizzazione";
 "dk_perm_utils_app_diag_loc_sensor_ok"="Hai abilitato la geolocalizzazione. Il sensore di posizione (GPS) misura la velocità e la direzione del veicolo. Se è disabilitato, l\'applicazione non può funzionare.";
@@ -63,7 +64,7 @@
 "dk_perm_utils_app_diag_log_folder"="Accedere al file di registro delle attività";
 "dk_perm_utils_app_diag_log_ko"="La registrazione è disabilitata. In caso di malfunzionamento dell\'applicazione, si consiglia di consentire la registrazione per una facile diagnosi.";
 "dk_perm_utils_app_diag_log_link"="Permettete di scrivere il registro delle attività sul vostro smartphone.";
-"dk_perm_utils_app_diag_log_ok"="La registrazione è attiva. Questo file contiene eventi importanti per l\'analisi del comportamento dell\'applicazione. Viene memorizzato nella cartella DQ-logs.";
+"dk_perm_utils_app_diag_log_ok"="La registrazione è attiva. Questo file contiene eventi importanti per l\'analisi del comportamento dell\'applicazione. Viene memorizzato nella cartella %@.";
 "dk_perm_utils_app_diag_log_title"="Salvare il registro delle attività";
 "dk_perm_utils_app_diag_network_ko"="I dati mobili non sono abilitati. Ciò non bloccherà il rilevamento del viaggio e la registrazione del viaggio. D\'altra parte, i dati mobili sono essenziali per analizzare i dati del tuo viaggio. Se i dati mobili sono disabilitati, il viaggio non verrà perso ma i risultati del viaggio verranno visualizzati solo dopo la riconnessione a una rete mobile.";
 "dk_perm_utils_app_diag_network_link"="Abilita i dati mobili";
@@ -100,4 +101,3 @@
 "dk_perm_utils_permissions_popup_button_settings"="Impostazioni";
 "dk_perm_utils_permissions_text_button_activity_settings"="Aprire le impostazioni";
 "dk_perm_utils_permissions_text_button_location_settings"="Aprire le impostazioni";
-"dk_perm_utils_app_diag_learn_more"="En savoir +";

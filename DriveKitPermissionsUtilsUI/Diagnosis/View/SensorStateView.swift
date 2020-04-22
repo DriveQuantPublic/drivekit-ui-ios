@@ -36,7 +36,7 @@ class SensorStateView : UIView {
             ])
         }
 
-        self.touchBackground.setBackgroundImage(UIImage(color: UIColor(white: 0.5, alpha: 0.5)), for: .highlighted)
+        self.touchBackground.setBackgroundImage(UIImage(color: UIColor.pu_selectionColor), for: .highlighted)
     }
 
     private func update() {

@@ -11,8 +11,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DiagnosisViewController" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
             <connections>
                 <outlet property="activityStatus" destination="SXy-Td-UGd" id="VFa-OZ-Fu4"/>
-                <outlet property="batteryOptimizationDescriptionPart1" destination="T6d-oH-oud" id="6cn-3o-H1j"/>
-                <outlet property="batteryOptimizationDescriptionPart2" destination="pFb-Jg-wgC" id="823-t8-Doq"/>
+                <outlet property="batteryOptimizationButton" destination="pFb-Jg-wgC" id="uGt-WT-3kC"/>
+                <outlet property="batteryOptimizationDescription" destination="T6d-oH-oud" id="pNI-Ws-mO3"/>
                 <outlet property="batteryOptimizationTitle" destination="fwf-BP-Our" id="yCz-I0-eut"/>
                 <outlet property="batteryOptimizationTouch" destination="Us3-eF-CRG" id="p30-7q-zvF"/>
                 <outlet property="bluetoothStatus" destination="nM1-Wg-kdG" id="CJF-KW-3VF"/>
@@ -24,8 +24,10 @@
                 <outlet property="globalStatus" destination="FFX-If-NLK" id="sq4-2m-XBH"/>
                 <outlet property="locationStatus" destination="JYZ-eC-g3p" id="C1u-wD-27Y"/>
                 <outlet property="loggingButton" destination="X0z-K5-Mzi" id="Sej-bh-MLN"/>
+                <outlet property="loggingButtonBottomConstraint" destination="ThU-qh-XtV" id="dna-kI-YoY"/>
                 <outlet property="loggingContainer" destination="cl6-FZ-HaB" id="g9v-3c-aLm"/>
                 <outlet property="loggingDescription" destination="dR1-jk-TFk" id="gfD-7k-e5M"/>
+                <outlet property="loggingDescriptionBottomConstraint" destination="ED2-5a-yjl" id="WKu-uz-gZ6"/>
                 <outlet property="loggingTitle" destination="U6N-W5-5mq" id="OYB-mI-hxR"/>
                 <outlet property="notificationStatus" destination="dOV-aj-tCJ" id="1eT-2X-DSV"/>
                 <outlet property="view" destination="iN0-l3-epB" id="MBi-xz-bhl"/>
@@ -83,20 +85,20 @@
                                                 <action selector="batteryOptimizationDidTouch" destination="-1" eventType="touchUpInside" id="2nI-Sf-uaR"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwf-BP-Our">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwf-BP-Our" userLabel="Battery optimization title">
                                             <rect key="frame" x="10" y="19" width="394" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6d-oH-oud">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6d-oH-oud" userLabel="Battery optimization description">
                                             <rect key="frame" x="10" y="47.5" width="394" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFb-Jg-wgC">
-                                            <rect key="frame" x="10" y="78" width="394" height="20.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFb-Jg-wgC" userLabel="Battery optimization button">
+                                            <rect key="frame" x="10" y="80" width="394" height="18.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -104,10 +106,11 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="pFb-Jg-wgC" firstAttribute="leading" secondItem="T6d-oH-oud" secondAttribute="leading" id="Bxa-ac-WmX"/>
+                                        <constraint firstAttribute="bottom" secondItem="T6d-oH-oud" secondAttribute="bottom" priority="750" constant="4" id="ED2-5a-yjl"/>
                                         <constraint firstItem="fwf-BP-Our" firstAttribute="top" secondItem="Cam-ZY-Raf" secondAttribute="bottom" constant="10" id="MOD-8I-Qly"/>
                                         <constraint firstItem="fwf-BP-Our" firstAttribute="leading" secondItem="vu0-Ld-eBQ" secondAttribute="leading" constant="10" id="NVl-re-sMU"/>
                                         <constraint firstAttribute="bottom" secondItem="Us3-eF-CRG" secondAttribute="bottom" id="Ooo-Jr-Yv1"/>
-                                        <constraint firstItem="pFb-Jg-wgC" firstAttribute="top" secondItem="T6d-oH-oud" secondAttribute="bottom" constant="10" id="RXB-Ko-gFH"/>
+                                        <constraint firstItem="pFb-Jg-wgC" firstAttribute="top" secondItem="T6d-oH-oud" secondAttribute="bottom" constant="12" id="RXB-Ko-gFH"/>
                                         <constraint firstAttribute="bottom" secondItem="pFb-Jg-wgC" secondAttribute="bottom" constant="10" id="ThU-qh-XtV"/>
                                         <constraint firstAttribute="trailing" secondItem="fwf-BP-Our" secondAttribute="trailing" constant="10" id="Ul2-J0-GOM"/>
                                         <constraint firstItem="Us3-eF-CRG" firstAttribute="leading" secondItem="vu0-Ld-eBQ" secondAttribute="leading" id="ZVP-y0-QQP"/>

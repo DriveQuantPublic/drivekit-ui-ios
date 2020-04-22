@@ -21,8 +21,8 @@
 "dk_perm_utils_app_diag_battery_text_android_01"="On some phone models, Battery Optimization Services may shut down the application when it is running in the background.";
 "dk_perm_utils_app_diag_battery_text_android_02"="If your phone runs on a native version of Android, you can disable battery optimizations. %@";
 "dk_perm_utils_app_diag_battery_text_android_03"="If your phone has a version of Android that includes a custom software interface from the manufacturer, we invite you to search the battery menu to disable optimizations.";
-"dk_perm_utils_app_diag_battery_text_ios_01"="Your iPhone contains a power saving mode to optimize the battery. This mode can stop the application when it is running in the background.";
-"dk_perm_utils_app_diag_battery_text_ios_02"="We invite you to deactivate the energy saving mode to ensure optimal operation of the application.";
+"dk_perm_utils_app_diag_battery_text_ios_disabled"="The application automatically detects the beginning and end of a trip without using the GPS sensor. The GPS sensor is only turned on if a motorized trip has been detected. This helps to minimize the battery drain.";
+"dk_perm_utils_app_diag_battery_text_ios_enabled"="Your device contains a power-saving mode to optimize battery life. This mode can stop the application while it is running in the background.\n\nPlease disable the Low Power Mode to ensure optimal performance of the application by going to: Settings > Battery > Low Power Mode.";
 "dk_perm_utils_app_diag_battery_title"="Optimization of the battery";
 "dk_perm_utils_app_diag_bluetooth_ko"="The Bluetooth sensor on your phone is off. Your trips will not be analyzed if the Bluetooth badge is not detected.";
 "dk_perm_utils_app_diag_bluetooth_link"="Turn on Bluetooth";
@@ -50,6 +50,7 @@
 "dk_perm_utils_app_diag_help_request_button"="Contact support";
 "dk_perm_utils_app_diag_help_request_text"="If the application does not work after following the recommendations above, you can contact us by email. It\'s fast and the email will contain all the necessary information to analyze the origin of your problem.";
 "dk_perm_utils_app_diag_help_request_title"="The app does not record your trips?";
+"dk_perm_utils_app_diag_learn_more"="Learn more";
 "dk_perm_utils_app_diag_loc_sensor_ko"="The geolocation of your phone is disabled. The application can not work if it cannot access this information.";
 "dk_perm_utils_app_diag_loc_sensor_link"="Activate localization";
 "dk_perm_utils_app_diag_loc_sensor_ok"="You have enabled geolocation. The location sensor (GPS) measures the vehicle\'s speed and heading. If it is disabled the application can not work.";
@@ -63,7 +64,7 @@
 "dk_perm_utils_app_diag_log_folder"="Access the activity log file";
 "dk_perm_utils_app_diag_log_ko"="Logging is disabled. In case something goes wrong with the application, we recommend that you allow logging for diagnostic purposes.";
 "dk_perm_utils_app_diag_log_link"="Allow the activity log to be written to your smartphone.";
-"dk_perm_utils_app_diag_log_ok"="Logging is enabled. This file contains events that are important for analyzing the application\'s behavior. It is stored in the DQ-logs folder.";
+"dk_perm_utils_app_diag_log_ok"="Logging is enabled. This file contains events that are important for analyzing the application\'s behavior. It is stored in the %@ folder.";
 "dk_perm_utils_app_diag_log_title"="Enable app activity logging";
 "dk_perm_utils_app_diag_network_ko"="Mobile data is not enabled. This will not block the trip detection and trip recording. On the other hand, mobile data is essential for analyzing the data of your trip. If mobile data is disabled, the trip will not be lost but trip results will be displayed only after reconnecting to a mobile network.";
 "dk_perm_utils_app_diag_network_link"="Enable mobile data";
@@ -100,4 +101,3 @@
 "dk_perm_utils_permissions_popup_button_settings"="Settings";
 "dk_perm_utils_permissions_text_button_activity_settings"="Open the settings";
 "dk_perm_utils_permissions_text_button_location_settings"="Open the settings";
-"dk_perm_utils_app_diag_learn_more"="En savoir +";

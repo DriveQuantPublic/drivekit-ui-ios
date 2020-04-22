@@ -19,8 +19,8 @@ class DiagnosisViewController : DKUIViewController {
     @IBOutlet private weak var activityStatus: SensorStateView!
     @IBOutlet private weak var bluetoothStatus: SensorStateView!
     @IBOutlet private weak var batteryOptimizationTitle: UILabel!
-    @IBOutlet private weak var batteryOptimizationDescriptionPart1: UILabel!
-    @IBOutlet private weak var batteryOptimizationDescriptionPart2: UILabel!
+    @IBOutlet private weak var batteryOptimizationDescription: UILabel!
+    @IBOutlet private weak var batteryOptimizationButton: UILabel!
     @IBOutlet private weak var batteryOptimizationTouch: UIButton!
     @IBOutlet private weak var contactContainer: UIView!
     @IBOutlet private weak var contactTitle: UILabel!
@@ -30,6 +30,8 @@ class DiagnosisViewController : DKUIViewController {
     @IBOutlet private weak var loggingTitle: UILabel!
     @IBOutlet private weak var loggingDescription: UILabel!
     @IBOutlet private weak var loggingButton: UISwitch!
+    @IBOutlet private var loggingDescriptionBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private var loggingButtonBottomConstraint: NSLayoutConstraint!
 
     private var viewModel: DiagnosisViewModel
 
@@ -49,23 +51,19 @@ class DiagnosisViewController : DKUIViewController {
         self.viewModel.view = self
         self.updateUI()
 
-        self.batteryOptimizationTitle.attributedText = "dk_perm_utils_app_diag_battery_title".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.mainFontColor).build()
-        self.batteryOptimizationDescriptionPart1.attributedText = "dk_perm_utils_app_diag_battery_text_ios_01".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
-        let batteryOptimizationDescriptionPart2_part1 = "dk_perm_utils_app_diag_battery_text_ios_02".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
-        let batteryOptimizationDescriptionPart2_part2 = "dk_perm_utils_app_diag_battery_link_ios".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.secondaryColor).build()
-        self.batteryOptimizationDescriptionPart2.attributedText = "%@ %@".dkAttributedString().buildWithArgs(batteryOptimizationDescriptionPart2_part1 ,batteryOptimizationDescriptionPart2_part2)
-        self.batteryOptimizationTouch.setBackgroundImage(UIImage(color: UIColor(white: 0.5, alpha: 0.5)), for: .highlighted)
+        self.batteryOptimizationTouch.setBackgroundImage(UIImage(color: UIColor.pu_selectionColor), for: .highlighted)
     }
 
     private func updateUI() {
         self.updateSensorsUI()
+        self.updateBatteryOptimizationUI()
         self.updateContactUI()
         self.updateLoggingUI()
     }
 
 
     @IBAction private func batteryOptimizationDidTouch() {
-
+        self.viewModel.batteryOptimizationViewModel.performAction()
     }
 
     @IBAction private func contactSupport() {
@@ -88,6 +86,23 @@ extension DiagnosisViewController : DiagnosisView {
         self.connectionStatus.viewModel = self.viewModel.connectionStatusViewModel
         self.activityStatus.viewModel = self.viewModel.activityStatusViewModel
         self.bluetoothStatus.viewModel = self.viewModel.bluetoothStatusViewModel
+    }
+
+    func updateBatteryOptimizationUI() {
+        self.batteryOptimizationTitle.attributedText = self.viewModel.batteryOptimizationViewModel.title.dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.mainFontColor).build()
+        self.batteryOptimizationDescription.attributedText = self.viewModel.batteryOptimizationViewModel.description.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
+        if let action = self.viewModel.batteryOptimizationViewModel.action {
+            self.batteryOptimizationButton.attributedText = action.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.secondaryColor).build()
+            self.batteryOptimizationTouch.isEnabled = true
+            self.loggingDescriptionBottomConstraint.isActive = false
+            self.loggingButtonBottomConstraint.isActive = true
+            self.batteryOptimizationButton.isHidden = false
+        } else {
+            self.batteryOptimizationTouch.isEnabled = false
+            self.loggingDescriptionBottomConstraint.isActive = true
+            self.loggingButtonBottomConstraint.isActive = false
+            self.batteryOptimizationButton.isHidden = true
+        }
     }
 
     func updateContactUI() {

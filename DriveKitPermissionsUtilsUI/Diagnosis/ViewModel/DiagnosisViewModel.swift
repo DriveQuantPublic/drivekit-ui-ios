@@ -10,6 +10,7 @@ import UIKit
 
 protocol DiagnosisView : UIViewController {
     func updateSensorsUI()
+    func updateBatteryOptimizationUI()
     func updateContactUI()
     func updateLoggingUI()
 }
@@ -43,6 +44,7 @@ class DiagnosisViewModel {
             self.viewModelByType[.notification]
         }
     }
+    let batteryOptimizationViewModel = BatteryOptimizationViewModel()
     private(set) var contactViewModel: ContactViewModel? = nil
     private(set) var loggingViewModel: LoggingViewModel? = nil
     private lazy var requestPermissionHelper: RequestPermissionHelper = RequestPermissionHelper()
@@ -125,6 +127,10 @@ class DiagnosisViewModel {
             self.updateSensorsUI()
         }
 
+        // Battery optimization.
+        self.batteryOptimizationViewModel.update()
+        self.view?.updateBatteryOptimizationUI()
+
         // Contact.
         switch DriveKitPermissionsUtilsUI.shared.contactType {
             case .none:
@@ -141,6 +147,7 @@ class DiagnosisViewModel {
         } else {
             self.loggingViewModel = nil
         }
+        self.view?.updateLoggingUI()
     }
 
     private func updateState(_ statusType: StatusType) -> Bool {

@@ -21,8 +21,8 @@
 "dk_perm_utils_app_diag_battery_text_android_01"="Sur certains modèles de téléphones, les services d\'optimisations de la batterie peuvent stopper l\'application lorsqu\'elle fonctionne en arrière-plan.";
 "dk_perm_utils_app_diag_battery_text_android_02"="Si votre téléphone fonctionne avec une version native d\'Android, vous pouvez désactiver les optimisations de la batterie. %@";
 "dk_perm_utils_app_diag_battery_text_android_03"="Si votre téléphone fonctionne avec une version d\'Android avec interface logicielle personnalisée par le fabricant (surcouche), nous vous invitons à désactiver les optimisations directement dans les paramètres de la batterie.";
-"dk_perm_utils_app_diag_battery_text_ios_01"="Votre iPhone contient un mode d\'économie d\'énergie pour optimiser la batterie. Ce mode peut stopper l\'application lorsqu\'elle fonctionne en arrière-plan.";
-"dk_perm_utils_app_diag_battery_text_ios_02"="Nous vous invitons à désactiver le mode d\'économie d\'énergie pour garantir un fonctionnement optimal de l\'application.";
+"dk_perm_utils_app_diag_battery_text_ios_disabled"="L\'application détecte automatiquement le début et la fin d\'un trajet sans utiliser le capteur GPS. Le capteur GPS est activé uniquement si un trajet motorisé a été détecté. Cela permet de réduire au maximum la décharge de la batterie du téléphone.";
+"dk_perm_utils_app_diag_battery_text_ios_enabled"="Votre appareil contient un mode d\'économie d\'énergie pour optimiser la batterie. Ce mode peut stopper l\'application lorsqu\'elle fonctionne en arrière-plan.\n\nNous vous invitons à désactiver le mode d\'économie d\'énergie pour garantir un fonctionnement optimal de l\'application en allant dans : Réglages > Batterie > Mode économie d\'énergie.";
 "dk_perm_utils_app_diag_battery_title"="Optimisation de la batterie";
 "dk_perm_utils_app_diag_bluetooth_ko"="Le capteur Bluetooth de votre téléphone est désactivé. Vos trajets ne seront pas analysés si le boitier Bluetooth n\'est pas détecté.";
 "dk_perm_utils_app_diag_bluetooth_link"="Activer le Bluetooth";
@@ -50,6 +50,7 @@
 "dk_perm_utils_app_diag_help_request_button"="Contacter le support";
 "dk_perm_utils_app_diag_help_request_text"="Si l\'application ne fonctionne pas après avoir suivi les recommandations ci-dessus, vous pouvez contacter notre support par email. En un clic, nous aurons les informations nécessaires pour une première analyse de l\'origine du problème et vous aider à le résoudre.";
 "dk_perm_utils_app_diag_help_request_title"="L\'app n\'enregistre pas vos trajets ?";
+"dk_perm_utils_app_diag_learn_more"="En savoir plus";
 "dk_perm_utils_app_diag_loc_sensor_ko"="La géolocalisation de votre téléphone est désactivée. L\'application ne peut pas fonctionner si elle n\'a pas cette information.";
 "dk_perm_utils_app_diag_loc_sensor_link"="Activer la localisation";
 "dk_perm_utils_app_diag_loc_sensor_ok"="Vous avez activé la géolocalisation. Le capteur de position (GPS) mesure la vitesse et le cap du véhicule. Si elle est désactivée, l\'application ne peut pas fonctionner.";
@@ -63,7 +64,7 @@
 "dk_perm_utils_app_diag_log_folder"="Accéder au dossier du journal d\'activité";
 "dk_perm_utils_app_diag_log_ko"="L\'enregistrement du journal est désactivé. En cas de dysfonctionnement de l\'application, nous vous recommandons d\'autoriser l\'enregistrement du journal pour faciliter le diagnostic.";
 "dk_perm_utils_app_diag_log_link"="Autoriser l\'écriture du journal d\'activité sur votre smartphone.";
-"dk_perm_utils_app_diag_log_ok"="L\'enregistrement du journal est activé. Ce fichier contient les événements importants pour analyser le comportement de l\'application. Il est stocké dans le dossier DQ-logs.";
+"dk_perm_utils_app_diag_log_ok"="L\'enregistrement du journal est activé. Ce fichier contient les événements importants pour analyser le comportement de l\'application. Il est stocké dans le dossier %@.";
 "dk_perm_utils_app_diag_log_title"="Enregistrer le journal d\'activité";
 "dk_perm_utils_app_diag_network_ko"="Les données mobiles ne sont pas activées. Cela ne bloquera pas le déclenchement et l\'enregistrement (en local) de votre trajet. En revanche, les données mobiles sont indispensables pour analyser les données de votre trajet. Si les données mobiles sont désactivées, le trajet ne sera pas perdu et l\'analyse sera faite à la reconnexion à un réseau mobile.";
 "dk_perm_utils_app_diag_network_link"="Activer les données mobiles";
@@ -100,4 +101,3 @@
 "dk_perm_utils_permissions_popup_button_settings"="Réglages";
 "dk_perm_utils_permissions_text_button_activity_settings"="Ouvrir les réglages";
 "dk_perm_utils_permissions_text_button_location_settings"="Ouvrir les réglages";
-"dk_perm_utils_app_diag_learn_more"="En savoir +";

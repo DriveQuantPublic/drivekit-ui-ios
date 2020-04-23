@@ -14,6 +14,7 @@ import UserNotifications
 
 class RequestPermissionHelper : NSObject {
 
+    private lazy var bluetoothManager = CBCentralManager()
     private let locationManager = CLLocationManager()
     private let motionActivityManager = CMMotionActivityManager()
 
@@ -49,7 +50,8 @@ class RequestPermissionHelper : NSObject {
     }
 
     private func requestBluetoothPermission() {
-        #warning("TODO")
+        // Accessing state of BluetoothManager may show a system dialog to enable it.
+        let _ = self.bluetoothManager.state
     }
     
     private func requestLocationPermission() {

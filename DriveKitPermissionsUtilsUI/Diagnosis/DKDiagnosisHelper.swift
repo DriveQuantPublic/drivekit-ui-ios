@@ -18,7 +18,7 @@ import DriveKitCommonUI
 
     @objc public static let shared = DKDiagnosisHelper()
     private lazy var requestPermissionHelper = RequestPermissionHelper()
-    private lazy var bluetoothManager = CBCentralManager()
+    private lazy var bluetoothManager = CBCentralManager(delegate: nil, queue: nil, options: [CBCentralManagerOptionShowPowerAlertKey:false])
 
     private override init() {
         super.init()

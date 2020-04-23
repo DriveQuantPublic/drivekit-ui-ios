@@ -69,6 +69,7 @@ class DiagnosisViewModel : NSObject {
 
     func performDialogAction(for statusType: StatusType, isValid: Bool) {
         if !isValid {
+            var openSettingsImmediatly = false
             switch statusType {
                 case .activity:
                     self.requestPermissionHelper.requestPermission(.activity)
@@ -77,16 +78,20 @@ class DiagnosisViewModel : NSObject {
                 case .location:
                     self.requestPermissionHelper.requestPermission(.location)
                 case .network:
-                    #warning("TODO")
+                    openSettingsImmediatly = true
                 case .notification:
                     self.requestPermissionHelper.requestNotificationPermission()
             }
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.2, execute: {
-                if self.isAppActive {
-                    // No system alert has been presented. Open settings.
-                    DKDiagnosisHelper.shared.openSettings()
-                }
-            })
+            if openSettingsImmediatly {
+                DKDiagnosisHelper.shared.openSettings()
+            } else {
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.2, execute: {
+                    if self.isAppActive {
+                        // No system alert has been presented. Open settings.
+                        DKDiagnosisHelper.shared.openSettings()
+                    }
+                })
+            }
         }
     }
 

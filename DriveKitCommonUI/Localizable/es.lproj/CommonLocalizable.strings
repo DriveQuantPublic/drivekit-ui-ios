@@ -50,3 +50,6 @@
 "dk_common_unit_second"="s";
 "dk_common_update_photo_title"="Cambiar la imagen";
 "dk_common_validate"="Valido";
+"dk_common_send_mail_error"="Votre appareil n\'est pas configuré pour l\'envoi d\'email";
+"dk_common_yes"="Sí";
+"dk_common_no"="No";

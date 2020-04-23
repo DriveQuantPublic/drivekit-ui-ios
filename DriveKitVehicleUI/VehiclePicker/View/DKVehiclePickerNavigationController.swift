@@ -16,10 +16,12 @@ public class DKVehiclePickerNavigationController : UINavigationController {
     public init(parentView: UIViewController, detectionMode: DKDetectionMode = .disabled, vehicle: DKVehicle? = nil, completion : (() -> ())? = nil) {
         self.completion = completion
         let viewModel = VehiclePickerViewModel(detectionMode: detectionMode, previousVehicle: vehicle)
-        super.init(rootViewController: viewModel.getViewController())
+        let firstViewController = viewModel.getViewController()
+        super.init(nibName: nil, bundle: .vehicleUIBundle)
         viewModel.vehicleNavigationDelegate = self
         self.setupNavigationBar(parentView: parentView)
         self.modalPresentationStyle = .overFullScreen
+        self.pushViewController(firstViewController, animated: true)
         parentView.present(self, animated: true, completion: nil)
     }
     

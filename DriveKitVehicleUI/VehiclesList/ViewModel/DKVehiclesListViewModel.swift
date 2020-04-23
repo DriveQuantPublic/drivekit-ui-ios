@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import UIKit
 import DriveKitVehicle
 import DriveKitDBVehicleAccess
 import DriveKitCommonUI
 
-protocol VehiclesListDelegate : AnyObject{
+public protocol VehiclesListDelegate : AnyObject{
     func onVehiclesAvailable()
     func didUpdateVehicle()
     func didReceiveErrorFromService()
@@ -23,9 +24,9 @@ protocol VehiclesListDelegate : AnyObject{
 }
 
 
-class VehiclesListViewModel {
-    var vehicles: [DKVehicle] = []
-    weak var delegate: VehiclesListDelegate? = nil
+public class DKVehiclesListViewModel {
+    public var vehicles: [DKVehicle] = []
+    public weak var delegate: VehiclesListDelegate? = nil
     
     func fetchVehicles() {
         DriveKitVehicle.shared.getVehiclesOrderByNameAsc(completionHandler : { status, vehicles in
@@ -40,14 +41,12 @@ class VehiclesListViewModel {
         return vehicles.count
     }
     
-    func vehicleActions(pos: Int) -> [VehicleAction] {
+    func vehicleActions(pos: Int) -> [DKVehicleActionItem] {
         var actions = DriveKitVehicleUI.shared.vehicleActions
         if vehiclesCount <= 1 {
-            actions.removeAll(where: {$0 == .delete})
+            actions.removeAll(where: {$0 is DKVehicleAction && ($0 as! DKVehicleAction) == DKVehicleAction.delete})
         }
-        if vehicles[pos].liteConfig {
-            actions.removeAll(where: {$0 == .show})
-        }
+        actions.removeAll(where: {!$0.isDisplayable(vehicle: vehicles[pos])})
         return actions
     }
     
@@ -153,14 +152,7 @@ class VehiclesListViewModel {
     func detectionModeConfigureButton(pos: Int) -> String? {
         return vehicles[pos].detectionModeConfigurationButton
     }
-    
-    /*func detectionModeClicked(detectionMode: DKDetectionMode, pos : Int) {
-        let vehicle = vehicles[pos]
-        if vehicle.detectionMode != detectionMode {
-            // TO DO
-        }
-    }*/
-    
+
     private func renameVehicle(vehicle: DKVehicle, name: String) {
         DriveKitVehicle.shared.renameVehicle(name: name, vehicleId: vehicle.vehicleId, completionHandler: { status in
             if status == .success {

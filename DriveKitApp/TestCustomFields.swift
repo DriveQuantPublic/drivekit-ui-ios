@@ -11,7 +11,7 @@ import DriveKitVehicleUI
 import DriveKitDBVehicleAccess
 import DriveKitVehicle
 
-enum TestField : VehicleField {
+enum TestField : DKVehicleField {
     
     
     case number, ascii

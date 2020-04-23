@@ -17,11 +17,9 @@ class SelectBluetoothVC: DKUIViewController {
     @IBOutlet var confirmButton: UIButton!
     
     private let viewModel: BluetoothViewModel
-    private let presentingView : UIViewController
     
-    public init(viewModel: BluetoothViewModel, parentView : UIViewController) {
+    public init(viewModel: BluetoothViewModel) {
         self.viewModel = viewModel
-        self.presentingView = parentView
         super.init(nibName: "SelectBluetoothVC", bundle: .vehicleUIBundle)
     }
     
@@ -73,7 +71,7 @@ class SelectBluetoothVC: DKUIViewController {
     
     private func vehicleUnknown() {
         self.showAlertMessage(title: "", message: "dk_vehicle_unknown", back: true, cancel: false, completion: {
-            self.navigationController?.popToViewController(self.presentingView, animated: true)
+            self.navigationController?.popViewController(animated: true)
         })
     }
     
@@ -82,7 +80,7 @@ class SelectBluetoothVC: DKUIViewController {
     }
     
     private func redirectToSuccesView(pos: Int) {
-        let successVC = SuccessBluetoothVC(viewModel: viewModel, parentView: presentingView)
+        let successVC = SuccessBluetoothVC(viewModel: viewModel)
         self.navigationController?.pushViewController(successVC, animated: true)
         
     }

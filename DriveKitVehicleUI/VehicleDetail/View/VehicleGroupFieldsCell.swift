@@ -14,7 +14,7 @@ class VehicleGroupFieldsCell: UITableViewCell {
     @IBOutlet weak var cardView: CardView!
     
     private var viewModel: VehicleDetailViewModel?
-    private var groupField: VehicleGroupField?
+    private var groupField: DKVehicleGroupField?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,7 +26,7 @@ class VehicleGroupFieldsCell: UITableViewCell {
         tableView.dataSource = self
     }
     
-    func configure(viewModel : VehicleDetailViewModel, groupField: VehicleGroupField) {
+    func configure(viewModel : VehicleDetailViewModel, groupField: DKVehicleGroupField) {
         self.viewModel = viewModel
         self.groupField  = groupField
         self.tableView.reloadData()
@@ -75,7 +75,7 @@ extension VehicleGroupFieldsCell: VehicleFieldCellDelegate {
             if let field = self.viewModel?.getField(groupField: groupField)[indexPath.row] {
                 if field.isValid(value: value) {
                     viewModel.addUpdatedField(field: field, value: value)
-                    cell.configureError(error: "")
+                    cell.configureError(error: nil)
                 }else{
                     cell.configureError(error: field.getErrorDescription() ?? "")
                 }
@@ -84,7 +84,7 @@ extension VehicleGroupFieldsCell: VehicleFieldCellDelegate {
     }
 }
 
-extension VehicleField {
+extension DKVehicleField {
     var cellHeight : CGFloat {
         var size : CGFloat = 58
         if self.isEditable {

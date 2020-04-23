@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import DriveKitDBVehicleAccess
 import DriveKitVehicle
 import DriveKitCommonUI
@@ -40,7 +41,7 @@ extension DKVehicle {
         }
     }
     
-    func computeName() -> String {
+    public func computeName() -> String {
         return getDisplayName(position: getPosition(vehiclesList: DriveKitDBVehicleAccess.shared.findVehiclesOrderByNameAsc().execute().sortByDisplayNames()))
     }
     
@@ -101,13 +102,13 @@ extension DKVehicle {
     var detectionModeDescription :  NSAttributedString {
         switch self.detectionMode {
         case .disabled:
-            return "dk_detection_mode_disabled_desc".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+            return "dk_detection_mode_disabled_desc".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
         case .gps :
-            return "dk_detection_mode_gps_desc".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+            return "dk_detection_mode_gps_desc".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
         case .beacon:
             if beacon != nil {
                 let beaconCode = String(beacon?.uniqueId ?? "").dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
-                let description = "dk_detection_mode_beacon_desc_configured".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).buildWithArgs(beaconCode)
+                let description = "dk_detection_mode_beacon_desc_configured".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).buildWithArgs(beaconCode)
                 return description
             }else {
                 return "dk_detection_mode_beacon_desc_not_configured".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.criticalColor).build()
@@ -115,7 +116,7 @@ extension DKVehicle {
         case .bluetooth:
             if bluetooth != nil {
                 let bluetoothName = String(bluetooth?.name ??  "").dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
-                let description = "dk_detection_mode_bluetooth_desc_configured".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).buildWithArgs(bluetoothName)
+                let description = "dk_detection_mode_bluetooth_desc_configured".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).buildWithArgs(bluetoothName)
                 return description
             }else{
                 return "dk_detection_mode_bluetooth_desc_not_configured".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.criticalColor).build()

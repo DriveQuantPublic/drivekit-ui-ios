@@ -91,8 +91,6 @@ class ViewController: UITableViewController {
                 self.configureBeaconPairing()
             } else if indexPath.row == 6 {
                 self.configureVehiclesList()
-            } else if indexPath.row == 7 {
-                self.askOnboardingPermissions()
             }
         }
     }
@@ -197,10 +195,14 @@ class ViewController: UITableViewController {
         }
     }
 
-    private func askOnboardingPermissions() {
+    @IBAction private func askOnboardingPermissions() {
         DriveKitPermissionsUtilsUI.shared.showPermissionViews([.location, .activity], parentViewController: self.navigationController!) {
             self.showAlertMessage(title: "Permissions", message: "👍", back: false, cancel: false)
         }
+    }
+
+    @IBAction private func showDiagnosis() {
+        self.navigationController?.pushViewController(DriveKitPermissionsUtilsUI.shared.getDiagnosisViewController(), animated: true)
     }
     
     

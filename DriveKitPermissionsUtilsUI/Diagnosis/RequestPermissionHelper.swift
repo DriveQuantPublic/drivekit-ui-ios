@@ -36,7 +36,10 @@ class RequestPermissionHelper : NSObject {
     }
 
     func requestNotificationPermission() {
-        #warning("TODO")
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: []) { (granted, error) in
+            
+        }
     }
 
 

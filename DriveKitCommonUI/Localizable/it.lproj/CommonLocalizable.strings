@@ -17,6 +17,7 @@
 "dk_common_loading"="Caricamento in corso. Ti preghiamo di attendere...";
 "dk_common_mass"="Massa";
 "dk_common_mean_speed"="Velocità media";
+"dk_common_no"="No";
 "dk_common_ok"="OK";
 "dk_common_permission_camera_rationale"="Per utilizzare questa funzione, l\'applicazione necessita di un\'autorizzazione per accedere alla fotocamera dello smartphone.";
 "dk_common_permission_storage_rationale"="Per utilizzare questa funzione, l\'applicazione necessita di un\'autorizzazione per accedere alla memoria del vostro smartphone.";
@@ -24,6 +25,7 @@
 "dk_common_safety"="Sicurezza";
 "dk_common_save"="Registrazione";
 "dk_common_select_image_gallery"="Seleziona una foto esistente";
+"dk_common_send_mail_error"="Il dispositivo non è configurato per l\'invio di e-mail...";
 "dk_common_settings"="Impostazioni";
 "dk_common_speed"="Velocità";
 "dk_common_take_picture"="Scatta una foto";
@@ -50,6 +52,4 @@
 "dk_common_unit_second"="s";
 "dk_common_update_photo_title"="Cambiare l\'immagine";
 "dk_common_validate"="Valido";
-"dk_common_send_mail_error"="Votre appareil n\'est pas configuré pour l\'envoi d\'email";
 "dk_common_yes"="Sì";
-"dk_common_no"="No";

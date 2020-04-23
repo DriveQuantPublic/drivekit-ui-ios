@@ -17,6 +17,7 @@
 "dk_common_loading"="Loading. Please wait...";
 "dk_common_mass"="Mass";
 "dk_common_mean_speed"="Average speed";
+"dk_common_no"="No";
 "dk_common_ok"="OK";
 "dk_common_permission_camera_rationale"="The application needs permission to access your smartphone\'s camera to use this feature.";
 "dk_common_permission_storage_rationale"="The application needs authorization to access your smartphone\'s storage to use this feature.";
@@ -24,6 +25,7 @@
 "dk_common_safety"="Safety";
 "dk_common_save"="Record";
 "dk_common_select_image_gallery"="Select an existing photo";
+"dk_common_send_mail_error"="Your device isn\'t configured to send email";
 "dk_common_settings"="Settings";
 "dk_common_speed"="Velocity";
 "dk_common_take_picture"="Take a picture";
@@ -50,6 +52,4 @@
 "dk_common_unit_second"="s";
 "dk_common_update_photo_title"="Edit the picture";
 "dk_common_validate"="Valid";
-"dk_common_send_mail_error"="Votre appareil n\'est pas configuré pour l\'envoi d\'email";
 "dk_common_yes"="Yes";
-"dk_common_no"="No";

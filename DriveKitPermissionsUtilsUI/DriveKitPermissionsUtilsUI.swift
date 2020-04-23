@@ -16,9 +16,12 @@ import DriveKitCommonUI
     public private(set) var isBluetoothNeeded = false
     public private(set) var showDiagnosisLogs = false
     public private(set) var contactType = DKContactType.none
+    private var stateByType = [StatusType:Bool]()
 
     private override init() {
         super.init()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
 
     @objc public func initialize() {
@@ -61,13 +64,11 @@ import DriveKitCommonUI
     }
 
     @objc public func getDiagnosisViewController() -> UIViewController {
-        #warning("TODO")
         return DiagnosisViewController(nibName: "DiagnosisViewController", bundle: Bundle.permissionsUtilsUIBundle)
     }
 
     @objc public func hasError() -> Bool {
-        #warning("TODO")
-        return true
+        return self.stateByType.values.contains(false)
     }
 
     @objc public func configureBluetooth(needed: Bool) {
@@ -82,6 +83,52 @@ import DriveKitCommonUI
         self.contactType = contactType
     }
 
+
+    @objc private func appDidBecomeActive() {
+        updateState()
+    }
+
+    private func updateState() {
+        let diagnosisHelper = DKDiagnosisHelper.shared
+        // Activity.
+        let isActivityUpdated = updateInternalState(.activity, isValid: diagnosisHelper.isActivityValid())
+        // Bluetooth.
+        let isBluetoothUpdated: Bool
+        if DriveKitPermissionsUtilsUI.shared.isBluetoothNeeded {
+            isBluetoothUpdated = updateInternalState(.bluetooth, isValid: diagnosisHelper.isBluetoothValid())
+        } else {
+            isBluetoothUpdated = false
+        }
+        // Location.
+        let isLocationUpdated = updateInternalState(.location, isValid: diagnosisHelper.isLocationValid())
+        // Network.
+        let isNetworkUpdated = updateInternalState(.network, isValid: diagnosisHelper.isNetworkValid())
+        // Notification.
+        diagnosisHelper.isNotificationValid { isValid in
+            let isNotificationUpdated = self.updateInternalState(.notification, isValid: isValid)
+
+            if isActivityUpdated || isBluetoothUpdated || isLocationUpdated || isNetworkUpdated || isNotificationUpdated {
+                // A state has been updated. Post notification.
+                NotificationCenter.default.post(name: .sensorStateChangedNotification, object: nil)
+            }
+        }
+    }
+
+    private func updateInternalState(_ statusType: StatusType, isValid: Bool) -> Bool {
+        let updated: Bool
+        if self.stateByType[statusType] != isValid {
+            self.stateByType[statusType] = isValid
+            updated = true
+        } else {
+            updated = false
+        }
+        return updated
+    }
+
+}
+
+public extension Notification.Name {
+    static let sensorStateChangedNotification = Notification.Name("dk_sensorStateChanged")
 }
 
 extension Bundle {

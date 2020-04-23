@@ -148,11 +148,11 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIS-vp-9x3">
-                                            <rect key="frame" x="87" y="86" width="240" height="44"/>
+                                            <rect key="frame" x="170" y="86" width="74" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="85U-0l-U9T"/>
-                                                <constraint firstAttribute="width" constant="240" id="kCf-RJ-pcQ"/>
                                             </constraints>
+                                            <inset key="contentEdgeInsets" minX="14" minY="0.0" maxX="14" maxY="0.0"/>
                                             <state key="normal" title="Button"/>
                                             <connections>
                                                 <action selector="contactSupport" destination="-1" eventType="touchUpInside" id="0xR-cb-eez"/>

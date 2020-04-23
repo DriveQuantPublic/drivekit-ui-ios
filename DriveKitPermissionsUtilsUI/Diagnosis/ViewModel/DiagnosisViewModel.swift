@@ -62,6 +62,7 @@ class DiagnosisViewModel : NSObject {
 
         NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(appWillResignActive), name: UIApplication.willResignActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateSensorsState), name: .sensorStateChangedNotification, object: nil)
 
         self.updateState()
     }
@@ -133,8 +134,7 @@ class DiagnosisViewModel : NSObject {
         self.isAppActive = false
     }
 
-    private func updateState() {
-        // Sensors state.
+    @objc private func updateSensorsState() {
         let manageBluetooth = DriveKitPermissionsUtilsUI.shared.isBluetoothNeeded
         let isActivityUpdated = self.updateState(.activity)
         let isLocationUpdated = self.updateState(.location)
@@ -156,6 +156,11 @@ class DiagnosisViewModel : NSObject {
         if newState {
             self.updateSensorsUI()
         }
+    }
+
+    private func updateState() {
+        // Sensors state.
+        updateSensorsState()
 
         // Battery optimization.
         self.batteryOptimizationViewModel.update()
@@ -185,23 +190,20 @@ class DiagnosisViewModel : NSObject {
         let isValid: Bool
         switch statusType {
             case .activity:
-                isValid = diagnosisHelper.getPermissionStatus(.activity) == .valid
+                isValid = diagnosisHelper.isActivityValid()
             case .bluetooth:
-                isValid = diagnosisHelper.isSensorActivated(.bluetooth) && diagnosisHelper.getPermissionStatus(.bluetooth) == .valid
+                isValid = diagnosisHelper.isBluetoothValid()
             case .location:
-                isValid = diagnosisHelper.isSensorActivated(.gps) && diagnosisHelper.getPermissionStatus(.location) == .valid
+                isValid = diagnosisHelper.isLocationValid()
             case .network:
-                isValid = diagnosisHelper.isNetworkReachable()
+                isValid = diagnosisHelper.isNetworkValid()
             case .notification:
                 isValid = self.stateByType[.notification] ?? false
-                diagnosisHelper.getNotificationPermissionStatus { [weak self] (permissionStatus) in
+                diagnosisHelper.isNotificationValid { [weak self] isValid in
                     if let self = self {
-                        DispatchQueue.main.async {
-                            let isValid = permissionStatus == .valid
-                            let updated = self.updateInternalState(statusType, isValid: isValid)
-                            if updated {
-                                self.updateSensorsUI()
-                            }
+                        let updated = self.updateInternalState(statusType, isValid: isValid)
+                        if updated {
+                            self.updateSensorsUI()
                         }
                     }
                 }

@@ -78,9 +78,38 @@ import DriveKitCommonUI
     }
 
 
-    public func openSettings() {
+    @objc public func openSettings() {
         guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
         UIApplication.shared.open(settingsUrl)
+    }
+
+
+    func isActivityValid() -> Bool {
+        return getPermissionStatus(.activity) == .valid
+    }
+
+    func isBluetoothValid() -> Bool {
+        if DriveKitPermissionsUtilsUI.shared.isBluetoothNeeded {
+            return isSensorActivated(.bluetooth) && getPermissionStatus(.bluetooth) == .valid
+        } else {
+            return true
+        }
+    }
+
+    func isLocationValid() -> Bool {
+        return isSensorActivated(.gps) && getPermissionStatus(.location) == .valid
+    }
+
+    func isNetworkValid() -> Bool {
+        return isNetworkReachable()
+    }
+
+    func isNotificationValid(completion: @escaping (Bool) -> Void) {
+        getNotificationPermissionStatus { permissionStatus in
+            DispatchQueue.main.async {
+                completion(permissionStatus == .valid)
+            }
+        }
     }
 
 

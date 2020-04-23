@@ -28,7 +28,9 @@ class ViewController: UITableViewController {
     @IBOutlet var locationButton: UIButton!
     @IBOutlet var motionButton: UIButton!
     @IBOutlet var notificationButton: UIButton!
-    
+
+    @IBOutlet weak var sensorsStateLabel: UILabel!
+
     
     let location = CLLocationManager()
     let motion = CMMotionActivityManager()
@@ -39,6 +41,9 @@ class ViewController: UITableViewController {
         self.title = "Sample app"
         configureTripAnalysisButton()
         configureText()
+        sensorStateChanged()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(sensorStateChanged), name: .sensorStateChangedNotification, object: nil)
     }
     
     private func configureText(){
@@ -218,5 +223,13 @@ class ViewController: UITableViewController {
     @IBAction func cancelTrip(_ sender: Any) {
         DriveKitTripAnalysis.shared.cancelTrip()
         configureTripAnalysisButton()
+    }
+
+    @objc private func sensorStateChanged() {
+        if DriveKitPermissionsUtilsUI.shared.hasError() {
+            self.sensorsStateLabel.text = "❌"
+        } else {
+            self.sensorsStateLabel.text = "✅"
+        }
     }
 }

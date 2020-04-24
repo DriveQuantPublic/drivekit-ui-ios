@@ -84,11 +84,11 @@ import DriveKitCommonUI
     }
 
 
-    func isActivityValid() -> Bool {
+    @objc public func isActivityValid() -> Bool {
         return getPermissionStatus(.activity) == .valid
     }
 
-    func isBluetoothValid() -> Bool {
+    @objc public func isBluetoothValid() -> Bool {
         if DriveKitPermissionsUtilsUI.shared.isBluetoothNeeded {
             return isSensorActivated(.bluetooth) && getPermissionStatus(.bluetooth) == .valid
         } else {
@@ -96,15 +96,15 @@ import DriveKitCommonUI
         }
     }
 
-    func isLocationValid() -> Bool {
+    @objc public func isLocationValid() -> Bool {
         return isSensorActivated(.gps) && getPermissionStatus(.location) == .valid
     }
 
-    func isNetworkValid() -> Bool {
+    @objc public func isNetworkValid() -> Bool {
         return isNetworkReachable()
     }
 
-    func isNotificationValid(completion: @escaping (Bool) -> Void) {
+    @objc public func isNotificationValid(completion: @escaping (Bool) -> Void) {
         getNotificationPermissionStatus { permissionStatus in
             DispatchQueue.main.async {
                 completion(permissionStatus == .valid)

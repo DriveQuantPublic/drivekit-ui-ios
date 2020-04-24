@@ -23,5 +23,6 @@ platform :ios do
     version_bump_podspec(path: "DriveKitDriverDataUI.podspec", version_number: "#{version}")
     version_bump_podspec(path: "DriveKitDriverAchievementUI.podspec", version_number: "#{version}")
     version_bump_podspec(path: "DriveKitVehicleUI.podspec", version_number: "#{version}")
+    version_bump_podspec(path: "DriveKitPermissionsUtilsUI.podspec", version_number: "#{version}")
   end
 end

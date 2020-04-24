@@ -8,8 +8,6 @@
 
 import Foundation
 
-import DriveKitCommonUI
-
 public enum DKContactType {
     case none
     case email(DKContentMail)

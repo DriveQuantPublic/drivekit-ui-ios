@@ -169,9 +169,9 @@
 		6378BBE0244D9BC70040A114 /* SensorStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378BBDF244D9BC70040A114 /* SensorStateViewModel.swift */; };
 		6378BBE2244D9C060040A114 /* DiagnosisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378BBE1244D9C060040A114 /* DiagnosisViewModel.swift */; };
 		6378BBE4244DA47B0040A114 /* StatusType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378BBE3244DA47B0040A114 /* StatusType.swift */; };
-		639346B5244897C1000F42D4 /* DKContactType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639346B4244897C1000F42D4 /* DKContactType.swift */; };
 		639346B724489DDA000F42D4 /* DiagnosisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639346B624489DDA000F42D4 /* DiagnosisViewController.swift */; };
 		639346B92448A8FD000F42D4 /* RequestPermissionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639346B82448A8FD000F42D4 /* RequestPermissionHelper.swift */; };
+		63BF8EFA24531011006BEB3F /* DKContactType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639346B4244897C1000F42D4 /* DKContactType.swift */; };
 		63C3FD78244EDDA900C2FEEC /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3FD77244EDDA900C2FEEC /* ContactViewModel.swift */; };
 		63C3FD7A244EE42C00C2FEEC /* CustomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3FD79244EE42C00C2FEEC /* CustomScrollView.swift */; };
 		63C3FD7C244EE56C00C2FEEC /* LoggingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3FD7B244EE56C00C2FEEC /* LoggingViewModel.swift */; };
@@ -861,6 +861,7 @@
 		3F7524C92406C4B400AC22CC /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				639346B4244897C1000F42D4 /* DKContactType.swift */,
 				3F03A4DC242C8BD3000924A0 /* DKContentMail.swift */,
 				3FF68E8D240CF0220071D74C /* Gauge */,
 				3FB5643923F68BBE00F010E3 /* CardView.swift */,
@@ -1219,7 +1220,6 @@
 				63FF6B56244A41550006992E /* View */,
 				616946FF2433A89800C8A965 /* DKDiagnosisHelper.swift */,
 				639346B82448A8FD000F42D4 /* RequestPermissionHelper.swift */,
-				639346B4244897C1000F42D4 /* DKContactType.swift */,
 				616947062433A97000C8A965 /* DKPermissionStatus.swift */,
 				616947042433A94D00C8A965 /* DKPermissionType.swift */,
 				616947022433A91300C8A965 /* DKSensorType.swift */,
@@ -2102,6 +2102,7 @@
 				3FF68E80240939BC0071D74C /* DriveKitDriverDataUIEntryPoint.swift in Sources */,
 				3FF68E6E24081A5A0071D74C /* DKStyles.swift in Sources */,
 				3F0740F3240426C0005A8D07 /* UIColor+DK.swift in Sources */,
+				63BF8EFA24531011006BEB3F /* DKContactType.swift in Sources */,
 				A34FC7362423CDDA000734AB /* DKTextField.swift in Sources */,
 				3F03A4DF242C9983000924A0 /* DriveKitVehicleUIEntryPoint.swift in Sources */,
 				3FF68E752408390A0071D74C /* CardView.swift in Sources */,
@@ -2214,7 +2215,6 @@
 				632EDDF124504BEE00110744 /* UIColor+PermissionsUtils.swift in Sources */,
 				632EDDEF2450497500110744 /* BatteryOptimizationViewModel.swift in Sources */,
 				63C3FD78244EDDA900C2FEEC /* ContactViewModel.swift in Sources */,
-				639346B5244897C1000F42D4 /* DKContactType.swift in Sources */,
 				61377B75243E0C4800E2EC47 /* ActivityPermissionViewModel.swift in Sources */,
 				616947092433AA0300C8A965 /* DKPermissionView.swift in Sources */,
 				616947002433A89900C8A965 /* DKDiagnosisHelper.swift in Sources */,

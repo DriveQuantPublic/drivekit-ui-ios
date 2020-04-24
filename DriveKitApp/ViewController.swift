@@ -37,7 +37,13 @@ class ViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        if let navigationController = self.navigationController {
+            if #available(iOS 13.0, *) {
+                navigationController.navigationBar.standardAppearance.titleTextAttributes = [.foregroundColor: DKUIColors.fontColorOnPrimaryColor.color]
+            } else {
+                navigationController.navigationBar.titleTextAttributes = [.foregroundColor: DKUIColors.fontColorOnPrimaryColor.color]
+            }
+        }
         self.title = "Sample app"
         configureTripAnalysisButton()
         configureText()

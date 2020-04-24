@@ -8,7 +8,11 @@
 
 import UIKit
 
+import DriveKitCommonUI
+
 class SeparatorView : UIView {
+
+    @IBOutlet private weak var separatorView: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +28,7 @@ class SeparatorView : UIView {
                 self.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
                 self.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
             ])
+            self.separatorView.backgroundColor = DKUIColors.neutralColor.color
         }
     }
 

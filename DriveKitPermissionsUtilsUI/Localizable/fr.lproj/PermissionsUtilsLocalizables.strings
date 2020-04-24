@@ -58,7 +58,7 @@
 "dk_perm_utils_app_diag_location_ko_android"="Vous devez autoriser l\'application à accéder à la position du téléphone pour qu\'elle détecte et qu\'elle analyse vos trajets.";
 "dk_perm_utils_app_diag_location_ko_ios"="Vous devez autoriser l\'application à accéder à la position du téléphone pour qu\'elle détecte et qu\’elle analyse vos trajets. Dans les paramètres du téléphone, trois options sont proposées : (1) jamais, (2) lorsque l\'app est active et (3) toujours. Il est indispensable de sélectionner l\'option (3) toujours sinon, l\'application ne fonctionnera pas.";
 "dk_perm_utils_app_diag_location_ko_ios13"="Vous devez autoriser l\'application à accéder à la position du téléphone pour qu\'elle détecte et qu\’elle analyse vos trajets. Dans les paramètres du téléphone, quatre options sont proposées : (1) jamais, (2) demander la prochaine fois, (3) lorsque l\'app est active et (4) toujours. Il est indispensable de sélectionner l\'option (4) toujours sinon, l\'application ne fonctionnera pas.";
-"dk_perm_utils_app_diag_location_link"="Autoriser l\'accès à la localisation.";
+"dk_perm_utils_app_diag_location_link"="Autoriser l\'accès à la localisation";
 "dk_perm_utils_app_diag_location_ok"="L\'application utilise la localisation de votre téléphone pour détecter et analyser vos trajets. Elle ne peut pas fonctionner si vous n\'autorisez pas l’application à accéder à la localisation.";
 "dk_perm_utils_app_diag_location_title"="Localisation";
 "dk_perm_utils_app_diag_log_folder"="Accéder au dossier du journal d\'activité";

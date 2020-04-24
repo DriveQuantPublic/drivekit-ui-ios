@@ -58,7 +58,7 @@
 "dk_perm_utils_app_diag_location_ko_android"="Debe permitir que la aplicación acceda a la ubicación del teléfono para que detecte y escanee sus viajes.";
 "dk_perm_utils_app_diag_location_ko_ios"="Debe permitir que la aplicación acceda a la ubicación del teléfono para que detecte y escanee sus viajes. En la configuración del teléfono, hay tres opciones disponibles: (1) nunca, (2) cuando la aplicación está activa y (3) siempre. Es esencial seleccionar la opción (3) siempre que lo contrario, la aplicación no funcionará.";
 "dk_perm_utils_app_diag_location_ko_ios13"="Debe permitir que la aplicación acceda a la posición del teléfono para que pueda detectar y analizar sus rutas. En la configuración del teléfono, hay cuatro opciones disponibles: (1) nunca, (2) pregunte la próxima vez, (3) mientras usa la aplicación y (4) siempre. Es necesario seleccionar siempre la opción (4), de lo contrario la aplicación no funcionará.";
-"dk_perm_utils_app_diag_location_link"="Permitir el acceso a la ubicación.";
+"dk_perm_utils_app_diag_location_link"="Permitir el acceso a la ubicación";
 "dk_perm_utils_app_diag_location_ok"="La aplicación usa la ubicación de su teléfono para detectar y analizar sus viajes. No puede funcionar si no permite que la aplicación acceda a la ubicación.";
 "dk_perm_utils_app_diag_location_title"="Ubicación";
 "dk_perm_utils_app_diag_log_folder"="Acceda al archivo de registro de actividad";

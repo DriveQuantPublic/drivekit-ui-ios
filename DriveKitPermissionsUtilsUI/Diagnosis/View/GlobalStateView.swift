@@ -40,7 +40,7 @@ class GlobalStateView : UIView {
         guard let viewModel = self.viewModel else { return }
         self.statusIcon.image = viewModel.statusIcon
         self.title.attributedText = viewModel.title.dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.mainFontColor).build()
-        self.info.attributedText = viewModel.info.dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
+        self.info.attributedText = viewModel.info.dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
     }
 
 }

@@ -148,7 +148,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIS-vp-9x3">
-                                            <rect key="frame" x="170" y="86" width="74" height="44"/>
+                                            <rect key="frame" x="40" y="86" width="334" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="85U-0l-U9T"/>
                                             </constraints>
@@ -167,6 +167,8 @@
                                         <constraint firstItem="XRA-Vp-tRC" firstAttribute="top" secondItem="7bH-Bs-hvH" secondAttribute="bottom" constant="10" id="EiC-SZ-Ot9"/>
                                         <constraint firstItem="7bH-Bs-hvH" firstAttribute="leading" secondItem="bTe-gW-QxW" secondAttribute="leading" id="GcR-pQ-y91"/>
                                         <constraint firstItem="fci-qV-EVW" firstAttribute="trailing" secondItem="XRA-Vp-tRC" secondAttribute="trailing" id="N5O-j6-3ve"/>
+                                        <constraint firstItem="KIS-vp-9x3" firstAttribute="leading" relation="lessThanOrEqual" secondItem="bTe-gW-QxW" secondAttribute="leading" constant="40" id="X7D-XR-iw6"/>
+                                        <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="KIS-vp-9x3" secondAttribute="trailing" constant="40" id="YKy-q6-xE2"/>
                                         <constraint firstItem="XRA-Vp-tRC" firstAttribute="leading" secondItem="bTe-gW-QxW" secondAttribute="leading" constant="10" id="Zni-8M-0XS"/>
                                         <constraint firstItem="KIS-vp-9x3" firstAttribute="centerX" secondItem="bTe-gW-QxW" secondAttribute="centerX" id="c2D-qe-q8e"/>
                                         <constraint firstAttribute="bottom" secondItem="KIS-vp-9x3" secondAttribute="bottom" constant="10" id="ems-6j-KID"/>

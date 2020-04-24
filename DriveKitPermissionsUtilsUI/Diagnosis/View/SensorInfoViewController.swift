@@ -35,6 +35,8 @@ class SensorInfoViewController : UIViewController {
         self.contentView.layer.cornerRadius = 10
         self.contentView.backgroundColor = DKUIColors.backgroundView.color
         self.titleContainer.backgroundColor = DKUIColors.primaryColor.color
+        self.actionButton.titleLabel?.numberOfLines = 0
+        self.actionButton.titleLabel?.textAlignment = .center
 
         self.titleLabel.attributedText = self.viewModel.title.dkAttributedString().font(dkFont: .primary, style: .headLine1).color(DKUIColors.fontColorOnPrimaryColor).build()
         self.descriptionLabel.attributedText = self.viewModel.description.dkAttributedString().font(dkFont: .primary, style: .normalText).color(DKUIColors.mainFontColor).build()

@@ -24,7 +24,7 @@
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1hy-DA-nUQ" userLabel="Content">
-                    <rect key="frame" x="67.666666666666686" y="345" width="240" height="132.33333333333337"/>
+                    <rect key="frame" x="67.666666666666686" y="343" width="240" height="136.33333333333337"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tJK-yH-Tg3" userLabel="Title container">
                             <rect key="frame" x="0.0" y="0.0" width="240" height="44"/>
@@ -50,10 +50,8 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HDf-3G-QDY">
-                            <rect key="frame" x="10" y="80.333333333333314" width="220" height="50"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="50" id="h4o-g2-c35"/>
-                            </constraints>
+                            <rect key="frame" x="10" y="76.333333333333314" width="220" height="58"/>
+                            <inset key="contentEdgeInsets" minX="0.0" minY="20" maxX="0.0" maxY="20"/>
                             <state key="normal" title="Button"/>
                             <connections>
                                 <action selector="manageAction" destination="-1" eventType="touchUpInside" id="GY6-nK-X1G"/>
@@ -66,7 +64,7 @@
                         <constraint firstItem="c0w-3b-bqo" firstAttribute="top" secondItem="tJK-yH-Tg3" secondAttribute="bottom" constant="10" id="Gba-TB-JJs"/>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="Hd3-8A-eZb"/>
                         <constraint firstAttribute="trailing" secondItem="tJK-yH-Tg3" secondAttribute="trailing" id="Mj2-t9-CcB"/>
-                        <constraint firstItem="HDf-3G-QDY" firstAttribute="top" secondItem="c0w-3b-bqo" secondAttribute="bottom" constant="6" id="Mu7-Pk-HGA"/>
+                        <constraint firstItem="HDf-3G-QDY" firstAttribute="top" secondItem="c0w-3b-bqo" secondAttribute="bottom" constant="2" id="Mu7-Pk-HGA"/>
                         <constraint firstItem="HDf-3G-QDY" firstAttribute="trailing" secondItem="c0w-3b-bqo" secondAttribute="trailing" id="XWE-lY-27E"/>
                         <constraint firstAttribute="bottom" secondItem="HDf-3G-QDY" secondAttribute="bottom" constant="2" id="cBz-Qd-p0f"/>
                         <constraint firstItem="tJK-yH-Tg3" firstAttribute="top" secondItem="1hy-DA-nUQ" secondAttribute="top" id="dGC-O8-M4n"/>

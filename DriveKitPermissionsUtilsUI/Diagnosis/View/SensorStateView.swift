@@ -43,7 +43,7 @@ class SensorStateView : UIView {
         if let viewModel = self.viewModel {
             self.statusIcon.image = viewModel.statusIcon
             self.statusIcon.tintColor = viewModel.statusIconTintColor
-            self.sensorTitle.attributedText = viewModel.title.dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.mainFontColor).build()
+            self.sensorTitle.attributedText = viewModel.title.dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.mainFontColor).build()
             self.learnMoreLabel.attributedText = viewModel.learnMoreText.dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.secondaryColor).build()
             self.isHidden = false
         } else {

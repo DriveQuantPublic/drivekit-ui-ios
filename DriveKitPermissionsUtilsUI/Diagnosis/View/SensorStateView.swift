@@ -27,13 +27,7 @@ class SensorStateView : UIView {
 
         let view = Bundle.permissionsUtilsUIBundle?.loadNibNamed("SensorStateView", owner: self, options: nil)?.first as? UIView
         if let view = view {
-            self.addSubview(view)
-            self.addConstraints([
-                self.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-                self.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-                self.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
-                self.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
-            ])
+            embedSubview(view)
         }
 
         self.touchBackground.setBackgroundImage(UIImage(color: UIColor.pu_selectionColor), for: .highlighted)

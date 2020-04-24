@@ -23,21 +23,7 @@ struct SensorStateViewModel {
         self.statusType = statusType
         self.isValid = valid
         self.diagnosisViewModel = diagnosisViewModel
-
-        let titleKey: String
-        switch statusType {
-            case .activity:
-                titleKey = "dk_perm_utils_app_diag_activity_title"
-            case .bluetooth:
-                titleKey = "dk_perm_utils_app_diag_bluetooth_title"
-            case .location:
-                titleKey = "dk_perm_utils_app_diag_location_title"
-            case .network:
-                titleKey = "dk_perm_utils_app_diag_network_title"
-            case .notification:
-                titleKey = "dk_perm_utils_app_diag_notification_title"
-        }
-        self.title = titleKey.dkPermissionsUtilsLocalized()
+        self.title = statusType.getTitle()
 
         let icon: UIImage?
         if valid {

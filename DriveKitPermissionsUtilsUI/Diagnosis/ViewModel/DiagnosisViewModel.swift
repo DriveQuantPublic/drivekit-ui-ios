@@ -166,22 +166,29 @@ class DiagnosisViewModel : NSObject {
         self.batteryOptimizationViewModel.update()
         self.view?.updateBatteryOptimizationUI()
 
-        // Contact.
-        switch DriveKitPermissionsUtilsUI.shared.contactType {
+        // Contact & Logging.
+        let contactType = DriveKitPermissionsUtilsUI.shared.contactType
+        let contactByMail: Bool
+        switch contactType {
             case .none:
                 self.contactViewModel = nil
-            case .email(_), .web(_):
-                self.contactViewModel = ContactViewModel(contactType: DriveKitPermissionsUtilsUI.shared.contactType, diagnosisViewModel: self)
-
+                contactByMail = false
+            case .email(_):
+                self.contactViewModel = ContactViewModel(contactType: contactType, diagnosisViewModel: self)
+                contactByMail = true
+            case .web(_):
+                self.contactViewModel = ContactViewModel(contactType: contactType, diagnosisViewModel: self)
+                contactByMail = false
         }
-        self.view?.updateContactUI()
 
-        // Logging.
         if DriveKitPermissionsUtilsUI.shared.showDiagnosisLogs {
-            self.loggingViewModel = LoggingViewModel()
+            let loggingViewModel = LoggingViewModel()
+            loggingViewModel.setContactByMailEnabled(contactByMail)
+            self.loggingViewModel = loggingViewModel
         } else {
             self.loggingViewModel = nil
         }
+        self.view?.updateContactUI()
         self.view?.updateLoggingUI()
     }
 
@@ -246,15 +253,11 @@ class DiagnosisViewModel : NSObject {
         if let view = self.view {
             if MFMailComposeViewController.canSendMail()  {
                 let mailComposerVC = MFMailComposeViewController()
-                if self.loggingViewModel?.isLoggingEnabled ?? false {
-                    #warning("TODO: Get path of log file or let DriveKitLog insert it to mailComposerVC. Do not build it.")
-                    let calendar = Calendar.current
-                    let currentDate = Date()
-                    let logFileName = "log-" + String(calendar.component(.year, from: currentDate)) + "-" + String(calendar.component(.month, from: currentDate)) + ".txt"
-                    let filePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(logFileName)
+                if let logFileUrl = self.loggingViewModel?.getLogFileUrl() {
                     do {
-                        let attachementData = try Data(contentsOf: filePath)
-                        mailComposerVC.addAttachmentData(attachementData, mimeType: "text/plain", fileName: logFileName)
+                        let attachementData = try Data(contentsOf: logFileUrl)
+                        let fileName = logFileUrl.lastPathComponent
+                        mailComposerVC.addAttachmentData(attachementData, mimeType: "text/plain", fileName: fileName)
                     } catch let error {
                         print("Error while attaching LogFile to Mail : \(error.localizedDescription)")
                     }
@@ -262,12 +265,45 @@ class DiagnosisViewModel : NSObject {
                 mailComposerVC.mailComposeDelegate = self
                 mailComposerVC.setToRecipients(contentMail.getRecipients())
                 mailComposerVC.setBccRecipients(contentMail.getBccRecipients())
-                mailComposerVC.setMessageBody(contentMail.getMailBody(), isHTML: false)
+                mailComposerVC.setMessageBody(getMailBody(contentMail), isHTML: false)
                 mailComposerVC.setSubject(contentMail.getSubject())
                 view.present(mailComposerVC, animated: true)
             } else {
-                view.showAlertMessage(title: nil, message: "TODO", back: false, cancel: false)
+                view.showAlertMessage(title: nil, message: DKCommonLocalizable.sendMailError.text(), back: false, cancel: false)
             }
+        }
+    }
+
+    private func getMailBody(_ contentMail: DKContentMail) -> String {
+        if contentMail.overrideMailBodyContent() {
+            return contentMail.getMailBody()
+        } else {
+            let yes = " " + DKCommonLocalizable.yes.text()
+            let no = " " + DKCommonLocalizable.no.text()
+            let separator = "\n"
+            let locationSensorStatus = getStatusString(isValid: DKDiagnosisHelper.shared.isSensorActivated(.gps), titleKey: "dk_perm_utils_app_diag_email_location_sensor", yesString: yes, noString: no)
+            let locationPermissionStatus = getStatusString(isValid: (DKDiagnosisHelper.shared.getPermissionStatus(.location) == .valid), titleKey: "dk_perm_utils_app_diag_email_location", yesString: yes, noString: no)
+            let activityStatus = getStatusString(statusType: .activity, titleKey: "dk_perm_utils_app_diag_email_activity", yesString: yes, noString: no)
+            let notificationStatus = getStatusString(statusType: .notification, titleKey: "dk_perm_utils_app_diag_email_notification", yesString: yes, noString: no)
+            let networkStatus = getStatusString(statusType: .network, titleKey: "dk_perm_utils_app_diag_email_network", yesString: yes, noString: no)
+            let bluetoothStatus = getStatusString(statusType: .bluetooth, titleKey: "dk_perm_utils_app_diag_email_bluetooth", yesString: yes, noString: no)
+            var body = contentMail.getMailBody() + "\n\n" + locationSensorStatus + separator + locationPermissionStatus + separator + activityStatus + separator + notificationStatus + separator + networkStatus
+            if DriveKitPermissionsUtilsUI.shared.isBluetoothNeeded {
+                body = body + separator + bluetoothStatus
+            }
+            return body
+        }
+    }
+
+    private func getStatusString(statusType: StatusType, titleKey: String, yesString: String, noString: String) -> String {
+        return getStatusString(isValid: self.stateByType[statusType] ?? false, titleKey: titleKey, yesString: yesString, noString: noString)
+    }
+
+    private func getStatusString(isValid: Bool, titleKey: String, yesString: String, noString: String) -> String {
+        if isValid {
+            return titleKey.dkPermissionsUtilsLocalized() + yesString
+        } else {
+            return titleKey.dkPermissionsUtilsLocalized() + noString
         }
     }
 

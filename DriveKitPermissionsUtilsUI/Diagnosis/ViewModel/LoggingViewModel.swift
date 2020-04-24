@@ -14,11 +14,11 @@ class LoggingViewModel {
     let title: String
     private(set) var description = ""
     private(set) var isLoggingEnabled: Bool
+    private(set) var isContactByMailEnabled: Bool = false
 
     init() {
         self.title = "dk_perm_utils_app_diag_log_title".dkPermissionsUtilsLocalized()
-        #warning("TODO: Retrieve state form DriveKitLog class")
-        self.isLoggingEnabled = false
+        self.isLoggingEnabled = DriveKitLog.shared.isLoggingEnabled
         self.updateState()
     }
 
@@ -34,10 +34,27 @@ class LoggingViewModel {
         }
     }
 
+    func setContactByMailEnabled(_ enabled: Bool) {
+        if self.isContactByMailEnabled != enabled {
+            self.isContactByMailEnabled = enabled
+            self.updateState()
+        }
+    }
+
+    func getLogFileUrl() -> URL? {
+        if self.isLoggingEnabled {
+            return DriveKitLog.shared.logFile
+        }
+        return nil
+    }
+
     private func updateState() {
         if self.isLoggingEnabled {
-            let appName = Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String ?? Bundle.main.infoDictionary?["CFBundleName"] as? String ?? "-"
-            self.description = String(format: "dk_perm_utils_app_diag_log_ok".dkPermissionsUtilsLocalized(), appName)
+            if self.isContactByMailEnabled {
+                self.description = "dk_perm_utils_app_diag_log_ok_contact_mail".dkPermissionsUtilsLocalized()
+            } else {
+                self.description = "dk_perm_utils_app_diag_log_ok_ios".dkPermissionsUtilsLocalized()
+            }
         } else {
             self.description = "dk_perm_utils_app_diag_log_ko".dkPermissionsUtilsLocalized()
         }

@@ -42,7 +42,7 @@ struct SensorStateViewModel {
         let icon: UIImage?
         if valid {
             icon = UIImage(named: "sensor-ok-empty", in: Bundle.permissionsUtilsUIBundle, compatibleWith: nil)
-            self.statusIconTintColor = UIColor.pu_sensorOk
+            self.statusIconTintColor = UIColor.dkValid
         } else {
             icon = UIImage(named: "sensor-error-empty", in: Bundle.permissionsUtilsUIBundle, compatibleWith: nil)
             self.statusIconTintColor = DKUIColors.criticalColor.color

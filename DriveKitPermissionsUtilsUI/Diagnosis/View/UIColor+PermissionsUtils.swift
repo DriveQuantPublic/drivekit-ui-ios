@@ -16,10 +16,4 @@ extension UIColor {
         }
     }
 
-    static var pu_sensorOk: UIColor {
-        get {
-            UIColor(red: 20, green: 128, blue: 20)
-        }
-    }
-
 }

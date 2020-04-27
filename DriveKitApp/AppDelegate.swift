@@ -47,6 +47,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitVehicleUI.shared.configureBeaconDiagnosticSupportURL(url: "https://www.google.com")
         DriveKitVehicleUI.shared.configureCategoryConfigType(type: .bothConfig)
         DriveKitPermissionsUtilsUI.shared.initialize()
+        DriveKitPermissionsUtilsUI.shared.configureBluetooth(needed: true)
+        DriveKitPermissionsUtilsUI.shared.configureDiagnosisLogs(show: true)
+        DriveKitPermissionsUtilsUI.shared.configureContactType(DKContactType.email(self))
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options : \(options)")
         return true
     }

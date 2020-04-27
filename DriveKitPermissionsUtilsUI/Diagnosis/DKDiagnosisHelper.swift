@@ -6,7 +6,7 @@
 //  Copyright © 2020 DriveQuant. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CoreBluetooth
 import CoreLocation
 import CoreMotion
@@ -17,7 +17,8 @@ import DriveKitCommonUI
 @objc public class DKDiagnosisHelper : NSObject {
 
     @objc public static let shared = DKDiagnosisHelper()
-    private lazy var bluetoothManager = CBCentralManager()
+    private lazy var requestPermissionHelper = RequestPermissionHelper()
+    private lazy var bluetoothManager = CBCentralManager(delegate: nil, queue: nil, options: [CBCentralManagerOptionShowPowerAlertKey:false])
 
     private override init() {
         super.init()
@@ -32,6 +33,10 @@ import DriveKitCommonUI
                 isSensorActivated = CLLocationManager.locationServicesEnabled()
         }
         return isSensorActivated
+    }
+
+    @objc public func isLowPowerModeEnabled() -> Bool {
+        return ProcessInfo.processInfo.isLowPowerModeEnabled
     }
 
     @objc public func getPermissionStatus(_ permissionType: DKPermissionType) -> DKPermissionStatus {
@@ -66,6 +71,45 @@ import DriveKitCommonUI
 
     @objc public func isNetworkReachable() -> Bool {
         return DKReachability.isConnectedToNetwork()
+    }
+
+    @objc public func requestPermission(_ permissionType: DKPermissionType) {
+        self.requestPermissionHelper.requestPermission(permissionType)
+    }
+
+
+    @objc public func openSettings() {
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
+        UIApplication.shared.open(settingsUrl)
+    }
+
+
+    @objc public func isActivityValid() -> Bool {
+        return getPermissionStatus(.activity) == .valid
+    }
+
+    @objc public func isBluetoothValid() -> Bool {
+        if DriveKitPermissionsUtilsUI.shared.isBluetoothNeeded {
+            return isSensorActivated(.bluetooth) && getPermissionStatus(.bluetooth) == .valid
+        } else {
+            return true
+        }
+    }
+
+    @objc public func isLocationValid() -> Bool {
+        return isSensorActivated(.gps) && getPermissionStatus(.location) == .valid
+    }
+
+    @objc public func isNetworkValid() -> Bool {
+        return isNetworkReachable()
+    }
+
+    @objc public func isNotificationValid(completion: @escaping (Bool) -> Void) {
+        getNotificationPermissionStatus { permissionStatus in
+            DispatchQueue.main.async {
+                completion(permissionStatus == .valid)
+            }
+        }
     }
 
 

@@ -30,5 +30,6 @@ import UIKit
     static let dkGoodMean = UIColor(hex: 0xc6ff57)
     static let dkGood = UIColor(hex: 0x94ff57)
     static let dkExcellent = UIColor(hex: 0x30c8fc)
+    static let dkValid = UIColor(red: 20, green: 128, blue: 20)
 }
 

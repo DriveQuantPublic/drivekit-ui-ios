@@ -13,9 +13,15 @@ import DriveKitCommonUI
 @objc public class DriveKitPermissionsUtilsUI : NSObject {
 
     @objc public static let shared = DriveKitPermissionsUtilsUI()
+    public private(set) var isBluetoothNeeded = false
+    public private(set) var showDiagnosisLogs = false
+    public private(set) var contactType = DKContactType.none
+    private var stateByType = [StatusType:Bool]()
 
     private override init() {
         super.init()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
 
     @objc public func initialize() {
@@ -57,6 +63,72 @@ import DriveKitCommonUI
         }
     }
 
+    @objc public func getDiagnosisViewController() -> UIViewController {
+        return DiagnosisViewController()
+    }
+
+    @objc public func hasError() -> Bool {
+        return self.stateByType.values.contains(false)
+    }
+
+    @objc public func configureBluetooth(needed: Bool) {
+        self.isBluetoothNeeded = needed
+    }
+
+    @objc public func configureDiagnosisLogs(show: Bool) {
+        self.showDiagnosisLogs = show
+    }
+
+    public func configureContactType(_ contactType: DKContactType) {
+        self.contactType = contactType
+    }
+
+
+    @objc private func appDidBecomeActive() {
+        updateState()
+    }
+
+    private func updateState() {
+        let diagnosisHelper = DKDiagnosisHelper.shared
+        // Activity.
+        let isActivityUpdated = updateInternalState(.activity, isValid: diagnosisHelper.isActivityValid())
+        // Bluetooth.
+        let isBluetoothUpdated: Bool
+        if DriveKitPermissionsUtilsUI.shared.isBluetoothNeeded {
+            isBluetoothUpdated = updateInternalState(.bluetooth, isValid: diagnosisHelper.isBluetoothValid())
+        } else {
+            isBluetoothUpdated = false
+        }
+        // Location.
+        let isLocationUpdated = updateInternalState(.location, isValid: diagnosisHelper.isLocationValid())
+        // Network.
+        let isNetworkUpdated = updateInternalState(.network, isValid: diagnosisHelper.isNetworkValid())
+        // Notification.
+        diagnosisHelper.isNotificationValid { isValid in
+            let isNotificationUpdated = self.updateInternalState(.notification, isValid: isValid)
+
+            if isActivityUpdated || isBluetoothUpdated || isLocationUpdated || isNetworkUpdated || isNotificationUpdated {
+                // A state has been updated. Post notification.
+                NotificationCenter.default.post(name: .sensorStateChangedNotification, object: nil)
+            }
+        }
+    }
+
+    private func updateInternalState(_ statusType: StatusType, isValid: Bool) -> Bool {
+        let updated: Bool
+        if self.stateByType[statusType] != isValid {
+            self.stateByType[statusType] = isValid
+            updated = true
+        } else {
+            updated = false
+        }
+        return updated
+    }
+
+}
+
+public extension Notification.Name {
+    static let sensorStateChangedNotification = Notification.Name("dk_sensorStateChanged")
 }
 
 extension Bundle {
@@ -79,12 +151,23 @@ extension DriveKitPermissionsUtilsUI : DriveKitPermissionsUtilsUIEntryPoint {
     }
 }
 
+// MARK: - Objective-C extension
 
 extension DriveKitPermissionsUtilsUI {
 
     @objc(showPermissionViews:parentViewController:completionHandler:) // Usage example: [DriveKitPermissionsUtilsUI.shared showPermissionViews:@[ @(DKPermissionViewLocation), @(DKPermissionViewActivity) ] parentViewController: ... completionHandler: ...];
     public func objc_showPermissionViews(_ permissionViews: [Int], parentViewController: UIViewController, completionHandler: @escaping () -> Void) {
         showPermissionViews(permissionViews.map({ DKPermissionView(rawValue: $0)! }), parentViewController: parentViewController, completionHandler: completionHandler)
+    }
+
+    @objc(configureMailContactType:)
+    public func objc_configureContactType(contentMail: DKContentMail) {
+        self.configureContactType(.email(contentMail))
+    }
+
+    @objc(configureWebContactType:)
+    public func objc_configureContactType(contactUrl: URL) {
+        self.configureContactType(.web(contactUrl))
     }
 
 }

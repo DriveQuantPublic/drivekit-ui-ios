@@ -28,17 +28,28 @@ class ViewController: UITableViewController {
     @IBOutlet var locationButton: UIButton!
     @IBOutlet var motionButton: UIButton!
     @IBOutlet var notificationButton: UIButton!
-    
+
+    @IBOutlet weak var sensorsStateLabel: UILabel!
+
     
     let location = CLLocationManager()
     let motion = CMMotionActivityManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        if let navigationController = self.navigationController {
+            if #available(iOS 13.0, *) {
+                navigationController.navigationBar.standardAppearance.titleTextAttributes = [.foregroundColor: DKUIColors.fontColorOnPrimaryColor.color]
+            } else {
+                navigationController.navigationBar.titleTextAttributes = [.foregroundColor: DKUIColors.fontColorOnPrimaryColor.color]
+            }
+        }
         self.title = "Sample app"
         configureTripAnalysisButton()
         configureText()
+        sensorStateChanged()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(sensorStateChanged), name: .sensorStateChangedNotification, object: nil)
     }
     
     private func configureText(){
@@ -91,8 +102,6 @@ class ViewController: UITableViewController {
                 self.configureBeaconPairing()
             } else if indexPath.row == 6 {
                 self.configureVehiclesList()
-            } else if indexPath.row == 7 {
-                self.askOnboardingPermissions()
             }
         }
     }
@@ -197,10 +206,14 @@ class ViewController: UITableViewController {
         }
     }
 
-    private func askOnboardingPermissions() {
+    @IBAction private func askOnboardingPermissions() {
         DriveKitPermissionsUtilsUI.shared.showPermissionViews([.location, .activity], parentViewController: self.navigationController!) {
             self.showAlertMessage(title: "Permissions", message: "👍", back: false, cancel: false)
         }
+    }
+
+    @IBAction private func showDiagnosis() {
+        self.navigationController?.pushViewController(DriveKitPermissionsUtilsUI.shared.getDiagnosisViewController(), animated: true)
     }
     
     
@@ -216,5 +229,13 @@ class ViewController: UITableViewController {
     @IBAction func cancelTrip(_ sender: Any) {
         DriveKitTripAnalysis.shared.cancelTrip()
         configureTripAnalysisButton()
+    }
+
+    @objc private func sensorStateChanged() {
+        if DriveKitPermissionsUtilsUI.shared.hasError() {
+            self.sensorsStateLabel.text = "❌"
+        } else {
+            self.sensorsStateLabel.text = "✅"
+        }
     }
 }

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DiagnosisViewController" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
+            <connections>
+                <outlet property="activityStatus" destination="SXy-Td-UGd" id="VFa-OZ-Fu4"/>
+                <outlet property="batteryOptimizationButton" destination="pFb-Jg-wgC" id="uGt-WT-3kC"/>
+                <outlet property="batteryOptimizationDescription" destination="T6d-oH-oud" id="pNI-Ws-mO3"/>
+                <outlet property="batteryOptimizationTitle" destination="fwf-BP-Our" id="yCz-I0-eut"/>
+                <outlet property="batteryOptimizationTouch" destination="Us3-eF-CRG" id="p30-7q-zvF"/>
+                <outlet property="bluetoothStatus" destination="nM1-Wg-kdG" id="CJF-KW-3VF"/>
+                <outlet property="connectionStatus" destination="BrQ-8E-NQe" id="qop-0V-MtV"/>
+                <outlet property="contactButton" destination="KIS-vp-9x3" id="FSr-Ww-T6y"/>
+                <outlet property="contactContainer" destination="bTe-gW-QxW" id="RTi-cn-UEy"/>
+                <outlet property="contactDescription" destination="fci-qV-EVW" id="0vl-OW-vlw"/>
+                <outlet property="contactTitle" destination="XRA-Vp-tRC" id="yqv-cL-2mt"/>
+                <outlet property="globalStatus" destination="FFX-If-NLK" id="sq4-2m-XBH"/>
+                <outlet property="locationStatus" destination="JYZ-eC-g3p" id="C1u-wD-27Y"/>
+                <outlet property="loggingButton" destination="X0z-K5-Mzi" id="Sej-bh-MLN"/>
+                <outlet property="loggingButtonBottomConstraint" destination="ThU-qh-XtV" id="dna-kI-YoY"/>
+                <outlet property="loggingContainer" destination="cl6-FZ-HaB" id="g9v-3c-aLm"/>
+                <outlet property="loggingDescription" destination="dR1-jk-TFk" id="gfD-7k-e5M"/>
+                <outlet property="loggingDescriptionBottomConstraint" destination="ED2-5a-yjl" id="WKu-uz-gZ6"/>
+                <outlet property="loggingTitle" destination="U6N-W5-5mq" id="OYB-mI-hxR"/>
+                <outlet property="notificationStatus" destination="dOV-aj-tCJ" id="1eT-2X-DSV"/>
+                <outlet property="view" destination="iN0-l3-epB" id="MBi-xz-bhl"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6CG-aY-Nca" customClass="CustomScrollView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4Li-NZ-qfG">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="586"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="FFX-If-NLK" userLabel="Global status" customClass="GlobalStateView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z0C-qY-hCe" userLabel="Separator" customClass="SeparatorView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="40" width="414" height="9"/>
+                                    <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="9" id="Kb9-ym-5mH"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="JYZ-eC-g3p" userLabel="Location status" customClass="SensorStateView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="49" width="414" height="40"/>
+                                </view>
+                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="dOV-aj-tCJ" userLabel="Notification status" customClass="SensorStateView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="89" width="414" height="40"/>
+                                </view>
+                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="BrQ-8E-NQe" userLabel="Connection status" customClass="SensorStateView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="129" width="414" height="40"/>
+                                </view>
+                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="SXy-Td-UGd" userLabel="Activity status" customClass="SensorStateView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="169" width="414" height="40"/>
+                                </view>
+                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="nM1-Wg-kdG" userLabel="Bluetooth status" customClass="SensorStateView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="209" width="414" height="40"/>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vu0-Ld-eBQ" userLabel="Battery optimization container">
+                                    <rect key="frame" x="0.0" y="249" width="414" height="108.5"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cam-ZY-Raf" userLabel="Separator" customClass="SeparatorView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="9"/>
+                                            <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="9" id="8jS-rJ-NM0"/>
+                                            </constraints>
+                                        </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Us3-eF-CRG" userLabel="Battery optimization touch">
+                                            <rect key="frame" x="0.0" y="9" width="414" height="99.5"/>
+                                            <connections>
+                                                <action selector="batteryOptimizationDidTouch" destination="-1" eventType="touchUpInside" id="2nI-Sf-uaR"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwf-BP-Our" userLabel="Battery optimization title">
+                                            <rect key="frame" x="10" y="19" width="394" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6d-oH-oud" userLabel="Battery optimization description">
+                                            <rect key="frame" x="10" y="47.5" width="394" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFb-Jg-wgC" userLabel="Battery optimization button">
+                                            <rect key="frame" x="10" y="80" width="394" height="18.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="pFb-Jg-wgC" firstAttribute="leading" secondItem="T6d-oH-oud" secondAttribute="leading" id="Bxa-ac-WmX"/>
+                                        <constraint firstAttribute="bottom" secondItem="T6d-oH-oud" secondAttribute="bottom" priority="750" constant="4" id="ED2-5a-yjl"/>
+                                        <constraint firstItem="fwf-BP-Our" firstAttribute="top" secondItem="Cam-ZY-Raf" secondAttribute="bottom" constant="10" id="MOD-8I-Qly"/>
+                                        <constraint firstItem="fwf-BP-Our" firstAttribute="leading" secondItem="vu0-Ld-eBQ" secondAttribute="leading" constant="10" id="NVl-re-sMU"/>
+                                        <constraint firstAttribute="bottom" secondItem="Us3-eF-CRG" secondAttribute="bottom" id="Ooo-Jr-Yv1"/>
+                                        <constraint firstItem="pFb-Jg-wgC" firstAttribute="top" secondItem="T6d-oH-oud" secondAttribute="bottom" constant="12" id="RXB-Ko-gFH"/>
+                                        <constraint firstAttribute="bottom" secondItem="pFb-Jg-wgC" secondAttribute="bottom" constant="10" id="ThU-qh-XtV"/>
+                                        <constraint firstAttribute="trailing" secondItem="fwf-BP-Our" secondAttribute="trailing" constant="10" id="Ul2-J0-GOM"/>
+                                        <constraint firstItem="Us3-eF-CRG" firstAttribute="leading" secondItem="vu0-Ld-eBQ" secondAttribute="leading" id="ZVP-y0-QQP"/>
+                                        <constraint firstItem="T6d-oH-oud" firstAttribute="top" secondItem="fwf-BP-Our" secondAttribute="bottom" constant="8" id="aZ0-Rs-sb3"/>
+                                        <constraint firstItem="T6d-oH-oud" firstAttribute="leading" secondItem="fwf-BP-Our" secondAttribute="leading" id="bvJ-yA-wxR"/>
+                                        <constraint firstItem="pFb-Jg-wgC" firstAttribute="trailing" secondItem="T6d-oH-oud" secondAttribute="trailing" id="hBr-Xb-xq1"/>
+                                        <constraint firstItem="Us3-eF-CRG" firstAttribute="top" secondItem="Cam-ZY-Raf" secondAttribute="bottom" id="hOM-be-Ogk"/>
+                                        <constraint firstItem="Cam-ZY-Raf" firstAttribute="leading" secondItem="vu0-Ld-eBQ" secondAttribute="leading" id="nJp-2t-tCD"/>
+                                        <constraint firstAttribute="trailing" secondItem="Us3-eF-CRG" secondAttribute="trailing" id="ppl-ds-zHz"/>
+                                        <constraint firstAttribute="trailing" secondItem="Cam-ZY-Raf" secondAttribute="trailing" id="rvm-wO-GKG"/>
+                                        <constraint firstItem="T6d-oH-oud" firstAttribute="trailing" secondItem="fwf-BP-Our" secondAttribute="trailing" id="t3D-Qk-gRh"/>
+                                        <constraint firstItem="Cam-ZY-Raf" firstAttribute="top" secondItem="vu0-Ld-eBQ" secondAttribute="top" id="xH8-BU-K9F"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bTe-gW-QxW" userLabel="Contact support container">
+                                    <rect key="frame" x="0.0" y="357.5" width="414" height="140"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7bH-Bs-hvH" userLabel="Separator" customClass="SeparatorView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="9"/>
+                                            <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="9" id="qPn-S2-3xx"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRA-Vp-tRC">
+                                            <rect key="frame" x="10" y="19" width="394" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fci-qV-EVW">
+                                            <rect key="frame" x="10" y="47.5" width="394" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIS-vp-9x3">
+                                            <rect key="frame" x="40" y="86" width="334" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="85U-0l-U9T"/>
+                                            </constraints>
+                                            <inset key="contentEdgeInsets" minX="14" minY="0.0" maxX="14" maxY="0.0"/>
+                                            <state key="normal" title="Button"/>
+                                            <connections>
+                                                <action selector="contactSupport" destination="-1" eventType="touchUpInside" id="0xR-cb-eez"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="KIS-vp-9x3" firstAttribute="top" secondItem="fci-qV-EVW" secondAttribute="bottom" constant="18" id="06p-eE-wT2"/>
+                                        <constraint firstItem="fci-qV-EVW" firstAttribute="leading" secondItem="XRA-Vp-tRC" secondAttribute="leading" id="3EC-QI-RRw"/>
+                                        <constraint firstAttribute="trailing" secondItem="XRA-Vp-tRC" secondAttribute="trailing" constant="10" id="AgY-sL-bVI"/>
+                                        <constraint firstItem="fci-qV-EVW" firstAttribute="top" secondItem="XRA-Vp-tRC" secondAttribute="bottom" constant="8" id="C7r-Be-vQh"/>
+                                        <constraint firstItem="XRA-Vp-tRC" firstAttribute="top" secondItem="7bH-Bs-hvH" secondAttribute="bottom" constant="10" id="EiC-SZ-Ot9"/>
+                                        <constraint firstItem="7bH-Bs-hvH" firstAttribute="leading" secondItem="bTe-gW-QxW" secondAttribute="leading" id="GcR-pQ-y91"/>
+                                        <constraint firstItem="fci-qV-EVW" firstAttribute="trailing" secondItem="XRA-Vp-tRC" secondAttribute="trailing" id="N5O-j6-3ve"/>
+                                        <constraint firstItem="KIS-vp-9x3" firstAttribute="leading" relation="lessThanOrEqual" secondItem="bTe-gW-QxW" secondAttribute="leading" constant="40" id="X7D-XR-iw6"/>
+                                        <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="KIS-vp-9x3" secondAttribute="trailing" constant="40" id="YKy-q6-xE2"/>
+                                        <constraint firstItem="XRA-Vp-tRC" firstAttribute="leading" secondItem="bTe-gW-QxW" secondAttribute="leading" constant="10" id="Zni-8M-0XS"/>
+                                        <constraint firstItem="KIS-vp-9x3" firstAttribute="centerX" secondItem="bTe-gW-QxW" secondAttribute="centerX" id="c2D-qe-q8e"/>
+                                        <constraint firstAttribute="bottom" secondItem="KIS-vp-9x3" secondAttribute="bottom" constant="10" id="ems-6j-KID"/>
+                                        <constraint firstItem="7bH-Bs-hvH" firstAttribute="top" secondItem="bTe-gW-QxW" secondAttribute="top" id="iIB-6O-MUL"/>
+                                        <constraint firstAttribute="trailing" secondItem="7bH-Bs-hvH" secondAttribute="trailing" id="pa7-bc-4mb"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cl6-FZ-HaB" userLabel="Logging container">
+                                    <rect key="frame" x="0.0" y="497.5" width="414" height="88.5"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTt-Yg-ZkE" userLabel="Separator" customClass="SeparatorView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="9"/>
+                                            <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="9" id="9Vp-of-ynL"/>
+                                            </constraints>
+                                        </view>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X0z-K5-Mzi">
+                                            <rect key="frame" x="355" y="19" width="51" height="31"/>
+                                            <connections>
+                                                <action selector="loggingStateDidChange" destination="-1" eventType="valueChanged" id="waw-MT-3lb"/>
+                                            </connections>
+                                        </switch>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6N-W5-5mq">
+                                            <rect key="frame" x="10" y="19" width="335" height="31"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dR1-jk-TFk">
+                                            <rect key="frame" x="10" y="58" width="394" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="BTt-Yg-ZkE" firstAttribute="top" secondItem="cl6-FZ-HaB" secondAttribute="top" id="FVV-HV-78b"/>
+                                        <constraint firstItem="BTt-Yg-ZkE" firstAttribute="leading" secondItem="cl6-FZ-HaB" secondAttribute="leading" id="GPO-Ib-IFy"/>
+                                        <constraint firstItem="X0z-K5-Mzi" firstAttribute="top" secondItem="BTt-Yg-ZkE" secondAttribute="bottom" constant="10" id="NS1-le-pa6"/>
+                                        <constraint firstAttribute="trailing" secondItem="BTt-Yg-ZkE" secondAttribute="trailing" id="VQG-6h-oRA"/>
+                                        <constraint firstItem="dR1-jk-TFk" firstAttribute="leading" secondItem="U6N-W5-5mq" secondAttribute="leading" id="Zsx-wE-ias"/>
+                                        <constraint firstItem="X0z-K5-Mzi" firstAttribute="leading" secondItem="U6N-W5-5mq" secondAttribute="trailing" constant="10" id="aag-V0-EOU"/>
+                                        <constraint firstItem="U6N-W5-5mq" firstAttribute="centerY" relation="greaterThanOrEqual" secondItem="X0z-K5-Mzi" secondAttribute="centerY" id="fWu-1U-Nej"/>
+                                        <constraint firstItem="dR1-jk-TFk" firstAttribute="top" secondItem="U6N-W5-5mq" secondAttribute="bottom" constant="8" id="jQc-Zo-rWI"/>
+                                        <constraint firstAttribute="bottom" secondItem="dR1-jk-TFk" secondAttribute="bottom" constant="10" id="o5M-pp-gll"/>
+                                        <constraint firstItem="U6N-W5-5mq" firstAttribute="top" secondItem="BTt-Yg-ZkE" secondAttribute="bottom" constant="10" id="qBM-vh-9sJ"/>
+                                        <constraint firstAttribute="trailing" secondItem="X0z-K5-Mzi" secondAttribute="trailing" constant="10" id="ron-vK-nWY"/>
+                                        <constraint firstItem="U6N-W5-5mq" firstAttribute="leading" secondItem="cl6-FZ-HaB" secondAttribute="leading" constant="10" id="vHe-Hq-51a"/>
+                                        <constraint firstItem="dR1-jk-TFk" firstAttribute="trailing" secondItem="X0z-K5-Mzi" secondAttribute="trailing" id="wF8-dY-2xO"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="Z0C-qY-hCe" secondAttribute="trailing" id="B8p-V7-8ZW"/>
+                                <constraint firstItem="FFX-If-NLK" firstAttribute="leading" secondItem="4Li-NZ-qfG" secondAttribute="leading" id="UhN-CF-DnS"/>
+                                <constraint firstAttribute="trailing" secondItem="FFX-If-NLK" secondAttribute="trailing" id="l1M-p5-uoV"/>
+                                <constraint firstItem="Z0C-qY-hCe" firstAttribute="leading" secondItem="4Li-NZ-qfG" secondAttribute="leading" id="vzS-Dv-eFR"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="4Li-NZ-qfG" firstAttribute="top" secondItem="6CG-aY-Nca" secondAttribute="top" id="8hU-bs-Z6b"/>
+                        <constraint firstAttribute="bottom" secondItem="4Li-NZ-qfG" secondAttribute="bottom" id="Gh3-lk-76C"/>
+                        <constraint firstAttribute="trailing" secondItem="4Li-NZ-qfG" secondAttribute="trailing" id="me5-Fb-421"/>
+                        <constraint firstItem="4Li-NZ-qfG" firstAttribute="leading" secondItem="6CG-aY-Nca" secondAttribute="leading" id="oI7-H6-hPy"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="4Li-NZ-qfG" firstAttribute="width" secondItem="vUN-kp-3ea" secondAttribute="width" id="By6-eb-3YL"/>
+                <constraint firstItem="6CG-aY-Nca" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="JPz-Pc-Akd"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="6CG-aY-Nca" secondAttribute="trailing" id="KiQ-i8-fJw"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="6CG-aY-Nca" secondAttribute="bottom" id="YB1-gg-WEi"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="6CG-aY-Nca" secondAttribute="top" id="ius-M5-LNe"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="137.68115942028987" y="153.34821428571428"/>
+        </view>
+    </objects>
+</document>

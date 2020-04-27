@@ -64,7 +64,7 @@ import DriveKitCommonUI
     }
 
     @objc public func getDiagnosisViewController() -> UIViewController {
-        return DiagnosisViewController(nibName: "DiagnosisViewController", bundle: Bundle.permissionsUtilsUIBundle)
+        return DiagnosisViewController()
     }
 
     @objc public func hasError() -> Bool {

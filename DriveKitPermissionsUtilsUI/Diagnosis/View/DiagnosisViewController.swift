@@ -35,10 +35,9 @@ class DiagnosisViewController : DKUIViewController {
 
     private var viewModel: DiagnosisViewModel
 
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    init() {
         self.viewModel = DiagnosisViewModel()
-
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        super.init(nibName: "DiagnosisViewController", bundle: Bundle.permissionsUtilsUIBundle)
     }
 
     required init?(coder: NSCoder) {

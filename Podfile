@@ -11,7 +11,7 @@ end
 
 
 target 'DriveKitDriverDataUI' do
-  pod 'DriveKitDriverData', '1.4'
+  pod 'DriveKitDriverData', '1.4-beta14'
   pod 'DriveKitTripAnalysis', '1.4-beta14'
 end
 

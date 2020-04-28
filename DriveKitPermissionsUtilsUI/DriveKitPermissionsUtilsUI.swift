@@ -21,6 +21,9 @@ import DriveKitCommonUI
     private override init() {
         super.init()
 
+        DKDiagnosisHelper.shared.delegate = self
+        updateState()
+
         NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
 
@@ -151,6 +154,12 @@ extension DriveKitPermissionsUtilsUI : DriveKitPermissionsUtilsUIEntryPoint {
 
     public func getLocationPermissionViewController(_ completionHandler: @escaping () -> Void) -> UIViewController {
         return DKPermissionView.location.getViewController(permissionViews: [.location], completionHandler: completionHandler)
+    }
+}
+
+extension DriveKitPermissionsUtilsUI : DiagnosisHelperDelegate {
+    func bluetoothStateChanged() {
+        updateState()
     }
 }
 

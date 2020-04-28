@@ -72,7 +72,10 @@ import DriveKitCommonUI
     }
 
     @objc public func configureBluetooth(needed: Bool) {
-        self.isBluetoothNeeded = needed
+        if self.isBluetoothNeeded != needed {
+            self.isBluetoothNeeded = needed
+            updateState(bluetoothNeedChanged: true)
+        }
     }
 
     @objc public func configureDiagnosisLogs(show: Bool) {
@@ -88,13 +91,13 @@ import DriveKitCommonUI
         updateState()
     }
 
-    private func updateState() {
+    private func updateState(bluetoothNeedChanged: Bool = false) {
         let diagnosisHelper = DKDiagnosisHelper.shared
         // Activity.
         let isActivityUpdated = updateInternalState(.activity, isValid: diagnosisHelper.isActivityValid())
         // Bluetooth.
         let isBluetoothUpdated: Bool
-        if DriveKitPermissionsUtilsUI.shared.isBluetoothNeeded {
+        if bluetoothNeedChanged || self.isBluetoothNeeded {
             isBluetoothUpdated = updateInternalState(.bluetooth, isValid: diagnosisHelper.isBluetoothValid())
         } else {
             isBluetoothUpdated = false

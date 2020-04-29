@@ -32,6 +32,7 @@
 "dk_perm_utils_app_diag_email_activity"="Autorizzazione all\'accesso al monitoraggio delle attività:";
 "dk_perm_utils_app_diag_email_app"="Applicazione:";
 "dk_perm_utils_app_diag_email_app_version"="Versione dell\'applicazione:";
+"dk_perm_utils_app_diag_email_battery"="Ottimizzazione della batteria:";
 "dk_perm_utils_app_diag_email_bluetooth"="Sensore Bluetooth:";
 "dk_perm_utils_app_diag_email_comment"="Motivazione (commenti):";
 "dk_perm_utils_app_diag_email_email"="Email :";

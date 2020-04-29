@@ -74,6 +74,35 @@ import DriveKitCommonUI
         return self.stateByType.values.contains(false)
     }
 
+    @objc public func getSensorsDescription() -> String {
+        let locationSensorStatus = getStatusString("dk_perm_utils_app_diag_email_location_sensor", isValid: DKDiagnosisHelper.shared.isSensorActivated(.gps))
+        let locationPermissionStatus = getStatusString("dk_perm_utils_app_diag_email_location", isValid: (DKDiagnosisHelper.shared.getPermissionStatus(.location) == .valid))
+        let activityStatus = getStatusString(statusType: .activity, titleKey: "dk_perm_utils_app_diag_email_activity")
+        let notificationStatus = getStatusString(statusType: .notification, titleKey: "dk_perm_utils_app_diag_email_notification")
+        let networkStatus = getStatusString(statusType: .network, titleKey: "dk_perm_utils_app_diag_email_network")
+        var info = [locationSensorStatus, locationPermissionStatus, activityStatus, notificationStatus, networkStatus]
+        if self.isBluetoothNeeded {
+            let bluetoothStatus = getStatusString(statusType: .bluetooth, titleKey: "dk_perm_utils_app_diag_email_bluetooth")
+            info.append(bluetoothStatus)
+        }
+        let batteryOptimizationStatus = getStatusString("dk_perm_utils_app_diag_email_battery", isValid: DKDiagnosisHelper.shared.isLowPowerModeEnabled())
+        info.append(batteryOptimizationStatus)
+        return info.joined(separator: "\n")
+    }
+
+    private func getStatusString(statusType: StatusType, titleKey: String) -> String {
+        return getStatusString(titleKey, isValid: self.stateByType[statusType] ?? false)
+    }
+
+    private func getStatusString(_ titleKey: String, isValid: Bool) -> String {
+        if isValid {
+            return "\(titleKey.dkPermissionsUtilsLocalized()) \(DKCommonLocalizable.yes.text())"
+        } else {
+            return "\(titleKey.dkPermissionsUtilsLocalized()) \(DKCommonLocalizable.no.text())"
+        }
+    }
+
+
     @objc public func configureBluetooth(needed: Bool) {
         if self.isBluetoothNeeded != needed {
             self.isBluetoothNeeded = needed

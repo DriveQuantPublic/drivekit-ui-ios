@@ -278,32 +278,7 @@ class DiagnosisViewModel : NSObject {
         if contentMail.overrideMailBodyContent() {
             return contentMail.getMailBody()
         } else {
-            let yes = " " + DKCommonLocalizable.yes.text()
-            let no = " " + DKCommonLocalizable.no.text()
-            let separator = "\n"
-            let locationSensorStatus = getStatusString(isValid: DKDiagnosisHelper.shared.isSensorActivated(.gps), titleKey: "dk_perm_utils_app_diag_email_location_sensor", yesString: yes, noString: no)
-            let locationPermissionStatus = getStatusString(isValid: (DKDiagnosisHelper.shared.getPermissionStatus(.location) == .valid), titleKey: "dk_perm_utils_app_diag_email_location", yesString: yes, noString: no)
-            let activityStatus = getStatusString(statusType: .activity, titleKey: "dk_perm_utils_app_diag_email_activity", yesString: yes, noString: no)
-            let notificationStatus = getStatusString(statusType: .notification, titleKey: "dk_perm_utils_app_diag_email_notification", yesString: yes, noString: no)
-            let networkStatus = getStatusString(statusType: .network, titleKey: "dk_perm_utils_app_diag_email_network", yesString: yes, noString: no)
-            let bluetoothStatus = getStatusString(statusType: .bluetooth, titleKey: "dk_perm_utils_app_diag_email_bluetooth", yesString: yes, noString: no)
-            var body = contentMail.getMailBody() + "\n\n" + locationSensorStatus + separator + locationPermissionStatus + separator + activityStatus + separator + notificationStatus + separator + networkStatus
-            if DriveKitPermissionsUtilsUI.shared.isBluetoothNeeded {
-                body = body + separator + bluetoothStatus
-            }
-            return body
-        }
-    }
-
-    private func getStatusString(statusType: StatusType, titleKey: String, yesString: String, noString: String) -> String {
-        return getStatusString(isValid: self.stateByType[statusType] ?? false, titleKey: titleKey, yesString: yesString, noString: noString)
-    }
-
-    private func getStatusString(isValid: Bool, titleKey: String, yesString: String, noString: String) -> String {
-        if isValid {
-            return titleKey.dkPermissionsUtilsLocalized() + yesString
-        } else {
-            return titleKey.dkPermissionsUtilsLocalized() + noString
+            return contentMail.getMailBody() + "\n\n" + DriveKitPermissionsUtilsUI.shared.getSensorsDescription()
         }
     }
 

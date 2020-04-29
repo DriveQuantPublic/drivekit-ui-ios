@@ -48,7 +48,7 @@ public enum DKStyles {
             size = 16
             traits = .traitBold
         case .button:
-            size = 18
+            size = 15
             traits = .traitBold
         }
         return DKStyle(size: size, traits: traits)

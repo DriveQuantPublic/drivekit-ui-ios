@@ -47,14 +47,12 @@ class SuccessBluetoothVC: DKUIViewController {
     func setupDesc() {
         let bluetoothName = self.viewModel.bluetoothName.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
         let vehicelName = self.viewModel.vehicleName.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
-        let descString = String(format: "dk_vehicle_bluetooth_congrats_desc".dkVehicleLocalized(), viewModel.bluetoothName, viewModel.vehicleName)
-        successDesc.attributedText = descString.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).buildWithArgs(bluetoothName, vehicelName)
+        successDesc.attributedText = "dk_vehicle_bluetooth_congrats_desc".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).buildWithArgs(bluetoothName, vehicelName)
     }
     
     func setupNotice() {
         let bluetoothName = self.viewModel.bluetoothName.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
-        let noticeString = String(format: "dk_vehicle_bluetooth_congrats_notice".dkVehicleLocalized(), viewModel.bluetoothName)
-        successNotice.attributedText = noticeString.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).buildWithArgs(bluetoothName)
+        successNotice.attributedText = "dk_vehicle_bluetooth_congrats_notice".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).buildWithArgs(bluetoothName)
     }
     
     @IBAction func successAction(_ sender: Any) {

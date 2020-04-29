@@ -158,7 +158,7 @@ enum GeneralField: DKVehicleField, CaseIterable {
 
 enum BluetoothField: DKVehicleField, CaseIterable {
     
-    case macAddress, bluetoothName
+    case bluetoothName, macAddress
     
     var title: String {
         switch self {

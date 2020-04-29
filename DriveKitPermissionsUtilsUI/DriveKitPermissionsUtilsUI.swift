@@ -74,7 +74,7 @@ import DriveKitCommonUI
         return self.stateByType.values.contains(false)
     }
 
-    @objc public func getSensorsDescription() -> String {
+    @objc public func getDiagnosisDescription() -> String {
         let locationSensorStatus = getStatusString("dk_perm_utils_app_diag_email_location_sensor", isValid: DKDiagnosisHelper.shared.isSensorActivated(.gps))
         let locationPermissionStatus = getStatusString("dk_perm_utils_app_diag_email_location", isValid: (DKDiagnosisHelper.shared.getPermissionStatus(.location) == .valid))
         let activityStatus = getStatusString(statusType: .activity, titleKey: "dk_perm_utils_app_diag_email_activity")

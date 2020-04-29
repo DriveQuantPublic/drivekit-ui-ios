@@ -278,7 +278,7 @@ class DiagnosisViewModel : NSObject {
         if contentMail.overrideMailBodyContent() {
             return contentMail.getMailBody()
         } else {
-            return contentMail.getMailBody() + "\n\n" + DriveKitPermissionsUtilsUI.shared.getSensorsDescription()
+            return contentMail.getMailBody() + "\n\n" + DriveKitPermissionsUtilsUI.shared.getDiagnosisDescription()
         }
     }
 

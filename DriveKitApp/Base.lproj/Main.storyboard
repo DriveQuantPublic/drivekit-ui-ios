@@ -458,6 +458,68 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="96" id="ICH-Mp-3xh">
+                                        <rect key="frame" x="0.0" y="684" width="414" height="96"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ICH-Mp-3xh" id="aN9-LH-RnH">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Permissions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jwZ-gJ-8jg">
+                                                    <rect key="frame" x="20" y="11" width="374" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="qGr-eJ-q9D"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Fpg-f1-P6q">
+                                                    <rect key="frame" x="12" y="43" width="390" height="48"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Cx-wj-ECL">
+                                                            <rect key="frame" x="0.0" y="0.0" width="116.5" height="48"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tsf-dR-9Lh">
+                                                            <rect key="frame" x="136.5" y="0.0" width="117" height="48"/>
+                                                            <color key="backgroundColor" red="0.41915488239999998" green="0.9243084788" blue="0.72628241780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <state key="normal" title="Onboarding">
+                                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="askOnboardingPermissions" destination="1tG-dR-vwm" eventType="touchUpInside" id="Ibn-pN-3qr"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VoS-W6-kXw">
+                                                            <rect key="frame" x="273.5" y="0.0" width="116.5" height="48"/>
+                                                            <color key="backgroundColor" red="0.41915488239999998" green="0.9243084788" blue="0.72628241780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <state key="normal" title="Diagnosis">
+                                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="showDiagnosis" destination="1tG-dR-vwm" eventType="touchUpInside" id="Hh0-uA-UgG"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="48" id="2kk-nK-fqU"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Fpg-f1-P6q" firstAttribute="leading" secondItem="aN9-LH-RnH" secondAttribute="leading" constant="12" id="MiJ-dz-biG"/>
+                                                <constraint firstItem="jwZ-gJ-8jg" firstAttribute="top" secondItem="aN9-LH-RnH" secondAttribute="topMargin" id="N2Z-dh-n85"/>
+                                                <constraint firstItem="Fpg-f1-P6q" firstAttribute="top" secondItem="jwZ-gJ-8jg" secondAttribute="bottom" constant="8" id="eXg-Tm-mSr"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="jwZ-gJ-8jg" secondAttribute="trailing" id="eyz-pZ-vTf"/>
+                                                <constraint firstAttribute="trailing" secondItem="Fpg-f1-P6q" secondAttribute="trailing" constant="12" id="iPH-dV-Z7B"/>
+                                                <constraint firstItem="jwZ-gJ-8jg" firstAttribute="leading" secondItem="aN9-LH-RnH" secondAttribute="leadingMargin" id="k7M-lW-c45"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -480,6 +542,7 @@
                         <outlet property="locationButton" destination="taH-sr-QvU" id="q9n-d7-lPD"/>
                         <outlet property="motionButton" destination="gi9-FD-KIK" id="X9A-li-HWI"/>
                         <outlet property="notificationButton" destination="AMo-Eh-eKc" id="aSq-Q0-6rT"/>
+                        <outlet property="sensorsStateLabel" destination="7Cx-wj-ECL" id="Zzi-Z7-6h9"/>
                         <outlet property="startTripButton" destination="S4e-yJ-n2d" id="pX5-Xn-N3N"/>
                         <outlet property="stopTripButton" destination="Qo3-Uz-lP8" id="Vz3-GQ-6EA"/>
                     </connections>

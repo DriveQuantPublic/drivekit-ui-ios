@@ -1,0 +1,14 @@
+/* 
+  InfoPlist.strings
+  DriveKitApp
+
+  Created by David Bauduin on 08/04/2020.
+  Copyright © 2020 DriveQuant. All rights reserved.
+*/
+
+"NSLocationAlwaysUsageDescription"="La aplicación necesita saber su posición para analizar sus viajes, calcular los puntajes de conducción y activar el modo de inicio automático.";
+"NSLocationWhenInUseUsageDescription"="La aplicación necesita saber su posición para analizar sus viajes, calcular los puntajes de conducción y activar el modo de inicio automático.";
+"NSLocationAlwaysAndWhenInUseUsageDescription"="Para habilitar la detección automática de viajes y el análisis de conducción sin tener que manipular su teléfono, seleccione la opción \"Permitir siempre\". Buen camino...";
+"NSBluetoothAlwaysUsageDescription"="La aplicación necesita usar bluetooth para recuperar el nivel de batería de ibeacon";
+"NSBluetoothPeripheralUsageDescription"="La aplicación necesita usar bluetooth para recuperar el nivel de batería de ibeacon";
+"NSMotionUsageDescription"="Esta aplicación necesita usar datos de movimiento para detectar el modo de transporte";

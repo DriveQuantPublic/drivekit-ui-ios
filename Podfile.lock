@@ -20,6 +20,7 @@ PODS:
   - UICircularProgressRing (6.5.0)
 
 DEPENDENCIES:
+  - DriveKitCore
   - DriveKitDriverAchievement
   - DriveKitDriverData
   - DriveKitTripAnalysis

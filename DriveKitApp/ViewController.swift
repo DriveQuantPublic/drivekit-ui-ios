@@ -16,6 +16,7 @@ import DriveKitCommonUI
 import DriveKitVehicleUI
 import DriveKitVehicle
 import DriveKitDBVehicleAccess
+import DriveKitPermissionsUtilsUI
 
 class ViewController: UITableViewController {
     
@@ -27,17 +28,28 @@ class ViewController: UITableViewController {
     @IBOutlet var locationButton: UIButton!
     @IBOutlet var motionButton: UIButton!
     @IBOutlet var notificationButton: UIButton!
-    
+
+    @IBOutlet weak var sensorsStateLabel: UILabel!
+
     
     let location = CLLocationManager()
     let motion = CMMotionActivityManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        if let navigationController = self.navigationController {
+            if #available(iOS 13.0, *) {
+                navigationController.navigationBar.standardAppearance.titleTextAttributes = [.foregroundColor: DKUIColors.fontColorOnPrimaryColor.color]
+            } else {
+                navigationController.navigationBar.titleTextAttributes = [.foregroundColor: DKUIColors.fontColorOnPrimaryColor.color]
+            }
+        }
         self.title = "Sample app"
         configureTripAnalysisButton()
         configureText()
+        sensorStateChanged()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(sensorStateChanged), name: .sensorStateChangedNotification, object: nil)
     }
     
     private func configureText(){
@@ -79,45 +91,38 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 1 && indexPath.section == 0 {
-            self.configureDriverDataUI()
-        }else if indexPath.row == 3 && indexPath.section == 0 {
-            self.configureDriverStreak()
-        }else if indexPath.row == 4 && indexPath.section == 0 {
-            self.configureVehiclePicker()
-        }else if indexPath.row == 5 && indexPath.section == 0 {
-            self.configureBeaconPairing()
-        } else if indexPath.row == 6 && indexPath.section == 0 {
-            self.configureVehiclesList()
+        if indexPath.section == 0 {
+            if indexPath.row == 1 {
+                self.configureDriverDataUI()
+            } else if indexPath.row == 3 {
+                self.configureDriverStreak()
+            } else if indexPath.row == 4 {
+                self.configureVehiclePicker()
+            } else if indexPath.row == 5 {
+                self.configureBeaconPairing()
+            } else if indexPath.row == 6 {
+                self.configureVehiclesList()
+            }
         }
     }
     
     @IBAction func didTouchLocalization(_ sender: Any) {
-        if #available(iOS 13.0, *) {
-            if CLLocationManager.authorizationStatus() == .notDetermined {
-                location.requestWhenInUseAuthorization()
-            } else {
-                self.alertAuthorizations()
-            }
+        if DKDiagnosisHelper.shared.getPermissionStatus(.location) == .valid {
+            self.alertAuthorizations()
         } else {
-            if CLLocationManager.authorizationStatus() == .notDetermined {
-                location.requestAlwaysAuthorization()
-            } else {
-                self.alertAuthorizations()
+            DriveKitPermissionsUtilsUI.shared.showPermissionViews([.location], parentViewController: self.navigationController!) {
+                self.showAlertMessage(title: "Location", message: "👍", back: false, cancel: false)
             }
         }
-        
     }
     
     @IBAction func didTouchActivity(_ sender: Any) {
-        if #available(iOS 11.0, *) {
-            if CMMotionActivityManager.authorizationStatus() == .notDetermined {
-                motion.startActivityUpdates(to: .main, withHandler: { _ in })
-            } else {
-                self.alertAuthorizations()
-            }
+        if DKDiagnosisHelper.shared.getPermissionStatus(.activity) == .valid {
+            self.alertAuthorizations()
         } else {
-            motion.startActivityUpdates(to: .main, withHandler: { _ in })
+            DriveKitPermissionsUtilsUI.shared.showPermissionViews([.activity], parentViewController: self.navigationController!) {
+                self.showAlertMessage(title: "Activity", message: "👍", back: false, cancel: false)
+            }
         }
     }
     
@@ -200,6 +205,16 @@ class ViewController: UITableViewController {
             self.navigationController?.pushViewController(listVC, animated: true)
         }
     }
+
+    @IBAction private func askOnboardingPermissions() {
+        DriveKitPermissionsUtilsUI.shared.showPermissionViews([.location, .activity], parentViewController: self.navigationController!) {
+            self.showAlertMessage(title: "Permissions", message: "👍", back: false, cancel: false)
+        }
+    }
+
+    @IBAction private func showDiagnosis() {
+        self.navigationController?.pushViewController(DriveKitPermissionsUtilsUI.shared.getDiagnosisViewController(), animated: true)
+    }
     
     
     @IBAction func startTrip(_ sender: Any) {
@@ -214,5 +229,13 @@ class ViewController: UITableViewController {
     @IBAction func cancelTrip(_ sender: Any) {
         DriveKitTripAnalysis.shared.cancelTrip()
         configureTripAnalysisButton()
+    }
+
+    @objc private func sensorStateChanged() {
+        if DriveKitPermissionsUtilsUI.shared.hasError() {
+            self.sensorsStateLabel.text = "❌"
+        } else {
+            self.sensorsStateLabel.text = "✅"
+        }
     }
 }

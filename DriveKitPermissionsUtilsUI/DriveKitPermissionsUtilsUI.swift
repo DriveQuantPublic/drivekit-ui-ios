@@ -49,6 +49,7 @@ import DriveKitCommonUI
                 navigationController = parentNavigationController
             }
             let permissionViewController = permissionView.getViewController(permissionViews: neededPermissionViews, completionHandler: completionHandler)
+            permissionViewController.manageNavigation = true
             if let navigationController = navigationController {
                 // A UINavigationController has been found, push screen inside.
                 permissionViewController.isPresentedByModule = false

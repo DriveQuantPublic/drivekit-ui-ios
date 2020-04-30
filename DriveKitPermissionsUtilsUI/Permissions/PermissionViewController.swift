@@ -13,6 +13,7 @@ import DriveKitCommonUI
 class PermissionViewController : DKUIViewController {
 
     var isPresentedByModule: Bool = false
+    var manageNavigation: Bool = false
     fileprivate var permissionViews: [DKPermissionView] // Contains current permission view and the next ones, if exist.
     fileprivate let completionHandler: () -> Void
 
@@ -60,6 +61,7 @@ extension PermissionViewController : PermissionView {
             }
             let permissionViewController = nextPermissionView.getViewController(permissionViews: self.permissionViews, completionHandler: self.completionHandler)
             permissionViewController.isPresentedByModule = self.isPresentedByModule
+            permissionViewController.manageNavigation = self.manageNavigation
             var updatedViewControllers = navigationController.viewControllers
             if updatedViewControllers.last as? PermissionViewController != nil {
                 updatedViewControllers[updatedViewControllers.count - 1] = permissionViewController
@@ -68,7 +70,7 @@ extension PermissionViewController : PermissionView {
                 navigationController.pushViewController(permissionViewController, animated: true)
             }
         } else {
-            if let navigationController = self.navigationController, navigationController.viewControllers.last as? PermissionViewController != nil {
+            if self.manageNavigation, let navigationController = self.navigationController, navigationController.viewControllers.last as? PermissionViewController != nil {
                 navigationController.popViewController(animated: true)
             }
             if self.isPresentedByModule && self.presentingViewController != nil {

@@ -32,7 +32,7 @@ public extension DKColors {
         return UIColor(hex: 0x161616)
     }
     func complementaryFontColor() -> UIColor {
-        return UIColor(hex: 0x9E9E9E)
+        return UIColor(hex: 0x555555)
     }
     func fontColorOnPrimaryColor() -> UIColor {
         return UIColor.white

@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -60,13 +60,13 @@
                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="dOV-aj-tCJ" userLabel="Notification status" customClass="SensorStateView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="89" width="414" height="40"/>
                                 </view>
-                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="BrQ-8E-NQe" userLabel="Connection status" customClass="SensorStateView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
+                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="nM1-Wg-kdG" userLabel="Bluetooth status" customClass="SensorStateView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="129" width="414" height="40"/>
                                 </view>
                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="SXy-Td-UGd" userLabel="Activity status" customClass="SensorStateView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="169" width="414" height="40"/>
                                 </view>
-                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="nM1-Wg-kdG" userLabel="Bluetooth status" customClass="SensorStateView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
+                                <view contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="BrQ-8E-NQe" userLabel="Connection status" customClass="SensorStateView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="209" width="414" height="40"/>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vu0-Ld-eBQ" userLabel="Battery optimization container">

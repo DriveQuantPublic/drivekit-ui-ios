@@ -91,7 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func configureDriveKit(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         DriveKit.shared.initialize()
-        if SettingsBundleKeys.getLoggingPref() {
+        if DriveKit.shared.isLoggingEnabled() {
             DriveKit.shared.enableLogging()
         }
         DriveKitTripAnalysis.shared.initialize(tripListener: self, appLaunchOptions: launchOptions)
@@ -104,7 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "DriveKit configured with API key")
         if SettingsBundleKeys.getDefaultValuePref() {
             // DriveKit default value
-            SettingsBundleKeys.setLoggingPref(logging: false)
+            DriveKit.shared.disableLogging()
             SettingsBundleKeys.setSandboxPref(sandbox: false)
             SettingsBundleKeys.setPositionPref(share: false)
             SettingsBundleKeys.setAutoStartPref(autoStart: true)

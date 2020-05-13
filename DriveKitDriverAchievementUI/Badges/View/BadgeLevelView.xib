@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="UWu-ZF-w7g" customClass="BadgeLevelView" customModule="DriveKitDriverAchievementUI" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="264" height="332"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oE0-Om-j8w">
+                    <rect key="frame" x="0.0" y="44" width="264" height="264"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KQq-yP-58q" customClass="UICircularProgressRing" customModule="UICircularProgressRing">
+                            <rect key="frame" x="0.0" y="0.0" width="264" height="264"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="KQq-yP-58q" secondAttribute="height" multiplier="1:1" id="bLF-Ek-Vou"/>
+                            </constraints>
+                        </view>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uod-zi-hzB">
+                            <rect key="frame" x="25" y="25" width="214" height="214"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Uod-zi-hzB" secondAttribute="height" multiplier="1:1" id="LCx-k3-M2W"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="Uod-zi-hzB" firstAttribute="centerY" secondItem="oE0-Om-j8w" secondAttribute="centerY" id="3vv-lg-ckS"/>
+                        <constraint firstAttribute="trailing" secondItem="KQq-yP-58q" secondAttribute="trailing" id="MR6-xS-df1"/>
+                        <constraint firstAttribute="bottom" secondItem="KQq-yP-58q" secondAttribute="bottom" id="Obh-P1-MPa"/>
+                        <constraint firstItem="Uod-zi-hzB" firstAttribute="leading" secondItem="oE0-Om-j8w" secondAttribute="leading" constant="25" id="YOk-B2-Nyh"/>
+                        <constraint firstItem="KQq-yP-58q" firstAttribute="top" secondItem="oE0-Om-j8w" secondAttribute="top" id="kFK-pJ-J90"/>
+                        <constraint firstItem="Uod-zi-hzB" firstAttribute="centerX" secondItem="oE0-Om-j8w" secondAttribute="centerX" id="lG8-et-ZVf"/>
+                        <constraint firstItem="KQq-yP-58q" firstAttribute="leading" secondItem="oE0-Om-j8w" secondAttribute="leading" id="uNY-Oj-BHm"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIt-wJ-fwd">
+                    <rect key="frame" x="111" y="308" width="42" height="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="XIt-wJ-fwd" firstAttribute="centerX" secondItem="UWu-ZF-w7g" secondAttribute="centerX" id="0ye-W9-Jyd"/>
+                <constraint firstItem="MxX-Kh-rTB" firstAttribute="bottom" secondItem="XIt-wJ-fwd" secondAttribute="bottom" constant="10" id="7ZJ-Wn-knx"/>
+                <constraint firstItem="MxX-Kh-rTB" firstAttribute="trailing" secondItem="oE0-Om-j8w" secondAttribute="trailing" id="Arf-KC-d2s"/>
+                <constraint firstItem="XIt-wJ-fwd" firstAttribute="top" secondItem="oE0-Om-j8w" secondAttribute="bottom" id="mwz-dB-4pO"/>
+                <constraint firstItem="oE0-Om-j8w" firstAttribute="leading" secondItem="MxX-Kh-rTB" secondAttribute="leading" id="tui-nI-XeC"/>
+                <constraint firstItem="oE0-Om-j8w" firstAttribute="top" secondItem="MxX-Kh-rTB" secondAttribute="top" id="u7E-LC-dvI"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="MxX-Kh-rTB"/>
+            <connections>
+                <outlet property="badgeImage" destination="Uod-zi-hzB" id="Tmq-UH-je5"/>
+                <outlet property="nameLabel" destination="XIt-wJ-fwd" id="n78-ni-Hx2"/>
+                <outlet property="progressRing" destination="KQq-yP-58q" id="18S-lJ-vTK"/>
+            </connections>
+            <point key="canvasLocation" x="-72.463768115942031" y="75.669642857142847"/>
+        </view>
+    </objects>
+</document>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <viewController id="UnR-Ll-3qa" customClass="BadgesViewController" customModule="DriveKitDriverAchievementUI" customModuleProvider="target">
+            <view key="view" contentMode="scaleToFill" id="U1O-ZG-mai">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MZo-lG-VxB">
+                        <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </tableView>
+                </subviews>
+                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                <constraints>
+                    <constraint firstItem="aJy-JH-QAN" firstAttribute="trailing" secondItem="MZo-lG-VxB" secondAttribute="trailing" id="STA-Bs-tpi"/>
+                    <constraint firstItem="aJy-JH-QAN" firstAttribute="bottom" secondItem="MZo-lG-VxB" secondAttribute="bottom" id="lnR-rq-Y8X"/>
+                    <constraint firstItem="MZo-lG-VxB" firstAttribute="top" secondItem="aJy-JH-QAN" secondAttribute="top" id="oT6-7q-b42"/>
+                    <constraint firstItem="MZo-lG-VxB" firstAttribute="leading" secondItem="aJy-JH-QAN" secondAttribute="leading" id="vpB-Cg-jOe"/>
+                </constraints>
+                <viewLayoutGuide key="safeArea" id="aJy-JH-QAN"/>
+            </view>
+            <connections>
+                <outlet property="tableView" destination="MZo-lG-VxB" id="5Yr-xg-dqz"/>
+            </connections>
+            <point key="canvasLocation" x="48" y="-3"/>
+        </viewController>
+    </objects>
+</document>

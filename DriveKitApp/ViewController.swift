@@ -102,6 +102,8 @@ class ViewController: UITableViewController {
                 self.configureBeaconPairing()
             } else if indexPath.row == 6 {
                 self.configureVehiclesList()
+            } else if indexPath.row == 7 {
+                self.configureDriverBadges()
             }
         }
     }
@@ -203,6 +205,13 @@ class ViewController: UITableViewController {
         DispatchQueue.main.async {
             let listVC = VehiclesListVC()
             self.navigationController?.pushViewController(listVC, animated: true)
+        }
+    }
+    
+    func configureDriverBadges() {
+        if let driverAchievementUI = DriveKitNavigationController.shared.driverAchievementUI {
+            let badgesVC = driverAchievementUI.getBadgesViewController()
+            self.navigationController?.pushViewController(badgesVC, animated: true)
         }
     }
 

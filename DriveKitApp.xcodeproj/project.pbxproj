@@ -142,6 +142,13 @@
 		3FFB2D9224194909003E6A06 /* BeaconScanFailureVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FFB2D9024194909003E6A06 /* BeaconScanFailureVC.xib */; };
 		3FFD7FD12363002B00BD2F0D /* DriveKitDriverDataUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */; };
 		3FFD7FD22363002B00BD2F0D /* DriveKitDriverDataUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5C180D66246AFCB8001E95FA /* BadgesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C180D65246AFCB8001E95FA /* BadgesViewModel.swift */; };
+		5C180D68246B000D001E95FA /* BadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C180D67246B000D001E95FA /* BadgesViewController.swift */; };
+		5C180D6A246B0258001E95FA /* BadgeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C180D69246B0258001E95FA /* BadgeTableViewCell.swift */; };
+		5C180D6E246B049B001E95FA /* BadgeLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C180D6D246B049B001E95FA /* BadgeLevelView.swift */; };
+		5C180D70246B05BC001E95FA /* BadgeLevelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C180D6F246B05BC001E95FA /* BadgeLevelView.xib */; };
+		5CE33815246C1E7E007E5790 /* BadgeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CE33814246C1E7E007E5790 /* BadgeTableViewCell.xib */; };
+		5CE33817246C27C8007E5790 /* BadgesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CE33816246C27C8007E5790 /* BadgesViewController.xib */; };
 		610539092434B69800C00CAF /* ActivityPermissionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 610539082434B69800C00CAF /* ActivityPermissionViewController.xib */; };
 		6105390B2434B75200C00CAF /* LocationPermissionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6105390A2434B75200C00CAF /* LocationPermissionViewController.xib */; };
 		61199C68243B9C5F00F73F37 /* PermissionsUtils.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61199C67243B9C5E00F73F37 /* PermissionsUtils.xcassets */; };
@@ -524,6 +531,14 @@
 		4009FE234BC3EC14A349F8D3 /* Pods_DriveKitApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		453D6BC570583B1D6DC16DBC /* Pods-DriveKitApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitApp.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitApp/Pods-DriveKitApp.debug.xcconfig"; sourceTree = "<group>"; };
 		55652B494DACA2423EDB5A8E /* Pods_DriveKitDriverDataUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitDriverDataUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C180D65246AFCB8001E95FA /* BadgesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesViewModel.swift; sourceTree = "<group>"; };
+		5C180D67246B000D001E95FA /* BadgesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesViewController.swift; sourceTree = "<group>"; };
+		5C180D69246B0258001E95FA /* BadgeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeTableViewCell.swift; sourceTree = "<group>"; };
+		5C180D6D246B049B001E95FA /* BadgeLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeLevelView.swift; sourceTree = "<group>"; };
+		5C180D6F246B05BC001E95FA /* BadgeLevelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BadgeLevelView.xib; sourceTree = "<group>"; };
+		5CE33814246C1E7E007E5790 /* BadgeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BadgeTableViewCell.xib; sourceTree = "<group>"; };
+		5CE33816246C27C8007E5790 /* BadgesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BadgesViewController.xib; sourceTree = "<group>"; };
+		5CE33818246C30CE007E5790 /* UICircularProgressRing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UICircularProgressRing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DCC63E1FD4A8A79E2ED8F27 /* Pods_DriveKitDriverData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitDriverData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		610539082434B69800C00CAF /* ActivityPermissionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityPermissionViewController.xib; sourceTree = "<group>"; };
 		6105390A2434B75200C00CAF /* LocationPermissionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationPermissionViewController.xib; sourceTree = "<group>"; };
@@ -749,6 +764,7 @@
 		0507D67F4F2198BE920311FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5CE33818246C30CE007E5790 /* UICircularProgressRing.framework */,
 				4009FE234BC3EC14A349F8D3 /* Pods_DriveKitApp.framework */,
 				5DCC63E1FD4A8A79E2ED8F27 /* Pods_DriveKitDriverData.framework */,
 				55652B494DACA2423EDB5A8E /* Pods_DriveKitDriverDataUI.framework */,
@@ -1062,6 +1078,7 @@
 		3FFAD1FB23EDBCD500D1A16C /* DriveKitDriverAchievementUI */ = {
 			isa = PBXGroup;
 			children = (
+				5C180D62246AF78E001E95FA /* Badges */,
 				3FF68E99240E47550071D74C /* Localizable */,
 				3FFAD20923EDBEBA00D1A16C /* Streaks */,
 				3FF68E6B2407F8110071D74C /* DriveKitDriverAchievementUI.swift */,
@@ -1157,6 +1174,36 @@
 				3FE6A449242122C600E24C1C /* BeaconScannerNotConfiguredVC.xib */,
 			);
 			path = BeaconScannerChilds;
+			sourceTree = "<group>";
+		};
+		5C180D62246AF78E001E95FA /* Badges */ = {
+			isa = PBXGroup;
+			children = (
+				5C180D64246AFAC9001E95FA /* ViewModel */,
+				5C180D63246AFABB001E95FA /* View */,
+			);
+			path = Badges;
+			sourceTree = "<group>";
+		};
+		5C180D63246AFABB001E95FA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5C180D67246B000D001E95FA /* BadgesViewController.swift */,
+				5CE33816246C27C8007E5790 /* BadgesViewController.xib */,
+				5C180D69246B0258001E95FA /* BadgeTableViewCell.swift */,
+				5CE33814246C1E7E007E5790 /* BadgeTableViewCell.xib */,
+				5C180D6D246B049B001E95FA /* BadgeLevelView.swift */,
+				5C180D6F246B05BC001E95FA /* BadgeLevelView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5C180D64246AFAC9001E95FA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5C180D65246AFCB8001E95FA /* BadgesViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		61377B72243E075A00E2EC47 /* Activity */ = {
@@ -1869,7 +1916,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FB5643523F5AA2900F010E3 /* StreakTableViewCell.xib in Resources */,
+				5C180D70246B05BC001E95FA /* BadgeLevelView.xib in Resources */,
+				5CE33817246C27C8007E5790 /* BadgesViewController.xib in Resources */,
 				3FFAD20F23EDBF2F00D1A16C /* StreakViewController.xib in Resources */,
+				5CE33815246C1E7E007E5790 /* BadgeTableViewCell.xib in Resources */,
 				3FB5644123F6B4F000F010E3 /* DriverAchievementLocalizables.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2197,8 +2247,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C180D6E246B049B001E95FA /* BadgeLevelView.swift in Sources */,
 				3FB5643423F5AA2900F010E3 /* StreakTableViewCell.swift in Sources */,
+				5C180D6A246B0258001E95FA /* BadgeTableViewCell.swift in Sources */,
+				5C180D68246B000D001E95FA /* BadgesViewController.swift in Sources */,
 				3FB5643E23F6B47E00F010E3 /* StreakDataType.swift in Sources */,
+				5C180D66246AFCB8001E95FA /* BadgesViewModel.swift in Sources */,
 				3FFAD21123EDC0FF00D1A16C /* StreakViewModel.swift in Sources */,
 				3FF68E6C2407F8110071D74C /* DriveKitDriverAchievementUI.swift in Sources */,
 				3FFAD20E23EDBF2F00D1A16C /* StreakViewController.swift in Sources */,

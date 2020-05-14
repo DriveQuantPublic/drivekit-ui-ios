@@ -21,13 +21,7 @@ class BadgeTableViewCell : UITableViewCell {
     
     private func addLevelView(level: DKBadgeLevel) {
         let levelView = BadgeLevelView.viewFromNib
-        let treshold = Float(level.threshold)
-        let progress = Float(level.progressValue)
-        levelView.configure(level: level.level,
-                            imageKey: progress >= treshold ? level.iconKey : level.defaultIconKey,
-                            treshold: treshold,
-                            progress: progress,
-                            name: level.nameKey)
+        levelView.configure(level: level)
         levelsStackView.addArrangedSubview(levelView)
     }
 

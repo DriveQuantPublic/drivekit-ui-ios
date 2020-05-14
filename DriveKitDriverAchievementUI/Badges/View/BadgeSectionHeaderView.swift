@@ -16,10 +16,11 @@ final class BadgeSectionHeaderView: UIView, Nibable {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        backgroundView.backgroundColor = DKUIColors.neutralColor.color
+        backgroundView.layer.cornerRadius = 4
     }
     
     public func configure(theme: String) {
-        themeLabel.attributedText = theme.dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).build()
-        self.backgroundView.backgroundColor = UIColor.red
+        themeLabel.attributedText = theme.dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .headLine2).color(.mainFontColor).build()
     }
 }

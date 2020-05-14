@@ -16,29 +16,19 @@
                 <rect key="frame" x="0.0" y="0.0" width="429" height="181"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zW5-N9-phm">
-                        <rect key="frame" x="20" y="11" width="389" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eD7-Lj-v92">
-                        <rect key="frame" x="20" y="42" width="389" height="128"/>
+                        <rect key="frame" x="20" y="0.0" width="389" height="170"/>
                     </stackView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="eD7-Lj-v92" firstAttribute="leading" secondItem="Oc4-15-aNF" secondAttribute="leadingMargin" id="H6c-ie-pTP"/>
-                    <constraint firstItem="zW5-N9-phm" firstAttribute="top" secondItem="Oc4-15-aNF" secondAttribute="topMargin" id="SGo-Q3-Xqc"/>
                     <constraint firstItem="eD7-Lj-v92" firstAttribute="bottom" secondItem="Oc4-15-aNF" secondAttribute="bottomMargin" id="VqX-if-FFy"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="zW5-N9-phm" secondAttribute="trailing" id="fd7-fx-1jz"/>
-                    <constraint firstItem="zW5-N9-phm" firstAttribute="leading" secondItem="Oc4-15-aNF" secondAttribute="leadingMargin" id="khb-eM-SY0"/>
+                    <constraint firstItem="eD7-Lj-v92" firstAttribute="top" secondItem="Oc4-15-aNF" secondAttribute="top" id="gpY-Jf-BS2"/>
                     <constraint firstAttribute="trailingMargin" secondItem="eD7-Lj-v92" secondAttribute="trailing" id="sCl-Cl-Lzo"/>
-                    <constraint firstItem="eD7-Lj-v92" firstAttribute="top" secondItem="zW5-N9-phm" secondAttribute="bottom" constant="10" id="xRH-8S-H5i"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="levelsStackView" destination="eD7-Lj-v92" id="qMP-Ce-Prh"/>
-                <outlet property="themeLabel" destination="zW5-N9-phm" id="Rul-v3-j9k"/>
             </connections>
             <point key="canvasLocation" x="67.391304347826093" y="248.77232142857142"/>
         </tableViewCell>

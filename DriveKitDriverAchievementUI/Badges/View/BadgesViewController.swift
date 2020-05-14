@@ -10,7 +10,7 @@ import Foundation
 import DriveKitCommonUI
 import DriveKitDriverAchievement
 
-public class BadgesViewController : DKUIViewController {
+public class BadgesViewController : DKUIViewController, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -31,6 +31,7 @@ public class BadgesViewController : DKUIViewController {
         self.viewModel.delegate = self
         self.viewModel.updateBadges()
         self.tableView.dataSource = self
+        self.tableView.delegate = self
         let nib = UINib(nibName: "BadgeTableViewCell", bundle: Bundle.driverAchievementUIBundle)
         tableView.register(nib, forCellReuseIdentifier: "BadgeTableViewCell")
     }
@@ -39,22 +40,22 @@ public class BadgesViewController : DKUIViewController {
 extension BadgesViewController : UITableViewDataSource {
 
     public func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return self.viewModel.badges.count
     }
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.badges.count
+        return 1
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BadgeTableViewCell", for: indexPath) as? BadgeTableViewCell else {
             fatalError("The dequeued cell is not an instance of BadgeCell.")
         }
-        let badge = self.viewModel.badges[indexPath.row]
+        let badge = self.viewModel.badges[indexPath.section]
         cell.configure(theme: badge.themeKey, levels: badge.levels)
         return cell
     }
 
-    private func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionView = BadgeSectionHeaderView.viewFromNib
         sectionView.configure(theme: viewModel.badges[section].themeKey)
         return sectionView

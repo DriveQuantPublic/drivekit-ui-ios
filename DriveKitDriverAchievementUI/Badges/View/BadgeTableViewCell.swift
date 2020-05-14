@@ -13,7 +13,6 @@ import UICircularProgressRing
 
 class BadgeTableViewCell : UITableViewCell {
 
-    @IBOutlet weak var themeLabel: UILabel!
     @IBOutlet weak var levelsStackView: UIStackView!
     
     override func awakeFromNib() {
@@ -33,7 +32,6 @@ class BadgeTableViewCell : UITableViewCell {
     }
 
     public func configure(theme: String, levels: [DKBadgeLevel]) {
-        self.themeLabel.text = theme.dkAchievementLocalized()
         while levelsStackView.arrangedSubviews.count != 3 {
             for level in levels {
                 if levelsStackView.arrangedSubviews.count == 0 && level.level == .bronze {

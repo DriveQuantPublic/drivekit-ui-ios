@@ -62,7 +62,7 @@
             <viewLayoutGuide key="safeArea" id="MxX-Kh-rTB"/>
             <connections>
                 <outlet property="badgeImage" destination="Uod-zi-hzB" id="Tmq-UH-je5"/>
-                <outlet property="nameLabel" destination="XIt-wJ-fwd" id="n78-ni-Hx2"/>
+                <outlet property="nameLabel" destination="XIt-wJ-fwd" id="Hey-jA-gqd"/>
                 <outlet property="progressRing" destination="KQq-yP-58q" id="18S-lJ-vTK"/>
             </connections>
             <point key="canvasLocation" x="-72.463768115942031" y="75.669642857142847"/>

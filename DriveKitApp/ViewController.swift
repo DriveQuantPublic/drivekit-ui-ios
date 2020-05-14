@@ -102,7 +102,7 @@ class ViewController: UITableViewController {
                 self.configureBeaconPairing()
             } else if indexPath.row == 6 {
                 self.configureVehiclesList()
-            } else if indexPath.row == 7 {
+            } else if indexPath.row == 8 {
                 self.configureDriverBadges()
             }
         }

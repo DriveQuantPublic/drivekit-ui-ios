@@ -12,23 +12,27 @@ import DriveKitDriverAchievement
 
 public class BadgesViewController : DKUIViewController {
 
-    @IBOutlet weak var tableView : UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
-    private var viewModel : BadgeViewModel!
+    private var viewModel : BadgeViewModel! = BadgeViewModel()
     
     public init() {
-        self.viewModel = BadgeViewModel()
+        self.viewModel.updateBadges()
         super.init(nibName: String(describing: BadgesViewController.self), bundle: Bundle.driverAchievementUIBundle)
     }
-
+    
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
-
-    public override func viewDidLoad() {
+    
+    override public func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "dk_achievements_menu_streaks".dkAchievementLocalized()
+        self.viewModel.delegate = self
         self.viewModel.updateBadges()
         self.tableView.dataSource = self
+        let nib = UINib(nibName: "BadgeTableViewCell", bundle: Bundle.driverAchievementUIBundle)
+        tableView.register(nib, forCellReuseIdentifier: "BadgeTableViewCell")
     }
 
 }
@@ -43,7 +47,7 @@ extension BadgesViewController : UITableViewDataSource {
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "badgeTableViewCell", for: indexPath) as? BadgeTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BadgeTableViewCell", for: indexPath) as? BadgeTableViewCell else {
             fatalError("The dequeued cell is not an instance of BadgeCell.")
         }
         let badge = self.viewModel.badges[indexPath.row]

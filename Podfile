@@ -17,6 +17,7 @@ end
 
 target 'DriveKitDriverAchievementUI' do
   pod 'DriveKitDriverAchievement', '1.5-beta1'
+  pod 'UICircularProgressRing'
 end
 
 target 'DriveKitCommonUI' do

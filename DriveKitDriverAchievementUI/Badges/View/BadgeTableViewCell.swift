@@ -31,7 +31,7 @@ class BadgeTableViewCell : UITableViewCell {
     }
 
     public func configure(theme: String, levels: [DKBadgeLevel]) {
-        self.themeLabel.text = theme
+        self.themeLabel.text = theme.dkAchievementLocalized()
         while levelsStackView.arrangedSubviews.count != 3 {
             for level in levels {
                 if levelsStackView.arrangedSubviews.count == 0 && level.level == .bronze {

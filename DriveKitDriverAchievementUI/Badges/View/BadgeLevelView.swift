@@ -33,7 +33,7 @@ final class BadgeLevelView : UIView, Nibable {
         self.badgeImage.image = UIImage(named: imageKey, in: .driverAchievementUIBundle, compatibleWith: nil)
         self.treshold = treshold
         self.progress = progress
-        self.nameLabel.text = String(describing: level.rawValue)
+        self.nameLabel.text = name.dkAchievementLocalized()
         initProgressRing()
     }
     

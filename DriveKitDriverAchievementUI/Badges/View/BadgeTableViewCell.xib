@@ -17,13 +17,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eD7-Lj-v92">
-                        <rect key="frame" x="20" y="0.0" width="389" height="170"/>
+                        <rect key="frame" x="20" y="10" width="389" height="171"/>
                     </stackView>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="eD7-Lj-v92" secondAttribute="bottom" id="FSy-jZ-ynO"/>
                     <constraint firstItem="eD7-Lj-v92" firstAttribute="leading" secondItem="Oc4-15-aNF" secondAttribute="leadingMargin" id="H6c-ie-pTP"/>
-                    <constraint firstItem="eD7-Lj-v92" firstAttribute="bottom" secondItem="Oc4-15-aNF" secondAttribute="bottomMargin" id="VqX-if-FFy"/>
-                    <constraint firstItem="eD7-Lj-v92" firstAttribute="top" secondItem="Oc4-15-aNF" secondAttribute="top" id="gpY-Jf-BS2"/>
+                    <constraint firstItem="eD7-Lj-v92" firstAttribute="top" secondItem="Oc4-15-aNF" secondAttribute="top" constant="10" id="gpY-Jf-BS2"/>
                     <constraint firstAttribute="trailingMargin" secondItem="eD7-Lj-v92" secondAttribute="trailing" id="sCl-Cl-Lzo"/>
                 </constraints>
             </tableViewCellContentView>

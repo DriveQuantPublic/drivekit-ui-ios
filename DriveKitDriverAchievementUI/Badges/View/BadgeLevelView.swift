@@ -33,28 +33,28 @@ final class BadgeLevelView : UIView, Nibable {
 //        self.badgeImage.image = UIImage(named: imageKey)
         self.treshold = treshold
         self.progress = progress
-        self.nameLabel.text = name
+        self.nameLabel.text = String(describing: level.rawValue)
         initProgressRing()
     }
     
     private func initProgressRing() {
-//        progressRing.valueFormatter = UICircularProgressRingFormatter(valueIndicator: "", rightToLeft: false, showFloatingPoint: false, decimalPlaces: 0)
-//        progressRing.fullCircle = true
-//        progressRing.maxValue = CGFloat(treshold)
-//        progressRing.value = CGFloat(progress)
-//        progressRing.startAngle = 270
-//        progressRing.endAngle = 45
+        progressRing.valueFormatter = UICircularProgressRingFormatter(valueIndicator: "", rightToLeft: false, showFloatingPoint: false, decimalPlaces: 0)
+        progressRing.fullCircle = true
+        progressRing.maxValue = CGFloat(treshold)
+        progressRing.value = CGFloat(progress)
+        progressRing.startAngle = 270
+        progressRing.endAngle = 45
 //        progressRing.outerRingWidth = 0
-//        progressRing.innerRingWidth = 8
-//        progressRing.fontColor = .clear
-//        switch level {
-//        case .bronze:
-//            progressRing.innerRingColor = UIColor(hex: 0xbd5e4a)
-//        case .silver:
-//            progressRing.innerRingColor = UIColor(hex: 0xa8a8a3)
-//        case .gold:
-//            progressRing.innerRingColor = UIColor(hex: 0xf9ed9e)
-//        }
-//        progressRing.shouldShowValueText = false
+        progressRing.innerRingWidth = 8
+        progressRing.fontColor = .clear
+        switch level {
+        case .bronze:
+            progressRing.outerRingColor = UIColor(hex: 0xbd5e4a)
+        case .silver:
+            progressRing.outerRingColor = UIColor(hex: 0xa8a8a3)
+        case .gold:
+            progressRing.outerRingColor = UIColor(hex: 0xf9ed9e)
+        }
+        progressRing.shouldShowValueText = false
     }
 }

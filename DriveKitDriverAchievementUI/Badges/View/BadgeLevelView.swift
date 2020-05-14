@@ -30,7 +30,7 @@ final class BadgeLevelView : UIView, Nibable {
                           progress: Float,
                           name: String) {
         self.level = level
-//        self.badgeImage.image = UIImage(named: imageKey)
+        self.badgeImage.image = UIImage(named: imageKey, in: .driverAchievementUIBundle, compatibleWith: nil)
         self.treshold = treshold
         self.progress = progress
         self.nameLabel.text = String(describing: level.rawValue)
@@ -44,9 +44,8 @@ final class BadgeLevelView : UIView, Nibable {
         progressRing.value = CGFloat(progress)
         progressRing.startAngle = 270
         progressRing.endAngle = 45
-//        progressRing.outerRingWidth = 0
-        progressRing.innerRingWidth = 8
-        progressRing.fontColor = .clear
+        progressRing.outerRingWidth = 8
+        progressRing.shouldShowValueText = false
         switch level {
         case .bronze:
             progressRing.outerRingColor = UIColor(hex: 0xbd5e4a)
@@ -55,6 +54,5 @@ final class BadgeLevelView : UIView, Nibable {
         case .gold:
             progressRing.outerRingColor = UIColor(hex: 0xf9ed9e)
         }
-        progressRing.shouldShowValueText = false
     }
 }

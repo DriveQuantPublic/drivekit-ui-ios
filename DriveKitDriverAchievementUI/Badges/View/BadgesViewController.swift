@@ -27,7 +27,7 @@ public class BadgesViewController : DKUIViewController {
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "dk_achievements_menu_streaks".dkAchievementLocalized()
+        self.title = "badges"
         self.viewModel.delegate = self
         self.viewModel.updateBadges()
         self.tableView.dataSource = self

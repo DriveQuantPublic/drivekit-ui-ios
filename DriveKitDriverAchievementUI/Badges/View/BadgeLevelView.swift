@@ -33,6 +33,7 @@ final class BadgeLevelView : UIView, Nibable {
         self.badgeImage.image = UIImage(named: imageKey, in: .driverAchievementUIBundle, compatibleWith: nil)
         self.treshold = treshold
         self.progress = progress
+        print("======== treshold \(treshold) / progress \(progress)")
         self.nameLabel.text = name.dkAchievementLocalized()
         initProgressRing()
     }
@@ -46,13 +47,17 @@ final class BadgeLevelView : UIView, Nibable {
         progressRing.endAngle = 45
         progressRing.outerRingWidth = 8
         progressRing.shouldShowValueText = false
-        switch level {
-        case .bronze:
-            progressRing.outerRingColor = UIColor(hex: 0xbd5e4a)
-        case .silver:
-            progressRing.outerRingColor = UIColor(hex: 0xa8a8a3)
-        case .gold:
-            progressRing.outerRingColor = UIColor(hex: 0xf9ed9e)
+        if progress >= treshold {
+            switch level {
+            case .bronze:
+                progressRing.outerRingColor = UIColor(hex: 0xbd5e4a)
+            case .silver:
+                progressRing.outerRingColor = UIColor(hex: 0xa8a8a3)
+            case .gold:
+                progressRing.outerRingColor = UIColor(hex: 0xf9ed9e)
+            }
+        } else {
+            progressRing.outerRingColor = UIColor(hex: 0xF0F0F0)
         }
     }
 }

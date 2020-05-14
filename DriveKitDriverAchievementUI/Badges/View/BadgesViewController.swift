@@ -34,7 +34,6 @@ public class BadgesViewController : DKUIViewController {
         let nib = UINib(nibName: "BadgeTableViewCell", bundle: Bundle.driverAchievementUIBundle)
         tableView.register(nib, forCellReuseIdentifier: "BadgeTableViewCell")
     }
-
 }
 
 extension BadgesViewController : UITableViewDataSource {
@@ -55,6 +54,11 @@ extension BadgesViewController : UITableViewDataSource {
         return cell
     }
 
+    private func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sectionView = BadgeSectionHeaderView.viewFromNib
+        sectionView.configure(theme: viewModel.badges[section].themeKey)
+        return sectionView
+    }
 }
 
 extension BadgesViewController : BadgeDelegate {

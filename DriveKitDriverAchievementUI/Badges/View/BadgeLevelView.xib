@@ -27,17 +27,18 @@
                             <rect key="frame" x="25" y="25" width="214" height="214"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="Uod-zi-hzB" secondAttribute="height" multiplier="1:1" id="LCx-k3-M2W"/>
-                                <constraint firstAttribute="width" constant="90" id="gXA-w5-rhZ"/>
                             </constraints>
                         </imageView>
                     </subviews>
                     <constraints>
+                        <constraint firstItem="Uod-zi-hzB" firstAttribute="leading" secondItem="oE0-Om-j8w" secondAttribute="leading" constant="10" id="2fr-EW-BMR"/>
                         <constraint firstItem="Uod-zi-hzB" firstAttribute="centerY" secondItem="oE0-Om-j8w" secondAttribute="centerY" id="3vv-lg-ckS"/>
                         <constraint firstAttribute="bottom" secondItem="KQq-yP-58q" secondAttribute="bottom" id="Obh-P1-MPa"/>
-                        <constraint firstAttribute="trailing" secondItem="KQq-yP-58q" secondAttribute="trailing" constant="5" id="VQx-7L-Nhe"/>
-                        <constraint firstItem="KQq-yP-58q" firstAttribute="leading" secondItem="oE0-Om-j8w" secondAttribute="leading" constant="5" id="hOW-Fi-Nd0"/>
+                        <constraint firstAttribute="trailing" secondItem="KQq-yP-58q" secondAttribute="trailing" id="VQx-7L-Nhe"/>
+                        <constraint firstItem="KQq-yP-58q" firstAttribute="leading" secondItem="oE0-Om-j8w" secondAttribute="leading" id="hOW-Fi-Nd0"/>
                         <constraint firstItem="KQq-yP-58q" firstAttribute="top" secondItem="oE0-Om-j8w" secondAttribute="top" id="kFK-pJ-J90"/>
                         <constraint firstItem="Uod-zi-hzB" firstAttribute="centerX" secondItem="oE0-Om-j8w" secondAttribute="centerX" id="lG8-et-ZVf"/>
+                        <constraint firstAttribute="width" secondItem="oE0-Om-j8w" secondAttribute="height" multiplier="1:1" id="tuq-bg-MT4"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIt-wJ-fwd">
@@ -50,10 +51,10 @@
             <constraints>
                 <constraint firstItem="XIt-wJ-fwd" firstAttribute="centerX" secondItem="UWu-ZF-w7g" secondAttribute="centerX" id="0ye-W9-Jyd"/>
                 <constraint firstItem="MxX-Kh-rTB" firstAttribute="bottom" secondItem="XIt-wJ-fwd" secondAttribute="bottom" constant="10" id="7ZJ-Wn-knx"/>
-                <constraint firstItem="MxX-Kh-rTB" firstAttribute="trailing" secondItem="oE0-Om-j8w" secondAttribute="trailing" id="Arf-KC-d2s"/>
+                <constraint firstItem="oE0-Om-j8w" firstAttribute="centerX" secondItem="UWu-ZF-w7g" secondAttribute="centerX" id="mtv-lV-5lV"/>
                 <constraint firstItem="XIt-wJ-fwd" firstAttribute="top" secondItem="oE0-Om-j8w" secondAttribute="bottom" constant="10" id="mwz-dB-4pO"/>
-                <constraint firstItem="oE0-Om-j8w" firstAttribute="leading" secondItem="MxX-Kh-rTB" secondAttribute="leading" id="tui-nI-XeC"/>
                 <constraint firstItem="oE0-Om-j8w" firstAttribute="top" secondItem="MxX-Kh-rTB" secondAttribute="top" id="u7E-LC-dvI"/>
+                <constraint firstItem="oE0-Om-j8w" firstAttribute="leading" secondItem="MxX-Kh-rTB" secondAttribute="leading" constant="10" id="xwG-G8-M8t"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="MxX-Kh-rTB"/>

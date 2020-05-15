@@ -9,20 +9,27 @@
 import Foundation
 import DriveKitCommonUI
 import DriveKitDriverAchievement
+import DriveKitDBAchievementAccess
 
 public class BadgesViewController : DKUIViewController, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
     private var viewModel : BadgeViewModel! = BadgeViewModel()
-    
+
     public init() {
         self.viewModel.updateBadges()
         super.init(nibName: String(describing: BadgesViewController.self), bundle: Bundle.driverAchievementUIBundle)
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+
+    @objc func goToBadgeLevelDetailView(_ notification: Notification) {
+        let vc = BadgeLevelDetailViewController()
+        vc.configure(level: (notification.userInfo!["badgeLevel"] as? DKBadgeLevel)!)
+        present(vc, animated: true, completion: nil)
     }
     
     override public func viewDidLoad() {
@@ -34,6 +41,9 @@ public class BadgesViewController : DKUIViewController, UITableViewDelegate {
         self.tableView.delegate = self
         let nib = UINib(nibName: "BadgeTableViewCell", bundle: Bundle.driverAchievementUIBundle)
         tableView.register(nib, forCellReuseIdentifier: "BadgeTableViewCell")
+        NotificationCenter.default.addObserver(self, selector: #selector(goToBadgeLevelDetailView),
+                                               name: Notification.Name("goToDetailView"),
+                                               object: nil)
     }
 }
 

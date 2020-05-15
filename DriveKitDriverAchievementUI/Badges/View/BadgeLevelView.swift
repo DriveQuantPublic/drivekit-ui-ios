@@ -12,9 +12,9 @@ import DriveKitDBAchievementAccess
 import UICircularProgressRing
 
 final class BadgeLevelView : UIView, Nibable {
-    var level: DKLevel = .bronze
     var threshold: Float = 0.0
     var progress: Float = 0.0
+    var badgeLevel: DKBadgeLevel? = nil
 
     @IBOutlet weak var progressRing: UICircularProgressRing!
     @IBOutlet weak var badgeImage: UIImageView!
@@ -24,8 +24,14 @@ final class BadgeLevelView : UIView, Nibable {
         super.awakeFromNib()
     }
 
+    @objc func goToDetailView() {
+        NotificationCenter.default.post(name: NSNotification.Name("goToDetailView"),
+                                        object: nil,
+                                        userInfo: ["badgeLevel": badgeLevel!])
+    }
+    
     public func configure(level: DKBadgeLevel) {
-        self.level = level.level
+        badgeLevel = level
         threshold = Float(level.threshold)
         progress = Float(level.progressValue)
         badgeImage.image = UIImage(named: progress >= threshold ? level.iconKey : level.defaultIconKey,
@@ -33,6 +39,7 @@ final class BadgeLevelView : UIView, Nibable {
                                    compatibleWith: nil)
         nameLabel.attributedText = level.nameKey.dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
         initProgressRing()
+        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action:  #selector(self.goToDetailView)))
     }
     
     private func initProgressRing() {
@@ -45,13 +52,15 @@ final class BadgeLevelView : UIView, Nibable {
         progressRing.outerRingWidth = 8
         progressRing.shouldShowValueText = false
         if progress >= threshold {
-            switch level {
+            switch badgeLevel?.level {
             case .bronze:
                 progressRing.outerRingColor = UIColor(hex: 0xbd5e4a)
             case .silver:
                 progressRing.outerRingColor = UIColor(hex: 0xa8a8a3)
             case .gold:
                 progressRing.outerRingColor = UIColor(hex: 0xf9ed9e)
+            case .none:
+                progressRing.outerRingColor = UIColor(hex: 0xF0F0F0)
             }
         } else {
             progressRing.outerRingColor = UIColor(hex: 0xF0F0F0)

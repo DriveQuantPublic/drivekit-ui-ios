@@ -41,5 +41,10 @@ class BadgeLevelDetailViewController: DKUIViewController {
     
     public func configure(level: DKBadgeLevel) {
         viewModel.level = level
+        imageView.image = UIImage(named: viewModel.level!.iconKey)
+        goalTitleLabel.attributedText = "L'objectif".dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()
+        goalDescriptionLabel.attributedText = level.descriptionKey.dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.complementaryFontColor).build()
+        progressTitleLabel.attributedText = "Votre avancement".dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()
+        progressDescriptionLabel.attributedText = level.progressKey.dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.complementaryFontColor).build()
     }
 }

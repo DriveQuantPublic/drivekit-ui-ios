@@ -8,10 +8,13 @@
 
 import Foundation
 import DriveKitCommonUI
+import DriveKitDBAchievementAccess
 import DriveKitDriverAchievement
 import UICircularProgressRing
 
 class BadgeLevelDetailViewController: DKUIViewController {
+    
+    var viewModel: BadgeLevelViewModel = BadgeLevelViewModel()
     
     @IBOutlet weak var progressRing: UICircularProgressRing!
     @IBOutlet weak var imageView: UIImageView!
@@ -23,7 +26,20 @@ class BadgeLevelDetailViewController: DKUIViewController {
     @IBOutlet weak var progressDescriptionLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
 
+    public init() {
+        super.init(nibName: String(describing: BadgeLevelDetailViewController.self),
+                   bundle: Bundle.driverAchievementUIBundle)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    public func configure(level: DKBadgeLevel) {
+        viewModel.level = level
     }
 }

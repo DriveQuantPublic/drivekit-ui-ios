@@ -148,6 +148,7 @@
 		5C180D6E246B049B001E95FA /* BadgeLevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C180D6D246B049B001E95FA /* BadgeLevelView.swift */; };
 		5C180D70246B05BC001E95FA /* BadgeLevelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C180D6F246B05BC001E95FA /* BadgeLevelView.xib */; };
 		5CA1D481246E97B9001DDC34 /* BadgeLevelDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CA1D480246E97B9001DDC34 /* BadgeLevelDetailViewController.xib */; };
+		5CA1D483246E9FF1001DDC34 /* BadgeLevelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA1D482246E9FF1001DDC34 /* BadgeLevelViewModel.swift */; };
 		5CE33815246C1E7E007E5790 /* BadgeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CE33814246C1E7E007E5790 /* BadgeTableViewCell.xib */; };
 		5CE33817246C27C8007E5790 /* BadgesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CE33816246C27C8007E5790 /* BadgesViewController.xib */; };
 		5CFCF8B1246D43F3002F9152 /* DriverAchievement.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CFCF8B0246D43F3002F9152 /* DriverAchievement.xcassets */; };
@@ -542,6 +543,7 @@
 		5C180D6D246B049B001E95FA /* BadgeLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeLevelView.swift; sourceTree = "<group>"; };
 		5C180D6F246B05BC001E95FA /* BadgeLevelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BadgeLevelView.xib; sourceTree = "<group>"; };
 		5CA1D480246E97B9001DDC34 /* BadgeLevelDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BadgeLevelDetailViewController.xib; sourceTree = "<group>"; };
+		5CA1D482246E9FF1001DDC34 /* BadgeLevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeLevelViewModel.swift; sourceTree = "<group>"; };
 		5CE33814246C1E7E007E5790 /* BadgeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BadgeTableViewCell.xib; sourceTree = "<group>"; };
 		5CE33816246C27C8007E5790 /* BadgesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BadgesViewController.xib; sourceTree = "<group>"; };
 		5CE33818246C30CE007E5790 /* UICircularProgressRing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UICircularProgressRing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1217,6 +1219,7 @@
 			isa = PBXGroup;
 			children = (
 				5C180D65246AFCB8001E95FA /* BadgesViewModel.swift */,
+				5CA1D482246E9FF1001DDC34 /* BadgeLevelViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2272,6 +2275,7 @@
 				5CFCF8B9246DAE4A002F9152 /* BadgeLevelDetailViewController.swift in Sources */,
 				5C180D68246B000D001E95FA /* BadgesViewController.swift in Sources */,
 				3FB5643E23F6B47E00F010E3 /* StreakDataType.swift in Sources */,
+				5CA1D483246E9FF1001DDC34 /* BadgeLevelViewModel.swift in Sources */,
 				5C180D66246AFCB8001E95FA /* BadgesViewModel.swift in Sources */,
 				3FFAD21123EDC0FF00D1A16C /* StreakViewModel.swift in Sources */,
 				3FF68E6C2407F8110071D74C /* DriveKitDriverAchievementUI.swift in Sources */,

@@ -49,21 +49,22 @@ final class BadgeLevelView : UIView, Nibable {
         progressRing.value = CGFloat(progress)
         progressRing.startAngle = 270
         progressRing.endAngle = 45
-        progressRing.outerRingWidth = 8
+        progressRing.innerRingWidth = 8
+        progressRing.outerRingWidth = 0
         progressRing.shouldShowValueText = false
         if progress >= threshold {
             switch badgeLevel?.level {
             case .bronze:
-                progressRing.outerRingColor = UIColor(hex: 0xbd5e4a)
+                progressRing.innerRingColor = UIColor(hex: 0xbd5e4a)
             case .silver:
-                progressRing.outerRingColor = UIColor(hex: 0xa8a8a3)
+                progressRing.innerRingColor = UIColor(hex: 0xa8a8a3)
             case .gold:
-                progressRing.outerRingColor = UIColor(hex: 0xf9ed9e)
+                progressRing.innerRingColor = UIColor(hex: 0xf9ed9e)
             case .none:
-                progressRing.outerRingColor = UIColor(hex: 0xF0F0F0)
+                progressRing.innerRingColor = UIColor(hex: 0xF0F0F0)
             }
         } else {
-            progressRing.outerRingColor = UIColor(hex: 0xF0F0F0)
+            progressRing.innerRingColor = UIColor(hex: 0xF0F0F0)
         }
     }
 }

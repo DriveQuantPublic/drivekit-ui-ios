@@ -80,6 +80,9 @@ class BadgeLevelDetailViewController: DKUIViewController {
         } else {
             progressRing.outerRingColor = UIColor(hex: 0xF0F0F0)
         }
-
+    }
+    
+    @IBAction func closeView(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
 }

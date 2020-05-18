@@ -105,6 +105,9 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Fz-pj-YDD">
                                             <rect key="frame" x="20" y="215" width="374" height="30"/>
                                             <state key="normal" title="Button"/>
+                                            <connections>
+                                                <action selector="closeView:" destination="-1" eventType="touchUpInside" id="aNS-Pu-Wqb"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

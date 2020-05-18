@@ -163,10 +163,8 @@ import DriveKitCommonUI
             }
         } else {
             switch CBPeripheralManager.authorizationStatus() {
-                case .authorized:
+                case .authorized, .notDetermined:
                     permissionStatus = .valid
-                case .notDetermined:
-                    permissionStatus = .notDetermined
                 case .denied, .restricted:
                     permissionStatus = .invalid
                 @unknown default:

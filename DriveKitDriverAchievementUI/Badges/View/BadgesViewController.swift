@@ -33,7 +33,7 @@ public class BadgesViewController : DKUIViewController, UITableViewDelegate {
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "badges"
+        self.title = "menu_mybadges".dkAchievementLocalized()
         self.viewModel.delegate = self
         self.viewModel.updateBadges()
         self.tableView.dataSource = self

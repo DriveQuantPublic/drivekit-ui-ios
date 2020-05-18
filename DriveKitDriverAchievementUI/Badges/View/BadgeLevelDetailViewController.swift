@@ -15,6 +15,7 @@ import UICircularProgressRing
 class BadgeLevelDetailViewController: DKUIViewController {
     
     var viewModel: BadgeLevelViewModel = BadgeLevelViewModel()
+    var tripsLeft: Int = 0
     
     @IBOutlet weak var progressRing: UICircularProgressRing!
     @IBOutlet weak var imageView: UIImageView!
@@ -28,6 +29,7 @@ class BadgeLevelDetailViewController: DKUIViewController {
 
     public init(level: DKBadgeLevel) {
         viewModel.level = level
+        tripsLeft = Int(round(Double(level.threshold) - level.progressValue))
         super.init(nibName: String(describing: BadgeLevelDetailViewController.self),
                    bundle: Bundle.driverAchievementUIBundle)
     }
@@ -43,15 +45,20 @@ class BadgeLevelDetailViewController: DKUIViewController {
     
     public func configure() {
         self.title = viewModel.level?.nameKey.dkAchievementLocalized()
-        imageView.image = UIImage(named: viewModel.level!.progressValue >= Double(viewModel.level!.threshold) ? viewModel.level!.iconKey : viewModel.level!.defaultIconKey,
-        in: .driverAchievementUIBundle,
-        compatibleWith: nil)
-        goalTitleLabel.attributedText = "L'objectif".dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()
+        imageView.image = UIImage(named: tripsLeft > 0 ? viewModel.level!.defaultIconKey : viewModel.level!.iconKey,
+                                  in: .driverAchievementUIBundle,
+                                  compatibleWith: nil)
+        goalTitleLabel.attributedText = "badge_detail_goal_title".dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()
         goalTitleSeparator.backgroundColor = DKUIColors.neutralColor.color
         goalDescriptionLabel.attributedText = viewModel.level!.descriptionKey.dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
-        progressTitleLabel.attributedText = "Votre avancement".dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()
+        progressTitleLabel.attributedText = "badge_your_progress_title".dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()
         progressTitleSeparator.backgroundColor = DKUIColors.neutralColor.color
-        progressDescriptionLabel.attributedText = viewModel.level!.progressKey.dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
+        if tripsLeft > 0 {
+            let tripsLeftAttrString = String(describing: tripsLeft).dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
+            progressDescriptionLabel.attributedText = viewModel.level!.progressKey.dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).buildWithArgs(tripsLeftAttrString)
+        } else {
+            progressDescriptionLabel.attributedText = viewModel.level!.congratsKey.dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
+        }
         initProgressRing()
         closeButton.setAttributedTitle(DKCommonLocalizable.close.text().uppercased().dkAttributedString().font(dkFont: .primary, style: .button).color(.secondaryColor).build(), for: .normal)
         closeButton.contentHorizontalAlignment = .right
@@ -66,7 +73,7 @@ class BadgeLevelDetailViewController: DKUIViewController {
         progressRing.endAngle = 45
         progressRing.outerRingWidth = 15
         progressRing.shouldShowValueText = false
-        if viewModel.level!.progressValue >= Double(viewModel.level!.threshold) {
+        if tripsLeft <= 0 {
             switch viewModel.level?.level {
             case .bronze:
                 progressRing.outerRingColor = UIColor(hex: 0xbd5e4a)

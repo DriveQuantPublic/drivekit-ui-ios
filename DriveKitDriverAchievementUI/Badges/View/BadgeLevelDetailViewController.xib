@@ -10,6 +10,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BadgeLevelDetailViewController" customModule="DriveKitDriverAchievementUI" customModuleProvider="target">
             <connections>
+                <outlet property="closeButton" destination="j04-VR-Le8" id="Zst-uP-kgr"/>
+                <outlet property="goalDescriptionLabel" destination="JVs-k9-San" id="sJM-gi-dj1"/>
+                <outlet property="goalTitleLabel" destination="CIA-eY-b1O" id="RVy-QH-tIw"/>
+                <outlet property="goalTitleSeparator" destination="0tp-7d-d9u" id="pHr-Ic-Y7d"/>
+                <outlet property="imageView" destination="PbT-Pu-hj7" id="5oO-fn-Tde"/>
+                <outlet property="progressDescriptionLabel" destination="XIg-lQ-xi0" id="9Zz-aF-NIG"/>
+                <outlet property="progressRing" destination="EbN-Zb-dbJ" id="d9s-cs-sfe"/>
+                <outlet property="progressTitleLabel" destination="U2s-ZE-i3f" id="Ofb-8n-fma"/>
+                <outlet property="progressTitleSeparator" destination="zM1-Ez-Q2t" id="0xv-9C-8vI"/>
                 <outlet property="view" destination="zw1-hV-Q2j" id="odi-mT-9h1"/>
             </connections>
         </placeholder>

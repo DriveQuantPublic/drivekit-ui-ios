@@ -29,7 +29,7 @@ final class BadgeLevelView : UIView, Nibable {
                                         object: nil,
                                         userInfo: ["badgeLevel": badgeLevel!])
     }
-    
+
     public func configure(level: DKBadgeLevel) {
         badgeLevel = level
         threshold = Float(level.threshold)

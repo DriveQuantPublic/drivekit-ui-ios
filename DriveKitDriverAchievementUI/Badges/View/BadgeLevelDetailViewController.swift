@@ -26,7 +26,8 @@ class BadgeLevelDetailViewController: DKUIViewController {
     @IBOutlet weak var progressDescriptionLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
 
-    public init() {
+    public init(level: DKBadgeLevel) {
+        viewModel.level = level
         super.init(nibName: String(describing: BadgeLevelDetailViewController.self),
                    bundle: Bundle.driverAchievementUIBundle)
     }
@@ -37,14 +38,14 @@ class BadgeLevelDetailViewController: DKUIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configure()
     }
     
-    public func configure(level: DKBadgeLevel) {
-        viewModel.level = level
+    public func configure() {
         imageView.image = UIImage(named: viewModel.level!.iconKey)
         goalTitleLabel.attributedText = "L'objectif".dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()
-        goalDescriptionLabel.attributedText = level.descriptionKey.dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.complementaryFontColor).build()
+        goalDescriptionLabel.attributedText = viewModel.level!.descriptionKey.dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.complementaryFontColor).build()
         progressTitleLabel.attributedText = "Votre avancement".dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()
-        progressDescriptionLabel.attributedText = level.progressKey.dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.complementaryFontColor).build()
+        progressDescriptionLabel.attributedText = viewModel.level!.progressKey.dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.complementaryFontColor).build()
     }
 }

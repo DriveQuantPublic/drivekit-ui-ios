@@ -27,8 +27,7 @@ public class BadgesViewController : DKUIViewController, UITableViewDelegate {
     }
 
     @objc func goToBadgeLevelDetailView(_ notification: Notification) {
-        let vc = BadgeLevelDetailViewController()
-        vc.configure(level: (notification.userInfo!["badgeLevel"] as? DKBadgeLevel)!)
+        let vc = BadgeLevelDetailViewController(level: (notification.userInfo!["badgeLevel"] as? DKBadgeLevel)!)
         present(vc, animated: true, completion: nil)
     }
     

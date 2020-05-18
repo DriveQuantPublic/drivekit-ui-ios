@@ -28,7 +28,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VCk-pF-knc">
-                    <rect key="frame" x="0.0" y="54" width="414" height="414"/>
+                    <rect key="frame" x="0.0" y="54" width="414" height="334"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EbN-Zb-dbJ" customClass="UICircularProgressRing" customModule="UICircularProgressRing">
                             <rect key="frame" x="50" y="0.0" width="314" height="314"/>
@@ -49,7 +49,7 @@
                         <constraint firstItem="PbT-Pu-hj7" firstAttribute="leading" secondItem="VCk-pF-knc" secondAttribute="leading" constant="70" id="BzY-oP-ECf"/>
                         <constraint firstItem="EbN-Zb-dbJ" firstAttribute="leading" secondItem="VCk-pF-knc" secondAttribute="leading" constant="50" id="CSz-Up-PxT"/>
                         <constraint firstItem="PbT-Pu-hj7" firstAttribute="top" secondItem="VCk-pF-knc" secondAttribute="top" constant="20" id="EQS-9m-en8"/>
-                        <constraint firstAttribute="width" secondItem="VCk-pF-knc" secondAttribute="height" multiplier="1:1" id="ZcL-uc-1cr"/>
+                        <constraint firstAttribute="height" constant="334" id="aQq-Gy-41U"/>
                         <constraint firstItem="EbN-Zb-dbJ" firstAttribute="centerX" secondItem="VCk-pF-knc" secondAttribute="centerX" id="cJh-fS-cBM"/>
                         <constraint firstItem="PbT-Pu-hj7" firstAttribute="centerX" secondItem="VCk-pF-knc" secondAttribute="centerX" id="tP1-15-i7X"/>
                         <constraint firstItem="EbN-Zb-dbJ" firstAttribute="top" secondItem="VCk-pF-knc" secondAttribute="top" id="uPD-o8-ptn"/>
@@ -71,7 +71,7 @@
                                 <constraint firstAttribute="height" constant="1" id="56v-ah-MWE"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVs-k9-San">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVs-k9-San">
                             <rect key="frame" x="10" y="42" width="374" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
@@ -90,7 +90,7 @@
                                 <constraint firstAttribute="height" constant="1" id="ZbP-J5-lis"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIg-lQ-xi0">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIg-lQ-xi0">
                             <rect key="frame" x="10" y="125" width="374" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
@@ -140,7 +140,7 @@
                 <constraint firstItem="VCk-pF-knc" firstAttribute="top" secondItem="Oev-S1-Gqy" secondAttribute="top" constant="10" id="rJW-qF-oNR"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Oev-S1-Gqy"/>
-            <point key="canvasLocation" x="241" y="-135"/>
+            <point key="canvasLocation" x="240.57971014492756" y="-135.26785714285714"/>
         </view>
     </objects>
 </document>

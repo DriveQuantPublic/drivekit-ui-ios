@@ -60,7 +60,7 @@ extension BadgesViewController : UITableViewDataSource {
             fatalError("The dequeued cell is not an instance of BadgeCell.")
         }
         let badge = self.viewModel.badges[indexPath.section]
-        cell.configure(theme: badge.themeKey, levels: badge.levels)
+        cell.configure(levels: badge.levels)
         return cell
     }
 

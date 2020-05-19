@@ -25,7 +25,7 @@ class BadgeTableViewCell : UITableViewCell {
         levelsStackView.addArrangedSubview(levelView)
     }
 
-    public func configure(theme: String, levels: [DKBadgeLevel]) {
+    public func configure(levels: [DKBadgeLevel]) {
         levelsStackView.removeAllSubviews()
         addLevelView(level: levels.filter{$0.level == .bronze}.first!)
         addLevelView(level: levels.filter{$0.level == .silver}.first!)

@@ -43,7 +43,7 @@ class BadgeLevelDetailViewController: DKUIViewController {
         configure()
     }
     
-    public func configure() {
+    @objc public func configure() {
         self.title = viewModel.level?.nameKey.dkAchievementLocalized()
         imageView.image = UIImage(named: tripsLeft > 0 ? viewModel.level!.defaultIconKey : viewModel.level!.iconKey,
                                   in: .driverAchievementUIBundle,
@@ -64,7 +64,7 @@ class BadgeLevelDetailViewController: DKUIViewController {
         closeButton.contentHorizontalAlignment = .right
     }
 
-    public func initProgressRing() {
+    private func initProgressRing() {
         progressRing.valueFormatter = UICircularProgressRingFormatter(valueIndicator: "", rightToLeft: false, showFloatingPoint: false, decimalPlaces: 0)
         progressRing.fullCircle = true
         progressRing.maxValue = CGFloat(viewModel.level!.threshold)

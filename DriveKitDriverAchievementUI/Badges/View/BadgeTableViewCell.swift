@@ -26,6 +26,7 @@ class BadgeTableViewCell : UITableViewCell {
     }
 
     public func configure(theme: String, levels: [DKBadgeLevel]) {
+        levelsStackView.removeAllSubviews()
         while levelsStackView.arrangedSubviews.count != 3 {
             for level in levels {
                 if levelsStackView.arrangedSubviews.count == 0 && level.level == .bronze {

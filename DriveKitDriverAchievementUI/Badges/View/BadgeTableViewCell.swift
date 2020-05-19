@@ -27,18 +27,8 @@ class BadgeTableViewCell : UITableViewCell {
 
     public func configure(theme: String, levels: [DKBadgeLevel]) {
         levelsStackView.removeAllSubviews()
-        while levelsStackView.arrangedSubviews.count != 3 {
-            for level in levels {
-                if levelsStackView.arrangedSubviews.count == 0 && level.level == .bronze {
-                    addLevelView(level: level)
-                }
-                if levelsStackView.arrangedSubviews.count == 1 && level.level == .silver {
-                    addLevelView(level: level)
-                }
-                if levelsStackView.arrangedSubviews.count == 2 && level.level == .gold {
-                    addLevelView(level: level)
-                }
-            }
-        }
+        addLevelView(level: levels.filter{$0.level == .bronze}.first!)
+        addLevelView(level: levels.filter{$0.level == .silver}.first!)
+        addLevelView(level: levels.filter{$0.level == .gold}.first!)
     }
 }

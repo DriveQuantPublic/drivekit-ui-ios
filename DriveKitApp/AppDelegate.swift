@@ -47,6 +47,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitVehicleUI.shared.configureBeaconDiagnosticSupportURL(url: "https://www.google.com")
         DriveKitVehicleUI.shared.configureCategoryConfigType(type: .bothConfig)
         DriveKitPermissionsUtilsUI.shared.initialize()
+        DriveKitPermissionsUtilsUI.shared.configureBluetooth(needed: true)
+        DriveKitPermissionsUtilsUI.shared.configureDiagnosisLogs(show: true)
+        DriveKitPermissionsUtilsUI.shared.configureContactType(DKContactType.email(self))
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options : \(options)")
         return true
     }
@@ -88,7 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func configureDriveKit(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         DriveKit.shared.initialize()
-        if SettingsBundleKeys.getLoggingPref() {
+        if DriveKit.shared.isLoggingEnabled() {
             DriveKit.shared.enableLogging()
         }
         DriveKitTripAnalysis.shared.initialize(tripListener: self, appLaunchOptions: launchOptions)
@@ -101,7 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "DriveKit configured with API key")
         if SettingsBundleKeys.getDefaultValuePref() {
             // DriveKit default value
-            SettingsBundleKeys.setLoggingPref(logging: false)
+            DriveKit.shared.disableLogging()
             SettingsBundleKeys.setSandboxPref(sandbox: false)
             SettingsBundleKeys.setPositionPref(share: false)
             SettingsBundleKeys.setAutoStartPref(autoStart: true)

@@ -16,10 +16,10 @@ public extension Double {
     }
     
     func formatMeterDistance() -> String {
-        if self < 1 {
-            return "0 \(DKCommonLocalizable.unitMeter.text())"
-        } else if self < 1000 {
-            return "\(self.stringWithoutZeroFraction) \(DKCommonLocalizable.unitMeter.text())"
+        if self < 10 {
+            return "\(self.round(places: 2).stringWithoutZeroFraction) \(DKCommonLocalizable.unitMeter.text())"
+        }else if self < 1000 {
+            return "\(self.round(places: 0).stringWithoutZeroFraction) \(DKCommonLocalizable.unitMeter.text())"
         } else {
             return formatMeterDistanceInKm()
         }

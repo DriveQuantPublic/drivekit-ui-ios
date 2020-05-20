@@ -13,9 +13,18 @@ import DriveKitCommonUI
 @objc public class DriveKitPermissionsUtilsUI : NSObject {
 
     @objc public static let shared = DriveKitPermissionsUtilsUI()
+    public private(set) var isBluetoothNeeded = false
+    public private(set) var showDiagnosisLogs = false
+    public private(set) var contactType = DKContactType.none
+    private var stateByType = [StatusType:Bool]()
 
     private override init() {
         super.init()
+
+        DKDiagnosisHelper.shared.delegate = self
+        updateState()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
 
     @objc public func initialize() {
@@ -40,6 +49,7 @@ import DriveKitCommonUI
                 navigationController = parentNavigationController
             }
             let permissionViewController = permissionView.getViewController(permissionViews: neededPermissionViews, completionHandler: completionHandler)
+            permissionViewController.manageNavigation = true
             if let navigationController = navigationController {
                 // A UINavigationController has been found, push screen inside.
                 permissionViewController.isPresentedByModule = false
@@ -57,6 +67,104 @@ import DriveKitCommonUI
         }
     }
 
+    @objc public func getDiagnosisViewController() -> UIViewController {
+        return DiagnosisViewController()
+    }
+
+    @objc public func hasError() -> Bool {
+        return self.stateByType.values.contains(false)
+    }
+
+    @objc public func getDiagnosisDescription() -> String {
+        let locationSensorStatus = getStatusString("dk_perm_utils_app_diag_email_location_sensor", isValid: DKDiagnosisHelper.shared.isSensorActivated(.gps))
+        let locationPermissionStatus = getStatusString("dk_perm_utils_app_diag_email_location", isValid: (DKDiagnosisHelper.shared.getPermissionStatus(.location) == .valid))
+        let activityStatus = getStatusString(statusType: .activity, titleKey: "dk_perm_utils_app_diag_email_activity")
+        let notificationStatus = getStatusString(statusType: .notification, titleKey: "dk_perm_utils_app_diag_email_notification")
+        let networkStatus = getStatusString(statusType: .network, titleKey: "dk_perm_utils_app_diag_email_network")
+        var info = [locationSensorStatus, locationPermissionStatus, activityStatus, notificationStatus, networkStatus]
+        if self.isBluetoothNeeded {
+            let bluetoothStatus = getStatusString(statusType: .bluetooth, titleKey: "dk_perm_utils_app_diag_email_bluetooth")
+            info.append(bluetoothStatus)
+        }
+        let batteryOptimizationStatus = getStatusString("dk_perm_utils_app_diag_email_battery", isValid: DKDiagnosisHelper.shared.isLowPowerModeEnabled())
+        info.append(batteryOptimizationStatus)
+        return info.joined(separator: "\n")
+    }
+
+    private func getStatusString(statusType: StatusType, titleKey: String) -> String {
+        return getStatusString(titleKey, isValid: self.stateByType[statusType] ?? false)
+    }
+
+    private func getStatusString(_ titleKey: String, isValid: Bool) -> String {
+        if isValid {
+            return "\(titleKey.dkPermissionsUtilsLocalized()) \(DKCommonLocalizable.yes.text())"
+        } else {
+            return "\(titleKey.dkPermissionsUtilsLocalized()) \(DKCommonLocalizable.no.text())"
+        }
+    }
+
+
+    @objc public func configureBluetooth(needed: Bool) {
+        if self.isBluetoothNeeded != needed {
+            self.isBluetoothNeeded = needed
+            updateState(bluetoothNeedChanged: true)
+        }
+    }
+
+    @objc public func configureDiagnosisLogs(show: Bool) {
+        self.showDiagnosisLogs = show
+    }
+
+    public func configureContactType(_ contactType: DKContactType) {
+        self.contactType = contactType
+    }
+
+
+    @objc private func appDidBecomeActive() {
+        updateState()
+    }
+
+    private func updateState(bluetoothNeedChanged: Bool = false) {
+        let diagnosisHelper = DKDiagnosisHelper.shared
+        // Activity.
+        let isActivityUpdated = updateInternalState(.activity, isValid: diagnosisHelper.isActivityValid())
+        // Bluetooth.
+        let isBluetoothUpdated: Bool
+        if bluetoothNeedChanged || self.isBluetoothNeeded {
+            isBluetoothUpdated = updateInternalState(.bluetooth, isValid: diagnosisHelper.isBluetoothValid())
+        } else {
+            isBluetoothUpdated = false
+        }
+        // Location.
+        let isLocationUpdated = updateInternalState(.location, isValid: diagnosisHelper.isLocationValid())
+        // Network.
+        let isNetworkUpdated = updateInternalState(.network, isValid: diagnosisHelper.isNetworkValid())
+        // Notification.
+        diagnosisHelper.isNotificationValid { isValid in
+            let isNotificationUpdated = self.updateInternalState(.notification, isValid: isValid)
+
+            if isActivityUpdated || isBluetoothUpdated || isLocationUpdated || isNetworkUpdated || isNotificationUpdated {
+                // A state has been updated. Post notification.
+                NotificationCenter.default.post(name: .sensorStateChangedNotification, object: nil)
+            }
+        }
+    }
+
+    private func updateInternalState(_ statusType: StatusType, isValid: Bool) -> Bool {
+        let updated: Bool
+        if self.stateByType[statusType] != isValid {
+            self.stateByType[statusType] = isValid
+            updated = true
+        } else {
+            updated = false
+        }
+        return updated
+    }
+
+}
+
+public extension Notification.Name {
+    static let sensorStateChangedNotification = Notification.Name("dk_sensorStateChanged")
 }
 
 extension Bundle {
@@ -79,12 +187,29 @@ extension DriveKitPermissionsUtilsUI : DriveKitPermissionsUtilsUIEntryPoint {
     }
 }
 
+extension DriveKitPermissionsUtilsUI : DiagnosisHelperDelegate {
+    func bluetoothStateChanged() {
+        updateState()
+    }
+}
+
+// MARK: - Objective-C extension
 
 extension DriveKitPermissionsUtilsUI {
 
     @objc(showPermissionViews:parentViewController:completionHandler:) // Usage example: [DriveKitPermissionsUtilsUI.shared showPermissionViews:@[ @(DKPermissionViewLocation), @(DKPermissionViewActivity) ] parentViewController: ... completionHandler: ...];
     public func objc_showPermissionViews(_ permissionViews: [Int], parentViewController: UIViewController, completionHandler: @escaping () -> Void) {
         showPermissionViews(permissionViews.map({ DKPermissionView(rawValue: $0)! }), parentViewController: parentViewController, completionHandler: completionHandler)
+    }
+
+    @objc(configureMailContactType:)
+    public func objc_configureContactType(contentMail: DKContentMail) {
+        self.configureContactType(.email(contentMail))
+    }
+
+    @objc(configureWebContactType:)
+    public func objc_configureContactType(contactUrl: URL) {
+        self.configureContactType(.web(contactUrl))
     }
 
 }

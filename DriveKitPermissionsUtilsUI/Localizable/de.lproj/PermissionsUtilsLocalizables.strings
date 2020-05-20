@@ -21,8 +21,8 @@
 "dk_perm_utils_app_diag_battery_text_android_01"="Bei einigen Telefonmodellen kann die Batterieoptimierungsdienste die Anwendung herunterfahren, wenn sie im Hintergrund ausgeführt wird.";
 "dk_perm_utils_app_diag_battery_text_android_02"="Wenn Ihr Telefon mit einer nativen Android-Version läuft, können Sie die Akku-Optimierung deaktivieren. %@";
 "dk_perm_utils_app_diag_battery_text_android_03"="Wenn Ihr Telefon auf einer Android-Version mit einem Software-Overlay des Herstellers läuft, laden wir Sie ein, das Batteriemenü zu durchsuchen, um Optimierungen zu deaktivieren.";
-"dk_perm_utils_app_diag_battery_text_ios_01"="Ihr iPhone enthält einen Energiesparmodus, um den Akku zu optimieren. Dieser Modus kann die Anwendung stoppen, wenn sie im Hintergrund ausgeführt wird.";
-"dk_perm_utils_app_diag_battery_text_ios_02"="Wir laden Sie ein, den Energiesparmodus zu deaktivieren, um einen optimalen Betrieb der Anwendung zu gewährleisten.";
+"dk_perm_utils_app_diag_battery_text_ios_disabled"="Die Anwendung erkennt automatisch den Beginn und das Ende einer Reise, ohne den GPS-Sensor zu benutzen. Der GPS-Sensor wird nur aktiviert, wenn eine motorisierte Fahrt erkannt wurde. Dadurch wird die Entladung des Telefonakkus minimiert.";
+"dk_perm_utils_app_diag_battery_text_ios_enabled"="Ihr Gerät enthält einen Energiesparmodus zur Optimierung der Akkulaufzeit. Dieser Modus kann die Anwendung stoppen, während sie im Hintergrund läuft.\n\nBitte deaktivieren Sie den Energiesparmodus, um einen optimalen Betrieb der Anwendung zu gewährleisten, indem Sie zu: Einstellungen > Batterie > Stromsparmodus";
 "dk_perm_utils_app_diag_battery_title"="Optimierung der Batterie";
 "dk_perm_utils_app_diag_bluetooth_ko"="Der Bluetooth-Sensor an Ihrem Telefon ist ausgeschaltet. Ihre Fahrten werden nicht analysiert, wenn der Bluetooth-Fall nicht erkannt wird.";
 "dk_perm_utils_app_diag_bluetooth_link"="Aktivieren Sie Bluetooth";
@@ -32,6 +32,7 @@
 "dk_perm_utils_app_diag_email_activity"="Berechtigung zum Zugriff auf die Aktivitätsverfolgung:";
 "dk_perm_utils_app_diag_email_app"="Anwendung:";
 "dk_perm_utils_app_diag_email_app_version"="Version der Anwendung:";
+"dk_perm_utils_app_diag_email_battery"="Optimierung der Batterie:";
 "dk_perm_utils_app_diag_email_bluetooth"="Bluetooth-Sensor:";
 "dk_perm_utils_app_diag_email_comment"="Begründung (Kommentare) :";
 "dk_perm_utils_app_diag_email_email"="E-Mail :";
@@ -50,6 +51,7 @@
 "dk_perm_utils_app_diag_help_request_button"="Kontaktieren Sie den Support";
 "dk_perm_utils_app_diag_help_request_text"="Wenn Ihr Telefon auf einer Android-Version läuft, die eine benutzerdefinierte Softwareschnittstelle vom Hersteller enthält, laden wir Sie ein, das Batteriemenü zu durchsuchen, um Optimierungen zu deaktivieren.";
 "dk_perm_utils_app_diag_help_request_title"="Die App zeichnet deine Fahrten nicht auf?";
+"dk_perm_utils_app_diag_learn_more"="Mehr Informationen";
 "dk_perm_utils_app_diag_loc_sensor_ko"="Die geografische Position Ihres Telefons ist deaktiviert. Die Anwendung kann nicht funktionieren, wenn sie nicht auf diese Informationen zugreifen kann.";
 "dk_perm_utils_app_diag_loc_sensor_link"="Lokalisation aktivieren";
 "dk_perm_utils_app_diag_loc_sensor_ok"="Sie haben die Geolokalisierung aktiviert. Der Ortungssensor (GPS) misst die Geschwindigkeit und den Kurs des Fahrzeugs. Wenn es deaktiviert ist, kann die Anwendung nicht funktionieren.";
@@ -63,7 +65,9 @@
 "dk_perm_utils_app_diag_log_folder"="Zugriff auf die Aktivitätsprotokolldatei";
 "dk_perm_utils_app_diag_log_ko"="Die Protokollierung ist deaktiviert. Im Falle einer Fehlfunktion in der Anwendung empfehlen wir Ihnen, die Protokollierung zur einfachen Diagnose zuzulassen.";
 "dk_perm_utils_app_diag_log_link"="Erlauben Sie das Schreiben des Aktivitätsprotokolls auf Ihr Smartphone.";
-"dk_perm_utils_app_diag_log_ok"="Die Protokollierung ist aktiv. Diese Datei enthält Ereignisse, die für die Analyse des Anwendungsverhaltens wichtig sind. Sie wird im Ordner DQ-logs gespeichert.";
+"dk_perm_utils_app_diag_log_ok"="Die Protokollierung ist aktiv. Diese Datei enthält Ereignisse, die für die Analyse des Anwendungsverhaltens wichtig sind. Sie wird im Ordner %@ gespeichert.";
+"dk_perm_utils_app_diag_log_ok_contact_mail"="Die Protokollierung ist aktiviert. Diese Datei enthält wichtige Ereignisse, um das Verhalten der Anwendung zu analysieren. Sie wird automatisch an die E-Mail des Support-Kontaktes angehängt.";
+"dk_perm_utils_app_diag_log_ok_ios"="Die Protokollierung ist aktiv. Diese Datei enthält Ereignisse, die für die Analyse des Anwendungsverhaltens wichtig sind. Die Datei ist im Anwendungsordner auf Ihrem iPhone verfügbar.";
 "dk_perm_utils_app_diag_log_title"="Sichern Sie das Aktivitätsprotokoll";
 "dk_perm_utils_app_diag_network_ko"="Mobile Daten sind nicht aktiviert. Dies blockiert nicht die Auslöseerkennung und die Auslöseaufnahme. Auf der anderen Seite sind mobile Daten wesentlich für die Analyse der Daten Ihrer Fahrten. Wenn mobile Daten deaktiviert sind, geht die Fahrt nicht verloren, die Ergebnisse werden jedoch erst angezeigt, nachdem Sie sich erneut mit einem Mobilfunknetz verbunden haben.";
 "dk_perm_utils_app_diag_network_link"="Mobile Daten aktivieren";

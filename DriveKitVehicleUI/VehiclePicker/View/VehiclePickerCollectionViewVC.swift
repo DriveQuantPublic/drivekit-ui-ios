@@ -66,7 +66,7 @@ extension VehiclePickerCollectionViewVC: UICollectionViewDelegate, UICollectionV
 extension VehiclePickerCollectionViewVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.bounds.width - Constants.insets.left - Constants.insets.right - Constants.minimumInteritemSpacing) / 2
-        let height = width
+        let height = self.viewModel.showStepLabel() ? width + 16 : width
         return CGSize(width: width , height: height)
     }
     

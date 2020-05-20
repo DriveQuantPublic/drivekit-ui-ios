@@ -15,17 +15,17 @@ public class BadgesViewController : DKUIViewController, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
-    private var viewModel : BadgeViewModel! = BadgeViewModel()
+    private let viewModel : BadgeViewModel
 
     public init() {
-        self.viewModel.updateBadges()
+        self.viewModel = BadgeViewModel()
         super.init(nibName: String(describing: BadgesViewController.self), bundle: Bundle.driverAchievementUIBundle)
     }
-
+    
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
+        fatalError("init(coder:) has not been implemented")
     }
-
+    
     @objc func goToBadgeLevelDetailView(_ notification: Notification) {
         let vc = BadgeLevelDetailViewController(level: (notification.userInfo!["badgeLevel"] as? DKBadgeLevel)!)
         self.navigationController?.pushViewController(vc, animated: true)
@@ -36,6 +36,7 @@ public class BadgesViewController : DKUIViewController, UITableViewDelegate {
         self.title = "menu_mybadges".dkAchievementLocalized()
         self.viewModel.delegate = self
         self.viewModel.updateBadges()
+        self.showLoader()
         self.tableView.dataSource = self
         self.tableView.delegate = self
         let nib = UINib(nibName: "BadgeTableViewCell", bundle: Bundle.driverAchievementUIBundle)
@@ -49,7 +50,7 @@ public class BadgesViewController : DKUIViewController, UITableViewDelegate {
 extension BadgesViewController : UITableViewDataSource {
 
     public func numberOfSections(in tableView: UITableView) -> Int {
-        return self.viewModel.badges.count
+        return self.viewModel.badgesCount
     }
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -59,14 +60,13 @@ extension BadgesViewController : UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BadgeTableViewCell", for: indexPath) as? BadgeTableViewCell else {
             fatalError("The dequeued cell is not an instance of BadgeCell.")
         }
-        let badge = self.viewModel.badges[indexPath.section]
-        cell.configure(levels: badge.levels)
+        cell.configure(levels: viewModel.badgeLevels(pos: indexPath.section))
         return cell
     }
 
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionView = BadgeSectionHeaderView.viewFromNib
-        sectionView.configure(theme: viewModel.badges[section].themeKey)
+        sectionView.configure(theme: viewModel.badgeTitle(pos: section))
         return sectionView
     }
 }
@@ -74,5 +74,6 @@ extension BadgesViewController : UITableViewDataSource {
 extension BadgesViewController : BadgeDelegate {
     func badgesUpdated() {
         tableView.reloadData()
+        self.hideLoader()
     }
 }

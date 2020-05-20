@@ -14,9 +14,8 @@ import UICircularProgressRing
 
 class BadgeLevelDetailViewController: DKUIViewController {
     
-    var viewModel: BadgeLevelViewModel = BadgeLevelViewModel()
-    var tripsLeft: Int = 0
-    
+    let viewModel: BadgeLevelViewModel
+
     @IBOutlet weak var progressRing: UICircularProgressRing!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var goalTitleLabel: UILabel!
@@ -27,15 +26,14 @@ class BadgeLevelDetailViewController: DKUIViewController {
     @IBOutlet weak var progressDescriptionLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
 
-    public init(level: DKBadgeLevel) {
-        viewModel.level = level
-        tripsLeft = Int(round(Double(level.threshold) - level.progressValue))
+    init(level: DKBadgeLevel) {
+        viewModel = BadgeLevelViewModel(level: level)
         super.init(nibName: String(describing: BadgeLevelDetailViewController.self),
                    bundle: Bundle.driverAchievementUIBundle)
     }
-    
+
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
+        fatalError("init(coder:) has not been implemented")
     }
 
     override func viewDidLoad() {
@@ -44,20 +42,20 @@ class BadgeLevelDetailViewController: DKUIViewController {
     }
     
     @objc public func configure() {
-        self.title = viewModel.level?.nameKey.dkAchievementLocalized()
-        imageView.image = UIImage(named: tripsLeft > 0 ? viewModel.level!.defaultIconKey : viewModel.level!.iconKey,
+        self.title = viewModel.title
+        imageView.image = UIImage(named: viewModel.iconKey,
                                   in: .driverAchievementUIBundle,
                                   compatibleWith: nil)
         goalTitleLabel.attributedText = "badge_detail_goal_title".dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()
         goalTitleSeparator.backgroundColor = DKUIColors.neutralColor.color
-        goalDescriptionLabel.attributedText = viewModel.level!.descriptionKey.dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
+        goalDescriptionLabel.attributedText = viewModel.description.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
         progressTitleLabel.attributedText = "badge_your_progress_title".dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()
         progressTitleSeparator.backgroundColor = DKUIColors.neutralColor.color
-        if tripsLeft > 0 {
-            let tripsLeftAttrString = String(describing: tripsLeft).dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
-            progressDescriptionLabel.attributedText = viewModel.level!.progressKey.dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).buildWithArgs(tripsLeftAttrString)
+        if viewModel.tripsLeft > 0 {
+            let tripsLeftAttrString = String(describing: viewModel.tripsLeft).dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
+            progressDescriptionLabel.attributedText = viewModel.progress.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).buildWithArgs(tripsLeftAttrString)
         } else {
-            progressDescriptionLabel.attributedText = viewModel.level!.congratsKey.dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
+            progressDescriptionLabel.attributedText = viewModel.congrats.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
         }
         initProgressRing()
         closeButton.setAttributedTitle(DKCommonLocalizable.close.text().uppercased().dkAttributedString().font(dkFont: .primary, style: .button).color(.secondaryColor).build(), for: .normal)
@@ -67,23 +65,21 @@ class BadgeLevelDetailViewController: DKUIViewController {
     private func initProgressRing() {
         progressRing.valueFormatter = UICircularProgressRingFormatter(valueIndicator: "", rightToLeft: false, showFloatingPoint: false, decimalPlaces: 0)
         progressRing.fullCircle = true
-        progressRing.maxValue = CGFloat(viewModel.level!.threshold)
-        progressRing.value = CGFloat(viewModel.level!.progressValue)
+        progressRing.maxValue = CGFloat(viewModel.threshold)
+        progressRing.value = CGFloat(viewModel.progressValue)
         progressRing.startAngle = 270
         progressRing.endAngle = 45
         progressRing.innerRingWidth = 15
         progressRing.outerRingWidth = 0
         progressRing.shouldShowValueText = false
-        if tripsLeft <= 0 {
-            switch viewModel.level?.level {
+        if viewModel.tripsLeft <= 0 {
+            switch viewModel.levelValue {
             case .bronze:
                 progressRing.innerRingColor = UIColor(hex: 0xbd5e4a)
             case .silver:
                 progressRing.innerRingColor = UIColor(hex: 0xa8a8a3)
             case .gold:
                 progressRing.innerRingColor = UIColor(hex: 0xf9ed9e)
-            case .none:
-                progressRing.innerRingColor = UIColor(hex: 0xF0F0F0)
             }
         } else {
             progressRing.innerRingColor = UIColor(hex: 0xF0F0F0)

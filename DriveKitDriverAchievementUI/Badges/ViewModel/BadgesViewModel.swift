@@ -16,12 +16,12 @@ class BadgeViewModel {
     
     weak var delegate : BadgeDelegate? = nil
     
-    var badges : [DKBadge] = []
+    private var badges : [DKBadge] = []
     
     init() {
     }
     
-    public func updateBadges() {
+    func updateBadges() {
         DriveKitDriverAchievement.shared.getBadges(completionHandler: {status, badges in
             DispatchQueue.main.async {
                 self.badges = badges
@@ -30,6 +30,17 @@ class BadgeViewModel {
         })
     }
     
+    var badgesCount : Int {
+        return badges.count
+    }
+    
+    func badgeTitle(pos: Int) -> String {
+        return badges[pos].themeKey.dkAchievementLocalized()
+    }
+    
+    func badgeLevels(pos: Int) -> [DKBadgeLevel] {
+        return badges[pos].levels
+    }
 }
 
 protocol BadgeDelegate : AnyObject {

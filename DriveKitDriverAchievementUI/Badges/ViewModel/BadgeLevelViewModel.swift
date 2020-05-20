@@ -10,8 +10,45 @@ import Foundation
 import DriveKitDBAchievementAccess
 
 class BadgeLevelViewModel {
-    weak var level: DKBadgeLevel? = nil
+    let level: DKBadgeLevel
     
-    init() {
+    init(level: DKBadgeLevel) {
+        self.level = level
+    }
+
+    var tripsLeft: Int {
+        return Int(round(Double(level.threshold) - level.progressValue))
+    }
+
+    var title: String {
+        return level.nameKey.dkAchievementLocalized()
+    }
+
+    var iconKey: String {
+        return tripsLeft > 0 ? level.defaultIconKey : level.iconKey
+    }
+
+    var description: String {
+        return level.descriptionKey.dkAchievementLocalized()
+    }
+
+    var progress: String {
+        return level.progressKey.dkAchievementLocalized()
+    }
+
+    var congrats: String {
+        return level.congratsKey.dkAchievementLocalized()
+    }
+
+    var levelValue: DKLevel {
+        return level.level
+    }
+
+    var threshold: Int {
+        return level.threshold
+    }
+
+    var progressValue: Double {
+        return level.progressValue
     }
 }

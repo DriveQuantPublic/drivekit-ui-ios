@@ -20,7 +20,7 @@ final class BadgeSectionHeaderView: UIView, Nibable {
         backgroundView.layer.cornerRadius = 4
     }
     
-    @objc public func configure(theme: String) {
-        themeLabel.attributedText = theme.dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .headLine2).color(.mainFontColor).build()
+    func configure(theme: String) {
+        themeLabel.attributedText = theme.dkAttributedString().font(dkFont: .primary, style: .headLine2).color(.mainFontColor).build()
     }
 }

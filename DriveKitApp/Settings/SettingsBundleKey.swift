@@ -10,7 +10,6 @@ import Foundation
 
 struct SettingsBundleKeys {
     static let userIdPref = "user_id_preference"
-    static let loggingPref = "logging_preference"
     static let sandboxPref = "sandbox_preference"
     static let autostartPref = "autostart_preference"
     static let timeoutPref = "timeout_preference"
@@ -31,15 +30,6 @@ struct SettingsBundleKeys {
             return userId
         }
         return nil
-    }
-    
-    static func setLoggingPref(logging: Bool) {
-        userDefaults.set(logging, forKey: loggingPref)
-        userDefaults.synchronize()
-    }
-    
-    static func getLoggingPref() -> Bool {
-        return userDefaults.bool(forKey: loggingPref)
     }
     
     static func setSandboxPref(sandbox: Bool) {

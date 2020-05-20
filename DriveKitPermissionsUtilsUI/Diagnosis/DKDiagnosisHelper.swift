@@ -17,8 +17,9 @@ import DriveKitCommonUI
 @objc public class DKDiagnosisHelper : NSObject {
 
     @objc public static let shared = DKDiagnosisHelper()
+    weak var delegate: DiagnosisHelperDelegate? = nil
     private lazy var requestPermissionHelper = RequestPermissionHelper()
-    private lazy var bluetoothManager = CBCentralManager(delegate: nil, queue: nil, options: [CBCentralManagerOptionShowPowerAlertKey:false])
+    private lazy var bluetoothManager = CBCentralManager(delegate: self, queue: nil, options: [CBCentralManagerOptionShowPowerAlertKey:false])
 
     private override init() {
         super.init()
@@ -28,7 +29,7 @@ import DriveKitCommonUI
         var isSensorActivated = false
         switch sensor {
             case .bluetooth:
-                isSensorActivated = self.bluetoothManager.state != .poweredOff
+                isSensorActivated = self.bluetoothManager.state != .poweredOff && self.bluetoothManager.state != .unknown
             case .gps:
                 isSensorActivated = CLLocationManager.locationServicesEnabled()
         }
@@ -162,10 +163,8 @@ import DriveKitCommonUI
             }
         } else {
             switch CBPeripheralManager.authorizationStatus() {
-                case .authorized:
+                case .authorized, .notDetermined:
                     permissionStatus = .valid
-                case .notDetermined:
-                    permissionStatus = .notDetermined
                 case .denied, .restricted:
                     permissionStatus = .invalid
                 @unknown default:
@@ -198,4 +197,14 @@ import DriveKitCommonUI
         return permissionStatus
     }
 
+}
+
+extension DKDiagnosisHelper : CBCentralManagerDelegate {
+    public func centralManagerDidUpdateState(_ central: CBCentralManager) {
+        self.delegate?.bluetoothStateChanged()
+    }
+}
+
+protocol DiagnosisHelperDelegate : AnyObject {
+    func bluetoothStateChanged()
 }

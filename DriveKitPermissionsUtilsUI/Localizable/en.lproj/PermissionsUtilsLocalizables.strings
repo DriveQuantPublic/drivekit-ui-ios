@@ -7,8 +7,8 @@
 */
 
 "dk_perm_utils_app_diag_activity_ko"="You need to allow the application to access the activity monitoring so that it can detect and analyze your trips.";
-"dk_perm_utils_app_diag_activity_link"="Allow access to activity tracking";
-"dk_perm_utils_app_diag_activity_ok"="The application uses your phone\'s activity tracking to detect and analyze your trips. It can\'t work if you don\'t allow the application to access activity monitoring.";
+"dk_perm_utils_app_diag_activity_link"="Allow access to activity monitoring";
+"dk_perm_utils_app_diag_activity_ok"="The application uses your phone\'s activity monitoring to detect and analyze your trips. It can\'t work if you don\'t allow the application to access activity monitoring.";
 "dk_perm_utils_app_diag_activity_title"="Activity monitoring";
 "dk_perm_utils_app_diag_app_ko_01"="A problem has been detected!";
 "dk_perm_utils_app_diag_app_ko_02"="Two problems were detected!";
@@ -32,6 +32,7 @@
 "dk_perm_utils_app_diag_email_activity"="Authorization to access activity monitoring:";
 "dk_perm_utils_app_diag_email_app"="Application:";
 "dk_perm_utils_app_diag_email_app_version"="Version of the application:";
+"dk_perm_utils_app_diag_email_battery"="Optimization of the battery:";
 "dk_perm_utils_app_diag_email_bluetooth"="Bluetooth sensor:";
 "dk_perm_utils_app_diag_email_comment"="Comment :";
 "dk_perm_utils_app_diag_email_email"="Email :";
@@ -90,7 +91,7 @@
 "dk_perm_utils_permissions_location_text2_post_android10"="To do this, choose \"Allow all the time\" when the next popup is displayed.";
 "dk_perm_utils_permissions_location_text2_pre_android10"="To do this, choose \"Allow\" when the next popup is displayed.";
 "dk_perm_utils_permissions_location_title"="Trip recording";
-"dk_perm_utils_permissions_phone_settings_activity_button"="Authorize activity tracking";
+"dk_perm_utils_permissions_phone_settings_activity_button"="Authorize activity monitoring";
 "dk_perm_utils_permissions_phone_settings_activity_text"="To improve the analysis of your trips and identify the mode of transport used, you must activate the option Motion & Fitness on your phone.";
 "dk_perm_utils_permissions_phone_settings_activity_title"="Activity monitoring";
 "dk_perm_utils_permissions_phone_settings_background_button"="Allow background task";

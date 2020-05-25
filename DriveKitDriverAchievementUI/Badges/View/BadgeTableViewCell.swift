@@ -36,8 +36,8 @@ class BadgeTableViewCell : UITableViewCell {
             addLevelView(level: levels.filter{$0.level == .gold}.first!)
         } else {
             configureLevelView(levelView: levelsStackView.arrangedSubviews[0] as! BadgeLevelView, level: levels.filter{$0.level == .bronze}.first!)
-            configureLevelView(levelView: levelsStackView.arrangedSubviews[0] as! BadgeLevelView, level: levels.filter{$0.level == .silver}.first!)
-            configureLevelView(levelView: levelsStackView.arrangedSubviews[0] as! BadgeLevelView, level: levels.filter{$0.level == .gold}.first!)
+            configureLevelView(levelView: levelsStackView.arrangedSubviews[1] as! BadgeLevelView, level: levels.filter{$0.level == .silver}.first!)
+            configureLevelView(levelView: levelsStackView.arrangedSubviews[2] as! BadgeLevelView, level: levels.filter{$0.level == .gold}.first!)
         }
     }
 }

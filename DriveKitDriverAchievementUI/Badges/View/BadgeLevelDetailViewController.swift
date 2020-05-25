@@ -69,7 +69,7 @@ class BadgeLevelDetailViewController: DKUIViewController {
         progressRing.value = CGFloat(viewModel.progressValue)
         progressRing.startAngle = 270
         progressRing.endAngle = 45
-        progressRing.innerRingWidth = 15
+        progressRing.innerRingWidth = 12
         progressRing.outerRingWidth = 0
         progressRing.shouldShowValueText = false
         if viewModel.tripsLeft <= 0 {

@@ -15,6 +15,7 @@ public class DriveKitDriverAchievementUI {
     public static let shared = DriveKitDriverAchievementUI()
     
     var streakThemes : [DKStreakTheme] = [.phoneDistraction, .safety, .acceleration, .brake, .adherence]
+    var badgeCategories : [DKBadgeCategory] = [.generic, .ecodriving, .safety, .phoneDistraction]
     
     private init() {}
     
@@ -24,6 +25,13 @@ public class DriveKitDriverAchievementUI {
     
     public func configureStreakThemes(streakThemes : [DKStreakTheme]) {
         self.streakThemes = streakThemes
+    }
+    
+    public func configureBadgeCategories(badgeCategories : [DKBadgeCategory]) {
+        if !badgeCategories.contains(.generic) {
+            self.badgeCategories = [.generic]
+        }
+        self.badgeCategories.append(contentsOf: badgeCategories)
     }
 }
 
@@ -40,5 +48,9 @@ extension String {
 extension DriveKitDriverAchievementUI : DriveKitDriverAchievementUIEntryPoint {
     public func getStreakViewController() -> UIViewController {
         return StreakViewController()
+    }
+    
+    public func getBadgesViewController() -> UIViewController {
+        return BadgesViewController()
     }
 }

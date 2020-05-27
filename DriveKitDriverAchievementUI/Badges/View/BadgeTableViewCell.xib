@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="BadgeTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BadgeTableViewCell" rowHeight="181" id="P47-kF-OV2" customClass="BadgeTableViewCell" customModule="DriveKitDriverAchievementUI" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="429" height="181"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="P47-kF-OV2" id="Oc4-15-aNF">
+                <rect key="frame" x="0.0" y="0.0" width="429" height="181"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eD7-Lj-v92">
+                        <rect key="frame" x="20" y="10" width="389" height="171"/>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="eD7-Lj-v92" secondAttribute="bottom" id="FSy-jZ-ynO"/>
+                    <constraint firstItem="eD7-Lj-v92" firstAttribute="leading" secondItem="Oc4-15-aNF" secondAttribute="leadingMargin" id="H6c-ie-pTP"/>
+                    <constraint firstItem="eD7-Lj-v92" firstAttribute="top" secondItem="Oc4-15-aNF" secondAttribute="top" constant="10" id="gpY-Jf-BS2"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="eD7-Lj-v92" secondAttribute="trailing" id="sCl-Cl-Lzo"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="levelsStackView" destination="eD7-Lj-v92" id="qMP-Ce-Prh"/>
+            </connections>
+            <point key="canvasLocation" x="67.391304347826093" y="248.77232142857142"/>
+        </tableViewCell>
+    </objects>
+</document>

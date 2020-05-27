@@ -41,7 +41,7 @@ class SettingsViewController: UITableViewController {
     
     func setup() {
         timeOutValue.text = String(SettingsBundleKeys.getTimeoutPref())
-        loggingSwitch.isOn = SettingsBundleKeys.getLoggingPref()
+        loggingSwitch.isOn = DriveKit.shared.isLoggingEnabled()
         autoStartSwitch.isOn = SettingsBundleKeys.getAutoStartPref()
         timeOutSlider.value = Float(SettingsBundleKeys.getTimeoutPref())
         beaconSwitch.isOn = SettingsBundleKeys.getBeaconPref()
@@ -95,7 +95,6 @@ class SettingsViewController: UITableViewController {
 
     
     @IBAction func didChangeLogginValue(_ sender: Any) {
-        SettingsBundleKeys.setLoggingPref(logging: loggingSwitch.isOn)
         if loggingSwitch.isOn {
             DriveKit.shared.enableLogging()
         } else {

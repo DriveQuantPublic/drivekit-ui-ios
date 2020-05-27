@@ -31,12 +31,8 @@ class BadgeViewModel {
     }
     
     private func computeBadges(badges : [DKBadge]) {
-        var allBadges : [DKBadge] = []
-        for badge in badges {
-            allBadges.append(badge)
-        }
         for configuredBadge in DriveKitDriverAchievementUI.shared.badgeCategories {
-            let badge = (allBadges.filter { configuredBadge == $0.category })
+            let badge = (badges.filter { configuredBadge == $0.category })
             self.badges.append(contentsOf: badge)
         }
     }

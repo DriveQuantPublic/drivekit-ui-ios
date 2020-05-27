@@ -28,10 +28,10 @@ public class DriveKitDriverAchievementUI {
     }
     
     public func configureBadgeCategories(badgeCategories : [DKBadgeCategory]) {
-        self.badgeCategories = badgeCategories
         if !badgeCategories.contains(.generic) {
-            self.badgeCategories.append(.generic)
+            self.badgeCategories = [.generic]
         }
+        self.badgeCategories.append(contentsOf: badgeCategories)
     }
 }
 

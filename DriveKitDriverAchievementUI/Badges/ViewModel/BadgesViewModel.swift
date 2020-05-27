@@ -24,11 +24,23 @@ class BadgeViewModel {
     func updateBadges() {
         DriveKitDriverAchievement.shared.getBadges(completionHandler: {status, badges in
             DispatchQueue.main.async {
-                self.badges = badges
+                self.computeBadges(badges: badges)
                 self.delegate?.badgesUpdated()
             }
         })
     }
+    
+    private func computeBadges(badges : [DKBadge]) {
+        var allBadges : [DKBadge] = []
+        for badge in badges {
+            allBadges.append(badge)
+        }
+        for configuredBadge in DriveKitDriverAchievementUI.shared.badgeCategories {
+            let badge = (allBadges.filter { configuredBadge == $0.category })
+            self.badges.append(contentsOf: badge)
+        }
+    }
+
     
     var badgesCount : Int {
         return badges.count

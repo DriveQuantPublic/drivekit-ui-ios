@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'DriveKitPermissionsUtilsUI'
-  s.version          = '1.5'
+  s.version          = '1.6-beta1'
   s.summary          = 'DriveKit Permissions Utils UI Framework'
 
   s.description      = 'DriveKit Permissions Utils features: Management of permissions (access to Location or Activity data for instance) to guarantee that a trip can be recorded in the best conditions.'

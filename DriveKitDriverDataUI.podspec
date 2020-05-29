@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'DriveKitDriverDataUI'
-  s.version          = '1.4-beta3'
+  s.version          = '1.6-beta1'
   s.summary          = 'DriveKit Driver Data UI Framework'
 
   s.description      = 'DriveKit Driver Data features : Trip list and detail'

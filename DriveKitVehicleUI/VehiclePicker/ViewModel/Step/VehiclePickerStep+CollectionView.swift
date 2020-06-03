@@ -14,9 +14,17 @@ extension VehiclePickerStep : VehiclePickerCollectionViewDelegate {
         switch self {
         case .category:
             if let type = viewModel.vehicleType {
-                var categories : [VehiclePickerCollectionViewItem] = []
+                let filteredCategories = DriveKitVehicleUI.shared.categories.filter { category -> Bool in
+                    switch type {
+                        case .car:
+                            return category.isCar
+                        case .truck:
+                            return category.isTruck
+                    }
+                }
+                var categories: [VehiclePickerCollectionViewItem] = []
                 for category in DriveKitVehiclePicker.shared.getCategories(vehicleType: type) {
-                    if DriveKitVehicleUI.shared.categories.contains(category) {
+                    if filteredCategories.contains(category) {
                         categories.append(category)
                     }
                 }
@@ -24,63 +32,60 @@ extension VehiclePickerStep : VehiclePickerCollectionViewDelegate {
             }
         case .brandsIcons:
             if let type = viewModel.vehicleType {
-                var brands : [VehiclePickerCollectionViewItem] = []
+                let filteredBrands = DriveKitVehicleUI.shared.brands.filter { brand -> Bool in
+                    switch type {
+                        case .car:
+                            return brand.isCar
+                        case .truck:
+                            return brand.isTruck
+                    }
+                }
+                var brands: [VehiclePickerCollectionViewItem] = []
                 for brand in DriveKitVehiclePicker.shared.getBrands(vehicleType: type) {
-                    if brand.hasImage() && DriveKitVehicleUI.shared.brands.contains(brand) {
+                    if brand.hasImage() && filteredBrands.contains(brand) {
                         brands.append(brand)
                     }
                 }
-                if !brands.isEmpty && brands.count != DriveKitVehicleUI.shared.brands.count {
+                if !brands.isEmpty && brands.count != filteredBrands.count {
                     brands.append(OtherVehicles())
                 }
                 return brands
             }
+        case .truckType:
+            return DKTruckType.allCases
         default:
             break
         }
         return []
     }
-    
+
     func onCollectionViewItemSelected(pos: Int, viewModel: VehiclePickerViewModel, completion : (StepStatus) -> ()) {
         switch self {
         case .category:
             let items = DriveKitVehiclePicker.shared.getCategories(vehicleType: viewModel.vehicleType!)
             viewModel.vehicleCategory = items[pos]
-            if DriveKitVehicleUI.shared.categoryConfigType != .brandsConfigOnly {
-                viewModel.updateCurrentStep(step: .categoryDescription)
-            } else {
-                if DriveKitVehicleUI.shared.brands.count > 1 {
-                    if !DriveKitVehicleUI.shared.brandsWithIcons || VehiclePickerStep.brandsIcons.getCollectionViewItems(viewModel: viewModel).isEmpty {
-                        viewModel.updateCurrentStep(step: .brandsFull)
-                    } else {
-                        viewModel.updateCurrentStep(step: .brandsIcons)
-                    }
-                }else{
-                    viewModel.vehicleBrand = DriveKitVehicleUI.shared.brands[0]
-                    viewModel.updateCurrentStep(step: .engine)
-                }
-                
-            }
+            viewModel.nextStep(self)
             completion(.noError)
-            break
         case .brandsIcons:
             let items = VehiclePickerStep.brandsIcons.getCollectionViewItems(viewModel: viewModel)
             let item = items[pos]
-            if item is DKVehicleBrand {
-                viewModel.vehicleBrand = (item as! DKVehicleBrand)
-                viewModel.updateCurrentStep(step: .engine)
-            } else {
-                viewModel.updateCurrentStep(step: .brandsFull)
-            }
+            viewModel.vehicleBrand = item as? DKVehicleBrand
+            viewModel.nextStep(self)
+            completion(.noError)
+        case .truckType:
+            let items = VehiclePickerStep.truckType.getCollectionViewItems(viewModel: viewModel)
+            let item = items[pos]
+            viewModel.truckType = item as? DKTruckType
+            viewModel.nextStep(self)
             completion(.noError)
         default:
             completion(.noData)
         }
     }
-    
+
     func showLabel() -> Bool {
         switch self {
-        case .category:
+        case .category, .truckType:
             return true
         case .brandsIcons:
             return false

@@ -16,9 +16,10 @@ public class DriveKitVehicleUI {
     
     public static let shared = DriveKitVehicleUI()
     
-    var vehicleTypes : [DKVehicleType] = [.car]
+    var vehicleTypes : [DKVehicleType] = DKVehicleType.allCases
     var brands : [DKVehicleBrand] = DKVehicleBrand.allCases
     var categories : [DKVehicleCategory] = DKVehicleCategory.allCases
+    var truckTypes : [DKTruckType] = DKTruckType.allCases
     var categoryConfigType : DKCategoryConfigType = .bothConfig
     var vehicleEngineIndexes : [DKVehicleEngineIndex] = DKVehicleEngineIndex.allCases
     var brandsWithIcons : Bool = true

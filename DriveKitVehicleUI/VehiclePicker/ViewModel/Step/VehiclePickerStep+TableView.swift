@@ -1,5 +1,5 @@
 //
-//  VehiclePickerStep+VPTV.swift
+//  VehiclePickerStep+TableView.swift
 //  DriveKitVehicleUI
 //
 //  Created by Jérémy Bayle on 08/03/2020.
@@ -10,7 +10,7 @@ import Foundation
 import DriveKitVehicle
 
 extension VehiclePickerStep : VehiclePickerTableViewDelegate {
-    
+
     func getTableViewItems(viewModel : VehiclePickerViewModel) -> [VehiclePickerTableViewItem] {
         switch self {
         case .type:
@@ -29,7 +29,7 @@ extension VehiclePickerStep : VehiclePickerTableViewDelegate {
             if let type = viewModel.vehicleType {
                 var engineIndexes : [DKVehicleEngineIndex] = []
                 for engineIndex in DriveKitVehicleUI.shared.vehicleEngineIndexes {
-                    if DriveKitVehiclePicker.shared.getEnginesIndex(vehicleType: type).contains(engineIndex){
+                    if DriveKitVehiclePicker.shared.getEnginesIndex(vehicleType: type).contains(engineIndex) {
                         engineIndexes.append(engineIndex)
                     }
                 }
@@ -52,118 +52,38 @@ extension VehiclePickerStep : VehiclePickerTableViewDelegate {
         }
         return []
     }
-    
+
     func onTableViewItemSelected(pos: Int, viewModel : VehiclePickerViewModel) {
         switch self {
         case .type:
-            if DriveKitVehicleUI.shared.categories.count > 1 {
-                viewModel.vehicleType = DriveKitVehicleUI.shared.vehicleTypes[pos]
-                viewModel.updateCurrentStep(step: .category)
-            } else {
-                viewModel.vehicleCategory = DriveKitVehicleUI.shared.categories[0]
-                if DriveKitVehicleUI.shared.brands.count > 1 {
-                    if !DriveKitVehicleUI.shared.brandsWithIcons || VehiclePickerStep.brandsIcons.getCollectionViewItems(viewModel: viewModel).isEmpty {
-                        viewModel.updateCurrentStep(step: .brandsFull)
-                    } else {
-                        viewModel.updateCurrentStep(step: .brandsIcons)
-                    }
-                } else {
-                    viewModel.vehicleBrand = DriveKitVehicleUI.shared.brands[0]
-                    viewModel.updateCurrentStep(step: .engine)
-                }
-            }
-            viewModel.vehicleDataDelegate?.onDataRetrieved(status: .noError)
-            break
+            viewModel.vehicleType = DriveKitVehicleUI.shared.vehicleTypes[pos]
+            viewModel.nextStep(self)
         case .brandsFull:
             viewModel.vehicleBrand = (self.getTableViewItems(viewModel: viewModel)[pos] as! DKVehicleBrand)
-            viewModel.updateCurrentStep(step: .engine)
-            viewModel.vehicleDataDelegate?.onDataRetrieved(status: .noError)
+            viewModel.nextStep(self)
         case .engine:
             viewModel.vehicleEngineIndex = (self.getTableViewItems(viewModel: viewModel)[pos] as! DKVehicleEngineIndex)
-            guard let selectedBrand = viewModel.vehicleBrand, let selectedEngineIndex = viewModel.vehicleEngineIndex else {
-                viewModel.vehicleDataDelegate?.onDataRetrieved(status: .failedToRetreiveData)
-                return
-            }
-            DriveKitVehiclePicker.shared.getModels(brand: selectedBrand, engineIndex: selectedEngineIndex, completionHandler: { [weak viewModel] status, response in
-                if status {
-                    if let listModels = response, !listModels.isEmpty {
-                        viewModel?.models = listModels
-                        viewModel?.updateCurrentStep(step: .models)
-                        viewModel?.vehicleDataDelegate?.onDataRetrieved(status: .noError)
-                    } else {
-                        viewModel?.vehicleEngineIndex = nil
-                        viewModel?.vehicleDataDelegate?.onDataRetrieved(status: .noData)
-                    }
-                } else {
-                    viewModel?.vehicleDataDelegate?.onDataRetrieved(status: .failedToRetreiveData)
-                }
-            })
+            viewModel.nextStep(self)
         case .models:
             viewModel.vehicleModel = (self.getTableViewItems(viewModel: viewModel)[pos] as! String)
-            guard let selectedBrand = viewModel.vehicleBrand, let selectedEngineIndex = viewModel.vehicleEngineIndex, let selectedModel = viewModel.vehicleModel else {
-                viewModel.vehicleDataDelegate?.onDataRetrieved(status: .failedToRetreiveData)
-                return
-            }
-            DriveKitVehiclePicker.shared.getYears(brand: selectedBrand, engineIndex: selectedEngineIndex, model: selectedModel, completionHandler: { [weak viewModel] status, response in
-                if status {
-                    if let modelYears = response, !modelYears.isEmpty {
-                        viewModel?.years = modelYears
-                        viewModel?.updateCurrentStep(step: .years)
-                        viewModel?.vehicleDataDelegate?.onDataRetrieved(status: .noError)
-                    } else {
-                        viewModel?.vehicleModel = nil
-                        viewModel?.vehicleDataDelegate?.onDataRetrieved(status: .noData)
-                    }
-                } else {
-                    viewModel?.vehicleDataDelegate?.onDataRetrieved(status: .failedToRetreiveData)
-                }
-            })
+            viewModel.nextStep(self)
         case .years:
             viewModel.vehicleYear = (self.getTableViewItems(viewModel: viewModel)[pos] as! String)
-            guard let selectedBrand = viewModel.vehicleBrand, let selectedEngineIndex = viewModel.vehicleEngineIndex, let selectedModel = viewModel.vehicleModel, let selectedYear = viewModel.vehicleYear else {
-                viewModel.vehicleDataDelegate?.onDataRetrieved(status: .failedToRetreiveData)
-                return
-            }
-            DriveKitVehiclePicker.shared.getVersions(brand: selectedBrand, engineIndex: selectedEngineIndex, model: selectedModel, year: selectedYear, completionHandler: { [weak viewModel] status, response in
-                if status {
-                    if let vehicleVersions = response, !vehicleVersions.isEmpty {
-                        viewModel?.versions = vehicleVersions
-                        viewModel?.updateCurrentStep(step: .versions)
-                        viewModel?.vehicleDataDelegate?.onDataRetrieved(status: .noError)
-                    } else {
-                        viewModel?.vehicleVersion = nil
-                        viewModel?.vehicleDataDelegate?.onDataRetrieved(status: .noData)
-                    }
-                } else {
-                    viewModel?.vehicleDataDelegate?.onDataRetrieved(status: .failedToRetreiveData)
-                }
-            })
+            viewModel.nextStep(self)
         case .versions:
             viewModel.vehicleVersion = (self.getTableViewItems(viewModel: viewModel)[pos] as! DKVehicleVersion)
-            guard let selectedVersion = viewModel.vehicleVersion else {
-                return
-            }
-            DriveKitVehiclePicker.shared.getCharacteristics(dqIndex: selectedVersion.dqIndex, completionHandler: { [weak viewModel] status, response in
-                if status {
-                    if let vehicleCharacteristics = response {
-                        viewModel?.vehicleCharacteristics = vehicleCharacteristics
-                        viewModel?.updateCurrentStep(step: .name)
-                        viewModel?.vehicleDataDelegate?.onDataRetrieved(status: .noError)
-                    } else {
-                        viewModel?.vehicleVersion = nil
-                        viewModel?.vehicleDataDelegate?.onDataRetrieved(status: .noData)
-                    }
-                } else {
-                    viewModel?.vehicleDataDelegate?.onDataRetrieved(status: .failedToRetreiveData)
-                }
-            })
+            viewModel.nextStep(self)
         default:
             viewModel.vehicleDataDelegate?.onDataRetrieved(status: .noData)
         }
     }
-    
+
     func description() -> String? {
         switch self {
+        case .type:
+            return "dk_vehicle_type_selection_title".dkVehicleLocalized()
+        case .truckType:
+            return "dk_vehicle_category_truck_selection_title".dkVehicleLocalized()
         case .engine:
             return "dk_vehicle_engine_description".dkVehicleLocalized()
         case .models:
@@ -172,7 +92,7 @@ extension VehiclePickerStep : VehiclePickerTableViewDelegate {
             return "dk_vehicle_year_description".dkVehicleLocalized()
         case .versions:
             return "dk_vehicle_version_description".dkVehicleLocalized()
-        case .brandsFull :
+        case .brandsFull:
             return "dk_vehicle_brand_description".dkVehicleLocalized()
         default:
             break

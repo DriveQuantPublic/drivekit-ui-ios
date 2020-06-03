@@ -19,11 +19,11 @@ extension Array where Element:DKVehicle {
 }
 
 extension DKVehicle {
-    
+
     func getModel() -> String {
         return String(format: "%@ %@ %@", self.brand ?? "", self.model ?? "", self.version ?? "")
     }
-    
+
     func getPosition(vehiclesList: [DKVehicle]) -> Int {
         if let index = vehiclesList.firstIndex(where: {$0.vehicleId == self.vehicleId}) {
             return index
@@ -31,7 +31,7 @@ extension DKVehicle {
             return 0
         }
     }
-    
+
     func getDisplayName(position: Int) -> String {
         if let name = self.name, name.lowercased() != getModel().lowercased() {
             return name
@@ -40,11 +40,11 @@ extension DKVehicle {
             return displayName
         }
     }
-    
+
     public func computeName() -> String {
         return getDisplayName(position: getPosition(vehiclesList: DriveKitDBVehicleAccess.shared.findVehiclesOrderByNameAsc().execute().sortByDisplayNames()))
     }
-    
+
     func getLiteConfigCategoryName() -> String {
         let categories = DKVehicleCategory.allCases
         var categoryName = ""
@@ -67,16 +67,18 @@ extension DKVehicle {
                     categoryName = "dk_vehicle_category_car_luxury_title".dkVehicleLocalized()
                 case .sport:
                     categoryName = "dk_vehicle_category_car_sport_title".dkVehicleLocalized()
+                case .twoAxlesStraightTruck, .threeAxlesStraightTruck, .fourAxlesStraightTruck, .twoAxlesTractor, .threeAxlesTractor, .fourAxlesTractor:
+                    categoryName = ""
                 }
             }
         }
         return categoryName
     }
-    
+
     var vehicleImageTag : String {
         return "DQ_vehicle_" + self.vehicleId
     }
-    
+
     func getVehicleImage() -> UIImage? {
         let vehicleImage = vehicleImageTag
         let fileManager = FileManager.default
@@ -94,11 +96,10 @@ extension DKVehicle {
         } catch {
             print("Could not add image from document directory: \(error)")
         }
-        
         return image
     }
-    
-    
+
+
     var detectionModeDescription :  NSAttributedString {
         switch self.detectionMode {
         case .disabled:
@@ -110,7 +111,7 @@ extension DKVehicle {
                 let beaconCode = String(beacon?.uniqueId ?? "").dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.complementaryFontColor).build()
                 let description = "dk_detection_mode_beacon_desc_configured".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).buildWithArgs(beaconCode)
                 return description
-            }else {
+            } else {
                 return "dk_detection_mode_beacon_desc_not_configured".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 13, traits: .traitBold)).color(.criticalColor).build()
             }
         case .bluetooth:
@@ -118,14 +119,14 @@ extension DKVehicle {
                 let bluetoothName = String(bluetooth?.name ??  "").dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.complementaryFontColor).build()
                 let description = "dk_detection_mode_bluetooth_desc_configured".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).buildWithArgs(bluetoothName)
                 return description
-            }else{
+            } else {
                 return "dk_detection_mode_bluetooth_desc_not_configured".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 13, traits: .traitBold)).color(.criticalColor).build()
             }
         case .none:
             return "".dkAttributedString().build()
         }
     }
-    
+
     var detectionModeConfigurationButton : String? {
         switch self.detectionMode {
         case .disabled, .gps, .none:
@@ -136,7 +137,7 @@ extension DKVehicle {
             return "dk_vehicle_configure_bluetooth_title".dkVehicleLocalized().uppercased()
         }
     }
-    
+
     var descriptionImage: UIImage? {
         if (self.detectionMode == .beacon && self.beacon == nil) || (self.detectionMode == .bluetooth && self.bluetooth == nil) {
             return DKImages.warning.image

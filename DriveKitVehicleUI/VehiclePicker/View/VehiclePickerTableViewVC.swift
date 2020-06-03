@@ -83,15 +83,25 @@ extension VehiclePickerTableViewVC: UITableViewDataSource {
 
 extension VehiclePickerTableViewVC : VehicleDataDelegate {
     func onDataRetrieved(status: StepStatus) {
-        DispatchQueue.main.async {
+        self.executeOnMainThread {
             self.hideLoader()
             switch status {
-            case .noError:
-                self.viewModel.showStep()
-            case .noData:
-                self.showAlertMessage(title: nil, message: "dk_vehicle_no_data".dkVehicleLocalized(), back: false, cancel: false)
-            case .failedToRetreiveData:
-                self.showAlertMessage(title: nil, message: "dk_vehicle_failed_to_retrieve_vehicle_data".dkVehicleLocalized(), back: false, cancel: false)
+                case .noError:
+                    self.viewModel.showStep()
+                case .noData:
+                    self.showAlertMessage(title: nil, message: "dk_vehicle_no_data".dkVehicleLocalized(), back: false, cancel: false)
+                case .failedToRetreiveData:
+                    self.showAlertMessage(title: nil, message: "dk_vehicle_failed_to_retrieve_vehicle_data".dkVehicleLocalized(), back: false, cancel: false)
+            }
+        }
+    }
+
+    private func executeOnMainThread(_ block: @escaping () -> Void) {
+        if Thread.isMainThread {
+            block()
+        } else {
+            DispatchQueue.main.async {
+                block()
             }
         }
     }

@@ -24,24 +24,24 @@ final class BadgeLevelView : UIView, Nibable {
     @objc func goToDetailView(sender: DetailTapGestureRecognizer) {
         NotificationCenter.default.post(name: NSNotification.Name("goToDetailView"),
                                         object: nil,
-                                        userInfo: ["badgeLevel": sender.badgeLevel! as DKBadgeLevel])
+                                        userInfo: ["badgeCharacteristics": sender.badgeLevel! as DKBadgeCharacteristics])
     }
 
-    @objc public func configure(level: DKBadgeLevel) {
+    @objc public func configure(level: DKBadgeCharacteristics) {
         let badgeLevel = level
         let threshold = Float(level.threshold)
         let progress = Float(level.progressValue)
-        badgeImage.image = UIImage(named: progress >= threshold ? level.iconKey : level.defaultIconKey,
+        badgeImage.image = UIImage(named: progress >= threshold ? level.icon : level.defaultIcon,
                                    in: .driverAchievementUIBundle,
                                    compatibleWith: nil)
-        nameLabel.attributedText = level.nameKey.dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
+        nameLabel.attributedText = level.name.dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
         initProgressRing(threshold: threshold, progress: progress, badgeLevel: badgeLevel)
         let tapGesture = DetailTapGestureRecognizer(target: self, action: #selector(self.goToDetailView(sender:)))
         tapGesture.badgeLevel = badgeLevel
         self.addGestureRecognizer(tapGesture)
     }
     
-    private func initProgressRing(threshold: Float, progress: Float, badgeLevel: DKBadgeLevel) {
+    private func initProgressRing(threshold: Float, progress: Float, badgeLevel: DKBadgeCharacteristics) {
         progressRing.valueFormatter = UICircularProgressRingFormatter(valueIndicator: "", rightToLeft: false, showFloatingPoint: false, decimalPlaces: 0)
         progressRing.fullCircle = true
         progressRing.maxValue = CGFloat(threshold)
@@ -67,5 +67,5 @@ final class BadgeLevelView : UIView, Nibable {
 }
 
 class DetailTapGestureRecognizer: UITapGestureRecognizer {
-    var badgeLevel: DKBadgeLevel?
+    var badgeLevel: DKBadgeCharacteristics?
 }

@@ -22,7 +22,7 @@ class BadgeViewModel {
     }
     
     func updateBadges() {
-        DriveKitDriverAchievement.shared.getBadges(completionHandler: {status, badges in
+        DriveKitDriverAchievement.shared.getBadges(completionHandler: {status, badges, newBadges in
             DispatchQueue.main.async {
                 self.computeBadges(badges: badges)
                 self.delegate?.badgesUpdated()
@@ -43,11 +43,11 @@ class BadgeViewModel {
     }
     
     func badgeTitle(pos: Int) -> String {
-        return badges[pos].themeKey.dkAchievementLocalized()
+        return badges[pos].theme.dkAchievementLocalized()
     }
     
-    func badgeLevels(pos: Int) -> [DKBadgeLevel] {
-        return badges[pos].levels
+    func badgeLevels(pos: Int) -> [DKBadgeCharacteristics] {
+        return badges[pos].badgeCharacteristics
     }
 }
 

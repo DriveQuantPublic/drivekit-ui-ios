@@ -19,17 +19,17 @@ class BadgeTableViewCell : UITableViewCell {
         super.awakeFromNib()
     }
     
-    private func addLevelView(level: DKBadgeLevel) {
+    private func addLevelView(level: DKBadgeCharacteristics) {
         let levelView = BadgeLevelView.viewFromNib
         levelsStackView.addArrangedSubview(levelView)
         configureLevelView(levelView: levelView, level: level)
     }
 
-    private func configureLevelView(levelView: BadgeLevelView, level: DKBadgeLevel) {
+    private func configureLevelView(levelView: BadgeLevelView, level: DKBadgeCharacteristics) {
         levelView.configure(level: level)
     }
 
-    func configure(levels: [DKBadgeLevel]) {
+    func configure(levels: [DKBadgeCharacteristics]) {
         if levelsStackView.arrangedSubviews.isEmpty {
             addLevelView(level: levels.filter{$0.level == .bronze}.first!)
             addLevelView(level: levels.filter{$0.level == .silver}.first!)

@@ -121,8 +121,7 @@ class VehiclePickerViewModel {
             let driveKitVehicleUI = DriveKitVehicleUI.shared
             if vehicleType == .truck {
                 if driveKitVehicleUI.truckTypes.count > 1 {
-                    self.currentStep = .truckType
-                    self.vehicleDataDelegate?.onDataRetrieved(status: .noError)
+                    updateStep(.truckType)
                 } else {
                     self.truckType = driveKitVehicleUI.truckTypes.first
                     nextStepInternal(.truckType)
@@ -137,8 +136,7 @@ class VehiclePickerViewModel {
                     }
                 })
                 if filteredCategories.count > 1 && driveKitVehicleUI.categoryConfigType != .brandsConfigOnly {
-                    self.currentStep = .category
-                    self.vehicleDataDelegate?.onDataRetrieved(status: .noError)
+                    updateStep(.category)
                 } else {
                     self.vehicleCategory = filteredCategories.first
                     nextStepInternal(.category)
@@ -154,13 +152,13 @@ class VehiclePickerViewModel {
             let filteredBrands = DriveKitVehicleUI.shared.brands.filter { $0.isTruck }
             if filteredBrands.count > 1 {
                 if !DriveKitVehicleUI.shared.brandsWithIcons || VehiclePickerStep.brandsIcons.getCollectionViewItems(viewModel: self).isEmpty {
-                    self.currentStep = .brandsFull
+                    updateStep(.brandsFull)
                 } else {
-                    self.currentStep = .brandsIcons
+                    updateStep(.brandsIcons)
                 }
             } else {
                 self.vehicleBrand = filteredBrands.first
-                self.currentStep = .engine
+                nextStepInternal(.brandsFull)
             }
         } else {
             nextStepInternal(nil)
@@ -180,22 +178,22 @@ class VehiclePickerViewModel {
             })
             if filteredCategories.count == 1 && driveKitVehicleUI.categoryConfigType == .liteConfigOnly {
                 self.liteConfig = true
-                self.currentStep = .name
                 self.vehicleCharacteristics = DKCarVehicleCharacteristics()
                 self.vehicleCharacteristics?.dqIndex = vehicleCategory.liteConfigId() ?? ""
+                updateStep(.name)
             } else if driveKitVehicleUI.categoryConfigType != .brandsConfigOnly {
-                self.currentStep = .categoryDescription
+                updateStep(.categoryDescription)
             } else {
                 let filteredBrands = driveKitVehicleUI.brands.filter { !$0.isTruck }
                 if filteredBrands.count > 1 {
                     if !driveKitVehicleUI.brandsWithIcons || VehiclePickerStep.brandsIcons.getCollectionViewItems(viewModel: self).isEmpty {
-                        self.currentStep = .brandsFull
+                        updateStep(.brandsFull)
                     } else {
-                        self.currentStep = .brandsIcons
+                        updateStep(.brandsIcons)
                     }
                 } else {
                     self.vehicleBrand = filteredBrands.first
-                    self.currentStep = .engine
+                    nextStepInternal(.brandsFull)
                 }
             }
         } else {
@@ -205,14 +203,14 @@ class VehiclePickerViewModel {
 
     private func nextStepAfterCategoryDescriptionStep() {
         if self.liteConfig {
-            self.currentStep = .name
+            updateStep(.name)
         } else {
             let filteredBrands = DriveKitVehicleUI.shared.brands.filter { !$0.isTruck }
             if filteredBrands.count > 1 {
                 if !DriveKitVehicleUI.shared.brandsWithIcons || VehiclePickerStep.brandsIcons.getCollectionViewItems(viewModel: self).isEmpty {
-                    self.currentStep = .brandsFull
+                    updateStep(.brandsFull)
                 } else {
-                    self.currentStep = .brandsIcons
+                    updateStep(.brandsIcons)
                 }
             } else {
                 self.vehicleBrand = filteredBrands.first
@@ -223,20 +221,24 @@ class VehiclePickerViewModel {
 
     private func nextStepAfterBrandsFullStep() {
         if self.vehicleBrand != nil, let vehicleType = self.vehicleType {
-            let filteredEngineIndexes = DriveKitVehicleUI.shared.vehicleEngineIndexes.filter { engineIndex -> Bool in
-                switch vehicleType {
-                    case .car:
-                        return engineIndex.isCar
-                    case .truck:
-                        return engineIndex.isTruck
-                }
-            }
-            if filteredEngineIndexes.count > 1 {
-                self.currentStep = .engine
-                self.vehicleDataDelegate?.onDataRetrieved(status: .noError)
-            } else {
-                self.vehicleEngineIndex = filteredEngineIndexes.first
+            if vehicleType == .truck {
+                self.vehicleEngineIndex = DKVehicleEngineIndex.diesel
                 nextStepInternal(.engine)
+            } else {
+                let filteredEngineIndexes = DriveKitVehicleUI.shared.vehicleEngineIndexes.filter { engineIndex -> Bool in
+                    switch vehicleType {
+                        case .car:
+                            return engineIndex.isCar
+                        case .truck:
+                            return engineIndex.isTruck
+                    }
+                }
+                if filteredEngineIndexes.count > 1 {
+                    updateStep(.engine)
+                } else {
+                    self.vehicleEngineIndex = filteredEngineIndexes.first
+                    nextStepInternal(.engine)
+                }
             }
         } else {
             nextStepInternal(nil)
@@ -245,22 +247,27 @@ class VehiclePickerViewModel {
 
     private func nextStepAfterBrandsIconsStep() {
         if self.vehicleBrand != nil, let vehicleType = self.vehicleType {
-            let filteredEngineIndexes = DriveKitVehicleUI.shared.vehicleEngineIndexes.filter { engineIndex -> Bool in
-                switch vehicleType {
-                    case .car:
-                        return engineIndex.isCar
-                    case .truck:
-                        return engineIndex.isTruck
+            if vehicleType == .truck {
+                self.vehicleEngineIndex = DKVehicleEngineIndex.diesel
+                nextStepInternal(.engine)
+            } else {
+                let filteredEngineIndexes = DriveKitVehicleUI.shared.vehicleEngineIndexes.filter { engineIndex -> Bool in
+                    switch vehicleType {
+                        case .car:
+                            return engineIndex.isCar
+                        case .truck:
+                            return engineIndex.isTruck
+                    }
+                }
+                if filteredEngineIndexes.count > 1 {
+                    updateStep(.engine)
+                } else {
+                    self.vehicleEngineIndex = filteredEngineIndexes.first
+                    nextStepInternal(.engine)
                 }
             }
-            if filteredEngineIndexes.count > 1 {
-                self.currentStep = .engine
-            } else {
-                self.vehicleEngineIndex = filteredEngineIndexes.first
-                nextStepInternal(.engine)
-            }
         } else {
-            self.currentStep = .brandsFull
+            updateStep(.brandsFull)
         }
     }
 
@@ -271,8 +278,7 @@ class VehiclePickerViewModel {
                     if status {
                         if let listModels = response, !listModels.isEmpty {
                             self.models = listModels
-                            self.currentStep = .models
-                            self.vehicleDataDelegate?.onDataRetrieved(status: .noError)
+                            self.updateStep(.models)
                         } else {
                             self.vehicleEngineIndex = nil
                             self.vehicleDataDelegate?.onDataRetrieved(status: .noData)
@@ -304,8 +310,7 @@ class VehiclePickerViewModel {
                     if status {
                         if let modelYears = response, !modelYears.isEmpty {
                             self.years = modelYears
-                            self.currentStep = .years
-                            self.vehicleDataDelegate?.onDataRetrieved(status: .noError)
+                            self.updateStep(.years)
                         } else {
                             self.vehicleModel = nil
                             self.vehicleDataDelegate?.onDataRetrieved(status: .noData)
@@ -341,8 +346,7 @@ class VehiclePickerViewModel {
                     if status {
                         if let vehicleVersions = response, !vehicleVersions.isEmpty {
                             self.versions = vehicleVersions
-                            self.currentStep = .versions
-                            self.vehicleDataDelegate?.onDataRetrieved(status: .noError)
+                            self.updateStep(.versions)
                         } else {
                             self.vehicleVersion = nil
                             self.vehicleDataDelegate?.onDataRetrieved(status: .noData)
@@ -381,8 +385,7 @@ class VehiclePickerViewModel {
                 if status {
                     if let vehicleCharacteristics = response {
                         self.vehicleCharacteristics = vehicleCharacteristics
-                        self.currentStep = .name
-                        self.vehicleDataDelegate?.onDataRetrieved(status: .noError)
+                        self.updateStep(.name)
                     } else {
                         self.vehicleVersion = nil
                         self.vehicleDataDelegate?.onDataRetrieved(status: .noData)
@@ -397,6 +400,15 @@ class VehiclePickerViewModel {
                 DriveKitVehiclePicker.shared.getCarCharacteristics(dqIndex: vehicleVersion.dqIndex, completionHandler: completionHandler)
             case .truck:
                 DriveKitVehiclePicker.shared.getTruckCharacteristics(dqIndex: vehicleVersion.dqIndex, completionHandler: completionHandler)
+        }
+    }
+
+    private func updateStep(_ step: VehiclePickerStep) {
+        self.currentStep = step
+        if let vehicleDataDelegate = self.vehicleDataDelegate {
+            vehicleDataDelegate.onDataRetrieved(status: .noError)
+        } else {
+            showStep()
         }
     }
 

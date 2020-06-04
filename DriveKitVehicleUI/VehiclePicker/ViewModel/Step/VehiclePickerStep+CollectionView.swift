@@ -59,7 +59,7 @@ extension VehiclePickerStep : VehiclePickerCollectionViewDelegate {
         return []
     }
 
-    func onCollectionViewItemSelected(pos: Int, viewModel: VehiclePickerViewModel, completion : (StepStatus) -> ()) {
+    func onCollectionViewItemSelected(pos: Int, viewModel: VehiclePickerViewModel, completion: (StepStatus) -> ()) {
         switch self {
         case .category:
             let items = DriveKitVehiclePicker.shared.getCategories(vehicleType: viewModel.vehicleType!)

@@ -11,7 +11,7 @@ import DriveKitVehicle
 
 extension VehiclePickerStep : VehiclePickerTableViewDelegate {
 
-    func getTableViewItems(viewModel : VehiclePickerViewModel) -> [VehiclePickerTableViewItem] {
+    func getTableViewItems(viewModel: VehiclePickerViewModel) -> [VehiclePickerTableViewItem] {
         switch self {
         case .type:
             return DriveKitVehicleUI.shared.vehicleTypes
@@ -53,7 +53,7 @@ extension VehiclePickerStep : VehiclePickerTableViewDelegate {
         return []
     }
 
-    func onTableViewItemSelected(pos: Int, viewModel : VehiclePickerViewModel) {
+    func onTableViewItemSelected(pos: Int, viewModel: VehiclePickerViewModel) {
         switch self {
         case .type:
             viewModel.vehicleType = DriveKitVehicleUI.shared.vehicleTypes[pos]

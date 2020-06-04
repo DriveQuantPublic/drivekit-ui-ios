@@ -14,10 +14,10 @@ private struct Constants {
     static let minimumLineSpacing: CGFloat = 8
 }
 
-class VehiclePickerTruckTypeVC: VehiclePickerStepView {
+class VehiclePickerTruckTypeVC : VehiclePickerStepView {
     @IBOutlet private weak var collectionView: UICollectionView!
 
-    init (viewModel: VehiclePickerViewModel) {
+    init(viewModel: VehiclePickerViewModel) {
         super.init(nibName: String(describing: VehiclePickerTruckTypeVC.self), bundle: .vehicleUIBundle)
         self.viewModel = viewModel
     }
@@ -40,6 +40,7 @@ class VehiclePickerTruckTypeVC: VehiclePickerStepView {
         super.viewWillAppear(animated)
 
         self.collectionView.reloadData()
+        self.viewModel.vehicleDataDelegate = self
     }
 }
 
@@ -99,16 +100,27 @@ extension VehiclePickerTruckTypeVC: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.showLoader()
-        viewModel.onCollectionViewItemSelected(pos: indexPath.row, completion: {status in
+        viewModel.onCollectionViewItemSelected(pos: indexPath.row, completion: { status in
+            if status == .noData {
+                self.hideLoader()
+                self.showAlertMessage(title: nil, message: "dk_vehicle_no_data".dkVehicleLocalized(), back: false, cancel: false)
+            }
+        })
+    }
+}
+
+extension VehiclePickerTruckTypeVC : VehicleDataDelegate {
+    func onDataRetrieved(status: StepStatus) {
+        self.executeOnMainThread {
             self.hideLoader()
             switch status {
                 case .noError:
-                    (self.navigationController as! DKVehiclePickerNavigationController).showStep(viewController: self.viewModel.getViewController())
+                    self.viewModel.showStep()
                 case .noData:
-                    self.showAlertMessage(title: nil, message: "No data retrieved for selection", back: false, cancel: false)
+                    self.showAlertMessage(title: nil, message: "dk_vehicle_no_data".dkVehicleLocalized(), back: false, cancel: false)
                 case .failedToRetreiveData:
-                    self.showAlertMessage(title: nil, message: "Failed to retreive data", back: false, cancel: false)
+                    self.showAlertMessage(title: nil, message: "dk_vehicle_failed_to_retrieve_vehicle_data".dkVehicleLocalized(), back: false, cancel: false)
             }
-        })
+        }
     }
 }

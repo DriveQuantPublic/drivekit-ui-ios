@@ -14,10 +14,10 @@ private struct Constants {
     static let minimumLineSpacing: CGFloat = 8
 }
 
-class VehiclePickerCollectionViewVC: VehiclePickerStepView {
+class VehiclePickerCollectionViewVC : VehiclePickerStepView {
     @IBOutlet weak var collectionView: UICollectionView!
 
-    init (viewModel: VehiclePickerViewModel) {
+    init(viewModel: VehiclePickerViewModel) {
         super.init(nibName: String(describing: VehiclePickerCollectionViewVC.self), bundle: .vehicleUIBundle)
         self.viewModel = viewModel
     }
@@ -37,10 +37,11 @@ class VehiclePickerCollectionViewVC: VehiclePickerStepView {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.collectionView.reloadData()
+        self.viewModel.vehicleDataDelegate = self
     }
 }
 
-extension VehiclePickerCollectionViewVC: UICollectionViewDelegate, UICollectionViewDataSource {
+extension VehiclePickerCollectionViewVC : UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -63,7 +64,7 @@ extension VehiclePickerCollectionViewVC: UICollectionViewDelegate, UICollectionV
     }
 }
 
-extension VehiclePickerCollectionViewVC: UICollectionViewDelegateFlowLayout {
+extension VehiclePickerCollectionViewVC : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.bounds.width - Constants.insets.left - Constants.insets.right - Constants.minimumInteritemSpacing) / 2
         let height = self.viewModel.showStepLabel() ? width + 16 : width
@@ -84,16 +85,27 @@ extension VehiclePickerCollectionViewVC: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.showLoader()
-        viewModel.onCollectionViewItemSelected(pos: indexPath.row, completion: {status in
-            self.hideLoader()
-            switch status {
-            case .noError:
-                (self.navigationController as! DKVehiclePickerNavigationController).showStep(viewController: self.viewModel.getViewController())
-            case .noData:
-                self.showAlertMessage(title: nil, message: "No data retrieved for selection", back: false, cancel: false)
-            case .failedToRetreiveData:
-                self.showAlertMessage(title: nil, message: "Failed to retreive data", back: false, cancel: false)
+        self.viewModel.onCollectionViewItemSelected(pos: indexPath.row, completion: { status in
+            if status == .noData {
+                self.hideLoader()
+                self.showAlertMessage(title: nil, message: "dk_vehicle_no_data".dkVehicleLocalized(), back: false, cancel: false)
             }
         })
+    }
+}
+
+extension VehiclePickerCollectionViewVC : VehicleDataDelegate {
+    func onDataRetrieved(status: StepStatus) {
+        self.executeOnMainThread {
+            self.hideLoader()
+            switch status {
+                case .noError:
+                    self.viewModel.showStep()
+                case .noData:
+                    self.showAlertMessage(title: nil, message: "dk_vehicle_no_data".dkVehicleLocalized(), back: false, cancel: false)
+                case .failedToRetreiveData:
+                    self.showAlertMessage(title: nil, message: "dk_vehicle_failed_to_retrieve_vehicle_data".dkVehicleLocalized(), back: false, cancel: false)
+            }
+        }
     }
 }

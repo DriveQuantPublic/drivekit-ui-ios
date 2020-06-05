@@ -33,8 +33,18 @@ extension DKVehicleCategory : VehiclePickerCollectionViewItem {
                 return "dk_vehicle_category_car_luxury_title"
             case .sport:
                 return "dk_vehicle_category_car_sport_title"
-            case .twoAxlesStraightTruck, .threeAxlesStraightTruck, .fourAxlesStraightTruck, .twoAxlesTractor, .threeAxlesTractor, .fourAxlesTractor:
-                return ""
+            case .twoAxlesStraightTruck:
+                return "dk_vehicle_category_truck_straight_2_axles"
+            case .threeAxlesStraightTruck:
+                return "dk_vehicle_category_truck_straight_3_axles"
+            case .fourAxlesStraightTruck:
+                return "dk_vehicle_category_truck_straight_4_axles"
+            case .twoAxlesTractor:
+                return "dk_vehicle_category_truck_trailer_2_axles"
+            case .threeAxlesTractor:
+                return "dk_vehicle_category_truck_trailer_3_axles"
+            case .fourAxlesTractor:
+                return "dk_vehicle_category_truck_trailer_4_axles"
         }
     }
 

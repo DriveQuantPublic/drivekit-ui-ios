@@ -19,7 +19,7 @@ class VehiclePickerImageCollectionViewCell: UICollectionViewCell {
         self.iconImageView.image = image
         if showLabel {
             self.iconTitle.isHidden = false
-            self.iconTitle.attributedText = text?.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.primaryColor).build()
+            self.iconTitle.attributedText = text?.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
         } else {
             self.iconTitle.isHidden = true
         }

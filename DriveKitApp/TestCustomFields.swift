@@ -12,8 +12,6 @@ import DriveKitDBVehicleAccess
 import DriveKitVehicle
 
 enum TestField : DKVehicleField {
-    
-    
     case number, ascii
     
     var title: String {
@@ -23,6 +21,10 @@ enum TestField : DKVehicleField {
         case .ascii:
             return "Test Field ASCII"
         }
+    }
+
+    var description: String? {
+        return nil
     }
     
     var isEditable: Bool {
@@ -52,8 +54,11 @@ enum TestField : DKVehicleField {
         completion(true)
     }
     
-    func isValid(value: String) -> Bool {
+    func isValid(value: String, vehicle: DKVehicle) -> Bool {
         return value.count < 5
+    }
+    func isDisplayable(vehicle: DKVehicle) -> Bool {
+        return getValue(vehicle: vehicle) != nil
     }
     
     func getErrorDescription() -> String? {

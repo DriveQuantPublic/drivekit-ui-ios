@@ -62,9 +62,10 @@ extension VehiclePickerTableViewVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView.init(frame: CGRect.init(x: 0.0, y: 0.0, width: tableView.frame.width, height: 70))
         if let description = viewModel.getStepDescription() {
+            let horizontalMargin = CGFloat(24)
             let label = UILabel()
-            label.frame = CGRect.init(x: 0.0, y: 0.0, width: headerView.frame.width, height: headerView.frame.height)
-            label.textAlignment = .center
+            label.frame = CGRect.init(x: horizontalMargin, y: 0.0, width: headerView.frame.width - 2 * horizontalMargin, height: headerView.frame.height)
+            label.textAlignment = .left
             label.attributedText = description.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
             headerView.addSubview(label)
         }

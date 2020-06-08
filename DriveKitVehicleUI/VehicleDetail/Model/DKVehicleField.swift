@@ -13,16 +13,17 @@ import DriveKitCommonUI
 
 public protocol DKVehicleField {
     var title: String { get }
+    var description: String? { get }
     var isEditable: Bool { get }
     var keyBoardType: UIKeyboardType { get }
     func getValue(vehicle: DKVehicle) -> String?
-    func isValid(value : String) -> Bool
+    func isValid(value: String, vehicle: DKVehicle) -> Bool
+    func isDisplayable(vehicle: DKVehicle) -> Bool
     func getErrorDescription() -> String?
-    func onFieldUpdated(value: String, vehicle: DKVehicle, completion : @escaping (Bool) -> ())
+    func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> ())
 }
 
 enum EngineField : DKVehicleField, CaseIterable {
-
     case motor, consumption
 
     var title: String {
@@ -32,6 +33,10 @@ enum EngineField : DKVehicleField, CaseIterable {
         case .consumption:
             return "dk_consumption".dkVehicleLocalized()
         }
+    }
+
+    var description: String? {
+        return nil
     }
 
     func getValue(vehicle: DKVehicle) -> String? {
@@ -58,8 +63,12 @@ enum EngineField : DKVehicleField, CaseIterable {
         return nil
     }
 
-    func isValid(value: String) -> Bool {
+    func isValid(value: String, vehicle: DKVehicle) -> Bool {
         return true
+    }
+
+    func isDisplayable(vehicle: DKVehicle) -> Bool {
+        return getValue(vehicle: vehicle) != nil
     }
 
     func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> ()) {
@@ -69,7 +78,6 @@ enum EngineField : DKVehicleField, CaseIterable {
 }
 
 enum GeneralField : DKVehicleField, CaseIterable {
-
     case name, category, brand, model, version
 
     var title: String {
@@ -85,6 +93,10 @@ enum GeneralField : DKVehicleField, CaseIterable {
         case .version:
             return "dk_version".dkVehicleLocalized()
         }
+    }
+
+    var description: String? {
+        return nil
     }
 
     func getValue(vehicle: DKVehicle) -> String? {
@@ -124,12 +136,16 @@ enum GeneralField : DKVehicleField, CaseIterable {
         return .default
     }
 
-    func isValid(value: String) -> Bool {
+    func isValid(value: String, vehicle: DKVehicle) -> Bool {
         if self == .name {
             return value.count <= 50
         } else {
             return true
         }
+    }
+
+    func isDisplayable(vehicle: DKVehicle) -> Bool {
+        return getValue(vehicle: vehicle) != nil
     }
 
     func getErrorDescription() -> String? {
@@ -157,7 +173,6 @@ enum GeneralField : DKVehicleField, CaseIterable {
 }
 
 enum BluetoothField : DKVehicleField, CaseIterable {
-
     case bluetoothName, macAddress
 
     var title: String {
@@ -167,6 +182,10 @@ enum BluetoothField : DKVehicleField, CaseIterable {
         case .bluetoothName:
             return "dk_bluetooth_name".dkVehicleLocalized()
         }
+    }
+
+    var description: String? {
+        return nil
     }
 
     func getValue(vehicle: DKVehicle) -> String? {
@@ -186,8 +205,12 @@ enum BluetoothField : DKVehicleField, CaseIterable {
         return .default
     }
 
-    func isValid(value: String) -> Bool {
+    func isValid(value: String, vehicle: DKVehicle) -> Bool {
         return true
+    }
+
+    func isDisplayable(vehicle: DKVehicle) -> Bool {
+        return getValue(vehicle: vehicle) != nil
     }
 
     func getErrorDescription() -> String? {
@@ -211,6 +234,10 @@ enum BeaconField : DKVehicleField, CaseIterable {
         case .major:
             return "dk_beacon_major".dkVehicleLocalized()
         }
+    }
+
+    var description: String? {
+        return nil
     }
 
     func getValue(vehicle: DKVehicle) -> String? {
@@ -240,8 +267,12 @@ enum BeaconField : DKVehicleField, CaseIterable {
         return .default
     }
 
-    func isValid(value: String) -> Bool {
+    func isValid(value: String, vehicle: DKVehicle) -> Bool {
         return true
+    }
+
+    func isDisplayable(vehicle: DKVehicle) -> Bool {
+        return getValue(vehicle: vehicle) != nil
     }
 
     func getErrorDescription() -> String? {
@@ -267,6 +298,10 @@ enum CharacteristicsField : DKVehicleField, CaseIterable {
         case .ptac:
             return "dk_vehicle_ptac".dkVehicleLocalized()
         }
+    }
+
+    var description: String? {
+        return nil
     }
 
     func getValue(vehicle: DKVehicle) -> String? {
@@ -315,8 +350,12 @@ enum CharacteristicsField : DKVehicleField, CaseIterable {
         return .default
     }
 
-    func isValid(value: String) -> Bool {
+    func isValid(value: String, vehicle: DKVehicle) -> Bool {
         return true
+    }
+
+    func isDisplayable(vehicle: DKVehicle) -> Bool {
+        return getValue(vehicle: vehicle) != nil
     }
 
     func getErrorDescription() -> String? {

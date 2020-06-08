@@ -12,10 +12,10 @@ import DriveKitCommonUI
 class VehicleGroupFieldsCell: UITableViewCell {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cardView: CardView!
-    
+
     private var viewModel: VehicleDetailViewModel?
     private var groupField: DKVehicleGroupField?
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         clipsToBounds = false
@@ -25,7 +25,7 @@ class VehicleGroupFieldsCell: UITableViewCell {
         tableView.delegate = self
         tableView.dataSource = self
     }
-    
+
     func configure(viewModel : VehicleDetailViewModel, groupField: DKVehicleGroupField) {
         self.viewModel = viewModel
         self.groupField  = groupField
@@ -37,11 +37,10 @@ extension VehicleGroupFieldsCell: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if let viewModel = self.viewModel, let groupField = self.groupField {
             let field = viewModel.getField(groupField: groupField)[indexPath.row]
-            return field.cellHeight
-        }else {
+            return field.cellHeightForWidth(tableView.bounds.size.width)
+        } else {
             return 0
         }
-        
     }
 }
 
@@ -49,15 +48,15 @@ extension VehicleGroupFieldsCell: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let viewModel = self.viewModel, let groupField = self.groupField {
             return viewModel.getField(groupField: groupField).count
-        }else{
+        } else {
             return 0
         }
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: VehicleFieldCell = self.tableView.dequeueReusableCell(withIdentifier: "VehicleFieldCell", for: indexPath) as! VehicleFieldCell
         if let viewModel = self.viewModel, let groupField = self.groupField {
@@ -71,12 +70,12 @@ extension VehicleGroupFieldsCell: UITableViewDataSource {
 
 extension VehicleGroupFieldsCell: VehicleFieldCellDelegate {
     func didEndEditing(cell: VehicleFieldCell, value: String) {
-        if let indexPath = tableView.indexPath(for: cell), let viewModel = self.viewModel, let groupField = self.groupField  {
+        if let indexPath = tableView.indexPath(for: cell), let viewModel = self.viewModel, let groupField = self.groupField {
             if let field = self.viewModel?.getField(groupField: groupField)[indexPath.row] {
-                if field.isValid(value: value) {
+                if field.isValid(value: value, vehicle: viewModel.vehicle) {
                     viewModel.addUpdatedField(field: field, value: value)
                     cell.configureError(error: nil)
-                }else{
+                } else {
                     cell.configureError(error: field.getErrorDescription() ?? "")
                 }
             }
@@ -85,11 +84,17 @@ extension VehicleGroupFieldsCell: VehicleFieldCellDelegate {
 }
 
 extension DKVehicleField {
-    var cellHeight : CGFloat {
-        var size : CGFloat = 58
+    func cellHeightForWidth(_ width: CGFloat) -> CGFloat {
+        var height: CGFloat = 58
         if self.isEditable {
-            size += 20
+            height += 20
         }
-        return size
+        if let description = self.description {
+            let attributedString = description.dkAttributedString().font(dkFont: .primary, style: .smallText).build()
+            let boundingRect = attributedString.boundingRect(with: CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), options: [.usesLineFragmentOrigin, .usesFontLeading], context: nil)
+            let descriptionHeight = boundingRect.height
+            height += descriptionHeight
+        }
+        return height
     }
 }

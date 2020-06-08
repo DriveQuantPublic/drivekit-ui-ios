@@ -32,13 +32,13 @@ public enum DKVehicleGroupField : CaseIterable {
                 allFields = BluetoothField.allCases
         }
         for field in allFields {
-            if field.getValue(vehicle: vehicle) != nil {
+            if field.isDisplayable(vehicle: vehicle) {
                 fields.append(field)
             }
         }
 
         if let customFields = getCustomFields() {
-            fields.append(contentsOf: customFields)
+            fields.append(contentsOf: customFields.filter { $0.isDisplayable(vehicle: vehicle) })
         }
 
         return fields

@@ -46,6 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitVehicleUI.shared.configureBeaconDetailEmail(beaconDiagnosticEmail: self)
         DriveKitVehicleUI.shared.configureBeaconDiagnosticSupportURL(url: "https://www.google.com")
         DriveKitVehicleUI.shared.configureCategoryConfigType(type: .bothConfig)
+        DriveKitVehicleUI.shared.addCustomVehicleField(groupField: .engine, fieldsToAdd: [DeclaredConsumptionField()])
+        DriveKitVehicleUI.shared.addCustomVehicleField(groupField: .characteristics, fieldsToAdd: [DeclaredPtacField()])
         DriveKitPermissionsUtilsUI.shared.initialize()
         DriveKitPermissionsUtilsUI.shared.configureBluetooth(needed: true)
         DriveKitPermissionsUtilsUI.shared.configureDiagnosisLogs(show: true)
@@ -208,5 +210,58 @@ extension AppDelegate : DKContentMail {
     
     func getMailBody() -> String {
         return "Test mail body"
+    }
+}
+
+fileprivate class DeclaredConsumptionField : DKVehicleField {
+    var title: String = "title_declared_consumption".keyLocalized()
+    var description: String? = nil
+    var isEditable: Bool = true
+    var keyBoardType: UIKeyboardType = .decimalPad
+    func getValue(vehicle: DKVehicle) -> String? {
+        return vehicle.extraData["declaredConsumption"]
+    }
+    func isValid(value: String, vehicle: DKVehicle) -> Bool {
+        if let consumption = Double(value.replacingOccurrences(of: ",", with: ".")) {
+            return consumption > 2 && consumption < 20
+        } else {
+            return false
+        }
+    }
+    func isDisplayable(vehicle: DKVehicle) -> Bool {
+        return !vehicle.isTruck()
+    }
+    func getErrorDescription() -> String? {
+        return "error_consumption".keyLocalized()
+    }
+    func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> ()) {
+
+    }
+}
+
+fileprivate class DeclaredPtacField : DKVehicleField {
+    var title: String = "dk_vehicle_ptac".keyLocalized()
+    var description: String? = "dk_vehicle_ptac_truck_and_trailer_info".keyLocalized()
+    var isEditable: Bool = true
+    var keyBoardType: UIKeyboardType = .decimalPad
+    func getValue(vehicle: DKVehicle) -> String? {
+        return vehicle.extraData["declaredPtac"]
+    }
+    func isValid(value: String, vehicle: DKVehicle) -> Bool {
+        if let declaredPtac = Double(value.replacingOccurrences(of: ",", with: ".")) {
+            let ptac = (vehicle.ptac ?? 0) / 1000
+            return declaredPtac >= ptac && declaredPtac <= 44
+        } else {
+            return false
+        }
+    }
+    func isDisplayable(vehicle: DKVehicle) -> Bool {
+        return vehicle.isTruck()
+    }
+    func getErrorDescription() -> String? {
+        return "The value must be between PTAC and 44 tons.".keyLocalized()
+    }
+    func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> ()) {
+
     }
 }

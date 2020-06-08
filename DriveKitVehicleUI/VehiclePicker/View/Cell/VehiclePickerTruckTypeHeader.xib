@@ -12,17 +12,17 @@
         <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VehiclePickerTruckTypeHeader" translatesAutoresizingMaskIntoConstraints="NO" id="eoN-hV-17B" customClass="VehiclePickerTruckTypeHeader" customModule="DriveKitVehicleUI" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="raj-1F-dXV">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="raj-1F-dXV">
+                    <rect key="frame" x="24" y="0.0" width="366" height="70"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="raj-1F-dXV" secondAttribute="trailing" id="7Er-vs-51P"/>
+                <constraint firstAttribute="trailing" secondItem="raj-1F-dXV" secondAttribute="trailing" constant="24" id="7Er-vs-51P"/>
                 <constraint firstItem="raj-1F-dXV" firstAttribute="top" secondItem="eoN-hV-17B" secondAttribute="top" id="8ba-KA-OZU"/>
-                <constraint firstItem="raj-1F-dXV" firstAttribute="leading" secondItem="eoN-hV-17B" secondAttribute="leading" id="VvQ-hz-DyE"/>
+                <constraint firstItem="raj-1F-dXV" firstAttribute="leading" secondItem="eoN-hV-17B" secondAttribute="leading" constant="24" id="VvQ-hz-DyE"/>
                 <constraint firstItem="raj-1F-dXV" firstAttribute="bottom" secondItem="eoN-hV-17B" secondAttribute="bottom" id="bZk-SU-PWm"/>
             </constraints>
             <connections>

@@ -38,6 +38,9 @@ class VehiclePickerTableViewVC: VehiclePickerStepView {
 
 extension VehiclePickerTableViewVC : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if self.viewModel.currentStep == .type {
+            return 96
+        }
         return 66
     }
 }
@@ -65,8 +68,13 @@ extension VehiclePickerTableViewVC: UITableViewDataSource {
             let horizontalMargin = CGFloat(24)
             let label = UILabel()
             label.frame = CGRect.init(x: horizontalMargin, y: 0.0, width: headerView.frame.width - 2 * horizontalMargin, height: headerView.frame.height)
-            label.textAlignment = .left
-            label.attributedText = description.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+            if viewModel.currentStep == .type {
+                label.textAlignment = .left
+            } else {
+                label.textAlignment = .center
+            }
+            label.numberOfLines = 0
+            label.attributedText = description.dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.mainFontColor).build()
             headerView.addSubview(label)
         }
         return headerView

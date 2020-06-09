@@ -69,7 +69,7 @@ extension VehiclePickerTruckTypeVC: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "VehiclePickerTruckTypeHeader", for: indexPath) as? VehiclePickerTruckTypeHeader else { fatalError() }
         if let description = self.viewModel.getStepDescription() {
-            headerView.titleLabel.attributedText = description.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+            headerView.titleLabel.attributedText = description.dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.mainFontColor).build()
         }
         return headerView
     }

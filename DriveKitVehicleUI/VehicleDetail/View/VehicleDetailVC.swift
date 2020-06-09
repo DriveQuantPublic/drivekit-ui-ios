@@ -123,7 +123,7 @@ extension VehicleDetailVC: UITableViewDataSource, UITableViewDelegate {
             let groupFields = self.viewModel.groupFields[indexPath.section - 1]
             let fields = groupFields.getFields(vehicle: self.viewModel.vehicle)
             let width = tableView.bounds.size.width
-            return fields.map({ $0.cellHeightForWidth(width) }).reduce(0, +) + 24
+            return fields.map({ $0.cellHeightForWidth(width, vehicle: self.viewModel.vehicle) }).reduce(0, +) + 24
         }
     }
 }

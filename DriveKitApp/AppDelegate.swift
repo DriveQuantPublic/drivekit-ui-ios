@@ -214,10 +214,13 @@ extension AppDelegate : DKContentMail {
 }
 
 fileprivate class DeclaredConsumptionField : DKVehicleField {
-    var title: String = "title_declared_consumption".keyLocalized()
-    var description: String? = nil
     var isEditable: Bool = true
     var keyBoardType: UIKeyboardType = .decimalPad
+    func isDisplayable(vehicle: DKVehicle) -> Bool {
+        return !vehicle.isTruck()
+    }
+    func getTitle(vehicle: DKVehicle) -> String { "title_declared_consumption".keyLocalized() }
+    func getDescription(vehicle: DKVehicle) -> String? { nil }
     func getValue(vehicle: DKVehicle) -> String? {
         return vehicle.extraData["declaredConsumption"]
     }
@@ -228,10 +231,7 @@ fileprivate class DeclaredConsumptionField : DKVehicleField {
             return false
         }
     }
-    func isDisplayable(vehicle: DKVehicle) -> Bool {
-        return !vehicle.isTruck()
-    }
-    func getErrorDescription() -> String? {
+    func getErrorDescription(value: String, vehicle: DKVehicle) -> String? {
         return "error_consumption".keyLocalized()
     }
     func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> ()) {
@@ -240,26 +240,33 @@ fileprivate class DeclaredConsumptionField : DKVehicleField {
 }
 
 fileprivate class DeclaredPtacField : DKVehicleField {
-    var title: String = "dk_vehicle_ptac".keyLocalized()
-    var description: String? = "dk_vehicle_ptac_truck_and_trailer_info".keyLocalized()
     var isEditable: Bool = true
     var keyBoardType: UIKeyboardType = .decimalPad
+    func isDisplayable(vehicle: DKVehicle) -> Bool {
+        return vehicle.isTruck()
+    }
+    func getTitle(vehicle: DKVehicle) -> String { "dk_vehicle_ptac_truck_and_trailer".dkVehicleLocalized() }
+    func getDescription(vehicle: DKVehicle) -> String? { "dk_vehicle_ptac_truck_and_trailer_info".dkVehicleLocalized() }
     func getValue(vehicle: DKVehicle) -> String? {
         return vehicle.extraData["declaredPtac"]
     }
     func isValid(value: String, vehicle: DKVehicle) -> Bool {
-        if let declaredPtac = Double(value.replacingOccurrences(of: ",", with: ".")) {
-            let ptac = (vehicle.ptac ?? 0) / 1000
-            return declaredPtac >= ptac && declaredPtac <= 44
+        if let declaredPtac = value.doubleValue() {
+            let mass = vehicle.mass / 1000
+            return declaredPtac >= mass && declaredPtac <= 44
         } else {
             return false
         }
     }
-    func isDisplayable(vehicle: DKVehicle) -> Bool {
-        return vehicle.isTruck()
-    }
-    func getErrorDescription() -> String? {
-        return "The value must be between PTAC and 44 tons.".keyLocalized()
+    func getErrorDescription(value: String, vehicle: DKVehicle) -> String? {
+        if let declaredPtac = value.doubleValue() {
+            if declaredPtac < vehicle.mass / 1000 {
+                return "dk_vehicle_ptac_truck_and_trailer_alert_min".dkVehicleLocalized()
+            } else if declaredPtac > 44 {
+                return "dk_vehicle_ptac_truck_and_trailer_alert_max".dkVehicleLocalized()
+            }
+        }
+        return nil
     }
     func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> ()) {
 

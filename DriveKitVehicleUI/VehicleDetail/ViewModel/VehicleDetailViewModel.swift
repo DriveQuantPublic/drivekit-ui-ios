@@ -41,7 +41,7 @@ class VehicleDetailViewModel {
     }
 
     func getFieldValue(field: DKVehicleField) -> String {
-        if let index = updatedFields.firstIndex(where: {$0.title == field.title}), index < updateFieldsValue.count {
+        if let index = updatedFields.firstIndex(where: {$0.getTitle(vehicle: vehicle) == field.getTitle(vehicle: vehicle)}), index < updateFieldsValue.count {
             return updateFieldsValue[index]
         } else {
             return field.getValue(vehicle: vehicle) ?? ""
@@ -50,7 +50,7 @@ class VehicleDetailViewModel {
 
     func addUpdatedField(field: DKVehicleField, value: String) {
         delegate?.needUpdate()
-        if let index = updatedFields.firstIndex(where: {$0.title == field.title}) {
+        if let index = updatedFields.firstIndex(where: {$0.getTitle(vehicle: vehicle) == field.getTitle(vehicle: vehicle)}) {
             updatedFields.remove(at: index)
             updateFieldsValue.remove(at: index)
         }
@@ -91,7 +91,7 @@ class VehicleDetailViewModel {
     }
 
     func hasError(field: DKVehicleField) -> Bool {
-        return errorFields.contains(where: {$0.title == field.title})
+        return errorFields.contains(where: {$0.getTitle(vehicle: vehicle) == field.getTitle(vehicle: vehicle)})
     }
 
     private func addErrorField(field: DKVehicleField) {

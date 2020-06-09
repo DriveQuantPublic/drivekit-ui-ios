@@ -20,6 +20,6 @@ class VehiclePickerTableViewCell: UITableViewCell {
         self.coloredBackgroundView.layer.shadowRadius = 4
         self.coloredBackgroundView.layer.shadowOffset = .zero
         self.coloredBackgroundView.backgroundColor = DKUIColors.secondaryColor.color
-        self.titleLabel.attributedText = text.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.fontColorOnSecondaryColor).build()
+        self.titleLabel.attributedText = text.dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.fontColorOnSecondaryColor).build()
     }
 }

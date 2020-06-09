@@ -8,6 +8,7 @@
 
 import UIKit
 import DriveKitCommonUI
+import DriveKitDBVehicleAccess
 
 class VehicleGroupFieldsCell: UITableViewCell {
     @IBOutlet weak var tableView: UITableView!
@@ -37,7 +38,7 @@ extension VehicleGroupFieldsCell: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if let viewModel = self.viewModel, let groupField = self.groupField {
             let field = viewModel.getField(groupField: groupField)[indexPath.row]
-            return field.cellHeightForWidth(tableView.bounds.size.width)
+            return field.cellHeightForWidth(tableView.bounds.size.width, vehicle: viewModel.vehicle)
         } else {
             return 0
         }
@@ -61,7 +62,7 @@ extension VehicleGroupFieldsCell: UITableViewDataSource {
         let cell: VehicleFieldCell = self.tableView.dequeueReusableCell(withIdentifier: "VehicleFieldCell", for: indexPath) as! VehicleFieldCell
         if let viewModel = self.viewModel, let groupField = self.groupField {
             let field = viewModel.getField(groupField: groupField)[indexPath.row]
-            cell.configure(field: field, value: viewModel.getFieldValue(field: field), delegate: self, hasError: viewModel.hasError(field: field))
+            cell.configure(vehicle: viewModel.vehicle, field: field, value: viewModel.getFieldValue(field: field), delegate: self, hasError: viewModel.hasError(field: field))
             cell.selectionStyle = .none
         }
         return cell
@@ -76,7 +77,7 @@ extension VehicleGroupFieldsCell: VehicleFieldCellDelegate {
                     viewModel.addUpdatedField(field: field, value: value)
                     cell.configureError(error: nil)
                 } else {
-                    cell.configureError(error: field.getErrorDescription() ?? "")
+                    cell.configureError(error: field.getErrorDescription(value: value, vehicle: viewModel.vehicle) ?? "")
                 }
             }
         }
@@ -84,12 +85,12 @@ extension VehicleGroupFieldsCell: VehicleFieldCellDelegate {
 }
 
 extension DKVehicleField {
-    func cellHeightForWidth(_ width: CGFloat) -> CGFloat {
+    func cellHeightForWidth(_ width: CGFloat, vehicle: DKVehicle) -> CGFloat {
         var height: CGFloat = 58
         if self.isEditable {
             height += 20
         }
-        if let description = self.description {
+        if let description = self.getDescription(vehicle: vehicle) {
             let attributedString = description.dkAttributedString().font(dkFont: .primary, style: .smallText).build()
             let boundingRect = attributedString.boundingRect(with: CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), options: [.usesLineFragmentOrigin, .usesFontLeading], context: nil)
             let descriptionHeight = boundingRect.height

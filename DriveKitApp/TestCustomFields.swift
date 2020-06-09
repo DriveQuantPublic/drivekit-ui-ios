@@ -13,8 +13,25 @@ import DriveKitVehicle
 
 enum TestField : DKVehicleField {
     case number, ascii
-    
-    var title: String {
+
+    var isEditable: Bool {
+        return true
+    }
+
+    var keyBoardType: UIKeyboardType {
+        switch self {
+            case .number:
+                return .numberPad
+            case .ascii:
+                return .asciiCapableNumberPad
+        }
+    }
+
+    func isDisplayable(vehicle: DKVehicle) -> Bool {
+        return getValue(vehicle: vehicle) != nil
+    }
+
+    func getTitle(vehicle: DKVehicle) -> String {
         switch self {
         case .number:
             return "Test Field Number"
@@ -23,23 +40,10 @@ enum TestField : DKVehicleField {
         }
     }
 
-    var description: String? {
+    func getDescription(vehicle: DKVehicle) -> String? {
         return nil
     }
-    
-    var isEditable: Bool {
-        return true
-    }
-    
-    var keyBoardType: UIKeyboardType {
-        switch self {
-        case .number:
-            return .numberPad
-        case .ascii:
-            return .asciiCapableNumberPad
-        }
-    }
-    
+
     func getValue(vehicle: DKVehicle) -> String? {
         switch self {
         case .number:
@@ -48,20 +52,17 @@ enum TestField : DKVehicleField {
             return vehicle.brand
         }
     }
-    
-    func onFieldUpdated(value: String, vehicle: DKVehicle, completion: (Bool) -> ()) {
-        print("test extra field")
-        completion(true)
-    }
-    
+
     func isValid(value: String, vehicle: DKVehicle) -> Bool {
         return value.count < 5
     }
-    func isDisplayable(vehicle: DKVehicle) -> Bool {
-        return getValue(vehicle: vehicle) != nil
-    }
     
-    func getErrorDescription() -> String? {
+    func getErrorDescription(value: String, vehicle: DKVehicle) -> String? {
         return nil
+    }
+
+    func onFieldUpdated(value: String, vehicle: DKVehicle, completion: (Bool) -> ()) {
+        print("test extra field")
+        completion(true)
     }
 }

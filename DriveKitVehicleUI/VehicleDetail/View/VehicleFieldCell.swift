@@ -24,16 +24,16 @@ class VehicleFieldCell : UITableViewCell {
         super.awakeFromNib()
     }
 
-    func configure(field: DKVehicleField, value: String, delegate: VehicleFieldCellDelegate, hasError: Bool) {
+    func configure(vehicle: DKVehicle, field: DKVehicleField, value: String, delegate: VehicleFieldCellDelegate, hasError: Bool) {
         textFieldView.delegate = self
-        textFieldView.placeholder = field.title
-        textFieldView.title = field.title
-        textFieldView.subtitleText = field.description
+        textFieldView.placeholder = field.getTitle(vehicle: vehicle)
+        textFieldView.title = field.getTitle(vehicle: vehicle)
+        textFieldView.subtitleText = field.getDescription(vehicle: vehicle)
         textFieldView.value = value
         textFieldView.enable = field.isEditable
         textFieldView.keyBoardType = field.keyBoardType
         if hasError {
-            configureError(error: field.getErrorDescription() ?? "")
+            configureError(error: field.getErrorDescription(value: value, vehicle: vehicle) ?? "")
         }
         self.delegate = delegate
 

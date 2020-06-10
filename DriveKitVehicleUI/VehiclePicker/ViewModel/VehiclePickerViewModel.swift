@@ -52,27 +52,7 @@ class VehiclePickerViewModel {
         nextStepInternal(nil)
     }
 
-    private func checkStates() {
-        let driveKitVehicleUI = DriveKitVehicleUI.shared
-        if driveKitVehicleUI.vehicleTypes.count == 0 {
-            driveKitVehicleUI.vehicleTypes = DKVehicleType.allCases
-        }
-        if driveKitVehicleUI.brands.count == 0 {
-            driveKitVehicleUI.brands = DKVehicleBrand.allCases
-        }
-        if driveKitVehicleUI.categories.count == 0 {
-            driveKitVehicleUI.categories = DKVehicleCategory.allCases
-        }
-        if driveKitVehicleUI.vehicleEngineIndexes.count == 0 {
-            driveKitVehicleUI.vehicleEngineIndexes = DKVehicleEngineIndex.allCases
-        }
-        if driveKitVehicleUI.truckTypes.count == 0 {
-            driveKitVehicleUI.truckTypes = DKTruckType.allCases
-        }
-    }
-
     func nextStep(_ step: VehiclePickerStep?) {
-        checkStates()
         previousSteps.append(self.currentStep)
         nextStepInternal(step)
     }

@@ -16,13 +16,13 @@ public class DriveKitVehicleUI {
 
     public static let shared = DriveKitVehicleUI()
 
-    var vehicleTypes: [DKVehicleType] = DKVehicleType.allCases
-    var brands: [DKVehicleBrand] = DKVehicleBrand.allCases
-    var categories: [DKVehicleCategory] = DKVehicleCategory.allCases
-    var truckTypes: [DKTruckType] = DKTruckType.allCases
-    var categoryConfigType: DKCategoryConfigType = .bothConfig
-    var vehicleEngineIndexes: [DKVehicleEngineIndex] = DKVehicleEngineIndex.allCases
-    var brandsWithIcons: Bool = true
+    private(set) var vehicleTypes: [DKVehicleType] = DKVehicleType.allCases
+    private(set) var brands: [DKVehicleBrand] = DKVehicleBrand.allCases
+    private(set) var categories: [DKVehicleCategory] = DKVehicleCategory.allCases
+    private(set) var truckTypes: [DKTruckType] = DKTruckType.allCases
+    private(set) var categoryConfigType: DKCategoryConfigType = .bothConfig
+    private(set) var vehicleEngineIndexes: [DKVehicleEngineIndex] = DKVehicleEngineIndex.allCases
+    private(set) var brandsWithIcons: Bool = true
 
     var canAddVehicle: Bool = true
     var maxVehicles: Int? = nil

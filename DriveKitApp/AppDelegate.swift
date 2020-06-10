@@ -225,7 +225,7 @@ fileprivate class DeclaredConsumptionField : DKVehicleField {
         return vehicle.extraData["declaredConsumption"]
     }
     func isValid(value: String, vehicle: DKVehicle) -> Bool {
-        if let consumption = Double(value.replacingOccurrences(of: ",", with: ".")) {
+        if let consumption = value.doubleValue() {
             return consumption > 2 && consumption < 20
         } else {
             return false

@@ -110,8 +110,8 @@ public class DriveKitVehicleUI {
         self.canRemoveBeacon = canRemoveBeacon
     }
 
-    public func configureVehiclePickerExtraStep(extarStep: DKVehiclePickerExtraStep) {
-        self.vehiclePickerExtraStep = extarStep
+    public func configureVehiclePickerExtraStep(extraStep: DKVehiclePickerExtraStep) {
+        self.vehiclePickerExtraStep = extraStep
     }
 }
 

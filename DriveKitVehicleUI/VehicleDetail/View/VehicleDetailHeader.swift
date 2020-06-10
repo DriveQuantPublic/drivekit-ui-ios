@@ -8,7 +8,6 @@
 
 import UIKit
 import DriveKitCommonUI
-import DriveKitVehicle
 
 protocol VehicleDetailHeaderDelegate : AnyObject {
     func didSelectAddImage(cell: VehicleDetailHeader)

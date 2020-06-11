@@ -25,7 +25,7 @@ public protocol VehiclesListDelegate : AnyObject{
 
 
 public class DKVehiclesListViewModel {
-    public var vehicles: [DKVehicle] = []
+    public private(set) var vehicles: [DKVehicle] = []
     public weak var delegate: VehiclesListDelegate? = nil
     
     func fetchVehicles() {

@@ -14,32 +14,32 @@ protocol VehicleFieldCellDelegate : AnyObject {
     func didEndEditing(cell: VehicleFieldCell, value: String)
 }
 
-class VehicleFieldCell: UITableViewCell {
+class VehicleFieldCell : UITableViewCell {
     @IBOutlet weak var textField: UIView!
-    
-    weak var delegate : VehicleFieldCellDelegate? = nil
+
+    weak var delegate: VehicleFieldCellDelegate? = nil
     var textFieldView: DKTextField = DKTextField.viewFromNib
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    
-    func configure(field: DKVehicleField, value: String, delegate: VehicleFieldCellDelegate, hasError: Bool) {
+
+    func configure(vehicle: DKVehicle, field: DKVehicleField, value: String, delegate: VehicleFieldCellDelegate, hasError: Bool) {
         textFieldView.delegate = self
-        textFieldView.placeholder = field.title
-        textFieldView.title = field.title
+        textFieldView.placeholder = field.getTitle(vehicle: vehicle)
+        textFieldView.title = field.getTitle(vehicle: vehicle)
+        textFieldView.subtitleText = field.getDescription(vehicle: vehicle)
         textFieldView.value = value
         textFieldView.enable = field.isEditable
         textFieldView.keyBoardType = field.keyBoardType
         if hasError {
-            configureError(error: field.getErrorDescription() ?? "")
+            configureError(error: field.getErrorDescription(value: value, vehicle: vehicle) ?? "")
         }
         self.delegate = delegate
-        
-        textField.embedSubview(textFieldView)
 
+        textField.embedSubview(textFieldView)
     }
-    
+
     func configureError(error: String?) {
         textFieldView.errorMessage = error
     }

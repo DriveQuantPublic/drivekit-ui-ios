@@ -31,7 +31,6 @@
 "dk_common_take_picture"="Toma una foto";
 "dk_common_trip_plural"="viajes";
 "dk_common_trip_singular"="viaje";
-"dk_common_unit_T"="T";
 "dk_common_unit_accel_meter_per_second_square"="m/s²";
 "dk_common_unit_day"="d";
 "dk_common_unit_g"="g";
@@ -50,6 +49,7 @@
 "dk_common_unit_mph"="mph";
 "dk_common_unit_power"="hp";
 "dk_common_unit_second"="s";
+"dk_common_unit_ton"="t";
 "dk_common_update_photo_title"="Cambiar la imagen";
 "dk_common_validate"="Valido";
 "dk_common_yes"="Sí";

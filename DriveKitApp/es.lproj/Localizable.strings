@@ -10,6 +10,7 @@
 "add_beacon_on"="El Beacon está configurado";
 "add_beacon_title"="Configuración del Beacon";
 "app_name"="DriveKit Demo App";
+"ask_for_request"="Solicitud de soporte técnico";
 "auto_start_off"="Activar para detectar automáticamente sus viajes";
 "autostart_on"="Los viajes se detectarán automáticamente";
 "autostart_title"="Inicio automático";
@@ -19,9 +20,11 @@
 "beacon_required_title"="¿ Necesita beacon ?";
 "cancel_trip"="Cancelar el viaje";
 "driver_achievement_button"="Lanzar Driver Achievement";
-"driver_achievement_explanation"="Un ejemplo de la implementación de DriveKit Driver Achievement con su UI para la Lista de Rayas";
+"driver_achievement_explanation"="Un ejemplo de implementación del componente DriveKit Driver Achievements y su interfaz";
+"driver_badges_button"="Mis insignias";
 "driver_data_button"="Iniciar DriverData";
 "driver_data_explanation"="Un ejemplo de implementación de DriveKit DriverData con su interfaz de usuario para la Lista de Viaje y el Detalle de Viaje";
+"driver_streaks_button"="Racha de éxitos";
 "enable_logging_pref_off"="Habilite esta opción para escribir el registro en el dispositivo";
 "enable_logging_pref_on"="Los archivos de registro estarán disponibles en la carpeta \"DriveKit\" del teléfono.";
 "enable_logging_title"="Logging";
@@ -32,6 +35,9 @@
 "global_config_settings"="Opciones generales";
 "location_permission"="Permitir el acceso a la ubicación.";
 "notification_permission"="Notificaciones";
+"permission_utils_diagnosis_button"="El diagnóstico de la aplicación";
+"permission_utils_permissions_button"="Recopilación de permisos";
+"permissions_utils_explanation"="Ejemplo de implementación de Utils de permisos DriveKit incluyendo la ruta de usuario para recoger los permisos y la pantalla de diagnóstico de la aplicación.";
 "sandbox_mode_off"="DriveKit está conectado al entorno de producción DriveQuant";
 "sandbox_mode_on"="DriveKit está conectado al entorno de integración DriveQuant";
 "sandbox_mode_title"="Modo Sandbox";
@@ -53,6 +59,6 @@
 "trip_started"="Se está registrando un viaje";
 "user_id_description"="Haga clic para rellenar su identificador de usuario";
 "user_id_title"="Identificador de usuario";
-"vehicle_explanation"="Un ejemplo de implementación de DriveKit Vehículo con UI para el recolector de vehículos, lista de vehículos, detalle del vehículo, faro y emparejamiento de dispositivos bluetooth";
+"vehicle_explanation"="Un ejemplo de implementación de DriveKit Vehículo con UI para el recolector de vehículos, lista de vehículos, detalle del vehículo, faro y emparejamiento de dispositivos Bluetooth";
 "vehicle_list_button"="Lista de vehículos";
 "vehicle_picker_button"="Añadir un vehículo";

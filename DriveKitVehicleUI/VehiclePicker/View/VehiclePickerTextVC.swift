@@ -48,12 +48,10 @@ class VehiclePickerTextVC: VehiclePickerStepView {
 
     @IBAction func didConfirmText(_ sender: Any) {
         self.viewModel.vehicleCategory?.onLiteConfigSelected(viewModel: viewModel)
-        (self.navigationController as! DKVehiclePickerNavigationController).showStep(viewController: self.viewModel.getViewController())
     }
     
     @IBAction func didContinueText(_ sender: Any) {
         self.viewModel.vehicleCategory?.onFullConfigSelected(viewModel: viewModel)
-        (self.navigationController as! DKVehiclePickerNavigationController).showStep(viewController: self.viewModel.getViewController())
     }
     
 }

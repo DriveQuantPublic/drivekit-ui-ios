@@ -22,6 +22,8 @@ public final class DKTextField : UIView, Nibable {
 
     public weak var target: UIView? = nil
 
+    public private(set) var subtitlePadding: CGFloat = 0
+
     public var placeholder: String = "" {
         didSet {
             textField.placeholder = placeholder
@@ -86,6 +88,8 @@ public final class DKTextField : UIView, Nibable {
         textField.delegate = self
         textField.returnKeyType = .done
         configureSubtitleLabel()
+
+        self.subtitlePadding = self.subtitle.convert(self.subtitle.bounds, to: self).origin.x
     }
 
     private func configureTitle() {

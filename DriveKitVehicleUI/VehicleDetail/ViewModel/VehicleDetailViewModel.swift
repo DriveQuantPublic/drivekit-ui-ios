@@ -19,6 +19,8 @@ class VehicleDetailViewModel {
     let vehicleDisplayName: String
     let vehicle: DKVehicle
     var groupFields: [DKVehicleGroupField] = []
+    let cellHorizontalPadding: CGFloat
+    let descriptionFieldTotalHorizontalPadding: CGFloat
     private var updatedFields: [DKVehicleField] = []
     private var updateFieldsValue: [String] = []
     private var errorFields: [DKVehicleField] = []
@@ -33,6 +35,18 @@ class VehicleDetailViewModel {
             if groupField.isDisplayable(vehicle: vehicle) {
                 groupFields.append(groupField)
             }
+        }
+
+        let vehicleGroupFieldsCell = Bundle.vehicleUIBundle?.loadNibNamed("VehicleGroupFieldsCell", owner: nil, options: nil)?.first as? VehicleGroupFieldsCell
+        if let vehicleGroupFieldsCell = vehicleGroupFieldsCell {
+            let tableViewConvertedFrame = vehicleGroupFieldsCell.tableView.convert(vehicleGroupFieldsCell.tableView.bounds, to: vehicleGroupFieldsCell)
+            self.cellHorizontalPadding = tableViewConvertedFrame.origin.x
+
+            let vehicleFieldCell = Bundle.vehicleUIBundle?.loadNibNamed("VehicleFieldCell", owner: nil, options: nil)?.first as? VehicleFieldCell
+            self.descriptionFieldTotalHorizontalPadding = self.cellHorizontalPadding + (vehicleFieldCell?.textFieldView.subtitlePadding ?? 0)
+        } else {
+            self.cellHorizontalPadding = 0
+            self.descriptionFieldTotalHorizontalPadding = 0
         }
     }
 

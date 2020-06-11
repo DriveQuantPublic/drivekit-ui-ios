@@ -10,7 +10,7 @@ import UIKit
 import DriveKitCommonUI
 import DriveKitDBVehicleAccess
 
-class VehicleGroupFieldsCell: UITableViewCell {
+class VehicleGroupFieldsCell : UITableViewCell {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cardView: CardView!
 

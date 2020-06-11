@@ -1,5 +1,5 @@
 //
-//  DKvehicleBrand+UI.swift
+//  DKVehicleBrand+UI.swift
 //  DriveKitVehicleUI
 //
 //  Created by Jérémy Bayle on 08/03/2020.
@@ -11,11 +11,11 @@ import UIKit
 import DriveKitVehicle
 
 extension DKVehicleBrand : VehiclePickerCollectionViewItem {
-    
+
     func title() -> String {
         return self.name
     }
-    
+
     func image() -> UIImage? {
         switch self {
         case .alpha_romeo:
@@ -58,18 +58,29 @@ extension DKVehicleBrand : VehiclePickerCollectionViewItem {
             return UIImage(named: "dk_volvo", in: .vehicleUIBundle, compatibleWith: nil)
         case .peugeot:
             return UIImage(named: "dk_peugeot", in: .vehicleUIBundle, compatibleWith: nil)
+        case .daf_truck:
+            return UIImage(named: "dk_truck_daf", in: .vehicleUIBundle, compatibleWith: nil)
+        case .iveco_truck:
+            return UIImage(named: "dk_truck_iveco", in: .vehicleUIBundle, compatibleWith: nil)
+        case .man_truck:
+            return UIImage(named: "dk_truck_man", in: .vehicleUIBundle, compatibleWith: nil)
+        case .volvo_truck:
+            return UIImage(named: "dk_truck_volvo", in: .vehicleUIBundle, compatibleWith: nil)
+        case .scania_truck:
+            return UIImage(named: "dk_truck_scania", in: .vehicleUIBundle, compatibleWith: nil)
+        case .renault_truck:
+            return UIImage(named: "dk_truck_renault", in: .vehicleUIBundle, compatibleWith: nil)
+        case .mercedes_truck:
+            return UIImage(named: "dk_truck_mercedes", in: .vehicleUIBundle, compatibleWith: nil)
         default:
             return nil
         }
     }
-    
+
     func hasImage() -> Bool {
-        switch self {
-        default:
-            return image() != nil
-        }
+        return image() != nil
     }
-    
+
 }
 
 extension DKVehicleBrand : VehiclePickerTableViewItem {
@@ -82,10 +93,8 @@ class OtherVehicles : VehiclePickerCollectionViewItem {
     func title() -> String {
         return "dk_vehicle_other_brands".dkVehicleLocalized()
     }
-    
+
     func image() -> UIImage? {
         return nil
     }
-    
-    
 }

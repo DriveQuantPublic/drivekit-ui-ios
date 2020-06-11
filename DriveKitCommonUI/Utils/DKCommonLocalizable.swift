@@ -18,7 +18,7 @@ public enum DKCommonLocalizable : String {
     unitDay = "dk_common_unit_day",
     unitGram = "dk_common_unit_g",
     unitKilogram = "dk_common_unit_kg",
-    unitTon = "dk_common_unit_T",
+    unitTon = "dk_common_unit_ton",
     unitLiter = "dk_common_unit_liter",
     unitGallon = "dk_common_unit_gallon",
     unitGperKM = "dk_common_unit_g_per_km",

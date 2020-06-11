@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "STRAIGHT_TRUCK.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "STRAIGHT_TRUCK@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "STRAIGHT_TRUCK@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

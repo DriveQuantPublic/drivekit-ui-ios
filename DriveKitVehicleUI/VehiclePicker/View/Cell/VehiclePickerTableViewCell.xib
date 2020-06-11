@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,10 +18,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gBl-ez-JyT">
-                        <rect key="frame" x="16" y="8" width="282" height="50"/>
+                        <rect key="frame" x="20" y="8" width="274" height="50"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gtZ-cw-h58">
-                                <rect key="frame" x="16" y="15" width="250" height="20.5"/>
+                                <rect key="frame" x="20" y="15" width="234" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
@@ -30,20 +30,20 @@
                         <color key="backgroundColor" red="0.29806614125348657" green="0.6432763924870466" blue="0.46263631737924432" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="gtZ-cw-h58" firstAttribute="centerY" secondItem="gBl-ez-JyT" secondAttribute="centerY" id="BgZ-D8-lQl"/>
-                            <constraint firstAttribute="height" constant="50" id="aHU-Zt-LNV"/>
-                            <constraint firstItem="gtZ-cw-h58" firstAttribute="leading" secondItem="gBl-ez-JyT" secondAttribute="leading" constant="16" id="fai-QK-WS3"/>
-                            <constraint firstAttribute="trailing" secondItem="gtZ-cw-h58" secondAttribute="trailing" constant="16" id="nCJ-fP-8hY"/>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="60" id="Y8R-2G-4nq"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="aHU-Zt-LNV"/>
+                            <constraint firstItem="gtZ-cw-h58" firstAttribute="leading" secondItem="gBl-ez-JyT" secondAttribute="leading" constant="20" id="fai-QK-WS3"/>
+                            <constraint firstAttribute="trailing" secondItem="gtZ-cw-h58" secondAttribute="trailing" constant="20" id="nCJ-fP-8hY"/>
                             <constraint firstItem="gtZ-cw-h58" firstAttribute="centerX" secondItem="gBl-ez-JyT" secondAttribute="centerX" id="yxt-BZ-nn8"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="gBl-ez-JyT" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="77Q-tE-LXX"/>
-                    <constraint firstItem="gBl-ez-JyT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="AO3-XE-UEB"/>
-                    <constraint firstAttribute="bottom" secondItem="gBl-ez-JyT" secondAttribute="bottom" constant="8" id="FGt-w9-FXs"/>
+                    <constraint firstItem="gBl-ez-JyT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="AO3-XE-UEB"/>
                     <constraint firstItem="gBl-ez-JyT" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Hzh-R2-f3P"/>
-                    <constraint firstAttribute="trailing" secondItem="gBl-ez-JyT" secondAttribute="trailing" constant="16" id="NcY-hP-YuY"/>
-                    <constraint firstItem="gBl-ez-JyT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="wSs-z5-HVq"/>
+                    <constraint firstAttribute="trailing" secondItem="gBl-ez-JyT" secondAttribute="trailing" constant="20" id="NcY-hP-YuY"/>
+                    <constraint firstItem="gBl-ez-JyT" firstAttribute="height" relation="lessThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.757576" id="sVV-FT-Zcc"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

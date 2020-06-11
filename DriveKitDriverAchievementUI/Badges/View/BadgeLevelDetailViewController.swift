@@ -26,7 +26,7 @@ class BadgeLevelDetailViewController: DKUIViewController {
     @IBOutlet weak var progressDescriptionLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
 
-    init(level: DKBadgeLevel) {
+    init(level: DKBadgeCharacteristics) {
         viewModel = BadgeLevelViewModel(level: level)
         super.init(nibName: String(describing: BadgeLevelDetailViewController.self),
                    bundle: Bundle.driverAchievementUIBundle)

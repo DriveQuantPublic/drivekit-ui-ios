@@ -13,5 +13,5 @@ protocol VehiclePickerTextDelegate {
     func onFullConfigSelected(viewModel : VehiclePickerViewModel)
     func categoryDescription() -> String
     func categoryImage() -> UIImage?
-    func liteConfigId() -> String
+    func liteConfigId() -> String?
 }

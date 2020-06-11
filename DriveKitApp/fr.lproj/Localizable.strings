@@ -10,6 +10,7 @@
 "add_beacon_on"="Le beacon est configuré";
 "add_beacon_title"="Configuration du beacon";
 "app_name"="DriveKit Demo App";
+"ask_for_request"="Demande de support technique";
 "auto_start_off"="Activer pour détecter automatiquement vos trajets";
 "autostart_on"="Vos trajets seront automatiquement détectés";
 "autostart_title"="Démarrage automatique";
@@ -19,9 +20,11 @@
 "beacon_required_title"="Beacon requis ?";
 "cancel_trip"="Annuler le trajet";
 "driver_achievement_button"="Lancer Driver Achievement";
-"driver_achievement_explanation"="Exemple d\'implémentation de DriveKit Driver Achievement avec l\'interface affichant les séquences de succès";
+"driver_achievement_explanation"="Un exemple d\'implémentation du composant DriveKit Driver Achievements et de son interface";
+"driver_badges_button"="Mes badges";
 "driver_data_button"="Lancer DriverData";
 "driver_data_explanation"="Exemple d\'implémentation du SDK Driver Data avec la liste des trajets et le détail d\'un trajet";
+"driver_streaks_button"="Séquences de succès";
 "enable_logging_pref_off"="Activer ce réglage pour écrire les logs sur le téléphone";
 "enable_logging_pref_on"="Les fichiers de log seront disponibles dans le dossier \"DriveKit\" du téléphone";
 "enable_logging_title"="Logging";
@@ -32,6 +35,9 @@
 "global_config_settings"="Configuration générale";
 "location_permission"="Autoriser l\'accès à la localisation.";
 "notification_permission"="Notifications";
+"permission_utils_diagnosis_button"="Diagnostic de l\'app";
+"permission_utils_permissions_button"="Recueil des permssions";
+"permissions_utils_explanation"="Exemple d\'implémentation de DriveKit Permissions Utils comprenant le parcours utilisateur de recueil des permissions et l\écran de diagnostic de l\'application.";
 "sandbox_mode_off"="DriveKit est rattaché à l\'environnement de production de DriveQuant";
 "sandbox_mode_on"="DriveKit est rattaché à l\'environnement d\'intégration de DriveQuant";
 "sandbox_mode_title"="Mode sandbox";

@@ -10,6 +10,7 @@
 "add_beacon_on"="Beacon is configured";
 "add_beacon_title"="Beacon configuration";
 "app_name"="DriveKit Demo App";
+"ask_for_request"="Technical support request";
 "auto_start_off"="Activate to automatically detect your trips";
 "autostart_on"="Trips will be automatically detected";
 "autostart_title"="Auto start";
@@ -19,9 +20,11 @@
 "beacon_required_title"="Beacon required ?";
 "cancel_trip"="Cancel the trip";
 "driver_achievement_button"="Launch Driver Achievement";
-"driver_achievement_explanation"="An example of DriveKit Driver Achievement implementation with its UI for the Streaks List";
+"driver_achievement_explanation"="An implementation example of the DriveKit Driver Achievements component and its user interface";
+"driver_badges_button"="My badges";
 "driver_data_button"="Launch DriverData";
 "driver_data_explanation"="An example of DriveKit DriverData implementation with its UI for the Trip List and the Trip Detail";
+"driver_streaks_button"="Streak of hits";
 "enable_logging_pref_off"="Enable this setting to write log on the device";
 "enable_logging_pref_on"="Log files will be available in directory \"DriveKit\" on the device";
 "enable_logging_title"="Logging";
@@ -32,6 +35,9 @@
 "global_config_settings"="General Settings";
 "location_permission"="Allow access to the location.";
 "notification_permission"="Notifications";
+"permission_utils_diagnosis_button"="Launch app diagnosis";
+"permission_utils_permissions_button"="Launch permissions";
+"permissions_utils_explanation"="An example of DriveKit Permissions Utils implementation with its UI for the on boarding permissions and application diagnosis";
 "sandbox_mode_off"="DriveKit is connected to DriveQuant production environment";
 "sandbox_mode_on"="DriveKit is connected to DriveQuant integration environment";
 "sandbox_mode_title"="Sandbox mode";
@@ -53,6 +59,6 @@
 "trip_started"="A trip is recording";
 "user_id_description"="Tap to fill your user id";
 "user_id_title"="User id";
-"vehicle_explanation"="An example of DriveKit Vehicle implementation with UI for the vehicle picker, vehicles list, vehicle detail, beacon and bluetooth device pairing";
+"vehicle_explanation"="An example of DriveKit Vehicle implementation with UI for the vehicle picker, vehicles list, vehicle detail, beacon and Bluetooth device pairing";
 "vehicle_list_button"="Vehicles list";
 "vehicle_picker_button"="Add a vehicle";

@@ -38,7 +38,8 @@ extension VehicleGroupFieldsCell: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if let viewModel = self.viewModel, let groupField = self.groupField {
             let field = viewModel.getField(groupField: groupField)[indexPath.row]
-            return field.cellHeightForWidth(tableView.bounds.size.width, vehicle: viewModel.vehicle)
+            let width = tableView.bounds.size.width - viewModel.textFieldTotalHorizontalPadding * 2
+            return field.cellHeightForWidth(width, vehicle: viewModel.vehicle)
         } else {
             return 0
         }
@@ -86,16 +87,22 @@ extension VehicleGroupFieldsCell: VehicleFieldCellDelegate {
 
 extension DKVehicleField {
     func cellHeightForWidth(_ width: CGFloat, vehicle: DKVehicle) -> CGFloat {
-        var height: CGFloat = 58
-        if self.isEditable {
-            height += 20
-        }
+        var height: CGFloat = 44
+        let titleHeight = getCellHeightForText(self.getTitle(vehicle: vehicle), width: width, style: .normalText)
+        height += titleHeight
         if let description = self.getDescription(vehicle: vehicle) {
-            let attributedString = description.dkAttributedString().font(dkFont: .primary, style: .smallText).build()
-            let boundingRect = attributedString.boundingRect(with: CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), options: [.usesLineFragmentOrigin, .usesFontLeading], context: nil)
-            let descriptionHeight = boundingRect.height
+            let descriptionHeight = getCellHeightForText(description, width: width, style: .smallText)
             height += descriptionHeight
+        } else if self.isEditable {
+            height += 12
         }
         return height
+    }
+
+    private func getCellHeightForText(_ text: String, width: CGFloat, style: DKStyles) -> CGFloat {
+        let textAttributedString = text.dkAttributedString().font(dkFont: .primary, style: style).build()
+        let boundingRect = textAttributedString.boundingRect(with: CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), options: [.usesLineFragmentOrigin, .usesFontLeading], context: nil)
+        let textHeight = boundingRect.height
+        return ceil(textHeight)
     }
 }

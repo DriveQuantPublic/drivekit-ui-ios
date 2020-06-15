@@ -122,8 +122,8 @@ extension VehicleDetailVC: UITableViewDataSource, UITableViewDelegate {
         } else {
             let groupFields = self.viewModel.groupFields[indexPath.section - 1]
             let fields = groupFields.getFields(vehicle: self.viewModel.vehicle)
-            let width = tableView.bounds.size.width - viewModel.descriptionFieldTotalHorizontalPadding * 2
-            return fields.map({ $0.cellHeightForWidth(width, vehicle: self.viewModel.vehicle) }).reduce(0, +) + self.viewModel.cellHorizontalPadding * 2
+            let width = tableView.bounds.size.width - self.viewModel.textFieldTotalHorizontalPadding * 2
+            return fields.map({ $0.cellHeightForWidth(width, vehicle: self.viewModel.vehicle) }).reduce(0, +) + self.viewModel.cellVerticalPadding * 2
         }
     }
 }

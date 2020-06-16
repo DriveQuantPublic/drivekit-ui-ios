@@ -68,7 +68,7 @@ class VehiclePickerInputVC : VehiclePickerStepView {
                 self.hideLoader()
                 switch status {
                 case .success:
-                    (self.navigationController as! DKVehiclePickerNavigationController).checkExtraStep(vehicleId: vehicleId!)
+                    (self.navigationController as? DKVehiclePickerNavigationController)?.checkExtraStep(vehicleId: vehicleId!)
                 case .unknownVehicle:
                     // We can't have this error, vehicle picker always return a known vehicle
                     break

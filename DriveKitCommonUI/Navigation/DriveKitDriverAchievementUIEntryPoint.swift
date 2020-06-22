@@ -10,4 +10,6 @@ import UIKit
 
 public protocol DriveKitDriverAchievementUIEntryPoint {
     func getStreakViewController() -> UIViewController
+    
+    func getBadgesViewController() -> UIViewController
 }

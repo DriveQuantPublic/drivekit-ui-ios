@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'DriveKitDriverAchievementUI'
-  s.version          = '1.4-beta3'
+  s.version          = '1.6-beta1'
   s.summary          = 'DriveKit Driver Achievement UI Framework'
 
   s.description      = 'DriveKit Driver Achievement features : Streaks'
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '10.0'
 
   s.source_files = 'DriveKitDriverAchievementUI/**/*.swift'
-  s.resource = ['DriveKitDriverAchievementUI/Localizable/*', 'DriveKitDriverAchievementUI/**/*.xib']
+  s.resource = ['DriveKitDriverAchievementUI/Localizable/*', 'DriveKitDriverAchievementUI/**/*.xib', 'DriveKitDriverAchievementUI/DriverAchievement.xcassets']
 
   s.dependency 'DriveKitCommonUI', s.version.to_s
   s.dependency 'DriveKitDriverAchievement'

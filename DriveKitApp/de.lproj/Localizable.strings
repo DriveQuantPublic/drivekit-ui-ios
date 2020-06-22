@@ -10,6 +10,7 @@
 "add_beacon_on"="Der Beacon ist konfiguriert.";
 "add_beacon_title"="Beacon Konfiguration";
 "app_name"="DriveKit Demo App";
+"ask_for_request"="Anfrage für technische Unterstützung";
 "auto_start_off"="Aktivieren Sie diese Option, um Ihre Fahrten automatisch zu erkennen.";
 "autostart_on"="Auslösungen werden automatisch erkannt.";
 "autostart_title"="Automatisches Start";
@@ -19,9 +20,11 @@
 "beacon_required_title"="beacon benötigt ?";
 "cancel_trip"="Stornierung der Reise";
 "driver_achievement_button"="Start Driver Achievement";
-"driver_achievement_explanation"="Ein Beispiel für die Implementierung des DriveKit Driver Achievement mit seiner UI für die Streak-Liste";
+"driver_achievement_explanation"="Eine Beispielimplementierung der DriveKit Driver Achievements-Komponente und ihrer Schnittstelle";
+"driver_badges_button"="Meine Elemente";
 "driver_data_button"="DriverData starten";
 "driver_data_explanation"="Ein Beispiel für die DriveKit DriverData-Implementierung mit seiner Benutzeroberfläche für die Reiseliste und das Reisendetail.";
+"driver_streaks_button"="Streifen von Treffern";
 "enable_logging_pref_off"="Aktivieren Sie diese Einstellung, um das Protokoll auf das Gerät zu schreiben.";
 "enable_logging_pref_on"="Die Protokolldateien sind im Ordner \"DriveKit\" des Telefons verfügbar.";
 "enable_logging_title"="Logging";
@@ -32,6 +35,9 @@
 "global_config_settings"="Allgemeine Einstellungen";
 "location_permission"="Zugriff auf den Standort zulassen";
 "notification_permission"="Mitteilungen";
+"permission_utils_diagnosis_button"="Diagnose der App";
+"permission_utils_permissions_button"="Sammlung von Berechtigungen";
+"permissions_utils_explanation"="Beispielimplementierung von DriveKit Permissions Utils einschließlich des Benutzerpfads zum Sammeln von Berechtigungen und des Anwendungsdiagnosebildschirms.";
 "sandbox_mode_off"="DriveKit ist mit der DriveQuant Produktionsumgebung verbunden.";
 "sandbox_mode_on"="DriveKit ist mit der DriveQuant Integrationsumgebung verbunden.";
 "sandbox_mode_title"="Sandbox-Modus";

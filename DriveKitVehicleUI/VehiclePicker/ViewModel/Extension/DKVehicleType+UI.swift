@@ -13,8 +13,10 @@ extension DKVehicleType : VehiclePickerTableViewItem {
 
     func text() -> String {
         switch self {
-        case .car:
-            return "dk_vehicle_type_car_title".dkVehicleLocalized()
+            case .car:
+                return "dk_vehicle_type_car_title".dkVehicleLocalized()
+            case .truck:
+                return "dk_vehicle_type_truck_title".dkVehicleLocalized()
         }
     }
 }

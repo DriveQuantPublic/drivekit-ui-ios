@@ -46,6 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitVehicleUI.shared.configureBeaconDetailEmail(beaconDiagnosticEmail: self)
         DriveKitVehicleUI.shared.configureBeaconDiagnosticSupportURL(url: "https://www.google.com")
         DriveKitVehicleUI.shared.configureCategoryConfigType(type: .bothConfig)
+        DriveKitVehicleUI.shared.addCustomVehicleField(groupField: .engine, fieldsToAdd: [DeclaredConsumptionField()])
+        DriveKitVehicleUI.shared.addCustomVehicleField(groupField: .characteristics, fieldsToAdd: [DeclaredPtacField()])
         DriveKitPermissionsUtilsUI.shared.initialize()
         DriveKitPermissionsUtilsUI.shared.configureBluetooth(needed: true)
         DriveKitPermissionsUtilsUI.shared.configureDiagnosisLogs(show: true)
@@ -208,5 +210,65 @@ extension AppDelegate : DKContentMail {
     
     func getMailBody() -> String {
         return "Test mail body"
+    }
+}
+
+fileprivate class DeclaredConsumptionField : DKVehicleField {
+    var isEditable: Bool = true
+    var keyBoardType: UIKeyboardType = .decimalPad
+    func isDisplayable(vehicle: DKVehicle) -> Bool {
+        return !vehicle.isTruck()
+    }
+    func getTitle(vehicle: DKVehicle) -> String { "title_declared_consumption".keyLocalized() }
+    func getDescription(vehicle: DKVehicle) -> String? { nil }
+    func getValue(vehicle: DKVehicle) -> String? {
+        return vehicle.extraData["declaredConsumption"]
+    }
+    func isValid(value: String, vehicle: DKVehicle) -> Bool {
+        if let consumption = value.doubleValue() {
+            return consumption > 2 && consumption < 20
+        } else {
+            return false
+        }
+    }
+    func getErrorDescription(value: String, vehicle: DKVehicle) -> String? {
+        return "error_consumption".keyLocalized()
+    }
+    func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> ()) {
+
+    }
+}
+
+fileprivate class DeclaredPtacField : DKVehicleField {
+    var isEditable: Bool = true
+    var keyBoardType: UIKeyboardType = .decimalPad
+    func isDisplayable(vehicle: DKVehicle) -> Bool {
+        return vehicle.isTruck()
+    }
+    func getTitle(vehicle: DKVehicle) -> String { "dk_vehicle_ptac_truck_and_trailer".dkVehicleLocalized() }
+    func getDescription(vehicle: DKVehicle) -> String? { "dk_vehicle_ptac_truck_and_trailer_info".dkVehicleLocalized() }
+    func getValue(vehicle: DKVehicle) -> String? {
+        return vehicle.extraData["declaredPtac"]
+    }
+    func isValid(value: String, vehicle: DKVehicle) -> Bool {
+        if let declaredPtac = value.doubleValue() {
+            let mass = vehicle.mass / 1000
+            return declaredPtac >= mass && declaredPtac <= 44
+        } else {
+            return false
+        }
+    }
+    func getErrorDescription(value: String, vehicle: DKVehicle) -> String? {
+        if let declaredPtac = value.doubleValue() {
+            if declaredPtac < vehicle.mass / 1000 {
+                return "dk_vehicle_ptac_truck_and_trailer_alert_min".dkVehicleLocalized()
+            } else if declaredPtac > 44 {
+                return "dk_vehicle_ptac_truck_and_trailer_alert_max".dkVehicleLocalized()
+            }
+        }
+        return nil
+    }
+    func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> ()) {
+
     }
 }

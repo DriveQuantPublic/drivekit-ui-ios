@@ -64,7 +64,7 @@ class RequestPermissionHelper : NSObject {
                     self.locationManager.requestWhenInUseAuthorization()
                 } else {
                     self.locationManager.requestAlwaysAuthorization()
-            }
+                }
             case .phoneRestricted:
                 // Request location to try to display a system alert to redirect to phone's settings.
                 self.locationManager.requestLocation()

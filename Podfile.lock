@@ -1,30 +1,30 @@
 PODS:
-  - DriveKitCore (1.5-beta5):
-    - DriveKitNetworking (= 1.5-beta5)
-  - DriveKitDBAchievementAccess (1.5-beta5):
-    - DriveKitCore (= 1.5-beta5)
-  - DriveKitDBTripAccess (1.5-beta5):
-    - DriveKitCore (= 1.5-beta5)
-  - DriveKitDBVehicleAccess (1.5-beta5):
-    - DriveKitCore (= 1.5-beta5)
-  - DriveKitDriverAchievement (1.5-beta5):
-    - DriveKitDBAchievementAccess (= 1.5-beta5)
-  - DriveKitDriverData (1.5-beta5):
-    - DriveKitDBTripAccess (= 1.5-beta5)
-  - DriveKitNetworking (1.5-beta5)
-  - DriveKitTripAnalysis (1.5-beta5):
-    - DriveKitCore (= 1.5-beta5)
-    - DriveKitDBVehicleAccess (= 1.5-beta5)
-  - DriveKitVehicle (1.5-beta5):
-    - DriveKitDBVehicleAccess (= 1.5-beta5)
+  - DriveKitCore (1.5.0):
+    - DriveKitNetworking (= 1.5.0)
+  - DriveKitDBAchievementAccess (1.5.0):
+    - DriveKitCore (= 1.5.0)
+  - DriveKitDBTripAccess (1.5.0):
+    - DriveKitCore (= 1.5.0)
+  - DriveKitDBVehicleAccess (1.5.0):
+    - DriveKitCore (= 1.5.0)
+  - DriveKitDriverAchievement (1.5.0):
+    - DriveKitDBAchievementAccess (= 1.5.0)
+  - DriveKitDriverData (1.5.0):
+    - DriveKitDBTripAccess (= 1.5.0)
+  - DriveKitNetworking (1.5.0)
+  - DriveKitTripAnalysis (1.5.0):
+    - DriveKitCore (= 1.5.0)
+    - DriveKitDBVehicleAccess (= 1.5.0)
+  - DriveKitVehicle (1.5.0):
+    - DriveKitDBVehicleAccess (= 1.5.0)
   - UICircularProgressRing (6.5.0)
 
 DEPENDENCIES:
-  - DriveKitCore (= 1.5-beta5)
-  - DriveKitDriverAchievement (= 1.5-beta5)
-  - DriveKitDriverData (= 1.5-beta5)
-  - DriveKitTripAnalysis (= 1.5-beta5)
-  - DriveKitVehicle (= 1.5-beta5)
+  - DriveKitCore (= 1.5.0)
+  - DriveKitDriverAchievement (= 1.5.0)
+  - DriveKitDriverData (= 1.5.0)
+  - DriveKitTripAnalysis (= 1.5.0)
+  - DriveKitVehicle (= 1.5.0)
   - UICircularProgressRing
 
 SPEC REPOS:
@@ -42,17 +42,17 @@ SPEC REPOS:
     - DriveKitVehicle
 
 SPEC CHECKSUMS:
-  DriveKitCore: fd9147762de5e4dcd003b96e47e7eec1fe5a5264
-  DriveKitDBAchievementAccess: f6730a879bad838ffc9b000d98486699bbcddfbe
-  DriveKitDBTripAccess: 0b8280c27982ff5379c1935800856fbe02ef9740
-  DriveKitDBVehicleAccess: 9278174d59577fb990b09a942d30e7d561372eaa
-  DriveKitDriverAchievement: f34816b3d22e172eac5a371562fe38652853714f
-  DriveKitDriverData: 8b5fef4dc815601940becc8056acd1e40b59049b
-  DriveKitNetworking: b55d6dc2a078698f511e5d7420e19f603ef2673d
-  DriveKitTripAnalysis: 24f6033e8d310812abb4a949f021ada9c9711069
-  DriveKitVehicle: b4570630d5f8b4706c2746ca9c9db0571c349c11
+  DriveKitCore: 615abdefac0b0324a1d075d15f4cd204e808f160
+  DriveKitDBAchievementAccess: 0fc4aa7a3aa51465dac3f0a46d0fe66856ba06e0
+  DriveKitDBTripAccess: f31a6fea0befc07600fd4a3dafce700b3e823eb7
+  DriveKitDBVehicleAccess: 9bd183225757f87e4b1bc6f7149ec5bd5a429b85
+  DriveKitDriverAchievement: 85855ddbc7ffb252e5300b1bb0677949a267b441
+  DriveKitDriverData: a720ccc58774aee639f51159c21711197aac497b
+  DriveKitNetworking: 78a9bf419bbf3964bce33225c357e1f7ada93d26
+  DriveKitTripAnalysis: e9e1738f7c5d1eaef12120d474ba2832d2a66d7e
+  DriveKitVehicle: 5fdf02b5efca73aa06fef2d767b8b84cd31a7864
   UICircularProgressRing: e6852e8f88e296cbbbe2720cccb55241acda6708
 
-PODFILE CHECKSUM: 59b148fd1f69757ba98b60c3a0e0fae0dadc5079
+PODFILE CHECKSUM: 922af03c91ccc5c01104e891ab1dc5e5756e16db
 
 COCOAPODS: 1.9.1

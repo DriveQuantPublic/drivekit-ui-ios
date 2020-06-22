@@ -11,12 +11,12 @@ end
 
 
 target 'DriveKitDriverDataUI' do
-  pod 'DriveKitDriverData', '1.5-beta5'
-  pod 'DriveKitTripAnalysis', '1.5-beta5'
+  pod 'DriveKitDriverData', '1.5.0'
+  pod 'DriveKitTripAnalysis', '1.5.0'
 end
 
 target 'DriveKitDriverAchievementUI' do
-  pod 'DriveKitDriverAchievement', '1.5-beta5'
+  pod 'DriveKitDriverAchievement', '1.5.0'
   pod 'UICircularProgressRing'
 end
 
@@ -25,10 +25,10 @@ target 'DriveKitCommonUI' do
 end
   
 target 'DriveKitVehicleUI' do
-  pod 'DriveKitVehicle', '1.5-beta5'
-  pod 'DriveKitTripAnalysis', '1.5-beta5'
+  pod 'DriveKitVehicle', '1.5.0'
+  pod 'DriveKitTripAnalysis', '1.5.0'
 end
 
 target 'DriveKitPermissionsUtilsUI' do
-  pod 'DriveKitCore', '1.5-beta5'
+  pod 'DriveKitCore', '1.5.0'
 end

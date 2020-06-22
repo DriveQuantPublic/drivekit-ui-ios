@@ -38,6 +38,7 @@
 		3F7524CB2406C4CC00AC22CC /* DKUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7524CA2406C4CC00AC22CC /* DKUIViewController.swift */; };
 		3F7524CE2407A89100AC22CC /* DKCommonLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7524CD2407A89100AC22CC /* DKCommonLocalizable.swift */; };
 		3FA3C4562416A96500BD4E14 /* DKCategoryConfigType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA3C4552416A96400BD4E14 /* DKCategoryConfigType.swift */; };
+		3FAEE5622486362E00549391 /* CustomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAEE5612486362E00549391 /* CustomScrollView.swift */; };
 		3FB5643423F5AA2900F010E3 /* StreakTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5643223F5AA2900F010E3 /* StreakTableViewCell.swift */; };
 		3FB5643523F5AA2900F010E3 /* StreakTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FB5643323F5AA2900F010E3 /* StreakTableViewCell.xib */; };
 		3FB5643E23F6B47E00F010E3 /* StreakDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5643D23F6B47E00F010E3 /* StreakDataType.swift */; };
@@ -191,7 +192,6 @@
 		639346B92448A8FD000F42D4 /* RequestPermissionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639346B82448A8FD000F42D4 /* RequestPermissionHelper.swift */; };
 		63BF8EFA24531011006BEB3F /* DKContactType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639346B4244897C1000F42D4 /* DKContactType.swift */; };
 		63C3FD78244EDDA900C2FEEC /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3FD77244EDDA900C2FEEC /* ContactViewModel.swift */; };
-		63C3FD7A244EE42C00C2FEEC /* CustomScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3FD79244EE42C00C2FEEC /* CustomScrollView.swift */; };
 		63C3FD7C244EE56C00C2FEEC /* LoggingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3FD7B244EE56C00C2FEEC /* LoggingViewModel.swift */; };
 		63C3FD80244F28B000C2FEEC /* SensorInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3FD7F244F28B000C2FEEC /* SensorInfoViewModel.swift */; };
 		63C3FD85244F89B300C2FEEC /* SensorInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3FD83244F89B300C2FEEC /* SensorInfoViewController.swift */; };
@@ -430,6 +430,7 @@
 		3F7524CA2406C4CC00AC22CC /* DKUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKUIViewController.swift; sourceTree = "<group>"; };
 		3F7524CD2407A89100AC22CC /* DKCommonLocalizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKCommonLocalizable.swift; sourceTree = "<group>"; };
 		3FA3C4552416A96400BD4E14 /* DKCategoryConfigType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKCategoryConfigType.swift; sourceTree = "<group>"; };
+		3FAEE5612486362E00549391 /* CustomScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScrollView.swift; sourceTree = "<group>"; };
 		3FB5643223F5AA2900F010E3 /* StreakTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakTableViewCell.swift; sourceTree = "<group>"; };
 		3FB5643323F5AA2900F010E3 /* StreakTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StreakTableViewCell.xib; sourceTree = "<group>"; };
 		3FB5643923F68BBE00F010E3 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -601,7 +602,6 @@
 		639346B624489DDA000F42D4 /* DiagnosisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisViewController.swift; sourceTree = "<group>"; };
 		639346B82448A8FD000F42D4 /* RequestPermissionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPermissionHelper.swift; sourceTree = "<group>"; };
 		63C3FD77244EDDA900C2FEEC /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
-		63C3FD79244EE42C00C2FEEC /* CustomScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScrollView.swift; sourceTree = "<group>"; };
 		63C3FD7B244EE56C00C2FEEC /* LoggingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingViewModel.swift; sourceTree = "<group>"; };
 		63C3FD7F244F28B000C2FEEC /* SensorInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorInfoViewModel.swift; sourceTree = "<group>"; };
 		63C3FD83244F89B300C2FEEC /* SensorInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorInfoViewController.swift; sourceTree = "<group>"; };
@@ -908,6 +908,7 @@
 				3FFB2D712418C023003E6A06 /* DKKeyboardViewController.swift */,
 				A34FC7342423CDDA000734AB /* DKTextField.swift */,
 				A34FC7352423CDDA000734AB /* DKTextField.xib */,
+				3FAEE5612486362E00549391 /* CustomScrollView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -1320,7 +1321,6 @@
 				63FF6B522449E7CF0006992E /* SensorStateView.xib */,
 				63F44E8D244DF2A200C7F5CC /* SeparatorView.swift */,
 				63F44E8B244DF16800C7F5CC /* SeparatorView.xib */,
-				63C3FD79244EE42C00C2FEEC /* CustomScrollView.swift */,
 				632EDDF024504BEE00110744 /* UIColor+PermissionsUtils.swift */,
 			);
 			path = View;
@@ -2211,6 +2211,7 @@
 				3FFB2D722418C023003E6A06 /* DKKeyboardViewController.swift in Sources */,
 				3F7524CB2406C4CC00AC22CC /* DKUIViewController.swift in Sources */,
 				3FF68E72240823190071D74C /* UIFont+DK.swift in Sources */,
+				3FAEE5622486362E00549391 /* CustomScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2324,7 +2325,6 @@
 				616947032433A91300C8A965 /* DKSensorType.swift in Sources */,
 				616946E624333C6900C8A965 /* DriveKitPermissionsUtilsUI.swift in Sources */,
 				639346B724489DDA000F42D4 /* DiagnosisViewController.swift in Sources */,
-				63C3FD7A244EE42C00C2FEEC /* CustomScrollView.swift in Sources */,
 				63F44E86244DDC8100C7F5CC /* GlobalStateViewModel.swift in Sources */,
 				6378BBE0244D9BC70040A114 /* SensorStateViewModel.swift in Sources */,
 				6378BBE4244DA47B0040A114 /* StatusType.swift in Sources */,

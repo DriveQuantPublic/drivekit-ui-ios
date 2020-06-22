@@ -22,6 +22,8 @@ public final class DKTextField : UIView, Nibable {
 
     public weak var target: UIView? = nil
 
+    public private(set) var horizontalPadding: CGFloat = 0
+
     public var placeholder: String = "" {
         didSet {
             textField.placeholder = placeholder
@@ -86,6 +88,8 @@ public final class DKTextField : UIView, Nibable {
         textField.delegate = self
         textField.returnKeyType = .done
         configureSubtitleLabel()
+
+        self.horizontalPadding = self.titleTextField.convert(self.textField.bounds, to: self).origin.x
     }
 
     private func configureTitle() {
@@ -112,6 +116,7 @@ public final class DKTextField : UIView, Nibable {
             subtitle.attributedText = desc.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
         } else {
             subtitle.isHidden = true
+            subtitle.attributedText = nil
         }
     }
 

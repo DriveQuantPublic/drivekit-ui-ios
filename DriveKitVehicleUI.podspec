@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'DriveKitVehicleUI'
-  s.version          = '1.4-beta3'
+  s.version          = '1.6-beta1'
   s.summary          = 'DriveKit Vehicle UI Framework'
 
   s.description      = 'DriveKit Vehicle features : Vehicles list and detail, beacon and bluetooth management, vehicle selection features'

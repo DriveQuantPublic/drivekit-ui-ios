@@ -11,7 +11,7 @@ import Foundation
 public extension Double {
 
     func formatMeterDistanceInKm() -> String {
-        let km = format(maximumNumberOfFractionDigits: 1)
+        let km = (self / 1000.0).format(maximumNumberOfFractionDigits: 1)
         return "\(km) \(DKCommonLocalizable.unitKilometer.text())"
     }
 

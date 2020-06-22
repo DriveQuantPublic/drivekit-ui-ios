@@ -158,7 +158,7 @@ public class DKVehiclesListViewModel {
             if status == .success {
                 self.delegate?.didUpdateVehicle()
             } else {
-                self .delegate?.didReceiveErrorFromService()
+                self.delegate?.didReceiveErrorFromService()
             }
         })
     }
@@ -168,7 +168,7 @@ public class DKVehiclesListViewModel {
             if status == .success {
                 self.delegate?.didUpdateVehicle()
             } else {
-                self .delegate?.didReceiveErrorFromService()
+                self.delegate?.didReceiveErrorFromService()
             }
         })
     }
@@ -178,7 +178,7 @@ public class DKVehiclesListViewModel {
             if status == .success {
                 self.delegate?.didUpdateVehicle()
             } else {
-                self .delegate?.didReceiveErrorFromService()
+                self.delegate?.didReceiveErrorFromService()
             }
         })
     }
@@ -188,7 +188,7 @@ public class DKVehiclesListViewModel {
             if status == .success {
                 self.delegate?.didUpdateVehicle()
             } else {
-                self .delegate?.didReceiveErrorFromService()
+                self.delegate?.didReceiveErrorFromService()
             }
         })
     }

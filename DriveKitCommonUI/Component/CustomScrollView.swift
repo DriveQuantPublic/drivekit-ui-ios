@@ -1,8 +1,8 @@
 //
 //  CustomScrollView.swift
-//  DriveKitPermissionsUtilsUI
+//  DriveKitCommonUI
 //
-//  Created by David Bauduin on 21/04/2020.
+//  Created by Jérémy Bayle on 02/06/2020.
 //  Copyright © 2020 DriveQuant. All rights reserved.
 //
 

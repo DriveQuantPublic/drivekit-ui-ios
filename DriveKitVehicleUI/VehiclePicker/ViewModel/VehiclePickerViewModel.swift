@@ -455,7 +455,7 @@ class VehiclePickerViewModel {
         }
     }
 
-    func replaceVehicle(previousVehicle: DKVehicle, completion : @escaping (DKVehicleManagerStatus, String?) -> ()) {
+    func replaceVehicle(previousVehicle: DKVehicle, completion: @escaping (DKVehicleManagerStatus, String?) -> ()) {
         if let vehicleType = self.vehicleType, let characteristics = vehicleCharacteristics {
             let detectionMode = previousVehicle.detectionMode ?? .disabled
             let previousBeacon = previousVehicle.beacon

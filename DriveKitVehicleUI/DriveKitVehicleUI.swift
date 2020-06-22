@@ -16,20 +16,20 @@ public class DriveKitVehicleUI {
 
     public static let shared = DriveKitVehicleUI()
 
-    private(set) var vehicleTypes: [DKVehicleType] = DKVehicleType.allCases
-    private(set) var brands: [DKVehicleBrand] = DKVehicleBrand.allCases
-    private(set) var categories: [DKVehicleCategory] = DKVehicleCategory.allCases
-    private(set) var truckTypes: [DKTruckType] = DKTruckType.allCases
-    private(set) var categoryConfigType: DKCategoryConfigType = .bothConfig
-    private(set) var vehicleEngineIndexes: [DKVehicleEngineIndex] = DKVehicleEngineIndex.allCases
-    private(set) var brandsWithIcons: Bool = true
+    public private(set) var vehicleTypes: [DKVehicleType] = DKVehicleType.allCases
+    public private(set) var brands: [DKVehicleBrand] = DKVehicleBrand.allCases
+    public private(set) var categories: [DKVehicleCategory] = DKVehicleCategory.allCases
+    public private(set) var truckTypes: [DKTruckType] = DKTruckType.allCases
+    public private(set) var categoryConfigType: DKCategoryConfigType = .bothConfig
+    public private(set) var vehicleEngineIndexes: [DKVehicleEngineIndex] = DKVehicleEngineIndex.allCases
+    public private(set) var brandsWithIcons: Bool = true
 
-    var canAddVehicle: Bool = true
-    var maxVehicles: Int? = nil
-    var canRemoveBeacon: Bool = true
+    public private(set) var canAddVehicle: Bool = true
+    public private(set) var maxVehicles: Int? = nil
+    public private(set) var canRemoveBeacon: Bool = true
 
-    var vehicleActions : [DKVehicleActionItem] = DKVehicleAction.allCases
-    var detectionModes: [DKDetectionMode] = [.disabled, .gps, .beacon, .bluetooth]
+    public private(set) var vehicleActions : [DKVehicleActionItem] = DKVehicleAction.allCases
+    public private(set) var detectionModes: [DKDetectionMode] = [.disabled, .gps, .beacon, .bluetooth]
     var customFields = [DKVehicleGroupField: [DKVehicleField]]()
 
     var beaconDiagnosticEmail: DKContentMail? = nil

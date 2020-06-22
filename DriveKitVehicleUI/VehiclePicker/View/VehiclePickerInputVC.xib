@@ -14,6 +14,7 @@
                 <outlet property="inputImageView" destination="f3q-A2-oIX" id="QSP-Xs-Bjj"/>
                 <outlet property="inputTextField" destination="TDf-u3-tPM" id="uJ2-lg-2Yk"/>
                 <outlet property="inputTextLabel" destination="kF8-to-t92" id="Zu0-Pk-65r"/>
+                <outlet property="topConstraint" destination="2Lc-Q2-q5a" id="PSX-9A-DJ8"/>
                 <outlet property="view" destination="S4t-Nz-FK9" id="Ys3-0H-1ax"/>
             </connections>
         </placeholder>
@@ -68,10 +69,10 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="TDf-u3-tPM" firstAttribute="leading" secondItem="Fia-Lz-M9g" secondAttribute="leading" constant="16" id="1sw-bn-UPW"/>
+                <constraint firstItem="hMJ-zC-3Qc" firstAttribute="top" secondItem="Fia-Lz-M9g" secondAttribute="top" constant="20" id="2Lc-Q2-q5a"/>
                 <constraint firstItem="1eg-d6-2hG" firstAttribute="leading" secondItem="Fia-Lz-M9g" secondAttribute="leading" constant="16" id="Ah6-Ki-bNa"/>
                 <constraint firstItem="Fia-Lz-M9g" firstAttribute="trailing" secondItem="kF8-to-t92" secondAttribute="trailing" constant="16" id="IbA-B4-ldg"/>
                 <constraint firstItem="TDf-u3-tPM" firstAttribute="top" secondItem="kF8-to-t92" secondAttribute="bottom" constant="36" id="Rdp-zW-8W8"/>
-                <constraint firstItem="hMJ-zC-3Qc" firstAttribute="top" secondItem="Fia-Lz-M9g" secondAttribute="top" constant="20" id="RmH-Cy-OIR"/>
                 <constraint firstItem="Fia-Lz-M9g" firstAttribute="trailing" secondItem="1eg-d6-2hG" secondAttribute="trailing" constant="16" id="UDN-gV-fQq"/>
                 <constraint firstItem="kF8-to-t92" firstAttribute="leading" secondItem="Fia-Lz-M9g" secondAttribute="leading" constant="16" id="bzD-xw-3i1"/>
                 <constraint firstItem="Fia-Lz-M9g" firstAttribute="trailing" secondItem="TDf-u3-tPM" secondAttribute="trailing" constant="16" id="d5J-Az-fCz"/>

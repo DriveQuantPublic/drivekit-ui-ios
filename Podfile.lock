@@ -20,17 +20,15 @@ PODS:
   - UICircularProgressRing (6.5.0)
 
 DEPENDENCIES:
-  - DriveKitCore (= 1.5.0)
-  - DriveKitDriverAchievement (= 1.5.0)
-  - DriveKitDriverData (= 1.5.0)
-  - DriveKitTripAnalysis (= 1.5.0)
-  - DriveKitVehicle (= 1.5.0)
+  - DriveKitCore
+  - DriveKitDriverAchievement
+  - DriveKitDriverData
+  - DriveKitTripAnalysis
+  - DriveKitVehicle
   - UICircularProgressRing
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - UICircularProgressRing
-  https://gitlab.com/drivequant/drivekit/drivekit-specs.git:
     - DriveKitCore
     - DriveKitDBAchievementAccess
     - DriveKitDBTripAccess
@@ -40,19 +38,20 @@ SPEC REPOS:
     - DriveKitNetworking
     - DriveKitTripAnalysis
     - DriveKitVehicle
+    - UICircularProgressRing
 
 SPEC CHECKSUMS:
-  DriveKitCore: 615abdefac0b0324a1d075d15f4cd204e808f160
-  DriveKitDBAchievementAccess: 0fc4aa7a3aa51465dac3f0a46d0fe66856ba06e0
-  DriveKitDBTripAccess: f31a6fea0befc07600fd4a3dafce700b3e823eb7
-  DriveKitDBVehicleAccess: 9bd183225757f87e4b1bc6f7149ec5bd5a429b85
-  DriveKitDriverAchievement: 85855ddbc7ffb252e5300b1bb0677949a267b441
-  DriveKitDriverData: a720ccc58774aee639f51159c21711197aac497b
-  DriveKitNetworking: 78a9bf419bbf3964bce33225c357e1f7ada93d26
-  DriveKitTripAnalysis: e9e1738f7c5d1eaef12120d474ba2832d2a66d7e
-  DriveKitVehicle: 5fdf02b5efca73aa06fef2d767b8b84cd31a7864
+  DriveKitCore: 0a07890e9f885b05ab09d94d0b0c0d6264c19f8e
+  DriveKitDBAchievementAccess: 373d9b37dacc8f1c3b8b5b6e010c49fbe5e3c326
+  DriveKitDBTripAccess: 65b17d7ca5569d6cc95a5e0021fbd0e76a38a5a6
+  DriveKitDBVehicleAccess: fb4a2a5b45961eb07210eacca5c597462dcb6498
+  DriveKitDriverAchievement: d800a02fca90ba91163ba48f3ceb549783621800
+  DriveKitDriverData: ecf6e8adbefd465cb3f8c2815014f4f88127ddf3
+  DriveKitNetworking: 642fbf908ebc519fd349a17ea61d22b65afda806
+  DriveKitTripAnalysis: 44ccd4c6373189068a223a6cca1a8005f87a7227
+  DriveKitVehicle: 8d7ddd089b5459dcb7654ec09ba639807eb7a37c
   UICircularProgressRing: e6852e8f88e296cbbbe2720cccb55241acda6708
 
-PODFILE CHECKSUM: 922af03c91ccc5c01104e891ab1dc5e5756e16db
+PODFILE CHECKSUM: 6a93ba6844235e21ea65217b0156f8bd50b0424d
 
 COCOAPODS: 1.9.1

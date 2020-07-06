@@ -16,9 +16,9 @@ import DriveKitDBAchievementAccess
 
     public private(set) var streakThemes: [DKStreakTheme] = [.phoneDistraction, .safety, .acceleration, .brake, .adherence]
     public private(set) var badgeCategories: [DKBadgeCategory] = [.generic, .ecodriving, .safety, .phoneDistraction]
-    public private(set) var rankingType: [DKRankingType] = [.safety, .ecoDriving, .distraction]
+    public private(set) var rankingTypes: [DKRankingType] = [.safety, .ecoDriving, .distraction]
     public private(set) var rankingSelector: DKRankingSelectorType = .period(rankingPeriods: [.weekly, .legacy, .monthly])
-    public private(set) var rankingDepth: Int = 10
+    public private(set) var rankingDepth: Int = 5
 
     private override init() {}
 
@@ -36,8 +36,8 @@ import DriveKitDBAchievementAccess
         self.badgeCategories = newBadgeCategories
     }
 
-    public func configureRankingType(_ rankingType: [DKRankingType]) {
-        self.rankingType = rankingType
+    public func configureRankingTypes(_ rankingTypes: [DKRankingType]) {
+        self.rankingTypes = rankingTypes
     }
 
     public func configureRankingSelector(_ rankingSelector: DKRankingSelectorType) {
@@ -88,9 +88,9 @@ extension DriveKitDriverAchievementUI {
         configureBadgeCategories(badgeCategories: badgeCategories.map { DKBadgeCategory(rawValue: $0)! })
     }
 
-    @objc(configureRankingType:) // Usage example: [DriveKitDriverAchievementUI.shared configureRankingType:@[ @(DKRankingTypeSafety), @(DKRankingTypeEcoDriving), @(DKRankingTypeDistraction) ]];
-    public func objc_configureRankingType(_ rankingType: [Int]) {
-        configureRankingType(rankingType.map { DKRankingType(rawValue: $0)! })
+    @objc(configureRankingTypes:) // Usage example: [DriveKitDriverAchievementUI.shared configureRankingTypes:@[ @(DKRankingTypeSafety), @(DKRankingTypeEcoDriving), @(DKRankingTypeDistraction) ]];
+    public func objc_configureRankingTypes(_ rankingTypes: [Int]) {
+        configureRankingTypes(rankingTypes.map { DKRankingType(rawValue: $0)! })
     }
 
     @objc(configureRankingSelectorNone)

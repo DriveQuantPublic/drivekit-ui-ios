@@ -13,7 +13,7 @@
             <rect key="frame" x="0.0" y="0.0" width="570" height="70"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fVp-Hr-Yuy">
-                    <rect key="frame" x="231" y="0.0" width="108" height="70"/>
+                    <rect key="frame" x="230" y="0.0" width="110.5" height="70"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UPq-gD-cga" userLabel="Progression icon">
                             <rect key="frame" x="0.0" y="15" width="40" height="40"/>
@@ -22,15 +22,9 @@
                                 <constraint firstAttribute="height" constant="40" id="qnu-LD-uwb"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HuX-zN-sKw" userLabel="Score">
-                            <rect key="frame" x="50" y="12.5" width="25" height="45.5"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="38"/>
-                            <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" / 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ElW-Lm-X8Q" userLabel="/ 0">
-                            <rect key="frame" x="75" y="27.5" width="33" height="27"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 / 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HuX-zN-sKw" userLabel="Rank">
+                            <rect key="frame" x="50" y="17" width="60.5" height="36"/>
+                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="30"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -38,9 +32,7 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
                         <constraint firstItem="UPq-gD-cga" firstAttribute="leading" secondItem="fVp-Hr-Yuy" secondAttribute="leading" id="AiW-Pk-fBG"/>
-                        <constraint firstItem="ElW-Lm-X8Q" firstAttribute="firstBaseline" secondItem="HuX-zN-sKw" secondAttribute="firstBaseline" id="Aon-LI-Z4o"/>
-                        <constraint firstItem="ElW-Lm-X8Q" firstAttribute="leading" secondItem="HuX-zN-sKw" secondAttribute="trailing" id="FfE-nb-6TG"/>
-                        <constraint firstAttribute="trailing" secondItem="ElW-Lm-X8Q" secondAttribute="trailing" id="U5E-09-UgP"/>
+                        <constraint firstAttribute="trailing" secondItem="HuX-zN-sKw" secondAttribute="trailing" id="HDx-Ay-o82"/>
                         <constraint firstItem="UPq-gD-cga" firstAttribute="centerY" secondItem="fVp-Hr-Yuy" secondAttribute="centerY" id="bXY-mI-sTv"/>
                         <constraint firstItem="HuX-zN-sKw" firstAttribute="centerY" secondItem="UPq-gD-cga" secondAttribute="centerY" id="bbd-U1-2I4"/>
                         <constraint firstItem="HuX-zN-sKw" firstAttribute="leading" secondItem="UPq-gD-cga" secondAttribute="trailing" constant="10" id="qsd-jK-b69"/>
@@ -57,6 +49,10 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="progressionView" destination="UPq-gD-cga" id="vDD-j5-uHV"/>
+                <outlet property="userRankView" destination="HuX-zN-sKw" id="8Ta-3G-0gG"/>
+            </connections>
             <point key="canvasLocation" x="226.08695652173915" y="216.96428571428569"/>
         </view>
     </objects>

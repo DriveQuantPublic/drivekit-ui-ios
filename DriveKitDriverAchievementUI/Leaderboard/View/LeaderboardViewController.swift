@@ -12,6 +12,7 @@ class LeaderboardViewController : UIViewController {
 
     @IBOutlet private weak var headerContainer: UIStackView!
     @IBOutlet private weak var collectionView: UICollectionView!
+    private let viewModel = LeaderboardViewModel()
 
     public init() {
         super.init(nibName: String(describing: LeaderboardViewController.self), bundle: .driverAchievementUIBundle)
@@ -39,6 +40,7 @@ class LeaderboardViewController : UIViewController {
         if let leaderboardSelectors = leaderboardSelectors {
             leaderboardSelectors.translatesAutoresizingMaskIntoConstraints = false
             self.headerContainer.addArrangedSubview(leaderboardSelectors)
+            leaderboardSelectors.update(viewModel: self.viewModel)
         }
 
         let leaderboardScoreSmall = Bundle.driverAchievementUIBundle?.loadNibNamed("LeaderboardScoreSmall", owner: nil, options: nil)?.first as? LeaderboardScoreSmall

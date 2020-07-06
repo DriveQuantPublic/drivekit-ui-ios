@@ -20,7 +20,7 @@
                         <constraint firstAttribute="height" constant="8" id="3NO-qD-WX2"/>
                     </constraints>
                 </view>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="sVA-od-D34" userLabel="Ranking type container">
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="sVA-od-D34" userLabel="Ranking types container">
                     <rect key="frame" x="0.0" y="8" width="611" height="64"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKW-kJ-xMg" userLabel="Safety container" customClass="UIControl">
@@ -47,6 +47,9 @@
                                 <constraint firstAttribute="trailing" secondItem="tcG-7c-0Ca" secondAttribute="trailing" id="bhr-hs-SbF"/>
                                 <constraint firstItem="tcG-7c-0Ca" firstAttribute="leading" secondItem="WKW-kJ-xMg" secondAttribute="leading" id="hej-XD-Xhm"/>
                             </constraints>
+                            <connections>
+                                <action selector="onRankingTypeContainerSelectedWithSender:" destination="w75-TO-7ca" eventType="touchUpInside" id="nUb-jd-5S1"/>
+                            </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xoC-Oc-nVn" userLabel="Ecodriving container" customClass="UIControl">
                             <rect key="frame" x="153" y="0.0" width="152.5" height="64"/>
@@ -72,6 +75,9 @@
                                 <constraint firstItem="2To-FV-O6Z" firstAttribute="leading" secondItem="xoC-Oc-nVn" secondAttribute="leading" id="h4d-v1-McO"/>
                                 <constraint firstAttribute="bottom" secondItem="cvH-tt-49p" secondAttribute="bottom" id="tf1-HY-5Cy"/>
                             </constraints>
+                            <connections>
+                                <action selector="onRankingTypeContainerSelectedWithSender:" destination="w75-TO-7ca" eventType="touchUpInside" id="kBd-Jd-mXv"/>
+                            </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxg-a8-wI2" userLabel="Phone distraction container" customClass="UIControl">
                             <rect key="frame" x="305.5" y="0.0" width="153" height="64"/>
@@ -97,6 +103,9 @@
                                 <constraint firstAttribute="bottom" secondItem="RIB-Fd-92V" secondAttribute="bottom" id="ZSt-Lr-rNt"/>
                                 <constraint firstItem="hsh-6b-gbB" firstAttribute="leading" secondItem="cxg-a8-wI2" secondAttribute="leading" id="xEw-VN-ckz"/>
                             </constraints>
+                            <connections>
+                                <action selector="onRankingTypeContainerSelectedWithSender:" destination="w75-TO-7ca" eventType="touchUpInside" id="ysQ-cj-h0R"/>
+                            </connections>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="awU-uz-hhT" userLabel="Speeding container" customClass="UIControl">
                             <rect key="frame" x="458.5" y="0.0" width="152.5" height="64"/>
@@ -122,40 +131,63 @@
                                 <constraint firstAttribute="bottom" secondItem="je7-eT-1jb" secondAttribute="bottom" id="woi-yH-0tG"/>
                                 <constraint firstAttribute="trailing" secondItem="Fpb-Ro-1q3" secondAttribute="trailing" id="y8i-fW-Y0D"/>
                             </constraints>
+                            <connections>
+                                <action selector="onRankingTypeContainerSelectedWithSender:" destination="w75-TO-7ca" eventType="touchUpInside" id="ar4-Aw-kMt"/>
+                            </connections>
                         </view>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="height" constant="64" id="Z1e-Qc-Swj"/>
                     </constraints>
                 </stackView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tiq-Xm-f5c" userLabel="Groups container">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tiq-Xm-f5c" userLabel="Ranking selectors container">
                     <rect key="frame" x="0.0" y="72" width="611" height="60"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zeR-W7-cuH">
                             <rect key="frame" x="30" y="16" width="551" height="44"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="avF-9v-ESM">
-                                    <rect key="frame" x="0.0" y="0.0" width="265.5" height="44"/>
-                                    <state key="normal" title="Group 1"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="170.5" height="44"/>
+                                    <state key="normal" title="Selector 1"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                             <integer key="value" value="22"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="onRankingSelectorButtonSelectedWithSender:" destination="w75-TO-7ca" eventType="touchUpInside" id="7Pb-XH-zr3"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rbd-7P-xLX">
-                                    <rect key="frame" x="285.5" y="0.0" width="265.5" height="44"/>
-                                    <state key="normal" title="Group 2"/>
+                                    <rect key="frame" x="190.5" y="0.0" width="170" height="44"/>
+                                    <state key="normal" title="Selector 2"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                             <integer key="value" value="22"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="onRankingSelectorButtonSelectedWithSender:" destination="w75-TO-7ca" eventType="touchUpInside" id="FMa-h6-Bih"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXP-xV-SYa">
+                                    <rect key="frame" x="380.5" y="0.0" width="170.5" height="44"/>
+                                    <state key="normal" title="Selector 3"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <integer key="value" value="22"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="onRankingSelectorButtonSelectedWithSender:" destination="w75-TO-7ca" eventType="touchUpInside" id="nHd-a2-2yt"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <constraints>
+                                <constraint firstItem="sXP-xV-SYa" firstAttribute="top" secondItem="zeR-W7-cuH" secondAttribute="top" id="119-Dv-EeG"/>
                                 <constraint firstAttribute="bottom" secondItem="Rbd-7P-xLX" secondAttribute="bottom" id="2dy-Gg-eTL"/>
                                 <constraint firstItem="Rbd-7P-xLX" firstAttribute="top" secondItem="zeR-W7-cuH" secondAttribute="top" id="SdI-QB-9X5"/>
+                                <constraint firstAttribute="bottom" secondItem="sXP-xV-SYa" secondAttribute="bottom" id="VnZ-7p-E9p"/>
                                 <constraint firstItem="avF-9v-ESM" firstAttribute="top" secondItem="zeR-W7-cuH" secondAttribute="top" id="WIj-il-3rq"/>
                                 <constraint firstAttribute="bottom" secondItem="avF-9v-ESM" secondAttribute="bottom" id="ios-QZ-s6X"/>
                             </constraints>
@@ -187,14 +219,17 @@
             <connections>
                 <outlet property="ecoDrivingContainer" destination="xoC-Oc-nVn" id="SXk-OI-N7d"/>
                 <outlet property="ecoDrivingSelectionIndicator" destination="cvH-tt-49p" id="dU2-Gi-Ftn"/>
-                <outlet property="group1Button" destination="avF-9v-ESM" id="7Tb-WY-1eo"/>
-                <outlet property="group2Button" destination="Rbd-7P-xLX" id="flC-6M-AVA"/>
-                <outlet property="groupsContainer" destination="Tiq-Xm-f5c" id="wrg-f0-arm"/>
                 <outlet property="phoneDistractionContainer" destination="cxg-a8-wI2" id="UC0-AQ-qey"/>
                 <outlet property="phoneDistractionSelectionIndicator" destination="RIB-Fd-92V" id="B1l-h3-dAY"/>
+                <outlet property="rankingSelector1Button" destination="avF-9v-ESM" id="x8h-OQ-WKa"/>
+                <outlet property="rankingSelector2Button" destination="Rbd-7P-xLX" id="isr-pc-jaG"/>
+                <outlet property="rankingSelector3Button" destination="sXP-xV-SYa" id="9GL-59-xbV"/>
+                <outlet property="rankingSelectorsContainer" destination="Tiq-Xm-f5c" id="2gU-fd-bBc"/>
+                <outlet property="rankingTypesContainer" destination="sVA-od-D34" id="E4v-H9-Lpf"/>
                 <outlet property="safetyContainer" destination="WKW-kJ-xMg" id="MeS-oD-2BI"/>
                 <outlet property="safetySelectionIndicator" destination="tcG-7c-0Ca" id="7CO-g4-GyF"/>
                 <outlet property="speedingContainer" destination="awU-uz-hhT" id="Khy-p7-XuC"/>
+                <outlet property="speedingSelectionIndicator" destination="je7-eT-1jb" id="6le-3w-eE8"/>
             </connections>
             <point key="canvasLocation" x="-9.4202898550724647" y="-232.36607142857142"/>
         </stackView>

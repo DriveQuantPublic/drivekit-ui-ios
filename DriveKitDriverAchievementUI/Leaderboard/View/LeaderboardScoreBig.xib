@@ -29,27 +29,19 @@
                         <constraint firstAttribute="height" constant="40" id="qnu-LD-uwb"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HuX-zN-sKw" userLabel="Score">
-                    <rect key="frame" x="325" y="69" width="25" height="45.5"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="38"/>
-                    <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" / 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ElW-Lm-X8Q">
-                    <rect key="frame" x="350" y="84" width="33" height="27"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 / 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HuX-zN-sKw" userLabel="Rank">
+                    <rect key="frame" x="325" y="73.5" width="60.5" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="ElW-Lm-X8Q" firstAttribute="firstBaseline" secondItem="HuX-zN-sKw" secondAttribute="firstBaseline" id="4vq-AT-Kme"/>
                 <constraint firstAttribute="bottom" secondItem="Jgx-n3-D6h" secondAttribute="bottom" constant="10" id="9Oh-Tn-hh2"/>
                 <constraint firstAttribute="trailing" secondItem="shJ-SP-G9E" secondAttribute="trailing" constant="10" id="Acv-Ye-mCy"/>
                 <constraint firstItem="Jgx-n3-D6h" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="FOY-VZ-l2e"/>
                 <constraint firstItem="HuX-zN-sKw" firstAttribute="centerY" secondItem="UPq-gD-cga" secondAttribute="centerY" id="GXg-xC-a4s"/>
-                <constraint firstItem="ElW-Lm-X8Q" firstAttribute="leading" secondItem="HuX-zN-sKw" secondAttribute="trailing" id="Q3D-wZ-8V7"/>
                 <constraint firstItem="shJ-SP-G9E" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="32" id="c57-gF-6TA"/>
                 <constraint firstItem="shJ-SP-G9E" firstAttribute="leading" secondItem="Jgx-n3-D6h" secondAttribute="trailing" id="cxg-ew-752"/>
                 <constraint firstItem="UPq-gD-cga" firstAttribute="top" secondItem="shJ-SP-G9E" secondAttribute="bottom" constant="18" id="dLg-tk-ItZ"/>
@@ -61,6 +53,12 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="progressionView" destination="UPq-gD-cga" id="z1h-s5-A5I"/>
+                <outlet property="rankingTypeImage" destination="Jgx-n3-D6h" id="1kq-gf-afT"/>
+                <outlet property="rankingTypeLabel" destination="shJ-SP-G9E" id="XOc-yh-jP9"/>
+                <outlet property="userRankView" destination="HuX-zN-sKw" id="nli-oM-s5v"/>
+            </connections>
             <point key="canvasLocation" x="226.08695652173915" y="216.96428571428569"/>
         </view>
     </objects>

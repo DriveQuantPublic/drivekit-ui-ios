@@ -32,11 +32,6 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="OQA-bM-JKY" secondAttribute="height" multiplier="1:1" id="swq-P6-I1V"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgU-Pw-Fgr" userLabel="Rank">
                                 <rect key="frame" x="34.5" y="19.5" width="11" height="21"/>

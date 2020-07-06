@@ -209,6 +209,10 @@
 		63C3FD80244F28B000C2FEEC /* SensorInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3FD7F244F28B000C2FEEC /* SensorInfoViewModel.swift */; };
 		63C3FD85244F89B300C2FEEC /* SensorInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3FD83244F89B300C2FEEC /* SensorInfoViewController.swift */; };
 		63C3FD86244F89B300C2FEEC /* SensorInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63C3FD84244F89B300C2FEEC /* SensorInfoViewController.xib */; };
+		63C8751524B3727000CA9723 /* LeaderboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8751424B3727000CA9723 /* LeaderboardViewModel.swift */; };
+		63C8751724B3729200CA9723 /* LeaderboardScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8751624B3729200CA9723 /* LeaderboardScoreView.swift */; };
+		63C8751924B3735C00CA9723 /* DriverProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8751824B3735C00CA9723 /* DriverProgression.swift */; };
+		63C8751C24B3BA0800CA9723 /* UIColor+Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8751B24B3BA0800CA9723 /* UIColor+Leaderboard.swift */; };
 		63F44E86244DDC8100C7F5CC /* GlobalStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F44E85244DDC8100C7F5CC /* GlobalStateViewModel.swift */; };
 		63F44E89244DDEE000C7F5CC /* GlobalStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F44E87244DDEE000C7F5CC /* GlobalStateView.swift */; };
 		63F44E8A244DDEE000C7F5CC /* GlobalStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F44E88244DDEE000C7F5CC /* GlobalStateView.xib */; };
@@ -632,6 +636,10 @@
 		63C3FD7F244F28B000C2FEEC /* SensorInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorInfoViewModel.swift; sourceTree = "<group>"; };
 		63C3FD83244F89B300C2FEEC /* SensorInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorInfoViewController.swift; sourceTree = "<group>"; };
 		63C3FD84244F89B300C2FEEC /* SensorInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SensorInfoViewController.xib; sourceTree = "<group>"; };
+		63C8751424B3727000CA9723 /* LeaderboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewModel.swift; sourceTree = "<group>"; };
+		63C8751624B3729200CA9723 /* LeaderboardScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardScoreView.swift; sourceTree = "<group>"; };
+		63C8751824B3735C00CA9723 /* DriverProgression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverProgression.swift; sourceTree = "<group>"; };
+		63C8751B24B3BA0800CA9723 /* UIColor+Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Leaderboard.swift"; sourceTree = "<group>"; };
 		63F44E85244DDC8100C7F5CC /* GlobalStateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalStateViewModel.swift; sourceTree = "<group>"; };
 		63F44E87244DDEE000C7F5CC /* GlobalStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalStateView.swift; sourceTree = "<group>"; };
 		63F44E88244DDEE000C7F5CC /* GlobalStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GlobalStateView.xib; sourceTree = "<group>"; };
@@ -1348,6 +1356,7 @@
 		63B3A19D24AB3A330011F11B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				63C8751424B3727000CA9723 /* LeaderboardViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1355,18 +1364,16 @@
 		63B3A19E24AB3A3A0011F11B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				63C8751A24B3794500CA9723 /* score */,
+				63B3A1AA24ACC3810011F11B /* CircleView.swift */,
+				63041FA724AE36C10028CAE8 /* LeaderboardSelectors.swift */,
+				63041FA124AE0A680028CAE8 /* LeaderboardSelectors.xib */,
 				63B3A1A224AB93030011F11B /* LeaderboardViewController.swift */,
 				63041F9D24AE005E0028CAE8 /* LeaderboardViewController.xib */,
 				63B3A1A624ACBCFB0011F11B /* RankingCell.swift */,
 				63B3A1A824ACBFC10011F11B /* RankingCell.xib */,
 				63041F9924ACD0D90028CAE8 /* RankingHeaderCell.xib */,
-				63B3A1AA24ACC3810011F11B /* CircleView.swift */,
-				63041FA124AE0A680028CAE8 /* LeaderboardSelectors.xib */,
-				63041FA724AE36C10028CAE8 /* LeaderboardSelectors.swift */,
-				63041FA324AE2C600028CAE8 /* LeaderboardScoreBig.xib */,
-				63041FA924AE3B2E0028CAE8 /* LeaderboardScoreBig.swift */,
-				63041FA524AE2FB70028CAE8 /* LeaderboardScoreSmall.xib */,
-				63041FAB24AE3B680028CAE8 /* LeaderboardScoreSmall.swift */,
+				63C8751B24B3BA0800CA9723 /* UIColor+Leaderboard.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1375,8 +1382,21 @@
 			isa = PBXGroup;
 			children = (
 				63B3A19F24AB73460011F11B /* DKRankingSelectorType.swift */,
+				63C8751824B3735C00CA9723 /* DriverProgression.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		63C8751A24B3794500CA9723 /* score */ = {
+			isa = PBXGroup;
+			children = (
+				63C8751624B3729200CA9723 /* LeaderboardScoreView.swift */,
+				63041FA924AE3B2E0028CAE8 /* LeaderboardScoreBig.swift */,
+				63041FA324AE2C600028CAE8 /* LeaderboardScoreBig.xib */,
+				63041FAB24AE3B680028CAE8 /* LeaderboardScoreSmall.swift */,
+				63041FA524AE2FB70028CAE8 /* LeaderboardScoreSmall.xib */,
+			);
+			name = score;
 			sourceTree = "<group>";
 		};
 		63FF6B56244A41550006992E /* View */ = {
@@ -2368,12 +2388,14 @@
 			files = (
 				63B3A1A324AB93030011F11B /* LeaderboardViewController.swift in Sources */,
 				5C180D6E246B049B001E95FA /* BadgeLevelView.swift in Sources */,
+				63C8751524B3727000CA9723 /* LeaderboardViewModel.swift in Sources */,
 				63041FA824AE36C10028CAE8 /* LeaderboardSelectors.swift in Sources */,
 				63041FAA24AE3B2E0028CAE8 /* LeaderboardScoreBig.swift in Sources */,
 				3FB5643423F5AA2900F010E3 /* StreakTableViewCell.swift in Sources */,
 				5C180D6A246B0258001E95FA /* BadgeTableViewCell.swift in Sources */,
 				5CFCF8B5246D82E6002F9152 /* BadgeSectionHeaderView.swift in Sources */,
 				63041FAC24AE3B680028CAE8 /* LeaderboardScoreSmall.swift in Sources */,
+				63C8751C24B3BA0800CA9723 /* UIColor+Leaderboard.swift in Sources */,
 				63B3A1A724ACBCFB0011F11B /* RankingCell.swift in Sources */,
 				5CFCF8B9246DAE4A002F9152 /* BadgeLevelDetailViewController.swift in Sources */,
 				5C180D68246B000D001E95FA /* BadgesViewController.swift in Sources */,
@@ -2382,6 +2404,8 @@
 				63B3A1AB24ACC3810011F11B /* CircleView.swift in Sources */,
 				5CA1D483246E9FF1001DDC34 /* BadgeLevelViewModel.swift in Sources */,
 				5C180D66246AFCB8001E95FA /* BadgesViewModel.swift in Sources */,
+				63C8751924B3735C00CA9723 /* DriverProgression.swift in Sources */,
+				63C8751724B3729200CA9723 /* LeaderboardScoreView.swift in Sources */,
 				3FFAD21123EDC0FF00D1A16C /* StreakViewModel.swift in Sources */,
 				3FF68E6C2407F8110071D74C /* DriveKitDriverAchievementUI.swift in Sources */,
 				3FFAD20E23EDBF2F00D1A16C /* StreakViewController.swift in Sources */,

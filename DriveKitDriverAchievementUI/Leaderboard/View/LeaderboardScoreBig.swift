@@ -16,22 +16,21 @@ class LeaderboardScoreBig : LeaderboardScoreView {
     @IBOutlet private weak var rankingTypeImage: UIImageView!
     @IBOutlet private weak var rankingTypeLabel: UILabel!
 
-    override func update(userPosition: Int, nbRankedDrivers: Int, driverProgression: DriverProgression, rankingType: DKRankingType) {
-        super.update(userPosition: userPosition, nbRankedDrivers: nbRankedDrivers, driverProgression: driverProgression, rankingType: rankingType)
+    override func update(currentDriverRank: CurrentDriverRank?, rankingType: RankingType?) {
+        super.update(currentDriverRank: currentDriverRank, rankingType: rankingType)
 
-        switch rankingType {
-            case .distraction:
-                updateRankingTypeViews(rankingTypeTitleKey: "TODO", rankingTypeImageName: "leaderboard_phone_distraction")
-            case .ecoDriving:
-                updateRankingTypeViews(rankingTypeTitleKey: "TODO", rankingTypeImageName: "leaderboard_ecodriving")
-            case .safety:
-                updateRankingTypeViews(rankingTypeTitleKey: "TODO", rankingTypeImageName: "leaderboard_safety")
-        }
+        updateRankingTypeViews(rankingTypeTitle: rankingType?.name, rankingTypeImageName: rankingType?.imageName)
     }
 
-    private func updateRankingTypeViews(rankingTypeTitleKey: String, rankingTypeImageName: String) {
-        self.rankingTypeLabel.attributedText = rankingTypeTitleKey.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
-        self.rankingTypeImage.image = UIImage(named: rankingTypeImageName, in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
+    private func updateRankingTypeViews(rankingTypeTitle: String?, rankingTypeImageName: String?) {
+        if let rankingTypeTitle = rankingTypeTitle {
+            self.rankingTypeLabel.attributedText = rankingTypeTitle.dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.mainFontColor).build()
+        } else {
+            self.rankingTypeLabel.attributedText = nil
+        }
+        if let rankingTypeImageName = rankingTypeImageName {
+            self.rankingTypeImage.image = UIImage(named: rankingTypeImageName, in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
+        }
     }
 
 }

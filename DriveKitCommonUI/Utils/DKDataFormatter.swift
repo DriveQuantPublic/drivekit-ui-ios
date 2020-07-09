@@ -11,15 +11,15 @@ import Foundation
 public extension Double {
 
     func formatMeterDistanceInKm() -> String {
-        let km = (self / 1000.0).format(maximumNumberOfFractionDigits: 1)
+        let km = (self / 1000.0).format(maximumFractionDigits: 1)
         return "\(km) \(DKCommonLocalizable.unitKilometer.text())"
     }
 
     func formatMeterDistance() -> String {
         if self < 10 {
-            return "\(format(maximumNumberOfFractionDigits: 2)) \(DKCommonLocalizable.unitMeter.text())"
+            return "\(format(maximumFractionDigits: 2)) \(DKCommonLocalizable.unitMeter.text())"
         } else if self < 1000 {
-            return "\(format(maximumNumberOfFractionDigits: 0)) \(DKCommonLocalizable.unitMeter.text())"
+            return "\(format(maximumFractionDigits: 0)) \(DKCommonLocalizable.unitMeter.text())"
         } else {
             return formatMeterDistanceInKm()
         }
@@ -31,18 +31,18 @@ public extension Double {
     }
 
     func formatMass() -> String {
-        let formattedMass = format(maximumNumberOfFractionDigits: 0)
+        let formattedMass = format(maximumFractionDigits: 0)
         return "\(formattedMass) \(DKCommonLocalizable.unitKilogram.text())"
     }
 
     func formatMassInTon() -> String {
         let massInTon = self / 1000.0
-        let formattedMass = massInTon.format(maximumNumberOfFractionDigits: 1)
+        let formattedMass = massInTon.format(maximumFractionDigits: 1)
         return "\(formattedMass) \(DKCommonLocalizable.unitTon.text())"
     }
 
     func formatPower() -> String {
-        let formattedPower = self.format(maximumNumberOfFractionDigits: 0)
+        let formattedPower = self.format(maximumFractionDigits: 0)
         return "\(formattedPower) \(DKCommonLocalizable.unitPower.text())"
     }
 
@@ -51,14 +51,15 @@ public extension Double {
         return (self * divisor).rounded() / divisor
     }
 
-    func format(maximumNumberOfFractionDigits: Int = 0) -> String {
+    func format(maximumFractionDigits: Int = 0, minimumFractionDigits: Int = 0) -> String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         numberFormatter.roundingMode = .halfUp
-        numberFormatter.maximumFractionDigits = maximumNumberOfFractionDigits
+        numberFormatter.minimumFractionDigits = minimumFractionDigits
+        numberFormatter.maximumFractionDigits = maximumFractionDigits
         let formattedNumber = numberFormatter.string(from: NSNumber(value: self)) ?? {
-            let format = String(format: "%%.%if", maximumNumberOfFractionDigits)
-            return String(format: format, round(places: maximumNumberOfFractionDigits))
+            let format = String(format: "%%.%if", maximumFractionDigits)
+            return String(format: format, round(places: maximumFractionDigits))
         }()
         return formattedNumber
     }
@@ -93,30 +94,34 @@ public extension Double {
 
     func formatCO2Mass() -> String {
         if self < 1 {
-            return "\((self * 1000).format(maximumNumberOfFractionDigits: 0)) \(DKCommonLocalizable.unitGram.text())"
+            return "\((self * 1000).format(maximumFractionDigits: 0)) \(DKCommonLocalizable.unitGram.text())"
         } else {
-            return "\(self.format(maximumNumberOfFractionDigits: 2)) \(DKCommonLocalizable.unitKilogram.text())"
+            return "\(self.format(maximumFractionDigits: 2)) \(DKCommonLocalizable.unitKilogram.text())"
         }
     }
 
     func formatCO2Emission() -> String {
-        return "\(self.format(maximumNumberOfFractionDigits: 0)) \(DKCommonLocalizable.unitGperKM.text())"
+        return "\(self.format(maximumFractionDigits: 0)) \(DKCommonLocalizable.unitGperKM.text())"
     }
 
     func formatSpeedMean() -> String {
-        return "\(self.format(maximumNumberOfFractionDigits: 0)) \(DKCommonLocalizable.unitKmPerHour.text())"
+        return "\(self.format(maximumFractionDigits: 0)) \(DKCommonLocalizable.unitKmPerHour.text())"
     }
 
     func formatConsumption() -> String {
-        return "\(self.format(maximumNumberOfFractionDigits: 1)) \(DKCommonLocalizable.unitLPer100Km.text())"
+        return "\(self.format(maximumFractionDigits: 1)) \(DKCommonLocalizable.unitLPer100Km.text())"
     }
 
     func formatAcceleration() -> String {
-        return "\(self.format(maximumNumberOfFractionDigits: 2)) \(DKCommonLocalizable.unitAcceleration.text())"
+        return "\(self.format(maximumFractionDigits: 2)) \(DKCommonLocalizable.unitAcceleration.text())"
     }
 
     func formatDouble(places: Int) -> String {
-        return self.format(maximumNumberOfFractionDigits: 1)
+        return self.format(maximumFractionDigits: places)
+    }
+
+    func formatDouble(fractionDigits: Int) -> String {
+        return self.format(maximumFractionDigits: fractionDigits, minimumFractionDigits: fractionDigits)
     }
 
     var asDate: Date {

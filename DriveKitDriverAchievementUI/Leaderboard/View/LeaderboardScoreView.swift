@@ -16,28 +16,27 @@ class LeaderboardScoreView : UIView {
     @IBOutlet weak var userRankView: UILabel!
     @IBOutlet weak var progressionView: UIImageView!
 
-    private(set) var userPosition: Int = 0
-    private(set) var nbRankedDrivers: Int = 0
-    private(set) var driverProgression: DriverProgression = .steady
-    private(set) var rankingType: DKRankingType? = nil
+    private(set) var currentDriverRank: CurrentDriverRank? = nil
+    private(set) var rankingType: RankingType? = nil
 
-    func update(userPosition: Int, nbRankedDrivers: Int, driverProgression: DriverProgression, rankingType: DKRankingType) {
-        self.userPosition = userPosition
-        self.nbRankedDrivers = nbRankedDrivers
-        self.driverProgression = driverProgression
+    func update(currentDriverRank: CurrentDriverRank?, rankingType: RankingType?) {
+        self.currentDriverRank = currentDriverRank
         self.rankingType = rankingType
 
-        let userRankString = String(userPosition).dkAttributedString().font(dkFont: .primary, style: .highlightBig).color(.secondaryColor).build()
-        let numberOfUsersString = " / \(nbRankedDrivers)".dkAttributedString().font(dkFont: .primary, style: .highlightBig).color(.mainFontColor).build()
-        self.userRankView.attributedText = "%@%@".dkAttributedString().buildWithArgs(userRankString, numberOfUsersString)
+        self.progressionView.image = nil
 
-        switch driverProgression {
-            case .goingDown:
-                self.progressionView.image = UIImage(named: "TODO", in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
-            case .goingUp:
-                self.progressionView.image = UIImage(named: "TODO", in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
-            case .steady:
-                self.progressionView.image = UIImage(named: "TODO", in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
+        if let currentDriverRank = currentDriverRank {
+            let driverRankString = currentDriverRank.positionString.dkAttributedString().font(dkFont: .primary, style: .highlightBig).color(.secondaryColor).build()
+            let rankString = currentDriverRank.rankString.dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
+            self.userRankView.attributedText = "%@%@".dkAttributedString().buildWithArgs(driverRankString, rankString)
+
+            if let progressionImageName = currentDriverRank.progressionImageName {
+                self.progressionView.image = UIImage(named: progressionImageName, in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
+            } else {
+                self.progressionView.image = nil
+            }
+        } else {
+            self.userRankView.attributedText = nil
         }
     }
 

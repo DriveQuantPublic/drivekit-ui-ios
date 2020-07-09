@@ -12,7 +12,10 @@ class LeaderboardViewController : UIViewController {
 
     @IBOutlet private weak var headerContainer: UIStackView!
     @IBOutlet private weak var collectionView: UICollectionView!
+    private var leaderboardScoreView: LeaderboardScoreView? = nil
+    private var leaderboardSelectors: LeaderboardSelectorsView? = nil
     private let viewModel = LeaderboardViewModel()
+    private var ranks: [AnyDriverRank] = []
 
     public init() {
         super.init(nibName: String(describing: LeaderboardViewController.self), bundle: .driverAchievementUIBundle)
@@ -26,44 +29,70 @@ class LeaderboardViewController : UIViewController {
         super.viewDidLoad()
 
         updateHeader()
+        updateData()
+
+        self.viewModel.delegate = self
+        self.viewModel.update()
 
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.collectionView.register(UINib(nibName: "RankingCell", bundle: .driverAchievementUIBundle), forCellWithReuseIdentifier: "RankingCell")
-        //        self.collectionView.register(UINib(nibName: "RankingHeaderCell", bundle: .driverAchievementUIBundle), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "RankingHeaderCell")
+        self.collectionView.register(UINib(nibName: "RankingHeaderCell", bundle: .driverAchievementUIBundle), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "RankingHeaderCell")
     }
 
     private func updateHeader() {
-        self.headerContainer.subviews.forEach { $0.removeFromSuperview() }
+        self.headerContainer.removeAllSubviews()
 
-        let leaderboardSelectors = Bundle.driverAchievementUIBundle?.loadNibNamed("LeaderboardSelectors", owner: nil, options: nil)?.first as? LeaderboardSelectors
-        if let leaderboardSelectors = leaderboardSelectors {
-            leaderboardSelectors.translatesAutoresizingMaskIntoConstraints = false
-            self.headerContainer.addArrangedSubview(leaderboardSelectors)
-            leaderboardSelectors.update(viewModel: self.viewModel)
+        let leaderboardScoreView: LeaderboardScoreView?
+        if self.viewModel.rankingTypes.count > 1 || self.viewModel.rankingSelectors.count > 1 {
+            let leaderboardSelectors = Bundle.driverAchievementUIBundle?.loadNibNamed("LeaderboardSelectorsView", owner: nil, options: nil)?.first as? LeaderboardSelectorsView
+            if let leaderboardSelectors = leaderboardSelectors {
+                leaderboardSelectors.translatesAutoresizingMaskIntoConstraints = false
+                self.headerContainer.addArrangedSubview(leaderboardSelectors)
+                leaderboardSelectors.update(viewModel: self.viewModel)
+            }
+            self.leaderboardSelectors = leaderboardSelectors
+            leaderboardScoreView = Bundle.driverAchievementUIBundle?.loadNibNamed("LeaderboardScoreSmall", owner: nil, options: nil)?.first as? LeaderboardScoreSmall
+        } else {
+            self.leaderboardSelectors = nil
+            leaderboardScoreView = Bundle.driverAchievementUIBundle?.loadNibNamed("LeaderboardScoreBig", owner: nil, options: nil)?.first as? LeaderboardScoreBig
         }
+        self.leaderboardScoreView = leaderboardScoreView
+        if let leaderboardScoreView = leaderboardScoreView {
+            leaderboardScoreView.translatesAutoresizingMaskIntoConstraints = false
+            self.headerContainer.addArrangedSubview(leaderboardScoreView)
+        }
+    }
 
-        let leaderboardScoreSmall = Bundle.driverAchievementUIBundle?.loadNibNamed("LeaderboardScoreSmall", owner: nil, options: nil)?.first as? LeaderboardScoreSmall
-        if let leaderboardScoreSmall = leaderboardScoreSmall {
-            leaderboardScoreSmall.translatesAutoresizingMaskIntoConstraints = false
-            self.headerContainer.addArrangedSubview(leaderboardScoreSmall)
+    private func updateData() {
+        leaderboardScoreView?.update(currentDriverRank: self.viewModel.driverRank, rankingType: self.viewModel.selectedRankingType)
+
+        if !self.ranks.isEmpty {
+            self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: false)
         }
+        self.ranks = self.viewModel.ranks
+        self.collectionView.reloadData()
     }
 
 }
 
 extension LeaderboardViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return self.ranks.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: "RankingCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RankingCell", for: indexPath)
+        if let rankingCell = cell as? RankingCell {
+            let driverRank = self.ranks[indexPath.item]
+            rankingCell.update(driverRank: driverRank)
+        }
+        return cell
     }
 
-    //    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-    //        return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "RankingHeaderCell", for: indexPath)
-    //    }
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "RankingHeaderCell", for: indexPath)
+    }
 }
 
 extension LeaderboardViewController : UICollectionViewDelegateFlowLayout {
@@ -75,18 +104,14 @@ extension LeaderboardViewController : UICollectionViewDelegateFlowLayout {
         return 0
     }
 
-    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-    //        return CGSize(width: collectionView.bounds.width, height: 70)
-    //    }
-    //
-    //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    //        self.showLoader()
-    //        viewModel.onCollectionViewItemSelected(pos: indexPath.row, completion: { status in
-    //            if status == .noData {
-    //                self.hideLoader()
-    //                self.showAlertMessage(title: nil, message: "dk_vehicle_no_data".dkVehicleLocalized(), back: false, cancel: false)
-    //            }
-    //        })
-    //    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.bounds.width, height: 36)
+    }
 
+}
+
+extension LeaderboardViewController : LeaderboardViewModelDelegate {
+    func leaderboardDidUpdate() {
+        updateData()
+    }
 }

@@ -52,7 +52,11 @@ class RankingViewController : UIViewController {
                 rankingSelectors.update(viewModel: self.viewModel)
             }
             self.rankingSelectors = rankingSelectors
-            rankingScoreView = Bundle.driverAchievementUIBundle?.loadNibNamed("RankingScoreSmall", owner: nil, options: nil)?.first as? RankingScoreSmall
+            if self.viewModel.driverRank != nil {
+                rankingScoreView = Bundle.driverAchievementUIBundle?.loadNibNamed("RankingScoreSmall", owner: nil, options: nil)?.first as? RankingScoreSmall
+            } else {
+                rankingScoreView = nil
+            }
         } else {
             self.rankingSelectors = nil
             rankingScoreView = Bundle.driverAchievementUIBundle?.loadNibNamed("RankingScoreBig", owner: nil, options: nil)?.first as? RankingScoreBig
@@ -112,6 +116,9 @@ extension RankingViewController : UICollectionViewDelegateFlowLayout {
 
 extension RankingViewController : RankingViewModelDelegate {
     func rankingDidUpdate() {
+        if (self.viewModel.driverRank != nil && self.rankingScoreView == nil) || (self.viewModel.driverRank == nil && self.rankingScoreView != nil) {
+            updateHeader()
+        }
         updateData()
     }
 }

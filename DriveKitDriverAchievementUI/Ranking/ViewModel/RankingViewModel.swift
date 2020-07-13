@@ -1,5 +1,5 @@
 //
-//  LeaderboardViewModel.swift
+//  RankingViewModel.swift
 //  DriveKitDriverAchievementUI
 //
 //  Created by David Bauduin on 06/07/2020.
@@ -12,7 +12,7 @@ import DriveKitCommonUI
 import DriveKitDBAchievementAccess
 import DriveKitDriverAchievement
 
-class LeaderboardViewModel {
+class RankingViewModel {
 
     var selectedRankingType: RankingType? {
         didSet {
@@ -24,8 +24,8 @@ class LeaderboardViewModel {
             update()
         }
     }
-    weak var delegate: LeaderboardViewModelDelegate? = nil
-    private(set) var status: LeaderboardStatus = .needsUpdate
+    weak var delegate: RankingViewModelDelegate? = nil
+    private(set) var status: RankingStatus = .needsUpdate
     private(set) var ranks = [AnyDriverRank]()
     private(set) var driverRank: CurrentDriverRank? = nil
     private(set) var rankingTypes = [RankingType]()
@@ -36,7 +36,7 @@ class LeaderboardViewModel {
 
 
     init() {
-        self.dkRankingTypes = LeaderboardViewModel.sanitizeRankingTypes(DriveKitDriverAchievementUI.shared.rankingTypes)
+        self.dkRankingTypes = RankingViewModel.sanitizeRankingTypes(DriveKitDriverAchievementUI.shared.rankingTypes)
         for (index, rankingType) in self.dkRankingTypes.enumerated() {
             switch rankingType {
                 case .distraction:
@@ -49,7 +49,7 @@ class LeaderboardViewModel {
         }
         self.selectedRankingType = self.rankingTypes.first
 
-        self.dkRankingSelectorType = LeaderboardViewModel.sanitizeRankingSelectorType(DriveKitDriverAchievementUI.shared.rankingSelector)
+        self.dkRankingSelectorType = RankingViewModel.sanitizeRankingSelectorType(DriveKitDriverAchievementUI.shared.rankingSelector)
         switch self.dkRankingSelectorType {
             case .none:
                 break
@@ -151,7 +151,7 @@ class LeaderboardViewModel {
                                 }
                         }
 
-                        self.delegate?.leaderboardDidUpdate()
+                        self.delegate?.rankingDidUpdate()
                     }
                 }
             }
@@ -221,6 +221,6 @@ class LeaderboardViewModel {
 }
 
 
-protocol LeaderboardViewModelDelegate : AnyObject {
-    func leaderboardDidUpdate()
+protocol RankingViewModelDelegate : AnyObject {
+    func rankingDidUpdate()
 }

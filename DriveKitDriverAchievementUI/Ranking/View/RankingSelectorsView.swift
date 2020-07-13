@@ -1,5 +1,5 @@
 //
-//  LeaderboardSelectorsView.swift
+//  RankingSelectorsView.swift
 //  DriveKitDriverAchievementUI
 //
 //  Created by David Bauduin on 02/07/2020.
@@ -11,18 +11,18 @@ import UIKit
 import DriveKitCommonUI
 import DriveKitDBAchievementAccess
 
-class LeaderboardSelectorsView : UIStackView {
+class RankingSelectorsView : UIStackView {
 
     @IBOutlet private weak var rankingTypesContainer: UIStackView!
     @IBOutlet private weak var rankingSelectorsContainer: UIView!
     @IBOutlet private weak var rankingSelectorsStackView: UIStackView!
     private(set) var rankingTypes = [RankingType]()
     private(set) var rankingSelectors = [RankingSelector]()
-    private var viewModel: LeaderboardViewModel? = nil
-    private var selectedRankingTypeView: LeaderboardSelectorTypeView? = nil
-    private var selectedRankingSelectorView: LeaderboardSelectorButton? = nil
+    private var viewModel: RankingViewModel? = nil
+    private var selectedRankingTypeView: RankingSelectorTypeView? = nil
+    private var selectedRankingSelectorView: RankingSelectorButton? = nil
 
-    func update(viewModel: LeaderboardViewModel) {
+    func update(viewModel: RankingViewModel) {
         self.rankingTypes = viewModel.rankingTypes
         self.rankingSelectors = viewModel.rankingSelectors
         self.viewModel = viewModel
@@ -34,7 +34,7 @@ class LeaderboardSelectorsView : UIStackView {
             self.rankingTypesContainer.isHidden = false
             self.rankingTypesContainer.removeAllSubviews()
             for rankingType in self.rankingTypes {
-                if let selectorView = Bundle.driverAchievementUIBundle?.loadNibNamed("LeaderboardSelectorTypeView", owner: nil, options: nil)?.first as? LeaderboardSelectorTypeView {
+                if let selectorView = Bundle.driverAchievementUIBundle?.loadNibNamed("RankingSelectorTypeView", owner: nil, options: nil)?.first as? RankingSelectorTypeView {
                     selectorView.update(rankingType: rankingType)
                     let selected = selectedRankingType.index == rankingType.index
                     selectorView.setSelected(selected)
@@ -54,7 +54,7 @@ class LeaderboardSelectorsView : UIStackView {
             self.rankingSelectorsContainer.isHidden = false
             self.rankingSelectorsStackView.removeAllSubviews()
             for rankingSelector in self.rankingSelectors {
-                let selectorView = LeaderboardSelectorButton(type: .system)
+                let selectorView = RankingSelectorButton(type: .system)
                 selectorView.update(rankingSelector: rankingSelector)
                 let selected = selectedRankingSelector.index == rankingSelector.index
                 selectorView.setSelected(selected)
@@ -72,14 +72,14 @@ class LeaderboardSelectorsView : UIStackView {
     }
 
 
-    @objc private func onRankingTypeContainerSelected(sender: LeaderboardSelectorTypeView) {
+    @objc private func onRankingTypeContainerSelected(sender: RankingSelectorTypeView) {
         self.selectedRankingTypeView?.setSelected(false)
         self.selectedRankingTypeView = sender
         sender.setSelected(true)
         self.viewModel?.selectedRankingType = sender.rankingType
     }
 
-    @objc private func onRankingSelectorButtonSelected(sender: LeaderboardSelectorButton) {
+    @objc private func onRankingSelectorButtonSelected(sender: RankingSelectorButton) {
         self.selectedRankingSelectorView?.setSelected(false)
         self.selectedRankingSelectorView = sender
         sender.setSelected(true)

@@ -69,8 +69,8 @@ extension DriveKitDriverAchievementUI : DriveKitDriverAchievementUIEntryPoint {
         return BadgesViewController()
     }
 
-    public func getLeaderboardViewController() -> UIViewController {
-        return LeaderboardViewController()
+    public func getRankingViewController() -> UIViewController {
+        return RankingViewController()
     }
 }
 

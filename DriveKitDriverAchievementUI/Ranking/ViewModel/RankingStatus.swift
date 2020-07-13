@@ -1,5 +1,5 @@
 //
-//  LeaderboardStatus.swift
+//  RankingStatus.swift
 //  DriveKitDriverAchievementUI
 //
 //  Created by David Bauduin on 08/07/2020.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-enum LeaderboardStatus {
+enum RankingStatus {
     case needsUpdate, updating, success, networkError, noRankForUser
 }

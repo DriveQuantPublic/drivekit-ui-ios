@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" id="w75-TO-7ca" customClass="LeaderboardSelectorsView" customModule="DriveKitDriverAchievementUI" customModuleProvider="target">
+        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" id="w75-TO-7ca" customClass="RankingSelectorsView" customModule="DriveKitDriverAchievementUI" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="611" height="132"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>

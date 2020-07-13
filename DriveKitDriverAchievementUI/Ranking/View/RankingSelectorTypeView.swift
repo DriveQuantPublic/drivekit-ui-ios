@@ -1,5 +1,5 @@
 //
-//  LeaderboardSelectorTypeView.swift
+//  RankingSelectorTypeView.swift
 //  DriveKitDriverAchievementUI
 //
 //  Created by David Bauduin on 08/07/2020.
@@ -10,7 +10,7 @@ import UIKit
 
 import DriveKitCommonUI
 
-class LeaderboardSelectorTypeView : UIControl {
+class RankingSelectorTypeView : UIControl {
 
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var selectionIndicator: UIView!

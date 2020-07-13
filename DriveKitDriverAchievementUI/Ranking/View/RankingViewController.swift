@@ -1,5 +1,5 @@
 //
-//  LeaderboardViewController.swift
+//  RankingViewController.swift
 //  DriveKitDriverAchievementUI
 //
 //  Created by David Bauduin on 30/06/2020.
@@ -8,17 +8,17 @@
 
 import UIKit
 
-class LeaderboardViewController : UIViewController {
+class RankingViewController : UIViewController {
 
     @IBOutlet private weak var headerContainer: UIStackView!
     @IBOutlet private weak var collectionView: UICollectionView!
-    private var leaderboardScoreView: LeaderboardScoreView? = nil
-    private var leaderboardSelectors: LeaderboardSelectorsView? = nil
-    private let viewModel = LeaderboardViewModel()
+    private var rankingScoreView: RankingScoreView? = nil
+    private var rankingSelectors: RankingSelectorsView? = nil
+    private let viewModel = RankingViewModel()
     private var ranks: [AnyDriverRank] = []
 
     public init() {
-        super.init(nibName: String(describing: LeaderboardViewController.self), bundle: .driverAchievementUIBundle)
+        super.init(nibName: String(describing: RankingViewController.self), bundle: .driverAchievementUIBundle)
     }
 
     required init?(coder: NSCoder) {
@@ -43,29 +43,29 @@ class LeaderboardViewController : UIViewController {
     private func updateHeader() {
         self.headerContainer.removeAllSubviews()
 
-        let leaderboardScoreView: LeaderboardScoreView?
+        let rankingScoreView: RankingScoreView?
         if self.viewModel.rankingTypes.count > 1 || self.viewModel.rankingSelectors.count > 1 {
-            let leaderboardSelectors = Bundle.driverAchievementUIBundle?.loadNibNamed("LeaderboardSelectorsView", owner: nil, options: nil)?.first as? LeaderboardSelectorsView
-            if let leaderboardSelectors = leaderboardSelectors {
-                leaderboardSelectors.translatesAutoresizingMaskIntoConstraints = false
-                self.headerContainer.addArrangedSubview(leaderboardSelectors)
-                leaderboardSelectors.update(viewModel: self.viewModel)
+            let rankingSelectors = Bundle.driverAchievementUIBundle?.loadNibNamed("RankingSelectorsView", owner: nil, options: nil)?.first as? RankingSelectorsView
+            if let rankingSelectors = rankingSelectors {
+                rankingSelectors.translatesAutoresizingMaskIntoConstraints = false
+                self.headerContainer.addArrangedSubview(rankingSelectors)
+                rankingSelectors.update(viewModel: self.viewModel)
             }
-            self.leaderboardSelectors = leaderboardSelectors
-            leaderboardScoreView = Bundle.driverAchievementUIBundle?.loadNibNamed("LeaderboardScoreSmall", owner: nil, options: nil)?.first as? LeaderboardScoreSmall
+            self.rankingSelectors = rankingSelectors
+            rankingScoreView = Bundle.driverAchievementUIBundle?.loadNibNamed("RankingScoreSmall", owner: nil, options: nil)?.first as? RankingScoreSmall
         } else {
-            self.leaderboardSelectors = nil
-            leaderboardScoreView = Bundle.driverAchievementUIBundle?.loadNibNamed("LeaderboardScoreBig", owner: nil, options: nil)?.first as? LeaderboardScoreBig
+            self.rankingSelectors = nil
+            rankingScoreView = Bundle.driverAchievementUIBundle?.loadNibNamed("RankingScoreBig", owner: nil, options: nil)?.first as? RankingScoreBig
         }
-        self.leaderboardScoreView = leaderboardScoreView
-        if let leaderboardScoreView = leaderboardScoreView {
-            leaderboardScoreView.translatesAutoresizingMaskIntoConstraints = false
-            self.headerContainer.addArrangedSubview(leaderboardScoreView)
+        self.rankingScoreView = rankingScoreView
+        if let rankingScoreView = rankingScoreView {
+            rankingScoreView.translatesAutoresizingMaskIntoConstraints = false
+            self.headerContainer.addArrangedSubview(rankingScoreView)
         }
     }
 
     private func updateData() {
-        leaderboardScoreView?.update(currentDriverRank: self.viewModel.driverRank, rankingType: self.viewModel.selectedRankingType)
+        rankingScoreView?.update(currentDriverRank: self.viewModel.driverRank, rankingType: self.viewModel.selectedRankingType)
 
         if !self.ranks.isEmpty {
             self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: false)
@@ -76,7 +76,7 @@ class LeaderboardViewController : UIViewController {
 
 }
 
-extension LeaderboardViewController : UICollectionViewDataSource {
+extension RankingViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.ranks.count
     }
@@ -95,7 +95,7 @@ extension LeaderboardViewController : UICollectionViewDataSource {
     }
 }
 
-extension LeaderboardViewController : UICollectionViewDelegateFlowLayout {
+extension RankingViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: 60)
     }
@@ -110,8 +110,8 @@ extension LeaderboardViewController : UICollectionViewDelegateFlowLayout {
 
 }
 
-extension LeaderboardViewController : LeaderboardViewModelDelegate {
-    func leaderboardDidUpdate() {
+extension RankingViewController : RankingViewModelDelegate {
+    func rankingDidUpdate() {
         updateData()
     }
 }

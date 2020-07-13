@@ -1,5 +1,5 @@
 //
-//  LeaderboardSelectorButton.swift
+//  RankingSelectorButton.swift
 //  DriveKitDriverAchievementUI
 //
 //  Created by David Bauduin on 09/07/2020.
@@ -10,7 +10,7 @@ import UIKit
 
 import DriveKitCommonUI
 
-class LeaderboardSelectorButton : UIButton {
+class RankingSelectorButton : UIButton {
 
     private(set) var rankingSelector: RankingSelector? = nil
 

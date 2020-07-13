@@ -105,7 +105,7 @@ class ViewController: UITableViewController {
             } else if indexPath.row == 8 {
                 self.configureDriverBadges()
             } else if indexPath.row == 9 {
-                self.showLeaderboard()
+                self.showRanking()
             }
         }
     }
@@ -217,10 +217,10 @@ class ViewController: UITableViewController {
         }
     }
 
-    func showLeaderboard() {
+    func showRanking() {
         if let driverAchievementUI = DriveKitNavigationController.shared.driverAchievementUI {
-            let leaderboardVC = driverAchievementUI.getLeaderboardViewController()
-            self.navigationController?.pushViewController(leaderboardVC, animated: true)
+            let rankingVC = driverAchievementUI.getRankingViewController()
+            self.navigationController?.pushViewController(rankingVC, animated: true)
         }
     }
 

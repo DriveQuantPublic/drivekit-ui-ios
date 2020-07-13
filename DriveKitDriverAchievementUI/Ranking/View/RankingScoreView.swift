@@ -1,5 +1,5 @@
 //
-//  LeaderboardScoreView.swift
+//  RankingScoreView.swift
 //  DriveKitDriverAchievementUI
 //
 //  Created by David Bauduin on 06/07/2020.
@@ -11,7 +11,7 @@ import UIKit
 import DriveKitCommonUI
 import DriveKitDBAchievementAccess
 
-class LeaderboardScoreView : UIView {
+class RankingScoreView : UIView {
 
     @IBOutlet weak var userRankView: UILabel!
     @IBOutlet weak var progressionView: UIImageView!

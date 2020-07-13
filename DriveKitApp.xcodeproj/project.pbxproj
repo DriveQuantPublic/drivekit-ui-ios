@@ -179,13 +179,13 @@
 		61D29B7524361CD70094CA5B /* DriveKitPermissionsUtilsUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 616946D9243337D600C8A965 /* DriveKitPermissionsUtilsUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		61D29B7924362C720094CA5B /* DKReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D29B7824362C720094CA5B /* DKReachability.swift */; };
 		63041F9A24ACD0DA0028CAE8 /* RankingHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63041F9924ACD0D90028CAE8 /* RankingHeaderCell.xib */; };
-		63041F9E24AE005E0028CAE8 /* LeaderboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63041F9D24AE005E0028CAE8 /* LeaderboardViewController.xib */; };
-		63041FA224AE0A680028CAE8 /* LeaderboardSelectorsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63041FA124AE0A680028CAE8 /* LeaderboardSelectorsView.xib */; };
-		63041FA424AE2C600028CAE8 /* LeaderboardScoreBig.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63041FA324AE2C600028CAE8 /* LeaderboardScoreBig.xib */; };
-		63041FA624AE2FB80028CAE8 /* LeaderboardScoreSmall.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63041FA524AE2FB70028CAE8 /* LeaderboardScoreSmall.xib */; };
-		63041FA824AE36C10028CAE8 /* LeaderboardSelectorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63041FA724AE36C10028CAE8 /* LeaderboardSelectorsView.swift */; };
-		63041FAA24AE3B2E0028CAE8 /* LeaderboardScoreBig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63041FA924AE3B2E0028CAE8 /* LeaderboardScoreBig.swift */; };
-		63041FAC24AE3B680028CAE8 /* LeaderboardScoreSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63041FAB24AE3B680028CAE8 /* LeaderboardScoreSmall.swift */; };
+		63041F9E24AE005E0028CAE8 /* RankingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63041F9D24AE005E0028CAE8 /* RankingViewController.xib */; };
+		63041FA224AE0A680028CAE8 /* RankingSelectorsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63041FA124AE0A680028CAE8 /* RankingSelectorsView.xib */; };
+		63041FA424AE2C600028CAE8 /* RankingScoreBig.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63041FA324AE2C600028CAE8 /* RankingScoreBig.xib */; };
+		63041FA624AE2FB80028CAE8 /* RankingScoreSmall.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63041FA524AE2FB70028CAE8 /* RankingScoreSmall.xib */; };
+		63041FA824AE36C10028CAE8 /* RankingSelectorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63041FA724AE36C10028CAE8 /* RankingSelectorsView.swift */; };
+		63041FAA24AE3B2E0028CAE8 /* RankingScoreBig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63041FA924AE3B2E0028CAE8 /* RankingScoreBig.swift */; };
+		63041FAC24AE3B680028CAE8 /* RankingScoreSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63041FAB24AE3B680028CAE8 /* RankingScoreSmall.swift */; };
 		632EDDEF2450497500110744 /* BatteryOptimizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632EDDEE2450497500110744 /* BatteryOptimizationViewModel.swift */; };
 		632EDDF124504BEE00110744 /* UIColor+PermissionsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632EDDF024504BEE00110744 /* UIColor+PermissionsUtils.swift */; };
 		635616F624B4B7AC0047EAD8 /* DriverRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635616F524B4B7AC0047EAD8 /* DriverRank.swift */; };
@@ -199,15 +199,15 @@
 		6378BBE0244D9BC70040A114 /* SensorStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378BBDF244D9BC70040A114 /* SensorStateViewModel.swift */; };
 		6378BBE2244D9C060040A114 /* DiagnosisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378BBE1244D9C060040A114 /* DiagnosisViewModel.swift */; };
 		6378BBE4244DA47B0040A114 /* StatusType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378BBE3244DA47B0040A114 /* StatusType.swift */; };
-		6382109C24B71CF500A42D95 /* LeaderboardSelectorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6382109B24B71CF500A42D95 /* LeaderboardSelectorButton.swift */; };
+		6382109C24B71CF500A42D95 /* RankingSelectorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6382109B24B71CF500A42D95 /* RankingSelectorButton.swift */; };
 		6382109E24B7467100A42D95 /* RankingHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6382109D24B7467100A42D95 /* RankingHeaderCell.swift */; };
 		639346B724489DDA000F42D4 /* DiagnosisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639346B624489DDA000F42D4 /* DiagnosisViewController.swift */; };
 		639346B92448A8FD000F42D4 /* RequestPermissionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639346B82448A8FD000F42D4 /* RequestPermissionHelper.swift */; };
-		639F3D2124B5C8F10081DFC3 /* LeaderboardStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F3D2024B5C8F10081DFC3 /* LeaderboardStatus.swift */; };
-		639F3D2624B624930081DFC3 /* LeaderboardSelectorTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639F3D2524B624920081DFC3 /* LeaderboardSelectorTypeView.xib */; };
-		639F3D2824B626270081DFC3 /* LeaderboardSelectorTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F3D2724B626260081DFC3 /* LeaderboardSelectorTypeView.swift */; };
+		639F3D2124B5C8F10081DFC3 /* RankingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F3D2024B5C8F10081DFC3 /* RankingStatus.swift */; };
+		639F3D2624B624930081DFC3 /* RankingSelectorTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639F3D2524B624920081DFC3 /* RankingSelectorTypeView.xib */; };
+		639F3D2824B626270081DFC3 /* RankingSelectorTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F3D2724B626260081DFC3 /* RankingSelectorTypeView.swift */; };
 		63B3A1A024AB73460011F11B /* DKRankingSelectorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B3A19F24AB73460011F11B /* DKRankingSelectorType.swift */; };
-		63B3A1A324AB93030011F11B /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B3A1A224AB93030011F11B /* LeaderboardViewController.swift */; };
+		63B3A1A324AB93030011F11B /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B3A1A224AB93030011F11B /* RankingViewController.swift */; };
 		63B3A1A724ACBCFB0011F11B /* RankingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B3A1A624ACBCFB0011F11B /* RankingCell.swift */; };
 		63B3A1A924ACBFC10011F11B /* RankingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63B3A1A824ACBFC10011F11B /* RankingCell.xib */; };
 		63B3A1AB24ACC3810011F11B /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B3A1AA24ACC3810011F11B /* CircleView.swift */; };
@@ -217,8 +217,8 @@
 		63C3FD80244F28B000C2FEEC /* SensorInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3FD7F244F28B000C2FEEC /* SensorInfoViewModel.swift */; };
 		63C3FD85244F89B300C2FEEC /* SensorInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3FD83244F89B300C2FEEC /* SensorInfoViewController.swift */; };
 		63C3FD86244F89B300C2FEEC /* SensorInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63C3FD84244F89B300C2FEEC /* SensorInfoViewController.xib */; };
-		63C8751524B3727000CA9723 /* LeaderboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8751424B3727000CA9723 /* LeaderboardViewModel.swift */; };
-		63C8751724B3729200CA9723 /* LeaderboardScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8751624B3729200CA9723 /* LeaderboardScoreView.swift */; };
+		63C8751524B3727000CA9723 /* RankingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8751424B3727000CA9723 /* RankingViewModel.swift */; };
+		63C8751724B3729200CA9723 /* RankingScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8751624B3729200CA9723 /* RankingScoreView.swift */; };
 		63C8751924B3735C00CA9723 /* DriverProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8751824B3735C00CA9723 /* DriverProgression.swift */; };
 		63F44E86244DDC8100C7F5CC /* GlobalStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F44E85244DDC8100C7F5CC /* GlobalStateViewModel.swift */; };
 		63F44E89244DDEE000C7F5CC /* GlobalStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F44E87244DDEE000C7F5CC /* GlobalStateView.swift */; };
@@ -613,13 +613,13 @@
 		61765A7C243E307400358CCA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		61D29B7824362C720094CA5B /* DKReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKReachability.swift; sourceTree = "<group>"; };
 		63041F9924ACD0D90028CAE8 /* RankingHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingHeaderCell.xib; sourceTree = "<group>"; };
-		63041F9D24AE005E0028CAE8 /* LeaderboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaderboardViewController.xib; sourceTree = "<group>"; };
-		63041FA124AE0A680028CAE8 /* LeaderboardSelectorsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaderboardSelectorsView.xib; sourceTree = "<group>"; };
-		63041FA324AE2C600028CAE8 /* LeaderboardScoreBig.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaderboardScoreBig.xib; sourceTree = "<group>"; };
-		63041FA524AE2FB70028CAE8 /* LeaderboardScoreSmall.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeaderboardScoreSmall.xib; sourceTree = "<group>"; };
-		63041FA724AE36C10028CAE8 /* LeaderboardSelectorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardSelectorsView.swift; sourceTree = "<group>"; };
-		63041FA924AE3B2E0028CAE8 /* LeaderboardScoreBig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardScoreBig.swift; sourceTree = "<group>"; };
-		63041FAB24AE3B680028CAE8 /* LeaderboardScoreSmall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardScoreSmall.swift; sourceTree = "<group>"; };
+		63041F9D24AE005E0028CAE8 /* RankingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingViewController.xib; sourceTree = "<group>"; };
+		63041FA124AE0A680028CAE8 /* RankingSelectorsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingSelectorsView.xib; sourceTree = "<group>"; };
+		63041FA324AE2C600028CAE8 /* RankingScoreBig.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingScoreBig.xib; sourceTree = "<group>"; };
+		63041FA524AE2FB70028CAE8 /* RankingScoreSmall.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingScoreSmall.xib; sourceTree = "<group>"; };
+		63041FA724AE36C10028CAE8 /* RankingSelectorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingSelectorsView.swift; sourceTree = "<group>"; };
+		63041FA924AE3B2E0028CAE8 /* RankingScoreBig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingScoreBig.swift; sourceTree = "<group>"; };
+		63041FAB24AE3B680028CAE8 /* RankingScoreSmall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingScoreSmall.swift; sourceTree = "<group>"; };
 		632EDDEE2450497500110744 /* BatteryOptimizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryOptimizationViewModel.swift; sourceTree = "<group>"; };
 		632EDDF024504BEE00110744 /* UIColor+PermissionsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+PermissionsUtils.swift"; sourceTree = "<group>"; };
 		635616F524B4B7AC0047EAD8 /* DriverRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRank.swift; sourceTree = "<group>"; };
@@ -633,16 +633,16 @@
 		6378BBDF244D9BC70040A114 /* SensorStateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorStateViewModel.swift; sourceTree = "<group>"; };
 		6378BBE1244D9C060040A114 /* DiagnosisViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisViewModel.swift; sourceTree = "<group>"; };
 		6378BBE3244DA47B0040A114 /* StatusType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusType.swift; sourceTree = "<group>"; };
-		6382109B24B71CF500A42D95 /* LeaderboardSelectorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardSelectorButton.swift; sourceTree = "<group>"; };
+		6382109B24B71CF500A42D95 /* RankingSelectorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingSelectorButton.swift; sourceTree = "<group>"; };
 		6382109D24B7467100A42D95 /* RankingHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingHeaderCell.swift; sourceTree = "<group>"; };
 		639346B4244897C1000F42D4 /* DKContactType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKContactType.swift; sourceTree = "<group>"; };
 		639346B624489DDA000F42D4 /* DiagnosisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisViewController.swift; sourceTree = "<group>"; };
 		639346B82448A8FD000F42D4 /* RequestPermissionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPermissionHelper.swift; sourceTree = "<group>"; };
-		639F3D2024B5C8F10081DFC3 /* LeaderboardStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardStatus.swift; sourceTree = "<group>"; };
-		639F3D2524B624920081DFC3 /* LeaderboardSelectorTypeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeaderboardSelectorTypeView.xib; sourceTree = "<group>"; };
-		639F3D2724B626260081DFC3 /* LeaderboardSelectorTypeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardSelectorTypeView.swift; sourceTree = "<group>"; };
+		639F3D2024B5C8F10081DFC3 /* RankingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingStatus.swift; sourceTree = "<group>"; };
+		639F3D2524B624920081DFC3 /* RankingSelectorTypeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingSelectorTypeView.xib; sourceTree = "<group>"; };
+		639F3D2724B626260081DFC3 /* RankingSelectorTypeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingSelectorTypeView.swift; sourceTree = "<group>"; };
 		63B3A19F24AB73460011F11B /* DKRankingSelectorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DKRankingSelectorType.swift; path = ../DKRankingSelectorType.swift; sourceTree = "<group>"; };
-		63B3A1A224AB93030011F11B /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
+		63B3A1A224AB93030011F11B /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
 		63B3A1A624ACBCFB0011F11B /* RankingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingCell.swift; sourceTree = "<group>"; };
 		63B3A1A824ACBFC10011F11B /* RankingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingCell.xib; sourceTree = "<group>"; };
 		63B3A1AA24ACC3810011F11B /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
@@ -651,8 +651,8 @@
 		63C3FD7F244F28B000C2FEEC /* SensorInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorInfoViewModel.swift; sourceTree = "<group>"; };
 		63C3FD83244F89B300C2FEEC /* SensorInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorInfoViewController.swift; sourceTree = "<group>"; };
 		63C3FD84244F89B300C2FEEC /* SensorInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SensorInfoViewController.xib; sourceTree = "<group>"; };
-		63C8751424B3727000CA9723 /* LeaderboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewModel.swift; sourceTree = "<group>"; };
-		63C8751624B3729200CA9723 /* LeaderboardScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardScoreView.swift; sourceTree = "<group>"; };
+		63C8751424B3727000CA9723 /* RankingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewModel.swift; sourceTree = "<group>"; };
+		63C8751624B3729200CA9723 /* RankingScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingScoreView.swift; sourceTree = "<group>"; };
 		63C8751824B3735C00CA9723 /* DriverProgression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverProgression.swift; sourceTree = "<group>"; };
 		63F44E85244DDC8100C7F5CC /* GlobalStateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalStateViewModel.swift; sourceTree = "<group>"; };
 		63F44E87244DDEE000C7F5CC /* GlobalStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalStateView.swift; sourceTree = "<group>"; };
@@ -1155,7 +1155,7 @@
 			isa = PBXGroup;
 			children = (
 				5C180D62246AF78E001E95FA /* Badges */,
-				63B3A19C24AB3A1F0011F11B /* Leaderboard */,
+				63B3A19C24AB3A1F0011F11B /* Ranking */,
 				3FF68E99240E47550071D74C /* Localizable */,
 				3FFAD20923EDBEBA00D1A16C /* Streaks */,
 				3FF68E6B2407F8110071D74C /* DriveKitDriverAchievementUI.swift */,
@@ -1360,31 +1360,31 @@
 		639F3D2424B6245B0081DFC3 /* selectors */ = {
 			isa = PBXGroup;
 			children = (
-				63041FA724AE36C10028CAE8 /* LeaderboardSelectorsView.swift */,
-				63041FA124AE0A680028CAE8 /* LeaderboardSelectorsView.xib */,
-				639F3D2724B626260081DFC3 /* LeaderboardSelectorTypeView.swift */,
-				639F3D2524B624920081DFC3 /* LeaderboardSelectorTypeView.xib */,
-				6382109B24B71CF500A42D95 /* LeaderboardSelectorButton.swift */,
+				63041FA724AE36C10028CAE8 /* RankingSelectorsView.swift */,
+				63041FA124AE0A680028CAE8 /* RankingSelectorsView.xib */,
+				639F3D2724B626260081DFC3 /* RankingSelectorTypeView.swift */,
+				639F3D2524B624920081DFC3 /* RankingSelectorTypeView.xib */,
+				6382109B24B71CF500A42D95 /* RankingSelectorButton.swift */,
 			);
 			name = selectors;
 			sourceTree = "<group>";
 		};
-		63B3A19C24AB3A1F0011F11B /* Leaderboard */ = {
+		63B3A19C24AB3A1F0011F11B /* Ranking */ = {
 			isa = PBXGroup;
 			children = (
 				63B3A1A124AB92DF0011F11B /* Model */,
 				63B3A19D24AB3A330011F11B /* ViewModel */,
 				63B3A19E24AB3A3A0011F11B /* View */,
 			);
-			path = Leaderboard;
+			path = Ranking;
 			sourceTree = "<group>";
 		};
 		63B3A19D24AB3A330011F11B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				63C8751424B3727000CA9723 /* LeaderboardViewModel.swift */,
+				63C8751424B3727000CA9723 /* RankingViewModel.swift */,
 				635616F524B4B7AC0047EAD8 /* DriverRank.swift */,
-				639F3D2024B5C8F10081DFC3 /* LeaderboardStatus.swift */,
+				639F3D2024B5C8F10081DFC3 /* RankingStatus.swift */,
 				635616F924B4CDB30047EAD8 /* RankingSelector.swift */,
 				635616F724B4CD6D0047EAD8 /* RankingType.swift */,
 			);
@@ -1397,8 +1397,8 @@
 				63C8751A24B3794500CA9723 /* score */,
 				639F3D2424B6245B0081DFC3 /* selectors */,
 				63B3A1AA24ACC3810011F11B /* CircleView.swift */,
-				63B3A1A224AB93030011F11B /* LeaderboardViewController.swift */,
-				63041F9D24AE005E0028CAE8 /* LeaderboardViewController.xib */,
+				63B3A1A224AB93030011F11B /* RankingViewController.swift */,
+				63041F9D24AE005E0028CAE8 /* RankingViewController.xib */,
 				63B3A1A624ACBCFB0011F11B /* RankingCell.swift */,
 				63B3A1A824ACBFC10011F11B /* RankingCell.xib */,
 				6382109D24B7467100A42D95 /* RankingHeaderCell.swift */,
@@ -1419,11 +1419,11 @@
 		63C8751A24B3794500CA9723 /* score */ = {
 			isa = PBXGroup;
 			children = (
-				63C8751624B3729200CA9723 /* LeaderboardScoreView.swift */,
-				63041FA924AE3B2E0028CAE8 /* LeaderboardScoreBig.swift */,
-				63041FA324AE2C600028CAE8 /* LeaderboardScoreBig.xib */,
-				63041FAB24AE3B680028CAE8 /* LeaderboardScoreSmall.swift */,
-				63041FA524AE2FB70028CAE8 /* LeaderboardScoreSmall.xib */,
+				63C8751624B3729200CA9723 /* RankingScoreView.swift */,
+				63041FA924AE3B2E0028CAE8 /* RankingScoreBig.swift */,
+				63041FA324AE2C600028CAE8 /* RankingScoreBig.xib */,
+				63041FAB24AE3B680028CAE8 /* RankingScoreSmall.swift */,
+				63041FA524AE2FB70028CAE8 /* RankingScoreSmall.xib */,
 			);
 			name = score;
 			sourceTree = "<group>";
@@ -2070,22 +2070,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63041FA224AE0A680028CAE8 /* LeaderboardSelectorsView.xib in Resources */,
+				63041FA224AE0A680028CAE8 /* RankingSelectorsView.xib in Resources */,
 				3FB5643523F5AA2900F010E3 /* StreakTableViewCell.xib in Resources */,
 				5C180D70246B05BC001E95FA /* BadgeLevelView.xib in Resources */,
-				639F3D2624B624930081DFC3 /* LeaderboardSelectorTypeView.xib in Resources */,
+				639F3D2624B624930081DFC3 /* RankingSelectorTypeView.xib in Resources */,
 				63B3A1A924ACBFC10011F11B /* RankingCell.xib in Resources */,
-				63041FA624AE2FB80028CAE8 /* LeaderboardScoreSmall.xib in Resources */,
+				63041FA624AE2FB80028CAE8 /* RankingScoreSmall.xib in Resources */,
 				5CFCF8B1246D43F3002F9152 /* DriverAchievement.xcassets in Resources */,
 				5CA1D481246E97B9001DDC34 /* BadgeLevelDetailViewController.xib in Resources */,
 				5CE33817246C27C8007E5790 /* BadgesViewController.xib in Resources */,
 				3FFAD20F23EDBF2F00D1A16C /* StreakViewController.xib in Resources */,
-				63041F9E24AE005E0028CAE8 /* LeaderboardViewController.xib in Resources */,
+				63041F9E24AE005E0028CAE8 /* RankingViewController.xib in Resources */,
 				5CE33815246C1E7E007E5790 /* BadgeTableViewCell.xib in Resources */,
 				3FB5644123F6B4F000F010E3 /* DriverAchievementLocalizables.strings in Resources */,
 				5CFCF8B7246D82FD002F9152 /* BadgeSectionHeaderView.xib in Resources */,
 				63041F9A24ACD0DA0028CAE8 /* RankingHeaderCell.xib in Resources */,
-				63041FA424AE2C600028CAE8 /* LeaderboardScoreBig.xib in Resources */,
+				63041FA424AE2C600028CAE8 /* RankingScoreBig.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2416,20 +2416,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63B3A1A324AB93030011F11B /* LeaderboardViewController.swift in Sources */,
+				63B3A1A324AB93030011F11B /* RankingViewController.swift in Sources */,
 				635616F824B4CD6D0047EAD8 /* RankingType.swift in Sources */,
-				6382109C24B71CF500A42D95 /* LeaderboardSelectorButton.swift in Sources */,
+				6382109C24B71CF500A42D95 /* RankingSelectorButton.swift in Sources */,
 				5C180D6E246B049B001E95FA /* BadgeLevelView.swift in Sources */,
-				63C8751524B3727000CA9723 /* LeaderboardViewModel.swift in Sources */,
-				63041FA824AE36C10028CAE8 /* LeaderboardSelectorsView.swift in Sources */,
-				63041FAA24AE3B2E0028CAE8 /* LeaderboardScoreBig.swift in Sources */,
+				63C8751524B3727000CA9723 /* RankingViewModel.swift in Sources */,
+				63041FA824AE36C10028CAE8 /* RankingSelectorsView.swift in Sources */,
+				63041FAA24AE3B2E0028CAE8 /* RankingScoreBig.swift in Sources */,
 				3FB5643423F5AA2900F010E3 /* StreakTableViewCell.swift in Sources */,
 				5C180D6A246B0258001E95FA /* BadgeTableViewCell.swift in Sources */,
 				5CFCF8B5246D82E6002F9152 /* BadgeSectionHeaderView.swift in Sources */,
 				635616FA24B4CDB30047EAD8 /* RankingSelector.swift in Sources */,
-				63041FAC24AE3B680028CAE8 /* LeaderboardScoreSmall.swift in Sources */,
-				639F3D2124B5C8F10081DFC3 /* LeaderboardStatus.swift in Sources */,
-				639F3D2824B626270081DFC3 /* LeaderboardSelectorTypeView.swift in Sources */,
+				63041FAC24AE3B680028CAE8 /* RankingScoreSmall.swift in Sources */,
+				639F3D2124B5C8F10081DFC3 /* RankingStatus.swift in Sources */,
+				639F3D2824B626270081DFC3 /* RankingSelectorTypeView.swift in Sources */,
 				63B3A1A724ACBCFB0011F11B /* RankingCell.swift in Sources */,
 				5CFCF8B9246DAE4A002F9152 /* BadgeLevelDetailViewController.swift in Sources */,
 				6382109E24B7467100A42D95 /* RankingHeaderCell.swift in Sources */,
@@ -2441,7 +2441,7 @@
 				5CA1D483246E9FF1001DDC34 /* BadgeLevelViewModel.swift in Sources */,
 				5C180D66246AFCB8001E95FA /* BadgesViewModel.swift in Sources */,
 				63C8751924B3735C00CA9723 /* DriverProgression.swift in Sources */,
-				63C8751724B3729200CA9723 /* LeaderboardScoreView.swift in Sources */,
+				63C8751724B3729200CA9723 /* RankingScoreView.swift in Sources */,
 				3FFAD21123EDC0FF00D1A16C /* StreakViewModel.swift in Sources */,
 				3FF68E6C2407F8110071D74C /* DriveKitDriverAchievementUI.swift in Sources */,
 				3FFAD20E23EDBF2F00D1A16C /* StreakViewController.swift in Sources */,

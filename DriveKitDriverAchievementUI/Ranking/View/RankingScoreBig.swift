@@ -1,5 +1,5 @@
 //
-//  LeaderboardScoreBig.swift
+//  RankingScoreBig.swift
 //  DriveKitDriverAchievementUI
 //
 //  Created by David Bauduin on 02/07/2020.
@@ -11,7 +11,7 @@ import UIKit
 import DriveKitCommonUI
 import DriveKitDBAchievementAccess
 
-class LeaderboardScoreBig : LeaderboardScoreView {
+class RankingScoreBig : RankingScoreView {
 
     @IBOutlet private weak var rankingTypeImage: UIImageView!
     @IBOutlet private weak var rankingTypeLabel: UILabel!

@@ -1,5 +1,5 @@
 //
-//  LeaderboardScoreSmall.swift
+//  RankingScoreSmall.swift
 //  DriveKitDriverAchievementUI
 //
 //  Created by David Bauduin on 02/07/2020.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-class LeaderboardScoreSmall : LeaderboardScoreView {
+class RankingScoreSmall : RankingScoreView {
     
 }

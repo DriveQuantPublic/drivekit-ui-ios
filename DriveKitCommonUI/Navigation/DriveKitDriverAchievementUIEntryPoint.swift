@@ -13,5 +13,5 @@ public protocol DriveKitDriverAchievementUIEntryPoint {
     
     func getBadgesViewController() -> UIViewController
 
-    func getLeaderboardViewController() -> UIViewController
+    func getRankingViewController() -> UIViewController
 }

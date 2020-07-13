@@ -11,6 +11,9 @@ import UIKit
 class RankingViewController : UIViewController {
 
     @IBOutlet private weak var headerContainer: UIStackView!
+    @IBOutlet private weak var collectionViewHeader_rankLabel: UILabel!
+    @IBOutlet private weak var collectionViewHeader_driverLabel: UILabel!
+    @IBOutlet private weak var collectionViewHeader_scoreLabel: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
     private var rankingScoreView: RankingScoreView? = nil
     private var rankingSelectors: RankingSelectorsView? = nil
@@ -28,6 +31,10 @@ class RankingViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.collectionViewHeader_rankLabel.attributedText = "dk_achievements_ranking_rank".dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        self.collectionViewHeader_driverLabel.attributedText = "dk_achievements_ranking_driver".dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        self.collectionViewHeader_scoreLabel.attributedText = "dk_achievements_ranking_score".dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+
         updateHeader()
         updateData()
 
@@ -37,7 +44,6 @@ class RankingViewController : UIViewController {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.collectionView.register(UINib(nibName: "RankingCell", bundle: .driverAchievementUIBundle), forCellWithReuseIdentifier: "RankingCell")
-        self.collectionView.register(UINib(nibName: "RankingHeaderCell", bundle: .driverAchievementUIBundle), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "RankingHeaderCell")
     }
 
     private func updateHeader() {
@@ -93,10 +99,6 @@ extension RankingViewController : UICollectionViewDataSource {
         }
         return cell
     }
-
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "RankingHeaderCell", for: indexPath)
-    }
 }
 
 extension RankingViewController : UICollectionViewDelegateFlowLayout {
@@ -107,11 +109,6 @@ extension RankingViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.bounds.width, height: 36)
-    }
-
 }
 
 extension RankingViewController : RankingViewModelDelegate {

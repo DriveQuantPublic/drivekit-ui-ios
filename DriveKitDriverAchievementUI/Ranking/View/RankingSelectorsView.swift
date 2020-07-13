@@ -76,14 +76,18 @@ class RankingSelectorsView : UIStackView {
         self.selectedRankingTypeView?.setSelected(false)
         self.selectedRankingTypeView = sender
         sender.setSelected(true)
-        self.viewModel?.selectedRankingType = sender.rankingType
+        if let viewModel = self.viewModel, viewModel.selectedRankingType?.index != sender.rankingType?.index {
+            viewModel.selectedRankingType = sender.rankingType
+        }
     }
 
     @objc private func onRankingSelectorButtonSelected(sender: RankingSelectorButton) {
         self.selectedRankingSelectorView?.setSelected(false)
         self.selectedRankingSelectorView = sender
         sender.setSelected(true)
-        self.viewModel?.selectedRankingSelector = sender.rankingSelector
+        if let viewModel = self.viewModel, viewModel.selectedRankingSelector?.index != sender.rankingSelector?.index {
+            viewModel.selectedRankingSelector = sender.rankingSelector
+        }
     }
 
 }

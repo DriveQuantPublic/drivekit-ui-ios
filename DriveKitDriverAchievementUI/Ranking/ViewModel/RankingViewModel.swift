@@ -97,6 +97,8 @@ class RankingViewModel {
                     }
             }
 
+            self.delegate?.rankingDidUpdate()
+
             DriveKitDriverAchievement.shared.getRanking(rankingType: dkRankingType, rankingPeriod: dkRankingPeriod) { [weak self] (rankingSyncStatus, ranking) in
                 DispatchQueue.main.async {
                     if let self = self {

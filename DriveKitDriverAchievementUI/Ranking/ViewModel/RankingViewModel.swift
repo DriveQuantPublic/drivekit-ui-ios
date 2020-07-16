@@ -127,7 +127,7 @@ class RankingViewModel {
                                     positionString: String(dkRank.rank),
                                     positionImageName: self.getImageName(fromPosition: dkRank.rank),
                                     rankString: " / \(nbDrivers)",
-                                    name: dkRank.nickname ?? "-",
+                                    name: dkRank.nickname ?? "dk_achievements_ranking_anonymous_driver".dkAchievementLocalized(),
                                     distance: dkRank.distance,
                                     distanceString: dkRank.distance.formatMeterDistance(),
                                     score: dkRank.score,

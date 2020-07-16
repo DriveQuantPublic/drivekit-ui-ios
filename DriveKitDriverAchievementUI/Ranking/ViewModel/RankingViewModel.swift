@@ -62,7 +62,7 @@ class RankingViewModel {
                         case .weekly:
                             titleKey = "dk_achievements_ranking_week"
                         case .legacy:
-                            titleKey = "dk_achievements_ranking_two_weeks"
+                            titleKey = "dk_achievements_ranking_legacy"
                         case .monthly:
                             titleKey = "dk_achievements_ranking_month"
                         case .allTime:
@@ -125,13 +125,19 @@ class RankingViewModel {
                                 if let previousRank = previousRank, previousRank + 1 != dkRank.rank {
                                     ranks.append(nil)
                                 }
+                                let name: String
+                                if let nickname = dkRank.nickname, !nickname.isEmpty {
+                                    name = nickname
+                                } else {
+                                    name = "dk_achievements_ranking_anonymous_driver".dkAchievementLocalized()
+                                }
                                 let driverRank = DriverRank(
                                     nbDrivers: nbDrivers,
                                     position: dkRank.rank,
                                     positionString: String(dkRank.rank),
                                     positionImageName: self.getImageName(fromPosition: dkRank.rank),
                                     rankString: " / \(nbDrivers)",
-                                    name: dkRank.nickname ?? "dk_achievements_ranking_anonymous_driver".dkAchievementLocalized(),
+                                    name: name,
                                     distance: dkRank.distance,
                                     distanceString: dkRank.distance.formatMeterDistance(),
                                     score: dkRank.score,

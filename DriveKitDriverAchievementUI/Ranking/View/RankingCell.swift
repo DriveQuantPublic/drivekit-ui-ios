@@ -55,8 +55,14 @@ class RankingCell : UICollectionViewCell {
         self.driverLabel.attributedText = (driverRank.name).dkAttributedString().font(dkFont: .primary, style: .headLine2).color(.mainFontColor).build()
         self.distanceLabel.attributedText = driverRank.distanceString.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
 
-        let userScoreString = driverRank.scoreString.dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.mainFontColor).build()
-        let numberOfUsersString = driverRank.totalScoreString.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
+        let scoreLabelColor: DKUIColors
+        if isCurrentDriver {
+            scoreLabelColor = .fontColorOnSecondaryColor
+        } else {
+            scoreLabelColor = .mainFontColor
+        }
+        let userScoreString = driverRank.scoreString.dkAttributedString().font(dkFont: .primary, style: .bigtext).color(scoreLabelColor).build()
+        let numberOfUsersString = driverRank.totalScoreString.dkAttributedString().font(dkFont: .primary, style: .smallText).color(scoreLabelColor).build()
         self.scoreLabel.attributedText = "%@%@".dkAttributedString().buildWithArgs(userScoreString, numberOfUsersString)
         if isCurrentDriver {
             self.scoreLabel.backgroundColor = DKUIColors.secondaryColor.color

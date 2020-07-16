@@ -9,6 +9,7 @@
 import Foundation
 
 import DriveKitCommonUI
+import DriveKitCore
 import DriveKitDBAchievementAccess
 import DriveKitDriverAchievement
 
@@ -32,6 +33,7 @@ class RankingViewModel {
     private(set) var rankingSelectors = [RankingSelector]()
     private let dkRankingTypes: [DKRankingType]
     private let dkRankingSelectorType: DKRankingSelectorType
+    private var useCache = [String: Bool]()
     private var initialized = false
 
 
@@ -101,7 +103,9 @@ class RankingViewModel {
 
             self.delegate?.rankingDidUpdate()
 
-            DriveKitDriverAchievement.shared.getRanking(rankingType: dkRankingType, rankingPeriod: dkRankingPeriod) { [weak self] (rankingSyncStatus, ranking) in
+            let useCacheKey = "\(dkRankingType.rawValue)-\(dkRankingPeriod.rawValue)"
+            let synchronizationType: SynchronizationType = self.useCache[useCacheKey] == true ? .cache : .defaultSync
+            DriveKitDriverAchievement.shared.getRanking(rankingType: dkRankingType, rankingPeriod: dkRankingPeriod, type: synchronizationType) { [weak self] (rankingSyncStatus, ranking) in
                 DispatchQueue.main.async {
                     if let self = self {
                         self.driverRank = nil
@@ -171,6 +175,15 @@ class RankingViewModel {
                                     self.status = .networkError
                                 }
                         }
+
+                        let dataError: Bool
+                        switch rankingSyncStatus {
+                            case .noError, .userNotRanked, .cacheDataOnly:
+                                dataError = false
+                            case .failedToSyncRanking, .syncAlreadyInProgress:
+                                dataError = true
+                        }
+                        self.useCache[useCacheKey] = !dataError
 
                         self.delegate?.rankingDidUpdate()
                     }

@@ -17,7 +17,7 @@ import DriveKitDBAchievementAccess
     public private(set) var streakThemes: [DKStreakTheme] = [.phoneDistraction, .safety, .acceleration, .brake, .adherence]
     public private(set) var badgeCategories: [DKBadgeCategory] = [.generic, .ecodriving, .safety, .phoneDistraction]
     public private(set) var rankingTypes: [DKRankingType] = [.safety, .ecoDriving, .distraction]
-    public private(set) var rankingSelector: DKRankingSelectorType = .period(rankingPeriods: [.weekly, .legacy, .monthly])
+    public private(set) var rankingSelector: DKRankingSelectorType = .period(rankingPeriods: [.weekly, .monthly, .allTime])
     public private(set) var rankingDepth: Int = 5
 
     private override init() {}

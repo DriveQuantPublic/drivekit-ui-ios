@@ -55,16 +55,18 @@ class RankingViewModel {
                 break
             case let .period(rankingPeriods):
                 for (index, rankingPeriod) in rankingPeriods.enumerated() {
-                    let nbDays: Int
+                    let titleKey: String
                     switch rankingPeriod {
                         case .weekly:
-                            nbDays = 7
+                            titleKey = "dk_achievements_ranking_week"
                         case .legacy:
-                            nbDays = 14
+                            titleKey = "dk_achievements_ranking_two_weeks"
                         case .monthly:
-                            nbDays = 30
+                            titleKey = "dk_achievements_ranking_month"
+                        case .allTime:
+                            titleKey = "dk_achievements_ranking_permanent"
                     }
-                    self.rankingSelectors.append(RankingSelector(index: index, title: "\(nbDays) \("dk_achievements_ranking_days".dkAchievementLocalized())"))
+                    self.rankingSelectors.append(RankingSelector(index: index, title: titleKey.dkAchievementLocalized()))
                 }
         }
         self.selectedRankingSelector = self.rankingSelectors.first

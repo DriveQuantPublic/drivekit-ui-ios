@@ -26,7 +26,7 @@ class RankingViewModel {
     }
     weak var delegate: RankingViewModelDelegate? = nil
     private(set) var status: RankingStatus = .needsUpdate
-    private(set) var ranks = [AnyDriverRank]()
+    private(set) var ranks = [AnyDriverRank?]()
     private(set) var driverRank: CurrentDriverRank? = nil
     private(set) var rankingTypes = [RankingType]()
     private(set) var rankingSelectors = [RankingSelector]()
@@ -106,8 +106,9 @@ class RankingViewModel {
                     if let self = self {
                         self.driverRank = nil
                         if let ranking = ranking {
-                            var ranks = [AnyDriverRank]()
+                            var ranks = [AnyDriverRank?]()
                             let nbDrivers = ranking.nbDriverRanked
+                            var previousRank: Int? = nil
                             for dkRank in ranking.driversRanked.sorted(by: { (dkDriverRank1, dkDriverRank2) -> Bool in
                                 if dkDriverRank2.rank == 0 {
                                     return true
@@ -117,6 +118,9 @@ class RankingViewModel {
                                     return dkDriverRank1.rank <= dkDriverRank2.rank
                                 }
                             }) {
+                                if let previousRank = previousRank, previousRank + 1 != dkRank.rank {
+                                    ranks.append(nil)
+                                }
                                 let driverRank = DriverRank(
                                     nbDrivers: nbDrivers,
                                     position: dkRank.rank,
@@ -150,6 +154,7 @@ class RankingViewModel {
                                 } else {
                                     ranks.append(driverRank)
                                 }
+                                previousRank = dkRank.rank
                             }
                             self.ranks = ranks
                         }

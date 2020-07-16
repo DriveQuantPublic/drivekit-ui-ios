@@ -101,7 +101,6 @@
                     <rect key="frame" x="197" y="611" width="20" height="20"/>
                 </activityIndicatorView>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="hbj-Xo-fTO" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="44p-2B-fCS"/>
                 <constraint firstItem="TTk-q9-d1S" firstAttribute="top" secondItem="hbj-Xo-fTO" secondAttribute="bottom" id="7FU-Oj-zLO"/>

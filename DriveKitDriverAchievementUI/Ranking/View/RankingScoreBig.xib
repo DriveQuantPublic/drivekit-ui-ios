@@ -40,7 +40,6 @@
                     </subviews>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Jgx-n3-D6h" secondAttribute="bottom" constant="20" id="9Oh-Tn-hh2"/>
                 <constraint firstAttribute="trailing" secondItem="shJ-SP-G9E" secondAttribute="trailing" constant="10" id="Acv-Ye-mCy"/>

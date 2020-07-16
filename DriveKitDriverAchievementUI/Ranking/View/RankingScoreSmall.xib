@@ -31,7 +31,6 @@
                     </subviews>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="PVS-IG-hxR" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="7at-gh-SrB"/>
                 <constraint firstAttribute="height" constant="70" id="D4R-xS-qIp"/>

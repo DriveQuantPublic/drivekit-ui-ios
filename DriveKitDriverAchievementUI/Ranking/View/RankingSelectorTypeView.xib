@@ -23,7 +23,6 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="pyc-k2-k1w" firstAttribute="leading" secondItem="WKW-kJ-xMg" secondAttribute="leading" id="A1c-gF-Lr6"/>
                 <constraint firstAttribute="bottom" secondItem="tcG-7c-0Ca" secondAttribute="bottom" id="H4C-La-CeC"/>

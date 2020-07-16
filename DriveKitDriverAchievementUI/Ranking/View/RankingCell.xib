@@ -35,7 +35,6 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
                         <constraint firstItem="cJi-eo-Cbf" firstAttribute="centerX" secondItem="fBu-CO-Pnc" secondAttribute="centerX" id="1Gx-0C-zhJ"/>
                         <constraint firstItem="6Pu-CE-0vq" firstAttribute="centerY" secondItem="fBu-CO-Pnc" secondAttribute="centerY" id="9hu-kT-h4n"/>
@@ -64,7 +63,6 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
                         <constraint firstItem="NdG-8v-rNo" firstAttribute="leading" secondItem="zsv-wd-mpd" secondAttribute="leading" id="S6Y-gD-HzB"/>
                         <constraint firstAttribute="trailing" secondItem="NdG-8v-rNo" secondAttribute="trailing" id="WVW-97-E2H"/>
@@ -92,7 +90,6 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="F6u-tL-39u" secondAttribute="trailing" constant="10" id="406-be-bS5"/>
                 <constraint firstItem="F6u-tL-39u" firstAttribute="centerY" secondItem="Qtj-SG-Y6W" secondAttribute="centerY" id="6to-u4-3sl"/>

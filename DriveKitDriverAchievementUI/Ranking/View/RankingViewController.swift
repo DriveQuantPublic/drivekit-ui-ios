@@ -8,7 +8,9 @@
 
 import UIKit
 
-class RankingViewController : UIViewController {
+import DriveKitCommonUI
+
+class RankingViewController : DKUIViewController {
 
     @IBOutlet private weak var headerContainer: UIStackView!
     @IBOutlet private weak var collectionViewHeader_rankLabel: UILabel!
@@ -19,7 +21,7 @@ class RankingViewController : UIViewController {
     private var rankingScoreView: RankingScoreView? = nil
     private var rankingSelectors: RankingSelectorsView? = nil
     private let viewModel = RankingViewModel()
-    private var ranks: [AnyDriverRank] = []
+    private var ranks: [AnyDriverRank?] = []
 
     public init() {
         super.init(nibName: String(describing: RankingViewController.self), bundle: .driverAchievementUIBundle)
@@ -42,9 +44,11 @@ class RankingViewController : UIViewController {
         self.viewModel.delegate = self
         self.viewModel.update()
 
+        self.collectionView.backgroundColor = DKUIColors.backgroundView.color
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.collectionView.register(UINib(nibName: "RankingCell", bundle: .driverAchievementUIBundle), forCellWithReuseIdentifier: "RankingCell")
+        self.collectionView.register(UINib(nibName: "RankingJumpCell", bundle: .driverAchievementUIBundle), forCellWithReuseIdentifier: "RankingJumpCell")
     }
 
     private func updateHeader() {
@@ -93,10 +97,14 @@ extension RankingViewController : UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RankingCell", for: indexPath)
-        if let rankingCell = cell as? RankingCell {
-            let driverRank = self.ranks[indexPath.item]
-            rankingCell.update(driverRank: driverRank)
+        let cell: UICollectionViewCell
+        if let driverRank = self.ranks[indexPath.item] {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RankingCell", for: indexPath)
+            if let rankingCell = cell as? RankingCell {
+                rankingCell.update(driverRank: driverRank)
+            }
+        } else {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RankingJumpCell", for: indexPath)
         }
         return cell
     }
@@ -104,7 +112,8 @@ extension RankingViewController : UICollectionViewDataSource {
 
 extension RankingViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width, height: 60)
+        let height = CGFloat(self.ranks[indexPath.item] != nil ? 60 : 50)
+        return CGSize(width: collectionView.bounds.width, height: height)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

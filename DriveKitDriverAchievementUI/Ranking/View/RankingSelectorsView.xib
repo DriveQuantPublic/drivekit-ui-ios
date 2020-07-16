@@ -15,7 +15,6 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cf7-ez-lzF" userLabel="Separator">
                     <rect key="frame" x="0.0" y="0.0" width="611" height="8"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="8" id="3NO-qD-WX2"/>
                     </constraints>
@@ -33,7 +32,6 @@
                             <rect key="frame" x="30" y="16" width="551" height="40"/>
                         </stackView>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
                         <constraint firstItem="zeR-W7-cuH" firstAttribute="leading" secondItem="Tiq-Xm-f5c" secondAttribute="leading" constant="30" id="89d-ds-ydb"/>
                         <constraint firstAttribute="trailing" secondItem="zeR-W7-cuH" secondAttribute="trailing" constant="30" id="UDF-Wz-UDy"/>
@@ -44,7 +42,6 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dpm-Bc-4QN" userLabel="Separator">
                     <rect key="frame" x="0.0" y="128" width="611" height="4"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="4" id="RBK-OV-Fjr"/>
                     </constraints>

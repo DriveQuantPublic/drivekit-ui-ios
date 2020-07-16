@@ -12,39 +12,30 @@
         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB" customClass="RankingScoreSmall" customModule="DriveKitDriverAchievementUI" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="570" height="70"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fVp-Hr-Yuy">
-                    <rect key="frame" x="230" y="0.0" width="110.5" height="70"/>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PVS-IG-hxR">
+                    <rect key="frame" x="237" y="17" width="96.5" height="36"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UPq-gD-cga" userLabel="Progression icon">
-                            <rect key="frame" x="0.0" y="15" width="40" height="40"/>
+                            <rect key="frame" x="0.0" y="5" width="26" height="26"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="40" id="eLI-SV-vac"/>
-                                <constraint firstAttribute="height" constant="40" id="qnu-LD-uwb"/>
+                                <constraint firstAttribute="width" constant="26" id="eLI-SV-vac"/>
+                                <constraint firstAttribute="height" constant="26" id="qnu-LD-uwb"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 / 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HuX-zN-sKw" userLabel="Rank">
-                            <rect key="frame" x="50" y="17" width="60.5" height="36"/>
+                            <rect key="frame" x="36" y="0.0" width="60.5" height="36"/>
                             <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="30"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    <constraints>
-                        <constraint firstItem="UPq-gD-cga" firstAttribute="leading" secondItem="fVp-Hr-Yuy" secondAttribute="leading" id="AiW-Pk-fBG"/>
-                        <constraint firstAttribute="trailing" secondItem="HuX-zN-sKw" secondAttribute="trailing" id="HDx-Ay-o82"/>
-                        <constraint firstItem="UPq-gD-cga" firstAttribute="centerY" secondItem="fVp-Hr-Yuy" secondAttribute="centerY" id="bXY-mI-sTv"/>
-                        <constraint firstItem="HuX-zN-sKw" firstAttribute="centerY" secondItem="UPq-gD-cga" secondAttribute="centerY" id="bbd-U1-2I4"/>
-                        <constraint firstItem="HuX-zN-sKw" firstAttribute="leading" secondItem="UPq-gD-cga" secondAttribute="trailing" constant="10" id="qsd-jK-b69"/>
-                    </constraints>
-                </view>
+                </stackView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
+                <constraint firstItem="PVS-IG-hxR" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="7at-gh-SrB"/>
                 <constraint firstAttribute="height" constant="70" id="D4R-xS-qIp"/>
-                <constraint firstItem="fVp-Hr-Yuy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="mL4-Jd-9Hn"/>
-                <constraint firstAttribute="bottom" secondItem="fVp-Hr-Yuy" secondAttribute="bottom" id="rJH-BC-iKw"/>
-                <constraint firstItem="fVp-Hr-Yuy" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="tuB-6U-isV"/>
+                <constraint firstItem="PVS-IG-hxR" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="kgq-h8-SBW"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>

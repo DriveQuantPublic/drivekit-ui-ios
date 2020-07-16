@@ -19,6 +19,12 @@ class RankingScoreView : UIView {
     private(set) var currentDriverRank: CurrentDriverRank? = nil
     private(set) var rankingType: RankingType? = nil
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        self.progressionView.tintColor = DKUIColors.mainFontColor.color
+    }
+
     func update(currentDriverRank: CurrentDriverRank?, rankingType: RankingType?) {
         self.currentDriverRank = currentDriverRank
         self.rankingType = rankingType
@@ -32,8 +38,9 @@ class RankingScoreView : UIView {
 
             if let progressionImageName = currentDriverRank.progressionImageName {
                 self.progressionView.image = UIImage(named: progressionImageName, in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
+                self.progressionView.isHidden = false
             } else {
-                self.progressionView.image = nil
+                self.progressionView.isHidden = true
             }
         } else {
             self.userRankView.attributedText = nil

@@ -131,8 +131,20 @@ class RankingViewModel {
                                     totalScoreString: " / 10"
                                 )
                                 if dkRank.rank == ranking.userPosition {
-                                    #warning("TODO")
-                                    let currentDriverRank = CurrentDriverRank(driverRank: driverRank, progressionImageName: nil)
+                                    let progressionImageName: String?
+                                    if ranking.driverPreviousRank > 0 && ranking.userPosition > 0 {
+                                        let deltaRank = ranking.driverPreviousRank - ranking.userPosition
+                                        if deltaRank == 0 {
+                                            progressionImageName = nil
+                                        } else if deltaRank > 0 {
+                                            progressionImageName = "dk_achievements_arrow_up"
+                                        } else {
+                                            progressionImageName = "dk_achievements_arrow_down"
+                                        }
+                                    } else {
+                                        progressionImageName = nil
+                                    }
+                                    let currentDriverRank = CurrentDriverRank(driverRank: driverRank, progressionImageName: progressionImageName)
                                     ranks.append(currentDriverRank)
                                     self.driverRank = currentDriverRank
                                 } else {

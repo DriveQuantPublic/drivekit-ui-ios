@@ -217,7 +217,6 @@
 		63C3FD86244F89B300C2FEEC /* SensorInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63C3FD84244F89B300C2FEEC /* SensorInfoViewController.xib */; };
 		63C8751524B3727000CA9723 /* RankingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8751424B3727000CA9723 /* RankingViewModel.swift */; };
 		63C8751724B3729200CA9723 /* RankingScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8751624B3729200CA9723 /* RankingScoreView.swift */; };
-		63C8751924B3735C00CA9723 /* DriverProgression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8751824B3735C00CA9723 /* DriverProgression.swift */; };
 		63F44E86244DDC8100C7F5CC /* GlobalStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F44E85244DDC8100C7F5CC /* GlobalStateViewModel.swift */; };
 		63F44E89244DDEE000C7F5CC /* GlobalStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F44E87244DDEE000C7F5CC /* GlobalStateView.swift */; };
 		63F44E8A244DDEE000C7F5CC /* GlobalStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F44E88244DDEE000C7F5CC /* GlobalStateView.xib */; };
@@ -649,7 +648,6 @@
 		63C3FD84244F89B300C2FEEC /* SensorInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SensorInfoViewController.xib; sourceTree = "<group>"; };
 		63C8751424B3727000CA9723 /* RankingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewModel.swift; sourceTree = "<group>"; };
 		63C8751624B3729200CA9723 /* RankingScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingScoreView.swift; sourceTree = "<group>"; };
-		63C8751824B3735C00CA9723 /* DriverProgression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverProgression.swift; sourceTree = "<group>"; };
 		63F44E85244DDC8100C7F5CC /* GlobalStateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalStateViewModel.swift; sourceTree = "<group>"; };
 		63F44E87244DDEE000C7F5CC /* GlobalStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalStateView.swift; sourceTree = "<group>"; };
 		63F44E88244DDEE000C7F5CC /* GlobalStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GlobalStateView.xib; sourceTree = "<group>"; };
@@ -1405,7 +1403,6 @@
 			isa = PBXGroup;
 			children = (
 				63B3A19F24AB73460011F11B /* DKRankingSelectorType.swift */,
-				63C8751824B3735C00CA9723 /* DriverProgression.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2432,7 +2429,6 @@
 				63B3A1AB24ACC3810011F11B /* CircleView.swift in Sources */,
 				5CA1D483246E9FF1001DDC34 /* BadgeLevelViewModel.swift in Sources */,
 				5C180D66246AFCB8001E95FA /* BadgesViewModel.swift in Sources */,
-				63C8751924B3735C00CA9723 /* DriverProgression.swift in Sources */,
 				63C8751724B3729200CA9723 /* RankingScoreView.swift in Sources */,
 				3FFAD21123EDC0FF00D1A16C /* StreakViewModel.swift in Sources */,
 				3FF68E6C2407F8110071D74C /* DriveKitDriverAchievementUI.swift in Sources */,

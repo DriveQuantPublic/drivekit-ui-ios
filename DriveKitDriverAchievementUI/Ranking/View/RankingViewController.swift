@@ -15,7 +15,7 @@ class RankingViewController : UIViewController {
     @IBOutlet private weak var collectionViewHeader_driverLabel: UILabel!
     @IBOutlet private weak var collectionViewHeader_scoreLabel: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
-    @IBOutlet private weak var loadingView: UIView!
+    @IBOutlet private weak var loadingView: UIActivityIndicatorView!
     private var rankingScoreView: RankingScoreView? = nil
     private var rankingSelectors: RankingSelectorsView? = nil
     private let viewModel = RankingViewModel()
@@ -115,13 +115,15 @@ extension RankingViewController : UICollectionViewDelegateFlowLayout {
 extension RankingViewController : RankingViewModelDelegate {
     func rankingDidUpdate() {
         if self.viewModel.status == .updating {
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.2) {
                 if self.viewModel.status == .updating {
-                    self.loadingView.isHidden = false
+                    self.loadingView.startAnimating()
+                    self.collectionView.isHidden = true
                 }
             }
         } else {
-            self.loadingView.isHidden = true
+            self.collectionView.isHidden = false
+            self.loadingView.stopAnimating()
             if (self.viewModel.driverRank != nil && self.rankingScoreView == nil) || (self.viewModel.driverRank == nil && self.rankingScoreView != nil) {
                 updateHeader()
             }

@@ -146,8 +146,8 @@ class RankingViewModel {
                                 )
                                 if dkRank.rank == ranking.userPosition {
                                     let progressionImageName: String?
-                                    if ranking.driverPreviousRank > 0 && ranking.userPosition > 0 {
-                                        let deltaRank = ranking.driverPreviousRank - ranking.userPosition
+                                    if let userPreviousPosition = ranking.userPreviousPosition, ranking.userPosition > 0 {
+                                        let deltaRank = userPreviousPosition - ranking.userPosition
                                         if deltaRank == 0 {
                                             progressionImageName = nil
                                         } else if deltaRank > 0 {

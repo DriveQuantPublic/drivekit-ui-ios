@@ -34,6 +34,8 @@ class RankingViewController : DKUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = "dk_achievements_ranking_menu_ranking".dkAchievementLocalized()
+
         self.collectionViewHeader_rankLabel.attributedText = "dk_achievements_ranking_rank".dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         self.collectionViewHeader_driverLabel.attributedText = "dk_achievements_ranking_driver".dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         self.collectionViewHeader_scoreLabel.attributedText = "dk_achievements_ranking_score".dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()

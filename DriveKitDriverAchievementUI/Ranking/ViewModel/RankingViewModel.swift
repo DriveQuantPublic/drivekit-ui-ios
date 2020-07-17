@@ -139,7 +139,7 @@ class RankingViewModel {
                                     rankString: " / \(nbDrivers)",
                                     name: name,
                                     distance: dkRank.distance,
-                                    distanceString: dkRank.distance.formatMeterDistance(),
+                                    distanceString: dkRank.distance.formatKilometerDistance(),
                                     score: dkRank.score,
                                     scoreString: self.formatScore(dkRank.score),
                                     totalScoreString: " / 10"

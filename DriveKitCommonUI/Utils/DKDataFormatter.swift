@@ -11,8 +11,7 @@ import Foundation
 public extension Double {
 
     func formatMeterDistanceInKm() -> String {
-        let km = (self / 1000.0).format(maximumFractionDigits: 1)
-        return "\(km) \(DKCommonLocalizable.unitKilometer.text())"
+        return (self / 1000.0).formatKilometerDistance()
     }
 
     func formatMeterDistance() -> String {
@@ -23,6 +22,10 @@ public extension Double {
         } else {
             return formatMeterDistanceInKm()
         }
+    }
+
+    func formatKilometerDistance() -> String {
+        return "\(self.format(maximumFractionDigits: 1)) \(DKCommonLocalizable.unitKilometer.text())"
     }
 
     func metersToKilometers(places: Int) -> Double {

@@ -331,15 +331,19 @@
 "badge_urban_distance_theme"="Guidare nelle aree urbane";
 "badge_your_progress_title"="Il tuo progresso";
 "dk_achievements_failed_to_sync_badges"="Impossibile sincronizzare i badge, si prega di riprovare più tardi.";
+"dk_achievements_failed_to_sync_rankings"="Non è stato possibile sincronizzare le classifiche, riprovare più tardi.";
 "dk_achievements_failed_to_sync_streaks"="Impossibile sincronizzare le sequenze di successo, si prega di riprovare più tardi.";
 "dk_achievements_menu_streaks"="Vena di successi";
 "dk_achievements_ranking_anonymous_driver"="Anonimo";
-"dk_achievements_ranking_days"="giorni";
 "dk_achievements_ranking_driver"="Conducente";
+"dk_achievements_ranking_legacy"="14 giorni";
 "dk_achievements_ranking_menu_ranking"="La mia posizione in classifica";
+"dk_achievements_ranking_month"="30 giorni";
 "dk_achievements_ranking_no_pseudo_set"="Devi inserire un nickname per accedere a questa pagina.";
+"dk_achievements_ranking_permanent"="Permanente";
 "dk_achievements_ranking_rank"="Grado";
 "dk_achievements_ranking_score"="Punteggio";
+"dk_achievements_ranking_week"="7 giorni";
 "dk_achievements_streaks_acceleration_reset"="Hai accelerato bruscamente nel tuo ultimo viaggio";
 "dk_achievements_streaks_acceleration_text"="Provate a fare una serie di viaggi senza brusche accelerazioni. \n \n Ad ogni successo, il contatore del numero di viaggi aumenta. \n \n In caso di fallimento, il contatore si resetta e si deve ricominciare da capo. \n \n Il numero di viaggi nella vostra migliore sequenza di passaggi è memorizzato e potete tentare di superarlo.";
 "dk_achievements_streaks_acceleration_title"="Nessuna forte accelerazione";
@@ -366,8 +370,3 @@
 "dk_achievements_streaks_speeding_text"="Cercate di fare una serie di viaggi entro il limite di velocità. Il punteggio del limite di velocità deve essere superiore a 9,8/10. Ad ogni successo, il contatore del numero di viaggi aumenta. \n \n In caso di fallimento, il contatore si resetta e si deve ricominciare da capo. \n \n Il numero di viaggi nella vostra migliore sequenza di passaggi è memorizzato e potete tentare di superarlo.";
 "dk_achievements_streaks_speeding_title"="Nessuna velocità";
 "menu_mybadges"="I miei distintivi";
-
-"dk_achievements_ranking_week"="TODO";
-"dk_achievements_ranking_legacy"="TODO";
-"dk_achievements_ranking_month"="TODO";
-"dk_achievements_ranking_permanent"="TODO";

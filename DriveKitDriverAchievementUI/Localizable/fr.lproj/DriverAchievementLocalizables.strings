@@ -331,14 +331,19 @@
 "badge_urban_distance_theme"="Conduite en zone urbaine";
 "badge_your_progress_title"="Votre avancement";
 "dk_achievements_failed_to_sync_badges"="Impossible de synchroniser les badges, veuillez réessayer plus tard.";
+"dk_achievements_failed_to_sync_rankings"="La récupération du classement a échoué. Veuillez réessayer plus tard.";
 "dk_achievements_failed_to_sync_streaks"="Impossible de synchroniser les séquences de succès, veuillez réessayer plus tard.";
 "dk_achievements_menu_streaks"="Séquences de succès";
 "dk_achievements_ranking_anonymous_driver"="Anonyme";
 "dk_achievements_ranking_driver"="Conducteur";
+"dk_achievements_ranking_legacy"="14 jours";
 "dk_achievements_ranking_menu_ranking"="Mon classement";
+"dk_achievements_ranking_month"="30 jours";
 "dk_achievements_ranking_no_pseudo_set"="Vous devez renseigner un pseudo pour accéder à cette page.";
+"dk_achievements_ranking_permanent"="Permanent";
 "dk_achievements_ranking_rank"="Position";
 "dk_achievements_ranking_score"="Score";
+"dk_achievements_ranking_week"="7 jours";
 "dk_achievements_streaks_acceleration_reset"="Vous avez accéléré brutalement lors de votre dernier trajet";
 "dk_achievements_streaks_acceleration_text"="Essayez d\'enchaîner une série de trajets sans aucune accélération brutale. \n \n A chaque succès, le compteur du nombre de trajets augmente. \n \n En cas d\'échec, le compteur est réinitialisé et vous devez reprendre à zéro. \n \n Le nombre de trajets de votre meilleure séquence de succès est mémorisé et vous pouvez tenter de le dépasser.";
 "dk_achievements_streaks_acceleration_title"="Aucune accélération brutale";
@@ -365,8 +370,3 @@
 "dk_achievements_streaks_speeding_text"="Essayez d\'enchaîner une série de trajets en respectant les limitations de vitesse. Le score de limite de vitesse doit être supérieur à 9.8/10. \n \n A chaque succès, le compteur du nombre de trajets augmente. \n \n En cas d\'échec, le compteur est réinitialisé et vous devez reprendre à zéro. \n \n Le nombre de trajets de votre meilleure séquence de succès est mémorisé et vous pouvez tenter de le dépasser.";
 "dk_achievements_streaks_speeding_title"="Pas d\'excès de vitesse";
 "menu_mybadges"="Mes badges";
-
-"dk_achievements_ranking_week"="7 jours";
-"dk_achievements_ranking_legacy"="14 jours";
-"dk_achievements_ranking_month"="30 jours";
-"dk_achievements_ranking_permanent"="Permanent";

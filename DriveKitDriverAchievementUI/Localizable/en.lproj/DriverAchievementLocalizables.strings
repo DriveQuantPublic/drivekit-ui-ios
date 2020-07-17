@@ -329,14 +329,19 @@
 "badge_urban_distance_theme"="Driving in an urban area";
 "badge_your_progress_title"="Your progress";
 "dk_achievements_failed_to_sync_badges"="Failed to synchronize badges, please retry later.";
+"dk_achievements_failed_to_sync_rankings"="Failed to synchronize rankings, please retry later.";
 "dk_achievements_failed_to_sync_streaks"="Failed to synchronize streaks, please retry later.";
 "dk_achievements_menu_streaks"="Streak of hits";
 "dk_achievements_ranking_anonymous_driver"="Anonymous";
 "dk_achievements_ranking_driver"="Driver";
+"dk_achievements_ranking_legacy"="14 days";
 "dk_achievements_ranking_menu_ranking"="My ranking";
+"dk_achievements_ranking_month"="30 days";
 "dk_achievements_ranking_no_pseudo_set"="You need to enter a nickname to access this page.";
+"dk_achievements_ranking_permanent"="Permanent";
 "dk_achievements_ranking_rank"="Rank";
 "dk_achievements_ranking_score"="Score";
+"dk_achievements_ranking_week"="7 days";
 "dk_achievements_streaks_acceleration_reset"="A hard acceleration was detected on your last trip";
 "dk_achievements_streaks_acceleration_text"="Try to do a series of trips without any harsh acceleration. \n \n Each time you succeed, the trip counter increases. \n \n If you fail, the counter is reset and you must restart from scratch. \n \n The number of trips in your best sequence of success is memorized and you can try to surpass it.";
 "dk_achievements_streaks_acceleration_title"="No harsh acceleration";
@@ -363,8 +368,3 @@
 "dk_achievements_streaks_speeding_text"="Try to make a series of trips within the speed limits. The speed limit score must be higher than 9.8/10. \n \n Each time you succeed, the trip counter increases. \n \n If you fail, the counter is reset and you must restart from scratch. \n \n The number of trips in your best sequence of success is memorized and you can try to surpass it.";
 "dk_achievements_streaks_speeding_title"="No speeding";
 "menu_mybadges"="My badges";
-
-"dk_achievements_ranking_week"="7 days";
-"dk_achievements_ranking_legacy"="14 days";
-"dk_achievements_ranking_month"="30 days";
-"dk_achievements_ranking_permanent"="Permanent";

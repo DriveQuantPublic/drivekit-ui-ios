@@ -25,7 +25,7 @@ class RankingScoreView : UIView {
         self.progressionView.tintColor = DKUIColors.mainFontColor.color
     }
 
-    func update(currentDriverRank: CurrentDriverRank?, rankingType: RankingType?) {
+    func update(currentDriverRank: CurrentDriverRank?, rankingType: RankingType?, nbDrivers: Int) {
         self.currentDriverRank = currentDriverRank
         self.rankingType = rankingType
 
@@ -43,7 +43,8 @@ class RankingScoreView : UIView {
                 self.progressionView.isHidden = true
             }
         } else {
-            self.userRankView.attributedText = nil
+            self.userRankView.attributedText = "- / \(nbDrivers)".dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
+            self.progressionView.isHidden = true
         }
     }
 

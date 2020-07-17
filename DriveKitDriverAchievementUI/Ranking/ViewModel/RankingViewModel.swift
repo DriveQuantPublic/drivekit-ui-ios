@@ -31,6 +31,7 @@ class RankingViewModel {
     private(set) var driverRank: CurrentDriverRank? = nil
     private(set) var rankingTypes = [RankingType]()
     private(set) var rankingSelectors = [RankingSelector]()
+    private(set) var nbDrivers = 0
     private let dkRankingTypes: [DKRankingType]
     private let dkRankingSelectorType: DKRankingSelectorType
     private var useCache = [String: Bool]()
@@ -112,6 +113,7 @@ class RankingViewModel {
                         if let ranking = ranking {
                             var ranks = [AnyDriverRank?]()
                             let nbDrivers = ranking.nbDriverRanked
+                            self.nbDrivers = nbDrivers
                             var previousRank: Int? = nil
                             for dkRank in ranking.driversRanked.sorted(by: { (dkDriverRank1, dkDriverRank2) -> Bool in
                                 if dkDriverRank2.rank == 0 {
@@ -167,6 +169,9 @@ class RankingViewModel {
                                 previousRank = dkRank.rank
                             }
                             self.ranks = ranks
+                        } else {
+                            self.nbDrivers = 0
+                            self.ranks = []
                         }
 
                         switch rankingSyncStatus {

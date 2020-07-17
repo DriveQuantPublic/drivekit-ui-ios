@@ -63,11 +63,7 @@ class RankingViewController : DKUIViewController {
                 rankingSelectors.update(viewModel: self.viewModel)
             }
             self.rankingSelectors = rankingSelectors
-            if self.viewModel.driverRank != nil {
-                rankingScoreView = Bundle.driverAchievementUIBundle?.loadNibNamed("RankingScoreSmall", owner: nil, options: nil)?.first as? RankingScoreSmall
-            } else {
-                rankingScoreView = nil
-            }
+            rankingScoreView = Bundle.driverAchievementUIBundle?.loadNibNamed("RankingScoreSmall", owner: nil, options: nil)?.first as? RankingScoreSmall
         } else {
             self.rankingSelectors = nil
             rankingScoreView = Bundle.driverAchievementUIBundle?.loadNibNamed("RankingScoreBig", owner: nil, options: nil)?.first as? RankingScoreBig
@@ -80,7 +76,7 @@ class RankingViewController : DKUIViewController {
     }
 
     private func updateData() {
-        rankingScoreView?.update(currentDriverRank: self.viewModel.driverRank, rankingType: self.viewModel.selectedRankingType)
+        self.rankingScoreView?.update(currentDriverRank: self.viewModel.driverRank, rankingType: self.viewModel.selectedRankingType, nbDrivers: self.viewModel.nbDrivers)
 
         if !self.ranks.isEmpty {
             self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: false)

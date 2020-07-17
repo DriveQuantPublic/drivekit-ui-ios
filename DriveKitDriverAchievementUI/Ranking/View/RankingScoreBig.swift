@@ -16,8 +16,8 @@ class RankingScoreBig : RankingScoreView {
     @IBOutlet private weak var rankingTypeImage: UIImageView!
     @IBOutlet private weak var rankingTypeLabel: UILabel!
 
-    override func update(currentDriverRank: CurrentDriverRank?, rankingType: RankingType?) {
-        super.update(currentDriverRank: currentDriverRank, rankingType: rankingType)
+    override func update(currentDriverRank: CurrentDriverRank?, rankingType: RankingType?, nbDrivers: Int) {
+        super.update(currentDriverRank: currentDriverRank, rankingType: rankingType, nbDrivers: nbDrivers)
 
         updateRankingTypeViews(rankingTypeTitle: rankingType?.name, rankingTypeImageName: rankingType?.imageName)
     }

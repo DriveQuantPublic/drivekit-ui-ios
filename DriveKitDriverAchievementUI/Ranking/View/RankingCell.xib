@@ -13,23 +13,23 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fBu-CO-Pnc" userLabel="Rank info container">
-                    <rect key="frame" x="0.0" y="4" width="69.5" height="52"/>
+                    <rect key="frame" x="0.0" y="4" width="78" height="52"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cJi-eo-Cbf">
-                            <rect key="frame" x="8.5" y="0.0" width="52" height="52"/>
+                            <rect key="frame" x="13" y="0.0" width="52" height="52"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="cJi-eo-Cbf" secondAttribute="height" multiplier="1:1" id="76O-HA-WHv"/>
                             </constraints>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7FZ-Qk-o15" customClass="CircleView" customModule="DriveKitDriverAchievementUI" customModuleProvider="target">
-                            <rect key="frame" x="14" y="5" width="41.5" height="42"/>
+                            <rect key="frame" x="18" y="5" width="42" height="42"/>
                             <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="7FZ-Qk-o15" secondAttribute="height" multiplier="1:1" id="xS8-xq-ltT"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Pu-CE-0vq" userLabel="Rank">
-                            <rect key="frame" x="29" y="15.5" width="11" height="21"/>
+                            <rect key="frame" x="33.5" y="15.5" width="11" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -42,22 +42,22 @@
                         <constraint firstItem="6Pu-CE-0vq" firstAttribute="centerX" secondItem="fBu-CO-Pnc" secondAttribute="centerX" id="UgB-zs-oFm"/>
                         <constraint firstItem="7FZ-Qk-o15" firstAttribute="centerX" secondItem="fBu-CO-Pnc" secondAttribute="centerX" id="WZZ-Mb-I6F"/>
                         <constraint firstItem="7FZ-Qk-o15" firstAttribute="height" secondItem="fBu-CO-Pnc" secondAttribute="height" multiplier="0.8" id="hMt-nE-Jrh"/>
-                        <constraint firstAttribute="width" secondItem="fBu-CO-Pnc" secondAttribute="height" multiplier="4:3" id="kfc-qy-M0M"/>
+                        <constraint firstAttribute="width" secondItem="fBu-CO-Pnc" secondAttribute="height" multiplier="3:2" id="kfc-qy-M0M"/>
                         <constraint firstItem="cJi-eo-Cbf" firstAttribute="centerY" secondItem="fBu-CO-Pnc" secondAttribute="centerY" id="mzP-ad-0jZ"/>
                         <constraint firstItem="7FZ-Qk-o15" firstAttribute="centerY" secondItem="fBu-CO-Pnc" secondAttribute="centerY" id="sNw-hz-7IB"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zsv-wd-mpd" userLabel="Driver and distance container">
-                    <rect key="frame" x="77.5" y="11" width="226.5" height="38"/>
+                    <rect key="frame" x="86" y="11" width="218" height="38"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Driver" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NdG-8v-rNo" userLabel="Driver">
-                            <rect key="frame" x="0.0" y="0.0" width="226.5" height="21"/>
+                            <rect key="frame" x="0.0" y="0.0" width="218" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzu-e2-pjH" userLabel="Distance">
-                            <rect key="frame" x="0.0" y="21" width="226.5" height="17"/>
+                            <rect key="frame" x="0.0" y="21" width="218" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>

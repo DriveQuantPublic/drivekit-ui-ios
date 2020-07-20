@@ -36,9 +36,9 @@ class RankingViewController : DKUIViewController {
 
         self.title = "dk_achievements_ranking_menu_ranking".dkAchievementLocalized()
 
-        self.collectionViewHeader_rankLabel.attributedText = "dk_achievements_ranking_rank".dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
-        self.collectionViewHeader_driverLabel.attributedText = "dk_achievements_ranking_driver".dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
-        self.collectionViewHeader_scoreLabel.attributedText = "dk_achievements_ranking_score".dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        self.collectionViewHeader_rankLabel.attributedText = "dk_achievements_ranking_rank".dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
+        self.collectionViewHeader_driverLabel.attributedText = "dk_achievements_ranking_driver".dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
+        self.collectionViewHeader_scoreLabel.attributedText = "dk_achievements_ranking_score".dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
 
         updateHeader()
         updateData()
@@ -56,7 +56,6 @@ class RankingViewController : DKUIViewController {
     private func updateHeader() {
         self.headerContainer.removeAllSubviews()
 
-        let rankingScoreView: RankingScoreView?
         if self.viewModel.rankingTypes.count > 1 || self.viewModel.rankingSelectors.count > 1 {
             let rankingSelectors = Bundle.driverAchievementUIBundle?.loadNibNamed("RankingSelectorsView", owner: nil, options: nil)?.first as? RankingSelectorsView
             if let rankingSelectors = rankingSelectors {
@@ -65,9 +64,14 @@ class RankingViewController : DKUIViewController {
                 rankingSelectors.update(viewModel: self.viewModel)
             }
             self.rankingSelectors = rankingSelectors
-            rankingScoreView = Bundle.driverAchievementUIBundle?.loadNibNamed("RankingScoreSmall", owner: nil, options: nil)?.first as? RankingScoreSmall
         } else {
             self.rankingSelectors = nil
+        }
+
+        let rankingScoreView: RankingScoreView?
+        if self.viewModel.rankingTypes.count > 1 && self.viewModel.rankingSelectors.count > 1 {
+            rankingScoreView = Bundle.driverAchievementUIBundle?.loadNibNamed("RankingScoreSmall", owner: nil, options: nil)?.first as? RankingScoreSmall
+        } else {
             rankingScoreView = Bundle.driverAchievementUIBundle?.loadNibNamed("RankingScoreBig", owner: nil, options: nil)?.first as? RankingScoreBig
         }
         self.rankingScoreView = rankingScoreView

@@ -336,14 +336,14 @@
 "dk_achievements_menu_streaks"="Vena di successi";
 "dk_achievements_ranking_anonymous_driver"="Anonimo";
 "dk_achievements_ranking_driver"="Conducente";
-"dk_achievements_ranking_legacy"="14 giorni";
+"dk_achievements_ranking_legacy"="Bimestrale";
 "dk_achievements_ranking_menu_ranking"="La mia posizione in classifica";
-"dk_achievements_ranking_month"="30 giorni";
+"dk_achievements_ranking_month"="Mensile";
 "dk_achievements_ranking_no_pseudo_set"="Devi inserire un nickname per accedere a questa pagina.";
 "dk_achievements_ranking_permanent"="Permanente";
 "dk_achievements_ranking_rank"="Grado";
 "dk_achievements_ranking_score"="Punteggio";
-"dk_achievements_ranking_week"="7 giorni";
+"dk_achievements_ranking_week"="Settimanale";
 "dk_achievements_streaks_acceleration_reset"="Hai accelerato bruscamente nel tuo ultimo viaggio";
 "dk_achievements_streaks_acceleration_text"="Provate a fare una serie di viaggi senza brusche accelerazioni. \n \n Ad ogni successo, il contatore del numero di viaggi aumenta. \n \n In caso di fallimento, il contatore si resetta e si deve ricominciare da capo. \n \n Il numero di viaggi nella vostra migliore sequenza di passaggi è memorizzato e potete tentare di superarlo.";
 "dk_achievements_streaks_acceleration_title"="Nessuna forte accelerazione";

@@ -334,14 +334,14 @@
 "dk_achievements_menu_streaks"="Streak of hits";
 "dk_achievements_ranking_anonymous_driver"="Anonymous";
 "dk_achievements_ranking_driver"="Driver";
-"dk_achievements_ranking_legacy"="14 days";
+"dk_achievements_ranking_legacy"="Bi-monthly";
 "dk_achievements_ranking_menu_ranking"="My ranking";
-"dk_achievements_ranking_month"="30 days";
+"dk_achievements_ranking_month"="Monthly";
 "dk_achievements_ranking_no_pseudo_set"="You need to enter a nickname to access this page.";
 "dk_achievements_ranking_permanent"="Permanent";
 "dk_achievements_ranking_rank"="Rank";
 "dk_achievements_ranking_score"="Score";
-"dk_achievements_ranking_week"="7 days";
+"dk_achievements_ranking_week"="Weekly";
 "dk_achievements_streaks_acceleration_reset"="A hard acceleration was detected on your last trip";
 "dk_achievements_streaks_acceleration_text"="Try to do a series of trips without any harsh acceleration. \n \n Each time you succeed, the trip counter increases. \n \n If you fail, the counter is reset and you must restart from scratch. \n \n The number of trips in your best sequence of success is memorized and you can try to surpass it.";
 "dk_achievements_streaks_acceleration_title"="No harsh acceleration";

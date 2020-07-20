@@ -54,7 +54,7 @@ class RankingSelectorsView : UIStackView {
             self.rankingSelectorsContainer.isHidden = false
             self.rankingSelectorsStackView.removeAllSubviews()
             for rankingSelector in self.rankingSelectors {
-                let selectorView = RankingSelectorButton(type: .system)
+                let selectorView = RankingSelectorButton()
                 selectorView.update(rankingSelector: rankingSelector)
                 let selected = selectedRankingSelector.index == rankingSelector.index
                 selectorView.setSelected(selected)

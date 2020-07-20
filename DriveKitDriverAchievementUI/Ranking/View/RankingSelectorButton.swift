@@ -14,6 +14,13 @@ class RankingSelectorButton : UIButton {
 
     private(set) var rankingSelector: RankingSelector? = nil
 
+    public convenience init() {
+        self.init(type: .system)
+        if let titleLabel = self.titleLabel {
+            titleLabel.font = UIFont(name: DKUIFonts.primary.name, size: titleLabel.font.pointSize)
+        }
+    }
+
     override func layoutSubviews() {
         super.layoutSubviews()
         self.layer.cornerRadius = self.bounds.size.height / 2

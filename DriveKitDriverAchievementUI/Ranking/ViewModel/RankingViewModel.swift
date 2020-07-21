@@ -34,6 +34,7 @@ class RankingViewModel {
     private(set) var nbDrivers = 0
     private let dkRankingTypes: [DKRankingType]
     private let dkRankingSelectorType: DKRankingSelectorType
+    private let rankingDepth: Int
     private var useCache = [String: Bool]()
     private var initialized = false
 
@@ -74,6 +75,9 @@ class RankingViewModel {
         }
         self.selectedRankingSelector = self.rankingSelectors.first
 
+        let rankingDepth = DriveKitDriverAchievementUI.shared.rankingDepth
+        self.rankingDepth = rankingDepth > 0 ? rankingDepth : 5
+
         self.initialized = true
     }
 
@@ -106,7 +110,7 @@ class RankingViewModel {
 
             let useCacheKey = "\(dkRankingType.rawValue)-\(dkRankingPeriod.rawValue)"
             let synchronizationType: SynchronizationType = self.useCache[useCacheKey] == true ? .cache : .defaultSync
-            DriveKitDriverAchievement.shared.getRanking(rankingType: dkRankingType, rankingPeriod: dkRankingPeriod, type: synchronizationType) { [weak self] (rankingSyncStatus, ranking) in
+            DriveKitDriverAchievement.shared.getRanking(rankingType: dkRankingType, rankingPeriod: dkRankingPeriod, rankingDepth: self.rankingDepth, type: synchronizationType) { [weak self] (rankingSyncStatus, ranking) in
                 DispatchQueue.main.async {
                     if let self = self {
                         self.driverRank = nil

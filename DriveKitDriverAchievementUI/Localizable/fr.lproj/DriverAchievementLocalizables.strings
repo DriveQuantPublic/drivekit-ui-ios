@@ -6,36 +6,6 @@
   Copyright © 2020 DriveQuant. All rights reserved.
 */
 
-"dk_achievements_failed_to_sync_streaks"="Impossible de synchroniser les séquences de succès, veuillez réessayer plus tard.";
-"dk_achievements_menu_streaks"="Séquences de succès";
-"dk_achievements_streaks_acceleration_reset"="Vous avez accéléré brutalement lors de votre dernier trajet";
-"dk_achievements_streaks_acceleration_text"="Essayez d\'enchaîner une série de trajets sans aucune accélération brutale. \n \n A chaque succès, le compteur du nombre de trajets augmente. \n \n En cas d\'échec, le compteur est réinitialisé et vous devez reprendre à zéro. \n \n Le nombre de trajets de votre meilleure séquence de succès est mémorisé et vous pouvez tenter de le dépasser.";
-"dk_achievements_streaks_acceleration_title"="Aucune accélération brutale";
-"dk_achievements_streaks_adherence_reset"="Vous avez franchi une limite d\'adherence lors de votre dernier trajet";
-"dk_achievements_streaks_adherence_text"="Essayez d\'enchaîner une série de trajets sans aucun franchissement de limite d’adhérence. \n \n A chaque succès, le compteur du nombre de trajets augmente. \n \n En cas d\'échec, le compteur est réinitialisé et vous devez reprendre à zéro. \n \n Le nombre de trajets de votre meilleure séquence de succès est mémorisé et vous pouvez tenter de le dépasser.";
-"dk_achievements_streaks_adherence_title"="Aucune limite d\'adhérence";
-"dk_achievements_streaks_best_title"="Meilleure séquence";
-"dk_achievements_streaks_brake_reset"="Vous avez freiné brutalement lors de votre dernier trajet";
-"dk_achievements_streaks_brake_text"="Essayez d\'enchaîner une série de trajets sans aucun freinage brusque. \n \n A chaque succès, le compteur du nombre de trajets augmente. \n \n En cas d\'échec, le compteur est réinitialisé et vous devez reprendre à zéro. \n \n Le nombre de trajets de votre meilleure séquence de succès est mémorisé et vous pouvez tenter de le dépasser.";
-"dk_achievements_streaks_brake_title"="Aucun freinage brusque";
-"dk_achievements_streaks_congrats"="Bravo !";
-"dk_achievements_streaks_congrats_text"="Vous réalisez actuellement votre meilleure séquence de succès. Continuer à vous dépasser !";
-"dk_achievements_streaks_current_title"="En cours";
-"dk_achievements_streaks_empty"="Vous n\'avez pas encore réalisé de trajets pour compléter cette séquence";
-"dk_achievements_streaks_phone_distraction_reset"="Vous avez manipulé votre téléphone lors de votre dernier trajet";
-"dk_achievements_streaks_phone_distraction_text"="Essayez d\'enchaîner une série de trajets sans manipuler votre smartphone lorsque vous conduisez. \n \n A chaque succès, le compteur du nombre de trajets augmente. \n \n En cas d\'échec, le compteur est réinitialisé et vous devez reprendre à zéro. \n \n Le nombre de trajets de votre meilleure séquence de succès est mémorisé et vous pouvez tenter de le dépasser.";
-"dk_achievements_streaks_phone_distraction_title"="Pas d\'utilisation du téléphone";
-"dk_achievements_streaks_safety_reset"="Le score de sécurité de votre dernier trajet est inférieur à 9.8/10";
-"dk_achievements_streaks_safety_text"="Essayez d\'enchaîner une série de trajets avec des scores de sécurité supérieurs à 9.8/10. \n \n A chaque succès, le compteur du nombre de trajets augmente. \n \n En cas d\'échec, le compteur est réinitialisé et vous devez reprendre à zéro. \n \n Le nombre de trajets de votre meilleure séquence de succès est mémorisé et vous pouvez tenter de le dépasser.";
-"dk_achievements_streaks_safety_title"="Conduite prudente";
-"dk_achievements_streaks_since"="Depuis le %@";
-"dk_achievements_streaks_since_to"="Du %@ au %@";
-"dk_achievements_streaks_speeding_reset"="Vous avez dépassé la limite de vitesse autorisée lors de votre dernier trajet";
-"dk_achievements_streaks_speeding_text"="Essayez d\'enchaîner une série de trajets en respectant les limitations de vitesse. Le score de limite de vitesse doit être supérieur à 9.8/10. \n \n A chaque succès, le compteur du nombre de trajets augmente. \n \n En cas d\'échec, le compteur est réinitialisé et vous devez reprendre à zéro. \n \n Le nombre de trajets de votre meilleure séquence de succès est mémorisé et vous pouvez tenter de le dépasser.";
-"dk_achievements_streaks_speeding_title"="Pas d\'excès de vitesse";
-"dk_achievements_streaks_trip"="trajet";
-"dk_achievements_streaks_trips"="trajets";
-
 "badge_acceleration_congrats_1"="Félicitations, vous avez atteint l\'objectif !";
 "badge_acceleration_congrats_2"="Félicitations, vous avez atteint l\'objectif !";
 "badge_acceleration_congrats_3"="Félicitations, vous avez atteint l\'objectif !";
@@ -186,8 +156,7 @@
 "badge_expressway_distance_congrats_3"="Félicitations, vous avez atteint l\'objectif !";
 "badge_expressway_distance_description_1"="Pour décrocher ce badge, vous devez rouler au moins 100 km sur des voies rapides. Attention, ces trajets sont plus monotones et fatiguant. Essayez de ne pas baisser votre vigilance.";
 "badge_expressway_distance_description_2"="Pour obtenir ce badge, il vous suffit de parcourir 300 km sur des voies rapides. Avant le départ, n\'oubliez pas de contrôler l’état de votre véhicule (pression des pneus, freins, éclairage et essuie-glaces).";
-"badge_expressway_distance_description_3"="Conduisez 1000 km sur des voies rapides pour remporter ce badge. N\'oubliez jamais la règle de base : Pour limiter le risque d\'endormissement, faites des pauses d’une quinzaine de minutes toutes les deux heures.
-";
+"badge_expressway_distance_description_3"="Conduisez 1000 km sur des voies rapides pour remporter ce badge. N\'oubliez jamais la règle de base : Pour limiter le risque d\'endormissement, faites des pauses d’une quinzaine de minutes toutes les deux heures.";
 "badge_expressway_distance_name_1"="Fast and Serious";
 "badge_expressway_distance_name_2"="Road Trip";
 "badge_expressway_distance_name_3"="Easy Rider";
@@ -201,8 +170,7 @@
 "badge_extra_urban_distance_congrats_1"="Félicitations, vous avez atteint l\'objectif !";
 "badge_extra_urban_distance_congrats_2"="Félicitations, vous avez atteint l\'objectif !";
 "badge_extra_urban_distance_congrats_3"="Félicitations, vous avez atteint l\'objectif !";
-"badge_extra_urban_distance_description_1"="Parcourez plus de 100 km en dehors d\'une agglomération pour valider ce badge. Hors des villes, le trafic est plus fluide mais les dangers existent. Pensez toujours à respecter les distances de sécurité et à porter votre regard au loin pour anticiper toutes les situations.
-";
+"badge_extra_urban_distance_description_1"="Parcourez plus de 100 km en dehors d\'une agglomération pour valider ce badge. Hors des villes, le trafic est plus fluide mais les dangers existent. Pensez toujours à respecter les distances de sécurité et à porter votre regard au loin pour anticiper toutes les situations.";
 "badge_extra_urban_distance_description_2"="Pour obtenir ce badge, vous devez conduire 300 km dans un environnement extra-urbain. Sur une route de campagne, pensez aux vélos en particulier en sortie de virage.";
 "badge_extra_urban_distance_description_3"="Pour gagner ce badge, vous devez réaliser 1000 km dans un environnement extra-urbain. Il est important de bien gérer les changements d\'allure lors des passages de la ville à des zones extra-urbaines. Augmentez progressivement votre allure dès la sortie de la ville. A l\'inverse, anticipez votre décélération pour atteindre une vitesse de 50 km/h lors d\'un retour en zone urbaine.";
 "badge_extra_urban_distance_name_1"="Balade";
@@ -361,4 +329,42 @@
 "badge_urban_distance_theme"="Conduite en zone urbaine";
 "badge_your_progress_title"="Votre avancement";
 "dk_achievements_failed_to_sync_badges"="Impossible de synchroniser les badges, veuillez réessayer plus tard.";
+"dk_achievements_failed_to_sync_rankings"="La récupération du classement a échoué. Veuillez réessayer plus tard.";
+"dk_achievements_failed_to_sync_streaks"="Impossible de synchroniser les séquences de succès, veuillez réessayer plus tard.";
+"dk_achievements_menu_streaks"="Séquences de succès";
+"dk_achievements_ranking_anonymous_driver"="Anonyme";
+"dk_achievements_ranking_driver"="Conducteur";
+"dk_achievements_ranking_legacy"="Bi-mensuel";
+"dk_achievements_ranking_menu_ranking"="Mon classement";
+"dk_achievements_ranking_month"="Mensuel";
+"dk_achievements_ranking_no_pseudo_set"="Vous devez renseigner un pseudo pour accéder à cette page.";
+"dk_achievements_ranking_permanent"="Permanent";
+"dk_achievements_ranking_rank"="Position";
+"dk_achievements_ranking_score"="Score";
+"dk_achievements_ranking_week"="Hebdo";
+"dk_achievements_streaks_acceleration_reset"="Vous avez accéléré brutalement lors de votre dernier trajet";
+"dk_achievements_streaks_acceleration_text"="Essayez d\'enchaîner une série de trajets sans aucune accélération brutale. \n \n A chaque succès, le compteur du nombre de trajets augmente. \n \n En cas d\'échec, le compteur est réinitialisé et vous devez reprendre à zéro. \n \n Le nombre de trajets de votre meilleure séquence de succès est mémorisé et vous pouvez tenter de le dépasser.";
+"dk_achievements_streaks_acceleration_title"="Aucune accélération brutale";
+"dk_achievements_streaks_adherence_reset"="Vous avez franchi une limite d\'adherence lors de votre dernier trajet";
+"dk_achievements_streaks_adherence_text"="Essayez d\'enchaîner une série de trajets sans aucun franchissement de limite d’adhérence. \n \n A chaque succès, le compteur du nombre de trajets augmente. \n \n En cas d\'échec, le compteur est réinitialisé et vous devez reprendre à zéro. \n \n Le nombre de trajets de votre meilleure séquence de succès est mémorisé et vous pouvez tenter de le dépasser.";
+"dk_achievements_streaks_adherence_title"="Aucune limite d\'adhérence";
+"dk_achievements_streaks_best_title"="Meilleure séquence";
+"dk_achievements_streaks_brake_reset"="Vous avez freiné brutalement lors de votre dernier trajet";
+"dk_achievements_streaks_brake_text"="Essayez d\'enchaîner une série de trajets sans aucun freinage brusque. \n \n A chaque succès, le compteur du nombre de trajets augmente. \n \n En cas d\'échec, le compteur est réinitialisé et vous devez reprendre à zéro. \n \n Le nombre de trajets de votre meilleure séquence de succès est mémorisé et vous pouvez tenter de le dépasser.";
+"dk_achievements_streaks_brake_title"="Aucun freinage brusque";
+"dk_achievements_streaks_congrats"="Bravo !";
+"dk_achievements_streaks_congrats_text"="Vous réalisez actuellement votre meilleure séquence de succès. Continuer à vous dépasser !";
+"dk_achievements_streaks_current_title"="En cours";
+"dk_achievements_streaks_empty"="Vous n\'avez pas encore réalisé de trajets pour compléter cette séquence";
+"dk_achievements_streaks_phone_distraction_reset"="Vous avez manipulé votre téléphone lors de votre dernier trajet";
+"dk_achievements_streaks_phone_distraction_text"="Essayez d\'enchaîner une série de trajets sans manipuler votre smartphone lorsque vous conduisez. \n \n A chaque succès, le compteur du nombre de trajets augmente. \n \n En cas d\'échec, le compteur est réinitialisé et vous devez reprendre à zéro. \n \n Le nombre de trajets de votre meilleure séquence de succès est mémorisé et vous pouvez tenter de le dépasser.";
+"dk_achievements_streaks_phone_distraction_title"="Pas d\'utilisation du téléphone";
+"dk_achievements_streaks_safety_reset"="Le score de sécurité de votre dernier trajet est inférieur à 9.8/10";
+"dk_achievements_streaks_safety_text"="Essayez d\'enchaîner une série de trajets avec des scores de sécurité supérieurs à 9.8/10. \n \n A chaque succès, le compteur du nombre de trajets augmente. \n \n En cas d\'échec, le compteur est réinitialisé et vous devez reprendre à zéro. \n \n Le nombre de trajets de votre meilleure séquence de succès est mémorisé et vous pouvez tenter de le dépasser.";
+"dk_achievements_streaks_safety_title"="Conduite prudente";
+"dk_achievements_streaks_since"="Depuis le %@";
+"dk_achievements_streaks_since_to"="Du %@ au %@";
+"dk_achievements_streaks_speeding_reset"="Vous avez dépassé la limite de vitesse autorisée lors de votre dernier trajet";
+"dk_achievements_streaks_speeding_text"="Essayez d\'enchaîner une série de trajets en respectant les limitations de vitesse. Le score de limite de vitesse doit être supérieur à 9.8/10. \n \n A chaque succès, le compteur du nombre de trajets augmente. \n \n En cas d\'échec, le compteur est réinitialisé et vous devez reprendre à zéro. \n \n Le nombre de trajets de votre meilleure séquence de succès est mémorisé et vous pouvez tenter de le dépasser.";
+"dk_achievements_streaks_speeding_title"="Pas d\'excès de vitesse";
 "menu_mybadges"="Mes badges";

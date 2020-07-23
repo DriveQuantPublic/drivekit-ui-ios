@@ -33,7 +33,7 @@ class VehiclePickerTruckTypeVC : VehiclePickerStepView {
         self.collectionView.dataSource = self
         self.collectionView.register(UINib(nibName: "VehiclePickerImageCollectionViewCell", bundle: .vehicleUIBundle), forCellWithReuseIdentifier: "VehiclePickerImageCollectionViewCell")
         self.collectionView.register(UINib(nibName: "VehiclePickerLabelCollectionViewCell", bundle: .vehicleUIBundle), forCellWithReuseIdentifier: "VehiclePickerLabelCollectionViewCell")
-        self.collectionView.register(UINib(nibName: "VehiclePickerTruckTypeHeader", bundle: .vehicleUIBundle), forSupplementaryViewOfKind:  UICollectionView.elementKindSectionHeader, withReuseIdentifier: "VehiclePickerTruckTypeHeader")
+        self.collectionView.register(UINib(nibName: "VehiclePickerTruckTypeHeader", bundle: .vehicleUIBundle), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "VehiclePickerTruckTypeHeader")
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -75,7 +75,7 @@ extension VehiclePickerTruckTypeVC: UICollectionViewDelegate, UICollectionViewDa
     }
 }
 
-extension VehiclePickerTruckTypeVC: UICollectionViewDelegateFlowLayout {
+extension VehiclePickerTruckTypeVC : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.bounds.width - Constants.insets.left - Constants.insets.right - Constants.minimumInteritemSpacing
         let height = (width * 0.4).rounded() + (self.viewModel.showStepLabel() ? 16 : 0)

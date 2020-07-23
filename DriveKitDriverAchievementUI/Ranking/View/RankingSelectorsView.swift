@@ -16,24 +16,21 @@ class RankingSelectorsView : UIStackView {
     @IBOutlet private weak var rankingTypesContainer: UIStackView!
     @IBOutlet private weak var rankingSelectorsContainer: UIView!
     @IBOutlet private weak var rankingSelectorsStackView: UIStackView!
-    private(set) var rankingTypes = [RankingType]()
-    private(set) var rankingSelectors = [RankingSelector]()
     private var viewModel: RankingViewModel? = nil
     private var selectedRankingTypeView: RankingSelectorTypeView? = nil
     private var selectedRankingSelectorView: RankingSelectorButton? = nil
 
     func update(viewModel: RankingViewModel) {
-        self.rankingTypes = viewModel.rankingTypes
-        self.rankingSelectors = viewModel.rankingSelectors
         self.viewModel = viewModel
 
-        if self.rankingTypes.count < 2 {
+        let rankingTypes = viewModel.rankingTypes
+        if rankingTypes.count < 2 {
             self.rankingTypesContainer.isHidden = true
         } else {
-            let selectedRankingType = viewModel.selectedRankingType ?? self.rankingTypes.first!
+            let selectedRankingType = viewModel.selectedRankingType ?? rankingTypes.first!
             self.rankingTypesContainer.isHidden = false
             self.rankingTypesContainer.removeAllSubviews()
-            for rankingType in self.rankingTypes {
+            for rankingType in rankingTypes {
                 if let selectorView = Bundle.driverAchievementUIBundle?.loadNibNamed("RankingSelectorTypeView", owner: nil, options: nil)?.first as? RankingSelectorTypeView {
                     selectorView.update(rankingType: rankingType)
                     let selected = selectedRankingType.index == rankingType.index
@@ -47,13 +44,14 @@ class RankingSelectorsView : UIStackView {
             }
         }
 
-        if self.rankingSelectors.count < 2 {
-            self.rankingSelectorsContainer.isHidden = true
+        let rankingSelectors = viewModel.rankingSelectors
+        if rankingSelectors.count < 2 {
+            rankingSelectorsContainer.isHidden = true
         } else {
-            let selectedRankingSelector = viewModel.selectedRankingSelector ?? self.rankingSelectors.first!
+            let selectedRankingSelector = viewModel.selectedRankingSelector ?? rankingSelectors.first!
             self.rankingSelectorsContainer.isHidden = false
             self.rankingSelectorsStackView.removeAllSubviews()
-            for rankingSelector in self.rankingSelectors {
+            for rankingSelector in rankingSelectors {
                 let selectorView = RankingSelectorButton()
                 selectorView.update(rankingSelector: rankingSelector)
                 let selected = selectedRankingSelector.index == rankingSelector.index

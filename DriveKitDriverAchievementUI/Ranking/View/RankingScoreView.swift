@@ -13,11 +13,8 @@ import DriveKitDBAchievementAccess
 
 class RankingScoreView : UIView {
 
-    @IBOutlet weak var userRankView: UILabel!
-    @IBOutlet weak var progressionView: UIImageView!
-
-    private(set) var currentDriverRank: CurrentDriverRank? = nil
-    private(set) var rankingType: RankingType? = nil
+    @IBOutlet private weak var userRankView: UILabel!
+    @IBOutlet private weak var progressionView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,9 +23,6 @@ class RankingScoreView : UIView {
     }
 
     func update(currentDriverRank: CurrentDriverRank?, rankingType: RankingType?, nbDrivers: Int) {
-        self.currentDriverRank = currentDriverRank
-        self.rankingType = rankingType
-
         self.progressionView.image = nil
 
         if let currentDriverRank = currentDriverRank {

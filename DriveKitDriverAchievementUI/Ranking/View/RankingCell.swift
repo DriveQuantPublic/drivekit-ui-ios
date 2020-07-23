@@ -18,7 +18,6 @@ class RankingCell : UICollectionViewCell {
     @IBOutlet private weak var driverLabel: UILabel!
     @IBOutlet private weak var distanceLabel: UILabel!
     @IBOutlet private weak var scoreLabel: UILabel!
-    private(set) var driverRank: AnyDriverRank? = nil
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,8 +27,6 @@ class RankingCell : UICollectionViewCell {
     }
 
     func update(driverRank: AnyDriverRank) {
-        self.driverRank = driverRank
-
         let isCurrentDriver = driverRank is CurrentDriverRank
         if let positionImageName = driverRank.positionImageName, let positionImage = UIImage(named: positionImageName, in: Bundle.driverAchievementUIBundle, compatibleWith: nil) {
             self.rankImage.image = positionImage

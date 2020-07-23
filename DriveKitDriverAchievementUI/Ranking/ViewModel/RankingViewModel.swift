@@ -193,9 +193,9 @@ class RankingViewModel {
 
                         let dataError: Bool
                         switch rankingSyncStatus {
-                            case .noError, .userNotRanked, .cacheDataOnly:
+                            case .noError, .userNotRanked:
                                 dataError = false
-                            case .failedToSyncRanking, .syncAlreadyInProgress:
+                            case .failedToSyncRanking, .syncAlreadyInProgress, .cacheDataOnly:
                                 dataError = true
                         }
                         self.useCache[useCacheKey] = !dataError

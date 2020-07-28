@@ -186,9 +186,45 @@ extension String {
 }
 
 extension AppDelegate : DKColors {
+    func primaryColor() -> UIColor {
+        return (self as DKColors).primaryColor()
+    }
+    func secondaryColor() -> UIColor {
+        return (self as DKColors).secondaryColor()
+    }
+    func mainFontColor() -> UIColor {
+        return (self as DKColors).mainFontColor()
+    }
+    func complementaryFontColor() -> UIColor {
+        return (self as DKColors).complementaryFontColor()
+    }
+    func fontColorOnPrimaryColor() -> UIColor {
+        return (self as DKColors).fontColorOnPrimaryColor()
+    }
+    func fontColorOnSecondaryColor() -> UIColor {
+        return (self as DKColors).fontColorOnSecondaryColor()
+    }
+    func warningColor() -> UIColor {
+        return (self as DKColors).warningColor()
+    }
+    func criticalColor() -> UIColor {
+        return (self as DKColors).criticalColor()
+    }
+    func neutralColor() -> UIColor {
+        return (self as DKColors).neutralColor()
+    }
+    func backgroundViewColor() -> UIColor {
+        return (self as DKColors).backgroundViewColor()
+    }
 }
 
 extension AppDelegate : DKFonts {
+    func primaryFont() -> String {
+        return (self as DKFonts).primaryFont()
+    }
+    func secondaryFont() -> String {
+        return (self as DKFonts).secondaryFont()
+    }
 }
 
 extension AppDelegate : DKContentMail {

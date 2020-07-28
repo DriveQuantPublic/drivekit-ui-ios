@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol DKColors {
+@objc public protocol DKColors {
     func primaryColor() -> UIColor
     func secondaryColor() -> UIColor
     func mainFontColor() -> UIColor
@@ -56,6 +56,37 @@ public extension DKColors {
 
 public class DKDefaultColors : DKColors {
     public init() {}
+
+    public func primaryColor() -> UIColor {
+        return (self as DKColors).primaryColor()
+    }
+    public func secondaryColor() -> UIColor {
+        return (self as DKColors).secondaryColor()
+    }
+    public func mainFontColor() -> UIColor {
+        return (self as DKColors).mainFontColor()
+    }
+    public func complementaryFontColor() -> UIColor {
+        return (self as DKColors).complementaryFontColor()
+    }
+    public func fontColorOnPrimaryColor() -> UIColor {
+        return (self as DKColors).fontColorOnPrimaryColor()
+    }
+    public func fontColorOnSecondaryColor() -> UIColor {
+        return (self as DKColors).fontColorOnSecondaryColor()
+    }
+    public func warningColor() -> UIColor {
+        return (self as DKColors).warningColor()
+    }
+    public func criticalColor() -> UIColor {
+        return (self as DKColors).criticalColor()
+    }
+    public func neutralColor() -> UIColor {
+        return (self as DKColors).neutralColor()
+    }
+    public func backgroundViewColor() -> UIColor {
+        return (self as DKColors).backgroundViewColor()
+    }
 }
 
 public enum DKUIColors {
@@ -69,8 +100,8 @@ public enum DKUIColors {
     criticalColor,
     neutralColor,
     backgroundView
-    
-    public var color : UIColor {
+
+    public var color: UIColor {
         switch self {
         case .primaryColor:
             return DriveKitUI.shared.colors.primaryColor()

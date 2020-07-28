@@ -9,16 +9,16 @@
 import UIKit
 
 @objc public class DriveKitUI : NSObject {
-    
+
     @objc public static let shared = DriveKitUI()
-    
-    public var colors : DKColors!
-    var fonts : DKFonts!
-    var overridedStringFileName : String?
-    
+
+    public var colors: DKColors!
+    var fonts: DKFonts!
+    var overridedStringFileName: String?
+
     private override init() {}
-    
-    public func initialize(colors : DKColors = DKDefaultColors(), fonts: DKFonts = DKDefaultFonts(), overridedStringsFileName : String? = nil) {
+
+    @objc public func initialize(colors: DKColors = DKDefaultColors(), fonts: DKFonts = DKDefaultFonts(), overridedStringsFileName: String? = nil) {
         self.colors = colors
         self.fonts = fonts
         self.overridedStringFileName = overridedStringsFileName

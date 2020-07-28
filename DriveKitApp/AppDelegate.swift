@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         requestNotificationPermission()
         configureDriveKit(launchOptions: launchOptions)
-        DriveKitUI.shared.initialize(colors: self, fonts: self, overridedStringsFileName: "Localizable")
+        DriveKitUI.shared.initialize(colors: DefaultColors(), fonts: DefaultFonts(), overridedStringsFileName: "Localizable")
         DriveKitDriverAchievementUI.shared.initialize()
         DriveKitDriverDataUI.shared.initialize()
         DriveKitVehicleUI.shared.initialize()
@@ -185,46 +185,10 @@ extension String {
     }
 }
 
-extension AppDelegate : DKColors {
-    func primaryColor() -> UIColor {
-        return (self as DKColors).primaryColor()
-    }
-    func secondaryColor() -> UIColor {
-        return (self as DKColors).secondaryColor()
-    }
-    func mainFontColor() -> UIColor {
-        return (self as DKColors).mainFontColor()
-    }
-    func complementaryFontColor() -> UIColor {
-        return (self as DKColors).complementaryFontColor()
-    }
-    func fontColorOnPrimaryColor() -> UIColor {
-        return (self as DKColors).fontColorOnPrimaryColor()
-    }
-    func fontColorOnSecondaryColor() -> UIColor {
-        return (self as DKColors).fontColorOnSecondaryColor()
-    }
-    func warningColor() -> UIColor {
-        return (self as DKColors).warningColor()
-    }
-    func criticalColor() -> UIColor {
-        return (self as DKColors).criticalColor()
-    }
-    func neutralColor() -> UIColor {
-        return (self as DKColors).neutralColor()
-    }
-    func backgroundViewColor() -> UIColor {
-        return (self as DKColors).backgroundViewColor()
-    }
+class DefaultColors : DKDefaultColors {
 }
 
-extension AppDelegate : DKFonts {
-    func primaryFont() -> String {
-        return (self as DKFonts).primaryFont()
-    }
-    func secondaryFont() -> String {
-        return (self as DKFonts).secondaryFont()
-    }
+class DefaultFonts : DKDefaultFonts {
 }
 
 extension AppDelegate : DKContentMail {

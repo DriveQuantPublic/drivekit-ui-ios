@@ -21,71 +21,38 @@ import UIKit
     func backgroundViewColor() -> UIColor
 }
 
-public extension DKColors {
-    func primaryColor() -> UIColor {
-        return UIColor(hex:0x0B4D6E)
-    }
-    func secondaryColor() -> UIColor {
-        return UIColor(hex: 0x00EBB8)
-    }
-    func mainFontColor() -> UIColor {
-        return UIColor(hex: 0x161616)
-    }
-    func complementaryFontColor() -> UIColor {
-        return UIColor(hex: 0x555555)
-    }
-    func fontColorOnPrimaryColor() -> UIColor {
-        return UIColor.white
-    }
-    func fontColorOnSecondaryColor() -> UIColor {
-        return UIColor.white
-    }
-    func warningColor() -> UIColor {
-        return UIColor(hex: 0xff6e57)
-    }
-    func criticalColor() -> UIColor {
-        return UIColor(hex: 0xE52027)
-    }
-    func neutralColor() -> UIColor {
-        return UIColor(hex: 0xF0F0F0)
-    }
-    func backgroundViewColor() -> UIColor {
-        return UIColor(hex: 0xFAFAFA)
-    }
-}
-
-public class DKDefaultColors : DKColors {
+open class DKDefaultColors : DKColors {
     public init() {}
 
     public func primaryColor() -> UIColor {
-        return (self as DKColors).primaryColor()
+        return UIColor(hex:0x0B4D6E)
     }
     public func secondaryColor() -> UIColor {
-        return (self as DKColors).secondaryColor()
+        return UIColor(hex: 0x00EBB8)
     }
     public func mainFontColor() -> UIColor {
-        return (self as DKColors).mainFontColor()
+        return UIColor(hex: 0x161616)
     }
     public func complementaryFontColor() -> UIColor {
-        return (self as DKColors).complementaryFontColor()
+        return UIColor(hex: 0x555555)
     }
     public func fontColorOnPrimaryColor() -> UIColor {
-        return (self as DKColors).fontColorOnPrimaryColor()
+        return UIColor.white
     }
     public func fontColorOnSecondaryColor() -> UIColor {
-        return (self as DKColors).fontColorOnSecondaryColor()
+        return UIColor.white
     }
     public func warningColor() -> UIColor {
-        return (self as DKColors).warningColor()
+        return UIColor(hex: 0xff6e57)
     }
     public func criticalColor() -> UIColor {
-        return (self as DKColors).criticalColor()
+        return UIColor(hex: 0xE52027)
     }
     public func neutralColor() -> UIColor {
-        return (self as DKColors).neutralColor()
+        return UIColor(hex: 0xF0F0F0)
     }
     public func backgroundViewColor() -> UIColor {
-        return (self as DKColors).backgroundViewColor()
+        return UIColor(hex: 0xFAFAFA)
     }
 }
 

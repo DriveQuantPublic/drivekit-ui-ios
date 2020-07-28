@@ -13,19 +13,14 @@ import UIKit
     func secondaryFont() -> String
 }
 
-public extension DKFonts {
-    func primaryFont() -> String {return "Roboto"}
-    func secondaryFont() -> String {return "Roboto"}
-}
-
-public class DKDefaultFonts : DKFonts {
+open class DKDefaultFonts : DKFonts {
     public init() {}
 
     public func primaryFont() -> String {
-        return (self as DKFonts).primaryFont()
+        return "Roboto"
     }
     public func secondaryFont() -> String {
-        return (self as DKFonts).secondaryFont()
+        return "Roboto"
     }
 }
 

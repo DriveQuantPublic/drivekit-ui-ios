@@ -6,7 +6,7 @@
 //  Copyright © 2020 DriveQuant. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import DriveKitCommonUI
 import DriveKitDriverAchievement
 import DriveKitDBAchievementAccess

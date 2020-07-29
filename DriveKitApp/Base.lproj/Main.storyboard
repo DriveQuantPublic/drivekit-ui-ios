@@ -584,6 +584,70 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="2D3-SR-Gm1">
+                                        <rect key="frame" x="0.0" y="880" width="414" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2D3-SR-Gm1" id="31M-N6-H6T">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FBE-nT-xf0">
+                                                    <rect key="frame" x="16" y="8" width="382" height="84"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Pqm-cl-yj1">
+                                                            <rect key="frame" x="0.0" y="0.0" width="332" height="84"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ranking" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYa-w5-CL2">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="332" height="20"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="20" id="cwq-2Z-OWT"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="An example of DriveKit Driver Achievement Ranking implementation" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vuP-5U-Q3A">
+                                                                    <rect key="frame" x="0.0" y="20" width="332" height="64"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FOU-9O-UwY">
+                                                            <rect key="frame" x="332" y="0.0" width="50" height="84"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron" translatesAutoresizingMaskIntoConstraints="NO" id="emX-Qh-9n8">
+                                                                    <rect key="frame" x="8" y="25" width="34" height="34"/>
+                                                                    <color key="tintColor" red="0.41915488239999998" green="0.9243084788" blue="0.72628241780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="34" id="Eev-cL-UUx"/>
+                                                                        <constraint firstAttribute="width" constant="34" id="ZAa-6S-ogn"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="50" id="Olx-yh-u3f"/>
+                                                                <constraint firstItem="emX-Qh-9n8" firstAttribute="centerX" secondItem="FOU-9O-UwY" secondAttribute="centerX" id="kh5-GT-4WG"/>
+                                                                <constraint firstItem="emX-Qh-9n8" firstAttribute="centerY" secondItem="FOU-9O-UwY" secondAttribute="centerY" id="mEu-wi-F3b"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="Pqm-cl-yj1" firstAttribute="top" secondItem="FBE-nT-xf0" secondAttribute="top" id="1xz-5N-oSA"/>
+                                                        <constraint firstItem="Pqm-cl-yj1" firstAttribute="leading" secondItem="FBE-nT-xf0" secondAttribute="leading" id="Vaj-Ir-CmC"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="FBE-nT-xf0" firstAttribute="top" secondItem="31M-N6-H6T" secondAttribute="top" constant="8" id="f3E-Rw-TT3"/>
+                                                <constraint firstAttribute="bottom" secondItem="FBE-nT-xf0" secondAttribute="bottom" constant="8" id="jQu-LV-J66"/>
+                                                <constraint firstItem="FBE-nT-xf0" firstAttribute="leading" secondItem="31M-N6-H6T" secondAttribute="leading" constant="16" id="nye-iP-8sB"/>
+                                                <constraint firstAttribute="trailing" secondItem="FBE-nT-xf0" secondAttribute="trailing" constant="16" id="zoT-3b-Aec"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>

@@ -104,19 +104,3 @@ extension DriveKitDriverAchievementUI {
     }
 
 }
-
-// MARK: - Objective-C extension
-
-extension DriveKitDriverAchievementUI {
-
-    @objc(configureStreakThemes:) // Usage example: [DriveKitDriverAchievementUI.shared configureStreakThemes:@[ @(DKStreakThemePhoneDistraction), @(DKStreakThemeSafety), @(DKStreakThemeAcceleration), @(DKStreakThemeBrake), @(DKStreakThemeAdherence) ]];
-    public func objc_configureStreakThemes(streakThemes: [Int]) {
-        configureStreakThemes(streakThemes: streakThemes.map { DKStreakTheme(rawValue: $0)! })
-    }
-
-    @objc(configureBadgeCategories:) // Usage example: [DriveKitDriverAchievementUI.shared configureBadgeCategories:@[ @(DKBadgeCategoryGeneric), @(DKBadgeCategoryEcodriving), @(DKBadgeCategorySafety), @(DKBadgeCategoryPhoneDistraction) ]];
-    public func objc_configureBadgeCategories(badgeCategories: [Int]) {
-        configureBadgeCategories(badgeCategories: badgeCategories.map { DKBadgeCategory(rawValue: $0)! })
-    }
-
-}

@@ -24,34 +24,34 @@ import UIKit
 open class DKDefaultColors : DKColors {
     public init() {}
 
-    public func primaryColor() -> UIColor {
+    open func primaryColor() -> UIColor {
         return UIColor(hex:0x0B4D6E)
     }
-    public func secondaryColor() -> UIColor {
+    open func secondaryColor() -> UIColor {
         return UIColor(hex: 0x00EBB8)
     }
-    public func mainFontColor() -> UIColor {
+    open func mainFontColor() -> UIColor {
         return UIColor(hex: 0x161616)
     }
-    public func complementaryFontColor() -> UIColor {
+    open func complementaryFontColor() -> UIColor {
         return UIColor(hex: 0x555555)
     }
-    public func fontColorOnPrimaryColor() -> UIColor {
+    open func fontColorOnPrimaryColor() -> UIColor {
         return UIColor.white
     }
-    public func fontColorOnSecondaryColor() -> UIColor {
+    open func fontColorOnSecondaryColor() -> UIColor {
         return UIColor.white
     }
-    public func warningColor() -> UIColor {
+    open func warningColor() -> UIColor {
         return UIColor(hex: 0xff6e57)
     }
-    public func criticalColor() -> UIColor {
+    open func criticalColor() -> UIColor {
         return UIColor(hex: 0xE52027)
     }
-    public func neutralColor() -> UIColor {
+    open func neutralColor() -> UIColor {
         return UIColor(hex: 0xF0F0F0)
     }
-    public func backgroundViewColor() -> UIColor {
+    open func backgroundViewColor() -> UIColor {
         return UIColor(hex: 0xFAFAFA)
     }
 }

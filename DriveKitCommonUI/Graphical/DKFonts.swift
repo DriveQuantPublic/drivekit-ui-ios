@@ -16,10 +16,10 @@ import UIKit
 open class DKDefaultFonts : DKFonts {
     public init() {}
 
-    public func primaryFont() -> String {
+    open func primaryFont() -> String {
         return "Roboto"
     }
-    public func secondaryFont() -> String {
+    open func secondaryFont() -> String {
         return "Roboto"
     }
 }

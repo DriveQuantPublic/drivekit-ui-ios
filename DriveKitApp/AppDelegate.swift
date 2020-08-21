@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         requestNotificationPermission()
         configureDriveKit(launchOptions: launchOptions)
-        DriveKitUI.shared.initialize(colors: self, fonts: self, overridedStringsFileName: "Localizable")
+        DriveKitUI.shared.initialize(colors: DefaultColors(), fonts: DefaultFonts(), overridedStringsFileName: "Localizable")
         DriveKitDriverAchievementUI.shared.initialize()
         DriveKitDriverDataUI.shared.initialize()
         DriveKitVehicleUI.shared.initialize()
@@ -185,10 +185,10 @@ extension String {
     }
 }
 
-extension AppDelegate : DKColors {
+class DefaultColors : DKDefaultColors {
 }
 
-extension AppDelegate : DKFonts {
+class DefaultFonts : DKDefaultFonts {
 }
 
 extension AppDelegate : DKContentMail {

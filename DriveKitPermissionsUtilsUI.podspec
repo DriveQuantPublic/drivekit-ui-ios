@@ -22,4 +22,7 @@ Pod::Spec.new do |s|
   s.info_plist = {
     'CFBundleIdentifier' => 'com.drivequant.drivekit-permissions-utils-ui'
   }
+  s.pod_target_xcconfig = {
+    'PRODUCT_BUNDLE_IDENTIFIER': 'com.drivequant.drivekit-permissions-utils-ui'
+  }
 end

@@ -79,7 +79,7 @@ class RequestPermissionHelper : NSObject {
 extension RequestPermissionHelper : CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        
+        // iOS < 14
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -88,6 +88,14 @@ extension RequestPermissionHelper : CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
 
+    }
+
+    @available(iOS 14.0, *)
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        // iOS ≥ 14.
+        if self.locationManager.authorizationStatus() == .authorizedWhenInUse {
+            self.locationManager.requestAlwaysAuthorization()
+        }
     }
 
 }

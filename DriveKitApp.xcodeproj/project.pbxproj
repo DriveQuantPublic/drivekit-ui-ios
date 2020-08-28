@@ -185,6 +185,7 @@
 		63041FA824AE36C10028CAE8 /* RankingSelectorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63041FA724AE36C10028CAE8 /* RankingSelectorsView.swift */; };
 		63041FAA24AE3B2E0028CAE8 /* RankingScoreBig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63041FA924AE3B2E0028CAE8 /* RankingScoreBig.swift */; };
 		63041FAC24AE3B680028CAE8 /* RankingScoreSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63041FAB24AE3B680028CAE8 /* RankingScoreSmall.swift */; };
+		63199A6B24EC132E0011DCFC /* DKLocationAccuracy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63199A6A24EC132E0011DCFC /* DKLocationAccuracy.swift */; };
 		632EDDEF2450497500110744 /* BatteryOptimizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632EDDEE2450497500110744 /* BatteryOptimizationViewModel.swift */; };
 		632EDDF124504BEE00110744 /* UIColor+PermissionsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632EDDF024504BEE00110744 /* UIColor+PermissionsUtils.swift */; };
 		635616F624B4B7AC0047EAD8 /* DriverRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635616F524B4B7AC0047EAD8 /* DriverRank.swift */; };
@@ -618,6 +619,7 @@
 		63041FA724AE36C10028CAE8 /* RankingSelectorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingSelectorsView.swift; sourceTree = "<group>"; };
 		63041FA924AE3B2E0028CAE8 /* RankingScoreBig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingScoreBig.swift; sourceTree = "<group>"; };
 		63041FAB24AE3B680028CAE8 /* RankingScoreSmall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingScoreSmall.swift; sourceTree = "<group>"; };
+		63199A6A24EC132E0011DCFC /* DKLocationAccuracy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKLocationAccuracy.swift; sourceTree = "<group>"; };
 		632EDDEE2450497500110744 /* BatteryOptimizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryOptimizationViewModel.swift; sourceTree = "<group>"; };
 		632EDDF024504BEE00110744 /* UIColor+PermissionsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+PermissionsUtils.swift"; sourceTree = "<group>"; };
 		635616F524B4B7AC0047EAD8 /* DriverRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRank.swift; sourceTree = "<group>"; };
@@ -1349,6 +1351,7 @@
 				616946FF2433A89800C8A965 /* DKDiagnosisHelper.swift */,
 				639346B82448A8FD000F42D4 /* RequestPermissionHelper.swift */,
 				616947062433A97000C8A965 /* DKPermissionStatus.swift */,
+				63199A6A24EC132E0011DCFC /* DKLocationAccuracy.swift */,
 				616947042433A94D00C8A965 /* DKPermissionType.swift */,
 				616947022433A91300C8A965 /* DKSensorType.swift */,
 			);
@@ -2470,6 +2473,7 @@
 				63F44E89244DDEE000C7F5CC /* GlobalStateView.swift in Sources */,
 				63C3FD85244F89B300C2FEEC /* SensorInfoViewController.swift in Sources */,
 				63FF6B552449EC2B0006992E /* SensorStateView.swift in Sources */,
+				63199A6B24EC132E0011DCFC /* DKLocationAccuracy.swift in Sources */,
 				616947032433A91300C8A965 /* DKSensorType.swift in Sources */,
 				616946E624333C6900C8A965 /* DriveKitPermissionsUtilsUI.swift in Sources */,
 				639346B724489DDA000F42D4 /* DiagnosisViewController.swift in Sources */,

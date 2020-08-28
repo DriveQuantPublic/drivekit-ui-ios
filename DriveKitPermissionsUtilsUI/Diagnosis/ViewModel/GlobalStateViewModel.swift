@@ -17,32 +17,27 @@ struct GlobalStateViewModel {
 
     init(errorNumber: Int) {
         let icon: UIImage?
-        let titleKey: String
+        let title: String
         let infoKey: String
 
         if errorNumber == 0 {
             icon = UIImage(named: "sensor-ok-full", in: Bundle.permissionsUtilsUIBundle, compatibleWith: nil)
-            titleKey = "dk_perm_utils_diag_app_ok"
+            title = "dk_perm_utils_diag_app_ok".dkPermissionsUtilsLocalized()
             infoKey = "dk_perm_utils_diag_app_ok_text"
         } else {
             icon = UIImage(named: "sensor-error-full", in: Bundle.permissionsUtilsUIBundle, compatibleWith: nil)
             infoKey = "dk_perm_utils_app_diag_app_ko_text"
-            switch errorNumber {
-                case 2:
-                    titleKey = "dk_perm_utils_app_diag_app_ko_02"
-                case 3:
-                    titleKey = "dk_perm_utils_app_diag_app_ko_03"
-                case 4:
-                    titleKey = "dk_perm_utils_app_diag_app_ko_04"
-                case 5:
-                    titleKey = "dk_perm_utils_app_diag_app_ko_05"
-                default:
-                    titleKey = "dk_perm_utils_app_diag_app_ko_01"
+            let titleKey: String
+            if errorNumber == 1 {
+                titleKey = "dk_perm_utils_app_diag_app_ko_singular"
+            } else {
+                titleKey = "dk_perm_utils_app_diag_app_ko_plural"
             }
+            title = String(format: titleKey.dkPermissionsUtilsLocalized(), errorNumber)
         }
 
         self.statusIcon = icon
-        self.title = titleKey.dkPermissionsUtilsLocalized()
+        self.title = title
         self.info = infoKey.dkPermissionsUtilsLocalized()
     }
 }

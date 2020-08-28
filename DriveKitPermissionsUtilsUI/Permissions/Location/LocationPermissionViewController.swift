@@ -20,6 +20,8 @@ class LocationPermissionViewController : PermissionViewController {
     @IBOutlet weak var settingsDescription2: UILabel!
     @IBOutlet weak var settingsContainer3: UIView!
     @IBOutlet weak var settingsDescription3: UILabel!
+    @IBOutlet weak var settingsContainer4: UIView!
+    @IBOutlet weak var settingsDescription4: UILabel!
     @IBOutlet weak var actionButton: UIButton!
 
     private let viewModel = LocationPermissionViewModel()
@@ -49,11 +51,22 @@ class LocationPermissionViewController : PermissionViewController {
 
         self.actionButton.configure(text: "dk_perm_utils_permissions_location_button_ios".dkPermissionsUtilsLocalized(), style: .full)
 
-        if #available(iOS 13.0, *) {
+        if #available(iOS 14.0, *) {
+            updateViewIOS14()
+        } else if #available(iOS 13.0, *) {
             updateViewIOS13()
         } else {
             updateViewPreIOS13()
         }
+    }
+
+    private func updateViewIOS14() {
+        updateViewIOS13()
+
+        self.descriptionLabel.attributedText = "dk_perm_utils_permissions_location_ios14_ko".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+
+        self.settingsContainer4.isHidden = false
+        self.settingsDescription4.attributedText = "dk_perm_utils_permissions_phone_settings_location_step4".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
     }
 
     private func updateViewIOS13() {
@@ -67,6 +80,8 @@ class LocationPermissionViewController : PermissionViewController {
 
         self.settingsContainer3.isHidden = false
         self.settingsDescription3.attributedText = "dk_perm_utils_permissions_phone_settings_location_step3".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+
+        self.settingsContainer4.isHidden = true
     }
 
     private func updateViewPreIOS13() {
@@ -75,6 +90,7 @@ class LocationPermissionViewController : PermissionViewController {
         self.settingsContainer1.isHidden = true
         self.settingsContainer2.isHidden = true
         self.settingsContainer3.isHidden = true
+        self.settingsContainer4.isHidden = true
     }
 
 }

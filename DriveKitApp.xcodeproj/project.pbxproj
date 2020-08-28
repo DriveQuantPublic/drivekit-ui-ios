@@ -185,6 +185,7 @@
 		63041FA824AE36C10028CAE8 /* RankingSelectorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63041FA724AE36C10028CAE8 /* RankingSelectorsView.swift */; };
 		63041FAA24AE3B2E0028CAE8 /* RankingScoreBig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63041FA924AE3B2E0028CAE8 /* RankingScoreBig.swift */; };
 		63041FAC24AE3B680028CAE8 /* RankingScoreSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63041FAB24AE3B680028CAE8 /* RankingScoreSmall.swift */; };
+		63199A6E24ED7C250011DCFC /* DKAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63199A6D24ED7C250011DCFC /* DKAnalytics.swift */; };
 		632EDDEF2450497500110744 /* BatteryOptimizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632EDDEE2450497500110744 /* BatteryOptimizationViewModel.swift */; };
 		632EDDF124504BEE00110744 /* UIColor+PermissionsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632EDDF024504BEE00110744 /* UIColor+PermissionsUtils.swift */; };
 		635616F624B4B7AC0047EAD8 /* DriverRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635616F524B4B7AC0047EAD8 /* DriverRank.swift */; };
@@ -204,6 +205,7 @@
 		639F3D2124B5C8F10081DFC3 /* RankingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F3D2024B5C8F10081DFC3 /* RankingStatus.swift */; };
 		639F3D2624B624930081DFC3 /* RankingSelectorTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639F3D2524B624920081DFC3 /* RankingSelectorTypeView.xib */; };
 		639F3D2824B626270081DFC3 /* RankingSelectorTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F3D2724B626260081DFC3 /* RankingSelectorTypeView.swift */; };
+		63B07CD224EFCA110060DF33 /* AnalyticsScreenToTagKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63B07CD124EFCA110060DF33 /* AnalyticsScreenToTagKey.plist */; };
 		63B3A1A024AB73460011F11B /* DKRankingSelectorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B3A19F24AB73460011F11B /* DKRankingSelectorType.swift */; };
 		63B3A1A324AB93030011F11B /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B3A1A224AB93030011F11B /* RankingViewController.swift */; };
 		63B3A1A724ACBCFB0011F11B /* RankingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B3A1A624ACBCFB0011F11B /* RankingCell.swift */; };
@@ -224,6 +226,7 @@
 		63F44E8A244DDEE000C7F5CC /* GlobalStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F44E88244DDEE000C7F5CC /* GlobalStateView.xib */; };
 		63F44E8C244DF16800C7F5CC /* SeparatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F44E8B244DF16800C7F5CC /* SeparatorView.xib */; };
 		63F44E8E244DF2A200C7F5CC /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F44E8D244DF2A200C7F5CC /* SeparatorView.swift */; };
+		63FE778624FD1A9D00C068C3 /* AnalyticsTags.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63FE778524FD1A9D00C068C3 /* AnalyticsTags.plist */; };
 		63FF6B4F244994B50006992E /* DiagnosisViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63FF6B4E244994B50006992E /* DiagnosisViewController.xib */; };
 		63FF6B532449E7CF0006992E /* SensorStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63FF6B522449E7CF0006992E /* SensorStateView.xib */; };
 		63FF6B552449EC2B0006992E /* SensorStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FF6B542449EC2B0006992E /* SensorStateView.swift */; };
@@ -618,6 +621,7 @@
 		63041FA724AE36C10028CAE8 /* RankingSelectorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingSelectorsView.swift; sourceTree = "<group>"; };
 		63041FA924AE3B2E0028CAE8 /* RankingScoreBig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingScoreBig.swift; sourceTree = "<group>"; };
 		63041FAB24AE3B680028CAE8 /* RankingScoreSmall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingScoreSmall.swift; sourceTree = "<group>"; };
+		63199A6D24ED7C250011DCFC /* DKAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKAnalytics.swift; sourceTree = "<group>"; };
 		632EDDEE2450497500110744 /* BatteryOptimizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryOptimizationViewModel.swift; sourceTree = "<group>"; };
 		632EDDF024504BEE00110744 /* UIColor+PermissionsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+PermissionsUtils.swift"; sourceTree = "<group>"; };
 		635616F524B4B7AC0047EAD8 /* DriverRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRank.swift; sourceTree = "<group>"; };
@@ -638,6 +642,7 @@
 		639F3D2024B5C8F10081DFC3 /* RankingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingStatus.swift; sourceTree = "<group>"; };
 		639F3D2524B624920081DFC3 /* RankingSelectorTypeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingSelectorTypeView.xib; sourceTree = "<group>"; };
 		639F3D2724B626260081DFC3 /* RankingSelectorTypeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingSelectorTypeView.swift; sourceTree = "<group>"; };
+		63B07CD124EFCA110060DF33 /* AnalyticsScreenToTagKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AnalyticsScreenToTagKey.plist; sourceTree = "<group>"; };
 		63B3A19F24AB73460011F11B /* DKRankingSelectorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DKRankingSelectorType.swift; path = ../DKRankingSelectorType.swift; sourceTree = "<group>"; };
 		63B3A1A224AB93030011F11B /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
 		63B3A1A624ACBCFB0011F11B /* RankingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingCell.swift; sourceTree = "<group>"; };
@@ -657,6 +662,7 @@
 		63F44E88244DDEE000C7F5CC /* GlobalStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GlobalStateView.xib; sourceTree = "<group>"; };
 		63F44E8B244DF16800C7F5CC /* SeparatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeparatorView.xib; sourceTree = "<group>"; };
 		63F44E8D244DF2A200C7F5CC /* SeparatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
+		63FE778524FD1A9D00C068C3 /* AnalyticsTags.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AnalyticsTags.plist; sourceTree = "<group>"; };
 		63FF6B4E244994B50006992E /* DiagnosisViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiagnosisViewController.xib; sourceTree = "<group>"; };
 		63FF6B522449E7CF0006992E /* SensorStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SensorStateView.xib; sourceTree = "<group>"; };
 		63FF6B542449EC2B0006992E /* SensorStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorStateView.swift; sourceTree = "<group>"; };
@@ -847,6 +853,7 @@
 		3F0740DB2403BB65005A8D07 /* DriveKitCommonUI */ = {
 			isa = PBXGroup;
 			children = (
+				63199A6C24ED7C110011DCFC /* Analytics */,
 				3FF68E7724083F000071D74C /* Navigation */,
 				3F7524CC2407A84400AC22CC /* Localizable */,
 				3F7524C92406C4B400AC22CC /* Component */,
@@ -856,6 +863,8 @@
 				3F0740DC2403BB65005A8D07 /* DriveKitCommonUI.h */,
 				3F0740DD2403BB65005A8D07 /* Info.plist */,
 				3F0740E62403BB9A005A8D07 /* DriveKitUI.swift */,
+				63FE778524FD1A9D00C068C3 /* AnalyticsTags.plist */,
+				63B07CD124EFCA110060DF33 /* AnalyticsScreenToTagKey.plist */,
 			);
 			path = DriveKitCommonUI;
 			sourceTree = "<group>";
@@ -1353,6 +1362,14 @@
 				616947022433A91300C8A965 /* DKSensorType.swift */,
 			);
 			path = Diagnosis;
+			sourceTree = "<group>";
+		};
+		63199A6C24ED7C110011DCFC /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				63199A6D24ED7C250011DCFC /* DKAnalytics.swift */,
+			);
+			path = Analytics;
 			sourceTree = "<group>";
 		};
 		639F3D2424B6245B0081DFC3 /* selectors */ = {
@@ -2025,8 +2042,10 @@
 				3F0740EF2404263D005A8D07 /* Roboto-Regular.ttf in Resources */,
 				A34FC7372423CDDA000734AB /* DKTextField.xib in Resources */,
 				3FF68E82240965E10071D74C /* DKImages.xcassets in Resources */,
+				63FE778624FD1A9D00C068C3 /* AnalyticsTags.plist in Resources */,
 				3FF68E8F240CF0460071D74C /* CircularProgressView.xib in Resources */,
 				3FF68E642407F56F0071D74C /* CommonLocalizable.strings in Resources */,
+				63B07CD224EFCA110060DF33 /* AnalyticsScreenToTagKey.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2344,6 +2363,7 @@
 				3F7524CB2406C4CC00AC22CC /* DKUIViewController.swift in Sources */,
 				3FF68E72240823190071D74C /* UIFont+DK.swift in Sources */,
 				3FAEE5622486362E00549391 /* CustomScrollView.swift in Sources */,
+				63199A6E24ED7C250011DCFC /* DKAnalytics.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -44,6 +44,12 @@ public class BeaconScannerVC : DKUIViewController {
             self.title = "dk_beacon_diagnostic_title".dkVehicleLocalized()
         }
     }
+
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        DriveKitUI.shared.track(tagKey: self.viewModel.analyticsTagKey, viewController: self)
+    }
     
     private func updateStep(step: BeaconStep) {
         self.step = step

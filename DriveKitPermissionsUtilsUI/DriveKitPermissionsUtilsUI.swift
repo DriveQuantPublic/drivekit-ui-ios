@@ -35,8 +35,14 @@ import DriveKitCommonUI
         // Keep only needed permission views.
         let neededPermissionViews = permissionViews.filter { (permissionView) -> Bool in
             let permissionType = permissionView.getPermissionType()
-            let status = DKDiagnosisHelper.shared.getPermissionStatus(permissionType)
-            return status != .valid && (permissionView != .activity || status != .phoneRestricted)
+            switch permissionType {
+                case .activity:
+                    return !DKDiagnosisHelper.shared.isActivityValid() && DKDiagnosisHelper.shared.getPermissionStatus(permissionType) != .phoneRestricted // For activity permission, allow `.phoneRestricted` status because of a system bug (if the user allows access to Motion & Fitness in global settings, on coming back to the app, the status of this permission is still "restricted" instead of something else).
+                case .location:
+                    return !DKDiagnosisHelper.shared.isLocationValid()
+                case .bluetooth:
+                    return false
+            }
         }
         if neededPermissionViews.isEmpty {
             completionHandler()

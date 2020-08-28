@@ -73,18 +73,23 @@ import DriveKitCommonUI
 
     @objc public func getLocationAccuracy() -> DKLocationAccuracy {
         if #available(iOS 14.0, *) {
-            if getLocationStatus() == .valid {
-                switch self.locationManager.accuracyAuthorization {
-                    case .fullAccuracy:
-                        return .precise
-                    case .reducedAccuracy:
-                        return .approximative
-                    @unknown default:
-                        print("New case \"\(self.locationManager.accuracyAuthorization)\" in CLAccuracyAuthorization. Need to manage it.")
-                        return .unknown
-                }
-            } else {
-                return .unknown
+            let authorizationStatus = self.locationManager.authorizationStatus()
+            switch authorizationStatus {
+                case .notDetermined, .denied, .restricted:
+                    return .unknown
+                case .authorizedAlways, .authorizedWhenInUse:
+                    switch self.locationManager.accuracyAuthorization {
+                        case .fullAccuracy:
+                            return .precise
+                        case .reducedAccuracy:
+                            return .approximative
+                        @unknown default:
+                            print("New case \"\(self.locationManager.accuracyAuthorization)\" in CLAccuracyAuthorization. Need to manage it.")
+                            return .unknown
+                    }
+                @unknown default:
+                    print("New case \"\(authorizationStatus)\" in CLAuthorizationStatus. Need to manage it.")
+                    return .unknown
             }
         } else {
             return .precise
@@ -208,15 +213,7 @@ import DriveKitCommonUI
             case .notDetermined:
                 permissionStatus = .notDetermined
             case .authorizedAlways:
-                if #available(iOS 14.0, *) {
-                    if self.locationManager.accuracyAuthorization == .fullAccuracy {
-                        permissionStatus = .valid
-                    } else {
-                        permissionStatus = .invalid
-                    }
-                } else {
-                    permissionStatus = .valid
-                }
+                permissionStatus = .valid
             case .denied:
                 if isSensorActivated(.gps) {
                     permissionStatus = .invalid

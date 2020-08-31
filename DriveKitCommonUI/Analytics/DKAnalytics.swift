@@ -9,5 +9,5 @@
 import UIKit
 
 @objc public protocol DKAnalytics {
-    func track(screen: String, viewController: UIViewController)
+    func trackScreen(_ screen: String, viewController: UIViewController)
 }

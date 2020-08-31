@@ -48,7 +48,7 @@ public class BeaconScannerVC : DKUIViewController {
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        DriveKitUI.shared.track(tagKey: self.viewModel.analyticsTagKey, viewController: self)
+        DriveKitUI.shared.trackScreen(tagKey: self.viewModel.analyticsTagKey, viewController: self)
     }
     
     private func updateStep(step: BeaconStep) {

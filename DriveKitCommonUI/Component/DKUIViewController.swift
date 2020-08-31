@@ -19,7 +19,7 @@ open class DKUIViewController : UIViewController {
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        DriveKitUI.shared.track(self)
+        DriveKitUI.shared.trackScreen(self)
     }
     
     open func configureBackButton(selector: Selector = #selector(onBack)) {

@@ -33,7 +33,7 @@ public class DKVehiclePickerNavigationController : UINavigationController {
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        DriveKitUI.shared.track(tagKey: "dk_tag_vehicles_add", viewController: self)
+        DriveKitUI.shared.trackScreen(tagKey: "dk_tag_vehicles_add", viewController: self)
     }
     
     func setupNavigationBar(parentView: UIViewController) {

@@ -84,15 +84,15 @@ import UIKit
         return nil
     }
 
-    @objc public func track(_ viewController: DKUIViewController) {
+    @objc public func trackScreen(_ viewController: DKUIViewController) {
         if let analytics = self.analytics, let tag = getTagForScreen(viewController) {
-            analytics.track(screen: tag, viewController: viewController)
+            analytics.trackScreen(tag, viewController: viewController)
         }
     }
 
-    @objc public func track(tagKey: String, viewController: UIViewController) {
+    @objc public func trackScreen(tagKey: String, viewController: UIViewController) {
         if let analytics = self.analytics, let tag = self.tagFromKey[tagKey] {
-            analytics.track(screen: tag, viewController: viewController)
+            analytics.trackScreen(tag, viewController: viewController)
         }
     }
 

@@ -65,9 +65,9 @@ class TripTipViewController: DKUIViewController {
 
         if let theme = self.advice.theme {
             if theme == "ECODRIVING" {
-                DriveKitUI.shared.track(tagKey: "dk_tag_trips_detail_advice_efficiency", viewController: self)
+                DriveKitUI.shared.trackScreen(tagKey: "dk_tag_trips_detail_advice_efficiency", viewController: self)
             } else if theme == "SAFETY" {
-                DriveKitUI.shared.track(tagKey: "dk_tag_trips_detail_advice_safety", viewController: self)
+                DriveKitUI.shared.trackScreen(tagKey: "dk_tag_trips_detail_advice_safety", viewController: self)
             }
         }
     }

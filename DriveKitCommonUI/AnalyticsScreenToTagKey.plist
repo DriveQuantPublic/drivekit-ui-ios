@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DriverData</key>
+	<dict>
+		<key>TripListVC</key>
+		<string>dk_tag_trips_list</string>
+		<key>TripDetailVC</key>
+		<string>dk_tag_trips_detail</string>
+	</dict>
+	<key>DriverAchievement</key>
+	<dict>
+		<key>BadgesViewController</key>
+		<string>dk_tag_badges</string>
+		<key>BadgeLevelDetailViewController</key>
+		<string></string>
+		<key>RankingViewController</key>
+		<string>dk_tag_rankings</string>
+		<key>StreakViewController</key>
+		<string>dk_tag_streaks</string>
+	</dict>
+	<key>PermissionsUtils</key>
+	<dict>
+		<key>DiagnosisViewController</key>
+		<string>dk_tag_permissions_diagnosis</string>
+		<key>ActivityPermissionViewController</key>
+		<string>dk_tag_permissions_onboarding</string>
+		<key>LocationPermissionViewController</key>
+		<string>dk_tag_permissions_onboarding</string>
+	</dict>
+	<key>Vehicle</key>
+	<dict>
+		<key>VehiclesListVC</key>
+		<string>dk_tag_vehicles_list</string>
+		<key>VehicleDetailVC</key>
+		<string>dk_tag_vehicles_detail</string>
+		<key>ConnectBeaconVC</key>
+		<string></string>
+		<key>BeaconInputIdVC</key>
+		<string></string>
+		<key>BeaconDetailVC</key>
+		<string>dk_tag_vehicles_beacon_info</string>
+		<key>ConnectBluetoothVC</key>
+		<string>dk_tag_vehicles_bluetooth_add</string>
+		<key>ErrorBluetoothVC</key>
+		<string></string>
+		<key>SelectBluetoothVC</key>
+		<string></string>
+		<key>SuccessBluetoothVC</key>
+		<string></string>
+	</dict>
+</dict>
+</plist>

@@ -59,6 +59,18 @@ class TripTipViewController: DKUIViewController {
             self.configureYesButton()
         }
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        if let theme = self.advice.theme {
+            if theme == "ECODRIVING" {
+                DriveKitUI.shared.trackScreen(tagKey: "dk_tag_trips_detail_advice_efficiency", viewController: self)
+            } else if theme == "SAFETY" {
+                DriveKitUI.shared.trackScreen(tagKey: "dk_tag_trips_detail_advice_safety", viewController: self)
+            }
+        }
+    }
     
     func configureCloseButton() {
         closeButton.setAttributedTitle(DKCommonLocalizable.ok.text().dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).uppercased().build(), for: .normal)

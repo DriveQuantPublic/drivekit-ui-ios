@@ -22,6 +22,21 @@ public class BeaconViewModel {
     var beaconBattery : Int? = nil
     var clBeacon : CLBeacon? = nil
     var vehicles: [DKVehicle] = []
+
+    var analyticsTagKey: String {
+        get {
+            let tagKey: String
+            switch self.scanType {
+                case .pairing:
+                    tagKey = "dk_tag_vehicles_beacon_add"
+                case .diagnostic:
+                    tagKey = "dk_tag_vehicles_beacon_diagnosis"
+                case .verify:
+                    tagKey = "dk_tag_vehicles_beacon_verify"
+            }
+            return tagKey
+        }
+    }
     
     public init(vehicle: DKVehicle, scanType: DKBeaconScanType) {
         self.vehicle = vehicle

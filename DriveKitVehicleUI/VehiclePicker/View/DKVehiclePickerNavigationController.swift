@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 import DriveKitDBVehicleAccess
 
 public class DKVehiclePickerNavigationController : UINavigationController {
@@ -27,6 +28,12 @@ public class DKVehiclePickerNavigationController : UINavigationController {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        DriveKitUI.shared.trackScreen(tagKey: "dk_tag_vehicles_add", viewController: self)
     }
     
     func setupNavigationBar(parentView: UIViewController) {

@@ -13,7 +13,7 @@
 "dk_perm_utils_app_diag_app_ko_plural"="%d Probleme wurden festgestellt!";
 "dk_perm_utils_app_diag_app_ko_singular"="%d Problem wurde festgestellt!";
 "dk_perm_utils_app_diag_app_ko_text"="Die Anwendung erfordert Ihr Eingreifen, um die Einstellungen Ihres Telefons anzupassen. Um die Anwendung zu bedienen, müssen Sie die folgenden Anweisungen befolgen.";
-"dk_perm_utils_app_diag_auto_reset_ko"="Die Funktion zum automatischen Löschen von Berechtigungen ist aktiviert. Sie werden aufgefordert, diese Einstellung zu ändern, damit die Anwendung normal funktionieren kann.";
+"dk_perm_utils_app_diag_auto_reset_ko"="Die Funktion zum automatischen Löschen von Berechtigungen ist aktiviert. Sie werden aufgefordert, diese Einstellung zu ändern, damit die Anwendung normal funktionieren kann. Gehen Sie dazu auf \"Berechtigungen\" und deaktivieren Sie \"Berechtigungen entfermen, wenn die App nicht verwendet wird\" am unteren Rand des Bildschirms.";
 "dk_perm_utils_app_diag_auto_reset_link"="Deaktivieren der automatischen Löschung von Berechtigungen";
 "dk_perm_utils_app_diag_auto_reset_ok"="Das automatische Löschen von Berechtigungen ist deaktiviert. Wenn Sie diese Funktion aktivieren, kann die Anwendung Ihre Fahrten nicht mehr automatisch erfassen.";
 "dk_perm_utils_app_diag_auto_reset_title"="Berechtigungen nicht löschen";
@@ -33,7 +33,7 @@
 "dk_perm_utils_app_diag_email_activity"="Berechtigung zum Zugriff auf die Aktivitätsverfolgung:";
 "dk_perm_utils_app_diag_email_app"="Anwendung:";
 "dk_perm_utils_app_diag_email_app_version"="Version der Anwendung:";
-"dk_perm_utils_app_diag_email_auto_reset"="Automatische Löschung von Berechtigungen :";
+"dk_perm_utils_app_diag_email_auto_reset"="Pflege der berechtigungen:";
 "dk_perm_utils_app_diag_email_battery"="Optimierung der Batterie:";
 "dk_perm_utils_app_diag_email_bluetooth"="Bluetooth-Sensor:";
 "dk_perm_utils_app_diag_email_comment"="Begründung (Kommentare) :";
@@ -42,6 +42,7 @@
 "dk_perm_utils_app_diag_email_intro"="Hallo, \n\n Ich habe Probleme mit der %@-Anwendung und möchte erneut kontaktiert werden. \n\n";
 "dk_perm_utils_app_diag_email_lastname"="Name :";
 "dk_perm_utils_app_diag_email_location"="Berechtigung zum Zugriff auf den Standort:";
+"dk_perm_utils_app_diag_email_location_accuracy"="Genauer Standort:";
 "dk_perm_utils_app_diag_email_location_sensor"="Positionssensor (GPS):";
 "dk_perm_utils_app_diag_email_model"="Telefonmodell:";
 "dk_perm_utils_app_diag_email_network"="Mobiles Netzwerk:";
@@ -70,6 +71,7 @@
 "dk_perm_utils_app_diag_log_ko"="Die Protokollierung ist deaktiviert. Im Falle einer Fehlfunktion in der Anwendung empfehlen wir Ihnen, die Protokollierung zur einfachen Diagnose zuzulassen.";
 "dk_perm_utils_app_diag_log_link"="Erlauben Sie das Schreiben des Aktivitätsprotokolls auf Ihr Smartphone.";
 "dk_perm_utils_app_diag_log_ok"="Die Protokollierung ist aktiv. Diese Datei enthält Ereignisse, die für die Analyse des Anwendungsverhaltens wichtig sind. Sie wird im Ordner %@ gespeichert.";
+"dk_perm_utils_app_diag_log_ok_android11"="Die Protokollierung ist aktiv. Diese Datei enthält Ereignisse, die für die Analyse des Anwendungsverhaltens wichtig sind.";
 "dk_perm_utils_app_diag_log_ok_contact_mail"="Die Protokollierung ist aktiviert. Diese Datei enthält wichtige Ereignisse, um das Verhalten der Anwendung zu analysieren. Sie wird automatisch an die E-Mail des Support-Kontaktes angehängt.";
 "dk_perm_utils_app_diag_log_ok_ios"="Die Protokollierung ist aktiv. Diese Datei enthält Ereignisse, die für die Analyse des Anwendungsverhaltens wichtig sind. Die Datei ist im Anwendungsordner auf Ihrem iPhone verfügbar.";
 "dk_perm_utils_app_diag_log_title"="Sichern Sie das Aktivitätsprotokoll";

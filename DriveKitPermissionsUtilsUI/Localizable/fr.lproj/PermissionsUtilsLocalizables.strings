@@ -13,7 +13,7 @@
 "dk_perm_utils_app_diag_app_ko_plural"="%d problèmes ont été détectés !";
 "dk_perm_utils_app_diag_app_ko_singular"="%d problème a été détecté !";
 "dk_perm_utils_app_diag_app_ko_text"="L\'application nécessite votre intervention afin d\'adapter les réglages de votre téléphone. Pour faire fonctionner l\'application, vous devez suivre les indications ci-dessous.";
-"dk_perm_utils_app_diag_auto_reset_ko"="La fonction de suppression automatique des autorisations est activée. Nous vous invitons à modifier ce réglage pour que l\’application fonctionne normalement.";
+"dk_perm_utils_app_diag_auto_reset_ko"="La fonction de suppression automatique des autorisations est activée. Nous vous invitons à modifier ce réglage pour que l\'application fonctionne normalement. Pour cela, allez dans \"Autorisations\" et désactivez la suppression automatique des autorisations en bas de l\'écran.";
 "dk_perm_utils_app_diag_auto_reset_link"="Désactiver la suppression automatique des autorisations";
 "dk_perm_utils_app_diag_auto_reset_ok"="La suppression automatique des permissions est désactivée. Si vous activez cette fonctionnalité, l\'application ne pourra plus enregistrer vos trajets automatiquement.";
 "dk_perm_utils_app_diag_auto_reset_title"="Ne pas supprimer les autorisations";
@@ -33,7 +33,7 @@
 "dk_perm_utils_app_diag_email_activity"="Autorisation d\'accès au suivi d\'activité :";
 "dk_perm_utils_app_diag_email_app"="Application :";
 "dk_perm_utils_app_diag_email_app_version"="Version de l\'application :";
-"dk_perm_utils_app_diag_email_auto_reset"="Supression automatique des autorisations :";
+"dk_perm_utils_app_diag_email_auto_reset"="Maintien des autorisations :";
 "dk_perm_utils_app_diag_email_battery"="Optimisation de la batterie :";
 "dk_perm_utils_app_diag_email_bluetooth"="Capteur Bluetooth :";
 "dk_perm_utils_app_diag_email_comment"="Motif (commentaires) :";
@@ -42,6 +42,7 @@
 "dk_perm_utils_app_diag_email_intro"="Bonjour,\n\n Je rencontre des difficultés avec l\'application %@ et je souhaite être recontacté. \n\n";
 "dk_perm_utils_app_diag_email_lastname"="Nom :";
 "dk_perm_utils_app_diag_email_location"="Autorisation d\'accès à la localisation :";
+"dk_perm_utils_app_diag_email_location_accuracy"="Position exacte :";
 "dk_perm_utils_app_diag_email_location_sensor"="Capteur de position (GPS) :";
 "dk_perm_utils_app_diag_email_model"="Modèle de téléphone :";
 "dk_perm_utils_app_diag_email_network"="Réseau mobile :";
@@ -64,12 +65,13 @@
 "dk_perm_utils_app_diag_location_ko_ios"="Vous devez autoriser l\'application à accéder à la position du téléphone pour qu\'elle détecte et qu\’elle analyse vos trajets. Dans les paramètres du téléphone, trois options sont proposées : (1) jamais, (2) lorsque l\'app est active et (3) toujours. Il est indispensable de sélectionner l\'option (3) toujours sinon, l\'application ne fonctionnera pas.";
 "dk_perm_utils_app_diag_location_ko_ios13"="Vous devez autoriser l\'application à accéder à la position du téléphone pour qu\'elle détecte et qu\’elle analyse vos trajets. Dans les paramètres du téléphone, quatre options sont proposées : (1) jamais, (2) demander la prochaine fois, (3) lorsque l\'app est active et (4) toujours. Il est indispensable de sélectionner l\'option (4) toujours sinon, l\'application ne fonctionnera pas.";
 "dk_perm_utils_app_diag_location_link"="Autoriser l\'accès à la localisation";
-"dk_perm_utils_app_diag_location_ok"="L\'application utilise la localisation de votre téléphone pour détecter et analyser vos trajets. Elle ne peut pas fonctionner si vous n\'autorisez pas l\'application à accéder à la localisation.";
+"dk_perm_utils_app_diag_location_ok"="L\'application utilise la localisation de votre téléphone pour détecter et analyser vos trajets. Elle ne peut pas fonctionner si vous n\'autorisez pas l’application à accéder à la localisation.";
 "dk_perm_utils_app_diag_location_title"="Localisation";
 "dk_perm_utils_app_diag_log_folder"="Accéder au dossier du journal d\'activité";
 "dk_perm_utils_app_diag_log_ko"="L\'enregistrement du journal est désactivé. En cas de dysfonctionnement de l\'application, nous vous recommandons d\'autoriser l\'enregistrement du journal pour faciliter le diagnostic.";
 "dk_perm_utils_app_diag_log_link"="Autoriser l\'écriture du journal d\'activité sur votre smartphone.";
 "dk_perm_utils_app_diag_log_ok"="L\'enregistrement du journal est activé. Ce fichier contient les événements importants pour analyser le comportement de l\'application. Il est stocké dans le dossier %@.";
+"dk_perm_utils_app_diag_log_ok_android11"="L\'enregistrement du journal est activé. Ce fichier contient les événements importants pour analyser le comportement de l\'application.";
 "dk_perm_utils_app_diag_log_ok_contact_mail"="L\'enregistrement du journal est activé. Ce fichier contient les événements importants pour analyser le comportement de l\'application. Il sera automatiquement joint au mail de contact du support.";
 "dk_perm_utils_app_diag_log_ok_ios"="L\'enregistrement du journal est activé. Ce fichier contient les événements importants pour analyser le comportement de l\'application. Le fichier est disponible dans le dossier de l\'application sur votre iPhone.";
 "dk_perm_utils_app_diag_log_title"="Enregistrer le journal d\'activité";

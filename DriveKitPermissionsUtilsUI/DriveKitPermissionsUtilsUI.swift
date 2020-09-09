@@ -84,10 +84,11 @@ import DriveKitCommonUI
     @objc public func getDiagnosisDescription() -> String {
         let locationSensorStatus = getStatusString("dk_perm_utils_app_diag_email_location_sensor", isValid: DKDiagnosisHelper.shared.isSensorActivated(.gps))
         let locationPermissionStatus = getStatusString("dk_perm_utils_app_diag_email_location", isValid: (DKDiagnosisHelper.shared.getPermissionStatus(.location) == .valid))
+        let locationAccuracy = getStatusString("dk_perm_utils_app_diag_email_location_accuracy", isValid: (DKDiagnosisHelper.shared.getLocationAccuracy() == .precise))
         let activityStatus = getStatusString(statusType: .activity, titleKey: "dk_perm_utils_app_diag_email_activity")
         let notificationStatus = getStatusString(statusType: .notification, titleKey: "dk_perm_utils_app_diag_email_notification")
         let networkStatus = getStatusString(statusType: .network, titleKey: "dk_perm_utils_app_diag_email_network")
-        var info = [locationSensorStatus, locationPermissionStatus, activityStatus, notificationStatus, networkStatus]
+        var info = [locationSensorStatus, locationPermissionStatus, locationAccuracy, activityStatus, notificationStatus, networkStatus]
         if self.isBluetoothNeeded {
             let bluetoothStatus = getStatusString(statusType: .bluetooth, titleKey: "dk_perm_utils_app_diag_email_bluetooth")
             info.append(bluetoothStatus)

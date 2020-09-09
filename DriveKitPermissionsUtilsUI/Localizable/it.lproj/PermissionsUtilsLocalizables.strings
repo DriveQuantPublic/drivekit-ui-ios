@@ -13,7 +13,7 @@
 "dk_perm_utils_app_diag_app_ko_plural"="Sono stati rilevati %d problemi!";
 "dk_perm_utils_app_diag_app_ko_singular"="È stato rilevato %d problema!";
 "dk_perm_utils_app_diag_app_ko_text"="L\'applicazione richiede il tuo intervento per adattare le impostazioni del tuo telefono. Per utilizzare l\'applicazione, è necessario seguire le istruzioni riportate di seguito.";
-"dk_perm_utils_app_diag_auto_reset_ko"="La funzione di cancellazione automatica delle autorizzazioni è attivata. Viene richiesto di modificare questa impostazione per consentire all\'applicazione di funzionare normalmente.";
+"dk_perm_utils_app_diag_auto_reset_ko"="La funzione di cancellazione automatica delle autorizzazioni è attivata. Viene richiesto di modificare questa impostazione per consentire all\'applicazione di funzionare normalmente. Per fare questo, vai su \"Autorizzazioni\" e deseleziona \"Rimuovi le autorizzazioni se l\app non viene utilizzata\" nella parte inferiore dello schermo.";
 "dk_perm_utils_app_diag_auto_reset_link"="Disattivare la cancellazione automatica delle autorizzazioni";
 "dk_perm_utils_app_diag_auto_reset_ok"="La cancellazione automatica dei permessi è disabilitata. Se si attiva questa funzione, l\'applicazione non sarà più in grado di registrare automaticamente i viaggi.";
 "dk_perm_utils_app_diag_auto_reset_title"="Non cancellare le autorizzazioni";
@@ -33,7 +33,7 @@
 "dk_perm_utils_app_diag_email_activity"="Autorizzazione all\'accesso al monitoraggio delle attività:";
 "dk_perm_utils_app_diag_email_app"="Applicazione:";
 "dk_perm_utils_app_diag_email_app_version"="Versione dell\'applicazione:";
-"dk_perm_utils_app_diag_email_auto_reset"="Cancellazione automatica delle autorizzazioni :";
+"dk_perm_utils_app_diag_email_auto_reset"="Mantenimento delle autorizzazioni :";
 "dk_perm_utils_app_diag_email_battery"="Ottimizzazione della batteria:";
 "dk_perm_utils_app_diag_email_bluetooth"="Sensore Bluetooth:";
 "dk_perm_utils_app_diag_email_comment"="Motivazione (commenti):";
@@ -42,6 +42,7 @@
 "dk_perm_utils_app_diag_email_intro"="Pronto, \n\n Ho problemi con l\'applicazione %@ e voglio essere ricontattato di nuovo. \n\n";
 "dk_perm_utils_app_diag_email_lastname"="Nome :";
 "dk_perm_utils_app_diag_email_location"="Autorizzazione per accedere alla posizione:";
+"dk_perm_utils_app_diag_email_location_accuracy"="Posizione esatta :";
 "dk_perm_utils_app_diag_email_location_sensor"="Sensore di posizione (GPS):";
 "dk_perm_utils_app_diag_email_model"="Modello del telefono:";
 "dk_perm_utils_app_diag_email_network"="Rete mobile:";
@@ -70,6 +71,7 @@
 "dk_perm_utils_app_diag_log_ko"="La registrazione è disabilitata. In caso di malfunzionamento dell\'applicazione, si consiglia di consentire la registrazione per una facile diagnosi.";
 "dk_perm_utils_app_diag_log_link"="Permettete di scrivere il registro delle attività sul vostro smartphone.";
 "dk_perm_utils_app_diag_log_ok"="La registrazione è attiva. Questo file contiene eventi importanti per l\'analisi del comportamento dell\'applicazione. Viene memorizzato nella cartella %@.";
+"dk_perm_utils_app_diag_log_ok_android11"="La registrazione è attiva. Questo file contiene eventi importanti per l\'analisi del comportamento dell\'applicazione.";
 "dk_perm_utils_app_diag_log_ok_contact_mail"="La registrazione è abilitata. Questo file contiene eventi importanti per l\'analisi del comportamento dell\'applicazione. Sarà allegato automaticamente all\'e-mail di contatto del supporto.";
 "dk_perm_utils_app_diag_log_ok_ios"="La registrazione è attiva. Questo file contiene eventi importanti per l\'analisi del comportamento dell\'applicazione. Il file è disponibile nella cartella delle applicazioni del vostro iPhone.";
 "dk_perm_utils_app_diag_log_title"="Salvare il registro delle attività";

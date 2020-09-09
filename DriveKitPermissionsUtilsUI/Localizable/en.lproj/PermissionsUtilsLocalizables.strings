@@ -13,7 +13,7 @@
 "dk_perm_utils_app_diag_app_ko_plural"="%d problems were detected!";
 "dk_perm_utils_app_diag_app_ko_singular"="%d problem has been detected!";
 "dk_perm_utils_app_diag_app_ko_text"="The application requires your intervention to adapt the settings of your phone. In order for the app to record your trips, you need to follow the directions below.";
-"dk_perm_utils_app_diag_auto_reset_ko"="The automatic deletion of authorizations function is enabled. Please change this setting to ensure that the application runs normally.";
+"dk_perm_utils_app_diag_auto_reset_ko"="The automatic deletion of authorizations function is enabled. Please change this setting to ensure that the application runs normally. To do this, go to \"Permissions\" and uncheck \"Remove permission if app isnt\'t used\" at the bottom of the screen.";
 "dk_perm_utils_app_diag_auto_reset_link"="Disable automatic deletion of authorizations";
 "dk_perm_utils_app_diag_auto_reset_ok"="Automatic deletion of permissions is disabled. If you enable this feature, the application will no longer be able to record your trips automatically.";
 "dk_perm_utils_app_diag_auto_reset_title"="Do not delete permissions";
@@ -33,7 +33,7 @@
 "dk_perm_utils_app_diag_email_activity"="Authorization to access activity monitoring:";
 "dk_perm_utils_app_diag_email_app"="Application:";
 "dk_perm_utils_app_diag_email_app_version"="Version of the application:";
-"dk_perm_utils_app_diag_email_auto_reset"="Automatic suppression of authorizations :";
+"dk_perm_utils_app_diag_email_auto_reset"="Retaining permissions:";
 "dk_perm_utils_app_diag_email_battery"="Optimization of the battery:";
 "dk_perm_utils_app_diag_email_bluetooth"="Bluetooth sensor:";
 "dk_perm_utils_app_diag_email_comment"="Comment :";
@@ -42,6 +42,7 @@
 "dk_perm_utils_app_diag_email_intro"="Hello,\n\n I\'m having difficulty with the %@ application and I want to be called back. \n\n";
 "dk_perm_utils_app_diag_email_lastname"="Name :";
 "dk_perm_utils_app_diag_email_location"="Authorization to access the location:";
+"dk_perm_utils_app_diag_email_location_accuracy"="Precise Location:";
 "dk_perm_utils_app_diag_email_location_sensor"="Position sensor (GPS):";
 "dk_perm_utils_app_diag_email_model"="Phone model:";
 "dk_perm_utils_app_diag_email_network"="Mobile network:";
@@ -58,7 +59,7 @@
 "dk_perm_utils_app_diag_loc_sensor_link"="Activate localization";
 "dk_perm_utils_app_diag_loc_sensor_ok"="You have enabled geolocation. The location sensor (GPS) measures the vehicle\'s speed and heading. If it is disabled the application can not work.";
 "dk_perm_utils_app_diag_loc_sensor_title"="Location sensor";
-"dk_perm_utils_app_diag_location_full_ko_ios14"="You must allow the application to access the precise location of the phone so that it can analyze your routes. In the \"Location\" settings, activate \"Precise location\".";
+"dk_perm_utils_app_diag_location_full_ko_ios14"="You must allow the application to access the precise location of the phone so that it can analyze your routes. In the \"Location\" settings, activate \"Precise Location\".";
 "dk_perm_utils_app_diag_location_full_link"="Use the precise location";
 "dk_perm_utils_app_diag_location_ko_android"="To detect and analyze your trips, the application must be able to access the phone\'s location.";
 "dk_perm_utils_app_diag_location_ko_ios"="You must allow the app to access the phone\'s location for it to detect and scan your trips. In the phone settings, three options are available: (1) never, (2) when the app is active and (3) always. It is essential to select option (3) always otherwise, the application will not work.";
@@ -70,6 +71,7 @@
 "dk_perm_utils_app_diag_log_ko"="Logging is disabled. In case something goes wrong with the application, we recommend that you allow logging for diagnostic purposes.";
 "dk_perm_utils_app_diag_log_link"="Allow the activity log to be written to your smartphone.";
 "dk_perm_utils_app_diag_log_ok"="Logging is enabled. This file contains events that are important for analyzing the application\'s behavior. It is stored in the %@ folder.";
+"dk_perm_utils_app_diag_log_ok_android11"="Logging is enabled. This file contains events that are important for analyzing the application\'s behavior.";
 "dk_perm_utils_app_diag_log_ok_contact_mail"="Logging is enabled. This file contains important events for analyzing the application\'s behavior. It will be automatically attached to the support contact email.";
 "dk_perm_utils_app_diag_log_ok_ios"="Logging is enabled. This file contains important events for analyzing the application\'s behavior. The file is available in the application folder on your iPhone.";
 "dk_perm_utils_app_diag_log_title"="Enable app activity logging";

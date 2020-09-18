@@ -73,7 +73,7 @@ import DriveKitCommonUI
 
     @objc public func getLocationAccuracy() -> DKLocationAccuracy {
         if #available(iOS 14.0, *) {
-            let authorizationStatus = self.locationManager.authorizationStatus()
+            let authorizationStatus = self.locationManager.authorizationStatus
             switch authorizationStatus {
                 case .notDetermined, .denied, .restricted:
                     return .unknown
@@ -205,7 +205,7 @@ import DriveKitCommonUI
         var permissionStatus: DKPermissionStatus
         let authorizationStatus: CLAuthorizationStatus
         if #available(iOS 14.0, *) {
-            authorizationStatus = self.locationManager.authorizationStatus()
+            authorizationStatus = self.locationManager.authorizationStatus
         } else {
             authorizationStatus = CLLocationManager.authorizationStatus()
         }

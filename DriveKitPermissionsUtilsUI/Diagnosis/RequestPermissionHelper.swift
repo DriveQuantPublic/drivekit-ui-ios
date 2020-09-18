@@ -93,7 +93,7 @@ extension RequestPermissionHelper : CLLocationManagerDelegate {
     @available(iOS 14.0, *)
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         // iOS ≥ 14.
-        if self.locationManager.authorizationStatus() == .authorizedWhenInUse {
+        if self.locationManager.authorizationStatus == .authorizedWhenInUse {
             self.locationManager.requestAlwaysAuthorization()
         }
     }

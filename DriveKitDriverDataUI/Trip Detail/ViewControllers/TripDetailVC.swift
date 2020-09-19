@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import DriveKitDBTripAccess
-import DriveKitDriverData
+import DriveKitDBTripAccessModule
+import DriveKitDriverDataModule
 import DriveKitCommonUI
 
 class TripDetailVC: DKUIViewController {

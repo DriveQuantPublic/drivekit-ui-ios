@@ -9,7 +9,7 @@
 import UIKit
 
 import DriveKitCommonUI
-import DriveKitDBAchievementAccess
+import DriveKitDBAchievementAccessModule
 
 class RankingScoreView : UIView {
 

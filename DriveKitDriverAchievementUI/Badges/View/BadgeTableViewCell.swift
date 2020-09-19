@@ -8,7 +8,7 @@
 
 import UIKit
 import DriveKitCommonUI
-import DriveKitDBAchievementAccess
+import DriveKitDBAchievementAccessModule
 import UICircularProgressRing
 
 class BadgeTableViewCell : UITableViewCell {

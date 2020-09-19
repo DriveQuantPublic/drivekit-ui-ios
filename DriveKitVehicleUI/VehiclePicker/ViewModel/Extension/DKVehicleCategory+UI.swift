@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import DriveKitVehicle
+import DriveKitVehicleModule
 
 extension DKVehicleCategory : VehiclePickerCollectionViewItem {
     func title() -> String {

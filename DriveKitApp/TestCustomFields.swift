@@ -8,8 +8,8 @@
 
 import UIKit
 import DriveKitVehicleUI
-import DriveKitDBVehicleAccess
-import DriveKitVehicle
+import DriveKitDBVehicleAccessModule
+import DriveKitVehicleModule
 
 enum TestField : DKVehicleField {
     case number, ascii

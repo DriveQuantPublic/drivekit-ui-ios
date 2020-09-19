@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreLocation
-import DriveKitDBTripAccess
+import DriveKitDBTripAccessModule
 import MapKit
 import DriveKitCommonUI
 

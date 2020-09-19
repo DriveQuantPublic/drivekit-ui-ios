@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import DriveKitVehicle
+import DriveKitVehicleModule
 
 extension VehiclePickerStep : VehiclePickerCollectionViewDelegate {
     func getCollectionViewItems(viewModel: VehiclePickerViewModel) -> [VehiclePickerCollectionViewItem] {

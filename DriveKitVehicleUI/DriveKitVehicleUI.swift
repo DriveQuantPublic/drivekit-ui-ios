@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 import DriveKitCommonUI
-import DriveKitVehicle
-import DriveKitDBVehicleAccess
+import DriveKitVehicleModule
+import DriveKitDBVehicleAccessModule
 
 public class DriveKitVehicleUI {
 

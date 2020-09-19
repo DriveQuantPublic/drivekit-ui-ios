@@ -9,7 +9,7 @@
 import UIKit
 
 import DriveKitCommonUI
-import DriveKitDBAchievementAccess
+import DriveKitDBAchievementAccessModule
 
 class RankingCell : UICollectionViewCell {
     @IBOutlet private weak var rankImage: UIImageView!

@@ -8,7 +8,7 @@
 
 import UIKit
 import DriveKitCommonUI
-import DriveKitVehicle
+import DriveKitVehicleModule
 
 class SelectBluetoothVC: DKUIViewController {
     @IBOutlet var contentLabel: UILabel!

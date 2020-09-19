@@ -8,8 +8,8 @@
 
 import Foundation
 import CoreGraphics
-import DriveKitDBVehicleAccess
-import DriveKitVehicle
+import DriveKitDBVehicleAccessModule
+import DriveKitVehicleModule
 
 protocol VehicleDetailDelegate : AnyObject {
     func needUpdate()

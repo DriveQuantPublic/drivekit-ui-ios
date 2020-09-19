@@ -8,8 +8,8 @@
 
 import Foundation
 import DriveKitCommonUI
-import DriveKitDBAchievementAccess
-import DriveKitDriverAchievement
+import DriveKitDBAchievementAccessModule
+import DriveKitDriverAchievementModule
 import UICircularProgressRing
 
 class BadgeLevelDetailViewController: DKUIViewController {

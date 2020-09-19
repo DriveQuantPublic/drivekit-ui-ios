@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import DriveKitDBVehicleAccess
+import DriveKitDBVehicleAccessModule
 
 public enum DKVehicleGroupField : CaseIterable {
     case general, engine, characteristics, beacon, bluetooth

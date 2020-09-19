@@ -8,7 +8,7 @@
 
 import UIKit
 import DriveKitCommonUI
-import DriveKitDriverAchievement
+import DriveKitDriverAchievementModule
 
 public class StreakViewController: DKUIViewController {
     

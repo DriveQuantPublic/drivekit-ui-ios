@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import DriveKitDriverData
+import DriveKitDriverDataModule
 import CoreLocation
 import DriveKitCommonUI
 

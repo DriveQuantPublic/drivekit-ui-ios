@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import DriveKitDBVehicleAccess
+import DriveKitDBVehicleAccessModule
 import DriveKitCommonUI
 
 extension DKDetectionMode {

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import DriveKitVehicle
+import DriveKitVehicleModule
 
 extension DKVehicleType : VehiclePickerTableViewItem {
 

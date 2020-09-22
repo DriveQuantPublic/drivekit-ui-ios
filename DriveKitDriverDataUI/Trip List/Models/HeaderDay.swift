@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import DriveKitDBTripAccess
+import DriveKitDBTripAccessModule
 
 public enum HeaderDay {
     case distance, duration, distanceDuration

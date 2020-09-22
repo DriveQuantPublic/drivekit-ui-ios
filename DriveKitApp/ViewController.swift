@@ -7,15 +7,15 @@
 //
 
 import UIKit
-import DriveKitDriverData
+import DriveKitDriverDataModule
 import DriveKitDriverDataUI
-import DriveKitTripAnalysis
+import DriveKitTripAnalysisModule
 import CoreLocation
 import CoreMotion
 import DriveKitCommonUI
 import DriveKitVehicleUI
-import DriveKitVehicle
-import DriveKitDBVehicleAccess
+import DriveKitVehicleModule
+import DriveKitDBVehicleAccessModule
 import DriveKitPermissionsUtilsUI
 
 class ViewController: UITableViewController {

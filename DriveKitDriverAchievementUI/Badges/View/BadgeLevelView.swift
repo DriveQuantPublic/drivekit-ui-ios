@@ -8,7 +8,7 @@
 
 import Foundation
 import DriveKitCommonUI
-import DriveKitDBAchievementAccess
+import DriveKitDBAchievementAccessModule
 import UICircularProgressRing
 
 final class BadgeLevelView : UIView, Nibable {

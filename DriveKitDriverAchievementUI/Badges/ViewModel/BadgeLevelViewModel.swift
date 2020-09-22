@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import DriveKitDBAchievementAccess
+import DriveKitDBAchievementAccessModule
 
 class BadgeLevelViewModel {
     let level: DKBadgeCharacteristics

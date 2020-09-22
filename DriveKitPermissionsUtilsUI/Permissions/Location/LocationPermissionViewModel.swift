@@ -17,14 +17,16 @@ class LocationPermissionViewModel {
     }
 
     @objc func checkState() {
-        switch DKDiagnosisHelper.shared.getPermissionStatus(.location) {
-            case .notDetermined, .phoneRestricted:
-                requestPermission()
-            case .valid:
-                NotificationCenter.default.removeObserver(self)
-                self.view?.next()
-            case .invalid:
-                break
+        if DKDiagnosisHelper.shared.isLocationValid() {
+            NotificationCenter.default.removeObserver(self)
+            self.view?.next()
+        } else {
+            switch DKDiagnosisHelper.shared.getPermissionStatus(.location) {
+                case .notDetermined, .phoneRestricted:
+                    requestPermission()
+                case .valid, .invalid:
+                    break
+            }
         }
     }
 

@@ -8,9 +8,9 @@
 
 import Foundation
 import UIKit
-import DriveKitTripAnalysis
-import DriveKitVehicle
-import DriveKitDBVehicleAccess
+import DriveKitTripAnalysisModule
+import DriveKitVehicleModule
+import DriveKitDBVehicleAccessModule
 
 public class BluetoothViewModel {
 

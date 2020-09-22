@@ -8,7 +8,7 @@
 
 import UIKit
 import DriveKitCommonUI
-import DriveKitDBVehicleAccess
+import DriveKitDBVehicleAccessModule
 
 protocol VehicleFieldCellDelegate : AnyObject {
     func didEndEditing(cell: VehicleFieldCell, value: String)

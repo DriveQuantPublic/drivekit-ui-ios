@@ -6,8 +6,8 @@
 //
 
 import UIKit
-import DriveKitDriverData
-import DriveKitDBTripAccess
+import DriveKitDriverDataModule
+import DriveKitDBTripAccessModule
 import CoreLocation
 import DriveKitCommonUI
 

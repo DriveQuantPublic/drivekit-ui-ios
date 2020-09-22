@@ -8,7 +8,7 @@
 
 import UIKit
 import DriveKitCommonUI
-import DriveKitDBVehicleAccess
+import DriveKitDBVehicleAccessModule
 
 public class ConnectBluetoothVC: DKUIViewController {
     @IBOutlet var setupTitle: UILabel!

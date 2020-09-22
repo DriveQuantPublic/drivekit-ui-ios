@@ -8,8 +8,8 @@
 
 import Foundation
 import UIKit
-import DriveKitVehicle
-import DriveKitDBVehicleAccess
+import DriveKitVehicleModule
+import DriveKitDBVehicleAccessModule
 
 protocol VehicleDataDelegate : AnyObject {
     func onDataRetrieved(status: StepStatus)

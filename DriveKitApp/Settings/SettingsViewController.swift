@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import DriveKitCore
-import DriveKitTripAnalysis
+import DriveKitCoreModule
+import DriveKitTripAnalysisModule
 
 class SettingsViewController: UITableViewController {
 

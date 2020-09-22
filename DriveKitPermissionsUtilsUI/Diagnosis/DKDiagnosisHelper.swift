@@ -19,6 +19,7 @@ import DriveKitCommonUI
     @objc public static let shared = DKDiagnosisHelper()
     weak var delegate: DiagnosisHelperDelegate? = nil
     private lazy var requestPermissionHelper = RequestPermissionHelper()
+    private lazy var locationManager = CLLocationManager()
     private lazy var bluetoothManager = CBCentralManager(delegate: self, queue: nil, options: [CBCentralManagerOptionShowPowerAlertKey:false])
 
     private override init() {
@@ -61,12 +62,37 @@ import DriveKitCommonUI
                     completion(.invalid)
                 case .notDetermined:
                     completion(.notDetermined)
-                case .authorized, .provisional:
+                case .authorized, .provisional, .ephemeral:
                     completion(.valid)
                 @unknown default:
                     print("New case \"\(settings.authorizationStatus)\" in UNAuthorizationStatus. Need to manage it.")
                     completion(.invalid)
             }
+        }
+    }
+
+    @objc public func getLocationAccuracy() -> DKLocationAccuracy {
+        if #available(iOS 14.0, *) {
+            let authorizationStatus = self.locationManager.authorizationStatus
+            switch authorizationStatus {
+                case .notDetermined, .denied, .restricted:
+                    return .unknown
+                case .authorizedAlways, .authorizedWhenInUse:
+                    switch self.locationManager.accuracyAuthorization {
+                        case .fullAccuracy:
+                            return .precise
+                        case .reducedAccuracy:
+                            return .approximative
+                        @unknown default:
+                            print("New case \"\(self.locationManager.accuracyAuthorization)\" in CLAccuracyAuthorization. Need to manage it.")
+                            return .unknown
+                    }
+                @unknown default:
+                    print("New case \"\(authorizationStatus)\" in CLAuthorizationStatus. Need to manage it.")
+                    return .unknown
+            }
+        } else {
+            return .precise
         }
     }
 
@@ -98,7 +124,7 @@ import DriveKitCommonUI
     }
 
     @objc public func isLocationValid() -> Bool {
-        return isSensorActivated(.gps) && getPermissionStatus(.location) == .valid
+        return isSensorActivated(.gps) && getPermissionStatus(.location) == .valid && getLocationAccuracy() == .precise
     }
 
     @objc public func isNetworkValid() -> Bool {
@@ -177,7 +203,13 @@ import DriveKitCommonUI
 
     private func getLocationStatus() -> DKPermissionStatus {
         var permissionStatus: DKPermissionStatus
-        switch CLLocationManager.authorizationStatus() {
+        let authorizationStatus: CLAuthorizationStatus
+        if #available(iOS 14.0, *) {
+            authorizationStatus = self.locationManager.authorizationStatus
+        } else {
+            authorizationStatus = CLLocationManager.authorizationStatus()
+        }
+        switch authorizationStatus {
             case .notDetermined:
                 permissionStatus = .notDetermined
             case .authorizedAlways:

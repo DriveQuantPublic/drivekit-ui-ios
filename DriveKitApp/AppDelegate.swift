@@ -8,17 +8,17 @@
 
 import UIKit
 import CoreData
-import DriveKitCore
-import DriveKitTripAnalysis
-import DriveKitDriverData
+import DriveKitCoreModule
+import DriveKitTripAnalysisModule
+import DriveKitDriverDataModule
 import CoreLocation
-import DriveKitDBTripAccess
+import DriveKitDBTripAccessModule
 import DriveKitCommonUI
 import DriveKitDriverAchievementUI
 import DriveKitDriverDataUI
 import DriveKitVehicleUI
-import DriveKitVehicle
-import DriveKitDBVehicleAccess
+import DriveKitVehicleModule
+import DriveKitDBVehicleAccessModule
 import DriveKitPermissionsUtilsUI
 
 @UIApplicationMain

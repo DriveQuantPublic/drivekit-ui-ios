@@ -8,8 +8,8 @@
 
 import UIKit
 import DriveKitCommonUI
-import DriveKitDriverAchievement
-import DriveKitDBAchievementAccess
+import DriveKitDriverAchievementModule
+import DriveKitDBAchievementAccessModule
 
 public class BadgesViewController : DKUIViewController, UITableViewDelegate {
 

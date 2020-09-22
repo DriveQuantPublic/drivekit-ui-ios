@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import DriveKitDBTripAccess
+import DriveKitDBTripAccessModule
 
 class ShortTripPageViewModel {
     var trip: Trip

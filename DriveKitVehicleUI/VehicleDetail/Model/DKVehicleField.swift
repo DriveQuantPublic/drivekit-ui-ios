@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import DriveKitDBVehicleAccess
-import DriveKitVehicle
+import DriveKitDBVehicleAccessModule
+import DriveKitVehicleModule
 import DriveKitCommonUI
 
 public protocol DKVehicleField {

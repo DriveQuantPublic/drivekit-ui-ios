@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import DriveKitDBTripAccess
+import DriveKitDBTripAccessModule
 
 public class TripsByDate {
     public var date: Date

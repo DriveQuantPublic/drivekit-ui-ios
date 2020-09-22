@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import DriveKitDBVehicleAccess
-import DriveKitTripAnalysis
+import DriveKitDBVehicleAccessModule
+import DriveKitTripAnalysisModule
 import DriveKitCommonUI
 
 class VehiclesListCell: UITableViewCell {

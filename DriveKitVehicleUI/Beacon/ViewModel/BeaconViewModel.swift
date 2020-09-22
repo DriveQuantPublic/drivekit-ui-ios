@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import DriveKitDBVehicleAccess
-import DriveKitVehicle
+import DriveKitDBVehicleAccessModule
+import DriveKitVehicleModule
 import CoreLocation
 
 public class BeaconViewModel {

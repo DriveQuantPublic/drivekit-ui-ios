@@ -96,7 +96,7 @@
 "dk_perm_utils_permissions_location_pre_ios13_ko"="Debe permitir que la aplicación acceda a la ubicación del teléfono para que detecte y escanee sus viajes.\n\nEn la configuración del teléfono, hay tres opciones disponibles:\n(1) Nunca\n(2) Al usar la app\n(3) Siempre\n\nEs esencial seleccionar la opción (3) Siempre que lo contrario, la aplicación no funcionará.";
 "dk_perm_utils_permissions_location_text1_android"="La aplicación debe poder acceder a la posición del teléfono para detectar y analizar sus rutas.";
 "dk_perm_utils_permissions_location_text1_android11"="La aplicación debe poder acceder a la posición del teléfono para detectar y analizar sus rutas.";
-"dk_perm_utils_permissions_location_text2_android11"="Para ello, elija la opción \"Permitir si la aplicación esta en uso\" después de pulsar el botón de abajo.";
+"dk_perm_utils_permissions_location_text2_android11"="Para ello, elija la opción \"Mientras se usa la aplicación\" después de pulsar el botón de abajo.";
 "dk_perm_utils_permissions_location_text2_post_android10"="Para ello, seleccione \"Permitir siempre\" cuando aparezca la siguiente ventana emergente.";
 "dk_perm_utils_permissions_location_text2_pre_android10"="Para ello, seleccione \"Permitir\" cuando aparezca la siguiente ventana emergente.";
 "dk_perm_utils_permissions_location_text3_android11"="Para aprovechar la grabación automática de sus viajes, la aplicación debe acceder a la ubicación del teléfono cuando se ejecuta en segundo plano.";

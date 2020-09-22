@@ -13,7 +13,7 @@
 "dk_perm_utils_app_diag_app_ko_plural"="%d problèmes ont été détectés !";
 "dk_perm_utils_app_diag_app_ko_singular"="%d problème a été détecté !";
 "dk_perm_utils_app_diag_app_ko_text"="L\'application nécessite votre intervention afin d\'adapter les réglages de votre téléphone. Pour faire fonctionner l\'application, vous devez suivre les indications ci-dessous.";
-"dk_perm_utils_app_diag_auto_reset_ko"="La fonction de suppression automatique des autorisations est activée. Nous vous invitons à modifier ce réglage pour que l\'application fonctionne normalement. Pour cela, allez dans \"Autorisations\" et désactivez la suppression automatique des autorisations en bas de l\'écran.";
+"dk_perm_utils_app_diag_auto_reset_ko"="La fonction de suppression automatique des autorisations est activée. Nous vous invitons à modifier ce réglage pour que l\’application fonctionne normalement. Pour cela, allez dans \"Autorisations\" et désactivez la suppression automatique des autorisations en bas de l\'écran.";
 "dk_perm_utils_app_diag_auto_reset_link"="Désactiver la suppression automatique des autorisations";
 "dk_perm_utils_app_diag_auto_reset_ok"="La suppression automatique des permissions est désactivée. Si vous activez cette fonctionnalité, l\'application ne pourra plus enregistrer vos trajets automatiquement.";
 "dk_perm_utils_app_diag_auto_reset_title"="Ne pas supprimer les autorisations";

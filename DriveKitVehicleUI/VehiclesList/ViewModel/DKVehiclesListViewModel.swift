@@ -8,8 +8,8 @@
 
 import Foundation
 import UIKit
-import DriveKitVehicle
-import DriveKitDBVehicleAccess
+import DriveKitVehicleModule
+import DriveKitDBVehicleAccessModule
 import DriveKitCommonUI
 
 public protocol VehiclesListDelegate : AnyObject{

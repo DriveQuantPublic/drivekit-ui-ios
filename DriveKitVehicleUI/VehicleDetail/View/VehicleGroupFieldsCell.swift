@@ -8,7 +8,7 @@
 
 import UIKit
 import DriveKitCommonUI
-import DriveKitDBVehicleAccess
+import DriveKitDBVehicleAccessModule
 
 class VehicleGroupFieldsCell : UITableViewCell {
     @IBOutlet weak var tableView: UITableView!

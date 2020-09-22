@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import DriveKitDriverData
+import DriveKitDriverDataModule
 import DriveKitCommonUI
 
 class TripTipFeedbackVC: UITableViewController {

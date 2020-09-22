@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import DriveKitDBTripAccess
-import DriveKitDriverData
+import DriveKitDBTripAccessModule
+import DriveKitDriverDataModule
 import DriveKitCommonUI
 
 class TripTipFeedbackViewModel {

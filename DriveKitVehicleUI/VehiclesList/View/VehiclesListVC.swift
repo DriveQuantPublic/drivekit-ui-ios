@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import DriveKitDBVehicleAccess
+import DriveKitDBVehicleAccessModule
 import DriveKitCommonUI
 
 public class VehiclesListVC: DKUIViewController {

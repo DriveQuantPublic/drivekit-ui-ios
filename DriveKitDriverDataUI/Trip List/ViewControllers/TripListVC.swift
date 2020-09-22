@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import DriveKitTripAnalysis
+import DriveKitTripAnalysisModule
 import DriveKitCommonUI
 
 public class TripListVC: DKUIViewController {

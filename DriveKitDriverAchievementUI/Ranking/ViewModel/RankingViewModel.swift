@@ -9,9 +9,9 @@
 import Foundation
 
 import DriveKitCommonUI
-import DriveKitCore
-import DriveKitDBAchievementAccess
-import DriveKitDriverAchievement
+import DriveKitCoreModule
+import DriveKitDBAchievementAccessModule
+import DriveKitDriverAchievementModule
 
 class RankingViewModel {
 

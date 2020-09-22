@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import DriveKitVehicle
+import DriveKitVehicleModule
 
 extension DKVehicleEngineIndex : VehiclePickerTableViewItem {
     func text() -> String {

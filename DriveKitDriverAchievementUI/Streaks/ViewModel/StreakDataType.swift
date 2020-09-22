@@ -8,7 +8,7 @@
 
 import UIKit
 import DriveKitCommonUI
-import DriveKitDBAchievementAccess
+import DriveKitDBAchievementAccessModule
 
 public extension DKStreakTheme {
     

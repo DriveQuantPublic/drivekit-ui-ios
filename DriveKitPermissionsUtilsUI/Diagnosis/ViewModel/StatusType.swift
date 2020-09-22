@@ -58,7 +58,9 @@ enum StatusType {
                 if !DKDiagnosisHelper.shared.isSensorActivated(.gps) {
                     descriptionKey = "dk_perm_utils_app_diag_loc_sensor_ko"
                 } else {
-                    if #available(iOS 13.0, *) {
+                    if DKDiagnosisHelper.shared.getLocationAccuracy() == .approximative {
+                        descriptionKey = "dk_perm_utils_app_diag_location_full_ko_ios14"
+                    } else if #available(iOS 13.0, *) {
                         descriptionKey = "dk_perm_utils_app_diag_location_ko_ios13"
                     } else {
                         descriptionKey = "dk_perm_utils_app_diag_location_ko_ios"
@@ -86,6 +88,8 @@ enum StatusType {
             case .location:
                 if !DKDiagnosisHelper.shared.isSensorActivated(.gps) {
                     actionKey = "dk_perm_utils_app_diag_loc_sensor_link"
+                } else if DKDiagnosisHelper.shared.getLocationAccuracy() == .approximative {
+                    actionKey = "dk_perm_utils_app_diag_location_full_link"
                 } else {
                     actionKey = "dk_perm_utils_app_diag_location_link"
                 }

@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import DriveKitDriverAchievement
-import DriveKitDBAchievementAccess
+import DriveKitDriverAchievementModule
+import DriveKitDBAchievementAccessModule
 import UIKit
 import DriveKitCommonUI
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-import DriveKitDBAchievementAccess
+import DriveKitDBAchievementAccessModule
 
 public enum DKRankingSelectorType {
     case none

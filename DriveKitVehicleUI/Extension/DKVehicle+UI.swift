@@ -8,8 +8,8 @@
 
 import Foundation
 import UIKit
-import DriveKitDBVehicleAccess
-import DriveKitVehicle
+import DriveKitDBVehicleAccessModule
+import DriveKitVehicleModule
 import DriveKitCommonUI
 
 extension Array where Element:DKVehicle {

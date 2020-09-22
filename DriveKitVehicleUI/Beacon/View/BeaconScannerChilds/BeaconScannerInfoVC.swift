@@ -9,7 +9,7 @@
 import UIKit
 import DriveKitCommonUI
 import CoreLocation
-import DriveKitDBVehicleAccess
+import DriveKitDBVehicleAccessModule
 
 class BeaconScannerInfoVC: UIViewController {
 

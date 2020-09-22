@@ -76,7 +76,6 @@ class DiagnosisViewController : DKUIViewController {
         self.viewModel.setLoggingEnabled(self.loggingButton.isOn)
     }
 
-
 }
 
 extension DiagnosisViewController : DiagnosisView {

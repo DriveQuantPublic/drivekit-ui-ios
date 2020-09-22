@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import DriveKitVehicle
+import DriveKitVehicleModule
 
 extension DKTruckType : VehiclePickerCollectionViewItem {
 

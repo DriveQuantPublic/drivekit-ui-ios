@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import DriveKitDriverData
-import DriveKitDBTripAccess
+import DriveKitDriverDataModule
+import DriveKitDBTripAccessModule
 import DriveKitCommonUI
 
 class SynthesisPageViewModel {

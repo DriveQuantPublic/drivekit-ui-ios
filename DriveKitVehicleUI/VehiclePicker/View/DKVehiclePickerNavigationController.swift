@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import DriveKitDBVehicleAccess
+import DriveKitDBVehicleAccessModule
 
 public class DKVehiclePickerNavigationController : UINavigationController {
     

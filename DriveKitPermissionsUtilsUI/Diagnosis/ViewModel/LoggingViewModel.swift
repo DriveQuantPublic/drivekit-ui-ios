@@ -8,7 +8,7 @@
 
 import Foundation
 
-import DriveKitCore
+import DriveKitCoreModule
 
 class LoggingViewModel {
     let title: String

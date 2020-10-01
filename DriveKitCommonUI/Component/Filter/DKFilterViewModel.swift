@@ -37,4 +37,13 @@ public class DKFilterViewModel {
     func getName() -> String {
         return currentItem.getName()
     }
+    
+    func getImageAt(_ position: Int) -> UIImage? {
+        return items[position].getImage()
+    }
+    
+    func getNameAt(_ position: Int) -> String {
+        return items[position].getName()
+    }
+    
 }

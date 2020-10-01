@@ -61,6 +61,8 @@
 		3FE6A45324213ABE00E24C1C /* BeaconDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6A45124213ABE00E24C1C /* BeaconDetailTableViewCell.swift */; };
 		3FE6A45424213ABE00E24C1C /* BeaconDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FE6A45224213ABE00E24C1C /* BeaconDetailTableViewCell.xib */; };
 		3FE6A45624213EC600E24C1C /* BeaconDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6A45524213EC600E24C1C /* BeaconDetailViewModel.swift */; };
+		3FED7FC52525B7B900D19E18 /* DKFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FED7FC32525B7B900D19E18 /* DKFilterTableViewCell.swift */; };
+		3FED7FC62525B7B900D19E18 /* DKFilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FED7FC42525B7B900D19E18 /* DKFilterTableViewCell.xib */; };
 		3FF542892435EE690063A5B9 /* VehicleListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF542882435EE690063A5B9 /* VehicleListHeaderView.swift */; };
 		3FF5428B243649390063A5B9 /* DKDetectionMode+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5428A243649390063A5B9 /* DKDetectionMode+UI.swift */; };
 		3FF5428D243A17E30063A5B9 /* DKVehiclePickerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5428C243A17E30063A5B9 /* DKVehiclePickerNavigationController.swift */; };
@@ -488,6 +490,8 @@
 		3FE6A45124213ABE00E24C1C /* BeaconDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconDetailTableViewCell.swift; sourceTree = "<group>"; };
 		3FE6A45224213ABE00E24C1C /* BeaconDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeaconDetailTableViewCell.xib; sourceTree = "<group>"; };
 		3FE6A45524213EC600E24C1C /* BeaconDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconDetailViewModel.swift; sourceTree = "<group>"; };
+		3FED7FC32525B7B900D19E18 /* DKFilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKFilterTableViewCell.swift; sourceTree = "<group>"; };
+		3FED7FC42525B7B900D19E18 /* DKFilterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DKFilterTableViewCell.xib; sourceTree = "<group>"; };
 		3FF542882435EE690063A5B9 /* VehicleListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleListHeaderView.swift; sourceTree = "<group>"; };
 		3FF5428A243649390063A5B9 /* DKDetectionMode+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DKDetectionMode+UI.swift"; sourceTree = "<group>"; };
 		3FF5428C243A17E30063A5B9 /* DKVehiclePickerNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKVehiclePickerNavigationController.swift; sourceTree = "<group>"; };
@@ -997,6 +1001,8 @@
 				3FA2500D2524BD0C000AB7D3 /* DKFilterViewModel.swift */,
 				3FA250192524CE75000AB7D3 /* DKFilterPickerVC.swift */,
 				3FA2501A2524CE75000AB7D3 /* DKFilterPickerVC.xib */,
+				3FED7FC32525B7B900D19E18 /* DKFilterTableViewCell.swift */,
+				3FED7FC42525B7B900D19E18 /* DKFilterTableViewCell.xib */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -2071,6 +2077,7 @@
 				A34FC7372423CDDA000734AB /* DKTextField.xib in Resources */,
 				3FF68E82240965E10071D74C /* DKImages.xcassets in Resources */,
 				63FE778624FD1A9D00C068C3 /* AnalyticsTags.plist in Resources */,
+				3FED7FC62525B7B900D19E18 /* DKFilterTableViewCell.xib in Resources */,
 				3FF68E8F240CF0460071D74C /* CircularProgressView.xib in Resources */,
 				3FF68E642407F56F0071D74C /* CommonLocalizable.strings in Resources */,
 				63B07CD224EFCA110060DF33 /* AnalyticsScreenToTagKey.plist in Resources */,
@@ -2376,6 +2383,7 @@
 				3F03A4DF242C9983000924A0 /* DriveKitVehicleUIEntryPoint.swift in Sources */,
 				3FF68E752408390A0071D74C /* CardView.swift in Sources */,
 				3FF68E8C240C0A430071D74C /* UIViewController+DK.swift in Sources */,
+				3FED7FC52525B7B900D19E18 /* DKFilterTableViewCell.swift in Sources */,
 				3FF68E8E240CF0420071D74C /* CircularProgressView.swift in Sources */,
 				3FF68E90240CF0510071D74C /* ConfigurationCircularProgressView.swift in Sources */,
 				3FF68E88240A727D0071D74C /* DKDatePattern.swift in Sources */,

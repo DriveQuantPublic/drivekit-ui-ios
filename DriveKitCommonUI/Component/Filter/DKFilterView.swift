@@ -20,7 +20,7 @@ final public class DKFilterView: UIView, Nibable {
 
     public func configure(viewModel : DKFilterViewModel) {
         self.pickerImage.isHidden = viewModel.showPicker
-        self.name.attributedText = viewModel.getName().dkAttributedString().color(.mainFontColor).font(dkFont: .primary, style: .normalText).build()
+        self.name.attributedText = viewModel.getName().dkAttributedString().color(.mainFontColor).font(dkFont: .secondary, style: .normalText).build()
         if let itemImage = viewModel.getImage() {
             self.image.image = itemImage
             self.image.layer.cornerRadius = self.image.frame.height / 2

@@ -31,6 +31,11 @@ class DKFilterPickerVC: DKUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.separatorStyle = .none
+        self.tableView.register(UINib(nibName: "DKFilterTableViewCell", bundle: Bundle.driveKitCommonUIBundle), forCellReuseIdentifier: "DKFilterTableViewCell")
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
     }
     
     @IBAction func cancelAction(_ sender: Any) {
@@ -56,8 +61,15 @@ extension DKFilterPickerVC : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DKFilterTableViewCell")
+        if let filterCell = cell as? DKFilterTableViewCell, let viewModel = self.viewModel {
+            filterCell.configure(viewModel: viewModel, position: indexPath.row)
+        }
+        return cell ?? UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
     
 }

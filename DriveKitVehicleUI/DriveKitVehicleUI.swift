@@ -126,6 +126,7 @@ extension String {
 }
 
 extension DriveKitVehicleUI : DriveKitVehicleUIEntryPoint {
+
     public func getVehicleListViewController() -> UIViewController {
         return VehiclesListVC()
     }
@@ -166,6 +167,10 @@ extension DriveKitVehicleUI : DriveKitVehicleUIEntryPoint {
             let viewModel = BeaconViewModel(scanType: .diagnostic)
             return BeaconScannerVC(viewModel: viewModel, step: .beaconNotConfigured, parentView: parentView)
         }
+    }
+    
+    public func getVehicleFilterItems() -> [DKFilterItem] {
+        <#code#>
     }
 }
 

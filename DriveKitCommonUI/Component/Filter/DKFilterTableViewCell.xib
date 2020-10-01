@@ -20,7 +20,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hVb-Op-nQS" customClass="CardView" customModule="DriveKitCommonUI" customModuleProvider="target">
                         <rect key="frame" x="2" y="2" width="458" height="73"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ilm-3e-31J">
+                            <view contentMode="scaleToFill" restorationIdentifier="DKFilterTableViewCell" translatesAutoresizingMaskIntoConstraints="NO" id="ilm-3e-31J">
                                 <rect key="frame" x="0.0" y="0.0" width="76" height="73"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0R1-X0-Y3Z">

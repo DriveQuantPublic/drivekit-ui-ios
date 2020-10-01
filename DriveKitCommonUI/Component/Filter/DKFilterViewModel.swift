@@ -12,6 +12,7 @@ import UIKit
 public protocol DKFilterItem {
     func getImage() -> UIImage?
     func getName() -> String
+    func getId() -> Any?
 }
 
 public class DKFilterViewModel {

@@ -9,9 +9,12 @@
 import Foundation
 import DriveKitDriverDataModule
 import DriveKitDBTripAccessModule
+import DriveKitCommonUI
+import UIKit
 
 class TripListViewModel {
-    var trips : [TripsByDate] = []
+    private var trips : [TripsByDate] = []
+    var filteredTrips : [TripsByDate] = []
     var status: TripSyncStatus = .noError
     weak var delegate: TripsDelegate? = nil {
         didSet {
@@ -26,18 +29,58 @@ class TripListViewModel {
             DispatchQueue.main.async {
                 self.status = status
                 self.trips = self.sortTrips(trips: trips)
+                self.filteredTrips = self.trips
                 self.delegate?.onTripsAvailable()
             }
         })
     }
     
-    
     func sortTrips(trips : [Trip]) -> [TripsByDate] {
         let tripSorted = trips.orderByDay(descOrder: DriveKitDriverDataUI.shared.dayTripDescendingOrder)
         return tripSorted
+    }
+    
+    func getVehicleFilterItems() -> [DKFilterItem]?{
+        if let vehiculeUI = DriveKitNavigationController.shared.vehicleUI {
+            var items = vehiculeUI.getVehicleFilterItems()
+            items.insert(AllTripFilterItem(), at: 0)
+            return items
+        } else {
+            return nil
+        }
+    }
+    
+    func filterTrips(vehicleId : String?) {
+        if let vehicleId = vehicleId {
+            self.filteredTrips = []
+            for tripsByDate in self.trips {
+                let dayFilterdTrips = tripsByDate.trips.filter {$0.vehicleId == vehicleId}
+                if dayFilterdTrips.count > 0 {
+                    self.filteredTrips.append(TripsByDate(date: tripsByDate.date, trips: dayFilterdTrips))
+                }
+            }
+        }else{
+            self.filteredTrips = self.trips
+        }
     }
 }
 
 protocol TripsDelegate : AnyObject {
     func onTripsAvailable()
+}
+
+class AllTripFilterItem : DKFilterItem {
+    func getImage() -> UIImage? {
+        return UIImage(named: "dk_my_trips", in: Bundle.driverDataUIBundle, compatibleWith: nil)
+    }
+    
+    func getName() -> String {
+        return "dk_driverdata_default_filter_item".dkDriverDataLocalized()
+    }
+    
+    func getId() -> Any? {
+        return nil
+    }
+    
+    
 }

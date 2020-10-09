@@ -14,14 +14,14 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nF2-IT-otP" customClass="CardView">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nF2-IT-otP" customClass="CardView" customModule="DriveKitCommonUI" customModuleProvider="target">
+                    <rect key="frame" x="16" y="8" width="382" height="64"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h9D-KV-Yc2">
-                            <rect key="frame" x="0.0" y="0.0" width="76" height="80"/>
+                            <rect key="frame" x="0.0" y="0.0" width="76" height="64"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Qw-vf-Cq8" userLabel="Image">
-                                    <rect key="frame" x="8" y="10" width="60" height="60"/>
+                                    <rect key="frame" x="8" y="2" width="60" height="60"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="60" id="2hl-yw-Vmm"/>
                                         <constraint firstAttribute="width" constant="60" id="XK0-2R-mc9"/>
@@ -37,16 +37,16 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGy-1w-pPa" userLabel="Name">
-                            <rect key="frame" x="76" y="29.666666666666671" width="280" height="21"/>
+                            <rect key="frame" x="76" y="21.666666666666671" width="248" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HNC-pw-fyR">
-                            <rect key="frame" x="364" y="0.0" width="50" height="80"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HNC-pw-fyR" customClass="DKFilterView" customModule="DriveKitCommonUI" customModuleProvider="target">
+                            <rect key="frame" x="332" y="0.0" width="50" height="64"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="00w-2A-hzd">
-                                    <rect key="frame" x="20" y="35" width="10" height="10"/>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_common_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="00w-2A-hzd">
+                                    <rect key="frame" x="20" y="27" width="10" height="10"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="10" id="ZR5-gE-e50"/>
                                         <constraint firstAttribute="height" constant="10" id="yr0-Fz-9B4"/>
@@ -78,13 +78,14 @@
             <viewLayoutGuide key="safeArea" id="x6H-SO-qwD"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="nF2-IT-otP" secondAttribute="bottom" id="7gf-dN-wrS"/>
-                <constraint firstItem="nF2-IT-otP" firstAttribute="top" secondItem="UPP-KB-tkP" secondAttribute="top" id="J54-nu-GIN"/>
-                <constraint firstAttribute="trailing" secondItem="nF2-IT-otP" secondAttribute="trailing" id="JkQ-9i-yB6"/>
-                <constraint firstItem="nF2-IT-otP" firstAttribute="leading" secondItem="UPP-KB-tkP" secondAttribute="leading" id="cAT-vT-5Vj"/>
+                <constraint firstAttribute="bottom" secondItem="nF2-IT-otP" secondAttribute="bottom" constant="8" id="7gf-dN-wrS"/>
+                <constraint firstItem="nF2-IT-otP" firstAttribute="top" secondItem="UPP-KB-tkP" secondAttribute="top" constant="8" id="J54-nu-GIN"/>
+                <constraint firstAttribute="trailing" secondItem="nF2-IT-otP" secondAttribute="trailing" constant="16" id="JkQ-9i-yB6"/>
+                <constraint firstItem="nF2-IT-otP" firstAttribute="leading" secondItem="UPP-KB-tkP" secondAttribute="leading" constant="16" id="cAT-vT-5Vj"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="cardView" destination="nF2-IT-otP" id="wQ9-tv-Hfy"/>
                 <outlet property="image" destination="8Qw-vf-Cq8" id="8IF-br-dbp"/>
                 <outlet property="name" destination="LGy-1w-pPa" id="Gyj-gc-M0y"/>
                 <outlet property="pickerImage" destination="00w-2A-hzd" id="fAM-72-Y0a"/>
@@ -92,4 +93,7 @@
             <point key="canvasLocation" x="132" y="121"/>
         </view>
     </objects>
+    <resources>
+        <image name="dk_common_arrow_down" width="48" height="48"/>
+    </resources>
 </document>

@@ -36,6 +36,8 @@ class DKFilterPickerVC: DKUIViewController {
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.cancelButton.backgroundColor = DKUIColors.secondaryColor.color
+        self.cancelButton.setAttributedTitle(DKCommonLocalizable.cancel.text().dkAttributedString().color(.fontColorOnSecondaryColor).font(dkFont: .primary, style: .button).build(), for: .normal)
     }
     
     @IBAction func cancelAction(_ sender: Any) {
@@ -53,6 +55,11 @@ extension DKFilterPickerVC : UITableViewDelegate {
         headerView.backgroundColor = DriveKitUI.shared.colors.backgroundViewColor()
         return headerView
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.viewModel?.itemSelected(position: indexPath.row)
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 extension DKFilterPickerVC : UITableViewDataSource {
@@ -69,7 +76,7 @@ extension DKFilterPickerVC : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 88
     }
     
 }

@@ -13,13 +13,20 @@ final public class DKFilterView: UIView, Nibable {
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var pickerImage: UIImageView!
+    @IBOutlet weak var cardView: CardView!
+    
+    var viewModel : DKFilterViewModel!
+    weak var parentViewController : UIViewController?
     
     public override func awakeFromNib() {
         super.awakeFromNib()
     }
 
-    public func configure(viewModel : DKFilterViewModel) {
-        self.pickerImage.isHidden = viewModel.showPicker
+    public func configure(viewModel : DKFilterViewModel, parentViewController: UIViewController) {
+        self.viewModel = viewModel
+        self.parentViewController = parentViewController
+        self.pickerImage.isHidden = !viewModel.showPicker
+        self.pickerImage.tintColor = DKUIColors.mainFontColor.color
         self.name.attributedText = viewModel.getName().dkAttributedString().color(.mainFontColor).font(dkFont: .secondary, style: .normalText).build()
         if let itemImage = viewModel.getImage() {
             self.image.image = itemImage
@@ -29,5 +36,12 @@ final public class DKFilterView: UIView, Nibable {
         } else {
             self.image.isHidden = true
         }
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        self.cardView.addGestureRecognizer(tap)
+    }
+    
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        let vehiclePicker = DKFilterPickerVC(viewModel: viewModel)
+        self.parentViewController?.present(vehiclePicker, animated: true)
     }
 }

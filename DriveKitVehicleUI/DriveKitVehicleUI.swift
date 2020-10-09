@@ -170,7 +170,7 @@ extension DriveKitVehicleUI : DriveKitVehicleUIEntryPoint {
     }
     
     public func getVehicleFilterItems() -> [DKFilterItem] {
-        <#code#>
+        return DriveKitDBVehicleAccess.shared.findVehiclesOrderByNameAsc().execute().sortByDisplayNames()
     }
 }
 

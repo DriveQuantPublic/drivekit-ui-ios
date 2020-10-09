@@ -73,3 +73,5 @@
 "dk_driverdata_weather_rain"="con la pioggia";
 "dk_driverdata_weather_snow"="in nevicata";
 "dk_driverdata_weather_sun"="Con il sereno";
+"dk_driverdata_default_filter_item"="Tutti i miei viaggi";
+"dk_driverdata_no_trip_placeholder"="Non hai ancora fatto nessun viaggio con questo veicolo.";

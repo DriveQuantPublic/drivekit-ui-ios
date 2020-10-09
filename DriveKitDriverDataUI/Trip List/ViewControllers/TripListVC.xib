@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TripListVC" customModule="DriveKitDriverDataUI" customModuleProvider="target">
             <connections>
+                <outlet property="filterViewContainer" destination="i8c-Bh-NqD" id="Ob0-6I-5ko"/>
                 <outlet property="noTripsImage" destination="1rV-SV-JEc" id="SCU-PU-fT6"/>
                 <outlet property="noTripsLabel" destination="9ql-Wu-xda" id="Fh5-u6-tNy"/>
                 <outlet property="noTripsView" destination="ExH-D7-H9C" id="Ehg-2o-AIA"/>
@@ -47,24 +49,41 @@
                         <constraint firstAttribute="trailing" secondItem="9ql-Wu-xda" secondAttribute="trailing" constant="8" id="ndn-54-Nfe"/>
                     </constraints>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cUB-Ld-GDi">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="100-ve-c4F">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                </tableView>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8c-Bh-NqD">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="100" id="foZ-70-Utj"/>
+                            </constraints>
+                        </view>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cUB-Ld-GDi">
+                            <rect key="frame" x="0.0" y="100" width="375" height="567"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </tableView>
+                    </subviews>
+                </stackView>
             </subviews>
-            <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ExH-D7-H9C" secondAttribute="trailing" id="LZX-My-qnd"/>
-                <constraint firstItem="ExH-D7-H9C" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="UZE-KI-4JC"/>
-                <constraint firstItem="ExH-D7-H9C" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="agc-Fi-Ib4"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ExH-D7-H9C" secondAttribute="bottom" id="gjc-JM-iic"/>
-                <constraint firstItem="cUB-Ld-GDi" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hRL-cv-sb7"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="cUB-Ld-GDi" secondAttribute="bottom" id="lZD-rh-tFT"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cUB-Ld-GDi" secondAttribute="trailing" id="n8M-sw-qzw"/>
-                <constraint firstItem="cUB-Ld-GDi" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ypW-VS-CJ8"/>
-            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <constraints>
+                <constraint firstItem="100-ve-c4F" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="F7p-jL-0TL"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ExH-D7-H9C" secondAttribute="trailing" id="LZX-My-qnd"/>
+                <constraint firstItem="100-ve-c4F" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="OaB-Ex-Qi5"/>
+                <constraint firstItem="ExH-D7-H9C" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="UZE-KI-4JC"/>
+                <constraint firstItem="100-ve-c4F" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="YzI-4f-CxT"/>
+                <constraint firstItem="ExH-D7-H9C" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="agc-Fi-Ib4"/>
+                <constraint firstItem="100-ve-c4F" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="dOe-AV-yii"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ExH-D7-H9C" secondAttribute="bottom" id="gjc-JM-iic"/>
+            </constraints>
             <point key="canvasLocation" x="132" y="153"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

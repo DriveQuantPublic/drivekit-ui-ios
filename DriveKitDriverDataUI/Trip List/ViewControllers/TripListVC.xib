@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,6 +14,7 @@
                 <outlet property="noTripsImage" destination="1rV-SV-JEc" id="SCU-PU-fT6"/>
                 <outlet property="noTripsLabel" destination="9ql-Wu-xda" id="Fh5-u6-tNy"/>
                 <outlet property="noTripsView" destination="ExH-D7-H9C" id="Ehg-2o-AIA"/>
+                <outlet property="synthesis" destination="Wfr-Rv-YqI" id="3uT-2T-F9s"/>
                 <outlet property="tableView" destination="cUB-Ld-GDi" id="Y0F-4e-C9Y"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="JqX-3a-3IG"/>
             </connections>
@@ -54,13 +54,22 @@
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8c-Bh-NqD">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="100" id="foZ-70-Utj"/>
                             </constraints>
                         </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wfr-Rv-YqI">
+                            <rect key="frame" x="0.0" y="100" width="375" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="CEe-ab-Jh6"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cUB-Ld-GDi">
-                            <rect key="frame" x="0.0" y="100" width="375" height="567"/>
+                            <rect key="frame" x="0.0" y="150" width="375" height="517"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </tableView>
@@ -81,9 +90,4 @@
             <point key="canvasLocation" x="132" y="153"/>
         </view>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

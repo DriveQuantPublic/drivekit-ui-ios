@@ -24,6 +24,14 @@ class TripListViewModel {
         }
     }
     
+    var tripNumber :Int {
+        return self.filteredTrips.map { $0.trips.count }.reduce(0, +)
+    }
+    
+    var tripsDistance : Double {
+        return self.filteredTrips.map {$0.trips.map {($0.tripStatistics?.distance ?? 0)}.reduce(0, +)}.reduce(0, +).metersToKilometers(places: 0)
+    }
+    
     public func fetchTrips() {
         DriveKitDriverData.shared.getTripsOrderByDateDesc(completionHandler: {status, trips in
             DispatchQueue.main.async {

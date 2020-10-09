@@ -16,6 +16,7 @@ public class TripListVC: DKUIViewController {
     @IBOutlet var noTripsImage: UIImageView!
     @IBOutlet var noTripsLabel: UILabel!
     @IBOutlet weak var filterViewContainer: UIView!
+    @IBOutlet weak var synthesis: UILabel!
     
     private let filterView = DKFilterView.viewFromNib
     private let refreshControl = UIRefreshControl()
@@ -44,6 +45,7 @@ public class TripListVC: DKUIViewController {
         refreshControl.addTarget(self, action: #selector(refreshTripList(_ :)), for: .valueChanged)
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        tableView.tableFooterView = UIView(frame: .zero)
     }
     
     public override func viewDidDisappear(_ animated: Bool) {
@@ -79,7 +81,8 @@ public class TripListVC: DKUIViewController {
             self.noTripsImage.image = UIImage(named: "dk_no_trips_recorded", in: Bundle.driverDataUIBundle, compatibleWith: nil)
             self.noTripsLabel.text = "dk_driverdata_no_trips_recorded".dkDriverDataLocalized()
         }
-        configureFilter()
+        self.configureFilter()
+        self.configureSynthesis()
     }
     
     private func configureFilter() {
@@ -93,6 +96,14 @@ public class TripListVC: DKUIViewController {
         } else {
             self.filterViewContainer.isHidden = true
         }
+    }
+    
+    private func configureSynthesis() {
+        let tripNumber = viewModel.tripNumber
+        let synthesisText = "%@ \(tripNumber > 1 ? DKCommonLocalizable.tripPlural.text() : DKCommonLocalizable.tripSingular.text()) - %@ \(DKCommonLocalizable.unitKilometer.text())"
+        let tripNumberValue = String(tripNumber).dkAttributedString().color(.primaryColor).font(dkFont: .secondary, style: .highlightSmall).build()
+        let distanceValue = String(format: "%.0f", viewModel.tripsDistance).dkAttributedString().color(.primaryColor).font(dkFont: .secondary, style: .highlightSmall).build()
+        self.synthesis.attributedText = synthesisText.dkAttributedString().color(.mainFontColor).font(dkFont: .secondary, style: .normalText).buildWithArgs(tripNumberValue, distanceValue)
     }
 
     @objc func refreshTripList(_ sender: Any) {
@@ -119,6 +130,7 @@ extension TripListVC : DKFilterItemDelegate {
         }
         self.viewModel.filterTrips(vehicleId: vehicleId)
         self.configureFilter()
+        self.configureSynthesis()
         self.tableView.reloadData()
     }
 }

@@ -16,6 +16,8 @@ class TripListViewModel {
     private var trips : [TripsByDate] = []
     var filteredTrips : [TripsByDate] = []
     var status: TripSyncStatus = .noError
+    private var vehicleId: String? = nil
+    
     weak var delegate: TripsDelegate? = nil {
         didSet {
             if self.delegate != nil {
@@ -37,7 +39,7 @@ class TripListViewModel {
             DispatchQueue.main.async {
                 self.status = status
                 self.trips = self.sortTrips(trips: trips)
-                self.filteredTrips = self.trips
+                self.filterTrips(vehicleId: self.vehicleId)
                 self.delegate?.onTripsAvailable()
             }
         })
@@ -59,6 +61,7 @@ class TripListViewModel {
     }
     
     func filterTrips(vehicleId : String?) {
+        self.vehicleId = vehicleId
         if let vehicleId = vehicleId {
             self.filteredTrips = []
             for tripsByDate in self.trips {

@@ -75,14 +75,20 @@ public class TripListVC: DKUIViewController {
             if self.refreshControl.isRefreshing {
                 self.refreshControl.endRefreshing()
             }
+            self.configureSynthesis()
         } else {
             self.noTripsView.isHidden = false
-            self.tableView.isHidden = true
-            self.noTripsImage.image = UIImage(named: "dk_no_trips_recorded", in: Bundle.driverDataUIBundle, compatibleWith: nil)
-            self.noTripsLabel.text = "dk_driverdata_no_trips_recorded".dkDriverDataLocalized()
+            self.tableView.isHidden = false
+            if self.viewModel.hasTrips() {
+                self.noTripsImage.image = UIImage(named: "dk_no_vehicle_trips", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withAlignmentRectInsets(UIEdgeInsets(top: -50, left: -50, bottom: -50,right:-50))
+                self.noTripsLabel.text = "dk_driverdata_no_trip_placeholder".dkDriverDataLocalized()
+            } else {
+                self.noTripsImage.image = UIImage(named: "dk_no_trips_recorded", in: Bundle.driverDataUIBundle, compatibleWith: nil)
+                self.noTripsLabel.text = "dk_driverdata_no_trips_recorded".dkDriverDataLocalized()
+            }
+            self.synthesis.isHidden = true
         }
         self.configureFilter()
-        self.configureSynthesis()
     }
     
     private func configureFilter() {
@@ -99,6 +105,7 @@ public class TripListVC: DKUIViewController {
     }
     
     private func configureSynthesis() {
+        self.synthesis.isHidden = false
         let tripNumber = viewModel.tripNumber
         let synthesisText = "%@ \(tripNumber > 1 ? DKCommonLocalizable.tripPlural.text() : DKCommonLocalizable.tripSingular.text()) - %@ \(DKCommonLocalizable.unitKilometer.text())"
         let tripNumberValue = String(tripNumber).dkAttributedString().color(.primaryColor).font(dkFont: .secondary, style: .highlightSmall).build()
@@ -129,8 +136,7 @@ extension TripListVC : DKFilterItemDelegate {
             vehicleId = itemId as? String
         }
         self.viewModel.filterTrips(vehicleId: vehicleId)
-        self.configureFilter()
-        self.configureSynthesis()
+        self.updateUI()
         self.tableView.reloadData()
     }
 }

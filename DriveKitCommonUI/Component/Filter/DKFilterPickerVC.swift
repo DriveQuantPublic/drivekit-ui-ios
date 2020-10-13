@@ -8,17 +8,12 @@
 
 import UIKit
 
-protocol FilterPickerDelegate : AnyObject {
-    func didSelectFilterItem(item : DKFilterItem)
-}
-
 class DKFilterPickerVC: DKUIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cancelButton: UIButton!
     
     private weak var viewModel : DKFilterViewModel?
-    weak var delegate : FilterPickerDelegate?
     
     public init(viewModel: DKFilterViewModel) {
         self.viewModel = viewModel

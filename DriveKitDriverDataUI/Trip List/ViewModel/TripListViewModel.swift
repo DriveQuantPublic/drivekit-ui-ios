@@ -71,6 +71,10 @@ class TripListViewModel {
             self.filteredTrips = self.trips
         }
     }
+    
+    func hasTrips() -> Bool {
+        return trips.count > 0
+    }
 }
 
 protocol TripsDelegate : AnyObject {

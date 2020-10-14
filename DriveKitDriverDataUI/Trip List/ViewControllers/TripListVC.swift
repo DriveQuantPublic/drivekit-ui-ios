@@ -132,9 +132,9 @@ extension TripListVC : TripsDelegate {
 
 extension TripListVC : DKFilterItemDelegate {
     public func onFilterItemSelected() {
-        var vehicleId : String? = nil
-        if let itemId = self.filterViewModel?.getCurrentItemId(), itemId is String {
-            vehicleId = itemId as? String
+        var vehicleId: String? = nil
+        if let itemId = self.filterViewModel?.getCurrentItemId() as? String {
+            vehicleId = itemId
         }
         self.viewModel.filterTrips(vehicleId: vehicleId)
         self.updateUI()

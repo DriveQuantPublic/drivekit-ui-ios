@@ -21,12 +21,12 @@ public protocol DKFilterItemDelegate : AnyObject {
 
 public class DKFilterViewModel {
     
-    var items : [DKFilterItem]
-    var currentItem : DKFilterItem
-    let showPicker : Bool
-    weak var delegate : DKFilterItemDelegate?
-    
-    public init(items: [DKFilterItem], currentItem : DKFilterItem, showPicker: Bool, delegate : DKFilterItemDelegate) {
+    let items: [DKFilterItem]
+    private(set) var currentItem: DKFilterItem
+    let showPicker: Bool
+    weak var delegate: DKFilterItemDelegate?
+
+    public init(items: [DKFilterItem], currentItem: DKFilterItem, showPicker: Bool, delegate: DKFilterItemDelegate) {
         self.items = items
         self.currentItem = currentItem
         self.showPicker = showPicker

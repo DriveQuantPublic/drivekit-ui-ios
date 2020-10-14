@@ -13,7 +13,7 @@ class DKFilterPickerVC: DKUIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cancelButton: UIButton!
     
-    private weak var viewModel : DKFilterViewModel?
+    private let viewModel: DKFilterViewModel
     
     public init(viewModel: DKFilterViewModel) {
         self.viewModel = viewModel
@@ -52,20 +52,20 @@ extension DKFilterPickerVC : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.viewModel?.itemSelected(position: indexPath.row)
+        self.viewModel.itemSelected(position: indexPath.row)
         self.dismiss(animated: true, completion: nil)
     }
 }
 
 extension DKFilterPickerVC : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.itemCount ?? 0
+        return viewModel.itemCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DKFilterTableViewCell")
-        if let filterCell = cell as? DKFilterTableViewCell, let viewModel = self.viewModel {
-            filterCell.configure(viewModel: viewModel, position: indexPath.row)
+        if let filterCell = cell as? DKFilterTableViewCell {
+            filterCell.configure(viewModel: self.viewModel, position: indexPath.row)
         }
         return cell ?? UITableViewCell()
     }

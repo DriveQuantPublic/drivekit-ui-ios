@@ -78,11 +78,12 @@ public class TripListVC: DKUIViewController {
             self.configureSynthesis()
         } else {
             self.noTripsView.isHidden = false
-            self.tableView.isHidden = false
             if self.viewModel.hasTrips() {
-                self.noTripsImage.image = UIImage(named: "dk_no_vehicle_trips", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withAlignmentRectInsets(UIEdgeInsets(top: -50, left: -50, bottom: -50,right:-50))
+                self.tableView.isHidden = false
+                self.noTripsImage.image = UIImage(named: "dk_no_vehicle_trips", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withAlignmentRectInsets(UIEdgeInsets(top: -50, left: -50, bottom: -50, right: -50))
                 self.noTripsLabel.text = "dk_driverdata_no_trip_placeholder".dkDriverDataLocalized()
             } else {
+                self.tableView.isHidden = true
                 self.noTripsImage.image = UIImage(named: "dk_no_trips_recorded", in: Bundle.driverDataUIBundle, compatibleWith: nil)
                 self.noTripsLabel.text = "dk_driverdata_no_trips_recorded".dkDriverDataLocalized()
             }

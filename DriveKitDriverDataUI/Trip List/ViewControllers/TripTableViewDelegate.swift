@@ -12,7 +12,7 @@ import UIKit
 extension TripListVC: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = HeaderDayView.viewFromNib
-        header.configure(trips: self.viewModel.trips[section])
+        header.configure(trips: self.viewModel.filteredTrips[section])
         return header
     }
     
@@ -24,17 +24,17 @@ extension TripListVC: UITableViewDelegate {
 extension TripListVC : UITableViewDataSource {
     
     public func numberOfSections(in tableView: UITableView) -> Int {
-        return self.viewModel.trips.count
+        return self.viewModel.filteredTrips.count
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.trips[section].trips.count
+        return self.viewModel.filteredTrips[section].trips.count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell : TripTableViewCell = tableView.dequeueReusableCell(withIdentifier: "TripTableViewCell") as? TripTableViewCell {
             cell.selectionStyle = .none
-            cell.configure(trip: self.viewModel.trips[indexPath.section].trips[indexPath.row])
+            cell.configure(trip: self.viewModel.filteredTrips[indexPath.section].trips[indexPath.row])
             if let adviceButton = cell.adviceButton {
                 adviceButton.addTarget(self, action: #selector(openTips), for: .touchUpInside)
             } else if let adviceCountView = cell.adviceCountView {
@@ -50,7 +50,7 @@ extension TripListVC : UITableViewDataSource {
     @objc func openTips(sender: AdviceButton){
         if let itinId = sender.trip.itinId {
             if let navigationController = self.navigationController {
-                let tripDetail = TripDetailVC(itinId: itinId, showAdvice: false)
+                let tripDetail = TripDetailVC(itinId: itinId, showAdvice: true)
                 navigationController.pushViewController(tripDetail, animated: true)
             } else {
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DKShowTripDetail"), object: nil, userInfo: ["itinId": itinId])
@@ -62,7 +62,7 @@ extension TripListVC : UITableViewDataSource {
         if let adviceCountView = sender.view as? AdviceCountView, let trip = adviceCountView.trip {
             if let itinId = trip.itinId {
                 if let navigationController = self.navigationController {
-                    let tripDetail = TripDetailVC(itinId: itinId, showAdvice: false)
+                    let tripDetail = TripDetailVC(itinId: itinId, showAdvice: true)
                     navigationController.pushViewController(tripDetail, animated: true)
                 } else {
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DKShowTripDetail"), object: nil, userInfo: ["itinId": itinId])
@@ -76,7 +76,7 @@ extension TripListVC : UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let itinId = self.viewModel.trips[indexPath.section].trips[indexPath.row].itinId {
+        if let itinId = self.viewModel.filteredTrips[indexPath.section].trips[indexPath.row].itinId {
             if let navigationController = self.navigationController {
                 let tripDetail = TripDetailVC(itinId: itinId, showAdvice: false)
                 navigationController.pushViewController(tripDetail, animated: true)

@@ -74,6 +74,8 @@ class VehiclePickerInputVC : VehiclePickerStepView {
                     break
                 case .error:
                     self.showAlertMessage(title: "", message: "dk_vehicle_failed_to_retrieve_vehicle_data".dkVehicleLocalized(), back: false, cancel: false)
+                @unknown default:
+                    break
                 }
             }
         })

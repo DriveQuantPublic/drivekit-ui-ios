@@ -58,6 +58,8 @@ class SelectBluetoothVC: DKUIViewController {
                         self.vehicleUnknown()
                     case .error:
                         self.failedToPairedBluetooth()
+                    @unknown default:
+                        break
                     }
                 }
             })

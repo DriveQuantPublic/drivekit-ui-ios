@@ -164,6 +164,8 @@ enum GeneralField : DKVehicleField, CaseIterable {
                     completion(true)
                 case .unknownVehicle, .error:
                     completion(false)
+                @unknown default:
+                    completion(false)
                 }
             })
         } else {

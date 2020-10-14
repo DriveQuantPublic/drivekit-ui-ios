@@ -17,6 +17,8 @@ extension DKVehicleType : VehiclePickerTableViewItem {
                 return "dk_vehicle_type_car_title".dkVehicleLocalized()
             case .truck:
                 return "dk_vehicle_type_truck_title".dkVehicleLocalized()
+            @unknown default:
+                return ""
         }
     }
 }

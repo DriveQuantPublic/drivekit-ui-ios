@@ -151,3 +151,19 @@ extension DKVehicle {
         }
     }
 }
+
+extension DKVehicle: DKFilterItem {
+    public func getImage() -> UIImage? {
+        return self.getVehicleImage()
+    }
+    
+    public func getName() -> String {
+        return self.computeName()
+    }
+    
+    public func getId() -> Any? {
+        return self.vehicleId
+    }
+    
+    
+}

@@ -48,14 +48,26 @@ extension TripListVC : UITableViewDataSource {
     }
     
     @objc func openTips(sender: AdviceButton){
-        let tripDetail = TripDetailVC(itinId: sender.trip.itinId!, showAdvice: true)
-        self.navigationController?.pushViewController(tripDetail, animated: true)
+        if let itinId = sender.trip.itinId {
+            if let navigationController = self.navigationController {
+                let tripDetail = TripDetailVC(itinId: itinId, showAdvice: false)
+                navigationController.pushViewController(tripDetail, animated: true)
+            } else {
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DKShowTripDetail"), object: nil, userInfo: ["itinId": itinId])
+            }
+        }
     }
 
     @objc func openSelectedTips(_ sender: UITapGestureRecognizer) {
         if let adviceCountView = sender.view as? AdviceCountView, let trip = adviceCountView.trip {
-            let tripDetail = TripDetailVC(itinId: trip.itinId!, showAdvice: true)
-            self.navigationController?.pushViewController(tripDetail, animated: true)
+            if let itinId = trip.itinId {
+                if let navigationController = self.navigationController {
+                    let tripDetail = TripDetailVC(itinId: itinId, showAdvice: false)
+                    navigationController.pushViewController(tripDetail, animated: true)
+                } else {
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DKShowTripDetail"), object: nil, userInfo: ["itinId": itinId])
+                }
+            }
         }
     }
     
@@ -64,7 +76,13 @@ extension TripListVC : UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let tripDetail = TripDetailVC(itinId: self.viewModel.trips[indexPath.section].trips[indexPath.row].itinId!, showAdvice: false)
-        self.navigationController?.pushViewController(tripDetail, animated: true)
+        if let itinId = self.viewModel.trips[indexPath.section].trips[indexPath.row].itinId {
+            if let navigationController = self.navigationController {
+                let tripDetail = TripDetailVC(itinId: itinId, showAdvice: false)
+                navigationController.pushViewController(tripDetail, animated: true)
+            } else {
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DKShowTripDetail"), object: nil, userInfo: ["itinId": itinId])
+            }
+        }
     }
 }

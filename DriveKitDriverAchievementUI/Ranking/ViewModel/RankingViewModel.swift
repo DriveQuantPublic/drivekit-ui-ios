@@ -49,6 +49,8 @@ class RankingViewModel {
                     self.rankingTypes.append(RankingType(index: index, name: DKCommonLocalizable.ecodriving.text(), imageName: "dk_achievements_ranking_ecodriving"))
                 case .safety:
                     self.rankingTypes.append(RankingType(index: index, name: DKCommonLocalizable.safety.text(), imageName: "dk_achievements_ranking_safety"))
+                case .speeding:
+                    self.rankingTypes.append(RankingType(index: index, name: DKCommonLocalizable.speeding.text(), imageName: "dk_achievements_ranking_speeding"))
                 @unknown default:
                     break
             }

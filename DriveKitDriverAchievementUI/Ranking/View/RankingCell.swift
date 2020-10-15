@@ -18,12 +18,14 @@ class RankingCell : UICollectionViewCell {
     @IBOutlet private weak var driverLabel: UILabel!
     @IBOutlet private weak var distanceLabel: UILabel!
     @IBOutlet private weak var scoreLabel: UILabel!
+    @IBOutlet private weak var separator: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
         self.scoreLabel.layer.cornerRadius = 5
         self.scoreLabel.clipsToBounds = true
+        self.separator.backgroundColor = DKUIColors.neutralColor.color
     }
 
     func update(driverRank: AnyDriverRank) {

@@ -28,6 +28,7 @@
 "dk_common_send_mail_error"="Su dispositivo no está configurado para enviar correo electrónico...";
 "dk_common_settings"="Ajustes";
 "dk_common_speed"="Velocidad";
+"dk_common_speed_limit"="Límite de velocidad";
 "dk_common_take_picture"="Toma una foto";
 "dk_common_trip_plural"="viajes";
 "dk_common_trip_singular"="viaje";

@@ -174,6 +174,8 @@ extension CancelTrip {
             return "trip_cancelled_no_beacon".keyLocalized()
         case .reset,.missingConfiguration:
             return "trip_cancelled_reset".keyLocalized()
+        @unknown default:
+            return ""
         }
     }
 }

@@ -69,6 +69,8 @@ extension DKVehicle {
                     categoryName = "dk_vehicle_category_car_sport_title".dkVehicleLocalized()
                 case .twoAxlesStraightTruck, .threeAxlesStraightTruck, .fourAxlesStraightTruck, .twoAxlesTractor, .threeAxlesTractor, .fourAxlesTractor:
                     categoryName = ""
+                @unknown default:
+                    categoryName = ""
                 }
             }
         }
@@ -129,6 +131,8 @@ extension DKVehicle {
             }
         case .none:
             return "".dkAttributedString().build()
+        @unknown default:
+            return "".dkAttributedString().build()
         }
     }
 
@@ -140,6 +144,8 @@ extension DKVehicle {
             return "dk_vehicle_configure_beacon_title".dkVehicleLocalized().uppercased()
         case .bluetooth:
             return "dk_vehicle_configure_bluetooth_title".dkVehicleLocalized().uppercased()
+        @unknown default:
+            return nil
         }
     }
 
@@ -150,4 +156,20 @@ extension DKVehicle {
             return nil
         }
     }
+}
+
+extension DKVehicle: DKFilterItem {
+    public func getImage() -> UIImage? {
+        return self.getVehicleImage()
+    }
+    
+    public func getName() -> String {
+        return self.computeName()
+    }
+    
+    public func getId() -> Any? {
+        return self.vehicleId
+    }
+    
+    
 }

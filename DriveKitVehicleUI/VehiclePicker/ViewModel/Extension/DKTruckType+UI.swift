@@ -19,6 +19,8 @@ extension DKTruckType : VehiclePickerCollectionViewItem {
                 return "dk_vehicle_type_truck_tractor_semi_trailer".dkVehicleLocalized()
             case .straightTruck:
                 return "dk_vehicle_category_truck_straight".dkVehicleLocalized()
+            @unknown default:
+                return ""
         }
     }
 
@@ -41,6 +43,8 @@ extension DKTruckType : VehiclePickerCollectionViewItem {
                 return "dk_icon_semi_trailer_truck"
             case .straightTruck:
                 return "dk_icon_straight_truck"
+            @unknown default:
+                return nil
         }
     }
 

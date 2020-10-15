@@ -26,6 +26,8 @@ public extension DKStreakTheme {
             return "dk_achievements_streaks_safety_title".dkAchievementLocalized()
         case .speedLimits:
             return "dk_achievements_streaks_speeding_title".dkAchievementLocalized()
+        @unknown default:
+            return ""
         }
     }
     
@@ -43,6 +45,8 @@ public extension DKStreakTheme {
             return DKImages.safety.image
         case .speedLimits:
             return DKImages.ecoAccel.image
+        @unknown default:
+            return nil
         }
     }
     
@@ -60,6 +64,8 @@ public extension DKStreakTheme {
             return "dk_achievements_streaks_safety_text".dkAchievementLocalized()
         case .speedLimits:
             return "dk_achievements_streaks_speeding_text".dkAchievementLocalized()
+        @unknown default:
+            return ""
         }
     }
     
@@ -77,6 +83,8 @@ public extension DKStreakTheme {
             return "dk_achievements_streaks_safety_reset".dkAchievementLocalized()
         case .speedLimits:
             return "dk_achievements_streaks_speeding_reset".dkAchievementLocalized()
+        @unknown default:
+            return ""
         }
     }
 }

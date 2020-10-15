@@ -73,3 +73,5 @@
 "dk_driverdata_weather_rain"="Temps pluvieux";
 "dk_driverdata_weather_snow"="Temps neigeux";
 "dk_driverdata_weather_sun"="Temps clair";
+"dk_driverdata_default_filter_item"="Tous mes trajets";
+"dk_driverdata_no_trip_placeholder"="Vous n\'avez pas encore réalisé de trajets avec ce véhicule.";

@@ -87,6 +87,8 @@ class ViewController: UITableViewController {
             stopTripButton.isEnabled = false
             startTripButton.isEnabled = false
             cancelTripButton.isEnabled = false
+        @unknown default:
+            break
         }
     }
     

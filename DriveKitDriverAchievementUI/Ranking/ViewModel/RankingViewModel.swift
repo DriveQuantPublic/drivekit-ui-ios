@@ -51,6 +51,8 @@ class RankingViewModel {
                     self.rankingTypes.append(RankingType(index: index, name: DKCommonLocalizable.safety.text(), imageName: "dk_achievements_ranking_safety"))
                 case .speeding:
                     self.rankingTypes.append(RankingType(index: index, name: DKCommonLocalizable.speeding.text(), imageName: "dk_achievements_ranking_speeding"))
+                @unknown default:
+                    break
             }
         }
         self.selectedRankingType = self.rankingTypes.first
@@ -71,6 +73,8 @@ class RankingViewModel {
                             titleKey = "dk_achievements_ranking_month"
                         case .allTime:
                             titleKey = "dk_achievements_ranking_permanent"
+                        @unknown default:
+                            titleKey = ""
                     }
                     self.rankingSelectors.append(RankingSelector(index: index, title: titleKey.dkAchievementLocalized()))
                 }
@@ -191,6 +195,8 @@ class RankingViewModel {
                                 } else {
                                     self.status = .networkError
                                 }
+                            @unknown default:
+                                break
                         }
 
                         let dataError: Bool
@@ -198,6 +204,8 @@ class RankingViewModel {
                             case .noError, .userNotRanked:
                                 dataError = false
                             case .failedToSyncRanking, .syncAlreadyInProgress, .cacheDataOnly:
+                                dataError = true
+                            @unknown default:
                                 dataError = true
                         }
                         self.useCache[useCacheKey] = !dataError

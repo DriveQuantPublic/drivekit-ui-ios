@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A34238052361A1FA0001E15D"
-               BuildableName = "DriveKitDriverDataUI.framework"
-               BlueprintName = "DriveKitDriverDataUI"
+               BlueprintIdentifier = "A3B7B37F235F124F0065A332"
+               BuildableName = "DriveKitApp.app"
+               BlueprintName = "DriveKitApp"
                ReferencedContainer = "container:DriveKitApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -40,6 +40,23 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "A3B7B37F235F124F0065A332"
+            BuildableName = "DriveKitApp.app"
+            BlueprintName = "DriveKitApp"
+            ReferencedContainer = "container:DriveKitApp.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "DriveKit-API-Key"
+            value = "qDcgo5W2I1p3u5STEhuQ1AJo"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -47,15 +64,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A34238052361A1FA0001E15D"
-            BuildableName = "DriveKitDriverDataUI.framework"
-            BlueprintName = "DriveKitDriverDataUI"
+            BlueprintIdentifier = "A3B7B37F235F124F0065A332"
+            BuildableName = "DriveKitApp.app"
+            BlueprintName = "DriveKitApp"
             ReferencedContainer = "container:DriveKitApp.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

@@ -62,6 +62,8 @@ class BeaconScannerAlreadyPairedVC: UIViewController {
                     self.vehicleUnknown()
                 case .unavailableBeacon:
                     self.viewModel.updateScanState(step: .beaconUnavailable)
+                @unknown default:
+                    break
                 }
             }
         })

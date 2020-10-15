@@ -80,6 +80,8 @@ class BadgeLevelDetailViewController: DKUIViewController {
                 progressRing.innerRingColor = UIColor(hex: 0xa8a8a3)
             case .gold:
                 progressRing.innerRingColor = UIColor(hex: 0xf9ed9e)
+            @unknown default:
+                break
             }
         } else {
             progressRing.innerRingColor = UIColor(hex: 0xF0F0F0)

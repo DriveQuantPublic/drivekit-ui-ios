@@ -113,6 +113,8 @@ class VehiclePickerViewModel {
                             return category.isCar
                         case .truck:
                             return category.isTruck
+                        @unknown default:
+                            return false
                     }
                 })
                 if filteredCategories.count > 1 && driveKitVehicleUI.categoryConfigType != .brandsConfigOnly {
@@ -154,6 +156,8 @@ class VehiclePickerViewModel {
                         return category.isCar
                     case .truck:
                         return category.isTruck
+                    @unknown default:
+                        return false
                 }
             })
             if filteredCategories.count == 1 && driveKitVehicleUI.categoryConfigType == .liteConfigOnly {
@@ -211,6 +215,8 @@ class VehiclePickerViewModel {
                             return engineIndex.isCar
                         case .truck:
                             return engineIndex.isTruck
+                        @unknown default:
+                            return false
                     }
                 }
                 if filteredEngineIndexes.count > 1 {
@@ -237,6 +243,8 @@ class VehiclePickerViewModel {
                             return engineIndex.isCar
                         case .truck:
                             return engineIndex.isTruck
+                        @unknown default:
+                            return false
                     }
                 }
                 if filteredEngineIndexes.count > 1 {
@@ -277,6 +285,8 @@ class VehiclePickerViewModel {
                     } else {
                         nextStepInternal(nil)
                     }
+                @unknown default:
+                    break
             }
         } else {
             nextStepInternal(nil)
@@ -313,6 +323,8 @@ class VehiclePickerViewModel {
                     } else {
                         nextStepInternal(nil)
                     }
+                @unknown default:
+                    break
             }
         } else {
             nextStepInternal(nil)
@@ -349,6 +361,8 @@ class VehiclePickerViewModel {
                     } else {
                         nextStepInternal(nil)
                     }
+                @unknown default:
+                    break
             }
         } else {
             nextStepInternal(nil)
@@ -380,6 +394,8 @@ class VehiclePickerViewModel {
                 DriveKitVehiclePicker.shared.getCarCharacteristics(dqIndex: vehicleVersion.dqIndex, completionHandler: completionHandler)
             case .truck:
                 DriveKitVehiclePicker.shared.getTruckCharacteristics(dqIndex: vehicleVersion.dqIndex, completionHandler: completionHandler)
+            @unknown default:
+                break
         }
     }
 
@@ -450,6 +466,8 @@ class VehiclePickerViewModel {
                                 completion(status, vehicle?.vehicleId)
                             })
                         }
+                    @unknown default:
+                        completion(.error, nil)
                 }
             }
         }
@@ -492,6 +510,8 @@ class VehiclePickerViewModel {
                     if let truckCharacteristics = characteristics as? DKTruckVehicleCharacteristics {
                         DriveKitVehicle.shared.createTruckVehicle(characteristics: truckCharacteristics, name: self.vehicleName, detectionMode: self.detectionMode, completionHandler: completionHandler)
                     }
+                @unknown default:
+                    completion(.error, nil)
             }
         }
     }

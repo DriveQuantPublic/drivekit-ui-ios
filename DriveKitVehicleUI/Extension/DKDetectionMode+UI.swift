@@ -23,6 +23,8 @@ extension DKDetectionMode {
             return "dk_detection_mode_beacon_title".dkVehicleLocalized()
         case .bluetooth:
             return "dk_detection_mode_bluetooth_title".dkVehicleLocalized()
+        @unknown default:
+            return ""
         }
     }
     
@@ -40,10 +42,12 @@ extension DKDetectionMode {
                         viewModel.delegate?.showAlert(self.gpsAlertConfrimation(vehicle: viewModel.vehicles[pos], previousVehicle: gpsVehicle, completion: {
                             viewModel.updateDetectionMode(pos: pos, detectionMode: self, forceGPSUpdate: true)
                         }))
-                    }else {
+                    } else {
                         viewModel.updateDetectionMode(pos: pos, detectionMode: self)
                     }
                 }
+            @unknown default:
+                break
             }
         }
         return UIAlertAction(title: self.title, style: .default, handler: completionHandler)
@@ -66,6 +70,8 @@ extension DKDetectionMode {
                 self.newBluetooth(pos: pos, viewModel: viewModel, parentView: parentView)
             }
         case .disabled, .gps:
+            return
+        @unknown default:
             return
         }
     }

@@ -31,7 +31,6 @@ public class BadgesViewController : DKUIViewController, UITableViewDelegate {
             let vc = BadgeLevelDetailViewController(level: (notification.userInfo!["badgeCharacteristics"] as? DKBadgeCharacteristics)!)
             navigationController.pushViewController(vc, animated: true)
         } else {
-            print("touched badge")
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DKShowBadgeLevelDetail"), object: nil, userInfo: notification.userInfo!)
         }
     }

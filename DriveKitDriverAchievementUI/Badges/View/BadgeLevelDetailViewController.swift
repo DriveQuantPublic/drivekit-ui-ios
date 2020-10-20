@@ -12,8 +12,8 @@ import DriveKitDBAchievementAccessModule
 import DriveKitDriverAchievementModule
 import UICircularProgressRing
 
-class BadgeLevelDetailViewController: DKUIViewController {
-    
+public class BadgeLevelDetailViewController: DKUIViewController {
+
     let viewModel: BadgeLevelViewModel
 
     @IBOutlet weak var progressRing: UICircularProgressRing!
@@ -26,7 +26,7 @@ class BadgeLevelDetailViewController: DKUIViewController {
     @IBOutlet weak var progressDescriptionLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
 
-    init(level: DKBadgeCharacteristics) {
+    public init(level: DKBadgeCharacteristics) {
         viewModel = BadgeLevelViewModel(level: level)
         super.init(nibName: String(describing: BadgeLevelDetailViewController.self),
                    bundle: Bundle.driverAchievementUIBundle)
@@ -36,7 +36,7 @@ class BadgeLevelDetailViewController: DKUIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
@@ -89,6 +89,10 @@ class BadgeLevelDetailViewController: DKUIViewController {
     }
     
     @IBAction func closeView(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+        if let navigationController = self.navigationController {
+            navigationController.popViewController(animated: true)
+        } else {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DKCloseBadgeDetailView"), object: nil)
+        }
     }
 }

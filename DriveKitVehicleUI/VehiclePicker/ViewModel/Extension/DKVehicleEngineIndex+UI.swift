@@ -22,6 +22,8 @@ extension DKVehicleEngineIndex : VehiclePickerTableViewItem {
             return "dk_vehicle_engine_gasoline_hybrid".dkVehicleLocalized()
         case .dieselHybrid:
             return "dk_vehicle_engine_diesel_hybrid".dkVehicleLocalized()
+        @unknown default:
+            return ""
         }
     }
 }

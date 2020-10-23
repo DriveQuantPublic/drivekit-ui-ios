@@ -96,11 +96,11 @@
 "dk_perm_utils_permissions_location_pre_ios13_ko"="You must allow the app to access the phone\'s location for it to detect and scan your trips.\n\nIn the phone settings, three options are available:\n(1) Never\n(2) While Using the App\n(3) Always\n\nIt is essential to select option (3) Always, otherwise, the application will not work.";
 "dk_perm_utils_permissions_location_text1_android"="The application must be allowed to access the phone\'s position to detect and analyze your trips.";
 "dk_perm_utils_permissions_location_text1_android11"="The application must be allowed to access the phone\'s position to detect and analyze your trips.";
-"dk_perm_utils_permissions_location_text2_android11"="To do this, choose the \"Allow only while using the app\" option after pressing the button below.";
+"dk_perm_utils_permissions_location_text2_android11"="To do this, choose the \"While using the app\" option after pressing the button below.";
 "dk_perm_utils_permissions_location_text2_post_android10"="To do this, choose \"Allow all the time\" when the next popup is displayed.";
 "dk_perm_utils_permissions_location_text2_pre_android10"="To do this, choose \"Allow\" when the next popup is displayed.";
 "dk_perm_utils_permissions_location_text3_android11"="In order to enjoy the automatic recording of your trips, the application must access the phone location when it is running in the background.";
-"dk_perm_utils_permissions_location_text4_android11"="To do this, press the \"open settings\" button and select the %@ option in the phone settings.";
+"dk_perm_utils_permissions_location_text4_android11"="To do this, press the \"open the settings\" button and select the %@ option in the phone settings.";
 "dk_perm_utils_permissions_location_title"="Trip recording";
 "dk_perm_utils_permissions_phone_settings_activity_button"="Authorize activity monitoring";
 "dk_perm_utils_permissions_phone_settings_activity_text"="To improve the analysis of your trips and identify the mode of transport used, you must activate the option Motion & Fitness on your phone.";

@@ -45,6 +45,8 @@ extension DKVehicleCategory : VehiclePickerCollectionViewItem {
                 return "dk_vehicle_category_truck_trailer_3_axles"
             case .fourAxlesTractor:
                 return "dk_vehicle_category_truck_trailer_4_axles"
+            @unknown default:
+                return ""
         }
     }
 
@@ -67,6 +69,8 @@ extension DKVehicleCategory : VehiclePickerCollectionViewItem {
             case .sport:
                 return UIImage(named: "dk_icon_sport", in: .vehicleUIBundle, compatibleWith: nil)
             case .twoAxlesStraightTruck, .threeAxlesStraightTruck, .fourAxlesStraightTruck, .twoAxlesTractor, .threeAxlesTractor, .fourAxlesTractor:
+                return nil
+            @unknown default:
                 return nil
         }
     }
@@ -105,6 +109,8 @@ extension DKVehicleCategory : VehiclePickerTextDelegate {
                 return "dk_vehicle_category_car_sport_description".dkVehicleLocalized()
             case .twoAxlesStraightTruck, .threeAxlesStraightTruck, .fourAxlesStraightTruck, .twoAxlesTractor, .threeAxlesTractor, .fourAxlesTractor:
                 return ""
+            @unknown default:
+                return ""
         }
     }
 
@@ -127,6 +133,8 @@ extension DKVehicleCategory : VehiclePickerTextDelegate {
             case .sport:
                 return UIImage(named: "dk_image_sport", in: .vehicleUIBundle, compatibleWith: nil)
             case .twoAxlesStraightTruck, .threeAxlesStraightTruck, .fourAxlesStraightTruck, .twoAxlesTractor, .threeAxlesTractor, .fourAxlesTractor:
+                return nil
+            @unknown default:
                 return nil
         }
     }

@@ -8,12 +8,18 @@
 
 import UIKit
 
-open class DKUIViewController : UIViewController{
+open class DKUIViewController : UIViewController {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
         self.configureBackButton()
         self.view.backgroundColor = DKUIColors.backgroundView.color
+    }
+
+    open override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        DriveKitUI.shared.trackScreen(self)
     }
     
     open func configureBackButton(selector: Selector = #selector(onBack)) {
@@ -33,4 +39,5 @@ open class DKUIViewController : UIViewController{
             self.navigationController?.dismiss(animated: true, completion: nil)
         }
     }
+
 }

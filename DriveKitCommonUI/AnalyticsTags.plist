@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>dk_tag_trips_list</key>
+	<string>drivekit-trips-list</string>
+	<key>dk_tag_trips_detail</key>
+	<string>drivekit-trips-detail</string>
+	<key>dk_tag_trips_detail_advice_safety</key>
+	<string>drivekit-trips-detail-advice-safety</string>
+	<key>dk_tag_trips_detail_advice_efficiency</key>
+	<string>drivekit-trips-detail-advice-efficiency</string>
+	<key>dk_tag_badges</key>
+	<string>drivekit-badges</string>
+	<key>dk_tag_rankings</key>
+	<string>drivekit-rankings</string>
+	<key>dk_tag_streaks</key>
+	<string>drivekit-streaks</string>
+	<key>dk_tag_vehicles_list</key>
+	<string>drivekit-vehicles-list</string>
+	<key>dk_tag_vehicles_detail</key>
+	<string>drivekit-vehicles-detail</string>
+	<key>dk_tag_vehicles_add</key>
+	<string>drivekit-vehicles-add</string>
+	<key>dk_tag_vehicles_beacon_verify</key>
+	<string>drivekit-vehicles-beacon-verify</string>
+	<key>dk_tag_vehicles_beacon_add</key>
+	<string>drivekit-vehicles-beacon-add</string>
+	<key>dk_tag_vehicles_beacon_diagnosis</key>
+	<string>drivekit-vehicles-beacon-diagnosis</string>
+	<key>dk_tag_vehicles_beacon_info</key>
+	<string>drivekit-vehicles-beacon-info</string>
+	<key>dk_tag_vehicles_bluetooth_add</key>
+	<string>drivekit-vehicles-bluetooth-add</string>
+	<key>dk_tag_permissions_diagnosis</key>
+	<string>drivekit-permissions-diagnosis</string>
+	<key>dk_tag_permissions_onboarding</key>
+	<string>drivekit-permissions-onboarding</string>
+</dict>
+</plist>

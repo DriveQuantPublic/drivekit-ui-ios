@@ -73,3 +73,5 @@
 "dk_driverdata_weather_rain"="Rainy weather";
 "dk_driverdata_weather_snow"="Snowy weather";
 "dk_driverdata_weather_sun"="Clear weather";
+"dk_driverdata_default_filter_item"="All my trips";
+"dk_driverdata_no_trip_placeholder"="You haven\'t made any trips with this vehicle yet.";

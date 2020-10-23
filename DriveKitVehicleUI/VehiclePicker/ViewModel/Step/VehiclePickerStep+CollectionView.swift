@@ -20,6 +20,8 @@ extension VehiclePickerStep : VehiclePickerCollectionViewDelegate {
                             return category.isCar
                         case .truck:
                             return category.isTruck
+                        @unknown default:
+                            return false
                     }
                 }
                 var categories: [VehiclePickerCollectionViewItem] = []
@@ -38,6 +40,8 @@ extension VehiclePickerStep : VehiclePickerCollectionViewDelegate {
                             return brand.isCar
                         case .truck:
                             return brand.isTruck
+                        @unknown default:
+                            return false
                     }
                 }
                 var brands: [VehiclePickerCollectionViewItem] = []

@@ -96,7 +96,7 @@
 "dk_perm_utils_permissions_location_pre_ios13_ko"="È necessario consentire all\'app di accedere alla posizione del telefono affinché possa rilevare e scansionare i propri viaggi.\n\nNelle impostazioni del telefono sono disponibili tre opzioni:\n(1) Mai\n(2) Mentre usi l\'app\n(3) Sempre\n\nÈ essenziale selezionare sempre l\'opzione (3) altrimenti, l\'applicazione non funzionerà.";
 "dk_perm_utils_permissions_location_text1_android"="L\'applicazione deve poter accedere alla posizione del telefono per rilevare e analizzare i percorsi.";
 "dk_perm_utils_permissions_location_text1_android11"="L\'applicazione deve poter accedere alla posizione del telefono per rilevare e analizzare i percorsi.";
-"dk_perm_utils_permissions_location_text2_android11"="Per fare questo, scegliere l\'opzione \"Consenti solo mentre usi l\'app\" dopo aver premuto il pulsante qui sotto.";
+"dk_perm_utils_permissions_location_text2_android11"="Per fare questo, scegliere l\'opzione \"Mentre usi l\'app\" dopo aver premuto il pulsante qui sotto.";
 "dk_perm_utils_permissions_location_text2_post_android10"="Per fare questo, scegliere \"Consenti sempre\" quando viene visualizzato il popup successivo.";
 "dk_perm_utils_permissions_location_text2_pre_android10"="Per fare questo, scegliere \"Consenti\" quando viene visualizzata la prossima finestra popup.";
 "dk_perm_utils_permissions_location_text3_android11"="Per poter usufruire della registrazione automatica dei vostri viaggi, l\'applicazione deve accedere alla posizione del telefono quando è in funzione in background.";

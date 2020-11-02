@@ -50,13 +50,6 @@
             ReferencedContainer = "container:DriveKitApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "DriveKit-API-Key"
-            value = "qDcgo5W2I1p3u5STEhuQ1AJo"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

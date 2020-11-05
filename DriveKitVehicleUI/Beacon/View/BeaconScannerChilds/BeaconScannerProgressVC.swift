@@ -21,7 +21,7 @@ class BeaconScannerProgressVC: UIViewController {
     private var timer: Timer? = nil
     private var batteryTimer : Timer? = nil
     private let locationManager = CLLocationManager()
-    private var centralManager : CBCentralManager!
+    private let kontaktBeaconHelper = KontaktBeaconHelper()
     private var isBeaconFound = false
     
     init(viewModel: BeaconViewModel) {
@@ -42,8 +42,8 @@ class BeaconScannerProgressVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(refreshProgress), userInfo: nil, repeats: true)
-        self.centralManager = CBCentralManager(delegate: self, queue: DispatchQueue.main)
         startBeaconScan()
+        self.kontaktBeaconHelper.startBatteryLevelRetrieval(completion: self.onBatteryLevel)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -54,7 +54,7 @@ class BeaconScannerProgressVC: UIViewController {
     }
     
     private func stopMonitoringBatteryLevel() {
-        self.centralManager.stopScan()
+        self.kontaktBeaconHelper.stopBatteryLevelRetrieval()
     }
     
     @objc func refreshProgress() {
@@ -111,6 +111,16 @@ class BeaconScannerProgressVC: UIViewController {
             self.viewModel.clBeacon = clBeacon
             batteryTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(goToNextStep), userInfo: nil, repeats: false)
         }
+    }
+
+    private func onBatteryLevel(_ result: BeaconResult) {
+        switch result {
+            case let .success(_, batteryLevel):
+                self.viewModel.beaconBattery = batteryLevel
+            case .error:
+                break
+        }
+        self.kontaktBeaconHelper.stopBatteryLevelRetrieval()
     }
     
     @objc private func goToNextStep() {
@@ -173,56 +183,6 @@ extension BeaconScannerProgressVC : CLLocationManagerDelegate {
         if !isBeaconFound && !beacons.isEmpty{
             isBeaconFound = true
             self.beaconFound(clBeacon: beacons[0])
-        }
-    }
-}
-
-
-extension BeaconScannerProgressVC: CBCentralManagerDelegate {
-    func centralManagerDidUpdateState(_ central: CBCentralManager) {
-        if (central.state == .poweredOn){
-            centralManager.scanForPeripherals(withServices: nil, options: nil)
-        }
-    }
-    
-    func centralManager(_ central: CBCentralManager,
-                        didDiscover peripheral: CBPeripheral,
-                        advertisementData: [String : Any],
-                        rssi RSSI: NSNumber) {
-        
-        guard let serviceData = advertisementData[CBAdvertisementDataServiceDataKey] as? Dictionary<CBUUID, Data> else {
-            return
-        }
-        
-        // Kontakt.io Beacon data from old advertismentData
-        if let ktkOldData = serviceData[CBUUID(string:"D00D")] {
-            // parse identifier get byte 0 - 6
-            guard let _ = String(data: ktkOldData.subdata(in: Range(0...4)), encoding: String.Encoding.ascii) else {
-                return
-            }
-            
-            // parse battery level get byte 6
-            var power: UInt8 = 0
-            ktkOldData.copyBytes(to: &power, from: 6..<7)
-            
-            self.viewModel.beaconBattery = Int(power)
-            self.stopMonitoringBatteryLevel()
-        }
-        
-        // Kontakt.io Beacon data from new (pro beacons) advertismentData
-        if let ktkNewData = serviceData[CBUUID(string:"FE6A")] {
-            
-            // parse battery level get byte 4
-            var power: UInt8 = 0
-            ktkNewData.copyBytes(to: &power, from: 4..<5)
-            
-            // parse identifier get byte 6 - 9
-            guard let _ = String(data: ktkNewData.subdata(in: Range(6...9)), encoding: String.Encoding.ascii) else {
-                return
-            }
-            self.viewModel.beaconBattery = Int(power)
-            
-            self.stopMonitoringBatteryLevel()
         }
     }
 }

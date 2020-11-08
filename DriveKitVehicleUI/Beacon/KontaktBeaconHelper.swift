@@ -37,7 +37,9 @@ import CoreBluetooth
     }
 
     @objc public func stopBatteryLevelRetrieval() {
-        self.centralManager?.stopScan()
+        if let centralManager = self.centralManager, centralManager.state == .poweredOn {
+            centralManager.stopScan()
+        }
         self.completionBlock = nil
         self.objcCompletionBlock = nil
         self.scanning = false

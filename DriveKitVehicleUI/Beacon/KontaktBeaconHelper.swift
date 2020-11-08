@@ -9,14 +9,68 @@
 import Foundation
 import CoreLocation
 import CoreBluetooth
+import DriveKitDBVehicleAccessModule
 
 @objc public class KontaktBeaconHelper : NSObject {
+    public typealias BeaconFound = (_ beacon: CLBeacon) -> Void
     public typealias BatteryLevelResult = (_ result: BeaconResult) -> Void
     public typealias BatteryLevelCompletion = (_ beaconIdentifier: String?, _ batteryLevel: Int, _ error: Bool) -> Void
+    private var beacons: [DKBeacon]? = nil
+    private var locationManager: CLLocationManager? = nil
     private var centralManager: CBCentralManager? = nil
-    private var scanning = false
+    private var scanningBattery = false
+    private var onBeaconFoundBlock: BeaconFound? = nil
     private var completionBlock: BatteryLevelResult? = nil
     private var objcCompletionBlock: BatteryLevelCompletion? = nil
+
+    @objc public func startBeaconScan(beacons: [DKBeacon], onBeaconFound: @escaping BeaconFound) {
+        if self.beacons == nil {
+            self.beacons = beacons
+            self.onBeaconFoundBlock = onBeaconFound
+            if self.locationManager == nil {
+                self.createLocationManager()
+            }
+            if let locationManager = self.locationManager {
+                for beacon in beacons {
+                    if #available(iOS 13.0, *) {
+                        locationManager.startRangingBeacons(satisfying: beacon.toCLBeaconIdentityConstraint(noMajorMinor: true))
+                    } else {
+                        locationManager.startRangingBeacons(in: beacon.toCLBeaconRegion(noMajorMinor: true))
+                    }
+                }
+            }
+        }
+    }
+
+    private func createLocationManager() {
+        if Thread.isMainThread {
+            self.unsafeCreateLocationManager()
+        } else {
+            DispatchQueue.main.sync {
+                self.unsafeCreateLocationManager()
+            }
+        }
+    }
+    private func unsafeCreateLocationManager() {
+        if self.locationManager == nil {
+            let locationManager = CLLocationManager()
+            locationManager.delegate = self
+            self.locationManager = locationManager
+        }
+    }
+
+    @objc public func stopBeaconScan() {
+        if let beacons = self.beacons, let locationManager = self.locationManager {
+            for beacon in beacons {
+                if #available(iOS 13.0, *) {
+                    locationManager.stopRangingBeacons(satisfying: beacon.toCLBeaconIdentityConstraint(noMajorMinor: true))
+                } else {
+                    locationManager.stopRangingBeacons(in: beacon.toCLBeaconRegion(noMajorMinor: true))
+                }
+            }
+        }
+        self.onBeaconFoundBlock = nil
+    }
 
     public func startBatteryLevelRetrieval(completion: @escaping BatteryLevelResult) {
         self.completionBlock = completion
@@ -30,7 +84,7 @@ import CoreBluetooth
 
     private func internalStartBatteryLevelRetrieval() {
         if self.centralManager != nil {
-            startScan()
+            startBatteryScan()
         } else {
             self.centralManager = CBCentralManager(delegate: self, queue: DispatchQueue.main)
         }
@@ -42,24 +96,47 @@ import CoreBluetooth
         }
         self.completionBlock = nil
         self.objcCompletionBlock = nil
-        self.scanning = false
+        self.scanningBattery = false
     }
 
-    private func startScan() {
+    private func startBatteryScan() {
         if let centralManager = self.centralManager {
-            if !self.scanning && centralManager.state == .poweredOn {
-                self.scanning = true
+            if !self.scanningBattery && centralManager.state == .poweredOn {
+                self.scanningBattery = true
                 centralManager.scanForPeripherals(withServices: nil, options: nil)
             }
         }
     }
 }
 
+
+extension KontaktBeaconHelper : CLLocationManagerDelegate {
+    @available(iOS 13.0, *)
+    public func locationManager(_ manager: CLLocationManager, didRange beacons: [CLBeacon], satisfying beaconConstraint: CLBeaconIdentityConstraint) {
+        onBeaconsFound(beacons)
+    }
+
+    public func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
+        onBeaconsFound(beacons)
+    }
+
+    private func onBeaconsFound(_ beacons: [CLBeacon]) {
+        if let onBeaconFoundBlock = self.onBeaconFoundBlock {
+            for beacon in beacons {
+                onBeaconFoundBlock(beacon)
+            }
+        } else {
+            stopBeaconScan()
+        }
+    }
+}
+
+
 extension KontaktBeaconHelper : CBCentralManagerDelegate {
     public func centralManagerDidUpdateState(_ centralManager: CBCentralManager) {
         switch centralManager.state {
             case .poweredOn:
-                startScan()
+                startBatteryScan()
             case .poweredOff, .unauthorized, .unsupported:
                 if let completionBlock = self.completionBlock {
                     completionBlock(.error)

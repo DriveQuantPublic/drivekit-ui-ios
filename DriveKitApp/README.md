@@ -7,4 +7,4 @@ The **DriveKit** is a flexible software suite for creating mobile applications t
 
 ## Why use the demo application?
 
-The demo application includes all the **DriveKit** components. It has been developed to guide the mobile developer to understand how DriveQuant's telematics solution works.
+The demo application includes all the **DriveKit** components. It has been developed to guide mobile developers to understand how DriveQuant's telematics solution works.

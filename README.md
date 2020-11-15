@@ -23,3 +23,33 @@ This is why you need to use the application before you start coding:
 * To get the code as an example for integrating the **DriveKit SDK** into your application.
 * To test the open-source graphic components in order to choose the ones you wish to integrate in your application.
 * To validate that the behaviour of the **DriveKit SDK** in your application is perfectly similar to that of the demo application.
+
+# How to use the demo application?
+
+You can follow the steps below to install, run and experiment the DriveKit sample app.
+
+### Install and run the demo app
+
+* The DriveKit SDK can only be used if you have a valid **DriveKit API Key**. To get an **DriveKit API key**, contact us at: <contact@drivequant.com>.
+* In `configureDriveKit` of the `AppDelegate.swift`, set your **DriveKit API Key**.
+* Build and run the sample app on your phone.
+
+### Configure the demo app
+
+* Click on the **gear icon** to open the app settings.
+* In the app settings, set a unique user identifier. The **User id** can be an email or any strings.
+* Make sure that the **Auto start** is enabled.
+* Grant the required permissions to allow the application to access the smartphone's sensors.
+* Click on **Vehicle picker** to add a vehicle to your account.
+
+![iOS Sample App Screenshots](https://github.com/DriveQuantPublic/drivekit-ui-android/blob/master/Android%20Sample%20App.png)
+
+
+### Test the sample app
+
+The application is now configured and ready to run! 
+
+The best way to become familiar with smartphone telematics is to try the app in real conditions when travelling by car or public transport.
+
+Alternatively, you can perform some tests in the office using the trip simulator which allows you to reproduce pre-recorded data from real trips.
+

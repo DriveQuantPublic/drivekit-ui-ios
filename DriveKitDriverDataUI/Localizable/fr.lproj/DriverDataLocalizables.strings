@@ -12,6 +12,7 @@
 "dk_driverdata_bad_maintain"="Vitesse très irrégulière";
 "dk_driverdata_confirm_delete_trip"="Supprimer le trajet ?";
 "dk_driverdata_day"="Temps de jour";
+"dk_driverdata_default_filter_item"="Tous mes trajets";
 "dk_driverdata_end_event"="Fin du trajet";
 "dk_driverdata_failed_to_delete_trip"="Le trajet n\'a pas pu être supprimé, réessayer ultérieurement.";
 "dk_driverdata_failed_to_sync_trips"="Impossible de synchroniser les trajets, veuillez réessayer plus tard.";
@@ -24,7 +25,8 @@
 "dk_driverdata_low_accel"="Accélération trop faible";
 "dk_driverdata_low_decel"="Freinage trop faible";
 "dk_driverdata_night"="Trajet de nuit";
-"dk_driverdata_no_trips_recorded"="Aucun trajet enregistré";
+"dk_driverdata_no_trip_placeholder"="Vous n\'avez pas encore réalisé de trajets avec ce véhicule.";
+"dk_driverdata_no_trips_recorded"="Vous n\'avez pas encore réalisé de trajet.";
 "dk_driverdata_safety_accel"="Accélérations fortes";
 "dk_driverdata_safety_adherence"="Limites d\'adhérence";
 "dk_driverdata_safety_decel"="Freinages forts";
@@ -73,5 +75,3 @@
 "dk_driverdata_weather_rain"="Temps pluvieux";
 "dk_driverdata_weather_snow"="Temps neigeux";
 "dk_driverdata_weather_sun"="Temps clair";
-"dk_driverdata_default_filter_item"="Tous mes trajets";
-"dk_driverdata_no_trip_placeholder"="Vous n\'avez pas encore réalisé de trajets avec ce véhicule.";

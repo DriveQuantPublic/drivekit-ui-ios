@@ -8,6 +8,7 @@
 
 import UIKit
 import DriveKitCoreModule
+import DriveKitDriverDataModule
 import DriveKitTripAnalysisModule
 
 class SettingsViewController: UITableViewController {
@@ -87,10 +88,22 @@ class SettingsViewController: UITableViewController {
     }
     
     func setUserId(userId: String) {
+        if userId != SettingsBundleKeys.getUserId() {
+            reconfigureDriveKit(userId: userId)
+            userIdLabel.text = "\("user_id_title".keyLocalized()): \(SettingsBundleKeys.getUserId() ?? "")"
+            self.tableView.reloadData()
+        }
+    }
+
+    private func reconfigureDriveKit(userId: String) {
+        let apiKey = DriveKit.shared.config.getApiKey()
+        DriveKit.shared.reset()
+        DriveKitDriverData.shared.reset()
+        if let apiKey = apiKey {
+            DriveKit.shared.setApiKey(key: apiKey)
+        }
         SettingsBundleKeys.setUserId(userId: userId)
         DriveKit.shared.registerUser(userId: userId)
-        userIdLabel.text = "\("user_id_title".keyLocalized()) : \(SettingsBundleKeys.getUserId() ?? "")"
-        self.tableView.reloadData()
     }
 
     

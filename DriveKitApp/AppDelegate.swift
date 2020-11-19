@@ -34,13 +34,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             for opti in opt {
                 options = "\(options) \(opti.key.rawValue)"
             }
-        }else{
+        } else {
             options = "none"
         }
         requestNotificationPermission()
         configureDriveKit(launchOptions: launchOptions)
         DriveKitUI.shared.initialize(colors: DefaultColors(), fonts: DefaultFonts(), overridedStringsFileName: "Localizable")
         DriveKitDriverAchievementUI.shared.initialize()
+        DriveKitDriverAchievementUI.shared.configureRankingTypes([.safety, .ecoDriving, .distraction, .speeding])
         DriveKitDriverDataUI.shared.initialize()
         DriveKitVehicleUI.shared.initialize()
         DriveKitVehicleUI.shared.configureBeaconDetailEmail(beaconDiagnosticEmail: self)

@@ -240,9 +240,8 @@ class RankingViewModel {
         } else {
             var filteredRankingTypes = [DKRankingType]()
             var rankingTypesSet: Set<DKRankingType> = []
-            let managedRankingTypes: Set<DKRankingType> = Set(DKRankingType.allCases)
             for rankingType in rankingTypes {
-                if !rankingTypesSet.contains(rankingType) && managedRankingTypes.contains(rankingType) {
+                if !rankingTypesSet.contains(rankingType) && rankingType.hasAccess() {
                     filteredRankingTypes.append(rankingType)
                     rankingTypesSet.insert(rankingType)
                 }
@@ -277,6 +276,23 @@ class RankingViewModel {
         }
     }
 
+}
+
+
+extension DKRankingType {
+    func hasAccess() -> Bool {
+        let driveKitAccess = DriveKitAccess.shared
+        switch self {
+            case .distraction:
+                return driveKitAccess.hasAccess(.phoneDistraction)
+            case .ecoDriving:
+                return driveKitAccess.hasAccess(.ecoDriving)
+            case .safety:
+                return driveKitAccess.hasAccess(.safety)
+            case .speeding:
+                return driveKitAccess.hasAccess(.speeding)
+        }
+    }
 }
 
 

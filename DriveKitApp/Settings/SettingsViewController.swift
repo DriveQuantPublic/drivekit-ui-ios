@@ -8,8 +8,10 @@
 
 import UIKit
 import DriveKitCoreModule
+import DriveKitDriverAchievementModule
 import DriveKitDriverDataModule
 import DriveKitTripAnalysisModule
+import DriveKitVehicleModule
 
 class SettingsViewController: UITableViewController {
 
@@ -98,7 +100,10 @@ class SettingsViewController: UITableViewController {
     private func reconfigureDriveKit(userId: String) {
         let apiKey = DriveKit.shared.config.getApiKey()
         DriveKit.shared.reset()
+        DriveKitTripAnalysis.shared.reset()
         DriveKitDriverData.shared.reset()
+        DriveKitVehicle.shared.reset()
+        DriveKitDriverAchievement.shared.reset()
         if let apiKey = apiKey {
             DriveKit.shared.setApiKey(key: apiKey)
         }

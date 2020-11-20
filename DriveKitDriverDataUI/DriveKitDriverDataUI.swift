@@ -12,7 +12,7 @@ import DriveKitCommonUI
 public class DriveKitDriverDataUI {
     
     var tripData: TripData = .safety
-    var headerDay: HeaderDay = .distanceDuration
+    var headerDay: HeaderDay = .durationDistance
     var dayTripDescendingOrder: Bool = false
     var mapItems : [MapItem] = [.safety, .ecoDriving, .distraction, .interactiveMap, .synthesis]
     var enableDeleteTrip = true

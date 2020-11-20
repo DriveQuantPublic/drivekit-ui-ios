@@ -1684,15 +1684,15 @@
 		A34238572361A2430001E15D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3F38C26023696EE0002E873A /* AdviceCountView.swift */,
+				3F38C278236AE210002E873A /* AdviceButton.swift */,
 				3F38C25F23696EE0002E873A /* AdviceCountView.xib */,
+				3F38C26023696EE0002E873A /* AdviceCountView.swift */,
 				A34238582361A2430001E15D /* NoScoreImageView.xib */,
 				A342385A2361A2430001E15D /* NoScoreImageView.swift */,
 				A342385B2361A2430001E15D /* TripTableViewCell.xib */,
-				A342385C2361A2430001E15D /* HeaderDayView.swift */,
 				A342385D2361A2430001E15D /* TripTableViewCell.swift */,
 				A342385E2361A2430001E15D /* HeaderDayView.xib */,
-				3F38C278236AE210002E873A /* AdviceButton.swift */,
+				A342385C2361A2430001E15D /* HeaderDayView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

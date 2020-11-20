@@ -10,16 +10,18 @@ import Foundation
 import DriveKitDBTripAccessModule
 
 public enum HeaderDay {
-    case distance, duration, distanceDuration
-    
+    case distance, duration, distanceDuration, durationDistance
+
     func text(trips: [Trip]) -> String {
         switch self {
-        case .distance:
-            return trips.totalDistance.formatMeterDistanceInKm()
-        case .duration:
-            return trips.totalDuration.formatSecondDuration()
-        case .distanceDuration:
-            return  trips.totalDistance.formatMeterDistanceInKm() + " | " +  trips.totalDuration.formatSecondDuration()
+            case .distance:
+                return trips.totalDistance.formatMeterDistanceInKm()
+            case .duration:
+                return trips.totalDuration.formatSecondDuration()
+            case .distanceDuration:
+                return  trips.totalDistance.formatMeterDistanceInKm() + " | " +  trips.totalDuration.formatSecondDuration()
+            case .durationDistance:
+                return trips.totalDuration.formatSecondDuration() + " | " + trips.totalDistance.formatMeterDistanceInKm()
         }
     }
 }

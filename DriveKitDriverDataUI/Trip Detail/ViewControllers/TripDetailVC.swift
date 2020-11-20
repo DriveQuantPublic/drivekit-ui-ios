@@ -123,9 +123,9 @@ extension TripDetailVC {
         self.mapViewController.traceRoute(mapItem: self.viewModel.displayMapItem)
     }
     
-    func setupHeadeContainer(){
+    func setupHeadeContainer() {
         let header = HeaderDayView.viewFromNib
-        let headerDay: HeaderDay = .distanceDuration
+        let headerDay: HeaderDay = .durationDistance
         header.setupAsHeader(leftText: self.viewModel.trip!.tripEndDate.format(pattern: .weekLetter),
                              rightText: headerDay.text(trips: [self.viewModel.trip!]),
                              isRounded: false)

@@ -1585,9 +1585,9 @@
 				3F38C2672369BD5F002E873A /* TripTipViewController.swift */,
 				3F38C2682369BD60002E873A /* TripTipViewController.xib */,
 				A34238232361A2430001E15D /* MapViewController.swift */,
+				A34238262361A2430001E15D /* MapViewController.xib */,
 				A34238242361A2430001E15D /* TripDetailVC.swift */,
 				A34238252361A2430001E15D /* TripDetailVC.xib */,
-				A34238262361A2430001E15D /* MapViewController.xib */,
 				A34238272361A2430001E15D /* Pages */,
 			);
 			path = ViewControllers;
@@ -1600,14 +1600,14 @@
 				A30F4F1723D5DA14009A37C2 /* SynthesisPageVC.xib */,
 				A34238282361A2430001E15D /* DistractionPageVC.swift */,
 				A34238292361A2430001E15D /* DistractionPageVC.xib */,
-				A342382A2361A2430001E15D /* ShortTripPageVC.xib */,
 				A342382B2361A2430001E15D /* ShortTripPageVC.swift */,
+				A342382A2361A2430001E15D /* ShortTripPageVC.xib */,
 				A342382C2361A2430001E15D /* HistoryPageVC.swift */,
+				A34238312361A2430001E15D /* HistoryPageVC.xib */,
+				A342382F2361A2430001E15D /* EcoDrivingPageVC.swift */,
 				A342382D2361A2430001E15D /* EcoDrivingPageVC.xib */,
 				A342382E2361A2430001E15D /* SafetyPageVC.swift */,
-				A342382F2361A2430001E15D /* EcoDrivingPageVC.swift */,
 				A34238302361A2430001E15D /* SafetyPageVC.xib */,
-				A34238312361A2430001E15D /* HistoryPageVC.xib */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -1628,14 +1628,14 @@
 		A34238362361A2430001E15D /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				A342383D2361A2430001E15D /* EcoDrivingPageView.xib */,
 				A34238372361A2430001E15D /* EcoDrivingPageView.swift */,
 				A34238382361A2430001E15D /* HistoryPageView.xib */,
 				A34238392361A2430001E15D /* HistoryPageView.swift */,
 				A342383A2361A2430001E15D /* DistractionPageView.xib */,
-				A342383B2361A2430001E15D /* SafetyPageView.swift */,
 				A342383C2361A2430001E15D /* DistractionPageView.swift */,
-				A342383D2361A2430001E15D /* EcoDrivingPageView.xib */,
 				A342383E2361A2430001E15D /* SafetyPageView.xib */,
+				A342383B2361A2430001E15D /* SafetyPageView.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";

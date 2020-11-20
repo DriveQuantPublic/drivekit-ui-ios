@@ -351,9 +351,9 @@ extension MapViewController: MKMapViewDelegate {
         
         view.canShowCallout = true
         
-       if annotation.isEqual(startAnnotation) {
+        if annotation.isEqual(startAnnotation) {
             let startImage = UIImage(named: "dk_map_start_event", in: Bundle.driverDataUIBundle, compatibleWith: nil)
-            view.image = startImage?.resizeImage(32, opaque: false, contentMode: .scaleAspectFit)
+            view.image = startImage?.resizeImage(32, opaque: false, contentMode: .scaleAspectFit).tintedImage(withColor: DKUIColors.primaryColor.color)
             view.resistantLayer.resistantZPosition = 1000
             let tripViewModel = viewModel
             if let start = tripViewModel.startEvent {
@@ -371,8 +371,7 @@ extension MapViewController: MKMapViewDelegate {
         }
         else if annotation.isEqual(endAnnotation) {
             let endImage = UIImage(named: "dk_map_end_event", in: Bundle.driverDataUIBundle, compatibleWith: nil)
-            
-            view.image = endImage?.resizeImage(32, opaque: false, contentMode: .scaleAspectFit)
+            view.image = endImage?.resizeImage(32, opaque: false, contentMode: .scaleAspectFit).tintedImage(withColor: DKUIColors.primaryColor.color)
             view.resistantLayer.resistantZPosition = 1000
             let tripViewModel = viewModel
             if let end = tripViewModel.endEvent {

@@ -354,6 +354,7 @@ extension MapViewController: MKMapViewDelegate {
         if annotation.isEqual(startAnnotation) {
             let startImage = UIImage(named: "dk_map_start_event", in: Bundle.driverDataUIBundle, compatibleWith: nil)
             view.image = startImage?.resizeImage(32, opaque: false, contentMode: .scaleAspectFit).tintedImage(withColor: DKUIColors.primaryColor.color)
+            view.centerOffset = CGPoint(x: 0, y: 0)
             view.resistantLayer.resistantZPosition = 1000
             let tripViewModel = viewModel
             if let start = tripViewModel.startEvent {
@@ -372,6 +373,7 @@ extension MapViewController: MKMapViewDelegate {
         else if annotation.isEqual(endAnnotation) {
             let endImage = UIImage(named: "dk_map_end_event", in: Bundle.driverDataUIBundle, compatibleWith: nil)
             view.image = endImage?.resizeImage(32, opaque: false, contentMode: .scaleAspectFit).tintedImage(withColor: DKUIColors.primaryColor.color)
+            view.centerOffset = CGPoint(x: 0, y: 0)
             view.resistantLayer.resistantZPosition = 1000
             let tripViewModel = viewModel
             if let end = tripViewModel.endEvent {
@@ -419,15 +421,24 @@ extension MapViewController: MKMapViewDelegate {
                     }
                 }
             } else {
-                if let events = allAnnotations as NSArray?{
+                if let events = allAnnotations as NSArray? {
                     let indexForEvent = events.index(of: annotation)
                     if indexForEvent != NSNotFound {
                         let event = viewModel.events[indexForEvent]
                         let image = event.getMapImageID()
                         view.image = UIImage(named: image, in: Bundle.driverDataUIBundle, compatibleWith: nil)
-                        view.image = annotationView?.image?.resizeImage(36, opaque: false, contentMode: .scaleAspectFit)
-                        view.centerOffset = CGPoint(x: 0, y: -(annotationView?.image?.size.height)! / 2)
-                        view.resistantLayer.resistantZPosition = CGFloat(event.getZIndex())
+                        view.image = annotationView?.image
+                        if let sourceImage = view.image {
+                            if image == "dk_map_start_event" || image == "dk_map_end_event" {
+                                view.image = sourceImage.resizeImage(32, opaque: false, contentMode: .scaleAspectFit).tintedImage(withColor: DKUIColors.primaryColor.color)
+                                view.centerOffset = CGPoint(x: 0, y: 0)
+                                view.resistantLayer.resistantZPosition = 1000
+                            } else {
+                                view.image = sourceImage.resizeImage(36, opaque: false, contentMode: .scaleAspectFit)
+                                view.centerOffset = CGPoint(x: 0, y: -(annotationView?.image?.size.height)! / 2)
+                                view.resistantLayer.resistantZPosition = CGFloat(event.getZIndex())
+                            }
+                        }
                         view.setupAsTripEventCallout(with: event, location: "")
                         if let infoView = view.rightCalloutAccessoryView as! UIButton?, event.type != .start && event.type != .end {
                             infoView.tag = indexForEvent
@@ -441,7 +452,7 @@ extension MapViewController: MKMapViewDelegate {
         view.annotation = annotation
         return view
     }
-    
+
     @objc private func safetyInfoClicked(_ sender: UIButton) {
         let safetyEvent = viewModel.safetyEvents[sender.tag]
         let alert = UIAlertController(title: safetyEvent.getTitle(), message: safetyEvent.getExplanation(), preferredStyle: .alert)

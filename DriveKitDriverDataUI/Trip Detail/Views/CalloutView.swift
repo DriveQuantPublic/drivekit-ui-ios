@@ -21,7 +21,7 @@ final class CalloutView: UIView, Nibable {
     
     func configure(viewModel: TripEventCalloutViewModel) {
         timeLabel.attributedText = viewModel.time.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
-        titleLabel.attributedText = viewModel.title.dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 16, traits: .traitBold)).color(.primaryColor).build()
+        titleLabel.attributedText = viewModel.title.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()
         subtitleLabel.attributedText = viewModel.subtitle
     }
 }

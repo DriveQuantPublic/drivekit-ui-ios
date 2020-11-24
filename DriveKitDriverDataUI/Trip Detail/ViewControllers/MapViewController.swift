@@ -319,18 +319,19 @@ extension MapViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        
         guard let selection = view.annotation else {
             return
         }
-        
-        if let allEvents = allAnnotations as NSArray?{
-            let indexForEvent = allEvents.index(of: selection)
-            if indexForEvent != NSNotFound {
-                self.viewModel.setSelectedEvent(position: indexForEvent)
-                self.zoom(to: viewModel.events[indexForEvent].position)
+
+        if let currentItem = self.viewModel.displayMapItem, currentItem == .interactiveMap {
+            if let allEvents = allAnnotations as NSArray? {
+                let indexForEvent = allEvents.index(of: selection)
+                if indexForEvent != NSNotFound {
+                    self.viewModel.setSelectedEvent(position: indexForEvent)
+                }
             }
         }
+        self.zoom(to: selection.coordinate)
 
         (view as! ResistantAnnotationView).resistantLayer.resistantZPosition = 1001
     }

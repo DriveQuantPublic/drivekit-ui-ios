@@ -16,13 +16,13 @@ class TripTipFeedbackVC: UITableViewController {
     @IBOutlet var commentTextView: UITextView!
     @IBOutlet var sendButton: UIButton!
     @IBOutlet var cancelButton: UIButton!
-    
+
     @IBOutlet var feedbackLabel1: UILabel!
     @IBOutlet var feedbackLabel2: UILabel!
     @IBOutlet var feedbackLabel3: UILabel!
     @IBOutlet var feedbackLabel4: UILabel!
     @IBOutlet var feedbackLabel5: UILabel!
-    
+
     var viewModel: TripTipFeedbackViewModel!
     var tripDetailVC: TripDetailVC? = nil
     
@@ -120,11 +120,11 @@ fileprivate extension TripTipFeedbackVC {
     }
     
     func configureFeedbacks() {
-        self.feedbackLabel1.attributedText = viewModel.choices[0].dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
-        self.feedbackLabel2.attributedText = viewModel.choices[1].dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
-        self.feedbackLabel3.attributedText = viewModel.choices[2].dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
-        self.feedbackLabel4.attributedText = viewModel.choices[3].dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
-        self.feedbackLabel5.attributedText = viewModel.choices[4].dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
+        self.feedbackLabel1.attributedText = viewModel.choices[0].dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        self.feedbackLabel2.attributedText = viewModel.choices[1].dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        self.feedbackLabel3.attributedText = viewModel.choices[2].dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        self.feedbackLabel4.attributedText = viewModel.choices[3].dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        self.feedbackLabel5.attributedText = viewModel.choices[4].dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
     }
     
     func configureComment() {

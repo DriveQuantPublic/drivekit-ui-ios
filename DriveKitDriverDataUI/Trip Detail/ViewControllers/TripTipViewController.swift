@@ -101,7 +101,7 @@ class TripTipViewController: DKUIViewController {
     func configureYesButton() {
         yesImage.image = UIImage(named: "dk_advice_agree", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         yesImage.tintColor = DKUIColors.primaryColor.color
-        yesLabel.attributedText = "dk_driverdata_advice_agree".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.primaryColor).build()
+        yesLabel.attributedText = "dk_driverdata_advice_agree".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .bigtext).uppercased().color(.primaryColor).build()
         
         yesButtonView.isUserInteractionEnabled = true
         let yesButtonGesture = UITapGestureRecognizer(target: self, action: #selector(tapOnYesButton(_:)))
@@ -132,7 +132,7 @@ class TripTipViewController: DKUIViewController {
     func configureNoButton() {
         noImage.image = UIImage(named: "dk_advice_disagree", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         noImage.tintColor = DKUIColors.primaryColor.color
-        noLabel.attributedText = "dk_driverdata_advice_disagree".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.primaryColor).build()
+        noLabel.attributedText = "dk_driverdata_advice_disagree".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .bigtext).uppercased().color(.primaryColor).build()
                 
         noButtonView.isUserInteractionEnabled = true
         let noButtonGesture = UITapGestureRecognizer(target: self, action: #selector(tapOnNoButton(_:)))

@@ -25,7 +25,7 @@ final class HistoryPageView : UITableViewCell, Nibable {
     }
     
     func configure(event: TripEvent) {
-        historyTimeLabel.attributedText = event.date.format(pattern: .hourMinute).dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
+        historyTimeLabel.attributedText = event.date.format(pattern: .hourMinuteLetter).dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
         
         topLine.isHidden = false
         bottomLine.isHidden = false

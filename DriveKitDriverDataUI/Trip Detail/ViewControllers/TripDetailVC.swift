@@ -126,7 +126,7 @@ extension TripDetailVC {
     func setupHeadeContainer() {
         let header = HeaderDayView.viewFromNib
         let headerDay: HeaderDay = .durationDistance
-        header.setupAsHeader(leftText: self.viewModel.trip!.tripEndDate.format(pattern: .weekLetter),
+        header.setupAsHeader(leftText: self.viewModel.trip!.tripEndDate.format(pattern: .weekLetter).capitalizeFirstLetter(),
                              rightText: headerDay.text(trips: [self.viewModel.trip!]),
                              isRounded: false)
         header.frame = CGRect(x: 0, y: 0, width: headerContainer.frame.width, height: headerContainer.frame.height)
@@ -263,10 +263,10 @@ extension TripDetailVC {
             tipButton.layer.cornerRadius = tipButton.bounds.size.width / 2
             tipButton.layer.masksToBounds = true
             tipButton.backgroundColor = DKUIColors.secondaryColor.color
-            let image = UIImage(named: advice.getTripInfo()?.imageID() ?? "", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.resizeImage(32, opaque: false).withRenderingMode(.alwaysTemplate)
+            let image = UIImage(named: advice.getTripInfo()?.imageID() ?? "", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
             tipButton.setImage(image, for: .normal)
             tipButton.tintColor = .white
-            tipButton.imageEdgeInsets = UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
+            tipButton.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
             tipButton.isHidden = false
             self.mapContainer.bringSubviewToFront(tipButton)
             if showAdvice {
@@ -378,23 +378,13 @@ extension TripDetailVC: UIPageViewControllerDelegate {
 
 extension TripDetailVC :  UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let viewControllerIndex = swipableViewControllers.firstIndex(of: viewController) else {
+        guard let viewControllerIndex = swipableViewControllers.firstIndex(of: viewController), viewControllerIndex > 0 else {
             return nil
         }
-        
         let previousIndex = viewControllerIndex - 1
-        
-        
-        guard previousIndex >= 0 else {
-            return swipableViewControllers.last
-        }
-        
-        guard swipableViewControllers.count > previousIndex else {
-            return nil
-        }
         return swipableViewControllers[previousIndex]
     }
-    
+
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = swipableViewControllers.firstIndex(of: viewController) else {
             return nil

@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.resource = ['DriveKitDriverAchievementUI/Localizable/*', 'DriveKitDriverAchievementUI/**/*.xib', 'DriveKitDriverAchievementUI/DriverAchievement.xcassets']
 
   s.dependency 'DriveKitCommonUI', s.version.to_s
-  s.dependency 'DriveKitDriverAchievement', '1.8-beta3'
+  s.dependency 'DriveKitDriverAchievement'
 
   s.info_plist = {
     'CFBundleIdentifier' => 'com.drivequant.drivekit-driver-achievement-ui'

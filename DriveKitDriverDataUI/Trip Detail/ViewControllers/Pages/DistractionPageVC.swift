@@ -40,7 +40,7 @@ class DistractionPageVC: UIViewController {
         score.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         score.center = circularRingContainer.center
         circularRingContainer.embedSubview(score)
-        circularRingTitle.attributedText = viewModel.scoreType.stringValue().dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.mainFontColor).build()
+        circularRingTitle.attributedText = viewModel.scoreType.stringValue().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         setupEventContainer()
     }
     
@@ -49,15 +49,14 @@ class DistractionPageVC: UIViewController {
         let nbUnlockView = DistractionPageView.viewFromNib
         nbUnlockView.configure(title: "dk_driverdata_unlock_number".dkDriverDataLocalized(), count: self.getNumberUnlocks())
         eventContainer.addArrangedSubview(nbUnlockView)
-        
+
         let unlockDurationView = DistractionPageView.viewFromNib
         unlockDurationView.configure(title: "dk_driverdata_unlock_duration".dkDriverDataLocalized(), count: self.getScreenUnlockDuration())
         eventContainer.addArrangedSubview(unlockDurationView)
-        
+
         let unlockDistanceView = DistractionPageView.viewFromNib
         unlockDistanceView.configure(title: "dk_driverdata_unlock_distance".dkDriverDataLocalized(), count: self.getScreenUnlockDistance())
         eventContainer.addArrangedSubview(unlockDistanceView)
-        
     }
     
     func getNumberUnlocks() -> NSAttributedString {

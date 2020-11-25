@@ -39,6 +39,8 @@ class SynthesisPageVC: UIViewController {
     
     @IBOutlet var contextTitle: UILabel!
     @IBOutlet var contextValue: UILabel!
+
+    @IBOutlet private var separators: [UIView]!
     
     private weak var parentView : UIViewController?
     
@@ -86,6 +88,11 @@ class SynthesisPageVC: UIViewController {
 
         contextTitle.attributedText = "dk_driverdata_synthesis_road_context".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
         contextValue.attributedText = viewModel.contextValue.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.primaryColor).build()
+
+        let separatorColor = DKUIColors.neutralColor.color
+        for separator in self.separators {
+            separator.backgroundColor = separatorColor
+        }
     }
     
     private func configureVehicleName() {

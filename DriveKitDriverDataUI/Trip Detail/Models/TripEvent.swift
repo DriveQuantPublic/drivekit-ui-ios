@@ -55,7 +55,7 @@ enum EventType {
 }
 
 
-class TripEvent {
+public class TripEvent {
     var type: EventType
     var date : Date
     var position: CLLocationCoordinate2D

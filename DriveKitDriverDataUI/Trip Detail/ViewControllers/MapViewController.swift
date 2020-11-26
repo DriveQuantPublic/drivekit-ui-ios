@@ -53,7 +53,7 @@ class MapViewController: DKUIViewController {
         super.viewWillAppear(animated)
     }
     
-    func traceRoute(mapItem: MapItem?) {
+    func traceRoute(mapItem: DKMapItem?) {
         adviceButton.isHidden = true
         if let route = viewModel.route {
             DispatchQueue.main.async {
@@ -64,8 +64,7 @@ class MapViewController: DKUIViewController {
                         self.mapView.addOverlay(self.polyLine!, level: MKOverlayLevel.aboveRoads)
                     }
                 }
-                
-                if (mapItem == .distraction || (self.viewModel.configurableMapItems.contains(.distraction) && mapItem == .interactiveMap)){
+                if let mapItem = mapItem, mapItem.shouldShowDistractionArea() && self.viewModel.configurableMapItems.firstIndex(of: MapItem.distraction) != nil {
                     self.computeDistractionPolylines {
                         self.drawDistraction(route: route)
                     }
@@ -109,7 +108,7 @@ class MapViewController: DKUIViewController {
     private func computeDistractionPolylines(completion: @escaping () -> Void){
         DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
             if let route = self.viewModel.route {
-                if self.viewModel.configurableMapItems.contains(.distraction) && self.distractionPolyLines == nil{
+                if self.viewModel.configurableMapItems.firstIndex(of: MapItem.distraction) != nil && self.distractionPolyLines == nil{
                     self.distractionPolyLines = []
                     for distractionPolylinePart in self.getDistractionPolyline(route: route) {
                         let distractionPolyLine = MKPolyline.init(coordinates: distractionPolylinePart, count: distractionPolylinePart.count)
@@ -144,26 +143,21 @@ class MapViewController: DKUIViewController {
         }
     }
     
-    private func drawMarker(mapItem: MapItem?, route: Route){
+    private func drawMarker(mapItem: DKMapItem?, route: Route){
         if let mapItem = mapItem {
-            switch mapItem {
-            case .ecoDriving:
-                cleanAllMarkers()
-                cleanSafetyDistractionMarkers()
-                break
-            case .safety:
-                cleanAllMarkers()
-                drawSafetyMarker()
-            case .distraction:
-                cleanAllMarkers()
-                drawDistractionMarker()
-            case .interactiveMap:
+            cleanAllMarkers()
+            cleanSafetyDistractionMarkers()
+            if mapItem.displayedMarkers().contains(.all) {
                 cleanSafetyDistractionMarkers()
                 cleanStartEndMarkers()
                 drawAllMarker()
-            case .synthesis:
-                cleanAllMarkers()
-                cleanSafetyDistractionMarkers()
+            } else{
+                if mapItem.displayedMarkers().contains(.safety) {
+                    drawSafetyMarker()
+                }
+                if mapItem.displayedMarkers().contains(.distraction) {
+                    drawDistractionMarker()
+                }
             }
         } else {
             cleanAllMarkers()
@@ -387,7 +381,7 @@ extension MapViewController: MKMapViewDelegate {
                 }
             }
         } else {
-            if viewModel.displayMapItem != .interactiveMap {
+            if let mapItem = viewModel.displayMapItem, !mapItem.displayedMarkers().contains(.all) {
                 if let safetyEvents = safetyAnnotations as NSArray?{
                     let indexForSafetyEvent = safetyEvents.index(of: annotation)
                     if indexForSafetyEvent != NSNotFound {

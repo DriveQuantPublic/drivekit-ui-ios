@@ -10,10 +10,26 @@ import UIKit
 import DriveKitDBTripAccessModule
 import DriveKitCommonUI
 
-public enum MapItem {
+public enum MapItem : DKMapItem {
+ 
     case ecoDriving, safety, distraction, interactiveMap, synthesis
     
-    func normalImage() -> UIImage? {
+    public func identifier() -> String {
+        switch self {
+            case .safety:
+                return "dkSafety"
+            case .ecoDriving:
+                return "dkEcoDriving"
+            case .interactiveMap:
+                return "dkInteractiveMap"
+            case .distraction:
+                return "dkDistraction"
+            case .synthesis:
+                return "dkSynthesis"
+        }
+    }
+    
+    public func normalImage() -> UIImage? {
         switch self {
         case .safety:
             return DKImages.safety.image
@@ -28,7 +44,7 @@ public enum MapItem {
         }
     }
     
-    func selectedImage() -> UIImage? {
+    public func selectedImage() -> UIImage? {
         switch self {
         case .safety:
             return DKImages.safetyFilled.image
@@ -43,7 +59,7 @@ public enum MapItem {
         }
     }
     
-    func adviceImageID() -> String {
+    public func adviceImageID() -> String {
         switch self {
         case .ecoDriving:
             return "dk_eco_advice"
@@ -54,22 +70,7 @@ public enum MapItem {
         }
     }
     
-    var tag: Int {
-        switch self {
-        case .safety:
-            return 0
-        case .ecoDriving:
-            return 1
-        case .interactiveMap:
-            return 2
-        case .distraction:
-            return 3
-        case .synthesis:
-            return 4
-        }
-    }
-    
-    func getAdvice(trip: Trip) -> TripAdvice? {
+    public func getAdvice(trip: Trip) -> TripAdvice? {
         if let advices = trip.tripAdvices?.allObjects as! [TripAdvice]? {
             if advices.count > 0 {
                 switch self {
@@ -90,5 +91,78 @@ public enum MapItem {
         }else{
             return nil
         }
+    }
+    
+    public func viewController(trip: Trip, parentViewController: UIViewController, tripDetailViewModel: DKTripDetailViewModel) -> UIViewController {
+        switch self {
+            case .ecoDriving:
+                let ecoDrivingViewModel = EcoDrivingPageViewModel(trip: trip)
+                let ecoDrivingVC = EcoDrivingPageVC(viewModel: ecoDrivingViewModel)
+                return ecoDrivingVC
+            case .safety:
+                let safetyViewModel = SafetyPageViewModel(trip: trip)
+                let safetyVC = SafetyPageVC(viewModel: safetyViewModel)
+                return safetyVC
+            case .distraction:
+                let distractionViewModel = DistractionPageViewModel(trip: trip)
+                let distractionVC = DistractionPageVC(viewModel: distractionViewModel)
+                return distractionVC
+            case .interactiveMap:
+                let historyViewModel = HistoryPageViewModel(tripDetailViewModel: tripDetailViewModel)
+                let historyVC = HistoryPageVC(viewModel: historyViewModel)
+                return historyVC
+            case .synthesis:
+                let synthesisViewModel = SynthesisPageViewModel(trip: trip)
+                let synthesisPageVC = SynthesisPageVC(viewModel: synthesisViewModel, parentView: parentViewController)
+                return synthesisPageVC
+        }
+    }
+    
+    public func shouldShowDistractionArea() -> Bool {
+        switch self {
+            case .ecoDriving, .safety, .synthesis:
+                return false
+            case .distraction, .interactiveMap:
+                return true
+        }
+    }
+    
+    public func displayedMarkers() -> [DKMarkerType] {
+        switch self {
+            case .ecoDriving, .synthesis:
+                return []
+            case .safety:
+                return [.safety]
+            case .distraction:
+                return [.distraction]
+            case .interactiveMap:
+                return [.all]
+        }
+    }
+    
+    public func canShowMapItem(trip: Trip) -> Bool {
+        switch self {
+            case .ecoDriving:
+                if let ecoDriving = trip.ecoDriving{
+                    if ecoDriving.score <= 10 {
+                        return true
+                    }
+                }
+            case .safety:
+                if let safety = trip.safety{
+                    if safety.safetyScore <= 10 {
+                        return true
+                    }
+                }
+            case .distraction:
+                if let distraction = trip.driverDistraction{
+                    if distraction.score <= 10 {
+                        return true
+                    }
+                }
+            case .interactiveMap, .synthesis:
+                return true
+        }
+        return false
     }
 }

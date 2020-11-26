@@ -97,7 +97,7 @@ extension TripDetailVC {
     
     func updateViewToCurrentMapItem(direction: UIPageViewController.NavigationDirection? = nil) {
         if showAdvice {
-            var mapItemsWithAdvices: [MapItem] = []
+            var mapItemsWithAdvices: [DKMapItem] = []
             if let trip = viewModel.trip {
                 for mapItem in self.viewModel.configurableMapItems {
                     if mapItem.getAdvice(trip: trip) != nil {
@@ -136,18 +136,8 @@ extension TripDetailVC {
     func configureMapItems(){
         let mapItems = self.viewModel.configurableMapItems
         for item in mapItems {
-            switch item {
-            case .safety:
-                self.setupSafety()
-            case .ecoDriving:
-                self.setupEcoDriving()
-            case .distraction:
-                self.setupDistraction()
-            case .interactiveMap:
-                self.setupHistory()
-            case .synthesis:
-                self.setupSynthesis()
-            }
+            let itemViewController = item.viewController(trip: self.viewModel.trip!, parentViewController: self, tripDetailViewModel: self.viewModel)
+            swipableViewControllers.append(itemViewController)
         }
     }
     
@@ -160,15 +150,17 @@ extension TripDetailVC {
     
     func setupActionView(){
         self.actionView.backgroundColor = UIColor(red: 255, green: 255, blue: 255).withAlphaComponent(0.75)
+        var index: Int = 0
         for item in self.viewModel.configurableMapItems {
             let button = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
             button.setImage(item.normalImage(), for: .normal)
             button.setImage(item.selectedImage(), for: .selected)
             button.tintColor = DKUIColors.primaryColor.color
-            button.tag = item.tag
+            button.tag = index
             button.addTarget(self, action: #selector(selectMapItem), for: .touchUpInside)
             self.mapItemButtons.append(button)
             self.mapItemsView.addArrangedSubview(button)
+            index += 1
         }
         self.mapItemViewConstraint.constant = CGFloat(self.viewModel.configurableMapItems.count * 42)
         self.setupCenterButton()
@@ -185,60 +177,17 @@ extension TripDetailVC {
                     direction = .forward
                 }
             }
-            
-            switch sender.tag {
-            case 0:
-                self.viewModel.displayMapItem = .safety
-            case 1:
-                self.viewModel.displayMapItem = .ecoDriving
-            case 2:
-                self.viewModel.displayMapItem = .interactiveMap
-            case 3:
-                self.viewModel.displayMapItem = .distraction
-            case 4:
-                self.viewModel.displayMapItem = .synthesis
-            default:
-                self.viewModel.displayMapItem = .safety
+            if sender.tag < self.viewModel.configurableMapItems.count {
+                self.viewModel.displayMapItem = self.viewModel.configurableMapItems[sender.tag]
+                self.updateViewToCurrentMapItem(direction: direction)
             }
-            
-            self.updateViewToCurrentMapItem(direction: direction)
         }
     }
     
-    func setupShortTrip(){
+    private func setupShortTrip(){
         let shortTripViewModel = ShortTripPageViewModel(trip: self.viewModel.trip!)
         let shortTripVC = ShortTripPageVC(viewModel: shortTripViewModel)
         swipableViewControllers.append(shortTripVC)
-    }
-    
-    func setupSafety(){
-        let safetyViewModel = SafetyPageViewModel(trip: self.viewModel.trip!)
-        let safetyVC = SafetyPageVC(viewModel: safetyViewModel)
-        swipableViewControllers.append(safetyVC)
-    }
-    
-    func setupEcoDriving(){
-        let ecoDrivingViewModel = EcoDrivingPageViewModel(trip: self.viewModel.trip!)
-        let ecoDrivingVC = EcoDrivingPageVC(viewModel: ecoDrivingViewModel)
-        swipableViewControllers.append(ecoDrivingVC)
-    }
-    
-    func setupDistraction(){
-        let distractionViewModel = DistractionPageViewModel(trip: self.viewModel.trip!)
-        let distractionVC = DistractionPageVC(viewModel: distractionViewModel)
-        swipableViewControllers.append(distractionVC)
-    }
-    
-    func setupHistory(){
-        let historyViewModel = HistoryPageViewModel(events: self.viewModel.events, tripDetailViewModel: viewModel)
-        let historyVC = HistoryPageVC(viewModel: historyViewModel)
-        swipableViewControllers.append(historyVC)
-    }
-    
-    func setupSynthesis() {
-        let synthesisViewModel = SynthesisPageViewModel(tripDetailViewModel: self.viewModel, trip: self.viewModel.trip!)
-        let synthesisPageVC = SynthesisPageVC(viewModel: synthesisViewModel, parentView: self)
-        swipableViewControllers.append(synthesisPageVC)
     }
     
     func setupPageContainer() {
@@ -350,7 +299,7 @@ extension TripDetailVC: TripDetailDelegate {
     
     func onEventSelected(event: TripEvent, position: Int){
         mapViewController.zoomToEvent(event: event)
-        if let pos = viewModel.configurableMapItems.firstIndex(of: .interactiveMap) {
+        if let pos = viewModel.configurableMapItems.firstIndex(of: MapItem.interactiveMap) {
             (self.swipableViewControllers[pos] as! HistoryPageVC).setToPosition(position: position)
         }
     }

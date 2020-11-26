@@ -12,14 +12,12 @@ import DriveKitDBTripAccessModule
 import DriveKitCommonUI
 
 class SynthesisPageViewModel {
-    let tripDetailViewModel : TripDetailViewModel
     let trip : Trip
     
     let unknown = "dk_driverdata_unknown".dkDriverDataLocalized()
     
-    init(tripDetailViewModel: TripDetailViewModel, trip: Trip) {
+    init(trip: Trip) {
         self.trip = trip
-        self.tripDetailViewModel = tripDetailViewModel
     }
     
     var vehicleId : String? {

@@ -291,6 +291,8 @@ extension DKRankingType {
                 return driveKitAccess.hasAccess(.safety)
             case .speeding:
                 return driveKitAccess.hasAccess(.speeding)
+            @unknown default:
+                return false
         }
     }
 }

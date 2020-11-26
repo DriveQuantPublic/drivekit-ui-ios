@@ -17,7 +17,7 @@ class TripTipFeedbackViewModel {
     var send : String
     var cancel : String
     var choices: [String]
-    
+
     var selectedChoice: Int
     var adviceID: String
     var itinId: String
@@ -25,7 +25,9 @@ class TripTipFeedbackViewModel {
     var evaluation : Int
     var comment: String = ""
     var feedBack: Int = 0
-    
+
+    let noChoice = -1
+
     init(trip: Trip, tripAdvice: TripAdvice){
         self.title = "dk_driverdata_advice_feedback_disagree_title".dkDriverDataLocalized()
         self.content = "dk_driverdata_advice_feedback_disagree_desc".dkDriverDataLocalized()
@@ -39,7 +41,7 @@ class TripTipFeedbackViewModel {
             "dk_driverdata_advice_feedback_05".dkDriverDataLocalized()
         ]
         
-        selectedChoice = 0
+        selectedChoice = noChoice
         advice = tripAdvice
         adviceID = advice.id ?? ""
         itinId = trip.itinId ?? ""
@@ -55,5 +57,9 @@ class TripTipFeedbackViewModel {
         DriveKitDriverData.shared.sendTripAdviceFeedback(itinId: itinId, adviceId: adviceID, evaluation: evaluation, feedback: feedBack, comment: comment, completionHandler : { sucess in
             completion(sucess)
         })
+    }
+
+    func clearSelectedChoice() {
+        self.selectedChoice = self.noChoice
     }
 }

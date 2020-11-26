@@ -143,45 +143,54 @@ class MapViewController: DKUIViewController {
             }
         }
     }
-    
-    private func drawMarker(mapItem: MapItem?, route: Route){
+
+    private func drawMarker(mapItem: MapItem?, route: Route) {
         if let mapItem = mapItem {
             switch mapItem {
             case .ecoDriving:
                 cleanAllMarkers()
-                cleanSafetyDistractionMarkers()
-                break
+                cleanSafetyAndDistractionMarkers()
             case .safety:
                 cleanAllMarkers()
+                cleanDistractionMarkers()
                 drawSafetyMarker()
             case .distraction:
                 cleanAllMarkers()
+                cleanSafetyMarkers()
                 drawDistractionMarker()
             case .interactiveMap:
-                cleanSafetyDistractionMarkers()
+                cleanSafetyAndDistractionMarkers()
                 cleanStartEndMarkers()
                 drawAllMarker()
             case .synthesis:
                 cleanAllMarkers()
-                cleanSafetyDistractionMarkers()
+                cleanSafetyAndDistractionMarkers()
             }
         } else {
             cleanAllMarkers()
-            cleanSafetyDistractionMarkers()
+            cleanSafetyAndDistractionMarkers()
         }
     }
-    
-    private func cleanSafetyDistractionMarkers(){
-        if let distractionEvents = self.distractionAnnotations{
+
+    private func cleanDistractionMarkers() {
+        if let distractionEvents = self.distractionAnnotations {
             self.mapView.removeAnnotations(distractionEvents)
         }
+    }
+
+    private func cleanSafetyMarkers() {
         if let safetyEvents = self.safetyAnnotations {
             self.mapView.removeAnnotations(safetyEvents)
         }
     }
-    
-    private func cleanStartEndMarkers(){
-        if let start = self.startAnnotation{
+
+    private func cleanSafetyAndDistractionMarkers() {
+        cleanDistractionMarkers()
+        cleanSafetyMarkers()
+    }
+
+    private func cleanStartEndMarkers() {
+        if let start = self.startAnnotation {
             self.mapView.removeAnnotation(start)
             self.startAnnotation = nil
         }
@@ -189,9 +198,9 @@ class MapViewController: DKUIViewController {
             self.mapView.removeAnnotation(end)
             self.endAnnotation = nil
         }
-   }
+    }
     
-    private func cleanAllMarkers(){
+    private func cleanAllMarkers() {
         if let all = self.allAnnotations{
             self.mapView.removeAnnotations(all)
         }

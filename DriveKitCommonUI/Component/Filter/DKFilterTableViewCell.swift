@@ -26,6 +26,6 @@ class DKFilterTableViewCell: UITableViewCell {
     
     func configure(viewModel : DKFilterViewModel, position: Int) {
         self.itemImage.image = viewModel.getImageAt(position)
-        self.name.attributedText = viewModel.getNameAt(position).dkAttributedString().color(.mainFontColor).font(dkFont: .secondary, style: .normalText).build()
+        self.name.attributedText = viewModel.getNameAt(position).dkAttributedString().color(.complementaryFontColor).font(dkFont: .secondary, style: .normalText).build()
     }
 }

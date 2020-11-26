@@ -61,14 +61,14 @@ class DistractionPageVC: UIViewController {
     
     func getNumberUnlocks() -> NSAttributedString {
         let number = Int(viewModel.trip.driverDistraction?.nbUnlock ?? 0)
-        return String(number).dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()
+        return String(number).dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.primaryColor).build()
     }
     
     func getScreenUnlockDuration() -> NSAttributedString {
-        return (viewModel.trip.driverDistraction?.durationUnlock ?? 0).formatSecondDuration().dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()
+        return (viewModel.trip.driverDistraction?.durationUnlock ?? 0).formatSecondDuration().dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.primaryColor).build()
     }
     
     func getScreenUnlockDistance() -> NSAttributedString {
-        return Double(self.viewModel.trip.driverDistraction?.distanceUnlock ?? 0).formatMeterDistance().dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()
+        return Double(self.viewModel.trip.driverDistraction?.distanceUnlock ?? 0).formatMeterDistance().dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.primaryColor).build()
     }
 }

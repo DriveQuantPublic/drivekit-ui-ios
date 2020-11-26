@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -41,10 +41,10 @@
                             <rect key="frame" x="0.0" y="73" width="414" height="111"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L5I-Bd-d7c">
-                                    <rect key="frame" x="0.0" y="0.0" width="40" height="111"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="60" height="111"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pce-ii-IqY">
-                                            <rect key="frame" x="2" y="37.5" width="36" height="36"/>
+                                            <rect key="frame" x="12" y="37.5" width="36" height="36"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="36" id="Z6X-aR-Vvz"/>
                                                 <constraint firstAttribute="width" constant="36" id="kal-E3-eGD"/>
@@ -54,15 +54,15 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="pce-ii-IqY" firstAttribute="centerX" secondItem="L5I-Bd-d7c" secondAttribute="centerX" id="2M6-T7-KNB"/>
-                                        <constraint firstAttribute="width" constant="40" id="tmU-Cu-HtZ"/>
+                                        <constraint firstAttribute="width" constant="60" id="tmU-Cu-HtZ"/>
                                         <constraint firstItem="pce-ii-IqY" firstAttribute="centerY" secondItem="L5I-Bd-d7c" secondAttribute="centerY" id="ypE-fP-pNU"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWg-QI-WL0">
-                                    <rect key="frame" x="40" y="8" width="366" height="95"/>
+                                    <rect key="frame" x="60" y="8" width="346" height="95"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4Y-uO-Eg5">
-                                            <rect key="frame" x="8" y="37.5" width="350" height="20.5"/>
+                                            <rect key="frame" x="8" y="37.5" width="330" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>

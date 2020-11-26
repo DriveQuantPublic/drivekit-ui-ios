@@ -23,6 +23,6 @@ final class SafetyPageView : UIView, Nibable {
         eventTitle.attributedText = title.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         eventImage.image = image
         eventImage.tintColor = DKUIColors.mainFontColor.color
-        eventCount.attributedText = String(count).dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()
+        eventCount.attributedText = String(count).dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.primaryColor).build()
     }
 }

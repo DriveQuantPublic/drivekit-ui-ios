@@ -40,7 +40,7 @@ final class HistoryPageView : UITableViewCell, Nibable {
         
         historyImage.image = event.type.getImage()
         historyImage.tintColor = DKUIColors.mainFontColor.color
-        descriptionLabel.attributedText = event.type.name().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        descriptionLabel.attributedText = event.getTitle().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
     }
 }
 

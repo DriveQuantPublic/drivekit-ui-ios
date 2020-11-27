@@ -11,10 +11,10 @@ import DriveKitDBTripAccessModule
 import DriveKitDriverDataModule
 import CoreLocation
 
-class TripDetailViewModel {
+class TripDetailViewModel : DKTripDetailViewModel {
 
     let itinId : String
-    private let mapItems: [MapItem]
+    private let mapItems: [DKMapItem]
     
     var trip : Trip? = nil
     var route: Route? = nil
@@ -23,8 +23,8 @@ class TripDetailViewModel {
     
     var events: [TripEvent] = []
     
-    var configurableMapItems : [MapItem] = []
-    var displayMapItem: MapItem? = nil
+    var configurableMapItems : [DKMapItem] = []
+    var displayMapItem: DKMapItem? = nil
     
     var startEvent : TripEvent? = nil
     var endEvent : TripEvent? = nil
@@ -43,7 +43,11 @@ class TripDetailViewModel {
     
     init(itinId: String) {
         self.itinId = itinId
-        self.mapItems = DriveKitDriverDataUI.shared.mapItems
+        var items = DriveKitDriverDataUI.shared.mapItems as [DKMapItem]
+        if let customItem = DriveKitDriverDataUI.shared.customMapItem {
+            items.append(customItem)
+        }
+        self.mapItems = items
     }
     
     private func fetchTripData(){
@@ -63,31 +67,18 @@ class TripDetailViewModel {
                     self.trip = trip
                     if !trip.unscored {
                         for item in self.mapItems {
-                            switch item {
-                            case .safety:
-                                if let safety = trip.safety{
-                                    if safety.safetyScore <= 10 {
-                                        self.configurableMapItems.append(item)
-                                    }
-                                }
-                            case .ecoDriving:
-                                if let ecoDriving = trip.ecoDriving{
-                                    if ecoDriving.score <= 10 {
-                                        self.configurableMapItems.append(item)
-                                    }
-                                }
-                            case .distraction:
-                                if let distraction = trip.driverDistraction{
-                                    if distraction.score <= 10 {
-                                        self.configurableMapItems.append(item)
-                                    }
-                                }
-                            case .interactiveMap:
-                                self.configurableMapItems.append(item)
-                            case .synthesis:
+                            if item.canShowMapItem(trip: trip) {
                                 self.configurableMapItems.append(item)
                             }
                         }
+                    } else {
+                        for item in self.mapItems {
+                            if item.overrideShortTrip() {
+                                self.configurableMapItems.append(item)
+                            }
+                        }
+                    }
+                    if !self.configurableMapItems.isEmpty {
                         self.displayMapItem = self.configurableMapItems[0]
                     }
                     self.computeEvents()
@@ -103,7 +94,7 @@ class TripDetailViewModel {
             }
             if routeSync, let trip = trip, !trip.unscored {
                 addStartAndEndEvents(trip: trip)
-                if let safetyEvents = trip.safetyEvents, mapItems.contains(.safety) {
+                if let safetyEvents = trip.safetyEvents, mapItems.contains(MapItem.safety) {
                     for safetyEvent in safetyEvents {
                         let event = safetyEvent as! SafetyEvents
                         switch event.type {
@@ -119,7 +110,7 @@ class TripDetailViewModel {
                         }
                     }
                 }
-                if let route = self.route, let screenLockedIndex = route.screenLockedIndex, let screenStatus = route.screenStatus, let screenLockedTime = route.screenLockedTime, screenLockedTime.count > 2, mapItems.contains(.distraction){
+                if let route = self.route, let screenLockedIndex = route.screenLockedIndex, let screenStatus = route.screenStatus, let screenLockedTime = route.screenLockedTime, screenLockedTime.count > 2, mapItems.contains(MapItem.distraction){
                     for i in 1...screenLockedIndex.count - 2{
                         var eventType : EventType = .lock
                         if screenStatus[i] == 1 {
@@ -164,11 +155,15 @@ class TripDetailViewModel {
         }
     }
 
-    func setSelectedEvent(position: Int?){
+    public func setSelectedEvent(position: Int?){
         selection = position
         if let pos = position {
             delegate?.onEventSelected(event: events[pos], position: pos)
         }
+    }
+    
+    public func getTripEvents() -> [TripEvent] {
+        return events
     }
 }
 

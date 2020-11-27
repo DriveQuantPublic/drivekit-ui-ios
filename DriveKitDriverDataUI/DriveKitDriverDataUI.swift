@@ -15,8 +15,10 @@ public class DriveKitDriverDataUI {
     var headerDay: HeaderDay = .durationDistance
     var dayTripDescendingOrder: Bool = false
     var mapItems : [MapItem] = [.safety, .ecoDriving, .distraction, .interactiveMap, .synthesis]
+    private(set) var customMapItem: DKMapItem?
     var enableDeleteTrip = true
     var enableAdviceFeedback = true
+    private(set) var customHeaders: DKHeader?
     
     public static let shared = DriveKitDriverDataUI()
     
@@ -41,6 +43,14 @@ public class DriveKitDriverDataUI {
     
     public func enableAdviceFeedback(enable: Bool) {
         self.enableAdviceFeedback = enable
+    }
+    
+    public func setCustomMapItem(_ mapItem: DKMapItem?) {
+        self.customMapItem = mapItem
+    }
+    
+    public func customizeHeaders(headers: DKHeader?) {
+        self.customHeaders = headers
     }
 }
 

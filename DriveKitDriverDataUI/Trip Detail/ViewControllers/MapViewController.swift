@@ -53,7 +53,7 @@ class MapViewController: DKUIViewController {
         super.viewWillAppear(animated)
     }
     
-    func traceRoute(mapItem: MapItem?) {
+    func traceRoute(mapItem: DKMapItem?) {
         adviceButton.isHidden = true
         if let route = viewModel.route {
             DispatchQueue.main.async {
@@ -64,8 +64,7 @@ class MapViewController: DKUIViewController {
                         self.mapView.addOverlay(self.polyLine!, level: MKOverlayLevel.aboveRoads)
                     }
                 }
-                
-                if (mapItem == .distraction || (self.viewModel.configurableMapItems.contains(.distraction) && mapItem == .interactiveMap)){
+                if let mapItem = mapItem, mapItem.shouldShowDistractionArea() && self.viewModel.configurableMapItems.firstIndex(of: MapItem.distraction) != nil {
                     self.computeDistractionPolylines {
                         self.drawDistraction(route: route)
                     }
@@ -109,7 +108,7 @@ class MapViewController: DKUIViewController {
     private func computeDistractionPolylines(completion: @escaping () -> Void){
         DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
             if let route = self.viewModel.route {
-                if self.viewModel.configurableMapItems.contains(.distraction) && self.distractionPolyLines == nil{
+                if self.viewModel.configurableMapItems.firstIndex(of: MapItem.distraction) != nil && self.distractionPolyLines == nil{
                     self.distractionPolyLines = []
                     for distractionPolylinePart in self.getDistractionPolyline(route: route) {
                         let distractionPolyLine = MKPolyline.init(coordinates: distractionPolylinePart, count: distractionPolylinePart.count)
@@ -143,32 +142,22 @@ class MapViewController: DKUIViewController {
             }
         }
     }
-
-    private func drawMarker(mapItem: MapItem?, route: Route) {
+  
+    private func drawMarker(mapItem: DKMapItem?, route: Route){
+        cleanAllMarkers()
+        cleanSafetyAndDistractionMarkers()
         if let mapItem = mapItem {
-            switch mapItem {
-            case .ecoDriving:
-                cleanAllMarkers()
-                cleanSafetyAndDistractionMarkers()
-            case .safety:
-                cleanAllMarkers()
-                cleanDistractionMarkers()
-                drawSafetyMarker()
-            case .distraction:
-                cleanAllMarkers()
-                cleanSafetyMarkers()
-                drawDistractionMarker()
-            case .interactiveMap:
-                cleanSafetyAndDistractionMarkers()
+            if mapItem.displayedMarkers().contains(.all) {
                 cleanStartEndMarkers()
                 drawAllMarker()
-            case .synthesis:
-                cleanAllMarkers()
-                cleanSafetyAndDistractionMarkers()
+            } else{
+                if mapItem.displayedMarkers().contains(.safety) {
+                    drawSafetyMarker()
+                }
+                if mapItem.displayedMarkers().contains(.distraction) {
+                    drawDistractionMarker()
+                }
             }
-        } else {
-            cleanAllMarkers()
-            cleanSafetyAndDistractionMarkers()
         }
     }
 
@@ -297,7 +286,7 @@ class MapViewController: DKUIViewController {
     func updateTipsButton() {
         if let currentItem = self.viewModel.displayMapItem {
             self.adviceButton.isHidden = true
-            let image = UIImage(named: currentItem.adviceImageID(), in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            let image = currentItem.adviceImage()
             self.adviceButton.setImage(image, for: .normal)
             self.adviceButton.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         }
@@ -332,7 +321,7 @@ extension MapViewController: MKMapViewDelegate {
             return
         }
 
-        if let currentItem = self.viewModel.displayMapItem, currentItem == .interactiveMap {
+        if let currentItem = self.viewModel.displayMapItem, currentItem.displayedMarkers().contains(.all) {
             if let allEvents = allAnnotations as NSArray? {
                 let indexForEvent = allEvents.index(of: selection)
                 if indexForEvent != NSNotFound {
@@ -398,7 +387,7 @@ extension MapViewController: MKMapViewDelegate {
                 }
             }
         } else {
-            if viewModel.displayMapItem != .interactiveMap {
+            if let mapItem = viewModel.displayMapItem, !mapItem.displayedMarkers().contains(.all) {
                 if let safetyEvents = safetyAnnotations as NSArray?{
                     let indexForSafetyEvent = safetyEvents.index(of: annotation)
                     if indexForSafetyEvent != NSNotFound {

@@ -25,6 +25,9 @@
 		3F38C26D2369CC10002E873A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F38C26F2369CC10002E873A /* Localizable.strings */; };
 		3F38C2752369D6ED002E873A /* NotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C2742369D6ED002E873A /* NotificationSender.swift */; };
 		3F38C279236AE210002E873A /* AdviceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C278236AE210002E873A /* AdviceButton.swift */; };
+		3F3E72F5256F9415002B5E30 /* DKMapItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E72F4256F9415002B5E30 /* DKMapItem.swift */; };
+		3F3E72FC256F9B71002B5E30 /* DKTripDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E72FB256F9B71002B5E30 /* DKTripDetailViewModel.swift */; };
+		3F3E735A2570111C002B5E30 /* DKHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E73592570111C002B5E30 /* DKHeader.swift */; };
 		3F50D6F52417945B001226F7 /* BluetoothViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D6F42417945B001226F7 /* BluetoothViewModel.swift */; };
 		3F50D6FE24179467001226F7 /* SuccessBluetoothVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D6F624179466001226F7 /* SuccessBluetoothVC.swift */; };
 		3F50D6FF24179467001226F7 /* SelectBluetoothVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D6F724179466001226F7 /* SelectBluetoothVC.swift */; };
@@ -452,6 +455,9 @@
 		3F38C2732369CC15002E873A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3F38C2742369D6ED002E873A /* NotificationSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSender.swift; sourceTree = "<group>"; };
 		3F38C278236AE210002E873A /* AdviceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdviceButton.swift; sourceTree = "<group>"; };
+		3F3E72F4256F9415002B5E30 /* DKMapItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKMapItem.swift; sourceTree = "<group>"; };
+		3F3E72FB256F9B71002B5E30 /* DKTripDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripDetailViewModel.swift; sourceTree = "<group>"; };
+		3F3E73592570111C002B5E30 /* DKHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKHeader.swift; sourceTree = "<group>"; };
 		3F50D6F42417945B001226F7 /* BluetoothViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothViewModel.swift; sourceTree = "<group>"; };
 		3F50D6F624179466001226F7 /* SuccessBluetoothVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessBluetoothVC.swift; sourceTree = "<group>"; };
 		3F50D6F724179466001226F7 /* SelectBluetoothVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectBluetoothVC.swift; sourceTree = "<group>"; };
@@ -1529,6 +1535,7 @@
 				A34238082361A1FA0001E15D /* DriveKitDriveDataUI.h */,
 				A34238092361A1FA0001E15D /* Info.plist */,
 				3FF68E89240ACD620071D74C /* DriveKitDriverDataUI.swift */,
+				3F3E73592570111C002B5E30 /* DKHeader.swift */,
 			);
 			path = DriveKitDriverDataUI;
 			sourceTree = "<group>";
@@ -1550,6 +1557,7 @@
 				A317F82823A137B600AD22A2 /* TripTipFeedbackViewModel.swift */,
 				A34238162361A2430001E15D /* CalloutViewModel.swift */,
 				A34238172361A2430001E15D /* TripDetailViewModel.swift */,
+				3F3E72FB256F9B71002B5E30 /* DKTripDetailViewModel.swift */,
 				A34238182361A2430001E15D /* Pages */,
 			);
 			path = ViewModels;
@@ -1573,6 +1581,7 @@
 			children = (
 				A34238202361A2430001E15D /* MapItem.swift */,
 				A34238212361A2430001E15D /* TripEvent.swift */,
+				3F3E72F4256F9415002B5E30 /* DKMapItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2564,6 +2573,8 @@
 				A342387A2361A2440001E15D /* ResistantLayer.swift in Sources */,
 				A34238962361A2440001E15D /* NoScoreImageView.swift in Sources */,
 				A342388F2361A2440001E15D /* TripData.swift in Sources */,
+				3F3E72F5256F9415002B5E30 /* DKMapItem.swift in Sources */,
+				3F3E735A2570111C002B5E30 /* DKHeader.swift in Sources */,
 				3F38C26223696EE0002E873A /* AdviceCountView.swift in Sources */,
 				A342388E2361A2440001E15D /* HeaderDay.swift in Sources */,
 				A34238912361A2440001E15D /* TripListVC.swift in Sources */,
@@ -2585,6 +2596,7 @@
 				A30F4F1823D5DA14009A37C2 /* SynthesisPageVC.swift in Sources */,
 				A342388B2361A2440001E15D /* TripInfo.swift in Sources */,
 				A342386A2361A2430001E15D /* MapItem.swift in Sources */,
+				3F3E72FC256F9B71002B5E30 /* DKTripDetailViewModel.swift in Sources */,
 				A34238862361A2440001E15D /* Extension+DK.swift in Sources */,
 				A342387F2361A2440001E15D /* HistoryPageView.swift in Sources */,
 				A342388C2361A2440001E15D /* TripsByDate.swift in Sources */,

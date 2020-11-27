@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,8 +20,8 @@
                         <constraint firstAttribute="height" constant="48" id="pVS-ZZ-XiT"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hN-mO-IQe">
-                    <rect key="frame" x="72" y="14.5" width="334" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hN-mO-IQe">
+                    <rect key="frame" x="70" y="0.0" width="344" height="50"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -30,10 +30,11 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="nq6-iT-l0d" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="4HI-Nb-Ycy"/>
-                <constraint firstAttribute="trailing" secondItem="0hN-mO-IQe" secondAttribute="trailing" constant="8" id="5lh-1n-IBT"/>
+                <constraint firstAttribute="trailing" secondItem="0hN-mO-IQe" secondAttribute="trailing" id="5lh-1n-IBT"/>
+                <constraint firstItem="0hN-mO-IQe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Chl-hb-x0b"/>
                 <constraint firstItem="nq6-iT-l0d" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="cAW-5A-WHa"/>
-                <constraint firstItem="0hN-mO-IQe" firstAttribute="leading" secondItem="nq6-iT-l0d" secondAttribute="trailing" constant="16" id="iB2-mF-cFF"/>
-                <constraint firstItem="0hN-mO-IQe" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="lza-9t-IhS"/>
+                <constraint firstAttribute="bottom" secondItem="0hN-mO-IQe" secondAttribute="bottom" id="dkw-VV-Yck"/>
+                <constraint firstItem="0hN-mO-IQe" firstAttribute="leading" secondItem="nq6-iT-l0d" secondAttribute="trailing" constant="14" id="iB2-mF-cFF"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

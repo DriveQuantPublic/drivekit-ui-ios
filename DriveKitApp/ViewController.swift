@@ -40,8 +40,10 @@ class ViewController: UITableViewController {
         if let navigationController = self.navigationController {
             if #available(iOS 13.0, *) {
                 navigationController.navigationBar.standardAppearance.titleTextAttributes = [.foregroundColor: DKUIColors.fontColorOnPrimaryColor.color]
+                navigationController.navigationBar.standardAppearance.backgroundColor = DKUIColors.primaryColor.color
             } else {
                 navigationController.navigationBar.titleTextAttributes = [.foregroundColor: DKUIColors.fontColorOnPrimaryColor.color]
+                navigationController.navigationBar.backgroundColor = DKUIColors.primaryColor.color
             }
         }
         self.title = "Sample app"

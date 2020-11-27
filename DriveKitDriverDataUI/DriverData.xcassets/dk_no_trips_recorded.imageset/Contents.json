@@ -1,23 +1,23 @@
 {
   "images" : [
     {
+      "filename" : "dk_no_trips_recorded.png",
       "idiom" : "universal",
-      "filename" : "empty_view_no_trip_small-1.png",
       "scale" : "1x"
     },
     {
+      "filename" : "dk_no_trips_recorded@2x.png",
       "idiom" : "universal",
-      "filename" : "empty_view_no_trip_small-2.png",
       "scale" : "2x"
     },
     {
+      "filename" : "dk_no_trips_recorded@3x.png",
       "idiom" : "universal",
-      "filename" : "empty_view_no_trip_small.png",
       "scale" : "3x"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   }
 }

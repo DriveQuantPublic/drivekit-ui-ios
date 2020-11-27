@@ -144,11 +144,10 @@ class MapViewController: DKUIViewController {
     }
     
     private func drawMarker(mapItem: DKMapItem?, route: Route){
+        cleanAllMarkers()
+        cleanSafetyDistractionMarkers()
         if let mapItem = mapItem {
-            cleanAllMarkers()
-            cleanSafetyDistractionMarkers()
             if mapItem.displayedMarkers().contains(.all) {
-                cleanSafetyDistractionMarkers()
                 cleanStartEndMarkers()
                 drawAllMarker()
             } else{
@@ -159,9 +158,6 @@ class MapViewController: DKUIViewController {
                     drawDistractionMarker()
                 }
             }
-        } else {
-            cleanAllMarkers()
-            cleanSafetyDistractionMarkers()
         }
     }
     

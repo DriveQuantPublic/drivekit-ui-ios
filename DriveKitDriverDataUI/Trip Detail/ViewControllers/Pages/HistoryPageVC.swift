@@ -47,7 +47,7 @@ extension HistoryPageVC: UITableViewDataSource {
         if let cell : HistoryPageView = tableView.dequeueReusableCell(withIdentifier: "HistoryPageView") as? HistoryPageView {
             let event = self.viewModel.events[indexPath.row]
             cell.configure(event: event)
-            cell.selectedBackgroundView?.backgroundColor = DKUIColors.secondaryColor.color.withAlphaComponent(0.5)
+            cell.selectedBackgroundView?.backgroundColor = DKUIColors.secondaryColor.color.withAlphaComponent(0.75)
             return cell
         } else {
             return UITableViewCell()

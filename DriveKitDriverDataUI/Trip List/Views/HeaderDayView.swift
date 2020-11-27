@@ -29,7 +29,7 @@ final class HeaderDayView: UIView, Nibable {
         } else {
             rightText = DriveKitDriverDataUI.shared.headerDay.text(trips: trips.trips)
         }
-        self.setupAsHeader(leftText: trips.date.format(pattern: .weekLetter), rightText: rightText, isRounded: true)
+        self.setupAsHeader(leftText: trips.date.format(pattern: .weekLetter).capitalizeFirstLetter(), rightText: rightText, isRounded: true)
     }
     
     func setupAsHeader(leftText: String, rightText: String, isRounded: Bool = false) {

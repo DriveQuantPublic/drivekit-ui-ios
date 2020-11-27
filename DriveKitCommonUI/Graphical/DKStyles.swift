@@ -19,7 +19,7 @@ public enum DKStyles {
     highlightSmall,
     button
     
-    var style : DKStyle {
+    public var style : DKStyle {
         var size : CGFloat = 14
         var traits : UIFontDescriptor.SymbolicTraits? = nil
         switch self {
@@ -56,7 +56,7 @@ public enum DKStyles {
 }
 
 public struct DKStyle {
-    let size: CGFloat
+    public let size: CGFloat
     let traits: UIFontDescriptor.SymbolicTraits?
     
     public init(size : CGFloat, traits: UIFontDescriptor.SymbolicTraits?) {

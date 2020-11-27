@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,10 +21,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pix-i8-jVN">
-                    <rect key="frame" x="0.0" y="0.0" width="116" height="186"/>
+                    <rect key="frame" x="14" y="14" width="100" height="158"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vDg-2D-8WJ">
-                            <rect key="frame" x="8" y="8" width="100" height="100"/>
+                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="100" id="OYo-dJ-Fo6"/>
@@ -32,7 +32,7 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Fj-Zv-EKl">
-                            <rect key="frame" x="0.0" y="124" width="116" height="20.5"/>
+                            <rect key="frame" x="0.0" y="116" width="100" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -40,27 +40,27 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="vDg-2D-8WJ" secondAttribute="trailing" constant="8" id="B3d-wM-m1m"/>
-                        <constraint firstItem="vDg-2D-8WJ" firstAttribute="top" secondItem="pix-i8-jVN" secondAttribute="top" constant="8" id="axC-0w-BCV"/>
-                        <constraint firstItem="vDg-2D-8WJ" firstAttribute="leading" secondItem="pix-i8-jVN" secondAttribute="leading" constant="8" id="cG7-jj-YN3"/>
+                        <constraint firstAttribute="trailing" secondItem="vDg-2D-8WJ" secondAttribute="trailing" id="B3d-wM-m1m"/>
+                        <constraint firstItem="vDg-2D-8WJ" firstAttribute="top" secondItem="pix-i8-jVN" secondAttribute="top" id="axC-0w-BCV"/>
+                        <constraint firstItem="vDg-2D-8WJ" firstAttribute="leading" secondItem="pix-i8-jVN" secondAttribute="leading" id="cG7-jj-YN3"/>
                         <constraint firstAttribute="trailing" secondItem="6Fj-Zv-EKl" secondAttribute="trailing" id="fiK-6A-i8r"/>
                         <constraint firstItem="6Fj-Zv-EKl" firstAttribute="top" secondItem="vDg-2D-8WJ" secondAttribute="bottom" constant="16" id="oQe-NX-wyd"/>
                         <constraint firstItem="6Fj-Zv-EKl" firstAttribute="leading" secondItem="pix-i8-jVN" secondAttribute="leading" id="yR6-VC-Afo"/>
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8xZ-P1-Vq0">
-                    <rect key="frame" x="116" y="0.0" width="298" height="186"/>
+                    <rect key="frame" x="124" y="0.0" width="276" height="186"/>
                 </stackView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="8xZ-P1-Vq0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="081-VI-I7k"/>
-                <constraint firstItem="pix-i8-jVN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ACE-9h-zkB"/>
-                <constraint firstAttribute="bottom" secondItem="pix-i8-jVN" secondAttribute="bottom" id="K3K-xX-LGZ"/>
-                <constraint firstItem="pix-i8-jVN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Zj9-aU-k32"/>
+                <constraint firstItem="pix-i8-jVN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="14" id="ACE-9h-zkB"/>
+                <constraint firstAttribute="bottom" secondItem="pix-i8-jVN" secondAttribute="bottom" constant="14" id="K3K-xX-LGZ"/>
+                <constraint firstItem="pix-i8-jVN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="Zj9-aU-k32"/>
                 <constraint firstAttribute="bottom" secondItem="8xZ-P1-Vq0" secondAttribute="bottom" id="dHt-IA-YmS"/>
-                <constraint firstAttribute="trailing" secondItem="8xZ-P1-Vq0" secondAttribute="trailing" id="hwO-2J-MUj"/>
-                <constraint firstItem="8xZ-P1-Vq0" firstAttribute="leading" secondItem="pix-i8-jVN" secondAttribute="trailing" id="yvG-qE-xhN"/>
+                <constraint firstAttribute="trailing" secondItem="8xZ-P1-Vq0" secondAttribute="trailing" constant="14" id="hwO-2J-MUj"/>
+                <constraint firstItem="8xZ-P1-Vq0" firstAttribute="leading" secondItem="pix-i8-jVN" secondAttribute="trailing" constant="10" id="yvG-qE-xhN"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="132" y="84"/>

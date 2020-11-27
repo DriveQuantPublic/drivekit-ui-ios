@@ -43,7 +43,7 @@ open class DKDefaultColors : DKColors {
         return UIColor.white
     }
     open func warningColor() -> UIColor {
-        return UIColor(hex: 0xff6e57)
+        return UIColor(hex: 0xF7A334)
     }
     open func criticalColor() -> UIColor {
         return UIColor(hex: 0xE52027)

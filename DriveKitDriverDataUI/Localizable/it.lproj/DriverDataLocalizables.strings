@@ -12,6 +12,7 @@
 "dk_driverdata_bad_maintain"="Velocità molto irregolare";
 "dk_driverdata_confirm_delete_trip"="Elimina il viaggio?";
 "dk_driverdata_day"="Gita di un giorno";
+"dk_driverdata_default_filter_item"="Tutti i miei viaggi";
 "dk_driverdata_end_event"="Fine del viaggio";
 "dk_driverdata_failed_to_delete_trip"="Il viaggio non è stato eliminato, riprova più tardi.";
 "dk_driverdata_failed_to_sync_trips"="Impossibile sincronizzare i viaggi, riprovare più tardi.";
@@ -24,7 +25,8 @@
 "dk_driverdata_low_accel"="Accelerazione troppo debole";
 "dk_driverdata_low_decel"="Frenata troppo debole";
 "dk_driverdata_night"="Viaggio notturno";
-"dk_driverdata_no_trips_recorded"="Nessun viaggio registrato";
+"dk_driverdata_no_trip_placeholder"="Non hai ancora fatto nessun viaggio con questo veicolo.";
+"dk_driverdata_no_trips_recorded"="Non hai ancora viaggiato.";
 "dk_driverdata_safety_accel"="Accelerazioni brusche";
 "dk_driverdata_safety_adherence"="Limiti di aderenza";
 "dk_driverdata_safety_decel"="Frenate brusche";
@@ -73,5 +75,3 @@
 "dk_driverdata_weather_rain"="con la pioggia";
 "dk_driverdata_weather_snow"="in nevicata";
 "dk_driverdata_weather_sun"="Con il sereno";
-"dk_driverdata_default_filter_item"="Tutti i miei viaggi";
-"dk_driverdata_no_trip_placeholder"="Non hai ancora fatto nessun viaggio con questo veicolo.";

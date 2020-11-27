@@ -14,6 +14,9 @@ open class DKUIViewController : UIViewController {
         super.viewDidLoad()
         self.configureBackButton()
         self.view.backgroundColor = DKUIColors.backgroundView.color
+        if let navigationController = self.navigationController {
+            navigationController.navigationBar.barTintColor = DKUIColors.primaryColor.color
+        }
     }
 
     open override func viewDidAppear(_ animated: Bool) {

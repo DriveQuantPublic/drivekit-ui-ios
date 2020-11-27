@@ -156,4 +156,14 @@ public extension String {
         numberFormatter.numberStyle = .decimal
         return numberFormatter.number(from: self)?.intValue
     }
+
+    func capitalizeFirstLetter() -> String {
+        if !isEmpty {
+            let first = prefix(1).uppercased()
+            let other = suffix(count - 1)
+            return first + other
+        } else {
+            return self
+        }
+    }
 }

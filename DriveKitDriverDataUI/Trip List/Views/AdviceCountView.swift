@@ -21,7 +21,7 @@ final class AdviceCountView: UIView, Nibable  {
     }
     
     func setAdviceCount(count: String){
-        adviceCountLabel.attributedText = count.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.fontColorOnSecondaryColor).build()
+        adviceCountLabel.attributedText = count.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.fontColorOnSecondaryColor).build()
     }
     
     func setTrip(trip: Trip) {

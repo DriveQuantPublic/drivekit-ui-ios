@@ -282,7 +282,7 @@ class MapViewController: DKUIViewController {
     func updateTipsButton() {
         if let currentItem = self.viewModel.displayMapItem {
             self.adviceButton.isHidden = true
-            let image = UIImage(named: currentItem.adviceImageID(), in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            let image = currentItem.adviceImage()
             self.adviceButton.setImage(image, for: .normal)
             self.adviceButton.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         }

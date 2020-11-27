@@ -59,14 +59,14 @@ public enum MapItem : DKMapItem {
         }
     }
     
-    public func adviceImageID() -> String {
+    public func adviceImage() -> UIImage? {
         switch self {
         case .ecoDriving:
-            return "dk_eco_advice"
+            return UIImage(named: "dk_eco_advice", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         case .safety:
-            return "dk_safety_advice"
+            return UIImage(named: "dk_safety_advice", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         default:
-            return ""
+            return nil
         }
     }
     
@@ -163,6 +163,10 @@ public enum MapItem : DKMapItem {
             case .interactiveMap, .synthesis:
                 return true
         }
+        return false
+    }
+    
+    public func overrideShortTrip() -> Bool {
         return false
     }
 }

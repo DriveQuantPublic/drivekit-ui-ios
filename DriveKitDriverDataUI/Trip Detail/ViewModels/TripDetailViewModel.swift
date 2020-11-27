@@ -72,6 +72,13 @@ class TripDetailViewModel : DKTripDetailViewModel {
                             }
                         }
                         self.displayMapItem = self.configurableMapItems[0]
+                    } else {
+                        for item in self.mapItems {
+                            if item.overrideShortTrip() {
+                                self.configurableMapItems.append(item)
+                            }
+                        }
+                        self.displayMapItem = self.configurableMapItems[0]
                     }
                     self.computeEvents()
                 }

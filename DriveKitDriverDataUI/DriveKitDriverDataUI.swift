@@ -18,6 +18,7 @@ public class DriveKitDriverDataUI {
     var customMapItems: DKMapItem?
     var enableDeleteTrip = true
     var enableAdviceFeedback = true
+    var customHeader: DKHeader?
     
     public static let shared = DriveKitDriverDataUI()
     
@@ -46,6 +47,10 @@ public class DriveKitDriverDataUI {
     
     public func setCustomMapItem(_ mapItem: DKMapItem?) {
         self.customMapItems = mapItem
+    }
+    
+    public func customizeHeader(headers: DKHeader?) {
+        self.customHeader = headers
     }
 }
 

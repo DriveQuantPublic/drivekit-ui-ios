@@ -14,12 +14,13 @@ public protocol DKMapItem {
     func identifier() -> String
     func normalImage() -> UIImage?
     func selectedImage() -> UIImage?
-    func adviceImageID() -> String
+    func adviceImage() -> UIImage?
     func getAdvice(trip: Trip) -> TripAdvice?
     func viewController(trip: Trip, parentViewController: UIViewController, tripDetailViewModel: DKTripDetailViewModel) -> UIViewController
     func shouldShowDistractionArea() -> Bool
     func displayedMarkers() -> [DKMarkerType]
     func canShowMapItem(trip: Trip) -> Bool
+    func overrideShortTrip() -> Bool
 }
 
 public enum DKMarkerType {

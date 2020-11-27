@@ -125,9 +125,18 @@ extension TripDetailVC {
     
     func setupHeadeContainer(){
         let header = HeaderDayView.viewFromNib
-        let headerDay: HeaderDay = .distanceDuration
+        var rightText = ""
+        if let dkHeader = DriveKitDriverDataUI.shared.customHeader {
+            if let text = dkHeader.customTripDetailheader(trip: self.viewModel.trip!) {
+                rightText = text
+            } else {
+                rightText = dkHeader.tripDetailHeader().text(trips: [self.viewModel.trip!])
+            }
+        } else {
+            rightText = DriveKitDriverDataUI.shared.headerDay.text(trips: [self.viewModel.trip!])
+        }
         header.setupAsHeader(leftText: self.viewModel.trip!.tripEndDate.format(pattern: .weekLetter),
-                             rightText: headerDay.text(trips: [self.viewModel.trip!]),
+                             rightText: rightText,
                              isRounded: false)
         header.frame = CGRect(x: 0, y: 0, width: headerContainer.frame.width, height: headerContainer.frame.height)
         headerContainer.addSubview(header)
@@ -162,7 +171,11 @@ extension TripDetailVC {
             self.mapItemsView.addArrangedSubview(button)
             index += 1
         }
-        self.mapItemViewConstraint.constant = CGFloat(self.viewModel.configurableMapItems.count * 42)
+        if self.viewModel.configurableMapItems.count > 1 {
+            self.mapItemViewConstraint.constant = CGFloat(self.viewModel.configurableMapItems.count * 42)
+        } else {
+            self.mapItemViewConstraint.constant = CGFloat(30)
+        }
         self.setupCenterButton()
     }
     
@@ -185,12 +198,17 @@ extension TripDetailVC {
     }
     
     private func setupShortTrip(){
-        let shortTripViewModel = ShortTripPageViewModel(trip: self.viewModel.trip!)
-        let shortTripVC = ShortTripPageVC(viewModel: shortTripViewModel)
-        swipableViewControllers.append(shortTripVC)
+        if let mapItem = self.viewModel.configurableMapItems.first(where: { $0.overrideShortTrip()}) {
+            swipableViewControllers.append(mapItem.viewController(trip: self.viewModel.trip!, parentViewController: self, tripDetailViewModel: self.viewModel))
+        } else{
+            let shortTripViewModel = ShortTripPageViewModel(trip: self.viewModel.trip!)
+            let shortTripVC = ShortTripPageVC(viewModel: shortTripViewModel)
+            swipableViewControllers.append(shortTripVC)
+        }
     }
     
     func setupPageContainer() {
+        
         self.pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         self.pageViewController.dataSource = self
         self.pageViewController.delegate = self
@@ -198,6 +216,10 @@ extension TripDetailVC {
         self.pageViewController.view.frame = CGRect(x: 0, y: 0, width: self.pageContainer.frame.width, height: self.pageContainer.frame.height)
         pageContainer.addSubview(self.pageViewController.view)
         self.pageViewController.didMove(toParent: self)
+        // avoid scroll if there is only one item
+        if self.viewModel.configurableMapItems.count <= 1 {
+            self.pageViewController.dataSource = nil
+        }
     }
     
     func setupCenterButton() {

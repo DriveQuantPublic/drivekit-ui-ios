@@ -321,7 +321,7 @@ extension MapViewController: MKMapViewDelegate {
             return
         }
 
-        if let currentItem = self.viewModel.displayMapItem, currentItem == .interactiveMap {
+        if let currentItem = self.viewModel.displayMapItem, currentItem.displayedMarkers().contains(.all) {
             if let allEvents = allAnnotations as NSArray? {
                 let indexForEvent = allEvents.index(of: selection)
                 if indexForEvent != NSNotFound {

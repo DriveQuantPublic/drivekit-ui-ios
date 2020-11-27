@@ -234,7 +234,7 @@ extension TripDetailVC {
             tipButton.layer.cornerRadius = tipButton.bounds.size.width / 2
             tipButton.layer.masksToBounds = true
             tipButton.backgroundColor = DKUIColors.secondaryColor.color
-            let image = UIImage(named: advice.getTripInfo()?.imageID() ?? "", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            let image = advice.adviceImage()?.withRenderingMode(.alwaysTemplate)
             tipButton.setImage(image, for: .normal)
             tipButton.tintColor = .white
             tipButton.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)

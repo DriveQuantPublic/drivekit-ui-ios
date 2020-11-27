@@ -95,11 +95,11 @@ extension Route {
 }
 
 extension TripAdvice {
-    func getTripInfo() -> TripInfo?{
-        if theme == "SAFETY"{
-            return .safety
-        }else if theme == "ECODRIVING" {
-            return .ecoDriving
+    func adviceImage() -> UIImage?{
+        if self.theme == "SAFETY" {
+            return UIImage(named: "dk_safety_advice", in: Bundle.driverDataUIBundle, compatibleWith: nil)
+        }else if self.theme == "ECODRIVING" {
+            return UIImage(named: "dk_eco_advice", in: Bundle.driverDataUIBundle, compatibleWith: nil)
         }else{
             return nil
         }

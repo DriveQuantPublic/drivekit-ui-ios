@@ -75,7 +75,8 @@ final class TripTableViewCell: UITableViewCell, Nibable {
     }
     
     private func configureTripInfo(trip: Trip){
-        if let advices = trip.tripAdvices?.allObjects as! [TripAdvice]? , advices.count > 0 {
+        // TODO : configure a unique view for trip label
+        /*if let advices = trip.tripAdvices?.allObjects as! [TripAdvice]? , advices.count > 0 {
             var tripInfo : TripInfo? = nil
             if advices.count > 1 {
                 tripInfo = .count
@@ -111,7 +112,7 @@ final class TripTableViewCell: UITableViewCell, Nibable {
                     accessoryView = adviceButton
                 }
             }
-        }
+        }*/
     }
 
     override func prepareForReuse() {

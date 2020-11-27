@@ -44,7 +44,7 @@ class TripDetailViewModel : DKTripDetailViewModel {
     init(itinId: String) {
         self.itinId = itinId
         var items = DriveKitDriverDataUI.shared.mapItems as [DKMapItem]
-        if let customItem = DriveKitDriverDataUI.shared.customMapItems {
+        if let customItem = DriveKitDriverDataUI.shared.customMapItem {
             items.append(customItem)
         }
         self.mapItems = items

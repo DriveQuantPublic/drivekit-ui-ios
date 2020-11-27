@@ -21,7 +21,7 @@ final class HeaderDayView: UIView, Nibable {
     func configure(trips: TripsByDate) {
         var rightText = ""
         if let dkHeader = DriveKitDriverDataUI.shared.customHeaders {
-            if let text = dkHeader.customTripListheader(trips: trips.trips) {
+            if let text = dkHeader.customTripListHeader(trips: trips.trips) {
                 rightText = text
             } else {
                 rightText = dkHeader.tripListHeader().text(trips: trips.trips)

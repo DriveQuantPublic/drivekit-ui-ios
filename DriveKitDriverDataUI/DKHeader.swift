@@ -12,8 +12,8 @@ import DriveKitDBTripAccessModule
 public protocol DKHeader {
     func tripListHeader() -> HeaderDay
     func tripDetailHeader() -> HeaderDay
-    func customTripListheader(trips: [Trip]) -> String?
-    func customTripDetailheader(trip: Trip) -> String?
+    func customTripListHeader(trips: [Trip]) -> String?
+    func customTripDetailHeader(trip: Trip) -> String?
 }
 
 public extension DKHeader {
@@ -25,11 +25,11 @@ public extension DKHeader {
         return .distanceDuration
     }
     
-    func customTripListheader(trips: [Trip]) -> String? {
+    func customTripListHeader(trips: [Trip]) -> String? {
         return nil
     }
     
-    func customTripDetailheader(trip: Trip) -> String? {
+    func customTripDetailHeader(trip: Trip) -> String? {
         return nil
     }
     

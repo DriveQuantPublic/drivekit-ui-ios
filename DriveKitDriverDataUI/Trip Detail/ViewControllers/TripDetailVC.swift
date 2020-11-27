@@ -127,7 +127,7 @@ extension TripDetailVC {
         let header = HeaderDayView.viewFromNib
         var rightText = ""
         if let dkHeader = DriveKitDriverDataUI.shared.customHeaders {
-            if let text = dkHeader.customTripDetailheader(trip: self.viewModel.trip!) {
+            if let text = dkHeader.customTripDetailHeader(trip: self.viewModel.trip!) {
                 rightText = text
             } else {
                 rightText = dkHeader.tripDetailHeader().text(trips: [self.viewModel.trip!])

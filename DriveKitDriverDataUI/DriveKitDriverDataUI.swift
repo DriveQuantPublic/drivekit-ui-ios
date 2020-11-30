@@ -19,6 +19,7 @@ public class DriveKitDriverDataUI {
     var enableDeleteTrip = true
     var enableAdviceFeedback = true
     private(set) var customHeaders: DKHeader?
+    private(set) var customTripInfo: DKTripInfo?
     
     public static let shared = DriveKitDriverDataUI()
     
@@ -51,6 +52,10 @@ public class DriveKitDriverDataUI {
     
     public func customizeHeaders(headers: DKHeader?) {
         self.customHeaders = headers
+    }
+    
+    public func setCustomTripInfo(_ tripInfo: DKTripInfo) {
+        self.customTripInfo = tripInfo
     }
 }
 

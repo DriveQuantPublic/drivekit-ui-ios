@@ -49,9 +49,10 @@ class AdviceTripInfo: DKTripInfo {
     }
     
     func clickAction(trip: Trip, parentViewController: UIViewController) {
+        let showAdvice = (trip.tripAdvices?.allObjects as? [TripAdvice])?.count ?? 0 > 0
         if let itinId = trip.itinId {
             if let navigationController = parentViewController.navigationController {
-                let tripDetail = TripDetailVC(itinId: itinId, showAdvice: true)
+                let tripDetail = TripDetailVC(itinId: itinId, showAdvice: showAdvice)
                 navigationController.pushViewController(tripDetail, animated: true)
             } else {
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DKShowTripDetail"), object: nil, userInfo: ["itinId": itinId])

@@ -48,7 +48,7 @@ extension TripListVC : UITableViewDataSource {
     
     @objc func tripInfoAction(_ sender: UITapGestureRecognizer) {
         if let tripInfoView = sender.view as? TripInfoView, let trip = tripInfoView.trip, let tripInfo = tripInfoView.tripInfo {
-            if tripInfo.hasActionConfigured() {
+            if tripInfo.hasActionConfigured(trip: trip) {
                 tripInfo.clickAction(trip: trip, parentViewController: self)
             } else {
                 if let itinId = trip.itinId {

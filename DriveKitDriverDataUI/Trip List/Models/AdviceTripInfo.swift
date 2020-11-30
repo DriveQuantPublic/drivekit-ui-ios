@@ -44,7 +44,7 @@ class AdviceTripInfo: DKTripInfo {
         }
     }
     
-    func hasActionConfigured() -> Bool {
+    func hasActionConfigured(trip: Trip) -> Bool {
         return true
     }
     

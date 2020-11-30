@@ -14,6 +14,6 @@ public protocol DKTripInfo {
     func isDisplayable(trip: Trip) -> Bool
     func image(trip: Trip) -> UIImage?
     func text(trip: Trip) -> String?
-    func hasActionConfigured() -> Bool
+    func hasActionConfigured(trip: Trip) -> Bool
     func clickAction(trip: Trip, parentViewController: UIViewController)
 }

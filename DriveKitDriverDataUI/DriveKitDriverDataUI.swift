@@ -54,7 +54,7 @@ public class DriveKitDriverDataUI {
         self.customHeaders = headers
     }
     
-    public func setCustomTripInfo(_ tripInfo: DKTripInfo) {
+    public func setCustomTripInfo(_ tripInfo: DKTripInfo?) {
         self.customTripInfo = tripInfo
     }
 }

@@ -13,7 +13,7 @@ import DriveKitDBTripAccessModule
 class AdviceTripInfo: DKTripInfo {
     
     func isDisplayable(trip: Trip) -> Bool {
-        guard let tripAdvices: [TripAdvice]  = trip.tripAdvices?.allObjects as? [TripAdvice] else {
+        guard let tripAdvices: Set<TripAdvice>  = trip.tripAdvices as? Set<TripAdvice> else {
             return false
         }
         return tripAdvices.count > 0
@@ -34,7 +34,7 @@ class AdviceTripInfo: DKTripInfo {
     }
     
     func text(trip: Trip) -> String? {
-        guard let tripAdvices: [TripAdvice]  = trip.tripAdvices?.allObjects as? [TripAdvice] else {
+        guard let tripAdvices: Set<TripAdvice>  = trip.tripAdvices as? Set<TripAdvice> else {
             return nil
         }
         if tripAdvices.count > 1 {
@@ -49,7 +49,7 @@ class AdviceTripInfo: DKTripInfo {
     }
     
     func clickAction(trip: Trip, parentViewController: UIViewController) {
-        let showAdvice = (trip.tripAdvices?.allObjects as? [TripAdvice])?.count ?? 0 > 0
+        let showAdvice = (trip.tripAdvices as? Set<TripAdvice>)?.count ?? 0 > 0
         if let itinId = trip.itinId {
             if let navigationController = parentViewController.navigationController {
                 let tripDetail = TripDetailVC(itinId: itinId, showAdvice: showAdvice)

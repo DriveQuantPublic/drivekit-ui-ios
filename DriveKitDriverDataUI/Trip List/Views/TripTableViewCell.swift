@@ -19,8 +19,7 @@ final class TripTableViewCell: UITableViewCell, Nibable {
     @IBOutlet weak var arrivalCityLabel: UILabel!
     @IBOutlet weak var tripLineView: TripListSeparator!
     
-    var adviceButton: AdviceButton? = nil
-    var adviceCountView: AdviceCountView? = nil
+    var tripInfoView: TripInfoView? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,11 +33,11 @@ final class TripTableViewCell: UITableViewCell, Nibable {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(trip: Trip){
+    func configure(trip: Trip, tripInfo: DKTripInfo){
         tripLineView.color = DKUIColors.secondaryColor.color
         configureLabels(trip: trip)
         configureTripData(trip: trip)
-        configureTripInfo(trip: trip)
+        configureTripInfo(trip: trip, tripInfo: tripInfo)
     }
     
     private func configureLabels(trip: Trip){
@@ -74,43 +73,20 @@ final class TripTableViewCell: UITableViewCell, Nibable {
         }
     }
     
-    private func configureTripInfo(trip: Trip){
-        if let advices = trip.tripAdvices?.allObjects as! [TripAdvice]? , advices.count > 0 {
-            var tripInfo : TripInfo? = nil
-            if advices.count > 1 {
-                tripInfo = .count
-            }else{
-                let advice = advices[0]
-                if advice.theme == "SAFETY" {
-                    tripInfo = .safety
-                }else if advice.theme == "ECODRIVING" {
-                    tripInfo = .ecoDriving
-                }
+    private func configureTripInfo(trip: Trip, tripInfo: DKTripInfo){
+        if tripInfo.isDisplayable(trip: trip) {
+            tripInfoView = TripInfoView.viewFromNib
+            tripInfoView?.setTrip(trip: trip)
+            tripInfoView?.tripInfo = tripInfo
+            tripInfoView?.setText(tripInfo.text(trip: trip) ?? "")
+            if let image = tripInfo.image(trip: trip)?.resizeImage(24, opaque: false).withRenderingMode(.alwaysTemplate) {
+                tripInfoView?.image.image = image
+                tripInfoView?.image.tintColor = DKUIColors.fontColorOnSecondaryColor.color
             }
-            if let info = tripInfo{
-                if info == .count {
-                    adviceCountView = AdviceCountView.viewFromNib
-                    adviceCountView?.setTrip(trip: trip)
-                    adviceCountView?.setAdviceCount(count: info.text(trip: trip) ?? "")
-                    adviceCountView?.backgroundColor = DKUIColors.secondaryColor.color
-                    adviceCountView?.layer.cornerRadius = 5
-                    adviceCountView?.layer.masksToBounds = true
-                    accessoryView = adviceCountView
-                } else {
-                    adviceButton = AdviceButton(frame: CGRect(x: 0, y: 0, width: 44, height: 32), trip: trip)
-                    let imageID = info.imageID()
-                    if let image =  UIImage(named: imageID ?? "", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.resizeImage(24, opaque: false).withRenderingMode(.alwaysTemplate) {
-                       adviceButton?.setImage(image, for: .normal)
-                    } else {
-                       adviceButton?.setTitle(info.text(trip: trip), for: .normal)
-                    }
-                    adviceButton?.tintColor = DKUIColors.fontColorOnSecondaryColor.color
-                    adviceButton?.backgroundColor = DKUIColors.secondaryColor.color
-                    adviceButton?.layer.cornerRadius = 5
-                    adviceButton?.layer.masksToBounds = true
-                    accessoryView = adviceButton
-                }
-            }
+            tripInfoView?.backgroundColor = DKUIColors.secondaryColor.color
+            tripInfoView?.layer.cornerRadius = 5
+            tripInfoView?.layer.masksToBounds = true
+            accessoryView = tripInfoView
         }
     }
 
@@ -118,7 +94,6 @@ final class TripTableViewCell: UITableViewCell, Nibable {
         super.prepareForReuse()
         dataView.subviews.forEach({  $0.removeFromSuperview() })
         accessoryView = nil
-        adviceCountView = nil
-        adviceButton = nil
+        tripInfoView = nil
     }
 }

@@ -45,7 +45,7 @@ You can follow the steps below to install, run and experiment the DriveKit sampl
 * Click on **Vehicle picker** to add a vehicle to your account.
 
 ![iOS Sample App Screenshots](https://github.com/DriveQuantPublic/drivekit-ui-ios/blob/master/iOS%20Sample%20App.png)
-* In order for the app to work properly, it is recommended to disable the battery optimization functions for the application. This is especially important for some Android smartphone models such as Huawei, Samsung, OnePlus, Asus and Xiaomi. You can find more information about it in [our FAQ](https://drivequant.zendesk.com/hc/en-gb/articles/360007407020-How-to-disable-battery-optimization-on-your-smartphone-).
+
 
 ### Test the demo app
 

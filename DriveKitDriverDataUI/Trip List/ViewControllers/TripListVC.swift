@@ -22,7 +22,6 @@ public class TripListVC: DKUIViewController {
     private let refreshControl = UIRefreshControl()
     
     let viewModel: TripListViewModel
-    var filterViewModel : DKFilterViewModel?
     
     public init() {
         self.viewModel = TripListViewModel()
@@ -46,6 +45,7 @@ public class TripListVC: DKUIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         tableView.tableFooterView = UIView(frame: .zero)
+        self.configureFilterButton()
     }
     
     public override func viewDidDisappear(_ animated: Bool) {
@@ -55,6 +55,24 @@ public class TripListVC: DKUIViewController {
     override public func viewWillAppear(_ animated: Bool) {
         self.showLoader()
         self.viewModel.delegate = self
+    }
+    
+    private func configureFilterButton(){
+        if DriveKitDriverDataUI.shared.enableAlternativeTrips {
+            let image = UIImage(named: "dk_filter", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.resizeImage(25, opaque: false).withRenderingMode(.alwaysTemplate)
+            let filterButton = UIBarButtonItem(image: image , style: .plain, target: self, action: #selector(filterAction))
+            filterButton.tintColor = .white
+            self.navigationItem.rightBarButtonItem = filterButton
+        }
+    }
+    
+    @objc private func filterAction(){
+        let items = viewModel.getTripListFilterItems()
+        if items.count > 1 {
+            let pickerViewModel = DKFilterViewModel(items: items, currentItem: items[0], showPicker: true, delegate: self)
+            let tripListConfigurationPicker = DKFilterPickerVC(viewModel: pickerViewModel)
+            self.present(tripListConfigurationPicker, animated: true)
+        }
     }
 
     func updateUI() {
@@ -93,13 +111,13 @@ public class TripListVC: DKUIViewController {
     }
     
     private func configureFilter() {
-        if let items = viewModel.getVehicleFilterItems(), items.count > 1, self.viewModel.hasTrips() {
+        if let items = viewModel.getTripFilterItem(), items.count > 1, self.viewModel.hasTrips() {
             self.filterViewContainer.isHidden = false
+            let filterViewModel = DKFilterViewModel(items: items, currentItem: items[0], showPicker: true, delegate: self)
+            filterView.configure(viewModel: filterViewModel, parentViewController: self)
             if filterView.superview == nil {
-                self.filterViewModel = DKFilterViewModel(items: items, currentItem: items[0], showPicker: true, delegate: self)
                 self.filterViewContainer.embedSubview(filterView)
             }
-            filterView.configure(viewModel: self.filterViewModel!, parentViewController: self)
         } else {
             self.filterViewContainer.isHidden = true
         }
@@ -131,13 +149,26 @@ extension TripListVC : TripsDelegate {
 }
 
 extension TripListVC : DKFilterItemDelegate {
-    public func onFilterItemSelected() {
-        var vehicleId: String? = nil
-        if let itemId = self.filterViewModel?.getCurrentItemId() as? String {
-            vehicleId = itemId
+    public func onFilterItemSelected(filterItem: DKFilterItem) {
+        if filterItem.getId() is TriplistConfiguration {
+            if (filterItem.getId() as! TriplistConfiguration).identifier() != self.viewModel.listConfiguration.identifier() {
+                switch filterItem.getId() as! TriplistConfiguration  {
+                    case .motorized(_):
+                        self.viewModel.filterTrips(config: .motorized(nil))
+                    case .alternative(_):
+                        self.viewModel.filterTrips(config: .alternative(nil))
+                }
+                self.updateUI()
+                self.tableView.reloadData()
+            }
+        } else {
+            var vehicleId: String? = nil
+            if let itemId = filterItem.getId() as? String {
+                vehicleId = itemId
+            }
+            self.viewModel.filterTrips(config: .motorized(vehicleId))
+            self.updateUI()
+            self.tableView.reloadData()
         }
-        self.viewModel.filterTrips(vehicleId: vehicleId)
-        self.updateUI()
-        self.tableView.reloadData()
     }
 }

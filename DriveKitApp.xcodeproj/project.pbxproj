@@ -18,6 +18,7 @@
 		3F0740EF2404263D005A8D07 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F0740ED2404263D005A8D07 /* Roboto-Regular.ttf */; };
 		3F0740F02404263D005A8D07 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F0740EE2404263D005A8D07 /* Roboto-Bold.ttf */; };
 		3F0740F3240426C0005A8D07 /* UIColor+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0740F2240426C0005A8D07 /* UIColor+DK.swift */; };
+		3F0F6B89257F8ACC00EE7AB3 /* TripListConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F6B88257F8ACC00EE7AB3 /* TripListConfiguration.swift */; };
 		3F38C26123696EE0002E873A /* TripInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F38C25F23696EE0002E873A /* TripInfoView.xib */; };
 		3F38C26223696EE0002E873A /* TripInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C26023696EE0002E873A /* TripInfoView.swift */; };
 		3F38C2692369BD60002E873A /* TripTipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C2672369BD5F002E873A /* TripTipViewController.swift */; };
@@ -444,6 +445,7 @@
 		3F0740ED2404263D005A8D07 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		3F0740EE2404263D005A8D07 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		3F0740F2240426C0005A8D07 /* UIColor+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+DK.swift"; sourceTree = "<group>"; };
+		3F0F6B88257F8ACC00EE7AB3 /* TripListConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListConfiguration.swift; sourceTree = "<group>"; };
 		3F38C25F23696EE0002E873A /* TripInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripInfoView.xib; sourceTree = "<group>"; };
 		3F38C26023696EE0002E873A /* TripInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripInfoView.swift; sourceTree = "<group>"; };
 		3F38C2672369BD5F002E873A /* TripTipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTipViewController.swift; sourceTree = "<group>"; };
@@ -1664,6 +1666,7 @@
 			isa = PBXGroup;
 			children = (
 				A34238412361A2430001E15D /* TripListViewModel.swift */,
+				3F0F6B88257F8ACC00EE7AB3 /* TripListConfiguration.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2580,6 +2583,7 @@
 				A342388E2361A2440001E15D /* HeaderDay.swift in Sources */,
 				A34238912361A2440001E15D /* TripListVC.swift in Sources */,
 				A342387B2361A2440001E15D /* CalloutView.swift in Sources */,
+				3F0F6B89257F8ACC00EE7AB3 /* TripListConfiguration.swift in Sources */,
 				A317F83123A1383B00AD22A2 /* TripTipFeedbackChoicesCell.swift in Sources */,
 				A34238702361A2430001E15D /* DistractionPageVC.swift in Sources */,
 				A342386B2361A2430001E15D /* TripEvent.swift in Sources */,

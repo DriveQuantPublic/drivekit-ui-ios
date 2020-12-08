@@ -34,8 +34,7 @@ extension TripListVC : UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell : TripTableViewCell = tableView.dequeueReusableCell(withIdentifier: "TripTableViewCell") as? TripTableViewCell {
             cell.selectionStyle = .none
-            let tripInfo : DKTripInfo = DriveKitDriverDataUI.shared.customTripInfo ?? AdviceTripInfo()
-            cell.configure(trip: self.viewModel.filteredTrips[indexPath.section].trips[indexPath.row], tripInfo: tripInfo)
+            cell.configure(trip: self.viewModel.filteredTrips[indexPath.section].trips[indexPath.row], tripInfo: self.viewModel.getTripInfo())
             if let tripInfoView = cell.tripInfoView {
                 let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tripInfoAction(_:)))
                 tripInfoView.addGestureRecognizer(gestureRecognizer)

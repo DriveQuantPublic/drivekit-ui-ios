@@ -16,7 +16,7 @@ public protocol DKFilterItem {
 }
 
 public protocol DKFilterItemDelegate : AnyObject {
-    func onFilterItemSelected()
+    func onFilterItemSelected(filterItem: DKFilterItem)
 }
 
 public class DKFilterViewModel {
@@ -55,11 +55,6 @@ public class DKFilterViewModel {
     
     func itemSelected(position: Int) {
         currentItem = items[position]
-        self.delegate?.onFilterItemSelected()
+        self.delegate?.onFilterItemSelected(filterItem: currentItem)
     }
-    
-    public func getCurrentItemId() -> Any? {
-        return currentItem.getId()
-    }
-    
 }

@@ -33,11 +33,13 @@ final class TripTableViewCell: UITableViewCell, Nibable {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(trip: Trip, tripInfo: DKTripInfo){
+    func configure(trip: Trip, tripInfo: DKTripInfo?){
         tripLineView.color = DKUIColors.secondaryColor.color
         configureLabels(trip: trip)
         configureTripData(trip: trip)
-        configureTripInfo(trip: trip, tripInfo: tripInfo)
+        if let tripInfo = tripInfo {
+            configureTripInfo(trip: trip, tripInfo: tripInfo)
+        }
     }
     
     private func configureLabels(trip: Trip){

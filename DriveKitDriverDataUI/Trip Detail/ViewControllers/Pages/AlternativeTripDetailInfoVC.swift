@@ -43,11 +43,10 @@ class AlternativeTripDetailInfoVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.changeTransportationModeButton.setTitle("dk_driverdata_change_transportation_mode".dkDriverDataLocalized(), for: .normal)
         self.changeTransportationModeButton.setTitleColor(DKUIColors.fontColorOnSecondaryColor.color, for: .normal)
         self.changeTransportationModeButton.backgroundColor = DKUIColors.secondaryColor.color
-
+        
         self.detectedTransportationModeTitle.attributedText = "dk_driverdata_detected_transportation_mode".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
         self.declaredTransportationModeTitle.attributedText = "dk_driverdata_declared_transportation_mode".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
         

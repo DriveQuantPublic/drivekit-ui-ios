@@ -11,7 +11,7 @@ import DriveKitDBTripAccessModule
 
 class AlternativeTripViewModel {
    
-    private let trip: Trip
+    let trip: Trip
     let unknown = "dk_driverdata_unknown".dkDriverDataLocalized()
     
     init(trip: Trip) {

@@ -16,13 +16,14 @@ class TransportationModeViewModel {
     
     init(trip: Trip) {
         self.trip = trip
+        self.selectedTransportationMode = self.declaredTransportationMode()
     }
     
     var comment: String? {
         return trip.declaredTransportationMode?.comment
     }
     
-    var isDriver: Bool? {
+    var isPassenger: Bool? {
         return trip.declaredTransportationMode?.passenger
     }
     

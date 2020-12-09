@@ -83,14 +83,8 @@ class AlternativeTripDetailInfoVC: UIViewController {
     }
 
     @IBAction private func changeTransportationMode() {
-        /*let transportationMode: TripListStatus?
-        if self.viewModel.trip.declaredTransportationMode != nil {
-            transportationMode = self.transportationModeStatus
-        } else {
-            transportationMode = nil
-        }
-        let transportationModeVC = TransportationModeVC(trip: self.viewModel.trip, transportationMode: transportationMode)
-        self.tripDetailVC.navigationController?.pushViewController(transportationModeVC, animated: true)*/
+        let transportationModeVC = TransportationModeVC(viewModel: TransportationModeViewModel(trip: self.viewModel.trip))
+        self.parentView?.navigationController?.pushViewController(transportationModeVC, animated: true)
     }
 
 }

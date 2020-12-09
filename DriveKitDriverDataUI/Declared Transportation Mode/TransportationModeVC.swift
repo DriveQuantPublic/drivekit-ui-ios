@@ -57,18 +57,18 @@ class TransportationModeVC : DKUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "transportation_mode_title".dkDriverDataLocalized()
+        self.title = "dk_driverdata_transportation_mode_title".dkDriverDataLocalized()
         
-        self.messageLabel.attributedText = "transportation_mode_declaration_text".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.white).build()
+        self.messageLabel.attributedText = "dk_driverdata_transportation_mode_declaration_text".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.white).build()
         self.messageBackground.backgroundColor = DKUIColors.warningColor.color
         self.messageBackground.layer.cornerRadius = 4
         
-        self.transportationModeTitle.attributedText = "transportation_mode".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
-        self.passengerDriverTitle.attributedText = "transportation_mode_passenger_driver".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
+        self.transportationModeTitle.attributedText = "dk_driverdata_transportation_mode".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
+        self.passengerDriverTitle.attributedText = "dk_driverdata_transportation_mode_passenger_driver".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
         self.passengerDriverTitle.isHidden = true
         self.passengerDriverButtonsContainer.isHidden = true
-        self.commentTitle.attributedText = "transportation_mode_declaration_comment".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
-        self.commentError.attributedText = "transportation_mode_declaration_comment_error".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.criticalColor).build()
+        self.commentTitle.attributedText = "dk_driverdata_transportation_mode_declaration_comment".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
+        self.commentError.attributedText = "dk_driverdata_transportation_mode_declaration_comment_error".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.criticalColor).build()
         self.commentTextView.text = self.viewModel.comment
         self.commentTextView.layer.borderWidth = 1
         self.commentTextView.layer.borderColor = UIColor.lightGray.cgColor
@@ -115,11 +115,11 @@ class TransportationModeVC : DKUIViewController {
         self.selectedTransportationModeButton = transportationMode
         
         if transportationMode == self.carTransportationModeButton {
-            if let isDriver = self.viewModel.isDriver {
-                if isDriver {
-                    driverButtonDidTouch()
-                } else {
+            if let isPassenger = self.viewModel.isPassenger {
+                if isPassenger {
                     passengerButtonDidTouch()
+                } else {
+                    driverButtonDidTouch()
                 }
             }
             self.passengerDriverTitle.isHidden = false
@@ -169,7 +169,7 @@ class TransportationModeVC : DKUIViewController {
     }
     
     private func updateState() {
-        if self.isViewLoaded, let selectedTransportationMode = self.viewModel.declaredTransportationMode() {
+        if self.isViewLoaded, let selectedTransportationMode = self.viewModel.selectedTransportationMode {
             let titleKey = selectedTransportationMode.getName()
             switch selectedTransportationMode {
                 case .bike:
@@ -220,14 +220,16 @@ class TransportationModeVC : DKUIViewController {
                 if let itinId = self.viewModel.itinId {
                     showLoader()
                     DriveKitDriverData.shared.declareTransportationMode(itinId: itinId, mode: selectedTransportationMode, passenger: passenger ?? false, comment: comment, completionHandler: { [weak self] status in
-                        if let self = self {
-                            switch status {
-                                case .noError:
-                                    self.navigationController?.popViewController(animated: true)
-                                case .failedToDeclareTransportationMode:
-                                    self.showAlertMessage(title: nil, message: "unknown_error".dkDriverDataLocalized(), back: false, cancel: false)
-                                case .commentTooLong:
-                                    self.showAlertMessage(title: nil, message: "transportation_mode_declaration_comment_error".dkDriverDataLocalized(), back: false, cancel: false)
+                        DispatchQueue.main.async {
+                            if let self = self {
+                                switch status {
+                                    case .noError:
+                                        self.navigationController?.popViewController(animated: true)
+                                    case .failedToDeclareTransportationMode:
+                                        self.showAlertMessage(title: nil, message: "dk_driverdata_failed_to_declare_transportation".dkDriverDataLocalized(), back: false, cancel: false)
+                                    case .commentTooLong:
+                                        self.showAlertMessage(title: nil, message: "dk_driverdata_transportation_mode_declaration_comment_error".dkDriverDataLocalized(), back: false, cancel: false)
+                                }
                             }
                         }
                     })

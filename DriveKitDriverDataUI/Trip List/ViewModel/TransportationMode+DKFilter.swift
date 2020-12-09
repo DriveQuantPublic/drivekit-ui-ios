@@ -46,29 +46,29 @@ extension TransportationMode : DKFilterItem {
         var localizable = ""
         switch self {
             case .unknown, .other:
-                localizable = "dk_transportation_mode_other"
+                localizable = "dk_driverdata_transportation_mode_other"
             case .car:
-                localizable = "dk_transportation_mode_car"
+                localizable = "dk_driverdata_transportation_mode_car"
             case .moto:
-                localizable = "dk_transportation_mode_motorcycle"
+                localizable = "dk_driverdata_transportation_mode_motorcycle"
             case .truck:
-                localizable = "dk_transportation_mode_truck"
+                localizable = "dk_driverdata_transportation_mode_truck"
             case .bus:
-                localizable = "dk_transportation_mode_bus"
+                localizable = "dk_driverdata_transportation_mode_bus"
             case .train:
-                localizable = "dk_transportation_mode_train"
+                localizable = "dk_driverdata_transportation_mode_train"
             case .boat:
-                localizable = "dk_transportation_mode_boat"
+                localizable = "dk_driverdata_transportation_mode_boat"
             case .bike:
-                localizable = "dk_transportation_mode_bike"
+                localizable = "dk_driverdata_transportation_mode_bike"
             case .flight:
-                localizable = "dk_transportation_mode_flight"
+                localizable = "dk_driverdata_transportation_mode_flight"
             case .skiing:
-                localizable = "dk_transportation_mode_skiing"
+                localizable = "dk_driverdata_transportation_mode_skiing"
             case .onFoot:
-                localizable = "dk_transportation_mode_on_foot"
+                localizable = "dk_driverdata_transportation_mode_on_foot"
             case .idle:
-                localizable = "dk_transportation_mode_idle"
+                localizable = "dk_driverdata_transportation_mode_idle"
         }
         return localizable.dkDriverDataLocalized()
     }

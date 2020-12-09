@@ -179,7 +179,7 @@ class AllAlternativeMode : DKFilterItem {
     }
     
     func getName() -> String {
-        return "dk_driverdata_alternative_trips".dkDriverDataLocalized()
+        return "dk_driverdata_default_filter_item".dkDriverDataLocalized()
     }
     
     func getId() -> Any? {

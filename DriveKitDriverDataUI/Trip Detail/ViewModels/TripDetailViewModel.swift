@@ -41,13 +41,19 @@ class TripDetailViewModel : DKTripDetailViewModel {
         }
     }
     
-    init(itinId: String) {
+    init(itinId: String, listConfiguration: TriplistConfiguration) {
         self.itinId = itinId
-        var items = DriveKitDriverDataUI.shared.mapItems as [DKMapItem]
-        if let customItem = DriveKitDriverDataUI.shared.customMapItem {
-            items.append(customItem)
+        switch listConfiguration {
+            case .motorized(_):
+                var items = DriveKitDriverDataUI.shared.mapItems as [DKMapItem]
+                if let customItem = DriveKitDriverDataUI.shared.customMapItem {
+                    items.append(customItem)
+                }
+                self.mapItems = items
+            case .alternative(_):
+                self.mapItems = [AlternativeTripMapItem()]
         }
-        self.mapItems = items
+        
     }
     
     private func fetchTripData(){

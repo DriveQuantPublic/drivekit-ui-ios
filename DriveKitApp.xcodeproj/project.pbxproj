@@ -41,6 +41,10 @@
 		3F50D70524179467001226F7 /* ConnectBluetoothVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D6FD24179467001226F7 /* ConnectBluetoothVC.swift */; };
 		3F50D7082417ADDD001226F7 /* DKVehicle+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D7072417ADDD001226F7 /* DKVehicle+UI.swift */; };
 		3F6B67402580B95F008B3BA7 /* TransportationMode+DKFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B673F2580B95F008B3BA7 /* TransportationMode+DKFilter.swift */; };
+		3F6B67482580D268008B3BA7 /* AlternativeTripDetailInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B67462580D268008B3BA7 /* AlternativeTripDetailInfoVC.swift */; };
+		3F6B67492580D268008B3BA7 /* AlternativeTripDetailInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F6B67472580D268008B3BA7 /* AlternativeTripDetailInfoVC.xib */; };
+		3F6B67502580D4A2008B3BA7 /* AlternativeTripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B674F2580D4A2008B3BA7 /* AlternativeTripViewModel.swift */; };
+		3F6B67572580DA62008B3BA7 /* AlternativeTripMapItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B67562580DA62008B3BA7 /* AlternativeTripMapItem.swift */; };
 		3F7524CB2406C4CC00AC22CC /* DKUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7524CA2406C4CC00AC22CC /* DKUIViewController.swift */; };
 		3F7524CE2407A89100AC22CC /* DKCommonLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7524CD2407A89100AC22CC /* DKCommonLocalizable.swift */; };
 		3FA24FF62524B9BE000AB7D3 /* DKFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA24FF52524B9BE000AB7D3 /* DKFilterView.swift */; };
@@ -473,6 +477,10 @@
 		3F50D6FD24179467001226F7 /* ConnectBluetoothVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectBluetoothVC.swift; sourceTree = "<group>"; };
 		3F50D7072417ADDD001226F7 /* DKVehicle+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DKVehicle+UI.swift"; sourceTree = "<group>"; };
 		3F6B673F2580B95F008B3BA7 /* TransportationMode+DKFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransportationMode+DKFilter.swift"; sourceTree = "<group>"; };
+		3F6B67462580D268008B3BA7 /* AlternativeTripDetailInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlternativeTripDetailInfoVC.swift; sourceTree = "<group>"; };
+		3F6B67472580D268008B3BA7 /* AlternativeTripDetailInfoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlternativeTripDetailInfoVC.xib; sourceTree = "<group>"; };
+		3F6B674F2580D4A2008B3BA7 /* AlternativeTripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternativeTripViewModel.swift; sourceTree = "<group>"; };
+		3F6B67562580DA62008B3BA7 /* AlternativeTripMapItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternativeTripMapItem.swift; sourceTree = "<group>"; };
 		3F7524CA2406C4CC00AC22CC /* DKUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKUIViewController.swift; sourceTree = "<group>"; };
 		3F7524CD2407A89100AC22CC /* DKCommonLocalizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKCommonLocalizable.swift; sourceTree = "<group>"; };
 		3FA24FF52524B9BE000AB7D3 /* DKFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKFilterView.swift; sourceTree = "<group>"; };
@@ -1576,6 +1584,7 @@
 				A342381B2361A2430001E15D /* EcoDrivingPageViewModel.swift */,
 				A342381C2361A2430001E15D /* HistoryPageViewModel.swift */,
 				A342381D2361A2430001E15D /* DistractionPageViewModel.swift */,
+				3F6B674F2580D4A2008B3BA7 /* AlternativeTripViewModel.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -1586,6 +1595,7 @@
 				A34238202361A2430001E15D /* MapItem.swift */,
 				A34238212361A2430001E15D /* TripEvent.swift */,
 				3F3E72F4256F9415002B5E30 /* DKMapItem.swift */,
+				3F6B67562580DA62008B3BA7 /* AlternativeTripMapItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1609,6 +1619,8 @@
 		A34238272361A2430001E15D /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				3F6B67462580D268008B3BA7 /* AlternativeTripDetailInfoVC.swift */,
+				3F6B67472580D268008B3BA7 /* AlternativeTripDetailInfoVC.xib */,
 				A30F4F1623D5DA14009A37C2 /* SynthesisPageVC.swift */,
 				A30F4F1723D5DA14009A37C2 /* SynthesisPageVC.xib */,
 				A34238282361A2430001E15D /* DistractionPageVC.swift */,
@@ -2208,6 +2220,7 @@
 				A34238A92361B0DE0001E15D /* TripListVC.xib in Resources */,
 				A34238802361A2440001E15D /* DistractionPageView.xib in Resources */,
 				A342387E2361A2440001E15D /* HistoryPageView.xib in Resources */,
+				3F6B67492580D268008B3BA7 /* AlternativeTripDetailInfoVC.xib in Resources */,
 				A34238842361A2440001E15D /* SafetyPageView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2572,6 +2585,7 @@
 				A317F82923A137B600AD22A2 /* TripTipFeedbackViewModel.swift in Sources */,
 				A34238982361A2440001E15D /* HeaderDayView.swift in Sources */,
 				A34238822361A2440001E15D /* DistractionPageView.swift in Sources */,
+				3F6B67502580D4A2008B3BA7 /* AlternativeTripViewModel.swift in Sources */,
 				A342388A2361A2440001E15D /* TripListSeparator.swift in Sources */,
 				A34238812361A2440001E15D /* SafetyPageView.swift in Sources */,
 				A342386D2361A2430001E15D /* TripDetailVC.swift in Sources */,
@@ -2604,6 +2618,8 @@
 				A342386A2361A2430001E15D /* MapItem.swift in Sources */,
 				3F3E72FC256F9B71002B5E30 /* DKTripDetailViewModel.swift in Sources */,
 				A34238862361A2440001E15D /* Extension+DK.swift in Sources */,
+				3F6B67572580DA62008B3BA7 /* AlternativeTripMapItem.swift in Sources */,
+				3F6B67482580D268008B3BA7 /* AlternativeTripDetailInfoVC.swift in Sources */,
 				A342387F2361A2440001E15D /* HistoryPageView.swift in Sources */,
 				A342388C2361A2440001E15D /* TripsByDate.swift in Sources */,
 				A342386C2361A2430001E15D /* MapViewController.swift in Sources */,

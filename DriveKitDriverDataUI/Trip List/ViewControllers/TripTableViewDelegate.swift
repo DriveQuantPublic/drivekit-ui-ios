@@ -69,7 +69,7 @@ extension TripListVC : UITableViewDataSource {
     
     private func showTripDetail(itinId : String) {
         if let navigationController = self.navigationController {
-            let tripDetail = TripDetailVC(itinId: itinId, showAdvice: false)
+            let tripDetail = TripDetailVC(itinId: itinId, showAdvice: false, listConfiguration: self.viewModel.listConfiguration)
             navigationController.pushViewController(tripDetail, animated: true)
         } else {
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DKShowTripDetail"), object: nil, userInfo: ["itinId": itinId])

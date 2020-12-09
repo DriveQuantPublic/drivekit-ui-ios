@@ -31,8 +31,8 @@ class TripDetailVC: DKUIViewController {
     private var showAdvice : Bool
     
     
-    init(itinId: String, showAdvice: Bool) {
-        self.viewModel = TripDetailViewModel(itinId: itinId)
+    init(itinId: String, showAdvice: Bool, listConfiguration: TriplistConfiguration) {
+        self.viewModel = TripDetailViewModel(itinId: itinId, listConfiguration: listConfiguration)
         self.showAdvice = showAdvice
         super.init(nibName: String(describing: TripDetailVC.self), bundle: Bundle.driverDataUIBundle)
     }

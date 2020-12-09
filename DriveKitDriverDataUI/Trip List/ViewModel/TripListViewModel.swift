@@ -35,7 +35,6 @@ class TripListViewModel {
     }
     
     public func fetchTrips() {
-        // TODO : fetch trips according to module config
         var transportationModes = self.listConfiguration.transportationModes()
         if DriveKitDriverDataUI.shared.enableAlternativeTrips {
             transportationModes.append(contentsOf: TriplistConfiguration.alternative(nil).transportationModes())
@@ -85,8 +84,23 @@ class TripListViewModel {
     }
     
     private func getAlternativeTripsFilterItem() -> [DKFilterItem]? {
-        // TODO : get all alternative mode from trips
-        return nil
+        var modes = [DKFilterItem]()
+        let standardTransportationModes: [TransportationMode] = TriplistConfiguration.motorized(nil).transportationModes()
+        let alternativeTransportationModes: [TransportationMode] = TriplistConfiguration.alternative(nil).transportationModes()
+        for transportationMode in standardTransportationModes {
+            let numberOfTrips = DriveKitDBTripAccess.shared.tripsQuery().whereEqualTo(field: "declaredTransportationMode.transportationMode", value: Int32(transportationMode.rawValue)).query().execute().count
+            if numberOfTrips > 0 {
+                modes.append(transportationMode)
+            }
+        }
+        for alternativeTransportationMode in alternativeTransportationModes {
+            let numberOfTrips = DriveKitDBTripAccess.shared.tripsQuery().whereEqualTo(field: "declaredTransportationMode.transportationMode", value: Int32(alternativeTransportationMode.rawValue)).or().whereEqualTo(field: "transportationMode", value: Int32(alternativeTransportationMode.rawValue)).query().execute().count
+            if numberOfTrips > 0 {
+                modes.append(alternativeTransportationMode)
+            }
+        }
+        modes.insert(AllAlternativeMode(), at: 0)
+        return modes
     }
     
     func filterTrips(config: TriplistConfiguration) {
@@ -156,5 +170,19 @@ class AllTripFilterItem : DKFilterItem {
     
     func getId() -> Any? {
         return nil
+    }
+}
+
+class AllAlternativeMode : DKFilterItem {
+    func getImage() -> UIImage? {
+        return UIImage(named: "dk_transportation_all", in: Bundle.driverDataUIBundle, compatibleWith: nil)
+    }
+    
+    func getName() -> String {
+        return "dk_driverdata_alternative_trips".dkDriverDataLocalized()
+    }
+    
+    func getId() -> Any? {
+        return self
     }
 }

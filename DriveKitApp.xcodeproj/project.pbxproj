@@ -40,6 +40,7 @@
 		3F50D70424179467001226F7 /* ErrorBluetoothVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F50D6FC24179466001226F7 /* ErrorBluetoothVC.xib */; };
 		3F50D70524179467001226F7 /* ConnectBluetoothVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D6FD24179467001226F7 /* ConnectBluetoothVC.swift */; };
 		3F50D7082417ADDD001226F7 /* DKVehicle+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D7072417ADDD001226F7 /* DKVehicle+UI.swift */; };
+		3F6B67402580B95F008B3BA7 /* TransportationMode+DKFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B673F2580B95F008B3BA7 /* TransportationMode+DKFilter.swift */; };
 		3F7524CB2406C4CC00AC22CC /* DKUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7524CA2406C4CC00AC22CC /* DKUIViewController.swift */; };
 		3F7524CE2407A89100AC22CC /* DKCommonLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7524CD2407A89100AC22CC /* DKCommonLocalizable.swift */; };
 		3FA24FF62524B9BE000AB7D3 /* DKFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA24FF52524B9BE000AB7D3 /* DKFilterView.swift */; };
@@ -471,6 +472,7 @@
 		3F50D6FC24179466001226F7 /* ErrorBluetoothVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorBluetoothVC.xib; sourceTree = "<group>"; };
 		3F50D6FD24179467001226F7 /* ConnectBluetoothVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectBluetoothVC.swift; sourceTree = "<group>"; };
 		3F50D7072417ADDD001226F7 /* DKVehicle+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DKVehicle+UI.swift"; sourceTree = "<group>"; };
+		3F6B673F2580B95F008B3BA7 /* TransportationMode+DKFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransportationMode+DKFilter.swift"; sourceTree = "<group>"; };
 		3F7524CA2406C4CC00AC22CC /* DKUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKUIViewController.swift; sourceTree = "<group>"; };
 		3F7524CD2407A89100AC22CC /* DKCommonLocalizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKCommonLocalizable.swift; sourceTree = "<group>"; };
 		3FA24FF52524B9BE000AB7D3 /* DKFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKFilterView.swift; sourceTree = "<group>"; };
@@ -1667,6 +1669,7 @@
 			children = (
 				A34238412361A2430001E15D /* TripListViewModel.swift */,
 				3F0F6B88257F8ACC00EE7AB3 /* TripListConfiguration.swift */,
+				3F6B673F2580B95F008B3BA7 /* TransportationMode+DKFilter.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2609,6 +2612,7 @@
 				A34238662361A2430001E15D /* EcoDrivingPageViewModel.swift in Sources */,
 				A34238852361A2440001E15D /* TripListViewModel.swift in Sources */,
 				A34238622361A2430001E15D /* CalloutViewModel.swift in Sources */,
+				3F6B67402580B95F008B3BA7 /* TransportationMode+DKFilter.swift in Sources */,
 				3F3E73A925715B47002B5E30 /* DKTripInfo.swift in Sources */,
 				A34238762361A2440001E15D /* SafetyPageVC.swift in Sources */,
 				A34238682361A2430001E15D /* DistractionPageViewModel.swift in Sources */,

@@ -33,10 +33,10 @@ final class TripTableViewCell: UITableViewCell, Nibable {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(trip: Trip, tripInfo: DKTripInfo?){
+    func configure(trip: Trip, tripInfo: DKTripInfo?, listConfiguration: TriplistConfiguration){
         tripLineView.color = DKUIColors.secondaryColor.color
         configureLabels(trip: trip)
-        configureTripData(trip: trip)
+        configureTripData(trip: trip, listConfiguration: listConfiguration)
         if let tripInfo = tripInfo {
             configureTripInfo(trip: trip, tripInfo: tripInfo)
         }
@@ -50,7 +50,16 @@ final class TripTableViewCell: UITableViewCell, Nibable {
         self.arrivalCityLabel.attributedText = (trip.arrivalCity ?? "").dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
     }
     
-    private func configureTripData(trip: Trip){
+    private func configureTripData(trip: Trip, listConfiguration: TriplistConfiguration){
+        switch listConfiguration {
+            case .motorized(_):
+                configureMotorizedTripData(trip: trip)
+            case .alternative(_):
+                configureAlternativeTripData(trip: trip)
+        }
+    }
+    
+    private func configureMotorizedTripData(trip: Trip) {
         switch DriveKitDriverDataUI.shared.tripData.displayType() {
         case .gauge:
             if DriveKitDriverDataUI.shared.tripData.isScored(trip: trip) {
@@ -73,6 +82,12 @@ final class TripTableViewCell: UITableViewCell, Nibable {
             label.center = dataView.center
             dataView.embedSubview(label)
         }
+    }
+    
+    private func configureAlternativeTripData(trip: Trip) {
+        let view = NoScoreImageView.viewFromNib
+        view.imageView.image = TransportationMode(rawValue: Int(trip.declaredTransportationMode?.transportationMode ?? trip.transportationMode))?.getImage()
+        dataView.embedSubview(view)
     }
     
     private func configureTripInfo(trip: Trip, tripInfo: DKTripInfo){

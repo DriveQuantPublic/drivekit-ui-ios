@@ -35,7 +35,7 @@ class TripListViewModel {
     }
     
     public func fetchTrips() {
-        var transportationModes = self.listConfiguration.transportationModes()
+        var transportationModes = TriplistConfiguration.motorized(nil).transportationModes()
         if DriveKitDriverDataUI.shared.enableAlternativeTrips {
             transportationModes.append(contentsOf: TriplistConfiguration.alternative(nil).transportationModes())
         }

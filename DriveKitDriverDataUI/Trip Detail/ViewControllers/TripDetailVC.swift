@@ -30,7 +30,6 @@ class TripDetailVC: DKUIViewController {
     
     private var showAdvice : Bool
     
-    
     init(itinId: String, showAdvice: Bool, listConfiguration: TriplistConfiguration) {
         self.viewModel = TripDetailViewModel(itinId: itinId, listConfiguration: listConfiguration)
         self.showAdvice = showAdvice

@@ -124,7 +124,23 @@ class TripListViewModel {
     
     private func filterTrips(transportationMode: TransportationMode?) {
         if let transportationMode = transportationMode {
-            self.filterTrips {$0.transportationMode == transportationMode.rawValue}
+            if TriplistConfiguration.alternative(nil).transportationModes().contains(transportationMode) {
+                self.filterTrips {
+                    if let declaredMode = $0.declaredTransportationModeInt {
+                        return declaredMode == transportationMode.rawValue
+                    } else {
+                        return $0.transportationMode == transportationMode.rawValue
+                    }
+                }
+            } else {
+                self.filterTrips {
+                    if let declaredMode = $0.declaredTransportationModeInt {
+                        return declaredMode == transportationMode.rawValue
+                    } else {
+                        return false
+                    }
+                }
+            }
         }else{
             let alternativeModes = TriplistConfiguration.alternative(nil).transportationModes()
             self.filterTrips { alternativeModes.contains(TransportationMode(rawValue: Int(($0 as Trip).transportationMode)) ?? TransportationMode.unknown) }

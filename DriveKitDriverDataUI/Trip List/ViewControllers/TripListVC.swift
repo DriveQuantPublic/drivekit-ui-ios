@@ -57,6 +57,9 @@ public class TripListVC: DKUIViewController {
     override public func viewWillAppear(_ animated: Bool) {
         self.showLoader()
         self.viewModel.delegate = self
+        if let items = viewModel.getTripFilterItem(), items.count > 1 {
+            self.filterViewModel = DKFilterViewModel(items: items, currentItem: items[0], showPicker: true, delegate: self)
+        }
     }
     
     private func configureFilterButton(){

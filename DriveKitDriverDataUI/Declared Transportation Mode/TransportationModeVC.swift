@@ -44,9 +44,11 @@ class TransportationModeVC : DKUIViewController {
     private var selectedPassengerDriverButton: TransportationModeIcon? = nil
     
     private let viewModel: TransportationModeViewModel
+    private weak var parentView : UIViewController?
     
-    init(viewModel: TransportationModeViewModel) {
+    init(viewModel: TransportationModeViewModel, parent: UIViewController) {
         self.viewModel = viewModel
+        self.parentView = parent
         super.init(nibName: String(describing: TransportationModeVC.self), bundle: Bundle.driverDataUIBundle)
     }
     
@@ -224,6 +226,9 @@ class TransportationModeVC : DKUIViewController {
                             if let self = self {
                                 switch status {
                                     case .noError:
+                                        if let parentView = self.parentView, parentView is AlternativeTripDetailInfoVC {
+                                            (parentView as! AlternativeTripDetailInfoVC).update()
+                                        }
                                         self.navigationController?.popViewController(animated: true)
                                     case .failedToDeclareTransportationMode:
                                         self.showAlertMessage(title: nil, message: "dk_driverdata_failed_to_declare_transportation".dkDriverDataLocalized(), back: false, cancel: false)

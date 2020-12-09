@@ -47,8 +47,8 @@ class AlternativeTripDetailInfoVC: UIViewController {
         self.changeTransportationModeButton.setTitleColor(DKUIColors.fontColorOnSecondaryColor.color, for: .normal)
         self.changeTransportationModeButton.backgroundColor = DKUIColors.secondaryColor.color
         
-        self.detectedTransportationModeTitle.attributedText = "dk_driverdata_detected_transportation_mode".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
-        self.declaredTransportationModeTitle.attributedText = "dk_driverdata_declared_transportation_mode".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
+        self.detectedTransportationModeTitle.attributedText = "dk_driverdata_detected_transportation_mode".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+        self.declaredTransportationModeTitle.attributedText = "dk_driverdata_declared_transportation_mode".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
         
         self.tripConditionTitle.attributedText = "dk_driverdata_synthesis_condition".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
         self.tripWeatherTitle.attributedText = "dk_driverdata_synthesis_weather".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
@@ -59,9 +59,9 @@ class AlternativeTripDetailInfoVC: UIViewController {
 
     func update() {
         let valueStyle = DKStyle(size: DKStyles.smallText.style.size, traits: UIFontDescriptor.SymbolicTraits.traitBold)
-        let detectionModeStyle = DKStyle(size: DKStyles.normalText.style.size, traits: UIFontDescriptor.SymbolicTraits.traitBold)
+        let detectionModeStyle = DKStyle(size: DKStyles.smallText.style.size, traits: UIFontDescriptor.SymbolicTraits.traitBold)
         if let declaredMode = self.viewModel.declaredTransportationMode() {
-            self.detectedTransportationModeValue.attributedText = self.viewModel.detectedTransportationMode().getName().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
+            self.detectedTransportationModeValue.attributedText = self.viewModel.detectedTransportationMode().getName().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
             self.declaredTransportationModeContainer.isHidden = false
             self.declaredTransportationModeValue.attributedText = declaredMode.getName().dkAttributedString().font(dkFont: .primary, style: detectionModeStyle).color(.primaryColor).build()
             self.transportationModeImage.image = declaredMode.getImage()
@@ -83,7 +83,7 @@ class AlternativeTripDetailInfoVC: UIViewController {
     }
 
     @IBAction private func changeTransportationMode() {
-        let transportationModeVC = TransportationModeVC(viewModel: TransportationModeViewModel(trip: self.viewModel.trip))
+        let transportationModeVC = TransportationModeVC(viewModel: TransportationModeViewModel(trip: self.viewModel.trip), parent: self)
         self.parentView?.navigationController?.pushViewController(transportationModeVC, animated: true)
     }
 

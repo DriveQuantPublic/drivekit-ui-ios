@@ -12,6 +12,7 @@ class DKFilterTableViewCell: UITableViewCell {
 
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var imageWidthConstraint: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,7 +26,16 @@ class DKFilterTableViewCell: UITableViewCell {
     }
     
     func configure(viewModel : DKFilterViewModel, position: Int) {
-        self.itemImage.image = viewModel.getImageAt(position)
+        if let image = viewModel.getImageAt(position) {
+            self.itemImage.image = image
+            self.itemImage.isHidden = false
+            self.imageWidthConstraint.constant = 60
+        } else {
+            self.itemImage.image = nil
+            self.itemImage.isHidden = true
+            self.imageWidthConstraint.constant = 0
+        }
+        
         self.name.attributedText = viewModel.getNameAt(position).dkAttributedString().color(.complementaryFontColor).font(dkFont: .secondary, style: .normalText).build()
     }
 }

@@ -36,12 +36,6 @@ enum TriplistConfiguration {
 extension TriplistConfiguration: DKFilterItem {
     func getImage() -> UIImage? {
         return nil
-        /*switch self {
-            case .motorized(_):
-                return UIImage(named: "dk_my_trips", in: Bundle.driverDataUIBundle, compatibleWith: nil)
-            case .alternative(_):
-                return UIImage(named: "dk_transportation_all", in: Bundle.driverDataUIBundle, compatibleWith: nil)
-        }*/
     }
     
     func getName() -> String {

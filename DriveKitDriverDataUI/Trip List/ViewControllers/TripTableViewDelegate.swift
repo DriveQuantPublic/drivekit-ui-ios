@@ -34,8 +34,7 @@ extension TripListVC : UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell : TripTableViewCell = tableView.dequeueReusableCell(withIdentifier: "TripTableViewCell") as? TripTableViewCell {
             cell.selectionStyle = .none
-            let tripInfo : DKTripInfo = DriveKitDriverDataUI.shared.customTripInfo ?? AdviceTripInfo()
-            cell.configure(trip: self.viewModel.filteredTrips[indexPath.section].trips[indexPath.row], tripInfo: tripInfo)
+            cell.configure(trip: self.viewModel.filteredTrips[indexPath.section].trips[indexPath.row], tripInfo: self.viewModel.getTripInfo(), listConfiguration: self.viewModel.listConfiguration)
             if let tripInfoView = cell.tripInfoView {
                 let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tripInfoAction(_:)))
                 tripInfoView.addGestureRecognizer(gestureRecognizer)
@@ -70,7 +69,7 @@ extension TripListVC : UITableViewDataSource {
     
     private func showTripDetail(itinId : String) {
         if let navigationController = self.navigationController {
-            let tripDetail = TripDetailVC(itinId: itinId, showAdvice: false)
+            let tripDetail = TripDetailVC(itinId: itinId, showAdvice: false, listConfiguration: self.viewModel.listConfiguration)
             navigationController.pushViewController(tripDetail, animated: true)
         } else {
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DKShowTripDetail"), object: nil, userInfo: ["itinId": itinId])

@@ -26,6 +26,10 @@ extension Trip {
     var tripEndDate: Date {
         return self.endDate ?? Date()
     }
+    
+    var declaredTransportationModeInt: Int32? {
+        return self.declaredTransportationMode?.transportationMode
+    }
 }
 
 extension Array where Element: Trip {

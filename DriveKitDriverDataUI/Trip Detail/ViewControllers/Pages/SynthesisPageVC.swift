@@ -76,7 +76,7 @@ class SynthesisPageVC: UIViewController {
         speedTitle.attributedText = "dk_driverdata_synthesis_mean_speed".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
         speedValue.attributedText = viewModel.meanSpeedValue.dkAttributedString().font(dkFont: .primary, style: valueStyle).color(.primaryColor).build()
 
-        stopTimeTitle.attributedText = "dk_driverdata_synthesis_mean_speed".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+        stopTimeTitle.attributedText = "dk_driverdata_synthesis_stop_time".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
         stopTimeValue.attributedText = viewModel.stopTimeValue.dkAttributedString().font(dkFont: .primary, style: valueStyle).color(.primaryColor).build()
 
         carbonTitle.attributedText = "dk_driverdata_synthesis_co2_emissions".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()

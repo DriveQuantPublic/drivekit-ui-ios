@@ -18,6 +18,7 @@
 		3F0740EF2404263D005A8D07 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F0740ED2404263D005A8D07 /* Roboto-Regular.ttf */; };
 		3F0740F02404263D005A8D07 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F0740EE2404263D005A8D07 /* Roboto-Bold.ttf */; };
 		3F0740F3240426C0005A8D07 /* UIColor+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0740F2240426C0005A8D07 /* UIColor+DK.swift */; };
+		3F0F6B89257F8ACC00EE7AB3 /* TripListConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F6B88257F8ACC00EE7AB3 /* TripListConfiguration.swift */; };
 		3F38C26123696EE0002E873A /* TripInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F38C25F23696EE0002E873A /* TripInfoView.xib */; };
 		3F38C26223696EE0002E873A /* TripInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C26023696EE0002E873A /* TripInfoView.swift */; };
 		3F38C2692369BD60002E873A /* TripTipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C2672369BD5F002E873A /* TripTipViewController.swift */; };
@@ -39,6 +40,15 @@
 		3F50D70424179467001226F7 /* ErrorBluetoothVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F50D6FC24179466001226F7 /* ErrorBluetoothVC.xib */; };
 		3F50D70524179467001226F7 /* ConnectBluetoothVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D6FD24179467001226F7 /* ConnectBluetoothVC.swift */; };
 		3F50D7082417ADDD001226F7 /* DKVehicle+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D7072417ADDD001226F7 /* DKVehicle+UI.swift */; };
+		3F6B67402580B95F008B3BA7 /* TransportationMode+DKFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B673F2580B95F008B3BA7 /* TransportationMode+DKFilter.swift */; };
+		3F6B67482580D268008B3BA7 /* AlternativeTripDetailInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B67462580D268008B3BA7 /* AlternativeTripDetailInfoVC.swift */; };
+		3F6B67492580D268008B3BA7 /* AlternativeTripDetailInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F6B67472580D268008B3BA7 /* AlternativeTripDetailInfoVC.xib */; };
+		3F6B67502580D4A2008B3BA7 /* AlternativeTripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B674F2580D4A2008B3BA7 /* AlternativeTripViewModel.swift */; };
+		3F6B67572580DA62008B3BA7 /* AlternativeTripMapItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B67562580DA62008B3BA7 /* AlternativeTripMapItem.swift */; };
+		3F6B67612580ECD4008B3BA7 /* TransportationModeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F6B675F2580ECD4008B3BA7 /* TransportationModeVC.xib */; };
+		3F6B67622580ECD4008B3BA7 /* TransportationModeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B67602580ECD4008B3BA7 /* TransportationModeVC.swift */; };
+		3F6B67692580ECE3008B3BA7 /* TransportationModeIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B67682580ECE3008B3BA7 /* TransportationModeIcon.swift */; };
+		3F6B67702580ED78008B3BA7 /* TransportationModeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6B676F2580ED78008B3BA7 /* TransportationModeViewModel.swift */; };
 		3F7524CB2406C4CC00AC22CC /* DKUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7524CA2406C4CC00AC22CC /* DKUIViewController.swift */; };
 		3F7524CE2407A89100AC22CC /* DKCommonLocalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7524CD2407A89100AC22CC /* DKCommonLocalizable.swift */; };
 		3FA24FF62524B9BE000AB7D3 /* DKFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA24FF52524B9BE000AB7D3 /* DKFilterView.swift */; };
@@ -444,6 +454,7 @@
 		3F0740ED2404263D005A8D07 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		3F0740EE2404263D005A8D07 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		3F0740F2240426C0005A8D07 /* UIColor+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+DK.swift"; sourceTree = "<group>"; };
+		3F0F6B88257F8ACC00EE7AB3 /* TripListConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListConfiguration.swift; sourceTree = "<group>"; };
 		3F38C25F23696EE0002E873A /* TripInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripInfoView.xib; sourceTree = "<group>"; };
 		3F38C26023696EE0002E873A /* TripInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripInfoView.swift; sourceTree = "<group>"; };
 		3F38C2672369BD5F002E873A /* TripTipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTipViewController.swift; sourceTree = "<group>"; };
@@ -469,6 +480,15 @@
 		3F50D6FC24179466001226F7 /* ErrorBluetoothVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorBluetoothVC.xib; sourceTree = "<group>"; };
 		3F50D6FD24179467001226F7 /* ConnectBluetoothVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectBluetoothVC.swift; sourceTree = "<group>"; };
 		3F50D7072417ADDD001226F7 /* DKVehicle+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DKVehicle+UI.swift"; sourceTree = "<group>"; };
+		3F6B673F2580B95F008B3BA7 /* TransportationMode+DKFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransportationMode+DKFilter.swift"; sourceTree = "<group>"; };
+		3F6B67462580D268008B3BA7 /* AlternativeTripDetailInfoVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlternativeTripDetailInfoVC.swift; sourceTree = "<group>"; };
+		3F6B67472580D268008B3BA7 /* AlternativeTripDetailInfoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlternativeTripDetailInfoVC.xib; sourceTree = "<group>"; };
+		3F6B674F2580D4A2008B3BA7 /* AlternativeTripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternativeTripViewModel.swift; sourceTree = "<group>"; };
+		3F6B67562580DA62008B3BA7 /* AlternativeTripMapItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternativeTripMapItem.swift; sourceTree = "<group>"; };
+		3F6B675F2580ECD4008B3BA7 /* TransportationModeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransportationModeVC.xib; sourceTree = "<group>"; };
+		3F6B67602580ECD4008B3BA7 /* TransportationModeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportationModeVC.swift; sourceTree = "<group>"; };
+		3F6B67682580ECE3008B3BA7 /* TransportationModeIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransportationModeIcon.swift; sourceTree = "<group>"; };
+		3F6B676F2580ED78008B3BA7 /* TransportationModeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportationModeViewModel.swift; sourceTree = "<group>"; };
 		3F7524CA2406C4CC00AC22CC /* DKUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKUIViewController.swift; sourceTree = "<group>"; };
 		3F7524CD2407A89100AC22CC /* DKCommonLocalizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKCommonLocalizable.swift; sourceTree = "<group>"; };
 		3FA24FF52524B9BE000AB7D3 /* DKFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKFilterView.swift; sourceTree = "<group>"; };
@@ -973,6 +993,17 @@
 				3FF5428A243649390063A5B9 /* DKDetectionMode+UI.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		3F6B675D2580EC83008B3BA7 /* Declared Transportation Mode */ = {
+			isa = PBXGroup;
+			children = (
+				3F6B67682580ECE3008B3BA7 /* TransportationModeIcon.swift */,
+				3F6B67602580ECD4008B3BA7 /* TransportationModeVC.swift */,
+				3F6B675F2580ECD4008B3BA7 /* TransportationModeVC.xib */,
+				3F6B676F2580ED78008B3BA7 /* TransportationModeViewModel.swift */,
+			);
+			path = "Declared Transportation Mode";
 			sourceTree = "<group>";
 		};
 		3F7524C92406C4B400AC22CC /* Component */ = {
@@ -1532,6 +1563,7 @@
 				A34238612361A2430001E15D /* DriverData.xcassets */,
 				A34238142361A2430001E15D /* Trip Detail */,
 				A342383F2361A2430001E15D /* Trip List */,
+				3F6B675D2580EC83008B3BA7 /* Declared Transportation Mode */,
 				A34238082361A1FA0001E15D /* DriveKitDriveDataUI.h */,
 				A34238092361A1FA0001E15D /* Info.plist */,
 				3FF68E89240ACD620071D74C /* DriveKitDriverDataUI.swift */,
@@ -1572,6 +1604,7 @@
 				A342381B2361A2430001E15D /* EcoDrivingPageViewModel.swift */,
 				A342381C2361A2430001E15D /* HistoryPageViewModel.swift */,
 				A342381D2361A2430001E15D /* DistractionPageViewModel.swift */,
+				3F6B674F2580D4A2008B3BA7 /* AlternativeTripViewModel.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -1582,6 +1615,7 @@
 				A34238202361A2430001E15D /* MapItem.swift */,
 				A34238212361A2430001E15D /* TripEvent.swift */,
 				3F3E72F4256F9415002B5E30 /* DKMapItem.swift */,
+				3F6B67562580DA62008B3BA7 /* AlternativeTripMapItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1605,6 +1639,8 @@
 		A34238272361A2430001E15D /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				3F6B67462580D268008B3BA7 /* AlternativeTripDetailInfoVC.swift */,
+				3F6B67472580D268008B3BA7 /* AlternativeTripDetailInfoVC.xib */,
 				A30F4F1623D5DA14009A37C2 /* SynthesisPageVC.swift */,
 				A30F4F1723D5DA14009A37C2 /* SynthesisPageVC.xib */,
 				A34238282361A2430001E15D /* DistractionPageVC.swift */,
@@ -1664,6 +1700,8 @@
 			isa = PBXGroup;
 			children = (
 				A34238412361A2430001E15D /* TripListViewModel.swift */,
+				3F0F6B88257F8ACC00EE7AB3 /* TripListConfiguration.swift */,
+				3F6B673F2580B95F008B3BA7 /* TransportationMode+DKFilter.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2186,6 +2224,7 @@
 				A317F83023A1383B00AD22A2 /* TripTipFeedbackChoicesCell.xib in Resources */,
 				A34238782361A2440001E15D /* SafetyPageVC.xib in Resources */,
 				3F38C26123696EE0002E873A /* TripInfoView.xib in Resources */,
+				3F6B67612580ECD4008B3BA7 /* TransportationModeVC.xib in Resources */,
 				A342389D2361A2440001E15D /* DriverData.xcassets in Resources */,
 				A34238A02361A2730001E15D /* DriverDataLocalizables.strings in Resources */,
 				A34238942361A2440001E15D /* NoScoreImageView.xib in Resources */,
@@ -2202,6 +2241,7 @@
 				A34238A92361B0DE0001E15D /* TripListVC.xib in Resources */,
 				A34238802361A2440001E15D /* DistractionPageView.xib in Resources */,
 				A342387E2361A2440001E15D /* HistoryPageView.xib in Resources */,
+				3F6B67492580D268008B3BA7 /* AlternativeTripDetailInfoVC.xib in Resources */,
 				A34238842361A2440001E15D /* SafetyPageView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2566,6 +2606,7 @@
 				A317F82923A137B600AD22A2 /* TripTipFeedbackViewModel.swift in Sources */,
 				A34238982361A2440001E15D /* HeaderDayView.swift in Sources */,
 				A34238822361A2440001E15D /* DistractionPageView.swift in Sources */,
+				3F6B67502580D4A2008B3BA7 /* AlternativeTripViewModel.swift in Sources */,
 				A342388A2361A2440001E15D /* TripListSeparator.swift in Sources */,
 				A34238812361A2440001E15D /* SafetyPageView.swift in Sources */,
 				A342386D2361A2430001E15D /* TripDetailVC.swift in Sources */,
@@ -2580,10 +2621,13 @@
 				A342388E2361A2440001E15D /* HeaderDay.swift in Sources */,
 				A34238912361A2440001E15D /* TripListVC.swift in Sources */,
 				A342387B2361A2440001E15D /* CalloutView.swift in Sources */,
+				3F0F6B89257F8ACC00EE7AB3 /* TripListConfiguration.swift in Sources */,
 				A317F83123A1383B00AD22A2 /* TripTipFeedbackChoicesCell.swift in Sources */,
 				A34238702361A2430001E15D /* DistractionPageVC.swift in Sources */,
 				A342386B2361A2430001E15D /* TripEvent.swift in Sources */,
+				3F6B67692580ECE3008B3BA7 /* TransportationModeIcon.swift in Sources */,
 				3F38C2692369BD60002E873A /* TripTipViewController.swift in Sources */,
+				3F6B67622580ECD4008B3BA7 /* TransportationModeVC.swift in Sources */,
 				A34238772361A2440001E15D /* EcoDrivingPageVC.swift in Sources */,
 				A30F4F1523D5DA08009A37C2 /* SynthesisPageViewModel.swift in Sources */,
 				A34238642361A2430001E15D /* SafetyPageViewModel.swift in Sources */,
@@ -2597,6 +2641,8 @@
 				A342386A2361A2430001E15D /* MapItem.swift in Sources */,
 				3F3E72FC256F9B71002B5E30 /* DKTripDetailViewModel.swift in Sources */,
 				A34238862361A2440001E15D /* Extension+DK.swift in Sources */,
+				3F6B67572580DA62008B3BA7 /* AlternativeTripMapItem.swift in Sources */,
+				3F6B67482580D268008B3BA7 /* AlternativeTripDetailInfoVC.swift in Sources */,
 				A342387F2361A2440001E15D /* HistoryPageView.swift in Sources */,
 				A342388C2361A2440001E15D /* TripsByDate.swift in Sources */,
 				A342386C2361A2430001E15D /* MapViewController.swift in Sources */,
@@ -2605,6 +2651,8 @@
 				A34238662361A2430001E15D /* EcoDrivingPageViewModel.swift in Sources */,
 				A34238852361A2440001E15D /* TripListViewModel.swift in Sources */,
 				A34238622361A2430001E15D /* CalloutViewModel.swift in Sources */,
+				3F6B67402580B95F008B3BA7 /* TransportationMode+DKFilter.swift in Sources */,
+				3F6B67702580ED78008B3BA7 /* TransportationModeViewModel.swift in Sources */,
 				3F3E73A925715B47002B5E30 /* DKTripInfo.swift in Sources */,
 				A34238762361A2440001E15D /* SafetyPageVC.swift in Sources */,
 				A34238682361A2430001E15D /* DistractionPageViewModel.swift in Sources */,

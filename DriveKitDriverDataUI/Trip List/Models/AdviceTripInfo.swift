@@ -52,7 +52,7 @@ class AdviceTripInfo: DKTripInfo {
         let showAdvice = (trip.tripAdvices as? Set<TripAdvice>)?.count ?? 0 > 0
         if let itinId = trip.itinId {
             if let navigationController = parentViewController.navigationController {
-                let tripDetail = TripDetailVC(itinId: itinId, showAdvice: showAdvice)
+                let tripDetail = TripDetailVC(itinId: itinId, showAdvice: showAdvice, listConfiguration: .motorized())
                 navigationController.pushViewController(tripDetail, animated: true)
             } else {
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DKShowTripDetail"), object: nil, userInfo: ["itinId": itinId])

@@ -18,6 +18,7 @@ public class DriveKitDriverDataUI {
     private(set) var customMapItem: DKMapItem?
     var enableDeleteTrip = true
     var enableAdviceFeedback = true
+    var enableAlternativeTrips = true
     private(set) var customHeaders: DKHeader?
     private(set) var customTripInfo: DKTripInfo?
     
@@ -57,6 +58,10 @@ public class DriveKitDriverDataUI {
     public func setCustomTripInfo(_ tripInfo: DKTripInfo?) {
         self.customTripInfo = tripInfo
     }
+    
+    public func enableAlternativeTrips(_ enable: Bool) {
+        self.enableAlternativeTrips = enable
+    }
 }
 
 extension Bundle {
@@ -75,7 +80,7 @@ extension DriveKitDriverDataUI : DriveKitDriverDataUIEntryPoint {
     }
     
     public func getTripDetailViewController(itinId : String) -> UIViewController {
-        return TripDetailVC(itinId: itinId, showAdvice: false)
+        return TripDetailVC(itinId: itinId, showAdvice: false, listConfiguration: .motorized())
     }
 }
 

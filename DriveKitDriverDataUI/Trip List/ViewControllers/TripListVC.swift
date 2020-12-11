@@ -47,7 +47,6 @@ public class TripListVC: DKUIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         tableView.tableFooterView = UIView(frame: .zero)
-        self.configureFilterButton()
     }
     
     public override func viewDidDisappear(_ animated: Bool) {
@@ -63,7 +62,7 @@ public class TripListVC: DKUIViewController {
     }
     
     private func configureFilterButton(){
-        if DriveKitDriverDataUI.shared.enableAlternativeTrips {
+        if DriveKitDriverDataUI.shared.enableAlternativeTrips && self.viewModel.hasAlternativeTrips() {
             let image = UIImage(named: "dk_filter", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.resizeImage(25, opaque: false).withRenderingMode(.alwaysTemplate)
             let filterButton = UIBarButtonItem(image: image , style: .plain, target: self, action: #selector(filterAction))
             filterButton.tintColor = .white
@@ -149,6 +148,7 @@ extension TripListVC : TripsDelegate {
         DispatchQueue.main.async {
             self.hideLoader()
             self.updateUI()
+            self.configureFilterButton()
         }
     }
 }

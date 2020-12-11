@@ -161,6 +161,16 @@ class TripListViewModel {
         return trips.count > 0
     }
     
+    func hasAlternativeTrips() -> Bool {
+        let alternativeModes = TriplistConfiguration.alternative(nil).transportationModes()
+        for tripsByDate in self.trips {
+            if tripsByDate.trips.first(where : {alternativeModes.contains(TransportationMode(rawValue: Int(($0 as Trip).transportationMode)) ?? .unknown)}) != nil {
+                return true
+            }
+        }
+        return false
+    }
+    
     func getTripInfo() -> DKTripInfo? {
         switch listConfiguration {
             case .motorized(_):

@@ -21,7 +21,7 @@ public protocol DKFilterItemDelegate : AnyObject {
 
 public class DKFilterViewModel {
     
-    let items: [DKFilterItem]
+    private(set) var items: [DKFilterItem]
     private(set) var currentItem: DKFilterItem
     let showPicker: Bool
     weak var delegate: DKFilterItemDelegate?
@@ -31,6 +31,10 @@ public class DKFilterViewModel {
         self.currentItem = currentItem
         self.showPicker = showPicker
         self.delegate = delegate
+    }
+    
+    public func updateItems(items: [DKFilterItem]) {
+        self.items = items
     }
     
     var itemCount : Int {

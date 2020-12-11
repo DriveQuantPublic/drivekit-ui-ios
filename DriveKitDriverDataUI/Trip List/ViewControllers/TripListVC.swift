@@ -57,7 +57,8 @@ public class TripListVC: DKUIViewController {
         self.showLoader()
         self.viewModel.delegate = self
         if let items = viewModel.getTripFilterItem(), items.count > 1 {
-            self.filterViewModel = DKFilterViewModel(items: items, currentItem: items[0], showPicker: true, delegate: self)
+            self.filterViewModel?.updateItems(items: items)
+           //self.filterViewModel = DKFilterViewModel(items: items, currentItem: items[0], showPicker: true, delegate: self)
         }
     }
     
@@ -149,6 +150,7 @@ extension TripListVC : TripsDelegate {
             self.hideLoader()
             self.updateUI()
             self.configureFilterButton()
+            self.tableView.reloadData()
         }
     }
 }

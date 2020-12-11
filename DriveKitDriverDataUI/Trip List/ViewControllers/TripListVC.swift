@@ -157,7 +157,7 @@ extension TripListVC : TripsDelegate {
 
 extension TripListVC : DKFilterItemDelegate {
     public func onFilterItemSelected(filterItem: DKFilterItem) {
-        if filterItem.getId() is TriplistConfiguration{
+        if filterItem.getId() is TripListConfiguration{
             tripListFilterItemSelected(filterItem: filterItem)
         } else if filterItem.getId() is TransportationMode  || filterItem.getId() is AllAlternativeMode{
             transportationModeFilterItemSelected(filterItem: filterItem)
@@ -171,18 +171,18 @@ extension TripListVC : DKFilterItemDelegate {
         if let itemId = filterItem.getId() as? String {
             vehicleId = itemId
         }
-        self.viewModel.filterTrips(config: .motorized(vehicleId))
+        self.viewModel.filterTrips(config: .motorized(vehicleId: vehicleId))
         self.updateUI()
         self.tableView.reloadData()
     }
     
     private func tripListFilterItemSelected(filterItem: DKFilterItem) {
-        if (filterItem.getId() as! TriplistConfiguration).identifier() != self.viewModel.listConfiguration.identifier() {
-            switch filterItem.getId() as! TriplistConfiguration  {
-                case .motorized(_):
-                    self.viewModel.filterTrips(config: .motorized(nil))
-                case .alternative(_):
-                    self.viewModel.filterTrips(config: .alternative(nil))
+        if let tripListConfiguration = filterItem.getId() as? TripListConfiguration, tripListConfiguration.identifier() != self.viewModel.listConfiguration.identifier() {
+            switch tripListConfiguration  {
+                case .motorized:
+                    self.viewModel.filterTrips(config: .motorized())
+                case .alternative:
+                    self.viewModel.filterTrips(config: .alternative())
             }
             if let items = viewModel.getTripFilterItem(), items.count > 1 {
                 self.filterViewModel = DKFilterViewModel(items: items, currentItem: items[0], showPicker: true, delegate: self)
@@ -194,7 +194,7 @@ extension TripListVC : DKFilterItemDelegate {
     
     private func transportationModeFilterItemSelected(filterItem: DKFilterItem) {
         let mode = filterItem.getId() as? TransportationMode
-        self.viewModel.filterTrips(config: .alternative(mode))
+        self.viewModel.filterTrips(config: .alternative(transportationMode: mode))
         self.updateUI()
         self.tableView.reloadData()
     }

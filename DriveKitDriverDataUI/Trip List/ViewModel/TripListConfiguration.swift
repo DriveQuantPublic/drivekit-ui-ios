@@ -11,8 +11,8 @@ import UIKit
 import DriveKitDBTripAccessModule
 import DriveKitCommonUI
 
-enum TriplistConfiguration {
-    case motorized(String?), alternative(TransportationMode?)
+enum TripListConfiguration {
+    case motorized(vehicleId: String? = nil), alternative(transportationMode: TransportationMode? = nil)
     
     func transportationModes() -> [TransportationMode] {
         switch self {
@@ -33,7 +33,7 @@ enum TriplistConfiguration {
     }
 }
 
-extension TriplistConfiguration: DKFilterItem {
+extension TripListConfiguration: DKFilterItem {
     func getImage() -> UIImage? {
         return nil
     }

@@ -16,7 +16,7 @@ class TripListViewModel {
     private var trips : [TripsByDate] = []
     var filteredTrips : [TripsByDate] = []
     var status: TripSyncStatus = .noError
-    private(set) var listConfiguration: TriplistConfiguration = .motorized(nil)
+    private(set) var listConfiguration: TripListConfiguration = .motorized()
     
     weak var delegate: TripsDelegate? = nil {
         didSet {
@@ -35,9 +35,9 @@ class TripListViewModel {
     }
     
     public func fetchTrips() {
-        var transportationModes = TriplistConfiguration.motorized(nil).transportationModes()
+        var transportationModes = TripListConfiguration.motorized().transportationModes()
         if DriveKitDriverDataUI.shared.enableAlternativeTrips {
-            transportationModes.append(contentsOf: TriplistConfiguration.alternative(nil).transportationModes())
+            transportationModes.append(contentsOf: TripListConfiguration.alternative().transportationModes())
         }
         DriveKitDriverData.shared.getTripsOrderByDateDesc(withTransportationModes: transportationModes, completionHandler: {status, trips in
             DispatchQueue.main.async {
@@ -57,9 +57,9 @@ class TripListViewModel {
     
     
     func getTripListFilterItems() -> [DKFilterItem] {
-        var items = [TriplistConfiguration.motorized(nil)]
+        var items = [TripListConfiguration.motorized()]
         if DriveKitDriverDataUI.shared.enableAlternativeTrips {
-            items.append(TriplistConfiguration.alternative(nil))
+            items.append(TripListConfiguration.alternative())
         }
         return items
     }
@@ -85,8 +85,8 @@ class TripListViewModel {
     
     private func getAlternativeTripsFilterItem() -> [DKFilterItem]? {
         var modes = [DKFilterItem]()
-        let standardTransportationModes: [TransportationMode] = TriplistConfiguration.motorized(nil).transportationModes()
-        let alternativeTransportationModes: [TransportationMode] = TriplistConfiguration.alternative(nil).transportationModes()
+        let standardTransportationModes: [TransportationMode] = TripListConfiguration.motorized().transportationModes()
+        let alternativeTransportationModes: [TransportationMode] = TripListConfiguration.alternative().transportationModes()
         for transportationMode in standardTransportationModes {
             let numberOfTrips = DriveKitDBTripAccess.shared.tripsQuery().whereEqualTo(field: "declaredTransportationMode.transportationMode", value: Int32(transportationMode.rawValue)).query().execute().count
             if numberOfTrips > 0 {
@@ -103,7 +103,7 @@ class TripListViewModel {
         return modes
     }
     
-    func filterTrips(config: TriplistConfiguration) {
+    func filterTrips(config: TripListConfiguration) {
         self.listConfiguration = config
         switch config {
             case .motorized(let vehicleId):
@@ -117,14 +117,14 @@ class TripListViewModel {
         if let vehicleId = vehicleId {
             self.filterTrips {$0.vehicleId == vehicleId}
         }else{
-            let motorizedModes = TriplistConfiguration.motorized(nil).transportationModes()
+            let motorizedModes = TripListConfiguration.motorized().transportationModes()
             self.filterTrips { motorizedModes.contains(TransportationMode(rawValue: Int(($0 as Trip).transportationMode)) ?? TransportationMode.unknown) }
         }
     }
     
     private func filterTrips(transportationMode: TransportationMode?) {
         if let transportationMode = transportationMode {
-            if TriplistConfiguration.alternative(nil).transportationModes().contains(transportationMode) {
+            if TripListConfiguration.alternative().transportationModes().contains(transportationMode) {
                 self.filterTrips {
                     if let declaredMode = $0.declaredTransportationModeInt {
                         return declaredMode == transportationMode.rawValue
@@ -142,7 +142,7 @@ class TripListViewModel {
                 }
             }
         }else{
-            let alternativeModes = TriplistConfiguration.alternative(nil).transportationModes()
+            let alternativeModes = TripListConfiguration.alternative().transportationModes()
             self.filterTrips { alternativeModes.contains(TransportationMode(rawValue: Int(($0 as Trip).transportationMode)) ?? TransportationMode.unknown) }
         }
     }
@@ -162,7 +162,7 @@ class TripListViewModel {
     }
     
     func hasAlternativeTrips() -> Bool {
-        let alternativeModes = TriplistConfiguration.alternative(nil).transportationModes()
+        let alternativeModes = TripListConfiguration.alternative().transportationModes()
         for tripsByDate in self.trips {
             if tripsByDate.trips.first(where : {alternativeModes.contains(TransportationMode(rawValue: Int(($0 as Trip).transportationMode)) ?? .unknown)}) != nil {
                 return true

@@ -41,7 +41,7 @@ class TripDetailViewModel : DKTripDetailViewModel {
         }
     }
     
-    init(itinId: String, listConfiguration: TriplistConfiguration) {
+    init(itinId: String, listConfiguration: TripListConfiguration) {
         self.itinId = itinId
         switch listConfiguration {
             case .motorized(_):

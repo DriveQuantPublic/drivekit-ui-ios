@@ -33,7 +33,7 @@ final class TripTableViewCell: UITableViewCell, Nibable {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(trip: Trip, tripInfo: DKTripInfo?, listConfiguration: TriplistConfiguration){
+    func configure(trip: Trip, tripInfo: DKTripInfo?, listConfiguration: TripListConfiguration){
         tripLineView.color = DKUIColors.secondaryColor.color
         configureLabels(trip: trip)
         configureTripData(trip: trip, listConfiguration: listConfiguration)
@@ -50,7 +50,7 @@ final class TripTableViewCell: UITableViewCell, Nibable {
         self.arrivalCityLabel.attributedText = (trip.arrivalCity ?? "").dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
     }
     
-    private func configureTripData(trip: Trip, listConfiguration: TriplistConfiguration){
+    private func configureTripData(trip: Trip, listConfiguration: TripListConfiguration){
         switch listConfiguration {
             case .motorized(_):
                 configureMotorizedTripData(trip: trip)

@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import DriveKitTripAnalysisModule
 import DriveKitCommonUI
+import DriveKitCoreModule
 import DriveKitDBTripAccessModule
 
 public class TripListVC: DKUIViewController {
@@ -139,7 +139,7 @@ public class TripListVC: DKUIViewController {
 
     @objc func refreshTripList(_ sender: Any) {
         self.viewModel.fetchTrips()
-        DriveKitTripAnalysis.shared.checkTripToRepost()
+        DriveKit.shared.modules.tripAnalysis?.checkTripToRepost()
     }
 
 }

@@ -118,7 +118,9 @@ extension TripDetailVC {
         }
         
         self.setupTipButton()
-        self.pageViewController.setViewControllers([self.swipableViewControllers[index]], direction: direction ?? .forward, animated: true, completion: nil)
+        if index < self.swipableViewControllers.count {
+            self.pageViewController.setViewControllers([self.swipableViewControllers[index]], direction: direction ?? .forward, animated: true, completion: nil)
+        }
         self.mapViewController.traceRoute(mapItem: self.viewModel.displayMapItem)
     }
     
@@ -207,11 +209,12 @@ extension TripDetailVC {
     }
     
     func setupPageContainer() {
-        
         self.pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         self.pageViewController.dataSource = self
         self.pageViewController.delegate = self
-        self.pageViewController.setViewControllers([self.swipableViewControllers[0]], direction: .forward, animated: true, completion: nil)
+        if let mainViewController = self.swipableViewControllers.first {
+            self.pageViewController.setViewControllers([mainViewController], direction: .forward, animated: true, completion: nil)
+        }
         self.pageViewController.view.frame = CGRect(x: 0, y: 0, width: self.pageContainer.frame.width, height: self.pageContainer.frame.height)
         pageContainer.addSubview(self.pageViewController.view)
         self.pageViewController.didMove(toParent: self)

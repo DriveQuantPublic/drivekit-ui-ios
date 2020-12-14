@@ -13,7 +13,7 @@ public protocol DriveKitDriverDataUIEntryPoint {
     func getTripDetailViewController(itinId: String, showAdvice: Bool, alternativeTransport: Bool) -> UIViewController
 }
 
-extension DriveKitDriverDataUIEntryPoint {
+public extension DriveKitDriverDataUIEntryPoint {
     func getTripDetailViewController(itinId: String) -> UIViewController {
         return getTripDetailViewController(itinId: itinId, showAdvice: false, alternativeTransport: false)
     }

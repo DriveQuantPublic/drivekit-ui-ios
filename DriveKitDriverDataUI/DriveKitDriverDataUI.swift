@@ -79,8 +79,8 @@ extension DriveKitDriverDataUI : DriveKitDriverDataUIEntryPoint {
         return TripListVC()
     }
     
-    public func getTripDetailViewController(itinId : String) -> UIViewController {
-        return TripDetailVC(itinId: itinId, showAdvice: false, listConfiguration: .motorized())
+    public func getTripDetailViewController(itinId: String, showAdvice: Bool, alternativeTransport: Bool) -> UIViewController {
+        return TripDetailVC(itinId: itinId, showAdvice: showAdvice, listConfiguration: alternativeTransport ? .alternative() : .motorized())
     }
 }
 

@@ -76,10 +76,11 @@ final class TripTableViewCell: UITableViewCell, Nibable {
         case .text:
             let label = UILabel()
             label.text = DriveKitDriverDataUI.shared.tripData.stringValue(trip: trip)
-            label.font = UIFont.systemFont(ofSize: 11, weight: .bold)
+            label.font = DKStyle(size: DKStyles.smallText.style.size, traits: .traitBold).applyTo(font: .primary)
             label.textColor = DKUIColors.secondaryColor.color
             label.frame = CGRect(x: 0, y: 0, width: 56, height: 56)
             label.center = dataView.center
+            label.textAlignment = .center
             dataView.embedSubview(label)
         }
     }

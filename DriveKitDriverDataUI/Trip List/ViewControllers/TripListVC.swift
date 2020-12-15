@@ -56,9 +56,8 @@ public class TripListVC: DKUIViewController {
     override public func viewWillAppear(_ animated: Bool) {
         self.showLoader()
         self.viewModel.delegate = self
-        if let items = viewModel.getTripFilterItem(), items.count > 1 {
+        if self.viewModel.showFilter(), let items = self.viewModel.getTripFilterItem(), items.count > 1 {
             self.filterViewModel?.updateItems(items: items)
-           //self.filterViewModel = DKFilterViewModel(items: items, currentItem: items[0], showPicker: true, delegate: self)
         }
     }
     
@@ -116,7 +115,7 @@ public class TripListVC: DKUIViewController {
     }
     
     private func configureFilter() {
-        if let items = viewModel.getTripFilterItem(), items.count > 1, self.viewModel.hasTrips() {
+        if self.viewModel.showFilter(), let items = viewModel.getTripFilterItem(), items.count > 1, self.viewModel.hasTrips() {
             self.filterViewContainer.isHidden = false
             if filterView.superview == nil {
                 self.filterViewModel = DKFilterViewModel(items: items, currentItem: items[0], showPicker: true, delegate: self)
@@ -129,12 +128,16 @@ public class TripListVC: DKUIViewController {
     }
     
     private func configureSynthesis() {
-        self.synthesis.isHidden = false
-        let tripNumber = viewModel.tripNumber
-        let synthesisText = "%@ \(tripNumber > 1 ? DKCommonLocalizable.tripPlural.text() : DKCommonLocalizable.tripSingular.text()) - %@ \(DKCommonLocalizable.unitKilometer.text())"
-        let tripNumberValue = String(tripNumber).dkAttributedString().color(.primaryColor).font(dkFont: .secondary, style: .highlightSmall).build()
-        let distanceValue = String(format: "%.0f", viewModel.tripsDistance).dkAttributedString().color(.primaryColor).font(dkFont: .secondary, style: .highlightSmall).build()
-        self.synthesis.attributedText = synthesisText.dkAttributedString().color(.mainFontColor).font(dkFont: .secondary, style: .normalText).buildWithArgs(tripNumberValue, distanceValue)
+        if self.viewModel.showFilter() {
+            self.synthesis.isHidden = false
+            let tripNumber = viewModel.tripNumber
+            let synthesisText = "%@ \(tripNumber > 1 ? DKCommonLocalizable.tripPlural.text() : DKCommonLocalizable.tripSingular.text()) - %@ \(DKCommonLocalizable.unitKilometer.text())"
+            let tripNumberValue = String(tripNumber).dkAttributedString().color(.primaryColor).font(dkFont: .secondary, style: .highlightSmall).build()
+            let distanceValue = String(format: "%.0f", viewModel.tripsDistance).dkAttributedString().color(.primaryColor).font(dkFont: .secondary, style: .highlightSmall).build()
+            self.synthesis.attributedText = synthesisText.dkAttributedString().color(.mainFontColor).font(dkFont: .secondary, style: .normalText).buildWithArgs(tripNumberValue, distanceValue)
+        } else {
+            self.synthesis.isHidden = true
+        }
     }
 
     @objc func refreshTripList(_ sender: Any) {

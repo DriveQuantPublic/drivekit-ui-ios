@@ -26,11 +26,11 @@ class TripListViewModel {
         }
     }
     
-    var tripNumber :Int {
+    var tripNumber: Int {
         return self.filteredTrips.map { $0.trips.count }.reduce(0, +)
     }
     
-    var tripsDistance : Double {
+    var tripsDistance: Double {
         return self.filteredTrips.map {$0.trips.map {($0.tripStatistics?.distance ?? 0)}.reduce(0, +)}.reduce(0, +).metersToKilometers(places: 0)
     }
     
@@ -53,9 +53,17 @@ class TripListViewModel {
         let tripSorted = trips.orderByDay(descOrder: DriveKitDriverDataUI.shared.dayTripDescendingOrder)
         return tripSorted
     }
-    
-    
-    
+
+
+    func showFilter() -> Bool {
+        switch self.listConfiguration {
+            case .motorized:
+                return DriveKitDriverDataUI.shared.enableVehicleFilter
+            case .alternative:
+                return true
+        }
+    }
+
     func getTripListFilterItems() -> [DKFilterItem] {
         var items = [TripListConfiguration.motorized()]
         if DriveKitDriverDataUI.shared.enableAlternativeTrips {
@@ -73,7 +81,7 @@ class TripListViewModel {
         }
     }
     
-    private func getVehicleFilterItems() -> [DKFilterItem]?{
+    private func getVehicleFilterItems() -> [DKFilterItem]? {
         if let vehiculeUI = DriveKitNavigationController.shared.vehicleUI {
             var items = vehiculeUI.getVehicleFilterItems()
             items.insert(AllTripFilterItem(), at: 0)

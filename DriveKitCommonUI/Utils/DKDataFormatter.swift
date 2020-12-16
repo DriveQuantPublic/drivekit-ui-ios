@@ -25,7 +25,11 @@ public extension Double {
     }
 
     func formatKilometerDistance() -> String {
-        return "\(self.format(maximumFractionDigits: 1)) \(DKCommonLocalizable.unitKilometer.text())"
+        if self < 100 {
+            return "\(self.format(maximumFractionDigits: 1)) \(DKCommonLocalizable.unitKilometer.text())"
+        } else {
+            return "\(Int(ceil(self))) \(DKCommonLocalizable.unitKilometer.text())"
+        }
     }
 
     func metersToKilometers(places: Int) -> Double {
@@ -75,7 +79,7 @@ public extension Double {
         var nbMinute = 0
         var nbHour = 0
         var nbDay = 0
-        if self > 60 {
+        if self > 59 {
             nbMinute = Int((self / 60).rounded(.up))
         } else {
             return "\(Int(self)) \(DKCommonLocalizable.unitSecond.text())"
@@ -88,7 +92,8 @@ public extension Double {
                 nbHour = nbHour - (24 * nbDay)
                 return "\(nbDay)\(DKCommonLocalizable.unitDay.text()) \(nbHour)\(DKCommonLocalizable.unitHour.text())"
             } else {
-                return "\(nbHour)\(DKCommonLocalizable.unitHour.text())\(nbMinute)"
+                let minuteString = String(format: "%02d", nbMinute)
+                return "\(nbHour)\(DKCommonLocalizable.unitHour.text())\(minuteString)"
             }
         } else {
             return "\(nbMinute) \(DKCommonLocalizable.unitMinute.text())"

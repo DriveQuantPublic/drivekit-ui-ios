@@ -40,6 +40,10 @@ extension Array where Element: Trip {
     var totalDuration: Double {
         return map { Double($0.tripStatistics?.duration ?? 0) }.reduce(0, +)
     }
+
+    var totalRoundedDuration: Double {
+        return map { (Double($0.tripStatistics?.duration ?? 0) / 60.0).rounded(.up) * 60.0 }.reduce(0, +)
+    }
     
     func orderByDay(descOrder: Bool = true) -> [TripsByDate] {
         var tripsSorted : [TripsByDate] = []

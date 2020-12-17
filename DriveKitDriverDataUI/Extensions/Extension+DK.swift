@@ -46,24 +46,19 @@ extension Array where Element: Trip {
     }
     
     func orderByDay(descOrder: Bool = true) -> [TripsByDate] {
-        var tripsSorted : [TripsByDate] = []
-        if self.count > 0 {
-            var dayTrips : [Trip] = []
+        var tripsSorted: [TripsByDate] = []
+        if !self.isEmpty {
+            var dayTrips: [Trip] = []
             var currentDay = self[0].endDate
             if self.count > 1 {
-                for i in 0...self.count-1{
-                    if NSCalendar.current.isDate(currentDay! as Date, inSameDayAs:self[i].endDate! as Date){
+                for i in 0..<self.count {
+                    if NSCalendar.current.isDate(currentDay! as Date, inSameDayAs: self[i].endDate! as Date) {
                         dayTrips.append(self[i])
-                        if i == self.count-1 {
-                            let tripsByDate = TripsByDate(date: currentDay!, trips: dayTrips)
-                            tripsSorted.append(tripsByDate)
+                        if i == self.count - 1 {
+                            tripsSorted.append(newTripsByDate(date: currentDay!, trips: dayTrips, descOrder: descOrder))
                         }
                     } else {
-                        if !descOrder {
-                            dayTrips = dayTrips.reversed()
-                        }
-                        let tripsByDate = TripsByDate(date: currentDay!, trips: dayTrips)
-                        tripsSorted.append(tripsByDate)
+                        tripsSorted.append(newTripsByDate(date: currentDay!, trips: dayTrips, descOrder: descOrder))
                         currentDay = self[i].endDate
                         dayTrips = []
                         dayTrips.append(self[i])
@@ -71,11 +66,16 @@ extension Array where Element: Trip {
                 }
             } else {
                 dayTrips.append(self[0])
-                let tripsByDate = TripsByDate(date: currentDay!, trips: dayTrips)
-                tripsSorted.append(tripsByDate)
+                tripsSorted.append(newTripsByDate(date: currentDay!, trips: dayTrips, descOrder: descOrder))
             }
         }
         return tripsSorted
+    }
+
+    private func newTripsByDate(date: Date, trips: [Trip], descOrder: Bool) -> TripsByDate {
+        let sortedTrips = descOrder || trips.count < 2 ? trips : trips.reversed()
+        let tripsByDate = TripsByDate(date: date, trips: sortedTrips)
+        return tripsByDate
     }
 }
 

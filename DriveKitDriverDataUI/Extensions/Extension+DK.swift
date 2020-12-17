@@ -12,14 +12,18 @@ import CoreLocation
 import DriveKitCommonUI
 
 extension Trip {    
-    var duration : Int {
+    var duration: Int {
         guard let duration = self.tripStatistics?.duration else {
             return 0
         }
         return Int(duration)
     }
+
+    var roundedDuration: Double {
+        (Double(self.duration) / 60.0).rounded(.up) * 60.0
+    }
     
-    var tripStartDate : Date {
+    var tripStartDate: Date {
         return self.startDate ?? self.tripEndDate.addingTimeInterval(-1 * Double(duration)) as Date
     }
     
@@ -38,11 +42,11 @@ extension Array where Element: Trip {
     }
     
     var totalDuration: Double {
-        return map { Double($0.tripStatistics?.duration ?? 0) }.reduce(0, +)
+        return map { Double($0.duration) }.reduce(0, +)
     }
 
     var totalRoundedDuration: Double {
-        return map { (Double($0.tripStatistics?.duration ?? 0) / 60.0).rounded(.up) * 60.0 }.reduce(0, +)
+        return map { $0.roundedDuration }.reduce(0, +)
     }
     
     func orderByDay(descOrder: Bool = true) -> [TripsByDate] {

@@ -11,11 +11,11 @@ end
 
 
 target 'DriveKitDriverDataUI' do
-  pod 'DriveKitDriverData', '1.9-beta3'
+  pod 'DriveKitDriverData', '1.9-beta4'
 end
 
 target 'DriveKitDriverAchievementUI' do
-  pod 'DriveKitDriverAchievement', '1.9-beta3'
+  pod 'DriveKitDriverAchievement', '1.9-beta4'
   pod 'UICircularProgressRing'
 end
 
@@ -24,12 +24,12 @@ target 'DriveKitCommonUI' do
 end
   
 target 'DriveKitVehicleUI' do
-  pod 'DriveKitVehicle', '1.9-beta3'
-  pod 'DriveKitTripAnalysis', '1.9-beta3'
+  pod 'DriveKitVehicle', '1.9-beta4'
+  pod 'DriveKitTripAnalysis', '1.9-beta4'
 end
 
 target 'DriveKitPermissionsUtilsUI' do
-  pod 'DriveKitCore', '1.9-beta3'
+  pod 'DriveKitCore', '1.9-beta4'
 end
 
 

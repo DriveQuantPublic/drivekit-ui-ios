@@ -71,7 +71,15 @@ final class TripTableViewCell: UITableViewCell, Nibable {
                 score.center = dataView.center
                 dataView.embedSubview(score)
             } else {
-                dataView.addSubview(NoScoreImageView.viewFromNib)
+                let noScoreView = NoScoreImageView.viewFromNib
+                noScoreView.translatesAutoresizingMaskIntoConstraints = false
+                dataView.addSubview(noScoreView)
+                NSLayoutConstraint.activate([
+                    noScoreView.widthAnchor.constraint(equalTo: dataView.widthAnchor),
+                    noScoreView.heightAnchor.constraint(equalTo: dataView.heightAnchor),
+                    noScoreView.centerXAnchor.constraint(equalTo: dataView.centerXAnchor),
+                    noScoreView.centerYAnchor.constraint(equalTo: dataView.centerYAnchor)
+                ])
             }
         case .text:
             let label = UILabel()

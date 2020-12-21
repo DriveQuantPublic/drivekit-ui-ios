@@ -58,14 +58,14 @@ extension Array where Element: Trip {
                 for i in 0..<self.count {
                     if NSCalendar.current.isDate(currentDay! as Date, inSameDayAs: self[i].endDate! as Date) {
                         dayTrips.append(self[i])
-                        if i == self.count - 1 {
-                            tripsSorted.append(newTripsByDate(date: currentDay!, trips: dayTrips, descOrder: descOrder))
-                        }
                     } else {
                         tripsSorted.append(newTripsByDate(date: currentDay!, trips: dayTrips, descOrder: descOrder))
                         currentDay = self[i].endDate
                         dayTrips = []
                         dayTrips.append(self[i])
+                    }
+                    if i == self.count - 1 {
+                        tripsSorted.append(newTripsByDate(date: currentDay!, trips: dayTrips, descOrder: descOrder))
                     }
                 }
             } else {

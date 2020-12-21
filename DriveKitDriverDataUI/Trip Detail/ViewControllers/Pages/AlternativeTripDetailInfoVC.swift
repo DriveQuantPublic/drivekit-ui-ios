@@ -27,6 +27,7 @@ class AlternativeTripDetailInfoVC: UIViewController {
     @IBOutlet private weak var tripWeatherValue: UILabel!
     @IBOutlet private weak var tripAverageSpeedTitle: UILabel!
     @IBOutlet private weak var tripAverageSpeedValue: UILabel!
+    @IBOutlet private var separators: [UIView]!
     
     let viewModel : AlternativeTripViewModel
     private weak var parentView : UIViewController?
@@ -53,6 +54,11 @@ class AlternativeTripDetailInfoVC: UIViewController {
         self.tripConditionTitle.attributedText = "dk_driverdata_synthesis_condition".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
         self.tripWeatherTitle.attributedText = "dk_driverdata_synthesis_weather".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
         self.tripAverageSpeedTitle.attributedText = "dk_driverdata_synthesis_mean_speed".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+
+        let separatorColor = DKUIColors.neutralColor.color
+        for separator in self.separators {
+            separator.backgroundColor = separatorColor
+        }
 
         update()
     }

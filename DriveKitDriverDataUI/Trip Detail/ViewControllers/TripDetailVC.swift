@@ -337,7 +337,15 @@ extension TripDetailVC: TripDetailDelegate {
 
 extension TripDetailVC: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-        guard let viewControllerIndex = swipableViewControllers.firstIndex(of: pendingViewControllers[0]) else {
+        updateState(from: pendingViewControllers)
+    }
+
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        updateState(from: previousViewControllers)
+    }
+
+    private func updateState(from viewControllers: [UIViewController]) {
+        guard let viewControllerIndex = swipableViewControllers.firstIndex(of: viewControllers[0]) else {
             return
         }
         let mapItem = self.viewModel.configurableMapItems[viewControllerIndex]

@@ -102,7 +102,7 @@ class TripListViewModel {
             }
         }
         for alternativeTransportationMode in alternativeTransportationModes {
-            let numberOfTrips = DriveKitDBTripAccess.shared.tripsQuery().whereEqualTo(field: "declaredTransportationMode.transportationMode", value: Int32(alternativeTransportationMode.rawValue)).or().whereEqualTo(field: "declaredTransportationMode", value: "nil").and().whereEqualTo(field: "transportationMode", value: Int32(alternativeTransportationMode.rawValue)).query().execute().count
+            let numberOfTrips = DriveKitDBTripAccess.shared.tripsQuery().whereEqualTo(field: "declaredTransportationMode.transportationMode", value: Int32(alternativeTransportationMode.rawValue)).or().whereNil(field: "declaredTransportationMode").and().whereEqualTo(field: "transportationMode", value: Int32(alternativeTransportationMode.rawValue)).query().execute().count
             if numberOfTrips > 0 {
                 modes.append(alternativeTransportationMode)
             }

@@ -85,11 +85,9 @@ class TransportationModeVC : DKUIViewController {
         
         self.driverButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(driverButtonDidTouch)))
         self.passengerButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(passengerButtonDidTouch)))
-        
-        self.validateButton.setTitle(DKCommonLocalizable.validate.text(), for: .normal)
-        self.validateButton.setTitleColor(DKUIColors.fontColorOnSecondaryColor.color, for: .normal)
-        self.validateButton.backgroundColor = DKUIColors.secondaryColor.color
-        
+
+        self.validateButton.configure(text: DKCommonLocalizable.validate.text(), style: .full)
+
         updateState()
     }
     

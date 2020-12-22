@@ -341,7 +341,9 @@ extension TripDetailVC: UIPageViewControllerDelegate {
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        updateState(from: previousViewControllers)
+        if !completed {
+            updateState(from: previousViewControllers)
+        }
     }
 
     private func updateState(from viewControllers: [UIViewController]) {

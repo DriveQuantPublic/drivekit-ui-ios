@@ -142,3 +142,7 @@ extension ScoreType {
         }
     }
 }
+
+extension DKStyle {
+    static let driverDataText = DKStyle(size: 14, traits: nil)
+}

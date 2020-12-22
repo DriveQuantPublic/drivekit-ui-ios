@@ -19,7 +19,7 @@ enum TripListConfiguration {
             case .motorized:
                 return [.unknown, .car, .moto, .truck]
             case .alternative:
-                return [.bike, .boat, .bus, .flight, .idle, .onFoot, .other, .skiing, .train]
+                return [.bus, .train, .boat, .bike, .flight, .skiing, .onFoot, .idle, .other]
         }
     }
     

@@ -150,9 +150,12 @@ public extension Date {
 }
 
 public extension String {
-    func doubleValue() -> Double? {
+    func doubleValue(locale: Locale? = nil) -> Double? {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
+        if let locale = locale {
+            numberFormatter.locale = locale
+        }
         return numberFormatter.number(from: self)?.doubleValue
     }
 

@@ -43,8 +43,8 @@ final class TripTableViewCell: UITableViewCell, Nibable {
     }
     
     private func configureLabels(trip: Trip){
-        self.departureHourLabel.attributedText = trip.startDate?.format(pattern: .hourMinute).dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
-        self.arrivalHourLabel.attributedText = trip.endDate?.format(pattern: .hourMinute).dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+        self.departureHourLabel.attributedText = trip.startDate?.format(pattern: .hourMinuteLetter).dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+        self.arrivalHourLabel.attributedText = trip.endDate?.format(pattern: .hourMinuteLetter).dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
 
         self.departureCityLabel.attributedText = (trip.departureCity ?? "").dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
         self.arrivalCityLabel.attributedText = (trip.arrivalCity ?? "").dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()

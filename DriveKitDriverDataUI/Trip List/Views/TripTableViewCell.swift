@@ -94,9 +94,16 @@ final class TripTableViewCell: UITableViewCell, Nibable {
     }
     
     private func configureAlternativeTripData(trip: Trip) {
-        let view = NoScoreImageView.viewFromNib
+        let view = AlternativeTripImageView.viewFromNib
+        view.translatesAutoresizingMaskIntoConstraints = false
         view.imageView.image = TransportationMode(rawValue: Int(trip.declaredTransportationMode?.transportationMode ?? trip.transportationMode))?.getImage()
         dataView.embedSubview(view)
+        NSLayoutConstraint.activate([
+            view.widthAnchor.constraint(equalTo: dataView.widthAnchor),
+            view.heightAnchor.constraint(equalTo: dataView.heightAnchor),
+            view.centerXAnchor.constraint(equalTo: dataView.centerXAnchor),
+            view.centerYAnchor.constraint(equalTo: dataView.centerYAnchor)
+        ])
     }
     
     private func configureTripInfo(trip: Trip, tripInfo: DKTripInfo){

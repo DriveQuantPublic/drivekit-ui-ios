@@ -42,6 +42,7 @@ class TripDetailVC: DKUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .white
         self.title = "dk_driverdata_trip_detail_title".dkDriverDataLocalized()
         showLoader()
         self.viewModel.delegate = self

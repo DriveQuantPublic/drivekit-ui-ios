@@ -37,6 +37,7 @@ public class TripListVC: DKUIViewController {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .white
         self.title = "dk_driverdata_trips_list_title".dkDriverDataLocalized()
         self.tableView.register(TripTableViewCell.nib, forCellReuseIdentifier: "TripTableViewCell")
         if #available(iOS 11, *) {

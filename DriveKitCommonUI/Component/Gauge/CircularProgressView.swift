@@ -35,7 +35,7 @@ public final class CircularProgressView: UIView, Nibable {
         return UIColor.dkExcellent
     }
     
-    public func configure(configuration: ConfigurationCircularProgressView){
+    public func configure(configuration: ConfigurationCircularProgressView) {
         if let image = configuration.image {
             self.imageView.isHidden = false
             self.imageView.image = image
@@ -56,7 +56,7 @@ public final class CircularProgressView: UIView, Nibable {
         progressRing.innerRingWidth = CGFloat(configuration.ringWidth)
         progressRing.outerCapStyle = .round
         progressRing.fontColor = configuration.fontColor
-        progressRing.font = DKUIFonts.primary.fonts(size: CGFloat(configuration.fontSize))
+        progressRing.font = DKUIFonts.secondary.fonts(size: CGFloat(configuration.fontSize))
         progressRing.valueFormatter = CircularRingValueFormatter(configuration: configuration, rightToLeft: false)
     }
     

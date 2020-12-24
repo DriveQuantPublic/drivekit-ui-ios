@@ -20,6 +20,7 @@ final class TripTableViewCell: UITableViewCell, Nibable {
     @IBOutlet weak var tripLineView: TripListSeparator!
     
     var tripInfoView: TripInfoView? = nil
+    private let timeColor: UIColor = UIColor(hex: 0x9e9e9e)
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -42,9 +43,9 @@ final class TripTableViewCell: UITableViewCell, Nibable {
         }
     }
     
-    private func configureLabels(trip: Trip){
-        self.departureHourLabel.attributedText = trip.startDate?.format(pattern: .hourMinuteLetter).dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.complementaryFontColor).build()
-        self.arrivalHourLabel.attributedText = trip.endDate?.format(pattern: .hourMinuteLetter).dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.complementaryFontColor).build()
+    private func configureLabels(trip: Trip) {
+        self.departureHourLabel.attributedText = trip.startDate?.format(pattern: .hourMinuteLetter).dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(self.timeColor).build()
+        self.arrivalHourLabel.attributedText = trip.endDate?.format(pattern: .hourMinuteLetter).dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(self.timeColor).build()
 
         self.departureCityLabel.attributedText = (trip.departureCity ?? "").dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
         self.arrivalCityLabel.attributedText = (trip.arrivalCity ?? "").dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()

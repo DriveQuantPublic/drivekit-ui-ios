@@ -113,7 +113,7 @@ final class TripTableViewCell: UITableViewCell, Nibable {
             tripInfoView?.setTrip(trip: trip)
             tripInfoView?.tripInfo = tripInfo
             tripInfoView?.setText(tripInfo.text(trip: trip) ?? "")
-            if let image = tripInfo.image(trip: trip)?.resizeImage(24, opaque: false).withRenderingMode(.alwaysTemplate) {
+            if let image = tripInfo.image(trip: trip)?.withRenderingMode(.alwaysTemplate) {
                 tripInfoView?.image.image = image
                 tripInfoView?.image.tintColor = DKUIColors.fontColorOnSecondaryColor.color
             }

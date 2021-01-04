@@ -23,7 +23,7 @@ final class TripInfoView: UIView, Nibable  {
     }
     
     func setText(_ text: String){
-        self.text.attributedText = text.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.fontColorOnSecondaryColor).build()
+        self.text.attributedText = text.dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 10, traits: .traitBold)).color(.fontColorOnSecondaryColor).build()
     }
     
     func setTrip(trip: Trip) {

@@ -26,7 +26,7 @@ public enum CircularProgressViewSize {
     var fontSize: Int {
         switch self {
         case .small:
-            return 11
+            return 12
         case .medium:
             return 16
         case .large:
@@ -74,7 +74,7 @@ public class ConfigurationCircularProgressView {
         self.steps = scoreType.getSteps()
         self.image = scoreType.image()
         self.ringWidth = size.ringWidth
-        self.fontColor = DKUIColors.mainFontColor.color
+        self.fontColor = DKUIColors.complementaryFontColor.color
         self.fontSize = size.fontSize
         self.valueIndicator = ""
         self.showFloatingPoint = true

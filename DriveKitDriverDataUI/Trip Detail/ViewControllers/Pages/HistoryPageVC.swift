@@ -28,7 +28,6 @@ class HistoryPageVC: UIViewController {
         let nib = UINib(nibName: "HistoryPageView", bundle: Bundle.driverDataUIBundle)
         self.tableView.register(nib, forCellReuseIdentifier: "HistoryPageView")
         self.tableView.separatorStyle = .none
-        self.tableView.rowHeight = 50
         self.tableView.dataSource = self
         self.tableView.delegate = self
     }
@@ -55,7 +54,7 @@ extension HistoryPageVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 40
     }
 }
 

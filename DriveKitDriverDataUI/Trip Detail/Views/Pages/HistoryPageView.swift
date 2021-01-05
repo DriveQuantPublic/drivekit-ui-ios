@@ -29,8 +29,8 @@ final class HistoryPageView : UITableViewCell, Nibable {
         
         topLine.isHidden = false
         bottomLine.isHidden = false
-        topLine.backgroundColor = UIColor.dkMapTrace.withAlphaComponent(0.5)
-        bottomLine.backgroundColor = UIColor.dkMapTrace.withAlphaComponent(0.5)
+        topLine.backgroundColor = UIColor.dkMapTrace
+        bottomLine.backgroundColor = UIColor.dkMapTrace
         
         if event.type == .start {
             topLine.isHidden = true

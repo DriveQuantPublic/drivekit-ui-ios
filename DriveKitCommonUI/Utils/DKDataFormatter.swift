@@ -96,7 +96,12 @@ public extension Double {
                 return "\(nbHour)\(DKCommonLocalizable.unitHour.text())\(minuteString)"
             }
         } else {
-            return "\(nbMinute) \(DKCommonLocalizable.unitMinute.text())"
+            let nbSecond = Int(self - 60.0 * Double(Int(self / 60)))
+            if nbSecond > 0 {
+                return "\(nbMinute - 1) \(DKCommonLocalizable.unitMinute.text()) \(nbSecond)"
+            } else {
+                return "\(nbMinute) \(DKCommonLocalizable.unitMinute.text())"
+            }
         }
     }
 

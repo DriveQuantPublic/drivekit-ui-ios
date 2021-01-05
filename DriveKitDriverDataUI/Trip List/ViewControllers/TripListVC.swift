@@ -135,7 +135,7 @@ public class TripListVC: DKUIViewController {
             let synthesisText = "%@ \(tripNumber > 1 ? DKCommonLocalizable.tripPlural.text() : DKCommonLocalizable.tripSingular.text()) - %@ \(DKCommonLocalizable.unitKilometer.text())"
             let tripNumberValue = String(tripNumber).dkAttributedString().color(.primaryColor).font(dkFont: .primary, style: .highlightSmall).build()
             let distanceValue = String(format: "%.0f", viewModel.tripsDistance).dkAttributedString().color(.primaryColor).font(dkFont: .primary, style: .highlightSmall).build()
-            self.synthesis.attributedText = synthesisText.dkAttributedString().color(.mainFontColor).font(dkFont: .primary, style: .driverDataText).buildWithArgs(tripNumberValue, distanceValue)
+            self.synthesis.attributedText = synthesisText.dkAttributedString().color(.complementaryFontColor).font(dkFont: .primary, style: .driverDataText).buildWithArgs(tripNumberValue, distanceValue)
         } else {
             self.synthesis.isHidden = true
         }

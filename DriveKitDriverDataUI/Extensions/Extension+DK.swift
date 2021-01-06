@@ -144,5 +144,5 @@ extension ScoreType {
 }
 
 extension DKStyle {
-    static let driverDataText = DKStyle(size: 14, traits: nil)
+    static let driverDataText = DKStyles.normalText.withSizeDelta(-2)
 }

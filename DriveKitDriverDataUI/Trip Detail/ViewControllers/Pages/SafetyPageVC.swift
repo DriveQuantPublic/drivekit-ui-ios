@@ -37,7 +37,7 @@ class SafetyPageVC: UIViewController {
         score.configure(configuration: configScore)
         score.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         progressRingContainer.embedSubview(score)
-        progressRingTitle.attributedText = viewModel.scoreType.stringValue().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        progressRingTitle.attributedText = viewModel.scoreType.stringValue().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
         setupEventContainer()
     }
     

@@ -28,7 +28,7 @@ public extension Double {
         if self < 100 {
             return "\(self.format(maximumFractionDigits: 1)) \(DKCommonLocalizable.unitKilometer.text())"
         } else {
-            return "\(Int(ceil(self))) \(DKCommonLocalizable.unitKilometer.text())"
+            return "\(Int(self.rounded())) \(DKCommonLocalizable.unitKilometer.text())"
         }
     }
 

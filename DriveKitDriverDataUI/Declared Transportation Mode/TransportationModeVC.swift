@@ -65,11 +65,11 @@ class TransportationModeVC : DKUIViewController {
         self.messageBackground.backgroundColor = DKUIColors.warningColor.color
         self.messageBackground.layer.cornerRadius = 4
         
-        self.transportationModeTitle.attributedText = "dk_driverdata_transportation_mode".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.complementaryFontColor).build()
-        self.passengerDriverTitle.attributedText = "dk_driverdata_transportation_mode_passenger_driver".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.complementaryFontColor).build()
+        self.transportationModeTitle.attributedText = "dk_driverdata_transportation_mode".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
+        self.passengerDriverTitle.attributedText = "dk_driverdata_transportation_mode_passenger_driver".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
         self.passengerDriverTitle.isHidden = true
         self.passengerDriverButtonsContainer.isHidden = true
-        self.commentTitle.attributedText = "dk_driverdata_transportation_mode_declaration_comment".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.complementaryFontColor).build()
+        self.commentTitle.attributedText = "dk_driverdata_transportation_mode_declaration_comment".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
         self.commentError.attributedText = "dk_driverdata_transportation_mode_declaration_comment_error".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.criticalColor).build()
         self.commentTextView.text = self.viewModel.comment
         self.commentTextView.layer.borderWidth = 1

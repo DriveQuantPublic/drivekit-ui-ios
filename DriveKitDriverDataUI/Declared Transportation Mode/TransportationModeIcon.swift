@@ -21,6 +21,9 @@ class TransportationModeIcon : UIImageView {
     override func awakeFromNib() {
         super.awakeFromNib()
 
+        self.image = self.image?.withRenderingMode(.alwaysTemplate)
+        self.tintColor = DKUIColors.complementaryFontColor.color
+
         self.isUserInteractionEnabled = true
         self.selectionView.translatesAutoresizingMaskIntoConstraints = false
         var red: CGFloat = 0

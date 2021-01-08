@@ -31,9 +31,9 @@ class TripListViewModel {
     }
     
     var tripsDistance: Double {
-        return self.filteredTrips.map {$0.trips.map {($0.tripStatistics?.distance ?? 0)}.reduce(0, +)}.reduce(0, +).metersToKilometers(places: 0)
+        return self.filteredTrips.map {$0.trips.map {($0.tripStatistics?.distance ?? 0)}.reduce(0, +)}.reduce(0, +)
     }
-    
+
     public func fetchTrips() {
         var transportationModes = TripListConfiguration.motorized().transportationModes()
         if DriveKitDriverDataUI.shared.enableAlternativeTrips {

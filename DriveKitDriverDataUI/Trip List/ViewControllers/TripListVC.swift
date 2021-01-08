@@ -65,7 +65,7 @@ public class TripListVC: DKUIViewController {
     private func configureFilterButton(){
         if DriveKitDriverDataUI.shared.enableAlternativeTrips && self.viewModel.hasAlternativeTrips() {
             let image = UIImage(named: "dk_filter", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.resizeImage(25, opaque: false).withRenderingMode(.alwaysTemplate)
-            let filterButton = UIBarButtonItem(image: image , style: .plain, target: self, action: #selector(filterAction))
+            let filterButton = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(filterAction))
             filterButton.tintColor = .white
             self.navigationItem.rightBarButtonItem = filterButton
         }
@@ -134,7 +134,7 @@ public class TripListVC: DKUIViewController {
             let tripNumber = viewModel.tripNumber
             let synthesisText = "%@ \(tripNumber > 1 ? DKCommonLocalizable.tripPlural.text() : DKCommonLocalizable.tripSingular.text()) - %@ \(DKCommonLocalizable.unitKilometer.text())"
             let tripNumberValue = String(tripNumber).dkAttributedString().color(.primaryColor).font(dkFont: .primary, style: .highlightSmall).build()
-            let distanceValue = String(format: "%.0f", viewModel.tripsDistance).dkAttributedString().color(.primaryColor).font(dkFont: .primary, style: .highlightSmall).build()
+            let distanceValue = viewModel.tripsDistance.formatMeterDistanceInKm(appendingUnit: false).dkAttributedString().color(.primaryColor).font(dkFont: .primary, style: .highlightSmall).build()
             self.synthesis.attributedText = synthesisText.dkAttributedString().color(.complementaryFontColor).font(dkFont: .primary, style: .driverDataText).buildWithArgs(tripNumberValue, distanceValue)
         } else {
             self.synthesis.isHidden = true

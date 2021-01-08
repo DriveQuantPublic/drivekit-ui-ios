@@ -10,8 +10,8 @@ import Foundation
 
 public extension Double {
 
-    func formatMeterDistanceInKm() -> String {
-        return (self / 1000.0).formatKilometerDistance()
+    func formatMeterDistanceInKm(appendingUnit appendUnit: Bool = true) -> String {
+        return (self / 1000.0).formatKilometerDistance(appendingUnit: appendUnit)
     }
 
     func formatMeterDistance() -> String {
@@ -24,11 +24,17 @@ public extension Double {
         }
     }
 
-    func formatKilometerDistance() -> String {
+    func formatKilometerDistance(appendingUnit appendUnit: Bool = true) -> String {
+        let formattedDistance: String
         if self < 100 {
-            return "\(self.format(maximumFractionDigits: 1)) \(DKCommonLocalizable.unitKilometer.text())"
+            formattedDistance = self.format(maximumFractionDigits: 1)
         } else {
-            return "\(Int(self.rounded())) \(DKCommonLocalizable.unitKilometer.text())"
+            formattedDistance = String(Int(self.rounded()))
+        }
+        if appendUnit {
+            return "\(formattedDistance) \(DKCommonLocalizable.unitKilometer.text())"
+        } else {
+            return formattedDistance
         }
     }
 

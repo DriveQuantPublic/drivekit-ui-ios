@@ -109,18 +109,23 @@ final class TripTableViewCell: UITableViewCell, Nibable {
     
     private func configureTripInfo(trip: Trip, tripInfo: DKTripInfo){
         if tripInfo.isDisplayable(trip: trip) {
-            tripInfoView = TripInfoView.viewFromNib
-            tripInfoView?.setTrip(trip: trip)
-            tripInfoView?.tripInfo = tripInfo
-            tripInfoView?.setText(tripInfo.text(trip: trip) ?? "")
+            let tripInfoView = TripInfoView.viewFromNib
+            tripInfoView.setTrip(trip: trip)
+            tripInfoView.tripInfo = tripInfo
+            let style: DKStyle
             if let image = tripInfo.image(trip: trip)?.withRenderingMode(.alwaysTemplate) {
-                tripInfoView?.image.image = image
-                tripInfoView?.image.tintColor = DKUIColors.fontColorOnSecondaryColor.color
+                tripInfoView.image.image = image
+                tripInfoView.image.tintColor = DKUIColors.fontColorOnSecondaryColor.color
+                style = DKStyle(size: 10, traits: .traitBold)
+            } else {
+                style = DKStyles.normalText.withSizeDelta(-2)
             }
-            tripInfoView?.backgroundColor = DKUIColors.secondaryColor.color
-            tripInfoView?.layer.cornerRadius = 5
-            tripInfoView?.layer.masksToBounds = true
+            tripInfoView.setText(tripInfo.text(trip: trip) ?? "", style: style)
+            tripInfoView.backgroundColor = DKUIColors.secondaryColor.color
+            tripInfoView.layer.cornerRadius = 5
+            tripInfoView.layer.masksToBounds = true
             accessoryView = tripInfoView
+            self.tripInfoView = tripInfoView
         }
     }
 

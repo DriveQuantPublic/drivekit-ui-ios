@@ -43,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitDriverAchievementUI.shared.initialize()
         DriveKitDriverAchievementUI.shared.configureRankingTypes([.safety, .ecoDriving, .distraction, .speeding])
         DriveKitDriverDataUI.shared.initialize()
+        DriveKitDriverDataUI.shared.enableAlternativeTrips(true)
         DriveKitVehicleUI.shared.initialize()
         DriveKitVehicleUI.shared.configureBeaconDetailEmail(beaconDiagnosticEmail: self)
         DriveKitVehicleUI.shared.configureBeaconDiagnosticSupportURL(url: "https://www.google.com")

@@ -29,8 +29,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - UICircularProgressRing
-  https://gitlab.com/drivequant/drivekit/drivekit-specs.git:
     - DriveKitCore
     - DriveKitDBAchievementAccess
     - DriveKitDBTripAccess
@@ -40,19 +38,20 @@ SPEC REPOS:
     - DriveKitNetworking
     - DriveKitTripAnalysis
     - DriveKitVehicle
+    - UICircularProgressRing
 
 SPEC CHECKSUMS:
-  DriveKitCore: 110643bfb092fc94e9e3570df1760fbce18a5eef
-  DriveKitDBAchievementAccess: 805db72fb5b0ed9a1daedd7203a2f97bf6872dce
-  DriveKitDBTripAccess: 02561bb06eb76773d8c5a02dc757c08268a12481
-  DriveKitDBVehicleAccess: b9e7f1229965bc5828e091bd07d470c84cfb05ef
-  DriveKitDriverAchievement: d9ba9a5ba19550a0c1dff35b19e682189e8a19e9
-  DriveKitDriverData: a9195d0871bae2613b42ad698d88ab6c94a7798f
-  DriveKitNetworking: 569e85f7e1446f7d648dc820770cf71b1bd7e22f
-  DriveKitTripAnalysis: 4b5f364b2d5d7726d74b5f86c59aaf3ca10430df
-  DriveKitVehicle: f3adf5b1c0036334f939683449d761d08c39ee85
+  DriveKitCore: cfd79475e816f2990ea0d681bbdf8c4a1425b02d
+  DriveKitDBAchievementAccess: 7132427989bf197c302c5b0a411cabaf417970e8
+  DriveKitDBTripAccess: 0d9ed7f78f7eca083d06e363ea861e601e8635f5
+  DriveKitDBVehicleAccess: fedcda494a0ad2fc8bc483794fb31ceb4d1de151
+  DriveKitDriverAchievement: 5462976d12d8dff0a9b6035a2d5f0f22ecc6d689
+  DriveKitDriverData: 0165432e85f29a9ddc786d83d67748c0b835e2dd
+  DriveKitNetworking: 97f6a374c845b53e2e3d3aa080db282758617812
+  DriveKitTripAnalysis: a4f8556c456e1a7cd37590af93d01430d2c02e78
+  DriveKitVehicle: aac8d2a13a88a6b6791f3297ae865036c7226ce9
   UICircularProgressRing: 738b48db0ec1fbbd8482d727979392bb8c272e8d
 
-PODFILE CHECKSUM: 857733dc81f2312d720e9b466b660244d6d39d69
+PODFILE CHECKSUM: 7e4fbd024bf0038d51008cafe840f4bf3556397c
 
 COCOAPODS: 1.10.0

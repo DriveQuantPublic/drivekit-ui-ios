@@ -196,6 +196,8 @@ class TransportationModeVC : DKUIViewController {
                     selectTransportationMode(self.trainTransportationModeButton, update: false)
                 case .truck:
                     selectTransportationMode(self.truckTransportationModeButton, update: false)
+                @unknown default:
+                    break
             }
             let detectionModeStyle = DKStyle(size: 14, traits: UIFontDescriptor.SymbolicTraits.traitBold)
             self.transportationModeValue.attributedText = titleKey.dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: detectionModeStyle).color(.primaryColor).build()
@@ -232,6 +234,8 @@ class TransportationModeVC : DKUIViewController {
                                         self.showAlertMessage(title: nil, message: "dk_driverdata_failed_to_declare_transportation".dkDriverDataLocalized(), back: false, cancel: false)
                                     case .commentTooLong:
                                         self.showAlertMessage(title: nil, message: "dk_driverdata_transportation_mode_declaration_comment_error".dkDriverDataLocalized(), back: false, cancel: false)
+                                    @unknown default:
+                                        break
                                 }
                             }
                         }

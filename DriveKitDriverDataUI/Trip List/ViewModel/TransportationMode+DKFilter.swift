@@ -6,7 +6,7 @@
 //  Copyright © 2020 DriveQuant. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import DriveKitCommonUI
 import DriveKitDBTripAccessModule
 
@@ -38,6 +38,8 @@ extension TransportationMode : DKFilterItem {
                 image = "dk_transportation_on_foot"
             case .idle:
                 image = "dk_transportation_idle"
+            @unknown default:
+                return nil
         }
         return UIImage(named: image, in: Bundle.driverDataUIBundle, compatibleWith: nil)
     }
@@ -69,6 +71,8 @@ extension TransportationMode : DKFilterItem {
                 localizable = "dk_driverdata_transportation_mode_on_foot"
             case .idle:
                 localizable = "dk_driverdata_transportation_mode_idle"
+            @unknown default:
+                return ""
         }
         return localizable.dkDriverDataLocalized()
     }

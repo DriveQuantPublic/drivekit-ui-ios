@@ -42,6 +42,7 @@ class TripDetailVC: DKUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .white
         self.title = "dk_driverdata_trip_detail_title".dkDriverDataLocalized()
         showLoader()
         self.viewModel.delegate = self
@@ -118,7 +119,9 @@ extension TripDetailVC {
         }
         
         self.setupTipButton()
-        self.pageViewController.setViewControllers([self.swipableViewControllers[index]], direction: direction ?? .forward, animated: true, completion: nil)
+        if index < self.swipableViewControllers.count {
+            self.pageViewController.setViewControllers([self.swipableViewControllers[index]], direction: direction ?? .forward, animated: true, completion: nil)
+        }
         self.mapViewController.traceRoute(mapItem: self.viewModel.displayMapItem)
     }
     
@@ -207,11 +210,12 @@ extension TripDetailVC {
     }
     
     func setupPageContainer() {
-        
         self.pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         self.pageViewController.dataSource = self
         self.pageViewController.delegate = self
-        self.pageViewController.setViewControllers([self.swipableViewControllers[0]], direction: .forward, animated: true, completion: nil)
+        if let mainViewController = self.swipableViewControllers.first {
+            self.pageViewController.setViewControllers([mainViewController], direction: .forward, animated: true, completion: nil)
+        }
         self.pageViewController.view.frame = CGRect(x: 0, y: 0, width: self.pageContainer.frame.width, height: self.pageContainer.frame.height)
         pageContainer.addSubview(self.pageViewController.view)
         self.pageViewController.didMove(toParent: self)
@@ -334,7 +338,17 @@ extension TripDetailVC: TripDetailDelegate {
 
 extension TripDetailVC: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-        guard let viewControllerIndex = swipableViewControllers.firstIndex(of: pendingViewControllers[0]) else {
+        updateState(from: pendingViewControllers)
+    }
+
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if !completed {
+            updateState(from: previousViewControllers)
+        }
+    }
+
+    private func updateState(from viewControllers: [UIViewController]) {
+        guard let viewControllerIndex = swipableViewControllers.firstIndex(of: viewControllers[0]) else {
             return
         }
         let mapItem = self.viewModel.configurableMapItems[viewControllerIndex]

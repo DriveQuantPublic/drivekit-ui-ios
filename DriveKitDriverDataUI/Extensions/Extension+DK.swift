@@ -12,14 +12,18 @@ import CoreLocation
 import DriveKitCommonUI
 
 extension Trip {    
-    var duration : Int {
+    var duration: Int {
         guard let duration = self.tripStatistics?.duration else {
             return 0
         }
         return Int(duration)
     }
+
+    var roundedDuration: Double {
+        (Double(self.duration) / 60.0).rounded(.up) * 60.0
+    }
     
-    var tripStartDate : Date {
+    var tripStartDate: Date {
         return self.startDate ?? self.tripEndDate.addingTimeInterval(-1 * Double(duration)) as Date
     }
     
@@ -38,40 +42,44 @@ extension Array where Element: Trip {
     }
     
     var totalDuration: Double {
-        return map { Double($0.tripStatistics?.duration ?? 0) }.reduce(0, +)
+        return map { Double($0.duration) }.reduce(0, +)
+    }
+
+    var totalRoundedDuration: Double {
+        return map { $0.roundedDuration }.reduce(0, +)
     }
     
     func orderByDay(descOrder: Bool = true) -> [TripsByDate] {
-        var tripsSorted : [TripsByDate] = []
-        if self.count > 0 {
-            var dayTrips : [Trip] = []
+        var tripsSorted: [TripsByDate] = []
+        if !self.isEmpty {
+            var dayTrips: [Trip] = []
             var currentDay = self[0].endDate
             if self.count > 1 {
-                for i in 0...self.count-1{
-                    if NSCalendar.current.isDate(currentDay! as Date, inSameDayAs:self[i].endDate! as Date){
+                for i in 0..<self.count {
+                    if NSCalendar.current.isDate(currentDay! as Date, inSameDayAs: self[i].endDate! as Date) {
                         dayTrips.append(self[i])
-                        if i == self.count-1 {
-                            let tripsByDate = TripsByDate(date: currentDay!, trips: dayTrips)
-                            tripsSorted.append(tripsByDate)
-                        }
                     } else {
-                        if !descOrder {
-                            dayTrips = dayTrips.reversed()
-                        }
-                        let tripsByDate = TripsByDate(date: currentDay!, trips: dayTrips)
-                        tripsSorted.append(tripsByDate)
+                        tripsSorted.append(newTripsByDate(date: currentDay!, trips: dayTrips, descOrder: descOrder))
                         currentDay = self[i].endDate
                         dayTrips = []
                         dayTrips.append(self[i])
                     }
+                    if i == self.count - 1 {
+                        tripsSorted.append(newTripsByDate(date: currentDay!, trips: dayTrips, descOrder: descOrder))
+                    }
                 }
             } else {
                 dayTrips.append(self[0])
-                let tripsByDate = TripsByDate(date: currentDay!, trips: dayTrips)
-                tripsSorted.append(tripsByDate)
+                tripsSorted.append(newTripsByDate(date: currentDay!, trips: dayTrips, descOrder: descOrder))
             }
         }
         return tripsSorted
+    }
+
+    private func newTripsByDate(date: Date, trips: [Trip], descOrder: Bool) -> TripsByDate {
+        let sortedTrips = descOrder || trips.count < 2 ? trips : trips.reversed()
+        let tripsByDate = TripsByDate(date: date, trips: sortedTrips)
+        return tripsByDate
     }
 }
 
@@ -133,4 +141,8 @@ extension ScoreType {
             
         }
     }
+}
+
+extension DKStyle {
+    static let driverDataText = DKStyles.normalText.withSizeDelta(-2)
 }

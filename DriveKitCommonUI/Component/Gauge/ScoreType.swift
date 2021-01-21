@@ -18,7 +18,7 @@ public enum ScoreType: String {
         case .safety:
             return DKImages.safety.image
         case .distraction:
-            return DKImages.distractionFilled.image
+            return DKImages.distraction.image
         }
     }
     

@@ -18,7 +18,7 @@ final class DistractionPageView : UIView, Nibable {
     }
     
     func configure(title: String, count: NSAttributedString) {
-        eventTitle.attributedText = title.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        eventTitle.attributedText = title.dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.complementaryFontColor).build()
         eventCount.attributedText = count
     }
     

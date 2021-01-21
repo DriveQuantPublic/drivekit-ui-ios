@@ -20,9 +20,9 @@ final class SafetyPageView : UIView, Nibable {
     }
 
     func configure(title: String, image: UIImage?, count: Int) {
-        eventTitle.attributedText = title.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        eventTitle.attributedText = title.dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.complementaryFontColor).build()
         eventImage.image = image
         eventImage.tintColor = DKUIColors.mainFontColor.color
-        eventCount.attributedText = String(count).dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.primaryColor).build()
+        eventCount.attributedText = String(count).dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.primaryColor).build()
     }
 }

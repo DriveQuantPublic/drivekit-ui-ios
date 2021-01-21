@@ -26,14 +26,14 @@ class TripListViewModel {
         }
     }
     
-    var tripNumber :Int {
+    var tripNumber: Int {
         return self.filteredTrips.map { $0.trips.count }.reduce(0, +)
     }
     
-    var tripsDistance : Double {
-        return self.filteredTrips.map {$0.trips.map {($0.tripStatistics?.distance ?? 0)}.reduce(0, +)}.reduce(0, +).metersToKilometers(places: 0)
+    var tripsDistance: Double {
+        return self.filteredTrips.map {$0.trips.map {($0.tripStatistics?.distance ?? 0)}.reduce(0, +)}.reduce(0, +)
     }
-    
+
     public func fetchTrips() {
         var transportationModes = TripListConfiguration.motorized().transportationModes()
         if DriveKitDriverDataUI.shared.enableAlternativeTrips {
@@ -53,9 +53,17 @@ class TripListViewModel {
         let tripSorted = trips.orderByDay(descOrder: DriveKitDriverDataUI.shared.dayTripDescendingOrder)
         return tripSorted
     }
-    
-    
-    
+
+
+    func showFilter() -> Bool {
+        switch self.listConfiguration {
+            case .motorized:
+                return DriveKitDriverDataUI.shared.enableVehicleFilter
+            case .alternative:
+                return true
+        }
+    }
+
     func getTripListFilterItems() -> [DKFilterItem] {
         var items = [TripListConfiguration.motorized()]
         if DriveKitDriverDataUI.shared.enableAlternativeTrips {
@@ -73,7 +81,7 @@ class TripListViewModel {
         }
     }
     
-    private func getVehicleFilterItems() -> [DKFilterItem]?{
+    private func getVehicleFilterItems() -> [DKFilterItem]? {
         if let vehiculeUI = DriveKitNavigationController.shared.vehicleUI {
             var items = vehiculeUI.getVehicleFilterItems()
             items.insert(AllTripFilterItem(), at: 0)
@@ -94,7 +102,10 @@ class TripListViewModel {
             }
         }
         for alternativeTransportationMode in alternativeTransportationModes {
-            let numberOfTrips = DriveKitDBTripAccess.shared.tripsQuery().whereEqualTo(field: "declaredTransportationMode.transportationMode", value: Int32(alternativeTransportationMode.rawValue)).or().whereEqualTo(field: "transportationMode", value: Int32(alternativeTransportationMode.rawValue)).query().execute().count
+            var numberOfTrips = DriveKitDBTripAccess.shared.tripsQuery().whereEqualTo(field: "declaredTransportationMode.transportationMode", value: Int32(alternativeTransportationMode.rawValue)).query().execute().count
+            if numberOfTrips == 0 {
+                numberOfTrips = DriveKitDBTripAccess.shared.tripsQuery().whereNil(field: "declaredTransportationMode").and().whereEqualTo(field: "transportationMode", value: Int32(alternativeTransportationMode.rawValue)).query().execute().count
+            }
             if numberOfTrips > 0 {
                 modes.append(alternativeTransportationMode)
             }

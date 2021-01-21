@@ -28,7 +28,6 @@ class HistoryPageVC: UIViewController {
         let nib = UINib(nibName: "HistoryPageView", bundle: Bundle.driverDataUIBundle)
         self.tableView.register(nib, forCellReuseIdentifier: "HistoryPageView")
         self.tableView.separatorStyle = .none
-        self.tableView.rowHeight = 50
         self.tableView.dataSource = self
         self.tableView.delegate = self
     }
@@ -47,16 +46,15 @@ extension HistoryPageVC: UITableViewDataSource {
         if let cell : HistoryPageView = tableView.dequeueReusableCell(withIdentifier: "HistoryPageView") as? HistoryPageView {
             let event = self.viewModel.events[indexPath.row]
             cell.configure(event: event)
-            cell.selectedBackgroundView?.backgroundColor = DKUIColors.secondaryColor.color.withAlphaComponent(0.75)
+            cell.selectedBackgroundView?.backgroundColor = DKUIColors.secondaryColor.color.withAlphaComponent(0.3)
             return cell
         } else {
             return UITableViewCell()
         }
     }
     
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 40
     }
 }
 

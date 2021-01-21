@@ -11,14 +11,15 @@ import DriveKitCommonUI
 
 public class DriveKitDriverDataUI {
     
-    var tripData: TripData = .safety
-    var headerDay: HeaderDay = .durationDistance
-    var dayTripDescendingOrder: Bool = false
-    var mapItems : [MapItem] = [.safety, .ecoDriving, .distraction, .interactiveMap, .synthesis]
+    private(set) var tripData: TripData = .safety
+    private(set) var mapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .interactiveMap, .synthesis]
+    private(set) var headerDay: HeaderDay = .durationDistance
+    private(set) var dayTripDescendingOrder: Bool = false
     private(set) var customMapItem: DKMapItem?
-    var enableDeleteTrip = true
-    var enableAdviceFeedback = true
-    var enableAlternativeTrips = true
+    private(set) var enableDeleteTrip = true
+    private(set) var enableAdviceFeedback = true
+    private(set) var enableAlternativeTrips = false
+    private(set) var enableVehicleFilter = true
     private(set) var customHeaders: DKHeader?
     private(set) var customTripInfo: DKTripInfo?
     
@@ -26,20 +27,24 @@ public class DriveKitDriverDataUI {
     
     private init() {}
     
-    public func initialize(tripData : TripData = .safety, mapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .interactiveMap, .synthesis]) {
+    public func initialize(tripData: TripData = .safety, mapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .interactiveMap, .synthesis]) {
         self.tripData = tripData
         self.mapItems = mapItems
     }
+
+    public func configureTripData(_ tripData: TripData) {
+        self.tripData = tripData
+    }
     
-    public func configureHeaderDay(headerDay : HeaderDay) {
+    public func configureHeaderDay(headerDay: HeaderDay) {
         self.headerDay = headerDay
     }
     
-    public func configureDayTripDescendingOrder(dayTripDescendingOrder : Bool) {
+    public func configureDayTripDescendingOrder(dayTripDescendingOrder: Bool) {
         self.dayTripDescendingOrder = dayTripDescendingOrder
     }
     
-    public func enableDeleteTrip(enable : Bool) {
+    public func enableDeleteTrip(enable: Bool) {
         self.enableDeleteTrip = enable
     }
     
@@ -62,6 +67,10 @@ public class DriveKitDriverDataUI {
     public func enableAlternativeTrips(_ enable: Bool) {
         self.enableAlternativeTrips = enable
     }
+
+    public func enableVehicleFilter(_ enable: Bool) {
+        self.enableVehicleFilter = enable
+    }
 }
 
 extension Bundle {
@@ -79,8 +88,8 @@ extension DriveKitDriverDataUI : DriveKitDriverDataUIEntryPoint {
         return TripListVC()
     }
     
-    public func getTripDetailViewController(itinId : String) -> UIViewController {
-        return TripDetailVC(itinId: itinId, showAdvice: false, listConfiguration: .motorized())
+    public func getTripDetailViewController(itinId: String, showAdvice: Bool, alternativeTransport: Bool) -> UIViewController {
+        return TripDetailVC(itinId: itinId, showAdvice: showAdvice, listConfiguration: alternativeTransport ? .alternative() : .motorized())
     }
 }
 

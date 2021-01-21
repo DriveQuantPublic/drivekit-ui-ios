@@ -8,15 +8,41 @@
 
 import Foundation
 
-public enum DKDatePattern : String {
-    case weekLetter = "EEEE d MMMM",
-    standardDate = "dd/MM/yyyy",
-    hourMinute = "HH:mm",
-    hourMinuteLetter = "HH'h'mm",
-    fullDate = "EEEE d MMMM yyyy",
-    dayMonth = "dd/MM",
-    yearOnly = "E",
-    year = "yyyy",
-    day = "EEEE",
-    month = "M"
+public enum DKDatePattern {
+    case weekLetter,
+    standardDate,
+    hourMinute,
+    hourMinuteLetter,
+    fullDate,
+    dayMonth,
+    yearOnly,
+    year,
+    day,
+    month
+
+    public var rawValue: String {
+        switch self {
+            case .weekLetter:
+                return "EEEE d MMMM"
+            case .standardDate:
+                return "dd/MM/yyyy"
+            case .hourMinute:
+                return "HH:mm"
+            case .hourMinuteLetter:
+                let hourUnit = DKCommonLocalizable.unitHour.text()
+                return "HH'\(hourUnit)'mm"
+            case .fullDate:
+                return "EEEE d MMMM yyyy"
+            case .dayMonth:
+                return "dd/MM"
+            case .yearOnly:
+                return "E"
+            case .year:
+                return "yyyy"
+            case .day:
+                return "EEEE"
+            case .month:
+                return "M"
+        }
+    }
 }

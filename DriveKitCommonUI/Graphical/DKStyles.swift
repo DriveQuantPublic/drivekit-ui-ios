@@ -53,6 +53,11 @@ public enum DKStyles {
         }
         return DKStyle(size: size, traits: traits)
     }
+
+    public func withSizeDelta(_ delta: CGFloat) -> DKStyle {
+        let sourceStyle = self.style
+        return DKStyle(size: sourceStyle.size + delta, traits: sourceStyle.traits)
+    }
 }
 
 public struct DKStyle {

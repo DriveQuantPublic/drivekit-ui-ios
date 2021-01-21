@@ -18,7 +18,6 @@ Pod::Spec.new do |s|
 
   s.dependency 'DriveKitCommonUI', s.version.to_s
   s.dependency 'DriveKitDriverData'
-  s.dependency 'DriveKitTripAnalysis'
 
   s.info_plist = {
     'CFBundleIdentifier' => 'com.drivequant.drivekit-driverdata-ui'

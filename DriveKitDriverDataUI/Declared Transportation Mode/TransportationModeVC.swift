@@ -61,16 +61,16 @@ class TransportationModeVC : DKUIViewController {
         
         self.title = "dk_driverdata_transportation_mode_title".dkDriverDataLocalized()
         
-        self.messageLabel.attributedText = "dk_driverdata_transportation_mode_declaration_text".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.white).build()
+        self.messageLabel.attributedText = "dk_driverdata_transportation_mode_declaration_text".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.white).build()
         self.messageBackground.backgroundColor = DKUIColors.warningColor.color
         self.messageBackground.layer.cornerRadius = 4
         
-        self.transportationModeTitle.attributedText = "dk_driverdata_transportation_mode".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
-        self.passengerDriverTitle.attributedText = "dk_driverdata_transportation_mode_passenger_driver".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
+        self.transportationModeTitle.attributedText = "dk_driverdata_transportation_mode".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
+        self.passengerDriverTitle.attributedText = "dk_driverdata_transportation_mode_passenger_driver".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
         self.passengerDriverTitle.isHidden = true
         self.passengerDriverButtonsContainer.isHidden = true
-        self.commentTitle.attributedText = "dk_driverdata_transportation_mode_declaration_comment".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
-        self.commentError.attributedText = "dk_driverdata_transportation_mode_declaration_comment_error".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.criticalColor).build()
+        self.commentTitle.attributedText = "dk_driverdata_transportation_mode_declaration_comment".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
+        self.commentError.attributedText = "dk_driverdata_transportation_mode_declaration_comment_error".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.criticalColor).build()
         self.commentTextView.text = self.viewModel.comment
         self.commentTextView.layer.borderWidth = 1
         self.commentTextView.layer.borderColor = UIColor.lightGray.cgColor
@@ -85,11 +85,9 @@ class TransportationModeVC : DKUIViewController {
         
         self.driverButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(driverButtonDidTouch)))
         self.passengerButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(passengerButtonDidTouch)))
-        
-        self.validateButton.setTitle(DKCommonLocalizable.validate.text(), for: .normal)
-        self.validateButton.setTitleColor(DKUIColors.fontColorOnSecondaryColor.color, for: .normal)
-        self.validateButton.backgroundColor = DKUIColors.secondaryColor.color
-        
+
+        self.validateButton.configure(text: DKCommonLocalizable.validate.text(), style: .full)
+
         updateState()
     }
     
@@ -198,8 +196,10 @@ class TransportationModeVC : DKUIViewController {
                     selectTransportationMode(self.trainTransportationModeButton, update: false)
                 case .truck:
                     selectTransportationMode(self.truckTransportationModeButton, update: false)
+                @unknown default:
+                    break
             }
-            let detectionModeStyle = DKStyle(size: DKStyles.normalText.style.size, traits: UIFontDescriptor.SymbolicTraits.traitBold)
+            let detectionModeStyle = DKStyle(size: 14, traits: UIFontDescriptor.SymbolicTraits.traitBold)
             self.transportationModeValue.attributedText = titleKey.dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: detectionModeStyle).color(.primaryColor).build()
         }
     }
@@ -234,6 +234,8 @@ class TransportationModeVC : DKUIViewController {
                                         self.showAlertMessage(title: nil, message: "dk_driverdata_failed_to_declare_transportation".dkDriverDataLocalized(), back: false, cancel: false)
                                     case .commentTooLong:
                                         self.showAlertMessage(title: nil, message: "dk_driverdata_transportation_mode_declaration_comment_error".dkDriverDataLocalized(), back: false, cancel: false)
+                                    @unknown default:
+                                        break
                                 }
                             }
                         }

@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import DriveKitTripAnalysisModule
 import DriveKitCommonUI
+import DriveKitCoreModule
 import DriveKitDBTripAccessModule
 
 public class TripListVC: DKUIViewController {
@@ -37,6 +37,7 @@ public class TripListVC: DKUIViewController {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .white
         self.title = "dk_driverdata_trips_list_title".dkDriverDataLocalized()
         self.tableView.register(TripTableViewCell.nib, forCellReuseIdentifier: "TripTableViewCell")
         if #available(iOS 11, *) {
@@ -56,16 +57,15 @@ public class TripListVC: DKUIViewController {
     override public func viewWillAppear(_ animated: Bool) {
         self.showLoader()
         self.viewModel.delegate = self
-        if let items = viewModel.getTripFilterItem(), items.count > 1 {
+        if self.viewModel.showFilter(), let items = self.viewModel.getTripFilterItem(), items.count > 1 {
             self.filterViewModel?.updateItems(items: items)
-           //self.filterViewModel = DKFilterViewModel(items: items, currentItem: items[0], showPicker: true, delegate: self)
         }
     }
     
     private func configureFilterButton(){
         if DriveKitDriverDataUI.shared.enableAlternativeTrips && self.viewModel.hasAlternativeTrips() {
             let image = UIImage(named: "dk_filter", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.resizeImage(25, opaque: false).withRenderingMode(.alwaysTemplate)
-            let filterButton = UIBarButtonItem(image: image , style: .plain, target: self, action: #selector(filterAction))
+            let filterButton = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(filterAction))
             filterButton.tintColor = .white
             self.navigationItem.rightBarButtonItem = filterButton
         }
@@ -116,7 +116,7 @@ public class TripListVC: DKUIViewController {
     }
     
     private func configureFilter() {
-        if let items = viewModel.getTripFilterItem(), items.count > 1, self.viewModel.hasTrips() {
+        if self.viewModel.showFilter(), let items = viewModel.getTripFilterItem(), items.count > 1, self.viewModel.hasTrips() {
             self.filterViewContainer.isHidden = false
             if filterView.superview == nil {
                 self.filterViewModel = DKFilterViewModel(items: items, currentItem: items[0], showPicker: true, delegate: self)
@@ -129,17 +129,21 @@ public class TripListVC: DKUIViewController {
     }
     
     private func configureSynthesis() {
-        self.synthesis.isHidden = false
-        let tripNumber = viewModel.tripNumber
-        let synthesisText = "%@ \(tripNumber > 1 ? DKCommonLocalizable.tripPlural.text() : DKCommonLocalizable.tripSingular.text()) - %@ \(DKCommonLocalizable.unitKilometer.text())"
-        let tripNumberValue = String(tripNumber).dkAttributedString().color(.primaryColor).font(dkFont: .secondary, style: .highlightSmall).build()
-        let distanceValue = String(format: "%.0f", viewModel.tripsDistance).dkAttributedString().color(.primaryColor).font(dkFont: .secondary, style: .highlightSmall).build()
-        self.synthesis.attributedText = synthesisText.dkAttributedString().color(.mainFontColor).font(dkFont: .secondary, style: .normalText).buildWithArgs(tripNumberValue, distanceValue)
+        if self.viewModel.showFilter() {
+            self.synthesis.isHidden = false
+            let tripNumber = viewModel.tripNumber
+            let synthesisText = "%@ \(tripNumber > 1 ? DKCommonLocalizable.tripPlural.text() : DKCommonLocalizable.tripSingular.text()) - %@ \(DKCommonLocalizable.unitKilometer.text())"
+            let tripNumberValue = String(tripNumber).dkAttributedString().color(.primaryColor).font(dkFont: .primary, style: .highlightSmall).build()
+            let distanceValue = viewModel.tripsDistance.formatMeterDistanceInKm(appendingUnit: false).dkAttributedString().color(.primaryColor).font(dkFont: .primary, style: .highlightSmall).build()
+            self.synthesis.attributedText = synthesisText.dkAttributedString().color(.complementaryFontColor).font(dkFont: .primary, style: .driverDataText).buildWithArgs(tripNumberValue, distanceValue)
+        } else {
+            self.synthesis.isHidden = true
+        }
     }
 
     @objc func refreshTripList(_ sender: Any) {
         self.viewModel.fetchTrips()
-        DriveKitTripAnalysis.shared.checkTripToRepost()
+        DriveKit.shared.modules.tripAnalysis?.checkTripToRepost()
     }
 
 }

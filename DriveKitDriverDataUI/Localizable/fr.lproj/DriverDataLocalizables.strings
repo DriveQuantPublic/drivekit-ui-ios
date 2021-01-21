@@ -15,7 +15,7 @@
 "dk_driverdata_bad_maintain"="Vitesse très irrégulière";
 "dk_driverdata_change_transportation_mode"="Changer ?";
 "dk_driverdata_confirm_delete_trip"="Supprimer le trajet ?";
-"dk_driverdata_day"="Temps de jour";
+"dk_driverdata_day"="Trajet de jour";
 "dk_driverdata_declared_transportation_mode"="Mode déclaré :";
 "dk_driverdata_default_filter_item"="Tous mes trajets";
 "dk_driverdata_detected_transportation_mode"="Mode détecté :";

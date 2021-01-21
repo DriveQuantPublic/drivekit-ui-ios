@@ -35,7 +35,7 @@ public final class CircularProgressView: UIView, Nibable {
         return UIColor.dkExcellent
     }
     
-    public func configure(configuration: ConfigurationCircularProgressView){
+    public func configure(configuration: ConfigurationCircularProgressView) {
         if let image = configuration.image {
             self.imageView.isHidden = false
             self.imageView.image = image
@@ -56,9 +56,23 @@ public final class CircularProgressView: UIView, Nibable {
         progressRing.innerRingWidth = CGFloat(configuration.ringWidth)
         progressRing.outerCapStyle = .round
         progressRing.fontColor = configuration.fontColor
-        progressRing.font = DKUIFonts.primary.fonts(size: CGFloat(configuration.fontSize))
-        progressRing.valueFormatter = UICircularProgressRingFormatter(valueIndicator: configuration.valueIndicator, rightToLeft: false, showFloatingPoint: configuration.showFloatingPoint, decimalPlaces: configuration.decimalPlaces)
-        
+        progressRing.font = DKUIFonts.secondary.fonts(size: CGFloat(configuration.fontSize))
+        progressRing.valueFormatter = CircularRingValueFormatter(configuration: configuration, rightToLeft: false)
     }
     
+}
+
+private struct CircularRingValueFormatter : UICircularRingValueFormatter {
+    fileprivate let configuration: ConfigurationCircularProgressView
+    fileprivate let rightToLeft: Bool
+
+    func string(for value: Any) -> String? {
+        guard let value = value as? CGFloat else { return nil }
+        let doubleValue = Double(value)
+        if self.rightToLeft {
+            return self.configuration.valueIndicator + doubleValue.formatDouble(places: self.configuration.decimalPlaces)
+        } else {
+            return doubleValue.formatDouble(places: self.configuration.decimalPlaces) + self.configuration.valueIndicator
+        }
+    }
 }

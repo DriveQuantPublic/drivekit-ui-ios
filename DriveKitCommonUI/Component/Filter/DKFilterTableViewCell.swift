@@ -36,6 +36,6 @@ class DKFilterTableViewCell: UITableViewCell {
             self.imageWidthConstraint.constant = 0
         }
         
-        self.name.attributedText = viewModel.getNameAt(position).dkAttributedString().color(.complementaryFontColor).font(dkFont: .secondary, style: .normalText).build()
+        self.name.attributedText = viewModel.getNameAt(position).dkAttributedString().color(.complementaryFontColor).font(dkFont: .primary, style: .normalText).build()
     }
 }

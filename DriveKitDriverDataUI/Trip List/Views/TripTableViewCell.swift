@@ -19,8 +19,8 @@ final class TripTableViewCell: UITableViewCell, Nibable {
     @IBOutlet weak var arrivalCityLabel: UILabel!
     @IBOutlet weak var tripLineView: TripListSeparator!
     
-    var adviceButton: AdviceButton? = nil
-    var adviceCountView: AdviceCountView? = nil
+    var tripInfoView: TripInfoView? = nil
+    private let timeColor: UIColor = UIColor(hex: 0x9e9e9e)
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,22 +34,33 @@ final class TripTableViewCell: UITableViewCell, Nibable {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(trip: Trip){
+    func configure(trip: Trip, tripInfo: DKTripInfo?, listConfiguration: TripListConfiguration){
         tripLineView.color = DKUIColors.secondaryColor.color
         configureLabels(trip: trip)
-        configureTripData(trip: trip)
-        configureTripInfo(trip: trip)
+        configureTripData(trip: trip, listConfiguration: listConfiguration)
+        if let tripInfo = tripInfo {
+            configureTripInfo(trip: trip, tripInfo: tripInfo)
+        }
     }
     
-    private func configureLabels(trip: Trip){
-        self.departureHourLabel.attributedText = trip.startDate?.format(pattern: .hourMinute).dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
-        self.arrivalHourLabel.attributedText = trip.endDate?.format(pattern: .hourMinute).dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
+    private func configureLabels(trip: Trip) {
+        self.departureHourLabel.attributedText = trip.startDate?.format(pattern: .hourMinuteLetter).dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(self.timeColor).build()
+        self.arrivalHourLabel.attributedText = trip.endDate?.format(pattern: .hourMinuteLetter).dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(self.timeColor).build()
 
-        self.departureCityLabel.attributedText = (trip.departureCity ?? "").dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
-        self.arrivalCityLabel.attributedText = (trip.arrivalCity ?? "").dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        self.departureCityLabel.attributedText = (trip.departureCity ?? "").dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
+        self.arrivalCityLabel.attributedText = (trip.arrivalCity ?? "").dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
     }
     
-    private func configureTripData(trip: Trip){
+    private func configureTripData(trip: Trip, listConfiguration: TripListConfiguration){
+        switch listConfiguration {
+            case .motorized(_):
+                configureMotorizedTripData(trip: trip)
+            case .alternative(_):
+                configureAlternativeTripData(trip: trip)
+        }
+    }
+    
+    private func configureMotorizedTripData(trip: Trip) {
         switch DriveKitDriverDataUI.shared.tripData.displayType() {
         case .gauge:
             if DriveKitDriverDataUI.shared.tripData.isScored(trip: trip) {
@@ -61,56 +72,60 @@ final class TripTableViewCell: UITableViewCell, Nibable {
                 score.center = dataView.center
                 dataView.embedSubview(score)
             } else {
-                dataView.addSubview(NoScoreImageView.viewFromNib)
+                let noScoreView = NoScoreImageView.viewFromNib
+                noScoreView.translatesAutoresizingMaskIntoConstraints = false
+                dataView.addSubview(noScoreView)
+                NSLayoutConstraint.activate([
+                    noScoreView.widthAnchor.constraint(equalTo: dataView.widthAnchor),
+                    noScoreView.heightAnchor.constraint(equalTo: dataView.heightAnchor),
+                    noScoreView.centerXAnchor.constraint(equalTo: dataView.centerXAnchor),
+                    noScoreView.centerYAnchor.constraint(equalTo: dataView.centerYAnchor)
+                ])
             }
         case .text:
             let label = UILabel()
             label.text = DriveKitDriverDataUI.shared.tripData.stringValue(trip: trip)
-            label.font = UIFont.systemFont(ofSize: 11, weight: .bold)
+            label.font = DKStyle(size: DKStyles.smallText.style.size, traits: .traitBold).applyTo(font: .primary)
             label.textColor = DKUIColors.secondaryColor.color
             label.frame = CGRect(x: 0, y: 0, width: 56, height: 56)
             label.center = dataView.center
+            label.textAlignment = .center
             dataView.embedSubview(label)
         }
     }
     
-    private func configureTripInfo(trip: Trip){
-        if let advices = trip.tripAdvices?.allObjects as! [TripAdvice]? , advices.count > 0 {
-            var tripInfo : TripInfo? = nil
-            if advices.count > 1 {
-                tripInfo = .count
-            }else{
-                let advice = advices[0]
-                if advice.theme == "SAFETY" {
-                    tripInfo = .safety
-                }else if advice.theme == "ECODRIVING" {
-                    tripInfo = .ecoDriving
-                }
+    private func configureAlternativeTripData(trip: Trip) {
+        let view = AlternativeTripImageView.viewFromNib
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.imageView.image = TransportationMode(rawValue: Int(trip.declaredTransportationMode?.transportationMode ?? trip.transportationMode))?.getImage()
+        dataView.embedSubview(view)
+        NSLayoutConstraint.activate([
+            view.widthAnchor.constraint(equalTo: dataView.widthAnchor),
+            view.heightAnchor.constraint(equalTo: dataView.heightAnchor),
+            view.centerXAnchor.constraint(equalTo: dataView.centerXAnchor),
+            view.centerYAnchor.constraint(equalTo: dataView.centerYAnchor)
+        ])
+    }
+    
+    private func configureTripInfo(trip: Trip, tripInfo: DKTripInfo){
+        if tripInfo.isDisplayable(trip: trip) {
+            let tripInfoView = TripInfoView.viewFromNib
+            tripInfoView.setTrip(trip: trip)
+            tripInfoView.tripInfo = tripInfo
+            let style: DKStyle
+            if let image = tripInfo.image(trip: trip)?.withRenderingMode(.alwaysTemplate) {
+                tripInfoView.image.image = image
+                tripInfoView.image.tintColor = DKUIColors.fontColorOnSecondaryColor.color
+                style = DKStyle(size: 10, traits: .traitBold)
+            } else {
+                style = DKStyles.normalText.withSizeDelta(-2)
             }
-            if let info = tripInfo{
-                if info == .count {
-                    adviceCountView = AdviceCountView.viewFromNib
-                    adviceCountView?.setTrip(trip: trip)
-                    adviceCountView?.setAdviceCount(count: info.text(trip: trip) ?? "")
-                    adviceCountView?.backgroundColor = DKUIColors.secondaryColor.color
-                    adviceCountView?.layer.cornerRadius = 5
-                    adviceCountView?.layer.masksToBounds = true
-                    accessoryView = adviceCountView
-                } else {
-                    adviceButton = AdviceButton(frame: CGRect(x: 0, y: 0, width: 44, height: 32), trip: trip)
-                    let imageID = info.imageID()
-                    if let image =  UIImage(named: imageID ?? "", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.resizeImage(24, opaque: false).withRenderingMode(.alwaysTemplate) {
-                       adviceButton?.setImage(image, for: .normal)
-                    } else {
-                       adviceButton?.setTitle(info.text(trip: trip), for: .normal)
-                    }
-                    adviceButton?.tintColor = DKUIColors.fontColorOnSecondaryColor.color
-                    adviceButton?.backgroundColor = DKUIColors.secondaryColor.color
-                    adviceButton?.layer.cornerRadius = 5
-                    adviceButton?.layer.masksToBounds = true
-                    accessoryView = adviceButton
-                }
-            }
+            tripInfoView.setText(tripInfo.text(trip: trip) ?? "", style: style)
+            tripInfoView.backgroundColor = DKUIColors.secondaryColor.color
+            tripInfoView.layer.cornerRadius = 5
+            tripInfoView.layer.masksToBounds = true
+            accessoryView = tripInfoView
+            self.tripInfoView = tripInfoView
         }
     }
 
@@ -118,7 +133,6 @@ final class TripTableViewCell: UITableViewCell, Nibable {
         super.prepareForReuse()
         dataView.subviews.forEach({  $0.removeFromSuperview() })
         accessoryView = nil
-        adviceCountView = nil
-        adviceButton = nil
+        tripInfoView = nil
     }
 }

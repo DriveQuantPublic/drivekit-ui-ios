@@ -28,7 +28,6 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="0jf-6t-flM"/>
                                             <constraint firstAttribute="height" constant="60" id="Beo-BQ-9C6"/>
-                                            <constraint firstAttribute="width" secondItem="0R1-X0-Y3Z" secondAttribute="height" multiplier="1:1" id="HYt-bZ-XlI"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -69,6 +68,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="imageWidthConstraint" destination="0jf-6t-flM" id="p5G-qt-DaF"/>
                 <outlet property="itemImage" destination="0R1-X0-Y3Z" id="1kX-Q2-fhQ"/>
                 <outlet property="name" destination="BrR-nf-Ahl" id="xIz-w8-rAc"/>
             </connections>

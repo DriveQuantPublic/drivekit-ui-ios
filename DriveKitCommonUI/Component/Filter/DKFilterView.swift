@@ -34,7 +34,7 @@ final public class DKFilterView: UIView, Nibable {
         self.parentViewController = parentViewController
         self.pickerImage.isHidden = !viewModel.showPicker
         self.pickerImage.tintColor = DKUIColors.mainFontColor.color
-        self.name.attributedText = viewModel.getName().dkAttributedString().color(.mainFontColor).font(dkFont: .secondary, style: .normalText).build()
+        self.name.attributedText = viewModel.getName().dkAttributedString().color(.complementaryFontColor).font(dkFont: .primary, style: .normalText).build()
         if let itemImage = viewModel.getImage() {
             self.image.image = itemImage
             self.image.clipsToBounds = true

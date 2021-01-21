@@ -10,8 +10,8 @@ import Foundation
 
 public extension Double {
 
-    func formatMeterDistanceInKm() -> String {
-        return (self / 1000.0).formatKilometerDistance()
+    func formatMeterDistanceInKm(appendingUnit appendUnit: Bool = true) -> String {
+        return (self / 1000.0).formatKilometerDistance(appendingUnit: appendUnit)
     }
 
     func formatMeterDistance() -> String {
@@ -24,8 +24,18 @@ public extension Double {
         }
     }
 
-    func formatKilometerDistance() -> String {
-        return "\(self.format(maximumFractionDigits: 1)) \(DKCommonLocalizable.unitKilometer.text())"
+    func formatKilometerDistance(appendingUnit appendUnit: Bool = true) -> String {
+        let formattedDistance: String
+        if self < 100 {
+            formattedDistance = self.format(maximumFractionDigits: 1)
+        } else {
+            formattedDistance = String(Int(self.rounded()))
+        }
+        if appendUnit {
+            return "\(formattedDistance) \(DKCommonLocalizable.unitKilometer.text())"
+        } else {
+            return formattedDistance
+        }
     }
 
     func metersToKilometers(places: Int) -> Double {
@@ -75,7 +85,7 @@ public extension Double {
         var nbMinute = 0
         var nbHour = 0
         var nbDay = 0
-        if self > 60 {
+        if self > 59 {
             nbMinute = Int((self / 60).rounded(.up))
         } else {
             return "\(Int(self)) \(DKCommonLocalizable.unitSecond.text())"
@@ -88,10 +98,16 @@ public extension Double {
                 nbHour = nbHour - (24 * nbDay)
                 return "\(nbDay)\(DKCommonLocalizable.unitDay.text()) \(nbHour)\(DKCommonLocalizable.unitHour.text())"
             } else {
-                return "\(nbHour)\(DKCommonLocalizable.unitHour.text())\(nbMinute)"
+                let minuteString = String(format: "%02d", nbMinute)
+                return "\(nbHour)\(DKCommonLocalizable.unitHour.text())\(minuteString)"
             }
         } else {
-            return "\(nbMinute) \(DKCommonLocalizable.unitMinute.text())"
+            let nbSecond = Int(self - 60.0 * Double(Int(self / 60)))
+            if nbSecond > 0 {
+                return "\(nbMinute - 1) \(DKCommonLocalizable.unitMinute.text()) \(nbSecond)"
+            } else {
+                return "\(nbMinute) \(DKCommonLocalizable.unitMinute.text())"
+            }
         }
     }
 
@@ -145,9 +161,12 @@ public extension Date {
 }
 
 public extension String {
-    func doubleValue() -> Double? {
+    func doubleValue(locale: Locale? = nil) -> Double? {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
+        if let locale = locale {
+            numberFormatter.locale = locale
+        }
         return numberFormatter.number(from: self)?.doubleValue
     }
 
@@ -155,5 +174,15 @@ public extension String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         return numberFormatter.number(from: self)?.intValue
+    }
+
+    func capitalizeFirstLetter() -> String {
+        if !isEmpty {
+            let first = prefix(1).uppercased()
+            let other = suffix(count - 1)
+            return first + other
+        } else {
+            return self
+        }
     }
 }

@@ -38,7 +38,7 @@ class EcoDrivingPageVC: UIViewController {
         score.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         score.center = circularRingContainer.center
         circularRingContainer.embedSubview(score)
-        circularRingTitle.attributedText = viewModel.scoreType.stringValue().dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.mainFontColor).build()
+        circularRingTitle.attributedText = viewModel.scoreType.stringValue().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
         setupEventContainer()
     }
     
@@ -47,15 +47,14 @@ class EcoDrivingPageVC: UIViewController {
         let accelerationView = EcoDrivingPageView.viewFromNib
         accelerationView.configure(title: viewModel.getAccelerations(), image: DKImages.ecoAccel.image)
         eventContainer.addArrangedSubview(accelerationView)
-        
+
         let speedView = EcoDrivingPageView.viewFromNib
         speedView.configure(title: viewModel.getMaintain(), image: DKImages.ecoMaintain.image)
         eventContainer.addArrangedSubview(speedView)
-        
+
         let brakeView = EcoDrivingPageView.viewFromNib
         brakeView.configure(title: viewModel.getDecel(), image: DKImages.ecoDecel.image)
         eventContainer.addArrangedSubview(brakeView)
-        
     }
     
 }

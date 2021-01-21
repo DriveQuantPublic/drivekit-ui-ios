@@ -53,7 +53,7 @@ class MapViewController: DKUIViewController {
         super.viewWillAppear(animated)
     }
     
-    func traceRoute(mapItem: MapItem?) {
+    func traceRoute(mapItem: DKMapItem?) {
         adviceButton.isHidden = true
         if let route = viewModel.route {
             DispatchQueue.main.async {
@@ -64,8 +64,7 @@ class MapViewController: DKUIViewController {
                         self.mapView.addOverlay(self.polyLine!, level: MKOverlayLevel.aboveRoads)
                     }
                 }
-                
-                if (mapItem == .distraction || (self.viewModel.configurableMapItems.contains(.distraction) && mapItem == .interactiveMap)){
+                if let mapItem = mapItem, mapItem.shouldShowDistractionArea() && self.viewModel.configurableMapItems.firstIndex(of: MapItem.distraction) != nil {
                     self.computeDistractionPolylines {
                         self.drawDistraction(route: route)
                     }
@@ -109,7 +108,7 @@ class MapViewController: DKUIViewController {
     private func computeDistractionPolylines(completion: @escaping () -> Void){
         DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
             if let route = self.viewModel.route {
-                if self.viewModel.configurableMapItems.contains(.distraction) && self.distractionPolyLines == nil{
+                if self.viewModel.configurableMapItems.firstIndex(of: MapItem.distraction) != nil && self.distractionPolyLines == nil{
                     self.distractionPolyLines = []
                     for distractionPolylinePart in self.getDistractionPolyline(route: route) {
                         let distractionPolyLine = MKPolyline.init(coordinates: distractionPolylinePart, count: distractionPolylinePart.count)
@@ -143,45 +142,44 @@ class MapViewController: DKUIViewController {
             }
         }
     }
-    
-    private func drawMarker(mapItem: MapItem?, route: Route){
+  
+    private func drawMarker(mapItem: DKMapItem?, route: Route){
+        cleanAllMarkers()
+        cleanSafetyAndDistractionMarkers()
         if let mapItem = mapItem {
-            switch mapItem {
-            case .ecoDriving:
-                cleanAllMarkers()
-                cleanSafetyDistractionMarkers()
-                break
-            case .safety:
-                cleanAllMarkers()
-                drawSafetyMarker()
-            case .distraction:
-                cleanAllMarkers()
-                drawDistractionMarker()
-            case .interactiveMap:
-                cleanSafetyDistractionMarkers()
+            if mapItem.displayedMarkers().contains(.all) {
                 cleanStartEndMarkers()
                 drawAllMarker()
-            case .synthesis:
-                cleanAllMarkers()
-                cleanSafetyDistractionMarkers()
+            } else{
+                if mapItem.displayedMarkers().contains(.safety) {
+                    drawSafetyMarker()
+                }
+                if mapItem.displayedMarkers().contains(.distraction) {
+                    drawDistractionMarker()
+                }
             }
-        } else {
-            cleanAllMarkers()
-            cleanSafetyDistractionMarkers()
         }
     }
-    
-    private func cleanSafetyDistractionMarkers(){
-        if let distractionEvents = self.distractionAnnotations{
+
+    private func cleanDistractionMarkers() {
+        if let distractionEvents = self.distractionAnnotations {
             self.mapView.removeAnnotations(distractionEvents)
         }
+    }
+
+    private func cleanSafetyMarkers() {
         if let safetyEvents = self.safetyAnnotations {
             self.mapView.removeAnnotations(safetyEvents)
         }
     }
-    
-    private func cleanStartEndMarkers(){
-        if let start = self.startAnnotation{
+
+    private func cleanSafetyAndDistractionMarkers() {
+        cleanDistractionMarkers()
+        cleanSafetyMarkers()
+    }
+
+    private func cleanStartEndMarkers() {
+        if let start = self.startAnnotation {
             self.mapView.removeAnnotation(start)
             self.startAnnotation = nil
         }
@@ -189,9 +187,9 @@ class MapViewController: DKUIViewController {
             self.mapView.removeAnnotation(end)
             self.endAnnotation = nil
         }
-   }
+    }
     
-    private func cleanAllMarkers(){
+    private func cleanAllMarkers() {
         if let all = self.allAnnotations{
             self.mapView.removeAnnotations(all)
         }
@@ -288,7 +286,7 @@ class MapViewController: DKUIViewController {
     func updateTipsButton() {
         if let currentItem = self.viewModel.displayMapItem {
             self.adviceButton.isHidden = true
-            let image = UIImage(named: currentItem.adviceImageID(), in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            let image = currentItem.adviceImage()
             self.adviceButton.setImage(image, for: .normal)
             self.adviceButton.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         }
@@ -319,18 +317,19 @@ extension MapViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        
         guard let selection = view.annotation else {
             return
         }
-        
-        if let allEvents = allAnnotations as NSArray?{
-            let indexForEvent = allEvents.index(of: selection)
-            if indexForEvent != NSNotFound {
-                self.viewModel.setSelectedEvent(position: indexForEvent)
-                self.zoom(to: viewModel.events[indexForEvent].position)
+
+        if let currentItem = self.viewModel.displayMapItem, currentItem.displayedMarkers().contains(.all) {
+            if let allEvents = allAnnotations as NSArray? {
+                let indexForEvent = allEvents.index(of: selection)
+                if indexForEvent != NSNotFound {
+                    self.viewModel.setSelectedEvent(position: indexForEvent)
+                }
             }
         }
+        self.zoom(to: selection.coordinate)
 
         (view as! ResistantAnnotationView).resistantLayer.resistantZPosition = 1001
     }
@@ -351,9 +350,10 @@ extension MapViewController: MKMapViewDelegate {
         
         view.canShowCallout = true
         
-       if annotation.isEqual(startAnnotation) {
+        if annotation.isEqual(startAnnotation) {
             let startImage = UIImage(named: "dk_map_start_event", in: Bundle.driverDataUIBundle, compatibleWith: nil)
-            view.image = startImage?.resizeImage(32, opaque: false, contentMode: .scaleAspectFit)
+            view.image = startImage?.resizeImage(32, opaque: false, contentMode: .scaleAspectFit).tintedImage(withColor: UIColor.dkMapTrace)
+            view.centerOffset = CGPoint(x: 0, y: 0)
             view.resistantLayer.resistantZPosition = 1000
             let tripViewModel = viewModel
             if let start = tripViewModel.startEvent {
@@ -371,8 +371,8 @@ extension MapViewController: MKMapViewDelegate {
         }
         else if annotation.isEqual(endAnnotation) {
             let endImage = UIImage(named: "dk_map_end_event", in: Bundle.driverDataUIBundle, compatibleWith: nil)
-            
-            view.image = endImage?.resizeImage(32, opaque: false, contentMode: .scaleAspectFit)
+            view.image = endImage?.resizeImage(32, opaque: false, contentMode: .scaleAspectFit).tintedImage(withColor: UIColor.dkMapTrace)
+            view.centerOffset = CGPoint(x: 0, y: 0)
             view.resistantLayer.resistantZPosition = 1000
             let tripViewModel = viewModel
             if let end = tripViewModel.endEvent {
@@ -387,7 +387,7 @@ extension MapViewController: MKMapViewDelegate {
                 }
             }
         } else {
-            if viewModel.displayMapItem != .interactiveMap {
+            if let mapItem = viewModel.displayMapItem, !mapItem.displayedMarkers().contains(.all) {
                 if let safetyEvents = safetyAnnotations as NSArray?{
                     let indexForSafetyEvent = safetyEvents.index(of: annotation)
                     if indexForSafetyEvent != NSNotFound {
@@ -420,15 +420,24 @@ extension MapViewController: MKMapViewDelegate {
                     }
                 }
             } else {
-                if let events = allAnnotations as NSArray?{
+                if let events = allAnnotations as NSArray? {
                     let indexForEvent = events.index(of: annotation)
                     if indexForEvent != NSNotFound {
                         let event = viewModel.events[indexForEvent]
                         let image = event.getMapImageID()
                         view.image = UIImage(named: image, in: Bundle.driverDataUIBundle, compatibleWith: nil)
-                        view.image = annotationView?.image?.resizeImage(36, opaque: false, contentMode: .scaleAspectFit)
-                        view.centerOffset = CGPoint(x: 0, y: -(annotationView?.image?.size.height)! / 2)
-                        view.resistantLayer.resistantZPosition = CGFloat(event.getZIndex())
+                        view.image = annotationView?.image
+                        if let sourceImage = view.image {
+                            if image == "dk_map_start_event" || image == "dk_map_end_event" {
+                                view.image = sourceImage.resizeImage(32, opaque: false, contentMode: .scaleAspectFit).tintedImage(withColor: UIColor.dkMapTrace)
+                                view.centerOffset = CGPoint(x: 0, y: 0)
+                                view.resistantLayer.resistantZPosition = 1000
+                            } else {
+                                view.image = sourceImage.resizeImage(36, opaque: false, contentMode: .scaleAspectFit)
+                                view.centerOffset = CGPoint(x: 0, y: -(annotationView?.image?.size.height)! / 2)
+                                view.resistantLayer.resistantZPosition = CGFloat(event.getZIndex())
+                            }
+                        }
                         view.setupAsTripEventCallout(with: event, location: "")
                         if let infoView = view.rightCalloutAccessoryView as! UIButton?, event.type != .start && event.type != .end {
                             infoView.tag = indexForEvent
@@ -442,7 +451,7 @@ extension MapViewController: MKMapViewDelegate {
         view.annotation = annotation
         return view
     }
-    
+
     @objc private func safetyInfoClicked(_ sender: UIButton) {
         let safetyEvent = viewModel.safetyEvents[sender.tag]
         let alert = UIAlertController(title: safetyEvent.getTitle(), message: safetyEvent.getExplanation(), preferredStyle: .alert)

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,13 +18,12 @@
                     <rect key="frame" x="16" y="8" width="382" height="64"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h9D-KV-Yc2">
-                            <rect key="frame" x="0.0" y="0.0" width="76" height="64"/>
+                            <rect key="frame" x="0.0" y="0.0" width="62" height="64"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Qw-vf-Cq8" userLabel="Image">
-                                    <rect key="frame" x="8" y="2" width="60" height="60"/>
+                                    <rect key="frame" x="8" y="9" width="46" height="46"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="60" id="2hl-yw-Vmm"/>
-                                        <constraint firstAttribute="width" constant="60" id="XK0-2R-mc9"/>
+                                        <constraint firstAttribute="width" secondItem="8Qw-vf-Cq8" secondAttribute="height" multiplier="1:1" id="Hdg-7M-CJt"/>
                                     </constraints>
                                 </imageView>
                             </subviews>
@@ -32,12 +31,13 @@
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="8Qw-vf-Cq8" secondAttribute="trailing" constant="8" id="0Pp-qO-yZ3"/>
                                 <constraint firstItem="8Qw-vf-Cq8" firstAttribute="centerX" secondItem="h9D-KV-Yc2" secondAttribute="centerX" id="CDW-jT-2so"/>
+                                <constraint firstItem="8Qw-vf-Cq8" firstAttribute="height" secondItem="h9D-KV-Yc2" secondAttribute="height" multiplier="0.72" id="Oxk-wH-R3F"/>
                                 <constraint firstItem="8Qw-vf-Cq8" firstAttribute="leading" secondItem="h9D-KV-Yc2" secondAttribute="leading" constant="8" id="lqB-kl-Gqv"/>
                                 <constraint firstItem="8Qw-vf-Cq8" firstAttribute="centerY" secondItem="h9D-KV-Yc2" secondAttribute="centerY" id="u7U-kT-Auf"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGy-1w-pPa" userLabel="Name">
-                            <rect key="frame" x="76" y="21.666666666666671" width="248" height="21"/>
+                            <rect key="frame" x="62" y="21.666666666666671" width="262" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>

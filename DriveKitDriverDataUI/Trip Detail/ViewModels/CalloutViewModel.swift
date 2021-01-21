@@ -20,7 +20,7 @@ struct TripEventCalloutViewModel {
     }
 
     var time: String {
-        return event.date.format(pattern: .hourMinute)
+        return event.date.format(pattern: .hourMinuteLetter)
     }
 
     var title: String {
@@ -28,24 +28,22 @@ struct TripEventCalloutViewModel {
     }
 
     var subtitle: NSAttributedString {
-        
-        let valuePrefix = "\("dk_driverdata_value".dkDriverDataLocalized() )".dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
-        
+        let valuePrefix = "\("dk_driverdata_value".dkDriverDataLocalized()) ".dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
         switch event.type {
         case .acceleration, .brake:
             let attString = NSMutableAttributedString()
             attString.append(valuePrefix)
-            attString.append(event.value.formatAcceleration().dkAttributedString().font(dkFont: .primary, style: .normalText).color(highColor).build())
+            attString.append(event.value.formatAcceleration().dkAttributedString().font(dkFont: .primary, style: .smallText).color(highColor).build())
             return attString
         case .adherence:
             let attString = NSMutableAttributedString()
             attString.append(valuePrefix)
-            attString.append(event.value.formatDouble(places: 1).dkAttributedString().font(dkFont: .primary, style: .normalText).color(highColor).build())
+            attString.append(event.value.formatDouble(places: 1).dkAttributedString().font(dkFont: .primary, style: .smallText).color(highColor).build())
             return attString
         case .unlock, .lock :
             return NSAttributedString(string: "")
         default:
-            return location.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+            return location.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
         }
     }
     

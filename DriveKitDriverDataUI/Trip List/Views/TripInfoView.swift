@@ -10,20 +10,22 @@ import UIKit
 import DriveKitDBTripAccessModule
 import DriveKitCommonUI
 
-final class AdviceCountView: UIView, Nibable  {
+final class TripInfoView: UIView, Nibable {
 
-    @IBOutlet weak var adviceCountLabel: UILabel!
-    
+    @IBOutlet weak var text: UILabel!
+    @IBOutlet weak var image: UIImageView!
+
     var trip: Trip? = nil
-    
+    var tripInfo: DKTripInfo?
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    
-    func setAdviceCount(count: String){
-        adviceCountLabel.attributedText = count.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.fontColorOnSecondaryColor).build()
+
+    func setText(_ text: String, style: DKStyle) {
+        self.text.attributedText = text.dkAttributedString().font(dkFont: .primary, style: style).color(.fontColorOnSecondaryColor).build()
     }
-    
+
     func setTrip(trip: Trip) {
         self.trip = trip
     }

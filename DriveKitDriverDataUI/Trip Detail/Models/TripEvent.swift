@@ -55,7 +55,7 @@ enum EventType {
 }
 
 
-class TripEvent {
+public class TripEvent {
     var type: EventType
     var date : Date
     var position: CLLocationCoordinate2D
@@ -101,15 +101,15 @@ class TripEvent {
             return 0
         }
     }
-    
-    func getTitle() -> String{
+
+    func getTitle() -> String {
         switch type {
         case .adherence:
             return isHigh ? "dk_driverdata_safety_list_adherence_critical".dkDriverDataLocalized() : "dk_driverdata_safety_list_adherence".dkDriverDataLocalized()
         case .acceleration:
-            return isHigh ? "dk_driverdata_safety_list_acceleration_critical".dkDriverDataLocalized() : "dk_driverdata_safety_accel".dkDriverDataLocalized()
+            return isHigh ? "dk_driverdata_safety_list_acceleration_critical".dkDriverDataLocalized() : "dk_driverdata_strong_accel".dkDriverDataLocalized()
         case .brake:
-            return isHigh ? "dk_driverdata_safety_list_brake_critical".dkDriverDataLocalized() : "dk_driverdata_safety_decel".dkDriverDataLocalized()
+            return isHigh ? "dk_driverdata_safety_list_brake_critical".dkDriverDataLocalized() : "dk_driverdata_strong_decel".dkDriverDataLocalized()
         case .start:
             return "dk_driverdata_start_event".dkDriverDataLocalized()
         case .end:
@@ -120,7 +120,7 @@ class TripEvent {
             return "dk_driverdata_lock_event".dkDriverDataLocalized()
         }
     }
-    
+
     func getExplanation() -> String{
         switch type {
         case .adherence:

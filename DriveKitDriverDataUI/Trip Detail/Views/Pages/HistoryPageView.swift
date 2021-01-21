@@ -25,12 +25,12 @@ final class HistoryPageView : UITableViewCell, Nibable {
     }
     
     func configure(event: TripEvent) {
-        historyTimeLabel.attributedText = event.date.format(pattern: .hourMinute).dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
+        historyTimeLabel.attributedText = event.date.format(pattern: .hourMinuteLetter).dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.complementaryFontColor).build()
         
         topLine.isHidden = false
         bottomLine.isHidden = false
-        topLine.backgroundColor = UIColor.dkMapTrace.withAlphaComponent(0.5)
-        bottomLine.backgroundColor = UIColor.dkMapTrace.withAlphaComponent(0.5)
+        topLine.backgroundColor = UIColor.dkMapTrace
+        bottomLine.backgroundColor = UIColor.dkMapTrace
         
         if event.type == .start {
             topLine.isHidden = true
@@ -40,7 +40,7 @@ final class HistoryPageView : UITableViewCell, Nibable {
         
         historyImage.image = event.type.getImage()
         historyImage.tintColor = DKUIColors.mainFontColor.color
-        descriptionLabel.attributedText = event.type.name().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        descriptionLabel.attributedText = event.getTitle().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
     }
 }
 

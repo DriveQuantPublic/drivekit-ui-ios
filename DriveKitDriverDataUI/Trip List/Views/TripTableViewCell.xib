@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,47 +30,47 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hs6-bu-2CQ" customClass="TripListSeparator" customModule="DriveKitDriverDataUI" customModuleProvider="target">
-                        <rect key="frame" x="72" y="13" width="10" height="38"/>
+                        <rect key="frame" x="68" y="13" width="10" height="38"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="10" id="a3G-tA-rNG"/>
                         </constraints>
                     </view>
                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V86-lB-6TW">
-                        <rect key="frame" x="86" y="4" width="226" height="56"/>
+                        <rect key="frame" x="82" y="4" width="230" height="56"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="m5E-Q6-Yr9" userLabel="Hours Stack View">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="56"/>
+                                <rect key="frame" x="0.0" y="0.0" width="46" height="56"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="18h59" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1a-Z0-mLr" userLabel="Departure Time Label">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="28"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="46" height="28"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                                         <color key="textColor" red="0.68235294120000001" green="0.68235294120000001" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18h59" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o15-aw-9Fn" userLabel="Arrival Time Label">
-                                        <rect key="frame" x="0.0" y="28" width="50" height="28"/>
-                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                        <rect key="frame" x="0.0" y="28" width="46" height="28"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                                         <color key="textColor" red="0.68235294120000001" green="0.68235294120000001" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="Bhd-tM-4ZK"/>
+                                    <constraint firstAttribute="width" constant="46" id="Bhd-tM-4ZK"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="wNE-gh-UKE" userLabel="Locations Stack View">
-                                <rect key="frame" x="50" y="0.0" width="176" height="56"/>
+                                <rect key="frame" x="46" y="0.0" width="184" height="56"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paris" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozI-50-VAD" userLabel="Departure Point Label">
-                                        <rect key="frame" x="0.0" y="0.0" width="176" height="28"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="184" height="28"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rennes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ra0-Pk-DDD" userLabel="Arrival Point Label">
-                                        <rect key="frame" x="0.0" y="28" width="176" height="28"/>
+                                        <rect key="frame" x="0.0" y="28" width="184" height="28"/>
                                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -90,12 +90,12 @@
                     <constraint firstItem="iRJ-Va-cCA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="hkc-lF-h01"/>
                     <constraint firstItem="V86-lB-6TW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="hud-K6-BIf"/>
                     <constraint firstAttribute="bottom" secondItem="V86-lB-6TW" secondAttribute="bottom" constant="4" id="jAa-G0-RRu"/>
-                    <constraint firstItem="hs6-bu-2CQ" firstAttribute="leading" secondItem="iRJ-Va-cCA" secondAttribute="trailing" constant="8" id="muE-ZU-4cY"/>
+                    <constraint firstItem="hs6-bu-2CQ" firstAttribute="leading" secondItem="iRJ-Va-cCA" secondAttribute="trailing" constant="4" id="muE-ZU-4cY"/>
                     <constraint firstAttribute="bottom" secondItem="iRJ-Va-cCA" secondAttribute="bottom" constant="4" id="rEb-bL-2Jh"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="arrivalCityLabel" destination="ra0-Pk-DDD" id="PcZ-qm-iI0"/>
                 <outlet property="arrivalHourLabel" destination="o15-aw-9Fn" id="FSI-CH-Lar"/>

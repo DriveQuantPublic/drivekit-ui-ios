@@ -18,7 +18,7 @@ public extension UIButton {
 
 public enum DKButtonStyle {
     case full, empty
-    
+
     func configureText(text: String, button: UIButton) {
         switch self {
         case .full:
@@ -27,9 +27,8 @@ public enum DKButtonStyle {
             button.setAttributedTitle(text.dkAttributedString().font(dkFont: .primary, style: .button).color(.secondaryColor).uppercased().build(), for: .normal)
         }
     }
-    
+
     func configureButton(button: UIButton){
-        
         switch self {
         case .full:
             button.layer.cornerRadius = 2

@@ -33,9 +33,9 @@ class ShortTripPageVC: UIViewController {
     }
 
     func configure() {
-        durationLabel.attributedText = Double(self.viewModel.trip.duration).formatSecondDuration().dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.primaryColor).build()
+        durationLabel.attributedText = Double(self.viewModel.trip.duration).formatSecondDuration().dkAttributedString().font(dkFont: .primary, style: .highlightBig).color(.primaryColor).build()
         
-        timeSlotLabel.attributedText = self.viewModel.timeSlotLabelText.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        timeSlotLabel.attributedText = self.viewModel.timeSlotLabelText.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.primaryColor).build()
         
         messageBackGround.backgroundColor = DKUIColors.warningColor.color
         messageBackGround.layer.cornerRadius = 4

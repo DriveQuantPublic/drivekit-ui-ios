@@ -19,21 +19,31 @@ final class HeaderDayView: UIView, Nibable {
     }
     
     func configure(trips: TripsByDate) {
-        self.setupAsHeader(leftText: trips.date.format(pattern: .weekLetter), rightText: DriveKitDriverDataUI.shared.headerDay.text(trips: trips.trips), isRounded: true)
+        var rightText = ""
+        if let dkHeader = DriveKitDriverDataUI.shared.customHeaders {
+            if let text = dkHeader.customTripListHeader(trips: trips.trips) {
+                rightText = text
+            } else {
+                rightText = dkHeader.tripListHeader().text(trips: trips.trips)
+            }
+        } else {
+            rightText = DriveKitDriverDataUI.shared.headerDay.text(trips: trips.trips)
+        }
+        self.setupAsHeader(leftText: trips.date.format(pattern: .weekLetter).capitalizeFirstLetter(), rightText: rightText, isRounded: true)
     }
     
     func setupAsHeader(leftText: String, rightText: String, isRounded: Bool = false) {
         self.backgroundView.backgroundColor = DKUIColors.neutralColor.color
         if isRounded {
             self.backgroundView.backgroundColor = DKUIColors.neutralColor.color
-            self.rightLabel.attributedText = rightText.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
-            self.leftLabel.attributedText = leftText.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+            self.rightLabel.attributedText = rightText.dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
+            self.leftLabel.attributedText = leftText.dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
             self.backgroundView.layer.cornerRadius = 4
             self.backgroundView.layer.masksToBounds = true
         } else {
             self.backgroundView.backgroundColor = DKUIColors.primaryColor.color
-            self.rightLabel.attributedText = rightText.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.fontColorOnPrimaryColor).build()
-            self.leftLabel.attributedText = leftText.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.fontColorOnPrimaryColor).build()
+            self.rightLabel.attributedText = rightText.dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.fontColorOnPrimaryColor).build()
+            self.leftLabel.attributedText = leftText.dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.fontColorOnPrimaryColor).build()
             self.backgroundColor = DKUIColors.primaryColor.color
         }
     }

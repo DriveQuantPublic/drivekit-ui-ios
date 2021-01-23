@@ -67,7 +67,7 @@ class TripDetailViewModel : DKTripDetailViewModel {
             self.computeEvents()
         })
         DriveKitDriverData.shared.getTrip(itinId: itinId, completionHandler: {status, trip in
-            if let trip = trip {
+            if let trip = trip?.attachedTrip(itinId: self.itinId) {
                 DispatchQueue.main.async {
                     self.tripSyncStatus = status
                     self.trip = trip
@@ -89,8 +89,8 @@ class TripDetailViewModel : DKTripDetailViewModel {
                     }
                     self.computeEvents()
                 }
-           }
-       })
+            }
+        })
     }
     
     private func computeEvents(){

@@ -24,6 +24,7 @@ public class TripListVC: DKUIViewController {
     
     let viewModel: TripListViewModel
     private var filterViewModel : DKFilterViewModel?
+    private var updating = false
 
     public init() {
         self.viewModel = TripListViewModel()
@@ -48,17 +49,23 @@ public class TripListVC: DKUIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         tableView.tableFooterView = UIView(frame: .zero)
-    }
-    
-    public override func viewDidDisappear(_ animated: Bool) {
-        self.viewModel.delegate = nil
-    }
-    
-    override public func viewWillAppear(_ animated: Bool) {
+
+        self.updating = true
         self.showLoader()
         self.viewModel.delegate = self
+    }
+
+    override public func viewWillAppear(_ animated: Bool) {
         if self.viewModel.showFilter(), let items = self.viewModel.getTripFilterItem(), items.count > 1 {
             self.filterViewModel?.updateItems(items: items)
+        }
+    }
+
+    func update() {
+        if !self.updating {
+            self.updating = true
+            self.showLoader()
+            self.viewModel.fetchTrips(withSynchronizationType: .cache)
         }
     }
     
@@ -155,6 +162,7 @@ extension TripListVC : TripsDelegate {
             self.updateUI()
             self.configureFilterButton()
             self.tableView.reloadData()
+            self.updating = false
         }
     }
 }

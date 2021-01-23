@@ -6,11 +6,11 @@
 //  Copyright © 2019 DriveQuant. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import DriveKitDriverDataModule
 import DriveKitDBTripAccessModule
 import DriveKitCommonUI
-import UIKit
+import DriveKitCoreModule
 
 class TripListViewModel {
     private var trips : [TripsByDate] = []
@@ -34,12 +34,12 @@ class TripListViewModel {
         return self.filteredTrips.map {$0.trips.map {($0.tripStatistics?.distance ?? 0)}.reduce(0, +)}.reduce(0, +)
     }
 
-    public func fetchTrips() {
+    public func fetchTrips(withSynchronizationType synchronizationType: SynchronizationType = .defaultSync) {
         var transportationModes = TripListConfiguration.motorized().transportationModes()
         if DriveKitDriverDataUI.shared.enableAlternativeTrips {
             transportationModes.append(contentsOf: TripListConfiguration.alternative().transportationModes())
         }
-        DriveKitDriverData.shared.getTripsOrderByDateDesc(withTransportationModes: transportationModes, completionHandler: {status, trips in
+        DriveKitDriverData.shared.getTripsOrderByDateDesc(withTransportationModes: transportationModes, type: synchronizationType, completionHandler: { status, trips in
             DispatchQueue.main.async {
                 self.status = status
                 self.trips = self.sortTrips(trips: trips)
@@ -48,7 +48,7 @@ class TripListViewModel {
             }
         })
     }
-    
+
     private func sortTrips(trips : [Trip]) -> [TripsByDate] {
         let tripSorted = trips.orderByDay(descOrder: DriveKitDriverDataUI.shared.dayTripDescendingOrder)
         return tripSorted

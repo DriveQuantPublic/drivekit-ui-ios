@@ -312,14 +312,22 @@ extension TripDetailVC: TripDetailDelegate {
     }
     
     func onDataAvailable(tripSyncStatus: TripSyncStatus, routeSync: Bool) {
-        DispatchQueue.main.async {
-            self.configureMapItems()
-            self.setupActionView()
-            self.setupHeadeContainer()
-            self.setupPageContainer()
-            self.updateViewToCurrentMapItem()
-            self.hideLoader()
+        if Thread.isMainThread {
+            setupData()
+        } else {
+            DispatchQueue.main.async {
+                self.setupData()
+            }
         }
+    }
+
+    private func setupData() {
+        self.configureMapItems()
+        self.setupActionView()
+        self.setupHeadeContainer()
+        self.setupPageContainer()
+        self.updateViewToCurrentMapItem()
+        self.hideLoader()
     }
     
     func onEventSelected(event: TripEvent, position: Int){

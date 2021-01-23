@@ -6,8 +6,8 @@
 //  Copyright © 2019 DriveQuant. All rights reserved.
 //
 
-import Foundation
 import UIKit
+import DriveKitDriverDataModule
 
 extension TripListVC: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -32,9 +32,13 @@ extension TripListVC : UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell : TripTableViewCell = tableView.dequeueReusableCell(withIdentifier: "TripTableViewCell") as? TripTableViewCell {
+        if let cell: TripTableViewCell = tableView.dequeueReusableCell(withIdentifier: "TripTableViewCell") as? TripTableViewCell {
+            let trip = self.viewModel.filteredTrips[indexPath.section].trips[indexPath.row]
+            if !trip.isValid() {
+                self.update()
+            }
             cell.selectionStyle = .none
-            cell.configure(trip: self.viewModel.filteredTrips[indexPath.section].trips[indexPath.row], tripInfo: self.viewModel.getTripInfo(), listConfiguration: self.viewModel.listConfiguration)
+            cell.configure(trip: trip, tripInfo: self.viewModel.getTripInfo(), listConfiguration: self.viewModel.listConfiguration)
             if let tripInfoView = cell.tripInfoView {
                 let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tripInfoAction(_:)))
                 tripInfoView.addGestureRecognizer(gestureRecognizer)
@@ -52,6 +56,8 @@ extension TripListVC : UITableViewDataSource {
             } else {
                 if let itinId = trip.itinId {
                     showTripDetail(itinId: itinId)
+                } else if !trip.isValid() {
+                    self.update()
                 }
             }
         }
@@ -62,8 +68,13 @@ extension TripListVC : UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let itinId = self.viewModel.filteredTrips[indexPath.section].trips[indexPath.row].itinId {
-            showTripDetail(itinId: itinId)
+        let trip = self.viewModel.filteredTrips[indexPath.section].trips[indexPath.row]
+        if trip.isValid() {
+            if let itinId = trip.itinId {
+                showTripDetail(itinId: itinId)
+            }
+        } else {
+            self.update()
         }
     }
     

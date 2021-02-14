@@ -10,8 +10,7 @@ import UIKit
 import DriveKitCommonUI
 
 class DistractionPageVC: UIViewController {
-    
-    
+
     @IBOutlet var circularRingContainer: UIView!
     @IBOutlet var circularRingTitle: UILabel!
     @IBOutlet var eventContainer: UIStackView!
@@ -35,12 +34,12 @@ class DistractionPageVC: UIViewController {
     
     func configure() {
         let score = CircularProgressView.viewFromNib
-        let configScore = ConfigurationCircularProgressView(scoreType: viewModel.scoreType, value: viewModel.scoreType.rawValue(trip: viewModel.trip), size: .large)
+        let configScore = ConfigurationCircularProgressView(scoreType: viewModel.scoreType, value: viewModel.getScore(), size: .large)
         score.configure(configuration: configScore)
         score.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         score.center = circularRingContainer.center
         circularRingContainer.embedSubview(score)
-        circularRingTitle.attributedText = viewModel.scoreType.stringValue().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
+        circularRingTitle.attributedText = viewModel.getScoreTitle().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
         setupEventContainer()
     }
     
@@ -60,15 +59,14 @@ class DistractionPageVC: UIViewController {
     }
     
     func getNumberUnlocks() -> NSAttributedString {
-        let number = Int(viewModel.trip.driverDistraction?.nbUnlock ?? 0)
-        return String(number).dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.primaryColor).build()
+        return self.viewModel.getUnlocksNumber().dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.primaryColor).build()
     }
     
     func getScreenUnlockDuration() -> NSAttributedString {
-        return (viewModel.trip.driverDistraction?.durationUnlock ?? 0).formatSecondDuration().dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.primaryColor).build()
+        return self.viewModel.getScreenUnlockDuration().dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.primaryColor).build()
     }
     
     func getScreenUnlockDistance() -> NSAttributedString {
-        return Double(self.viewModel.trip.driverDistraction?.distanceUnlock ?? 0).formatMeterDistance().dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.primaryColor).build()
+        return self.viewModel.getScreenUnlockDistance().dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.primaryColor).build()
     }
 }

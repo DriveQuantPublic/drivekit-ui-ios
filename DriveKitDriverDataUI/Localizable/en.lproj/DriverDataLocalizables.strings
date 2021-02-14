@@ -13,13 +13,25 @@
 "dk_driverdata_alternative_transportation_thanks"="❤️ Thank you for reporting this trip and for helping us improve transportation mode automatic recognition.";
 "dk_driverdata_alternative_trips"="Alternative transport";
 "dk_driverdata_bad_maintain"="Very fluctuating speed";
+"dk_driverdata_beginning_authorized_call"="Start of authorized call";
+"dk_driverdata_beginning_authorized_call_info_content"="The application has detected the start of an authorized call, this means that it has been made to your hands-free car kit. This action does not penalize your phone usage score, as it is legally permitted. However, it remains a distraction while driving, for your safety and that of other road users, it is strongly recommended that you wait until your vehicle is parked to make a call.";
+"dk_driverdata_beginning_unauthorized_call"="Start of unauthorized call";
+"dk_driverdata_beginning_unauthorized_call_info_content"="The application has detected the start of an unauthorized call. This means that the call was not made with a hands-free kit.
+Handling your phone while driving is very dangerous. Remember to protect yourself, your passengers and other road users. If you need to make a call, your vehicle must be parked in a parking space with the engine turned off.";
+"dk_driverdata_calling_time"="Calling time =";
 "dk_driverdata_change_transportation_mode"="Change?";
 "dk_driverdata_confirm_delete_trip"="Delete the trip ?";
 "dk_driverdata_day"="Day trip";
 "dk_driverdata_declared_transportation_mode"="Declared mode:";
 "dk_driverdata_default_filter_item"="All my trips";
 "dk_driverdata_detected_transportation_mode"="Detected mode:";
+"dk_driverdata_distance_travelled"="%@ travelled";
+"dk_driverdata_end_authorized_call"="End of authorized call";
+"dk_driverdata_end_authorized_call_info_content"="The application has detected the end of an authorized call, this means that it has been made to your hands-free car kit. This action does not penalize your phone usage score, as it is legally permitted. However, it remains a distraction while driving, for your safety and that of other road users, it is strongly recommended that you wait until your vehicle is parked to make a call.";
 "dk_driverdata_end_event"="End of trip";
+"dk_driverdata_end_unauthorized_call"="End of unauthorized call";
+"dk_driverdata_end_unauthorized_call_info_content"="The application has detected the end of an unauthorized call. This means that the call was not made with a hands-free kit.
+Handling your phone while driving is very dangerous. Remember to protect yourself, your passengers and other road users. If you need to make a call, your vehicle must be parked in a parking space with the engine turned off.";
 "dk_driverdata_failed_to_declare_transportation"="Transportation mode couldn\'t be updated, please retry later.";
 "dk_driverdata_failed_to_delete_trip"="The trip could not be deleted, try again later.";
 "dk_driverdata_failed_to_sync_trips"="Failed to synchronize trips, please retry later.";
@@ -32,8 +44,13 @@
 "dk_driverdata_low_accel"="Acceleration is too low";
 "dk_driverdata_low_decel"="Deceleration is too low";
 "dk_driverdata_night"="Night trip";
+"dk_driverdata_no_call_congrats"="Congratulations!";
+"dk_driverdata_no_call_content"="No calls";
+"dk_driverdata_no_screen_unlocking"="No unlocking";
 "dk_driverdata_no_trip_placeholder"="You haven\'t made any trips with this vehicle yet.";
 "dk_driverdata_no_trips_recorded"="Make your first trip to fill this list";
+"dk_driverdata_phone_call_plur"="%@ phone calls";
+"dk_driverdata_phone_call_sing"="%@ phone call";
 "dk_driverdata_safety_accel"="Harsh accelerations";
 "dk_driverdata_safety_adherence"="Adherence limits";
 "dk_driverdata_safety_decel"="Hard brakings";
@@ -92,7 +109,9 @@
 "dk_driverdata_unlock_distance"="Distance with unlocked screen";
 "dk_driverdata_unlock_duration"="Duration with unlocked screen";
 "dk_driverdata_unlock_event"="Screen unlocking";
+"dk_driverdata_unlock_events"="Screen unlocks";
 "dk_driverdata_unlock_number"="Number of unlocking";
+"dk_driverdata_unlock_screen_content"="screen on during %@ and %@";
 "dk_driverdata_value"="Value =";
 "dk_driverdata_vehicle_trips"="Vehicle trips";
 "dk_driverdata_weak_accel"="Weak acceleration";

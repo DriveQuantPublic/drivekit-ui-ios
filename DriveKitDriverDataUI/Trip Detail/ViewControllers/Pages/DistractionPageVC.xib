@@ -49,16 +49,16 @@
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8xZ-P1-Vq0">
-                    <rect key="frame" x="124" y="0.0" width="276" height="186"/>
+                    <rect key="frame" x="124" y="20" width="276" height="146"/>
                 </stackView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="8xZ-P1-Vq0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="081-VI-I7k"/>
+                <constraint firstItem="8xZ-P1-Vq0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="081-VI-I7k"/>
                 <constraint firstItem="pix-i8-jVN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="14" id="ACE-9h-zkB"/>
                 <constraint firstAttribute="bottom" secondItem="pix-i8-jVN" secondAttribute="bottom" constant="14" id="K3K-xX-LGZ"/>
                 <constraint firstItem="pix-i8-jVN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="14" id="Zj9-aU-k32"/>
-                <constraint firstAttribute="bottom" secondItem="8xZ-P1-Vq0" secondAttribute="bottom" id="dHt-IA-YmS"/>
+                <constraint firstAttribute="bottom" secondItem="8xZ-P1-Vq0" secondAttribute="bottom" constant="20" id="dHt-IA-YmS"/>
                 <constraint firstAttribute="trailing" secondItem="8xZ-P1-Vq0" secondAttribute="trailing" constant="14" id="hwO-2J-MUj"/>
                 <constraint firstItem="8xZ-P1-Vq0" firstAttribute="leading" secondItem="pix-i8-jVN" secondAttribute="trailing" constant="10" id="yvG-qE-xhN"/>
             </constraints>

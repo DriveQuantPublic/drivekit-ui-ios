@@ -45,28 +45,14 @@ class DistractionPageVC: UIViewController {
     
     func setupEventContainer() {
         eventContainer.removeAllSubviews()
-        let nbUnlockView = DistractionPageView.viewFromNib
-        nbUnlockView.configure(title: "dk_driverdata_unlock_number".dkDriverDataLocalized(), count: self.getNumberUnlocks())
-        eventContainer.addArrangedSubview(nbUnlockView)
 
-        let unlockDurationView = DistractionPageView.viewFromNib
-        unlockDurationView.configure(title: "dk_driverdata_unlock_duration".dkDriverDataLocalized(), count: self.getScreenUnlockDuration())
-        eventContainer.addArrangedSubview(unlockDurationView)
+        let unlockView = DistractionPageView.viewFromNib
+        unlockView.configure(title: self.viewModel.getUnlockTitle(), description: self.viewModel.getUnlockDescription(), value: self.viewModel.getUnlockValue())
+        eventContainer.addArrangedSubview(unlockView)
 
-        let unlockDistanceView = DistractionPageView.viewFromNib
-        unlockDistanceView.configure(title: "dk_driverdata_unlock_distance".dkDriverDataLocalized(), count: self.getScreenUnlockDistance())
-        eventContainer.addArrangedSubview(unlockDistanceView)
+        let callsView = DistractionPageView.viewFromNib
+        callsView.configure(title: self.viewModel.getPhoneCallTitle(), description: self.viewModel.getPhoneCallDescription(), value: self.viewModel.getPhoneCallValue())
+        eventContainer.addArrangedSubview(callsView)
     }
-    
-    func getNumberUnlocks() -> NSAttributedString {
-        return self.viewModel.getUnlocksNumber().dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.primaryColor).build()
-    }
-    
-    func getScreenUnlockDuration() -> NSAttributedString {
-        return self.viewModel.getScreenUnlockDuration().dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.primaryColor).build()
-    }
-    
-    func getScreenUnlockDistance() -> NSAttributedString {
-        return self.viewModel.getScreenUnlockDistance().dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.primaryColor).build()
-    }
+
 }

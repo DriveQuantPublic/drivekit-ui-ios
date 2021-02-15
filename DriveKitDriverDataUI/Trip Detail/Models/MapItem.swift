@@ -126,6 +126,10 @@ public enum MapItem : DKMapItem {
                 return true
         }
     }
+
+    public func shouldShowPhoneDistractionArea() -> Bool {
+        return self == .distraction
+    }
     
     public func displayedMarkers() -> [DKMarkerType] {
         switch self {

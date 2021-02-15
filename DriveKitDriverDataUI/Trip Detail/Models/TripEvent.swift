@@ -47,16 +47,14 @@ public class TripEvent {
     let isHigh: Bool
     let value: Double
     let isForbidden: Bool
-    let callDuration: Int
-    
-    init(type: EventType, date: Date, position: CLLocationCoordinate2D, value: Double, isHigh: Bool = false, isForbidden: Bool = false, callDuration: Int = 0) {
+
+    init(type: EventType, date: Date, position: CLLocationCoordinate2D, value: Double, isHigh: Bool = false, isForbidden: Bool = false) {
         self.type = type
         self.date = date
         self.position = position
         self.value = value
         self.isHigh = isHigh
         self.isForbidden = isForbidden
-        self.callDuration = callDuration
     }
     
     func getMapImageID() -> String {

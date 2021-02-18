@@ -11,11 +11,12 @@ import DriveKitCommonUI
 
 class DistractionPageVC: UIViewController {
 
-    @IBOutlet var circularRingContainer: UIView!
-    @IBOutlet var circularRingTitle: UILabel!
-    @IBOutlet var eventContainer: UIStackView!
+    @IBOutlet private var circularRingContainer: UIView!
+    @IBOutlet private var circularRingTitle: UILabel!
+    @IBOutlet private var eventContainer: UIStackView!
     
-    var viewModel: DistractionPageViewModel
+    private var viewModel: DistractionPageViewModel
+    private var selectedDistractionPageView: DistractionPageView? = nil
     
     init(viewModel: DistractionPageViewModel) {
         self.viewModel = viewModel
@@ -47,12 +48,32 @@ class DistractionPageVC: UIViewController {
         eventContainer.removeAllSubviews()
 
         let unlockView = DistractionPageView.viewFromNib
-        unlockView.configure(title: self.viewModel.getUnlockTitle(), description: self.viewModel.getUnlockDescription(), value: self.viewModel.getUnlockValue())
+        unlockView.configure(title: self.viewModel.getUnlockTitle(), description: self.viewModel.getUnlockDescription(), value: self.viewModel.getUnlockValue(), mapTrace: .unlockScreen)
         eventContainer.addArrangedSubview(unlockView)
+        unlockView.addTarget(self, action: #selector(selectDistractionPageView), for: .touchUpInside)
 
         let callsView = DistractionPageView.viewFromNib
-        callsView.configure(title: self.viewModel.getPhoneCallTitle(), description: self.viewModel.getPhoneCallDescription(), value: self.viewModel.getPhoneCallValue())
+        callsView.configure(title: self.viewModel.getPhoneCallTitle(), description: self.viewModel.getPhoneCallDescription(), value: self.viewModel.getPhoneCallValue(), mapTrace: .phoneCall)
         eventContainer.addArrangedSubview(callsView)
+        callsView.addTarget(self, action: #selector(selectDistractionPageView), for: .touchUpInside)
+
+        switch self.viewModel.tripDetailViewModel.getSelectedMapTrace() {
+            case .phoneCall:
+                selectDistractionPageView(callsView)
+            case .unlockScreen:
+                selectDistractionPageView(unlockView)
+        }
+    }
+
+    @objc private func selectDistractionPageView(_ distractionPageView: DistractionPageView) {
+        if distractionPageView != self.selectedDistractionPageView {
+            self.selectedDistractionPageView?.isSelected = false
+        }
+        if !distractionPageView.isSelected {
+            distractionPageView.isSelected = true
+            self.viewModel.tripDetailViewModel.setSelectedMapTrace(distractionPageView.mapTrace)
+        }
+        self.selectedDistractionPageView = distractionPageView
     }
 
 }

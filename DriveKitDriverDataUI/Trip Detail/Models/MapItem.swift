@@ -104,7 +104,7 @@ public enum MapItem : DKMapItem {
                 let safetyVC = SafetyPageVC(viewModel: safetyViewModel)
                 return safetyVC
             case .distraction:
-                let distractionViewModel = DistractionPageViewModel(trip: trip)
+                let distractionViewModel = DistractionPageViewModel(trip: trip, tripDetailViewModel: tripDetailViewModel)
                 let distractionVC = DistractionPageVC(viewModel: distractionViewModel)
                 return distractionVC
             case .interactiveMap:

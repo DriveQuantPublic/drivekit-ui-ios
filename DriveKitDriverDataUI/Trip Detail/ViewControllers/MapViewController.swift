@@ -23,12 +23,15 @@ class MapViewController: DKUIViewController {
     
     var polyLine: MKPolyline?
     var distractionPolyLines: [MKPolyline]?
+    var phoneCallPolylines: [MKPolyline]?
+    var authorizedPhoneCallPolylines: [MKPolyline]?
     
     var startAnnotation : MKPointAnnotation? = nil
     var endAnnotation: MKPointAnnotation? = nil
     
     var safetyAnnotations: [MKPointAnnotation]? = nil
     var distractionAnnotations: [MKPointAnnotation]? = nil
+    var phoneCallAnnotations: [MKPointAnnotation]? = nil
     
     var allAnnotations: [MKPointAnnotation]? = nil
     
@@ -53,109 +56,201 @@ class MapViewController: DKUIViewController {
         super.viewWillAppear(animated)
     }
     
-    func traceRoute(mapItem: DKMapItem?) {
+    func traceRoute(mapItem: DKMapItem?, mapTraceType: DKMapTraceType = .unlockScreen) {
         adviceButton.isHidden = true
         if let route = viewModel.route {
-            DispatchQueue.main.async {
-                if let route = self.viewModel.route {
-                    if (self.polyLine == nil){
-                        
-                        self.polyLine = MKPolyline.init(coordinates: self.getPolyline(longitude: route.longitude!, latitude: route.latitude!), count: route.numberOfCoordinates)
-                        self.mapView.addOverlay(self.polyLine!, level: MKOverlayLevel.aboveRoads)
-                    }
+            if let route = self.viewModel.route {
+                if self.polyLine == nil {
+                    self.polyLine = MKPolyline.init(coordinates: self.getPolyline(longitude: route.longitude!, latitude: route.latitude!), count: route.numberOfCoordinates)
+                    self.mapView.addOverlay(self.polyLine!, level: MKOverlayLevel.aboveRoads)
                 }
-                if let mapItem = mapItem, mapItem.shouldShowDistractionArea() && self.viewModel.configurableMapItems.firstIndex(of: MapItem.distraction) != nil {
-                    self.computeDistractionPolylines {
-                        self.drawDistraction(route: route)
-                    }
-                }else{
-                    if let distractionPolyLines = self.distractionPolyLines{
-                        for distractionPolyline in distractionPolyLines {
-                            self.mapView.removeOverlay(distractionPolyline)
-                        }
-                    }
-                }
-                self.drawStartEndMarker(route: route)
-                self.drawMarker(mapItem: mapItem, route: route)
-                self.fitPath()
             }
+            var removeDistractionPolylines = true
+            var removePhoneCallPolylines = true
+            if let mapItem = mapItem, mapItem.shouldShowPhoneDistractionArea() || mapItem.shouldShowDistractionArea() {
+                switch mapTraceType {
+                    case .phoneCall:
+                        if mapItem.shouldShowPhoneDistractionArea() {
+                            self.computePhoneCallPolylines()
+                            self.drawPhoneCalls(route: route)
+                            removePhoneCallPolylines = false
+                        }
+                    case .unlockScreen:
+                        if mapItem.shouldShowDistractionArea() {
+                            self.computeDistractionPolylines()
+                            self.drawDistraction(route: route)
+                            removeDistractionPolylines = false
+                        }
+                }
+            }
+            if removePhoneCallPolylines {
+                if let phoneCallPolylines = self.phoneCallPolylines {
+                    for phoneCallPolyline in phoneCallPolylines {
+                        self.mapView.removeOverlay(phoneCallPolyline)
+                    }
+                }
+            }
+            if removeDistractionPolylines {
+                if let distractionPolyLines = self.distractionPolyLines {
+                    for distractionPolyline in distractionPolyLines {
+                        self.mapView.removeOverlay(distractionPolyline)
+                    }
+                }
+            }
+            self.drawStartEndMarker(route: route)
+            self.drawMarker(mapItem: mapItem, route: route, mapTraceType: mapTraceType)
+            self.fitPath()
         }
     }
     
-    private func getPolyline(longitude: [Double], latitude: [Double]) -> [CLLocationCoordinate2D]{
-        var line : [CLLocationCoordinate2D] = []
-        for i in 0...longitude.count - 1 {
+    private func getPolyline(longitude: [Double], latitude: [Double]) -> [CLLocationCoordinate2D] {
+        var line: [CLLocationCoordinate2D] = []
+        for i in 0..<longitude.count {
             line.append(CLLocationCoordinate2D(latitude: latitude[i], longitude: longitude[i]))
         }
         return line
     }
     
-    private func getDistractionPolyline(route: Route) -> [[CLLocationCoordinate2D]]{
-        var distractionPolylines : [[CLLocationCoordinate2D]] = []
+    private func getDistractionPolyline(route: Route) -> [[CLLocationCoordinate2D]] {
+        var distractionPolylines: [[CLLocationCoordinate2D]] = []
         let routePolyline = self.getPolyline(longitude: route.longitude!, latitude: route.latitude!)
         if let indexes = route.screenLockedIndex, indexes.count > 1 {
-            for i in 1...indexes.count - 1{
-                var line : [CLLocationCoordinate2D] = []
+            for i in 1..<indexes.count {
                 if route.screenStatus![i - 1] == 1 {
-                    line = Array(routePolyline[indexes[i - 1]...indexes[i]])
+                    let minValue = min(indexes[i - 1], indexes[i])
+                    let maxValue = max(indexes[i - 1], indexes[i])
+                    let line = Array(routePolyline[minValue...maxValue])
                     distractionPolylines.append(line)
                 }
             }
         }
         return distractionPolylines
     }
-    
-    private func computeDistractionPolylines(completion: @escaping () -> Void){
-        DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
-            if let route = self.viewModel.route {
-                if self.viewModel.configurableMapItems.firstIndex(of: MapItem.distraction) != nil && self.distractionPolyLines == nil{
-                    self.distractionPolyLines = []
-                    for distractionPolylinePart in self.getDistractionPolyline(route: route) {
-                        let distractionPolyLine = MKPolyline.init(coordinates: distractionPolylinePart, count: distractionPolylinePart.count)
-                        self.distractionPolyLines?.append(distractionPolyLine)
+
+    private func getPhoneCallPolylines(route: Route) -> ([[CLLocationCoordinate2D]], [[CLLocationCoordinate2D]]) {
+        var phoneCallPolylines: [[CLLocationCoordinate2D]] = []
+        var authorizedPhoneCallPolylines: [[CLLocationCoordinate2D]] = []
+        let routePolyline = self.getPolyline(longitude: route.longitude!, latitude: route.latitude!)
+        if let indexes = route.callIndex {
+            for i in 1..<indexes.count {
+                if let call = self.viewModel.getCallFromIndex(i) {
+                    let minValue = min(indexes[i - 1], indexes[i])
+                    let maxValue = max(indexes[i - 1], indexes[i])
+                    let line = Array(routePolyline[minValue...maxValue])
+                    if call.isForbidden {
+                        phoneCallPolylines.append(line)
+                    } else {
+                        authorizedPhoneCallPolylines.append(line)
                     }
                 }
             }
-            completion()
+        }
+        return (phoneCallPolylines, authorizedPhoneCallPolylines)
+    }
+    
+    private func computeDistractionPolylines() {
+        if let route = self.viewModel.route {
+            if self.viewModel.configurableMapItems.contains(MapItem.distraction) && self.distractionPolyLines == nil {
+                var distractionPolylines = [MKPolyline]()
+                for distractionPolylinePart in self.getDistractionPolyline(route: route) {
+                    let distractionPolyLine = MKPolyline.init(coordinates: distractionPolylinePart, count: distractionPolylinePart.count)
+                    distractionPolylines.append(distractionPolyLine)
+                }
+                self.distractionPolyLines = distractionPolylines
+            }
+        }
+    }
+
+    private func computePhoneCallPolylines() {
+        if let route = self.viewModel.route {
+            if self.viewModel.configurableMapItems.contains(MapItem.distraction) && self.phoneCallPolylines == nil && self.authorizedPhoneCallPolylines == nil {
+                let (phoneCallCoordinates, authorizedPhoneCallCoordinates) = self.getPhoneCallPolylines(route: route)
+                self.phoneCallPolylines = phoneCallCoordinates.map({ coordinates -> MKPolyline in
+                    MKPolyline.init(coordinates: coordinates, count: coordinates.count)
+                })
+                self.authorizedPhoneCallPolylines = authorizedPhoneCallCoordinates.map({ coordinates -> MKPolyline in
+                    MKPolyline.init(coordinates: coordinates, count: coordinates.count)
+                })
+            }
         }
     }
     
-    private func drawDistraction(route: Route){
-        if  let distractionPolyLines = self.distractionPolyLines {
+    private func drawDistraction(route: Route) {
+        if let distractionPolyLines = self.distractionPolyLines {
             for distractionPolyline in distractionPolyLines {
                 if let line = self.polyLine {
                     self.mapView.insertOverlay(distractionPolyline, above: line)
-                }else{
+                } else {
                      self.mapView.addOverlay(distractionPolyline, level: MKOverlayLevel.aboveRoads)
                 }
             }
-        }else{
-            self.distractionPolyLines = []
+        } else {
+            var distractionPolyLines = [MKPolyline]()
             for distractionPolylinePart in self.getDistractionPolyline(route: route) {
                 let distractionPolyLine = MKPolyline.init(coordinates: distractionPolylinePart, count: distractionPolylinePart.count)
-                self.distractionPolyLines?.append(distractionPolyLine)
+                distractionPolyLines.append(distractionPolyLine)
                 if let line = self.polyLine {
                     self.mapView.insertOverlay(distractionPolyLine, above: line)
-                }else{
+                } else {
                      self.mapView.addOverlay(distractionPolyLine, level: MKOverlayLevel.aboveRoads)
+                }
+                self.distractionPolyLines = distractionPolyLines
+            }
+        }
+    }
+
+    private func drawPhoneCalls(route: Route) {
+        if let phoneCallPolylines = self.phoneCallPolylines {
+            for phoneCallPolyline in phoneCallPolylines {
+                if let line = self.polyLine {
+                    self.mapView.insertOverlay(phoneCallPolyline, above: line)
+                } else {
+                    self.mapView.addOverlay(phoneCallPolyline, level: MKOverlayLevel.aboveRoads)
+                }
+            }
+        } else {
+            self.phoneCallPolylines = []
+            let (phoneCallCoordinatesArray, authorizedPhoneCallCoordinatesArray) = self.getPhoneCallPolylines(route: route)
+            for phoneCallCoordinates in phoneCallCoordinatesArray {
+                let phoneCallPolyline = MKPolyline.init(coordinates: phoneCallCoordinates, count: phoneCallCoordinates.count)
+                self.phoneCallPolylines?.append(phoneCallPolyline)
+                if let line = self.polyLine {
+                    self.mapView.insertOverlay(phoneCallPolyline, above: line)
+                } else {
+                    self.mapView.addOverlay(phoneCallPolyline, level: MKOverlayLevel.aboveRoads)
+                }
+            }
+            self.authorizedPhoneCallPolylines = []
+            for authorizedPhoneCallCoordinates in authorizedPhoneCallCoordinatesArray {
+                let authorizedPhoneCallPolyline = MKPolyline.init(coordinates: authorizedPhoneCallCoordinates, count: authorizedPhoneCallCoordinates.count)
+                self.authorizedPhoneCallPolylines?.append(authorizedPhoneCallPolyline)
+                if let line = self.polyLine {
+                    self.mapView.insertOverlay(authorizedPhoneCallPolyline, above: line)
+                } else {
+                    self.mapView.addOverlay(authorizedPhoneCallPolyline, level: MKOverlayLevel.aboveRoads)
                 }
             }
         }
     }
   
-    private func drawMarker(mapItem: DKMapItem?, route: Route){
+    private func drawMarker(mapItem: DKMapItem?, route: Route, mapTraceType: DKMapTraceType){
         cleanAllMarkers()
         cleanSafetyAndDistractionMarkers()
         if let mapItem = mapItem {
             if mapItem.displayedMarkers().contains(.all) {
                 cleanStartEndMarkers()
                 drawAllMarker()
-            } else{
+            } else {
                 if mapItem.displayedMarkers().contains(.safety) {
                     drawSafetyMarker()
                 }
                 if mapItem.displayedMarkers().contains(.distraction) {
-                    drawDistractionMarker()
+                    switch mapTraceType {
+                        case .unlockScreen:
+                            drawDistractionMarker()
+                        case .phoneCall:
+                            drawPhoneCallMarker()
+                    }
                 }
             }
         }
@@ -165,11 +260,20 @@ class MapViewController: DKUIViewController {
         if let distractionEvents = self.distractionAnnotations {
             self.mapView.removeAnnotations(distractionEvents)
         }
+        if let phoneCallAnnotations = self.phoneCallAnnotations {
+            self.mapView.removeAnnotations(phoneCallAnnotations)
+        }
     }
 
     private func cleanSafetyMarkers() {
         if let safetyEvents = self.safetyAnnotations {
             self.mapView.removeAnnotations(safetyEvents)
+        }
+    }
+
+    private func cleanPhoneCallMarkers() {
+        if let phoneCallAnnotations = self.phoneCallAnnotations {
+            self.mapView.removeAnnotations(phoneCallAnnotations)
         }
     }
 
@@ -236,8 +340,25 @@ class MapViewController: DKUIViewController {
                 self.distractionAnnotations!.append(annotation)
                 self.mapView.addAnnotation(annotation)
             }
-        }else{
+        } else {
             self.distractionAnnotations?.forEach({ annotation in
+                self.mapView.addAnnotation(annotation)
+            })
+        }
+    }
+
+    private func drawPhoneCallMarker() {
+        if self.phoneCallAnnotations == nil {
+            var phoneCallAnnotations: [MKPointAnnotation] = []
+            self.viewModel.phoneCallEvents.forEach { phoneCallEvent in
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = phoneCallEvent.position
+                phoneCallAnnotations.append(annotation)
+                self.mapView.addAnnotation(annotation)
+            }
+            self.phoneCallAnnotations = phoneCallAnnotations
+        } else {
+            self.phoneCallAnnotations?.forEach({ annotation in
                 self.mapView.addAnnotation(annotation)
             })
         }
@@ -252,7 +373,7 @@ class MapViewController: DKUIViewController {
                 self.allAnnotations!.append(annotation)
                 self.mapView.addAnnotation(annotation)
             }
-        }else{
+        } else {
             self.allAnnotations?.forEach({ annotation in
                 self.mapView.addAnnotation(annotation)
             })
@@ -276,10 +397,8 @@ class MapViewController: DKUIViewController {
     }
     
     func fitPath() {
-        DispatchQueue.main.async { [unowned self] in
-            if let polyLine = self.polyLine {
-                self.mapView.setVisibleMapRect(polyLine.boundingMapRect, edgePadding: self.inset, animated: true)
-            }
+        if let polyLine = self.polyLine {
+            self.mapView.setVisibleMapRect(polyLine.boundingMapRect, edgePadding: self.inset, animated: true)
         }
     }
     
@@ -301,19 +420,18 @@ extension MapViewController: MapViewControllerDelegate {
 
 extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        
-        if overlay === self.polyLine {
-            let polylineRenderer = MKPolylineRenderer(overlay: overlay)
-            polylineRenderer.strokeColor = UIColor.dkMapTrace
-            polylineRenderer.lineWidth = self.lineWidth
-            return polylineRenderer
-        }
-        
         let polylineRenderer = MKPolylineRenderer(overlay: overlay)
-        polylineRenderer.strokeColor = UIColor.dkMapTraceWarning
         polylineRenderer.lineWidth = self.lineWidth
+        if overlay === self.polyLine {
+            polylineRenderer.strokeColor = UIColor.dkMapTrace
+        } else {
+            if let polyline = overlay as? MKPolyline, let authorizedPhoneCallPolylines = self.authorizedPhoneCallPolylines, authorizedPhoneCallPolylines.contains(polyline) {
+                polylineRenderer.strokeColor = UIColor.dkMapTraceAuthorizedCall
+            } else {
+                polylineRenderer.strokeColor = UIColor.dkMapTraceWarning
+            }
+        }
         return polylineRenderer
-        
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
@@ -335,7 +453,6 @@ extension MapViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
         guard !(annotation is MKUserLocation) else {
             return nil
         }
@@ -415,6 +532,22 @@ extension MapViewController: MKMapViewDelegate {
                         view.setupAsTripEventCallout(with: event, location: "")
                         if let infoView = view.rightCalloutAccessoryView as! UIButton? {
                             infoView.tag = indexForDistractionEvent
+                            infoView.addTarget(self, action: #selector(distractionInfoClicked), for: .touchUpInside)
+                        }
+                    }
+                }
+
+                if let phoneCallAnnotations = self.phoneCallAnnotations as NSArray? {
+                    let phoneCallAnnotationIndex = phoneCallAnnotations.index(of: annotation)
+                    if phoneCallAnnotationIndex != NSNotFound {
+                        let event = viewModel.phoneCallEvents[phoneCallAnnotationIndex]
+                        view.image = UIImage(named: event.getMapImageID(), in: Bundle.driverDataUIBundle, compatibleWith: nil)
+                        view.image = annotationView?.image?.resizeImage(36, opaque: false, contentMode: .scaleAspectFit)
+                        view.centerOffset = CGPoint(x: 0, y: -(annotationView?.image?.size.height)! / 2)
+                        view.setupAsTripEventCallout(with: event, location: "")
+                        if let infoView = view.rightCalloutAccessoryView as! UIButton? {
+                            infoView.tag = phoneCallAnnotationIndex
+                            #warning("Change selector?")
                             infoView.addTarget(self, action: #selector(distractionInfoClicked), for: .touchUpInside)
                         }
                     }

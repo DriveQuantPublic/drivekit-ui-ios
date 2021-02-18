@@ -13,11 +13,20 @@ import CoreLocation
 
 class TripDetailViewModel : DKTripDetailViewModel {
 
-    let itinId : String
+    let itinId: String
     private let mapItems: [DKMapItem]
     
-    var trip : Trip? = nil
+    var trip: Trip? = nil {
+        didSet {
+            if let calls = self.trip?.calls as? Set<Call> {
+                self.calls = calls.sorted(by: { call1, call2 -> Bool in
+                    call1.start < call2.start
+                })
+            }
+        }
+    }
     var route: Route? = nil
+    private var calls: [Call]? = nil
     private var routeSync: Bool? = nil
     private var tripSyncStatus: TripSyncStatus? = nil
     
@@ -33,6 +42,7 @@ class TripDetailViewModel : DKTripDetailViewModel {
     private(set) var phoneCallEvents: [TripEvent] = []
     
     private var selection: Int? = nil
+    private var selectedMapTrace: DKMapTraceType = .unlockScreen
     
     weak var delegate: TripDetailDelegate? = nil {
         didSet {
@@ -56,8 +66,15 @@ class TripDetailViewModel : DKTripDetailViewModel {
         }
         
     }
+
+    func getCallFromIndex(_ index: Int) -> Call? {
+        if let calls = self.calls, index < 2 * calls.count {
+            return calls[index / 2]
+        }
+        return nil
+    }
     
-    private func fetchTripData(){
+    private func fetchTripData() {
         DriveKitDriverData.shared.getRoute(itinId: itinId, completionHandler: { route in
             if let route = route {
                 self.route = route
@@ -119,8 +136,7 @@ class TripDetailViewModel : DKTripDetailViewModel {
                 }
                 if let route = self.route, mapItems.contains(MapItem.distraction), let latitude = route.latitude, let longitude = route.longitude {
                     if let screenLockedIndex = route.screenLockedIndex, let screenStatus = route.screenStatus, let screenLockedTime = route.screenLockedTime, screenLockedTime.count > 2 {
-                        // if (indexScreenLocked == 0 || indexScreenLocked == route.latitude.size - 1) continue
-                        for i in 1...screenLockedIndex.count - 2 { //TODO: Fix
+                        for i in 1...screenLockedIndex.count - 2 {
                             let eventType: EventType = screenStatus[i] == 1 ? .unlock : .lock
                             events.append(TripEvent(type: eventType, date: trip.tripStartDate.addingTimeInterval(Double(screenLockedTime[i])), position: CLLocationCoordinate2D(latitude: latitude[screenLockedIndex[i]], longitude: longitude[screenLockedIndex[i]]), value: 0))
                         }
@@ -187,11 +203,20 @@ class TripDetailViewModel : DKTripDetailViewModel {
         }
     }
 
-    public func setSelectedEvent(position: Int?){
+    public func setSelectedEvent(position: Int?) {
         selection = position
         if let pos = position {
             delegate?.onEventSelected(event: events[pos], position: pos)
         }
+    }
+
+    public func setSelectedMapTrace(_ mapTrace: DKMapTraceType) {
+        self.selectedMapTrace = mapTrace
+        self.delegate?.onMapTraceSelected(mapTrace)
+    }
+
+    public func getSelectedMapTrace() -> DKMapTraceType {
+        return self.selectedMapTrace
     }
     
     public func getTripEvents() -> [TripEvent] {
@@ -205,4 +230,5 @@ protocol TripDetailDelegate : AnyObject {
     func noData()
     func unScoredTrip(noRoute: Bool)
     func onEventSelected(event: TripEvent, position: Int)
+    func onMapTraceSelected(_ mapTrace: DKMapTraceType)
 }

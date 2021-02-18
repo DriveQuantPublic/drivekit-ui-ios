@@ -95,5 +95,6 @@ extension DriveKitDriverDataUI : DriveKitDriverDataUIEntryPoint {
 
 extension UIColor {
     public static let dkMapTrace = UIColor(hex: 0x116ea9)
+    public static let dkMapTraceAuthorizedCall = UIColor(hex: 0x93c47d)
     public static let dkMapTraceWarning = UIColor(hex: 0xed4f3b)
 }

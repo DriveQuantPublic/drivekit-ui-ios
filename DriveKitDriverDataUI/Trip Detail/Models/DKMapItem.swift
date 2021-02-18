@@ -28,6 +28,10 @@ public enum DKMarkerType {
     case safety, distraction, all
 }
 
+public enum DKMapTraceType {
+    case phoneCall, unlockScreen
+}
+
 extension Array where Element == DKMapItem {
     func firstIndex(of mapItem: DKMapItem) -> Int? {
         return self.firstIndex(where: {$0.identifier() == mapItem.identifier()})

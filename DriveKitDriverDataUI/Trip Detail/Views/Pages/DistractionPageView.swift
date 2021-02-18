@@ -8,11 +8,11 @@
 import UIKit
 import DriveKitCommonUI
 
-final class DistractionPageView : UIView, Nibable {
+final class DistractionPageView : UIControl, Nibable {
 
-    var selected: Bool = false {
+    override var isSelected: Bool {
         didSet {
-            if selected {
+            if isSelected {
                 self.eventValue.backgroundColor = DKUIColors.secondaryColor.color.withAlphaComponent(0.4)
                 self.eventDescription.textColor = DKUIColors.secondaryColor.color
             } else {
@@ -25,6 +25,7 @@ final class DistractionPageView : UIView, Nibable {
     @IBOutlet private var eventValue: UILabel!
     @IBOutlet private var eventDescription: UILabel!
     @IBOutlet private var separator: UIView!
+    private(set) var mapTrace: DKMapTraceType = .unlockScreen
     private let grayColor = UIColor(hex:0x9e9e9e)
 
     override func awakeFromNib() {
@@ -45,7 +46,7 @@ final class DistractionPageView : UIView, Nibable {
         // Separator.
         self.separator.backgroundColor = DKUIColors.neutralColor.color
 
-        self.selected = false
+        self.isSelected = false
     }
 
     override func layoutSubviews() {
@@ -55,10 +56,11 @@ final class DistractionPageView : UIView, Nibable {
         updateTextIntrinsicContentSize()
     }
     
-    func configure(title: String, description: String, value: String) {
+    func configure(title: String, description: String, value: String, mapTrace: DKMapTraceType) {
         self.eventTitle.text = title
         self.eventDescription.text = description
         self.eventValue.text = value
+        self.mapTrace = mapTrace
         updateTextIntrinsicContentSize()
     }
 

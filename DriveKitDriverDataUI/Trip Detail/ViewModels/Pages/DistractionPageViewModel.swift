@@ -13,6 +13,7 @@ import DriveKitCommonUI
 
 struct DistractionPageViewModel {
     let trip: Trip
+    let tripDetailViewModel: DKTripDetailViewModel
     let scoreType: ScoreType = .distraction
 
     func getScore() -> Double {

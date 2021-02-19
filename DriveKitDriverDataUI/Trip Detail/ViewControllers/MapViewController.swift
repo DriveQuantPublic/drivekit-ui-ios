@@ -89,6 +89,11 @@ class MapViewController: DKUIViewController {
                         self.mapView.removeOverlay(phoneCallPolyline)
                     }
                 }
+                if let authorizedPhoneCallPolylines = self.authorizedPhoneCallPolylines {
+                    for authorizedPhoneCallPolyline in authorizedPhoneCallPolylines {
+                        self.mapView.removeOverlay(authorizedPhoneCallPolyline)
+                    }
+                }
             }
             if removeDistractionPolylines {
                 if let distractionPolyLines = self.distractionPolyLines {
@@ -132,7 +137,7 @@ class MapViewController: DKUIViewController {
         var authorizedPhoneCallPolylines: [[CLLocationCoordinate2D]] = []
         let routePolyline = self.getPolyline(longitude: route.longitude!, latitude: route.latitude!)
         if let indexes = route.callIndex {
-            for i in 1..<indexes.count {
+            for i in stride(from: 1, to: indexes.count, by: 2) {
                 if let call = self.viewModel.getCallFromIndex(i) {
                     let minValue = min(indexes[i - 1], indexes[i])
                     let maxValue = max(indexes[i - 1], indexes[i])
@@ -200,12 +205,19 @@ class MapViewController: DKUIViewController {
     }
 
     private func drawPhoneCalls(route: Route) {
-        if let phoneCallPolylines = self.phoneCallPolylines {
+        if let phoneCallPolylines = self.phoneCallPolylines, let authorizedPhoneCallPolylines = self.authorizedPhoneCallPolylines {
             for phoneCallPolyline in phoneCallPolylines {
                 if let line = self.polyLine {
                     self.mapView.insertOverlay(phoneCallPolyline, above: line)
                 } else {
                     self.mapView.addOverlay(phoneCallPolyline, level: MKOverlayLevel.aboveRoads)
+                }
+            }
+            for authorizedPhoneCallPolyline in authorizedPhoneCallPolylines {
+                if let line = self.polyLine {
+                    self.mapView.insertOverlay(authorizedPhoneCallPolyline, above: line)
+                } else {
+                    self.mapView.addOverlay(authorizedPhoneCallPolyline, level: MKOverlayLevel.aboveRoads)
                 }
             }
         } else {

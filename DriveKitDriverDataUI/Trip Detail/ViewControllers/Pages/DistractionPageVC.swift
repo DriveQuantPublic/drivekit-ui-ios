@@ -66,14 +66,10 @@ class DistractionPageVC: UIViewController {
     }
 
     @objc private func selectDistractionPageView(_ distractionPageView: DistractionPageView) {
-        if distractionPageView != self.selectedDistractionPageView {
-            self.selectedDistractionPageView?.isSelected = false
-        }
-        if !distractionPageView.isSelected {
-            distractionPageView.isSelected = true
-            self.viewModel.tripDetailViewModel.setSelectedMapTrace(distractionPageView.mapTrace)
-        }
+        self.selectedDistractionPageView?.isSelected = false
+        distractionPageView.isSelected = true
         self.selectedDistractionPageView = distractionPageView
+        self.viewModel.tripDetailViewModel.setSelectedMapTrace(distractionPageView.mapTrace)
     }
 
 }

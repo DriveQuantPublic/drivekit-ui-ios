@@ -272,9 +272,7 @@ class MapViewController: DKUIViewController {
         if let distractionEvents = self.distractionAnnotations {
             self.mapView.removeAnnotations(distractionEvents)
         }
-        if let phoneCallAnnotations = self.phoneCallAnnotations {
-            self.mapView.removeAnnotations(phoneCallAnnotations)
-        }
+        cleanPhoneCallMarkers()
     }
 
     private func cleanSafetyMarkers() {
@@ -559,8 +557,7 @@ extension MapViewController: MKMapViewDelegate {
                         view.setupAsTripEventCallout(with: event, location: "")
                         if let infoView = view.rightCalloutAccessoryView as! UIButton? {
                             infoView.tag = phoneCallAnnotationIndex
-                            #warning("Change selector?")
-                            infoView.addTarget(self, action: #selector(distractionInfoClicked), for: .touchUpInside)
+                            infoView.addTarget(self, action: #selector(phoneCallInfoClicked), for: .touchUpInside)
                         }
                     }
                 }
@@ -607,6 +604,13 @@ extension MapViewController: MKMapViewDelegate {
     @objc private func distractionInfoClicked(_ sender: UIButton) {
         let distractionEvent = viewModel.distractionEvents[sender.tag]
         let alert = UIAlertController(title: distractionEvent.getTitle(), message: distractionEvent.getExplanation(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title:DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    @objc private func phoneCallInfoClicked(_ sender: UIButton) {
+        let phoneCallEvent = self.viewModel.phoneCallEvents[sender.tag]
+        let alert = UIAlertController(title: phoneCallEvent.getTitle(), message: phoneCallEvent.getExplanation(), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title:DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }

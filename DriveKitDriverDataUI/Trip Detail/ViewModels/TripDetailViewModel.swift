@@ -18,11 +18,7 @@ class TripDetailViewModel : DKTripDetailViewModel {
     
     var trip: Trip? = nil {
         didSet {
-            if let calls = self.trip?.calls as? Set<Call> {
-                self.calls = calls.sorted(by: { call1, call2 -> Bool in
-                    call1.start < call2.start
-                })
-            }
+            self.calls = self.trip?.sortedCalls
         }
     }
     var route: Route? = nil
@@ -141,7 +137,7 @@ class TripDetailViewModel : DKTripDetailViewModel {
                             events.append(TripEvent(type: eventType, date: trip.tripStartDate.addingTimeInterval(Double(screenLockedTime[i])), position: CLLocationCoordinate2D(latitude: latitude[screenLockedIndex[i]], longitude: longitude[screenLockedIndex[i]]), value: 0))
                         }
                     }
-                    if let callIndex = route.callIndex, let callTime = route.callTime, let calls = self.trip?.calls as? Set<Call>, callIndex.count == 2 * calls.count, callTime.count == 2 * calls.count {
+                    if let callIndex = route.callIndex, let callTime = route.callTime, let calls = self.calls, callIndex.count == 2 * calls.count, callTime.count == 2 * calls.count {
                         for (index, phoneCall) in calls.enumerated() {
                             let startCallIndex = callIndex[2 * index]
                             let startCallTime = callTime[2 * index]

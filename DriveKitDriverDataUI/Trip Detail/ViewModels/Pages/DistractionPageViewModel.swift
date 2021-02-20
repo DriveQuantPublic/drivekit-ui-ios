@@ -77,11 +77,11 @@ struct DistractionPageViewModel {
     }
 
     func getScreenUnlockDuration() -> String {
-        return (self.trip.driverDistraction?.durationUnlock ?? 0).formatSecondDuration()
+        return formatDuration(self.trip.driverDistraction?.durationUnlock ?? 0)
     }
 
     func getScreenUnlockDistance() -> String {
-        return Double(self.trip.driverDistraction?.distanceUnlock ?? 0).formatMeterDistance()
+        return formatDistance(self.trip.driverDistraction?.distanceUnlock ?? 0)
     }
 
     func getPhoneCallsNumber() -> Int {
@@ -93,18 +93,26 @@ struct DistractionPageViewModel {
             let duration = calls.reduce(into: 0) { result, call in
                 result += call.duration
             }
-            return Double(duration).formatSecondDuration()
+            return formatDuration(Double(duration))
         }
-        return 0.formatSecondDuration()
+        return formatDuration(0)
     }
 
     func getPhoneCallsDistance() -> String {
         if let calls = self.trip.calls as? Set<Call> {
-            let duration = calls.reduce(into: 0) { result, call in
+            let distance = calls.reduce(into: 0) { result, call in
                 result += call.distance
             }
-            return Double(duration).formatMeterDistance()
+            return formatDistance(Double(distance))
         }
-        return 0.formatMeterDistance()
+        return formatDistance(0)
+    }
+
+    private func formatDuration(_ duration: Double) -> String {
+        return duration.ceilSecondDuration(ifGreaterThan: 600).formatSecondDuration()
+    }
+
+    private func formatDistance(_ distance: Double) -> String {
+        return distance.ceilMeterDistance(ifGreaterThan: 10000).formatMeterDistance()
     }
 }

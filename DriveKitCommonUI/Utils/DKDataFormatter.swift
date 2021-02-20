@@ -146,6 +146,20 @@ public extension Double {
     var asDate: Date {
         return Date(timeIntervalSince1970: self)
     }
+
+    func ceilSecondDuration(ifGreaterThan value: Double) -> Double {
+        if self.truncatingRemainder(dividingBy: 60) != 0 && self > value {
+            return Double(Int(self / 60) + 1) * 60
+        }
+        return self
+    }
+
+    func ceilMeterDistance(ifGreaterThan value: Double) -> Double {
+        if self.truncatingRemainder(dividingBy: 1000) != 0 && self > value {
+            return Double(Int(self / 1000) + 1) * 1000
+        }
+        return self
+    }
 }
 
 public extension Date {

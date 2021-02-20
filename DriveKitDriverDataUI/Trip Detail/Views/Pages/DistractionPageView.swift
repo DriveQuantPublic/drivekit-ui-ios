@@ -16,7 +16,7 @@ final class DistractionPageView : UIControl, Nibable {
                 self.eventValue.backgroundColor = DKUIColors.secondaryColor.color.withAlphaComponent(0.4)
                 self.eventDescription.textColor = DKUIColors.secondaryColor.color
             } else {
-                self.eventValue.backgroundColor = DKUIColors.neutralColor.color
+                self.eventValue.backgroundColor = UIColor(hex:0xf3f3f3)
                 self.eventDescription.textColor = grayColor
             }
         }
@@ -33,12 +33,10 @@ final class DistractionPageView : UIControl, Nibable {
 
         // Title.
         self.eventTitle.textColor = DKUIColors.mainFontColor.color
-        self.eventTitle.font = DKStyles.highlightSmall.style.applyTo(font: .primary)
+        self.eventTitle.font = DKStyles.highlightSmall.withSizeDelta(-1).applyTo(font: .primary)
         // Value.
-        self.eventValue.font = DKStyles.highlightNormal.style.applyTo(font: .primary)
+        self.eventValue.font = DKStyles.smallText.style.applyTo(font: .primary)
         self.eventValue.textColor = DKUIColors.primaryColor.color
-        self.eventValue.layer.borderWidth = 1
-        self.eventValue.layer.borderColor = grayColor.cgColor
         self.eventValue.layer.masksToBounds = true
         // Description.
         self.eventDescription.textColor = grayColor

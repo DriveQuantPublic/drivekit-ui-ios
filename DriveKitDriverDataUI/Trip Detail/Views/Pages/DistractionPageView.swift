@@ -25,6 +25,7 @@ final class DistractionPageView : UIControl, Nibable {
     @IBOutlet private var eventValue: UILabel!
     @IBOutlet private var eventDescription: UILabel!
     @IBOutlet private var separator: UIView!
+    @IBOutlet private(set) var button: UIButton!
     private(set) var mapTrace: DKMapTraceType = .unlockScreen
     private let grayColor = UIColor(hex:0x9e9e9e)
 

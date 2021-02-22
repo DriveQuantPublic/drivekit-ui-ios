@@ -25,7 +25,7 @@
                     <rect key="frame" x="10" y="27.5" width="332" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDM-eQ-9Zm">
-                            <rect key="frame" x="0.0" y="0.0" width="332" height="20"/>
+                            <rect key="frame" x="0.0" y="0.0" width="332" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -48,20 +48,28 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N1u-Ig-agp">
+                    <rect key="frame" x="352" y="24" width="62" height="52"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="N1u-Ig-agp" firstAttribute="trailing" secondItem="YcA-SV-1WG" secondAttribute="trailing" id="1GU-Lv-7EW"/>
                 <constraint firstItem="YcA-SV-1WG" firstAttribute="leading" secondItem="3wA-84-8jR" secondAttribute="trailing" constant="10" id="A3U-Hc-IX0"/>
                 <constraint firstItem="Mgp-6m-stF" firstAttribute="height" secondItem="YcA-SV-1WG" secondAttribute="height" multiplier="0.92" id="EMI-Ks-eZf"/>
                 <constraint firstItem="3wA-84-8jR" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="IG1-UH-0sx"/>
                 <constraint firstItem="3wA-84-8jR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="IT4-YG-oW7"/>
                 <constraint firstItem="YcA-SV-1WG" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="SH4-40-8Zz"/>
+                <constraint firstItem="N1u-Ig-agp" firstAttribute="top" secondItem="YcA-SV-1WG" secondAttribute="top" id="aFm-Xk-YDF"/>
                 <constraint firstItem="Mgp-6m-stF" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="aNc-t7-udv"/>
+                <constraint firstItem="N1u-Ig-agp" firstAttribute="bottom" secondItem="YcA-SV-1WG" secondAttribute="bottom" id="fQZ-tQ-asf"/>
+                <constraint firstItem="N1u-Ig-agp" firstAttribute="leading" secondItem="YcA-SV-1WG" secondAttribute="leading" id="lT1-SZ-VcZ"/>
                 <constraint firstAttribute="trailing" secondItem="YcA-SV-1WG" secondAttribute="trailing" id="lcz-3F-Ln9"/>
                 <constraint firstItem="Mgp-6m-stF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="rJ9-qq-oST"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="button" destination="N1u-Ig-agp" id="Z7d-8u-aPN"/>
                 <outlet property="eventDescription" destination="xht-bU-B3G" id="41s-Y2-vtb"/>
                 <outlet property="eventTitle" destination="YDM-eQ-9Zm" id="Vmj-AH-HCZ"/>
                 <outlet property="eventValue" destination="YcA-SV-1WG" id="CSr-8k-Sds"/>

@@ -40,8 +40,13 @@ struct TripEventCalloutViewModel {
             attString.append(valuePrefix)
             attString.append(event.value.formatDouble(places: 1).dkAttributedString().font(dkFont: .primary, style: .smallText).color(highColor).build())
             return attString
-        case .unlock, .lock :
+        case .unlock, .lock:
             return NSAttributedString(string: "")
+        case .pickUp, .hangUp:
+            let attString = NSMutableAttributedString()
+            attString.append("\("dk_driverdata_calling_time".dkDriverDataLocalized()) ".dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build())
+            attString.append(event.value.ceilSecondDuration(ifGreaterThan: 600).formatSecondDuration().dkAttributedString().font(dkFont: .primary, style: .smallText).color(highColor).build())
+            return attString
         default:
             return location.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
         }

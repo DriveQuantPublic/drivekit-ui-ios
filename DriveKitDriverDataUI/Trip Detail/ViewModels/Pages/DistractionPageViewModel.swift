@@ -29,8 +29,7 @@ struct DistractionPageViewModel {
     }
 
     func getUnlockDescription() -> String {
-        let unlocksNumber = getUnlocksNumber()
-        if unlocksNumber == 0 {
+        if getScreenUnlockDurationValue() == 0 && getScreenUnlockDistanceValue() == 0 {
             return "dk_driverdata_no_screen_unlocking".dkDriverDataLocalized()
         } else {
             return String(format: "dk_driverdata_unlock_screen_content".dkDriverDataLocalized(), getScreenUnlockDuration(), getScreenUnlockDistance())
@@ -76,12 +75,20 @@ struct DistractionPageViewModel {
         return 0
     }
 
+    func getScreenUnlockDurationValue() -> Double {
+        return self.trip.driverDistraction?.durationUnlock ?? 0
+    }
+
     func getScreenUnlockDuration() -> String {
-        return formatDuration(self.trip.driverDistraction?.durationUnlock ?? 0)
+        return formatDuration(getScreenUnlockDurationValue())
+    }
+
+    func getScreenUnlockDistanceValue() -> Double {
+        return self.trip.driverDistraction?.distanceUnlock ?? 0
     }
 
     func getScreenUnlockDistance() -> String {
-        return formatDistance(self.trip.driverDistraction?.distanceUnlock ?? 0)
+        return formatDistance(getScreenUnlockDistanceValue())
     }
 
     func getPhoneCallsNumber() -> Int {

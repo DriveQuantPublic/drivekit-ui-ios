@@ -133,8 +133,12 @@ class TripDetailViewModel : DKTripDetailViewModel {
                 if let route = self.route, mapItems.contains(MapItem.distraction), let latitude = route.latitude, let longitude = route.longitude {
                     if let screenLockedIndex = route.screenLockedIndex, let screenStatus = route.screenStatus, let screenLockedTime = route.screenLockedTime, screenLockedTime.count > 2 {
                         for i in 1...screenLockedIndex.count - 2 {
-                            let eventType: EventType = screenStatus[i] == 1 ? .unlock : .lock
-                            events.append(TripEvent(type: eventType, date: trip.tripStartDate.addingTimeInterval(Double(screenLockedTime[i])), position: CLLocationCoordinate2D(latitude: latitude[screenLockedIndex[i]], longitude: longitude[screenLockedIndex[i]]), value: 0))
+                            let screenLockedIndexValue = screenLockedIndex[i]
+                            let lastIndex = route.lastIndex
+                            if screenLockedIndexValue != 0 && screenLockedIndexValue != lastIndex {
+                                let eventType: EventType = screenStatus[i] == 1 ? .unlock : .lock
+                                events.append(TripEvent(type: eventType, date: trip.tripStartDate.addingTimeInterval(Double(screenLockedTime[i])), position: CLLocationCoordinate2D(latitude: latitude[screenLockedIndexValue], longitude: longitude[screenLockedIndexValue]), value: 0))
+                            }
                         }
                     }
                     if let callIndex = route.callIndex, let callTime = route.callTime, let calls = self.calls, callIndex.count == 2 * calls.count, callTime.count == 2 * calls.count {

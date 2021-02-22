@@ -104,7 +104,8 @@ public extension Double {
         } else {
             let nbSecond = Int(self - 60.0 * Double(Int(self / 60)))
             if nbSecond > 0 {
-                return "\(nbMinute - 1)\(String.nonBreakableSpace)\(DKCommonLocalizable.unitMinute.text())\(String.nonBreakableSpace)\(nbSecond)"
+                let secondString = String(format: "%02d", nbSecond)
+                return "\(nbMinute - 1)\(DKCommonLocalizable.unitMinute.text())\(secondString)"
             } else {
                 return "\(nbMinute)\(String.nonBreakableSpace)\(DKCommonLocalizable.unitMinute.text())"
             }

@@ -122,7 +122,13 @@ extension TripDetailVC {
         if index < self.swipableViewControllers.count {
             self.pageViewController.setViewControllers([self.swipableViewControllers[index]], direction: direction ?? .forward, animated: true, completion: nil)
         }
-        self.mapViewController.traceRoute(mapItem: self.viewModel.displayMapItem, mapTraceType: self.viewModel.getSelectedMapTrace())
+        let mapTraceType: DKMapTraceType
+        if let displayMapItem = self.viewModel.displayMapItem as? MapItem, displayMapItem == .distraction {
+            mapTraceType = self.viewModel.getSelectedMapTrace()
+        } else {
+            mapTraceType = .unlockScreen
+        }
+        self.mapViewController.traceRoute(mapItem: self.viewModel.displayMapItem, mapTraceType: mapTraceType)
     }
     
     func setupHeadeContainer() {

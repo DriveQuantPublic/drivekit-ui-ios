@@ -8,6 +8,8 @@
 		<string>dk_tag_trips_list</string>
 		<key>TripDetailVC</key>
 		<string>dk_tag_trips_detail</string>
+		<key>TransportationModeVC</key>
+		<string>dk_tag_trips_detail_transportation_mode</string>
 	</dict>
 	<key>DriverAchievement</key>
 	<dict>

@@ -13,7 +13,7 @@ import DriveKitCommonUI
 
 
 enum EventType {
-    case adherence, brake, acceleration, lock, unlock, end, start
+    case adherence, brake, acceleration, lock, unlock, pickUp, hangUp, end, start
     
     func getImage() -> UIImage? {
         switch self {
@@ -27,47 +27,34 @@ enum EventType {
             return UIImage(named: "dk_lock_event", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         case .unlock:
             return UIImage(named: "dk_unlock_event", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+        case .pickUp:
+            return UIImage(named: "dk_begin_call", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+        case .hangUp:
+            return UIImage(named: "dk_end_call", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         case .end:
             return UIImage(named: "dk_end_event_black", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         case .start:
             return UIImage(named: "dk_start_event_black", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         }
     }
-    
-    func name() -> String {
-        switch self {
-        case .adherence:
-            return "dk_driverdata_safety_adherence".dkDriverDataLocalized()
-        case .brake:
-            return "dk_driverdata_safety_decel".dkDriverDataLocalized()
-        case .acceleration:
-            return "dk_driverdata_safety_accel".dkDriverDataLocalized()
-        case .lock:
-            return "dk_driverdata_lock_event".dkDriverDataLocalized()
-        case .unlock:
-            return "dk_driverdata_unlock_event".dkDriverDataLocalized()
-        case .end:
-            return "dk_driverdata_end_event".dkDriverDataLocalized()
-        case .start:
-            return "dk_driverdata_start_event".dkDriverDataLocalized()
-        }
-    }
 }
 
 
 public class TripEvent {
-    var type: EventType
-    var date : Date
-    var position: CLLocationCoordinate2D
-    var isHigh: Bool
-    var value: Double
-    
-    init(type: EventType, date: Date, position: CLLocationCoordinate2D, value: Double, isHigh: Bool = false) {
+    let type: EventType
+    let date: Date
+    let position: CLLocationCoordinate2D
+    let isHigh: Bool
+    let value: Double
+    let isForbidden: Bool
+
+    init(type: EventType, date: Date, position: CLLocationCoordinate2D, value: Double, isHigh: Bool = false, isForbidden: Bool = false) {
         self.type = type
         self.date = date
         self.position = position
         self.value = value
         self.isHigh = isHigh
+        self.isForbidden = isForbidden
     }
     
     func getMapImageID() -> String {
@@ -86,6 +73,10 @@ public class TripEvent {
             return "dk_map_unlock"
         case .lock:
             return "dk_map_lock"
+        case .pickUp:
+            return "dk_begin_call_poi_black"
+        case .hangUp:
+            return "dk_end_call_poi_black"
         }
     }
     
@@ -97,7 +88,7 @@ public class TripEvent {
             return isHigh ? 999 : 500
         case .acceleration:
             return isHigh ? 999 : 500
-        case .unlock, .lock, .start, .end:
+        case .unlock, .lock, .start, .end, .pickUp, .hangUp:
             return 0
         }
     }
@@ -118,10 +109,14 @@ public class TripEvent {
             return "dk_driverdata_unlock_event".dkDriverDataLocalized()
         case .lock:
             return "dk_driverdata_lock_event".dkDriverDataLocalized()
+        case .pickUp:
+            return isForbidden ? "dk_driverdata_beginning_unauthorized_call".dkDriverDataLocalized() : "dk_driverdata_beginning_authorized_call".dkDriverDataLocalized()
+        case .hangUp:
+            return isForbidden ? "dk_driverdata_end_unauthorized_call".dkDriverDataLocalized() : "dk_driverdata_end_authorized_call".dkDriverDataLocalized()
         }
     }
 
-    func getExplanation() -> String{
+    func getExplanation() -> String {
         switch type {
         case .adherence:
             return isHigh ? "dk_driverdata_safety_explain_adherence_critical".dkDriverDataLocalized() : "dk_driverdata_safety_explain_adherence".dkDriverDataLocalized()
@@ -137,6 +132,10 @@ public class TripEvent {
             return "dk_driverdata_screen_unlock_text".dkDriverDataLocalized()
         case .lock:
             return "dk_driverdata_screen_lock_text".dkDriverDataLocalized()
+        case .pickUp:
+            return isForbidden ? "dk_driverdata_beginning_unauthorized_call_info_content".dkDriverDataLocalized() : "dk_driverdata_beginning_authorized_call_info_content".dkDriverDataLocalized()
+        case .hangUp:
+            return isForbidden ? "dk_driverdata_end_unauthorized_call_info_content".dkDriverDataLocalized() : "dk_driverdata_end_authorized_call_info_content".dkDriverDataLocalized()
         }
     }
 }

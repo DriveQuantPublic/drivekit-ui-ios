@@ -40,6 +40,10 @@ class AlternativeTripMapItem : DKMapItem {
     func shouldShowDistractionArea() -> Bool {
         return false
     }
+
+    public func shouldShowPhoneDistractionArea() -> Bool {
+        return false
+    }
     
     func displayedMarkers() -> [DKMarkerType] {
         return []

@@ -13,13 +13,27 @@
 "dk_driverdata_alternative_transportation_thanks"="❤️ Vielen Dank für die Berichterstattung über diese Reise und dafür, dass Sie uns helfen, die automatische Erkennung der Verkehrsmittel zu verbessern.";
 "dk_driverdata_alternative_trips"="Alternativer Transport";
 "dk_driverdata_bad_maintain"="Sehr unregel- mäßige Geschwindigkeit";
+"dk_driverdata_beginning_authorized_call"="Start eines autorisierten anrufs";
+"dk_driverdata_beginning_authorized_call_info_content"="Die Anwendung hat den Beginn eines autorisierten Anrufs erkannt, d. h. er wurde mit Ihrer Freisprecheinrichtung geführt. Diese Aktion wirkt sich nicht negativ auf Ihren Punktestand für die Telefonnutzung aus, da sie gesetzlich zulässig ist. Es bleibt jedoch eine Ablenkung während der Fahrt. Zu Ihrer Sicherheit und der anderer Verkehrsteilnehmer wird dringend empfohlen, dass Sie mit dem Telefonieren warten, bis Ihr Fahrzeug geparkt ist.";
+"dk_driverdata_beginning_unauthorized_call"="Unerlaubter rufstart";
+"dk_driverdata_beginning_unauthorized_call_info_content"="Die App hat den Beginn eines nicht autorisierten Anrufs erkannt.
+Dies bedeutet, dass der Anruf nicht mit einer Freisprecheinrichtung getätigt wurde.
+Das Hantieren mit dem Telefon während der Fahrt ist sehr gefährlich. Denken Sie daran, sich selbst, Ihre Mitfahrer und andere Verkehrsteilnehmer zu schützen. Wenn Sie einen Anruf tätigen müssen, stellen Sie Ihr Fahrzeug mit ausgeschaltetem Motor in einer Parklücke ab.";
+"dk_driverdata_calling_time"="Anrufzeit =";
 "dk_driverdata_change_transportation_mode"="Veränderung?";
 "dk_driverdata_confirm_delete_trip"="Löschen Sie die Reise?";
 "dk_driverdata_day"="Tagesausflug";
 "dk_driverdata_declared_transportation_mode"="Modus erklärt:";
 "dk_driverdata_default_filter_item"="Alle meine Reisen";
 "dk_driverdata_detected_transportation_mode"="Erkannter Modus:";
+"dk_driverdata_distance_travelled"="%@ verfahren";
+"dk_driverdata_end_authorized_call"="Ende eines autorisierten anrufs";
+"dk_driverdata_end_authorized_call_info_content"="Die App hat das Ende eines autorisierten Anrufs erkannt. Das bedeutet, dass er über Ihre Freisprecheinrichtung geführt wurde. Diese Aktion wirkt sich nicht negativ auf Ihren Punktestand für die Telefonnutzung aus, da sie gesetzlich zulässig ist. Es bleibt jedoch eine Ablenkung während der Fahrt. Zu Ihrer Sicherheit und der anderer Verkehrsteilnehmer wird dringend empfohlen, dass Sie mit dem Telefonieren warten, bis Ihr Fahrzeug geparkt ist.";
 "dk_driverdata_end_event"="Ende der Fahrt";
+"dk_driverdata_end_unauthorized_call"="Unerlaubter rufabbruch";
+"dk_driverdata_end_unauthorized_call_info_content"="Die App hat das Ende eines unerlaubten Anrufs erkannt...
+Dies bedeutet, dass der Anruf nicht mit einer Freisprecheinrichtung getätigt wurde.
+Das Hantieren mit dem Telefon während der Fahrt ist sehr gefährlich. Denken Sie daran, sich selbst, Ihre Mitfahrer und andere Verkehrsteilnehmer zu schützen. Wenn Sie einen Anruf tätigen müssen, stellen Sie Ihr Fahrzeug mit ausgeschaltetem Motor in einer Parklücke ab.";
 "dk_driverdata_failed_to_declare_transportation"="Transportmodus konnte nicht aktualisiert werden, bitte versuchen Sie es später erneut.";
 "dk_driverdata_failed_to_delete_trip"="Die Fahrt konnte nicht gelöscht werden, versuchen Sie es später noch einmal.";
 "dk_driverdata_failed_to_sync_trips"="Die Synchronisation von Fahrten ist fehlgeschlagen, bitte versuchen Sie es später erneut.";
@@ -32,8 +46,13 @@
 "dk_driverdata_low_accel"="Beschleunigung zu schwach";
 "dk_driverdata_low_decel"="Bremsen zu schwach";
 "dk_driverdata_night"="Nachtfahrt";
+"dk_driverdata_no_call_congrats"="Glückwunsch!";
+"dk_driverdata_no_call_content"="Keine anrufe";
+"dk_driverdata_no_screen_unlocking"="Keine entriegelung";
 "dk_driverdata_no_trip_placeholder"="Du hast noch keine Fahrten mit diesem Fahrzeug gemacht.";
 "dk_driverdata_no_trips_recorded"="Sie sind noch nicht gefahren.";
+"dk_driverdata_phone_call_plur"="%@ telefonate";
+"dk_driverdata_phone_call_sing"="%@ telefonat";
 "dk_driverdata_safety_accel"="Starke Beschleunigung";
 "dk_driverdata_safety_adherence"="Adhäsionsgrenze";
 "dk_driverdata_safety_decel"="Starkes Bremsen";
@@ -92,7 +111,9 @@
 "dk_driverdata_unlock_distance"="Entsperrte Bildschirmdistanz";
 "dk_driverdata_unlock_duration"="Entsperrte Bildschirmdauer";
 "dk_driverdata_unlock_event"="Bildschirm entsperren";
+"dk_driverdata_unlock_events"="Bildschirm entriegelt";
 "dk_driverdata_unlock_number"="Anzahl der Entsperrungen";
+"dk_driverdata_unlock_screen_content"="Anzeige auf %@ und %@";
 "dk_driverdata_value"="Wert =";
 "dk_driverdata_vehicle_trips"="Fahrzeug-Fahrten";
 "dk_driverdata_weak_accel"="Niedrige Beschleunigung";

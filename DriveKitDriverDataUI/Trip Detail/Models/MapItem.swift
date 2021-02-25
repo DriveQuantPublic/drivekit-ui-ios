@@ -104,7 +104,7 @@ public enum MapItem : DKMapItem {
                 let safetyVC = SafetyPageVC(viewModel: safetyViewModel)
                 return safetyVC
             case .distraction:
-                let distractionViewModel = DistractionPageViewModel(trip: trip)
+                let distractionViewModel = DistractionPageViewModel(trip: trip, tripDetailViewModel: tripDetailViewModel)
                 let distractionVC = DistractionPageVC(viewModel: distractionViewModel)
                 return distractionVC
             case .interactiveMap:
@@ -125,6 +125,10 @@ public enum MapItem : DKMapItem {
             case .distraction, .interactiveMap:
                 return true
         }
+    }
+
+    public func shouldShowPhoneDistractionArea() -> Bool {
+        return self == .distraction
     }
     
     public func displayedMarkers() -> [DKMarkerType] {

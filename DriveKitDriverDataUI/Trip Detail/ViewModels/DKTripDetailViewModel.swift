@@ -10,5 +10,7 @@ import Foundation
 
 public protocol DKTripDetailViewModel {
     func setSelectedEvent(position: Int?)
+    func setSelectedMapTrace(_ mapTrace: DKMapTraceType)
+    func getSelectedMapTrace() -> DKMapTraceType
     func getTripEvents() -> [TripEvent]
 }

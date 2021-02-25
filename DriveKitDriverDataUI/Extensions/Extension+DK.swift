@@ -34,6 +34,16 @@ extension Trip {
     var declaredTransportationModeInt: Int32? {
         return self.declaredTransportationMode?.transportationMode
     }
+
+    var sortedCalls: [Call]? {
+        if let calls = self.calls as? Set<Call> {
+            let sortedCalls = calls.sorted(by: { call1, call2 -> Bool in
+                call1.start < call2.start
+            })
+            return sortedCalls
+        }
+        return nil
+    }
 }
 
 extension Array where Element: Trip {

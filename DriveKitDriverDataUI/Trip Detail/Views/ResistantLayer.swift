@@ -36,7 +36,6 @@ class ResistantAnnotationView: MKAnnotationView {
 extension ResistantAnnotationView {
     
     func setupAsTripEventCallout(with event: TripEvent, location: String) {
-        
         guard canShowCallout else {
             return
         }
@@ -46,7 +45,7 @@ extension ResistantAnnotationView {
         detailCalloutAccessoryView = calloutView
         
         switch event.type {
-        case .adherence, .acceleration, .brake, .unlock, .lock:
+        case .adherence, .acceleration, .brake, .unlock, .lock, .pickUp, .hangUp:
             let image = DKImages.info.image
             let imageButton = UIButton(type: .custom)
             imageButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
@@ -58,7 +57,6 @@ extension ResistantAnnotationView {
             rightCalloutAccessoryView = nil
         }
     }
-    
     
 }
 

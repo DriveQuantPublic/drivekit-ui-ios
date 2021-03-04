@@ -18,6 +18,7 @@ public protocol DKMapItem {
     func getAdvice(trip: Trip) -> TripAdvice?
     func viewController(trip: Trip, parentViewController: UIViewController, tripDetailViewModel: DKTripDetailViewModel) -> UIViewController
     func shouldShowDistractionArea() -> Bool
+    func shouldShowPhoneDistractionArea() -> Bool
     func displayedMarkers() -> [DKMarkerType]
     func canShowMapItem(trip: Trip) -> Bool
     func overrideShortTrip() -> Bool
@@ -25,6 +26,10 @@ public protocol DKMapItem {
 
 public enum DKMarkerType {
     case safety, distraction, all
+}
+
+public enum DKMapTraceType {
+    case phoneCall, unlockScreen
 }
 
 extension Array where Element == DKMapItem {

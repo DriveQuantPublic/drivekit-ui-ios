@@ -47,6 +47,8 @@
 "dk_vehicle_beacon_already_paired_to_vehicle"="This beacon is already paired to this vehicle.";
 "dk_vehicle_beacon_deactivate_alert"="The %@ beacon will be dissociated from the %@ vehicle. \n Would you like to continue?";
 "dk_vehicle_beacon_diagnostic_alert"="You haven\'t configured a beacon yet.";
+"dk_vehicle_beacon_enable_bluetooth_alert_message"="You have to enable the phone\'s Bluetooth sensor to check the beacon.";
+"dk_vehicle_beacon_enable_bluetooth_alert_title"="Bluetooth sensor";
 "dk_vehicle_beacon_major"="Major";
 "dk_vehicle_beacon_minor"="Minor";
 "dk_vehicle_beacon_scan_retry"="Tap on the screen to try again";

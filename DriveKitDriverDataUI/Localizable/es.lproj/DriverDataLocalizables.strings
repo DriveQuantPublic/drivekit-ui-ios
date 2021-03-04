@@ -13,13 +13,27 @@
 "dk_driverdata_alternative_transportation_thanks"="❤️ Gracias por reportar este viaje y por ayudarnos a mejorar el reconocimiento automático del modo de transporte.";
 "dk_driverdata_alternative_trips"="Transporte alternativo";
 "dk_driverdata_bad_maintain"="Velocidad muy irregular";
+"dk_driverdata_beginning_authorized_call"="Inicio de una llamada autorizada";
+"dk_driverdata_beginning_authorized_call_info_content"="La aplicación ha detectado el inicio de una llamada autorizada, lo que significa que se ha realizado con tu kit de manos libres. Esta acción no penaliza tu puntuación de uso del teléfono, ya que está legalmente permitida. Sin embargo, sigue siendo una distracción durante la conducción, por su seguridad y la de los demás usuarios de la carretera, se recomienda encarecidamente que espere a que su vehículo esté aparcado antes de hacer una llamada.";
+"dk_driverdata_beginning_unauthorized_call"="Inicio de llamada no autorizada";
+"dk_driverdata_beginning_unauthorized_call_info_content"="La aplicación detectó el inicio de una llamada no autorizada.
+Esto significa que la llamada no se realizó con un kit de manos libres.
+Manejar el teléfono mientras se conduce es muy peligroso. Recuerde que debe protegerse a sí mismo, a sus pasajeros y a los demás usuarios de la carretera. Si necesitas hacer una llamada, aparca tu vehículo en una plaza de aparcamiento con el motor apagado.";
+"dk_driverdata_calling_time"="Tiempo de llamada =";
 "dk_driverdata_change_transportation_mode"="¿Cambio?";
 "dk_driverdata_confirm_delete_trip"="Eliminar el viaje?";
 "dk_driverdata_day"="Excursión de un día";
 "dk_driverdata_declared_transportation_mode"="Modo declarado:";
 "dk_driverdata_default_filter_item"="Todos mis viajes";
 "dk_driverdata_detected_transportation_mode"="Modo detectado :";
+"dk_driverdata_distance_travelled"="%@ recorridos";
+"dk_driverdata_end_authorized_call"="Terminación de una llamada autorizada";
+"dk_driverdata_end_authorized_call_info_content"="La aplicación ha detectado el final de una llamada autorizada, lo que significa que se ha realizado con tu kit de manos libres. Esta acción no penaliza tu puntuación de uso del teléfono, ya que está legalmente permitida. Sin embargo, sigue siendo una distracción durante la conducción, por su seguridad y la de los demás usuarios de la carretera, se recomienda encarecidamente que espere a que su vehículo esté aparcado antes de hacer una llamada.";
 "dk_driverdata_end_event"="Fin del viaje";
+"dk_driverdata_end_unauthorized_call"="Terminación no autorizada de la llamada";
+"dk_driverdata_end_unauthorized_call_info_content"="La aplicación detectó el final de una llamada telefónica no autorizada...
+Esto significa que la llamada no se realizó con un kit de manos libres.
+Manejar el teléfono mientras se conduce es muy peligroso. Recuerde que debe protegerse a sí mismo, a sus pasajeros y a los demás usuarios de la carretera. Si necesitas hacer una llamada, aparca tu vehículo en una plaza de aparcamiento con el motor apagado.";
 "dk_driverdata_failed_to_declare_transportation"="El modo de transporte no pudo ser actualizado, por favor vuelva a intentarlo más tarde.";
 "dk_driverdata_failed_to_delete_trip"="El viaje no pudo ser borrado, intente de nuevo más tarde.";
 "dk_driverdata_failed_to_sync_trips"="No se sincronizaron los disparos, inténtelo de nuevo más tarde.";
@@ -32,8 +46,13 @@
 "dk_driverdata_low_accel"="Aceleración demasiado débil";
 "dk_driverdata_low_decel"="Frenado demasiado débil";
 "dk_driverdata_night"="Excursión nocturna";
+"dk_driverdata_no_call_congrats"="¡Felicitación!";
+"dk_driverdata_no_call_content"="Sin llamadas";
+"dk_driverdata_no_screen_unlocking"="Sin desbloqueo";
 "dk_driverdata_no_trip_placeholder"="Aún no has hecho ningún viaje con este vehículo.";
 "dk_driverdata_no_trips_recorded"="Aún no has viajado.";
+"dk_driverdata_phone_call_plur"="%@ llamadas telefónicas";
+"dk_driverdata_phone_call_sing"="%@ llamada telefónica";
 "dk_driverdata_safety_accel"="Aceleraciones bruscas";
 "dk_driverdata_safety_adherence"="Límites de adherencia";
 "dk_driverdata_safety_decel"="Frenadas fuertes";
@@ -92,7 +111,9 @@
 "dk_driverdata_unlock_distance"="Pantalla de distancia en";
 "dk_driverdata_unlock_duration"="Tiempo de pantalla en";
 "dk_driverdata_unlock_event"="Desbloqueo de pantalla";
+"dk_driverdata_unlock_events"="Desbloqueo de la pantalla";
 "dk_driverdata_unlock_number"="Cantidad de desbloqueo";
+"dk_driverdata_unlock_screen_content"="visualización en %@ y %@";
 "dk_driverdata_value"="Valore =";
 "dk_driverdata_vehicle_trips"="Viajes en vehículos";
 "dk_driverdata_weak_accel"="Baja aceleración";

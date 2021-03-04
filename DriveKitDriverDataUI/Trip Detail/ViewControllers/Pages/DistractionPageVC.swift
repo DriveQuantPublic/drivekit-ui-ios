@@ -10,13 +10,15 @@ import UIKit
 import DriveKitCommonUI
 
 class DistractionPageVC: UIViewController {
+
+    @IBOutlet private var circularRingContainer: UIView!
+    @IBOutlet private var circularRingTitle: UILabel!
+    @IBOutlet private var eventContainer: UIStackView!
     
-    
-    @IBOutlet var circularRingContainer: UIView!
-    @IBOutlet var circularRingTitle: UILabel!
-    @IBOutlet var eventContainer: UIStackView!
-    
-    var viewModel: DistractionPageViewModel
+    private var viewModel: DistractionPageViewModel
+    private var unlockView: DistractionPageView? = nil
+    private var callsView: DistractionPageView? = nil
+    private var selectedDistractionPageView: DistractionPageView? = nil
     
     init(viewModel: DistractionPageViewModel) {
         self.viewModel = viewModel
@@ -35,40 +37,53 @@ class DistractionPageVC: UIViewController {
     
     func configure() {
         let score = CircularProgressView.viewFromNib
-        let configScore = ConfigurationCircularProgressView(scoreType: viewModel.scoreType, value: viewModel.scoreType.rawValue(trip: viewModel.trip), size: .large)
+        let configScore = ConfigurationCircularProgressView(scoreType: viewModel.scoreType, value: viewModel.getScore(), size: .large)
         score.configure(configuration: configScore)
         score.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         score.center = circularRingContainer.center
         circularRingContainer.embedSubview(score)
-        circularRingTitle.attributedText = viewModel.scoreType.stringValue().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
+        circularRingTitle.attributedText = viewModel.getScoreTitle().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
         setupEventContainer()
     }
     
     func setupEventContainer() {
         eventContainer.removeAllSubviews()
-        let nbUnlockView = DistractionPageView.viewFromNib
-        nbUnlockView.configure(title: "dk_driverdata_unlock_number".dkDriverDataLocalized(), count: self.getNumberUnlocks())
-        eventContainer.addArrangedSubview(nbUnlockView)
 
-        let unlockDurationView = DistractionPageView.viewFromNib
-        unlockDurationView.configure(title: "dk_driverdata_unlock_duration".dkDriverDataLocalized(), count: self.getScreenUnlockDuration())
-        eventContainer.addArrangedSubview(unlockDurationView)
+        let unlockView = DistractionPageView.viewFromNib
+        unlockView.configure(title: self.viewModel.getUnlockTitle(), description: self.viewModel.getUnlockDescription(), value: self.viewModel.getUnlockValue(), mapTrace: .unlockScreen)
+        eventContainer.addArrangedSubview(unlockView)
+        unlockView.button.addTarget(self, action: #selector(selectUnlocks), for: .touchUpInside)
+        self.unlockView = unlockView
 
-        let unlockDistanceView = DistractionPageView.viewFromNib
-        unlockDistanceView.configure(title: "dk_driverdata_unlock_distance".dkDriverDataLocalized(), count: self.getScreenUnlockDistance())
-        eventContainer.addArrangedSubview(unlockDistanceView)
+        let callsView = DistractionPageView.viewFromNib
+        callsView.configure(title: self.viewModel.getPhoneCallTitle(), description: self.viewModel.getPhoneCallDescription(), value: self.viewModel.getPhoneCallValue(), mapTrace: .phoneCall)
+        eventContainer.addArrangedSubview(callsView)
+        callsView.button.addTarget(self, action: #selector(selectCalls), for: .touchUpInside)
+        self.callsView = callsView
+
+        switch self.viewModel.tripDetailViewModel.getSelectedMapTrace() {
+            case .phoneCall:
+                selectCalls()
+            case .unlockScreen:
+                selectUnlocks()
+        }
     }
-    
-    func getNumberUnlocks() -> NSAttributedString {
-        let number = Int(viewModel.trip.driverDistraction?.nbUnlock ?? 0)
-        return String(number).dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.primaryColor).build()
+
+    @objc private func selectUnlocks() {
+        selectDistractionPageView(self.unlockView)
     }
-    
-    func getScreenUnlockDuration() -> NSAttributedString {
-        return (viewModel.trip.driverDistraction?.durationUnlock ?? 0).formatSecondDuration().dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.primaryColor).build()
+
+    @objc private func selectCalls() {
+        selectDistractionPageView(self.callsView)
     }
-    
-    func getScreenUnlockDistance() -> NSAttributedString {
-        return Double(self.viewModel.trip.driverDistraction?.distanceUnlock ?? 0).formatMeterDistance().dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.primaryColor).build()
+
+    private func selectDistractionPageView(_ distractionPageView: DistractionPageView?) {
+        if let distractionPageView = distractionPageView {
+            self.selectedDistractionPageView?.isSelected = false
+            distractionPageView.isSelected = true
+            self.selectedDistractionPageView = distractionPageView
+            self.viewModel.tripDetailViewModel.setSelectedMapTrace(distractionPageView.mapTrace)
+        }
     }
+
 }

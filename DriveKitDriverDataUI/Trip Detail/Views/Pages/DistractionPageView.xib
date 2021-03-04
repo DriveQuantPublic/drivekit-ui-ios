@@ -4,47 +4,83 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="DistractionPageView" customModule="DriveKitDriverDataUI" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDM-eQ-9Zm">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YcA-SV-1WG">
-                    <rect key="frame" x="334" y="0.0" width="80" height="50"/>
+                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mgp-6m-stF">
+                    <rect key="frame" x="0.0" y="26" width="1" height="48"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="Lfx-9m-4yN"/>
+                        <constraint firstAttribute="width" constant="1" id="uDk-8c-qRQ"/>
+                    </constraints>
+                </view>
+                <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="3wA-84-8jR">
+                    <rect key="frame" x="10" y="27.5" width="332" height="45"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDM-eQ-9Zm">
+                            <rect key="frame" x="0.0" y="0.0" width="332" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xht-bU-B3G">
+                            <rect key="frame" x="0.0" y="24.5" width="332" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YcA-SV-1WG">
+                    <rect key="frame" x="352" y="24" width="62" height="52"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="62" id="Lfx-9m-4yN"/>
+                        <constraint firstAttribute="height" constant="52" id="QPR-EQ-WNa"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N1u-Ig-agp">
+                    <rect key="frame" x="352" y="24" width="62" height="52"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="YcA-SV-1WG" secondAttribute="bottom" id="1pM-s9-Tuh"/>
-                <constraint firstAttribute="bottom" secondItem="YDM-eQ-9Zm" secondAttribute="bottom" id="BEh-Su-8e5"/>
-                <constraint firstItem="YcA-SV-1WG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="CWp-EY-30A"/>
-                <constraint firstItem="YDM-eQ-9Zm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Ikp-u9-ibp"/>
-                <constraint firstItem="YDM-eQ-9Zm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="TDE-ad-VcT"/>
-                <constraint firstItem="YcA-SV-1WG" firstAttribute="leading" secondItem="YDM-eQ-9Zm" secondAttribute="trailing" constant="14" id="X9l-si-qaB"/>
+                <constraint firstItem="N1u-Ig-agp" firstAttribute="trailing" secondItem="YcA-SV-1WG" secondAttribute="trailing" id="1GU-Lv-7EW"/>
+                <constraint firstItem="YcA-SV-1WG" firstAttribute="leading" secondItem="3wA-84-8jR" secondAttribute="trailing" constant="10" id="A3U-Hc-IX0"/>
+                <constraint firstItem="Mgp-6m-stF" firstAttribute="height" secondItem="YcA-SV-1WG" secondAttribute="height" multiplier="0.92" id="EMI-Ks-eZf"/>
+                <constraint firstItem="3wA-84-8jR" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="IG1-UH-0sx"/>
+                <constraint firstItem="3wA-84-8jR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="IT4-YG-oW7"/>
+                <constraint firstItem="YcA-SV-1WG" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="SH4-40-8Zz"/>
+                <constraint firstItem="N1u-Ig-agp" firstAttribute="top" secondItem="YcA-SV-1WG" secondAttribute="top" id="aFm-Xk-YDF"/>
+                <constraint firstItem="Mgp-6m-stF" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="aNc-t7-udv"/>
+                <constraint firstItem="N1u-Ig-agp" firstAttribute="bottom" secondItem="YcA-SV-1WG" secondAttribute="bottom" id="fQZ-tQ-asf"/>
+                <constraint firstItem="N1u-Ig-agp" firstAttribute="leading" secondItem="YcA-SV-1WG" secondAttribute="leading" id="lT1-SZ-VcZ"/>
                 <constraint firstAttribute="trailing" secondItem="YcA-SV-1WG" secondAttribute="trailing" id="lcz-3F-Ln9"/>
+                <constraint firstItem="Mgp-6m-stF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="rJ9-qq-oST"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="eventCount" destination="YcA-SV-1WG" id="3x6-La-Hxp"/>
+                <outlet property="button" destination="N1u-Ig-agp" id="Z7d-8u-aPN"/>
+                <outlet property="eventDescription" destination="xht-bU-B3G" id="41s-Y2-vtb"/>
                 <outlet property="eventTitle" destination="YDM-eQ-9Zm" id="Vmj-AH-HCZ"/>
+                <outlet property="eventValue" destination="YcA-SV-1WG" id="CSr-8k-Sds"/>
+                <outlet property="separator" destination="Mgp-6m-stF" id="NYo-xD-f9N"/>
             </connections>
-            <point key="canvasLocation" x="132" y="84"/>
+            <point key="canvasLocation" x="131.8840579710145" y="83.705357142857139"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

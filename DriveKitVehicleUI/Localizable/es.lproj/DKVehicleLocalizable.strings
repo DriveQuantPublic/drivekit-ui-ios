@@ -47,6 +47,8 @@
 "dk_vehicle_beacon_already_paired_to_vehicle"="Esta beacon ya está emparejada con este vehículo.";
 "dk_vehicle_beacon_deactivate_alert"="La baliza %@ se disociará del vehículo %@. \n ¿Estás seguro de que quieres continuar?";
 "dk_vehicle_beacon_diagnostic_alert"="Aún no has configurado una baliza.";
+"dk_vehicle_beacon_enable_bluetooth_alert_message"="Debes activar el sensor de Bluetooth del teléfono para verificar la presencia de la caja de Bluetooth.";
+"dk_vehicle_beacon_enable_bluetooth_alert_title"="Sensor Bluetooth";
 "dk_vehicle_beacon_major"="Major";
 "dk_vehicle_beacon_minor"="Minor";
 "dk_vehicle_beacon_scan_retry"="Toca la pantalla para volver a intentarlo";
@@ -68,7 +70,7 @@
 "dk_vehicle_beacon_setup_successlink_message"="Felicitaciones! \n\n El beacon %@ está ahora asociada con el vehículo %@";
 "dk_vehicle_beacon_start_scan"="Coloque su beacon cerca de su teléfono y toque en la pantalla";
 "dk_vehicle_beacon_verify_wrong_vehicle"="La baliza detectada no está asociada a este vehículo.";
-"dk_vehicle_beacon_wait_scan"="Espera unos 10 segundos ...";
+"dk_vehicle_beacon_wait_scan"="Espera unos 10 segundos...";
 "dk_vehicle_begin"="Comenzar";
 "dk_vehicle_bluetooth_already_paired"="El dispositivo Bluetooth %@ ya está conectado a otro vehículo. Primero debe liberar este dispositivo antes de emparejarlo con %@.";
 "dk_vehicle_bluetooth_combination_view_title"="Enlazar un dispositivo Bluetooth";

@@ -12,7 +12,7 @@ import DriveKitCommonUI
 public class DriveKitDriverDataUI {
     
     private(set) var tripData: TripData = .safety
-    private(set) var mapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .interactiveMap, .synthesis]
+    private(set) var mapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .speeding, .interactiveMap, .synthesis]
     private(set) var headerDay: HeaderDay = .durationDistance
     private(set) var dayTripDescendingOrder: Bool = false
     private(set) var customMapItem: DKMapItem?
@@ -27,7 +27,7 @@ public class DriveKitDriverDataUI {
     
     private init() {}
     
-    public func initialize(tripData: TripData = .safety, mapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .interactiveMap, .synthesis]) {
+    public func initialize(tripData: TripData = .safety, mapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .speeding, .interactiveMap, .synthesis]) {
         self.tripData = tripData
         self.mapItems = mapItems
     }

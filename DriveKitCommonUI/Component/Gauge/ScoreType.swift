@@ -9,7 +9,7 @@
 import UIKit
 
 public enum ScoreType: String {
-    case safety, ecoDriving, distraction
+    case safety, ecoDriving, distraction, speeding
     
     public func image() -> UIImage? {
         switch self {
@@ -18,6 +18,9 @@ public enum ScoreType: String {
         case .safety:
             return DKImages.safety.image
         case .distraction:
+            return DKImages.distraction.image
+        case .speeding:
+            // TODO: update speeding image
             return DKImages.distraction.image
         }
     }
@@ -39,6 +42,8 @@ public enum ScoreType: String {
             return [0, 5.5, 6.5, 7.5, 8.5, 9.5, 10]
         case .distraction:
             return [1 ,7 ,8 , 8.5, 9 ,9.5 , 10]
+        case .speeding:
+            return [1 ,3 ,5, 7, 8, 9 ,9.5 , 10]
         }
     }
     
@@ -50,7 +55,8 @@ public enum ScoreType: String {
             return  DKCommonLocalizable.safety.text()
         case .distraction:
             return DKCommonLocalizable.distraction.text()
-            
+        case .speeding:
+            return DKCommonLocalizable.speeding.text()
         }
     }
 }

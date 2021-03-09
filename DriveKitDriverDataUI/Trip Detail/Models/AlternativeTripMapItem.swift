@@ -56,4 +56,8 @@ class AlternativeTripMapItem : DKMapItem {
     func overrideShortTrip() -> Bool {
         return true
     }
+
+    func shouldShowSpeedingArea() -> Bool {
+        return false
+    }
 }

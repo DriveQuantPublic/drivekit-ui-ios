@@ -11,7 +11,7 @@ import DriveKitDBTripAccessModule
 import DriveKitCommonUI
 
 public enum TripData: String {
-    case ecoDriving, safety, distraction, distance, duration
+    case ecoDriving, safety, distraction, distance, duration, speeding
     
     func isScored(trip: Trip) -> Bool {
         switch self {
@@ -30,6 +30,11 @@ public enum TripData: String {
                 return false
             }
             return score <= 10 ? true : false
+        case .speeding:
+            guard let score = trip.speedingStatistics?.score else {
+                return false
+            }
+            return score <= 10 ? true : false
         case .distance, .duration:
             return true
         }
@@ -43,6 +48,8 @@ public enum TripData: String {
             return String(format: "%.1f", trip.safety?.safetyScore ?? 0)
         case .distraction:
             return String(format: "%.1f", trip.driverDistraction?.score ?? 0)
+        case .speeding:
+            return String(format: "%.1f", trip.speedingStatistics?.score ?? 0)
         case .distance:
             return trip.tripStatistics?.distance.formatMeterDistanceInKm() ?? "0 \(DKCommonLocalizable.unitKilometer.text())"
         case .duration:
@@ -53,7 +60,7 @@ public enum TripData: String {
     
     func displayType() -> DisplayType {
         switch self {
-        case .ecoDriving, .safety, .distraction:
+        case .ecoDriving, .safety, .distraction, .speeding:
             return .gauge
         case .duration, .distance:
             return .text

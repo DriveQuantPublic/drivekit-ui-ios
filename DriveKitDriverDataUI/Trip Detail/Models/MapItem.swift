@@ -44,8 +44,7 @@ public enum MapItem : DKMapItem {
         case .synthesis:
             return DKImages.info.image
         case .speeding:
-            // TODO: update image
-            return DKImages.info.image
+            return DKImages.speeding.image
         }
     }
     
@@ -62,8 +61,7 @@ public enum MapItem : DKMapItem {
         case .synthesis:
             return DKImages.infoFilled.image
         case .speeding:
-            // TODO: update image
-            return DKImages.infoFilled.image
+            return DKImages.speedingFilled.image
         }
     }
     

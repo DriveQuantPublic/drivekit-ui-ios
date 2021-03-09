@@ -8,6 +8,7 @@
 
 import UIKit
 import DriveKitCommonUI
+import DriveKitCoreModule
 
 public class DriveKitDriverDataUI {
     
@@ -27,7 +28,15 @@ public class DriveKitDriverDataUI {
     
     private init() {}
     
-    public func initialize(tripData: TripData = .safety, mapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .speeding, .interactiveMap, .synthesis]) {
+    public func initialize(tripData: TripData = .safety) {
+        var mapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .speeding, .interactiveMap, .synthesis]
+        if !DriveKitAccess.shared.hasAccess(.speeding) {
+            mapItems = [.safety, .ecoDriving, .distraction, .interactiveMap, .synthesis]
+        }
+        initialize(tripData: tripData, mapItems: mapItems)
+    }
+
+    public func initialize(tripData: TripData = .safety, mapItems: [MapItem]) {
         self.tripData = tripData
         self.mapItems = mapItems
     }

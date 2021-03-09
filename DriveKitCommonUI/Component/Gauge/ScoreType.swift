@@ -20,8 +20,7 @@ public enum ScoreType: String {
         case .distraction:
             return DKImages.distraction.image
         case .speeding:
-            // TODO: update speeding image
-            return DKImages.distraction.image
+            return DKImages.speeding.image
         }
     }
     

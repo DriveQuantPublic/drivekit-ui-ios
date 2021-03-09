@@ -25,7 +25,8 @@ class MapViewController: DKUIViewController {
     var distractionPolyLines: [MKPolyline]?
     var phoneCallPolylines: [MKPolyline]?
     var authorizedPhoneCallPolylines: [MKPolyline]?
-    
+    var speedingPolylines: [MKPolyline]?
+
     var startAnnotation : MKPointAnnotation? = nil
     var endAnnotation: MKPointAnnotation? = nil
     
@@ -102,6 +103,18 @@ class MapViewController: DKUIViewController {
                     }
                 }
             }
+
+            if let mapItem = mapItem, mapItem.shouldShowSpeedingArea() {
+                self.computeSpeedingPolylines()
+                self.drawSpeeding(route: route)
+            } else {
+                if let speedingPolylines = self.speedingPolylines {
+                    for speedingPolyline in speedingPolylines {
+                        self.mapView.removeOverlay(speedingPolyline)
+                    }
+                }
+            }
+
             self.drawStartEndMarker(route: route)
             self.drawMarker(mapItem: mapItem, route: route, mapTraceType: mapTraceType)
             self.fitPath()
@@ -152,7 +165,21 @@ class MapViewController: DKUIViewController {
         }
         return (phoneCallPolylines, authorizedPhoneCallPolylines)
     }
-    
+
+    private func getSpeedingPolylines(route: Route) -> [[CLLocationCoordinate2D]] {
+        var speedingPolylines: [[CLLocationCoordinate2D]] = []
+        let routePolyline = self.getPolyline(longitude: route.longitude!, latitude: route.latitude!)
+        if let indexes = route.speedingIndex, indexes.count > 1 {
+            for i in 1..<indexes.count {
+                let minValue = min(indexes[i - 1], indexes[i])
+                let maxValue = max(indexes[i - 1], indexes[i])
+                let line = Array(routePolyline[minValue...maxValue])
+                speedingPolylines.append(line)
+            }
+        }
+        return speedingPolylines
+    }
+
     private func computeDistractionPolylines() {
         if let route = self.viewModel.route {
             if self.viewModel.configurableMapItems.contains(MapItem.distraction) && self.distractionPolyLines == nil {
@@ -179,7 +206,20 @@ class MapViewController: DKUIViewController {
             }
         }
     }
-    
+
+    private func computeSpeedingPolylines() {
+        if let route = self.viewModel.route {
+            if self.viewModel.configurableMapItems.contains(MapItem.speeding) && self.speedingPolylines == nil {
+                var speedingPolylines = [MKPolyline]()
+                for speedingPolylinePart in self.getSpeedingPolylines(route: route) {
+                    let speedingPolyLine = MKPolyline.init(coordinates: speedingPolylinePart, count: speedingPolylinePart.count)
+                    speedingPolylines.append(speedingPolyLine)
+                }
+                self.speedingPolylines = speedingPolylines
+            }
+        }
+    }
+
     private func drawDistraction(route: Route) {
         if let distractionPolyLines = self.distractionPolyLines {
             for distractionPolyline in distractionPolyLines {
@@ -244,7 +284,31 @@ class MapViewController: DKUIViewController {
             }
         }
     }
-  
+
+    private func drawSpeeding(route: Route) {
+        if let speedingPolylines = self.speedingPolylines {
+            for speedingPolyline in speedingPolylines {
+                if let line = self.polyLine {
+                    self.mapView.insertOverlay(speedingPolyline, above: line)
+                } else {
+                     self.mapView.addOverlay(speedingPolyline, level: MKOverlayLevel.aboveRoads)
+                }
+            }
+        } else {
+            var speedingPolylines = [MKPolyline]()
+            for speedingPolylinePart in self.getDistractionPolyline(route: route) {
+                let speedingPolyline = MKPolyline.init(coordinates: speedingPolylinePart, count: speedingPolylinePart.count)
+                speedingPolylines.append(speedingPolyline)
+                if let line = self.polyLine {
+                    self.mapView.insertOverlay(speedingPolyline, above: line)
+                } else {
+                     self.mapView.addOverlay(speedingPolyline, level: MKOverlayLevel.aboveRoads)
+                }
+                self.speedingPolylines = speedingPolylines
+            }
+        }
+    }
+
     private func drawMarker(mapItem: DKMapItem?, route: Route, mapTraceType: DKMapTraceType){
         cleanAllMarkers()
         cleanSafetyAndDistractionMarkers()

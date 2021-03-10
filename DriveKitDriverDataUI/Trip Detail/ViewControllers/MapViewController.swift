@@ -37,6 +37,8 @@ class MapViewController: DKUIViewController {
     var allAnnotations: [MKPointAnnotation]? = nil
     
     let lineWidth: CGFloat = 3.0
+    let maxTapDistanceInPixel: Int = 30
+    let speedingPolylinesTag: String = "speeding"
 
     init(viewModel: TripDetailViewModel) {
         self.viewModel = viewModel
@@ -51,6 +53,8 @@ class MapViewController: DKUIViewController {
         super.viewDidLoad()
         mapView.showsCompass = false
         self.mapView.delegate = self
+        let mapTap = UITapGestureRecognizer(target: self, action: #selector(mapTapped))
+        mapView.addGestureRecognizer(mapTap)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -171,10 +175,12 @@ class MapViewController: DKUIViewController {
         let routePolyline = self.getPolyline(longitude: route.longitude!, latitude: route.latitude!)
         if let indexes = route.speedingIndex, indexes.count > 1 {
             for i in 1..<indexes.count {
-                let minValue = min(indexes[i - 1], indexes[i])
-                let maxValue = max(indexes[i - 1], indexes[i])
-                let line = Array(routePolyline[minValue...maxValue])
-                speedingPolylines.append(line)
+                if i % 2 == 1 {
+                    let minValue = min(indexes[i - 1], indexes[i])
+                    let maxValue = max(indexes[i - 1], indexes[i])
+                    let line = Array(routePolyline[minValue...maxValue])
+                    speedingPolylines.append(line)
+                }
             }
         }
         return speedingPolylines
@@ -213,6 +219,7 @@ class MapViewController: DKUIViewController {
                 var speedingPolylines = [MKPolyline]()
                 for speedingPolylinePart in self.getSpeedingPolylines(route: route) {
                     let speedingPolyLine = MKPolyline.init(coordinates: speedingPolylinePart, count: speedingPolylinePart.count)
+                    speedingPolyLine.title = speedingPolylinesTag
                     speedingPolylines.append(speedingPolyLine)
                 }
                 self.speedingPolylines = speedingPolylines
@@ -684,6 +691,69 @@ extension MapViewController: MKMapViewDelegate {
         let alert = UIAlertController(title: event.getTitle(), message: event.getExplanation(), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title:DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
+    }
+
+    @objc private func speedingPolylineTapped() {
+        let alert = UIAlertController(title: "dk_driverdata_speeding_event".dkDriverDataLocalized(), message: "dk_driverdata_speeding_event_info_content".dkDriverDataLocalized(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    // MARK: Map interaction functions (to display speeding popup)
+    @objc func mapTapped(_ tap: UITapGestureRecognizer) {
+        if let displayMapItem: MapItem = viewModel.displayMapItem as? MapItem, displayMapItem == .speeding, tap.state == .recognized {
+            // Get map coordinate from touch point
+            let touchPt: CGPoint = tap.location(in: mapView)
+            let coord: CLLocationCoordinate2D = mapView.convert(touchPt, toCoordinateFrom: mapView)
+            let maxMeters: Double = meters(fromPixel: maxTapDistanceInPixel, at: touchPt)
+            var nearestDistance: Double = .greatestFiniteMagnitude
+            for overlay: MKOverlay in mapView.overlays {
+                if let polyline = overlay as? MKPolyline, polyline.title == speedingPolylinesTag {
+                    let distance: Double = distanceOf(pt: MKMapPoint(coord), toPoly: polyline)
+                    if distance < nearestDistance {
+                        nearestDistance = distance
+                    }
+                }
+            }
+            if Double(nearestDistance) <= maxMeters {
+                speedingPolylineTapped()
+            }
+        }
+    }
+
+    private func distanceOf(pt: MKMapPoint, toPoly poly: MKPolyline) -> Double {
+        var distance: Double = Double(MAXFLOAT)
+        for n in 0..<poly.pointCount - 1 {
+            let ptA = poly.points()[n]
+            let ptB = poly.points()[n + 1]
+            let xDelta: Double = ptB.x - ptA.x
+            let yDelta: Double = ptB.y - ptA.y
+            if xDelta == 0.0 && yDelta == 0.0 {
+                // Points must not be equal
+                continue
+            }
+            let u: Double = ((pt.x - ptA.x) * xDelta + (pt.y - ptA.y) * yDelta) / (xDelta * xDelta + yDelta * yDelta)
+            var ptClosest: MKMapPoint
+            if u < 0.0 {
+                ptClosest = ptA
+            }
+            else if u > 1.0 {
+                ptClosest = ptB
+            }
+            else {
+                ptClosest = MKMapPoint(x: ptA.x + u * xDelta, y: ptA.y + u * yDelta)
+            }
+
+            distance = min(distance, ptClosest.distance(to: pt))
+        }
+        return distance
+    }
+
+    private func meters(fromPixel px: Int, at pt: CGPoint) -> Double {
+        let ptB = CGPoint(x: pt.x + CGFloat(px), y: pt.y)
+        let coordA: CLLocationCoordinate2D = mapView.convert(pt, toCoordinateFrom: mapView)
+        let coordB: CLLocationCoordinate2D = mapView.convert(ptB, toCoordinateFrom: mapView)
+        return MKMapPoint(coordA).distance(to: MKMapPoint(coordB))
     }
 }
 

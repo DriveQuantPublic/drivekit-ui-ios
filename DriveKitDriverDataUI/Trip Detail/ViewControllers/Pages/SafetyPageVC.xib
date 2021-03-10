@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SafetyPageVC" customModule="DriveKitDriverDataUI" customModuleProvider="target">
             <connections>
                 <outlet property="eventContainer" destination="tgV-37-Td2" id="RHb-IT-xgh"/>
+                <outlet property="infoButton" destination="pd6-tB-jZ4" id="a5e-39-kPN"/>
                 <outlet property="progressRingContainer" destination="e7I-Eu-U1f" id="Qsc-ya-9JP"/>
                 <outlet property="progressRingTitle" destination="S2J-PH-3a5" id="LGj-Ry-wIB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -32,19 +33,31 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2J-PH-3a5">
-                            <rect key="frame" x="0.0" y="116" width="100" height="20.5"/>
+                            <rect key="frame" x="0.0" y="110" width="100" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pd6-tB-jZ4">
+                            <rect key="frame" x="37.5" y="132.5" width="25" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="8hH-kg-Fhk"/>
+                                <constraint firstAttribute="height" constant="24" id="M9O-1S-lSZ"/>
+                            </constraints>
+                            <connections>
+                                <action selector="infoAction:" destination="-1" eventType="touchUpInside" id="eWT-NJ-G0b"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="pd6-tB-jZ4" firstAttribute="centerX" secondItem="S2J-PH-3a5" secondAttribute="centerX" id="IHH-CP-mqr"/>
                         <constraint firstItem="S2J-PH-3a5" firstAttribute="leading" secondItem="4Aj-Yn-Igb" secondAttribute="leading" id="J0L-fO-vpC"/>
                         <constraint firstAttribute="trailing" secondItem="e7I-Eu-U1f" secondAttribute="trailing" id="JEj-Nl-zFB"/>
                         <constraint firstItem="e7I-Eu-U1f" firstAttribute="top" secondItem="4Aj-Yn-Igb" secondAttribute="top" id="OLO-ug-VJH"/>
                         <constraint firstItem="e7I-Eu-U1f" firstAttribute="leading" secondItem="4Aj-Yn-Igb" secondAttribute="leading" id="OhC-tR-KdY"/>
-                        <constraint firstItem="S2J-PH-3a5" firstAttribute="top" secondItem="e7I-Eu-U1f" secondAttribute="bottom" constant="16" id="SdO-ZD-UYE"/>
+                        <constraint firstItem="S2J-PH-3a5" firstAttribute="top" secondItem="e7I-Eu-U1f" secondAttribute="bottom" constant="10" id="SdO-ZD-UYE"/>
+                        <constraint firstItem="pd6-tB-jZ4" firstAttribute="top" secondItem="S2J-PH-3a5" secondAttribute="bottom" constant="2" id="djI-Od-Ope"/>
                         <constraint firstAttribute="trailing" secondItem="S2J-PH-3a5" secondAttribute="trailing" id="m2b-rz-ejR"/>
                     </constraints>
                 </view>

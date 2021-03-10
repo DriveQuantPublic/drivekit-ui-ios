@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="circularRingContainer" destination="Fnm-JE-D7G" id="jhz-7Z-Vhb"/>
                 <outlet property="circularRingTitle" destination="Wx6-5x-Fgf" id="S0E-mu-y0g"/>
+                <outlet property="infoButton" destination="Ecr-bW-bRD" id="K2h-Mo-lku"/>
                 <outlet property="summaryContainer" destination="hbP-5g-NQ8" id="Jgf-Gh-5O7"/>
                 <outlet property="view" destination="lFA-TA-CBL" id="Sst-n3-VFN"/>
             </connections>
@@ -33,18 +34,30 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wx6-5x-Fgf">
-                            <rect key="frame" x="0.0" y="116" width="100" height="20.5"/>
+                            <rect key="frame" x="0.0" y="110" width="100" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ecr-bW-bRD">
+                            <rect key="frame" x="37.5" y="132.5" width="25" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="Zfn-Ol-TVd"/>
+                                <constraint firstAttribute="height" constant="24" id="x9f-Kw-kiX"/>
+                            </constraints>
+                            <connections>
+                                <action selector="infoAction:" destination="-1" eventType="touchUpInside" id="m2h-Rz-vLv"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="Wx6-5x-Fgf" firstAttribute="leading" secondItem="gI6-Pc-tBa" secondAttribute="leading" id="30r-PF-zfb"/>
+                        <constraint firstItem="Ecr-bW-bRD" firstAttribute="centerX" secondItem="Wx6-5x-Fgf" secondAttribute="centerX" id="68w-lb-ON0"/>
                         <constraint firstItem="Fnm-JE-D7G" firstAttribute="leading" secondItem="gI6-Pc-tBa" secondAttribute="leading" id="9Rb-yQ-eCe"/>
                         <constraint firstAttribute="trailing" secondItem="Fnm-JE-D7G" secondAttribute="trailing" id="Ha4-Wz-DcF"/>
-                        <constraint firstItem="Wx6-5x-Fgf" firstAttribute="top" secondItem="Fnm-JE-D7G" secondAttribute="bottom" constant="16" id="MFU-cH-D8M"/>
+                        <constraint firstItem="Ecr-bW-bRD" firstAttribute="top" secondItem="Wx6-5x-Fgf" secondAttribute="bottom" constant="2" id="KeI-hx-0oZ"/>
+                        <constraint firstItem="Wx6-5x-Fgf" firstAttribute="top" secondItem="Fnm-JE-D7G" secondAttribute="bottom" constant="10" id="MFU-cH-D8M"/>
                         <constraint firstItem="Fnm-JE-D7G" firstAttribute="top" secondItem="gI6-Pc-tBa" secondAttribute="top" id="UKo-8G-gJh"/>
                         <constraint firstAttribute="trailing" secondItem="Wx6-5x-Fgf" secondAttribute="trailing" id="mI6-Bm-noC"/>
                     </constraints>

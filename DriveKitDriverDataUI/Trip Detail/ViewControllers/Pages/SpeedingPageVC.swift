@@ -14,6 +14,7 @@ class SpeedingPageVC: UIViewController {
     @IBOutlet private var circularRingContainer: UIView!
     @IBOutlet private var circularRingTitle: UILabel!
     @IBOutlet private var summaryContainer: UIStackView!
+    @IBOutlet private var infoButton: UIButton!
 
     private var viewModel: SpeedingPageViewModel
 
@@ -41,10 +42,17 @@ class SpeedingPageVC: UIViewController {
         circularRingContainer.embedSubview(score)
         circularRingTitle.attributedText = viewModel.getScoreTitle().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
         setupSummaryContainer()
+        infoButton.tintColor = DKUIColors.secondaryColor.color
     }
     
     func setupSummaryContainer() {
         summaryContainer.removeAllSubviews()
 
+    }
+    
+    @IBAction func infoAction(_ sender:UIButton) {
+        let alert = UIAlertController(title: "dk_driverdata_speeding_score".dkDriverDataLocalized(), message: "dk_driverdata_speeding_score_info".dkDriverDataLocalized(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }

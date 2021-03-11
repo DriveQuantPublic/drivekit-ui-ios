@@ -258,6 +258,8 @@
 		67CFE99F25F6425F004D0AE1 /* SpeedingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE99D25F6425F004D0AE1 /* SpeedingPageVC.swift */; };
 		67CFE9A025F6425F004D0AE1 /* SpeedingPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67CFE99E25F6425F004D0AE1 /* SpeedingPageVC.xib */; };
 		67CFE9A725F645EA004D0AE1 /* SpeedingPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */; };
+		67CFE9F925FA1385004D0AE1 /* SpeedingPageItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE9F825FA1385004D0AE1 /* SpeedingPageItemView.swift */; };
+		67CFEA0025FA16EC004D0AE1 /* SpeedingPageItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67CFE9FF25FA16EC004D0AE1 /* SpeedingPageItemView.xib */; };
 		6FEDF9ABE856C7367CDBBC69 /* Pods_DriveKitCommonUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0425AC91525E20565C140CA4 /* Pods_DriveKitCommonUI.framework */; };
 		A30F4F1523D5DA08009A37C2 /* SynthesisPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30F4F1423D5DA08009A37C2 /* SynthesisPageViewModel.swift */; };
 		A30F4F1823D5DA14009A37C2 /* SynthesisPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30F4F1623D5DA14009A37C2 /* SynthesisPageVC.swift */; };
@@ -721,6 +723,8 @@
 		67CFE99D25F6425F004D0AE1 /* SpeedingPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageVC.swift; sourceTree = "<group>"; };
 		67CFE99E25F6425F004D0AE1 /* SpeedingPageVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedingPageVC.xib; sourceTree = "<group>"; };
 		67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageViewModel.swift; sourceTree = "<group>"; };
+		67CFE9F825FA1385004D0AE1 /* SpeedingPageItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageItemView.swift; sourceTree = "<group>"; };
+		67CFE9FF25FA16EC004D0AE1 /* SpeedingPageItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedingPageItemView.xib; sourceTree = "<group>"; };
 		71C90D9FE8ADAE9597A8BE8A /* Pods-DriveKitDriverAchievementUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverAchievementUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverAchievementUI/Pods-DriveKitDriverAchievementUI.debug.xcconfig"; sourceTree = "<group>"; };
 		845F2C5F9472B0D7B5972830 /* Pods-DriveKitDriverData.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverData.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverData/Pods-DriveKitDriverData.debug.xcconfig"; sourceTree = "<group>"; };
 		88D27862C0BB1621E356D771 /* Pods-DriveKitCommonUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitCommonUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitCommonUI/Pods-DriveKitCommonUI.release.xcconfig"; sourceTree = "<group>"; };
@@ -1694,6 +1698,8 @@
 				A342383C2361A2430001E15D /* DistractionPageView.swift */,
 				A342383E2361A2430001E15D /* SafetyPageView.xib */,
 				A342383B2361A2430001E15D /* SafetyPageView.swift */,
+				67CFE9F825FA1385004D0AE1 /* SpeedingPageItemView.swift */,
+				67CFE9FF25FA16EC004D0AE1 /* SpeedingPageItemView.xib */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -2252,6 +2258,7 @@
 				A34238832361A2440001E15D /* EcoDrivingPageView.xib in Resources */,
 				A34238972361A2440001E15D /* TripTableViewCell.xib in Resources */,
 				A342386F2361A2430001E15D /* MapViewController.xib in Resources */,
+				67CFEA0025FA16EC004D0AE1 /* SpeedingPageItemView.xib in Resources */,
 				A34238712361A2430001E15D /* DistractionPageVC.xib in Resources */,
 				6378AF692593F470002F0BBD /* AlternativeTripImageView.xib in Resources */,
 				A342387C2361A2440001E15D /* CalloutView.xib in Resources */,
@@ -2677,6 +2684,7 @@
 				A34238762361A2440001E15D /* SafetyPageVC.swift in Sources */,
 				A34238682361A2430001E15D /* DistractionPageViewModel.swift in Sources */,
 				A34238632361A2430001E15D /* TripDetailViewModel.swift in Sources */,
+				67CFE9F925FA1385004D0AE1 /* SpeedingPageItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

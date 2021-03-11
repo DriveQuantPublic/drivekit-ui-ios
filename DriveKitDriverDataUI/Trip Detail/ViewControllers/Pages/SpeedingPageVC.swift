@@ -48,6 +48,13 @@ class SpeedingPageVC: UIViewController {
     func setupSummaryContainer() {
         summaryContainer.removeAllSubviews()
 
+        let distanceView = SpeedingPageItemView.viewFromNib
+        distanceView.configure(title: viewModel.getDistanceTitle(), description: viewModel.getDistanceDescription(), value: viewModel.getDistancePercentage(), displayValue: true)
+        summaryContainer.addArrangedSubview(distanceView)
+
+        let durationView = SpeedingPageItemView.viewFromNib
+        durationView.configure(title: viewModel.getDurationTitle(), description: viewModel.getDurationDescription(), value: viewModel.getDurationPercentage(), displayValue: viewModel.shouldDisplayDuration())
+        summaryContainer.addArrangedSubview(durationView)
     }
     
     @IBAction func infoAction(_ sender:UIButton) {

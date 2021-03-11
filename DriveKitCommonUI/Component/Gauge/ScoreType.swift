@@ -42,7 +42,7 @@ public enum ScoreType: String {
         case .distraction:
             return [1 ,7 ,8 , 8.5, 9 ,9.5 , 10]
         case .speeding:
-            return [1 ,3 ,5, 7, 8, 9 ,9.5 , 10]
+            return [3 ,5, 7, 8, 9 ,9.5, 10]
         }
     }
     

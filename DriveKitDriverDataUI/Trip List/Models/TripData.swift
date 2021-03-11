@@ -12,34 +12,26 @@ import DriveKitCommonUI
 
 public enum TripData: String {
     case ecoDriving, safety, distraction, distance, duration, speeding
-    
+
     func isScored(trip: Trip) -> Bool {
         switch self {
-        case .ecoDriving:
-            guard let score = trip.ecoDriving?.score else {
-                return false
-            }
-            return score <= 10 ? true : false
-        case .safety:
-            guard let score = trip.safety?.safetyScore else {
-                return false
-            }
-            return score <= 10 ? true : false
+        case .safety, .ecoDriving:
+            return !trip.unscored
         case .distraction:
-            guard let score = trip.driverDistraction?.score else {
-                return false
+            if !trip.unscored, let score = trip.driverDistraction?.score {
+                return score <= 10
             }
-            return score <= 10 ? true : false
+            return false
         case .speeding:
-            guard let score = trip.speedingStatistics?.score else {
-                return false
+            if !trip.unscored, let score = trip.speedingStatistics?.score {
+                return score <= 10
             }
-            return score <= 10 ? true : false
+            return false
         case .distance, .duration:
             return true
         }
     }
-    
+
     func stringValue(trip: Trip) -> String {
         switch self {
         case .ecoDriving:

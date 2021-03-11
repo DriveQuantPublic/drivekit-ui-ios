@@ -16,6 +16,7 @@ final class SpeedingPageItemView: UIView, Nibable {
     @IBOutlet private var eventDescription: UILabel!
     @IBOutlet private var separator: UIView!
     @IBOutlet private var percentageViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet private var percentageViewMarginConstraint: NSLayoutConstraint!
 
     private let grayColor = UIColor(hex:0x9e9e9e)
 
@@ -51,6 +52,7 @@ final class SpeedingPageItemView: UIView, Nibable {
         self.eventValue.text = value
         if !displayValue {
             percentageViewWidthConstraint.constant = 0
+            percentageViewMarginConstraint.constant = 0
             self.eventValue.isHidden = true
         }
         updateTextIntrinsicContentSize()

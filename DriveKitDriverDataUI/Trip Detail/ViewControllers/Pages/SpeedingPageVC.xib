@@ -63,7 +63,7 @@
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hbP-5g-NQ8">
-                    <rect key="frame" x="124" y="20" width="276" height="146"/>
+                    <rect key="frame" x="124" y="14" width="276" height="158"/>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="bpm-Df-43g"/>
@@ -71,9 +71,9 @@
             <constraints>
                 <constraint firstItem="gI6-Pc-tBa" firstAttribute="leading" secondItem="lFA-TA-CBL" secondAttribute="leading" constant="14" id="IcE-oK-eqA"/>
                 <constraint firstItem="gI6-Pc-tBa" firstAttribute="top" secondItem="lFA-TA-CBL" secondAttribute="top" constant="14" id="JM3-T6-TWw"/>
-                <constraint firstItem="hbP-5g-NQ8" firstAttribute="top" secondItem="lFA-TA-CBL" secondAttribute="top" constant="20" id="RbB-v9-n4A"/>
+                <constraint firstItem="hbP-5g-NQ8" firstAttribute="top" secondItem="lFA-TA-CBL" secondAttribute="top" constant="14" id="RbB-v9-n4A"/>
                 <constraint firstItem="hbP-5g-NQ8" firstAttribute="leading" secondItem="gI6-Pc-tBa" secondAttribute="trailing" constant="10" id="UkT-EJ-rnY"/>
-                <constraint firstAttribute="bottom" secondItem="hbP-5g-NQ8" secondAttribute="bottom" constant="20" id="XyS-1Y-OQ1"/>
+                <constraint firstAttribute="bottom" secondItem="hbP-5g-NQ8" secondAttribute="bottom" constant="14" id="XyS-1Y-OQ1"/>
                 <constraint firstAttribute="bottom" secondItem="gI6-Pc-tBa" secondAttribute="bottom" constant="14" id="sdU-7h-MQF"/>
                 <constraint firstAttribute="trailing" secondItem="hbP-5g-NQ8" secondAttribute="trailing" constant="14" id="wmr-0M-nGW"/>
             </constraints>

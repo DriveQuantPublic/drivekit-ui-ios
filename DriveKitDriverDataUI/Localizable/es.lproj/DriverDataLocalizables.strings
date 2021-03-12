@@ -79,8 +79,8 @@ Manejar el teléfono mientras se conduce es muy peligroso. Recuerde que debe pro
 "dk_driverdata_screen_unlock_text"="La aplicación ha detectado una apertura de pantalla. Manejar su teléfono mientras conduce es muy peligroso. Recuerde siempre protegerse, así como a sus pasajeros y a los demás usuarios de la carretera. Si debe llamar o enviar un mensaje, su vehículo debe estar estacionado en un lugar de estacionamiento con el motor apagado.";
 "dk_driverdata_speeding_event"="Exceso de velocidad";
 "dk_driverdata_speeding_event_info_content"="La aplicación ha detectado que se ha superado el límite de velocidad en este tramo de carretera. La velocidad es el factor número uno en los accidentes de tráfico mortales. Por su seguridad y la de sus pasajeros, es esencial respetar los límites de velocidad.";
-"dk_driverdata_speeding_events_distance"="Distancia relativa con velocidad superior al límite";
-"dk_driverdata_speeding_events_duration"="Tiempo relativo con velocidad superior al límite";
+"dk_driverdata_speeding_events_distance"="Distancia relativa al exceso de velocidad";
+"dk_driverdata_speeding_events_duration"="Duración relativa de la sobrecarga";
 "dk_driverdata_speeding_events_trip_description"="es decir, %@ de su viaje";
 "dk_driverdata_speeding_score"="Puntaje de velocidad";
 "dk_driverdata_speeding_score_info"="Esta puntuación refleja el respeto de los límites de velocidad. Evoluciona de acuerdo con la distancia recorrida por encima del límite legal. Cuanto mayor sea la distancia sobre el límite, menor será la puntuación.";

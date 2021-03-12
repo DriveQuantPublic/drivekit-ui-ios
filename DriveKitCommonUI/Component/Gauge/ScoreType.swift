@@ -55,7 +55,7 @@ public enum ScoreType: String {
         case .distraction:
             return DKCommonLocalizable.distraction.text()
         case .speeding:
-            return DKCommonLocalizable.speeding.text()
+            return DKCommonLocalizable.speed.text()
         }
     }
 }

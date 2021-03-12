@@ -41,8 +41,6 @@ final class SpeedingPageItemView: UIView, Nibable {
         super.layoutSubviews()
 
         self.eventValue.layer.cornerRadius = self.eventValue.bounds.size.height / 2
-        self.eventValue.layer.borderWidth = 0.5
-        self.eventValue.layer.borderColor = UIColor.black.cgColor
         updateTextIntrinsicContentSize()
     }
 

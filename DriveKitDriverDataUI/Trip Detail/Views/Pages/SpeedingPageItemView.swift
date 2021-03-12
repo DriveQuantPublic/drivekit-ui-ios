@@ -27,7 +27,8 @@ final class SpeedingPageItemView: UIView, Nibable {
         self.eventTitle.textColor = DKUIColors.mainFontColor.color
         self.eventTitle.font = DKStyles.highlightSmall.withSizeDelta(-1).applyTo(font: .primary)
         // Value.
-        self.eventValue.font = DKStyles.smallText.style.applyTo(font: .primary)
+        self.eventValue.font = DKStyle(size: DKStyles.smallText.style.size, traits: UIFontDescriptor.SymbolicTraits.traitBold).applyTo(font: .primary)
+
         self.eventValue.textColor = DKUIColors.primaryColor.color
         self.eventValue.layer.masksToBounds = true
         // Description.

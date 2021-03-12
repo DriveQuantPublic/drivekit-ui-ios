@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitCoreModule
 import DriveKitDBTripAccessModule
 import DriveKitCommonUI
 
@@ -194,5 +195,22 @@ public enum MapItem : DKMapItem {
             case .speeding:
                 return true
         }
+    }
+
+    func hasAccess() -> Bool {
+        let hasAccess: Bool
+        switch self {
+            case .distraction:
+                hasAccess = DriveKitAccess.shared.hasAccess(.phoneDistraction)
+            case .ecoDriving:
+                hasAccess = DriveKitAccess.shared.hasAccess(.ecoDriving)
+            case .safety:
+                hasAccess = DriveKitAccess.shared.hasAccess(.safety)
+            case .speeding:
+                hasAccess = DriveKitAccess.shared.hasAccess(.speeding)
+            case .interactiveMap, .synthesis:
+                hasAccess = true
+        }
+        return hasAccess
     }
 }

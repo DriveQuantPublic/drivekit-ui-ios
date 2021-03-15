@@ -38,7 +38,6 @@ class MapViewController: DKUIViewController {
     
     let lineWidth: CGFloat = 3.0
     let maxTapDistanceInPixel: Int = 30
-    let speedingPolylinesTag: String = "speeding"
 
     init(viewModel: TripDetailViewModel) {
         self.viewModel = viewModel
@@ -219,7 +218,6 @@ class MapViewController: DKUIViewController {
                 var speedingPolylines = [MKPolyline]()
                 for speedingPolylinePart in self.getSpeedingPolylines(route: route) {
                     let speedingPolyLine = MKPolyline.init(coordinates: speedingPolylinePart, count: speedingPolylinePart.count)
-                    speedingPolyLine.title = speedingPolylinesTag
                     speedingPolylines.append(speedingPolyLine)
                 }
                 self.speedingPolylines = speedingPolylines
@@ -701,21 +699,21 @@ extension MapViewController: MKMapViewDelegate {
 
     // MARK: Map interaction functions (to display speeding popup)
     @objc func mapTapped(_ tap: UITapGestureRecognizer) {
-        if let displayMapItem: MapItem = viewModel.displayMapItem as? MapItem, displayMapItem == .speeding, tap.state == .recognized {
+        if let displayMapItem: MapItem = viewModel.displayMapItem as? MapItem, displayMapItem == .speeding, tap.state == .recognized, let speedingPolylines = self.speedingPolylines {
             // Get map coordinate from touch point
             let touchPt: CGPoint = tap.location(in: mapView)
             let coord: CLLocationCoordinate2D = mapView.convert(touchPt, toCoordinateFrom: mapView)
             let maxMeters: Double = meters(fromPixel: maxTapDistanceInPixel, at: touchPt)
             var nearestDistance: Double = .greatestFiniteMagnitude
-            for overlay: MKOverlay in mapView.overlays {
-                if let polyline = overlay as? MKPolyline, polyline.title == speedingPolylinesTag {
+            for overlay: MKOverlay in speedingPolylines {
+                if let polyline = overlay as? MKPolyline {
                     let distance: Double = distanceOf(pt: MKMapPoint(coord), toPoly: polyline)
                     if distance < nearestDistance {
                         nearestDistance = distance
                     }
                 }
             }
-            if Double(nearestDistance) <= maxMeters {
+            if nearestDistance <= maxMeters {
                 speedingPolylineTapped()
             }
         }

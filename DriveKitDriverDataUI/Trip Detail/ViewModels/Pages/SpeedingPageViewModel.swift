@@ -11,7 +11,7 @@ import DriveKitDBTripAccessModule
 import DriveKitCommonUI
 
 class SpeedingPageViewModel {
-    var scoreType: ScoreType = .speeding
+    let scoreType: ScoreType = .speeding
     var trip: Trip
 
     init(trip: Trip) {
@@ -32,7 +32,7 @@ class SpeedingPageViewModel {
 
     func getDistanceDescription() -> String {
         if let speedingDistance = trip.speedingStatistics?.speedingDistance, speedingDistance > 0 {
-            let formattedDistance: String = Double(speedingDistance).formatMeterDistance()
+            let formattedDistance: String = formatDistance(Double(speedingDistance))
             return String(format: "dk_driverdata_speeding_events_trip_description".dkDriverDataLocalized(), formattedDistance)
         } else {
             return "dk_driverdata_no_speeding_events".dkDriverDataLocalized()
@@ -49,7 +49,7 @@ class SpeedingPageViewModel {
 
     func getDurationDescription() -> String {
         if let speedingDuration = trip.speedingStatistics?.speedingDuration, speedingDuration > 0 {
-            let formattedDuration: String = Double(speedingDuration).formatSecondDuration()
+            let formattedDuration: String = formatDuration(Double(speedingDuration))
             return String(format: "dk_driverdata_speeding_events_trip_description".dkDriverDataLocalized(), formattedDuration)
         } else {
             return "dk_driverdata_no_speeding_content_congratulations".dkDriverDataLocalized()
@@ -85,5 +85,13 @@ class SpeedingPageViewModel {
             return "\(formattedPercentage)%"
         }
         return "0%"
+    }
+
+    private func formatDuration(_ duration: Double) -> String {
+        return duration.ceilSecondDuration(ifGreaterThan: 600).formatSecondDuration()
+    }
+
+    private func formatDistance(_ distance: Double) -> String {
+        return distance.ceilMeterDistance(ifGreaterThan: 10000).formatMeterDistance()
     }
 }

@@ -10,13 +10,14 @@ import UIKit
 import DriveKitCommonUI
 
 class EcoDrivingPageVC: UIViewController {
-    
+
     @IBOutlet var circularRingTitle: UILabel!
     @IBOutlet var circularRingContainer: UIView!
     @IBOutlet var eventContainer: UIStackView!
-    
+    @IBOutlet private var infoButton: UIButton!
+
     var viewModel: EcoDrivingPageViewModel
-    
+
     init(viewModel: EcoDrivingPageViewModel) {
         self.viewModel = viewModel
         super.init(nibName: String(describing: EcoDrivingPageVC.self), bundle: Bundle.driverDataUIBundle)
@@ -40,6 +41,7 @@ class EcoDrivingPageVC: UIViewController {
         circularRingContainer.embedSubview(score)
         circularRingTitle.attributedText = viewModel.scoreType.stringValue().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
         setupEventContainer()
+        infoButton.tintColor = DKUIColors.secondaryColor.color
     }
     
     func setupEventContainer() {
@@ -56,5 +58,10 @@ class EcoDrivingPageVC: UIViewController {
         brakeView.configure(title: viewModel.getDecel(), image: DKImages.ecoDecel.image)
         eventContainer.addArrangedSubview(brakeView)
     }
-    
+
+    @IBAction func infoAction(_ sender:UIButton) {
+        let alert = UIAlertController(title: "dk_driverdata_eco_score".dkDriverDataLocalized(), message: "dk_driverdata_eco_score_info".dkDriverDataLocalized(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }

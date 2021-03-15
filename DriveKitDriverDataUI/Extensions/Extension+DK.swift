@@ -137,6 +137,8 @@ extension ScoreType {
             return rawValue(trip: trip) <= 10 ? true : false
         case .distraction:
             return rawValue(trip: trip) <= 10 ? true : false
+        case .speeding:
+            return rawValue(trip: trip) <= 10 ? true : false
         }
     }
     
@@ -148,7 +150,8 @@ extension ScoreType {
             return  trip.safety?.safetyScore ?? 0
         case .distraction:
             return trip.driverDistraction?.score ?? 0
-            
+        case .speeding:
+            return trip.speedingStatistics?.score ?? 0
         }
     }
 }

@@ -23,6 +23,8 @@ public enum DKImages : String {
     safetyFilled = "dk_common_safety_filled",
     distraction = "dk_common_distraction",
     distractionFilled = "dk_common_distraction_filled",
+    speeding = "dk_common_speeding",
+    speedingFilled = "dk_common_speeding_filled",
     warning = "dk_common_warning",
     dots = "dk_common_dots",
     arrowDown = "dk_common_arrow_down",

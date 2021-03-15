@@ -1,32 +1,23 @@
 //
-//  DistractionPageView.swift
-//  drivekit-test-app
+//  SpeedingPageItemView.swift
+//  DriveKitDriverDataUI
 //
-//  Created by Meryl Barantal on 15/10/2019.
-//  Copyright © 2019 DriveQuant. All rights reserved.
+//  Created by Amine Gahbiche on 11/03/2021.
+//  Copyright © 2021 DriveQuant. All rights reserved.
 //
+
 import UIKit
 import DriveKitCommonUI
 
-final class DistractionPageView : UIControl, Nibable {
+final class SpeedingPageItemView: UIView, Nibable {
 
-    override var isSelected: Bool {
-        didSet {
-            if isSelected {
-                self.eventValue.backgroundColor = DKUIColors.secondaryColor.color.withAlphaComponent(0.4)
-                self.eventDescription.textColor = DKUIColors.secondaryColor.color
-            } else {
-                self.eventValue.backgroundColor = UIColor(hex:0xf3f3f3)
-                self.eventDescription.textColor = grayColor
-            }
-        }
-    }
     @IBOutlet private var eventTitle: UILabel!
     @IBOutlet private var eventValue: UILabel!
     @IBOutlet private var eventDescription: UILabel!
     @IBOutlet private var separator: UIView!
-    @IBOutlet private(set) var button: UIButton!
-    private(set) var mapTrace: DKMapTraceType = .unlockScreen
+    @IBOutlet private var percentageViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet private var percentageViewMarginConstraint: NSLayoutConstraint!
+
     private let grayColor = UIColor(hex:0x9e9e9e)
 
     override func awakeFromNib() {
@@ -45,8 +36,6 @@ final class DistractionPageView : UIControl, Nibable {
         self.eventDescription.font = DKStyles.smallText.style.applyTo(font: .primary)
         // Separator.
         self.separator.backgroundColor = DKUIColors.neutralColor.color
-
-        self.isSelected = false
     }
 
     override func layoutSubviews() {
@@ -55,12 +44,16 @@ final class DistractionPageView : UIControl, Nibable {
         self.eventValue.layer.cornerRadius = self.eventValue.bounds.size.height / 2
         updateTextIntrinsicContentSize()
     }
-    
-    func configure(title: String, description: String, value: String, mapTrace: DKMapTraceType) {
+
+    func configure(title: String, description: String, value: String, displayValue: Bool) {
         self.eventTitle.text = title
         self.eventDescription.text = description
         self.eventValue.text = value
-        self.mapTrace = mapTrace
+        if !displayValue {
+            percentageViewWidthConstraint.constant = 0
+            percentageViewMarginConstraint.constant = 0
+            self.eventValue.isHidden = true
+        }
         updateTextIntrinsicContentSize()
     }
 
@@ -68,6 +61,4 @@ final class DistractionPageView : UIControl, Nibable {
         self.eventTitle.invalidateIntrinsicContentSize()
         self.eventDescription.invalidateIntrinsicContentSize()
     }
-    
 }
-

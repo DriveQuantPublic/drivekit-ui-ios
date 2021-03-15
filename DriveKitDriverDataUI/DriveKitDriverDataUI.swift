@@ -15,7 +15,7 @@ public class DriveKitDriverDataUI: AccessRightListener {
     
     private(set) var tripData: TripData = .safety
     private(set) var sourceMapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .speeding, .interactiveMap, .synthesis]
-    private(set) var mapItems: [MapItem] = []
+    private(set) var mapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .speeding, .interactiveMap, .synthesis]
     private(set) var headerDay: HeaderDay = .durationDistance
     private(set) var dayTripDescendingOrder: Bool = false
     private(set) var customMapItem: DKMapItem?
@@ -33,9 +33,7 @@ public class DriveKitDriverDataUI: AccessRightListener {
     public func initialize(tripData: TripData = .safety, mapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .speeding, .interactiveMap, .synthesis]) {
         self.tripData = tripData
         self.sourceMapItems = mapItems
-        self.mapItems = sourceMapItems.filter({
-            $0.hasAccess()
-        })
+        filterMapItems()
         DriveKitAccess.shared.addAccessRightListener(self)
     }
 
@@ -83,11 +81,15 @@ public class DriveKitDriverDataUI: AccessRightListener {
         self.enableVehicleFilter = enable
     }
 
-    // MARK: AccessRightListener protocol implementation
-    public func onAccessRightsUpdated() {
+    private func filterMapItems() {
         self.mapItems = sourceMapItems.filter({
             $0.hasAccess()
         })
+    }
+
+    // MARK: AccessRightListener protocol implementation
+    public func onAccessRightsUpdated() {
+        filterMapItems()
     }
 }
 

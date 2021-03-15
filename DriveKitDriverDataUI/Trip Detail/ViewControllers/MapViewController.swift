@@ -705,12 +705,10 @@ extension MapViewController: MKMapViewDelegate {
             let coord: CLLocationCoordinate2D = mapView.convert(touchPt, toCoordinateFrom: mapView)
             let maxMeters: Double = meters(fromPixel: maxTapDistanceInPixel, at: touchPt)
             var nearestDistance: Double = .greatestFiniteMagnitude
-            for overlay: MKOverlay in speedingPolylines {
-                if let polyline = overlay as? MKPolyline {
-                    let distance: Double = distanceOf(pt: MKMapPoint(coord), toPoly: polyline)
-                    if distance < nearestDistance {
-                        nearestDistance = distance
-                    }
+            for polyline: MKPolyline in speedingPolylines {
+                let distance: Double = distanceOf(pt: MKMapPoint(coord), toPoly: polyline)
+                if distance < nearestDistance {
+                    nearestDistance = distance
                 }
             }
             if nearestDistance <= maxMeters {

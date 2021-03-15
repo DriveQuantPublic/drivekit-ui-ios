@@ -161,24 +161,30 @@ public enum MapItem : DKMapItem {
     public func canShowMapItem(trip: Trip) -> Bool {
         switch self {
             case .ecoDriving:
-                if let ecoDriving = trip.ecoDriving{
+                if let ecoDriving = trip.ecoDriving {
                     if ecoDriving.score <= 10 {
                         return true
                     }
                 }
             case .safety:
-                if let safety = trip.safety{
+                if let safety = trip.safety {
                     if safety.safetyScore <= 10 {
                         return true
                     }
                 }
             case .distraction:
-                if let distraction = trip.driverDistraction{
+                if let distraction = trip.driverDistraction {
                     if distraction.score <= 10 {
                         return true
                     }
                 }
-            case .interactiveMap, .synthesis, .speeding:
+            case .speeding:
+                if let speedingStatistics = trip.speedingStatistics {
+                    if speedingStatistics.score <= 10 {
+                        return true
+                    }
+                }
+            case .interactiveMap, .synthesis:
                 return true
         }
         return false

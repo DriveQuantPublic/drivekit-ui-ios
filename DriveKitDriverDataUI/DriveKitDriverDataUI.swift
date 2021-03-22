@@ -10,6 +10,7 @@ import UIKit
 import DriveKitCoreModule
 import DriveKitCommonUI
 import DriveKitCoreModule
+import DriveKitDBTripAccessModule
 
 public class DriveKitDriverDataUI: AccessRightListener {
     
@@ -79,6 +80,12 @@ public class DriveKitDriverDataUI: AccessRightListener {
 
     public func enableVehicleFilter(_ enable: Bool) {
         self.enableVehicleFilter = enable
+    }
+
+    public func getSynthesisCardView(from tripCard: DKTripCard, withTrips trips: [Trip]) -> UIView {
+        let tripCardView = DKTripCardView.viewFromNib
+        tripCardView.tripCardViewModel = TripCardViewModel(tripCard: tripCard, trips: trips)
+        return tripCardView
     }
 
     private func filterMapItems() {

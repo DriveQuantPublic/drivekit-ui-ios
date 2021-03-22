@@ -19,17 +19,17 @@ public final class CircularProgressView: UIView, Nibable {
     }
     
     public func getScoreColor(value: Double, steps: [Double]) -> UIColor {
-        if value <= steps[0]{
+        if value <= steps[0] {
             return UIColor.dkVeryBad
-        }else if value <= steps[1]{
+        } else if value <= steps[1] {
             return UIColor.dkBad
-        }else if value <= steps[2]{
+        } else if value <= steps[2] {
             return UIColor.dkBadMean
-        }else if value <= steps[3]{
+        } else if value <= steps[3] {
             return UIColor.dkMean
-        }else if value <= steps[4]{
+        } else if value <= steps[4] {
             return UIColor.dkGoodMean
-        }else if value <= steps[5]{
+        } else if value <= steps[5] {
             return UIColor.dkGood
         }
         return UIColor.dkExcellent

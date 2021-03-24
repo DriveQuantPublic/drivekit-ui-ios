@@ -10,10 +10,10 @@ import UIKit
 import DriveKitDBTripAccessModule
 
 class TripCardInfoViewModel {
-    private let tripCardInfo: DKTripCardInfo
+    private let tripCardInfo: DKSynthesisCardInfo
     private let trips: [Trip]
 
-    init(tripCardInfo: DKTripCardInfo, trips: [Trip]) {
+    init(tripCardInfo: DKSynthesisCardInfo, trips: [Trip]) {
         self.tripCardInfo = tripCardInfo
         self.trips = trips
     }

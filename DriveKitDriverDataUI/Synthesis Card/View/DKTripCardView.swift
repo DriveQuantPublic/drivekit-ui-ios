@@ -33,9 +33,11 @@ final class DKTripCardView: UIView, Nibable {
     }
 
     private func update() {
+        #warning("TODO")
         if let tripCardViewModel = self.tripCardViewModel {
             self.title.text = tripCardViewModel.getTitle()
             self.explanationButton.isHidden = tripCardViewModel.getExplanationContent() == nil
+            self.progressRing.value = CGFloat(tripCardViewModel.getGaugeConfiguration().getProgress())
         }
     }
 

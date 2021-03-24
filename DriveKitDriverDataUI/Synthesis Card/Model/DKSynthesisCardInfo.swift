@@ -9,17 +9,19 @@
 import UIKit
 import DriveKitDBTripAccessModule
 
-public protocol DKTripCardInfo {
+public protocol DKSynthesisCardInfo {
     func getIcon() -> UIImage?
     func getText(trips: [Trip]) -> NSAttributedString
 }
 
-public enum TripCardInfo: DKTripCardInfo {
-    case count, distance, duration
+public enum SynthesisCardInfo: DKSynthesisCardInfo {
+    case activeDays, count, distance, duration
 
     public func getIcon() -> UIImage? {
         let imageName: String
         switch self {
+            case .activeDays:
+                imageName = "dk_common_calendar"
             case .count:
                 imageName = "dk_common_trip"
             case .distance:

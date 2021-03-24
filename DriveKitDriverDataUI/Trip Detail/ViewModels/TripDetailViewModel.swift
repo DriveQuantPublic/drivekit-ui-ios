@@ -199,7 +199,7 @@ class TripDetailViewModel : DKTripDetailViewModel {
     }
 
     private func addStartAndEndEvents(trip: Trip) {
-        if let route = self.route {
+        if self.route != nil {
             self.addStartEvent(trip: trip)
             self.addEndEvent(trip: trip)
         }

@@ -71,7 +71,7 @@ class MapViewController: DKUIViewController {
             }
             var removeDistractionPolylines = true
             var removePhoneCallPolylines = true
-            if let mapItem = mapItem, mapItem.shouldShowPhoneDistractionArea() || mapItem.shouldShowDistractionArea() {
+            if let mapItem = mapItem, self.viewModel.configurableMapItems.contains(MapItem.distraction) && (mapItem.shouldShowPhoneDistractionArea() || mapItem.shouldShowDistractionArea()) {
                 switch mapTraceType {
                     case .phoneCall:
                         if mapItem.shouldShowPhoneDistractionArea() {
@@ -107,7 +107,7 @@ class MapViewController: DKUIViewController {
                 }
             }
 
-            if let mapItem = mapItem, mapItem.shouldShowSpeedingArea() {
+            if let mapItem = mapItem, mapItem.shouldShowSpeedingArea(), self.viewModel.configurableMapItems.contains(MapItem.speeding) {
                 self.computeSpeedingPolylines()
                 self.drawSpeeding(route: route)
             } else {

@@ -119,7 +119,7 @@ class TripDetailViewModel : DKTripDetailViewModel {
                 DriveKitDriverData.shared.getMissingCities(trip: trip)
             }
             if routeSync, let trip = trip, !trip.unscored {
-                addStartAndEndEvents(trip: trip)
+                addStartEvent(trip: trip)
                 if let safetyEvents = trip.safetyEvents, mapItems.contains(MapItem.safety) {
                     for safetyEvent in safetyEvents {
                         let event = safetyEvent as! SafetyEvents
@@ -162,6 +162,7 @@ class TripDetailViewModel : DKTripDetailViewModel {
                         }
                     }
                 }
+                addEndEvent(trip: trip)
                 events = events.sorted(by: { $0.date.compare($1.date) == .orderedAscending})
                 safetyEvents = events.filter({
                     $0.type == .acceleration || $0.type == .adherence || $0.type == .brake
@@ -199,10 +200,21 @@ class TripDetailViewModel : DKTripDetailViewModel {
 
     private func addStartAndEndEvents(trip: Trip) {
         if let route = self.route {
+            self.addStartEvent(trip: trip)
+            self.addEndEvent(trip: trip)
+        }
+    }
+
+    private func addStartEvent(trip: Trip) {
+        if let route = self.route {
             let startEvent = TripEvent(type: .start, date: trip.tripStartDate, position: route.startLocation, value: 0)
             self.events.append(startEvent)
             self.startEvent = startEvent
+        }
+    }
 
+    private func addEndEvent(trip: Trip) {
+        if let route = self.route {
             let endEvent = TripEvent(type: .end, date: trip.tripEndDate, position: route.endLocation, value: 0)
             self.events.append(endEvent)
             self.endEvent = endEvent

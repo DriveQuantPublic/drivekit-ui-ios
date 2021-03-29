@@ -17,7 +17,7 @@ PODS:
     - DriveKitDBVehicleAccess (= 1.10.0)
   - DriveKitVehicle (1.10.0):
     - DriveKitDBVehicleAccess (= 1.10.0)
-  - UICircularProgressRing (8.0.0)
+  - UICircularProgressRing (6.5.0)
 
 DEPENDENCIES:
   - DriveKitCore (= 1.10.0)
@@ -25,7 +25,7 @@ DEPENDENCIES:
   - DriveKitDriverData (= 1.10.0)
   - DriveKitTripAnalysis (= 1.10.0)
   - DriveKitVehicle (= 1.10.0)
-  - UICircularProgressRing
+  - UICircularProgressRing (= 6.5.0)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -50,8 +50,8 @@ SPEC CHECKSUMS:
   DriveKitNetworking: 69fada65299967ee57ab3142780154ddfaac5120
   DriveKitTripAnalysis: b448416b07b65831bbe8d1e6248bdcb847cf83d9
   DriveKitVehicle: b51a1052de98846d2786c667c2f33b41a4fb3076
-  UICircularProgressRing: 19927375b2b21b5fa5fd9582f15ccdef9659da16
+  UICircularProgressRing: e6852e8f88e296cbbbe2720cccb55241acda6708
 
-PODFILE CHECKSUM: c2fed24195b0ef1451837ab377c8bf90381ec3bc
+PODFILE CHECKSUM: 636247a39db02aad8482522eced3c0a60cd5011a
 
 COCOAPODS: 1.10.1

@@ -5,6 +5,10 @@ use_frameworks!
 source 'https://gitlab.com/drivequant/drivekit/drivekit-specs.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
+def circular_progress_ring
+  pod 'UICircularProgressRing', '6.5.0'
+end
+
 target 'DriveKitApp' do
 
 end
@@ -16,11 +20,11 @@ end
 
 target 'DriveKitDriverAchievementUI' do
   pod 'DriveKitDriverAchievement', '1.11-beta7'
-  pod 'UICircularProgressRing'
+  circular_progress_ring
 end
 
 target 'DriveKitCommonUI' do
-  pod 'UICircularProgressRing'
+  circular_progress_ring
 end
   
 target 'DriveKitVehicleUI' do

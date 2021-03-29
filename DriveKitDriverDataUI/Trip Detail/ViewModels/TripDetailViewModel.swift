@@ -19,7 +19,12 @@ class TripDetailViewModel : DKTripDetailViewModel {
     private var internalTrip: Trip? = nil
     var trip: Trip? {
         get {
-            internalTrip = internalTrip?.attachedTrip(itinId: self.itinId)
+            if let internalTrip = self.internalTrip, !internalTrip.isValid() {
+                self.internalTrip = internalTrip.attachedTrip(itinId: self.itinId)
+                DispatchQueue.main.async { [weak self] in
+                    self?.fetchTripData()
+                }
+            }
             return internalTrip
         }
         set {
@@ -34,7 +39,7 @@ class TripDetailViewModel : DKTripDetailViewModel {
     
     var events: [TripEvent] = []
     
-    var configurableMapItems : [DKMapItem] = []
+    var configurableMapItems: [DKMapItem] = []
     var displayMapItem: DKMapItem? = nil
     
     private(set) var startEvent: TripEvent? = nil
@@ -89,6 +94,7 @@ class TripDetailViewModel : DKTripDetailViewModel {
         DriveKitDriverData.shared.getTrip(itinId: itinId, completionHandler: {status, trip in
             if let trip = trip?.attachedTrip(itinId: self.itinId) {
                 DispatchQueue.main.async {
+                    self.configurableMapItems = []
                     self.tripSyncStatus = status
                     self.trip = trip
                     if !trip.unscored {
@@ -119,6 +125,7 @@ class TripDetailViewModel : DKTripDetailViewModel {
                 DriveKitDriverData.shared.getMissingCities(trip: trip)
             }
             if routeSync, let trip = trip, !trip.unscored {
+                self.events.removeAll(keepingCapacity: true)
                 addStartEvent(trip: trip)
                 if let safetyEvents = trip.safetyEvents, mapItems.contains(MapItem.safety) {
                     for safetyEvent in safetyEvents {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -39,12 +39,14 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ecr-bW-bRD">
-                            <rect key="frame" x="37.5" y="132.5" width="25" height="24"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ecr-bW-bRD">
+                            <rect key="frame" x="36" y="130.5" width="28" height="28"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="25" id="Zfn-Ol-TVd"/>
-                                <constraint firstAttribute="height" constant="24" id="x9f-Kw-kiX"/>
+                                <constraint firstAttribute="width" constant="28" id="Zfn-Ol-TVd"/>
+                                <constraint firstAttribute="height" constant="28" id="x9f-Kw-kiX"/>
                             </constraints>
+                            <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                            <state key="normal" image="dk_common_info"/>
                             <connections>
                                 <action selector="infoAction:" destination="-1" eventType="touchUpInside" id="m2h-Rz-vLv"/>
                             </connections>
@@ -56,7 +58,7 @@
                         <constraint firstItem="Ecr-bW-bRD" firstAttribute="centerX" secondItem="Wx6-5x-Fgf" secondAttribute="centerX" id="68w-lb-ON0"/>
                         <constraint firstItem="Fnm-JE-D7G" firstAttribute="leading" secondItem="gI6-Pc-tBa" secondAttribute="leading" id="9Rb-yQ-eCe"/>
                         <constraint firstAttribute="trailing" secondItem="Fnm-JE-D7G" secondAttribute="trailing" id="Ha4-Wz-DcF"/>
-                        <constraint firstItem="Ecr-bW-bRD" firstAttribute="top" secondItem="Wx6-5x-Fgf" secondAttribute="bottom" constant="2" id="KeI-hx-0oZ"/>
+                        <constraint firstItem="Ecr-bW-bRD" firstAttribute="top" secondItem="Wx6-5x-Fgf" secondAttribute="bottom" id="KeI-hx-0oZ"/>
                         <constraint firstItem="Wx6-5x-Fgf" firstAttribute="top" secondItem="Fnm-JE-D7G" secondAttribute="bottom" constant="10" id="MFU-cH-D8M"/>
                         <constraint firstItem="Fnm-JE-D7G" firstAttribute="top" secondItem="gI6-Pc-tBa" secondAttribute="top" id="UKo-8G-gJh"/>
                         <constraint firstAttribute="trailing" secondItem="Wx6-5x-Fgf" secondAttribute="trailing" id="mI6-Bm-noC"/>
@@ -81,4 +83,7 @@
             <point key="canvasLocation" x="132" y="84"/>
         </view>
     </objects>
+    <resources>
+        <image name="dk_common_info" width="60" height="60"/>
+    </resources>
 </document>

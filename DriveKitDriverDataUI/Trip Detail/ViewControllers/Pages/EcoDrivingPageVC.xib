@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -38,12 +38,14 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ek-Ph-Bvf">
-                            <rect key="frame" x="37.5" y="132.5" width="25" height="24"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ek-Ph-Bvf">
+                            <rect key="frame" x="36" y="130.5" width="28" height="28"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="24" id="5of-8A-AMg"/>
-                                <constraint firstAttribute="width" constant="25" id="iTw-SG-Xb2"/>
+                                <constraint firstAttribute="height" constant="28" id="5of-8A-AMg"/>
+                                <constraint firstAttribute="width" constant="28" id="iTw-SG-Xb2"/>
                             </constraints>
+                            <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                            <state key="normal" image="dk_common_info"/>
                             <connections>
                                 <action selector="infoAction:" destination="-1" eventType="touchUpInside" id="xBb-Q9-Mdk"/>
                             </connections>
@@ -58,7 +60,7 @@
                         <constraint firstItem="9b2-la-zHH" firstAttribute="leading" secondItem="Uy3-Pk-OeG" secondAttribute="leading" id="kWl-aw-4aj"/>
                         <constraint firstItem="9b2-la-zHH" firstAttribute="top" secondItem="Uy3-Pk-OeG" secondAttribute="top" id="sX7-zT-tGb"/>
                         <constraint firstAttribute="trailing" secondItem="icM-A9-3b7" secondAttribute="trailing" id="suV-8z-nNJ"/>
-                        <constraint firstItem="1ek-Ph-Bvf" firstAttribute="top" secondItem="icM-A9-3b7" secondAttribute="bottom" constant="2" id="tRw-qa-0Wa"/>
+                        <constraint firstItem="1ek-Ph-Bvf" firstAttribute="top" secondItem="icM-A9-3b7" secondAttribute="bottom" id="tRw-qa-0Wa"/>
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cdR-CR-0sH">
@@ -79,4 +81,7 @@
             <point key="canvasLocation" x="132" y="81"/>
         </view>
     </objects>
+    <resources>
+        <image name="dk_common_info" width="60" height="60"/>
+    </resources>
 </document>

@@ -13,7 +13,7 @@ import UICircularProgressRing
 final class DKTripCardView: UIView, Nibable {
     @IBOutlet private weak var title: UILabel!
     @IBOutlet private weak var explanationButton: UIButton!
-    @IBOutlet private weak var progressRing: UICircularProgressRing!
+    @IBOutlet private weak var circularProgressViewContainer: UIView!
     @IBOutlet private weak var cardInfoContainer: UIStackView!
     @IBOutlet private weak var bottomText: UILabel!
 
@@ -30,14 +30,19 @@ final class DKTripCardView: UIView, Nibable {
         self.title.font = DKStyle(size: DKStyles.smallText.style.size, traits: .traitBold).applyTo(font: DKUIFonts.primary)
 
         self.explanationButton.setImage(DKImages.info.image, for: .normal)
+
+        update()
     }
 
     private func update() {
         #warning("TODO")
-        if let tripCardViewModel = self.tripCardViewModel {
+        if self.title != nil, let tripCardViewModel = self.tripCardViewModel {
             self.title.text = tripCardViewModel.getTitle()
             self.explanationButton.isHidden = tripCardViewModel.getExplanationContent() == nil
-            self.progressRing.value = CGFloat(tripCardViewModel.getGaugeConfiguration().getProgress())
+//            self.progressRing.value = CGFloat(tripCardViewModel.getGaugeConfiguration().getProgress())
+            let circularProgressView = CircularProgressView.viewFromNib
+            circularProgressView.configure(configuration: tripCardViewModel.getGaugeConfiguration())
+            self.circularProgressViewContainer.embedSubview(circularProgressView)
         }
     }
 

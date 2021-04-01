@@ -28,9 +28,8 @@ class TripCardViewModel {
     }
 
     func getGaugeConfiguration() -> ConfigurationCircularProgressView {
-        #warning("TODO")
         let gaugeConfig = self.tripCard.getGaugeConfiguration()
-        return ConfigurationCircularProgressView(scoreType: .distraction, value: gaugeConfig.getProgress(), size: .large)
+        return ConfigurationCircularProgressView(gaugeConfiguration: self.tripCard.getGaugeConfiguration(), size: .large)
     }
 
     func getTripCardInfoList() -> [TripCardInfoViewModel] {

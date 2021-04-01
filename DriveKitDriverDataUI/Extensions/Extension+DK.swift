@@ -159,3 +159,23 @@ extension ScoreType {
 extension DKStyle {
     static let driverDataText = DKStyles.normalText.withSizeDelta(-2)
 }
+
+public extension SafetyContext {
+    var roadCondition: DKRoadCondition? {
+        return DKRoadCondition(rawValue: Int(self.contextId))
+    }
+}
+
+public extension EcoDrivingContext {
+    var roadCondition: DKRoadCondition? {
+        return DKRoadCondition(rawValue: Int(self.contextId))
+    }
+}
+
+public enum DKRoadCondition : Int, CaseIterable {
+    case trafficJam = 0
+    case heavyUrbanTraffic = 1
+    case city = 2
+    case suburban = 3
+    case expressways = 4
+}

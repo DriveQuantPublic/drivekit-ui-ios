@@ -39,6 +39,11 @@ public struct SynthesisCardUtils {
         }
     }
 
+    public static func getMainRoadCondition(ofTrips trips: [Trip], forType type: RoadConditionType = .ecoDriving) -> (DKRoadCondition, Double) {
+        let roadConditionStats = RoadConditionStats(type: type, trips: trips)
+        return roadConditionStats.roadConditionPercentages.filter { $0.key != .trafficJam }.max { $0.value < $1.value }!
+    }
+
     private static func getTripsQuery(forTransportationModes transportationModes: [TransportationMode]) -> Query<Trip, Trip> {
         let transportationModesValues = transportationModes.map { $0.rawValue }
         let tripsQuery = DriveKitDriverData.shared.tripsQuery()
@@ -46,3 +51,63 @@ public struct SynthesisCardUtils {
         return tripsQuery
     }
 }
+
+public struct RoadConditionStats {
+    public let roadConditionType: RoadConditionType
+    public let roadConditionPercentages: [DKRoadCondition: Double]
+
+    init(type: RoadConditionType, trips: [Trip]) {
+        self.roadConditionType = type
+        let tripNumber = Double(trips.count)
+        if tripNumber > 0 {
+            var mainRoadConditionCount: [DKRoadCondition: Int] = [:]
+            for trip in trips {
+                let roadConditionObjects: [RoadConditionObject]?
+                switch type {
+                    case .ecoDriving:
+                        roadConditionObjects = trip.ecoDrivingContexts?.allObjects as? [EcoDrivingContext]
+                    case .safety:
+                        roadConditionObjects = trip.safetyContexts?.allObjects as? [SafetyContext]
+                }
+
+                var mainRoadCondition: DKRoadCondition? = nil
+                var maxDistance: Double = 0
+                if let roadConditionObjects = roadConditionObjects {
+                    for roadConditionObject in roadConditionObjects {
+                        if let roadCondition = roadConditionObject.roadCondition, roadConditionObject.distance > maxDistance {
+                            mainRoadCondition = roadCondition
+                            maxDistance = roadConditionObject.distance
+                        }
+                    }
+                }
+                if let mainRoadCondition = mainRoadCondition {
+                    mainRoadConditionCount[mainRoadCondition] = (mainRoadConditionCount[mainRoadCondition] ?? 0) + 1
+                }
+            }
+            var roadConditionPercentages: [DKRoadCondition: Double] = [:]
+            for roadCondition in DKRoadCondition.allCases {
+                roadConditionPercentages[roadCondition] = Double(mainRoadConditionCount[roadCondition] ?? 0) / tripNumber * 100
+            }
+            self.roadConditionPercentages = roadConditionPercentages
+        } else {
+            var roadConditionPercentages: [DKRoadCondition: Double] = [:]
+            for roadCondition in DKRoadCondition.allCases {
+                roadConditionPercentages[roadCondition] = 0
+            }
+            self.roadConditionPercentages = roadConditionPercentages
+        }
+    }
+}
+
+public enum RoadConditionType {
+    case safety, ecoDriving
+}
+
+private protocol RoadConditionObject: AnyObject {
+    var distance: Double { get }
+    var contextId: Int32 { get }
+    var roadCondition: DKRoadCondition? { get }
+}
+
+extension SafetyContext: RoadConditionObject { }
+extension EcoDrivingContext: RoadConditionObject { }

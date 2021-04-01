@@ -64,10 +64,7 @@ public struct SynthesisCard: DKSynthesisCard {
             case .speeding:
                 scoreType = .speeding
         }
-        let validTrips = self.trips.filter { scoreType.rawValue(trip: $0) <= 10 }
-        let totalScore = validTrips.map { scoreType.rawValue(trip: $0) }.reduce(0.0, +)
-        let value = totalScore / Double(validTrips.count)
-        return ConfigurationCircularProgressView(scoreType: scoreType, value: value, size: .large)
+        return GaugeConfiguration(trips: self.trips, scoreType: scoreType)
     }
 
     public func getTopSynthesisCardInfo() -> DKSynthesisCardInfo {
@@ -83,10 +80,68 @@ public struct SynthesisCard: DKSynthesisCard {
     }
 
     public func getBottomText() -> NSAttributedString? {
-        #warning("TODO")
+        let (roadCondition, percentage) = SynthesisCardUtils.getMainRoadCondition(ofTrips: self.trips)
+        let textKey: String?
+        switch roadCondition {
+            case .city:
+                textKey = "dk_driverdata_urban"
+            case .expressways:
+                textKey = "dk_driverdata_expressway"
+            case .heavyUrbanTraffic:
+                textKey = "dk_driverdata_dense_urban"
+            case .suburban:
+                textKey = "dk_driverdata_extra_urban"
+            case .trafficJam:
+                textKey = nil
+        }
+        if let textKey = textKey {
+            let value = String(format: "%.0f", percentage).dkAttributedString().color(.primaryColor).font(dkFont: .primary, style: .normalText).build()
+            return textKey.dkDriverDataLocalized().dkAttributedString().color(.mainFontColor).font(dkFont: .primary, style: .normalText).buildWithArgs(value)
+        }
         return nil
     }
 
+}
+
+private struct GaugeConfiguration : DKGaugeConfiguration {
+    let trips: [Trip]
+    let scoreType: ScoreType
+    let value: Double
+    private let progress: Double
+    private let gaugeType: DKGaugeType
+
+    init(trips: [Trip], scoreType: ScoreType) {
+        self.trips = trips.filter { scoreType.rawValue(trip: $0) <= 10 }
+        self.scoreType = scoreType
+        if self.trips.isEmpty {
+            self.value = Double(0)
+        } else {
+            let totalScore = self.trips.map { scoreType.rawValue(trip: $0) }.reduce(0.0, +)
+            self.value = totalScore / Double(self.trips.count)
+        }
+        self.progress = self.value / 10.0
+        if let icon = scoreType.image() {
+            self.gaugeType = .openWithIcon(icon)
+        } else {
+            self.gaugeType = .open
+        }
+    }
+
+    func getColor() -> UIColor {
+        ConfigurationCircularProgressView.getScoreColor(value: self.value, steps: self.scoreType.getSteps())
+    }
+
+    func getGaugeType() -> DKGaugeType {
+        self.gaugeType
+    }
+
+    func getProgress() -> Double {
+        self.progress
+    }
+
+    func getTitle() -> String {
+        self.value.formatDouble(places: 1)
+    }
 }
 
 private enum SynthesisCardType {

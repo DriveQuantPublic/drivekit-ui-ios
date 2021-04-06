@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 import DriveKitDBTripAccessModule
 
 public protocol DKSynthesisCardInfo {
@@ -33,7 +34,36 @@ public enum SynthesisCardInfo: DKSynthesisCardInfo {
     }
 
     public func getText(trips: [Trip]) -> NSAttributedString {
-        #warning("TODO")
-        return "TODO".dkAttributedString().build()
+        let valueFontStyle = DKStyle(size: DKStyles.bigtext.style.size, traits: .traitBold)
+        let text: NSAttributedString
+        switch self {
+            case .activeDays:
+                let count = trips.totalActiveDays
+                let unitKey: String
+                if count > 1 {
+                    unitKey = "dk_common_trip_plural"
+                } else {
+                    unitKey = "dk_common_trip_singular"
+                }
+                let valueString = String(count).dkAttributedString().font(dkFont: .primary, style: valueFontStyle).color(.primaryColor).build()
+                let unitString = unitKey.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+                text = "%@ %@".dkAttributedString().buildWithArgs(valueString, unitString)
+            case .count:
+                let count = trips.count
+                let unitKey: String
+                if count > 1 {
+                    unitKey = "dk_common_day_plural"
+                } else {
+                    unitKey = "dk_common_day_singular"
+                }
+                let valueString = String(count).dkAttributedString().font(dkFont: .primary, style: valueFontStyle).color(.primaryColor).build()
+                let unitString = unitKey.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+                text = "%@ %@".dkAttributedString().buildWithArgs(valueString, unitString)
+            case .distance:
+                text = trips.totalDistance.formatMeterDistance().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+            case .duration:
+                text = trips.totalDuration.formatSecondDuration().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        }
+        return text
     }
 }

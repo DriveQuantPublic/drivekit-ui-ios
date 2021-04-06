@@ -1,5 +1,5 @@
 //
-//  TripCardViewModel.swift
+//  SynthesisCardViewModel.swift
 //  DriveKitDriverDataUI
 //
 //  Created by David Bauduin on 21/03/2021.
@@ -10,30 +10,29 @@ import Foundation
 import DriveKitCommonUI
 import DriveKitDBTripAccessModule
 
-class TripCardViewModel {
-    private let tripCard: DKSynthesisCard
+struct SynthesisCardViewModel {
+    private let synthesisCard: DKSynthesisCard
     private let trips: [Trip]
 
-    init(tripCard: DKSynthesisCard, trips: [Trip]) {
-        self.tripCard = tripCard
+    init(synthesisCard: DKSynthesisCard, trips: [Trip]) {
+        self.synthesisCard = synthesisCard
         self.trips = trips
     }
 
     func getTitle() -> String {
-        self.tripCard.getTitle()
+        self.synthesisCard.getTitle()
     }
 
     func getExplanationContent() -> String? {
-        self.tripCard.getExplanationContent()
+        self.synthesisCard.getExplanationContent()
     }
 
     func getGaugeConfiguration() -> ConfigurationCircularProgressView {
-        let gaugeConfig = self.tripCard.getGaugeConfiguration()
-        return ConfigurationCircularProgressView(gaugeConfiguration: self.tripCard.getGaugeConfiguration(), size: .large)
+        return ConfigurationCircularProgressView(gaugeConfiguration: self.synthesisCard.getGaugeConfiguration(), size: .large)
     }
 
-    func getTripCardInfoList() -> [TripCardInfoViewModel] {
-//        let tripCardInfoList = self.tripCard.getTripCardInfo(trips: self.trips)
+    func getTripCardInfoList() -> [SynthesisCardInfoViewModel] {
+//        let tripCardInfoList = self.synthesisCard.getTripCardInfo(trips: self.trips)
 //        return tripCardInfoList.map { tripCardInfo in
 //            TripCardInfoViewModel(tripCardInfo: tripCardInfo, trips: self.trips)
 //        }
@@ -41,6 +40,6 @@ class TripCardViewModel {
     }
 
     func getBottomText() -> NSAttributedString? {
-        self.tripCard.getBottomText()
+        self.synthesisCard.getBottomText()
     }
 }

@@ -1,5 +1,5 @@
 //
-//  DKTripCardView.swift
+//  DKSynthesisCardView.swift
 //  DriveKitDriverDataUI
 //
 //  Created by David Bauduin on 21/03/2021.
@@ -10,14 +10,14 @@ import UIKit
 import DriveKitCommonUI
 import UICircularProgressRing
 
-final class DKTripCardView: UIView, Nibable {
+final class DKSynthesisCardView: UIView, Nibable {
     @IBOutlet private weak var title: UILabel!
     @IBOutlet private weak var explanationButton: UIButton!
     @IBOutlet private weak var circularProgressViewContainer: UIView!
     @IBOutlet private weak var cardInfoContainer: UIStackView!
     @IBOutlet private weak var bottomText: UILabel!
 
-    var tripCardViewModel: TripCardViewModel? = nil {
+    var synthesisCardViewModel: SynthesisCardViewModel? = nil {
         didSet {
             update()
         }
@@ -31,18 +31,27 @@ final class DKTripCardView: UIView, Nibable {
 
         self.explanationButton.setImage(DKImages.info.image, for: .normal)
 
+        self.cardInfoContainer.removeAllSubviews()
+        let topSynthesisCardInfo = DKSynthesisCardInfoView.viewFromNib
+        let middleSynthesisCardInfo = DKSynthesisCardInfoView.viewFromNib
+        let bottomSynthesisCardInfo = DKSynthesisCardInfoView.viewFromNib
+        cardInfoContainer.addArrangedSubview(topSynthesisCardInfo)
+        cardInfoContainer.addArrangedSubview(middleSynthesisCardInfo)
+        cardInfoContainer.addArrangedSubview(bottomSynthesisCardInfo)
+
         update()
     }
 
     private func update() {
         #warning("TODO")
-        if self.title != nil, let tripCardViewModel = self.tripCardViewModel {
+        if self.title != nil, let tripCardViewModel = self.synthesisCardViewModel {
             self.title.text = tripCardViewModel.getTitle()
             self.explanationButton.isHidden = tripCardViewModel.getExplanationContent() == nil
 //            self.progressRing.value = CGFloat(tripCardViewModel.getGaugeConfiguration().getProgress())
             let circularProgressView = CircularProgressView.viewFromNib
             circularProgressView.configure(configuration: tripCardViewModel.getGaugeConfiguration())
             self.circularProgressViewContainer.embedSubview(circularProgressView)
+            self.bottomText.attributedText = tripCardViewModel.getBottomText()
         }
     }
 

@@ -44,13 +44,20 @@ extension Trip {
         }
         return nil
     }
+
+    fileprivate static let activeDayDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
+        return dateFormatter
+    }()
 }
 
 extension Array where Element: Trip {
     var totalDistance: Double {
         return map { ($0.tripStatistics?.distance ?? 0) }.reduce(0, +)
     }
-    
+
     var totalDuration: Double {
         return map { Double($0.duration) }.reduce(0, +)
     }
@@ -58,7 +65,14 @@ extension Array where Element: Trip {
     var totalRoundedDuration: Double {
         return map { $0.roundedDuration }.reduce(0, +)
     }
-    
+
+    var totalActiveDays: Int {
+        let keys = reduce(into: Set<String>()) { keys, trip in
+            keys.insert(Trip.activeDayDateFormatter.string(from: trip.tripEndDate))
+        }
+        return keys.count
+    }
+
     func orderByDay(descOrder: Bool = true) -> [TripsByDate] {
         var tripsSorted: [TripsByDate] = []
         if !self.isEmpty {

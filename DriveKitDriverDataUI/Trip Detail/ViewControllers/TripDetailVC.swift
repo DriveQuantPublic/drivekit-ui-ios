@@ -132,6 +132,7 @@ extension TripDetailVC {
     }
     
     func setupHeadeContainer() {
+        self.headerContainer.subviews.forEach { $0.removeFromSuperview() }
         let header = HeaderDayView.viewFromNib
         var rightText = ""
         if let dkHeader = DriveKitDriverDataUI.shared.customHeaders {
@@ -150,11 +151,12 @@ extension TripDetailVC {
         headerContainer.addSubview(header)
     }
     
-    func configureMapItems(){
+    func configureMapItems() {
+        self.swipableViewControllers.removeAll()
         let mapItems = self.viewModel.configurableMapItems
         for item in mapItems {
             let itemViewController = item.viewController(trip: self.viewModel.trip!, parentViewController: self, tripDetailViewModel: self.viewModel)
-            swipableViewControllers.append(itemViewController)
+            self.swipableViewControllers.append(itemViewController)
         }
     }
     
@@ -165,8 +167,10 @@ extension TripDetailVC {
         mapViewController.didMove(toParent: self)
     }
     
-    func setupActionView(){
+    func setupActionView() {
         self.actionView.backgroundColor = UIColor(red: 255, green: 255, blue: 255).withAlphaComponent(0.75)
+        self.mapItemButtons.removeAll(keepingCapacity: true)
+        self.mapItemsView.removeAllSubviews()
         var index: Int = 0
         for item in self.viewModel.configurableMapItems {
             let button = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
@@ -216,15 +220,17 @@ extension TripDetailVC {
     }
     
     func setupPageContainer() {
-        self.pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-        self.pageViewController.dataSource = self
-        self.pageViewController.delegate = self
-        if let mainViewController = self.swipableViewControllers.first {
-            self.pageViewController.setViewControllers([mainViewController], direction: .forward, animated: true, completion: nil)
+        if self.pageViewController == nil {
+            self.pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+            self.pageViewController.dataSource = self
+            self.pageViewController.delegate = self
+            if let mainViewController = self.swipableViewControllers.first {
+                self.pageViewController.setViewControllers([mainViewController], direction: .forward, animated: true, completion: nil)
+            }
+            self.pageViewController.view.frame = CGRect(x: 0, y: 0, width: self.pageContainer.frame.width, height: self.pageContainer.frame.height)
+            pageContainer.addSubview(self.pageViewController.view)
+            self.pageViewController.didMove(toParent: self)
         }
-        self.pageViewController.view.frame = CGRect(x: 0, y: 0, width: self.pageContainer.frame.width, height: self.pageContainer.frame.height)
-        pageContainer.addSubview(self.pageViewController.view)
-        self.pageViewController.didMove(toParent: self)
         // avoid scroll if there is only one item
         if self.viewModel.configurableMapItems.count <= 1 {
             self.pageViewController.dataSource = nil

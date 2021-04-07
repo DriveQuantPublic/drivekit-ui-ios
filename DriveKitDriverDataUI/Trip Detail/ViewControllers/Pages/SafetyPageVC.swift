@@ -40,6 +40,7 @@ class SafetyPageVC: UIViewController {
         progressRingContainer.embedSubview(score)
         progressRingTitle.attributedText = viewModel.scoreType.stringValue().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
         setupEventContainer()
+        infoButton.setImage(DKImages.info.image, for: .normal)
         infoButton.tintColor = DKUIColors.secondaryColor.color
     }
     

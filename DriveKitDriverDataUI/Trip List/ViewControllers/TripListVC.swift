@@ -56,6 +56,7 @@ public class TripListVC: DKUIViewController {
     }
 
     override public func viewWillAppear(_ animated: Bool) {
+        self.viewModel.fetchTrips(withSynchronizationType: .cache)
         if self.viewModel.showFilter(), let items = self.viewModel.getTripFilterItem(), items.count > 1 {
             self.filterViewModel?.updateItems(items: items)
         }

@@ -10,9 +10,7 @@ import UIKit
 import DriveKitDBTripAccessModule
 import DriveKitCommonUI
 
-public enum TripData: String {
-    case ecoDriving, safety, distraction, distance, duration, speeding
-
+extension TripData {
     func isScored(trip: Trip) -> Bool {
         switch self {
         case .safety, .ecoDriving:
@@ -48,18 +46,4 @@ public enum TripData: String {
             return trip.roundedDuration.formatSecondDuration()
         }
     }
-    
-    
-    func displayType() -> DisplayType {
-        switch self {
-        case .ecoDriving, .safety, .distraction, .speeding:
-            return .gauge
-        case .duration, .distance:
-            return .text
-        }
-    }
-}
-
-public enum DisplayType {
-    case gauge, text
 }

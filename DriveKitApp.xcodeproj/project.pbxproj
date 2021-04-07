@@ -255,6 +255,8 @@
 		63FF6B4F244994B50006992E /* DiagnosisViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63FF6B4E244994B50006992E /* DiagnosisViewController.xib */; };
 		63FF6B532449E7CF0006992E /* SensorStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63FF6B522449E7CF0006992E /* SensorStateView.xib */; };
 		63FF6B552449EC2B0006992E /* SensorStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FF6B542449EC2B0006992E /* SensorStateView.swift */; };
+		67301C3E261D106B006B0432 /* DKTripsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301C3D261D106B006B0432 /* DKTripsList.swift */; };
+		67301C46261D121C006B0432 /* TripData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301C45261D121C006B0432 /* TripData.swift */; };
 		67CFE99F25F6425F004D0AE1 /* SpeedingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE99D25F6425F004D0AE1 /* SpeedingPageVC.swift */; };
 		67CFE9A025F6425F004D0AE1 /* SpeedingPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67CFE99E25F6425F004D0AE1 /* SpeedingPageVC.xib */; };
 		67CFE9A725F645EA004D0AE1 /* SpeedingPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */; };
@@ -720,6 +722,8 @@
 		63FF6B4E244994B50006992E /* DiagnosisViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiagnosisViewController.xib; sourceTree = "<group>"; };
 		63FF6B522449E7CF0006992E /* SensorStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SensorStateView.xib; sourceTree = "<group>"; };
 		63FF6B542449EC2B0006992E /* SensorStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorStateView.swift; sourceTree = "<group>"; };
+		67301C3D261D106B006B0432 /* DKTripsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripsList.swift; sourceTree = "<group>"; };
+		67301C45261D121C006B0432 /* TripData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripData.swift; sourceTree = "<group>"; };
 		67CFE99D25F6425F004D0AE1 /* SpeedingPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageVC.swift; sourceTree = "<group>"; };
 		67CFE99E25F6425F004D0AE1 /* SpeedingPageVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedingPageVC.xib; sourceTree = "<group>"; };
 		67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageViewModel.swift; sourceTree = "<group>"; };
@@ -1023,6 +1027,7 @@
 		3F7524C92406C4B400AC22CC /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				67301C3C261D1030006B0432 /* TripsList */,
 				3FA24FF42524B78C000AB7D3 /* Filter */,
 				639346B4244897C1000F42D4 /* DKContactType.swift */,
 				3F03A4DC242C8BD3000924A0 /* DKContentMail.swift */,
@@ -1567,6 +1572,23 @@
 				6378BBE3244DA47B0040A114 /* StatusType.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		67301C3C261D1030006B0432 /* TripsList */ = {
+			isa = PBXGroup;
+			children = (
+				67301C44261D1206006B0432 /* Models */,
+				67301C3D261D106B006B0432 /* DKTripsList.swift */,
+			);
+			path = TripsList;
+			sourceTree = "<group>";
+		};
+		67301C44261D1206006B0432 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				67301C45261D121C006B0432 /* TripData.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A34238072361A1FA0001E15D /* DriveKitDriverDataUI */ = {
@@ -2443,6 +2465,7 @@
 			files = (
 				3FA24FF62524B9BE000AB7D3 /* DKFilterView.swift in Sources */,
 				3F0740EA2403BBFC005A8D07 /* DKColors.swift in Sources */,
+				67301C3E261D106B006B0432 /* DKTripsList.swift in Sources */,
 				3F0740E72403BB9A005A8D07 /* DriveKitUI.swift in Sources */,
 				3FF68E86240A68D90071D74C /* DKDataFormatter.swift in Sources */,
 				3FF68E7C240938CD0071D74C /* DriveKitNavigationController.swift in Sources */,
@@ -2474,6 +2497,7 @@
 				61D29B7924362C720094CA5B /* DKReachability.swift in Sources */,
 				3FF68E7024081F060071D74C /* DKAttributedStringBuilder.swift in Sources */,
 				3FE4B410242C9DC600564F19 /* DKContentMail.swift in Sources */,
+				67301C46261D121C006B0432 /* TripData.swift in Sources */,
 				3FFB2D722418C023003E6A06 /* DKKeyboardViewController.swift in Sources */,
 				3F7524CB2406C4CC00AC22CC /* DKUIViewController.swift in Sources */,
 				3FF68E72240823190071D74C /* UIFont+DK.swift in Sources */,

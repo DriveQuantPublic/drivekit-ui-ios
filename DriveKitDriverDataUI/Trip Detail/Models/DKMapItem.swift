@@ -22,6 +22,7 @@ public protocol DKMapItem {
     func displayedMarkers() -> [DKMarkerType]
     func canShowMapItem(trip: Trip) -> Bool
     func overrideShortTrip() -> Bool
+    func shouldShowSpeedingArea() -> Bool
 }
 
 public enum DKMarkerType {

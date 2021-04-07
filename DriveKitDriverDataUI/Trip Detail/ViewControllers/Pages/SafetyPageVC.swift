@@ -12,7 +12,8 @@ import DriveKitCommonUI
 class SafetyPageVC: UIViewController {
     @IBOutlet var progressRingContainer: UIView!
     @IBOutlet var progressRingTitle: UILabel!
-    
+    @IBOutlet private var infoButton: UIButton!
+
     @IBOutlet var eventContainer: UIStackView!
     
     var viewModel : SafetyPageViewModel
@@ -39,6 +40,8 @@ class SafetyPageVC: UIViewController {
         progressRingContainer.embedSubview(score)
         progressRingTitle.attributedText = viewModel.scoreType.stringValue().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
         setupEventContainer()
+        infoButton.setImage(DKImages.info.image, for: .normal)
+        infoButton.tintColor = DKUIColors.secondaryColor.color
     }
     
     func setupEventContainer() {
@@ -56,4 +59,9 @@ class SafetyPageVC: UIViewController {
         eventContainer.addArrangedSubview(adherenceView)
     }
 
+    @IBAction func infoAction(_ sender:UIButton) {
+        let alert = UIAlertController(title: "dk_driverdata_safety_score".dkDriverDataLocalized(), message: "dk_driverdata_safety_score_info".dkDriverDataLocalized(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
 }

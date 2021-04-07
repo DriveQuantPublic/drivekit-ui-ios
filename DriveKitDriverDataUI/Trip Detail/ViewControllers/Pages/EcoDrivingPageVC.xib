@@ -7,11 +7,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EvoDrivingPageVC" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EcoDrivingPageVC" customModule="DriveKitDriverDataUI" customModuleProvider="target">
             <connections>
                 <outlet property="circularRingContainer" destination="9b2-la-zHH" id="Kpp-EV-fGR"/>
                 <outlet property="circularRingTitle" destination="icM-A9-3b7" id="YlR-lM-oDE"/>
                 <outlet property="eventContainer" destination="cdR-CR-0sH" id="MaH-tZ-uek"/>
+                <outlet property="infoButton" destination="1ek-Ph-Bvf" id="BEq-iZ-OdV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -32,20 +33,34 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="icM-A9-3b7">
-                            <rect key="frame" x="0.0" y="116" width="100" height="20.5"/>
+                            <rect key="frame" x="0.0" y="110" width="100" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ek-Ph-Bvf">
+                            <rect key="frame" x="36" y="130.5" width="28" height="28"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="28" id="5of-8A-AMg"/>
+                                <constraint firstAttribute="width" constant="28" id="iTw-SG-Xb2"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                            <state key="normal" image="dk_common_info"/>
+                            <connections>
+                                <action selector="infoAction:" destination="-1" eventType="touchUpInside" id="xBb-Q9-Mdk"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="9b2-la-zHH" secondAttribute="trailing" id="6xO-Ej-jS8"/>
-                        <constraint firstItem="icM-A9-3b7" firstAttribute="top" secondItem="9b2-la-zHH" secondAttribute="bottom" constant="16" id="Hjn-as-kK8"/>
+                        <constraint firstItem="icM-A9-3b7" firstAttribute="top" secondItem="9b2-la-zHH" secondAttribute="bottom" constant="10" id="Hjn-as-kK8"/>
+                        <constraint firstItem="1ek-Ph-Bvf" firstAttribute="centerX" secondItem="icM-A9-3b7" secondAttribute="centerX" id="NMd-j9-fub"/>
                         <constraint firstItem="icM-A9-3b7" firstAttribute="leading" secondItem="Uy3-Pk-OeG" secondAttribute="leading" id="OJz-WF-IXa"/>
                         <constraint firstItem="9b2-la-zHH" firstAttribute="leading" secondItem="Uy3-Pk-OeG" secondAttribute="leading" id="kWl-aw-4aj"/>
                         <constraint firstItem="9b2-la-zHH" firstAttribute="top" secondItem="Uy3-Pk-OeG" secondAttribute="top" id="sX7-zT-tGb"/>
                         <constraint firstAttribute="trailing" secondItem="icM-A9-3b7" secondAttribute="trailing" id="suV-8z-nNJ"/>
+                        <constraint firstItem="1ek-Ph-Bvf" firstAttribute="top" secondItem="icM-A9-3b7" secondAttribute="bottom" id="tRw-qa-0Wa"/>
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cdR-CR-0sH">
@@ -66,4 +81,7 @@
             <point key="canvasLocation" x="132" y="81"/>
         </view>
     </objects>
+    <resources>
+        <image name="dk_common_info" width="60" height="60"/>
+    </resources>
 </document>

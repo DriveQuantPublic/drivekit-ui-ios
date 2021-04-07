@@ -11,30 +11,27 @@ import DriveKitDBTripAccessModule
 import DriveKitCommonUI
 
 public enum TripData: String {
-    case ecoDriving, safety, distraction, distance, duration
-    
+    case ecoDriving, safety, distraction, distance, duration, speeding
+
     func isScored(trip: Trip) -> Bool {
         switch self {
-        case .ecoDriving:
-            guard let score = trip.ecoDriving?.score else {
-                return false
-            }
-            return score <= 10 ? true : false
-        case .safety:
-            guard let score = trip.safety?.safetyScore else {
-                return false
-            }
-            return score <= 10 ? true : false
+        case .safety, .ecoDriving:
+            return !trip.unscored
         case .distraction:
-            guard let score = trip.driverDistraction?.score else {
-                return false
+            if !trip.unscored, let score = trip.driverDistraction?.score {
+                return score <= 10
             }
-            return score <= 10 ? true : false
+            return false
+        case .speeding:
+            if !trip.unscored, let score = trip.speedingStatistics?.score {
+                return score <= 10
+            }
+            return false
         case .distance, .duration:
             return true
         }
     }
-    
+
     func stringValue(trip: Trip) -> String {
         switch self {
         case .ecoDriving:
@@ -43,6 +40,8 @@ public enum TripData: String {
             return String(format: "%.1f", trip.safety?.safetyScore ?? 0)
         case .distraction:
             return String(format: "%.1f", trip.driverDistraction?.score ?? 0)
+        case .speeding:
+            return String(format: "%.1f", trip.speedingStatistics?.score ?? 0)
         case .distance:
             return trip.tripStatistics?.distance.formatMeterDistanceInKm() ?? "0 \(DKCommonLocalizable.unitKilometer.text())"
         case .duration:
@@ -53,7 +52,7 @@ public enum TripData: String {
     
     func displayType() -> DisplayType {
         switch self {
-        case .ecoDriving, .safety, .distraction:
+        case .ecoDriving, .safety, .distraction, .speeding:
             return .gauge
         case .duration, .distance:
             return .text

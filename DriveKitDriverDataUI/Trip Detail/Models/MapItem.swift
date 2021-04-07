@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import DriveKitCoreModule
 import DriveKitDBTripAccessModule
 import DriveKitCommonUI
 
 public enum MapItem : DKMapItem {
  
-    case ecoDriving, safety, distraction, interactiveMap, synthesis
+    case ecoDriving, safety, distraction, interactiveMap, synthesis, speeding
     
     public func identifier() -> String {
         switch self {
@@ -26,6 +27,8 @@ public enum MapItem : DKMapItem {
                 return "dkDistraction"
             case .synthesis:
                 return "dkSynthesis"
+            case .speeding:
+                return "dkSpeeding"
         }
     }
     
@@ -41,6 +44,8 @@ public enum MapItem : DKMapItem {
             return DKImages.distraction.image
         case .synthesis:
             return DKImages.info.image
+        case .speeding:
+            return DKImages.speeding.image
         }
     }
     
@@ -56,6 +61,8 @@ public enum MapItem : DKMapItem {
             return DKImages.distractionFilled.image
         case .synthesis:
             return DKImages.infoFilled.image
+        case .speeding:
+            return DKImages.speedingFilled.image
         }
     }
     
@@ -83,6 +90,8 @@ public enum MapItem : DKMapItem {
                 case .distraction:
                     return nil
                 case .synthesis:
+                    return nil
+                case .speeding:
                     return nil
                 }
             }else{
@@ -115,12 +124,17 @@ public enum MapItem : DKMapItem {
                 let synthesisViewModel = SynthesisPageViewModel(trip: trip)
                 let synthesisPageVC = SynthesisPageVC(viewModel: synthesisViewModel, parentView: parentViewController)
                 return synthesisPageVC
+            case .speeding:
+                let speedingViewModel = SpeedingPageViewModel(trip: trip)
+                let speedingPageVC = SpeedingPageVC(viewModel: speedingViewModel)
+                return speedingPageVC
+
         }
     }
     
     public func shouldShowDistractionArea() -> Bool {
         switch self {
-            case .ecoDriving, .safety, .synthesis:
+            case .ecoDriving, .safety, .synthesis, .speeding:
                 return false
             case .distraction, .interactiveMap:
                 return true
@@ -133,7 +147,7 @@ public enum MapItem : DKMapItem {
     
     public func displayedMarkers() -> [DKMarkerType] {
         switch self {
-            case .ecoDriving, .synthesis:
+            case .ecoDriving, .synthesis, .speeding:
                 return []
             case .safety:
                 return [.safety]
@@ -147,20 +161,26 @@ public enum MapItem : DKMapItem {
     public func canShowMapItem(trip: Trip) -> Bool {
         switch self {
             case .ecoDriving:
-                if let ecoDriving = trip.ecoDriving{
+                if let ecoDriving = trip.ecoDriving {
                     if ecoDriving.score <= 10 {
                         return true
                     }
                 }
             case .safety:
-                if let safety = trip.safety{
+                if let safety = trip.safety {
                     if safety.safetyScore <= 10 {
                         return true
                     }
                 }
             case .distraction:
-                if let distraction = trip.driverDistraction{
+                if let distraction = trip.driverDistraction {
                     if distraction.score <= 10 {
+                        return true
+                    }
+                }
+            case .speeding:
+                if let speedingStatistics = trip.speedingStatistics {
+                    if speedingStatistics.score <= 10 {
                         return true
                     }
                 }
@@ -172,5 +192,31 @@ public enum MapItem : DKMapItem {
     
     public func overrideShortTrip() -> Bool {
         return false
+    }
+
+    public func shouldShowSpeedingArea() -> Bool {
+        switch self {
+            case .ecoDriving, .safety, .synthesis, .distraction, .interactiveMap:
+                return false
+            case .speeding:
+                return true
+        }
+    }
+
+    func hasAccess() -> Bool {
+        let hasAccess: Bool
+        switch self {
+            case .distraction:
+                hasAccess = DriveKitAccess.shared.hasAccess(.phoneDistraction)
+            case .ecoDriving:
+                hasAccess = DriveKitAccess.shared.hasAccess(.ecoDriving)
+            case .safety:
+                hasAccess = DriveKitAccess.shared.hasAccess(.safety)
+            case .speeding:
+                hasAccess = DriveKitAccess.shared.hasAccess(.speeding)
+            case .interactiveMap, .synthesis:
+                hasAccess = true
+        }
+        return hasAccess
     }
 }

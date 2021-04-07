@@ -68,15 +68,15 @@ public struct SynthesisCard: DKSynthesisCard {
     }
 
     public func getTopSynthesisCardInfo() -> DKSynthesisCardInfo {
-        return SynthesisCardInfo.count
+        return SynthesisCardInfo.count(trips: self.trips)
     }
 
     public func getMiddleSynthesisCardInfo() -> DKSynthesisCardInfo {
-        return SynthesisCardInfo.distance
+        return SynthesisCardInfo.distance(trips: self.trips)
     }
 
     public func getBottomSynthesisCardInfo() -> DKSynthesisCardInfo {
-        return SynthesisCardInfo.duration
+        return SynthesisCardInfo.duration(trips: self.trips)
     }
 
     public func getBottomText() -> NSAttributedString? {

@@ -12,11 +12,14 @@ import DriveKitDBTripAccessModule
 
 public protocol DKSynthesisCardInfo {
     func getIcon() -> UIImage?
-    func getText(trips: [Trip]) -> NSAttributedString
+    func getText() -> NSAttributedString
 }
 
 public enum SynthesisCardInfo: DKSynthesisCardInfo {
-    case activeDays, count, distance, duration
+    case activeDays(trips: [Trip])
+    case count(trips: [Trip])
+    case distance(trips: [Trip])
+    case duration(trips: [Trip])
 
     public func getIcon() -> UIImage? {
         let image: DKImages
@@ -33,11 +36,11 @@ public enum SynthesisCardInfo: DKSynthesisCardInfo {
         return image.image
     }
 
-    public func getText(trips: [Trip]) -> NSAttributedString {
+    public func getText() -> NSAttributedString {
         let valueFontStyle = DKStyle(size: DKStyles.bigtext.style.size, traits: .traitBold)
         let text: NSAttributedString
         switch self {
-            case .activeDays:
+            case let .activeDays(trips):
                 let count = trips.totalActiveDays
                 let unitKey: DKCommonLocalizable
                 if count > 1 {
@@ -48,7 +51,7 @@ public enum SynthesisCardInfo: DKSynthesisCardInfo {
                 let valueString = String(count).dkAttributedString().font(dkFont: .primary, style: valueFontStyle).color(.primaryColor).build()
                 let unitString = unitKey.text().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
                 text = "%@ %@".dkAttributedString().buildWithArgs(valueString, unitString)
-            case .count:
+            case let .count(trips):
                 let count = trips.count
                 let unitKey: DKCommonLocalizable
                 if count > 1 {
@@ -59,9 +62,9 @@ public enum SynthesisCardInfo: DKSynthesisCardInfo {
                 let valueString = String(count).dkAttributedString().font(dkFont: .primary, style: valueFontStyle).color(.primaryColor).build()
                 let unitString = unitKey.text().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
                 text = "%@ %@".dkAttributedString().buildWithArgs(valueString, unitString)
-            case .distance:
+            case let .distance(trips):
                 text = trips.totalDistance.formatMeterDistance().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
-            case .duration:
+            case let .duration(trips):
                 text = trips.totalDuration.formatSecondDuration().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         }
         return text

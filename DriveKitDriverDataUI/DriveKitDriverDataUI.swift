@@ -82,9 +82,9 @@ public class DriveKitDriverDataUI: AccessRightListener {
         self.enableVehicleFilter = enable
     }
 
-    public func getSynthesisCardView(from synthesisCard: DKSynthesisCard, withTrips trips: [Trip]) -> UIView {
+    public func getSynthesisCardView(from synthesisCard: DKSynthesisCard) -> UIView {
         let synthesisCardView = DKSynthesisCardView.viewFromNib
-        synthesisCardView.synthesisCardViewModel = SynthesisCardViewModel(synthesisCard: synthesisCard, trips: trips)
+        synthesisCardView.synthesisCardViewModel = SynthesisCardViewModel(synthesisCard: synthesisCard)
         return synthesisCardView
     }
 

@@ -12,11 +12,9 @@ import DriveKitDBTripAccessModule
 
 struct SynthesisCardViewModel {
     private let synthesisCard: DKSynthesisCard
-    private let trips: [Trip]
 
-    init(synthesisCard: DKSynthesisCard, trips: [Trip]) {
+    init(synthesisCard: DKSynthesisCard) {
         self.synthesisCard = synthesisCard
-        self.trips = trips
     }
 
     func getTitle() -> String {
@@ -48,6 +46,6 @@ struct SynthesisCardViewModel {
     }
 
     private func getSynthesisCardInfoViewModel(from synthesisCardInfo: DKSynthesisCardInfo) -> SynthesisCardInfoViewModel {
-        return SynthesisCardInfoViewModel(synthesisCardInfo: synthesisCardInfo, trips: self.trips)
+        return SynthesisCardInfoViewModel(synthesisCardInfo: synthesisCardInfo)
     }
 }

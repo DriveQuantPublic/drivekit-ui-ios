@@ -11,11 +11,9 @@ import DriveKitDBTripAccessModule
 
 struct SynthesisCardInfoViewModel {
     private let synthesisCardInfo: DKSynthesisCardInfo
-    private let trips: [Trip]
 
-    init(synthesisCardInfo: DKSynthesisCardInfo, trips: [Trip]) {
+    init(synthesisCardInfo: DKSynthesisCardInfo) {
         self.synthesisCardInfo = synthesisCardInfo
-        self.trips = trips
     }
 
     func getIcon() -> UIImage? {
@@ -23,6 +21,6 @@ struct SynthesisCardInfoViewModel {
     }
 
     func getText() -> NSAttributedString {
-        self.synthesisCardInfo.getText(trips: self.trips)
+        self.synthesisCardInfo.getText()
     }
 }

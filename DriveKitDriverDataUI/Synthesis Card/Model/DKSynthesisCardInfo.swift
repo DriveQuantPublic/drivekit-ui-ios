@@ -19,18 +19,18 @@ public enum SynthesisCardInfo: DKSynthesisCardInfo {
     case activeDays, count, distance, duration
 
     public func getIcon() -> UIImage? {
-        let imageName: String
+        let image: DKImages
         switch self {
             case .activeDays:
-                imageName = "dk_common_calendar"
+                image = DKImages.calendar
             case .count:
-                imageName = "dk_common_trip"
+                image = DKImages.trip
             case .distance:
-                imageName = "dk_common_road"
+                image = DKImages.road
             case .duration:
-                imageName = "dk_common_clock"
+                image = DKImages.clock
         }
-        return UIImage(named: imageName)
+        return image.image
     }
 
     public func getText(trips: [Trip]) -> NSAttributedString {
@@ -39,25 +39,25 @@ public enum SynthesisCardInfo: DKSynthesisCardInfo {
         switch self {
             case .activeDays:
                 let count = trips.totalActiveDays
-                let unitKey: String
+                let unitKey: DKCommonLocalizable
                 if count > 1 {
-                    unitKey = "dk_common_trip_plural"
+                    unitKey = .dayPlural
                 } else {
-                    unitKey = "dk_common_trip_singular"
+                    unitKey = .daySingular
                 }
                 let valueString = String(count).dkAttributedString().font(dkFont: .primary, style: valueFontStyle).color(.primaryColor).build()
-                let unitString = unitKey.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+                let unitString = unitKey.text().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
                 text = "%@ %@".dkAttributedString().buildWithArgs(valueString, unitString)
             case .count:
                 let count = trips.count
-                let unitKey: String
+                let unitKey: DKCommonLocalizable
                 if count > 1 {
-                    unitKey = "dk_common_day_plural"
+                    unitKey = .tripPlural
                 } else {
-                    unitKey = "dk_common_day_singular"
+                    unitKey = .tripSingular
                 }
                 let valueString = String(count).dkAttributedString().font(dkFont: .primary, style: valueFontStyle).color(.primaryColor).build()
-                let unitString = unitKey.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+                let unitString = unitKey.text().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
                 text = "%@ %@".dkAttributedString().buildWithArgs(valueString, unitString)
             case .distance:
                 text = trips.totalDistance.formatMeterDistance().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()

@@ -31,15 +31,23 @@ struct SynthesisCardViewModel {
         return ConfigurationCircularProgressView(gaugeConfiguration: self.synthesisCard.getGaugeConfiguration(), size: .large)
     }
 
-    func getTripCardInfoList() -> [SynthesisCardInfoViewModel] {
-//        let tripCardInfoList = self.synthesisCard.getTripCardInfo(trips: self.trips)
-//        return tripCardInfoList.map { tripCardInfo in
-//            TripCardInfoViewModel(tripCardInfo: tripCardInfo, trips: self.trips)
-//        }
-        return []
+    func getTopSynthesisCardInfoViewModel() -> SynthesisCardInfoViewModel {
+        return getSynthesisCardInfoViewModel(from: self.synthesisCard.getTopSynthesisCardInfo())
+    }
+
+    func getMiddleSynthesisCardInfoViewModel() -> SynthesisCardInfoViewModel {
+        return getSynthesisCardInfoViewModel(from: self.synthesisCard.getMiddleSynthesisCardInfo())
+    }
+
+    func getBottomSynthesisCardInfoViewModel() -> SynthesisCardInfoViewModel {
+        return getSynthesisCardInfoViewModel(from: self.synthesisCard.getBottomSynthesisCardInfo())
     }
 
     func getBottomText() -> NSAttributedString? {
         self.synthesisCard.getBottomText()
+    }
+
+    private func getSynthesisCardInfoViewModel(from synthesisCardInfo: DKSynthesisCardInfo) -> SynthesisCardInfoViewModel {
+        return SynthesisCardInfoViewModel(synthesisCardInfo: synthesisCardInfo, trips: self.trips)
     }
 }

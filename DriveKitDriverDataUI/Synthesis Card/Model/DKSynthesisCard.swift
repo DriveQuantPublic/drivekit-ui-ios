@@ -37,13 +37,13 @@ public struct SynthesisCard: DKSynthesisCard {
         let titleKey: String
         switch self.type {
             case .distraction:
-                titleKey = "dk_driverdata_my_weekly_score_distraction"
+                titleKey = "dk_driverdata_weekly_score_distraction"
             case .ecodriving:
-                titleKey = "dk_driverdata_my_weekly_score_ecodriving"
+                titleKey = "dk_driverdata_weekly_score_ecodriving"
             case .safety:
-                titleKey = "dk_driverdata_my_weekly_score_safety"
+                titleKey = "dk_driverdata_weekly_score_safety"
             case .speeding:
-                titleKey = "dk_driverdata_my_weekly_score_speeding"
+                titleKey = "dk_driverdata_weekly_score_speeding"
         }
         return titleKey.dkDriverDataLocalized()
     }
@@ -95,7 +95,7 @@ public struct SynthesisCard: DKSynthesisCard {
                 textKey = nil
         }
         if let textKey = textKey {
-            let value = String(format: "%.0f", percentage).dkAttributedString().color(.primaryColor).font(dkFont: .primary, style: .normalText).build()
+            let value = String(format: "%.0f%%", percentage).dkAttributedString().color(.primaryColor).font(dkFont: .primary, style: .normalText).build()
             return textKey.dkDriverDataLocalized().dkAttributedString().color(.mainFontColor).font(dkFont: .primary, style: .normalText).buildWithArgs(value)
         }
         return nil

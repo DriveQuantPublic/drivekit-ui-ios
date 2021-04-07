@@ -49,7 +49,7 @@ public class DKAttributedStringBuilder {
         let stringsPart = self.text.components(separatedBy: "%@")
         let attributedString = NSMutableAttributedString(string: stringsPart[0], attributes: attributes)
         for i in 0...stringsPart.count {
-            if args.count >  i {
+            if args.count > i {
                 attributedString.append(args[i])
             }
             if stringsPart.count > i + 1 {

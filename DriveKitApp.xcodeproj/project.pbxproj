@@ -1513,8 +1513,8 @@
 		6391E0F62607F51A00A168D4 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				6391E0F82607F57000A168D4 /* SynthesisCardViewModel.swift */,
 				6391E1042607F64100A168D4 /* SynthesisCardInfoViewModel.swift */,
+				6391E0F82607F57000A168D4 /* SynthesisCardViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1522,10 +1522,10 @@
 		6391E0F72607F52C00A168D4 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6391E0DD2607836900A168D4 /* DKSynthesisCardView.swift */,
-				6391E0E92607837900A168D4 /* DKSynthesisCardView.xib */,
 				633E93D7261D0CA4009543C0 /* DKSynthesisCardInfoView.swift */,
 				633E93DE261D0D1A009543C0 /* DKSynthesisCardInfoView.xib */,
+				6391E0DD2607836900A168D4 /* DKSynthesisCardView.swift */,
+				6391E0E92607837900A168D4 /* DKSynthesisCardView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";

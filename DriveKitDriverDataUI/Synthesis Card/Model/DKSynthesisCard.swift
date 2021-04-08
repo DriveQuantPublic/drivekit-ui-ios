@@ -20,22 +20,15 @@ public protocol DKSynthesisCard {
     func getBottomText() -> NSAttributedString?
 }
 
-public struct SynthesisCard: DKSynthesisCard {
-    public static let distraction = SynthesisCard(type: .distraction)
-    public static let ecodriving = SynthesisCard(type: .ecodriving)
-    public static let safety = SynthesisCard(type: .safety)
-    public static let speeding = SynthesisCard(type: .speeding)
-
-    private let type: SynthesisCardType
-    private let trips: [Trip] = SynthesisCardUtils.getLastTrips()
-
-    private init(type: SynthesisCardType) {
-        self.type = type
-    }
+public enum SynthesisCard: DKSynthesisCard {
+    case distraction(trips: [Trip])
+    case ecodriving(trips: [Trip])
+    case safety(trips: [Trip])
+    case speeding(trips: [Trip])
 
     public func getTitle() -> String {
         let titleKey: String
-        switch self.type {
+        switch self {
             case .distraction:
                 titleKey = "dk_driverdata_weekly_score_distraction"
             case .ecodriving:
@@ -54,7 +47,7 @@ public struct SynthesisCard: DKSynthesisCard {
 
     public func getGaugeConfiguration() -> DKGaugeConfiguration {
         let scoreType: ScoreType
-        switch self.type {
+        switch self {
             case .distraction:
                 scoreType = .distraction
             case .ecodriving:
@@ -64,23 +57,23 @@ public struct SynthesisCard: DKSynthesisCard {
             case .speeding:
                 scoreType = .speeding
         }
-        return GaugeConfiguration(trips: self.trips, scoreType: scoreType)
+        return GaugeConfiguration(trips: getTrips(), scoreType: scoreType)
     }
 
     public func getTopSynthesisCardInfo() -> DKSynthesisCardInfo {
-        return SynthesisCardInfo.count(trips: self.trips)
+        return SynthesisCardInfo.count(trips: getTrips())
     }
 
     public func getMiddleSynthesisCardInfo() -> DKSynthesisCardInfo {
-        return SynthesisCardInfo.distance(trips: self.trips)
+        return SynthesisCardInfo.distance(trips: getTrips())
     }
 
     public func getBottomSynthesisCardInfo() -> DKSynthesisCardInfo {
-        return SynthesisCardInfo.duration(trips: self.trips)
+        return SynthesisCardInfo.duration(trips: getTrips())
     }
 
     public func getBottomText() -> NSAttributedString? {
-        let (roadCondition, percentage) = SynthesisCardUtils.getMainRoadCondition(ofTrips: self.trips)
+        let (roadCondition, percentage) = SynthesisCardUtils.getMainRoadCondition(ofTrips: getTrips())
         let textKey: String?
         switch roadCondition {
             case .city:
@@ -99,6 +92,16 @@ public struct SynthesisCard: DKSynthesisCard {
             return textKey.dkDriverDataLocalized().dkAttributedString().color(.mainFontColor).font(dkFont: .primary, style: .normalText).buildWithArgs(value)
         }
         return nil
+    }
+
+    private func getTrips() -> [Trip] {
+        switch self {
+            case let .distraction(trips),
+                 let .ecodriving(trips),
+                 let .safety(trips),
+                 let .speeding(trips):
+                return trips
+        }
     }
 
 }
@@ -142,8 +145,4 @@ private struct GaugeConfiguration : DKGaugeConfiguration {
     func getTitle() -> String {
         self.value.formatDouble(places: 1)
     }
-}
-
-private enum SynthesisCardType {
-    case distraction, ecodriving, safety, speeding
 }

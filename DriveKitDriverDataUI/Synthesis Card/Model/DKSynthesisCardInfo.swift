@@ -37,7 +37,6 @@ public enum SynthesisCardInfo: DKSynthesisCardInfo {
     }
 
     public func getText() -> NSAttributedString {
-        let valueFontStyle = DKStyle(size: DKStyles.bigtext.style.size, traits: .traitBold)
         let text: NSAttributedString
         switch self {
             case let .activeDays(trips):
@@ -63,10 +62,28 @@ public enum SynthesisCardInfo: DKSynthesisCardInfo {
                 let unitString = unitKey.text().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
                 text = "%@ %@".dkAttributedString().buildWithArgs(valueString, unitString)
             case let .distance(trips):
-                text = trips.totalDistance.formatMeterDistance().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+                text = formatTypes(trips.totalDistance.ceilMeterDistance(ifGreaterThan: 10000).getMeterDistanceFormat())
             case let .duration(trips):
-                text = trips.totalDuration.formatSecondDuration().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+                text = formatTypes(trips.totalDuration.ceilSecondDuration(ifGreaterThan: 600).getSecondDurationFormat())
         }
         return text
+    }
+
+    private var valueFontStyle: DKStyle {
+        DKStyle(size: DKStyles.bigtext.style.size, traits: .traitBold)
+    }
+
+    private func formatTypes(_ formattingTypes: [FormatType]) -> NSAttributedString {
+        let attributedString = NSMutableAttributedString()
+        for formattingType in formattingTypes {
+            switch formattingType {
+                case let .separator(value),
+                     let .unit(value):
+                    attributedString.append(value.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build())
+                case let .value(value):
+                    attributedString.append(value.dkAttributedString().font(dkFont: .primary, style: valueFontStyle).color(.primaryColor).build())
+            }
+        }
+        return attributedString
     }
 }

@@ -1,5 +1,5 @@
 //
-//  DKSynthesisCardView.swift
+//  SynthesisCardView.swift
 //  DriveKitDriverDataUI
 //
 //  Created by David Bauduin on 21/03/2021.
@@ -10,15 +10,16 @@ import UIKit
 import DriveKitCommonUI
 import UICircularProgressRing
 
-final class DKSynthesisCardView: UIView, Nibable {
+final class SynthesisCardView: UIView, Nibable {
     @IBOutlet private weak var title: UILabel!
     @IBOutlet private weak var explanationButton: UIButton!
     @IBOutlet private weak var circularProgressViewContainer: UIView!
     @IBOutlet private weak var cardInfoContainer: UIStackView!
     @IBOutlet private weak var bottomText: UILabel!
-    private weak var topSynthesisCardInfo: DKSynthesisCardInfoView!
-    private weak var middleSynthesisCardInfo: DKSynthesisCardInfoView!
-    private weak var bottomSynthesisCardInfo: DKSynthesisCardInfoView!
+    private weak var topSynthesisCardInfo: SynthesisCardInfoView!
+    private weak var middleSynthesisCardInfo: SynthesisCardInfoView!
+    private weak var bottomSynthesisCardInfo: SynthesisCardInfoView!
+    private weak var circularProgressView: CircularProgressView!
 
     var synthesisCardViewModel: SynthesisCardViewModel? = nil {
         didSet {
@@ -35,10 +36,14 @@ final class DKSynthesisCardView: UIView, Nibable {
         self.explanationButton.tintColor = DKUIColors.secondaryColor.color
         self.explanationButton.setImage(DKImages.info.image, for: .normal)
 
+        let circularProgressView = CircularProgressView.viewFromNib
+        embedProgressView(circularProgressView)
+        self.circularProgressView = circularProgressView
+
         self.cardInfoContainer.removeAllSubviews()
-        let topSynthesisCardInfo = DKSynthesisCardInfoView.viewFromNib
-        let middleSynthesisCardInfo = DKSynthesisCardInfoView.viewFromNib
-        let bottomSynthesisCardInfo = DKSynthesisCardInfoView.viewFromNib
+        let topSynthesisCardInfo = SynthesisCardInfoView.viewFromNib
+        let middleSynthesisCardInfo = SynthesisCardInfoView.viewFromNib
+        let bottomSynthesisCardInfo = SynthesisCardInfoView.viewFromNib
         cardInfoContainer.addArrangedSubview(topSynthesisCardInfo)
         cardInfoContainer.addArrangedSubview(middleSynthesisCardInfo)
         cardInfoContainer.addArrangedSubview(bottomSynthesisCardInfo)
@@ -53,9 +58,7 @@ final class DKSynthesisCardView: UIView, Nibable {
         if self.title != nil, let tripCardViewModel = self.synthesisCardViewModel {
             self.title.text = tripCardViewModel.getTitle()
             self.explanationButton.isHidden = tripCardViewModel.getExplanationContent() == nil
-            let circularProgressView = CircularProgressView.viewFromNib
-            circularProgressView.configure(configuration: tripCardViewModel.getGaugeConfiguration())
-            embedProgressView(circularProgressView)
+            self.circularProgressView.configure(configuration: tripCardViewModel.getGaugeConfiguration())
             self.bottomText.attributedText = tripCardViewModel.getBottomText()
             self.topSynthesisCardInfo.synthesisCardInfoViewModel = tripCardViewModel.getTopSynthesisCardInfoViewModel()
             self.middleSynthesisCardInfo.synthesisCardInfoViewModel = tripCardViewModel.getMiddleSynthesisCardInfoViewModel()

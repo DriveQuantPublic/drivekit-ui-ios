@@ -83,9 +83,15 @@ public class DriveKitDriverDataUI: AccessRightListener {
     }
 
     public func getSynthesisCardView(from synthesisCard: DKSynthesisCard) -> UIView {
-        let synthesisCardView = DKSynthesisCardView.viewFromNib
+        let synthesisCardView = SynthesisCardView.viewFromNib
         synthesisCardView.synthesisCardViewModel = SynthesisCardViewModel(synthesisCard: synthesisCard)
         return synthesisCardView
+    }
+
+    public func getSynthesisCardsView(synthesisCards: [DKSynthesisCard]) -> UIView {
+        let synthesisCardsView = SynthesisCardsView.viewFromNib
+        synthesisCardsView.viewModel = SynthesisCardsViewModel(synthesisCards: synthesisCards)
+        return synthesisCardsView
     }
 
     private func filterMapItems() {

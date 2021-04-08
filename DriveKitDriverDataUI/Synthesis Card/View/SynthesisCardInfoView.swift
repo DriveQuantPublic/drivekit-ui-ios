@@ -1,5 +1,5 @@
 //
-//  DKSynthesisCardInfoView.swift
+//  SynthesisCardInfoView.swift
 //  DriveKitDriverDataUI
 //
 //  Created by David Bauduin on 06/04/2021.
@@ -9,7 +9,7 @@
 import UIKit
 import DriveKitCommonUI
 
-final class DKSynthesisCardInfoView: UIView, Nibable {
+final class SynthesisCardInfoView: UIView, Nibable {
     @IBOutlet private weak var icon: UIImageView!
     @IBOutlet private weak var label: UILabel!
 

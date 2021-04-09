@@ -12,7 +12,7 @@ import DriveKitDriverDataModule
 extension TripListVC: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = HeaderDayView.viewFromNib
-        header.configure(trips: self.viewModel.filteredTrips[section])
+        header.configure(trips: self.viewModel.filteredTrips[section], headerDay: DriveKitDriverDataUI.shared.headerDay, dkHeader: DriveKitDriverDataUI.shared.customHeaders)
         return header
     }
     

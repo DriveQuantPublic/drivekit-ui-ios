@@ -80,35 +80,3 @@ extension TripAdvice {
         }
     }
 }
-
-extension ScoreType {
-    func isScored(trip: Trip) -> Bool {
-        switch self {
-        case .ecoDriving:
-            return rawValue(trip: trip) <= 10 ? true : false
-        case .safety:
-            return rawValue(trip: trip) <= 10 ? true : false
-        case .distraction:
-            return rawValue(trip: trip) <= 10 ? true : false
-        case .speeding:
-            return rawValue(trip: trip) <= 10 ? true : false
-        }
-    }
-    
-    func rawValue(trip: Trip) -> Double {
-        switch self {
-        case .ecoDriving:
-            return trip.ecoDriving?.score ?? 0
-        case .safety:
-            return  trip.safety?.safetyScore ?? 0
-        case .distraction:
-            return trip.driverDistraction?.score ?? 0
-        case .speeding:
-            return trip.speedingStatistics?.score ?? 0
-        }
-    }
-}
-
-extension DKStyle {
-    static let driverDataText = DKStyles.normalText.withSizeDelta(-2)
-}

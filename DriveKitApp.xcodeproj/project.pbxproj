@@ -25,7 +25,6 @@
 		3F38C2752369D6ED002E873A /* NotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C2742369D6ED002E873A /* NotificationSender.swift */; };
 		3F3E72F5256F9415002B5E30 /* DKMapItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E72F4256F9415002B5E30 /* DKMapItem.swift */; };
 		3F3E72FC256F9B71002B5E30 /* DKTripDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E72FB256F9B71002B5E30 /* DKTripDetailViewModel.swift */; };
-		3F3E735A2570111C002B5E30 /* DKHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E73592570111C002B5E30 /* DKHeader.swift */; };
 		3F3E73A925715B47002B5E30 /* DKTripInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E73A825715B47002B5E30 /* DKTripInfo.swift */; };
 		3F3E73B025715BE8002B5E30 /* AdviceTripInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E73AF25715BE8002B5E30 /* AdviceTripInfo.swift */; };
 		3F50D6F52417945B001226F7 /* BluetoothViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D6F42417945B001226F7 /* BluetoothViewModel.swift */; };
@@ -267,6 +266,7 @@
 		67301CC4261FB0CD006B0432 /* AlternativeTripImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378AF662593F46F002F0BBD /* AlternativeTripImageView.swift */; };
 		67301CC5261FB0CD006B0432 /* TripTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A342385B2361A2430001E15D /* TripTableViewCell.xib */; };
 		67301CC6261FB0CD006B0432 /* HeaderDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342385C2361A2430001E15D /* HeaderDayView.swift */; };
+		67301CCC2620D16D006B0432 /* DKHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E73592570111C002B5E30 /* DKHeader.swift */; };
 		67CFE99F25F6425F004D0AE1 /* SpeedingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE99D25F6425F004D0AE1 /* SpeedingPageVC.swift */; };
 		67CFE9A025F6425F004D0AE1 /* SpeedingPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67CFE99E25F6425F004D0AE1 /* SpeedingPageVC.xib */; };
 		67CFE9A725F645EA004D0AE1 /* SpeedingPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */; };
@@ -1581,6 +1581,7 @@
 				A34238572361A2430001E15D /* Views */,
 				67301C44261D1206006B0432 /* Models */,
 				67301C3D261D106B006B0432 /* DKTripsList.swift */,
+				3F3E73592570111C002B5E30 /* DKHeader.swift */,
 			);
 			path = TripsList;
 			sourceTree = "<group>";
@@ -1608,7 +1609,6 @@
 				A34238082361A1FA0001E15D /* DriveKitDriveDataUI.h */,
 				A34238092361A1FA0001E15D /* Info.plist */,
 				3FF68E89240ACD620071D74C /* DriveKitDriverDataUI.swift */,
-				3F3E73592570111C002B5E30 /* DKHeader.swift */,
 			);
 			path = DriveKitDriverDataUI;
 			sourceTree = "<group>";
@@ -2469,6 +2469,7 @@
 				67301C3E261D106B006B0432 /* DKTripsList.swift in Sources */,
 				67301CC4261FB0CD006B0432 /* AlternativeTripImageView.swift in Sources */,
 				3F0740E72403BB9A005A8D07 /* DriveKitUI.swift in Sources */,
+				67301CCC2620D16D006B0432 /* DKHeader.swift in Sources */,
 				67301CC6261FB0CD006B0432 /* HeaderDayView.swift in Sources */,
 				3FF68E86240A68D90071D74C /* DKDataFormatter.swift in Sources */,
 				67301CBE261FB0CD006B0432 /* TripInfoView.swift in Sources */,
@@ -2669,7 +2670,6 @@
 				A342387A2361A2440001E15D /* ResistantLayer.swift in Sources */,
 				A342388F2361A2440001E15D /* TripData.swift in Sources */,
 				3F3E72F5256F9415002B5E30 /* DKMapItem.swift in Sources */,
-				3F3E735A2570111C002B5E30 /* DKHeader.swift in Sources */,
 				A34238912361A2440001E15D /* TripListVC.swift in Sources */,
 				A342387B2361A2440001E15D /* CalloutView.swift in Sources */,
 				3F0F6B89257F8ACC00EE7AB3 /* TripListConfiguration.swift in Sources */,

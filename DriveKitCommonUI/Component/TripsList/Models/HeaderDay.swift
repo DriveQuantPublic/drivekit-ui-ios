@@ -11,7 +11,7 @@ import Foundation
 public enum HeaderDay {
     case distance, duration, distanceDuration, durationDistance, none
     
-    public func text(trips: [DKTripsListItem]) -> String {
+    public func text<TripsListItem: DKTripsListItem>(trips: [TripsListItem]) -> String {
         switch self {
             case .distance:
                 return trips.totalDistance.formatMeterDistanceInKm()

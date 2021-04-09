@@ -17,16 +17,16 @@ final class HeaderDayView: UIView, Nibable {
         super.awakeFromNib()
     }
     
-    func configure(trips: DKTripsByDate) {
+    func configure(trips: DKTripsByDate, headerDay: HeaderDay, dkHeader: DKHeader?) {
         var rightText = ""
-        if let dkHeader = DriveKitDriverDataUI.shared.customHeaders {
+        if let dkHeader = dkHeader {
             if let text = dkHeader.customTripListHeader(trips: trips.trips) {
                 rightText = text
             } else {
                 rightText = dkHeader.tripListHeader().text(trips: trips.trips)
             }
         } else {
-            rightText = DriveKitDriverDataUI.shared.headerDay.text(trips: trips.trips)
+            rightText = headerDay.text(trips: trips.trips)
         }
         self.setupAsHeader(leftText: trips.date.format(pattern: .weekLetter).capitalizeFirstLetter(), rightText: rightText, isRounded: true)
     }

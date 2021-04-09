@@ -7,14 +7,12 @@
 //
 
 import Foundation
-import DriveKitDBTripAccessModule
-import DriveKitCommonUI
 
 public protocol DKHeader {
     func tripListHeader() -> HeaderDay
     func tripDetailHeader() -> HeaderDay
-    func customTripListHeader(trips: [Trip]) -> String?
-    func customTripDetailHeader(trip: Trip) -> String?
+    func customTripListHeader(trips: [DKTripsListItem]) -> String?
+    func customTripDetailHeader(trip: DKTripsListItem) -> String?
 }
 
 public extension DKHeader {
@@ -26,11 +24,11 @@ public extension DKHeader {
         return .distanceDuration
     }
     
-    func customTripListHeader(trips: [Trip]) -> String? {
+    func customTripListHeader(trips: [DKTripsListItem]) -> String? {
         return nil
     }
     
-    func customTripDetailHeader(trip: Trip) -> String? {
+    func customTripDetailHeader(trip: DKTripsListItem) -> String? {
         return nil
     }
     

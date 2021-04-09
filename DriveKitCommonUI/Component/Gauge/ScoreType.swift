@@ -58,4 +58,39 @@ public enum ScoreType: String {
             return DKCommonLocalizable.speed.text()
         }
     }
+
+    // TODO: Cleanup commented code
+    func isScored(trip: DKTripsListItem) -> Bool {
+        switch self {
+            case .ecoDriving:
+                return trip.isScored(tripData: .ecoDriving)
+    //            return rawValue(trip: trip) <= 10 ? true : false
+            case .safety:
+                return trip.isScored(tripData: .safety)
+    //            return rawValue(trip: trip) <= 10 ? true : false
+            case .distraction:
+                return trip.isScored(tripData: .distraction)
+    //            return rawValue(trip: trip) <= 10 ? true : false
+            case .speeding:
+                return trip.isScored(tripData: .speeding)
+    //            return rawValue(trip: trip) <= 10 ? true : false
+            }
+        }
+        
+    func rawValue(trip: DKTripsListItem) -> Double {
+        switch self {
+        case .ecoDriving:
+            return trip.getScore(tripData: .ecoDriving) ?? 0
+//          return trip.ecoDriving?.score ?? 0
+        case .safety:
+            return trip.getScore(tripData: .safety) ?? 0
+//            return  trip.safety?.safetyScore ?? 0
+        case .distraction:
+            return trip.getScore(tripData: .distraction) ?? 0
+//            return trip.driverDistraction?.score ?? 0
+        case .speeding:
+            return trip.getScore(tripData: .speeding) ?? 0
+//            return trip.speedingStatistics?.score ?? 0
+        }
+    }
 }

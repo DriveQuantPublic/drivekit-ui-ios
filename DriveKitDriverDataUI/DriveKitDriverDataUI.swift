@@ -94,6 +94,33 @@ public class DriveKitDriverDataUI: AccessRightListener {
         return synthesisCardsView
     }
 
+    public func getSynthesisCards() -> UIView {
+        let synthesisCards: [DKDefaultSynthesisCard] = [
+            .safety,
+            .ecodriving,
+            .distraction,
+            .speeding
+        ]
+        return getSynthesisCardsView(synthesisCards: synthesisCards)
+    }
+
+    public func getSynthesisCardsView(synthesisCards: [DKDefaultSynthesisCard]) -> UIView {
+        let trips = SynthesisCardUtils.getLastTrips()
+        let synthesisCards: [SynthesisCard] = synthesisCards.map {
+            switch $0 {
+                case .distraction:
+                    return SynthesisCard.distraction(trips: trips)
+                case .ecodriving:
+                    return SynthesisCard.ecodriving(trips: trips)
+                case .safety:
+                    return SynthesisCard.safety(trips: trips)
+                case .speeding:
+                    return SynthesisCard.speeding(trips: trips)
+            }
+        }.filter { $0.hasAccess() }
+        return getSynthesisCardsView(synthesisCards: synthesisCards)
+    }
+
     private func filterMapItems() {
         self.mapItems = sourceMapItems.filter({
             $0.hasAccess()

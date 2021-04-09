@@ -8,6 +8,7 @@
 
 import Foundation
 import DriveKitCommonUI
+import DriveKitCoreModule
 import DriveKitDBTripAccessModule
 
 public protocol DKSynthesisCard {
@@ -18,6 +19,13 @@ public protocol DKSynthesisCard {
     func getMiddleSynthesisCardInfo() -> DKSynthesisCardInfo
     func getBottomSynthesisCardInfo() -> DKSynthesisCardInfo
     func getBottomText() -> NSAttributedString?
+}
+
+public enum DKDefaultSynthesisCard {
+    case distraction
+    case ecodriving
+    case safety
+    case speeding
 }
 
 public enum SynthesisCard: DKSynthesisCard {
@@ -92,6 +100,19 @@ public enum SynthesisCard: DKSynthesisCard {
             return textKey.dkDriverDataLocalized().dkAttributedString().color(.mainFontColor).font(dkFont: .primary, style: .normalText).buildWithArgs(value)
         }
         return nil
+    }
+
+    func hasAccess() -> Bool {
+        switch self {
+            case .distraction:
+                return DriveKitAccess.shared.hasAccess(.phoneDistraction)
+            case .ecodriving:
+                return DriveKitAccess.shared.hasAccess(.ecoDriving)
+            case .safety:
+                return DriveKitAccess.shared.hasAccess(.safety)
+            case .speeding:
+                return DriveKitAccess.shared.hasAccess(.speeding)
+        }
     }
 
     private func getTrips() -> [Trip] {

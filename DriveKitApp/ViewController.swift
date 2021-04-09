@@ -194,13 +194,7 @@ class ViewController: UITableViewController {
         let viewController = UIViewController()
         viewController.view.backgroundColor = .white
 
-        let trips = SynthesisCardUtils.getLastTrips()
-        let cardsView = DriveKitDriverDataUI.shared.getSynthesisCardsView(synthesisCards: [
-            SynthesisCard.safety(trips: trips),
-            SynthesisCard.ecodriving(trips: trips),
-            SynthesisCard.distraction(trips: trips),
-            SynthesisCard.speeding(trips: trips)
-        ])
+        let cardsView = DriveKitDriverDataUI.shared.getSynthesisCards()
         cardsView.translatesAutoresizingMaskIntoConstraints = false
         cardsView.layer.shadowColor = UIColor.black.cgColor
         cardsView.layer.shadowOpacity = 0.3

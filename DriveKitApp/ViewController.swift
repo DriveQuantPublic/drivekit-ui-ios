@@ -98,17 +98,19 @@ class ViewController: UITableViewController {
         if indexPath.section == 0 {
             if indexPath.row == 1 {
                 self.configureDriverDataUI()
-            } else if indexPath.row == 3 {
-                self.configureDriverStreak()
+            } else if indexPath.row == 2 {
+                self.openSynthesisCards()
             } else if indexPath.row == 4 {
-                self.configureVehiclePicker()
+                self.configureDriverStreak()
             } else if indexPath.row == 5 {
-                self.configureBeaconPairing()
+                self.configureVehiclePicker()
             } else if indexPath.row == 6 {
+                self.configureBeaconPairing()
+            } else if indexPath.row == 7 {
                 self.configureVehiclesList()
-            } else if indexPath.row == 8 {
-                self.configureDriverBadges()
             } else if indexPath.row == 9 {
+                self.configureDriverBadges()
+            } else if indexPath.row == 10 {
                 self.showRanking()
             }
         }
@@ -183,10 +185,39 @@ class ViewController: UITableViewController {
     
     func configureDriverDataUI() {
         DispatchQueue.main.async {
-            
             let tripListVC = TripListVC()
             self.navigationController?.pushViewController(tripListVC, animated: true)
         }
+    }
+
+    func openSynthesisCards() {
+        let viewController = UIViewController()
+        viewController.view.backgroundColor = .white
+
+        let trips = SynthesisCardUtils.getLastTrips()
+        let cardsView = DriveKitDriverDataUI.shared.getSynthesisCardsView(synthesisCards: [
+            SynthesisCard.safety(trips: trips),
+            SynthesisCard.ecodriving(trips: trips),
+            SynthesisCard.distraction(trips: trips),
+            SynthesisCard.speeding(trips: trips)
+        ])
+        cardsView.translatesAutoresizingMaskIntoConstraints = false
+        cardsView.layer.shadowColor = UIColor.black.cgColor
+        cardsView.layer.shadowOpacity = 0.3
+        cardsView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        cardsView.layer.shadowRadius = 4
+        cardsView.layer.masksToBounds = false
+        viewController.view.addSubview(cardsView)
+
+        let margin = CGFloat(10)
+        viewController.view.addConstraints([
+            cardsView.heightAnchor.constraint(equalToConstant: 220),
+            cardsView.topAnchor.constraint(equalTo: viewController.view.topAnchor, constant: margin),
+            cardsView.leftAnchor.constraint(equalTo: viewController.view.leftAnchor, constant: margin),
+            cardsView.rightAnchor.constraint(equalTo: viewController.view.rightAnchor, constant: -margin)
+        ])
+
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func configureDriverStreak() {

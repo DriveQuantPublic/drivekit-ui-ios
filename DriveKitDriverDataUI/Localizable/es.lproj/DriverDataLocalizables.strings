@@ -25,6 +25,7 @@ Manejar el teléfono mientras se conduce es muy peligroso. Recuerde que debe pro
 "dk_driverdata_day"="Excursión de un día";
 "dk_driverdata_declared_transportation_mode"="Modo declarado:";
 "dk_driverdata_default_filter_item"="Todos mis viajes";
+"dk_driverdata_dense_urban"="%@ en tráfico denso";
 "dk_driverdata_detected_transportation_mode"="Modo detectado :";
 "dk_driverdata_distance_travelled"="%@ recorridos";
 "dk_driverdata_distraction_score"="Puntuación de distracción";
@@ -38,6 +39,8 @@ Manejar el teléfono mientras se conduce es muy peligroso. Recuerde que debe pro
 "dk_driverdata_end_unauthorized_call_info_content"="La aplicación detectó el final de una llamada telefónica no autorizada...
 Esto significa que la llamada no se realizó con un kit de manos libres.
 Manejar el teléfono mientras se conduce es muy peligroso. Recuerde que debe protegerse a sí mismo, a sus pasajeros y a los demás usuarios de la carretera. Si necesitas hacer una llamada, aparca tu vehículo en una plaza de aparcamiento con el motor apagado.";
+"dk_driverdata_expressway"="%@ en la autopista";
+"dk_driverdata_extra_urban"="%@ en zonas extraurbanas";
 "dk_driverdata_failed_to_declare_transportation"="El modo de transporte no pudo ser actualizado, por favor vuelva a intentarlo más tarde.";
 "dk_driverdata_failed_to_delete_trip"="El viaje no pudo ser borrado, intente de nuevo más tarde.";
 "dk_driverdata_failed_to_sync_trips"="No se sincronizaron los disparos, inténtelo de nuevo más tarde.";
@@ -49,6 +52,10 @@ Manejar el teléfono mientras se conduce es muy peligroso. Recuerde que debe pro
 "dk_driverdata_lock_event"="Blocco dello schermo";
 "dk_driverdata_low_accel"="Aceleración demasiado débil";
 "dk_driverdata_low_decel"="Frenado demasiado débil";
+"dk_driverdata_my_weekly_score_distraction"="Mi puntuación semanal | Distracción";
+"dk_driverdata_my_weekly_score_ecodriving"="Mi puntuación semanal | Eficiencia";
+"dk_driverdata_my_weekly_score_safety"="Mi puntuación semanal | Seguridad";
+"dk_driverdata_my_weekly_score_speeding"="Mi puntuación semanal | Velocidad";
 "dk_driverdata_night"="Excursión nocturna";
 "dk_driverdata_no_call_congrats"="¡Felicitación!";
 "dk_driverdata_no_call_content"="Sin llamadas";
@@ -91,6 +98,10 @@ Manejar el teléfono mientras se conduce es muy peligroso. Recuerde que debe pro
 "dk_driverdata_synthesis_co2_mass"="Masa de CO2";
 "dk_driverdata_synthesis_condition"="Condición";
 "dk_driverdata_synthesis_fuel_consumption"="Consumo de combustible";
+"dk_driverdata_synthesis_info_distraction"="La puntuación que aparece en la tarjeta es la media de los viajes realizados durante 7 días consecutivos desde la fecha del último viaje. Si la puntuación no aparece, significa que no hay suficientes datos para evaluar su conducción.";
+"dk_driverdata_synthesis_info_ecodriving"="La puntuación que aparece en la tarjeta es la media de los viajes realizados durante 7 días consecutivos desde la fecha del último viaje. Si la puntuación no aparece, significa que no hay suficientes datos para evaluar su conducción.";
+"dk_driverdata_synthesis_info_safety"="La puntuación que aparece en la tarjeta es la media de los viajes realizados durante 7 días consecutivos desde la fecha del último viaje. Si la puntuación no aparece, significa que no hay suficientes datos para evaluar su conducción.";
+"dk_driverdata_synthesis_info_speeding"="La puntuación que aparece en la tarjeta es la media de los viajes realizados durante 7 días consecutivos desde la fecha del último viaje. Si la puntuación no aparece, significa que no hay suficientes datos para evaluar su conducción.";
 "dk_driverdata_synthesis_mean_speed"="Velocidad media";
 "dk_driverdata_synthesis_road_context"="Contexto de conducción";
 "dk_driverdata_synthesis_stop_time"="Duración del ralentí";
@@ -130,6 +141,7 @@ Manejar el teléfono mientras se conduce es muy peligroso. Recuerde que debe pro
 "dk_driverdata_unlock_events"="Desbloqueo de la pantalla";
 "dk_driverdata_unlock_number"="Cantidad de desbloqueo";
 "dk_driverdata_unlock_screen_content"="visualización en %@ y %@";
+"dk_driverdata_urban"="%@ en zonas urbanas";
 "dk_driverdata_value"="Valore =";
 "dk_driverdata_vehicle_trips"="Viajes en vehículos";
 "dk_driverdata_weak_accel"="Baja aceleración";

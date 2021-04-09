@@ -38,19 +38,30 @@ public enum SynthesisCard: DKSynthesisCard {
         let titleKey: String
         switch self {
             case .distraction:
-                titleKey = "dk_driverdata_weekly_score_distraction"
+                titleKey = "dk_driverdata_my_weekly_score_distraction"
             case .ecodriving:
-                titleKey = "dk_driverdata_weekly_score_ecodriving"
+                titleKey = "dk_driverdata_my_weekly_score_ecodriving"
             case .safety:
-                titleKey = "dk_driverdata_weekly_score_safety"
+                titleKey = "dk_driverdata_my_weekly_score_safety"
             case .speeding:
-                titleKey = "dk_driverdata_weekly_score_speeding"
+                titleKey = "dk_driverdata_my_weekly_score_speeding"
         }
         return titleKey.dkDriverDataLocalized()
     }
 
     public func getExplanationContent() -> String? {
-        "dk_driverdata_synthesis_card_explanation".dkDriverDataLocalized()
+        let titleKey: String
+        switch self {
+            case .distraction:
+                titleKey = "dk_driverdata_synthesis_info_distraction"
+            case .ecodriving:
+                titleKey = "dk_driverdata_synthesis_info_ecodriving"
+            case .safety:
+                titleKey = "dk_driverdata_synthesis_info_safety"
+            case .speeding:
+                titleKey = "dk_driverdata_synthesis_info_speeding"
+        }
+        return titleKey.dkDriverDataLocalized()
     }
 
     public func getGaugeConfiguration() -> DKGaugeConfiguration {

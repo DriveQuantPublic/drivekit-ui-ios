@@ -13,8 +13,8 @@ import DriveKitCommonUI
 import DriveKitCoreModule
 
 class TripListViewModel {
-    private var trips : [TripsByDate] = []
-    var filteredTrips : [TripsByDate] = []
+    private var trips : [DKTripsByDate] = []
+    var filteredTrips : [DKTripsByDate] = []
     var status: TripSyncStatus = .noError
     private(set) var listConfiguration: TripListConfiguration = .motorized()
     
@@ -31,7 +31,7 @@ class TripListViewModel {
     }
     
     var tripsDistance: Double {
-        return self.filteredTrips.map {$0.trips.map {($0.tripStatistics?.distance ?? 0)}.reduce(0, +)}.reduce(0, +)
+        return self.filteredTrips.map {$0.trips.map {($0.getDistance() ?? 0)}.reduce(0, +)}.reduce(0, +)
     }
 
     public func fetchTrips(withSynchronizationType synchronizationType: SynchronizationType = .defaultSync) {
@@ -49,7 +49,7 @@ class TripListViewModel {
         })
     }
 
-    private func sortTrips(trips : [Trip]) -> [TripsByDate] {
+    private func sortTrips(trips : [DKTripsListItem]) -> [DKTripsByDate] {
         let tripSorted = trips.orderByDay(descOrder: DriveKitDriverDataUI.shared.dayTripDescendingOrder)
         return tripSorted
     }

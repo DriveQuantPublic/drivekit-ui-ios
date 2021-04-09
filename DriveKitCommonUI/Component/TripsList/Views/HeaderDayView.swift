@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import DriveKitCommonUI
 
 final class HeaderDayView: UIView, Nibable {
     @IBOutlet var leftLabel: UILabel!
@@ -18,7 +17,7 @@ final class HeaderDayView: UIView, Nibable {
         super.awakeFromNib()
     }
     
-    func configure(trips: TripsByDate) {
+    func configure(trips: DKTripsByDate) {
         var rightText = ""
         if let dkHeader = DriveKitDriverDataUI.shared.customHeaders {
             if let text = dkHeader.customTripListHeader(trips: trips.trips) {

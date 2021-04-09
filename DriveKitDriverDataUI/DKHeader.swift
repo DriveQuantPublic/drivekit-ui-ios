@@ -8,6 +8,7 @@
 
 import Foundation
 import DriveKitDBTripAccessModule
+import DriveKitCommonUI
 
 public protocol DKHeader {
     func tripListHeader() -> HeaderDay

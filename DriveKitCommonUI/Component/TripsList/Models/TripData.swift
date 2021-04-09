@@ -11,7 +11,7 @@ import Foundation
 public enum TripData: String {
     case ecoDriving, safety, distraction, distance, duration, speeding
 
-    func displayType() -> DisplayType {
+    public func displayType() -> DisplayType {
         switch self {
         case .ecoDriving, .safety, .distraction, .speeding:
             return .gauge

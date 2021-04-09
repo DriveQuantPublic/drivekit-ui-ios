@@ -7,28 +7,31 @@
 //
 
 import Foundation
+import UIKit
 
-protocol DKTripsListItem {
+public protocol DKTripsListItem {
     func getItinId() -> String
     func getDuration() -> Double
     func getDistance() -> Double?
+    func getStartDate() -> Date?
     func getEndDate() -> Date
-    func getDepartureCity() -> String
-    func getArrivalCity() -> String
-    func isScored(tripData: TripData) -> Boolean
-    func getScore(tripData: TripData) -> Boolean?
+    func getDepartureCity() -> String?
+    func getArrivalCity() -> String?
+    func isScored(tripData: TripData) -> Bool
+    func getScoreText(tripData: TripData) -> String?
     func getTransportationModeResource() -> UIImage?
+    func isAlternative() -> Bool
     func getDisplayText() -> String
     func getDisplayType() -> DisplayType
     func infoText() -> String?
     func infoImageResource() -> UIImage?
     func infoClickAction(parentViewController: UIViewController)
-    func hasInfoActionConfigured() -> Boolean
-    func isDisplayable() -> String?
+    func hasInfoActionConfigured() -> Bool
+    func isInfoDisplayable() -> Bool
 }
 
-protocol DKTripsList {
+public protocol DKTripsList {
     func onTripClickListener(itinId: String)
     func getTripData() -> TripData
-    func getTripsList() -> [DKTripListItem]
+    func getTripsList() -> [DKTripsByDate]
 }

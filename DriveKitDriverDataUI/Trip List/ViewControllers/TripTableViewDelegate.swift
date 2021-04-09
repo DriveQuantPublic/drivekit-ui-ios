@@ -38,7 +38,7 @@ extension TripListVC : UITableViewDataSource {
                 self.update()
             }
             cell.selectionStyle = .none
-            cell.configure(trip: trip, tripInfo: self.viewModel.getTripInfo(), listConfiguration: self.viewModel.listConfiguration)
+            cell.configure(trip: trip, tripInfo: self.viewModel.getTripInfo())
             if let tripInfoView = cell.tripInfoView {
                 let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tripInfoAction(_:)))
                 tripInfoView.addGestureRecognizer(gestureRecognizer)

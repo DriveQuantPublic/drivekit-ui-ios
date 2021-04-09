@@ -7,12 +7,11 @@
 //
 
 import Foundation
-import DriveKitDBTripAccessModule
 
 public enum HeaderDay {
     case distance, duration, distanceDuration, durationDistance, none
     
-    func text(trips: [Trip]) -> String {
+    public func text(trips: [DKTripsListItem]) -> String {
         switch self {
             case .distance:
                 return trips.totalDistance.formatMeterDistanceInKm()

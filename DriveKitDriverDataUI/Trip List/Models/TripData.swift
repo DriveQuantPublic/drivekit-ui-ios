@@ -43,7 +43,7 @@ extension TripData {
         case .distance:
             return trip.tripStatistics?.distance.formatMeterDistanceInKm() ?? "0 \(DKCommonLocalizable.unitKilometer.text())"
         case .duration:
-            return trip.roundedDuration.formatSecondDuration()
+            return trip.duration.roundUp(step: 60.0).formatSecondDuration()
         }
     }
 }

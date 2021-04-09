@@ -21,7 +21,7 @@ public protocol DKSynthesisCard {
     func getBottomText() -> NSAttributedString?
 }
 
-public enum DKDefaultSynthesisCard {
+public enum LastTripsSynthesisCard {
     case distraction
     case ecodriving
     case safety

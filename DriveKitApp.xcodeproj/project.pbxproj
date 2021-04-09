@@ -233,6 +233,7 @@
 		638AC03F261F903300602B52 /* SynthesisCardsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638AC03E261F903300602B52 /* SynthesisCardsView.xib */; };
 		638AC046261F970E00602B52 /* SynthesisCardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638AC045261F970E00602B52 /* SynthesisCardsViewModel.swift */; };
 		638AC04D261F996D00602B52 /* SynthesisCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638AC04C261F996D00602B52 /* SynthesisCardViewCell.swift */; };
+		638AC0832620A32500602B52 /* DriverDataSynthesisCardsUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638AC0822620A32500602B52 /* DriverDataSynthesisCardsUI.swift */; };
 		6391E0CB26072DD100A168D4 /* DKSynthesisCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6391E0CA26072DD100A168D4 /* DKSynthesisCard.swift */; };
 		6391E0D726072E6600A168D4 /* DKSynthesisCardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6391E0D626072E6600A168D4 /* DKSynthesisCardInfo.swift */; };
 		6391E0DE2607836900A168D4 /* SynthesisCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6391E0DD2607836900A168D4 /* SynthesisCardView.swift */; };
@@ -713,6 +714,7 @@
 		638AC03E261F903300602B52 /* SynthesisCardsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SynthesisCardsView.xib; sourceTree = "<group>"; };
 		638AC045261F970E00602B52 /* SynthesisCardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesisCardsViewModel.swift; sourceTree = "<group>"; };
 		638AC04C261F996D00602B52 /* SynthesisCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesisCardViewCell.swift; sourceTree = "<group>"; };
+		638AC0822620A32500602B52 /* DriverDataSynthesisCardsUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverDataSynthesisCardsUI.swift; sourceTree = "<group>"; };
 		6391E0CA26072DD100A168D4 /* DKSynthesisCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKSynthesisCard.swift; sourceTree = "<group>"; };
 		6391E0D626072E6600A168D4 /* DKSynthesisCardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKSynthesisCardInfo.swift; sourceTree = "<group>"; };
 		6391E0DD2607836900A168D4 /* SynthesisCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesisCardView.swift; sourceTree = "<group>"; };
@@ -1505,6 +1507,7 @@
 				6391E0F62607F51A00A168D4 /* ViewModel */,
 				6391E0F72607F52C00A168D4 /* View */,
 				6357AE672611204C0000CA58 /* Utils */,
+				638AC0822620A32500602B52 /* DriverDataSynthesisCardsUI.swift */,
 			);
 			path = "Synthesis Card";
 			sourceTree = "<group>";
@@ -2745,6 +2748,7 @@
 				A342386B2361A2430001E15D /* TripEvent.swift in Sources */,
 				3F6B67692580ECE3008B3BA7 /* TransportationModeIcon.swift in Sources */,
 				3F38C2692369BD60002E873A /* TripTipViewController.swift in Sources */,
+				638AC0832620A32500602B52 /* DriverDataSynthesisCardsUI.swift in Sources */,
 				67CFE9A725F645EA004D0AE1 /* SpeedingPageViewModel.swift in Sources */,
 				6391E0F92607F57000A168D4 /* SynthesisCardViewModel.swift in Sources */,
 				3F6B67622580ECD4008B3BA7 /* TransportationModeVC.swift in Sources */,

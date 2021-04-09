@@ -82,43 +82,8 @@ public class DriveKitDriverDataUI: AccessRightListener {
         self.enableVehicleFilter = enable
     }
 
-    public func getSynthesisCardView(from synthesisCard: DKSynthesisCard) -> UIView {
-        let synthesisCardView = SynthesisCardView.viewFromNib
-        synthesisCardView.synthesisCardViewModel = SynthesisCardViewModel(synthesisCard: synthesisCard)
-        return synthesisCardView
-    }
-
-    public func getSynthesisCardsView(synthesisCards: [DKSynthesisCard]) -> UIView {
-        let synthesisCardsView = SynthesisCardsView.viewFromNib
-        synthesisCardsView.viewModel = SynthesisCardsViewModel(synthesisCards: synthesisCards)
-        return synthesisCardsView
-    }
-
-    public func getSynthesisCards() -> UIView {
-        let synthesisCards: [DKDefaultSynthesisCard] = [
-            .safety,
-            .ecodriving,
-            .distraction,
-            .speeding
-        ]
-        return getSynthesisCardsView(synthesisCards: synthesisCards)
-    }
-
-    public func getSynthesisCardsView(synthesisCards: [DKDefaultSynthesisCard]) -> UIView {
-        let trips = SynthesisCardUtils.getLastTrips()
-        let synthesisCards: [SynthesisCard] = synthesisCards.map {
-            switch $0 {
-                case .distraction:
-                    return SynthesisCard.distraction(trips: trips)
-                case .ecodriving:
-                    return SynthesisCard.ecodriving(trips: trips)
-                case .safety:
-                    return SynthesisCard.safety(trips: trips)
-                case .speeding:
-                    return SynthesisCard.speeding(trips: trips)
-            }
-        }.filter { $0.hasAccess() }
-        return getSynthesisCardsView(synthesisCards: synthesisCards)
+    public func getLastTripsSynthesisCardsView(_ synthesisCards: [LastTripsSynthesisCard] = [.safety, .ecodriving, .distraction, .speeding]) -> UIView {
+        return DriverDataSynthesisCardsUI.getLastTripsSynthesisCardsView(synthesisCards)
     }
 
     private func filterMapItems() {

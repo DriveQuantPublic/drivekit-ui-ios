@@ -237,9 +237,26 @@ extension Trip: DKTripsListItem {
     public func getArrivalCity() -> String? {
         return self.arrivalCity
     }
+
     public func isScored(tripData: TripData) -> Bool {
-        return true
+        switch tripData {
+        case .safety, .ecoDriving:
+            return !self.unscored
+        case .distraction:
+            if !self.unscored, let score = self.driverDistraction?.score {
+                return score <= 10
+            }
+            return false
+        case .speeding:
+            if !self.unscored, let score = self.speedingStatistics?.score {
+                return score <= 10
+            }
+            return false
+        case .distance, .duration:
+            return true
+        }
     }
+
     public func getScore(tripData: TripData) -> Double? {
         return 0
     }

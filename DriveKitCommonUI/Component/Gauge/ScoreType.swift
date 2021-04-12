@@ -60,7 +60,7 @@ public enum ScoreType: String {
     }
 
     // TODO: Cleanup commented code
-    func isScored(trip: DKTripsListItem) -> Bool {
+    public func isScored(trip: DKTripsListItem) -> Bool {
         switch self {
             case .ecoDriving:
                 return trip.isScored(tripData: .ecoDriving)
@@ -77,7 +77,7 @@ public enum ScoreType: String {
             }
         }
         
-    func rawValue(trip: DKTripsListItem) -> Double {
+    public func rawValue(trip: DKTripsListItem) -> Double {
         switch self {
         case .ecoDriving:
             return trip.getScore(tripData: .ecoDriving) ?? 0

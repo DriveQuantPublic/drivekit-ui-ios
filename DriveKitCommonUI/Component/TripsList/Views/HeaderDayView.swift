@@ -8,16 +8,16 @@
 
 import UIKit
 
-final class HeaderDayView<TripsListItem: DKTripsListItem>: UIView, Nibable {
+public final class HeaderDayView<TripsListItem: DKTripsListItem>: UIView, Nibable {
     @IBOutlet var leftLabel: UILabel!
     @IBOutlet var rightLabel: UILabel!
     @IBOutlet var backgroundView: UIView!
     
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    func configure(trips: DKTripsByDate, headerDay: HeaderDay, dkHeader: DKHeader?) {
+    public func configure(trips: DKTripsByDate, headerDay: HeaderDay, dkHeader: DKHeader?) {
         var rightText = ""
         guard let tripsListItems = trips.trips as? [TripsListItem] else {
             return
@@ -34,7 +34,7 @@ final class HeaderDayView<TripsListItem: DKTripsListItem>: UIView, Nibable {
         self.setupAsHeader(leftText: trips.date.format(pattern: .weekLetter).capitalizeFirstLetter(), rightText: rightText, isRounded: true)
     }
     
-    func setupAsHeader(leftText: String, rightText: String, isRounded: Bool = false) {
+    public func setupAsHeader(leftText: String, rightText: String, isRounded: Bool = false) {
         self.backgroundView.backgroundColor = DKUIColors.neutralColor.color
         if isRounded {
             self.backgroundView.backgroundColor = DKUIColors.neutralColor.color

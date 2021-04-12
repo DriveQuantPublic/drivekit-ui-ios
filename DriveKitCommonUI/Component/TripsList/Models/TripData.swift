@@ -19,6 +19,22 @@ public enum TripData: String {
             return .text
         }
     }
+
+    func isScored(trip: DKTripsListItem) -> Bool {
+        return trip.isScored(tripData: self)
+    }
+
+    func stringValue(trip: DKTripsListItem) -> String {
+        switch self {
+        case .ecoDriving, .safety, .distraction, .speeding:
+            return String(format: "%.1f", trip.getScore(tripData: self) ?? 0)
+        case .distance:
+            return trip.getDistance()?.formatMeterDistanceInKm() ?? "0 \(DKCommonLocalizable.unitKilometer.text())"
+        case .duration:
+            return trip.getDuration().roundUp(step: 60.0).formatSecondDuration()
+        }
+    }
+
 }
 
 public enum DisplayType {

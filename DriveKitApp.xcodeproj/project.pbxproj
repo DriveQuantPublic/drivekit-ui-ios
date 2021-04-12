@@ -323,7 +323,6 @@
 		A34238842361A2440001E15D /* SafetyPageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A342383E2361A2430001E15D /* SafetyPageView.xib */; };
 		A34238852361A2440001E15D /* TripListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238412361A2430001E15D /* TripListViewModel.swift */; };
 		A34238862361A2440001E15D /* Extension+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238432361A2430001E15D /* Extension+DK.swift */; };
-		A342388F2361A2440001E15D /* TripData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342384D2361A2430001E15D /* TripData.swift */; };
 		A34238912361A2440001E15D /* TripListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238522361A2430001E15D /* TripListVC.swift */; };
 		A34238922361A2440001E15D /* TripTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238542361A2430001E15D /* TripTableViewDelegate.swift */; };
 		A342389D2361A2440001E15D /* DriverData.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A34238612361A2430001E15D /* DriverData.xcassets */; };
@@ -793,7 +792,6 @@
 		A34238482361A2430001E15D /* TripListSeparator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripListSeparator.swift; sourceTree = "<group>"; };
 		A342384B2361A2430001E15D /* ConfigurationCircularProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationCircularProgressView.swift; sourceTree = "<group>"; };
 		A342384C2361A2430001E15D /* HeaderDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderDay.swift; sourceTree = "<group>"; };
-		A342384D2361A2430001E15D /* TripData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripData.swift; sourceTree = "<group>"; };
 		A34238522361A2430001E15D /* TripListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripListVC.swift; sourceTree = "<group>"; };
 		A34238542361A2430001E15D /* TripTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTableViewDelegate.swift; sourceTree = "<group>"; };
 		A34238582361A2430001E15D /* NoScoreImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoScoreImageView.xib; sourceTree = "<group>"; };
@@ -1776,7 +1774,6 @@
 		A34238462361A2430001E15D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A342384D2361A2430001E15D /* TripData.swift */,
 				3F3E73A825715B47002B5E30 /* DKTripInfo.swift */,
 				3F3E73AF25715BE8002B5E30 /* AdviceTripInfo.swift */,
 			);
@@ -2692,7 +2689,6 @@
 				3F3E73B025715BE8002B5E30 /* AdviceTripInfo.swift in Sources */,
 				A317F82C23A137C700AD22A2 /* TripTipFeedbackVC.swift in Sources */,
 				A342387A2361A2440001E15D /* ResistantLayer.swift in Sources */,
-				A342388F2361A2440001E15D /* TripData.swift in Sources */,
 				3F3E72F5256F9415002B5E30 /* DKMapItem.swift in Sources */,
 				A34238912361A2440001E15D /* TripListVC.swift in Sources */,
 				A342387B2361A2440001E15D /* CalloutView.swift in Sources */,

@@ -12,7 +12,7 @@ public class DKTripsByDate {
     public var date: Date
     public var trips: [DKTripsListItem]
     
-    init(date: Date, trips: [DKTripsListItem]) {
+    public init(date: Date, trips: [DKTripsListItem]) {
         self.date = date
         self.trips = trips
     }

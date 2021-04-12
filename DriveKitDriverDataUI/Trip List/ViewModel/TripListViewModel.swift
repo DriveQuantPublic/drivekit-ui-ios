@@ -161,9 +161,11 @@ class TripListViewModel {
     private func filterTrips(_ isIncluded : (Trip) -> Bool) {
         self.filteredTrips = []
         for tripsByDate in self.trips {
-            let dayFilterdTrips = tripsByDate.trips.filter(isIncluded)
-            if dayFilterdTrips.count > 0 {
-                self.filteredTrips.append(DKTripsByDate(date: tripsByDate.date, trips: dayFilterdTrips))
+            if let trips = tripsByDate.trips as? [Trip] {
+                let dayFilterdTrips = trips.filter(isIncluded)
+                if dayFilterdTrips.count > 0 {
+                    self.filteredTrips.append(DKTripsByDate(date: tripsByDate.date, trips: dayFilterdTrips))
+                }
             }
         }
     }

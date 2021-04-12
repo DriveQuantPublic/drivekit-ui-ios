@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class HeaderDayView: UIView, Nibable {
+final class HeaderDayView<TripsListItem: DKTripsListItem>: UIView, Nibable {
     @IBOutlet var leftLabel: UILabel!
     @IBOutlet var rightLabel: UILabel!
     @IBOutlet var backgroundView: UIView!
@@ -19,14 +19,17 @@ final class HeaderDayView: UIView, Nibable {
     
     func configure(trips: DKTripsByDate, headerDay: HeaderDay, dkHeader: DKHeader?) {
         var rightText = ""
+        guard let tripsListItems = trips.trips as? [TripsListItem] else {
+            return
+        }
         if let dkHeader = dkHeader {
             if let text = dkHeader.customTripListHeader(trips: trips.trips) {
                 rightText = text
             } else {
-                rightText = dkHeader.tripListHeader().text(trips: trips.trips)
+                rightText = dkHeader.tripListHeader().text(trips: tripsListItems)
             }
         } else {
-            rightText = headerDay.text(trips: trips.trips)
+            rightText = headerDay.text(trips: tripsListItems)
         }
         self.setupAsHeader(leftText: trips.date.format(pattern: .weekLetter).capitalizeFirstLetter(), rightText: rightText, isRounded: true)
     }

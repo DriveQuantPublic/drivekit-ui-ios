@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,7 +15,7 @@
                 <outlet property="noTripsLabel" destination="9ql-Wu-xda" id="Fh5-u6-tNy"/>
                 <outlet property="noTripsView" destination="ExH-D7-H9C" id="Ehg-2o-AIA"/>
                 <outlet property="synthesis" destination="Wfr-Rv-YqI" id="3uT-2T-F9s"/>
-                <outlet property="tableView" destination="cUB-Ld-GDi" id="Y0F-4e-C9Y"/>
+                <outlet property="tripsStackView" destination="100-ve-c4F" id="3MN-d0-dae"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="JqX-3a-3IG"/>
             </connections>
         </placeholder>

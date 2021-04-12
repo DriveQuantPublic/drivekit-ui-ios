@@ -163,7 +163,7 @@ class TripListViewModel {
         for tripsByDate in self.trips {
             let dayFilterdTrips = tripsByDate.trips.filter(isIncluded)
             if dayFilterdTrips.count > 0 {
-                self.filteredTrips.append(TripsByDate(date: tripsByDate.date, trips: dayFilterdTrips))
+                self.filteredTrips.append(DKTripsByDate(date: tripsByDate.date, trips: dayFilterdTrips))
             }
         }
     }
@@ -175,7 +175,8 @@ class TripListViewModel {
     func hasAlternativeTrips() -> Bool {
         let alternativeModes = TripListConfiguration.alternative().transportationModes()
         for tripsByDate in self.trips {
-            if tripsByDate.trips.first(where : {alternativeModes.contains(TransportationMode(rawValue: Int(($0 as Trip).transportationMode)) ?? .unknown)}) != nil {
+            // TODO: fix implementation by removing force unwrap
+            if tripsByDate.trips.first(where : {alternativeModes.contains(TransportationMode(rawValue: Int(($0 as? Trip)!.transportationMode)) ?? .unknown)}) != nil {
                 return true
             }
         }

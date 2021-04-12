@@ -12,7 +12,8 @@ import DriveKitCoreModule
 import DriveKitDBTripAccessModule
 
 public class TripListVC: DKUIViewController {
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tripsStackView: UIStackView!
+    weak var tripsTableView: UITableView?
     @IBOutlet var noTripsView: UIView!
     @IBOutlet var noTripsImage: UIImageView!
     @IBOutlet var noTripsLabel: UILabel!
@@ -40,15 +41,15 @@ public class TripListVC: DKUIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.title = "dk_driverdata_trips_list_title".dkDriverDataLocalized()
-        self.tableView.register(TripTableViewCell.nib, forCellReuseIdentifier: "TripTableViewCell")
-        if #available(iOS 11, *) {
-          tableView.separatorInset = .zero
+        let tripsListTableViewModel: TripsListViewModel = TripsListViewModel(tripsByDate: self.viewModel.filteredTrips, headerDay: DriveKitDriverDataUI.shared.headerDay, dkHeader: DriveKitDriverDataUI.shared.customHeaders, tripData: DriveKitDriverDataUI.shared.tripData)
+        let tripsListTableVC = TripsListTableVC<Trip>(viewModel: tripsListTableViewModel)
+        self.addChild(tripsListTableVC)
+        if let tripsTableView = tripsListTableVC.tableView {
+            self.tripsTableView = tripsTableView
+            self.tripsStackView.addArrangedSubview(tripsTableView)
+            tripsTableView.addSubview(refreshControl)
         }
-        self.tableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: #selector(refreshTripList(_ :)), for: .valueChanged)
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        tableView.tableFooterView = UIView(frame: .zero)
 
         self.updating = true
         self.showLoader()
@@ -101,8 +102,8 @@ public class TripListVC: DKUIViewController {
         
         if self.viewModel.filteredTrips.count > 0 {
             self.noTripsView.isHidden = true
-            self.tableView.isHidden = false
-            self.tableView.reloadData()
+            self.tripsTableView?.isHidden = false
+            self.tripsTableView?.reloadData()
             if self.refreshControl.isRefreshing {
                 self.refreshControl.endRefreshing()
             }
@@ -110,11 +111,11 @@ public class TripListVC: DKUIViewController {
         } else {
             self.noTripsView.isHidden = false
             if self.viewModel.hasTrips() {
-                self.tableView.isHidden = false
+                self.tripsTableView?.isHidden = false
                 self.noTripsImage.image = UIImage(named: "dk_no_vehicle_trips", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withAlignmentRectInsets(UIEdgeInsets(top: -50, left: -50, bottom: -50, right: -50))
                 self.noTripsLabel.text = "dk_driverdata_no_trip_placeholder".dkDriverDataLocalized()
             } else {
-                self.tableView.isHidden = true
+                self.tripsTableView?.isHidden = true
                 self.noTripsImage.image = UIImage(named: "dk_no_trips_recorded", in: Bundle.driverDataUIBundle, compatibleWith: nil)
                 self.noTripsLabel.text = "dk_driverdata_no_trips_recorded".dkDriverDataLocalized()
             }
@@ -162,7 +163,7 @@ extension TripListVC : TripsDelegate {
             self.hideLoader()
             self.updateUI()
             self.configureFilterButton()
-            self.tableView.reloadData()
+            self.tripsTableView?.reloadData()
             self.updating = false
         }
     }
@@ -186,7 +187,7 @@ extension TripListVC : DKFilterItemDelegate {
         }
         self.viewModel.filterTrips(config: .motorized(vehicleId: vehicleId))
         self.updateUI()
-        self.tableView.reloadData()
+        self.tripsTableView?.reloadData()
     }
     
     private func tripListFilterItemSelected(filterItem: DKFilterItem) {
@@ -201,7 +202,7 @@ extension TripListVC : DKFilterItemDelegate {
                 self.filterViewModel = DKFilterViewModel(items: items, currentItem: items[0], showPicker: true, delegate: self)
             }
             self.updateUI()
-            self.tableView.reloadData()
+            self.tripsTableView?.reloadData()
         }
     }
     
@@ -209,6 +210,67 @@ extension TripListVC : DKFilterItemDelegate {
         let mode = filterItem.getId() as? TransportationMode
         self.viewModel.filterTrips(config: .alternative(transportationMode: mode))
         self.updateUI()
-        self.tableView.reloadData()
+        self.tripsTableView?.reloadData()
+    }
+}
+
+// TODO: complete implementation
+extension Trip: DKTripsListItem {
+    public func getItinId() -> String {
+        return self.itinId ?? ""
+    }
+    public func getDuration() -> Double {
+        return Double(self.duration)
+    }
+    public func getDistance() -> Double? {
+        return self.tripStatistics?.distance
+    }
+    public func getStartDate() -> Date? {
+        return self.startDate
+    }
+    public func getEndDate() -> Date {
+        return self.endDate ?? Date()
+    }
+    public func getDepartureCity() -> String? {
+        return self.departureCity
+    }
+    public func getArrivalCity() -> String? {
+        return self.arrivalCity
+    }
+    public func isScored(tripData: TripData) -> Bool {
+        return true
+    }
+    public func getScore(tripData: TripData) -> Double? {
+        return 0
+    }
+    public func getScoreText(tripData: TripData) -> String? {
+        return nil
+    }
+    public func getTransportationModeResource() -> UIImage? {
+        return nil
+    }
+    public func isAlternative() -> Bool {
+        return false
+    }
+    public func getDisplayText() -> String {
+        return ""
+    }
+    public func getDisplayType() -> DisplayType {
+        return .gauge
+    }
+    public func infoText() -> String? {
+        return nil
+    }
+    public func infoImageResource() -> UIImage? {
+        return nil
+    }
+    public func infoClickAction(parentViewController: UIViewController) {
+        
+    }
+    public func hasInfoActionConfigured() -> Bool {
+        return false
+    }
+    public func isInfoDisplayable() -> Bool {
+        return false
     }
 }

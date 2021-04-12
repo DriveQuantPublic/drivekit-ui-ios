@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Array where Element: DKTripsListItem {
+public extension Array where Element: DKTripsListItem {
     var totalDistance: Double {
         return map { ($0.getDistance() ?? 0) }.reduce(0, +)
     }

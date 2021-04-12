@@ -267,6 +267,8 @@
 		67301CC5261FB0CD006B0432 /* TripTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A342385B2361A2430001E15D /* TripTableViewCell.xib */; };
 		67301CC6261FB0CD006B0432 /* HeaderDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342385C2361A2430001E15D /* HeaderDayView.swift */; };
 		67301CCC2620D16D006B0432 /* DKHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E73592570111C002B5E30 /* DKHeader.swift */; };
+		67301CE92623AD36006B0432 /* TripsListTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301CE82623AD36006B0432 /* TripsListTableVC.swift */; };
+		67301CF62623B2B2006B0432 /* TripsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301CF52623B2B2006B0432 /* TripsListViewModel.swift */; };
 		67CFE99F25F6425F004D0AE1 /* SpeedingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE99D25F6425F004D0AE1 /* SpeedingPageVC.swift */; };
 		67CFE9A025F6425F004D0AE1 /* SpeedingPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67CFE99E25F6425F004D0AE1 /* SpeedingPageVC.xib */; };
 		67CFE9A725F645EA004D0AE1 /* SpeedingPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */; };
@@ -727,6 +729,8 @@
 		67301C45261D121C006B0432 /* TripData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripData.swift; sourceTree = "<group>"; };
 		67301C5B261EE900006B0432 /* DKTripsByDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripsByDate.swift; sourceTree = "<group>"; };
 		67301C90261F55B8006B0432 /* Array+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+DK.swift"; sourceTree = "<group>"; };
+		67301CE82623AD36006B0432 /* TripsListTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsListTableVC.swift; sourceTree = "<group>"; };
+		67301CF52623B2B2006B0432 /* TripsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsListViewModel.swift; sourceTree = "<group>"; };
 		67CFE99D25F6425F004D0AE1 /* SpeedingPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageVC.swift; sourceTree = "<group>"; };
 		67CFE99E25F6425F004D0AE1 /* SpeedingPageVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedingPageVC.xib; sourceTree = "<group>"; };
 		67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageViewModel.swift; sourceTree = "<group>"; };
@@ -1578,8 +1582,10 @@
 		67301C3C261D1030006B0432 /* TripsList */ = {
 			isa = PBXGroup;
 			children = (
+				67301CF42623B28D006B0432 /* ViewModels */,
 				A34238572361A2430001E15D /* Views */,
 				67301C44261D1206006B0432 /* Models */,
+				67301CE72623AC33006B0432 /* ViewControllers */,
 				67301C3D261D106B006B0432 /* DKTripsList.swift */,
 				3F3E73592570111C002B5E30 /* DKHeader.swift */,
 			);
@@ -1595,6 +1601,22 @@
 				67301C5B261EE900006B0432 /* DKTripsByDate.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		67301CE72623AC33006B0432 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				67301CE82623AD36006B0432 /* TripsListTableVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		67301CF42623B28D006B0432 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				67301CF52623B2B2006B0432 /* TripsListViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		A34238072361A1FA0001E15D /* DriveKitDriverDataUI */ = {
@@ -2475,6 +2497,7 @@
 				67301CBE261FB0CD006B0432 /* TripInfoView.swift in Sources */,
 				3FF68E7C240938CD0071D74C /* DriveKitNavigationController.swift in Sources */,
 				3FF68E93240CF5670071D74C /* Nibable.swift in Sources */,
+				67301CF62623B2B2006B0432 /* TripsListViewModel.swift in Sources */,
 				67301C97261F5619006B0432 /* HeaderDay.swift in Sources */,
 				3FF68E96240D58DC0071D74C /* UIView+DK.swift in Sources */,
 				616946E924338E3500C8A965 /* DriveKitPermissionsUtilsUIEntryPoint.swift in Sources */,
@@ -2509,6 +2532,7 @@
 				67301C46261D121C006B0432 /* TripData.swift in Sources */,
 				3FFB2D722418C023003E6A06 /* DKKeyboardViewController.swift in Sources */,
 				3F7524CB2406C4CC00AC22CC /* DKUIViewController.swift in Sources */,
+				67301CE92623AD36006B0432 /* TripsListTableVC.swift in Sources */,
 				3FF68E72240823190071D74C /* UIFont+DK.swift in Sources */,
 				3FAEE5622486362E00549391 /* CustomScrollView.swift in Sources */,
 				63199A6E24ED7C250011DCFC /* DKAnalytics.swift in Sources */,

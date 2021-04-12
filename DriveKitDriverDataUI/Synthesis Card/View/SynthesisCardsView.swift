@@ -23,7 +23,7 @@ final class SynthesisCardsView: UIView, Nibable {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        self.collectionView.register(SynthesisCardViewCell.self, forCellWithReuseIdentifier: "DKSynthesisCardViewCell")
+        self.collectionView.register(SynthesisCardViewCell.self, forCellWithReuseIdentifier: "SynthesisCardViewCell")
         self.pageControl.pageIndicatorTintColor = DKUIColors.neutralColor.color
         self.pageControl.currentPageIndicatorTintColor = DKUIColors.secondaryColor.color
     }
@@ -48,7 +48,7 @@ extension SynthesisCardsView: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cardViewCell: SynthesisCardViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "DKSynthesisCardViewCell", for: indexPath) as! SynthesisCardViewCell
+        let cardViewCell: SynthesisCardViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "SynthesisCardViewCell", for: indexPath) as! SynthesisCardViewCell
         cardViewCell.viewModel = self.viewModel?.synthesisCardViewModels[indexPath.item]
         return cardViewCell
     }

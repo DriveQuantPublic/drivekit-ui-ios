@@ -206,6 +206,7 @@
 		63041FA824AE36C10028CAE8 /* RankingSelectorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63041FA724AE36C10028CAE8 /* RankingSelectorsView.swift */; };
 		63041FAA24AE3B2E0028CAE8 /* RankingScoreBig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63041FA924AE3B2E0028CAE8 /* RankingScoreBig.swift */; };
 		63041FAC24AE3B680028CAE8 /* RankingScoreSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63041FAB24AE3B680028CAE8 /* RankingScoreSmall.swift */; };
+		6307ED8A2625DC9500CB7EED /* SynthesisCardTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6307ED892625DC9500CB7EED /* SynthesisCardTest.swift */; };
 		63199A6B24EC132E0011DCFC /* DKLocationAccuracy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63199A6A24EC132E0011DCFC /* DKLocationAccuracy.swift */; };
 		63199A6E24ED7C250011DCFC /* DKAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63199A6D24ED7C250011DCFC /* DKAnalytics.swift */; };
 		632EDDEF2450497500110744 /* BatteryOptimizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632EDDEE2450497500110744 /* BatteryOptimizationViewModel.swift */; };
@@ -687,6 +688,7 @@
 		63041FA724AE36C10028CAE8 /* RankingSelectorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingSelectorsView.swift; sourceTree = "<group>"; };
 		63041FA924AE3B2E0028CAE8 /* RankingScoreBig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingScoreBig.swift; sourceTree = "<group>"; };
 		63041FAB24AE3B680028CAE8 /* RankingScoreSmall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingScoreSmall.swift; sourceTree = "<group>"; };
+		6307ED892625DC9500CB7EED /* SynthesisCardTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynthesisCardTest.swift; sourceTree = "<group>"; };
 		63199A6A24EC132E0011DCFC /* DKLocationAccuracy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKLocationAccuracy.swift; sourceTree = "<group>"; };
 		63199A6D24ED7C250011DCFC /* DKAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKAnalytics.swift; sourceTree = "<group>"; };
 		632EDDEE2450497500110744 /* BatteryOptimizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryOptimizationViewModel.swift; sourceTree = "<group>"; };
@@ -1919,6 +1921,7 @@
 				A3B7B39A235F2DF30065A332 /* Settings */,
 				A3B7B383235F124F0065A332 /* AppDelegate.swift */,
 				A3B7B387235F124F0065A332 /* ViewController.swift */,
+				6307ED892625DC9500CB7EED /* SynthesisCardTest.swift */,
 				A3B7B389235F124F0065A332 /* Main.storyboard */,
 				A3B7B38F235F12510065A332 /* Assets.xcassets */,
 				A3B7B391235F12510065A332 /* LaunchScreen.storyboard */,
@@ -2802,6 +2805,7 @@
 				A322728E242BD64500BF69E1 /* TestCustomFields.swift in Sources */,
 				3F38C2752369D6ED002E873A /* NotificationSender.swift in Sources */,
 				A32665AE235F64EB00B529B0 /* SettingsBundleKey.swift in Sources */,
+				6307ED8A2625DC9500CB7EED /* SynthesisCardTest.swift in Sources */,
 				A3B7B39D235F2E130065A332 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

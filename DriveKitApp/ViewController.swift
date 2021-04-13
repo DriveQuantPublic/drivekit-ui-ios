@@ -191,27 +191,7 @@ class ViewController: UITableViewController {
     }
 
     func openSynthesisCards() {
-        let viewController = UIViewController()
-        viewController.view.backgroundColor = .white
-
-        let cardsView = DriveKitDriverDataUI.shared.getLastTripsSynthesisCardsView()
-        cardsView.translatesAutoresizingMaskIntoConstraints = false
-        cardsView.layer.shadowColor = UIColor.black.cgColor
-        cardsView.layer.shadowOpacity = 0.3
-        cardsView.layer.shadowOffset = CGSize(width: 0, height: 2)
-        cardsView.layer.shadowRadius = 4
-        cardsView.layer.masksToBounds = false
-        viewController.view.addSubview(cardsView)
-
-        let margin = CGFloat(10)
-        viewController.view.addConstraints([
-            cardsView.heightAnchor.constraint(equalToConstant: 220),
-            cardsView.topAnchor.constraint(equalTo: viewController.view.topAnchor, constant: margin),
-            cardsView.leftAnchor.constraint(equalTo: viewController.view.leftAnchor, constant: margin),
-            cardsView.rightAnchor.constraint(equalTo: viewController.view.rightAnchor, constant: -margin)
-        ])
-
-        self.navigationController?.pushViewController(viewController, animated: true)
+        self.navigationController?.pushViewController(SynthesisCardTest.getSynthesisCardViewController(), animated: true)
     }
     
     func configureDriverStreak() {

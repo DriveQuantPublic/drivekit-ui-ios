@@ -16,7 +16,7 @@ public enum DKGaugeType {
     func getStartAngle() -> Float {
         switch self {
             case .close:
-                return Float(0)
+                return Float(-90)
             case .open, .openWithIcon:
                 return Float(45)
         }
@@ -25,7 +25,7 @@ public enum DKGaugeType {
     func getEndAngle() -> Float {
         switch self {
             case .close:
-                return Float(360)
+                return Float(270)
             case .open, .openWithIcon:
                 return Float(270)
         }

@@ -11,7 +11,7 @@ import Foundation
 public enum FormatType {
     case value(String)
     case unit(String)
-    case separator(String)
+    case separator(String = String.nonBreakableSpace)
 
     var string: String {
         switch self {
@@ -46,13 +46,13 @@ public extension Double {
         if self < 10 {
             formattingTypes = [
                 .value(format(maximumFractionDigits: 2)),
-                .separator(String.nonBreakableSpace),
+                .separator(),
                 .unit(DKCommonLocalizable.unitMeter.text())
             ]
         } else if self < 1000 {
             formattingTypes = [
                 .value(format(maximumFractionDigits: 0)),
-                .separator(String.nonBreakableSpace),
+                .separator(),
                 .unit(DKCommonLocalizable.unitMeter.text())
             ]
         } else {
@@ -75,7 +75,7 @@ public extension Double {
         }
         formattingTypes.append(.value(formattedDistance))
         if appendUnit {
-            formattingTypes.append(.separator(String.nonBreakableSpace))
+            formattingTypes.append(.separator())
             formattingTypes.append(.unit(DKCommonLocalizable.unitKilometer.text()))
         }
         return formattingTypes
@@ -94,7 +94,7 @@ public extension Double {
     func getMassFormat() -> [FormatType] {
         let formattingTypes: [FormatType] = [
             .value(format(maximumFractionDigits: 0)),
-            .separator(String.nonBreakableSpace),
+            .separator(),
             .unit(DKCommonLocalizable.unitKilogram.text())
         ]
         return formattingTypes
@@ -109,7 +109,7 @@ public extension Double {
         let formattedMass = massInTon.format(maximumFractionDigits: 1)
         let formattingTypes: [FormatType] = [
             .value(formattedMass),
-            .separator(String.nonBreakableSpace),
+            .separator(),
             .unit(DKCommonLocalizable.unitTon.text())
         ]
         return formattingTypes
@@ -124,7 +124,7 @@ public extension Double {
         let formattedPower = self.format(maximumFractionDigits: 0)
         let formattingTypes: [FormatType] = [
             .value(formattedPower),
-            .separator(String.nonBreakableSpace),
+            .separator(),
             .unit(DKCommonLocalizable.unitPower.text())
         ]
         return formattingTypes
@@ -166,7 +166,7 @@ public extension Double {
         if self <= 59 {
             formattingTypes = [
                 .value(String(Int(self))),
-                .separator(String.nonBreakableSpace),
+                .separator(),
                 .unit(DKCommonLocalizable.unitSecond.text())
             ]
         } else {
@@ -180,7 +180,7 @@ public extension Double {
                     formattingTypes = [
                         .value(String(nbDay)),
                         .unit(DKCommonLocalizable.unitDay.text()),
-                        .separator(String.nonBreakableSpace),
+                        .separator(),
                         .value(String(nbHour)),
                         .unit(DKCommonLocalizable.unitHour.text())
                     ]
@@ -202,7 +202,7 @@ public extension Double {
                 } else {
                     formattingTypes = [
                         .value(String(nbMinute)),
-                        .separator(String.nonBreakableSpace),
+                        .separator(),
                         .unit(DKCommonLocalizable.unitMinute.text())
                     ]
                 }
@@ -221,13 +221,13 @@ public extension Double {
         if self < 1 {
             formattingTypes = [
                 .value((self * 1000).format(maximumFractionDigits: 0)),
-                .separator(String.nonBreakableSpace),
+                .separator(),
                 .unit(DKCommonLocalizable.unitGram.text())
             ]
         } else {
             formattingTypes = [
                 .value(self.format(maximumFractionDigits: 2)),
-                .separator(String.nonBreakableSpace),
+                .separator(),
                 .unit(DKCommonLocalizable.unitKilogram.text())
             ]
         }
@@ -241,7 +241,7 @@ public extension Double {
     func getCO2Emission() -> [FormatType] {
         let formattingTypes: [FormatType] = [
             .value(self.format(maximumFractionDigits: 0)),
-            .separator(String.nonBreakableSpace),
+            .separator(),
             .unit(DKCommonLocalizable.unitGperKM.text())
         ]
         return formattingTypes
@@ -255,7 +255,7 @@ public extension Double {
     func getSpeedMeanFormat() -> [FormatType] {
         let formattingTypes: [FormatType] = [
             .value(self.format(maximumFractionDigits: 0)),
-            .separator(String.nonBreakableSpace),
+            .separator(),
             .unit(DKCommonLocalizable.unitKmPerHour.text())
         ]
         return formattingTypes
@@ -269,7 +269,7 @@ public extension Double {
     func getConsumptionFormat() -> [FormatType] {
         let formattingTypes: [FormatType] = [
             .value(self.format(maximumFractionDigits: 1)),
-            .separator(String.nonBreakableSpace),
+            .separator(),
             .unit(DKCommonLocalizable.unitLPer100Km.text())
         ]
         return formattingTypes
@@ -283,7 +283,7 @@ public extension Double {
     func getAccelerationFormat() -> [FormatType] {
         let formattingTypes: [FormatType] = [
             .value(self.format(maximumFractionDigits: 2)),
-            .separator(String.nonBreakableSpace),
+            .separator(),
             .unit(DKCommonLocalizable.unitAcceleration.text())
         ]
         return formattingTypes
@@ -334,7 +334,7 @@ public extension Date {
 }
 
 public extension String {
-    fileprivate static let nonBreakableSpace = "\u{00A0}"
+    static let nonBreakableSpace = "\u{00A0}"
 
     func doubleValue(locale: Locale? = nil) -> Double? {
         let numberFormatter = NumberFormatter()

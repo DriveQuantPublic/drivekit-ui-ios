@@ -35,8 +35,8 @@ public class TripsListTableVC<TripsListItem: DKTripsListItem>: UITableViewContro
     // MARK: - Table view delegate
     public override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
        let header = HeaderDayView.viewFromNib
-        if let headerDay = viewModel?.headerDay, let tripsByDate = viewModel?.tripsByDate[section], let tripsListItems: [TripsListItem] = tripsByDate.trips as? [TripsListItem] {
-            header.configure(trips: tripsListItems, date: tripsByDate.date, headerDay: headerDay, dkHeader: viewModel?.dkHeader)
+        if let headerDay = viewModel?.tripList?.getHeaderDay(), let tripsByDate = viewModel?.tripsByDate[section], let tripsListItems: [TripsListItem] = tripsByDate.trips as? [TripsListItem] {
+            header.configure(trips: tripsListItems, date: tripsByDate.date, headerDay: headerDay, dkHeader: viewModel?.tripList?.getCustomHeader())
         }
         return header
     }
@@ -63,7 +63,7 @@ public class TripsListTableVC<TripsListItem: DKTripsListItem>: UITableViewContro
 //                self.update()
 //            }
                 cell.selectionStyle = .none
-                cell.configure(trip: trip, tripData: self.viewModel?.tripData ?? .safety)
+                cell.configure(trip: trip, tripData: self.viewModel?.tripList?.getTripData() ?? .safety)
                 if let tripInfoView = cell.tripInfoView {
                     let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tripInfoAction(_:)))
                     tripInfoView.addGestureRecognizer(gestureRecognizer)
@@ -81,11 +81,8 @@ public class TripsListTableVC<TripsListItem: DKTripsListItem>: UITableViewContro
                 tripItem.infoClickAction(parentViewController: self)
             } else {
                 // TODO: uncomment and replace the following code
-//                if let itinId = tripItem.getItinId() {
+                self.viewModel?.tripList?.onTripClickListener(itinId: tripItem.getItinId())
 //                    showTripDetail(itinId: itinId)
-//                } else if !trip.isValid() {
-//                    self.update()
-//                }
             }
         }
     }
@@ -95,15 +92,8 @@ public class TripsListTableVC<TripsListItem: DKTripsListItem>: UITableViewContro
     }
     
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let trip = self.viewModel?.tripsByDate[indexPath.section].trips[indexPath.row]
-        // TODO: uncomment and replace the following code
-//        if trip.isValid() {
-//            if let itinId = trip?.getItinId() {
-//                showTripDetail(itinId: itinId)
-//            }
-//        } else {
-//            self.update()
-//        }
-    }
-    
+        if let trip = self.viewModel?.tripsByDate[indexPath.section].trips[indexPath.row] {
+            self.viewModel?.tripList?.onTripClickListener(itinId: trip.getItinId())
+        }
+    }    
 }

@@ -24,7 +24,7 @@ public class DriveKitDriverDataUI: AccessRightListener {
     private(set) var enableAlternativeTrips = false
     private(set) var enableVehicleFilter = true
     private(set) var customHeaders: DKHeader?
-    private(set) var customTripInfo: DKTripInfo?
+    private(set) var customTripInfo: DKTripsListItem?
     
     public static let shared = DriveKitDriverDataUI()
     
@@ -69,7 +69,7 @@ public class DriveKitDriverDataUI: AccessRightListener {
         self.customHeaders = headers
     }
 
-    public func setCustomTripInfo(_ tripInfo: DKTripInfo?) {
+    public func setCustomTripInfo(_ tripInfo: DKTripsListItem?) {
         self.customTripInfo = tripInfo
     }
     

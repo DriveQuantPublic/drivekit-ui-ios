@@ -56,7 +56,6 @@ public class TripsListTableVC<TripsListItem: DKTripsListItem>: UITableViewContro
     }
 
     // MARK: - Table view data source
-
     public override func numberOfSections(in tableView: UITableView) -> Int {
         return self.viewModel?.tripList?.getTripsList().count ?? 0
     }

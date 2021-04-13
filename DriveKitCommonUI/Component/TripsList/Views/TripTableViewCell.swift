@@ -81,7 +81,7 @@ final class TripTableViewCell: UITableViewCell, Nibable {
             let label = UILabel()
             label.text = tripData.stringValue(trip: trip)
             label.font = DKStyle(size: DKStyles.smallText.style.size, traits: .traitBold).applyTo(font: .primary)
-            label.textColor = DKUIColors.secondaryColor.color
+            label.textColor = DKUIColors.primaryColor.color
             label.frame = CGRect(x: 0, y: 0, width: 56, height: 56)
             label.center = dataView.center
             label.textAlignment = .center

@@ -19,10 +19,8 @@ public protocol DKTripsListItem {
     func getArrivalCity() -> String?
     func isScored(tripData: TripData) -> Bool
     func getScore(tripData: TripData) -> Double?
-    func getScoreText(tripData: TripData) -> String?
     func getTransportationModeResource() -> UIImage?
     func isAlternative() -> Bool
-    func getDisplayText() -> String
     func infoText() -> String?
     func infoImageResource() -> UIImage?
     func infoClickAction(parentViewController: UIViewController)

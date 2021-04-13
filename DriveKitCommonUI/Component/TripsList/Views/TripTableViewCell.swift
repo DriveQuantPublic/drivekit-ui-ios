@@ -79,7 +79,7 @@ final class TripTableViewCell: UITableViewCell, Nibable {
             }
         case .text:
             let label = UILabel()
-            label.text = trip.getScoreText(tripData: tripData)
+            label.text = tripData.stringValue(trip: trip)
             label.font = DKStyle(size: DKStyles.smallText.style.size, traits: .traitBold).applyTo(font: .primary)
             label.textColor = DKUIColors.secondaryColor.color
             label.frame = CGRect(x: 0, y: 0, width: 56, height: 56)

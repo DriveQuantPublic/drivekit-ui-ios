@@ -11,7 +11,6 @@ import UIKit
 import DriveKitCommonUI
 import DriveKitDBTripAccessModule
 
-// TODO: complete implementation
 extension Trip: DKTripsListItem {
     public func getItinId() -> String {
         return self.itinId ?? ""
@@ -71,10 +70,6 @@ extension Trip: DKTripsListItem {
         }
     }
 
-    public func getScoreText(tripData: TripData) -> String? {
-        return nil
-    }
-
     public func getTransportationModeResource() -> UIImage? {
         return TransportationMode(rawValue: Int(self.declaredTransportationMode?.transportationMode ?? self.transportationMode))?.getImage()
     }
@@ -84,10 +79,6 @@ extension Trip: DKTripsListItem {
             return transportationMode.isAletrnative()
         }
         return false
-    }
-
-    public func getDisplayText() -> String {
-        return ""
     }
 
     public func infoText() -> String? {

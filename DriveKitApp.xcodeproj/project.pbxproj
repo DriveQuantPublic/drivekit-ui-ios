@@ -262,13 +262,13 @@
 		67301CC0261FB0CD006B0432 /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342385D2361A2430001E15D /* TripTableViewCell.swift */; };
 		67301CC1261FB0CD006B0432 /* NoScoreImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34238582361A2430001E15D /* NoScoreImageView.xib */; };
 		67301CC2261FB0CD006B0432 /* TripInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F38C25F23696EE0002E873A /* TripInfoView.xib */; };
-		67301CC3261FB0CD006B0432 /* HeaderDayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A342385E2361A2430001E15D /* HeaderDayView.xib */; };
 		67301CC4261FB0CD006B0432 /* AlternativeTripImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378AF662593F46F002F0BBD /* AlternativeTripImageView.swift */; };
 		67301CC5261FB0CD006B0432 /* TripTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A342385B2361A2430001E15D /* TripTableViewCell.xib */; };
-		67301CC6261FB0CD006B0432 /* HeaderDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342385C2361A2430001E15D /* HeaderDayView.swift */; };
 		67301CCC2620D16D006B0432 /* DKHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E73592570111C002B5E30 /* DKHeader.swift */; };
 		67301CE92623AD36006B0432 /* TripsListTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301CE82623AD36006B0432 /* TripsListTableVC.swift */; };
 		67301CF62623B2B2006B0432 /* TripsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301CF52623B2B2006B0432 /* TripsListViewModel.swift */; };
+		67301DB026251921006B0432 /* HeaderDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301DAE26251921006B0432 /* HeaderDayView.swift */; };
+		67301DB126251921006B0432 /* HeaderDayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67301DAF26251921006B0432 /* HeaderDayView.xib */; };
 		67CFE99F25F6425F004D0AE1 /* SpeedingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE99D25F6425F004D0AE1 /* SpeedingPageVC.swift */; };
 		67CFE9A025F6425F004D0AE1 /* SpeedingPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67CFE99E25F6425F004D0AE1 /* SpeedingPageVC.xib */; };
 		67CFE9A725F645EA004D0AE1 /* SpeedingPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */; };
@@ -324,7 +324,6 @@
 		A34238852361A2440001E15D /* TripListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238412361A2430001E15D /* TripListViewModel.swift */; };
 		A34238862361A2440001E15D /* Extension+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238432361A2430001E15D /* Extension+DK.swift */; };
 		A34238912361A2440001E15D /* TripListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238522361A2430001E15D /* TripListVC.swift */; };
-		A34238922361A2440001E15D /* TripTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238542361A2430001E15D /* TripTableViewDelegate.swift */; };
 		A342389D2361A2440001E15D /* DriverData.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A34238612361A2430001E15D /* DriverData.xcassets */; };
 		A34238A02361A2730001E15D /* DriverDataLocalizables.strings in Resources */ = {isa = PBXBuildFile; fileRef = A342389E2361A2730001E15D /* DriverDataLocalizables.strings */; };
 		A34238A92361B0DE0001E15D /* TripListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34238A82361B0DE0001E15D /* TripListVC.xib */; };
@@ -730,6 +729,8 @@
 		67301C90261F55B8006B0432 /* Array+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+DK.swift"; sourceTree = "<group>"; };
 		67301CE82623AD36006B0432 /* TripsListTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsListTableVC.swift; sourceTree = "<group>"; };
 		67301CF52623B2B2006B0432 /* TripsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsListViewModel.swift; sourceTree = "<group>"; };
+		67301DAE26251921006B0432 /* HeaderDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderDayView.swift; sourceTree = "<group>"; };
+		67301DAF26251921006B0432 /* HeaderDayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderDayView.xib; sourceTree = "<group>"; };
 		67CFE99D25F6425F004D0AE1 /* SpeedingPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageVC.swift; sourceTree = "<group>"; };
 		67CFE99E25F6425F004D0AE1 /* SpeedingPageVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedingPageVC.xib; sourceTree = "<group>"; };
 		67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageViewModel.swift; sourceTree = "<group>"; };
@@ -793,14 +794,11 @@
 		A342384B2361A2430001E15D /* ConfigurationCircularProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationCircularProgressView.swift; sourceTree = "<group>"; };
 		A342384C2361A2430001E15D /* HeaderDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderDay.swift; sourceTree = "<group>"; };
 		A34238522361A2430001E15D /* TripListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripListVC.swift; sourceTree = "<group>"; };
-		A34238542361A2430001E15D /* TripTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTableViewDelegate.swift; sourceTree = "<group>"; };
 		A34238582361A2430001E15D /* NoScoreImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoScoreImageView.xib; sourceTree = "<group>"; };
 		A34238592361A2430001E15D /* CircularProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		A342385A2361A2430001E15D /* NoScoreImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoScoreImageView.swift; sourceTree = "<group>"; };
 		A342385B2361A2430001E15D /* TripTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripTableViewCell.xib; sourceTree = "<group>"; };
-		A342385C2361A2430001E15D /* HeaderDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderDayView.swift; sourceTree = "<group>"; };
 		A342385D2361A2430001E15D /* TripTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
-		A342385E2361A2430001E15D /* HeaderDayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderDayView.xib; sourceTree = "<group>"; };
 		A342385F2361A2430001E15D /* CircularProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CircularProgressView.xib; sourceTree = "<group>"; };
 		A34238612361A2430001E15D /* DriverData.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DriverData.xcassets; sourceTree = "<group>"; };
 		A342389F2361A2730001E15D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DriverDataLocalizables.strings; sourceTree = "<group>"; };
@@ -1785,7 +1783,6 @@
 			children = (
 				A34238A82361B0DE0001E15D /* TripListVC.xib */,
 				A34238522361A2430001E15D /* TripListVC.swift */,
-				A34238542361A2430001E15D /* TripTableViewDelegate.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1793,14 +1790,14 @@
 		A34238572361A2430001E15D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				67301DAE26251921006B0432 /* HeaderDayView.swift */,
+				67301DAF26251921006B0432 /* HeaderDayView.xib */,
 				3F38C25F23696EE0002E873A /* TripInfoView.xib */,
 				3F38C26023696EE0002E873A /* TripInfoView.swift */,
 				A34238582361A2430001E15D /* NoScoreImageView.xib */,
 				A342385A2361A2430001E15D /* NoScoreImageView.swift */,
 				A342385B2361A2430001E15D /* TripTableViewCell.xib */,
 				A342385D2361A2430001E15D /* TripTableViewCell.swift */,
-				A342385E2361A2430001E15D /* HeaderDayView.xib */,
-				A342385C2361A2430001E15D /* HeaderDayView.swift */,
 				6378AF662593F46F002F0BBD /* AlternativeTripImageView.swift */,
 				6378AF672593F470002F0BBD /* AlternativeTripImageView.xib */,
 			);
@@ -2185,6 +2182,7 @@
 				3FA2501C2524CE75000AB7D3 /* DKFilterPickerVC.xib in Resources */,
 				3F0740EF2404263D005A8D07 /* Roboto-Regular.ttf in Resources */,
 				3FA250022524B9F5000AB7D3 /* DKFilterView.xib in Resources */,
+				67301DB126251921006B0432 /* HeaderDayView.xib in Resources */,
 				A34FC7372423CDDA000734AB /* DKTextField.xib in Resources */,
 				67301CC2261FB0CD006B0432 /* TripInfoView.xib in Resources */,
 				67301CBD261FB0CD006B0432 /* AlternativeTripImageView.xib in Resources */,
@@ -2196,7 +2194,6 @@
 				67301CC1261FB0CD006B0432 /* NoScoreImageView.xib in Resources */,
 				3FF68E642407F56F0071D74C /* CommonLocalizable.strings in Resources */,
 				63B07CD224EFCA110060DF33 /* AnalyticsScreenToTagKey.plist in Resources */,
-				67301CC3261FB0CD006B0432 /* HeaderDayView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2489,7 +2486,7 @@
 				67301CC4261FB0CD006B0432 /* AlternativeTripImageView.swift in Sources */,
 				3F0740E72403BB9A005A8D07 /* DriveKitUI.swift in Sources */,
 				67301CCC2620D16D006B0432 /* DKHeader.swift in Sources */,
-				67301CC6261FB0CD006B0432 /* HeaderDayView.swift in Sources */,
+				67301DB026251921006B0432 /* HeaderDayView.swift in Sources */,
 				3FF68E86240A68D90071D74C /* DKDataFormatter.swift in Sources */,
 				67301CBE261FB0CD006B0432 /* TripInfoView.swift in Sources */,
 				3FF68E7C240938CD0071D74C /* DriveKitNavigationController.swift in Sources */,
@@ -2708,7 +2705,6 @@
 				A342387D2361A2440001E15D /* EcoDrivingPageView.swift in Sources */,
 				A34238652361A2430001E15D /* ShortTripPageViewModel.swift in Sources */,
 				A34238672361A2430001E15D /* HistoryPageViewModel.swift in Sources */,
-				A34238922361A2440001E15D /* TripTableViewDelegate.swift in Sources */,
 				A30F4F1823D5DA14009A37C2 /* SynthesisPageVC.swift in Sources */,
 				A342386A2361A2430001E15D /* MapItem.swift in Sources */,
 				3F3E72FC256F9B71002B5E30 /* DKTripDetailViewModel.swift in Sources */,

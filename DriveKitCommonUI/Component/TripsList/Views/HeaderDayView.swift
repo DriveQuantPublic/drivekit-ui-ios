@@ -8,7 +8,7 @@
 
 import UIKit
 
-public final class HeaderDayView<TripsListItem: DKTripsListItem>: UIView, Nibable {
+public final class HeaderDayView: UIView, Nibable {
     @IBOutlet var leftLabel: UILabel!
     @IBOutlet var rightLabel: UILabel!
     @IBOutlet var backgroundView: UIView!
@@ -17,21 +17,18 @@ public final class HeaderDayView<TripsListItem: DKTripsListItem>: UIView, Nibabl
         super.awakeFromNib()
     }
     
-    public func configure(trips: DKTripsByDate, headerDay: HeaderDay, dkHeader: DKHeader?) {
+    public func configure<TripsListItem: DKTripsListItem> (trips: [TripsListItem], date: Date, headerDay: HeaderDay, dkHeader: DKHeader?) {
         var rightText = ""
-        guard let tripsListItems = trips.trips as? [TripsListItem] else {
-            return
-        }
         if let dkHeader = dkHeader {
-            if let text = dkHeader.customTripListHeader(trips: trips.trips) {
+            if let text = dkHeader.customTripListHeader(trips: trips) {
                 rightText = text
             } else {
-                rightText = dkHeader.tripListHeader().text(trips: tripsListItems)
+                rightText = dkHeader.tripListHeader().text(trips: trips)
             }
         } else {
-            rightText = headerDay.text(trips: tripsListItems)
+            rightText = headerDay.text(trips: trips)
         }
-        self.setupAsHeader(leftText: trips.date.format(pattern: .weekLetter).capitalizeFirstLetter(), rightText: rightText, isRounded: true)
+        self.setupAsHeader(leftText: date.format(pattern: .weekLetter).capitalizeFirstLetter(), rightText: rightText, isRounded: true)
     }
     
     public func setupAsHeader(leftText: String, rightText: String, isRounded: Bool = false) {

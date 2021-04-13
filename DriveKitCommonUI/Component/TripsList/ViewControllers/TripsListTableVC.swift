@@ -34,9 +34,9 @@ public class TripsListTableVC<TripsListItem: DKTripsListItem>: UITableViewContro
 
     // MARK: - Table view delegate
     public override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = HeaderDayView<TripsListItem>.viewFromNib
-        if let headerDay = viewModel?.headerDay, let tripsByDate = viewModel?.tripsByDate[section] {
-            header.configure(trips: tripsByDate, headerDay: headerDay, dkHeader: viewModel?.dkHeader)
+       let header = HeaderDayView.viewFromNib
+        if let headerDay = viewModel?.headerDay, let tripsByDate = viewModel?.tripsByDate[section], let tripsListItems: [TripsListItem] = tripsByDate.trips as? [TripsListItem] {
+            header.configure(trips: tripsListItems, date: tripsByDate.date, headerDay: headerDay, dkHeader: viewModel?.dkHeader)
         }
         return header
     }
@@ -81,7 +81,7 @@ public class TripsListTableVC<TripsListItem: DKTripsListItem>: UITableViewContro
                 tripItem.infoClickAction(parentViewController: self)
             } else {
                 // TODO: uncomment and replace the following code
-//                if let itinId = trip.getItinId() {
+//                if let itinId = tripItem.getItinId() {
 //                    showTripDetail(itinId: itinId)
 //                } else if !trip.isValid() {
 //                    self.update()

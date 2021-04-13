@@ -56,7 +56,7 @@ final class TripTableViewCell: UITableViewCell, Nibable {
     }
     
     private func configureMotorizedTripData(trip: DKTripsListItem, tripData: TripData) {
-        switch trip.getDisplayType() {
+        switch tripData.displayType() {
         case .gauge:
             if trip.isScored(tripData: tripData) {
                 let score = CircularProgressView.viewFromNib
@@ -92,8 +92,7 @@ final class TripTableViewCell: UITableViewCell, Nibable {
     private func configureAlternativeTripData(trip: DKTripsListItem) {
         let view = AlternativeTripImageView.viewFromNib
         view.translatesAutoresizingMaskIntoConstraints = false
-        // TODO: cleanup commented code
-        view.imageView.image = trip.getTransportationModeResource() //TransportationMode(rawValue: Int(trip.declaredTransportationMode?.transportationMode ?? trip.transportationMode))?.getImage()
+        view.imageView.image = trip.getTransportationModeResource()
         dataView.embedSubview(view)
         NSLayoutConstraint.activate([
             view.widthAnchor.constraint(equalTo: dataView.widthAnchor),

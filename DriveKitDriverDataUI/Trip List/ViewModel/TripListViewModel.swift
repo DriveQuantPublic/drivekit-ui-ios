@@ -49,7 +49,7 @@ class TripListViewModel {
         })
     }
 
-    private func sortTrips(trips : [DKTripsListItem]) -> [DKTripsByDate] {
+    private func sortTrips(trips : [Trip]) -> [DKTripsByDate] {
         let tripSorted = trips.orderByDay(descOrder: DriveKitDriverDataUI.shared.dayTripDescendingOrder)
         return tripSorted
     }

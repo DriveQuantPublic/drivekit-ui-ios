@@ -68,7 +68,7 @@ public class DriveKitDriverDataUI: AccessRightListener {
     public func customizeHeaders(headers: DKHeader?) {
         self.customHeaders = headers
     }
-    
+
     public func setCustomTripInfo(_ tripInfo: DKTripInfo?) {
         self.customTripInfo = tripInfo
     }

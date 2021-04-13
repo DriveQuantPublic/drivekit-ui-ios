@@ -80,3 +80,14 @@ extension TripAdvice {
         }
     }
 }
+
+extension TransportationMode {
+    func isAletrnative() -> Bool {
+        switch self {
+        case .car, .moto, .truck, .unknown:
+            return false
+        default:
+            return true
+        }
+    }
+}

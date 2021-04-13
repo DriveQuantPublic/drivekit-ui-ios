@@ -20,4 +20,8 @@ public class TripsListViewModel {
         self.dkHeader = dkHeader
         self.tripData = tripData
     }
+
+    public func updateTrips(tripsByDate: [DKTripsByDate]) {
+        self.tripsByDate = tripsByDate
+    }
 }

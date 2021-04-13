@@ -17,14 +17,12 @@ public protocol DKTripsListItem {
     func getEndDate() -> Date
     func getDepartureCity() -> String?
     func getArrivalCity() -> String?
-    // TODO: Check if we replace TripData with ScoreType
     func isScored(tripData: TripData) -> Bool
     func getScore(tripData: TripData) -> Double?
     func getScoreText(tripData: TripData) -> String?
     func getTransportationModeResource() -> UIImage?
     func isAlternative() -> Bool
     func getDisplayText() -> String
-    func getDisplayType() -> DisplayType
     func infoText() -> String?
     func infoImageResource() -> UIImage?
     func infoClickAction(parentViewController: UIViewController)

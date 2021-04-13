@@ -24,6 +24,7 @@ public class TripListVC: DKUIViewController {
     private let refreshControl = UIRefreshControl()
     
     let viewModel: TripListViewModel
+    var tripsListTableViewModel: TripsListViewModel?
     private var filterViewModel : DKFilterViewModel?
     private var updating = false
 
@@ -41,8 +42,8 @@ public class TripListVC: DKUIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.title = "dk_driverdata_trips_list_title".dkDriverDataLocalized()
-        let tripsListTableViewModel: TripsListViewModel = TripsListViewModel(tripsByDate: self.viewModel.filteredTrips, headerDay: DriveKitDriverDataUI.shared.headerDay, dkHeader: DriveKitDriverDataUI.shared.customHeaders, tripData: DriveKitDriverDataUI.shared.tripData)
-        let tripsListTableVC = TripsListTableVC<Trip>(viewModel: tripsListTableViewModel)
+        tripsListTableViewModel = TripsListViewModel(tripsByDate: self.viewModel.filteredTrips, headerDay: DriveKitDriverDataUI.shared.headerDay, dkHeader: DriveKitDriverDataUI.shared.customHeaders, tripData: DriveKitDriverDataUI.shared.tripData)
+        let tripsListTableVC = TripsListTableVC<Trip>(viewModel: tripsListTableViewModel!)
         self.addChild(tripsListTableVC)
         if let tripsTableView = tripsListTableVC.tableView {
             self.tripsTableView = tripsTableView
@@ -103,6 +104,7 @@ public class TripListVC: DKUIViewController {
         if self.viewModel.filteredTrips.count > 0 {
             self.noTripsView.isHidden = true
             self.tripsTableView?.isHidden = false
+            self.tripsListTableViewModel?.updateTrips(tripsByDate: self.viewModel.filteredTrips)
             self.tripsTableView?.reloadData()
             if self.refreshControl.isRefreshing {
                 self.refreshControl.endRefreshing()
@@ -163,6 +165,7 @@ extension TripListVC : TripsDelegate {
             self.hideLoader()
             self.updateUI()
             self.configureFilterButton()
+            self.tripsListTableViewModel?.updateTrips(tripsByDate: self.viewModel.filteredTrips)
             self.tripsTableView?.reloadData()
             self.updating = false
         }
@@ -187,6 +190,7 @@ extension TripListVC : DKFilterItemDelegate {
         }
         self.viewModel.filterTrips(config: .motorized(vehicleId: vehicleId))
         self.updateUI()
+        self.tripsListTableViewModel?.updateTrips(tripsByDate: self.viewModel.filteredTrips)
         self.tripsTableView?.reloadData()
     }
     
@@ -202,6 +206,7 @@ extension TripListVC : DKFilterItemDelegate {
                 self.filterViewModel = DKFilterViewModel(items: items, currentItem: items[0], showPicker: true, delegate: self)
             }
             self.updateUI()
+            self.tripsListTableViewModel?.updateTrips(tripsByDate: self.viewModel.filteredTrips)
             self.tripsTableView?.reloadData()
         }
     }
@@ -210,12 +215,24 @@ extension TripListVC : DKFilterItemDelegate {
         let mode = filterItem.getId() as? TransportationMode
         self.viewModel.filterTrips(config: .alternative(transportationMode: mode))
         self.updateUI()
+        self.tripsListTableViewModel?.updateTrips(tripsByDate: self.viewModel.filteredTrips)
         self.tripsTableView?.reloadData()
     }
 }
 
+extension TripListVC {
+    private func showTripDetail(itinId : String) {
+        if let navigationController = self.navigationController {
+            let tripDetail = TripDetailVC(itinId: itinId, showAdvice: false, listConfiguration: self.viewModel.listConfiguration)
+            navigationController.pushViewController(tripDetail, animated: true)
+        } else {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DKShowTripDetail"), object: nil, userInfo: ["itinId": itinId])
+        }
+    }
+}
+
 // TODO: complete implementation
-extension Trip: DKTripsListItem {
+extension Trip: DKTripsListItem {    
     public func getItinId() -> String {
         return self.itinId ?? ""
     }
@@ -258,36 +275,86 @@ extension Trip: DKTripsListItem {
     }
 
     public func getScore(tripData: TripData) -> Double? {
-        return 0
+        switch tripData {
+        case .ecoDriving:
+            return self.ecoDriving?.score ?? 0
+        case .safety:
+            return  self.safety?.safetyScore ?? 0
+        case .distraction:
+            return self.driverDistraction?.score ?? 0
+        case .speeding:
+            return self.speedingStatistics?.score ?? 0
+        case .distance:
+            return self.getDistance() ?? 0
+        case .duration:
+            return self.getDuration()
+        }
     }
+
     public func getScoreText(tripData: TripData) -> String? {
         return nil
     }
+
     public func getTransportationModeResource() -> UIImage? {
-        return nil
+        return TransportationMode(rawValue: Int(self.declaredTransportationMode?.transportationMode ?? self.transportationMode))?.getImage()
     }
+
     public func isAlternative() -> Bool {
+        if let transportationMode = TransportationMode(rawValue: Int(self.declaredTransportationMode?.transportationMode ?? self.transportationMode)) {
+            return transportationMode.isAletrnative()
+        }
         return false
     }
+
     public func getDisplayText() -> String {
         return ""
     }
-    public func getDisplayType() -> DisplayType {
-        return .gauge
-    }
+
     public func infoText() -> String? {
-        return nil
+        guard let tripAdvices: Set<TripAdvice>  = self.tripAdvices as? Set<TripAdvice> else {
+            return nil
+        }
+        if tripAdvices.count > 1 {
+            return "\(tripAdvices.count)"
+        } else {
+            return nil
+        }
     }
+
     public func infoImageResource() -> UIImage? {
-        return nil
+        guard let tripAdvices: [TripAdvice]  = self.tripAdvices?.allObjects as? [TripAdvice] else {
+            return nil
+        }
+        if tripAdvices.count > 1 {
+            return UIImage(named: "dk_trip_info_count", in: Bundle.driverDataUIBundle, compatibleWith: nil)
+        } else if tripAdvices.count == 1 {
+            let advice = tripAdvices[0]
+            return advice.adviceImage()
+        } else {
+            return nil
+        }
     }
+
     public func infoClickAction(parentViewController: UIViewController) {
-        
+        let showAdvice = (self.tripAdvices as? Set<TripAdvice>)?.count ?? 0 > 0
+        if let itinId = self.itinId {
+            if let navigationController = parentViewController.navigationController {
+                let tripDetail = TripDetailVC(itinId: itinId, showAdvice: showAdvice, listConfiguration: .motorized())
+                navigationController.pushViewController(tripDetail, animated: true)
+            } else {
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DKShowTripDetail"), object: nil, userInfo: ["itinId": itinId])
+            }
+        }
     }
+
     public func hasInfoActionConfigured() -> Bool {
-        return false
+        return true
     }
+
     public func isInfoDisplayable() -> Bool {
-        return false
+        guard let tripAdvices: Set<TripAdvice>  = self.tripAdvices as? Set<TripAdvice> else {
+            return false
+        }
+        return tripAdvices.count > 0
     }
 }

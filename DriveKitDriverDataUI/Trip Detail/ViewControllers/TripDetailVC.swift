@@ -133,7 +133,7 @@ extension TripDetailVC {
     
     func setupHeadeContainer() {
         self.headerContainer.subviews.forEach { $0.removeFromSuperview() }
-        let header = HeaderDayView<Trip>.viewFromNib
+        let header = HeaderDayView.viewFromNib
         var rightText = ""
         if let dkHeader = DriveKitDriverDataUI.shared.customHeaders {
             if let text = dkHeader.customTripDetailHeader(trip: self.viewModel.trip!) {

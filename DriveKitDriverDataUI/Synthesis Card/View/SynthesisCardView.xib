@@ -28,7 +28,7 @@
                     <constraints>
                         <constraint firstAttribute="width" secondItem="FYW-ef-yuT" secondAttribute="height" multiplier="1:1" id="LEo-yd-tyx"/>
                     </constraints>
-                    <inset key="imageEdgeInsets" minX="10" minY="11" maxX="12" maxY="11"/>
+                    <inset key="imageEdgeInsets" minX="8" minY="9" maxX="10" maxY="9"/>
                     <connections>
                         <action selector="showExplanation" destination="iN0-l3-epB" eventType="touchUpInside" id="pq9-r7-Jz1"/>
                     </connections>

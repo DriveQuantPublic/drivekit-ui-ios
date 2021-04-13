@@ -42,7 +42,7 @@ public class TripListVC: DKUIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.title = "dk_driverdata_trips_list_title".dkDriverDataLocalized()
-        tripsListTableViewModel = TripsListViewModel(tripsByDate: self.viewModel.filteredTrips, tripList: self)
+        tripsListTableViewModel = TripsListViewModel(tripList: self)
         let tripsListTableVC = TripsListTableVC<Trip>(viewModel: tripsListTableViewModel!)
         self.addChild(tripsListTableVC)
         if let tripsTableView = tripsListTableVC.tableView {
@@ -104,7 +104,6 @@ public class TripListVC: DKUIViewController {
         if self.viewModel.filteredTrips.count > 0 {
             self.noTripsView.isHidden = true
             self.tripsTableView?.isHidden = false
-            self.tripsListTableViewModel?.updateTrips(tripsByDate: self.viewModel.filteredTrips)
             self.tripsTableView?.reloadData()
             if self.refreshControl.isRefreshing {
                 self.refreshControl.endRefreshing()
@@ -165,7 +164,6 @@ extension TripListVC : TripsDelegate {
             self.hideLoader()
             self.updateUI()
             self.configureFilterButton()
-            self.tripsListTableViewModel?.updateTrips(tripsByDate: self.viewModel.filteredTrips)
             self.tripsTableView?.reloadData()
             self.updating = false
         }
@@ -190,7 +188,6 @@ extension TripListVC : DKFilterItemDelegate {
         }
         self.viewModel.filterTrips(config: .motorized(vehicleId: vehicleId))
         self.updateUI()
-        self.tripsListTableViewModel?.updateTrips(tripsByDate: self.viewModel.filteredTrips)
         self.tripsTableView?.reloadData()
     }
     
@@ -206,7 +203,6 @@ extension TripListVC : DKFilterItemDelegate {
                 self.filterViewModel = DKFilterViewModel(items: items, currentItem: items[0], showPicker: true, delegate: self)
             }
             self.updateUI()
-            self.tripsListTableViewModel?.updateTrips(tripsByDate: self.viewModel.filteredTrips)
             self.tripsTableView?.reloadData()
         }
     }
@@ -215,7 +211,6 @@ extension TripListVC : DKFilterItemDelegate {
         let mode = filterItem.getId() as? TransportationMode
         self.viewModel.filterTrips(config: .alternative(transportationMode: mode))
         self.updateUI()
-        self.tripsListTableViewModel?.updateTrips(tripsByDate: self.viewModel.filteredTrips)
         self.tripsTableView?.reloadData()
     }
 }

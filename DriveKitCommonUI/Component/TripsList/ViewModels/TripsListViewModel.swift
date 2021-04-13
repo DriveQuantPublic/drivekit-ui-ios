@@ -9,15 +9,9 @@
 import Foundation
 
 public class TripsListViewModel {
-    private(set) var tripsByDate : [DKTripsByDate] = []
     private(set) var tripList: DKTripsList?
 
-    public init(tripsByDate: [DKTripsByDate], tripList: DKTripsList) {
-        self.tripsByDate = tripsByDate
+    public init(tripList: DKTripsList) {
         self.tripList = tripList
-    }
-
-    public func updateTrips(tripsByDate: [DKTripsByDate]) {
-        self.tripsByDate = tripsByDate
     }
 }

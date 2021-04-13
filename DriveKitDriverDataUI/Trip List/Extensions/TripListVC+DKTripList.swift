@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import DriveKitCoreModule
 import DriveKitCommonUI
 
 extension TripListVC: DKTripsList {
@@ -32,7 +33,8 @@ extension TripListVC: DKTripsList {
         return true
     }
     public func onSwipeToRefresh() {
-        
+        self.viewModel.fetchTrips()
+        DriveKit.shared.modules.tripAnalysis?.checkTripToRepost()
     }
 }
 

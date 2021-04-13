@@ -7,14 +7,13 @@
 //
 
 import UIKit
-import DriveKitCommonUI
 
-final class AlternativeTripImageView : UIView, Nibable {
-    
+final class AlternativeTripImageView: UIView, Nibable {
+
     @IBOutlet private(set) weak var imageView: UIImageView!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    
+
 }

@@ -177,8 +177,12 @@ class TripListViewModel {
     func hasAlternativeTrips() -> Bool {
         let alternativeModes = TripListConfiguration.alternative().transportationModes()
         for tripsByDate in self.trips {
-            // TODO: fix implementation by removing force unwrap
-            if tripsByDate.trips.first(where : {alternativeModes.contains(TransportationMode(rawValue: Int(($0 as? Trip)!.transportationMode)) ?? .unknown)}) != nil {
+            if tripsByDate.trips.first(where : {tripItem in
+                if let trip: Trip = tripItem as? Trip {
+                    return alternativeModes.contains(TransportationMode(rawValue: Int(trip.transportationMode)) ?? .unknown)
+                }
+                return false
+            }) != nil {
                 return true
             }
         }

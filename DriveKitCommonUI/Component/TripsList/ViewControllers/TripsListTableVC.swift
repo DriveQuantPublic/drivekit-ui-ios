@@ -21,6 +21,10 @@ public class TripsListTableVC<TripsListItem: DKTripsListItem>: UITableViewContro
         self.tableView.delegate = self
         self.tableView.dataSource = self
         tableView.tableFooterView = UIView(frame: .zero)
+        if let tripList = viewModel?.tripList, tripList.canSwipeToRefresh() {
+            self.refreshControl = UIRefreshControl()
+            self.refreshControl?.addTarget(self, action: #selector(refreshTripList(_ :)), for: .valueChanged)
+        }
     }
 
     public init(viewModel: TripsListViewModel) {
@@ -30,6 +34,12 @@ public class TripsListTableVC<TripsListItem: DKTripsListItem>: UITableViewContro
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    @objc func refreshTripList(_ sender: Any) {
+        if let tripList = viewModel?.tripList {
+            tripList.onSwipeToRefresh()
+        }
     }
 
     // MARK: - Table view delegate

@@ -21,7 +21,6 @@ public class TripListVC: DKUIViewController {
     @IBOutlet weak var synthesis: UILabel!
     
     private let filterView = DKFilterView.viewFromNib
-    private let refreshControl = UIRefreshControl()
     
     let viewModel: TripListViewModel
     var tripsListTableViewModel: TripsListViewModel?
@@ -48,9 +47,7 @@ public class TripListVC: DKUIViewController {
         if let tripsTableView = tripsListTableVC.tableView {
             self.tripsTableView = tripsTableView
             self.tripsStackView.addArrangedSubview(tripsTableView)
-            tripsTableView.addSubview(refreshControl)
         }
-        refreshControl.addTarget(self, action: #selector(refreshTripList(_ :)), for: .valueChanged)
 
         self.updating = true
         self.showLoader()
@@ -94,8 +91,8 @@ public class TripListVC: DKUIViewController {
         if self.viewModel.status == .failedToSyncTripsCacheOnly {
             let alert = UIAlertController(title: nil, message: "dk_driverdata_failed_to_sync_trips".dkDriverDataLocalized(), preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: { action in
-                if self.refreshControl.isRefreshing {
-                    self.refreshControl.endRefreshing()
+                if let refreshControl = self.tripsTableView?.refreshControl, refreshControl.isRefreshing {
+                    refreshControl.endRefreshing()
                 }
             }))
             self.present(alert, animated: true, completion: nil)
@@ -105,8 +102,8 @@ public class TripListVC: DKUIViewController {
             self.noTripsView.isHidden = true
             self.tripsTableView?.isHidden = false
             self.tripsTableView?.reloadData()
-            if self.refreshControl.isRefreshing {
-                self.refreshControl.endRefreshing()
+            if let refreshControl = self.tripsTableView?.refreshControl, refreshControl.isRefreshing {
+                refreshControl.endRefreshing()
             }
             self.configureSynthesis()
         } else {
@@ -150,12 +147,6 @@ public class TripListVC: DKUIViewController {
             self.synthesis.isHidden = true
         }
     }
-
-    @objc func refreshTripList(_ sender: Any) {
-        self.viewModel.fetchTrips()
-        DriveKit.shared.modules.tripAnalysis?.checkTripToRepost()
-    }
-
 }
 
 extension TripListVC : TripsDelegate {

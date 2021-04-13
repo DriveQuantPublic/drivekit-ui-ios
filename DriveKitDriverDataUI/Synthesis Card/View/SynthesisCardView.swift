@@ -69,7 +69,13 @@ final class SynthesisCardView: UIView, Nibable {
     private func embedProgressView(_ circularProgressView: CircularProgressView) {
         circularProgressView.translatesAutoresizingMaskIntoConstraints = false
         self.circularProgressViewContainer.addSubview(circularProgressView)
+        let widthConstraint = circularProgressView.widthAnchor.constraint(equalTo: self.circularProgressViewContainer.widthAnchor, multiplier: 1)
+        widthConstraint.priority = .defaultLow
+        let heightConstraint = circularProgressView.heightAnchor.constraint(equalTo: self.circularProgressViewContainer.heightAnchor, multiplier: 1)
+        heightConstraint.priority = .defaultLow
         self.circularProgressViewContainer.addConstraints([
+            widthConstraint,
+            heightConstraint,
             circularProgressView.widthAnchor.constraint(lessThanOrEqualTo: self.circularProgressViewContainer.widthAnchor, multiplier: 1),
             circularProgressView.heightAnchor.constraint(lessThanOrEqualTo: self.circularProgressViewContainer.heightAnchor, multiplier: 1),
             circularProgressView.widthAnchor.constraint(equalTo: circularProgressView.heightAnchor),

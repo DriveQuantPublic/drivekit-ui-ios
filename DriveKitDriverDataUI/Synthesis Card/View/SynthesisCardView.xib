@@ -15,16 +15,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feg-JG-Sr7">
-                    <rect key="frame" x="8" y="0.0" width="41.5" height="38"/>
+                    <rect key="frame" x="8" y="0.0" width="41.5" height="34"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="38" id="pIC-0f-qFT"/>
+                        <constraint firstAttribute="height" constant="34" id="pIC-0f-qFT"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FYW-ef-yuT">
-                    <rect key="frame" x="49.5" y="0.0" width="38" height="38"/>
+                    <rect key="frame" x="49.5" y="0.0" width="34" height="34"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="FYW-ef-yuT" secondAttribute="height" multiplier="1:1" id="LEo-yd-tyx"/>
                     </constraints>
@@ -34,20 +34,20 @@
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Fwq-Df-0Ac">
-                    <rect key="frame" x="0.0" y="40" width="414" height="160"/>
+                    <rect key="frame" x="0.0" y="36" width="414" height="164"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="POK-HP-OZm">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="132"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zPt-fz-E6m">
-                                    <rect key="frame" x="0.0" y="0.0" width="207" height="128"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="207" height="132"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="DjJ-HT-ZS7">
-                                    <rect key="frame" x="207" y="0.0" width="207" height="128"/>
+                                    <rect key="frame" x="227" y="0.0" width="187" height="132"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="56p-DK-5pS">
-                                            <rect key="frame" x="0.0" y="0.0" width="207" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="187" height="132"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         </view>
                                     </subviews>
@@ -63,11 +63,11 @@
                                 <constraint firstItem="zPt-fz-E6m" firstAttribute="leading" secondItem="POK-HP-OZm" secondAttribute="leading" id="X9R-In-aed"/>
                                 <constraint firstAttribute="bottom" secondItem="DjJ-HT-ZS7" secondAttribute="bottom" id="bnW-nX-Ohs"/>
                                 <constraint firstItem="DjJ-HT-ZS7" firstAttribute="top" secondItem="POK-HP-OZm" secondAttribute="top" id="cRK-pu-ImK"/>
-                                <constraint firstItem="DjJ-HT-ZS7" firstAttribute="leading" secondItem="zPt-fz-E6m" secondAttribute="trailing" id="olh-ZI-QVb"/>
+                                <constraint firstItem="DjJ-HT-ZS7" firstAttribute="leading" secondItem="zPt-fz-E6m" secondAttribute="trailing" constant="20" id="olh-ZI-QVb"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50C-hP-i9v">
-                            <rect key="frame" x="0.0" y="128" width="414" height="32"/>
+                            <rect key="frame" x="0.0" y="132" width="414" height="32"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="32" id="b7r-tR-6MH"/>
                             </constraints>

@@ -26,13 +26,26 @@ public enum LastTripsSynthesisCard {
     case ecodriving
     case safety
     case speeding
+
+    public func getDKSynthesisCard(trips: [Trip], showBottomText: Bool = true) -> DKSynthesisCard {
+        switch self {
+            case .distraction:
+                return SynthesisCard.distraction(trips: trips, showBottomText: showBottomText)
+            case .ecodriving:
+                return SynthesisCard.ecodriving(trips: trips, showBottomText: showBottomText)
+            case .safety:
+                return SynthesisCard.safety(trips: trips, showBottomText: showBottomText)
+            case .speeding:
+                return SynthesisCard.speeding(trips: trips, showBottomText: showBottomText)
+        }
+    }
 }
 
 public enum SynthesisCard: DKSynthesisCard {
-    case distraction(trips: [Trip])
-    case ecodriving(trips: [Trip])
-    case safety(trips: [Trip])
-    case speeding(trips: [Trip])
+    case distraction(trips: [Trip], showBottomText: Bool = true)
+    case ecodriving(trips: [Trip], showBottomText: Bool = true)
+    case safety(trips: [Trip], showBottomText: Bool = true)
+    case speeding(trips: [Trip], showBottomText: Bool = true)
 
     public func getTitle() -> String {
         let titleKey: String
@@ -92,23 +105,25 @@ public enum SynthesisCard: DKSynthesisCard {
     }
 
     public func getBottomText() -> NSAttributedString? {
-        let (roadCondition, percentage) = SynthesisCardUtils.getMainRoadCondition(ofTrips: getTrips())
-        let textKey: String?
-        switch roadCondition {
-            case .city:
-                textKey = "dk_driverdata_urban"
-            case .expressways:
-                textKey = "dk_driverdata_expressway"
-            case .heavyUrbanTraffic:
-                textKey = "dk_driverdata_dense_urban"
-            case .suburban:
-                textKey = "dk_driverdata_extra_urban"
-            case .trafficJam:
-                textKey = nil
-        }
-        if let textKey = textKey {
-            let value = String(format: "%.0f%%", percentage).dkAttributedString().color(.primaryColor).font(dkFont: .primary, style: .normalText).build()
-            return textKey.dkDriverDataLocalized().dkAttributedString().color(.mainFontColor).font(dkFont: .primary, style: .normalText).buildWithArgs(value)
+        if self.showBottomText() {
+            let (roadCondition, percentage) = SynthesisCardUtils.getMainRoadCondition(ofTrips: getTrips())
+            let textKey: String?
+            switch roadCondition {
+                case .city:
+                    textKey = "dk_driverdata_urban"
+                case .expressways:
+                    textKey = "dk_driverdata_expressway"
+                case .heavyUrbanTraffic:
+                    textKey = "dk_driverdata_dense_urban"
+                case .suburban:
+                    textKey = "dk_driverdata_extra_urban"
+                case .trafficJam:
+                    textKey = nil
+            }
+            if let textKey = textKey {
+                let value = String(format: "%.0f%%", percentage).dkAttributedString().color(.primaryColor).font(dkFont: .primary, style: .normalText).build()
+                return textKey.dkDriverDataLocalized().dkAttributedString().color(.mainFontColor).font(dkFont: .primary, style: .normalText).buildWithArgs(value)
+            }
         }
         return nil
     }
@@ -128,11 +143,21 @@ public enum SynthesisCard: DKSynthesisCard {
 
     private func getTrips() -> [Trip] {
         switch self {
-            case let .distraction(trips),
-                 let .ecodriving(trips),
-                 let .safety(trips),
-                 let .speeding(trips):
+            case let .distraction(trips, _),
+                 let .ecodriving(trips, _),
+                 let .safety(trips, _),
+                 let .speeding(trips, _):
                 return trips
+        }
+    }
+
+    private func showBottomText() -> Bool {
+        switch self {
+            case let .distraction(_, showBottomText),
+                 let .ecodriving(_, showBottomText),
+                 let .safety(_, showBottomText),
+                 let .speeding(_, showBottomText):
+                return showBottomText
         }
     }
 
@@ -175,6 +200,10 @@ private struct GaugeConfiguration : DKGaugeConfiguration {
     }
 
     func getTitle() -> String {
-        self.value.formatDouble(places: 1)
+        if self.trips.isEmpty {
+            return "-"
+        } else {
+            return self.value.formatDouble(places: 1)
+        }
     }
 }

@@ -89,7 +89,7 @@ public enum SynthesisCard: DKSynthesisCard {
             case .speeding:
                 scoreType = .speeding
         }
-        return GaugeConfiguration(trips: getScoredTrips(scoreType: scoreType), scoreType: scoreType)
+        return GaugeConfiguration(trips: getTrips(), scoreType: scoreType)
     }
 
     public func getTopSynthesisCardInfo() -> DKSynthesisCardInfo {
@@ -106,7 +106,7 @@ public enum SynthesisCard: DKSynthesisCard {
 
     public func getBottomText() -> NSAttributedString? {
         let trips = getTrips()
-        if self.showBottomText() && !getScoredTrips().isEmpty {
+        if self.showBottomText() && !trips.isEmpty {
             let (roadCondition, percentage) = SynthesisCardUtils.getMainRoadCondition(ofTrips: trips)
             let textKey: String?
             switch roadCondition {
@@ -152,26 +152,6 @@ public enum SynthesisCard: DKSynthesisCard {
         }
     }
 
-    private func getScoredTrips(scoreType initialScoreType: ScoreType? = nil) -> [Trip] {
-        let scoreType: ScoreType
-        if let initialScoreType = initialScoreType {
-            scoreType = initialScoreType
-        } else {
-            switch self {
-                case .distraction:
-                    scoreType = .distraction
-                case .ecodriving:
-                    scoreType = .ecoDriving
-                case .safety:
-                    scoreType = .safety
-                case .speeding:
-                    scoreType = .speeding
-            }
-        }
-        let trips = getTrips()
-        return trips.filter { scoreType.rawValue(trip: $0) <= 10 }
-    }
-
     private func showBottomText() -> Bool {
         switch self {
             case let .distraction(_, showBottomText),
@@ -192,7 +172,7 @@ private struct GaugeConfiguration : DKGaugeConfiguration {
     private let gaugeType: DKGaugeType
 
     init(trips: [Trip], scoreType: ScoreType) {
-        self.trips = trips
+        self.trips = trips.filter { scoreType.rawValue(trip: $0) <= 10 }
         self.scoreType = scoreType
         if self.trips.isEmpty {
             self.value = Double(0)

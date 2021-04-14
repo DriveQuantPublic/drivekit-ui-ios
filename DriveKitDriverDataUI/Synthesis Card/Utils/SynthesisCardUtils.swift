@@ -74,7 +74,7 @@ public struct RoadConditionStats {
                 var maxDistance: Double = 0
                 if let roadConditionObjects = roadConditionObjects {
                     for roadConditionObject in roadConditionObjects {
-                        if let roadCondition = roadConditionObject.roadCondition, roadConditionObject.distance > maxDistance {
+                        if let roadCondition = roadConditionObject.roadCondition, roadCondition != .trafficJam, roadConditionObject.distance > maxDistance {
                             mainRoadCondition = roadCondition
                             maxDistance = roadConditionObject.distance
                         }
@@ -86,13 +86,17 @@ public struct RoadConditionStats {
             }
             var roadConditionPercentages: [DKRoadCondition: Double] = [:]
             for roadCondition in DKRoadCondition.allCases {
-                roadConditionPercentages[roadCondition] = Double(mainRoadConditionCount[roadCondition] ?? 0) / tripNumber * 100
+                if roadCondition != .trafficJam {
+                    roadConditionPercentages[roadCondition] = Double(mainRoadConditionCount[roadCondition] ?? 0) / tripNumber * 100
+                }
             }
             self.roadConditionPercentages = roadConditionPercentages
         } else {
             var roadConditionPercentages: [DKRoadCondition: Double] = [:]
             for roadCondition in DKRoadCondition.allCases {
-                roadConditionPercentages[roadCondition] = 0
+                if roadCondition != .trafficJam {
+                    roadConditionPercentages[roadCondition] = 0
+                }
             }
             self.roadConditionPercentages = roadConditionPercentages
         }

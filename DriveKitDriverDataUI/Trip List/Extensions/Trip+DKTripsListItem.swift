@@ -75,10 +75,7 @@ extension Trip: DKTripsListItem {
     }
 
     public func isAlternative() -> Bool {
-        if let transportationMode = TransportationMode(rawValue: Int(self.declaredTransportationMode?.transportationMode ?? self.transportationMode)) {
-            return transportationMode.isAletrnative()
-        }
-        return false
+        return TransportationMode(rawValue: Int(self.transportationMode)) != TransportationMode.car
     }
 
     public func infoText() -> String? {

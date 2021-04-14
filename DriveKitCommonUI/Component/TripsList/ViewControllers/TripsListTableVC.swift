@@ -21,7 +21,7 @@ public class TripsListTableVC<TripsListItem: DKTripsListItem>: UITableViewContro
         self.tableView.delegate = self
         self.tableView.dataSource = self
         tableView.tableFooterView = UIView(frame: .zero)
-        if let tripList = viewModel?.tripList, tripList.canSwipeToRefresh() {
+        if let tripList = viewModel?.tripList, tripList.canPullToRefresh() {
             self.refreshControl = UIRefreshControl()
             self.refreshControl?.addTarget(self, action: #selector(refreshTripList(_ :)), for: .valueChanged)
         }
@@ -38,7 +38,7 @@ public class TripsListTableVC<TripsListItem: DKTripsListItem>: UITableViewContro
 
     @objc func refreshTripList(_ sender: Any) {
         if let tripList = viewModel?.tripList {
-            tripList.onSwipeToRefresh()
+            tripList.didPullToRefresh()
         }
     }
 
@@ -85,7 +85,7 @@ public class TripsListTableVC<TripsListItem: DKTripsListItem>: UITableViewContro
             if tripItem.hasInfoActionConfigured() {
                 tripItem.infoClickAction(parentViewController: self)
             } else {
-                self.viewModel?.tripList?.onTripClickListener(itinId: tripItem.getItinId())
+                self.viewModel?.tripList?.didSelectTrip(itinId: tripItem.getItinId())
             }
         }
     }
@@ -96,7 +96,7 @@ public class TripsListTableVC<TripsListItem: DKTripsListItem>: UITableViewContro
     
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let trip = self.viewModel?.tripList?.getTripsList()[indexPath.section].trips[indexPath.row] {
-            self.viewModel?.tripList?.onTripClickListener(itinId: trip.getItinId())
+            self.viewModel?.tripList?.didSelectTrip(itinId: trip.getItinId())
         }
     }    
 }

@@ -11,7 +11,7 @@ import DriveKitCoreModule
 import DriveKitCommonUI
 
 extension TripListVC: DKTripsList {
-    public func onTripClickListener(itinId: String) {
+    public func didSelectTrip(itinId: String) {
         self.showTripDetail(itinId: itinId)
     }
     public func getTripData() -> TripData {
@@ -29,10 +29,10 @@ extension TripListVC: DKTripsList {
     public func getDayTripDescendingOrder() -> Bool {
         return DriveKitDriverDataUI.shared.dayTripDescendingOrder
     }
-    public func canSwipeToRefresh() -> Bool {
+    public func canPullToRefresh() -> Bool {
         return true
     }
-    public func onSwipeToRefresh() {
+    public func didPullToRefresh() {
         self.viewModel.fetchTrips()
         DriveKit.shared.modules.tripAnalysis?.checkTripToRepost()
     }

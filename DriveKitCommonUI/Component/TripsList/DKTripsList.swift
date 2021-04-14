@@ -29,12 +29,12 @@ public protocol DKTripsListItem {
 }
 
 public protocol DKTripsList {
-    func onTripClickListener(itinId: String)
+    func didSelectTrip(itinId: String)
     func getTripData() -> TripData
     func getTripsList() -> [DKTripsByDate]
     func getCustomHeader() -> DKHeader?
     func getHeaderDay() -> HeaderDay
     func getDayTripDescendingOrder() -> Bool
-    func canSwipeToRefresh() -> Bool
-    func onSwipeToRefresh()
+    func canPullToRefresh() -> Bool
+    func didPullToRefresh()
 }

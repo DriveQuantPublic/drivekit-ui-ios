@@ -19,7 +19,8 @@ public class TripListVC: DKUIViewController {
     @IBOutlet var noTripsLabel: UILabel!
     @IBOutlet weak var filterViewContainer: UIView!
     @IBOutlet weak var synthesis: UILabel!
-    
+    @IBOutlet weak var tripsViewPlaceholder: UIView!
+
     private let filterView = DKFilterView.viewFromNib
     
     let viewModel: TripListViewModel
@@ -101,6 +102,7 @@ public class TripListVC: DKUIViewController {
         if self.viewModel.filteredTrips.count > 0 {
             self.noTripsView.isHidden = true
             self.tripsTableView?.isHidden = false
+            self.tripsViewPlaceholder?.isHidden = true
             self.tripsTableView?.reloadData()
             if let refreshControl = self.tripsTableView?.refreshControl, refreshControl.isRefreshing {
                 refreshControl.endRefreshing()
@@ -108,12 +110,12 @@ public class TripListVC: DKUIViewController {
             self.configureSynthesis()
         } else {
             self.noTripsView.isHidden = false
+            self.tripsTableView?.isHidden = true
+            self.tripsViewPlaceholder?.isHidden = false
             if self.viewModel.hasTrips() {
-                self.tripsTableView?.isHidden = false
                 self.noTripsImage.image = UIImage(named: "dk_no_vehicle_trips", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withAlignmentRectInsets(UIEdgeInsets(top: -50, left: -50, bottom: -50, right: -50))
                 self.noTripsLabel.text = "dk_driverdata_no_trip_placeholder".dkDriverDataLocalized()
             } else {
-                self.tripsTableView?.isHidden = true
                 self.noTripsImage.image = UIImage(named: "dk_no_trips_recorded", in: Bundle.driverDataUIBundle, compatibleWith: nil)
                 self.noTripsLabel.text = "dk_driverdata_no_trips_recorded".dkDriverDataLocalized()
             }

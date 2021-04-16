@@ -17,7 +17,7 @@ public final class HeaderDayView: UIView, Nibable {
         super.awakeFromNib()
     }
     
-    public func configure<TripsListItem: DKTripsListItem> (trips: [TripsListItem], date: Date, headerDay: HeaderDay, dkHeader: DKHeader?) {
+    public func configure<TripsListItem: DKTripListItem> (trips: [TripsListItem], date: Date, headerDay: HeaderDay, dkHeader: DKHeader?) {
         var rightText = ""
         if let dkHeader = dkHeader {
             if let text = dkHeader.customTripListHeader(trips: trips) {

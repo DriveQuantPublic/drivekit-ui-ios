@@ -9,9 +9,9 @@
 import Foundation
 
 public class TripsListViewModel {
-    private(set) var tripList: DKTripsList?
+    let tripList: DKTripList?
 
-    public init(tripList: DKTripsList) {
+    public init(tripList: DKTripList) {
         self.tripList = tripList
     }
 }

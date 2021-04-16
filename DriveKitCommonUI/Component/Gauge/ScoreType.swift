@@ -59,7 +59,7 @@ public enum ScoreType: String {
         }
     }
 
-    public func isScored(trip: DKTripsListItem) -> Bool {
+    public func isScored(trip: DKTripListItem) -> Bool {
         switch self {
         case .ecoDriving:
             return trip.isScored(tripData: .ecoDriving)
@@ -72,7 +72,7 @@ public enum ScoreType: String {
         }
     }
         
-    public func rawValue(trip: DKTripsListItem) -> Double {
+    public func rawValue(trip: DKTripListItem) -> Double {
         switch self {
         case .ecoDriving:
             return trip.getScore(tripData: .ecoDriving) ?? 0

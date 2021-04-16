@@ -11,8 +11,8 @@ import Foundation
 public protocol DKHeader {
     func tripListHeader() -> HeaderDay
     func tripDetailHeader() -> HeaderDay
-    func customTripListHeader(trips: [DKTripsListItem]) -> String?
-    func customTripDetailHeader(trip: DKTripsListItem) -> String?
+    func customTripListHeader(trips: [DKTripListItem]) -> String?
+    func customTripDetailHeader(trip: DKTripListItem) -> String?
 }
 
 public extension DKHeader {
@@ -24,11 +24,11 @@ public extension DKHeader {
         return .distanceDuration
     }
     
-    func customTripListHeader(trips: [DKTripsListItem]) -> String? {
+    func customTripListHeader(trips: [DKTripListItem]) -> String? {
         return nil
     }
     
-    func customTripDetailHeader(trip: DKTripsListItem) -> String? {
+    func customTripDetailHeader(trip: DKTripListItem) -> String? {
         return nil
     }
     

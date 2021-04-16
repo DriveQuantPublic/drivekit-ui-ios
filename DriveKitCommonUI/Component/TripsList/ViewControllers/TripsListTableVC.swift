@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class TripsListTableVC<TripsListItem: DKTripsListItem>: UITableViewController {
+public class TripsListTableVC<TripsListItem: DKTripListItem>: UITableViewController {
 
     var viewModel: TripsListViewModel?
 

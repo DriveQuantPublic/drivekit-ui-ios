@@ -8,11 +8,11 @@
 
 import Foundation
 
-public class DKTripsByDate {
+public struct DKTripsByDate {
     public var date: Date
-    public var trips: [DKTripsListItem]
+    public var trips: [DKTripListItem]
     
-    public init(date: Date, trips: [DKTripsListItem]) {
+    public init(date: Date, trips: [DKTripListItem]) {
         self.date = date
         self.trips = trips
     }

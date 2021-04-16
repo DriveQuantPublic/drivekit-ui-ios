@@ -32,14 +32,14 @@ final class TripTableViewCell: UITableViewCell, Nibable {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(trip: DKTripsListItem, tripData: TripData) {
+    func configure(trip: DKTripListItem, tripData: TripData) {
         tripLineView.color = DKUIColors.secondaryColor.color
         configureLabels(trip: trip)
         configureTripData(trip: trip, tripData: tripData)
         configureTripInfo(trip: trip)
     }
     
-    private func configureLabels(trip: DKTripsListItem) {
+    private func configureLabels(trip: DKTripListItem) {
         self.departureHourLabel.attributedText = trip.getStartDate()?.format(pattern: .hourMinuteLetter).dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(self.timeColor).build()
         self.arrivalHourLabel.attributedText = trip.getEndDate().format(pattern: .hourMinuteLetter).dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(self.timeColor).build()
 
@@ -47,7 +47,7 @@ final class TripTableViewCell: UITableViewCell, Nibable {
         self.arrivalCityLabel.attributedText = (trip.getArrivalCity() ?? "").dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
     }
     
-    private func configureTripData(trip: DKTripsListItem, tripData: TripData) {
+    private func configureTripData(trip: DKTripListItem, tripData: TripData) {
         if trip.isAlternative() {
             configureAlternativeTripData(trip: trip)
         } else {
@@ -55,7 +55,7 @@ final class TripTableViewCell: UITableViewCell, Nibable {
         }
     }
     
-    private func configureMotorizedTripData(trip: DKTripsListItem, tripData: TripData) {
+    private func configureMotorizedTripData(trip: DKTripListItem, tripData: TripData) {
         switch tripData.displayType() {
         case .gauge:
             if trip.isScored(tripData: tripData) {
@@ -89,10 +89,10 @@ final class TripTableViewCell: UITableViewCell, Nibable {
         }
     }
     
-    private func configureAlternativeTripData(trip: DKTripsListItem) {
+    private func configureAlternativeTripData(trip: DKTripListItem) {
         let view = AlternativeTripImageView.viewFromNib
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.imageView.image = trip.getTransportationModeResource()
+        view.imageView.image = trip.getTransportationModeImage()
         dataView.embedSubview(view)
         NSLayoutConstraint.activate([
             view.widthAnchor.constraint(equalTo: dataView.widthAnchor),
@@ -102,12 +102,12 @@ final class TripTableViewCell: UITableViewCell, Nibable {
         ])
     }
     
-    private func configureTripInfo(trip: DKTripsListItem) {
+    private func configureTripInfo(trip: DKTripListItem) {
         if trip.isInfoDisplayable() {
             let tripInfoView = TripInfoView.viewFromNib
             tripInfoView.setTrip(trip: trip)
             let style: DKStyle
-            if let image = trip.infoImageResource()?.withRenderingMode(.alwaysTemplate) {
+            if let image = trip.infoImage()?.withRenderingMode(.alwaysTemplate) {
                 tripInfoView.image.image = image
                 tripInfoView.image.tintColor = DKUIColors.fontColorOnSecondaryColor.color
                 style = DKStyle(size: 10, traits: .traitBold)

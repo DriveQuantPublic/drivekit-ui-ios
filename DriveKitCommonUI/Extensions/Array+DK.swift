@@ -8,7 +8,7 @@
 
 import Foundation
 
-public extension Array where Element: DKTripsListItem {
+public extension Array where Element: DKTripListItem {
     var totalDistance: Double {
         return map { ($0.getDistance() ?? 0) }.reduce(0, +)
     }
@@ -24,7 +24,7 @@ public extension Array where Element: DKTripsListItem {
     func orderByDay(descOrder: Bool = true) -> [DKTripsByDate] {
         var tripsSorted: [DKTripsByDate] = []
         if !self.isEmpty {
-            var dayTrips: [DKTripsListItem] = []
+            var dayTrips: [DKTripListItem] = []
             var currentDay = self[0].getEndDate()
             if self.count > 1 {
                 for i in 0..<self.count {
@@ -48,7 +48,7 @@ public extension Array where Element: DKTripsListItem {
         return tripsSorted
     }
 
-    private func newTripsByDate(date: Date, trips: [DKTripsListItem], descOrder: Bool) -> DKTripsByDate {
+    private func newTripsByDate(date: Date, trips: [DKTripListItem], descOrder: Bool) -> DKTripsByDate {
         let sortedTrips = descOrder || trips.count < 2 ? trips : trips.reversed()
         let tripsByDate = DKTripsByDate(date: date, trips: sortedTrips)
         return tripsByDate

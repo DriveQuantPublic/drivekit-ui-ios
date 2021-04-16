@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public protocol DKTripsListItem {
+public protocol DKTripListItem {
     func getItinId() -> String
     func getDuration() -> Double
     func getDistance() -> Double?
@@ -19,16 +19,16 @@ public protocol DKTripsListItem {
     func getArrivalCity() -> String?
     func isScored(tripData: TripData) -> Bool
     func getScore(tripData: TripData) -> Double?
-    func getTransportationModeResource() -> UIImage?
+    func getTransportationModeImage() -> UIImage?
     func isAlternative() -> Bool
     func infoText() -> String?
-    func infoImageResource() -> UIImage?
+    func infoImage() -> UIImage?
     func infoClickAction(parentViewController: UIViewController)
     func hasInfoActionConfigured() -> Bool
     func isInfoDisplayable() -> Bool
 }
 
-public protocol DKTripsList {
+public protocol DKTripList {
     func didSelectTrip(itinId: String)
     func getTripData() -> TripData
     func getTripsList() -> [DKTripsByDate]

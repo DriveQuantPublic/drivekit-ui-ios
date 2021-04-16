@@ -13,7 +13,7 @@ final class TripInfoView: UIView, Nibable {
     @IBOutlet weak var text: UILabel!
     @IBOutlet weak var image: UIImageView!
 
-    var trip: DKTripsListItem? = nil
+    var trip: DKTripListItem? = nil
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,7 +23,7 @@ final class TripInfoView: UIView, Nibable {
         self.text.attributedText = text.dkAttributedString().font(dkFont: .primary, style: style).color(.fontColorOnSecondaryColor).build()
     }
 
-    func setTrip(trip: DKTripsListItem) {
+    func setTrip(trip: DKTripListItem) {
         self.trip = trip
     }
 

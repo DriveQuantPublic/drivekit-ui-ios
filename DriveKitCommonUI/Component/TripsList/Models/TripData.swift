@@ -20,11 +20,11 @@ public enum TripData: String {
         }
     }
 
-    func isScored(trip: DKTripsListItem) -> Bool {
+    func isScored(trip: DKTripListItem) -> Bool {
         return trip.isScored(tripData: self)
     }
 
-    func stringValue(trip: DKTripsListItem) -> String {
+    func stringValue(trip: DKTripListItem) -> String {
         switch self {
         case .ecoDriving, .safety, .distraction, .speeding:
             return String(format: "%.1f", trip.getScore(tripData: self) ?? 0)

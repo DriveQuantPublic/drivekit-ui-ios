@@ -248,7 +248,7 @@
 		63FF6B4F244994B50006992E /* DiagnosisViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63FF6B4E244994B50006992E /* DiagnosisViewController.xib */; };
 		63FF6B532449E7CF0006992E /* SensorStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63FF6B522449E7CF0006992E /* SensorStateView.xib */; };
 		63FF6B552449EC2B0006992E /* SensorStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FF6B542449EC2B0006992E /* SensorStateView.swift */; };
-		67301C3E261D106B006B0432 /* DKTripsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301C3D261D106B006B0432 /* DKTripsList.swift */; };
+		67301C3E261D106B006B0432 /* DKTripList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301C3D261D106B006B0432 /* DKTripList.swift */; };
 		67301C46261D121C006B0432 /* TripData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301C45261D121C006B0432 /* TripData.swift */; };
 		67301C5C261EE900006B0432 /* DKTripsByDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301C5B261EE900006B0432 /* DKTripsByDate.swift */; };
 		67301C91261F55B8006B0432 /* Array+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301C90261F55B8006B0432 /* Array+DK.swift */; };
@@ -721,7 +721,7 @@
 		63FF6B4E244994B50006992E /* DiagnosisViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiagnosisViewController.xib; sourceTree = "<group>"; };
 		63FF6B522449E7CF0006992E /* SensorStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SensorStateView.xib; sourceTree = "<group>"; };
 		63FF6B542449EC2B0006992E /* SensorStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorStateView.swift; sourceTree = "<group>"; };
-		67301C3D261D106B006B0432 /* DKTripsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripsList.swift; sourceTree = "<group>"; };
+		67301C3D261D106B006B0432 /* DKTripList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripList.swift; sourceTree = "<group>"; };
 		67301C45261D121C006B0432 /* TripData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripData.swift; sourceTree = "<group>"; };
 		67301C5B261EE900006B0432 /* DKTripsByDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripsByDate.swift; sourceTree = "<group>"; };
 		67301C90261F55B8006B0432 /* Array+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+DK.swift"; sourceTree = "<group>"; };
@@ -1582,7 +1582,7 @@
 				A34238572361A2430001E15D /* Views */,
 				67301C44261D1206006B0432 /* Models */,
 				67301CE72623AC33006B0432 /* ViewControllers */,
-				67301C3D261D106B006B0432 /* DKTripsList.swift */,
+				67301C3D261D106B006B0432 /* DKTripList.swift */,
 				3F3E73592570111C002B5E30 /* DKHeader.swift */,
 			);
 			path = TripsList;
@@ -2482,7 +2482,7 @@
 				3FA24FF62524B9BE000AB7D3 /* DKFilterView.swift in Sources */,
 				67301C9D261FAEFF006B0432 /* TripListSeparator.swift in Sources */,
 				3F0740EA2403BBFC005A8D07 /* DKColors.swift in Sources */,
-				67301C3E261D106B006B0432 /* DKTripsList.swift in Sources */,
+				67301C3E261D106B006B0432 /* DKTripList.swift in Sources */,
 				67301CC4261FB0CD006B0432 /* AlternativeTripImageView.swift in Sources */,
 				3F0740E72403BB9A005A8D07 /* DriveKitUI.swift in Sources */,
 				67301CCC2620D16D006B0432 /* DKHeader.swift in Sources */,

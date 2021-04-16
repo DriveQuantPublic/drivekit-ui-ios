@@ -10,7 +10,7 @@ import Foundation
 import DriveKitCoreModule
 import DriveKitCommonUI
 
-extension TripListVC: DKTripsList {
+extension TripListVC: DKTripList {
     public func didSelectTrip(itinId: String) {
         self.showTripDetail(itinId: itinId)
     }

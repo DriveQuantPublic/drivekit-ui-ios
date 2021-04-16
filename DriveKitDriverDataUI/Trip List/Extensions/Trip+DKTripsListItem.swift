@@ -11,7 +11,7 @@ import UIKit
 import DriveKitCommonUI
 import DriveKitDBTripAccessModule
 
-extension Trip: DKTripsListItem {
+extension Trip: DKTripListItem {
     public func getItinId() -> String {
         return self.itinId ?? ""
     }
@@ -70,7 +70,7 @@ extension Trip: DKTripsListItem {
         }
     }
 
-    public func getTransportationModeResource() -> UIImage? {
+    public func getTransportationModeImage() -> UIImage? {
         return TransportationMode(rawValue: Int(self.declaredTransportationMode?.transportationMode ?? self.transportationMode))?.getImage()
     }
 
@@ -89,7 +89,7 @@ extension Trip: DKTripsListItem {
         }
     }
 
-    public func infoImageResource() -> UIImage? {
+    public func infoImage() -> UIImage? {
         guard let tripAdvices: [TripAdvice]  = self.tripAdvices?.allObjects as? [TripAdvice] else {
             return nil
         }

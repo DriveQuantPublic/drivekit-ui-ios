@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class TripsListViewModel {
+public struct TripsListViewModel {
     let tripList: DKTripList?
 
     public init(tripList: DKTripList) {

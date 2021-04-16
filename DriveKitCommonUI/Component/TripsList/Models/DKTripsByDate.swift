@@ -9,8 +9,8 @@
 import Foundation
 
 public struct DKTripsByDate {
-    public var date: Date
-    public var trips: [DKTripListItem]
+    public let date: Date
+    public let trips: [DKTripListItem]
     
     public init(date: Date, trips: [DKTripListItem]) {
         self.date = date

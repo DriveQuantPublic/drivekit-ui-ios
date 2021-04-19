@@ -90,7 +90,7 @@ private struct CustomGaugeConfiguration: DKGaugeConfiguration {
     }
 
     func getGaugeType() -> DKGaugeType {
-        return .close
+        return .closed
     }
 
     func getProgress() -> Double {

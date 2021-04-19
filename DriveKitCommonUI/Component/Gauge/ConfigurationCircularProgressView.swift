@@ -109,7 +109,7 @@ public class ConfigurationCircularProgressView {
         self.startAngle = gaugeType.getStartAngle()
         self.endAngle = gaugeType.getEndAngle()
         switch gaugeConfiguration.getGaugeType() {
-            case .close, .open:
+            case .closed, .open:
                 self.image = nil
             case let .openWithIcon(icon):
                 self.image = icon

@@ -44,6 +44,22 @@ extension Trip {
         }
         return nil
     }
+
+    fileprivate static let activeDayDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
+        return dateFormatter
+    }()
+}
+
+extension Array where Element: Trip {
+    var totalActiveDays: Int {
+        let keys = reduce(into: Set<String>()) { keys, trip in
+            keys.insert(Trip.activeDayDateFormatter.string(from: trip.tripEndDate))
+        }
+        return keys.count
+    }
 }
 
 extension Route {
@@ -79,4 +95,24 @@ extension TripAdvice {
             return nil
         }
     }
+}
+
+public extension SafetyContext {
+    var roadCondition: DKRoadCondition? {
+        return DKRoadCondition(rawValue: Int(self.contextId))
+    }
+}
+
+public extension EcoDrivingContext {
+    var roadCondition: DKRoadCondition? {
+        return DKRoadCondition(rawValue: Int(self.contextId))
+    }
+}
+
+public enum DKRoadCondition : Int, CaseIterable {
+    case trafficJam = 0
+    case heavyUrbanTraffic = 1
+    case city = 2
+    case suburban = 3
+    case expressways = 4
 }

@@ -65,7 +65,7 @@ public struct DKStyle {
     let traits: UIFontDescriptor.SymbolicTraits?
     public static let driverDataText = DKStyles.normalText.withSizeDelta(-2)
 
-    public init(size : CGFloat, traits: UIFontDescriptor.SymbolicTraits?) {
+    public init(size: CGFloat, traits: UIFontDescriptor.SymbolicTraits?) {
         self.size = size
         self.traits = traits
     }

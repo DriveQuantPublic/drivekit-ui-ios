@@ -27,7 +27,7 @@ public enum TripData: String {
     func stringValue(trip: DKTripListItem) -> String {
         switch self {
         case .ecoDriving, .safety, .distraction, .speeding:
-            return String(format: "%.1f", trip.getScore(tripData: self) ?? 0)
+            return trip.getScore(tripData: self)?.format(maximumFractionDigits: 1) ?? "0"
         case .distance:
             return trip.getDistance()?.formatMeterDistanceInKm() ?? "0 \(DKCommonLocalizable.unitKilometer.text())"
         case .duration:

@@ -27,16 +27,16 @@ public extension Array where Element: DKTripListItem {
             var dayTrips: [DKTripListItem] = []
             var currentDay = self[0].getEndDate()
             if self.count > 1 {
-                for i in 0..<self.count {
-                    if NSCalendar.current.isDate(currentDay as Date, inSameDayAs: self[i].getEndDate() as Date) {
-                        dayTrips.append(self[i])
+                for (index, trip) in self.enumerated() {
+                    if Calendar.current.isDate(currentDay as Date, inSameDayAs: trip.getEndDate() as Date) {
+                        dayTrips.append(trip)
                     } else {
                         tripsSorted.append(newTripsByDate(date: currentDay, trips: dayTrips, descOrder: descOrder))
-                        currentDay = self[i].getEndDate()
+                        currentDay = trip.getEndDate()
                         dayTrips = []
-                        dayTrips.append(self[i])
+                        dayTrips.append(trip)
                     }
-                    if i == self.count - 1 {
+                    if index == self.count - 1 {
                         tripsSorted.append(newTripsByDate(date: currentDay, trips: dayTrips, descOrder: descOrder))
                     }
                 }

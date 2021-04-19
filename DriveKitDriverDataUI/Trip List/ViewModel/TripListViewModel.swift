@@ -162,9 +162,9 @@ class TripListViewModel {
         self.filteredTrips = []
         for tripsByDate in self.trips {
             if let trips = tripsByDate.trips as? [Trip] {
-                let dayFilterdTrips = trips.filter(isIncluded)
-                if dayFilterdTrips.count > 0 {
-                    self.filteredTrips.append(DKTripsByDate(date: tripsByDate.date, trips: dayFilterdTrips))
+                let dayFilteredTrips = trips.filter(isIncluded)
+                if dayFilteredTrips.count > 0 {
+                    self.filteredTrips.append(DKTripsByDate(date: tripsByDate.date, trips: dayFilteredTrips))
                 }
             }
         }

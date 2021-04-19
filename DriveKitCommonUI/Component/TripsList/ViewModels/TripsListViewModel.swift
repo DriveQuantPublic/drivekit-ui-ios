@@ -9,7 +9,7 @@
 import Foundation
 
 public struct TripsListViewModel {
-    let tripList: DKTripList?
+    weak private(set) var tripList: DKTripList?
 
     public init(tripList: DKTripList) {
         self.tripList = tripList

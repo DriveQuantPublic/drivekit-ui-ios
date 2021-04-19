@@ -24,8 +24,8 @@ public class TripListVC: DKUIViewController {
     private let filterView = DKFilterView.viewFromNib
     
     let viewModel: TripListViewModel
-    var tripsListTableViewModel: TripsListViewModel?
-    private var filterViewModel : DKFilterViewModel?
+    var tripListTableViewModel: TripsListViewModel?
+    private var filterViewModel: DKFilterViewModel?
     private var updating = false
 
     public init() {
@@ -42,8 +42,8 @@ public class TripListVC: DKUIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.title = "dk_driverdata_trips_list_title".dkDriverDataLocalized()
-        tripsListTableViewModel = TripsListViewModel(tripList: self)
-        let tripsListTableVC = TripsListTableVC<Trip>(viewModel: tripsListTableViewModel!)
+        tripListTableViewModel = TripsListViewModel(tripList: self)
+        let tripsListTableVC = TripsListTableVC<Trip>(viewModel: tripListTableViewModel!)
         self.addChild(tripsListTableVC)
         if let tripsTableView = tripsListTableVC.tableView {
             self.tripsTableView = tripsTableView

@@ -28,7 +28,7 @@ public protocol DKTripListItem {
     func isInfoDisplayable() -> Bool
 }
 
-public protocol DKTripList {
+public protocol DKTripList: AnyObject {
     func didSelectTrip(itinId: String)
     func getTripData() -> TripData
     func getTripsList() -> [DKTripsByDate]

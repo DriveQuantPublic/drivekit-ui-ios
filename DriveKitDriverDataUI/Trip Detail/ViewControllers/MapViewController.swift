@@ -71,7 +71,7 @@ class MapViewController: DKUIViewController {
             }
             var removeDistractionPolylines = true
             var removePhoneCallPolylines = true
-            if let mapItem = mapItem, mapItem.shouldShowPhoneDistractionArea() || mapItem.shouldShowDistractionArea() {
+            if let mapItem = mapItem, self.viewModel.configurableMapItems.contains(MapItem.distraction) && (mapItem.shouldShowPhoneDistractionArea() || mapItem.shouldShowDistractionArea()) {
                 switch mapTraceType {
                     case .phoneCall:
                         if mapItem.shouldShowPhoneDistractionArea() {
@@ -107,7 +107,7 @@ class MapViewController: DKUIViewController {
                 }
             }
 
-            if let mapItem = mapItem, mapItem.shouldShowSpeedingArea() {
+            if let mapItem = mapItem, mapItem.shouldShowSpeedingArea(), self.viewModel.configurableMapItems.contains(MapItem.speeding) {
                 self.computeSpeedingPolylines()
                 self.drawSpeeding(route: route)
             } else {
@@ -564,27 +564,32 @@ extension MapViewController: MKMapViewDelegate {
                     view.setupAsTripEventCallout(with: start, location: "dk_driverdata_start_event".dkDriverDataLocalized())
                 }
             }
-        }
-        else if annotation.isEqual(endAnnotation) {
+        } else if annotation.isEqual(endAnnotation) {
             let endImage = UIImage(named: "dk_map_end_event", in: Bundle.driverDataUIBundle, compatibleWith: nil)
             view.image = endImage?.resizeImage(32, opaque: false, contentMode: .scaleAspectFit).tintedImage(withColor: UIColor.dkMapTrace)
             view.centerOffset = CGPoint(x: 0, y: 0)
             view.resistantLayer.resistantZPosition = 1000
             let tripViewModel = viewModel
             if let end = tripViewModel.endEvent {
-                var city = tripViewModel.trip!.arrivalCity
-                if tripViewModel.trip!.arrivalAddress != "" {
-                    city = tripViewModel.trip!.arrivalAddress
+                let city: String?
+                if let trip = tripViewModel.trip {
+                    if let arrivalAddress = trip.arrivalAddress, !arrivalAddress.isEmpty {
+                        city = arrivalAddress
+                    } else {
+                        city = trip.arrivalCity
+                    }
+                } else {
+                    city = nil
                 }
-                if city != nil {
-                    view.setupAsTripEventCallout(with: end, location: city!)
-                }else {
-                    view.setupAsTripEventCallout(with: end, location:"dk_driverdata_end_event".dkDriverDataLocalized())
+                if let city = city {
+                    view.setupAsTripEventCallout(with: end, location: city)
+                } else {
+                    view.setupAsTripEventCallout(with: end, location: "dk_driverdata_end_event".dkDriverDataLocalized())
                 }
             }
         } else {
             if let mapItem = viewModel.displayMapItem, !mapItem.displayedMarkers().contains(.all) {
-                if let safetyEvents = safetyAnnotations as NSArray?{
+                if let safetyEvents = safetyAnnotations as NSArray? {
                     let indexForSafetyEvent = safetyEvents.index(of: annotation)
                     if indexForSafetyEvent != NSNotFound {
                         let event = viewModel.safetyEvents[indexForSafetyEvent]

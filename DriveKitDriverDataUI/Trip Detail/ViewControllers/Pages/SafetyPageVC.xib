@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -38,12 +38,14 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pd6-tB-jZ4">
-                            <rect key="frame" x="37.5" y="132.5" width="25" height="24"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pd6-tB-jZ4">
+                            <rect key="frame" x="36" y="130.5" width="28" height="28"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="25" id="8hH-kg-Fhk"/>
-                                <constraint firstAttribute="height" constant="24" id="M9O-1S-lSZ"/>
+                                <constraint firstAttribute="width" constant="28" id="8hH-kg-Fhk"/>
+                                <constraint firstAttribute="height" constant="28" id="M9O-1S-lSZ"/>
                             </constraints>
+                            <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                            <state key="normal" image="dk_common_info"/>
                             <connections>
                                 <action selector="infoAction:" destination="-1" eventType="touchUpInside" id="eWT-NJ-G0b"/>
                             </connections>
@@ -57,7 +59,7 @@
                         <constraint firstItem="e7I-Eu-U1f" firstAttribute="top" secondItem="4Aj-Yn-Igb" secondAttribute="top" id="OLO-ug-VJH"/>
                         <constraint firstItem="e7I-Eu-U1f" firstAttribute="leading" secondItem="4Aj-Yn-Igb" secondAttribute="leading" id="OhC-tR-KdY"/>
                         <constraint firstItem="S2J-PH-3a5" firstAttribute="top" secondItem="e7I-Eu-U1f" secondAttribute="bottom" constant="10" id="SdO-ZD-UYE"/>
-                        <constraint firstItem="pd6-tB-jZ4" firstAttribute="top" secondItem="S2J-PH-3a5" secondAttribute="bottom" constant="2" id="djI-Od-Ope"/>
+                        <constraint firstItem="pd6-tB-jZ4" firstAttribute="top" secondItem="S2J-PH-3a5" secondAttribute="bottom" id="djI-Od-Ope"/>
                         <constraint firstAttribute="trailing" secondItem="S2J-PH-3a5" secondAttribute="trailing" id="m2b-rz-ejR"/>
                     </constraints>
                 </view>
@@ -80,4 +82,7 @@
             <point key="canvasLocation" x="132" y="86"/>
         </view>
     </objects>
+    <resources>
+        <image name="dk_common_info" width="60" height="60"/>
+    </resources>
 </document>

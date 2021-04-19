@@ -42,6 +42,7 @@ class SpeedingPageVC: UIViewController {
         circularRingContainer.embedSubview(score)
         circularRingTitle.attributedText = viewModel.getScoreTitle().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
         setupSummaryContainer()
+        infoButton.setImage(DKImages.info.image, for: .normal)
         infoButton.tintColor = DKUIColors.secondaryColor.color
     }
     

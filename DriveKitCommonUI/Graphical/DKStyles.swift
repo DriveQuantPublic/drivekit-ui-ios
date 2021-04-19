@@ -64,7 +64,7 @@ public struct DKStyle {
     public let size: CGFloat
     let traits: UIFontDescriptor.SymbolicTraits?
     
-    public init(size : CGFloat, traits: UIFontDescriptor.SymbolicTraits?) {
+    public init(size: CGFloat, traits: UIFontDescriptor.SymbolicTraits?) {
         self.size = size
         self.traits = traits
     }

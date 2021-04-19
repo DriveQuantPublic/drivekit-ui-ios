@@ -1,7 +1,11 @@
+"dk_common_activate"="Aktivieren Sie";
+"dk_common_back"="Zurück";
 "dk_common_cancel"="Annullierer";
 "dk_common_close"="schließen";
 "dk_common_confirm"="Bestätigen";
 "dk_common_consumption"="Verbrauch";
+"dk_common_day_plural"="tage";
+"dk_common_day_singular"="tag";
 "dk_common_delete"="Löschen";
 "dk_common_distance"="Entfernung";
 "dk_common_distraction"="Ablenkung";

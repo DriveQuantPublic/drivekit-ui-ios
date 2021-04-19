@@ -19,17 +19,12 @@
 		3F0740F02404263D005A8D07 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F0740EE2404263D005A8D07 /* Roboto-Bold.ttf */; };
 		3F0740F3240426C0005A8D07 /* UIColor+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0740F2240426C0005A8D07 /* UIColor+DK.swift */; };
 		3F0F6B89257F8ACC00EE7AB3 /* TripListConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F6B88257F8ACC00EE7AB3 /* TripListConfiguration.swift */; };
-		3F38C26123696EE0002E873A /* TripInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F38C25F23696EE0002E873A /* TripInfoView.xib */; };
-		3F38C26223696EE0002E873A /* TripInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C26023696EE0002E873A /* TripInfoView.swift */; };
 		3F38C2692369BD60002E873A /* TripTipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C2672369BD5F002E873A /* TripTipViewController.swift */; };
 		3F38C26A2369BD60002E873A /* TripTipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F38C2682369BD60002E873A /* TripTipViewController.xib */; };
 		3F38C26D2369CC10002E873A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F38C26F2369CC10002E873A /* Localizable.strings */; };
 		3F38C2752369D6ED002E873A /* NotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C2742369D6ED002E873A /* NotificationSender.swift */; };
 		3F3E72F5256F9415002B5E30 /* DKMapItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E72F4256F9415002B5E30 /* DKMapItem.swift */; };
 		3F3E72FC256F9B71002B5E30 /* DKTripDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E72FB256F9B71002B5E30 /* DKTripDetailViewModel.swift */; };
-		3F3E735A2570111C002B5E30 /* DKHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E73592570111C002B5E30 /* DKHeader.swift */; };
-		3F3E73A925715B47002B5E30 /* DKTripInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E73A825715B47002B5E30 /* DKTripInfo.swift */; };
-		3F3E73B025715BE8002B5E30 /* AdviceTripInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E73AF25715BE8002B5E30 /* AdviceTripInfo.swift */; };
 		3F50D6F52417945B001226F7 /* BluetoothViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D6F42417945B001226F7 /* BluetoothViewModel.swift */; };
 		3F50D6FE24179467001226F7 /* SuccessBluetoothVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D6F624179466001226F7 /* SuccessBluetoothVC.swift */; };
 		3F50D6FF24179467001226F7 /* SelectBluetoothVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D6F724179466001226F7 /* SelectBluetoothVC.swift */; };
@@ -224,8 +219,6 @@
 		63782D952487A23E0079F315 /* VehiclePickerTruckTypeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63782D942487A23D0079F315 /* VehiclePickerTruckTypeVC.xib */; };
 		63782D972487A5DD0079F315 /* VehiclePickerTruckTypeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63782D962487A5DD0079F315 /* VehiclePickerTruckTypeHeader.swift */; };
 		63782D992487A6500079F315 /* VehiclePickerTruckTypeHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63782D982487A6500079F315 /* VehiclePickerTruckTypeHeader.xib */; };
-		6378AF682593F470002F0BBD /* AlternativeTripImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378AF662593F46F002F0BBD /* AlternativeTripImageView.swift */; };
-		6378AF692593F470002F0BBD /* AlternativeTripImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6378AF672593F470002F0BBD /* AlternativeTripImageView.xib */; };
 		6378BBE0244D9BC70040A114 /* SensorStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378BBDF244D9BC70040A114 /* SensorStateViewModel.swift */; };
 		6378BBE2244D9C060040A114 /* DiagnosisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378BBE1244D9C060040A114 /* DiagnosisViewModel.swift */; };
 		6378BBE4244DA47B0040A114 /* StatusType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378BBE3244DA47B0040A114 /* StatusType.swift */; };
@@ -272,6 +265,27 @@
 		63FF6B4F244994B50006992E /* DiagnosisViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63FF6B4E244994B50006992E /* DiagnosisViewController.xib */; };
 		63FF6B532449E7CF0006992E /* SensorStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63FF6B522449E7CF0006992E /* SensorStateView.xib */; };
 		63FF6B552449EC2B0006992E /* SensorStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FF6B542449EC2B0006992E /* SensorStateView.swift */; };
+		67301C3E261D106B006B0432 /* DKTripList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301C3D261D106B006B0432 /* DKTripList.swift */; };
+		67301C46261D121C006B0432 /* TripData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301C45261D121C006B0432 /* TripData.swift */; };
+		67301C5C261EE900006B0432 /* DKTripsByDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301C5B261EE900006B0432 /* DKTripsByDate.swift */; };
+		67301C91261F55B8006B0432 /* Array+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301C90261F55B8006B0432 /* Array+DK.swift */; };
+		67301C97261F5619006B0432 /* HeaderDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342384C2361A2430001E15D /* HeaderDay.swift */; };
+		67301C9D261FAEFF006B0432 /* TripListSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238482361A2430001E15D /* TripListSeparator.swift */; };
+		67301CBD261FB0CD006B0432 /* AlternativeTripImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6378AF672593F470002F0BBD /* AlternativeTripImageView.xib */; };
+		67301CBE261FB0CD006B0432 /* TripInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C26023696EE0002E873A /* TripInfoView.swift */; };
+		67301CBF261FB0CD006B0432 /* NoScoreImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342385A2361A2430001E15D /* NoScoreImageView.swift */; };
+		67301CC0261FB0CD006B0432 /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342385D2361A2430001E15D /* TripTableViewCell.swift */; };
+		67301CC1261FB0CD006B0432 /* NoScoreImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34238582361A2430001E15D /* NoScoreImageView.xib */; };
+		67301CC2261FB0CD006B0432 /* TripInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F38C25F23696EE0002E873A /* TripInfoView.xib */; };
+		67301CC4261FB0CD006B0432 /* AlternativeTripImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378AF662593F46F002F0BBD /* AlternativeTripImageView.swift */; };
+		67301CC5261FB0CD006B0432 /* TripTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A342385B2361A2430001E15D /* TripTableViewCell.xib */; };
+		67301CCC2620D16D006B0432 /* DKHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E73592570111C002B5E30 /* DKHeader.swift */; };
+		67301CE92623AD36006B0432 /* TripsListTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301CE82623AD36006B0432 /* TripsListTableVC.swift */; };
+		67301CF62623B2B2006B0432 /* DKTripListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301CF52623B2B2006B0432 /* DKTripListViewModel.swift */; };
+		67301DB026251921006B0432 /* HeaderDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301DAE26251921006B0432 /* HeaderDayView.swift */; };
+		67301DB126251921006B0432 /* HeaderDayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67301DAF26251921006B0432 /* HeaderDayView.xib */; };
+		67301DBD2625C301006B0432 /* Trip+DKTripsListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301DBC2625C301006B0432 /* Trip+DKTripsListItem.swift */; };
+		67301DC42625C3BF006B0432 /* TripListVC+DKTripList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301DC32625C3BF006B0432 /* TripListVC+DKTripList.swift */; };
 		67CFE99F25F6425F004D0AE1 /* SpeedingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE99D25F6425F004D0AE1 /* SpeedingPageVC.swift */; };
 		67CFE9A025F6425F004D0AE1 /* SpeedingPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67CFE99E25F6425F004D0AE1 /* SpeedingPageVC.xib */; };
 		67CFE9A725F645EA004D0AE1 /* SpeedingPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */; };
@@ -326,18 +340,7 @@
 		A34238842361A2440001E15D /* SafetyPageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A342383E2361A2430001E15D /* SafetyPageView.xib */; };
 		A34238852361A2440001E15D /* TripListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238412361A2430001E15D /* TripListViewModel.swift */; };
 		A34238862361A2440001E15D /* Extension+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238432361A2430001E15D /* Extension+DK.swift */; };
-		A342388A2361A2440001E15D /* TripListSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238482361A2430001E15D /* TripListSeparator.swift */; };
-		A342388C2361A2440001E15D /* TripsByDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342384A2361A2430001E15D /* TripsByDate.swift */; };
-		A342388E2361A2440001E15D /* HeaderDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342384C2361A2430001E15D /* HeaderDay.swift */; };
-		A342388F2361A2440001E15D /* TripData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342384D2361A2430001E15D /* TripData.swift */; };
 		A34238912361A2440001E15D /* TripListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238522361A2430001E15D /* TripListVC.swift */; };
-		A34238922361A2440001E15D /* TripTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238542361A2430001E15D /* TripTableViewDelegate.swift */; };
-		A34238942361A2440001E15D /* NoScoreImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34238582361A2430001E15D /* NoScoreImageView.xib */; };
-		A34238962361A2440001E15D /* NoScoreImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342385A2361A2430001E15D /* NoScoreImageView.swift */; };
-		A34238972361A2440001E15D /* TripTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A342385B2361A2430001E15D /* TripTableViewCell.xib */; };
-		A34238982361A2440001E15D /* HeaderDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342385C2361A2430001E15D /* HeaderDayView.swift */; };
-		A34238992361A2440001E15D /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342385D2361A2430001E15D /* TripTableViewCell.swift */; };
-		A342389A2361A2440001E15D /* HeaderDayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A342385E2361A2430001E15D /* HeaderDayView.xib */; };
 		A342389D2361A2440001E15D /* DriverData.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A34238612361A2430001E15D /* DriverData.xcassets */; };
 		A34238A02361A2730001E15D /* DriverDataLocalizables.strings in Resources */ = {isa = PBXBuildFile; fileRef = A342389E2361A2730001E15D /* DriverDataLocalizables.strings */; };
 		A34238A92361B0DE0001E15D /* TripListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34238A82361B0DE0001E15D /* TripListVC.xib */; };
@@ -492,8 +495,6 @@
 		3F3E72F4256F9415002B5E30 /* DKMapItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKMapItem.swift; sourceTree = "<group>"; };
 		3F3E72FB256F9B71002B5E30 /* DKTripDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripDetailViewModel.swift; sourceTree = "<group>"; };
 		3F3E73592570111C002B5E30 /* DKHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKHeader.swift; sourceTree = "<group>"; };
-		3F3E73A825715B47002B5E30 /* DKTripInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripInfo.swift; sourceTree = "<group>"; };
-		3F3E73AF25715BE8002B5E30 /* AdviceTripInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdviceTripInfo.swift; sourceTree = "<group>"; };
 		3F50D6F42417945B001226F7 /* BluetoothViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothViewModel.swift; sourceTree = "<group>"; };
 		3F50D6F624179466001226F7 /* SuccessBluetoothVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessBluetoothVC.swift; sourceTree = "<group>"; };
 		3F50D6F724179466001226F7 /* SelectBluetoothVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectBluetoothVC.swift; sourceTree = "<group>"; };
@@ -754,13 +755,22 @@
 		63FF6B4E244994B50006992E /* DiagnosisViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiagnosisViewController.xib; sourceTree = "<group>"; };
 		63FF6B522449E7CF0006992E /* SensorStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SensorStateView.xib; sourceTree = "<group>"; };
 		63FF6B542449EC2B0006992E /* SensorStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorStateView.swift; sourceTree = "<group>"; };
+		67301C3D261D106B006B0432 /* DKTripList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripList.swift; sourceTree = "<group>"; };
+		67301C45261D121C006B0432 /* TripData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripData.swift; sourceTree = "<group>"; };
+		67301C5B261EE900006B0432 /* DKTripsByDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripsByDate.swift; sourceTree = "<group>"; };
+		67301C90261F55B8006B0432 /* Array+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+DK.swift"; sourceTree = "<group>"; };
+		67301CE82623AD36006B0432 /* TripsListTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsListTableVC.swift; sourceTree = "<group>"; };
+		67301CF52623B2B2006B0432 /* DKTripListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripListViewModel.swift; sourceTree = "<group>"; };
+		67301DAE26251921006B0432 /* HeaderDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderDayView.swift; sourceTree = "<group>"; };
+		67301DAF26251921006B0432 /* HeaderDayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderDayView.xib; sourceTree = "<group>"; };
+		67301DBC2625C301006B0432 /* Trip+DKTripsListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+DKTripsListItem.swift"; sourceTree = "<group>"; };
+		67301DC32625C3BF006B0432 /* TripListVC+DKTripList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TripListVC+DKTripList.swift"; sourceTree = "<group>"; };
 		67CFE99D25F6425F004D0AE1 /* SpeedingPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageVC.swift; sourceTree = "<group>"; };
 		67CFE99E25F6425F004D0AE1 /* SpeedingPageVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedingPageVC.xib; sourceTree = "<group>"; };
 		67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageViewModel.swift; sourceTree = "<group>"; };
 		67CFE9F825FA1385004D0AE1 /* SpeedingPageItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageItemView.swift; sourceTree = "<group>"; };
 		67CFE9FF25FA16EC004D0AE1 /* SpeedingPageItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedingPageItemView.xib; sourceTree = "<group>"; };
 		71C90D9FE8ADAE9597A8BE8A /* Pods-DriveKitDriverAchievementUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverAchievementUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverAchievementUI/Pods-DriveKitDriverAchievementUI.debug.xcconfig"; sourceTree = "<group>"; };
-		845F2C5F9472B0D7B5972830 /* Pods-DriveKitDriverData.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverData.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverData/Pods-DriveKitDriverData.debug.xcconfig"; sourceTree = "<group>"; };
 		88D27862C0BB1621E356D771 /* Pods-DriveKitCommonUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitCommonUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitCommonUI/Pods-DriveKitCommonUI.release.xcconfig"; sourceTree = "<group>"; };
 		8A3A98094797ED33BAF53826 /* Pods_DriveKitPermissionsUtilsUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitPermissionsUtilsUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96151588B94F1AEF000E110A /* Pods-DriveKitVehicleUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitVehicleUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitVehicleUI/Pods-DriveKitVehicleUI.debug.xcconfig"; sourceTree = "<group>"; };
@@ -815,19 +825,14 @@
 		A34238432361A2430001E15D /* Extension+DK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+DK.swift"; sourceTree = "<group>"; };
 		A34238442361A2430001E15D /* Nibable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nibable.swift; sourceTree = "<group>"; };
 		A34238482361A2430001E15D /* TripListSeparator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripListSeparator.swift; sourceTree = "<group>"; };
-		A342384A2361A2430001E15D /* TripsByDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripsByDate.swift; sourceTree = "<group>"; };
 		A342384B2361A2430001E15D /* ConfigurationCircularProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationCircularProgressView.swift; sourceTree = "<group>"; };
 		A342384C2361A2430001E15D /* HeaderDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderDay.swift; sourceTree = "<group>"; };
-		A342384D2361A2430001E15D /* TripData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripData.swift; sourceTree = "<group>"; };
 		A34238522361A2430001E15D /* TripListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripListVC.swift; sourceTree = "<group>"; };
-		A34238542361A2430001E15D /* TripTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTableViewDelegate.swift; sourceTree = "<group>"; };
 		A34238582361A2430001E15D /* NoScoreImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoScoreImageView.xib; sourceTree = "<group>"; };
 		A34238592361A2430001E15D /* CircularProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		A342385A2361A2430001E15D /* NoScoreImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoScoreImageView.swift; sourceTree = "<group>"; };
 		A342385B2361A2430001E15D /* TripTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripTableViewCell.xib; sourceTree = "<group>"; };
-		A342385C2361A2430001E15D /* HeaderDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderDayView.swift; sourceTree = "<group>"; };
 		A342385D2361A2430001E15D /* TripTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
-		A342385E2361A2430001E15D /* HeaderDayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderDayView.xib; sourceTree = "<group>"; };
 		A342385F2361A2430001E15D /* CircularProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CircularProgressView.xib; sourceTree = "<group>"; };
 		A34238612361A2430001E15D /* DriverData.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DriverData.xcassets; sourceTree = "<group>"; };
 		A342389F2361A2730001E15D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DriverDataLocalizables.strings; sourceTree = "<group>"; };
@@ -865,7 +870,6 @@
 		A3D51F4B241BA3AE006DACE2 /* VehiclesListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VehiclesListVC.xib; sourceTree = "<group>"; };
 		A3D51F4C241BA3AE006DACE2 /* VehiclesListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiclesListVC.swift; sourceTree = "<group>"; };
 		A3D51F4D241BA3AE006DACE2 /* VehiclesListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VehiclesListCell.xib; sourceTree = "<group>"; };
-		B4FFF17661FD795E73C76EC7 /* Pods-DriveKitDriverData.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverData.release.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverData/Pods-DriveKitDriverData.release.xcconfig"; sourceTree = "<group>"; };
 		DCBF31C151237FEA8EDE3CF0 /* Pods-DriveKitDriverDataUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverDataUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverDataUI/Pods-DriveKitDriverDataUI.release.xcconfig"; sourceTree = "<group>"; };
 		F4E7AE929F1C5F8DBFAE3E0C /* Pods-DriveKitApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitApp.release.xcconfig"; path = "Target Support Files/Pods-DriveKitApp/Pods-DriveKitApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -985,6 +989,7 @@
 				3FF68E95240D58DC0071D74C /* UIView+DK.swift */,
 				3FF68E97240D59000071D74C /* UIImage+DK.swift */,
 				3FCE6338243DF87A00CAB828 /* UIButton+DK.swift */,
+				67301C90261F55B8006B0432 /* Array+DK.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1057,6 +1062,7 @@
 		3F7524C92406C4B400AC22CC /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				67301C3C261D1030006B0432 /* TripsList */,
 				3FA24FF42524B78C000AB7D3 /* Filter */,
 				639346B4244897C1000F42D4 /* DKContactType.swift */,
 				3F03A4DC242C8BD3000924A0 /* DKContentMail.swift */,
@@ -1658,6 +1664,46 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		67301C3C261D1030006B0432 /* TripsList */ = {
+			isa = PBXGroup;
+			children = (
+				67301CF42623B28D006B0432 /* ViewModels */,
+				A34238572361A2430001E15D /* Views */,
+				67301C44261D1206006B0432 /* Models */,
+				67301CE72623AC33006B0432 /* ViewControllers */,
+				67301C3D261D106B006B0432 /* DKTripList.swift */,
+				3F3E73592570111C002B5E30 /* DKHeader.swift */,
+			);
+			path = TripsList;
+			sourceTree = "<group>";
+		};
+		67301C44261D1206006B0432 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A34238482361A2430001E15D /* TripListSeparator.swift */,
+				A342384C2361A2430001E15D /* HeaderDay.swift */,
+				67301C45261D121C006B0432 /* TripData.swift */,
+				67301C5B261EE900006B0432 /* DKTripsByDate.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		67301CE72623AC33006B0432 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				67301CE82623AD36006B0432 /* TripsListTableVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		67301CF42623B28D006B0432 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				67301CF52623B2B2006B0432 /* DKTripListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		A34238072361A1FA0001E15D /* DriveKitDriverDataUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -1669,7 +1715,6 @@
 				A342383F2361A2430001E15D /* Trip List */,
 				A34238082361A1FA0001E15D /* DriveKitDriveDataUI.h */,
 				A34238092361A1FA0001E15D /* Info.plist */,
-				3F3E73592570111C002B5E30 /* DKHeader.swift */,
 				3FF68E89240ACD620071D74C /* DriveKitDriverDataUI.swift */,
 				A34238612361A2430001E15D /* DriverData.xcassets */,
 			);
@@ -1798,9 +1843,8 @@
 			isa = PBXGroup;
 			children = (
 				A34238402361A2430001E15D /* ViewModel */,
-				A34238462361A2430001E15D /* Models */,
+				A34238462361A2430001E15D /* Extensions */,
 				A342384E2361A2430001E15D /* ViewControllers */,
-				A34238572361A2430001E15D /* Views */,
 			);
 			path = "Trip List";
 			sourceTree = "<group>";
@@ -1815,17 +1859,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		A34238462361A2430001E15D /* Models */ = {
+		A34238462361A2430001E15D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A34238482361A2430001E15D /* TripListSeparator.swift */,
-				A342384A2361A2430001E15D /* TripsByDate.swift */,
-				A342384C2361A2430001E15D /* HeaderDay.swift */,
-				A342384D2361A2430001E15D /* TripData.swift */,
-				3F3E73A825715B47002B5E30 /* DKTripInfo.swift */,
-				3F3E73AF25715BE8002B5E30 /* AdviceTripInfo.swift */,
+				67301DBC2625C301006B0432 /* Trip+DKTripsListItem.swift */,
+				67301DC32625C3BF006B0432 /* TripListVC+DKTripList.swift */,
 			);
-			path = Models;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		A342384E2361A2430001E15D /* ViewControllers */ = {
@@ -1833,7 +1873,6 @@
 			children = (
 				A34238A82361B0DE0001E15D /* TripListVC.xib */,
 				A34238522361A2430001E15D /* TripListVC.swift */,
-				A34238542361A2430001E15D /* TripTableViewDelegate.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1841,14 +1880,14 @@
 		A34238572361A2430001E15D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				67301DAE26251921006B0432 /* HeaderDayView.swift */,
+				67301DAF26251921006B0432 /* HeaderDayView.xib */,
 				3F38C25F23696EE0002E873A /* TripInfoView.xib */,
 				3F38C26023696EE0002E873A /* TripInfoView.swift */,
 				A34238582361A2430001E15D /* NoScoreImageView.xib */,
 				A342385A2361A2430001E15D /* NoScoreImageView.swift */,
 				A342385B2361A2430001E15D /* TripTableViewCell.xib */,
 				A342385D2361A2430001E15D /* TripTableViewCell.swift */,
-				A342385E2361A2430001E15D /* HeaderDayView.xib */,
-				A342385C2361A2430001E15D /* HeaderDayView.swift */,
 				6378AF662593F46F002F0BBD /* AlternativeTripImageView.swift */,
 				6378AF672593F470002F0BBD /* AlternativeTripImageView.xib */,
 			);
@@ -1979,8 +2018,6 @@
 			children = (
 				453D6BC570583B1D6DC16DBC /* Pods-DriveKitApp.debug.xcconfig */,
 				F4E7AE929F1C5F8DBFAE3E0C /* Pods-DriveKitApp.release.xcconfig */,
-				845F2C5F9472B0D7B5972830 /* Pods-DriveKitDriverData.debug.xcconfig */,
-				B4FFF17661FD795E73C76EC7 /* Pods-DriveKitDriverData.release.xcconfig */,
 				10107C08082CCF492923D28F /* Pods-DriveKitDriverDataUI.debug.xcconfig */,
 				DCBF31C151237FEA8EDE3CF0 /* Pods-DriveKitDriverDataUI.release.xcconfig */,
 				71C90D9FE8ADAE9597A8BE8A /* Pods-DriveKitDriverAchievementUI.debug.xcconfig */,
@@ -2236,11 +2273,16 @@
 				3FA2501C2524CE75000AB7D3 /* DKFilterPickerVC.xib in Resources */,
 				3F0740EF2404263D005A8D07 /* Roboto-Regular.ttf in Resources */,
 				3FA250022524B9F5000AB7D3 /* DKFilterView.xib in Resources */,
+				67301DB126251921006B0432 /* HeaderDayView.xib in Resources */,
 				A34FC7372423CDDA000734AB /* DKTextField.xib in Resources */,
+				67301CC2261FB0CD006B0432 /* TripInfoView.xib in Resources */,
+				67301CBD261FB0CD006B0432 /* AlternativeTripImageView.xib in Resources */,
 				3FF68E82240965E10071D74C /* DKImages.xcassets in Resources */,
+				67301CC5261FB0CD006B0432 /* TripTableViewCell.xib in Resources */,
 				63FE778624FD1A9D00C068C3 /* AnalyticsTags.plist in Resources */,
 				3FED7FC62525B7B900D19E18 /* DKFilterTableViewCell.xib in Resources */,
 				3FF68E8F240CF0460071D74C /* CircularProgressView.xib in Resources */,
+				67301CC1261FB0CD006B0432 /* NoScoreImageView.xib in Resources */,
 				3FF68E642407F56F0071D74C /* CommonLocalizable.strings in Resources */,
 				63B07CD224EFCA110060DF33 /* AnalyticsScreenToTagKey.plist in Resources */,
 			);
@@ -2332,16 +2374,13 @@
 			files = (
 				3F38C26A2369BD60002E873A /* TripTipViewController.xib in Resources */,
 				6391E0EA2607837900A168D4 /* SynthesisCardView.xib in Resources */,
-				A342389A2361A2440001E15D /* HeaderDayView.xib in Resources */,
 				A342386E2361A2430001E15D /* TripDetailVC.xib in Resources */,
 				A317F83023A1383B00AD22A2 /* TripTipFeedbackChoicesCell.xib in Resources */,
 				A34238782361A2440001E15D /* SafetyPageVC.xib in Resources */,
-				3F38C26123696EE0002E873A /* TripInfoView.xib in Resources */,
 				67CFE9A025F6425F004D0AE1 /* SpeedingPageVC.xib in Resources */,
 				3F6B67612580ECD4008B3BA7 /* TransportationModeVC.xib in Resources */,
 				A342389D2361A2440001E15D /* DriverData.xcassets in Resources */,
 				A34238A02361A2730001E15D /* DriverDataLocalizables.strings in Resources */,
-				A34238942361A2440001E15D /* NoScoreImageView.xib in Resources */,
 				A34238792361A2440001E15D /* HistoryPageVC.xib in Resources */,
 				A30F4F1923D5DA14009A37C2 /* SynthesisPageVC.xib in Resources */,
 				633E93DF261D0D1A009543C0 /* SynthesisCardInfoView.xib in Resources */,
@@ -2350,11 +2389,9 @@
 				A30F4F1B23D5DB18009A37C2 /* TripTipFeedbackVC.storyboard in Resources */,
 				A34238722361A2430001E15D /* ShortTripPageVC.xib in Resources */,
 				A34238832361A2440001E15D /* EcoDrivingPageView.xib in Resources */,
-				A34238972361A2440001E15D /* TripTableViewCell.xib in Resources */,
 				A342386F2361A2430001E15D /* MapViewController.xib in Resources */,
 				67CFEA0025FA16EC004D0AE1 /* SpeedingPageItemView.xib in Resources */,
 				A34238712361A2430001E15D /* DistractionPageVC.xib in Resources */,
-				6378AF692593F470002F0BBD /* AlternativeTripImageView.xib in Resources */,
 				A342387C2361A2440001E15D /* CalloutView.xib in Resources */,
 				A34238A92361B0DE0001E15D /* TripListVC.xib in Resources */,
 				A34238802361A2440001E15D /* DistractionPageView.xib in Resources */,
@@ -2535,21 +2572,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67301C91261F55B8006B0432 /* Array+DK.swift in Sources */,
 				3FA24FF62524B9BE000AB7D3 /* DKFilterView.swift in Sources */,
+				67301C9D261FAEFF006B0432 /* TripListSeparator.swift in Sources */,
 				3F0740EA2403BBFC005A8D07 /* DKColors.swift in Sources */,
+				67301C3E261D106B006B0432 /* DKTripList.swift in Sources */,
+				67301CC4261FB0CD006B0432 /* AlternativeTripImageView.swift in Sources */,
 				3F0740E72403BB9A005A8D07 /* DriveKitUI.swift in Sources */,
+				67301CCC2620D16D006B0432 /* DKHeader.swift in Sources */,
+				67301DB026251921006B0432 /* HeaderDayView.swift in Sources */,
 				3FF68E86240A68D90071D74C /* DKDataFormatter.swift in Sources */,
+				67301CBE261FB0CD006B0432 /* TripInfoView.swift in Sources */,
 				3FF68E7C240938CD0071D74C /* DriveKitNavigationController.swift in Sources */,
 				3FF68E93240CF5670071D74C /* Nibable.swift in Sources */,
+				67301CF62623B2B2006B0432 /* DKTripListViewModel.swift in Sources */,
+				67301C97261F5619006B0432 /* HeaderDay.swift in Sources */,
 				6357AE85261135600000CA58 /* DKGaugeType.swift in Sources */,
 				3FF68E96240D58DC0071D74C /* UIView+DK.swift in Sources */,
 				6357AE84261135600000CA58 /* DKGaugeConfiguration.swift in Sources */,
 				616946E924338E3500C8A965 /* DriveKitPermissionsUtilsUIEntryPoint.swift in Sources */,
 				3FF68E7E240939040071D74C /* DriveKitDriverAchievementUIEntryPoint.swift in Sources */,
 				3FF68E80240939BC0071D74C /* DriveKitDriverDataUIEntryPoint.swift in Sources */,
+				67301CC0261FB0CD006B0432 /* TripTableViewCell.swift in Sources */,
 				3FA2500E2524BD0C000AB7D3 /* DKFilterViewModel.swift in Sources */,
 				3FF68E6E24081A5A0071D74C /* DKStyles.swift in Sources */,
 				3F0740F3240426C0005A8D07 /* UIColor+DK.swift in Sources */,
+				67301CBF261FB0CD006B0432 /* NoScoreImageView.swift in Sources */,
 				63BF8EFA24531011006BEB3F /* DKContactType.swift in Sources */,
 				A34FC7362423CDDA000734AB /* DKTextField.swift in Sources */,
 				3F03A4DF242C9983000924A0 /* DriveKitVehicleUIEntryPoint.swift in Sources */,
@@ -2561,6 +2609,7 @@
 				3FF68E88240A727D0071D74C /* DKDatePattern.swift in Sources */,
 				A322728C2429125700BF69E1 /* DKImagePicker.swift in Sources */,
 				3F0740EC240400E0005A8D07 /* DKFonts.swift in Sources */,
+				67301C5C261EE900006B0432 /* DKTripsByDate.swift in Sources */,
 				3FCE6339243DF87A00CAB828 /* UIButton+DK.swift in Sources */,
 				3FF68E98240D59000071D74C /* UIImage+DK.swift in Sources */,
 				3F7524CE2407A89100AC22CC /* DKCommonLocalizable.swift in Sources */,
@@ -2570,8 +2619,10 @@
 				61D29B7924362C720094CA5B /* DKReachability.swift in Sources */,
 				3FF68E7024081F060071D74C /* DKAttributedStringBuilder.swift in Sources */,
 				3FE4B410242C9DC600564F19 /* DKContentMail.swift in Sources */,
+				67301C46261D121C006B0432 /* TripData.swift in Sources */,
 				3FFB2D722418C023003E6A06 /* DKKeyboardViewController.swift in Sources */,
 				3F7524CB2406C4CC00AC22CC /* DKUIViewController.swift in Sources */,
+				67301CE92623AD36006B0432 /* TripsListTableVC.swift in Sources */,
 				3FF68E72240823190071D74C /* UIFont+DK.swift in Sources */,
 				3FAEE5622486362E00549391 /* CustomScrollView.swift in Sources */,
 				63199A6E24ED7C250011DCFC /* DKAnalytics.swift in Sources */,
@@ -2724,22 +2775,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A317F82923A137B600AD22A2 /* TripTipFeedbackViewModel.swift in Sources */,
-				A34238982361A2440001E15D /* HeaderDayView.swift in Sources */,
 				A34238822361A2440001E15D /* DistractionPageView.swift in Sources */,
 				3F6B67502580D4A2008B3BA7 /* AlternativeTripViewModel.swift in Sources */,
-				A342388A2361A2440001E15D /* TripListSeparator.swift in Sources */,
 				A34238812361A2440001E15D /* SafetyPageView.swift in Sources */,
 				638AC04D261F996D00602B52 /* SynthesisCardViewCell.swift in Sources */,
 				A342386D2361A2430001E15D /* TripDetailVC.swift in Sources */,
-				3F3E73B025715BE8002B5E30 /* AdviceTripInfo.swift in Sources */,
 				A317F82C23A137C700AD22A2 /* TripTipFeedbackVC.swift in Sources */,
 				A342387A2361A2440001E15D /* ResistantLayer.swift in Sources */,
-				A34238962361A2440001E15D /* NoScoreImageView.swift in Sources */,
-				A342388F2361A2440001E15D /* TripData.swift in Sources */,
 				3F3E72F5256F9415002B5E30 /* DKMapItem.swift in Sources */,
-				3F3E735A2570111C002B5E30 /* DKHeader.swift in Sources */,
-				3F38C26223696EE0002E873A /* TripInfoView.swift in Sources */,
-				A342388E2361A2440001E15D /* HeaderDay.swift in Sources */,
 				A34238912361A2440001E15D /* TripListVC.swift in Sources */,
 				6391E0CB26072DD100A168D4 /* DKSynthesisCard.swift in Sources */,
 				6357AE69261120D20000CA58 /* SynthesisCardUtils.swift in Sources */,
@@ -2766,9 +2809,7 @@
 				A34238652361A2430001E15D /* ShortTripPageViewModel.swift in Sources */,
 				6391E0D726072E6600A168D4 /* DKSynthesisCardInfo.swift in Sources */,
 				638AC038261F8FFB00602B52 /* SynthesisCardsView.swift in Sources */,
-				A34238992361A2440001E15D /* TripTableViewCell.swift in Sources */,
 				A34238672361A2430001E15D /* HistoryPageViewModel.swift in Sources */,
-				A34238922361A2440001E15D /* TripTableViewDelegate.swift in Sources */,
 				A30F4F1823D5DA14009A37C2 /* SynthesisPageVC.swift in Sources */,
 				A342386A2361A2430001E15D /* MapItem.swift in Sources */,
 				3F3E72FC256F9B71002B5E30 /* DKTripDetailViewModel.swift in Sources */,
@@ -2777,7 +2818,7 @@
 				3F6B67572580DA62008B3BA7 /* AlternativeTripMapItem.swift in Sources */,
 				3F6B67482580D268008B3BA7 /* AlternativeTripDetailInfoVC.swift in Sources */,
 				A342387F2361A2440001E15D /* HistoryPageView.swift in Sources */,
-				A342388C2361A2440001E15D /* TripsByDate.swift in Sources */,
+				67301DBD2625C301006B0432 /* Trip+DKTripsListItem.swift in Sources */,
 				A342386C2361A2430001E15D /* MapViewController.swift in Sources */,
 				3FF68E8A240ACD620071D74C /* DriveKitDriverDataUI.swift in Sources */,
 				A34238732361A2430001E15D /* ShortTripPageVC.swift in Sources */,
@@ -2787,11 +2828,11 @@
 				6391E1052607F64100A168D4 /* SynthesisCardInfoViewModel.swift in Sources */,
 				3F6B67402580B95F008B3BA7 /* TransportationMode+DKFilter.swift in Sources */,
 				3F6B67702580ED78008B3BA7 /* TransportationModeViewModel.swift in Sources */,
-				3F3E73A925715B47002B5E30 /* DKTripInfo.swift in Sources */,
 				A34238762361A2440001E15D /* SafetyPageVC.swift in Sources */,
 				A34238682361A2430001E15D /* DistractionPageViewModel.swift in Sources */,
 				A34238632361A2430001E15D /* TripDetailViewModel.swift in Sources */,
 				67CFE9F925FA1385004D0AE1 /* SpeedingPageItemView.swift in Sources */,
+				67301DC42625C3BF006B0432 /* TripListVC+DKTripList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

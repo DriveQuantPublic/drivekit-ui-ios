@@ -7,32 +7,31 @@
 //
 
 import UIKit
-import DriveKitCommonUI
 
-final class HeaderDayView: UIView, Nibable {
+public final class HeaderDayView: UIView, Nibable {
     @IBOutlet var leftLabel: UILabel!
     @IBOutlet var rightLabel: UILabel!
     @IBOutlet var backgroundView: UIView!
     
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-    func configure(trips: TripsByDate) {
+    public func configure<TripsListItem: DKTripListItem> (trips: [TripsListItem], date: Date, headerDay: HeaderDay, dkHeader: DKHeader?) {
         var rightText = ""
-        if let dkHeader = DriveKitDriverDataUI.shared.customHeaders {
-            if let text = dkHeader.customTripListHeader(trips: trips.trips) {
+        if let dkHeader = dkHeader {
+            if let text = dkHeader.customTripListHeader(trips: trips) {
                 rightText = text
             } else {
-                rightText = dkHeader.tripListHeader().text(trips: trips.trips)
+                rightText = dkHeader.tripListHeader().text(trips: trips)
             }
         } else {
-            rightText = DriveKitDriverDataUI.shared.headerDay.text(trips: trips.trips)
+            rightText = headerDay.text(trips: trips)
         }
-        self.setupAsHeader(leftText: trips.date.format(pattern: .weekLetter).capitalizeFirstLetter(), rightText: rightText, isRounded: true)
+        self.setupAsHeader(leftText: date.format(pattern: .weekLetter).capitalizeFirstLetter(), rightText: rightText, isRounded: true)
     }
     
-    func setupAsHeader(leftText: String, rightText: String, isRounded: Bool = false) {
+    public func setupAsHeader(leftText: String, rightText: String, isRounded: Bool = false) {
         self.backgroundView.backgroundColor = DKUIColors.neutralColor.color
         if isRounded {
             self.backgroundView.backgroundColor = DKUIColors.neutralColor.color

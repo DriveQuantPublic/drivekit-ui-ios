@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import DriveKitCommonUI
 
 final class NoScoreImageView: UIView, Nibable {
 

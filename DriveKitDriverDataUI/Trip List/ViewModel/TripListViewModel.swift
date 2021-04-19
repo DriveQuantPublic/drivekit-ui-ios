@@ -13,8 +13,8 @@ import DriveKitCommonUI
 import DriveKitCoreModule
 
 class TripListViewModel {
-    private var trips : [TripsByDate] = []
-    var filteredTrips : [TripsByDate] = []
+    private var trips : [DKTripsByDate] = []
+    var filteredTrips : [DKTripsByDate] = []
     var status: TripSyncStatus = .noError
     private(set) var listConfiguration: TripListConfiguration = .motorized()
     
@@ -31,7 +31,7 @@ class TripListViewModel {
     }
     
     var tripsDistance: Double {
-        return self.filteredTrips.map {$0.trips.map {($0.tripStatistics?.distance ?? 0)}.reduce(0, +)}.reduce(0, +)
+        return self.filteredTrips.map {$0.trips.map {($0.getDistance() ?? 0)}.reduce(0, +)}.reduce(0, +)
     }
 
     public func fetchTrips(withSynchronizationType synchronizationType: SynchronizationType = .defaultSync) {
@@ -49,7 +49,7 @@ class TripListViewModel {
         })
     }
 
-    private func sortTrips(trips : [Trip]) -> [TripsByDate] {
+    private func sortTrips(trips : [Trip]) -> [DKTripsByDate] {
         let tripSorted = trips.orderByDay(descOrder: DriveKitDriverDataUI.shared.dayTripDescendingOrder)
         return tripSorted
     }
@@ -161,9 +161,11 @@ class TripListViewModel {
     private func filterTrips(_ isIncluded : (Trip) -> Bool) {
         self.filteredTrips = []
         for tripsByDate in self.trips {
-            let dayFilterdTrips = tripsByDate.trips.filter(isIncluded)
-            if dayFilterdTrips.count > 0 {
-                self.filteredTrips.append(TripsByDate(date: tripsByDate.date, trips: dayFilterdTrips))
+            if let trips = tripsByDate.trips as? [Trip] {
+                let dayFilteredTrips = trips.filter(isIncluded)
+                if dayFilteredTrips.count > 0 {
+                    self.filteredTrips.append(DKTripsByDate(date: tripsByDate.date, trips: dayFilteredTrips))
+                }
             }
         }
     }
@@ -175,17 +177,22 @@ class TripListViewModel {
     func hasAlternativeTrips() -> Bool {
         let alternativeModes = TripListConfiguration.alternative().transportationModes()
         for tripsByDate in self.trips {
-            if tripsByDate.trips.first(where : {alternativeModes.contains(TransportationMode(rawValue: Int(($0 as Trip).transportationMode)) ?? .unknown)}) != nil {
+            if tripsByDate.trips.first(where : {tripItem in
+                if let trip: Trip = tripItem as? Trip {
+                    return alternativeModes.contains(TransportationMode(rawValue: Int(trip.transportationMode)) ?? .unknown)
+                }
+                return false
+            }) != nil {
                 return true
             }
         }
         return false
     }
     
-    func getTripInfo() -> DKTripInfo? {
+    func getTripInfo() -> DKTripListItem? {
         switch listConfiguration {
             case .motorized(_):
-                return DriveKitDriverDataUI.shared.customTripInfo ?? AdviceTripInfo()
+                return DriveKitDriverDataUI.shared.customTripInfo ?? Trip()
             case .alternative(_):
                 return nil
         }

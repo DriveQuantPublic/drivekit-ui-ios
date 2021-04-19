@@ -264,7 +264,7 @@
 		67301CC5261FB0CD006B0432 /* TripTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A342385B2361A2430001E15D /* TripTableViewCell.xib */; };
 		67301CCC2620D16D006B0432 /* DKHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E73592570111C002B5E30 /* DKHeader.swift */; };
 		67301CE92623AD36006B0432 /* TripsListTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301CE82623AD36006B0432 /* TripsListTableVC.swift */; };
-		67301CF62623B2B2006B0432 /* TripsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301CF52623B2B2006B0432 /* TripsListViewModel.swift */; };
+		67301CF62623B2B2006B0432 /* DKTripListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301CF52623B2B2006B0432 /* DKTripListViewModel.swift */; };
 		67301DB026251921006B0432 /* HeaderDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301DAE26251921006B0432 /* HeaderDayView.swift */; };
 		67301DB126251921006B0432 /* HeaderDayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67301DAF26251921006B0432 /* HeaderDayView.xib */; };
 		67301DBD2625C301006B0432 /* Trip+DKTripsListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301DBC2625C301006B0432 /* Trip+DKTripsListItem.swift */; };
@@ -726,7 +726,7 @@
 		67301C5B261EE900006B0432 /* DKTripsByDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripsByDate.swift; sourceTree = "<group>"; };
 		67301C90261F55B8006B0432 /* Array+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+DK.swift"; sourceTree = "<group>"; };
 		67301CE82623AD36006B0432 /* TripsListTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsListTableVC.swift; sourceTree = "<group>"; };
-		67301CF52623B2B2006B0432 /* TripsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsListViewModel.swift; sourceTree = "<group>"; };
+		67301CF52623B2B2006B0432 /* DKTripListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripListViewModel.swift; sourceTree = "<group>"; };
 		67301DAE26251921006B0432 /* HeaderDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderDayView.swift; sourceTree = "<group>"; };
 		67301DAF26251921006B0432 /* HeaderDayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderDayView.xib; sourceTree = "<group>"; };
 		67301DBC2625C301006B0432 /* Trip+DKTripsListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+DKTripsListItem.swift"; sourceTree = "<group>"; };
@@ -1610,7 +1610,7 @@
 		67301CF42623B28D006B0432 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				67301CF52623B2B2006B0432 /* TripsListViewModel.swift */,
+				67301CF52623B2B2006B0432 /* DKTripListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -2491,7 +2491,7 @@
 				67301CBE261FB0CD006B0432 /* TripInfoView.swift in Sources */,
 				3FF68E7C240938CD0071D74C /* DriveKitNavigationController.swift in Sources */,
 				3FF68E93240CF5670071D74C /* Nibable.swift in Sources */,
-				67301CF62623B2B2006B0432 /* TripsListViewModel.swift in Sources */,
+				67301CF62623B2B2006B0432 /* DKTripListViewModel.swift in Sources */,
 				67301C97261F5619006B0432 /* HeaderDay.swift in Sources */,
 				3FF68E96240D58DC0071D74C /* UIView+DK.swift in Sources */,
 				616946E924338E3500C8A965 /* DriveKitPermissionsUtilsUIEntryPoint.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  TripsListViewModel.swift
+//  DKTripListViewModel.swift
 //  DriveKitCommonUI
 //
 //  Created by Amine Gahbiche on 12/04/2021.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct TripsListViewModel {
+public struct DKTripListViewModel {
     weak private(set) var tripList: DKTripList?
 
     public init(tripList: DKTripList) {

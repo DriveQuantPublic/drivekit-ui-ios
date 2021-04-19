@@ -10,7 +10,7 @@ import UIKit
 
 public class TripsListTableVC<TripsListItem: DKTripListItem>: UITableViewController {
 
-    var viewModel: TripsListViewModel?
+    var viewModel: DKTripListViewModel?
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ public class TripsListTableVC<TripsListItem: DKTripListItem>: UITableViewControl
         }
     }
 
-    public init(viewModel: TripsListViewModel) {
+    public init(viewModel: DKTripListViewModel) {
         super.init(style: .plain)
         self.viewModel = viewModel
     }

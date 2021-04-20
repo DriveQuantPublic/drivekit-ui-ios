@@ -41,7 +41,10 @@ public struct SynthesisCardUtils {
 
     public static func getMainRoadCondition(ofTrips trips: [Trip], forType type: RoadConditionType = .ecoDriving) -> (DKRoadCondition, Double) {
         let roadConditionStats = RoadConditionStats(type: type, trips: trips)
-        return roadConditionStats.roadConditionPercentages.filter { $0.key != .trafficJam }.max { $0.value < $1.value }!
+        return roadConditionStats.roadConditionPercentages
+            .filter { $0.key != .trafficJam }
+            .sorted { $0.key.rawValue < $1.key.rawValue }
+            .max { $0.value < $1.value }!
     }
 
     private static func getTripsQuery(forTransportationModes transportationModes: [TransportationMode]) -> Query<Trip, Trip> {

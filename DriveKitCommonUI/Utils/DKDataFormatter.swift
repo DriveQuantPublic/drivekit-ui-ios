@@ -158,12 +158,12 @@ public extension Double {
     }
 
 
-    func getSecondDurationFormat() -> [FormatType] {
+    func getSecondDurationFormat(maxUnit: DurationUnit = .day) -> [FormatType] {
         let formattingTypes: [FormatType]
         var nbMinute = 0
         var nbHour = 0
         var nbDay = 0
-        if self <= 59 {
+        if maxUnit == .second || self <= 59 {
             formattingTypes = [
                 .value(String(Int(self))),
                 .separator(),
@@ -171,10 +171,10 @@ public extension Double {
             ]
         } else {
             nbMinute = Int((self / 60).rounded(.up))
-            if nbMinute > 59 {
+            if nbMinute > 59 && maxUnit != .minute {
                 nbHour = nbMinute / 60
                 nbMinute = nbMinute - (nbHour * 60)
-                if nbHour > 23 {
+                if nbHour > 23 && maxUnit != .hour {
                     nbDay = nbHour / 24
                     nbHour = nbHour - (24 * nbDay)
                     formattingTypes = [
@@ -185,19 +185,21 @@ public extension Double {
                         .unit(DKCommonLocalizable.unitHour.text())
                     ]
                 } else {
+                    let minuteString = String(format: "%02d", nbMinute)
                     formattingTypes = [
                         .value(String(nbHour)),
                         .unit(DKCommonLocalizable.unitHour.text()),
-                        .value(String(nbMinute))
+                        .value(minuteString)
                     ]
                 }
             } else {
                 let nbSecond = Int(self - 60.0 * Double(Int(self / 60)))
                 if nbSecond > 0 {
+                    let secondString = String(format: "%02d", nbSecond)
                     formattingTypes = [
                         .value(String(nbMinute - 1)),
                         .unit(DKCommonLocalizable.unitMinute.text()),
-                        .value(String(nbSecond))
+                        .value(secondString)
                     ]
                 } else {
                     formattingTypes = [
@@ -211,7 +213,7 @@ public extension Double {
         return formattingTypes
     }
 
-    func formatSecondDuration() -> String {
+    func formatSecondDuration(maxUnit: DurationUnit = .day) -> String {
         return getSecondDurationFormat().toString()
     }
 
@@ -360,4 +362,8 @@ public extension String {
             return self
         }
     }
+}
+
+public enum DurationUnit {
+    case second, minute, hour, day
 }

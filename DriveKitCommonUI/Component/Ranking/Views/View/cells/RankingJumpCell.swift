@@ -8,9 +8,7 @@
 
 import UIKit
 
-import DriveKitCommonUI
-
-class RankingJumpCell : UICollectionViewCell {
+class RankingJumpCell: UICollectionViewCell {
     @IBOutlet private weak var imageView: UIImageView!
 
     override func awakeFromNib() {

@@ -10,7 +10,7 @@ import UIKit
 
 import DriveKitCommonUI
 
-class RankingViewController : DKUIViewController {
+class RankingViewController: DKUIViewController {
 
     @IBOutlet private weak var headerContainer: UIStackView!
     @IBOutlet private weak var collectionViewHeader_rankLabel: UILabel!
@@ -18,7 +18,8 @@ class RankingViewController : DKUIViewController {
     @IBOutlet private weak var collectionViewHeader_scoreLabel: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var loadingView: UIActivityIndicatorView!
-    private var rankingScoreView: RankingScoreView? = nil
+    // TODO: cleanup code
+    //private var rankingScoreView: RankingScoreView? = nil
     private var rankingSelectors: RankingSelectorsView? = nil
     private let viewModel = RankingViewModel()
     private var ranks: [AnyDriverRank?] = []
@@ -67,18 +68,18 @@ class RankingViewController : DKUIViewController {
         } else {
             self.rankingSelectors = nil
         }
-
-        let rankingScoreView: RankingScoreView?
-        if self.viewModel.rankingTypes.count > 1 && self.viewModel.rankingSelectors.count > 1 {
-            rankingScoreView = Bundle.driverAchievementUIBundle?.loadNibNamed("RankingScoreSmall", owner: nil, options: nil)?.first as? RankingScoreSmall
-        } else {
-            rankingScoreView = Bundle.driverAchievementUIBundle?.loadNibNamed("RankingScoreBig", owner: nil, options: nil)?.first as? RankingScoreBig
-        }
-        self.rankingScoreView = rankingScoreView
-        if let rankingScoreView = rankingScoreView {
-            rankingScoreView.translatesAutoresizingMaskIntoConstraints = false
-            self.headerContainer.addArrangedSubview(rankingScoreView)
-        }
+        // TODO: move the header related code inside DriveKitCommonUI
+//        let rankingScoreView: RankingScoreView?
+//        if self.viewModel.rankingTypes.count > 1 && self.viewModel.rankingSelectors.count > 1 {
+//            rankingScoreView = Bundle.driverAchievementUIBundle?.loadNibNamed("RankingScoreSmall", owner: nil, options: nil)?.first as? RankingScoreSmall
+//        } else {
+//            rankingScoreView = Bundle.driverAchievementUIBundle?.loadNibNamed("RankingScoreBig", owner: nil, options: nil)?.first as? RankingScoreBig
+//        }
+//        self.rankingScoreView = rankingScoreView
+//        if let rankingScoreView = rankingScoreView {
+//            rankingScoreView.translatesAutoresizingMaskIntoConstraints = false
+//            self.headerContainer.addArrangedSubview(rankingScoreView)
+//        }
     }
 
     private func updateData() {

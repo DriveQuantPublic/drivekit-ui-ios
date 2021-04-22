@@ -139,7 +139,7 @@ struct StreakData {
     }
     
     func getBestDuration() -> String {
-        return Double(streak.best.duration).formatSecondDuration()
+        return Double(streak.best.duration).formatSecondDuration(maxUnit: .hour)
     }
     
     func getCurrentDate() -> String {

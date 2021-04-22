@@ -214,7 +214,7 @@ public extension Double {
     }
 
     func formatSecondDuration(maxUnit: DurationUnit = .day) -> String {
-        return getSecondDurationFormat().toString()
+        return getSecondDurationFormat(maxUnit: maxUnit).toString()
     }
 
 

@@ -30,7 +30,7 @@ public enum CircularProgressViewSize {
         case .medium:
             return 16
         case .large:
-            return 24
+            return 28
         }
     }
 }

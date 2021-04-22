@@ -64,7 +64,7 @@ public enum SynthesisCardInfo: DKSynthesisCardInfo {
             case let .distance(trips):
                 text = formatTypes(trips.totalDistance.ceilMeterDistance(ifGreaterThan: 10000).getMeterDistanceFormat())
             case let .duration(trips):
-                text = formatTypes(trips.totalDuration.ceilSecondDuration(ifGreaterThan: 600).getSecondDurationFormat())
+                text = formatTypes(trips.totalDuration.ceilSecondDuration(ifGreaterThan: 600).getSecondDurationFormat(maxUnit: .hour))
         }
         return text
     }

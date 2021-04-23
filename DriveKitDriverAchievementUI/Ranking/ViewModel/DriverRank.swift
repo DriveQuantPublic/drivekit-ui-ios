@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import DriveKitCommonUI
+import UIKit
 
 protocol AnyDriverRank {
     var nbDrivers: Int { get }
@@ -23,7 +25,7 @@ protocol AnyDriverRank {
 }
 
 
-struct DriverRank : AnyDriverRank {
+class DriverRank: DKDriverRankingItem {
     let nbDrivers: Int
     let position: Int
     let positionString: String
@@ -35,21 +37,97 @@ struct DriverRank : AnyDriverRank {
     let score: Double
     let scoreString: String
     let totalScoreString: String
+    
+    init(nbDrivers: Int, position: Int, positionString: String,
+         positionImageName: String?, rankString: String, name: String,
+         distance: Double, distanceString: String, score: Double, scoreString: String,
+         totalScoreString: String) {
+        self.nbDrivers = nbDrivers
+        self.position = position
+        self.positionString = positionString
+        self.positionImageName = positionImageName
+        self.rankString = rankString
+        self.distance = distance
+        self.distanceString = distanceString
+        self.score = score
+        self.scoreString = scoreString
+        self.totalScoreString = totalScoreString
+        self.name = name
+    }
+
+    func getRank() -> Int {
+        return position
+    }
+
+    func getRankImage() -> UIImage? {
+        if let positionImageName = positionImageName {
+            return UIImage(named: positionImageName)
+        } else {
+            return nil
+        }
+    }
+
+    func getNickname() -> String {
+        return name
+    }
+
+    func getDistance() -> String {
+        return distanceString
+    }
+
+    func getScoreAttributedText() -> NSAttributedString {
+        let scoreLabelColor: DKUIColors
+        if isCurrnetUser() {
+            scoreLabelColor = .fontColorOnSecondaryColor
+        } else {
+            scoreLabelColor = .mainFontColor
+        }
+        let userScoreString = scoreString.dkAttributedString().font(dkFont: .primary, style: .bigtext).color(scoreLabelColor).build()
+        let numberOfUsersString = totalScoreString.dkAttributedString().font(dkFont: .primary, style: .smallText).color(scoreLabelColor).build()
+        return "%@%@".dkAttributedString().buildWithArgs(userScoreString, numberOfUsersString)
+    }
+
+    func isCurrnetUser() -> Bool {
+        return false
+    }
+
+    func isJumpRank() -> Bool {
+        return false
+    }
 }
 
-struct CurrentDriverRank : AnyDriverRank {
-    let driverRank: DriverRank
-    let progressionImageName: String?
+class CurrentDriverRank: DriverRank {
+    override func isCurrnetUser() -> Bool {
+        return true
+    }
+}
 
-    var nbDrivers: Int { get { self.driverRank.nbDrivers } }
-    var position: Int { get { self.driverRank.position } }
-    var positionString: String { get { self.driverRank.positionString } }
-    var positionImageName: String? { get { self.driverRank.positionImageName } }
-    var rankString: String { get { self.driverRank.rankString } }
-    var name: String { get { self.driverRank.name } }
-    var distance: Double { get { self.driverRank.distance } }
-    var distanceString: String { get { self.driverRank.distanceString } }
-    var score: Double { get { self.driverRank.score } }
-    var scoreString: String { get { self.driverRank.scoreString } }
-    var totalScoreString: String { get { self.driverRank.totalScoreString } }
+class JumpDriverRank: DKDriverRankingItem {
+    func getRank() -> Int {
+        return 0
+    }
+
+    func getRankImage() -> UIImage? {
+        return nil
+    }
+
+    func getNickname() -> String {
+        return ""
+    }
+
+    func getDistance() -> String {
+        return ""
+    }
+
+    func getScoreAttributedText() -> NSAttributedString {
+        return NSAttributedString()
+    }
+
+    func isCurrnetUser() -> Bool {
+        return false
+    }
+
+    func isJumpRank() -> Bool {
+        return true
+    }
 }

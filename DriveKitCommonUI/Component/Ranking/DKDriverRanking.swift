@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-public protocol DKDriverRanking {
+public protocol DKDriverRanking: AnyObject {
     func getHeaderDisplayType() -> DKRankingHeaderDisplayType
     func getDriverRankingItems() -> [DKDriverRankingItem]
     func getTitle() -> String
-    func getImage() -> UIImage
+    func getImage() -> UIImage?
     func getProgressionImage() -> UIImage?
     func getDriverGlobalRankAttributedText() -> NSAttributedString
 }

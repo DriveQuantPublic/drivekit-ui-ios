@@ -23,8 +23,8 @@ class RankingScoreBig: RankingScoreView {
         let rankingTypeTitle = ranking.getTitle()
         self.rankingTypeLabel.attributedText = rankingTypeTitle.dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.mainFontColor).build()
         
-        let rankingTypeImageName = ranking.getImage()
+        let rankingTypeImage = ranking.getImage()
         // TODO: cleanup code
-        self.rankingTypeImage.image = rankingTypeImageName //UIImage(named: rankingTypeImageName, in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
+        self.rankingTypeImage.image = rankingTypeImage //UIImage(named: rankingTypeImageName, in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
     }
 }

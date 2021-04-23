@@ -22,7 +22,7 @@ class RankingViewController: DKUIViewController {
     //private var rankingScoreView: RankingScoreView? = nil
     private var rankingSelectors: RankingSelectorsView? = nil
     private let viewModel = RankingViewModel()
-    private var ranks: [AnyDriverRank?] = []
+    private var ranks: [DKDriverRankingItem] = []
 
     public init() {
         super.init(nibName: String(describing: RankingViewController.self), bundle: .driverAchievementUIBundle)
@@ -41,17 +41,21 @@ class RankingViewController: DKUIViewController {
         self.collectionViewHeader_driverLabel.attributedText = "dk_achievements_ranking_driver".dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
         self.collectionViewHeader_scoreLabel.attributedText = "dk_achievements_ranking_score".dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
 
+        let driverRankingViewModel = DKDriverRankingViewModel(ranking: self.viewModel)
+        let driverRankingCollectionVC = DKDriverRankingCollectionVC(viewModel: driverRankingViewModel)
+        self.addChild(driverRankingCollectionVC)
+        if let collectionView = driverRankingCollectionVC.collectionView {
+            self.collectionView = collectionView
+            // TODO: cleanup code and display properly the collection view
+            //self.viewContainer.addArrangedSubview(collectionView)
+        }
+        
         updateHeader()
         updateData()
 
         self.viewModel.delegate = self
         self.viewModel.update()
 
-        self.collectionView.backgroundColor = DKUIColors.backgroundView.color
-        self.collectionView.delegate = self
-        self.collectionView.dataSource = self
-        self.collectionView.register(UINib(nibName: "RankingCell", bundle: .driverAchievementUIBundle), forCellWithReuseIdentifier: "RankingCell")
-        self.collectionView.register(UINib(nibName: "RankingJumpCell", bundle: .driverAchievementUIBundle), forCellWithReuseIdentifier: "RankingJumpCell")
     }
 
     private func updateHeader() {
@@ -83,7 +87,8 @@ class RankingViewController: DKUIViewController {
     }
 
     private func updateData() {
-        self.rankingScoreView?.update(currentDriverRank: self.viewModel.driverRank, rankingType: self.viewModel.selectedRankingType, nbDrivers: self.viewModel.nbDrivers)
+        // TODO: move rankingScoreView code into CommonUI
+//        self.rankingScoreView?.update(currentDriverRank: self.viewModel.driverRank, rankingType: self.viewModel.selectedRankingType, nbDrivers: self.viewModel.nbDrivers)
 
         if !self.ranks.isEmpty {
             self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: false)
@@ -92,36 +97,6 @@ class RankingViewController: DKUIViewController {
         self.collectionView.reloadData()
     }
 
-}
-
-extension RankingViewController : UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.ranks.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: UICollectionViewCell
-        if let driverRank = self.ranks[indexPath.item] {
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RankingCell", for: indexPath)
-            if let rankingCell = cell as? RankingCell {
-                rankingCell.update(driverRank: driverRank)
-            }
-        } else {
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RankingJumpCell", for: indexPath)
-        }
-        return cell
-    }
-}
-
-extension RankingViewController : UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height = CGFloat(self.ranks[indexPath.item] != nil ? 60 : 50)
-        return CGSize(width: collectionView.bounds.width, height: height)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
 }
 
 extension RankingViewController : RankingViewModelDelegate {
@@ -136,9 +111,10 @@ extension RankingViewController : RankingViewModelDelegate {
         } else {
             self.collectionView.isHidden = false
             self.loadingView.stopAnimating()
-            if (self.viewModel.driverRank != nil && self.rankingScoreView == nil) || (self.viewModel.driverRank == nil && self.rankingScoreView != nil) {
+            // TODO: clean up commented code
+//            if (self.viewModel.driverRank != nil && self.rankingScoreView == nil) || (self.viewModel.driverRank == nil && self.rankingScoreView != nil) {
                 updateHeader()
-            }
+//            }
             updateData()
         }
     }

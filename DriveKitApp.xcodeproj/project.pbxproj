@@ -292,6 +292,8 @@
 		67F2D37A2631556000ACC69A /* RankingSelectorTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F2D3752631555F00ACC69A /* RankingSelectorTypeView.xib */; };
 		67F2D3822631575600ACC69A /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D3802631575600ACC69A /* RankingViewController.swift */; };
 		67F2D3832631575600ACC69A /* RankingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F2D3812631575600ACC69A /* RankingViewController.xib */; };
+		67F2D3B42631600000ACC69A /* DKDriverRankingCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D3B32631600000ACC69A /* DKDriverRankingCollectionVC.swift */; };
+		67F2D3BC26316D5800ACC69A /* DKDriverRankingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D3BB26316D5800ACC69A /* DKDriverRankingViewModel.swift */; };
 		6FEDF9ABE856C7367CDBBC69 /* Pods_DriveKitCommonUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0425AC91525E20565C140CA4 /* Pods_DriveKitCommonUI.framework */; };
 		A30F4F1523D5DA08009A37C2 /* SynthesisPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30F4F1423D5DA08009A37C2 /* SynthesisPageViewModel.swift */; };
 		A30F4F1823D5DA14009A37C2 /* SynthesisPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30F4F1623D5DA14009A37C2 /* SynthesisPageVC.swift */; };
@@ -772,6 +774,8 @@
 		67F2D3752631555F00ACC69A /* RankingSelectorTypeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingSelectorTypeView.xib; sourceTree = "<group>"; };
 		67F2D3802631575600ACC69A /* RankingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
 		67F2D3812631575600ACC69A /* RankingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingViewController.xib; sourceTree = "<group>"; };
+		67F2D3B32631600000ACC69A /* DKDriverRankingCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDriverRankingCollectionVC.swift; sourceTree = "<group>"; };
+		67F2D3BB26316D5800ACC69A /* DKDriverRankingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDriverRankingViewModel.swift; sourceTree = "<group>"; };
 		71C90D9FE8ADAE9597A8BE8A /* Pods-DriveKitDriverAchievementUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverAchievementUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverAchievementUI/Pods-DriveKitDriverAchievementUI.debug.xcconfig"; sourceTree = "<group>"; };
 		88D27862C0BB1621E356D771 /* Pods-DriveKitCommonUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitCommonUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitCommonUI/Pods-DriveKitCommonUI.release.xcconfig"; sourceTree = "<group>"; };
 		8A3A98094797ED33BAF53826 /* Pods_DriveKitPermissionsUtilsUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitPermissionsUtilsUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1672,6 +1676,7 @@
 		67F2D3192630713700ACC69A /* Ranking */ = {
 			isa = PBXGroup;
 			children = (
+				67F2D3BA26316D3800ACC69A /* ViewModels */,
 				67F2D32B2630EEE100ACC69A /* Views */,
 				67F2D31A2630717300ACC69A /* DKDriverRanking.swift */,
 			);
@@ -1683,6 +1688,7 @@
 			children = (
 				67F2D3602630F07E00ACC69A /* cells */,
 				67F2D3462630F06A00ACC69A /* headers */,
+				67F2D3B32631600000ACC69A /* DKDriverRankingCollectionVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1723,6 +1729,14 @@
 				67F2D3752631555F00ACC69A /* RankingSelectorTypeView.xib */,
 			);
 			path = selectors;
+			sourceTree = "<group>";
+		};
+		67F2D3BA26316D3800ACC69A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				67F2D3BB26316D5800ACC69A /* DKDriverRankingViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		A34238072361A1FA0001E15D /* DriveKitDriverDataUI */ = {
@@ -2595,6 +2609,7 @@
 			files = (
 				67301C91261F55B8006B0432 /* Array+DK.swift in Sources */,
 				3FA24FF62524B9BE000AB7D3 /* DKFilterView.swift in Sources */,
+				67F2D3BC26316D5800ACC69A /* DKDriverRankingViewModel.swift in Sources */,
 				67301C9D261FAEFF006B0432 /* TripListSeparator.swift in Sources */,
 				3F0740EA2403BBFC005A8D07 /* DKColors.swift in Sources */,
 				67301C3E261D106B006B0432 /* DKTripList.swift in Sources */,
@@ -2621,6 +2636,7 @@
 				3F0740F3240426C0005A8D07 /* UIColor+DK.swift in Sources */,
 				67301CBF261FB0CD006B0432 /* NoScoreImageView.swift in Sources */,
 				67F2D31B2630717300ACC69A /* DKDriverRanking.swift in Sources */,
+				67F2D3B42631600000ACC69A /* DKDriverRankingCollectionVC.swift in Sources */,
 				63BF8EFA24531011006BEB3F /* DKContactType.swift in Sources */,
 				A34FC7362423CDDA000734AB /* DKTextField.swift in Sources */,
 				3F03A4DF242C9983000924A0 /* DriveKitVehicleUIEntryPoint.swift in Sources */,

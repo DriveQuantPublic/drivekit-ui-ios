@@ -18,6 +18,7 @@ class RankingViewController: DKUIViewController {
     @IBOutlet private weak var collectionViewHeader_scoreLabel: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var loadingView: UIActivityIndicatorView!
+    @IBOutlet private weak var viewContainer: UIView!
     // TODO: cleanup code
     //private var rankingScoreView: RankingScoreView? = nil
     private var rankingSelectors: RankingSelectorsView? = nil
@@ -46,10 +47,9 @@ class RankingViewController: DKUIViewController {
         self.addChild(driverRankingCollectionVC)
         if let collectionView = driverRankingCollectionVC.collectionView {
             self.collectionView = collectionView
-            // TODO: cleanup code and display properly the collection view
-            //self.viewContainer.addArrangedSubview(collectionView)
+            self.viewContainer.embedSubview(collectionView)
         }
-        
+
         updateHeader()
         updateData()
 

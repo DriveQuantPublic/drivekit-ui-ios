@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RankingViewController" customModule="DriveKitDriverAchievementUI" customModuleProvider="target">
             <connections>
-                <outlet property="collectionView" destination="uqb-Bi-dw7" id="i23-4e-MYC"/>
                 <outlet property="collectionViewHeader_driverLabel" destination="fa3-dT-Uai" id="aHF-5q-EHz"/>
                 <outlet property="collectionViewHeader_rankLabel" destination="R4U-G4-zIh" id="mjI-d6-SZX"/>
                 <outlet property="collectionViewHeader_scoreLabel" destination="nOa-WK-4bB" id="3c4-PE-L6Q"/>
                 <outlet property="headerContainer" destination="hbj-Xo-fTO" id="ASo-iJ-cdd"/>
                 <outlet property="loadingView" destination="che-Y8-eVw" id="DrV-bx-OE5"/>
                 <outlet property="view" destination="iN0-l3-epB" id="LJK-eh-y1b"/>
+                <outlet property="viewContainer" destination="aqf-g8-NxX" id="gU1-Au-X3C"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -87,36 +88,35 @@
                         <constraint firstAttribute="trailing" secondItem="nOa-WK-4bB" secondAttribute="trailing" id="sM8-Qx-UbI"/>
                     </constraints>
                 </view>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="uqb-Bi-dw7">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aqf-g8-NxX">
                     <rect key="frame" x="6" y="380" width="402" height="482"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8Dj-4k-UiU">
-                        <size key="itemSize" width="128" height="128"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                </collectionView>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="che-Y8-eVw">
                     <rect key="frame" x="197" y="611" width="20" height="20"/>
                 </activityIndicatorView>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <constraints>
+                <constraint firstItem="che-Y8-eVw" firstAttribute="centerX" secondItem="aqf-g8-NxX" secondAttribute="centerX" id="1u1-WQ-erY"/>
                 <constraint firstItem="hbj-Xo-fTO" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="44p-2B-fCS"/>
                 <constraint firstItem="TTk-q9-d1S" firstAttribute="top" secondItem="hbj-Xo-fTO" secondAttribute="bottom" id="7FU-Oj-zLO"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="uqb-Bi-dw7" secondAttribute="bottom" id="Fr3-8x-7fP"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="aqf-g8-NxX" secondAttribute="bottom" id="Fr3-8x-7fP"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hbj-Xo-fTO" secondAttribute="trailing" id="IOC-NF-tNw"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="TTk-q9-d1S" secondAttribute="trailing" constant="6" id="KQs-Q7-Qhw"/>
                 <constraint firstItem="hbj-Xo-fTO" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="MVB-0P-0aH"/>
-                <constraint firstItem="che-Y8-eVw" firstAttribute="centerX" secondItem="uqb-Bi-dw7" secondAttribute="centerX" id="Omd-9X-x4G"/>
-                <constraint firstItem="che-Y8-eVw" firstAttribute="centerY" secondItem="uqb-Bi-dw7" secondAttribute="centerY" id="arH-eJ-qTh"/>
-                <constraint firstItem="uqb-Bi-dw7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="6" id="hig-VU-C1s"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uqb-Bi-dw7" secondAttribute="trailing" constant="6" id="kcI-HY-qEp"/>
-                <constraint firstItem="uqb-Bi-dw7" firstAttribute="top" secondItem="TTk-q9-d1S" secondAttribute="bottom" id="lD9-eq-8G6"/>
+                <constraint firstItem="aqf-g8-NxX" firstAttribute="top" secondItem="TTk-q9-d1S" secondAttribute="bottom" id="ZlU-MO-WJt"/>
+                <constraint firstItem="che-Y8-eVw" firstAttribute="centerY" secondItem="aqf-g8-NxX" secondAttribute="centerY" id="arH-eJ-qTh"/>
+                <constraint firstItem="aqf-g8-NxX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="6" id="hig-VU-C1s"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="aqf-g8-NxX" secondAttribute="trailing" constant="6" id="kcI-HY-qEp"/>
                 <constraint firstItem="TTk-q9-d1S" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="6" id="zdU-HT-fdJ"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="137.68115942028987" y="153.34821428571428"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

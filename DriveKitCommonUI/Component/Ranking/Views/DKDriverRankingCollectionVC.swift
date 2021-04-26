@@ -14,7 +14,11 @@ public class DKDriverRankingCollectionVC: UICollectionViewController {
 
     public init(viewModel: DKDriverRankingViewModel) {
         self.viewModel = viewModel
-        super.init(collectionViewLayout: UICollectionViewLayout())
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+        layout.minimumInteritemSpacing = 10
+        layout.minimumLineSpacing = 10
+        super.init(collectionViewLayout: layout)
     }
 
     required init?(coder: NSCoder) {
@@ -28,7 +32,6 @@ public class DKDriverRankingCollectionVC: UICollectionViewController {
         self.collectionView.backgroundColor = DKUIColors.backgroundView.color
         self.collectionView.register(UINib(nibName: "RankingCell", bundle: .driveKitCommonUIBundle), forCellWithReuseIdentifier: "RankingCell")
         self.collectionView.register(UINib(nibName: "RankingJumpCell", bundle: .driveKitCommonUIBundle), forCellWithReuseIdentifier: "RankingJumpCell")
-
     }
 
     // MARK: UICollectionViewDataSource
@@ -39,14 +42,14 @@ public class DKDriverRankingCollectionVC: UICollectionViewController {
     public override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: UICollectionViewCell
         if let rankingItems = self.viewModel?.ranking?.getDriverRankingItems(), indexPath.item < rankingItems.count, !rankingItems[indexPath.item].isJumpRank()  {
-            let driverRank = rankingItems[indexPath.item]
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RankingCell", for: indexPath)
-            if let rankingCell = cell as? RankingCell {
+                let driverRank = rankingItems[indexPath.item]
+                cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RankingCell", for: indexPath)
+                if let rankingCell = cell as? RankingCell {
                     rankingCell.update(driverRank: driverRank)
+                }
+            } else {
+                cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RankingJumpCell", for: indexPath)
             }
-        } else {
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RankingJumpCell", for: indexPath)
-        }
         return cell
     }
 

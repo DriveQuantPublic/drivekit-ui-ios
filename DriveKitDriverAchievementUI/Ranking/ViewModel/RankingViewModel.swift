@@ -150,9 +150,9 @@ class RankingViewModel {
                                         if deltaRank == 0 {
                                             progressionImageName = nil
                                         } else if deltaRank > 0 {
-                                            progressionImageName = "dk_achievements_arrow_up"
+                                            progressionImageName = "dk_common_ranking_arrow_up"
                                         } else {
-                                            progressionImageName = "dk_achievements_arrow_down"
+                                            progressionImageName = "dk_common_ranking_arrow_down"
                                         }
                                     } else {
                                         progressionImageName = nil
@@ -232,7 +232,7 @@ class RankingViewModel {
 
     private func getImageName(fromPosition position: Int) -> String? {
         if position >= 1 && position <= 3 {
-            return "dk_achievements_ranking_rank_\(position)"
+            return "dk_common_rank_\(position)"
         } else {
             return nil
         }
@@ -345,7 +345,7 @@ extension RankingViewModel: DKDriverRanking {
     
     func getProgressionImage() -> UIImage? {
         if let progressionImageName = self.progressionImageName {
-            return UIImage(named: progressionImageName, in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
+            return UIImage(named: progressionImageName, in: Bundle.driveKitCommonUIBundle, compatibleWith: nil)
         } else {
             return nil
         }

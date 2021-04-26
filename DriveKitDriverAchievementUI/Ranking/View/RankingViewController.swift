@@ -67,7 +67,7 @@ class RankingViewController: DKUIViewController {
 
     private func updateData() {
         if !self.ranks.isEmpty {
-            self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: false)
+            self.collectionView.setContentOffset(CGPoint.zero, animated: false)
         }
         self.ranks = self.viewModel.ranks
         self.collectionView.reloadData()

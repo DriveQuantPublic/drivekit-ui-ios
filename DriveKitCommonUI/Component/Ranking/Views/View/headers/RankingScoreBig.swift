@@ -24,7 +24,6 @@ class RankingScoreBig: RankingScoreView {
         self.rankingTypeLabel.attributedText = rankingTypeTitle.dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.mainFontColor).build()
         
         let rankingTypeImage = ranking.getImage()
-        // TODO: cleanup code
-        self.rankingTypeImage.image = rankingTypeImage //UIImage(named: rankingTypeImageName, in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
+        self.rankingTypeImage.image = rankingTypeImage
     }
 }

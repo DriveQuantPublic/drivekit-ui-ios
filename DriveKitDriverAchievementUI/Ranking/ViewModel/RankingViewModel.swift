@@ -339,7 +339,6 @@ extension RankingViewModel: DKDriverRanking {
         guard rankingTypes.count > 0 else {
             return nil
         }
-        // TODO: move images and update used bundle
         return UIImage(named: rankingTypes[0].imageName, in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
     }
 

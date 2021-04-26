@@ -21,20 +21,13 @@ class RankingScoreView: UIView {
 
     func update(ranking: DKDriverRanking) {
         self.progressionView.image = nil
-        // TODO: cleanup code
-//        let driverRankString = currentDriverRank.positionString.dkAttributedString().font(dkFont: .primary, style: .highlightBig).color(.secondaryColor).build()
-//        let rankString = currentDriverRank.rankString.dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
-//        self.userRankView.attributedText = "%@%@".dkAttributedString().buildWithArgs(driverRankString, rankString)
         self.userRankView.attributedText = ranking.getDriverGlobalRankAttributedText()
 
         if let progressionImage = ranking.getProgressionImage() {
-            self.progressionView.image = progressionImage //UIImage(named: progressionImageName, in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
+            self.progressionView.image = progressionImage
             self.progressionView.isHidden = false
         } else {
             self.progressionView.isHidden = true
         }
-//    } else {
-//        self.userRankView.attributedText = "- / \(nbDrivers)".dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
-//        self.progressionView.isHidden = true
     }
 }

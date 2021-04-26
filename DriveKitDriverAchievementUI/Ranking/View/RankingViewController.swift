@@ -16,8 +16,6 @@ class RankingViewController: DKUIViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var loadingView: UIActivityIndicatorView!
     @IBOutlet private weak var viewContainer: UIView!
-    // TODO: cleanup code
-    //private var rankingScoreView: RankingScoreView? = nil
     private var rankingSelectors: RankingSelectorsView? = nil
     private let viewModel = RankingViewModel()
     private var ranks: [DKDriverRankingItem] = []
@@ -65,24 +63,9 @@ class RankingViewController: DKUIViewController {
         } else {
             self.rankingSelectors = nil
         }
-        // TODO: move the header related code inside DriveKitCommonUI
-//        let rankingScoreView: RankingScoreView?
-//        if self.viewModel.getHeaderDisplayType() == .compact {
-//            rankingScoreView = Bundle.driverAchievementUIBundle?.loadNibNamed("RankingScoreSmall", owner: nil, options: nil)?.first as? RankingScoreSmall
-//        } else {
-//            rankingScoreView = Bundle.driverAchievementUIBundle?.loadNibNamed("RankingScoreBig", owner: nil, options: nil)?.first as? RankingScoreBig
-//        }
-//        self.rankingScoreView = rankingScoreView
-//        if let rankingScoreView = rankingScoreView {
-//            rankingScoreView.translatesAutoresizingMaskIntoConstraints = false
-//            self.headerContainer.addArrangedSubview(rankingScoreView)
-//        }
     }
 
     private func updateData() {
-        // TODO: move rankingScoreView code into CommonUI
-//        self.rankingScoreView?.update(currentDriverRank: self.viewModel.driverRank, rankingType: self.viewModel.selectedRankingType, nbDrivers: self.viewModel.nbDrivers)
-
         if !self.ranks.isEmpty {
             self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: false)
         }
@@ -104,10 +87,7 @@ extension RankingViewController : RankingViewModelDelegate {
         } else {
             self.collectionView.isHidden = false
             self.loadingView.stopAnimating()
-            // TODO: clean up commented code
-//            if (self.viewModel.driverRank != nil && self.rankingScoreView == nil) || (self.viewModel.driverRank == nil && self.rankingScoreView != nil) {
-                updateHeader()
-//            }
+            updateHeader()
             updateData()
         }
     }

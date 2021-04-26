@@ -269,6 +269,8 @@
 		67301DB126251921006B0432 /* HeaderDayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67301DAF26251921006B0432 /* HeaderDayView.xib */; };
 		67301DBD2625C301006B0432 /* Trip+DKTripsListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301DBC2625C301006B0432 /* Trip+DKTripsListItem.swift */; };
 		67301DC42625C3BF006B0432 /* TripListVC+DKTripList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301DC32625C3BF006B0432 /* TripListVC+DKTripList.swift */; };
+		679DC8612636E3A5007B5623 /* RankingHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679DC85F2636E3A5007B5623 /* RankingHeaderReusableView.swift */; };
+		679DC8622636E3A6007B5623 /* RankingHeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 679DC8602636E3A5007B5623 /* RankingHeaderReusableView.xib */; };
 		67CFE99F25F6425F004D0AE1 /* SpeedingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE99D25F6425F004D0AE1 /* SpeedingPageVC.swift */; };
 		67CFE9A025F6425F004D0AE1 /* SpeedingPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67CFE99E25F6425F004D0AE1 /* SpeedingPageVC.xib */; };
 		67CFE9A725F645EA004D0AE1 /* SpeedingPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */; };
@@ -751,6 +753,8 @@
 		67301DAF26251921006B0432 /* HeaderDayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderDayView.xib; sourceTree = "<group>"; };
 		67301DBC2625C301006B0432 /* Trip+DKTripsListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+DKTripsListItem.swift"; sourceTree = "<group>"; };
 		67301DC32625C3BF006B0432 /* TripListVC+DKTripList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TripListVC+DKTripList.swift"; sourceTree = "<group>"; };
+		679DC85F2636E3A5007B5623 /* RankingHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingHeaderReusableView.swift; sourceTree = "<group>"; };
+		679DC8602636E3A5007B5623 /* RankingHeaderReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingHeaderReusableView.xib; sourceTree = "<group>"; };
 		67CFE99D25F6425F004D0AE1 /* SpeedingPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageVC.swift; sourceTree = "<group>"; };
 		67CFE99E25F6425F004D0AE1 /* SpeedingPageVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedingPageVC.xib; sourceTree = "<group>"; };
 		67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageViewModel.swift; sourceTree = "<group>"; };
@@ -1701,6 +1705,8 @@
 				67F2D3492630F06A00ACC69A /* RankingScoreBig.xib */,
 				67F2D34A2630F06A00ACC69A /* RankingScoreView.swift */,
 				67F2D34B2630F06A00ACC69A /* RankingScoreSmall.xib */,
+				679DC85F2636E3A5007B5623 /* RankingHeaderReusableView.swift */,
+				679DC8602636E3A5007B5623 /* RankingHeaderReusableView.xib */,
 			);
 			name = headers;
 			path = View/headers;
@@ -2313,6 +2319,7 @@
 				67F2D3662630F07E00ACC69A /* RankingJumpCell.xib in Resources */,
 				A34FC7372423CDDA000734AB /* DKTextField.xib in Resources */,
 				67301CC2261FB0CD006B0432 /* TripInfoView.xib in Resources */,
+				679DC8622636E3A6007B5623 /* RankingHeaderReusableView.xib in Resources */,
 				67301CBD261FB0CD006B0432 /* AlternativeTripImageView.xib in Resources */,
 				3FF68E82240965E10071D74C /* DKImages.xcassets in Resources */,
 				67301CC5261FB0CD006B0432 /* TripTableViewCell.xib in Resources */,
@@ -2634,6 +2641,7 @@
 				3FA2500E2524BD0C000AB7D3 /* DKFilterViewModel.swift in Sources */,
 				3FF68E6E24081A5A0071D74C /* DKStyles.swift in Sources */,
 				3F0740F3240426C0005A8D07 /* UIColor+DK.swift in Sources */,
+				679DC8612636E3A5007B5623 /* RankingHeaderReusableView.swift in Sources */,
 				67301CBF261FB0CD006B0432 /* NoScoreImageView.swift in Sources */,
 				67F2D31B2630717300ACC69A /* DKDriverRanking.swift in Sources */,
 				67F2D3B42631600000ACC69A /* DKDriverRankingCollectionVC.swift in Sources */,

@@ -18,6 +18,7 @@ public class DKDriverRankingCollectionVC: UICollectionViewController {
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
         layout.minimumInteritemSpacing = 10
         layout.minimumLineSpacing = 10
+        layout.sectionHeadersPinToVisibleBounds = true
         super.init(collectionViewLayout: layout)
     }
 
@@ -32,6 +33,8 @@ public class DKDriverRankingCollectionVC: UICollectionViewController {
         self.collectionView.backgroundColor = DKUIColors.backgroundView.color
         self.collectionView.register(UINib(nibName: "RankingCell", bundle: .driveKitCommonUIBundle), forCellWithReuseIdentifier: "RankingCell")
         self.collectionView.register(UINib(nibName: "RankingJumpCell", bundle: .driveKitCommonUIBundle), forCellWithReuseIdentifier: "RankingJumpCell")
+        self.collectionView.register(UINib(nibName: "RankingHeaderReusableView", bundle: Bundle.driveKitCommonUIBundle), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "RankingHeaderReusableViewIdentifier")
+
     }
 
     // MARK: UICollectionViewDataSource
@@ -53,6 +56,27 @@ public class DKDriverRankingCollectionVC: UICollectionViewController {
         return cell
     }
 
+    public override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionHeader, let ranking = self.viewModel?.ranking, let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "RankingHeaderReusableViewIdentifier", for: indexPath) as? RankingHeaderReusableView {
+            // cleanup code
+            let rankingScoreView: RankingScoreView?
+            if ranking.getHeaderDisplayType() == .compact {
+                rankingScoreView = Bundle.driveKitCommonUIBundle?.loadNibNamed("RankingScoreSmall", owner: nil, options: nil)?.first as? RankingScoreSmall
+            } else {
+                rankingScoreView = Bundle.driveKitCommonUIBundle?.loadNibNamed("RankingScoreBig", owner: nil, options: nil)?.first as? RankingScoreBig
+            }
+
+            if let rankingScoreView = rankingScoreView {
+                rankingScoreView.translatesAutoresizingMaskIntoConstraints = false
+                headerView.layoutIfNeeded()
+                headerView.embedSummaryView(summaryView: rankingScoreView)
+            }
+
+            return headerView
+        } else {
+            return UICollectionReusableView()
+        }
+    }
 }
 
 
@@ -68,5 +92,12 @@ extension DKDriverRankingCollectionVC: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-}
 
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        var expectedHeight: CGFloat = 106.0
+        if self.viewModel?.ranking?.getHeaderDisplayType() == .full {
+            expectedHeight += 90.0
+        }
+        return CGSize(width: collectionView.frame.width, height: expectedHeight)
+    }
+}

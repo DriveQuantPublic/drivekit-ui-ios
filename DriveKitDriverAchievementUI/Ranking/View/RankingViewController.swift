@@ -13,9 +13,6 @@ import DriveKitCommonUI
 class RankingViewController: DKUIViewController {
 
     @IBOutlet private weak var headerContainer: UIStackView!
-    @IBOutlet private weak var collectionViewHeader_rankLabel: UILabel!
-    @IBOutlet private weak var collectionViewHeader_driverLabel: UILabel!
-    @IBOutlet private weak var collectionViewHeader_scoreLabel: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var loadingView: UIActivityIndicatorView!
     @IBOutlet private weak var viewContainer: UIView!
@@ -37,10 +34,6 @@ class RankingViewController: DKUIViewController {
         super.viewDidLoad()
 
         self.title = "dk_achievements_ranking_menu_ranking".dkAchievementLocalized()
-
-        self.collectionViewHeader_rankLabel.attributedText = "dk_achievements_ranking_rank".dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
-        self.collectionViewHeader_driverLabel.attributedText = "dk_achievements_ranking_driver".dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
-        self.collectionViewHeader_scoreLabel.attributedText = "dk_achievements_ranking_score".dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
 
         let driverRankingViewModel = DKDriverRankingViewModel(ranking: self.viewModel)
         let driverRankingCollectionVC = DKDriverRankingCollectionVC(viewModel: driverRankingViewModel)
@@ -74,7 +67,7 @@ class RankingViewController: DKUIViewController {
         }
         // TODO: move the header related code inside DriveKitCommonUI
 //        let rankingScoreView: RankingScoreView?
-//        if self.viewModel.rankingTypes.count > 1 && self.viewModel.rankingSelectors.count > 1 {
+//        if self.viewModel.getHeaderDisplayType() == .compact {
 //            rankingScoreView = Bundle.driverAchievementUIBundle?.loadNibNamed("RankingScoreSmall", owner: nil, options: nil)?.first as? RankingScoreSmall
 //        } else {
 //            rankingScoreView = Bundle.driverAchievementUIBundle?.loadNibNamed("RankingScoreBig", owner: nil, options: nil)?.first as? RankingScoreBig

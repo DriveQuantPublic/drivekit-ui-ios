@@ -11,9 +11,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RankingViewController" customModule="DriveKitDriverAchievementUI" customModuleProvider="target">
             <connections>
-                <outlet property="collectionViewHeader_driverLabel" destination="fa3-dT-Uai" id="aHF-5q-EHz"/>
-                <outlet property="collectionViewHeader_rankLabel" destination="R4U-G4-zIh" id="mjI-d6-SZX"/>
-                <outlet property="collectionViewHeader_scoreLabel" destination="nOa-WK-4bB" id="3c4-PE-L6Q"/>
                 <outlet property="headerContainer" destination="hbj-Xo-fTO" id="ASo-iJ-cdd"/>
                 <outlet property="loadingView" destination="che-Y8-eVw" id="DrV-bx-OE5"/>
                 <outlet property="view" destination="iN0-l3-epB" id="LJK-eh-y1b"/>

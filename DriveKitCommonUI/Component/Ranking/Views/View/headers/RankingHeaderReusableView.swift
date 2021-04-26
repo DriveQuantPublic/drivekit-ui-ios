@@ -11,10 +11,15 @@ import UIKit
 class RankingHeaderReusableView: UICollectionReusableView {
 
     @IBOutlet private weak var summaryContainer: UIView?
+    @IBOutlet private weak var rankLabel: UILabel!
+    @IBOutlet private weak var driverLabel: UILabel!
+    @IBOutlet private weak var scoreLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.rankLabel.attributedText = DKCommonLocalizable.rank.text().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
+        self.driverLabel.attributedText = DKCommonLocalizable.rankingDriver.text().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
+        self.scoreLabel.attributedText = DKCommonLocalizable.rankingScore.text().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
     }
 
     func embedSummaryView(summaryView: UIView) {
@@ -24,5 +29,9 @@ class RankingHeaderReusableView: UICollectionReusableView {
             }
             summaryContainer.embedSubview(summaryView)
         }
+    }
+
+    func updateScoreTitle(title: String) {
+        self.scoreLabel.attributedText = title.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
     }
 }

@@ -323,18 +323,18 @@ extension RankingViewModel: DKDriverRanking {
             return .full
         }
     }
-    
+
     func getDriverRankingItems() -> [DKDriverRankingItem] {
         return ranks
     }
-    
+
     func getTitle() -> String {
         guard rankingTypes.count > 0 else {
             return ""
         }
         return rankingTypes[0].name
     }
-    
+
     func getImage() -> UIImage? {
         guard rankingTypes.count > 0 else {
             return nil
@@ -342,7 +342,7 @@ extension RankingViewModel: DKDriverRanking {
         // TODO: move images and update used bundle
         return UIImage(named: rankingTypes[0].imageName, in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
     }
-    
+
     func getProgressionImage() -> UIImage? {
         if let progressionImageName = self.progressionImageName {
             return UIImage(named: progressionImageName, in: Bundle.driveKitCommonUIBundle, compatibleWith: nil)
@@ -350,7 +350,7 @@ extension RankingViewModel: DKDriverRanking {
             return nil
         }
     }
-    
+
     func getDriverGlobalRankAttributedText() -> NSAttributedString {
         if let driverRank = driverRank {
             let driverRankString = driverRank.positionString.dkAttributedString().font(dkFont: .primary, style: .highlightBig).color(.secondaryColor).build()
@@ -360,6 +360,9 @@ extension RankingViewModel: DKDriverRanking {
             return  "- / \(nbDrivers)".dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
         }
     }
-    
-    
+
+    func getScoreTitle() -> String {
+        return DKCommonLocalizable.rankingScore.text()
+    }
+
 }

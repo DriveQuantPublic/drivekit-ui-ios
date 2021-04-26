@@ -68,7 +68,7 @@ public class DKDriverRankingCollectionVC: UICollectionViewController {
 
             if let rankingScoreView = rankingScoreView {
                 rankingScoreView.translatesAutoresizingMaskIntoConstraints = false
-                headerView.layoutIfNeeded()
+                headerView.updateScoreTitle(title: ranking.getScoreTitle())
                 headerView.embedSummaryView(summaryView: rankingScoreView)
             }
 

@@ -16,6 +16,7 @@ public protocol DKDriverRanking: AnyObject {
     func getImage() -> UIImage?
     func getProgressionImage() -> UIImage?
     func getDriverGlobalRankAttributedText() -> NSAttributedString
+    func getScoreTitle() -> String
 }
 
 public protocol DKDriverRankingItem {

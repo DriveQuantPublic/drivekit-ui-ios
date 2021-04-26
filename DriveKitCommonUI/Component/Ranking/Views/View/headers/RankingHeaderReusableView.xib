@@ -100,6 +100,9 @@
                 <constraint firstItem="NOt-fg-U6E" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" id="kC8-oG-fit"/>
             </constraints>
             <connections>
+                <outlet property="driverLabel" destination="ncj-aa-iZj" id="XR8-nL-dvW"/>
+                <outlet property="rankLabel" destination="I5R-h4-aZB" id="YK5-wt-Ifa"/>
+                <outlet property="scoreLabel" destination="hux-gH-Ka6" id="fZc-Qp-1co"/>
                 <outlet property="summaryContainer" destination="kXc-fl-SUw" id="9N7-yj-cgy"/>
             </connections>
             <point key="canvasLocation" x="44.927536231884062" y="57.589285714285708"/>

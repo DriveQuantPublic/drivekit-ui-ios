@@ -62,7 +62,11 @@ public enum DKCommonLocalizable : String {
     cameraPermission = "dk_common_permission_camera_rationale",
     sendMailError = "dk_common_send_mail_error",
     yes = "dk_common_yes",
-    no = "dk_common_no"
+    no = "dk_common_no",
+    rank = "dk_common_ranking_rank",
+    rankingScore = "dk_common_ranking_score",
+    rankingDriver = "dk_common_ranking_driver"
+    
 
     public func text() -> String {
         return self.rawValue.dkLocalized(tableName: "CommonLocalizable", bundle: .driveKitCommonUIBundle ?? .main)

@@ -317,7 +317,7 @@ protocol RankingViewModelDelegate : AnyObject {
 
 extension RankingViewModel: DKDriverRanking {
     func getHeaderDisplayType() -> DKRankingHeaderDisplayType {
-        if rankingTypes.count > 1 && rankingSelectors.count > 1 {
+        if rankingTypes.count > 1 {
             return .compact
         } else {
             return .full
@@ -356,7 +356,9 @@ extension RankingViewModel: DKDriverRanking {
             let rankString = driverRank.rankString.dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
             return "%@%@".dkAttributedString().buildWithArgs(driverRankString, rankString)
         } else {
-            return  "- / \(nbDrivers)".dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
+            let driverRankString = "-".dkAttributedString().font(dkFont: .primary, style: .highlightBig).color(.secondaryColor).build()
+            let rankString = " / \(nbDrivers)".dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
+            return "%@%@".dkAttributedString().buildWithArgs(driverRankString, rankString)
         }
     }
 

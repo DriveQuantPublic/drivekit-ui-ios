@@ -62,6 +62,7 @@ class RankingViewController: DKUIViewController {
             self.rankingSelectors = rankingSelectors
         } else {
             self.rankingSelectors = nil
+            self.headerContainer.addArrangedSubview(UIView(frame: CGRect.zero))
         }
     }
 

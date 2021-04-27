@@ -57,7 +57,8 @@ public class DKDriverRankingCollectionVC: UICollectionViewController {
     }
 
     public override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        if kind == UICollectionView.elementKindSectionHeader, let ranking = self.viewModel?.ranking, let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "RankingHeaderReusableViewIdentifier", for: indexPath) as? RankingHeaderReusableView {
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "RankingHeaderReusableViewIdentifier", for: indexPath)
+        if kind == UICollectionView.elementKindSectionHeader, let ranking = self.viewModel?.ranking, let rankingHeaderView = headerView as? RankingHeaderReusableView {
             let rankingScoreView: RankingScoreView?
             if ranking.getHeaderDisplayType() == .compact {
                 rankingScoreView = Bundle.driveKitCommonUIBundle?.loadNibNamed("RankingScoreSmall", owner: nil, options: nil)?.first as? RankingScoreSmall
@@ -67,15 +68,15 @@ public class DKDriverRankingCollectionVC: UICollectionViewController {
 
             if let rankingScoreView = rankingScoreView {
                 rankingScoreView.translatesAutoresizingMaskIntoConstraints = false
-                headerView.updateScoreTitle(title: ranking.getScoreTitle())
+                rankingHeaderView.updateScoreTitle(title: ranking.getScoreTitle())
                 rankingScoreView.update(ranking: ranking)
-                headerView.embedSummaryView(summaryView: rankingScoreView)
+                rankingHeaderView.embedSummaryView(summaryView: rankingScoreView)
             }
-
-            return headerView
+            headerView.isHidden = false
         } else {
-            return UICollectionReusableView()
+            headerView.isHidden = true
         }
+        return headerView
     }
 }
 

@@ -77,7 +77,7 @@ class DriverRank: DKDriverRankingItem {
 
     func getScoreAttributedText() -> NSAttributedString {
         let scoreLabelColor: DKUIColors
-        if isCurrnetUser() {
+        if isCurrentUser() {
             scoreLabelColor = .fontColorOnSecondaryColor
         } else {
             scoreLabelColor = .mainFontColor
@@ -87,7 +87,7 @@ class DriverRank: DKDriverRankingItem {
         return "%@%@".dkAttributedString().buildWithArgs(userScoreString, numberOfUsersString)
     }
 
-    func isCurrnetUser() -> Bool {
+    func isCurrentUser() -> Bool {
         return false
     }
 
@@ -97,7 +97,7 @@ class DriverRank: DKDriverRankingItem {
 }
 
 class CurrentDriverRank: DriverRank {
-    override func isCurrnetUser() -> Bool {
+    override func isCurrentUser() -> Bool {
         return true
     }
 }
@@ -123,7 +123,7 @@ class JumpDriverRank: DKDriverRankingItem {
         return NSAttributedString()
     }
 
-    func isCurrnetUser() -> Bool {
+    func isCurrentUser() -> Bool {
         return false
     }
 

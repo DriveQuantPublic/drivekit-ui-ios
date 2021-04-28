@@ -25,7 +25,7 @@ public protocol DKDriverRankingItem {
     func getNickname() -> String
     func getDistance() -> String
     func getScoreAttributedText() -> NSAttributedString
-    func isCurrnetUser() -> Bool
+    func isCurrentUser() -> Bool
     func isJumpRank() -> Bool
 }
 

@@ -26,7 +26,7 @@ class RankingCell: UICollectionViewCell {
     }
 
     func update(driverRank: DKDriverRankingItem) {
-        let isCurrentDriver = driverRank.isCurrnetUser()
+        let isCurrentDriver = driverRank.isCurrentUser()
         if let positionImage = driverRank.getRankImage() {
             self.rankImage.image = positionImage
             self.rankImage.isHidden = false

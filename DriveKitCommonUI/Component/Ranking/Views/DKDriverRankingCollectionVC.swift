@@ -10,7 +10,7 @@ import UIKit
 
 public class DKDriverRankingCollectionVC: UICollectionViewController {
 
-    var viewModel: DKDriverRankingViewModel?
+    private let viewModel: DKDriverRankingViewModel?
 
     public init(viewModel: DKDriverRankingViewModel) {
         self.viewModel = viewModel

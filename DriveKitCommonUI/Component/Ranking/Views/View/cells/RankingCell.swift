@@ -8,10 +8,7 @@
 
 import UIKit
 
-import DriveKitCommonUI
-import DriveKitDBAchievementAccessModule
-
-class RankingCell : UICollectionViewCell {
+class RankingCell: UICollectionViewCell {
     @IBOutlet private weak var rankImage: UIImageView!
     @IBOutlet private weak var rankLabel: UILabel!
     @IBOutlet private weak var rankUserBackground: UIView!
@@ -28,9 +25,9 @@ class RankingCell : UICollectionViewCell {
         self.separator.backgroundColor = DKUIColors.neutralColor.color
     }
 
-    func update(driverRank: AnyDriverRank) {
-        let isCurrentDriver = driverRank is CurrentDriverRank
-        if let positionImageName = driverRank.positionImageName, let positionImage = UIImage(named: positionImageName, in: Bundle.driverAchievementUIBundle, compatibleWith: nil) {
+    func update(driverRank: DKDriverRankingItem) {
+        let isCurrentDriver = driverRank.isCurrentUser()
+        if let positionImage = driverRank.getRankImage() {
             self.rankImage.image = positionImage
             self.rankImage.isHidden = false
             self.rankLabel.isHidden = true
@@ -45,24 +42,16 @@ class RankingCell : UICollectionViewCell {
                 rankLabelColor = .mainFontColor
                 self.rankUserBackground.isHidden = true
             }
-            self.rankLabel.attributedText = String(driverRank.positionString).dkAttributedString().font(dkFont: .primary, style: .normalText).color(rankLabelColor).build()
+            self.rankLabel.attributedText = String(driverRank.getRank()).dkAttributedString().font(dkFont: .primary, style: .normalText).color(rankLabelColor).build()
 
             self.rankImage.isHidden = true
             self.rankLabel.isHidden = false
         }
 
-        self.driverLabel.attributedText = (driverRank.name).dkAttributedString().font(dkFont: .primary, style: .headLine2).color(.mainFontColor).build()
-        self.distanceLabel.attributedText = driverRank.distanceString.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+        self.driverLabel.attributedText = (driverRank.getNickname()).dkAttributedString().font(dkFont: .primary, style: .headLine2).color(.mainFontColor).build()
+        self.distanceLabel.attributedText = driverRank.getDistance().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
 
-        let scoreLabelColor: DKUIColors
-        if isCurrentDriver {
-            scoreLabelColor = .fontColorOnSecondaryColor
-        } else {
-            scoreLabelColor = .mainFontColor
-        }
-        let userScoreString = driverRank.scoreString.dkAttributedString().font(dkFont: .primary, style: .bigtext).color(scoreLabelColor).build()
-        let numberOfUsersString = driverRank.totalScoreString.dkAttributedString().font(dkFont: .primary, style: .smallText).color(scoreLabelColor).build()
-        self.scoreLabel.attributedText = "%@%@".dkAttributedString().buildWithArgs(userScoreString, numberOfUsersString)
+        self.scoreLabel.attributedText = driverRank.getScoreAttributedText()
         if isCurrentDriver {
             self.scoreLabel.backgroundColor = DKUIColors.secondaryColor.color
         } else {

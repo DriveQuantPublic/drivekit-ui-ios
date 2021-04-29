@@ -14,6 +14,7 @@ public class DriveKitNavigationController {
     public var driverAchievementUI: DriveKitDriverAchievementUIEntryPoint? = nil
     public var vehicleUI : DriveKitVehicleUIEntryPoint? = nil
     public var permissionsUtilsUI: DriveKitPermissionsUtilsUIEntryPoint? = nil
+    public var challengeUI: DriveKitChallengeUIEntryPoint? = nil
 
     public static let shared = DriveKitNavigationController()
 

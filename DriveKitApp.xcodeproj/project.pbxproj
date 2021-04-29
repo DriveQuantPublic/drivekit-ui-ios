@@ -275,6 +275,12 @@
 		67C43CFD263A910D00DBB09D /* DriveKitChallengeUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67C43CF6263A910D00DBB09D /* DriveKitChallengeUI.framework */; };
 		67C43CFE263A910D00DBB09D /* DriveKitChallengeUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 67C43CF6263A910D00DBB09D /* DriveKitChallengeUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		67C43D04263A91E800DBB09D /* DriveKitCommonUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F0740DA2403BB65005A8D07 /* DriveKitCommonUI.framework */; };
+		67C43D0A263A98B600DBB09D /* DriveKitChallengeUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C43D09263A98B600DBB09D /* DriveKitChallengeUI.swift */; };
+		67C43D0C263ADD3300DBB09D /* DriveKitChallengeUIEntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C43D0B263ADD3300DBB09D /* DriveKitChallengeUIEntryPoint.swift */; };
+		67C43D11263AE0C100DBB09D /* DriveKitChallenge.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67C43D10263AE0C100DBB09D /* DriveKitChallenge.xcassets */; };
+		67C43D12263AE23600DBB09D /* DKChallengeLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 67C43D14263AE23600DBB09D /* DKChallengeLocalizable.strings */; };
+		67C43D1D263AE79F00DBB09D /* ChallengeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C43D1B263AE79F00DBB09D /* ChallengeListVC.swift */; };
+		67C43D1E263AE79F00DBB09D /* ChallengeListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67C43D1C263AE79F00DBB09D /* ChallengeListVC.xib */; };
 		67CFE99F25F6425F004D0AE1 /* SpeedingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE99D25F6425F004D0AE1 /* SpeedingPageVC.swift */; };
 		67CFE9A025F6425F004D0AE1 /* SpeedingPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67CFE99E25F6425F004D0AE1 /* SpeedingPageVC.xib */; };
 		67CFE9A725F645EA004D0AE1 /* SpeedingPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */; };
@@ -786,6 +792,16 @@
 		67C43CF6263A910D00DBB09D /* DriveKitChallengeUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DriveKitChallengeUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67C43CF8263A910D00DBB09D /* DriveKitChallengeUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DriveKitChallengeUI.h; sourceTree = "<group>"; };
 		67C43CF9263A910D00DBB09D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67C43D09263A98B600DBB09D /* DriveKitChallengeUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveKitChallengeUI.swift; sourceTree = "<group>"; };
+		67C43D0B263ADD3300DBB09D /* DriveKitChallengeUIEntryPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveKitChallengeUIEntryPoint.swift; sourceTree = "<group>"; };
+		67C43D10263AE0C100DBB09D /* DriveKitChallenge.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DriveKitChallenge.xcassets; sourceTree = "<group>"; };
+		67C43D13263AE23600DBB09D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DKChallengeLocalizable.strings; sourceTree = "<group>"; };
+		67C43D15263AE23B00DBB09D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/DKChallengeLocalizable.strings; sourceTree = "<group>"; };
+		67C43D16263AE23D00DBB09D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/DKChallengeLocalizable.strings; sourceTree = "<group>"; };
+		67C43D17263AE23E00DBB09D /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/DKChallengeLocalizable.strings; sourceTree = "<group>"; };
+		67C43D18263AE23F00DBB09D /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/DKChallengeLocalizable.strings; sourceTree = "<group>"; };
+		67C43D1B263AE79F00DBB09D /* ChallengeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeListVC.swift; sourceTree = "<group>"; };
+		67C43D1C263AE79F00DBB09D /* ChallengeListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeListVC.xib; sourceTree = "<group>"; };
 		67CFE99D25F6425F004D0AE1 /* SpeedingPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageVC.swift; sourceTree = "<group>"; };
 		67CFE99E25F6425F004D0AE1 /* SpeedingPageVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedingPageVC.xib; sourceTree = "<group>"; };
 		67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageViewModel.swift; sourceTree = "<group>"; };
@@ -1182,6 +1198,7 @@
 				3FF68E7F240939BC0071D74C /* DriveKitDriverDataUIEntryPoint.swift */,
 				616946E824338E3500C8A965 /* DriveKitPermissionsUtilsUIEntryPoint.swift */,
 				3F03A4DE242C9983000924A0 /* DriveKitVehicleUIEntryPoint.swift */,
+				67C43D0B263ADD3300DBB09D /* DriveKitChallengeUIEntryPoint.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -1724,10 +1741,39 @@
 		67C43CF7263A910D00DBB09D /* DriveKitChallengeUI */ = {
 			isa = PBXGroup;
 			children = (
+				67C43D19263AE25E00DBB09D /* ChallengeList */,
+				67C43D0D263AE04300DBB09D /* Localizable */,
 				67C43CF8263A910D00DBB09D /* DriveKitChallengeUI.h */,
 				67C43CF9263A910D00DBB09D /* Info.plist */,
+				67C43D09263A98B600DBB09D /* DriveKitChallengeUI.swift */,
+				67C43D10263AE0C100DBB09D /* DriveKitChallenge.xcassets */,
 			);
 			path = DriveKitChallengeUI;
+			sourceTree = "<group>";
+		};
+		67C43D0D263AE04300DBB09D /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				67C43D14263AE23600DBB09D /* DKChallengeLocalizable.strings */,
+			);
+			path = Localizable;
+			sourceTree = "<group>";
+		};
+		67C43D19263AE25E00DBB09D /* ChallengeList */ = {
+			isa = PBXGroup;
+			children = (
+				67C43D1A263AE72400DBB09D /* View */,
+			);
+			path = ChallengeList;
+			sourceTree = "<group>";
+		};
+		67C43D1A263AE72400DBB09D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				67C43D1B263AE79F00DBB09D /* ChallengeListVC.swift */,
+				67C43D1C263AE79F00DBB09D /* ChallengeListVC.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		67F2D3192630713700ACC69A /* Ranking */ = {
@@ -2358,6 +2404,7 @@
 					};
 					67C43CF5263A910D00DBB09D = {
 						CreatedOnToolsVersion = 12.5;
+						LastSwiftMigration = 1250;
 					};
 					A34238052361A1FA0001E15D = {
 						CreatedOnToolsVersion = 11.1;
@@ -2505,6 +2552,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67C43D1E263AE79F00DBB09D /* ChallengeListVC.xib in Resources */,
+				67C43D12263AE23600DBB09D /* DKChallengeLocalizable.strings in Resources */,
+				67C43D11263AE0C100DBB09D /* DriveKitChallenge.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2777,6 +2827,7 @@
 				3FF68E88240A727D0071D74C /* DKDatePattern.swift in Sources */,
 				67F2D3522630F06B00ACC69A /* RankingScoreSmall.swift in Sources */,
 				67F2D3682630F07E00ACC69A /* RankingCell.swift in Sources */,
+				67C43D0C263ADD3300DBB09D /* DriveKitChallengeUIEntryPoint.swift in Sources */,
 				A322728C2429125700BF69E1 /* DKImagePicker.swift in Sources */,
 				3F0740EC240400E0005A8D07 /* DKFonts.swift in Sources */,
 				67301C5C261EE900006B0432 /* DKTripsByDate.swift in Sources */,
@@ -2940,6 +2991,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67C43D1D263AE79F00DBB09D /* ChallengeListVC.swift in Sources */,
+				67C43D0A263A98B600DBB09D /* DriveKitChallengeUI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3159,6 +3212,18 @@
 				61765A7C243E307400358CCA /* es */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		67C43D14263AE23600DBB09D /* DKChallengeLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				67C43D13263AE23600DBB09D /* en */,
+				67C43D15263AE23B00DBB09D /* fr */,
+				67C43D16263AE23D00DBB09D /* de */,
+				67C43D17263AE23E00DBB09D /* it */,
+				67C43D18263AE23F00DBB09D /* es */,
+			);
+			name = DKChallengeLocalizable.strings;
 			sourceTree = "<group>";
 		};
 		A342389E2361A2730001E15D /* DriverDataLocalizables.strings */ = {
@@ -3456,6 +3521,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C6CF2F88D8CEC4FD0F65BD58 /* Pods-DriveKitChallengeUI.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -3475,6 +3541,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.drivequant.drivekit-challenge-ui";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -3486,6 +3553,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6ECF11F340D0E58FB40AF162 /* Pods-DriveKitChallengeUI.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

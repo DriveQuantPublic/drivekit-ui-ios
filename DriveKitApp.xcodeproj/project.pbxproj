@@ -730,7 +730,7 @@
 		639F3D2524B624920081DFC3 /* RankingSelectorTypeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingSelectorTypeView.xib; sourceTree = "<group>"; };
 		639F3D2724B626260081DFC3 /* RankingSelectorTypeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingSelectorTypeView.swift; sourceTree = "<group>"; };
 		63B07CD124EFCA110060DF33 /* AnalyticsScreenToTagKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AnalyticsScreenToTagKey.plist; sourceTree = "<group>"; };
-		63B3A19F24AB73460011F11B /* DKRankingSelectorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DKRankingSelectorType.swift; path = ../DKRankingSelectorType.swift; sourceTree = "<group>"; };
+		63B3A19F24AB73460011F11B /* DKRankingSelectorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKRankingSelectorType.swift; sourceTree = "<group>"; };
 		63B3A1A224AB93030011F11B /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
 		63B3A1A624ACBCFB0011F11B /* RankingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingCell.swift; sourceTree = "<group>"; };
 		63B3A1A824ACBFC10011F11B /* RankingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingCell.xib; sourceTree = "<group>"; };

@@ -15,39 +15,39 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feg-JG-Sr7">
-                    <rect key="frame" x="8" y="0.0" width="41.5" height="34"/>
+                    <rect key="frame" x="6" y="0.0" width="41.5" height="28"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="34" id="pIC-0f-qFT"/>
+                        <constraint firstAttribute="height" constant="28" id="pIC-0f-qFT"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FYW-ef-yuT">
-                    <rect key="frame" x="49.5" y="0.0" width="34" height="34"/>
+                    <rect key="frame" x="47.5" y="0.0" width="28" height="28"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="FYW-ef-yuT" secondAttribute="height" multiplier="1:1" id="LEo-yd-tyx"/>
                     </constraints>
-                    <inset key="imageEdgeInsets" minX="8" minY="9" maxX="10" maxY="9"/>
+                    <inset key="imageEdgeInsets" minX="8" minY="6" maxX="4" maxY="6"/>
                     <connections>
                         <action selector="showExplanation" destination="iN0-l3-epB" eventType="touchUpInside" id="pq9-r7-Jz1"/>
                     </connections>
                 </button>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Fwq-Df-0Ac">
-                    <rect key="frame" x="0.0" y="36" width="414" height="164"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Fwq-Df-0Ac">
+                    <rect key="frame" x="0.0" y="30" width="414" height="170"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="POK-HP-OZm">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="132"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="134"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zPt-fz-E6m">
-                                    <rect key="frame" x="0.0" y="0.0" width="207" height="132"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="207" height="134"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="DjJ-HT-ZS7">
-                                    <rect key="frame" x="227" y="0.0" width="187" height="132"/>
+                                    <rect key="frame" x="227" y="0.0" width="187" height="134"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="56p-DK-5pS">
-                                            <rect key="frame" x="0.0" y="0.0" width="187" height="132"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="187" height="134"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         </view>
                                     </subviews>
@@ -67,7 +67,7 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50C-hP-i9v">
-                            <rect key="frame" x="0.0" y="132" width="414" height="32"/>
+                            <rect key="frame" x="0.0" y="138" width="414" height="32"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="32" id="b7r-tR-6MH"/>
                             </constraints>
@@ -83,7 +83,7 @@
                 <constraint firstItem="FYW-ef-yuT" firstAttribute="height" secondItem="feg-JG-Sr7" secondAttribute="height" id="GuC-tv-mWB"/>
                 <constraint firstAttribute="bottom" secondItem="Fwq-Df-0Ac" secondAttribute="bottom" id="Vn5-Dd-lXa"/>
                 <constraint firstItem="Fwq-Df-0Ac" firstAttribute="top" secondItem="feg-JG-Sr7" secondAttribute="bottom" constant="2" id="atI-Uu-OFw"/>
-                <constraint firstItem="feg-JG-Sr7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="e3p-Wv-tbU"/>
+                <constraint firstItem="feg-JG-Sr7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="6" id="e3p-Wv-tbU"/>
                 <constraint firstAttribute="trailing" secondItem="Fwq-Df-0Ac" secondAttribute="trailing" id="l6a-Wa-Yee"/>
                 <constraint firstItem="FYW-ef-yuT" firstAttribute="centerY" secondItem="feg-JG-Sr7" secondAttribute="centerY" id="ljI-3C-MfL"/>
                 <constraint firstItem="FYW-ef-yuT" firstAttribute="leading" secondItem="feg-JG-Sr7" secondAttribute="trailing" id="nXz-CI-N5Z"/>

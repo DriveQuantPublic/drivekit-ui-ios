@@ -122,8 +122,8 @@ public enum SynthesisCard: DKSynthesisCard {
                     textKey = nil
             }
             if let textKey = textKey {
-                let value = String(format: "%.0f%%", percentage).dkAttributedString().color(.primaryColor).font(dkFont: .primary, style: .normalText).build()
-                return textKey.dkDriverDataLocalized().dkAttributedString().color(.mainFontColor).font(dkFont: .primary, style: .normalText).buildWithArgs(value)
+                let value = String(format: "%.0f%%", percentage).dkAttributedString().color(.primaryColor).font(dkFont: .primary, style: .highlightSmall).build()
+                return textKey.dkDriverDataLocalized().dkAttributedString().color(.complementaryFontColor).font(dkFont: .primary, style: .normalText).buildWithArgs(value)
             }
         }
         return nil

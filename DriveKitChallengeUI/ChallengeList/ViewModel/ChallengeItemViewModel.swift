@@ -20,10 +20,10 @@ struct ChallengeItemViewModel {
         startDate = challenge.startDate
         endDate = challenge.endDate
         name = challenge.title
-        if let challengeImage = UIImage(named: String(format : "%d", challenge.iconCode)) {
+        if let challengeImage = UIImage(named: String(format : "%d", challenge.iconCode), in: Bundle.challengeUIBundle, compatibleWith: nil) {
             image = challengeImage
         } else {
-            image = UIImage(named : "101")
+            image = UIImage(named: "101", in: Bundle.challengeUIBundle, compatibleWith: nil)
         }
     }
 

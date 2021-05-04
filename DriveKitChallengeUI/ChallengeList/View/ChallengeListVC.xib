@@ -32,7 +32,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLM-an-2fV">
                     <rect key="frame" x="0.0" y="88" width="414" height="720"/>
                     <subviews>
-                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U5C-gC-I0Y">
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5C-gC-I0Y">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="720"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uLx-bW-Emf">
@@ -41,7 +41,7 @@
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Xs8-B7-6oT">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="722"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KYX-Uj-Fm7">
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="KYX-Uj-Fm7">
                                                 <size key="itemSize" width="128" height="128"/>
                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -55,7 +55,7 @@
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="35G-Cb-I9C">
                                             <rect key="frame" x="414" y="0.0" width="414" height="722"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NjU-0a-vs6">
+                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="NjU-0a-vs6">
                                                 <size key="itemSize" width="128" height="128"/>
                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -108,7 +108,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XLM-an-2fV" secondAttribute="trailing" id="On4-ue-AXV"/>
                 <constraint firstItem="EuP-L7-gEP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cOe-Hb-ySY"/>
                 <constraint firstItem="EuP-L7-gEP" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="fLf-i8-QKY"/>
-                <constraint firstItem="EuP-L7-gEP" firstAttribute="bottom" secondItem="XLM-an-2fV" secondAttribute="bottom" constant="-720" id="oam-QY-Zf8"/>
+                <constraint firstAttribute="bottom" secondItem="XLM-an-2fV" secondAttribute="bottom" id="oam-QY-Zf8"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO"/>
             <point key="canvasLocation" x="37.681159420289859" y="30.803571428571427"/>

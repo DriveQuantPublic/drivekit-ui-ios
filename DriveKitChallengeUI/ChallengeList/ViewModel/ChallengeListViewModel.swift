@@ -25,7 +25,8 @@ public class ChallengeListViewModel {
     public private(set) var currentChallenges: [DKChallenge] = []
     public private(set) var pastChallenges: [DKChallenge] = []
     public weak var delegate: ChallengeListDelegate? = nil
-    
+    public private(set) var selectedTab: ChallengeListTab = .current
+
     func fetchChallenges() {
         delegate?.showLoader()
         DriveKitChallenge.shared.getChallenges { [weak self] status, challenges in
@@ -43,5 +44,9 @@ public class ChallengeListViewModel {
     func updateChallengeArrays() {
         self.currentChallenges = self.challenges.currentChallenges()
         self.pastChallenges = self.challenges.pastChallenges()
+    }
+
+    func updateSelectedTab(challengeTab: ChallengeListTab) {
+        selectedTab = challengeTab
     }
 }

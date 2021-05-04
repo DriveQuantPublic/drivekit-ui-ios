@@ -9,10 +9,17 @@
 import DriveKitCommonUI
 import UIKit
 
+public enum ChallengeListTab {
+    case current, past
+}
+
 class ChallengeListVC: DKUIViewController {
     @IBOutlet private weak var headerContainer: UIView?
+    @IBOutlet private weak var currentTabButton: UIButton?
+    @IBOutlet private weak var pastTabButton: UIButton?
     @IBOutlet private weak var currentChallengesCollectionView: UICollectionView?
     @IBOutlet private weak var pastChallengesCollectionView: UICollectionView?
+    @IBOutlet private weak var parentScrollView: UIScrollView?
     private let viewModel: ChallengeListViewModel
 
     public init() {
@@ -28,17 +35,43 @@ class ChallengeListVC: DKUIViewController {
         super.viewDidLoad()
         self.title = "dk_challenge_menu".dkChallengeLocalized()
         self.viewModel.delegate = self
-        self.currentChallengesCollectionView?.register(UINib(nibName: "NoChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "NoChallengeCellIdentifier")
-        self.currentChallengesCollectionView?.register(UINib(nibName: "ChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "ChallengeCellIdentifier")
-        self.pastChallengesCollectionView?.register(UINib(nibName: "NoChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "NoChallengeCellIdentifier")
-        self.pastChallengesCollectionView?.register(UINib(nibName: "ChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "ChallengeCellIdentifier")
-
+        setupCollectionViews()
         setupHeaders()
         self.viewModel.fetchChallenges()
     }
 
+    func setupCollectionViews() {
+        self.currentChallengesCollectionView?.register(UINib(nibName: "NoChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "NoChallengeCellIdentifier")
+        self.currentChallengesCollectionView?.register(UINib(nibName: "ChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "ChallengeCellIdentifier")
+        self.pastChallengesCollectionView?.register(UINib(nibName: "NoChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "NoChallengeCellIdentifier")
+        self.pastChallengesCollectionView?.register(UINib(nibName: "ChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "ChallengeCellIdentifier")
+    }
+
     func setupHeaders() {
-        
+        self.currentTabButton?.setTitle("dk_challenge_active".dkChallengeLocalized().uppercased(), for: .normal)
+        self.pastTabButton?.setTitle("dk_challenge_finished".dkChallengeLocalized().uppercased(), for: .normal)
+    }
+
+    func updateSelectedTab() {
+        switch self.viewModel.selectedTab {
+        case .current:
+            if let currentChallengesCollectionView = self.currentChallengesCollectionView {
+                self.parentScrollView?.scrollRectToVisible(currentChallengesCollectionView.frame, animated: true)
+            }
+        case .past:
+            if let pastChallengesCollectionView = self.pastChallengesCollectionView {
+                self.parentScrollView?.scrollRectToVisible(pastChallengesCollectionView.frame, animated: true)
+            }
+        }
+    }
+    @IBAction func selectCurrentTab() {
+        viewModel.updateSelectedTab(challengeTab: .current)
+        updateSelectedTab()
+    }
+
+    @IBAction func selectPastTab() {
+        viewModel.updateSelectedTab(challengeTab: .past)
+        updateSelectedTab()
     }
 }
 

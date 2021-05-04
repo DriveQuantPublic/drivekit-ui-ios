@@ -12,8 +12,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChallengeListVC" customModule="DriveKitChallengeUI" customModuleProvider="target">
             <connections>
                 <outlet property="currentChallengesCollectionView" destination="Xs8-B7-6oT" id="zh2-0O-omA"/>
+                <outlet property="currentTabButton" destination="E6z-ve-7Pl" id="2kG-RC-ySw"/>
                 <outlet property="headerContainer" destination="EuP-L7-gEP" id="t6P-Mf-Oqx"/>
+                <outlet property="parentScrollView" destination="U5C-gC-I0Y" id="51a-Oi-tkk"/>
                 <outlet property="pastChallengesCollectionView" destination="35G-Cb-I9C" id="X7n-vO-wT1"/>
+                <outlet property="pastTabButton" destination="Qa0-ek-CNC" id="tXr-6A-7lF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,9 +27,37 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EuP-L7-gEP">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E6z-ve-7Pl">
+                            <rect key="frame" x="0.0" y="0.0" width="207" height="43"/>
+                            <state key="normal" title="Button">
+                                <color key="titleColor" systemColor="opaqueSeparatorColor"/>
+                            </state>
+                            <connections>
+                                <action selector="selectCurrentTab" destination="-1" eventType="touchUpInside" id="D93-Ir-pGQ"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qa0-ek-CNC">
+                            <rect key="frame" x="207" y="0.0" width="207" height="43"/>
+                            <state key="normal" title="Button">
+                                <color key="titleColor" systemColor="opaqueSeparatorColor"/>
+                            </state>
+                            <connections>
+                                <action selector="selectPastTab" destination="-1" eventType="touchUpInside" id="jGd-pp-uLM"/>
+                            </connections>
+                        </button>
+                    </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="Qa0-ek-CNC" secondAttribute="bottom" constant="2" id="0FR-oq-2h9"/>
+                        <constraint firstItem="Qa0-ek-CNC" firstAttribute="top" secondItem="EuP-L7-gEP" secondAttribute="top" id="35b-JV-bos"/>
                         <constraint firstAttribute="height" constant="45" id="8Pc-dy-tQT"/>
+                        <constraint firstItem="E6z-ve-7Pl" firstAttribute="leading" secondItem="EuP-L7-gEP" secondAttribute="leading" id="DNV-1i-4dg"/>
+                        <constraint firstItem="E6z-ve-7Pl" firstAttribute="top" secondItem="EuP-L7-gEP" secondAttribute="top" id="Ybd-ar-TRY"/>
+                        <constraint firstAttribute="bottom" secondItem="E6z-ve-7Pl" secondAttribute="bottom" constant="2" id="aH8-Gr-HGf"/>
+                        <constraint firstAttribute="trailing" secondItem="Qa0-ek-CNC" secondAttribute="trailing" id="b8D-HO-kA3"/>
+                        <constraint firstItem="Qa0-ek-CNC" firstAttribute="leading" secondItem="E6z-ve-7Pl" secondAttribute="trailing" id="bxI-h0-vmT"/>
+                        <constraint firstItem="E6z-ve-7Pl" firstAttribute="width" secondItem="EuP-L7-gEP" secondAttribute="width" multiplier="1:2" id="x4f-od-bAc"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLM-an-2fV">
@@ -115,6 +146,9 @@
         </view>
     </objects>
     <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

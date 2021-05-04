@@ -21,15 +21,27 @@ public protocol ChallengeListDelegate: AnyObject {
 
 
 public class ChallengeListViewModel {
-    public private(set) var challenges: [DKChallenge] = []
+    private var challenges: [DKChallenge] = []
+    public private(set) var currentChallenges: [DKChallenge] = []
+    public private(set) var pastChallenges: [DKChallenge] = []
     public weak var delegate: ChallengeListDelegate? = nil
     
     func fetchChallenges() {
-        DriveKitChallenge.shared.getChallenges { status, challenges in
+        delegate?.showLoader()
+        DriveKitChallenge.shared.getChallenges { [weak self] status, challenges in
             DispatchQueue.main.async {
-                self.challenges = challenges
-                self.delegate?.onChallengesAvailable()
+                if let self = self {
+                    self.delegate?.hideLoader()
+                    self.challenges = challenges
+                    self.delegate?.onChallengesAvailable()
+                    self.updateChallengeArrays()
+                }
             }
         }
+    }
+
+    func updateChallengeArrays() {
+        self.currentChallenges = self.challenges.currentChallenges()
+        self.pastChallenges = self.challenges.pastChallenges()
     }
 }

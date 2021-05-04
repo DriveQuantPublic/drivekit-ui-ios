@@ -34,6 +34,7 @@ class ChallengeListVC: DKUIViewController {
         self.pastChallengesCollectionView?.register(UINib(nibName: "ChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "ChallengeCellIdentifier")
 
         setupHeaders()
+        self.viewModel.fetchChallenges()
     }
 
     func setupHeaders() {
@@ -43,6 +44,8 @@ class ChallengeListVC: DKUIViewController {
 
 extension ChallengeListVC: ChallengeListDelegate {
     func onChallengesAvailable() {
+        currentChallengesCollectionView?.reloadData()
+        pastChallengesCollectionView?.reloadData()
     }
 
     func didReceiveErrorFromService() {
@@ -61,12 +64,58 @@ extension ChallengeListVC: UICollectionViewDelegate {
 
 extension ChallengeListVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == currentChallengesCollectionView {
+            let count = self.viewModel.currentChallenges.count
+            return max(count, 1)
+        } else if collectionView == pastChallengesCollectionView {
+            let count = self.viewModel.pastChallenges.count
+            return max(count, 1)
+        }
         return 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: UICollectionViewCell
-        cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoChallengeCellIdentifier", for: indexPath)
+        if collectionView == currentChallengesCollectionView {
+            let count = self.viewModel.currentChallenges.count
+            if count > 0 {
+                cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChallengeCellIdentifier", for: indexPath)
+                if let challengeCell = cell as? ChallengeCell, indexPath.row < count {
+                    challengeCell.configure(challenge: ChallengeItemViewModel(challenge: self.viewModel.currentChallenges[indexPath.row]))
+                }
+            } else {
+                cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoChallengeCellIdentifier", for: indexPath)
+            }
+        } else if collectionView == pastChallengesCollectionView {
+            let count = self.viewModel.pastChallenges.count
+            if count > 0 {
+                cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChallengeCellIdentifier", for: indexPath)
+                if let challengeCell = cell as? ChallengeCell, indexPath.row < count {
+                    challengeCell.configure(challenge: ChallengeItemViewModel(challenge: self.viewModel.pastChallenges[indexPath.row]))
+                }
+            } else {
+                cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoChallengeCellIdentifier", for: indexPath)
+            }
+        } else {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoChallengeCellIdentifier", for: indexPath)
+        }
         return cell
     }
+}
+
+extension ChallengeListVC: UICollectionViewDelegateFlowLayout {
+    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let height: CGFloat
+        if collectionView == currentChallengesCollectionView {
+            let count = self.viewModel.currentChallenges.count
+            height = (count > 0) ? 95 : 250
+        } else if collectionView == pastChallengesCollectionView {
+            let count = self.viewModel.pastChallenges.count
+            height = (count > 0) ? 95 : 250
+        } else {
+            height = 250
+        }
+        return CGSize(width: collectionView.bounds.width, height: height)
+    }
+
 }

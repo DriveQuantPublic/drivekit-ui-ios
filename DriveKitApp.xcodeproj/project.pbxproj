@@ -288,6 +288,7 @@
 		67C43D532640529300DBB09D /* ChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C43D512640529300DBB09D /* ChallengeCell.swift */; };
 		67C43D542640529300DBB09D /* ChallengeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67C43D522640529300DBB09D /* ChallengeCell.xib */; };
 		67C43D5626409ACE00DBB09D /* ChallengeItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C43D5526409ACE00DBB09D /* ChallengeItemViewModel.swift */; };
+		67C43D592641262500DBB09D /* DKChallenge+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C43D582641262500DBB09D /* DKChallenge+UI.swift */; };
 		67CFE99F25F6425F004D0AE1 /* SpeedingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE99D25F6425F004D0AE1 /* SpeedingPageVC.swift */; };
 		67CFE9A025F6425F004D0AE1 /* SpeedingPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67CFE99E25F6425F004D0AE1 /* SpeedingPageVC.xib */; };
 		67CFE9A725F645EA004D0AE1 /* SpeedingPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */; };
@@ -816,6 +817,7 @@
 		67C43D512640529300DBB09D /* ChallengeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCell.swift; sourceTree = "<group>"; };
 		67C43D522640529300DBB09D /* ChallengeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeCell.xib; sourceTree = "<group>"; };
 		67C43D5526409ACE00DBB09D /* ChallengeItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeItemViewModel.swift; sourceTree = "<group>"; };
+		67C43D582641262500DBB09D /* DKChallenge+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DKChallenge+UI.swift"; sourceTree = "<group>"; };
 		67CFE99D25F6425F004D0AE1 /* SpeedingPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageVC.swift; sourceTree = "<group>"; };
 		67CFE99E25F6425F004D0AE1 /* SpeedingPageVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedingPageVC.xib; sourceTree = "<group>"; };
 		67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageViewModel.swift; sourceTree = "<group>"; };
@@ -1755,6 +1757,7 @@
 		67C43CF7263A910D00DBB09D /* DriveKitChallengeUI */ = {
 			isa = PBXGroup;
 			children = (
+				67C43D572641260400DBB09D /* Extension */,
 				67C43D19263AE25E00DBB09D /* ChallengeList */,
 				67C43D0D263AE04300DBB09D /* Localizable */,
 				67C43CF8263A910D00DBB09D /* DriveKitChallengeUI.h */,
@@ -1811,6 +1814,14 @@
 				67C43D522640529300DBB09D /* ChallengeCell.xib */,
 			);
 			path = cells;
+			sourceTree = "<group>";
+		};
+		67C43D572641260400DBB09D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				67C43D582641262500DBB09D /* DKChallenge+UI.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		67F2D3192630713700ACC69A /* Ranking */ = {
@@ -3032,6 +3043,7 @@
 			files = (
 				67C43D5626409ACE00DBB09D /* ChallengeItemViewModel.swift in Sources */,
 				67C43D4D264047A200DBB09D /* NoChallengeCell.swift in Sources */,
+				67C43D592641262500DBB09D /* DKChallenge+UI.swift in Sources */,
 				67C43D532640529300DBB09D /* ChallengeCell.swift in Sources */,
 				67C43D21263B649500DBB09D /* ChallengeListViewModel.swift in Sources */,
 				67C43D1D263AE79F00DBB09D /* ChallengeListVC.swift in Sources */,

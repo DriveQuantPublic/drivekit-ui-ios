@@ -23,7 +23,7 @@ struct ChallengeItemViewModel {
         if let challengeImage = UIImage(named: String(format : "%d", challenge.iconCode)) {
             image = challengeImage
         } else {
-            image = UIImage(named : "101")!
+            image = UIImage(named : "101")
         }
     }
 

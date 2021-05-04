@@ -26,7 +26,8 @@ class ChallengeCell: UICollectionViewCell {
         challengeDatesLabel.font = DKUIFonts.primary.fonts(size: 14)
         challengeNameLabel.textColor = .black
         challengeNameLabel.font = DKUIFonts.primaryBold.fonts(size: 22)
-        challengeImageView.image = #imageLiteral(resourceName: "Trophy")
+        // TODO: fix image display
+//        challengeImageView.image = #imageLiteral(resourceName: "Trophy")
         challengeDateImage.image = UIImage(named: "Calendar")
     }
 

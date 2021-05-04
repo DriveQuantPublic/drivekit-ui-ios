@@ -7,24 +7,66 @@
 //
 
 import DriveKitCommonUI
+import UIKit
 
 class ChallengeListVC: DKUIViewController {
+    @IBOutlet private weak var headerContainer: UIView?
+    @IBOutlet private weak var currentChallengesCollectionView: UICollectionView?
+    @IBOutlet private weak var pastChallengesCollectionView: UICollectionView?
+    private let viewModel: ChallengeListViewModel
+
+    public init() {
+        self.viewModel = ChallengeListViewModel()
+        super.init(nibName: String(describing: ChallengeListVC.self), bundle: Bundle.challengeUIBundle)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "dk_challenge_menu".dkChallengeLocalized()
+        self.viewModel.delegate = self
+        self.currentChallengesCollectionView?.register(UINib(nibName: "NoChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "NoChallengeCellIdentifier")
+        self.currentChallengesCollectionView?.register(UINib(nibName: "ChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "ChallengeCellIdentifier")
+        self.pastChallengesCollectionView?.register(UINib(nibName: "NoChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "NoChallengeCellIdentifier")
+        self.pastChallengesCollectionView?.register(UINib(nibName: "ChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "ChallengeCellIdentifier")
 
-        // Do any additional setup after loading the view.
+        setupHeaders()
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setupHeaders() {
+        
     }
-    */
+}
 
+extension ChallengeListVC: ChallengeListDelegate {
+    func onChallengesAvailable() {
+    }
+
+    func didReceiveErrorFromService() {
+    }
+
+    func showAlert(_ alertController: UIAlertController) {
+    }
+
+    func showViewController(_ viewController: UIViewController, animated: Bool) {
+    }
+}
+
+extension ChallengeListVC: UICollectionViewDelegate {
+    
+}
+
+extension ChallengeListVC: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 0
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: UICollectionViewCell
+        cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoChallengeCellIdentifier", for: indexPath)
+        return cell
+    }
 }

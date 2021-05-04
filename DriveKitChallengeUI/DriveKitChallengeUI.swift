@@ -28,3 +28,13 @@ extension DriveKitChallengeUI: DriveKitChallengeUIEntryPoint {
     public func getChallengeViewController(challengeId: String, completion: @escaping (UIViewController?) -> ()) {
     }
 }
+
+extension Bundle {
+    static let challengeUIBundle = Bundle(identifier: "com.drivequant.drivekit-challenge-ui")
+}
+
+extension String {
+    public func dkChallengeLocalized() -> String {
+        return self.dkLocalized(tableName: "DKChallengeLocalizable", bundle: Bundle.challengeUIBundle ?? .main)
+    }
+}

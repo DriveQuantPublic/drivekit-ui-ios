@@ -10,6 +10,7 @@ import UIKit
 
 @objc public protocol DKFonts {
     func primaryFont() -> String
+    func primaryBoldFont() -> String
     func secondaryFont() -> String
 }
 
@@ -19,18 +20,23 @@ open class DKDefaultFonts : DKFonts {
     open func primaryFont() -> String {
         return "Roboto"
     }
+    open func primaryBoldFont() -> String {
+        return "Roboto-Bold"
+    }
     open func secondaryFont() -> String {
         return "Roboto"
     }
 }
 
 public enum DKUIFonts {
-    case primary, secondary
+    case primary, primaryBold, secondary
 
     public var name: String {
         switch self {
         case .primary:
             return DriveKitUI.shared.fonts.primaryFont()
+        case .primaryBold:
+            return DriveKitUI.shared.fonts.primaryBoldFont()
         case .secondary:
             return DriveKitUI.shared.fonts.secondaryFont()
         }

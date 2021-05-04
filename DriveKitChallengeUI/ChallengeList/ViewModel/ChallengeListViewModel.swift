@@ -33,8 +33,8 @@ public class ChallengeListViewModel {
                 if let self = self {
                     self.delegate?.hideLoader()
                     self.challenges = challenges
-                    self.delegate?.onChallengesAvailable()
                     self.updateChallengeArrays()
+                    self.delegate?.onChallengesAvailable()
                 }
             }
         }

@@ -85,6 +85,9 @@ extension ChallengeListVC: UICollectionViewDataSource {
                 }
             } else {
                 cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoChallengeCellIdentifier", for: indexPath)
+                if let noChallengeCell = cell as? NoChallengeCell {
+                    noChallengeCell.configure(viewModel: NoChallengeViewModel(text: "dk_challenge_no_active_challenge".dkChallengeLocalized(), image: UIImage(named: "waiting", in: .challengeUIBundle, compatibleWith: nil)))
+                }
             }
         } else if collectionView == pastChallengesCollectionView {
             let count = self.viewModel.pastChallenges.count
@@ -95,6 +98,9 @@ extension ChallengeListVC: UICollectionViewDataSource {
                 }
             } else {
                 cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoChallengeCellIdentifier", for: indexPath)
+                if let noChallengeCell = cell as? NoChallengeCell {
+                    noChallengeCell.configure(viewModel: NoChallengeViewModel(text: "dk_challenge_no_finished_challenge".dkChallengeLocalized(), image: UIImage(named: "finish_flag", in: .challengeUIBundle, compatibleWith: nil)))
+                }
             }
         } else {
             cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoChallengeCellIdentifier", for: indexPath)
@@ -108,12 +114,12 @@ extension ChallengeListVC: UICollectionViewDelegateFlowLayout {
         let height: CGFloat
         if collectionView == currentChallengesCollectionView {
             let count = self.viewModel.currentChallenges.count
-            height = (count > 0) ? 124 : 250
+            height = (count > 0) ? 124 : collectionView.bounds.height
         } else if collectionView == pastChallengesCollectionView {
             let count = self.viewModel.pastChallenges.count
-            height = (count > 0) ? 124 : 250
+            height = (count > 0) ? 124 : collectionView.bounds.height
         } else {
-            height = 250
+            height = collectionView.bounds.height
         }
         return CGSize(width: collectionView.bounds.width, height: height)
     }

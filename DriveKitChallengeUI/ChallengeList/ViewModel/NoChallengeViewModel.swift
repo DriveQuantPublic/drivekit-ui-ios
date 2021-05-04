@@ -11,12 +11,12 @@ import DriveKitCommonUI
 
 struct NoChallengeViewModel {
     let text: String
-    let image: UIImage
+    let image: UIImage?
     let backgroundColor: UIColor
     let textColor: UIColor
 
     init(text: String,
-         image: UIImage,
+         image: UIImage?,
          backgroundColor: UIColor = DKUIColors.backgroundView.color,
          textColor: UIColor = .black ) {
 

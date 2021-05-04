@@ -18,6 +18,9 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvl-Qf-M32">
                         <rect key="frame" x="16" y="208" width="343" height="42"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="42" id="DSL-gW-9pL"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -35,7 +38,6 @@
                 <constraint firstItem="yZT-Ys-rKC" firstAttribute="centerY" secondItem="rp4-CA-rMW" secondAttribute="centerY" id="CO7-ya-tnO"/>
                 <constraint firstItem="yZT-Ys-rKC" firstAttribute="centerX" secondItem="rp4-CA-rMW" secondAttribute="centerX" id="FNA-lA-zLN"/>
                 <constraint firstItem="bvl-Qf-M32" firstAttribute="top" secondItem="yZT-Ys-rKC" secondAttribute="bottom" id="KsK-Wa-ZpO"/>
-                <constraint firstAttribute="bottom" secondItem="bvl-Qf-M32" secondAttribute="bottom" id="N6R-ZJ-ekP"/>
                 <constraint firstItem="bvl-Qf-M32" firstAttribute="leading" secondItem="rp4-CA-rMW" secondAttribute="leading" constant="16" id="X6g-2a-JwF"/>
                 <constraint firstAttribute="trailing" secondItem="bvl-Qf-M32" secondAttribute="trailing" constant="16" id="cF8-2t-qXp"/>
             </constraints>

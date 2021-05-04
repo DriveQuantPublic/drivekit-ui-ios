@@ -16,7 +16,7 @@ class NoChallengeCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        label.font = DKUIFonts.primary.fonts(size: 16)
+        label.font = DKUIFonts.primary.fonts(size: 16).with(.traitBold)
     }
     
     func configure(viewModel: NoChallengeViewModel) {

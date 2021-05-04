@@ -15,6 +15,7 @@ class ChallengeCell: UICollectionViewCell {
     @IBOutlet var challengeNameLabel: UILabel!
     @IBOutlet weak var challengeDateImage: UIImageView!
     @IBOutlet var whiteBackgroundView: UIView!
+    private let grayColor = UIColor(hex:0x9e9e9e)
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,11 +29,10 @@ class ChallengeCell: UICollectionViewCell {
         self.whiteBackgroundView?.layer.shadowColor = UIColor.black.cgColor
         self.whiteBackgroundView?.layer.shadowOffset = CGSize(width: 1, height: 1)
 
-        // TODO: move the color into constants or DKColors
-        challengeDatesLabel.textColor = UIColor.init(hex: 0x6E6E6E)
+        challengeDatesLabel.textColor = grayColor
         challengeDatesLabel.font = DKUIFonts.primary.fonts(size: 14)
-        challengeNameLabel.textColor = .black
-        challengeNameLabel.font = DKUIFonts.primaryBold.fonts(size: 22)
+        challengeNameLabel.textColor = DKUIColors.mainFontColor.color
+        challengeNameLabel.font = DKUIFonts.primary.fonts(size: 22).with(.traitBold)
         challengeImageView.image = UIImage(named: "Trophy", in: Bundle.challengeUIBundle, compatibleWith: nil)
         challengeDateImage.image = UIImage(named: "dk_common_calendar", in: Bundle.driveKitCommonUIBundle, compatibleWith: nil)
     }

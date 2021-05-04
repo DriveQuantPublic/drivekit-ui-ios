@@ -45,11 +45,15 @@ class ChallengeListVC: DKUIViewController {
         self.currentChallengesCollectionView?.register(UINib(nibName: "ChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "ChallengeCellIdentifier")
         self.pastChallengesCollectionView?.register(UINib(nibName: "NoChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "NoChallengeCellIdentifier")
         self.pastChallengesCollectionView?.register(UINib(nibName: "ChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "ChallengeCellIdentifier")
+        self.currentChallengesCollectionView?.backgroundColor = DKUIColors.backgroundView.color
+        self.pastChallengesCollectionView?.backgroundColor = DKUIColors.backgroundView.color
     }
 
     func setupHeaders() {
         self.currentTabButton?.setTitle("dk_challenge_active".dkChallengeLocalized().uppercased(), for: .normal)
         self.pastTabButton?.setTitle("dk_challenge_finished".dkChallengeLocalized().uppercased(), for: .normal)
+        self.currentTabButton?.setTitleColor(DKUIColors.mainFontColor.color, for: .normal)
+        self.pastTabButton?.setTitleColor(DKUIColors.mainFontColor.color, for: .normal)
     }
 
     func updateSelectedTab() {
@@ -64,6 +68,7 @@ class ChallengeListVC: DKUIViewController {
             }
         }
     }
+
     @IBAction func selectCurrentTab() {
         viewModel.updateSelectedTab(challengeTab: .current)
         updateSelectedTab()
@@ -157,4 +162,12 @@ extension ChallengeListVC: UICollectionViewDelegateFlowLayout {
         return CGSize(width: collectionView.bounds.width, height: height)
     }
 
+}
+
+extension ChallengeListVC: UIScrollViewDelegate {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView)  {
+        let currentPageIndex = Int(scrollView.contentOffset.x / scrollView.frame.width)
+// TODO: update header after a scroll end
+//        print("currentPageIndex \(currentPageIndex)")
+    }
 }

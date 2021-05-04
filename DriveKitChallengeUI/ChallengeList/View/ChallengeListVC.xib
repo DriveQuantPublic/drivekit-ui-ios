@@ -29,7 +29,8 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E6z-ve-7Pl">
-                            <rect key="frame" x="0.0" y="0.0" width="207" height="43"/>
+                            <rect key="frame" x="0.0" y="0.0" width="207" height="45"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                             <state key="normal" title="Button">
                                 <color key="titleColor" systemColor="opaqueSeparatorColor"/>
                             </state>
@@ -38,7 +39,8 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qa0-ek-CNC">
-                            <rect key="frame" x="207" y="0.0" width="207" height="43"/>
+                            <rect key="frame" x="207" y="0.0" width="207" height="45"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                             <state key="normal" title="Button">
                                 <color key="titleColor" systemColor="opaqueSeparatorColor"/>
                             </state>
@@ -49,12 +51,12 @@
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="Qa0-ek-CNC" secondAttribute="bottom" constant="2" id="0FR-oq-2h9"/>
                         <constraint firstItem="Qa0-ek-CNC" firstAttribute="top" secondItem="EuP-L7-gEP" secondAttribute="top" id="35b-JV-bos"/>
                         <constraint firstAttribute="height" constant="45" id="8Pc-dy-tQT"/>
                         <constraint firstItem="E6z-ve-7Pl" firstAttribute="leading" secondItem="EuP-L7-gEP" secondAttribute="leading" id="DNV-1i-4dg"/>
+                        <constraint firstAttribute="bottom" secondItem="E6z-ve-7Pl" secondAttribute="bottom" id="LHx-cJ-JiV"/>
+                        <constraint firstAttribute="bottom" secondItem="Qa0-ek-CNC" secondAttribute="bottom" id="WOH-I8-xkp"/>
                         <constraint firstItem="E6z-ve-7Pl" firstAttribute="top" secondItem="EuP-L7-gEP" secondAttribute="top" id="Ybd-ar-TRY"/>
-                        <constraint firstAttribute="bottom" secondItem="E6z-ve-7Pl" secondAttribute="bottom" constant="2" id="aH8-Gr-HGf"/>
                         <constraint firstAttribute="trailing" secondItem="Qa0-ek-CNC" secondAttribute="trailing" id="b8D-HO-kA3"/>
                         <constraint firstItem="Qa0-ek-CNC" firstAttribute="leading" secondItem="E6z-ve-7Pl" secondAttribute="trailing" id="bxI-h0-vmT"/>
                         <constraint firstItem="E6z-ve-7Pl" firstAttribute="width" secondItem="EuP-L7-gEP" secondAttribute="width" multiplier="1:2" id="x4f-od-bAc"/>
@@ -117,6 +119,9 @@
                                 <constraint firstAttribute="bottom" secondItem="uLx-bW-Emf" secondAttribute="bottom" id="OlM-Dw-PE9"/>
                                 <constraint firstItem="uLx-bW-Emf" firstAttribute="width" secondItem="U5C-gC-I0Y" secondAttribute="width" multiplier="2" id="bM6-Pr-9va"/>
                             </constraints>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="Ogr-Iz-WAy"/>
+                            </connections>
                         </scrollView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>

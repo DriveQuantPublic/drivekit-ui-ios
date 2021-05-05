@@ -50,6 +50,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="waiting" width="166.5" height="166.5"/>
+        <image name="waiting" width="166" height="166"/>
     </resources>
 </document>

@@ -10,11 +10,11 @@ import UIKit
 import DriveKitCommonUI
 
 class ChallengeCell: UICollectionViewCell {
-    @IBOutlet var challengeImageView: UIImageView!
-    @IBOutlet var challengeDatesLabel: UILabel!
-    @IBOutlet var challengeNameLabel: UILabel!
-    @IBOutlet weak var challengeDateImage: UIImageView!
-    @IBOutlet var whiteBackgroundView: UIView!
+    @IBOutlet private var challengeImageView: UIImageView!
+    @IBOutlet private var challengeDatesLabel: UILabel!
+    @IBOutlet private var challengeNameLabel: UILabel!
+    @IBOutlet private weak var challengeDateImage: UIImageView!
+    @IBOutlet private var whiteBackgroundView: UIView!
     private let grayColor = UIColor(hex:0x9e9e9e)
 
     override func awakeFromNib() {
@@ -33,12 +33,12 @@ class ChallengeCell: UICollectionViewCell {
         challengeDatesLabel.font = DKUIFonts.primary.fonts(size: 14)
         challengeNameLabel.textColor = DKUIColors.mainFontColor.color
         challengeNameLabel.font = DKUIFonts.primary.fonts(size: 22).with(.traitBold)
-        challengeImageView.image = UIImage(named: "Trophy", in: Bundle.challengeUIBundle, compatibleWith: nil)
+        challengeImageView.image = UIImage(named: "101", in: Bundle.challengeUIBundle, compatibleWith: nil)
         challengeDateImage.image = UIImage(named: "dk_common_calendar", in: Bundle.driveKitCommonUIBundle, compatibleWith: nil)
     }
 
     func configure(challenge: ChallengeItemViewModel) {
-        challengeDatesLabel.attributedText = ChallengeItemViewModel.formatStartAndEndDates(startDate: challenge.startDate, endDate: challenge.endDate)
+        challengeDatesLabel.attributedText = ChallengeItemViewModel.formatStartAndEndDates(startDate: challenge.startDate, endDate: challenge.endDate, tintColor: grayColor)
         challengeNameLabel.text = challenge.name
         challengeImageView.image = challenge.image
     }

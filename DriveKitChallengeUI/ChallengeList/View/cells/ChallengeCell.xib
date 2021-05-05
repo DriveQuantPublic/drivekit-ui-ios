@@ -38,7 +38,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="aD2-Dc-vxf">
-                                <rect key="frame" x="120" y="45" width="209" height="60"/>
+                                <rect key="frame" x="120" y="45" width="221" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="750" verticalCompressionResistancePriority="749" text="Ceci est un nom de challenge tres tres long" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQC-TV-7rs">
                                         <rect key="frame" x="0.0" y="0.0" width="178" height="41"/>
@@ -47,7 +47,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HWN-Hs-cky">
-                                        <rect key="frame" x="0.0" y="45" width="209" height="15"/>
+                                        <rect key="frame" x="0.0" y="45" width="221" height="15"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tmr-RA-cCN">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="15"/>
@@ -69,7 +69,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Du 20 Avril au 5 juin 2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVD-Es-zJA">
-                                                <rect key="frame" x="30" y="0.0" width="179" height="15"/>
+                                                <rect key="frame" x="30" y="0.0" width="191" height="15"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -82,7 +82,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="X6m-ye-n7b" secondAttribute="bottom" constant="20" id="2B1-GN-bS6"/>
-                            <constraint firstAttribute="trailing" secondItem="aD2-Dc-vxf" secondAttribute="trailing" constant="20" id="NhC-Zd-aI1"/>
+                            <constraint firstAttribute="trailing" secondItem="aD2-Dc-vxf" secondAttribute="trailing" constant="8" id="NhC-Zd-aI1"/>
                             <constraint firstItem="X6m-ye-n7b" firstAttribute="leading" secondItem="SJQ-aO-uad" secondAttribute="leading" constant="20" id="e9m-AW-07j"/>
                             <constraint firstItem="X6m-ye-n7b" firstAttribute="top" secondItem="SJQ-aO-uad" secondAttribute="top" constant="20" id="ffQ-3L-3Xw"/>
                             <constraint firstItem="aD2-Dc-vxf" firstAttribute="leading" secondItem="X6m-ye-n7b" secondAttribute="trailing" id="qNX-ls-dtA"/>

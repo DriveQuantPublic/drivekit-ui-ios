@@ -51,10 +51,17 @@
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sdg-Ba-jzG">
-                            <rect key="frame" x="0.0" y="43" width="240" height="2"/>
+                            <rect key="frame" x="0.0" y="43" width="240" height="1"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="2" id="OY5-w8-W8F"/>
+                                <constraint firstAttribute="height" constant="1" id="OY5-w8-W8F"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wZH-sL-ZBl">
+                            <rect key="frame" x="0.0" y="44" width="414" height="1"/>
+                            <color key="backgroundColor" systemColor="separatorColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="GyK-e2-Kdk"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -62,15 +69,18 @@
                     <constraints>
                         <constraint firstItem="Qa0-ek-CNC" firstAttribute="top" secondItem="EuP-L7-gEP" secondAttribute="top" id="35b-JV-bos"/>
                         <constraint firstAttribute="height" constant="45" id="8Pc-dy-tQT"/>
-                        <constraint firstAttribute="bottom" secondItem="sdg-Ba-jzG" secondAttribute="bottom" id="COV-zd-iCM"/>
+                        <constraint firstAttribute="bottom" secondItem="sdg-Ba-jzG" secondAttribute="bottom" constant="1" id="COV-zd-iCM"/>
                         <constraint firstItem="E6z-ve-7Pl" firstAttribute="leading" secondItem="EuP-L7-gEP" secondAttribute="leading" id="DNV-1i-4dg"/>
                         <constraint firstItem="sdg-Ba-jzG" firstAttribute="width" secondItem="E6z-ve-7Pl" secondAttribute="width" multiplier="1.15942" id="I9f-Q5-X9G"/>
                         <constraint firstAttribute="bottom" secondItem="E6z-ve-7Pl" secondAttribute="bottom" id="LHx-cJ-JiV"/>
                         <constraint firstAttribute="bottom" secondItem="Qa0-ek-CNC" secondAttribute="bottom" id="WOH-I8-xkp"/>
                         <constraint firstItem="E6z-ve-7Pl" firstAttribute="top" secondItem="EuP-L7-gEP" secondAttribute="top" id="Ybd-ar-TRY"/>
+                        <constraint firstAttribute="bottom" secondItem="wZH-sL-ZBl" secondAttribute="bottom" id="Yd6-pa-Mrt"/>
                         <constraint firstAttribute="trailing" secondItem="Qa0-ek-CNC" secondAttribute="trailing" id="b8D-HO-kA3"/>
                         <constraint firstItem="Qa0-ek-CNC" firstAttribute="leading" secondItem="E6z-ve-7Pl" secondAttribute="trailing" id="bxI-h0-vmT"/>
                         <constraint firstItem="sdg-Ba-jzG" firstAttribute="leading" secondItem="EuP-L7-gEP" secondAttribute="leading" id="fon-Zm-5nK"/>
+                        <constraint firstAttribute="trailing" secondItem="wZH-sL-ZBl" secondAttribute="trailing" id="leD-3h-0kR"/>
+                        <constraint firstItem="wZH-sL-ZBl" firstAttribute="leading" secondItem="EuP-L7-gEP" secondAttribute="leading" id="wkv-73-vmt"/>
                         <constraint firstItem="E6z-ve-7Pl" firstAttribute="width" secondItem="EuP-L7-gEP" secondAttribute="width" multiplier="1:2" id="x4f-od-bAc"/>
                     </constraints>
                 </view>
@@ -165,6 +175,9 @@
     <resources>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

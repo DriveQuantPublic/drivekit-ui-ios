@@ -29,8 +29,7 @@ struct ChallengeItemViewModel {
 
     static func formatStartAndEndDates(startDate: Date,
                                        endDate: Date,
-                                       // TODO: move the color into constants or DKColors
-                                       tintColor: UIColor = UIColor.init(hex: 0x9E9E9E),
+                                       tintColor: UIColor,
                               alignment: NSTextAlignment = NSTextAlignment.left) -> NSAttributedString {
 
         let paragraphStyle = NSMutableParagraphStyle()

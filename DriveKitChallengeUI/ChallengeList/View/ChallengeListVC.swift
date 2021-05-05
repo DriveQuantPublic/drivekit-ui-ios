@@ -15,6 +15,8 @@ public enum ChallengeListTab {
 
 class ChallengeListVC: DKUIViewController {
     @IBOutlet private weak var headerContainer: UIView?
+    @IBOutlet private weak var selectorHighlightView: UIView?
+    @IBOutlet private weak var highlightConstraint: NSLayoutConstraint?
     @IBOutlet private weak var currentTabButton: UIButton?
     @IBOutlet private weak var pastTabButton: UIButton?
     @IBOutlet private weak var currentChallengesCollectionView: UICollectionView?
@@ -54,6 +56,7 @@ class ChallengeListVC: DKUIViewController {
         self.pastTabButton?.setTitle("dk_challenge_finished".dkChallengeLocalized().uppercased(), for: .normal)
         self.currentTabButton?.setTitleColor(DKUIColors.mainFontColor.color, for: .normal)
         self.pastTabButton?.setTitleColor(DKUIColors.mainFontColor.color, for: .normal)
+        self.selectorHighlightView?.backgroundColor = DKUIColors.secondaryColor.color
     }
 
     func updateSelectedTab() {
@@ -165,9 +168,9 @@ extension ChallengeListVC: UICollectionViewDelegateFlowLayout {
 }
 
 extension ChallengeListVC: UIScrollViewDelegate {
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView)  {
-        let currentPageIndex = Int(scrollView.contentOffset.x / scrollView.frame.width)
-// TODO: update header after a scroll end
-//        print("currentPageIndex \(currentPageIndex)")
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView == parentScrollView {
+            self.highlightConstraint?.constant = scrollView.contentOffset.x / 2
+        }
     }
 }

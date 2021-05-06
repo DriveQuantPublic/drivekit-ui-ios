@@ -20,10 +20,10 @@
                         <rect key="frame" x="8" y="8" width="349" height="150"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X6m-ye-n7b">
-                                <rect key="frame" x="20" y="20" width="100" height="110"/>
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="150"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JOR-2p-TpJ">
-                                        <rect key="frame" x="10" y="15" width="80" height="80"/>
+                                        <rect key="frame" x="10" y="35" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="JOR-2p-TpJ" secondAttribute="height" multiplier="1:1" id="9sP-1b-soD"/>
                                             <constraint firstAttribute="height" constant="80" id="Xci-VH-PVW"/>
@@ -38,16 +38,16 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="aD2-Dc-vxf">
-                                <rect key="frame" x="120" y="45" width="221" height="60"/>
+                                <rect key="frame" x="100" y="45" width="241" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="750" verticalCompressionResistancePriority="749" text="Ceci est un nom de challenge tres tres long" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQC-TV-7rs">
-                                        <rect key="frame" x="0.0" y="0.0" width="178" height="41"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="228.5" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HWN-Hs-cky">
-                                        <rect key="frame" x="0.0" y="45" width="221" height="15"/>
+                                        <rect key="frame" x="0.0" y="45" width="223" height="15"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tmr-RA-cCN">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="15"/>
@@ -69,7 +69,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Du 20 Avril au 5 juin 2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVD-Es-zJA">
-                                                <rect key="frame" x="30" y="0.0" width="191" height="15"/>
+                                                <rect key="frame" x="30" y="0.0" width="193" height="15"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -81,10 +81,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="X6m-ye-n7b" secondAttribute="bottom" constant="20" id="2B1-GN-bS6"/>
+                            <constraint firstAttribute="bottom" secondItem="X6m-ye-n7b" secondAttribute="bottom" id="2B1-GN-bS6"/>
                             <constraint firstAttribute="trailing" secondItem="aD2-Dc-vxf" secondAttribute="trailing" constant="8" id="NhC-Zd-aI1"/>
-                            <constraint firstItem="X6m-ye-n7b" firstAttribute="leading" secondItem="SJQ-aO-uad" secondAttribute="leading" constant="20" id="e9m-AW-07j"/>
-                            <constraint firstItem="X6m-ye-n7b" firstAttribute="top" secondItem="SJQ-aO-uad" secondAttribute="top" constant="20" id="ffQ-3L-3Xw"/>
+                            <constraint firstItem="X6m-ye-n7b" firstAttribute="leading" secondItem="SJQ-aO-uad" secondAttribute="leading" id="e9m-AW-07j"/>
+                            <constraint firstItem="X6m-ye-n7b" firstAttribute="top" secondItem="SJQ-aO-uad" secondAttribute="top" id="ffQ-3L-3Xw"/>
                             <constraint firstItem="aD2-Dc-vxf" firstAttribute="leading" secondItem="X6m-ye-n7b" secondAttribute="trailing" id="qNX-ls-dtA"/>
                             <constraint firstItem="aD2-Dc-vxf" firstAttribute="centerY" secondItem="SJQ-aO-uad" secondAttribute="centerY" id="twH-ZY-is6"/>
                         </constraints>

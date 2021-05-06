@@ -155,10 +155,18 @@ extension ChallengeListVC: UICollectionViewDelegateFlowLayout {
         let height: CGFloat
         if collectionView == currentChallengesCollectionView {
             let count = self.viewModel.currentChallenges.count
-            height = (count > 0) ? 124 : collectionView.bounds.height
+            if indexPath.row < count {
+                height = self.viewModel.expectedCellHeight(challenge: self.viewModel.currentChallenges[indexPath.row], viewWdth: collectionView.frame.width)
+            } else {
+                height = collectionView.bounds.height
+            }
         } else if collectionView == pastChallengesCollectionView {
             let count = self.viewModel.pastChallenges.count
-            height = (count > 0) ? 124 : collectionView.bounds.height
+            if indexPath.row < count {
+                height = self.viewModel.expectedCellHeight(challenge: self.viewModel.pastChallenges[indexPath.row], viewWdth: collectionView.frame.width)
+            } else {
+                height = collectionView.bounds.height
+            }
         } else {
             height = collectionView.bounds.height
         }

@@ -8,6 +8,7 @@
 
 import DriveKitChallengeModule
 import DriveKitDBChallengeAccessModule
+import DriveKitCommonUI
 import UIKit
 
 public protocol ChallengeListDelegate: AnyObject {
@@ -48,5 +49,11 @@ public class ChallengeListViewModel {
 
     func updateSelectedTab(challengeTab: ChallengeListTab) {
         selectedTab = challengeTab
+    }
+    func expectedCellHeight(challenge: DKChallenge, viewWdth: CGFloat) -> CGFloat {
+        let width = viewWdth - 124
+        let attributedText: NSAttributedString = NSAttributedString(string: challenge.title, attributes: [.font: DKUIFonts.primary.fonts(size: 22).with(.traitBold)])
+        let expectedRect = attributedText.boundingRect(with: CGSize(width: width, height: 600), options: .usesLineFragmentOrigin, context: nil)
+        return max(124.0, expectedRect.height + 83)
     }
 }

@@ -19,17 +19,12 @@
 		3F0740F02404263D005A8D07 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F0740EE2404263D005A8D07 /* Roboto-Bold.ttf */; };
 		3F0740F3240426C0005A8D07 /* UIColor+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0740F2240426C0005A8D07 /* UIColor+DK.swift */; };
 		3F0F6B89257F8ACC00EE7AB3 /* TripListConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F6B88257F8ACC00EE7AB3 /* TripListConfiguration.swift */; };
-		3F38C26123696EE0002E873A /* TripInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F38C25F23696EE0002E873A /* TripInfoView.xib */; };
-		3F38C26223696EE0002E873A /* TripInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C26023696EE0002E873A /* TripInfoView.swift */; };
 		3F38C2692369BD60002E873A /* TripTipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C2672369BD5F002E873A /* TripTipViewController.swift */; };
 		3F38C26A2369BD60002E873A /* TripTipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F38C2682369BD60002E873A /* TripTipViewController.xib */; };
 		3F38C26D2369CC10002E873A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F38C26F2369CC10002E873A /* Localizable.strings */; };
 		3F38C2752369D6ED002E873A /* NotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C2742369D6ED002E873A /* NotificationSender.swift */; };
 		3F3E72F5256F9415002B5E30 /* DKMapItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E72F4256F9415002B5E30 /* DKMapItem.swift */; };
 		3F3E72FC256F9B71002B5E30 /* DKTripDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E72FB256F9B71002B5E30 /* DKTripDetailViewModel.swift */; };
-		3F3E735A2570111C002B5E30 /* DKHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E73592570111C002B5E30 /* DKHeader.swift */; };
-		3F3E73A925715B47002B5E30 /* DKTripInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E73A825715B47002B5E30 /* DKTripInfo.swift */; };
-		3F3E73B025715BE8002B5E30 /* AdviceTripInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E73AF25715BE8002B5E30 /* AdviceTripInfo.swift */; };
 		3F50D6F52417945B001226F7 /* BluetoothViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D6F42417945B001226F7 /* BluetoothViewModel.swift */; };
 		3F50D6FE24179467001226F7 /* SuccessBluetoothVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D6F624179466001226F7 /* SuccessBluetoothVC.swift */; };
 		3F50D6FF24179467001226F7 /* SelectBluetoothVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D6F724179466001226F7 /* SelectBluetoothVC.swift */; };
@@ -199,13 +194,6 @@
 		61D29B7424361CD70094CA5B /* DriveKitPermissionsUtilsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616946D9243337D600C8A965 /* DriveKitPermissionsUtilsUI.framework */; };
 		61D29B7524361CD70094CA5B /* DriveKitPermissionsUtilsUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 616946D9243337D600C8A965 /* DriveKitPermissionsUtilsUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		61D29B7924362C720094CA5B /* DKReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D29B7824362C720094CA5B /* DKReachability.swift */; };
-		63041F9E24AE005E0028CAE8 /* RankingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63041F9D24AE005E0028CAE8 /* RankingViewController.xib */; };
-		63041FA224AE0A680028CAE8 /* RankingSelectorsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63041FA124AE0A680028CAE8 /* RankingSelectorsView.xib */; };
-		63041FA424AE2C600028CAE8 /* RankingScoreBig.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63041FA324AE2C600028CAE8 /* RankingScoreBig.xib */; };
-		63041FA624AE2FB80028CAE8 /* RankingScoreSmall.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63041FA524AE2FB70028CAE8 /* RankingScoreSmall.xib */; };
-		63041FA824AE36C10028CAE8 /* RankingSelectorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63041FA724AE36C10028CAE8 /* RankingSelectorsView.swift */; };
-		63041FAA24AE3B2E0028CAE8 /* RankingScoreBig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63041FA924AE3B2E0028CAE8 /* RankingScoreBig.swift */; };
-		63041FAC24AE3B680028CAE8 /* RankingScoreSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63041FAB24AE3B680028CAE8 /* RankingScoreSmall.swift */; };
 		6307ED8A2625DC9500CB7EED /* SynthesisCardTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6307ED892625DC9500CB7EED /* SynthesisCardTest.swift */; };
 		63199A6B24EC132E0011DCFC /* DKLocationAccuracy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63199A6A24EC132E0011DCFC /* DKLocationAccuracy.swift */; };
 		63199A6E24ED7C250011DCFC /* DKAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63199A6D24ED7C250011DCFC /* DKAnalytics.swift */; };
@@ -224,12 +212,9 @@
 		63782D952487A23E0079F315 /* VehiclePickerTruckTypeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63782D942487A23D0079F315 /* VehiclePickerTruckTypeVC.xib */; };
 		63782D972487A5DD0079F315 /* VehiclePickerTruckTypeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63782D962487A5DD0079F315 /* VehiclePickerTruckTypeHeader.swift */; };
 		63782D992487A6500079F315 /* VehiclePickerTruckTypeHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63782D982487A6500079F315 /* VehiclePickerTruckTypeHeader.xib */; };
-		6378AF682593F470002F0BBD /* AlternativeTripImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378AF662593F46F002F0BBD /* AlternativeTripImageView.swift */; };
-		6378AF692593F470002F0BBD /* AlternativeTripImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6378AF672593F470002F0BBD /* AlternativeTripImageView.xib */; };
 		6378BBE0244D9BC70040A114 /* SensorStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378BBDF244D9BC70040A114 /* SensorStateViewModel.swift */; };
 		6378BBE2244D9C060040A114 /* DiagnosisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378BBE1244D9C060040A114 /* DiagnosisViewModel.swift */; };
 		6378BBE4244DA47B0040A114 /* StatusType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378BBE3244DA47B0040A114 /* StatusType.swift */; };
-		6382109C24B71CF500A42D95 /* RankingSelectorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6382109B24B71CF500A42D95 /* RankingSelectorButton.swift */; };
 		638AC038261F8FFB00602B52 /* SynthesisCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638AC037261F8FFB00602B52 /* SynthesisCardsView.swift */; };
 		638AC03F261F903300602B52 /* SynthesisCardsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638AC03E261F903300602B52 /* SynthesisCardsView.xib */; };
 		638AC046261F970E00602B52 /* SynthesisCardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638AC045261F970E00602B52 /* SynthesisCardsViewModel.swift */; };
@@ -244,14 +229,8 @@
 		639346B724489DDA000F42D4 /* DiagnosisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639346B624489DDA000F42D4 /* DiagnosisViewController.swift */; };
 		639346B92448A8FD000F42D4 /* RequestPermissionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639346B82448A8FD000F42D4 /* RequestPermissionHelper.swift */; };
 		639F3D2124B5C8F10081DFC3 /* RankingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F3D2024B5C8F10081DFC3 /* RankingStatus.swift */; };
-		639F3D2624B624930081DFC3 /* RankingSelectorTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639F3D2524B624920081DFC3 /* RankingSelectorTypeView.xib */; };
-		639F3D2824B626270081DFC3 /* RankingSelectorTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F3D2724B626260081DFC3 /* RankingSelectorTypeView.swift */; };
 		63B07CD224EFCA110060DF33 /* AnalyticsScreenToTagKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63B07CD124EFCA110060DF33 /* AnalyticsScreenToTagKey.plist */; };
 		63B3A1A024AB73460011F11B /* DKRankingSelectorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B3A19F24AB73460011F11B /* DKRankingSelectorType.swift */; };
-		63B3A1A324AB93030011F11B /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B3A1A224AB93030011F11B /* RankingViewController.swift */; };
-		63B3A1A724ACBCFB0011F11B /* RankingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B3A1A624ACBCFB0011F11B /* RankingCell.swift */; };
-		63B3A1A924ACBFC10011F11B /* RankingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63B3A1A824ACBFC10011F11B /* RankingCell.xib */; };
-		63B3A1AB24ACC3810011F11B /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B3A1AA24ACC3810011F11B /* CircleView.swift */; };
 		63BF8EFA24531011006BEB3F /* DKContactType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639346B4244897C1000F42D4 /* DKContactType.swift */; };
 		63C3FD78244EDDA900C2FEEC /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3FD77244EDDA900C2FEEC /* ContactViewModel.swift */; };
 		63C3FD7C244EE56C00C2FEEC /* LoggingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3FD7B244EE56C00C2FEEC /* LoggingViewModel.swift */; };
@@ -259,10 +238,7 @@
 		63C3FD85244F89B300C2FEEC /* SensorInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3FD83244F89B300C2FEEC /* SensorInfoViewController.swift */; };
 		63C3FD86244F89B300C2FEEC /* SensorInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63C3FD84244F89B300C2FEEC /* SensorInfoViewController.xib */; };
 		63C8751524B3727000CA9723 /* RankingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8751424B3727000CA9723 /* RankingViewModel.swift */; };
-		63C8751724B3729200CA9723 /* RankingScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8751624B3729200CA9723 /* RankingScoreView.swift */; };
 		63DA2CD62551BC2C00C228E8 /* KontaktBeaconHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DA2CD52551BC2C00C228E8 /* KontaktBeaconHelper.swift */; };
-		63F2229B24C07EF700E87240 /* RankingJumpCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F2229A24C07EF700E87240 /* RankingJumpCell.xib */; };
-		63F2229D24C082E800E87240 /* RankingJumpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F2229C24C082E700E87240 /* RankingJumpCell.swift */; };
 		63F44E86244DDC8100C7F5CC /* GlobalStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F44E85244DDC8100C7F5CC /* GlobalStateViewModel.swift */; };
 		63F44E89244DDEE000C7F5CC /* GlobalStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F44E87244DDEE000C7F5CC /* GlobalStateView.swift */; };
 		63F44E8A244DDEE000C7F5CC /* GlobalStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F44E88244DDEE000C7F5CC /* GlobalStateView.xib */; };
@@ -272,11 +248,54 @@
 		63FF6B4F244994B50006992E /* DiagnosisViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63FF6B4E244994B50006992E /* DiagnosisViewController.xib */; };
 		63FF6B532449E7CF0006992E /* SensorStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63FF6B522449E7CF0006992E /* SensorStateView.xib */; };
 		63FF6B552449EC2B0006992E /* SensorStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FF6B542449EC2B0006992E /* SensorStateView.swift */; };
+		67301C3E261D106B006B0432 /* DKTripList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301C3D261D106B006B0432 /* DKTripList.swift */; };
+		67301C46261D121C006B0432 /* TripData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301C45261D121C006B0432 /* TripData.swift */; };
+		67301C5C261EE900006B0432 /* DKTripsByDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301C5B261EE900006B0432 /* DKTripsByDate.swift */; };
+		67301C91261F55B8006B0432 /* Array+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301C90261F55B8006B0432 /* Array+DK.swift */; };
+		67301C97261F5619006B0432 /* HeaderDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342384C2361A2430001E15D /* HeaderDay.swift */; };
+		67301C9D261FAEFF006B0432 /* TripListSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238482361A2430001E15D /* TripListSeparator.swift */; };
+		67301CBD261FB0CD006B0432 /* AlternativeTripImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6378AF672593F470002F0BBD /* AlternativeTripImageView.xib */; };
+		67301CBE261FB0CD006B0432 /* TripInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C26023696EE0002E873A /* TripInfoView.swift */; };
+		67301CBF261FB0CD006B0432 /* NoScoreImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342385A2361A2430001E15D /* NoScoreImageView.swift */; };
+		67301CC0261FB0CD006B0432 /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342385D2361A2430001E15D /* TripTableViewCell.swift */; };
+		67301CC1261FB0CD006B0432 /* NoScoreImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34238582361A2430001E15D /* NoScoreImageView.xib */; };
+		67301CC2261FB0CD006B0432 /* TripInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F38C25F23696EE0002E873A /* TripInfoView.xib */; };
+		67301CC4261FB0CD006B0432 /* AlternativeTripImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378AF662593F46F002F0BBD /* AlternativeTripImageView.swift */; };
+		67301CC5261FB0CD006B0432 /* TripTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A342385B2361A2430001E15D /* TripTableViewCell.xib */; };
+		67301CCC2620D16D006B0432 /* DKHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E73592570111C002B5E30 /* DKHeader.swift */; };
+		67301CE92623AD36006B0432 /* TripsListTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301CE82623AD36006B0432 /* TripsListTableVC.swift */; };
+		67301CF62623B2B2006B0432 /* DKTripListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301CF52623B2B2006B0432 /* DKTripListViewModel.swift */; };
+		67301DB026251921006B0432 /* HeaderDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301DAE26251921006B0432 /* HeaderDayView.swift */; };
+		67301DB126251921006B0432 /* HeaderDayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67301DAF26251921006B0432 /* HeaderDayView.xib */; };
+		67301DBD2625C301006B0432 /* Trip+DKTripsListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301DBC2625C301006B0432 /* Trip+DKTripsListItem.swift */; };
+		67301DC42625C3BF006B0432 /* TripListVC+DKTripList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301DC32625C3BF006B0432 /* TripListVC+DKTripList.swift */; };
+		679DC8612636E3A5007B5623 /* RankingHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679DC85F2636E3A5007B5623 /* RankingHeaderReusableView.swift */; };
+		679DC8622636E3A6007B5623 /* RankingHeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 679DC8602636E3A5007B5623 /* RankingHeaderReusableView.xib */; };
 		67CFE99F25F6425F004D0AE1 /* SpeedingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE99D25F6425F004D0AE1 /* SpeedingPageVC.swift */; };
 		67CFE9A025F6425F004D0AE1 /* SpeedingPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67CFE99E25F6425F004D0AE1 /* SpeedingPageVC.xib */; };
 		67CFE9A725F645EA004D0AE1 /* SpeedingPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */; };
 		67CFE9F925FA1385004D0AE1 /* SpeedingPageItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE9F825FA1385004D0AE1 /* SpeedingPageItemView.swift */; };
 		67CFEA0025FA16EC004D0AE1 /* SpeedingPageItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67CFE9FF25FA16EC004D0AE1 /* SpeedingPageItemView.xib */; };
+		67F2D31B2630717300ACC69A /* DKDriverRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D31A2630717300ACC69A /* DKDriverRanking.swift */; };
+		67F2D3512630F06B00ACC69A /* RankingScoreBig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D3472630F06A00ACC69A /* RankingScoreBig.swift */; };
+		67F2D3522630F06B00ACC69A /* RankingScoreSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D3482630F06A00ACC69A /* RankingScoreSmall.swift */; };
+		67F2D3532630F06B00ACC69A /* RankingScoreBig.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F2D3492630F06A00ACC69A /* RankingScoreBig.xib */; };
+		67F2D3542630F06B00ACC69A /* RankingScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D34A2630F06A00ACC69A /* RankingScoreView.swift */; };
+		67F2D3552630F06B00ACC69A /* RankingScoreSmall.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F2D34B2630F06A00ACC69A /* RankingScoreSmall.xib */; };
+		67F2D3662630F07E00ACC69A /* RankingJumpCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F2D3612630F07E00ACC69A /* RankingJumpCell.xib */; };
+		67F2D3672630F07E00ACC69A /* RankingJumpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D3622630F07E00ACC69A /* RankingJumpCell.swift */; };
+		67F2D3682630F07E00ACC69A /* RankingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D3632630F07E00ACC69A /* RankingCell.swift */; };
+		67F2D3692630F07E00ACC69A /* RankingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F2D3642630F07E00ACC69A /* RankingCell.xib */; };
+		67F2D36A2630F07E00ACC69A /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D3652630F07E00ACC69A /* CircleView.swift */; };
+		67F2D3762631556000ACC69A /* RankingSelectorsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F2D3712631555F00ACC69A /* RankingSelectorsView.xib */; };
+		67F2D3772631556000ACC69A /* RankingSelectorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D3722631555F00ACC69A /* RankingSelectorsView.swift */; };
+		67F2D3782631556000ACC69A /* RankingSelectorTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D3732631555F00ACC69A /* RankingSelectorTypeView.swift */; };
+		67F2D3792631556000ACC69A /* RankingSelectorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D3742631555F00ACC69A /* RankingSelectorButton.swift */; };
+		67F2D37A2631556000ACC69A /* RankingSelectorTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F2D3752631555F00ACC69A /* RankingSelectorTypeView.xib */; };
+		67F2D3822631575600ACC69A /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D3802631575600ACC69A /* RankingViewController.swift */; };
+		67F2D3832631575600ACC69A /* RankingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F2D3812631575600ACC69A /* RankingViewController.xib */; };
+		67F2D3B42631600000ACC69A /* DKDriverRankingCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D3B32631600000ACC69A /* DKDriverRankingCollectionVC.swift */; };
+		67F2D3BC26316D5800ACC69A /* DKDriverRankingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D3BB26316D5800ACC69A /* DKDriverRankingViewModel.swift */; };
 		6FEDF9ABE856C7367CDBBC69 /* Pods_DriveKitCommonUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0425AC91525E20565C140CA4 /* Pods_DriveKitCommonUI.framework */; };
 		A30F4F1523D5DA08009A37C2 /* SynthesisPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30F4F1423D5DA08009A37C2 /* SynthesisPageViewModel.swift */; };
 		A30F4F1823D5DA14009A37C2 /* SynthesisPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30F4F1623D5DA14009A37C2 /* SynthesisPageVC.swift */; };
@@ -326,18 +345,7 @@
 		A34238842361A2440001E15D /* SafetyPageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A342383E2361A2430001E15D /* SafetyPageView.xib */; };
 		A34238852361A2440001E15D /* TripListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238412361A2430001E15D /* TripListViewModel.swift */; };
 		A34238862361A2440001E15D /* Extension+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238432361A2430001E15D /* Extension+DK.swift */; };
-		A342388A2361A2440001E15D /* TripListSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238482361A2430001E15D /* TripListSeparator.swift */; };
-		A342388C2361A2440001E15D /* TripsByDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342384A2361A2430001E15D /* TripsByDate.swift */; };
-		A342388E2361A2440001E15D /* HeaderDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342384C2361A2430001E15D /* HeaderDay.swift */; };
-		A342388F2361A2440001E15D /* TripData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342384D2361A2430001E15D /* TripData.swift */; };
 		A34238912361A2440001E15D /* TripListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238522361A2430001E15D /* TripListVC.swift */; };
-		A34238922361A2440001E15D /* TripTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238542361A2430001E15D /* TripTableViewDelegate.swift */; };
-		A34238942361A2440001E15D /* NoScoreImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34238582361A2430001E15D /* NoScoreImageView.xib */; };
-		A34238962361A2440001E15D /* NoScoreImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342385A2361A2430001E15D /* NoScoreImageView.swift */; };
-		A34238972361A2440001E15D /* TripTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A342385B2361A2430001E15D /* TripTableViewCell.xib */; };
-		A34238982361A2440001E15D /* HeaderDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342385C2361A2430001E15D /* HeaderDayView.swift */; };
-		A34238992361A2440001E15D /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342385D2361A2430001E15D /* TripTableViewCell.swift */; };
-		A342389A2361A2440001E15D /* HeaderDayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A342385E2361A2430001E15D /* HeaderDayView.xib */; };
 		A342389D2361A2440001E15D /* DriverData.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A34238612361A2430001E15D /* DriverData.xcassets */; };
 		A34238A02361A2730001E15D /* DriverDataLocalizables.strings in Resources */ = {isa = PBXBuildFile; fileRef = A342389E2361A2730001E15D /* DriverDataLocalizables.strings */; };
 		A34238A92361B0DE0001E15D /* TripListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A34238A82361B0DE0001E15D /* TripListVC.xib */; };
@@ -492,8 +500,6 @@
 		3F3E72F4256F9415002B5E30 /* DKMapItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKMapItem.swift; sourceTree = "<group>"; };
 		3F3E72FB256F9B71002B5E30 /* DKTripDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripDetailViewModel.swift; sourceTree = "<group>"; };
 		3F3E73592570111C002B5E30 /* DKHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKHeader.swift; sourceTree = "<group>"; };
-		3F3E73A825715B47002B5E30 /* DKTripInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripInfo.swift; sourceTree = "<group>"; };
-		3F3E73AF25715BE8002B5E30 /* AdviceTripInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdviceTripInfo.swift; sourceTree = "<group>"; };
 		3F50D6F42417945B001226F7 /* BluetoothViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothViewModel.swift; sourceTree = "<group>"; };
 		3F50D6F624179466001226F7 /* SuccessBluetoothVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessBluetoothVC.swift; sourceTree = "<group>"; };
 		3F50D6F724179466001226F7 /* SelectBluetoothVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectBluetoothVC.swift; sourceTree = "<group>"; };
@@ -681,13 +687,6 @@
 		61765A7B243E307300358CCA /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		61765A7C243E307400358CCA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		61D29B7824362C720094CA5B /* DKReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKReachability.swift; sourceTree = "<group>"; };
-		63041F9D24AE005E0028CAE8 /* RankingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingViewController.xib; sourceTree = "<group>"; };
-		63041FA124AE0A680028CAE8 /* RankingSelectorsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingSelectorsView.xib; sourceTree = "<group>"; };
-		63041FA324AE2C600028CAE8 /* RankingScoreBig.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingScoreBig.xib; sourceTree = "<group>"; };
-		63041FA524AE2FB70028CAE8 /* RankingScoreSmall.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingScoreSmall.xib; sourceTree = "<group>"; };
-		63041FA724AE36C10028CAE8 /* RankingSelectorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingSelectorsView.swift; sourceTree = "<group>"; };
-		63041FA924AE3B2E0028CAE8 /* RankingScoreBig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingScoreBig.swift; sourceTree = "<group>"; };
-		63041FAB24AE3B680028CAE8 /* RankingScoreSmall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingScoreSmall.swift; sourceTree = "<group>"; };
 		6307ED892625DC9500CB7EED /* SynthesisCardTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynthesisCardTest.swift; sourceTree = "<group>"; };
 		63199A6A24EC132E0011DCFC /* DKLocationAccuracy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKLocationAccuracy.swift; sourceTree = "<group>"; };
 		63199A6D24ED7C250011DCFC /* DKAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKAnalytics.swift; sourceTree = "<group>"; };
@@ -711,7 +710,6 @@
 		6378BBDF244D9BC70040A114 /* SensorStateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorStateViewModel.swift; sourceTree = "<group>"; };
 		6378BBE1244D9C060040A114 /* DiagnosisViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisViewModel.swift; sourceTree = "<group>"; };
 		6378BBE3244DA47B0040A114 /* StatusType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusType.swift; sourceTree = "<group>"; };
-		6382109B24B71CF500A42D95 /* RankingSelectorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingSelectorButton.swift; sourceTree = "<group>"; };
 		638AC037261F8FFB00602B52 /* SynthesisCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesisCardsView.swift; sourceTree = "<group>"; };
 		638AC03E261F903300602B52 /* SynthesisCardsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SynthesisCardsView.xib; sourceTree = "<group>"; };
 		638AC045261F970E00602B52 /* SynthesisCardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesisCardsViewModel.swift; sourceTree = "<group>"; };
@@ -727,24 +725,15 @@
 		639346B624489DDA000F42D4 /* DiagnosisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisViewController.swift; sourceTree = "<group>"; };
 		639346B82448A8FD000F42D4 /* RequestPermissionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPermissionHelper.swift; sourceTree = "<group>"; };
 		639F3D2024B5C8F10081DFC3 /* RankingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingStatus.swift; sourceTree = "<group>"; };
-		639F3D2524B624920081DFC3 /* RankingSelectorTypeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingSelectorTypeView.xib; sourceTree = "<group>"; };
-		639F3D2724B626260081DFC3 /* RankingSelectorTypeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingSelectorTypeView.swift; sourceTree = "<group>"; };
 		63B07CD124EFCA110060DF33 /* AnalyticsScreenToTagKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AnalyticsScreenToTagKey.plist; sourceTree = "<group>"; };
 		63B3A19F24AB73460011F11B /* DKRankingSelectorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKRankingSelectorType.swift; sourceTree = "<group>"; };
-		63B3A1A224AB93030011F11B /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
-		63B3A1A624ACBCFB0011F11B /* RankingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingCell.swift; sourceTree = "<group>"; };
-		63B3A1A824ACBFC10011F11B /* RankingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingCell.xib; sourceTree = "<group>"; };
-		63B3A1AA24ACC3810011F11B /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		63C3FD77244EDDA900C2FEEC /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
 		63C3FD7B244EE56C00C2FEEC /* LoggingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingViewModel.swift; sourceTree = "<group>"; };
 		63C3FD7F244F28B000C2FEEC /* SensorInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorInfoViewModel.swift; sourceTree = "<group>"; };
 		63C3FD83244F89B300C2FEEC /* SensorInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorInfoViewController.swift; sourceTree = "<group>"; };
 		63C3FD84244F89B300C2FEEC /* SensorInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SensorInfoViewController.xib; sourceTree = "<group>"; };
 		63C8751424B3727000CA9723 /* RankingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewModel.swift; sourceTree = "<group>"; };
-		63C8751624B3729200CA9723 /* RankingScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingScoreView.swift; sourceTree = "<group>"; };
 		63DA2CD52551BC2C00C228E8 /* KontaktBeaconHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KontaktBeaconHelper.swift; sourceTree = "<group>"; };
-		63F2229A24C07EF700E87240 /* RankingJumpCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingJumpCell.xib; sourceTree = "<group>"; };
-		63F2229C24C082E700E87240 /* RankingJumpCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingJumpCell.swift; sourceTree = "<group>"; };
 		63F44E85244DDC8100C7F5CC /* GlobalStateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalStateViewModel.swift; sourceTree = "<group>"; };
 		63F44E87244DDEE000C7F5CC /* GlobalStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalStateView.swift; sourceTree = "<group>"; };
 		63F44E88244DDEE000C7F5CC /* GlobalStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GlobalStateView.xib; sourceTree = "<group>"; };
@@ -754,13 +743,44 @@
 		63FF6B4E244994B50006992E /* DiagnosisViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiagnosisViewController.xib; sourceTree = "<group>"; };
 		63FF6B522449E7CF0006992E /* SensorStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SensorStateView.xib; sourceTree = "<group>"; };
 		63FF6B542449EC2B0006992E /* SensorStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorStateView.swift; sourceTree = "<group>"; };
+		67301C3D261D106B006B0432 /* DKTripList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripList.swift; sourceTree = "<group>"; };
+		67301C45261D121C006B0432 /* TripData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripData.swift; sourceTree = "<group>"; };
+		67301C5B261EE900006B0432 /* DKTripsByDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripsByDate.swift; sourceTree = "<group>"; };
+		67301C90261F55B8006B0432 /* Array+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+DK.swift"; sourceTree = "<group>"; };
+		67301CE82623AD36006B0432 /* TripsListTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsListTableVC.swift; sourceTree = "<group>"; };
+		67301CF52623B2B2006B0432 /* DKTripListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripListViewModel.swift; sourceTree = "<group>"; };
+		67301DAE26251921006B0432 /* HeaderDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderDayView.swift; sourceTree = "<group>"; };
+		67301DAF26251921006B0432 /* HeaderDayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderDayView.xib; sourceTree = "<group>"; };
+		67301DBC2625C301006B0432 /* Trip+DKTripsListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+DKTripsListItem.swift"; sourceTree = "<group>"; };
+		67301DC32625C3BF006B0432 /* TripListVC+DKTripList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TripListVC+DKTripList.swift"; sourceTree = "<group>"; };
+		679DC85F2636E3A5007B5623 /* RankingHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingHeaderReusableView.swift; sourceTree = "<group>"; };
+		679DC8602636E3A5007B5623 /* RankingHeaderReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingHeaderReusableView.xib; sourceTree = "<group>"; };
 		67CFE99D25F6425F004D0AE1 /* SpeedingPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageVC.swift; sourceTree = "<group>"; };
 		67CFE99E25F6425F004D0AE1 /* SpeedingPageVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedingPageVC.xib; sourceTree = "<group>"; };
 		67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageViewModel.swift; sourceTree = "<group>"; };
 		67CFE9F825FA1385004D0AE1 /* SpeedingPageItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageItemView.swift; sourceTree = "<group>"; };
 		67CFE9FF25FA16EC004D0AE1 /* SpeedingPageItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedingPageItemView.xib; sourceTree = "<group>"; };
+		67F2D31A2630717300ACC69A /* DKDriverRanking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDriverRanking.swift; sourceTree = "<group>"; };
+		67F2D3472630F06A00ACC69A /* RankingScoreBig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingScoreBig.swift; sourceTree = "<group>"; };
+		67F2D3482630F06A00ACC69A /* RankingScoreSmall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingScoreSmall.swift; sourceTree = "<group>"; };
+		67F2D3492630F06A00ACC69A /* RankingScoreBig.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingScoreBig.xib; sourceTree = "<group>"; };
+		67F2D34A2630F06A00ACC69A /* RankingScoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingScoreView.swift; sourceTree = "<group>"; };
+		67F2D34B2630F06A00ACC69A /* RankingScoreSmall.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingScoreSmall.xib; sourceTree = "<group>"; };
+		67F2D3612630F07E00ACC69A /* RankingJumpCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingJumpCell.xib; sourceTree = "<group>"; };
+		67F2D3622630F07E00ACC69A /* RankingJumpCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingJumpCell.swift; sourceTree = "<group>"; };
+		67F2D3632630F07E00ACC69A /* RankingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingCell.swift; sourceTree = "<group>"; };
+		67F2D3642630F07E00ACC69A /* RankingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingCell.xib; sourceTree = "<group>"; };
+		67F2D3652630F07E00ACC69A /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		67F2D3712631555F00ACC69A /* RankingSelectorsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingSelectorsView.xib; sourceTree = "<group>"; };
+		67F2D3722631555F00ACC69A /* RankingSelectorsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingSelectorsView.swift; sourceTree = "<group>"; };
+		67F2D3732631555F00ACC69A /* RankingSelectorTypeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingSelectorTypeView.swift; sourceTree = "<group>"; };
+		67F2D3742631555F00ACC69A /* RankingSelectorButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingSelectorButton.swift; sourceTree = "<group>"; };
+		67F2D3752631555F00ACC69A /* RankingSelectorTypeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingSelectorTypeView.xib; sourceTree = "<group>"; };
+		67F2D3802631575600ACC69A /* RankingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
+		67F2D3812631575600ACC69A /* RankingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingViewController.xib; sourceTree = "<group>"; };
+		67F2D3B32631600000ACC69A /* DKDriverRankingCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDriverRankingCollectionVC.swift; sourceTree = "<group>"; };
+		67F2D3BB26316D5800ACC69A /* DKDriverRankingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDriverRankingViewModel.swift; sourceTree = "<group>"; };
 		71C90D9FE8ADAE9597A8BE8A /* Pods-DriveKitDriverAchievementUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverAchievementUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverAchievementUI/Pods-DriveKitDriverAchievementUI.debug.xcconfig"; sourceTree = "<group>"; };
-		845F2C5F9472B0D7B5972830 /* Pods-DriveKitDriverData.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverData.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverData/Pods-DriveKitDriverData.debug.xcconfig"; sourceTree = "<group>"; };
 		88D27862C0BB1621E356D771 /* Pods-DriveKitCommonUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitCommonUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitCommonUI/Pods-DriveKitCommonUI.release.xcconfig"; sourceTree = "<group>"; };
 		8A3A98094797ED33BAF53826 /* Pods_DriveKitPermissionsUtilsUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitPermissionsUtilsUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96151588B94F1AEF000E110A /* Pods-DriveKitVehicleUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitVehicleUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitVehicleUI/Pods-DriveKitVehicleUI.debug.xcconfig"; sourceTree = "<group>"; };
@@ -815,19 +835,14 @@
 		A34238432361A2430001E15D /* Extension+DK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extension+DK.swift"; sourceTree = "<group>"; };
 		A34238442361A2430001E15D /* Nibable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nibable.swift; sourceTree = "<group>"; };
 		A34238482361A2430001E15D /* TripListSeparator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripListSeparator.swift; sourceTree = "<group>"; };
-		A342384A2361A2430001E15D /* TripsByDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripsByDate.swift; sourceTree = "<group>"; };
 		A342384B2361A2430001E15D /* ConfigurationCircularProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationCircularProgressView.swift; sourceTree = "<group>"; };
 		A342384C2361A2430001E15D /* HeaderDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderDay.swift; sourceTree = "<group>"; };
-		A342384D2361A2430001E15D /* TripData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripData.swift; sourceTree = "<group>"; };
 		A34238522361A2430001E15D /* TripListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripListVC.swift; sourceTree = "<group>"; };
-		A34238542361A2430001E15D /* TripTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTableViewDelegate.swift; sourceTree = "<group>"; };
 		A34238582361A2430001E15D /* NoScoreImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoScoreImageView.xib; sourceTree = "<group>"; };
 		A34238592361A2430001E15D /* CircularProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		A342385A2361A2430001E15D /* NoScoreImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoScoreImageView.swift; sourceTree = "<group>"; };
 		A342385B2361A2430001E15D /* TripTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripTableViewCell.xib; sourceTree = "<group>"; };
-		A342385C2361A2430001E15D /* HeaderDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderDayView.swift; sourceTree = "<group>"; };
 		A342385D2361A2430001E15D /* TripTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
-		A342385E2361A2430001E15D /* HeaderDayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderDayView.xib; sourceTree = "<group>"; };
 		A342385F2361A2430001E15D /* CircularProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CircularProgressView.xib; sourceTree = "<group>"; };
 		A34238612361A2430001E15D /* DriverData.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DriverData.xcassets; sourceTree = "<group>"; };
 		A342389F2361A2730001E15D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DriverDataLocalizables.strings; sourceTree = "<group>"; };
@@ -865,7 +880,6 @@
 		A3D51F4B241BA3AE006DACE2 /* VehiclesListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VehiclesListVC.xib; sourceTree = "<group>"; };
 		A3D51F4C241BA3AE006DACE2 /* VehiclesListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiclesListVC.swift; sourceTree = "<group>"; };
 		A3D51F4D241BA3AE006DACE2 /* VehiclesListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VehiclesListCell.xib; sourceTree = "<group>"; };
-		B4FFF17661FD795E73C76EC7 /* Pods-DriveKitDriverData.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverData.release.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverData/Pods-DriveKitDriverData.release.xcconfig"; sourceTree = "<group>"; };
 		DCBF31C151237FEA8EDE3CF0 /* Pods-DriveKitDriverDataUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverDataUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverDataUI/Pods-DriveKitDriverDataUI.release.xcconfig"; sourceTree = "<group>"; };
 		F4E7AE929F1C5F8DBFAE3E0C /* Pods-DriveKitApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitApp.release.xcconfig"; path = "Target Support Files/Pods-DriveKitApp/Pods-DriveKitApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -985,6 +999,7 @@
 				3FF68E95240D58DC0071D74C /* UIView+DK.swift */,
 				3FF68E97240D59000071D74C /* UIImage+DK.swift */,
 				3FCE6338243DF87A00CAB828 /* UIButton+DK.swift */,
+				67301C90261F55B8006B0432 /* Array+DK.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1057,6 +1072,8 @@
 		3F7524C92406C4B400AC22CC /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				67F2D3192630713700ACC69A /* Ranking */,
+				67301C3C261D1030006B0432 /* TripsList */,
 				3FA24FF42524B78C000AB7D3 /* Filter */,
 				639346B4244897C1000F42D4 /* DKContactType.swift */,
 				3F03A4DC242C8BD3000924A0 /* DKContentMail.swift */,
@@ -1547,18 +1564,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		639F3D2424B6245B0081DFC3 /* selectors */ = {
-			isa = PBXGroup;
-			children = (
-				63041FA724AE36C10028CAE8 /* RankingSelectorsView.swift */,
-				63041FA124AE0A680028CAE8 /* RankingSelectorsView.xib */,
-				639F3D2724B626260081DFC3 /* RankingSelectorTypeView.swift */,
-				639F3D2524B624920081DFC3 /* RankingSelectorTypeView.xib */,
-				6382109B24B71CF500A42D95 /* RankingSelectorButton.swift */,
-			);
-			name = selectors;
-			sourceTree = "<group>";
-		};
 		63B3A19C24AB3A1F0011F11B /* Ranking */ = {
 			isa = PBXGroup;
 			children = (
@@ -1584,11 +1589,9 @@
 		63B3A19E24AB3A3A0011F11B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				63F2229E24C082FD00E87240 /* cells */,
-				63C8751A24B3794500CA9723 /* score */,
-				639F3D2424B6245B0081DFC3 /* selectors */,
-				63B3A1A224AB93030011F11B /* RankingViewController.swift */,
-				63041F9D24AE005E0028CAE8 /* RankingViewController.xib */,
+				67F2D3802631575600ACC69A /* RankingViewController.swift */,
+				67F2D3812631575600ACC69A /* RankingViewController.xib */,
+				67F2D3702631555F00ACC69A /* selectors */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1599,30 +1602,6 @@
 				63B3A19F24AB73460011F11B /* DKRankingSelectorType.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		63C8751A24B3794500CA9723 /* score */ = {
-			isa = PBXGroup;
-			children = (
-				63C8751624B3729200CA9723 /* RankingScoreView.swift */,
-				63041FA924AE3B2E0028CAE8 /* RankingScoreBig.swift */,
-				63041FA324AE2C600028CAE8 /* RankingScoreBig.xib */,
-				63041FAB24AE3B680028CAE8 /* RankingScoreSmall.swift */,
-				63041FA524AE2FB70028CAE8 /* RankingScoreSmall.xib */,
-			);
-			name = score;
-			sourceTree = "<group>";
-		};
-		63F2229E24C082FD00E87240 /* cells */ = {
-			isa = PBXGroup;
-			children = (
-				63B3A1AA24ACC3810011F11B /* CircleView.swift */,
-				63B3A1A624ACBCFB0011F11B /* RankingCell.swift */,
-				63B3A1A824ACBFC10011F11B /* RankingCell.xib */,
-				63F2229C24C082E700E87240 /* RankingJumpCell.swift */,
-				63F2229A24C07EF700E87240 /* RankingJumpCell.xib */,
-			);
-			name = cells;
 			sourceTree = "<group>";
 		};
 		63FF6B56244A41550006992E /* View */ = {
@@ -1658,6 +1637,114 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		67301C3C261D1030006B0432 /* TripsList */ = {
+			isa = PBXGroup;
+			children = (
+				67301CF42623B28D006B0432 /* ViewModels */,
+				A34238572361A2430001E15D /* Views */,
+				67301C44261D1206006B0432 /* Models */,
+				67301CE72623AC33006B0432 /* ViewControllers */,
+				67301C3D261D106B006B0432 /* DKTripList.swift */,
+				3F3E73592570111C002B5E30 /* DKHeader.swift */,
+			);
+			path = TripsList;
+			sourceTree = "<group>";
+		};
+		67301C44261D1206006B0432 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A34238482361A2430001E15D /* TripListSeparator.swift */,
+				A342384C2361A2430001E15D /* HeaderDay.swift */,
+				67301C45261D121C006B0432 /* TripData.swift */,
+				67301C5B261EE900006B0432 /* DKTripsByDate.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		67301CE72623AC33006B0432 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				67301CE82623AD36006B0432 /* TripsListTableVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		67301CF42623B28D006B0432 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				67301CF52623B2B2006B0432 /* DKTripListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		67F2D3192630713700ACC69A /* Ranking */ = {
+			isa = PBXGroup;
+			children = (
+				67F2D3BA26316D3800ACC69A /* ViewModels */,
+				67F2D32B2630EEE100ACC69A /* Views */,
+				67F2D31A2630717300ACC69A /* DKDriverRanking.swift */,
+			);
+			path = Ranking;
+			sourceTree = "<group>";
+		};
+		67F2D32B2630EEE100ACC69A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				67F2D3602630F07E00ACC69A /* cells */,
+				67F2D3462630F06A00ACC69A /* headers */,
+				67F2D3B32631600000ACC69A /* DKDriverRankingCollectionVC.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		67F2D3462630F06A00ACC69A /* headers */ = {
+			isa = PBXGroup;
+			children = (
+				67F2D3472630F06A00ACC69A /* RankingScoreBig.swift */,
+				67F2D3482630F06A00ACC69A /* RankingScoreSmall.swift */,
+				67F2D3492630F06A00ACC69A /* RankingScoreBig.xib */,
+				67F2D34A2630F06A00ACC69A /* RankingScoreView.swift */,
+				67F2D34B2630F06A00ACC69A /* RankingScoreSmall.xib */,
+				679DC85F2636E3A5007B5623 /* RankingHeaderReusableView.swift */,
+				679DC8602636E3A5007B5623 /* RankingHeaderReusableView.xib */,
+			);
+			name = headers;
+			path = View/headers;
+			sourceTree = "<group>";
+		};
+		67F2D3602630F07E00ACC69A /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				67F2D3612630F07E00ACC69A /* RankingJumpCell.xib */,
+				67F2D3622630F07E00ACC69A /* RankingJumpCell.swift */,
+				67F2D3632630F07E00ACC69A /* RankingCell.swift */,
+				67F2D3642630F07E00ACC69A /* RankingCell.xib */,
+				67F2D3652630F07E00ACC69A /* CircleView.swift */,
+			);
+			name = cells;
+			path = View/cells;
+			sourceTree = "<group>";
+		};
+		67F2D3702631555F00ACC69A /* selectors */ = {
+			isa = PBXGroup;
+			children = (
+				67F2D3712631555F00ACC69A /* RankingSelectorsView.xib */,
+				67F2D3722631555F00ACC69A /* RankingSelectorsView.swift */,
+				67F2D3732631555F00ACC69A /* RankingSelectorTypeView.swift */,
+				67F2D3742631555F00ACC69A /* RankingSelectorButton.swift */,
+				67F2D3752631555F00ACC69A /* RankingSelectorTypeView.xib */,
+			);
+			path = selectors;
+			sourceTree = "<group>";
+		};
+		67F2D3BA26316D3800ACC69A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				67F2D3BB26316D5800ACC69A /* DKDriverRankingViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		A34238072361A1FA0001E15D /* DriveKitDriverDataUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -1669,7 +1756,6 @@
 				A342383F2361A2430001E15D /* Trip List */,
 				A34238082361A1FA0001E15D /* DriveKitDriveDataUI.h */,
 				A34238092361A1FA0001E15D /* Info.plist */,
-				3F3E73592570111C002B5E30 /* DKHeader.swift */,
 				3FF68E89240ACD620071D74C /* DriveKitDriverDataUI.swift */,
 				A34238612361A2430001E15D /* DriverData.xcassets */,
 			);
@@ -1798,9 +1884,8 @@
 			isa = PBXGroup;
 			children = (
 				A34238402361A2430001E15D /* ViewModel */,
-				A34238462361A2430001E15D /* Models */,
+				A34238462361A2430001E15D /* Extensions */,
 				A342384E2361A2430001E15D /* ViewControllers */,
-				A34238572361A2430001E15D /* Views */,
 			);
 			path = "Trip List";
 			sourceTree = "<group>";
@@ -1815,17 +1900,13 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		A34238462361A2430001E15D /* Models */ = {
+		A34238462361A2430001E15D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A34238482361A2430001E15D /* TripListSeparator.swift */,
-				A342384A2361A2430001E15D /* TripsByDate.swift */,
-				A342384C2361A2430001E15D /* HeaderDay.swift */,
-				A342384D2361A2430001E15D /* TripData.swift */,
-				3F3E73A825715B47002B5E30 /* DKTripInfo.swift */,
-				3F3E73AF25715BE8002B5E30 /* AdviceTripInfo.swift */,
+				67301DBC2625C301006B0432 /* Trip+DKTripsListItem.swift */,
+				67301DC32625C3BF006B0432 /* TripListVC+DKTripList.swift */,
 			);
-			path = Models;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		A342384E2361A2430001E15D /* ViewControllers */ = {
@@ -1833,7 +1914,6 @@
 			children = (
 				A34238A82361B0DE0001E15D /* TripListVC.xib */,
 				A34238522361A2430001E15D /* TripListVC.swift */,
-				A34238542361A2430001E15D /* TripTableViewDelegate.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1841,14 +1921,14 @@
 		A34238572361A2430001E15D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				67301DAE26251921006B0432 /* HeaderDayView.swift */,
+				67301DAF26251921006B0432 /* HeaderDayView.xib */,
 				3F38C25F23696EE0002E873A /* TripInfoView.xib */,
 				3F38C26023696EE0002E873A /* TripInfoView.swift */,
 				A34238582361A2430001E15D /* NoScoreImageView.xib */,
 				A342385A2361A2430001E15D /* NoScoreImageView.swift */,
 				A342385B2361A2430001E15D /* TripTableViewCell.xib */,
 				A342385D2361A2430001E15D /* TripTableViewCell.swift */,
-				A342385E2361A2430001E15D /* HeaderDayView.xib */,
-				A342385C2361A2430001E15D /* HeaderDayView.swift */,
 				6378AF662593F46F002F0BBD /* AlternativeTripImageView.swift */,
 				6378AF672593F470002F0BBD /* AlternativeTripImageView.xib */,
 			);
@@ -1979,8 +2059,6 @@
 			children = (
 				453D6BC570583B1D6DC16DBC /* Pods-DriveKitApp.debug.xcconfig */,
 				F4E7AE929F1C5F8DBFAE3E0C /* Pods-DriveKitApp.release.xcconfig */,
-				845F2C5F9472B0D7B5972830 /* Pods-DriveKitDriverData.debug.xcconfig */,
-				B4FFF17661FD795E73C76EC7 /* Pods-DriveKitDriverData.release.xcconfig */,
 				10107C08082CCF492923D28F /* Pods-DriveKitDriverDataUI.debug.xcconfig */,
 				DCBF31C151237FEA8EDE3CF0 /* Pods-DriveKitDriverDataUI.release.xcconfig */,
 				71C90D9FE8ADAE9597A8BE8A /* Pods-DriveKitDriverAchievementUI.debug.xcconfig */,
@@ -2234,13 +2312,23 @@
 			files = (
 				3F0740F02404263D005A8D07 /* Roboto-Bold.ttf in Resources */,
 				3FA2501C2524CE75000AB7D3 /* DKFilterPickerVC.xib in Resources */,
+				67F2D3692630F07E00ACC69A /* RankingCell.xib in Resources */,
 				3F0740EF2404263D005A8D07 /* Roboto-Regular.ttf in Resources */,
 				3FA250022524B9F5000AB7D3 /* DKFilterView.xib in Resources */,
+				67301DB126251921006B0432 /* HeaderDayView.xib in Resources */,
+				67F2D3662630F07E00ACC69A /* RankingJumpCell.xib in Resources */,
 				A34FC7372423CDDA000734AB /* DKTextField.xib in Resources */,
+				67301CC2261FB0CD006B0432 /* TripInfoView.xib in Resources */,
+				679DC8622636E3A6007B5623 /* RankingHeaderReusableView.xib in Resources */,
+				67301CBD261FB0CD006B0432 /* AlternativeTripImageView.xib in Resources */,
 				3FF68E82240965E10071D74C /* DKImages.xcassets in Resources */,
+				67301CC5261FB0CD006B0432 /* TripTableViewCell.xib in Resources */,
 				63FE778624FD1A9D00C068C3 /* AnalyticsTags.plist in Resources */,
 				3FED7FC62525B7B900D19E18 /* DKFilterTableViewCell.xib in Resources */,
+				67F2D3552630F06B00ACC69A /* RankingScoreSmall.xib in Resources */,
 				3FF68E8F240CF0460071D74C /* CircularProgressView.xib in Resources */,
+				67F2D3532630F06B00ACC69A /* RankingScoreBig.xib in Resources */,
+				67301CC1261FB0CD006B0432 /* NoScoreImageView.xib in Resources */,
 				3FF68E642407F56F0071D74C /* CommonLocalizable.strings in Resources */,
 				63B07CD224EFCA110060DF33 /* AnalyticsScreenToTagKey.plist in Resources */,
 			);
@@ -2291,22 +2379,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63041FA224AE0A680028CAE8 /* RankingSelectorsView.xib in Resources */,
+				67F2D37A2631556000ACC69A /* RankingSelectorTypeView.xib in Resources */,
 				3FB5643523F5AA2900F010E3 /* StreakTableViewCell.xib in Resources */,
 				5C180D70246B05BC001E95FA /* BadgeLevelView.xib in Resources */,
-				639F3D2624B624930081DFC3 /* RankingSelectorTypeView.xib in Resources */,
-				63B3A1A924ACBFC10011F11B /* RankingCell.xib in Resources */,
-				63041FA624AE2FB80028CAE8 /* RankingScoreSmall.xib in Resources */,
 				5CFCF8B1246D43F3002F9152 /* DriverAchievement.xcassets in Resources */,
 				5CA1D481246E97B9001DDC34 /* BadgeLevelDetailViewController.xib in Resources */,
 				5CE33817246C27C8007E5790 /* BadgesViewController.xib in Resources */,
 				3FFAD20F23EDBF2F00D1A16C /* StreakViewController.xib in Resources */,
-				63041F9E24AE005E0028CAE8 /* RankingViewController.xib in Resources */,
+				67F2D3832631575600ACC69A /* RankingViewController.xib in Resources */,
 				5CE33815246C1E7E007E5790 /* BadgeTableViewCell.xib in Resources */,
 				3FB5644123F6B4F000F010E3 /* DriverAchievementLocalizables.strings in Resources */,
+				67F2D3762631556000ACC69A /* RankingSelectorsView.xib in Resources */,
 				5CFCF8B7246D82FD002F9152 /* BadgeSectionHeaderView.xib in Resources */,
-				63F2229B24C07EF700E87240 /* RankingJumpCell.xib in Resources */,
-				63041FA424AE2C600028CAE8 /* RankingScoreBig.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2332,16 +2416,13 @@
 			files = (
 				3F38C26A2369BD60002E873A /* TripTipViewController.xib in Resources */,
 				6391E0EA2607837900A168D4 /* SynthesisCardView.xib in Resources */,
-				A342389A2361A2440001E15D /* HeaderDayView.xib in Resources */,
 				A342386E2361A2430001E15D /* TripDetailVC.xib in Resources */,
 				A317F83023A1383B00AD22A2 /* TripTipFeedbackChoicesCell.xib in Resources */,
 				A34238782361A2440001E15D /* SafetyPageVC.xib in Resources */,
-				3F38C26123696EE0002E873A /* TripInfoView.xib in Resources */,
 				67CFE9A025F6425F004D0AE1 /* SpeedingPageVC.xib in Resources */,
 				3F6B67612580ECD4008B3BA7 /* TransportationModeVC.xib in Resources */,
 				A342389D2361A2440001E15D /* DriverData.xcassets in Resources */,
 				A34238A02361A2730001E15D /* DriverDataLocalizables.strings in Resources */,
-				A34238942361A2440001E15D /* NoScoreImageView.xib in Resources */,
 				A34238792361A2440001E15D /* HistoryPageVC.xib in Resources */,
 				A30F4F1923D5DA14009A37C2 /* SynthesisPageVC.xib in Resources */,
 				633E93DF261D0D1A009543C0 /* SynthesisCardInfoView.xib in Resources */,
@@ -2350,11 +2431,9 @@
 				A30F4F1B23D5DB18009A37C2 /* TripTipFeedbackVC.storyboard in Resources */,
 				A34238722361A2430001E15D /* ShortTripPageVC.xib in Resources */,
 				A34238832361A2440001E15D /* EcoDrivingPageView.xib in Resources */,
-				A34238972361A2440001E15D /* TripTableViewCell.xib in Resources */,
 				A342386F2361A2430001E15D /* MapViewController.xib in Resources */,
 				67CFEA0025FA16EC004D0AE1 /* SpeedingPageItemView.xib in Resources */,
 				A34238712361A2430001E15D /* DistractionPageVC.xib in Resources */,
-				6378AF692593F470002F0BBD /* AlternativeTripImageView.xib in Resources */,
 				A342387C2361A2440001E15D /* CalloutView.xib in Resources */,
 				A34238A92361B0DE0001E15D /* TripListVC.xib in Resources */,
 				A34238802361A2440001E15D /* DistractionPageView.xib in Resources */,
@@ -2535,34 +2614,55 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67301C91261F55B8006B0432 /* Array+DK.swift in Sources */,
 				3FA24FF62524B9BE000AB7D3 /* DKFilterView.swift in Sources */,
+				67F2D3BC26316D5800ACC69A /* DKDriverRankingViewModel.swift in Sources */,
+				67301C9D261FAEFF006B0432 /* TripListSeparator.swift in Sources */,
 				3F0740EA2403BBFC005A8D07 /* DKColors.swift in Sources */,
+				67301C3E261D106B006B0432 /* DKTripList.swift in Sources */,
+				67301CC4261FB0CD006B0432 /* AlternativeTripImageView.swift in Sources */,
 				3F0740E72403BB9A005A8D07 /* DriveKitUI.swift in Sources */,
+				67301CCC2620D16D006B0432 /* DKHeader.swift in Sources */,
+				67301DB026251921006B0432 /* HeaderDayView.swift in Sources */,
 				3FF68E86240A68D90071D74C /* DKDataFormatter.swift in Sources */,
+				67301CBE261FB0CD006B0432 /* TripInfoView.swift in Sources */,
 				3FF68E7C240938CD0071D74C /* DriveKitNavigationController.swift in Sources */,
 				3FF68E93240CF5670071D74C /* Nibable.swift in Sources */,
+				67301CF62623B2B2006B0432 /* DKTripListViewModel.swift in Sources */,
+				67301C97261F5619006B0432 /* HeaderDay.swift in Sources */,
 				6357AE85261135600000CA58 /* DKGaugeType.swift in Sources */,
 				3FF68E96240D58DC0071D74C /* UIView+DK.swift in Sources */,
 				6357AE84261135600000CA58 /* DKGaugeConfiguration.swift in Sources */,
 				616946E924338E3500C8A965 /* DriveKitPermissionsUtilsUIEntryPoint.swift in Sources */,
 				3FF68E7E240939040071D74C /* DriveKitDriverAchievementUIEntryPoint.swift in Sources */,
 				3FF68E80240939BC0071D74C /* DriveKitDriverDataUIEntryPoint.swift in Sources */,
+				67301CC0261FB0CD006B0432 /* TripTableViewCell.swift in Sources */,
+				67F2D3542630F06B00ACC69A /* RankingScoreView.swift in Sources */,
 				3FA2500E2524BD0C000AB7D3 /* DKFilterViewModel.swift in Sources */,
 				3FF68E6E24081A5A0071D74C /* DKStyles.swift in Sources */,
 				3F0740F3240426C0005A8D07 /* UIColor+DK.swift in Sources */,
+				679DC8612636E3A5007B5623 /* RankingHeaderReusableView.swift in Sources */,
+				67301CBF261FB0CD006B0432 /* NoScoreImageView.swift in Sources */,
+				67F2D31B2630717300ACC69A /* DKDriverRanking.swift in Sources */,
+				67F2D3B42631600000ACC69A /* DKDriverRankingCollectionVC.swift in Sources */,
 				63BF8EFA24531011006BEB3F /* DKContactType.swift in Sources */,
 				A34FC7362423CDDA000734AB /* DKTextField.swift in Sources */,
 				3F03A4DF242C9983000924A0 /* DriveKitVehicleUIEntryPoint.swift in Sources */,
+				67F2D36A2630F07E00ACC69A /* CircleView.swift in Sources */,
 				3FF68E752408390A0071D74C /* CardView.swift in Sources */,
 				3FF68E8C240C0A430071D74C /* UIViewController+DK.swift in Sources */,
 				3FED7FC52525B7B900D19E18 /* DKFilterTableViewCell.swift in Sources */,
 				3FF68E8E240CF0420071D74C /* CircularProgressView.swift in Sources */,
 				3FF68E90240CF0510071D74C /* ConfigurationCircularProgressView.swift in Sources */,
 				3FF68E88240A727D0071D74C /* DKDatePattern.swift in Sources */,
+				67F2D3522630F06B00ACC69A /* RankingScoreSmall.swift in Sources */,
+				67F2D3682630F07E00ACC69A /* RankingCell.swift in Sources */,
 				A322728C2429125700BF69E1 /* DKImagePicker.swift in Sources */,
 				3F0740EC240400E0005A8D07 /* DKFonts.swift in Sources */,
+				67301C5C261EE900006B0432 /* DKTripsByDate.swift in Sources */,
 				3FCE6339243DF87A00CAB828 /* UIButton+DK.swift in Sources */,
 				3FF68E98240D59000071D74C /* UIImage+DK.swift in Sources */,
+				67F2D3672630F07E00ACC69A /* RankingJumpCell.swift in Sources */,
 				3F7524CE2407A89100AC22CC /* DKCommonLocalizable.swift in Sources */,
 				3FF68E84240966120071D74C /* DKImages.swift in Sources */,
 				3FF68E92240CF1300071D74C /* ScoreType.swift in Sources */,
@@ -2570,8 +2670,11 @@
 				61D29B7924362C720094CA5B /* DKReachability.swift in Sources */,
 				3FF68E7024081F060071D74C /* DKAttributedStringBuilder.swift in Sources */,
 				3FE4B410242C9DC600564F19 /* DKContentMail.swift in Sources */,
+				67301C46261D121C006B0432 /* TripData.swift in Sources */,
+				67F2D3512630F06B00ACC69A /* RankingScoreBig.swift in Sources */,
 				3FFB2D722418C023003E6A06 /* DKKeyboardViewController.swift in Sources */,
 				3F7524CB2406C4CC00AC22CC /* DKUIViewController.swift in Sources */,
+				67301CE92623AD36006B0432 /* TripsListTableVC.swift in Sources */,
 				3FF68E72240823190071D74C /* UIFont+DK.swift in Sources */,
 				3FAEE5622486362E00549391 /* CustomScrollView.swift in Sources */,
 				63199A6E24ED7C250011DCFC /* DKAnalytics.swift in Sources */,
@@ -2653,34 +2756,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63B3A1A324AB93030011F11B /* RankingViewController.swift in Sources */,
 				635616F824B4CD6D0047EAD8 /* RankingType.swift in Sources */,
-				6382109C24B71CF500A42D95 /* RankingSelectorButton.swift in Sources */,
 				5C180D6E246B049B001E95FA /* BadgeLevelView.swift in Sources */,
+				67F2D3772631556000ACC69A /* RankingSelectorsView.swift in Sources */,
 				63C8751524B3727000CA9723 /* RankingViewModel.swift in Sources */,
-				63041FA824AE36C10028CAE8 /* RankingSelectorsView.swift in Sources */,
-				63041FAA24AE3B2E0028CAE8 /* RankingScoreBig.swift in Sources */,
+				67F2D3782631556000ACC69A /* RankingSelectorTypeView.swift in Sources */,
 				3FB5643423F5AA2900F010E3 /* StreakTableViewCell.swift in Sources */,
 				5C180D6A246B0258001E95FA /* BadgeTableViewCell.swift in Sources */,
 				5CFCF8B5246D82E6002F9152 /* BadgeSectionHeaderView.swift in Sources */,
-				63F2229D24C082E800E87240 /* RankingJumpCell.swift in Sources */,
 				635616FA24B4CDB30047EAD8 /* RankingSelector.swift in Sources */,
-				63041FAC24AE3B680028CAE8 /* RankingScoreSmall.swift in Sources */,
 				639F3D2124B5C8F10081DFC3 /* RankingStatus.swift in Sources */,
-				639F3D2824B626270081DFC3 /* RankingSelectorTypeView.swift in Sources */,
-				63B3A1A724ACBCFB0011F11B /* RankingCell.swift in Sources */,
 				5CFCF8B9246DAE4A002F9152 /* BadgeLevelDetailViewController.swift in Sources */,
 				635616F624B4B7AC0047EAD8 /* DriverRank.swift in Sources */,
 				5C180D68246B000D001E95FA /* BadgesViewController.swift in Sources */,
 				3FB5643E23F6B47E00F010E3 /* StreakDataType.swift in Sources */,
 				63B3A1A024AB73460011F11B /* DKRankingSelectorType.swift in Sources */,
-				63B3A1AB24ACC3810011F11B /* CircleView.swift in Sources */,
 				5CA1D483246E9FF1001DDC34 /* BadgeLevelViewModel.swift in Sources */,
 				5C180D66246AFCB8001E95FA /* BadgesViewModel.swift in Sources */,
-				63C8751724B3729200CA9723 /* RankingScoreView.swift in Sources */,
+				67F2D3792631556000ACC69A /* RankingSelectorButton.swift in Sources */,
 				3FFAD21123EDC0FF00D1A16C /* StreakViewModel.swift in Sources */,
 				3FF68E6C2407F8110071D74C /* DriveKitDriverAchievementUI.swift in Sources */,
 				3FFAD20E23EDBF2F00D1A16C /* StreakViewController.swift in Sources */,
+				67F2D3822631575600ACC69A /* RankingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2724,22 +2821,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A317F82923A137B600AD22A2 /* TripTipFeedbackViewModel.swift in Sources */,
-				A34238982361A2440001E15D /* HeaderDayView.swift in Sources */,
 				A34238822361A2440001E15D /* DistractionPageView.swift in Sources */,
 				3F6B67502580D4A2008B3BA7 /* AlternativeTripViewModel.swift in Sources */,
-				A342388A2361A2440001E15D /* TripListSeparator.swift in Sources */,
 				A34238812361A2440001E15D /* SafetyPageView.swift in Sources */,
 				638AC04D261F996D00602B52 /* SynthesisCardViewCell.swift in Sources */,
 				A342386D2361A2430001E15D /* TripDetailVC.swift in Sources */,
-				3F3E73B025715BE8002B5E30 /* AdviceTripInfo.swift in Sources */,
 				A317F82C23A137C700AD22A2 /* TripTipFeedbackVC.swift in Sources */,
 				A342387A2361A2440001E15D /* ResistantLayer.swift in Sources */,
-				A34238962361A2440001E15D /* NoScoreImageView.swift in Sources */,
-				A342388F2361A2440001E15D /* TripData.swift in Sources */,
 				3F3E72F5256F9415002B5E30 /* DKMapItem.swift in Sources */,
-				3F3E735A2570111C002B5E30 /* DKHeader.swift in Sources */,
-				3F38C26223696EE0002E873A /* TripInfoView.swift in Sources */,
-				A342388E2361A2440001E15D /* HeaderDay.swift in Sources */,
 				A34238912361A2440001E15D /* TripListVC.swift in Sources */,
 				6391E0CB26072DD100A168D4 /* DKSynthesisCard.swift in Sources */,
 				6357AE69261120D20000CA58 /* SynthesisCardUtils.swift in Sources */,
@@ -2756,7 +2845,6 @@
 				6391E0F92607F57000A168D4 /* SynthesisCardViewModel.swift in Sources */,
 				3F6B67622580ECD4008B3BA7 /* TransportationModeVC.swift in Sources */,
 				633E93D8261D0CA4009543C0 /* SynthesisCardInfoView.swift in Sources */,
-				6378AF682593F470002F0BBD /* AlternativeTripImageView.swift in Sources */,
 				6391E0DE2607836900A168D4 /* SynthesisCardView.swift in Sources */,
 				A34238772361A2440001E15D /* EcoDrivingPageVC.swift in Sources */,
 				A30F4F1523D5DA08009A37C2 /* SynthesisPageViewModel.swift in Sources */,
@@ -2766,9 +2854,7 @@
 				A34238652361A2430001E15D /* ShortTripPageViewModel.swift in Sources */,
 				6391E0D726072E6600A168D4 /* DKSynthesisCardInfo.swift in Sources */,
 				638AC038261F8FFB00602B52 /* SynthesisCardsView.swift in Sources */,
-				A34238992361A2440001E15D /* TripTableViewCell.swift in Sources */,
 				A34238672361A2430001E15D /* HistoryPageViewModel.swift in Sources */,
-				A34238922361A2440001E15D /* TripTableViewDelegate.swift in Sources */,
 				A30F4F1823D5DA14009A37C2 /* SynthesisPageVC.swift in Sources */,
 				A342386A2361A2430001E15D /* MapItem.swift in Sources */,
 				3F3E72FC256F9B71002B5E30 /* DKTripDetailViewModel.swift in Sources */,
@@ -2777,7 +2863,7 @@
 				3F6B67572580DA62008B3BA7 /* AlternativeTripMapItem.swift in Sources */,
 				3F6B67482580D268008B3BA7 /* AlternativeTripDetailInfoVC.swift in Sources */,
 				A342387F2361A2440001E15D /* HistoryPageView.swift in Sources */,
-				A342388C2361A2440001E15D /* TripsByDate.swift in Sources */,
+				67301DBD2625C301006B0432 /* Trip+DKTripsListItem.swift in Sources */,
 				A342386C2361A2430001E15D /* MapViewController.swift in Sources */,
 				3FF68E8A240ACD620071D74C /* DriveKitDriverDataUI.swift in Sources */,
 				A34238732361A2430001E15D /* ShortTripPageVC.swift in Sources */,
@@ -2787,11 +2873,11 @@
 				6391E1052607F64100A168D4 /* SynthesisCardInfoViewModel.swift in Sources */,
 				3F6B67402580B95F008B3BA7 /* TransportationMode+DKFilter.swift in Sources */,
 				3F6B67702580ED78008B3BA7 /* TransportationModeViewModel.swift in Sources */,
-				3F3E73A925715B47002B5E30 /* DKTripInfo.swift in Sources */,
 				A34238762361A2440001E15D /* SafetyPageVC.swift in Sources */,
 				A34238682361A2430001E15D /* DistractionPageViewModel.swift in Sources */,
 				A34238632361A2430001E15D /* TripDetailViewModel.swift in Sources */,
 				67CFE9F925FA1385004D0AE1 /* SpeedingPageItemView.swift in Sources */,
+				67301DC42625C3BF006B0432 /* TripListVC+DKTripList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

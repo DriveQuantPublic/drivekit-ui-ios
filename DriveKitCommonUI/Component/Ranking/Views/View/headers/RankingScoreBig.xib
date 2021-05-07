@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB" customClass="RankingScoreBig" customModule="DriveKitCommonUI" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="570" height="160"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jgx-n3-D6h">
+                    <rect key="frame" x="10" y="24" width="265" height="116"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="shJ-SP-G9E" userLabel="Ranking type">
+                    <rect key="frame" x="275" y="32" width="285" height="21.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="13c-hU-sWU">
+                    <rect key="frame" x="275" y="63.5" width="95.5" height="36"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UPq-gD-cga" userLabel="Progression icon">
+                            <rect key="frame" x="0.0" y="5" width="26" height="26"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="26" id="eLI-SV-vac"/>
+                                <constraint firstAttribute="height" constant="26" id="qnu-LD-uwb"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 / 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HuX-zN-sKw" userLabel="Rank">
+                            <rect key="frame" x="36" y="0.0" width="59.5" height="36"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Jgx-n3-D6h" secondAttribute="bottom" constant="20" id="9Oh-Tn-hh2"/>
+                <constraint firstAttribute="trailing" secondItem="shJ-SP-G9E" secondAttribute="trailing" constant="10" id="Acv-Ye-mCy"/>
+                <constraint firstItem="Jgx-n3-D6h" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="24" id="FOY-VZ-l2e"/>
+                <constraint firstItem="13c-hU-sWU" firstAttribute="leading" secondItem="shJ-SP-G9E" secondAttribute="leading" id="Rhn-I3-KiT"/>
+                <constraint firstItem="13c-hU-sWU" firstAttribute="top" secondItem="shJ-SP-G9E" secondAttribute="bottom" constant="10" id="Wz3-Yn-DjQ"/>
+                <constraint firstItem="shJ-SP-G9E" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="32" id="c57-gF-6TA"/>
+                <constraint firstItem="shJ-SP-G9E" firstAttribute="leading" secondItem="Jgx-n3-D6h" secondAttribute="trailing" id="cxg-ew-752"/>
+                <constraint firstItem="Jgx-n3-D6h" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" constant="-20" id="qPz-f6-Zyg"/>
+                <constraint firstAttribute="height" constant="160" id="u7f-Wa-jUJ"/>
+                <constraint firstItem="Jgx-n3-D6h" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="z2m-Ta-LXp"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="progressionView" destination="UPq-gD-cga" id="z1h-s5-A5I"/>
+                <outlet property="rankingTypeImage" destination="Jgx-n3-D6h" id="1kq-gf-afT"/>
+                <outlet property="rankingTypeLabel" destination="shJ-SP-G9E" id="XOc-yh-jP9"/>
+                <outlet property="userRankView" destination="HuX-zN-sKw" id="nli-oM-s5v"/>
+            </connections>
+            <point key="canvasLocation" x="226.08695652173915" y="216.96428571428569"/>
+        </view>
+    </objects>
+</document>

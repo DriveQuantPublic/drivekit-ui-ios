@@ -321,6 +321,10 @@ public extension Double {
         }
         return self
     }
+
+    func roundUp(step: Double) -> Double {
+        return (self / step).rounded(.up) * step
+    }
 }
 
 public extension Date {
@@ -364,6 +368,13 @@ public extension String {
     }
 }
 
+
 public enum DurationUnit {
     case second, minute, hour, day
+}
+
+public extension Int {
+    func roundUp(step: Double) -> Double {
+        return (Double(self) / step).rounded(.up) * step
+    }
 }

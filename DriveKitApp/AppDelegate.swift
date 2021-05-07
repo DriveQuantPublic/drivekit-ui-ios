@@ -42,6 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitUI.shared.initialize(colors: DefaultColors(), fonts: DefaultFonts(), overridedStringsFileName: "Localizable")
         DriveKitDriverAchievementUI.shared.initialize()
         DriveKitDriverAchievementUI.shared.configureRankingTypes([.safety, .ecoDriving, .distraction, .speeding])
+        DriveKitDriverAchievementUI.shared.configureRankingSelector(DKRankingSelectorType.period(rankingPeriods: [.weekly, .monthly, .allTime]))
         DriveKitDriverDataUI.shared.initialize()
         DriveKitDriverDataUI.shared.enableAlternativeTrips(true)
         DriveKitVehicleUI.shared.initialize()

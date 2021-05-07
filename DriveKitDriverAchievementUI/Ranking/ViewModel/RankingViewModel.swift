@@ -12,9 +12,9 @@ import DriveKitCommonUI
 import DriveKitCoreModule
 import DriveKitDBAchievementAccessModule
 import DriveKitDriverAchievementModule
+import UIKit
 
 class RankingViewModel {
-
     var selectedRankingType: RankingType? {
         didSet {
             update()
@@ -27,7 +27,7 @@ class RankingViewModel {
     }
     weak var delegate: RankingViewModelDelegate? = nil
     private(set) var status: RankingStatus = .needsUpdate
-    private(set) var ranks = [AnyDriverRank?]()
+    private(set) var ranks = [DKDriverRankingItem]()
     private(set) var driverRank: CurrentDriverRank? = nil
     private(set) var rankingTypes = [RankingType]()
     private(set) var rankingSelectors = [RankingSelector]()
@@ -37,7 +37,7 @@ class RankingViewModel {
     private let rankingDepth: Int
     private var useCache = [String: Bool]()
     private var initialized = false
-
+    private var progressionImageName: String?
 
     init() {
         self.dkRankingTypes = RankingViewModel.sanitizeRankingTypes(DriveKitDriverAchievementUI.shared.rankingTypes)
@@ -121,7 +121,7 @@ class RankingViewModel {
                     if let self = self {
                         self.driverRank = nil
                         if let ranking = ranking {
-                            var ranks = [AnyDriverRank?]()
+                            var ranks = [DKDriverRankingItem]()
                             let nbDrivers = ranking.nbDriverRanked
                             self.nbDrivers = nbDrivers
                             var previousRank: Int? = nil
@@ -135,7 +135,7 @@ class RankingViewModel {
                                 }
                             }) {
                                 if let previousRank = previousRank, previousRank + 1 != dkRank.rank {
-                                    ranks.append(nil)
+                                    ranks.append(JumpDriverRank())
                                 }
                                 let name: String
                                 if let nickname = dkRank.nickname, !nickname.isEmpty {
@@ -143,19 +143,6 @@ class RankingViewModel {
                                 } else {
                                     name = "dk_achievements_ranking_anonymous_driver".dkAchievementLocalized()
                                 }
-                                let driverRank = DriverRank(
-                                    nbDrivers: nbDrivers,
-                                    position: dkRank.rank,
-                                    positionString: String(dkRank.rank),
-                                    positionImageName: self.getImageName(fromPosition: dkRank.rank),
-                                    rankString: " / \(nbDrivers)",
-                                    name: name,
-                                    distance: dkRank.distance,
-                                    distanceString: dkRank.distance.formatKilometerDistance(),
-                                    score: dkRank.score,
-                                    scoreString: self.formatScore(dkRank.score),
-                                    totalScoreString: " / 10"
-                                )
                                 if dkRank.rank == ranking.userPosition {
                                     let progressionImageName: String?
                                     if let userPreviousPosition = ranking.userPreviousPosition, ranking.userPosition > 0 {
@@ -163,17 +150,43 @@ class RankingViewModel {
                                         if deltaRank == 0 {
                                             progressionImageName = nil
                                         } else if deltaRank > 0 {
-                                            progressionImageName = "dk_achievements_arrow_up"
+                                            progressionImageName = "dk_common_ranking_arrow_up"
                                         } else {
-                                            progressionImageName = "dk_achievements_arrow_down"
+                                            progressionImageName = "dk_common_ranking_arrow_down"
                                         }
                                     } else {
                                         progressionImageName = nil
                                     }
-                                    let currentDriverRank = CurrentDriverRank(driverRank: driverRank, progressionImageName: progressionImageName)
+                                    self.progressionImageName = progressionImageName
+                                    let currentDriverRank = CurrentDriverRank(
+                                        nbDrivers: nbDrivers,
+                                        position: dkRank.rank,
+                                        positionString: String(dkRank.rank),
+                                        positionImageName: self.getImageName(fromPosition: dkRank.rank),
+                                        rankString: " / \(nbDrivers)",
+                                        name: name,
+                                        distance: dkRank.distance,
+                                        distanceString: dkRank.distance.formatKilometerDistance(),
+                                        score: dkRank.score,
+                                        scoreString: self.formatScore(dkRank.score),
+                                        totalScoreString: " / 10"
+                                    )
                                     ranks.append(currentDriverRank)
                                     self.driverRank = currentDriverRank
                                 } else {
+                                    let driverRank = DriverRank(
+                                        nbDrivers: nbDrivers,
+                                        position: dkRank.rank,
+                                        positionString: String(dkRank.rank),
+                                        positionImageName: self.getImageName(fromPosition: dkRank.rank),
+                                        rankString: " / \(nbDrivers)",
+                                        name: name,
+                                        distance: dkRank.distance,
+                                        distanceString: dkRank.distance.formatKilometerDistance(),
+                                        score: dkRank.score,
+                                        scoreString: self.formatScore(dkRank.score),
+                                        totalScoreString: " / 10"
+                                    )
                                     ranks.append(driverRank)
                                 }
                                 previousRank = dkRank.rank
@@ -219,7 +232,7 @@ class RankingViewModel {
 
     private func getImageName(fromPosition position: Int) -> String? {
         if position >= 1 && position <= 3 {
-            return "dk_achievements_ranking_rank_\(position)"
+            return "dk_common_rank_\(position)"
         } else {
             return nil
         }
@@ -300,4 +313,57 @@ extension DKRankingType {
 
 protocol RankingViewModelDelegate : AnyObject {
     func rankingDidUpdate()
+}
+
+extension RankingViewModel: DKDriverRanking {
+    func getHeaderDisplayType() -> DKRankingHeaderDisplayType {
+        if rankingTypes.count > 1 {
+            return .compact
+        } else {
+            return .full
+        }
+    }
+
+    func getDriverRankingItems() -> [DKDriverRankingItem] {
+        return ranks
+    }
+
+    func getTitle() -> String {
+        guard rankingTypes.count > 0 else {
+            return ""
+        }
+        return rankingTypes[0].name
+    }
+
+    func getImage() -> UIImage? {
+        guard rankingTypes.count > 0 else {
+            return nil
+        }
+        return UIImage(named: rankingTypes[0].imageName, in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
+    }
+
+    func getProgressionImage() -> UIImage? {
+        if let progressionImageName = self.progressionImageName {
+            return UIImage(named: progressionImageName, in: Bundle.driveKitCommonUIBundle, compatibleWith: nil)
+        } else {
+            return nil
+        }
+    }
+
+    func getDriverGlobalRankAttributedText() -> NSAttributedString {
+        if let driverRank = driverRank {
+            let driverRankString = driverRank.positionString.dkAttributedString().font(dkFont: .primary, style: .highlightBig).color(.secondaryColor).build()
+            let rankString = driverRank.rankString.dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
+            return "%@%@".dkAttributedString().buildWithArgs(driverRankString, rankString)
+        } else {
+            let driverRankString = "-".dkAttributedString().font(dkFont: .primary, style: .highlightBig).color(.secondaryColor).build()
+            let rankString = " / \(nbDrivers)".dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
+            return "%@%@".dkAttributedString().buildWithArgs(driverRankString, rankString)
+        }
+    }
+
+    func getScoreTitle() -> String {
+        return DKCommonLocalizable.rankingScore.text()
+    }
+
 }

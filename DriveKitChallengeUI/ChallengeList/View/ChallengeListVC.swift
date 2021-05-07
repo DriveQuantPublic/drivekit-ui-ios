@@ -42,6 +42,15 @@ class ChallengeListVC: DKUIViewController {
         self.viewModel.fetchChallenges()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if viewModel.selectedTab == .current {
+            DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_list_active", viewController: self)
+        } else if viewModel.selectedTab == .past {
+            DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_list_finished", viewController: self)
+        }
+    }
+
     func setupCollectionViews() {
         self.currentChallengesCollectionView?.register(UINib(nibName: "NoChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "NoChallengeCellIdentifier")
         self.currentChallengesCollectionView?.register(UINib(nibName: "ChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "ChallengeCellIdentifier")
@@ -73,11 +82,17 @@ class ChallengeListVC: DKUIViewController {
     }
 
     @IBAction func selectCurrentTab() {
+        if viewModel.selectedTab != .current {
+            DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_list_active", viewController: self)
+        }
         viewModel.updateSelectedTab(challengeTab: .current)
         updateSelectedTab()
     }
 
     @IBAction func selectPastTab() {
+        if viewModel.selectedTab != .past {
+            DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_list_finished", viewController: self)
+        }
         viewModel.updateSelectedTab(challengeTab: .past)
         updateSelectedTab()
     }

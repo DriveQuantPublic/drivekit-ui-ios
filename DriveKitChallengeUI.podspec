@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'DriveKitChallengeUI'
-  s.version          = '1.12-beta1'
+  s.version          = '1.6-beta1'
   s.summary          = 'DriveKit Challenge UI Framework'
 
   s.description      = 'DriveKit Challenge features: Display challenges, join challenge, display challenge details'

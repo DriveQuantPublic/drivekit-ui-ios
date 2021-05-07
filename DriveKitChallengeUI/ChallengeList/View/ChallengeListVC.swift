@@ -122,7 +122,7 @@ extension ChallengeListVC: UICollectionViewDataSource {
             if count > 0 {
                 cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChallengeCellIdentifier", for: indexPath)
                 if let challengeCell = cell as? ChallengeCell, indexPath.row < count {
-                    challengeCell.configure(challenge: ChallengeItemViewModel(challenge: self.viewModel.currentChallenges[indexPath.row]))
+                    challengeCell.configure(challenge: self.viewModel.currentChallenges[indexPath.row])
                 }
             } else {
                 cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoChallengeCellIdentifier", for: indexPath)
@@ -135,7 +135,7 @@ extension ChallengeListVC: UICollectionViewDataSource {
             if count > 0 {
                 cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChallengeCellIdentifier", for: indexPath)
                 if let challengeCell = cell as? ChallengeCell, indexPath.row < count {
-                    challengeCell.configure(challenge: ChallengeItemViewModel(challenge: self.viewModel.pastChallenges[indexPath.row]))
+                    challengeCell.configure(challenge: self.viewModel.pastChallenges[indexPath.row])
                 }
             } else {
                 cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoChallengeCellIdentifier", for: indexPath)

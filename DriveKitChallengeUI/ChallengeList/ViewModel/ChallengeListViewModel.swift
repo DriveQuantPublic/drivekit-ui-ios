@@ -23,8 +23,8 @@ public protocol ChallengeListDelegate: AnyObject {
 
 public class ChallengeListViewModel {
     private var challenges: [DKChallenge] = []
-    public private(set) var currentChallenges: [DKChallenge] = []
-    public private(set) var pastChallenges: [DKChallenge] = []
+    private(set) var currentChallenges: [ChallengeItemViewModel] = []
+    private(set) var pastChallenges: [ChallengeItemViewModel] = []
     public weak var delegate: ChallengeListDelegate? = nil
     public private(set) var selectedTab: ChallengeListTab = .current
 
@@ -43,16 +43,20 @@ public class ChallengeListViewModel {
     }
 
     func updateChallengeArrays() {
-        self.currentChallenges = self.challenges.currentChallenges()
-        self.pastChallenges = self.challenges.pastChallenges()
+        self.currentChallenges = self.challenges.currentChallenges().map({ challenge in
+            return ChallengeItemViewModel(challenge: challenge)
+        })
+        self.pastChallenges = self.challenges.pastChallenges().map({ challenge in
+            return ChallengeItemViewModel(challenge: challenge)
+        })
     }
 
     func updateSelectedTab(challengeTab: ChallengeListTab) {
         selectedTab = challengeTab
     }
-    func expectedCellHeight(challenge: DKChallenge, viewWdth: CGFloat) -> CGFloat {
+    func expectedCellHeight(challenge: ChallengeItemViewModel, viewWdth: CGFloat) -> CGFloat {
         let width = viewWdth - 124
-        let attributedText: NSAttributedString = NSAttributedString(string: challenge.title, attributes: [.font: DKUIFonts.primary.fonts(size: 22).with(.traitBold)])
+        let attributedText: NSAttributedString = NSAttributedString(string: challenge.name, attributes: [.font: DKUIFonts.primary.fonts(size: 22).with(.traitBold)])
         let expectedRect = attributedText.boundingRect(with: CGSize(width: width, height: 600), options: .usesLineFragmentOrigin, context: nil)
         return max(124.0, expectedRect.height + 83)
     }

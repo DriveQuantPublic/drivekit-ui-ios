@@ -196,4 +196,16 @@ extension ChallengeListVC: UIScrollViewDelegate {
             self.highlightConstraint?.constant = scrollView.contentOffset.x / 2
         }
     }
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if scrollView == parentScrollView {
+            let isCurrentTab = Int(scrollView.contentOffset.x / (scrollView.frame.width / 2)) == 0
+            if isCurrentTab, viewModel.selectedTab != .current {
+                viewModel.updateSelectedTab(challengeTab: .current)
+                DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_list_active", viewController: self)
+            } else if !isCurrentTab, viewModel.selectedTab != .past {
+                viewModel.updateSelectedTab(challengeTab: .past)
+                DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_list_finished", viewController: self)
+            }
+        }
+    }
 }

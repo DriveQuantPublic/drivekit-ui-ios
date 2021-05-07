@@ -74,7 +74,7 @@ class ViewController: UITableViewController {
             startTripButton.isEnabled = true
             cancelTripButton.isEnabled = false
         case .starting:
-            stopTripButton.isEnabled = false
+            stopTripButton.isEnabled = true
             startTripButton.isEnabled = false
             cancelTripButton.isEnabled = true
         case .running:
@@ -98,17 +98,19 @@ class ViewController: UITableViewController {
         if indexPath.section == 0 {
             if indexPath.row == 1 {
                 self.configureDriverDataUI()
-            } else if indexPath.row == 3 {
-                self.configureDriverStreak()
+            } else if indexPath.row == 2 {
+                self.openSynthesisCards()
             } else if indexPath.row == 4 {
-                self.configureVehiclePicker()
+                self.configureDriverStreak()
             } else if indexPath.row == 5 {
-                self.configureBeaconPairing()
+                self.configureVehiclePicker()
             } else if indexPath.row == 6 {
+                self.configureBeaconPairing()
+            } else if indexPath.row == 7 {
                 self.configureVehiclesList()
-            } else if indexPath.row == 8 {
-                self.configureDriverBadges()
             } else if indexPath.row == 9 {
+                self.configureDriverBadges()
+            } else if indexPath.row == 10 {
                 self.showRanking()
             }
         }
@@ -183,10 +185,13 @@ class ViewController: UITableViewController {
     
     func configureDriverDataUI() {
         DispatchQueue.main.async {
-            
             let tripListVC = TripListVC()
             self.navigationController?.pushViewController(tripListVC, animated: true)
         }
+    }
+
+    func openSynthesisCards() {
+        self.navigationController?.pushViewController(SynthesisCardTest.getSynthesisCardViewController(), animated: true)
     }
     
     func configureDriverStreak() {

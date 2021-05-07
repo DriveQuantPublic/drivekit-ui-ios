@@ -24,6 +24,7 @@ Handling your phone while driving is very dangerous. Remember to protect yoursel
 "dk_driverdata_day"="Day trip";
 "dk_driverdata_declared_transportation_mode"="Declared mode:";
 "dk_driverdata_default_filter_item"="All my trips";
+"dk_driverdata_dense_urban"="%@ in dense traffic";
 "dk_driverdata_detected_transportation_mode"="Detected mode:";
 "dk_driverdata_distance_travelled"="%@ travelled";
 "dk_driverdata_distraction_score"="Distraction score";
@@ -36,6 +37,8 @@ Handling your phone while driving is very dangerous. Remember to protect yoursel
 "dk_driverdata_end_unauthorized_call"="End of unauthorized call";
 "dk_driverdata_end_unauthorized_call_info_content"="The application has detected the end of an unauthorized call. This means that the call was not made with a hands-free kit.
 Handling your phone while driving is very dangerous. Remember to protect yourself, your passengers and other road users. If you need to make a call, your vehicle must be parked in a parking space with the engine turned off.";
+"dk_driverdata_expressway"="%@ on expressways";
+"dk_driverdata_extra_urban"="%@ in extra-urban zone";
 "dk_driverdata_failed_to_declare_transportation"="Transportation mode couldn\'t be updated, please retry later.";
 "dk_driverdata_failed_to_delete_trip"="The trip could not be deleted, try again later.";
 "dk_driverdata_failed_to_sync_trips"="Failed to synchronize trips, please retry later.";
@@ -47,6 +50,10 @@ Handling your phone while driving is very dangerous. Remember to protect yoursel
 "dk_driverdata_lock_event"="Screen locking";
 "dk_driverdata_low_accel"="Acceleration is too low";
 "dk_driverdata_low_decel"="Deceleration is too low";
+"dk_driverdata_my_weekly_score_distraction"="My weekly score | Distraction";
+"dk_driverdata_my_weekly_score_ecodriving"="My weekly score | Eco-driving";
+"dk_driverdata_my_weekly_score_safety"="My weekly score | Safety";
+"dk_driverdata_my_weekly_score_speeding"="My Weekly Score | Speeding";
 "dk_driverdata_night"="Night trip";
 "dk_driverdata_no_call_congrats"="Congratulations!";
 "dk_driverdata_no_call_content"="No calls";
@@ -89,6 +96,10 @@ Handling your phone while driving is very dangerous. Remember to protect yoursel
 "dk_driverdata_synthesis_co2_mass"="Mass of CO2";
 "dk_driverdata_synthesis_condition"="Condition";
 "dk_driverdata_synthesis_fuel_consumption"="Fuel consumption";
+"dk_driverdata_synthesis_info_distraction"="The score displayed on the card is the average of the trips made over 7 rolling days from the date of the last trip. If the score does not appear, it means that there is not enough data to evaluate your driving.";
+"dk_driverdata_synthesis_info_ecodriving"="The score displayed on the card is the average of the trips made over 7 rolling days from the date of the last trip. If the score does not appear, it means that there is not enough data to evaluate your driving.";
+"dk_driverdata_synthesis_info_safety"="The score displayed on the card is the average of the trips made over 7 rolling days from the date of the last trip. If the score does not appear, it means that there is not enough data to evaluate your driving.";
+"dk_driverdata_synthesis_info_speeding"="The score displayed on the card is the average of the trips made over 7 rolling days from the date of the last trip. If the score does not appear, it means that there is not enough data to evaluate your driving.";
 "dk_driverdata_synthesis_mean_speed"="Average speed";
 "dk_driverdata_synthesis_road_context"="Driving context";
 "dk_driverdata_synthesis_stop_time"="Idling duration";
@@ -128,6 +139,7 @@ Handling your phone while driving is very dangerous. Remember to protect yoursel
 "dk_driverdata_unlock_events"="Screen unlocks";
 "dk_driverdata_unlock_number"="Number of unlocking";
 "dk_driverdata_unlock_screen_content"="screen on during %@ and %@";
+"dk_driverdata_urban"="%@ in urban zone";
 "dk_driverdata_value"="Value =";
 "dk_driverdata_vehicle_trips"="Vehicle trips";
 "dk_driverdata_weak_accel"="Weak acceleration";

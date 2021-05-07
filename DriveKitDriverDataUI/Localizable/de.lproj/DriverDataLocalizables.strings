@@ -25,6 +25,7 @@ Das Hantieren mit dem Telefon während der Fahrt ist sehr gefährlich. Denken Si
 "dk_driverdata_day"="Tagesausflug";
 "dk_driverdata_declared_transportation_mode"="Modus erklärt:";
 "dk_driverdata_default_filter_item"="Alle meine Reisen";
+"dk_driverdata_dense_urban"="%@ bei starkem Verkehr";
 "dk_driverdata_detected_transportation_mode"="Erkannter Modus:";
 "dk_driverdata_distance_travelled"="%@ verfahren";
 "dk_driverdata_distraction_score"="Ablenkungsmanöver";
@@ -38,6 +39,8 @@ Das Hantieren mit dem Telefon während der Fahrt ist sehr gefährlich. Denken Si
 "dk_driverdata_end_unauthorized_call_info_content"="Die App hat das Ende eines unerlaubten Anrufs erkannt...
 Dies bedeutet, dass der Anruf nicht mit einer Freisprecheinrichtung getätigt wurde.
 Das Hantieren mit dem Telefon während der Fahrt ist sehr gefährlich. Denken Sie daran, sich selbst, Ihre Mitfahrer und andere Verkehrsteilnehmer zu schützen. Wenn Sie einen Anruf tätigen müssen, stellen Sie Ihr Fahrzeug mit ausgeschaltetem Motor in einer Parklücke ab.";
+"dk_driverdata_expressway"="%@ auf Schnellstraßen";
+"dk_driverdata_extra_urban"="%@ in außerstädtischen Gebieten";
 "dk_driverdata_failed_to_declare_transportation"="Transportmodus konnte nicht aktualisiert werden, bitte versuchen Sie es später erneut.";
 "dk_driverdata_failed_to_delete_trip"="Die Fahrt konnte nicht gelöscht werden, versuchen Sie es später noch einmal.";
 "dk_driverdata_failed_to_sync_trips"="Die Synchronisation von Fahrten ist fehlgeschlagen, bitte versuchen Sie es später erneut.";
@@ -49,6 +52,10 @@ Das Hantieren mit dem Telefon während der Fahrt ist sehr gefährlich. Denken Si
 "dk_driverdata_lock_event"="Bildschirm sperren";
 "dk_driverdata_low_accel"="Beschleunigung zu schwach";
 "dk_driverdata_low_decel"="Bremsen zu schwach";
+"dk_driverdata_my_weekly_score_distraction"="Resultat letzte 7 Tage | Ablenkung";
+"dk_driverdata_my_weekly_score_ecodriving"="Resultat letzte 7 Tage | Effizienz";
+"dk_driverdata_my_weekly_score_safety"="Resultat letzte 7 Tage | Sicherheit";
+"dk_driverdata_my_weekly_score_speeding"="Resultat letzte 7 Tage | Geschwindigkeit";
 "dk_driverdata_night"="Nachtfahrt";
 "dk_driverdata_no_call_congrats"="Glückwunsch!";
 "dk_driverdata_no_call_content"="Keine anrufe";
@@ -91,6 +98,10 @@ Das Hantieren mit dem Telefon während der Fahrt ist sehr gefährlich. Denken Si
 "dk_driverdata_synthesis_co2_mass"="CO2-Masse";
 "dk_driverdata_synthesis_condition"="Bedingung";
 "dk_driverdata_synthesis_fuel_consumption"="Kraftstoffverbrauch";
+"dk_driverdata_synthesis_info_distraction"="Die auf der Karte angezeigte Punktzahl ist der Durchschnitt der Fahrten über 7 rollende Tage ab dem Datum der letzten Fahrt. Wenn die Punktzahl nicht angezeigt wird, bedeutet dies, dass nicht genügend Daten vorhanden sind, um Ihre Fahrweise zu bewerten.";
+"dk_driverdata_synthesis_info_ecodriving"="Die auf der Karte angezeigte Punktzahl ist der Durchschnitt der Fahrten über 7 rollende Tage ab dem Datum der letzten Fahrt. Wenn die Punktzahl nicht angezeigt wird, bedeutet dies, dass nicht genügend Daten vorhanden sind, um Ihre Fahrweise zu bewerten.";
+"dk_driverdata_synthesis_info_safety"="Die auf der Karte angezeigte Punktzahl ist der Durchschnitt der Fahrten über 7 rollende Tage ab dem Datum der letzten Fahrt. Wenn die Punktzahl nicht angezeigt wird, bedeutet dies, dass nicht genügend Daten vorhanden sind, um Ihre Fahrweise zu bewerten.";
+"dk_driverdata_synthesis_info_speeding"="Die auf der Karte angezeigte Punktzahl ist der Durchschnitt der Fahrten über 7 rollende Tage ab dem Datum der letzten Fahrt. Wenn die Punktzahl nicht angezeigt wird, bedeutet dies, dass nicht genügend Daten vorhanden sind, um Ihre Fahrweise zu bewerten.";
 "dk_driverdata_synthesis_mean_speed"="Mittlere Velocity";
 "dk_driverdata_synthesis_road_context"="Kontext Fahrt";
 "dk_driverdata_synthesis_stop_time"="Leerlaufdauer";
@@ -130,6 +141,7 @@ Das Hantieren mit dem Telefon während der Fahrt ist sehr gefährlich. Denken Si
 "dk_driverdata_unlock_events"="Bildschirm entriegelt";
 "dk_driverdata_unlock_number"="Anzahl der Entsperrungen";
 "dk_driverdata_unlock_screen_content"="Anzeige auf %@ und %@";
+"dk_driverdata_urban"="%@ in städtischen Gebieten";
 "dk_driverdata_value"="Wert =";
 "dk_driverdata_vehicle_trips"="Fahrzeug-Fahrten";
 "dk_driverdata_weak_accel"="Niedrige Beschleunigung";

@@ -40,9 +40,9 @@ public enum ScoreType: String {
         case .safety:
             return [0, 5.5, 6.5, 7.5, 8.5, 9.5, 10]
         case .distraction:
-            return [1 ,7 ,8 , 8.5, 9 ,9.5 , 10]
+            return [1, 7, 8, 8.5, 9, 9.5, 10]
         case .speeding:
-            return [3 ,5, 7, 8, 9 ,9.5, 10]
+            return [3, 5, 7, 8, 9, 9.5, 10]
         }
     }
     

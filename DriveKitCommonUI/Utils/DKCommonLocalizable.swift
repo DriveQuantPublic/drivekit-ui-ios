@@ -35,6 +35,8 @@ public enum DKCommonLocalizable : String {
     mass = "dk_common_mass",
     tripSingular = "dk_common_trip_singular",
     tripPlural = "dk_common_trip_plural",
+    daySingular = "dk_common_day_singular",
+    dayPlural = "dk_common_day_plural",
     consumption = "dk_common_consumption",
     ok = "dk_common_ok",
     cancel = "dk_common_cancel",

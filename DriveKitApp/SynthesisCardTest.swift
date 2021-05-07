@@ -25,7 +25,7 @@ struct SynthesisCardTest {
 
         let margin = CGFloat(10)
         viewController.view.addConstraints([
-            cardsView.heightAnchor.constraint(equalToConstant: 220),
+            cardsView.heightAnchor.constraint(equalToConstant: 208),
             cardsView.topAnchor.constraint(equalTo: viewController.view.topAnchor, constant: margin),
             cardsView.leftAnchor.constraint(equalTo: viewController.view.leftAnchor, constant: margin),
             cardsView.rightAnchor.constraint(equalTo: viewController.view.rightAnchor, constant: -margin)
@@ -36,7 +36,7 @@ struct SynthesisCardTest {
         addShadow(to: customCardView)
         viewController.view.addSubview(customCardView)
         viewController.view.addConstraints([
-            customCardView.heightAnchor.constraint(equalToConstant: 200),
+            customCardView.heightAnchor.constraint(equalToConstant: 190),
             customCardView.topAnchor.constraint(equalTo: cardsView.bottomAnchor, constant: margin),
             customCardView.leftAnchor.constraint(equalTo: viewController.view.leftAnchor, constant: margin),
             customCardView.rightAnchor.constraint(equalTo: viewController.view.rightAnchor, constant: -margin)

@@ -30,7 +30,7 @@ final class SynthesisCardView: UIView, Nibable {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        self.title.textColor = DKUIColors.mainFontColor.color
+        self.title.textColor = DKUIColors.complementaryFontColor.color
         self.title.font = DKStyle(size: DKStyles.smallText.style.size, traits: .traitBold).applyTo(font: DKUIFonts.primary)
 
         self.explanationButton.tintColor = DKUIColors.secondaryColor.color

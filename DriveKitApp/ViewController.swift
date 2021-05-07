@@ -74,7 +74,7 @@ class ViewController: UITableViewController {
             startTripButton.isEnabled = true
             cancelTripButton.isEnabled = false
         case .starting:
-            stopTripButton.isEnabled = false
+            stopTripButton.isEnabled = true
             startTripButton.isEnabled = false
             cancelTripButton.isEnabled = true
         case .running:

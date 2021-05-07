@@ -47,8 +47,8 @@ public enum SynthesisCardInfo: DKSynthesisCardInfo {
                 } else {
                     unitKey = .daySingular
                 }
-                let valueString = String(count).dkAttributedString().font(dkFont: .primary, style: valueFontStyle).color(.primaryColor).build()
-                let unitString = unitKey.text().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+                let valueString = String(count).dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()
+                let unitString = unitKey.text().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
                 text = "%@ %@".dkAttributedString().buildWithArgs(valueString, unitString)
             case let .count(trips):
                 let count = trips.count
@@ -58,19 +58,15 @@ public enum SynthesisCardInfo: DKSynthesisCardInfo {
                 } else {
                     unitKey = .tripSingular
                 }
-                let valueString = String(count).dkAttributedString().font(dkFont: .primary, style: valueFontStyle).color(.primaryColor).build()
-                let unitString = unitKey.text().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+                let valueString = String(count).dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()
+                let unitString = unitKey.text().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
                 text = "%@ %@".dkAttributedString().buildWithArgs(valueString, unitString)
             case let .distance(trips):
                 text = formatTypes(trips.totalDistance.ceilMeterDistance(ifGreaterThan: 10000).getMeterDistanceFormat())
             case let .duration(trips):
-                text = formatTypes(trips.totalDuration.ceilSecondDuration(ifGreaterThan: 600).getSecondDurationFormat())
+                text = formatTypes(trips.totalDuration.ceilSecondDuration(ifGreaterThan: 600).getSecondDurationFormat(maxUnit: .hour))
         }
         return text
-    }
-
-    private var valueFontStyle: DKStyle {
-        DKStyle(size: DKStyles.bigtext.style.size, traits: .traitBold)
     }
 
     private func formatTypes(_ formattingTypes: [FormatType]) -> NSAttributedString {
@@ -79,9 +75,9 @@ public enum SynthesisCardInfo: DKSynthesisCardInfo {
             switch formattingType {
                 case let .separator(value),
                      let .unit(value):
-                    attributedString.append(value.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build())
+                    attributedString.append(value.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build())
                 case let .value(value):
-                    attributedString.append(value.dkAttributedString().font(dkFont: .primary, style: valueFontStyle).color(.primaryColor).build())
+                    attributedString.append(value.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build())
             }
         }
         return attributedString

@@ -29,7 +29,7 @@ public class VehiclesListVC: DKUIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        title = "dk_vehicle_my_vehicles".dkVehicleLocalized()
+        updateTitle()
         self.viewModel.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 200
@@ -45,7 +45,7 @@ public class VehiclesListVC: DKUIViewController {
             addVehicleButton.backgroundColor = DKUIColors.secondaryColor.color
             let addTitle = "dk_vehicle_add".dkVehicleLocalized().uppercased().dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).build()
             addVehicleButton.setAttributedTitle(addTitle, for: .normal)
-        } else{
+        } else {
             addVehicleButton.isHidden = true
         }
     }
@@ -59,13 +59,22 @@ public class VehiclesListVC: DKUIViewController {
     @IBAction func goToVehiclePicker(_ sender: Any) {
         if let maxVehicles = DriveKitVehicleUI.shared.maxVehicles, maxVehicles <= self.viewModel.vehiclesCount {
             self.showAlertMessage(title: "", message: "dk_too_many_vehicles_alert".dkVehicleLocalized(), back: false, cancel: false)
-        }else{
+        } else {
             self.showVehiclePicker()
         }
     }
     
     @objc func refreshVehiclesList(_ sender: Any) {
         self.viewModel.fetchVehicles()
+    }
+
+    private func updateTitle() {
+        if self.viewModel.vehiclesCount == 1 {
+            self.title = "dk_vehicle_my_vehicle".dkVehicleLocalized()
+        } else {
+            self.title = "dk_vehicle_my_vehicles".dkVehicleLocalized()
+        }
+        self.navigationController?.navigationBar.topItem?.title = self.title
     }
 }
 
@@ -78,7 +87,7 @@ extension VehiclesListVC: UITableViewDelegate {
             headerView.image.tintColor = DKUIColors.warningColor.color
             headerView.title.attributedText = "dk_vehicle_list_empty".dkVehicleLocalized().dkAttributedString().primaryFontNormalTextMainFontColor()
             return headerView
-        } else{
+        } else {
             return nil
         }
     }
@@ -86,7 +95,7 @@ extension VehiclesListVC: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if self.viewModel.vehiclesCount == 0 {
             return 80
-        }else {
+        } else {
             return 0
         }
     }
@@ -125,12 +134,12 @@ extension VehiclesListVC: VehiclesListDelegate {
         DispatchQueue.main.async {
             self.hideLoader()
             if DriveKitVehicleUI.shared.canAddVehicle{
-                if let maxVehicle = DriveKitVehicleUI.shared.maxVehicles, self.viewModel.vehiclesCount >= maxVehicle{
+                if let maxVehicle = DriveKitVehicleUI.shared.maxVehicles, self.viewModel.vehiclesCount >= maxVehicle {
                     self.addVehicleButton.isHidden = true
-                }else{
+                } else {
                     self.addVehicleButton.isHidden = false
                 }
-            }else{
+            } else {
                 self.addVehicleButton.isHidden = true
             }
             if self.refreshControl.isRefreshing {
@@ -139,6 +148,7 @@ extension VehiclesListVC: VehiclesListDelegate {
             self.tableView.delegate = self
             self.tableView.dataSource = self
             self.tableView.reloadData()
+            self.updateTitle()
         }
     }
     

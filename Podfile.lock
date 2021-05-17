@@ -1,39 +1,47 @@
 PODS:
-  - DriveKitCore (1.11.2):
-    - DriveKitNetworking (= 1.11.2)
-  - DriveKitDBAchievementAccess (1.11.2):
-    - DriveKitCore (= 1.11.2)
-  - DriveKitDBTripAccess (1.11.2):
-    - DriveKitCore (= 1.11.2)
-  - DriveKitDBVehicleAccess (1.11.2):
-    - DriveKitCore (= 1.11.2)
-  - DriveKitDriverAchievement (1.11.2):
-    - DriveKitDBAchievementAccess (= 1.11.2)
-  - DriveKitDriverData (1.11.2):
-    - DriveKitDBTripAccess (= 1.11.2)
-  - DriveKitNetworking (1.11.2)
-  - DriveKitTripAnalysis (1.11.2):
-    - DriveKitCore (= 1.11.2)
-    - DriveKitDBTripAccess (= 1.11.2)
-    - DriveKitDBVehicleAccess (= 1.11.2)
-  - DriveKitVehicle (1.11.2):
-    - DriveKitDBVehicleAccess (= 1.11.2)
+  - DriveKitChallenge (1.12-beta4):
+    - DriveKitDBChallengeAccess (= 1.12-beta4)
+    - DriveKitDBTripAccess (= 1.12-beta4)
+  - DriveKitCore (1.12-beta4):
+    - DriveKitNetworking (= 1.12-beta4)
+  - DriveKitDBAchievementAccess (1.12-beta4):
+    - DriveKitCore (= 1.12-beta4)
+  - DriveKitDBChallengeAccess (1.12-beta4):
+    - DriveKitCore (= 1.12-beta4)
+  - DriveKitDBTripAccess (1.12-beta4):
+    - DriveKitCore (= 1.12-beta4)
+  - DriveKitDBVehicleAccess (1.12-beta4):
+    - DriveKitCore (= 1.12-beta4)
+  - DriveKitDriverAchievement (1.12-beta4):
+    - DriveKitDBAchievementAccess (= 1.12-beta4)
+  - DriveKitDriverData (1.12-beta4):
+    - DriveKitDBTripAccess (= 1.12-beta4)
+  - DriveKitNetworking (1.12-beta4)
+  - DriveKitTripAnalysis (1.12-beta4):
+    - DriveKitCore (= 1.12-beta4)
+    - DriveKitDBTripAccess (= 1.12-beta4)
+    - DriveKitDBVehicleAccess (= 1.12-beta4)
+  - DriveKitVehicle (1.12-beta4):
+    - DriveKitDBVehicleAccess (= 1.12-beta4)
   - UICircularProgressRing (6.5.0)
 
 DEPENDENCIES:
-  - DriveKitCore (= 1.11.2)
-  - DriveKitDriverAchievement (= 1.11.2)
-  - DriveKitDriverData (= 1.11.2)
-  - DriveKitTripAnalysis (= 1.11.2)
-  - DriveKitVehicle (= 1.11.2)
+  - DriveKitChallenge (= 1.12-beta4)
+  - DriveKitCore (= 1.12-beta4)
+  - DriveKitDriverAchievement (= 1.12-beta4)
+  - DriveKitDriverData (= 1.12-beta4)
+  - DriveKitTripAnalysis (= 1.12-beta4)
+  - DriveKitVehicle (= 1.12-beta4)
   - UICircularProgressRing (= 6.5.0)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - UICircularProgressRing
   https://gitlab.com/drivequant/drivekit/drivekit-specs.git:
+    - DriveKitChallenge
     - DriveKitCore
     - DriveKitDBAchievementAccess
+    - DriveKitDBChallengeAccess
     - DriveKitDBTripAccess
     - DriveKitDBVehicleAccess
     - DriveKitDriverAchievement
@@ -43,17 +51,19 @@ SPEC REPOS:
     - DriveKitVehicle
 
 SPEC CHECKSUMS:
-  DriveKitCore: aa4b8a5a992640f8b4f76e33789bb8afc9d665ec
-  DriveKitDBAchievementAccess: 5628d837605936a40f9550e8124ebf94cffe4202
-  DriveKitDBTripAccess: 0e61288042f9be006946c4da3f90f9e5d040c2dc
-  DriveKitDBVehicleAccess: 5bc2c338f6a3666f5e54ceade776f6ec662fd2af
-  DriveKitDriverAchievement: 8bc99ca767c0df9d1c09f4eee8e9821e88f5b1dc
-  DriveKitDriverData: b385ab98dd1abf21b29f6c5c278f19cdd72625c4
-  DriveKitNetworking: cb7b6830581728a7a11961d5d138f63365a212db
-  DriveKitTripAnalysis: d57a564d84531a5cbd1c44dbfa593b6d49f60ed6
-  DriveKitVehicle: eeafbce9bea62735a985f92ae45234f84c997edd
+  DriveKitChallenge: 83a578669657d3438f1816a91275e67752dd8e81
+  DriveKitCore: 7af59f7f9a2c1b035c737597669335bf3431f5fc
+  DriveKitDBAchievementAccess: 0548f9fc4299fc7d65d912267796a4dc82cde2d1
+  DriveKitDBChallengeAccess: f33e891c7c357ec9a576f7f7b009f03b02e32160
+  DriveKitDBTripAccess: abf8ed25bf2fb165cca9c48145b388de3251ac4b
+  DriveKitDBVehicleAccess: de083c1708f03abb633bd063d8b4ff6e1161db99
+  DriveKitDriverAchievement: 39ebe246b3c75b09b851bd15dfb8a691b2b7ca9f
+  DriveKitDriverData: 313f4c21c964a1304343e80444125322c1ddfc93
+  DriveKitNetworking: d1062857e9b69ccd869321868ad60f9cd685fe99
+  DriveKitTripAnalysis: 246a9a1286cf145d6840194585ee3cb5237502fa
+  DriveKitVehicle: dbff0c9d26fffbf9ee331e52e9ffbccc44ba695c
   UICircularProgressRing: e6852e8f88e296cbbbe2720cccb55241acda6708
 
-PODFILE CHECKSUM: e2e2ac828bd7aecdfd7e908198379bc8c3ce17e7
+PODFILE CHECKSUM: 138a2044cb2d0f38a3b81191b82218b177cc9e66
 
 COCOAPODS: 1.10.1

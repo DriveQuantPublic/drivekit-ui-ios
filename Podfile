@@ -2,7 +2,7 @@
 platform :ios, '10.0'
 use_frameworks!
 
-#source 'https://gitlab.com/drivequant/drivekit/drivekit-specs.git'
+source 'https://gitlab.com/drivequant/drivekit/drivekit-specs.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
 def circular_progress_ring
@@ -15,12 +15,12 @@ end
 
 
 target 'DriveKitDriverDataUI' do
-  pod 'DriveKitDriverData', '1.11.2'
+  pod 'DriveKitDriverData', '1.12-beta4'
   circular_progress_ring
 end
 
 target 'DriveKitDriverAchievementUI' do
-  pod 'DriveKitDriverAchievement', '1.11.2'
+  pod 'DriveKitDriverAchievement', '1.12-beta4'
   circular_progress_ring
 end
 
@@ -29,12 +29,16 @@ target 'DriveKitCommonUI' do
 end
   
 target 'DriveKitVehicleUI' do
-  pod 'DriveKitVehicle', '1.11.2'
-  pod 'DriveKitTripAnalysis', '1.11.2'
+  pod 'DriveKitVehicle', '1.12-beta4'
+  pod 'DriveKitTripAnalysis', '1.12-beta4'
 end
 
 target 'DriveKitPermissionsUtilsUI' do
-  pod 'DriveKitCore', '1.11.2'
+  pod 'DriveKitCore', '1.12-beta4'
+end
+
+target 'DriveKitChallengeUI' do
+  pod 'DriveKitChallenge', '1.12-beta4'
 end
 
 

@@ -132,11 +132,15 @@ extension DriveKitVehicleUI : DriveKitVehicleUIEntryPoint {
     }
 
     public func getVehicleDetailViewController(vehicleId: String, completion : @escaping (UIViewController?) -> ()) {
-        DriveKitVehicle.shared.getVehicle(vehicleId: vehicleId, completionHandler: {status, vehicle in
+        DriveKitVehicle.shared.getVehicle(vehicleId: vehicleId, completionHandler: { status, vehicle in
             DispatchQueue.main.async {
                 if let vehicle = vehicle {
-                    let viewModel = VehicleDetailViewModel(vehicle: vehicle, vehicleDisplayName: vehicle.computeName())
-                    completion(VehicleDetailVC(viewModel: viewModel))
+                    if vehicle.liteConfig {
+                        completion(VehiclesListVC())
+                    } else {
+                        let viewModel = VehicleDetailViewModel(vehicle: vehicle, vehicleDisplayName: vehicle.computeName())
+                        completion(VehicleDetailVC(viewModel: viewModel))
+                    }
                 } else {
                     completion(nil)
                 }

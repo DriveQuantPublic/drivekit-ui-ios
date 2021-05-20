@@ -15,8 +15,10 @@ struct ChallengeItemViewModel {
     let endDate: Date
     let name: String
     let image: UIImage?
+    let identifier: String
 
     init(challenge: DKChallenge) {
+        identifier = challenge.id
         startDate = challenge.startDate
         endDate = challenge.endDate
         name = challenge.title
@@ -30,7 +32,7 @@ struct ChallengeItemViewModel {
     static func formatStartAndEndDates(startDate: Date,
                                        endDate: Date,
                                        tintColor: UIColor,
-                              alignment: NSTextAlignment = NSTextAlignment.left) -> NSAttributedString {
+                              alignment: NSTextAlignment = NSTextAlignment.left) -> NSMutableAttributedString {
 
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = alignment

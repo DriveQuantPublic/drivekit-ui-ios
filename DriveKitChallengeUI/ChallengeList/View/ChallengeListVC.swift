@@ -111,11 +111,26 @@ extension ChallengeListVC: ChallengeListDelegate {
     }
 
     func showViewController(_ viewController: UIViewController, animated: Bool) {
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
     }
 }
 
 extension ChallengeListVC: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == currentChallengesCollectionView {
+            let count = self.viewModel.currentChallenges.count
+            if indexPath.row < count {
+                self.viewModel.challnengeViewModelSelected(challengeViewModel: self.viewModel.currentChallenges[indexPath.row])
+            }
+        } else if collectionView == pastChallengesCollectionView {
+            let count = self.viewModel.pastChallenges.count
+            if indexPath.row < count {
+                self.viewModel.challnengeViewModelSelected(challengeViewModel: self.viewModel.pastChallenges[indexPath.row])
+            }
+        }
+    }
 }
 
 extension ChallengeListVC: UICollectionViewDataSource {

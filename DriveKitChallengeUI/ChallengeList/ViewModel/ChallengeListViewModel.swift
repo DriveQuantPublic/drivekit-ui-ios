@@ -60,4 +60,12 @@ public class ChallengeListViewModel {
         let expectedRect = attributedText.boundingRect(with: CGSize(width: width, height: 600), options: .usesLineFragmentOrigin, context: nil)
         return max(124.0, expectedRect.height + 83)
     }
+
+    func challnengeViewModelSelected(challengeViewModel: ChallengeItemViewModel) {
+        DriveKitChallengeUI.shared.getChallengeViewController(challengeId: challengeViewModel.identifier) { [weak self] viewController in
+                if let vc = viewController {
+                    self?.delegate?.showViewController(vc, animated: true)
+                }
+        }
+    }
 }

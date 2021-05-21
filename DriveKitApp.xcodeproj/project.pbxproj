@@ -299,6 +299,8 @@
 		67CFE9A725F645EA004D0AE1 /* SpeedingPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */; };
 		67CFE9F925FA1385004D0AE1 /* SpeedingPageItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE9F825FA1385004D0AE1 /* SpeedingPageItemView.swift */; };
 		67CFEA0025FA16EC004D0AE1 /* SpeedingPageItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67CFE9FF25FA16EC004D0AE1 /* SpeedingPageItemView.xib */; };
+		67E807DC26579592003AFAA8 /* ChallengeRulesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E807DB26579592003AFAA8 /* ChallengeRulesViewModel.swift */; };
+		67E807DE2657B855003AFAA8 /* NSAttributedString+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E807DD2657B855003AFAA8 /* NSAttributedString+DK.swift */; };
 		67F2D31B2630717300ACC69A /* DKDriverRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D31A2630717300ACC69A /* DKDriverRanking.swift */; };
 		67F2D3512630F06B00ACC69A /* RankingScoreBig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D3472630F06A00ACC69A /* RankingScoreBig.swift */; };
 		67F2D3522630F06B00ACC69A /* RankingScoreSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D3482630F06A00ACC69A /* RankingScoreSmall.swift */; };
@@ -833,6 +835,8 @@
 		67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageViewModel.swift; sourceTree = "<group>"; };
 		67CFE9F825FA1385004D0AE1 /* SpeedingPageItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageItemView.swift; sourceTree = "<group>"; };
 		67CFE9FF25FA16EC004D0AE1 /* SpeedingPageItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedingPageItemView.xib; sourceTree = "<group>"; };
+		67E807DB26579592003AFAA8 /* ChallengeRulesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeRulesViewModel.swift; sourceTree = "<group>"; };
+		67E807DD2657B855003AFAA8 /* NSAttributedString+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+DK.swift"; sourceTree = "<group>"; };
 		67F2D31A2630717300ACC69A /* DKDriverRanking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDriverRanking.swift; sourceTree = "<group>"; };
 		67F2D3472630F06A00ACC69A /* RankingScoreBig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingScoreBig.swift; sourceTree = "<group>"; };
 		67F2D3482630F06A00ACC69A /* RankingScoreSmall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingScoreSmall.swift; sourceTree = "<group>"; };
@@ -1086,6 +1090,7 @@
 				3FF68E97240D59000071D74C /* UIImage+DK.swift */,
 				3FCE6338243DF87A00CAB828 /* UIButton+DK.swift */,
 				67301C90261F55B8006B0432 /* Array+DK.swift */,
+				67E807DD2657B855003AFAA8 /* NSAttributedString+DK.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1816,6 +1821,7 @@
 				67C43D4F2640489700DBB09D /* NoChallengeViewModel.swift */,
 				67C43D5526409ACE00DBB09D /* ChallengeItemViewModel.swift */,
 				67A2E1742654F62C005F26AE /* ChalllengeParticipationViewModel.swift */,
+				67E807DB26579592003AFAA8 /* ChallengeRulesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2889,6 +2895,7 @@
 				3FF68E752408390A0071D74C /* CardView.swift in Sources */,
 				3FF68E8C240C0A430071D74C /* UIViewController+DK.swift in Sources */,
 				3FED7FC52525B7B900D19E18 /* DKFilterTableViewCell.swift in Sources */,
+				67E807DE2657B855003AFAA8 /* NSAttributedString+DK.swift in Sources */,
 				3FF68E8E240CF0420071D74C /* CircularProgressView.swift in Sources */,
 				3FF68E90240CF0510071D74C /* ConfigurationCircularProgressView.swift in Sources */,
 				3FF68E88240A727D0071D74C /* DKDatePattern.swift in Sources */,
@@ -3068,6 +3075,7 @@
 				67A2E17826559EEE005F26AE /* ChallengeParticipationVC.swift in Sources */,
 				67C43D502640489700DBB09D /* NoChallengeViewModel.swift in Sources */,
 				67C43D0A263A98B600DBB09D /* DriveKitChallengeUI.swift in Sources */,
+				67E807DC26579592003AFAA8 /* ChallengeRulesViewModel.swift in Sources */,
 				67A2E17C26559F0B005F26AE /* ChallengeRulesVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

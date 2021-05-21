@@ -9,9 +9,10 @@
 import Foundation
 import DriveKitDBChallengeAccessModule
 import DriveKitCommonUI
+import DriveKitChallengeModule
 
 public struct ChalllengeParticipationViewModel {
-    private var challenge: DKChallenge
+    private let challenge: DKChallenge
     private let grayColor = UIColor(hex:0x9e9e9e)
 
     init(challenge: DKChallenge) {
@@ -76,6 +77,16 @@ public struct ChalllengeParticipationViewModel {
             return true
         }
         return false
+    }
+
+    func getRulesViewModel() -> ChallengeRulesViewModel {
+        return ChallengeRulesViewModel(challenge: challenge, showButton: getDisplayState() == .join)
+    }
+
+    func joinChallenge() {
+        DriveKitChallenge.shared.joinChallenge(challengeId: challenge.id, completionHandler: {status in
+        })
+        
     }
 }
 

@@ -3,14 +3,19 @@
 "dk_challenge_competitors_duration"="I partecipanti hanno guidato %@";
 "dk_challenge_competitors_trips"="su un totale di %@ %@";
 "dk_challenge_consult_rule_button"="Consulta le regole";
+"dk_challenge_distance_kilometer"="Distanza (km)";
 "dk_challenge_driver_distance"="Ne hai passate tante altre cose %@ %@";
 "dk_challenge_driver_duration"="Hai guidato %@";
 "dk_challenge_driver_trips"="Hai capito che %@ %@";
+"dk_challenge_driving_time"="Tempo di guida";
+"dk_challenge_failed_to_join"="Impossibile partecipare alla sfida, assicurati di essere connesso a Internet o riprova più tardi.";
 "dk_challenge_failed_to_sync_challenges"="Impossibile sincronizzare le sfide, si prega di riprovare più tardi.";
 "dk_challenge_finished"="Completa";
 "dk_challenge_menu"="Sfide";
+"dk_challenge_nb_trip"="Numero di viaggi";
 "dk_challenge_no_active_challenge"="Nessuna sfida in corso";
 "dk_challenge_no_finished_challenge"="Nessuna sfida completata";
+"dk_challenge_not_a_participant"="on hai partecipato a questa sfida o non hai soddisfatto le condizioni per iscriversi alla classifica.";
 "dk_challenge_optin_title"="Accetta le regole";
 "dk_challenge_participate_button"="Partecipo";
 "dk_challenge_registered_confirmation"="Sei registrato!";
@@ -19,4 +24,5 @@
 "dk_challenge_score_alert_title"="Sfida in analisi";
 "dk_challenge_signin_in_progress"="Registrazione in corso…";
 "dk_challenge_start"="Inizio della sfida\n%@";
+"dk_challenge_traveled_distance"="Distanza percorsa";
 "dk_challenge_unranked_conditions_info"="Per inserire la classifica, è necessario soddisfare le condizioni seguenti:";

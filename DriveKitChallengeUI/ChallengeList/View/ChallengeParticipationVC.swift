@@ -62,9 +62,7 @@ class ChallengeParticipationVC: UIViewController {
 
     func setupJoinButton() {
         if viewModel?.getDisplayState() == .join {
-            joinButton?.configure(text: "dk_challenge_participate_button".dkChallengeLocalized(), style: .full)
-            // TODO: update DKButtonStyle implementation to handle different button text style
-            joinButton?.setAttributedTitle(nil, for: .normal)
+            joinButton?.configure(style: .full)
             joinButton?.setTitle("dk_challenge_participate_button".dkChallengeLocalized(), for: .normal)
             joinButton?.titleLabel?.font = DKUIFonts.primary.fonts(size: 20).with(.traitBold)
         } else {
@@ -78,6 +76,23 @@ class ChallengeParticipationVC: UIViewController {
         } else {
             participationFooterView?.backgroundColor = DKUIColors.primaryColor.color
             participationAttributedLabel?.attributedText = viewModel?.getSubscriptionAttributedString()
+        }
+    }
+
+    @IBAction func goToRulesVC() {
+        if let rulesViewModel: ChallengeRulesViewModel = viewModel?.getRulesViewModel() {
+            let rulesVC: ChallengeRulesVC = ChallengeRulesVC(viewModel: rulesViewModel)
+            self.navigationController?.pushViewController(rulesVC, animated: true)
+        }
+    }
+    @IBAction func joinButtonTapped() {
+        guard let viewModel = viewModel else {
+            return
+        }
+        if viewModel.haveLongRules() {
+            goToRulesVC()
+        } else {
+            viewModel.joinChallenge()
         }
     }
 }

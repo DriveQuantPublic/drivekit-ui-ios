@@ -22,20 +22,60 @@ public struct ChalllengeParticipationViewModel {
         return challenge.title
     }
 
-    func getTitleAttributedSting() -> NSAttributedString {
+    func getTitleAttributedString() -> NSAttributedString {
         let alignment = NSMutableParagraphStyle()
         alignment.alignment = .center
         let titleAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 20).with(.traitBold), NSAttributedString.Key.foregroundColor: DKUIColors.mainFontColor.color, NSAttributedString.Key.paragraphStyle: alignment]
         let titleString = challenge.title
         var titleAttributedString = NSMutableAttributedString(string: titleString, attributes: titleAttributes)
         titleAttributedString = "%@\n\n\n%@".dkAttributedString().buildWithArgs(titleAttributedString, ChallengeItemViewModel.formatStartAndEndDates(startDate: challenge.startDate, endDate: challenge.endDate, tintColor: grayColor, alignment: .center))
-//        titleAttributedString = titleAttributedString + "\n\n\n" + ChallengeItemViewModel.formatStartAndEndDates(startDate: challenge.startDate, endDate: challenge.endDate, tintColor: grayColor, alignment: .center)
         return titleAttributedString
     }
 
+    func getChallengeRulesAttributedString() -> NSAttributedString {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .center
+        let attributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 16),
+                NSAttributedString.Key.paragraphStyle: paragraphStyle]
+        return NSAttributedString(string: challenge.challengeDescription, attributes: attributes)
+    }
+
+    func getChallengeConditionsAttributedString() -> NSAttributedString? {
+        if let conditionsDescription = challenge.conditionsDescription, !conditionsDescription.isCompletelyEmpty() {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.alignment = .center
+            let attributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 16),
+                    NSAttributedString.Key.paragraphStyle: paragraphStyle]
+            return NSAttributedString(string: conditionsDescription, attributes: attributes)
+        } else {
+            return nil
+        }
+    }
+
+    func getSubscriptionAttributedString() -> NSAttributedString {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .center
+        let attributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 20).with(.traitBold),
+                NSAttributedString.Key.foregroundColor: UIColor.white,
+                NSAttributedString.Key.paragraphStyle: paragraphStyle]
+        return NSAttributedString(string: "dk_challenge_registered_confirmation".dkChallengeLocalized(), attributes: attributes)
+    }
+
     func getDisplayState() -> ChallengeParticipationDisplayState {
-        // TODO: complete implementation
-        return .join
+        if !challenge.isRegistered {
+            return .join
+        } else if challenge.startDate.timeIntervalSinceNow > 0 {
+            return .countDown
+        } else {
+            return .progress
+        }
+    }
+
+    func haveLongRules() -> Bool {
+        if let rules = challenge.rules, !rules.isCompletelyEmpty() {
+            return true
+        }
+        return false
     }
 }
 

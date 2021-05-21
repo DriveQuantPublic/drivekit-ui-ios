@@ -366,6 +366,10 @@ public extension String {
             return self
         }
     }
+
+    func isCompletelyEmpty() -> Bool {
+        return self.trimmingCharacters(in: .whitespaces).isEmpty
+    }
 }
 
 

@@ -20,7 +20,7 @@ class ChallengeParticipationVC: DKUIViewController {
     @IBOutlet private weak var joinButton: UIButton?
     @IBOutlet private weak var participationAttributedLabel: UILabel?
     @IBOutlet private weak var countDownAttributedLabel: UILabel?
-    @IBOutlet private weak var participationFooterView: UIView?
+    @IBOutlet private weak var footerView: UIView?
     @IBOutlet private weak var footerHeightConstraint: NSLayoutConstraint?
 
     private let viewModel: ChallengeParticipationViewModel?
@@ -54,7 +54,7 @@ class ChallengeParticipationVC: DKUIViewController {
         }
         setupRulesButton()
         setupJoinButton()
-        setupParticipationFooter()
+        setupFooter()
         stackView?.setNeedsLayout()
     }
 
@@ -71,17 +71,21 @@ class ChallengeParticipationVC: DKUIViewController {
             joinButton?.configure(style: .full)
             joinButton?.setTitle("dk_challenge_participate_button".dkChallengeLocalized(), for: .normal)
             joinButton?.titleLabel?.font = DKUIFonts.primary.fonts(size: 20).with(.traitBold)
-        } else {
-            joinButton?.isHidden = true
         }
     }
 
-    func setupParticipationFooter() {
+    func setupFooter() {
         if viewModel?.getDisplayState() == .join {
-            participationFooterView?.isHidden = true
-            footerHeightConstraint?.constant = 0
+            participationAttributedLabel?.isHidden = true
+            participationAttributedLabel?.isHidden = true
+            joinButton?.isHidden = false
+            footerHeightConstraint?.constant = 50
+            footerView?.backgroundColor = .white
         } else {
-            participationFooterView?.backgroundColor = DKUIColors.primaryColor.color
+            participationAttributedLabel?.isHidden = false
+            participationAttributedLabel?.isHidden = false
+            joinButton?.isHidden = true
+            footerView?.backgroundColor = DKUIColors.primaryColor.color
             participationAttributedLabel?.attributedText = viewModel?.getSubscriptionAttributedString()
             if viewModel?.getDisplayState() == .countDown {
                 countDownAttributedLabel?.attributedText = viewModel?.getCountDownAttributedString()

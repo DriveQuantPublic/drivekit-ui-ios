@@ -9,7 +9,7 @@
 import UIKit
 import DriveKitCommonUI
 
-class ChallengeParticipationVC: UIViewController {
+class ChallengeParticipationVC: DKUIViewController {
     @IBOutlet private weak var stackView: UIStackView?
     @IBOutlet private weak var titleAttributedLabel: UILabel?
     @IBOutlet private weak var descriptionAttributedLabel: UILabel?
@@ -22,9 +22,9 @@ class ChallengeParticipationVC: UIViewController {
     @IBOutlet private weak var participationFooterView: UIView?
     @IBOutlet private weak var footerHeightConstraint: NSLayoutConstraint?
 
-    private let viewModel: ChalllengeParticipationViewModel?
+    private let viewModel: ChallengeParticipationViewModel?
 
-    public init(viewModel: ChalllengeParticipationViewModel) {
+    public init(viewModel: ChallengeParticipationViewModel) {
         self.viewModel = viewModel
         super.init(nibName: String(describing: ChallengeParticipationVC.self), bundle: Bundle.challengeUIBundle)
     }
@@ -36,6 +36,10 @@ class ChallengeParticipationVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = viewModel?.getTitle()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setupViewElements()
     }
 
@@ -92,7 +96,17 @@ class ChallengeParticipationVC: UIViewController {
         if viewModel.haveLongRules() {
             goToRulesVC()
         } else {
-            viewModel.joinChallenge()
+            self.showLoader()
+            viewModel.joinChallenge { [weak self] status in
+                DispatchQueue.main.async {
+                    self?.hideLoader()
+                    if status == .joined {
+                        self?.setupViewElements()
+                    } else if status == .failedToJoin {
+                        self?.showAlertMessage(title: nil, message: "dk_challenge_failed_to_join".dkChallengeLocalized(), back: false, cancel: false)
+                    }
+                }
+            }
         }
     }
 }

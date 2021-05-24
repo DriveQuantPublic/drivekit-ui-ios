@@ -9,7 +9,7 @@
 import UIKit
 import DriveKitCommonUI
 
-class ChallengeRulesVC: UIViewController {
+class ChallengeRulesVC: DKUIViewController {
 
     private let viewModel: ChallengeRulesViewModel?
     @IBOutlet private weak var rulesTextView: UITextView?
@@ -39,5 +39,30 @@ class ChallengeRulesVC: UIViewController {
         } else {
             acceptButton?.isHidden = true
         }
+    }
+
+    @IBAction func acceptButtonTapped() {
+        let alert = UIAlertController(title: "dk_challenge_optin_title".dkChallengeLocalized(), message: self.viewModel?.getOptinText(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel, handler: { [weak self] _ in
+            DispatchQueue.main.async {
+                self?.navigationController?.popViewController(animated: true)
+            }
+        }))
+        alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default, handler: { [weak self] _ in
+            self?.showLoader()
+            self?.viewModel?.joinChallenge { [weak self] status in
+                DispatchQueue.main.async {
+                    self?.hideLoader()
+                    if status == .joined {
+                        self?.navigationController?.popViewController(animated: true)
+                    } else if status == .failedToJoin {
+                        self?.showAlertMessage(title: nil, message: "dk_challenge_failed_to_join".dkChallengeLocalized(), back: false, cancel: false)
+                    }
+                }
+            }
+
+        }))
+
+        self.present(alert, animated: true, completion: nil)
     }
 }

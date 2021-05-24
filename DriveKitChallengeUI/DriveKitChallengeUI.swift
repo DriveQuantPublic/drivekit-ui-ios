@@ -32,9 +32,11 @@ extension DriveKitChallengeUI: DriveKitChallengeUIEntryPoint {
         DriveKitChallenge.shared.getChallenges { _, challenges in
             if let challenge = challenges.first(where: {$0.id == challengeId}) {
                 // TODO: handle other cases: ChallengeDetails and popup
-                let challengeParticipationViewModel = ChalllengeParticipationViewModel(challenge: challenge)
-                let challnengeVC: ChallengeParticipationVC = ChallengeParticipationVC(viewModel: challengeParticipationViewModel)
-                completion(challnengeVC)
+                let challengeParticipationViewModel = ChallengeParticipationViewModel(challenge: challenge)
+                DispatchQueue.main.async {
+                    let challnengeVC: ChallengeParticipationVC = ChallengeParticipationVC(viewModel: challengeParticipationViewModel)
+                    completion(challnengeVC)
+                }
             } else {
                 completion(nil)
             }

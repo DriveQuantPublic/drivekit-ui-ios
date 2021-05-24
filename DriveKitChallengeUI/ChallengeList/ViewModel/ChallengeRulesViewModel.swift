@@ -9,14 +9,17 @@
 import Foundation
 import DriveKitDBChallengeAccessModule
 import DriveKitCommonUI
+import DriveKitChallengeModule
 
 public struct ChallengeRulesViewModel {
     private let challenge: DKChallenge
     public let showButton: Bool
+    private let participationViewModel: ChallengeParticipationViewModel
 
-    init(challenge: DKChallenge, showButton: Bool) {
+    init(challenge: DKChallenge, participationViewModel: ChallengeParticipationViewModel, showButton: Bool) {
         self.challenge = challenge
         self.showButton = showButton
+        self.participationViewModel = participationViewModel
     }
 
     func getFullRulesAttributedString() -> NSAttributedString? {
@@ -29,5 +32,15 @@ public struct ChallengeRulesViewModel {
             return attributedString
         }
         return nil
+    }
+
+    func getOptinText() -> String {
+        return challenge.optinText ?? ""
+    }
+
+    func joinChallenge(completionHandler: @escaping (ChallengeParticipationStatus) -> ()) {
+        participationViewModel.joinChallenge { status in
+            completionHandler(status)
+        }
     }
 }

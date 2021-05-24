@@ -37,6 +37,9 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="vaC-dm-mGe"/>
                             </constraints>
+                            <connections>
+                                <action selector="acceptButtonTapped" destination="-1" eventType="touchUpInside" id="oXn-Ld-5Ve"/>
+                            </connections>
                         </button>
                     </subviews>
                 </stackView>

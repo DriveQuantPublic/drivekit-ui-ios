@@ -1,5 +1,5 @@
 //
-//  ChalllengeParticipationViewModel.swift
+//  ChallengeParticipationViewModel.swift
 //  DriveKitChallengeUI
 //
 //  Created by Amine Gahbiche on 19/05/2021.
@@ -11,8 +11,13 @@ import DriveKitDBChallengeAccessModule
 import DriveKitCommonUI
 import DriveKitChallengeModule
 
-public struct ChalllengeParticipationViewModel {
+public enum ChallengeParticipationStatus: Int {
+    case joined, failedToJoin, joining
+}
+
+public class ChallengeParticipationViewModel {
     private let challenge: DKChallenge
+    private var joinedWithSuccess: Bool = false
     private let grayColor = UIColor(hex:0x9e9e9e)
 
     init(challenge: DKChallenge) {
@@ -63,7 +68,7 @@ public struct ChalllengeParticipationViewModel {
     }
 
     func getDisplayState() -> ChallengeParticipationDisplayState {
-        if !challenge.isRegistered {
+        if !challenge.isRegistered && !joinedWithSuccess {
             return .join
         } else if challenge.startDate.timeIntervalSinceNow > 0 {
             return .countDown
@@ -80,13 +85,21 @@ public struct ChalllengeParticipationViewModel {
     }
 
     func getRulesViewModel() -> ChallengeRulesViewModel {
-        return ChallengeRulesViewModel(challenge: challenge, showButton: getDisplayState() == .join)
+        return ChallengeRulesViewModel(challenge: challenge, participationViewModel: self, showButton: getDisplayState() == .join)
     }
 
-    func joinChallenge() {
-        DriveKitChallenge.shared.joinChallenge(challengeId: challenge.id, completionHandler: {status in
-        })
-        
+    func joinChallenge(completionHandler: @escaping (ChallengeParticipationStatus) -> ()) {
+        DriveKitChallenge.shared.joinChallenge(challengeId: challenge.id) { [weak self] status in
+            switch status {
+            case .alreadyJoined, .success:
+                self?.joinedWithSuccess = true
+                completionHandler(.joined)
+            case .failedToJoin, .notFound:
+                completionHandler(.failedToJoin)
+            case .alreadyInProgress:
+                completionHandler(.joining)
+            }
+        }
     }
 }
 

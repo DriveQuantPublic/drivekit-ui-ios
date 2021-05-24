@@ -271,7 +271,7 @@
 		67301DC42625C3BF006B0432 /* TripListVC+DKTripList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301DC32625C3BF006B0432 /* TripListVC+DKTripList.swift */; };
 		679DC8612636E3A5007B5623 /* RankingHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679DC85F2636E3A5007B5623 /* RankingHeaderReusableView.swift */; };
 		679DC8622636E3A6007B5623 /* RankingHeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 679DC8602636E3A5007B5623 /* RankingHeaderReusableView.xib */; };
-		67A2E1752654F62C005F26AE /* ChalllengeParticipationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A2E1742654F62C005F26AE /* ChalllengeParticipationViewModel.swift */; };
+		67A2E1752654F62C005F26AE /* ChallengeParticipationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A2E1742654F62C005F26AE /* ChallengeParticipationViewModel.swift */; };
 		67A2E17826559EEE005F26AE /* ChallengeParticipationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A2E17626559EEE005F26AE /* ChallengeParticipationVC.swift */; };
 		67A2E17926559EEE005F26AE /* ChallengeParticipationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67A2E17726559EEE005F26AE /* ChallengeParticipationVC.xib */; };
 		67A2E17C26559F0B005F26AE /* ChallengeRulesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A2E17A26559F0B005F26AE /* ChallengeRulesVC.swift */; };
@@ -804,7 +804,7 @@
 		67301DC32625C3BF006B0432 /* TripListVC+DKTripList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TripListVC+DKTripList.swift"; sourceTree = "<group>"; };
 		679DC85F2636E3A5007B5623 /* RankingHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingHeaderReusableView.swift; sourceTree = "<group>"; };
 		679DC8602636E3A5007B5623 /* RankingHeaderReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingHeaderReusableView.xib; sourceTree = "<group>"; };
-		67A2E1742654F62C005F26AE /* ChalllengeParticipationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChalllengeParticipationViewModel.swift; sourceTree = "<group>"; };
+		67A2E1742654F62C005F26AE /* ChallengeParticipationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeParticipationViewModel.swift; sourceTree = "<group>"; };
 		67A2E17626559EEE005F26AE /* ChallengeParticipationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeParticipationVC.swift; sourceTree = "<group>"; };
 		67A2E17726559EEE005F26AE /* ChallengeParticipationVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeParticipationVC.xib; sourceTree = "<group>"; };
 		67A2E17A26559F0B005F26AE /* ChallengeRulesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeRulesVC.swift; sourceTree = "<group>"; };
@@ -1820,7 +1820,7 @@
 				67C43D20263B649500DBB09D /* ChallengeListViewModel.swift */,
 				67C43D4F2640489700DBB09D /* NoChallengeViewModel.swift */,
 				67C43D5526409ACE00DBB09D /* ChallengeItemViewModel.swift */,
-				67A2E1742654F62C005F26AE /* ChalllengeParticipationViewModel.swift */,
+				67A2E1742654F62C005F26AE /* ChallengeParticipationViewModel.swift */,
 				67E807DB26579592003AFAA8 /* ChallengeRulesViewModel.swift */,
 			);
 			path = ViewModel;
@@ -3065,7 +3065,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67A2E1752654F62C005F26AE /* ChalllengeParticipationViewModel.swift in Sources */,
+				67A2E1752654F62C005F26AE /* ChallengeParticipationViewModel.swift in Sources */,
 				67C43D5626409ACE00DBB09D /* ChallengeItemViewModel.swift in Sources */,
 				67C43D4D264047A200DBB09D /* NoChallengeCell.swift in Sources */,
 				67C43D592641262500DBB09D /* DKChallenge+UI.swift in Sources */,

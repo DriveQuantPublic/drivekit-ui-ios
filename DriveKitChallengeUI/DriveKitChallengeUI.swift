@@ -28,19 +28,32 @@ extension DriveKitChallengeUI: DriveKitChallengeUIEntryPoint {
 
     public func getChallengeViewController(challengeId: String, completion: @escaping (UIViewController?) -> ()) {
 
-        // TODO: replace this implementation by adding a function in DriveKitChallenge that returns a DKChallenge object from its Id (from database)
-        DriveKitChallenge.shared.getChallenges { _, challenges in
-            if let challenge = challenges.first(where: {$0.id == challengeId}) {
-                // TODO: handle other cases: ChallengeDetails and popup
-                let challengeParticipationViewModel = ChallengeParticipationViewModel(challenge: challenge)
+        DriveKitChallenge.shared.getChallenge(challengeId: challengeId, type: .cache) { [weak self] status, challenge in
+            if let challenge = challenge {
                 DispatchQueue.main.async {
-                    let challnengeVC: ChallengeParticipationVC = ChallengeParticipationVC(viewModel: challengeParticipationViewModel)
+                    let challnengeVC = self?.getViewControllerForChallenge(challenge: challenge)
                     completion(challnengeVC)
                 }
             } else {
-                completion(nil)
+                DriveKitChallenge.shared.getChallenge(challengeId: challengeId, type: .defaultSync) { [weak self] status, challenge in
+                    if let challenge = challenge {
+                        DispatchQueue.main.async {
+                            let challnengeVC = self?.getViewControllerForChallenge(challenge: challenge)
+                            completion(challnengeVC)
+                        }
+                    } else {
+                        completion(nil)
+                    }
+                }
             }
         }
+    }
+
+    private func getViewControllerForChallenge(challenge: DKChallenge) -> UIViewController {
+        // TODO: handle other cases: ChallengeDetails and popup
+        let challengeParticipationViewModel = ChallengeParticipationViewModel(challenge: challenge)
+        let challnengeVC: ChallengeParticipationVC = ChallengeParticipationVC(viewModel: challengeParticipationViewModel)
+        return challnengeVC
     }
 }
 

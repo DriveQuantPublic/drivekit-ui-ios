@@ -19,6 +19,7 @@ class ChallengeParticipationVC: DKUIViewController {
     @IBOutlet private weak var rulesView: UIView?
     @IBOutlet private weak var joinButton: UIButton?
     @IBOutlet private weak var participationAttributedLabel: UILabel?
+    @IBOutlet private weak var countDownAttributedLabel: UILabel?
     @IBOutlet private weak var participationFooterView: UIView?
     @IBOutlet private weak var footerHeightConstraint: NSLayoutConstraint?
 
@@ -54,6 +55,7 @@ class ChallengeParticipationVC: DKUIViewController {
         setupRulesButton()
         setupJoinButton()
         setupParticipationFooter()
+        stackView?.setNeedsLayout()
     }
 
     func setupRulesButton() {
@@ -77,9 +79,16 @@ class ChallengeParticipationVC: DKUIViewController {
     func setupParticipationFooter() {
         if viewModel?.getDisplayState() == .join {
             participationFooterView?.isHidden = true
+            footerHeightConstraint?.constant = 0
         } else {
             participationFooterView?.backgroundColor = DKUIColors.primaryColor.color
             participationAttributedLabel?.attributedText = viewModel?.getSubscriptionAttributedString()
+            if viewModel?.getDisplayState() == .countDown {
+                countDownAttributedLabel?.attributedText = viewModel?.getCountDownAttributedString()
+                footerHeightConstraint?.constant = 80
+            } else {
+                footerHeightConstraint?.constant = 50
+            }
         }
     }
 

@@ -67,6 +67,15 @@ public class ChallengeParticipationViewModel {
         return NSAttributedString(string: "dk_challenge_registered_confirmation".dkChallengeLocalized(), attributes: attributes)
     }
 
+    func getCountDownAttributedString() -> NSAttributedString {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .center
+        let attributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 16).with(.traitBold),
+                NSAttributedString.Key.foregroundColor: UIColor.white,
+                NSAttributedString.Key.paragraphStyle: paragraphStyle]
+        return NSAttributedString(string: "dk_challenge_start".dkChallengeLocalized(), attributes: attributes)
+    }
+
     func getDisplayState() -> ChallengeParticipationDisplayState {
         if !challenge.isRegistered && !joinedWithSuccess {
             return .join

@@ -26,7 +26,10 @@ class ChallengeParticipationVC: DKUIViewController {
     @IBOutlet private weak var conditionsHeaderAttributedLabel: UILabel?
     @IBOutlet private weak var conditionsProgressTableView: UITableView?
     @IBOutlet private weak var progressTableViewConstraint: NSLayoutConstraint?
-    
+    @IBOutlet private weak var separator1: UIView?
+    @IBOutlet private weak var separator2: UIView?
+    @IBOutlet private weak var separator3: UIView?
+
     private let viewModel: ChallengeParticipationViewModel?
     private var timer: Timer? = nil
 
@@ -56,19 +59,29 @@ class ChallengeParticipationVC: DKUIViewController {
     }
 
     func setupViewElements() {
+        setupTitleDescriptionAndConditions()
+        setupRulesButton()
+        setupProgressTableAndHeader()
+        setupJoinButton()
+        setupFooter()
+        setupCountDownTimer()
+        conditionsProgressTableView?.register(ChallengeConditionProgressTableViewCell.nib, forCellReuseIdentifier: "ChallengeConditionProgressTableViewCellIdentifier")
+        separator1?.backgroundColor = DKUIColors.neutralColor.color
+        separator2?.backgroundColor = DKUIColors.neutralColor.color
+        separator3?.backgroundColor = DKUIColors.neutralColor.color
+    }
+
+    func setupTitleDescriptionAndConditions() {
         titleAttributedLabel?.attributedText = viewModel?.getTitleAttributedString()
         descriptionAttributedLabel?.attributedText = viewModel?.getChallengeRulesAttributedString()
         if let conditionsAttributedText = viewModel?.getChallengeConditionsAttributedString() {
             conditionsAttributedLabel?.attributedText = conditionsAttributedText
         } else {
             conditionsLabelView?.isHidden = true
+            if self.viewModel?.haveLongRules() == false {
+                separator2?.isHidden = true
+            }
         }
-        setupRulesButton()
-        setupConditionsTableAndHeader()
-        setupJoinButton()
-        setupFooter()
-        setupCountDownTimer()
-        conditionsProgressTableView?.register(ChallengeConditionProgressTableViewCell.nib, forCellReuseIdentifier: "ChallengeConditionProgressTableViewCellIdentifier")
     }
 
     func setupCountDownTimer() {
@@ -85,6 +98,7 @@ class ChallengeParticipationVC: DKUIViewController {
         rulesButton?.setTitleColor(DKUIColors.secondaryColor.color, for: .normal)
         if viewModel?.haveLongRules() == false {
             rulesView?.isHidden = true
+            separator3?.isHidden = true
         }
     }
 
@@ -129,7 +143,7 @@ class ChallengeParticipationVC: DKUIViewController {
         }
     }
 
-    func setupConditionsTableAndHeader() {
+    func setupProgressTableAndHeader() {
         if viewModel?.getDisplayState() == .progress {
             conditionsHeaderView?.backgroundColor = DKUIColors.primaryColor.color
             conditionsHeaderAttributedLabel?.attributedText = viewModel?.getConditionsHeaderAttributedString()

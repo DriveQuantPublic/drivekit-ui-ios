@@ -25,6 +25,9 @@
                 <outlet property="progressTableViewConstraint" destination="scu-dz-lMh" id="0CK-cg-cqf"/>
                 <outlet property="rulesButton" destination="5fV-0s-6Vr" id="pXn-WE-j3n"/>
                 <outlet property="rulesView" destination="eem-St-bbT" id="InA-rh-Qmb"/>
+                <outlet property="separator1" destination="eZq-Rv-gIm" id="0xH-Xu-KFU"/>
+                <outlet property="separator2" destination="WP0-J6-MX7" id="KF5-1n-V0c"/>
+                <outlet property="separator3" destination="9Dq-F0-wxY" id="KqE-dz-gMD"/>
                 <outlet property="stackView" destination="P0B-pe-tu8" id="xMq-Fb-TPO"/>
                 <outlet property="titleAttributedLabel" destination="4Fq-72-WG6" id="jHP-sv-W4v"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -138,23 +141,13 @@
                                                         <action selector="goToRulesVC" destination="-1" eventType="touchUpInside" id="V2H-3X-5di"/>
                                                     </connections>
                                                 </button>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VaO-nd-B4g">
-                                                    <rect key="frame" x="0.0" y="50" width="414" height="1"/>
-                                                    <color key="backgroundColor" systemColor="separatorColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="1" id="Yab-Im-J2f"/>
-                                                    </constraints>
-                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="VaO-nd-B4g" secondAttribute="trailing" id="3qQ-cp-8Nr"/>
-                                                <constraint firstAttribute="bottom" secondItem="VaO-nd-B4g" secondAttribute="bottom" id="NCh-wT-qCH"/>
                                                 <constraint firstItem="5fV-0s-6Vr" firstAttribute="leading" secondItem="eem-St-bbT" secondAttribute="leading" id="Qun-ah-Afm"/>
                                                 <constraint firstItem="5fV-0s-6Vr" firstAttribute="top" secondItem="eem-St-bbT" secondAttribute="top" constant="10" id="StD-O4-aB2"/>
                                                 <constraint firstAttribute="bottom" secondItem="5fV-0s-6Vr" secondAttribute="bottom" constant="11" id="cDT-f5-JaI"/>
                                                 <constraint firstAttribute="trailing" secondItem="5fV-0s-6Vr" secondAttribute="trailing" id="vqJ-7g-Sa3"/>
-                                                <constraint firstItem="VaO-nd-B4g" firstAttribute="leading" secondItem="eem-St-bbT" secondAttribute="leading" id="yp9-ZB-HUG"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VN2-O3-FKR" userLabel="ConditionsTableHeader">
@@ -174,7 +167,7 @@
                                                 <constraint firstItem="lWS-05-STg" firstAttribute="leading" secondItem="VN2-O3-FKR" secondAttribute="leading" constant="24" id="d3f-xU-eJp"/>
                                             </constraints>
                                         </view>
-                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="n7p-hj-lf4">
+                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="n7p-hj-lf4">
                                             <rect key="frame" x="0.0" y="329" width="414" height="160"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>

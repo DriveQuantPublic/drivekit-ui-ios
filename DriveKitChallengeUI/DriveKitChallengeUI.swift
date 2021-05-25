@@ -50,7 +50,7 @@ extension DriveKitChallengeUI: DriveKitChallengeUIEntryPoint {
     }
 
     private func getViewControllerForChallenge(challenge: DKChallenge) -> UIViewController {
-        // TODO: handle other cases: ChallengeDetails and popup
+        // TODO: handle other cases: ChallengeDetails
         let challengeParticipationViewModel = ChallengeParticipationViewModel(challenge: challenge)
         let challnengeVC: ChallengeParticipationVC = ChallengeParticipationVC(viewModel: challengeParticipationViewModel)
         return challnengeVC

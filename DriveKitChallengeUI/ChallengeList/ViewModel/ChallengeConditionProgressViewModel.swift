@@ -29,7 +29,7 @@ struct ChallengeConditionProgressViewModel {
 
     var progressAttributedString: NSAttributedString {
         let prefix = "\(title): "
-        let suffix = "\(Int(value))/\(Int(total))"
+        let suffix = "\(Int(value.rounded()))/\(Int(total))"
         let progress = prefix + suffix
 
         let suffixRange = (progress as NSString).range(of: suffix)

@@ -19,9 +19,11 @@ public class ChallengeParticipationViewModel {
     private let challenge: DKChallenge
     private var joinedWithSuccess: Bool = false
     private let grayColor = UIColor(hex:0x9e9e9e)
+    private let conditionsArray: [String: ChallengeConditionProgressViewModel]
 
     init(challenge: DKChallenge) {
         self.challenge = challenge
+        self.conditionsArray = ChallengeConditionProgressViewModel.getConditionsViewModel(conditions: challenge.conditions, driverConditions: challenge.driverConditions)
     }
 
     func getTitle() -> String {
@@ -67,6 +69,14 @@ public class ChallengeParticipationViewModel {
         return NSAttributedString(string: "dk_challenge_registered_confirmation".dkChallengeLocalized(), attributes: attributes)
     }
 
+    func getConditionsHeaderAttributedString() -> NSAttributedString {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .center
+        let attributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 16),
+                NSAttributedString.Key.foregroundColor: UIColor.white,
+                NSAttributedString.Key.paragraphStyle: paragraphStyle]
+        return NSAttributedString(string: "dk_challenge_unranked_conditions_info".dkChallengeLocalized(), attributes: attributes)
+    }
     func getCountDownAttributedString() -> NSAttributedString {
         let attString = NSMutableAttributedString()
 
@@ -119,24 +129,21 @@ public class ChallengeParticipationViewModel {
 
     func getTimeAttributedString() -> NSAttributedString {
         let calendar = Calendar.current
-        let calendarComponents = calendar.dateComponents([.month, .day, .hour, .minute, .second], from: Date(), to: challenge.startDate)
-        guard let month = calendarComponents.month,
-              let day = calendarComponents.day,
+        let calendarComponents = calendar.dateComponents([.day, .hour, .minute, .second], from: Date(), to: challenge.startDate)
+        guard let day = calendarComponents.day,
               let hour = calendarComponents.hour,
               let minute = calendarComponents.minute,
               let second = calendarComponents.second
               else {
             return NSAttributedString()
         }
-        let components = [month, day, hour, minute, second]
-        // TODO: add "month" unit key and update this line
-        let months = String.localizedStringWithFormat(DKCommonLocalizable.unitMeter.text(), components[0])
-        let days = String.localizedStringWithFormat(DKCommonLocalizable.unitDay.text(), components[1])
-        let hours = String.localizedStringWithFormat(DKCommonLocalizable.unitHour.text(), components[2])
-        let minutes = String.localizedStringWithFormat(DKCommonLocalizable.unitMinute.text(), components[3])
-        let seconds = String.localizedStringWithFormat(DKCommonLocalizable.unitSecond.text(), components[4])
+        let components = [day, hour, minute, second]
+        let days = String.localizedStringWithFormat(DKCommonLocalizable.unitDay.text(), components[0])
+        let hours = String.localizedStringWithFormat(DKCommonLocalizable.unitHour.text(), components[1])
+        let minutes = String.localizedStringWithFormat(DKCommonLocalizable.unitMinute.text(), components[2])
+        let seconds = String.localizedStringWithFormat(DKCommonLocalizable.unitSecond.text(), components[3])
 
-        let units = [months, days, hours, minutes, seconds]
+        let units = [days, hours, minutes, seconds]
 
         let firstNonZeroIndex = components.firstIndex { $0 > 0 }
 
@@ -167,6 +174,23 @@ public class ChallengeParticipationViewModel {
         paragraphStyle.alignment = .center
         countdownAttributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.paragraphStyle: paragraphStyle], range: NSRange(location: 0, length: countdownAttributedString.length))
         return countdownAttributedString
+    }
+
+    func getConditionsCount() -> Int {
+        return conditionsArray.keys.count
+    }
+
+    func getConditionViewModel(index: Int) -> ChallengeConditionProgressViewModel? {
+        let keysArray = conditionsArray.keys.sorted()
+        if index < keysArray.count {
+            return conditionsArray[keysArray[index]]
+        } else {
+            return nil
+        }
+    }
+
+    func getConditionsProgressTableHeight() -> CGFloat {
+        return 80 * CGFloat(conditionsArray.keys.count)
     }
 }
 

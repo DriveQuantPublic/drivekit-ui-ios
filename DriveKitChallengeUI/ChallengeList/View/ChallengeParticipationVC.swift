@@ -22,7 +22,11 @@ class ChallengeParticipationVC: DKUIViewController {
     @IBOutlet private weak var countDownAttributedLabel: UILabel?
     @IBOutlet private weak var footerView: UIView?
     @IBOutlet private weak var footerHeightConstraint: NSLayoutConstraint?
-
+    @IBOutlet private weak var conditionsHeaderView: UIView?
+    @IBOutlet private weak var conditionsHeaderAttributedLabel: UILabel?
+    @IBOutlet private weak var conditionsProgressTableView: UITableView?
+    @IBOutlet private weak var progressTableViewConstraint: NSLayoutConstraint?
+    
     private let viewModel: ChallengeParticipationViewModel?
     private var timer: Timer? = nil
 
@@ -60,10 +64,11 @@ class ChallengeParticipationVC: DKUIViewController {
             conditionsLabelView?.isHidden = true
         }
         setupRulesButton()
+        setupConditionsTableAndHeader()
         setupJoinButton()
         setupFooter()
-//        stackView?.setNeedsLayout()
         setupCountDownTimer()
+        conditionsProgressTableView?.register(ChallengeConditionProgressTableViewCell.nib, forCellReuseIdentifier: "ChallengeConditionProgressTableViewCellIdentifier")
     }
 
     func setupCountDownTimer() {
@@ -123,6 +128,22 @@ class ChallengeParticipationVC: DKUIViewController {
             self.navigationController?.pushViewController(rulesVC, animated: true)
         }
     }
+
+    func setupConditionsTableAndHeader() {
+        if viewModel?.getDisplayState() == .progress {
+            conditionsHeaderView?.backgroundColor = DKUIColors.primaryColor.color
+            conditionsHeaderAttributedLabel?.attributedText = viewModel?.getConditionsHeaderAttributedString()
+            conditionsHeaderView?.isHidden = false
+            conditionsProgressTableView?.isHidden = false
+            progressTableViewConstraint?.constant = self.viewModel?.getConditionsProgressTableHeight() ?? 0
+            conditionsProgressTableView?.reloadData()
+        } else {
+            conditionsHeaderView?.isHidden = true
+            conditionsProgressTableView?.isHidden = true
+            progressTableViewConstraint?.constant = 0
+        }
+    }
+
     @IBAction func joinButtonTapped() {
         guard let viewModel = viewModel else {
             return
@@ -141,6 +162,23 @@ class ChallengeParticipationVC: DKUIViewController {
                     }
                 }
             }
+        }
+    }
+}
+
+extension ChallengeParticipationVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.viewModel?.getConditionsCount() ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell: ChallengeConditionProgressTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ChallengeConditionProgressTableViewCellIdentifier") as? ChallengeConditionProgressTableViewCell {
+            if let challengeProgressViewModel = self.viewModel?.getConditionViewModel(index: indexPath.row) {
+                cell.configure(viewModel: challengeProgressViewModel)
+            }
+            return cell
+        } else {
+            return UITableViewCell()
         }
     }
 }

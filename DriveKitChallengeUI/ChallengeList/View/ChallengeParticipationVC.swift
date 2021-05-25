@@ -24,6 +24,7 @@ class ChallengeParticipationVC: DKUIViewController {
     @IBOutlet private weak var footerHeightConstraint: NSLayoutConstraint?
 
     private let viewModel: ChallengeParticipationViewModel?
+    private var timer: Timer? = nil
 
     public init(viewModel: ChallengeParticipationViewModel) {
         self.viewModel = viewModel
@@ -44,6 +45,12 @@ class ChallengeParticipationVC: DKUIViewController {
         setupViewElements()
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        timer?.invalidate()
+        timer = nil
+        super.viewDidDisappear(animated)
+    }
+
     func setupViewElements() {
         titleAttributedLabel?.attributedText = viewModel?.getTitleAttributedString()
         descriptionAttributedLabel?.attributedText = viewModel?.getChallengeRulesAttributedString()
@@ -55,7 +62,17 @@ class ChallengeParticipationVC: DKUIViewController {
         setupRulesButton()
         setupJoinButton()
         setupFooter()
-        stackView?.setNeedsLayout()
+//        stackView?.setNeedsLayout()
+        setupCountDownTimer()
+    }
+
+    func setupCountDownTimer() {
+        if viewModel?.getDisplayState() == .countDown, timer == nil {
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCountDown), userInfo: nil, repeats: true)
+        } else {
+            timer?.invalidate()
+            timer = nil
+        }
     }
 
     func setupRulesButton() {
@@ -88,12 +105,16 @@ class ChallengeParticipationVC: DKUIViewController {
             footerView?.backgroundColor = DKUIColors.primaryColor.color
             participationAttributedLabel?.attributedText = viewModel?.getSubscriptionAttributedString()
             if viewModel?.getDisplayState() == .countDown {
-                countDownAttributedLabel?.attributedText = viewModel?.getCountDownAttributedString()
+                updateCountDown()
                 footerHeightConstraint?.constant = 80
             } else {
                 footerHeightConstraint?.constant = 50
             }
         }
+    }
+
+    @objc private func updateCountDown() {
+        countDownAttributedLabel?.attributedText = viewModel?.getCountDownAttributedString()
     }
 
     @IBAction func goToRulesVC() {

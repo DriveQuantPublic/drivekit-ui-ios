@@ -68,12 +68,18 @@ public class ChallengeParticipationViewModel {
     }
 
     func getCountDownAttributedString() -> NSAttributedString {
+        let attString = NSMutableAttributedString()
+
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
         let attributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 16).with(.traitBold),
                 NSAttributedString.Key.foregroundColor: UIColor.white,
                 NSAttributedString.Key.paragraphStyle: paragraphStyle]
-        return NSAttributedString(string: "dk_challenge_start".dkChallengeLocalized(), attributes: attributes)
+        let challengeStartString: String = "dk_challenge_start".dkChallengeLocalized().replacingOccurrences(of: "%@", with: "")
+        attString.append(NSAttributedString(string: challengeStartString, attributes: attributes))
+        let text = getTimeAttributedString()
+        attString.append(text)
+        return attString
     }
 
     func getDisplayState() -> ChallengeParticipationDisplayState {
@@ -109,6 +115,58 @@ public class ChallengeParticipationViewModel {
                 completionHandler(.joining)
             }
         }
+    }
+
+    func getTimeAttributedString() -> NSAttributedString {
+        let calendar = Calendar.current
+        let calendarComponents = calendar.dateComponents([.month, .day, .hour, .minute, .second], from: Date(), to: challenge.startDate)
+        guard let month = calendarComponents.month,
+              let day = calendarComponents.day,
+              let hour = calendarComponents.hour,
+              let minute = calendarComponents.minute,
+              let second = calendarComponents.second
+              else {
+            return NSAttributedString()
+        }
+        let components = [month, day, hour, minute, second]
+        // TODO: add "month" unit key and update this line
+        let months = String.localizedStringWithFormat(DKCommonLocalizable.unitMeter.text(), components[0])
+        let days = String.localizedStringWithFormat(DKCommonLocalizable.unitDay.text(), components[1])
+        let hours = String.localizedStringWithFormat(DKCommonLocalizable.unitHour.text(), components[2])
+        let minutes = String.localizedStringWithFormat(DKCommonLocalizable.unitMinute.text(), components[3])
+        let seconds = String.localizedStringWithFormat(DKCommonLocalizable.unitSecond.text(), components[4])
+
+        let units = [months, days, hours, minutes, seconds]
+
+        let firstNonZeroIndex = components.firstIndex { $0 > 0 }
+
+        guard let first = firstNonZeroIndex else {
+            return NSAttributedString()
+        }
+
+        let filteredComponents = components[first...]
+        let unitsOffset = units.count - filteredComponents.count
+
+        let firstFont = DKUIFonts.primary.fonts(size: 22).with(.traitBold)
+        let secondFont = DKUIFonts.primary.fonts(size: 16)
+
+        let baseLineOffset = (firstFont.xHeight - secondFont.xHeight) / 2
+
+        let countdownAttributedString = NSMutableAttributedString()
+        for (index, component) in filteredComponents.enumerated() {
+
+            let value = NSAttributedString(string: String(component) + " ",
+                                           attributes: [NSAttributedString.Key.font: firstFont])
+            countdownAttributedString.append(value)
+            let unit = NSAttributedString(string: units[index + unitsOffset] + "  ",
+                                          attributes: [NSAttributedString.Key.font: secondFont,
+                                                       NSAttributedString.Key.baselineOffset: baseLineOffset])
+            countdownAttributedString.append(unit)
+        }
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .center
+        countdownAttributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.paragraphStyle: paragraphStyle], range: NSRange(location: 0, length: countdownAttributedString.length))
+        return countdownAttributedString
     }
 }
 

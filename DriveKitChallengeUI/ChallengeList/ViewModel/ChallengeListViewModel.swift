@@ -62,10 +62,18 @@ public class ChallengeListViewModel {
     }
 
     func challnengeViewModelSelected(challengeViewModel: ChallengeItemViewModel) {
-        DriveKitChallengeUI.shared.getChallengeViewController(challengeId: challengeViewModel.identifier) { [weak self] viewController in
-                if let vc = viewController {
-                    self?.delegate?.showViewController(vc, animated: true)
-                }
+        if challengeViewModel.finishedAndNotFilled {
+            // TODO: check if we change it into CFBundleDisplayName
+            let appName = Bundle.main.infoDictionary?["CFBundleName"] as? String
+            let alert = UIAlertController(title: appName, message: "dk_challenge_not_a_participant".dkChallengeLocalized(), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title:DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
+            self.delegate?.showAlert(alert)
+        } else {
+            DriveKitChallengeUI.shared.getChallengeViewController(challengeId: challengeViewModel.identifier) { [weak self] viewController in
+                    if let vc = viewController {
+                        self?.delegate?.showViewController(vc, animated: true)
+                    }
+            }
         }
     }
 }

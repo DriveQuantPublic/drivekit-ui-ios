@@ -193,7 +193,6 @@
                                         <constraint firstItem="n7p-hj-lf4" firstAttribute="leading" secondItem="P0B-pe-tu8" secondAttribute="leading" id="45D-bl-Fkj"/>
                                         <constraint firstAttribute="trailing" secondItem="n7p-hj-lf4" secondAttribute="trailing" id="5Qu-sO-lcs"/>
                                         <constraint firstItem="n7p-hj-lf4" firstAttribute="top" secondItem="VN2-O3-FKR" secondAttribute="bottom" id="Nmd-Kd-zf2"/>
-                                        <constraint firstItem="JYy-s8-93S" firstAttribute="top" secondItem="n7p-hj-lf4" secondAttribute="bottom" id="pVU-r2-06W"/>
                                     </constraints>
                                 </stackView>
                             </subviews>

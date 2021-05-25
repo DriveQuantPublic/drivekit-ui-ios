@@ -108,6 +108,7 @@ extension ChallengeListVC: ChallengeListDelegate {
     }
 
     func showAlert(_ alertController: UIAlertController) {
+        self.present(alertController, animated: true, completion: nil)
     }
 
     func showViewController(_ viewController: UIViewController, animated: Bool) {

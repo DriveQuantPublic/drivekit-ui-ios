@@ -181,7 +181,7 @@ public class ChallengeParticipationViewModel {
     }
 
     func getConditionViewModel(index: Int) -> ChallengeConditionProgressViewModel? {
-        let keysArray = conditionsArray.keys.sorted()
+        let keysArray = conditionsArray.keys.sorted{ $0 > $1 }
         if index < keysArray.count {
             return conditionsArray[keysArray[index]]
         } else {

@@ -23,7 +23,7 @@ struct ChallengeConditionProgressViewModel {
         case .km:
             return "dk_challenge_distance_kilometer".dkChallengeLocalized()
         case .nbTrip:
-            return "dk_challenge_traveled_distance".dkChallengeLocalized()
+            return "dk_challenge_nb_trip".dkChallengeLocalized()
         }
     }
 

@@ -16,6 +16,7 @@ struct ChallengeItemViewModel {
     let name: String
     let image: UIImage?
     let identifier: String
+    let finishedAndNotFilled: Bool
 
     init(challenge: DKChallenge) {
         identifier = challenge.id
@@ -26,6 +27,11 @@ struct ChallengeItemViewModel {
             image = challengeImage
         } else {
             image = UIImage(named: "101", in: Bundle.challengeUIBundle, compatibleWith: nil)
+        }
+        if (challenge.isRegistered == false || challenge.conditionsFilled == false) && challenge.endDate.timeIntervalSinceNow < 0 {
+            finishedAndNotFilled = true
+        } else {
+            finishedAndNotFilled = false
         }
     }
 

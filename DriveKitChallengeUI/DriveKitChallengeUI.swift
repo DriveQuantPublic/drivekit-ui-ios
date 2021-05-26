@@ -31,15 +31,15 @@ extension DriveKitChallengeUI: DriveKitChallengeUIEntryPoint {
         DriveKitChallenge.shared.getChallenge(challengeId: challengeId, type: .cache) { [weak self] status, challenge in
             if let challenge = challenge {
                 DispatchQueue.main.async {
-                    let challnengeVC = self?.getViewControllerForChallenge(challenge: challenge)
-                    completion(challnengeVC)
+                    let challengeVC = self?.getViewControllerForChallenge(challenge: challenge)
+                    completion(challengeVC)
                 }
             } else {
                 DriveKitChallenge.shared.getChallenge(challengeId: challengeId, type: .defaultSync) { [weak self] status, challenge in
                     if let challenge = challenge {
                         DispatchQueue.main.async {
-                            let challnengeVC = self?.getViewControllerForChallenge(challenge: challenge)
-                            completion(challnengeVC)
+                            let challengeVC = self?.getViewControllerForChallenge(challenge: challenge)
+                            completion(challengeVC)
                         }
                     } else {
                         completion(nil)
@@ -52,8 +52,8 @@ extension DriveKitChallengeUI: DriveKitChallengeUIEntryPoint {
     private func getViewControllerForChallenge(challenge: DKChallenge) -> UIViewController {
         // TODO: handle other cases: ChallengeDetails
         let challengeParticipationViewModel = ChallengeParticipationViewModel(challenge: challenge)
-        let challnengeVC: ChallengeParticipationVC = ChallengeParticipationVC(viewModel: challengeParticipationViewModel)
-        return challnengeVC
+        let challengeVC: ChallengeParticipationVC = ChallengeParticipationVC(viewModel: challengeParticipationViewModel)
+        return challengeVC
     }
 }
 

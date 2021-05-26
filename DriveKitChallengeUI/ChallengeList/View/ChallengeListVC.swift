@@ -123,12 +123,12 @@ extension ChallengeListVC: UICollectionViewDelegate {
         if collectionView == currentChallengesCollectionView {
             let count = self.viewModel.currentChallenges.count
             if indexPath.row < count {
-                self.viewModel.challnengeViewModelSelected(challengeViewModel: self.viewModel.currentChallenges[indexPath.row])
+                self.viewModel.challengeViewModelSelected(challengeViewModel: self.viewModel.currentChallenges[indexPath.row])
             }
         } else if collectionView == pastChallengesCollectionView {
             let count = self.viewModel.pastChallenges.count
             if indexPath.row < count {
-                self.viewModel.challnengeViewModelSelected(challengeViewModel: self.viewModel.pastChallenges[indexPath.row])
+                self.viewModel.challengeViewModelSelected(challengeViewModel: self.viewModel.pastChallenges[indexPath.row])
             }
         }
     }

@@ -61,7 +61,7 @@ public class ChallengeListViewModel {
         return max(124.0, expectedRect.height + 83)
     }
 
-    func challnengeViewModelSelected(challengeViewModel: ChallengeItemViewModel) {
+    func challengeViewModelSelected(challengeViewModel: ChallengeItemViewModel) {
         if challengeViewModel.finishedAndNotFilled {
             var alertTitle = ""
             if let appName = Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String {

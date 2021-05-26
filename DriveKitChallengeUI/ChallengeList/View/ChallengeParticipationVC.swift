@@ -113,20 +113,21 @@ class ChallengeParticipationVC: DKUIViewController {
     func setupFooter() {
         if viewModel?.getDisplayState() == .join {
             participationAttributedLabel?.isHidden = true
-            participationAttributedLabel?.isHidden = true
+            countDownAttributedLabel?.isHidden = true
             joinButton?.isHidden = false
             footerHeightConstraint?.constant = 50
             footerView?.backgroundColor = .white
         } else {
             participationAttributedLabel?.isHidden = false
-            participationAttributedLabel?.isHidden = false
             joinButton?.isHidden = true
             footerView?.backgroundColor = DKUIColors.primaryColor.color
             participationAttributedLabel?.attributedText = viewModel?.getSubscriptionAttributedString()
             if viewModel?.getDisplayState() == .countDown {
+                countDownAttributedLabel?.isHidden = false
                 updateCountDown()
                 footerHeightConstraint?.constant = 80
             } else {
+                countDownAttributedLabel?.isHidden = true
                 footerHeightConstraint?.constant = 50
             }
         }

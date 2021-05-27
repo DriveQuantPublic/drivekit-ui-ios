@@ -15,8 +15,11 @@ struct ChallengeItemViewModel {
     let endDate: Date
     let name: String
     let image: UIImage?
+    let identifier: String
+    let finishedAndNotFilled: Bool
 
     init(challenge: DKChallenge) {
+        identifier = challenge.id
         startDate = challenge.startDate
         endDate = challenge.endDate
         name = challenge.title
@@ -25,12 +28,17 @@ struct ChallengeItemViewModel {
         } else {
             image = UIImage(named: "101", in: Bundle.challengeUIBundle, compatibleWith: nil)
         }
+        if (challenge.isRegistered == false || challenge.conditionsFilled == false) && challenge.endDate.timeIntervalSinceNow < 0 {
+            finishedAndNotFilled = true
+        } else {
+            finishedAndNotFilled = false
+        }
     }
 
     static func formatStartAndEndDates(startDate: Date,
                                        endDate: Date,
                                        tintColor: UIColor,
-                              alignment: NSTextAlignment = NSTextAlignment.left) -> NSAttributedString {
+                              alignment: NSTextAlignment = NSTextAlignment.left) -> NSMutableAttributedString {
 
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = alignment

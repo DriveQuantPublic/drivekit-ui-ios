@@ -60,4 +60,24 @@ public class ChallengeListViewModel {
         let expectedRect = attributedText.boundingRect(with: CGSize(width: width, height: 600), options: .usesLineFragmentOrigin, context: nil)
         return max(124.0, expectedRect.height + 83)
     }
+
+    func challengeViewModelSelected(challengeViewModel: ChallengeItemViewModel) {
+        if challengeViewModel.finishedAndNotFilled {
+            var alertTitle = ""
+            if let appName = Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String {
+                alertTitle = appName
+            } else if let bundleName = Bundle.main.infoDictionary?["CFBundleName"] as? String {
+                alertTitle = bundleName
+            }
+            let alert = UIAlertController(title: alertTitle, message: "dk_challenge_not_a_participant".dkChallengeLocalized(), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title:DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
+            self.delegate?.showAlert(alert)
+        } else {
+            DriveKitChallengeUI.shared.getChallengeViewController(challengeId: challengeViewModel.identifier) { [weak self] viewController in
+                    if let vc = viewController {
+                        self?.delegate?.showViewController(vc, animated: true)
+                    }
+            }
+        }
+    }
 }

@@ -269,8 +269,16 @@
 		67301DB126251921006B0432 /* HeaderDayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67301DAF26251921006B0432 /* HeaderDayView.xib */; };
 		67301DBD2625C301006B0432 /* Trip+DKTripsListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301DBC2625C301006B0432 /* Trip+DKTripsListItem.swift */; };
 		67301DC42625C3BF006B0432 /* TripListVC+DKTripList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301DC32625C3BF006B0432 /* TripListVC+DKTripList.swift */; };
+		67462D81265CD4AE00016FAF /* ChallengeConditionProgressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67462D80265CD4AE00016FAF /* ChallengeConditionProgressViewModel.swift */; };
+		67462D84265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67462D82265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.swift */; };
+		67462D85265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67462D83265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.xib */; };
 		679DC8612636E3A5007B5623 /* RankingHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679DC85F2636E3A5007B5623 /* RankingHeaderReusableView.swift */; };
 		679DC8622636E3A6007B5623 /* RankingHeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 679DC8602636E3A5007B5623 /* RankingHeaderReusableView.xib */; };
+		67A2E1752654F62C005F26AE /* ChallengeParticipationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A2E1742654F62C005F26AE /* ChallengeParticipationViewModel.swift */; };
+		67A2E17826559EEE005F26AE /* ChallengeParticipationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A2E17626559EEE005F26AE /* ChallengeParticipationVC.swift */; };
+		67A2E17926559EEE005F26AE /* ChallengeParticipationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67A2E17726559EEE005F26AE /* ChallengeParticipationVC.xib */; };
+		67A2E17C26559F0B005F26AE /* ChallengeRulesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A2E17A26559F0B005F26AE /* ChallengeRulesVC.swift */; };
+		67A2E17D26559F0B005F26AE /* ChallengeRulesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67A2E17B26559F0B005F26AE /* ChallengeRulesVC.xib */; };
 		67C43CFA263A910D00DBB09D /* DriveKitChallengeUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 67C43CF8263A910D00DBB09D /* DriveKitChallengeUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67C43CFD263A910D00DBB09D /* DriveKitChallengeUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67C43CF6263A910D00DBB09D /* DriveKitChallengeUI.framework */; };
 		67C43CFE263A910D00DBB09D /* DriveKitChallengeUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 67C43CF6263A910D00DBB09D /* DriveKitChallengeUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -294,6 +302,8 @@
 		67CFE9A725F645EA004D0AE1 /* SpeedingPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */; };
 		67CFE9F925FA1385004D0AE1 /* SpeedingPageItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE9F825FA1385004D0AE1 /* SpeedingPageItemView.swift */; };
 		67CFEA0025FA16EC004D0AE1 /* SpeedingPageItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67CFE9FF25FA16EC004D0AE1 /* SpeedingPageItemView.xib */; };
+		67E807DC26579592003AFAA8 /* ChallengeRulesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E807DB26579592003AFAA8 /* ChallengeRulesViewModel.swift */; };
+		67E807DE2657B855003AFAA8 /* NSAttributedString+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E807DD2657B855003AFAA8 /* NSAttributedString+DK.swift */; };
 		67F2D31B2630717300ACC69A /* DKDriverRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D31A2630717300ACC69A /* DKDriverRanking.swift */; };
 		67F2D3512630F06B00ACC69A /* RankingScoreBig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D3472630F06A00ACC69A /* RankingScoreBig.swift */; };
 		67F2D3522630F06B00ACC69A /* RankingScoreSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D3482630F06A00ACC69A /* RankingScoreSmall.swift */; };
@@ -795,8 +805,16 @@
 		67301DAF26251921006B0432 /* HeaderDayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderDayView.xib; sourceTree = "<group>"; };
 		67301DBC2625C301006B0432 /* Trip+DKTripsListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+DKTripsListItem.swift"; sourceTree = "<group>"; };
 		67301DC32625C3BF006B0432 /* TripListVC+DKTripList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TripListVC+DKTripList.swift"; sourceTree = "<group>"; };
+		67462D80265CD4AE00016FAF /* ChallengeConditionProgressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeConditionProgressViewModel.swift; sourceTree = "<group>"; };
+		67462D82265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeConditionProgressTableViewCell.swift; sourceTree = "<group>"; };
+		67462D83265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeConditionProgressTableViewCell.xib; sourceTree = "<group>"; };
 		679DC85F2636E3A5007B5623 /* RankingHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingHeaderReusableView.swift; sourceTree = "<group>"; };
 		679DC8602636E3A5007B5623 /* RankingHeaderReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingHeaderReusableView.xib; sourceTree = "<group>"; };
+		67A2E1742654F62C005F26AE /* ChallengeParticipationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeParticipationViewModel.swift; sourceTree = "<group>"; };
+		67A2E17626559EEE005F26AE /* ChallengeParticipationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeParticipationVC.swift; sourceTree = "<group>"; };
+		67A2E17726559EEE005F26AE /* ChallengeParticipationVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeParticipationVC.xib; sourceTree = "<group>"; };
+		67A2E17A26559F0B005F26AE /* ChallengeRulesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeRulesVC.swift; sourceTree = "<group>"; };
+		67A2E17B26559F0B005F26AE /* ChallengeRulesVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeRulesVC.xib; sourceTree = "<group>"; };
 		67C43CF6263A910D00DBB09D /* DriveKitChallengeUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DriveKitChallengeUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67C43CF8263A910D00DBB09D /* DriveKitChallengeUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DriveKitChallengeUI.h; sourceTree = "<group>"; };
 		67C43CF9263A910D00DBB09D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -823,6 +841,8 @@
 		67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageViewModel.swift; sourceTree = "<group>"; };
 		67CFE9F825FA1385004D0AE1 /* SpeedingPageItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageItemView.swift; sourceTree = "<group>"; };
 		67CFE9FF25FA16EC004D0AE1 /* SpeedingPageItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedingPageItemView.xib; sourceTree = "<group>"; };
+		67E807DB26579592003AFAA8 /* ChallengeRulesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeRulesViewModel.swift; sourceTree = "<group>"; };
+		67E807DD2657B855003AFAA8 /* NSAttributedString+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+DK.swift"; sourceTree = "<group>"; };
 		67F2D31A2630717300ACC69A /* DKDriverRanking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDriverRanking.swift; sourceTree = "<group>"; };
 		67F2D3472630F06A00ACC69A /* RankingScoreBig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingScoreBig.swift; sourceTree = "<group>"; };
 		67F2D3482630F06A00ACC69A /* RankingScoreSmall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingScoreSmall.swift; sourceTree = "<group>"; };
@@ -1076,6 +1096,7 @@
 				3FF68E97240D59000071D74C /* UIImage+DK.swift */,
 				3FCE6338243DF87A00CAB828 /* UIButton+DK.swift */,
 				67301C90261F55B8006B0432 /* Array+DK.swift */,
+				67E807DD2657B855003AFAA8 /* NSAttributedString+DK.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1791,6 +1812,10 @@
 				67C43D4A2640473100DBB09D /* cells */,
 				67C43D1B263AE79F00DBB09D /* ChallengeListVC.swift */,
 				67C43D1C263AE79F00DBB09D /* ChallengeListVC.xib */,
+				67A2E17626559EEE005F26AE /* ChallengeParticipationVC.swift */,
+				67A2E17726559EEE005F26AE /* ChallengeParticipationVC.xib */,
+				67A2E17A26559F0B005F26AE /* ChallengeRulesVC.swift */,
+				67A2E17B26559F0B005F26AE /* ChallengeRulesVC.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1801,6 +1826,9 @@
 				67C43D20263B649500DBB09D /* ChallengeListViewModel.swift */,
 				67C43D4F2640489700DBB09D /* NoChallengeViewModel.swift */,
 				67C43D5526409ACE00DBB09D /* ChallengeItemViewModel.swift */,
+				67A2E1742654F62C005F26AE /* ChallengeParticipationViewModel.swift */,
+				67E807DB26579592003AFAA8 /* ChallengeRulesViewModel.swift */,
+				67462D80265CD4AE00016FAF /* ChallengeConditionProgressViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1812,6 +1840,8 @@
 				67C43D4C264047A200DBB09D /* NoChallengeCell.xib */,
 				67C43D512640529300DBB09D /* ChallengeCell.swift */,
 				67C43D522640529300DBB09D /* ChallengeCell.xib */,
+				67462D82265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.swift */,
+				67462D83265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.xib */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -2601,9 +2631,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				67C43D542640529300DBB09D /* ChallengeCell.xib in Resources */,
+				67A2E17926559EEE005F26AE /* ChallengeParticipationVC.xib in Resources */,
 				67C43D4E264047A200DBB09D /* NoChallengeCell.xib in Resources */,
 				67C43D1E263AE79F00DBB09D /* ChallengeListVC.xib in Resources */,
 				67C43D12263AE23600DBB09D /* DKChallengeLocalizable.strings in Resources */,
+				67A2E17D26559F0B005F26AE /* ChallengeRulesVC.xib in Resources */,
+				67462D85265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.xib in Resources */,
 				67C43D11263AE0C100DBB09D /* DriveKitChallenge.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2872,6 +2905,7 @@
 				3FF68E752408390A0071D74C /* CardView.swift in Sources */,
 				3FF68E8C240C0A430071D74C /* UIViewController+DK.swift in Sources */,
 				3FED7FC52525B7B900D19E18 /* DKFilterTableViewCell.swift in Sources */,
+				67E807DE2657B855003AFAA8 /* NSAttributedString+DK.swift in Sources */,
 				3FF68E8E240CF0420071D74C /* CircularProgressView.swift in Sources */,
 				3FF68E90240CF0510071D74C /* ConfigurationCircularProgressView.swift in Sources */,
 				3FF68E88240A727D0071D74C /* DKDatePattern.swift in Sources */,
@@ -3041,14 +3075,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67A2E1752654F62C005F26AE /* ChallengeParticipationViewModel.swift in Sources */,
 				67C43D5626409ACE00DBB09D /* ChallengeItemViewModel.swift in Sources */,
 				67C43D4D264047A200DBB09D /* NoChallengeCell.swift in Sources */,
 				67C43D592641262500DBB09D /* DKChallenge+UI.swift in Sources */,
+				67462D81265CD4AE00016FAF /* ChallengeConditionProgressViewModel.swift in Sources */,
 				67C43D532640529300DBB09D /* ChallengeCell.swift in Sources */,
 				67C43D21263B649500DBB09D /* ChallengeListViewModel.swift in Sources */,
 				67C43D1D263AE79F00DBB09D /* ChallengeListVC.swift in Sources */,
+				67A2E17826559EEE005F26AE /* ChallengeParticipationVC.swift in Sources */,
 				67C43D502640489700DBB09D /* NoChallengeViewModel.swift in Sources */,
+				67462D84265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.swift in Sources */,
 				67C43D0A263A98B600DBB09D /* DriveKitChallengeUI.swift in Sources */,
+				67E807DC26579592003AFAA8 /* ChallengeRulesViewModel.swift in Sources */,
+				67A2E17C26559F0B005F26AE /* ChallengeRulesVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

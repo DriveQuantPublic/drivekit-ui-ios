@@ -1,5 +1,5 @@
 //
-//  ChallengeDetailsVCViewController.swift
+//  ChallengeDetailVCViewController.swift
 //  DriveKitChallengeUI
 //
 //  Created by Amine Gahbiche on 28/05/2021.
@@ -7,20 +7,21 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 
 enum ChallengeDetaiItem {
     case results, ranking, tripList, rules
 }
 
-class ChallengeDetailsVCViewController: UIViewController {
-    private let viewModel: ChallengeDetailsViewModel?
+class ChallengeDetailVCViewController: UIViewController {
+    private let viewModel: ChallengeDetailViewModel?
     @IBOutlet var pageContainer: UIView?
     var pageViewController: UIPageViewController?
     var swipableViewControllers: [UIViewController] = []
 
-    public init(viewModel: ChallengeDetailsViewModel) {
+    public init(viewModel: ChallengeDetailViewModel) {
         self.viewModel = viewModel
-        super.init(nibName: String(describing: ChallengeDetailsVCViewController.self), bundle: Bundle.challengeUIBundle)
+        super.init(nibName: String(describing: ChallengeDetailVCViewController.self), bundle: Bundle.challengeUIBundle)
     }
 
     required init?(coder: NSCoder) {
@@ -29,7 +30,12 @@ class ChallengeDetailsVCViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        swipableViewControllers.append(UIViewController())
+        if let viewModel = self.viewModel {
+            swipableViewControllers.append(ChallengeResultsVC())
+            swipableViewControllers.append(DKDriverRankingCollectionVC(viewModel: viewModel.getRankingViewModel()))
+            swipableViewControllers.append(TripsListTableVC<ChallengeTrip>(viewModel: viewModel.getTripListViewModel()))
+            swipableViewControllers.append(ChallengeParticipationVC(viewModel: viewModel.getRulesViewModel()))
+        }
         setupPageContainer()
     }
 
@@ -49,7 +55,7 @@ class ChallengeDetailsVCViewController: UIViewController {
     }
 }
 
-extension ChallengeDetailsVCViewController: UIPageViewControllerDataSource {
+extension ChallengeDetailVCViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = swipableViewControllers.firstIndex(of: viewController) else {
             return nil
@@ -86,6 +92,6 @@ extension ChallengeDetailsVCViewController: UIPageViewControllerDataSource {
     }
 }
 
-extension ChallengeDetailsVCViewController: UIPageViewControllerDelegate {
+extension ChallengeDetailVCViewController: UIPageViewControllerDelegate {
     
 }

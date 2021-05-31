@@ -20,10 +20,12 @@ public class ChallengeParticipationViewModel {
     private var joinedWithSuccess: Bool = false
     private let grayColor = UIColor(hex:0x9e9e9e)
     private let conditionsArray: [String: ChallengeConditionProgressViewModel]
+    private let isRulesTab: Bool
 
-    init(challenge: DKChallenge) {
+    init(challenge: DKChallenge, isRulesTab: Bool = false) {
         self.challenge = challenge
         self.conditionsArray = ChallengeConditionProgressViewModel.getConditionsViewModel(conditions: challenge.conditions, driverConditions: challenge.driverConditions)
+        self.isRulesTab = isRulesTab
     }
 
     func getTitle() -> String {
@@ -93,7 +95,9 @@ public class ChallengeParticipationViewModel {
     }
 
     func getDisplayState() -> ChallengeParticipationDisplayState {
-        if !challenge.isRegistered && !joinedWithSuccess {
+        if isRulesTab {
+            return .rulesTab
+        } else if !challenge.isRegistered && !joinedWithSuccess {
             return .join
         } else if challenge.startDate.timeIntervalSinceNow > 0 {
             return .countDown
@@ -195,5 +199,5 @@ public class ChallengeParticipationViewModel {
 }
 
 public enum ChallengeParticipationDisplayState {
-    case join, countDown, progress
+    case join, countDown, progress, rulesTab
 }

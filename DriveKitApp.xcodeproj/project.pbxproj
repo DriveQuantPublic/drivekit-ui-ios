@@ -250,6 +250,7 @@
 		63FF6B552449EC2B0006992E /* SensorStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FF6B542449EC2B0006992E /* SensorStateView.swift */; };
 		6704DDD2266148B500DAF326 /* ChallengeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6704DDD1266148B500DAF326 /* ChallengeType.swift */; };
 		6704DDD42664B55900DAF326 /* ChallengeTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6704DDD32664B55900DAF326 /* ChallengeTrip.swift */; };
+		6704DDD62664F6AC00DAF326 /* ChallengeDriverRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6704DDD52664F6AC00DAF326 /* ChallengeDriverRank.swift */; };
 		67301C3E261D106B006B0432 /* DKTripList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301C3D261D106B006B0432 /* DKTripList.swift */; };
 		67301C46261D121C006B0432 /* TripData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301C45261D121C006B0432 /* TripData.swift */; };
 		67301C5C261EE900006B0432 /* DKTripsByDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301C5B261EE900006B0432 /* DKTripsByDate.swift */; };
@@ -274,12 +275,12 @@
 		67462D81265CD4AE00016FAF /* ChallengeConditionProgressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67462D80265CD4AE00016FAF /* ChallengeConditionProgressViewModel.swift */; };
 		67462D84265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67462D82265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.swift */; };
 		67462D85265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67462D83265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.xib */; };
-		67462D882660CDE800016FAF /* ChallengeDetailsVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67462D862660CDE800016FAF /* ChallengeDetailsVCViewController.swift */; };
-		67462D892660CDE800016FAF /* ChallengeDetailsVCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67462D872660CDE800016FAF /* ChallengeDetailsVCViewController.xib */; };
+		67462D882660CDE800016FAF /* ChallengeDetailVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67462D862660CDE800016FAF /* ChallengeDetailVCViewController.swift */; };
+		67462D892660CDE800016FAF /* ChallengeDetailVCViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67462D872660CDE800016FAF /* ChallengeDetailVCViewController.xib */; };
 		67462D8C2660CE0400016FAF /* ChallengeResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67462D8A2660CE0400016FAF /* ChallengeResultsVC.swift */; };
 		67462D8D2660CE0400016FAF /* ChallengeResultsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67462D8B2660CE0400016FAF /* ChallengeResultsVC.xib */; };
 		67462D8F2660CE2600016FAF /* ChallengeResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67462D8E2660CE2600016FAF /* ChallengeResultsViewModel.swift */; };
-		67462D912660CE4300016FAF /* ChallengeDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67462D902660CE4300016FAF /* ChallengeDetailsViewModel.swift */; };
+		67462D912660CE4300016FAF /* ChallengeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67462D902660CE4300016FAF /* ChallengeDetailViewModel.swift */; };
 		679DC8612636E3A5007B5623 /* RankingHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679DC85F2636E3A5007B5623 /* RankingHeaderReusableView.swift */; };
 		679DC8622636E3A6007B5623 /* RankingHeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 679DC8602636E3A5007B5623 /* RankingHeaderReusableView.xib */; };
 		67A2E1752654F62C005F26AE /* ChallengeParticipationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A2E1742654F62C005F26AE /* ChallengeParticipationViewModel.swift */; };
@@ -805,6 +806,7 @@
 		63FF6B542449EC2B0006992E /* SensorStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorStateView.swift; sourceTree = "<group>"; };
 		6704DDD1266148B500DAF326 /* ChallengeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeType.swift; sourceTree = "<group>"; };
 		6704DDD32664B55900DAF326 /* ChallengeTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeTrip.swift; sourceTree = "<group>"; };
+		6704DDD52664F6AC00DAF326 /* ChallengeDriverRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDriverRank.swift; sourceTree = "<group>"; };
 		67301C3D261D106B006B0432 /* DKTripList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripList.swift; sourceTree = "<group>"; };
 		67301C45261D121C006B0432 /* TripData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripData.swift; sourceTree = "<group>"; };
 		67301C5B261EE900006B0432 /* DKTripsByDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripsByDate.swift; sourceTree = "<group>"; };
@@ -818,12 +820,12 @@
 		67462D80265CD4AE00016FAF /* ChallengeConditionProgressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeConditionProgressViewModel.swift; sourceTree = "<group>"; };
 		67462D82265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeConditionProgressTableViewCell.swift; sourceTree = "<group>"; };
 		67462D83265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeConditionProgressTableViewCell.xib; sourceTree = "<group>"; };
-		67462D862660CDE800016FAF /* ChallengeDetailsVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailsVCViewController.swift; sourceTree = "<group>"; };
-		67462D872660CDE800016FAF /* ChallengeDetailsVCViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeDetailsVCViewController.xib; sourceTree = "<group>"; };
+		67462D862660CDE800016FAF /* ChallengeDetailVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailVCViewController.swift; sourceTree = "<group>"; };
+		67462D872660CDE800016FAF /* ChallengeDetailVCViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeDetailVCViewController.xib; sourceTree = "<group>"; };
 		67462D8A2660CE0400016FAF /* ChallengeResultsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeResultsVC.swift; sourceTree = "<group>"; };
 		67462D8B2660CE0400016FAF /* ChallengeResultsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeResultsVC.xib; sourceTree = "<group>"; };
 		67462D8E2660CE2600016FAF /* ChallengeResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeResultsViewModel.swift; sourceTree = "<group>"; };
-		67462D902660CE4300016FAF /* ChallengeDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailsViewModel.swift; sourceTree = "<group>"; };
+		67462D902660CE4300016FAF /* ChallengeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailViewModel.swift; sourceTree = "<group>"; };
 		679DC85F2636E3A5007B5623 /* RankingHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingHeaderReusableView.swift; sourceTree = "<group>"; };
 		679DC8602636E3A5007B5623 /* RankingHeaderReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankingHeaderReusableView.xib; sourceTree = "<group>"; };
 		67A2E1742654F62C005F26AE /* ChallengeParticipationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeParticipationViewModel.swift; sourceTree = "<group>"; };
@@ -1756,6 +1758,7 @@
 			children = (
 				6704DDD1266148B500DAF326 /* ChallengeType.swift */,
 				6704DDD32664B55900DAF326 /* ChallengeTrip.swift */,
+				6704DDD52664F6AC00DAF326 /* ChallengeDriverRank.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1842,8 +1845,8 @@
 				67A2E17726559EEE005F26AE /* ChallengeParticipationVC.xib */,
 				67A2E17A26559F0B005F26AE /* ChallengeRulesVC.swift */,
 				67A2E17B26559F0B005F26AE /* ChallengeRulesVC.xib */,
-				67462D862660CDE800016FAF /* ChallengeDetailsVCViewController.swift */,
-				67462D872660CDE800016FAF /* ChallengeDetailsVCViewController.xib */,
+				67462D862660CDE800016FAF /* ChallengeDetailVCViewController.swift */,
+				67462D872660CDE800016FAF /* ChallengeDetailVCViewController.xib */,
 				67462D8A2660CE0400016FAF /* ChallengeResultsVC.swift */,
 				67462D8B2660CE0400016FAF /* ChallengeResultsVC.xib */,
 			);
@@ -1860,7 +1863,7 @@
 				67E807DB26579592003AFAA8 /* ChallengeRulesViewModel.swift */,
 				67462D80265CD4AE00016FAF /* ChallengeConditionProgressViewModel.swift */,
 				67462D8E2660CE2600016FAF /* ChallengeResultsViewModel.swift */,
-				67462D902660CE4300016FAF /* ChallengeDetailsViewModel.swift */,
+				67462D902660CE4300016FAF /* ChallengeDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2662,7 +2665,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67462D892660CDE800016FAF /* ChallengeDetailsVCViewController.xib in Resources */,
+				67462D892660CDE800016FAF /* ChallengeDetailVCViewController.xib in Resources */,
 				67C43D542640529300DBB09D /* ChallengeCell.xib in Resources */,
 				67A2E17926559EEE005F26AE /* ChallengeParticipationVC.xib in Resources */,
 				67C43D4E264047A200DBB09D /* NoChallengeCell.xib in Resources */,
@@ -3112,13 +3115,14 @@
 				67A2E1752654F62C005F26AE /* ChallengeParticipationViewModel.swift in Sources */,
 				67462D8C2660CE0400016FAF /* ChallengeResultsVC.swift in Sources */,
 				67C43D5626409ACE00DBB09D /* ChallengeItemViewModel.swift in Sources */,
-				67462D912660CE4300016FAF /* ChallengeDetailsViewModel.swift in Sources */,
+				67462D912660CE4300016FAF /* ChallengeDetailViewModel.swift in Sources */,
+				6704DDD62664F6AC00DAF326 /* ChallengeDriverRank.swift in Sources */,
 				67462D8F2660CE2600016FAF /* ChallengeResultsViewModel.swift in Sources */,
 				67C43D4D264047A200DBB09D /* NoChallengeCell.swift in Sources */,
 				67C43D592641262500DBB09D /* DKChallenge+UI.swift in Sources */,
 				67462D81265CD4AE00016FAF /* ChallengeConditionProgressViewModel.swift in Sources */,
 				6704DDD2266148B500DAF326 /* ChallengeType.swift in Sources */,
-				67462D882660CDE800016FAF /* ChallengeDetailsVCViewController.swift in Sources */,
+				67462D882660CDE800016FAF /* ChallengeDetailVCViewController.swift in Sources */,
 				67C43D532640529300DBB09D /* ChallengeCell.swift in Sources */,
 				67C43D21263B649500DBB09D /* ChallengeListViewModel.swift in Sources */,
 				67C43D1D263AE79F00DBB09D /* ChallengeListVC.swift in Sources */,

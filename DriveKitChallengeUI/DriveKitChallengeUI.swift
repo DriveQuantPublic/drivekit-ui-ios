@@ -69,8 +69,8 @@ extension DriveKitChallengeUI: DriveKitChallengeUIEntryPoint {
 
     private func getViewControllerForChallenge(challenge: DKChallenge, challengeDetail: DKChallengeDetail? = nil) -> UIViewController {
         if let challengeDetail = challengeDetail, challenge.isRegistered, challenge.conditionsFilled {
-            let challengeDetailsViewModel = ChallengeDetailsViewModel(challenge: challenge, challengeDetail: challengeDetail)
-            let challengeDetailsVC: ChallengeDetailsVCViewController = ChallengeDetailsVCViewController(viewModel: challengeDetailsViewModel)
+            let challengeDetailsViewModel = ChallengeDetailViewModel(challenge: challenge, challengeDetail: challengeDetail)
+            let challengeDetailsVC: ChallengeDetailVCViewController = ChallengeDetailVCViewController(viewModel: challengeDetailsViewModel)
             return challengeDetailsVC
         } else {
             let challengeParticipationViewModel = ChallengeParticipationViewModel(challenge: challenge)

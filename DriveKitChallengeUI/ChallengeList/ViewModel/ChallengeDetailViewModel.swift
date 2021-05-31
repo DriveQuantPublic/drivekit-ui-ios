@@ -1,5 +1,5 @@
 //
-//  ChallengeDetailsViewModel.swift
+//  ChallengeDetailViewModel.swift
 //  DriveKitChallengeUI
 //
 //  Created by Amine Gahbiche on 28/05/2021.
@@ -11,7 +11,7 @@ import DriveKitCommonUI
 import DriveKitDBTripAccessModule
 import DriveKitDBChallengeAccessModule
 
-class ChallengeDetailsViewModel {
+class ChallengeDetailViewModel {
     private let challenge: DKChallenge
     private let challengeDetail: DKChallengeDetail
     private let challengeType: ChallengeType
@@ -29,7 +29,7 @@ class ChallengeDetailsViewModel {
             self.challengeTheme = .ecoDriving
         case 201, 202, 203, 204:
             self.challengeType = .score
-            self.challengeTheme = .security
+            self.challengeTheme = .safety
         case 205, 206, 207, 208:
             self.challengeType = .score
             self.challengeTheme = .braking
@@ -55,13 +55,74 @@ class ChallengeDetailsViewModel {
             self.challengeType = .distance
             self.challengeTheme = .none
         }
-        let trips: [ChallengeTrip] = []
-        let sortedTrips = trips.orderByDay(descOrder: true)
+        let sortedTrips = DriveKitDBTripAccess.shared.findTrips(itinIds: challengeDetail.itinIds).map({trip in
+            return ChallengeTrip(trip: trip)
+        }).orderByDay(descOrder: true)
         self.sortedTrips = sortedTrips
+        // TODO: add missing localized keys
+        self.ranks = challengeDetail.driverRanked
+            .sorted(by: { $0.rank < $1.rank })
+            .map({driverRanked in
+                if driverRanked.rank == challengeDetail.userIndex {
+                    return CurrentChallengeDriverRank(nbDrivers: challengeDetail.nbDriverRanked,
+                                               position: driverRanked.rank,
+                                               positionString: String(driverRanked.rank),
+                                               positionImageName: self.getImageName(fromPosition: driverRanked.rank),
+                                               rankString: " / \(nbDrivers)",
+                                               name: driverRanked.nickname ?? "dk_challenge_ranking_anonymous_driver".dkChallengeLocalized(),
+                                               distance: driverRanked.distance,
+                                               distanceString: driverRanked.distance.formatKilometerDistance(),
+                                               score: driverRanked.score,
+                                               scoreString: self.formatScore(driverRanked.score),
+                                               totalScoreString: " / 10")
+                } else {
+                    return ChallengeDriverRank(nbDrivers: challengeDetail.nbDriverRanked,
+                                               position: driverRanked.rank,
+                                               positionString: String(driverRanked.rank),
+                                               positionImageName: self.getImageName(fromPosition: driverRanked.rank),
+                                               rankString: " / \(nbDrivers)",
+                                               name: driverRanked.nickname ?? "dk_challenge_ranking_anonymous_driver".dkChallengeLocalized(),
+                                               distance: driverRanked.distance,
+                                               distanceString: driverRanked.distance.formatKilometerDistance(),
+                                               score: driverRanked.score,
+                                               scoreString: self.formatScore(driverRanked.score),
+                                               totalScoreString: " / 10")
+                }
+            
+        })
+    }
+
+    func getResultsViewModel() -> ChallengeResultsViewModel {
+        return ChallengeResultsViewModel()
+    }
+    func getRankingViewModel() -> DKDriverRankingViewModel {
+        return DKDriverRankingViewModel(ranking: self)
+    }
+    func getTripListViewModel() -> DKTripListViewModel {
+        return DKTripListViewModel(tripList: self)
+    }
+    func getRulesViewModel() -> ChallengeParticipationViewModel {
+        return ChallengeParticipationViewModel(challenge: challenge, isRulesTab: true)
+    }
+
+    private func formatScore(_ score: Double) -> String {
+        if score >= 10 {
+            return "10"
+        } else {
+            return score.formatDouble(fractionDigits: 2)
+        }
+    }
+
+    private func getImageName(fromPosition position: Int) -> String? {
+        if position >= 1 && position <= 3 {
+            return "dk_common_rank_\(position)"
+        } else {
+            return nil
+        }
     }
 }
 
-extension ChallengeDetailsViewModel: DKTripList {
+extension ChallengeDetailViewModel: DKTripList {
     func didSelectTrip(itinId: String) {
     }
 
@@ -71,7 +132,7 @@ extension ChallengeDetailsViewModel: DKTripList {
             switch challengeTheme {
             case .ecoDriving:
                 return .ecoDriving
-            case .adherence, .braking, .acceleration, .security:
+            case .adherence, .braking, .acceleration, .safety:
                 return .safety
             case .distraction:
                 return .distraction
@@ -112,14 +173,14 @@ extension ChallengeDetailsViewModel: DKTripList {
     }
 }
 
-extension ChallengeDetailsViewModel: DKDriverRanking {
+extension ChallengeDetailViewModel: DKDriverRanking {
     // TODO: correct implmeentation with accurate values
     func getHeaderDisplayType() -> DKRankingHeaderDisplayType {
         return .full
     }
 
     func getDriverRankingItems() -> [DKDriverRankingItem] {
-        return []
+        return ranks
     }
 
     func getTitle() -> String {
@@ -131,6 +192,7 @@ extension ChallengeDetailsViewModel: DKDriverRanking {
     }
 
     func getProgressionImage() -> UIImage? {
+        challengeDetail.driverRanked
         return nil
     }
 

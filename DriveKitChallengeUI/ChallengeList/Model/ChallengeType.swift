@@ -45,25 +45,25 @@ enum ChallengeTheme {
     case acceleration
     case adherence
     case ecoDriving
-    case security
+    case safety
     case braking
     case distraction
     case none
-// TODO: replace keys with the right text
+
     var scoreTitle: String {
         switch self {
         case .acceleration:
-            return "score_acceleration_challenge".dkChallengeLocalized()
+            return "dk_challenge_acceleration_score".dkChallengeLocalized()
         case .adherence:
-            return "score_adherence_challenge".dkChallengeLocalized()
+            return "dk_challenge_adherence_score".dkChallengeLocalized()
         case .ecoDriving:
-            return "score_eco_driving_challenge".dkChallengeLocalized()
-        case .security:
-            return "score_security_challenge".dkChallengeLocalized()
+            return "dk_challenge_eco_driving_score".dkChallengeLocalized()
+        case .safety:
+            return "dk_challenge_safety_score".dkChallengeLocalized()
         case .braking:
-            return "score_braking_challenge".dkChallengeLocalized()
+            return "dk_challenge_braking_score".dkChallengeLocalized()
         case .distraction:
-            return "score_distraction_challenge".dkChallengeLocalized()
+            return "dk_challenge_distraction_score".dkChallengeLocalized()
         case .none:
             return ""
         }

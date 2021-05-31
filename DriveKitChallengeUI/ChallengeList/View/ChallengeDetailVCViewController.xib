@@ -9,8 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChallengeDetailsVCViewController" customModule="DriveKitChallengeUI" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChallengeDetailVCViewController" customModule="DriveKitChallengeUI" customModuleProvider="target">
             <connections>
+                <outlet property="pageContainer" destination="Uvc-TM-bTh" id="OBc-cV-zD3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,8 +19,20 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uvc-TM-bTh">
+                    <rect key="frame" x="0.0" y="104" width="414" height="758"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Uvc-TM-bTh" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="5Tg-XP-q7Z"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Uvc-TM-bTh" secondAttribute="bottom" id="bdi-bO-vai"/>
+                <constraint firstItem="Uvc-TM-bTh" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="60" id="bf7-9A-8W0"/>
+                <constraint firstItem="Uvc-TM-bTh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jb8-V7-xCZ"/>
+            </constraints>
             <point key="canvasLocation" x="-142" y="38"/>
         </view>
     </objects>

@@ -111,7 +111,12 @@ class ChallengeParticipationVC: DKUIViewController {
     }
 
     func setupFooter() {
-        if viewModel?.getDisplayState() == .join {
+        if viewModel?.getDisplayState() == .rulesTab {
+            participationAttributedLabel?.isHidden = true
+            countDownAttributedLabel?.isHidden = true
+            joinButton?.isHidden = true
+            footerHeightConstraint?.constant = 0
+        } else if viewModel?.getDisplayState() == .join {
             participationAttributedLabel?.isHidden = true
             countDownAttributedLabel?.isHidden = true
             joinButton?.isHidden = false

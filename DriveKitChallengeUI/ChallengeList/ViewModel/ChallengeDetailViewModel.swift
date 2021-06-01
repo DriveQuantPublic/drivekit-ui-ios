@@ -17,7 +17,7 @@ class ChallengeDetailViewModel {
     private let challengeType: ChallengeType
     private let challengeTheme: ChallengeTheme
     private let sortedTrips: [DKTripsByDate]
-    private(set) var ranks = [DKDriverRankingItem]()
+    private(set) var ranks = [ChallengeDriverRank]()
     private(set) var nbDrivers = 0
 
     init(challenge: DKChallenge, challengeDetail: DKChallengeDetail) {
@@ -184,22 +184,63 @@ extension ChallengeDetailViewModel: DKDriverRanking {
     }
 
     func getTitle() -> String {
-        challengeTheme.scoreTitle
+        if challengeType == .score {
+            return challengeTheme.scoreTitle
+        } else {
+            return challengeType.overviewTitle
+        }
     }
 
     func getImage() -> UIImage? {
-        return nil
+        var imageName: String? = nil
+        switch challengeTheme {
+        case .acceleration, .adherence, .braking, .safety:
+            imageName = "dk_challenge_leaderboard_safety"
+            break
+        case .distraction:
+            imageName = "dk_challenge_leaderboard_phone_distraction"
+            break
+        case .ecoDriving:
+            imageName = "dk_challenge_leaderboard_ecodriving"
+            break
+        case .none:
+            switch challengeType {
+            case .distance:
+                imageName = "dk_challenge_leaderboard_distance"
+                break
+            case .duration:
+                imageName = "dk_challenge_leaderboard_duration"
+                break
+            case .nbTrips:
+                imageName = "dk_challenge_leaderboard_trips_number"
+                break
+            default:
+                imageName = "dk_challenge_leaderboard_safety"
+                break
+            }
+        }
+        if let imageName = imageName {
+            return UIImage(named: imageName, in: Bundle.challengeUIBundle, compatibleWith: nil)
+        } else {
+            return nil
+        }
     }
 
     func getProgressionImage() -> UIImage? {
-        challengeDetail.driverRanked
         return nil
     }
 
     func getDriverGlobalRankAttributedText() -> NSAttributedString {
-        let driverRankString = "-".dkAttributedString().font(dkFont: .primary, style: .highlightBig).color(.secondaryColor).build()
-        let rankString = " / \(nbDrivers)".dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
-        return "%@%@".dkAttributedString().buildWithArgs(driverRankString, rankString)
+        if challengeDetail.userIndex-1 > 0, challengeDetail.userIndex < ranks.count {
+            let driverRank = ranks[challengeDetail.userIndex-1]
+            let driverRankString = driverRank.positionString.dkAttributedString().font(dkFont: .primary, style: .highlightBig).color(.secondaryColor).build()
+            let rankString = driverRank.rankString.dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
+            return "%@%@".dkAttributedString().buildWithArgs(driverRankString, rankString)
+        } else {
+            let driverRankString = "-".dkAttributedString().font(dkFont: .primary, style: .highlightBig).color(.secondaryColor).build()
+            let rankString = " / \(nbDrivers)".dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
+            return "%@%@".dkAttributedString().buildWithArgs(driverRankString, rankString)
+        }
     }
 
     func getScoreTitle() -> String {

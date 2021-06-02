@@ -1,4 +1,5 @@
 "dk_common_activate"="Aktivieren Sie";
+"dk_common_anonymous_driver"="Anonym";
 "dk_common_back"="Zurück";
 "dk_common_cancel"="Annullierer";
 "dk_common_close"="schließen";
@@ -26,6 +27,9 @@
 "dk_common_permission_camera_rationale"="Für die Nutzung dieser Funktion benötigt die Anwendung die Berechtigung zum Zugriff auf die Kamera Ihres Smartphones.";
 "dk_common_permission_storage_rationale"="Für die Nutzung dieser Funktion benötigt die Anwendung die Berechtigung zum Zugriff auf den Speicher Ihres Smartphones.";
 "dk_common_permissions"="Genehmigungen";
+"dk_common_ranking_driver"="Fahrer";
+"dk_common_ranking_rank"="Rang";
+"dk_common_ranking_score"="Punktzahl";
 "dk_common_safety"="Sicherheit";
 "dk_common_save"="Speichern";
 "dk_common_select_image_gallery"="Wählen Sie ein vorhandenes Foto aus";
@@ -58,6 +62,3 @@
 "dk_common_update_photo_title"="Ändern des Bildes";
 "dk_common_validate"="Validieren";
 "dk_common_yes"="Ja";
-"dk_common_ranking_driver"="Fahrer";
-"dk_common_ranking_rank"="Rang";
-"dk_common_ranking_score"="Punktzahl";

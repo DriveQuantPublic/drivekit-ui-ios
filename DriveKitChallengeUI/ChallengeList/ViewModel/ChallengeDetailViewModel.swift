@@ -59,7 +59,6 @@ class ChallengeDetailViewModel {
             return ChallengeTrip(trip: trip)
         }).orderByDay(descOrder: true)
         self.sortedTrips = sortedTrips
-        // TODO: add missing localized keys
         self.ranks = challengeDetail.driverRanked
             .sorted(by: { $0.rank < $1.rank })
             .map({driverRanked in
@@ -68,7 +67,7 @@ class ChallengeDetailViewModel {
                                                position: driverRanked.rank,
                                                positionString: String(driverRanked.rank),
                                                positionImageName: self.getImageName(fromPosition: driverRanked.rank),
-                                               rankString: " / \(nbDrivers)",
+                                               rankString: " / \(challengeDetail.nbDriverRanked)",
                                                name: driverRanked.nickname ?? "dk_challenge_ranking_anonymous_driver".dkChallengeLocalized(),
                                                distance: driverRanked.distance,
                                                distanceString: driverRanked.distance.formatKilometerDistance(),
@@ -80,7 +79,7 @@ class ChallengeDetailViewModel {
                                                position: driverRanked.rank,
                                                positionString: String(driverRanked.rank),
                                                positionImageName: self.getImageName(fromPosition: driverRanked.rank),
-                                               rankString: " / \(nbDrivers)",
+                                               rankString: " / \(challengeDetail.nbDriverRanked)",
                                                name: driverRanked.nickname ?? "dk_challenge_ranking_anonymous_driver".dkChallengeLocalized(),
                                                distance: driverRanked.distance,
                                                distanceString: driverRanked.distance.formatKilometerDistance(),

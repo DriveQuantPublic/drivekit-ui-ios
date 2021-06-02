@@ -239,6 +239,10 @@
 		63C3FD86244F89B300C2FEEC /* SensorInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63C3FD84244F89B300C2FEEC /* SensorInfoViewController.xib */; };
 		63C8751524B3727000CA9723 /* RankingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8751424B3727000CA9723 /* RankingViewModel.swift */; };
 		63DA2CD62551BC2C00C228E8 /* KontaktBeaconHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DA2CD52551BC2C00C228E8 /* KontaktBeaconHelper.swift */; };
+		63ECE8E92667E09C000F08D3 /* UserPseudoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63ECE8E82667E09C000F08D3 /* UserPseudoViewController.xib */; };
+		63ECE8EB2667E0CD000F08D3 /* UserPseudoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ECE8EA2667E0CD000F08D3 /* UserPseudoViewController.swift */; };
+		63ECE8ED26682058000F08D3 /* Bundle+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ECE8EC26682058000F08D3 /* Bundle+DK.swift */; };
+		63ECE8EF26682D49000F08D3 /* UserPseudoViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ECE8EE26682D49000F08D3 /* UserPseudoViewControllerDelegate.swift */; };
 		63F44E86244DDC8100C7F5CC /* GlobalStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F44E85244DDC8100C7F5CC /* GlobalStateViewModel.swift */; };
 		63F44E89244DDEE000C7F5CC /* GlobalStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F44E87244DDEE000C7F5CC /* GlobalStateView.swift */; };
 		63F44E8A244DDEE000C7F5CC /* GlobalStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F44E88244DDEE000C7F5CC /* GlobalStateView.xib */; };
@@ -786,6 +790,10 @@
 		63C3FD84244F89B300C2FEEC /* SensorInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SensorInfoViewController.xib; sourceTree = "<group>"; };
 		63C8751424B3727000CA9723 /* RankingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewModel.swift; sourceTree = "<group>"; };
 		63DA2CD52551BC2C00C228E8 /* KontaktBeaconHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KontaktBeaconHelper.swift; sourceTree = "<group>"; };
+		63ECE8E82667E09C000F08D3 /* UserPseudoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserPseudoViewController.xib; sourceTree = "<group>"; };
+		63ECE8EA2667E0CD000F08D3 /* UserPseudoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPseudoViewController.swift; sourceTree = "<group>"; };
+		63ECE8EC26682058000F08D3 /* Bundle+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+DK.swift"; sourceTree = "<group>"; };
+		63ECE8EE26682D49000F08D3 /* UserPseudoViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPseudoViewControllerDelegate.swift; sourceTree = "<group>"; };
 		63F44E85244DDC8100C7F5CC /* GlobalStateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalStateViewModel.swift; sourceTree = "<group>"; };
 		63F44E87244DDEE000C7F5CC /* GlobalStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalStateView.swift; sourceTree = "<group>"; };
 		63F44E88244DDEE000C7F5CC /* GlobalStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GlobalStateView.xib; sourceTree = "<group>"; };
@@ -1088,6 +1096,7 @@
 		3F0740F12404269E005A8D07 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				63ECE8EC26682058000F08D3 /* Bundle+DK.swift */,
 				A34238442361A2430001E15D /* Nibable.swift */,
 				3F0740F2240426C0005A8D07 /* UIColor+DK.swift */,
 				3FF68E71240823190071D74C /* UIFont+DK.swift */,
@@ -1169,12 +1178,13 @@
 		3F7524C92406C4B400AC22CC /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				3FA24FF42524B78C000AB7D3 /* Filter */,
+				3FF68E8D240CF0220071D74C /* Gauge */,
 				67F2D3192630713700ACC69A /* Ranking */,
 				67301C3C261D1030006B0432 /* TripsList */,
-				3FA24FF42524B78C000AB7D3 /* Filter */,
+				63ECE8E72667C62E000F08D3 /* User */,
 				639346B4244897C1000F42D4 /* DKContactType.swift */,
 				3F03A4DC242C8BD3000924A0 /* DKContentMail.swift */,
-				3FF68E8D240CF0220071D74C /* Gauge */,
 				3FB5643923F68BBE00F010E3 /* CardView.swift */,
 				A3905557242538E500537EB5 /* DKImagePicker.swift */,
 				3F7524CA2406C4CC00AC22CC /* DKUIViewController.swift */,
@@ -1700,6 +1710,16 @@
 				63B3A19F24AB73460011F11B /* DKRankingSelectorType.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		63ECE8E72667C62E000F08D3 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				63ECE8EA2667E0CD000F08D3 /* UserPseudoViewController.swift */,
+				63ECE8E82667E09C000F08D3 /* UserPseudoViewController.xib */,
+				63ECE8EE26682D49000F08D3 /* UserPseudoViewControllerDelegate.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		63FF6B56244A41550006992E /* View */ = {
@@ -2537,6 +2557,7 @@
 				67301CC2261FB0CD006B0432 /* TripInfoView.xib in Resources */,
 				679DC8622636E3A6007B5623 /* RankingHeaderReusableView.xib in Resources */,
 				67301CBD261FB0CD006B0432 /* AlternativeTripImageView.xib in Resources */,
+				63ECE8E92667E09C000F08D3 /* UserPseudoViewController.xib in Resources */,
 				3FF68E82240965E10071D74C /* DKImages.xcassets in Resources */,
 				67301CC5261FB0CD006B0432 /* TripTableViewCell.xib in Resources */,
 				63FE778624FD1A9D00C068C3 /* AnalyticsTags.plist in Resources */,
@@ -2884,6 +2905,7 @@
 				67301CF62623B2B2006B0432 /* DKTripListViewModel.swift in Sources */,
 				67301C97261F5619006B0432 /* HeaderDay.swift in Sources */,
 				6357AE85261135600000CA58 /* DKGaugeType.swift in Sources */,
+				63ECE8EB2667E0CD000F08D3 /* UserPseudoViewController.swift in Sources */,
 				3FF68E96240D58DC0071D74C /* UIView+DK.swift in Sources */,
 				6357AE84261135600000CA58 /* DKGaugeConfiguration.swift in Sources */,
 				616946E924338E3500C8A965 /* DriveKitPermissionsUtilsUIEntryPoint.swift in Sources */,
@@ -2900,6 +2922,7 @@
 				67F2D3B42631600000ACC69A /* DKDriverRankingCollectionVC.swift in Sources */,
 				63BF8EFA24531011006BEB3F /* DKContactType.swift in Sources */,
 				A34FC7362423CDDA000734AB /* DKTextField.swift in Sources */,
+				63ECE8ED26682058000F08D3 /* Bundle+DK.swift in Sources */,
 				3F03A4DF242C9983000924A0 /* DriveKitVehicleUIEntryPoint.swift in Sources */,
 				67F2D36A2630F07E00ACC69A /* CircleView.swift in Sources */,
 				3FF68E752408390A0071D74C /* CardView.swift in Sources */,
@@ -2907,6 +2930,7 @@
 				3FED7FC52525B7B900D19E18 /* DKFilterTableViewCell.swift in Sources */,
 				67E807DE2657B855003AFAA8 /* NSAttributedString+DK.swift in Sources */,
 				3FF68E8E240CF0420071D74C /* CircularProgressView.swift in Sources */,
+				63ECE8EF26682D49000F08D3 /* UserPseudoViewControllerDelegate.swift in Sources */,
 				3FF68E90240CF0510071D74C /* ConfigurationCircularProgressView.swift in Sources */,
 				3FF68E88240A727D0071D74C /* DKDatePattern.swift in Sources */,
 				67F2D3522630F06B00ACC69A /* RankingScoreSmall.swift in Sources */,

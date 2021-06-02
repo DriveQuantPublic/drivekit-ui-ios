@@ -9,22 +9,36 @@
 import UIKit
 
 class ChallengeResultsVC: UIViewController {
+    private let viewModel: ChallengeResultsViewModel?
 
+    public init(viewModel: ChallengeResultsViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: String(describing: ChallengeResultsVC.self), bundle: Bundle.challengeUIBundle)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+}
 
-        // Do any additional setup after loading the view.
+extension ChallengeResultsVC: UITableViewDelegate {
+    
+}
+
+extension ChallengeResultsVC: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
 }

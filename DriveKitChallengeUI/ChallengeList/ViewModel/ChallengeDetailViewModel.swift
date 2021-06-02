@@ -93,7 +93,7 @@ class ChallengeDetailViewModel {
     }
 
     func getResultsViewModel() -> ChallengeResultsViewModel {
-        return ChallengeResultsViewModel()
+        return ChallengeResultsViewModel(challengeDetail: challengeDetail)
     }
     func getRankingViewModel() -> DKDriverRankingViewModel {
         return DKDriverRankingViewModel(ranking: self)

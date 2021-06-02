@@ -6,8 +6,14 @@
 //  Copyright © 2021 DriveQuant. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import DriveKitCommonUI
+import DriveKitDBChallengeAccessModule
 
 struct ChallengeResultsViewModel {
-    
+    private let challengeDetail: DKChallengeDetail
+
+    init(challengeDetail: DKChallengeDetail) {
+        self.challengeDetail = challengeDetail
+    }
 }

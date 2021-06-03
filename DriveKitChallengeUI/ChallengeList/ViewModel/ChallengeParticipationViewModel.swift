@@ -87,7 +87,7 @@ public class ChallengeParticipationViewModel {
         let attributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 16).with(.traitBold),
                 NSAttributedString.Key.foregroundColor: UIColor.white,
                 NSAttributedString.Key.paragraphStyle: paragraphStyle]
-        let challengeStartString: String = "dk_challenge_start".dkChallengeLocalized().replacingOccurrences(of: "%@", with: "")
+        let challengeStartString: String = "dk_challenge_start".dkChallengeLocalized() + "\n"
         attString.append(NSAttributedString(string: challengeStartString, attributes: attributes))
         let text = getTimeAttributedString()
         attString.append(text)

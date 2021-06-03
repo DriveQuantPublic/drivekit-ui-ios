@@ -70,7 +70,7 @@ public class TripListVC: DKUIViewController {
         }
     }
     
-    private func configureFilterButton(){
+    private func configureFilterButton() {
         if DriveKitDriverDataUI.shared.enableAlternativeTrips && self.viewModel.hasAlternativeTrips() {
             let image = UIImage(named: "dk_filter", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.resizeImage(25, opaque: false).withRenderingMode(.alwaysTemplate)
             let filterButton = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(filterAction))
@@ -79,7 +79,7 @@ public class TripListVC: DKUIViewController {
         }
     }
     
-    @objc private func filterAction(){
+    @objc private func filterAction() {
         let items = viewModel.getTripListFilterItems()
         if items.count > 1 {
             let pickerViewModel = DKFilterViewModel(items: items, currentItem: items[0], showPicker: true, delegate: self)
@@ -151,7 +151,7 @@ public class TripListVC: DKUIViewController {
     }
 }
 
-extension TripListVC : TripsDelegate {
+extension TripListVC: TripsDelegate {
     func onTripsAvailable() {
         DispatchQueue.main.async {
             self.hideLoader()
@@ -163,7 +163,7 @@ extension TripListVC : TripsDelegate {
     }
 }
 
-extension TripListVC : DKFilterItemDelegate {
+extension TripListVC: DKFilterItemDelegate {
     public func onFilterItemSelected(filterItem: DKFilterItem) {
         if filterItem.getId() is TripListConfiguration{
             tripListFilterItemSelected(filterItem: filterItem)

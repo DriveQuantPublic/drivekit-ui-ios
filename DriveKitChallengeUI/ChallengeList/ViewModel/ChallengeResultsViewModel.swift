@@ -48,9 +48,21 @@ struct ChallengeResultsViewModel {
         headerAttributedString.setAttributes(titleMajorAttributes, range: rankRange)
 
         // Add stars
-        let score = challengeDetail.driverStats.score
-        let maxScore = challengeDetail.challengeStats.maxScore
-        let goldStarsNbr: Int = Int(((4 * score) / maxScore).rounded(.down))
+        let rank = challengeDetail.driverStats.rank
+        let nbrDrivers = challengeDetail.challengeStats.numberDriver
+        let percentage: Double = Double(100 * rank) / Double(nbrDrivers)
+        let goldStarsNbr: Int
+        if rank == 0 {
+            goldStarsNbr = 0
+        } else if rank == 1 || percentage <= 25 {
+            goldStarsNbr = 4
+        } else if percentage <= 50 {
+            goldStarsNbr = 3
+        } else if percentage <= 75 {
+            goldStarsNbr = 2
+        } else {
+            goldStarsNbr = 1
+        }
         let goldStarsAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 62).with(.traitBold), NSAttributedString.Key.foregroundColor: goldColor]
         let stars = "⭑⭑⭑⭑"
         let goldStarsAttributedString = NSMutableAttributedString(string: String(stars.prefix(goldStarsNbr)), attributes: goldStarsAttributes)

@@ -49,7 +49,7 @@ class TripListViewModel {
         })
     }
 
-    private func sortTrips(trips : [Trip]) -> [DKTripsByDate] {
+    private func sortTrips(trips: [Trip]) -> [DKTripsByDate] {
         let tripSorted = trips.orderByDay(descOrder: DriveKitDriverDataUI.shared.dayTripDescendingOrder)
         return tripSorted
     }
@@ -152,7 +152,7 @@ class TripListViewModel {
                     }
                 }
             }
-        }else{
+        } else {
             let alternativeModes = TripListConfiguration.alternative().transportationModes()
             self.filterTrips { alternativeModes.contains(TransportationMode(rawValue: Int(($0 as Trip).transportationMode)) ?? TransportationMode.unknown) }
         }

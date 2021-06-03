@@ -11,6 +11,10 @@ import DriveKitCommonUI
 import DriveKitDBTripAccessModule
 import DriveKitDBChallengeAccessModule
 
+protocol ChallengeDetailViewModelDelegate {
+    func didSelectTrip(tripId: String)
+}
+
 class ChallengeDetailViewModel {
     private let challenge: DKChallenge
     private let challengeDetail: DKChallengeDetail
@@ -19,6 +23,7 @@ class ChallengeDetailViewModel {
     private let sortedTrips: [DKTripsByDate]
     private(set) var ranks = [ChallengeDriverRank]()
     private(set) var nbDrivers = 0
+    public var delegate: ChallengeDetailViewModelDelegate?
 
     init(challenge: DKChallenge, challengeDetail: DKChallengeDetail) {
         self.challenge = challenge
@@ -62,13 +67,19 @@ class ChallengeDetailViewModel {
         self.ranks = challengeDetail.driverRanked
             .sorted(by: { $0.rank < $1.rank })
             .map({driverRanked in
+                let name: String
+                if let nickname = driverRanked.nickname, !nickname.isEmpty {
+                    name = nickname
+                } else {
+                    name = DKCommonLocalizable.anonymous.text()
+                }
                 if driverRanked.rank == challengeDetail.userIndex {
                     return CurrentChallengeDriverRank(nbDrivers: challengeDetail.nbDriverRanked,
                                                position: driverRanked.rank,
                                                positionString: String(driverRanked.rank),
                                                positionImageName: self.getImageName(fromPosition: driverRanked.rank),
                                                rankString: " / \(challengeDetail.nbDriverRanked)",
-                                               name: driverRanked.nickname ?? "dk_challenge_ranking_anonymous_driver".dkChallengeLocalized(),
+                                               name: name,
                                                distance: driverRanked.distance,
                                                distanceString: driverRanked.distance.formatKilometerDistance(),
                                                score: driverRanked.score,
@@ -80,7 +91,7 @@ class ChallengeDetailViewModel {
                                                positionString: String(driverRanked.rank),
                                                positionImageName: self.getImageName(fromPosition: driverRanked.rank),
                                                rankString: " / \(challengeDetail.nbDriverRanked)",
-                                               name: driverRanked.nickname ?? "dk_challenge_ranking_anonymous_driver".dkChallengeLocalized(),
+                                               name: name,
                                                distance: driverRanked.distance,
                                                distanceString: driverRanked.distance.formatKilometerDistance(),
                                                score: driverRanked.score,
@@ -127,6 +138,7 @@ class ChallengeDetailViewModel {
 
 extension ChallengeDetailViewModel: DKTripList {
     func didSelectTrip(itinId: String) {
+        self.delegate?.didSelectTrip(tripId: itinId)
     }
 
     func getTripData() -> TripData {
@@ -161,11 +173,7 @@ extension ChallengeDetailViewModel: DKTripList {
     }
 
     func getHeaderDay() -> HeaderDay {
-        return .distanceDuration
-    }
-
-    func getDayTripDescendingOrder() -> Bool {
-        return true
+        return .durationDistance
     }
 
     func canPullToRefresh() -> Bool {

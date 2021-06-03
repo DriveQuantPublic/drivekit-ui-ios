@@ -38,6 +38,7 @@ class ChallengeDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let viewModel = self.viewModel {
+            viewModel.delegate = self
             tabsViewControllers.append(ChallengeResultsVC(viewModel: viewModel.getResultsViewModel()))
             tabsViewControllers.append(DKDriverRankingCollectionVC(viewModel: viewModel.getRankingViewModel()))
             tabsViewControllers.append(TripsListTableVC<ChallengeTrip>(viewModel: viewModel.getTripListViewModel()))
@@ -138,5 +139,16 @@ extension ChallengeDetailVC: UIPageViewControllerDataSource {
 extension ChallengeDetailVC: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         updateSelector()
+    }
+}
+
+extension ChallengeDetailVC: ChallengeDetailViewModelDelegate {
+    func didSelectTrip(tripId: String) {
+        if let driverDataUI = DriveKitNavigationController.shared.driverDataUI, let navigationController = self.navigationController {
+            let tripDetail = driverDataUI.getTripDetailViewController(itinId: tripId)
+            navigationController.pushViewController(tripDetail, animated: true)
+        } else {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DKShowTripDetail"), object: nil, userInfo: ["itinId": tripId])
+        }
     }
 }

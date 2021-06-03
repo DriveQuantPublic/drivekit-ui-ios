@@ -234,7 +234,7 @@ extension ChallengeDetailViewModel: DKDriverRanking {
     }
 
     func getDriverGlobalRankAttributedText() -> NSAttributedString {
-        if challengeDetail.userIndex-1 > 0, challengeDetail.userIndex < ranks.count {
+        if challengeDetail.userIndex > 0, challengeDetail.userIndex <= ranks.count {
             let driverRank = ranks[challengeDetail.userIndex-1]
             let driverRankString = driverRank.positionString.dkAttributedString().font(dkFont: .primary, style: .highlightBig).color(.secondaryColor).build()
             let rankString = driverRank.rankString.dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
@@ -255,7 +255,7 @@ extension ChallengeDetailViewModel: DKDriverRanking {
         case .duration:
             return DKCommonLocalizable.duration.text()
         case .nbTrips:
-            return DKCommonLocalizable.tripPlural.text()
+            return DKCommonLocalizable.tripPlural.text().capitalizeFirstLetter()
         }
     }
 }

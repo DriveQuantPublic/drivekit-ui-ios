@@ -18,13 +18,13 @@ enum ChallengeType {
     var overviewTitle: String {
         switch self {
         case .distance:
-            return "dk_challenge_driver_distance".dkChallengeLocalized()
+            return "dk_challenge_traveled_distance".dkChallengeLocalized()
         case .duration:
-            return "dk_challenge_driver_duration".dkChallengeLocalized()
+            return "dk_challenge_driving_time".dkChallengeLocalized()
         case .score:
             return ""
         case .nbTrips:
-            return "dk_challenge_driver_trips".dkChallengeLocalized()
+            return "dk_challenge_nb_trip".dkChallengeLocalized()
         }
     }
 

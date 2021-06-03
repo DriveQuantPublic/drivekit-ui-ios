@@ -43,7 +43,8 @@ class ChallengeDetailVC: UIViewController {
             tabsViewControllers.append(TripsListTableVC<ChallengeTrip>(viewModel: viewModel.getTripListViewModel()))
             tabsViewControllers.append(ChallengeParticipationVC(viewModel: viewModel.getRulesViewModel()))
         }
-        self.selectorHighlightView?.backgroundColor = DKUIColors.secondaryColor.color
+        tripsTabButton?.setImage(DKImages.trip.image, for: .normal)
+        selectorHighlightView?.backgroundColor = DKUIColors.secondaryColor.color
         setupPageContainer()
         title = viewModel?.getChallengeName()
     }

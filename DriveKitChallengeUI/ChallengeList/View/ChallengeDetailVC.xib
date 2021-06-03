@@ -37,17 +37,18 @@
                             </constraints>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="gQO-41-hG0">
-                            <rect key="frame" x="8" y="4" width="398" height="37"/>
+                            <rect key="frame" x="8" y="6" width="398" height="33"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uur-eX-Ga8">
-                                    <rect key="frame" x="0.0" y="0.0" width="31.5" height="37"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="33.5" height="33"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1l-hr-6wS">
-                                    <rect key="frame" x="31.5" y="0.0" width="37" height="37"/>
+                                    <rect key="frame" x="33.5" y="0.0" width="33" height="33"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="j1l-hr-6wS" secondAttribute="height" multiplier="1:1" id="kuD-Ai-6Yy"/>
                                     </constraints>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" image="dk_challenge_stat">
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                     </state>
@@ -56,11 +57,12 @@
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x6e-aO-w7T">
-                                    <rect key="frame" x="68.5" y="0.0" width="62.5" height="37"/>
+                                    <rect key="frame" x="66.5" y="0.0" width="66.5" height="33"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wut-Xd-8RO">
-                                    <rect key="frame" x="131" y="0.0" width="37" height="37"/>
+                                    <rect key="frame" x="133" y="0.0" width="33" height="33"/>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" image="dk_challenge_leaderboard">
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                     </state>
@@ -72,12 +74,13 @@
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dsI-dy-ylB">
-                                    <rect key="frame" x="168" y="0.0" width="62.5" height="37"/>
+                                    <rect key="frame" x="166" y="0.0" width="66.5" height="33"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gO-2o-cTK">
-                                    <rect key="frame" x="230.5" y="0.0" width="37" height="37"/>
-                                    <state key="normal" image="dk_challenge_trips_filled">
+                                    <rect key="frame" x="232.5" y="0.0" width="33" height="33"/>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal" image="dk_common_trip">
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                     </state>
                                     <connections>
@@ -85,11 +88,12 @@
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Em8-Pa-j5t">
-                                    <rect key="frame" x="267.5" y="0.0" width="62.5" height="37"/>
+                                    <rect key="frame" x="265.5" y="0.0" width="66.5" height="33"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7r-PE-odn">
-                                    <rect key="frame" x="330" y="0.0" width="37" height="37"/>
+                                    <rect key="frame" x="332" y="0.0" width="33" height="33"/>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" image="dk_challenge_rules">
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                     </state>
@@ -98,7 +102,7 @@
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ML-22-DfG">
-                                    <rect key="frame" x="367" y="0.0" width="31" height="37"/>
+                                    <rect key="frame" x="365" y="0.0" width="33" height="33"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                             </subviews>
@@ -126,9 +130,9 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="8oW-ED-eaz"/>
-                        <constraint firstAttribute="bottom" secondItem="gQO-41-hG0" secondAttribute="bottom" constant="4" id="S4g-tW-g1i"/>
+                        <constraint firstAttribute="bottom" secondItem="gQO-41-hG0" secondAttribute="bottom" constant="6" id="S4g-tW-g1i"/>
                         <constraint firstAttribute="trailing" secondItem="gQO-41-hG0" secondAttribute="trailing" constant="8" id="YjT-gM-drD"/>
-                        <constraint firstItem="gQO-41-hG0" firstAttribute="top" secondItem="aU5-Nr-ksb" secondAttribute="top" constant="4" id="ZCW-F0-Aju"/>
+                        <constraint firstItem="gQO-41-hG0" firstAttribute="top" secondItem="aU5-Nr-ksb" secondAttribute="top" constant="6" id="ZCW-F0-Aju"/>
                         <constraint firstItem="Gbf-jN-oal" firstAttribute="width" secondItem="aU5-Nr-ksb" secondAttribute="width" multiplier="1:4" id="g7U-nt-8vB"/>
                         <constraint firstItem="gQO-41-hG0" firstAttribute="leading" secondItem="aU5-Nr-ksb" secondAttribute="leading" constant="8" id="j0D-WY-LFe"/>
                         <constraint firstItem="Gbf-jN-oal" firstAttribute="leading" secondItem="aU5-Nr-ksb" secondAttribute="leading" constant="-1" id="tIh-8L-JKq"/>
@@ -158,7 +162,7 @@
         <image name="dk_challenge_leaderboard" width="160" height="160"/>
         <image name="dk_challenge_rules" width="160" height="160"/>
         <image name="dk_challenge_stat" width="160" height="160"/>
-        <image name="dk_challenge_trips_filled" width="160" height="160"/>
+        <image name="dk_common_trip" width="60" height="60"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

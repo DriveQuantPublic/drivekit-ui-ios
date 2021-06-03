@@ -34,7 +34,7 @@ struct ChallengeResultsViewModel {
 
     func getHeaderCellAttributedString() -> NSAttributedString {
         let titleAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 20).with(.traitBold), NSAttributedString.Key.foregroundColor: UIColor.black]
-        let titleMajorAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 44).with(.traitBold), NSAttributedString.Key.foregroundColor: DKUIColors.mainFontColor.color]
+        let titleMajorAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 44).with(.traitBold), NSAttributedString.Key.foregroundColor: DKUIColors.secondaryColor.color]
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
 
@@ -42,7 +42,7 @@ struct ChallengeResultsViewModel {
         let stringRank = String(challengeDetail.userIndex)
         let stringMaxRank = String(challengeDetail.challengeStats.numberDriver)
         
-        let scoreHeaderString = name + " " + stringRank + "/" + stringMaxRank + "\n"
+        let scoreHeaderString = name + " " + stringRank + " / " + stringMaxRank + "\n"
         let headerAttributedString = NSMutableAttributedString(string: scoreHeaderString, attributes: titleAttributes)
         let rankRange = (scoreHeaderString as NSString).range(of: stringRank)
         headerAttributedString.setAttributes(titleMajorAttributes, range: rankRange)
@@ -65,7 +65,7 @@ struct ChallengeResultsViewModel {
 
     func getStatAttributedString(challengeStatType: ChallengeStatType) -> NSAttributedString {
         let titleAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 14), NSAttributedString.Key.foregroundColor: UIColor.black]
-        let majorAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 18).with(.traitBold), NSAttributedString.Key.foregroundColor: DKUIColors.mainFontColor.color]
+        let majorAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 18).with(.traitBold), NSAttributedString.Key.foregroundColor: DKUIColors.primaryColor.color]
         switch challengeStatType {
         case .duration:
             let duration = challengeDetail.driverStats.duration * 3600
@@ -95,7 +95,7 @@ struct ChallengeResultsViewModel {
 
     func getGlobalStatAttributedString(challengeStatType: ChallengeStatType) -> NSAttributedString {
         let titleAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 12), NSAttributedString.Key.foregroundColor: UIColor.black]
-        let majorAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 14).with(.traitBold), NSAttributedString.Key.foregroundColor: DKUIColors.mainFontColor.color]
+        let majorAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 14).with(.traitBold), NSAttributedString.Key.foregroundColor: DKUIColors.primaryColor.color]
         switch challengeStatType {
         case .duration:
             let duration = challengeDetail.challengeStats.duration * 3600
@@ -115,7 +115,7 @@ struct ChallengeResultsViewModel {
         case .nbTrips:
             let trip = challengeDetail.challengeStats.numberTrip > 1 ? DKCommonLocalizable.tripPlural.text() : DKCommonLocalizable.tripSingular.text()
             let tripsFormatted = String(challengeDetail.challengeStats.numberTrip) + " " + trip
-            let tripsString = String(format: "dk_challenge_driver_trips".dkChallengeLocalized(), tripsFormatted)
+            let tripsString = String(format: "dk_challenge_competitors_trips".dkChallengeLocalized(), tripsFormatted)
             let rangeTrips = (tripsString as NSString).range(of:  tripsFormatted)
             let attributedTrips = NSMutableAttributedString(string: tripsString, attributes: titleAttributes)
             attributedTrips.setAttributes(majorAttributes, range: rangeTrips)

@@ -45,6 +45,7 @@ class ChallengeDetailVC: UIViewController {
         }
         self.selectorHighlightView?.backgroundColor = DKUIColors.secondaryColor.color
         setupPageContainer()
+        title = viewModel?.getChallengeName()
     }
 
     func setupPageContainer() {

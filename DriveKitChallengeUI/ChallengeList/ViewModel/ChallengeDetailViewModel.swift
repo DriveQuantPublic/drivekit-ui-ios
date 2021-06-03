@@ -92,7 +92,7 @@ class ChallengeDetailViewModel {
     }
 
     func getResultsViewModel() -> ChallengeResultsViewModel {
-        return ChallengeResultsViewModel(challengeDetail: challengeDetail)
+        return ChallengeResultsViewModel(challengeDetail: challengeDetail, challengeType: challengeType, challengeTheme: challengeTheme)
     }
     func getRankingViewModel() -> DKDriverRankingViewModel {
         return DKDriverRankingViewModel(ranking: self)
@@ -118,6 +118,10 @@ class ChallengeDetailViewModel {
         } else {
             return nil
         }
+    }
+
+    func getChallengeName() -> String {
+        return challenge.title
     }
 }
 

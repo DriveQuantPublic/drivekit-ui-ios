@@ -251,6 +251,11 @@
 		6704DDD2266148B500DAF326 /* ChallengeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6704DDD1266148B500DAF326 /* ChallengeType.swift */; };
 		6704DDD42664B55900DAF326 /* ChallengeTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6704DDD32664B55900DAF326 /* ChallengeTrip.swift */; };
 		6704DDD62664F6AC00DAF326 /* ChallengeDriverRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6704DDD52664F6AC00DAF326 /* ChallengeDriverRank.swift */; };
+		6704DDD92668432D00DAF326 /* ChallengeStatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6704DDD72668432D00DAF326 /* ChallengeStatCell.swift */; };
+		6704DDDA2668432D00DAF326 /* ChallengeStatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6704DDD82668432D00DAF326 /* ChallengeStatCell.xib */; };
+		6704DDDC2668458F00DAF326 /* ChallengeStatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6704DDDB2668458F00DAF326 /* ChallengeStatType.swift */; };
+		6704DDDF2668710000DAF326 /* ChallengeResultOverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6704DDDD2668710000DAF326 /* ChallengeResultOverviewCell.swift */; };
+		6704DDE02668710000DAF326 /* ChallengeResultOverviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6704DDDE2668710000DAF326 /* ChallengeResultOverviewCell.xib */; };
 		67301C3E261D106B006B0432 /* DKTripList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301C3D261D106B006B0432 /* DKTripList.swift */; };
 		67301C46261D121C006B0432 /* TripData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301C45261D121C006B0432 /* TripData.swift */; };
 		67301C5C261EE900006B0432 /* DKTripsByDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301C5B261EE900006B0432 /* DKTripsByDate.swift */; };
@@ -807,6 +812,11 @@
 		6704DDD1266148B500DAF326 /* ChallengeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeType.swift; sourceTree = "<group>"; };
 		6704DDD32664B55900DAF326 /* ChallengeTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeTrip.swift; sourceTree = "<group>"; };
 		6704DDD52664F6AC00DAF326 /* ChallengeDriverRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDriverRank.swift; sourceTree = "<group>"; };
+		6704DDD72668432D00DAF326 /* ChallengeStatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeStatCell.swift; sourceTree = "<group>"; };
+		6704DDD82668432D00DAF326 /* ChallengeStatCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeStatCell.xib; sourceTree = "<group>"; };
+		6704DDDB2668458F00DAF326 /* ChallengeStatType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeStatType.swift; sourceTree = "<group>"; };
+		6704DDDD2668710000DAF326 /* ChallengeResultOverviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeResultOverviewCell.swift; sourceTree = "<group>"; };
+		6704DDDE2668710000DAF326 /* ChallengeResultOverviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeResultOverviewCell.xib; sourceTree = "<group>"; };
 		67301C3D261D106B006B0432 /* DKTripList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripList.swift; sourceTree = "<group>"; };
 		67301C45261D121C006B0432 /* TripData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripData.swift; sourceTree = "<group>"; };
 		67301C5B261EE900006B0432 /* DKTripsByDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripsByDate.swift; sourceTree = "<group>"; };
@@ -1756,6 +1766,7 @@
 		6704DDD02661489800DAF326 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6704DDDB2668458F00DAF326 /* ChallengeStatType.swift */,
 				6704DDD1266148B500DAF326 /* ChallengeType.swift */,
 				6704DDD32664B55900DAF326 /* ChallengeTrip.swift */,
 				6704DDD52664F6AC00DAF326 /* ChallengeDriverRank.swift */,
@@ -1844,6 +1855,7 @@
 				67A2E17626559EEE005F26AE /* ChallengeParticipationVC.swift */,
 				67A2E17726559EEE005F26AE /* ChallengeParticipationVC.xib */,
 				67A2E17A26559F0B005F26AE /* ChallengeRulesVC.swift */,
+				67A2E17B26559F0B005F26AE /* ChallengeRulesVC.xib */,
 				67462D862660CDE800016FAF /* ChallengeDetailVC.swift */,
 				67462D872660CDE800016FAF /* ChallengeDetailVC.xib */,
 				67462D8A2660CE0400016FAF /* ChallengeResultsVC.swift */,
@@ -1860,7 +1872,6 @@
 				67C43D5526409ACE00DBB09D /* ChallengeItemViewModel.swift */,
 				67A2E1742654F62C005F26AE /* ChallengeParticipationViewModel.swift */,
 				67E807DB26579592003AFAA8 /* ChallengeRulesViewModel.swift */,
-				67A2E17B26559F0B005F26AE /* ChallengeRulesVC.xib */,
 				67462D80265CD4AE00016FAF /* ChallengeConditionProgressViewModel.swift */,
 				67462D8E2660CE2600016FAF /* ChallengeResultsViewModel.swift */,
 				67462D902660CE4300016FAF /* ChallengeDetailViewModel.swift */,
@@ -1877,6 +1888,10 @@
 				67C43D522640529300DBB09D /* ChallengeCell.xib */,
 				67462D82265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.swift */,
 				67462D83265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.xib */,
+				6704DDD72668432D00DAF326 /* ChallengeStatCell.swift */,
+				6704DDD82668432D00DAF326 /* ChallengeStatCell.xib */,
+				6704DDDD2668710000DAF326 /* ChallengeResultOverviewCell.swift */,
+				6704DDDE2668710000DAF326 /* ChallengeResultOverviewCell.xib */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -2669,6 +2684,8 @@
 				67C43D542640529300DBB09D /* ChallengeCell.xib in Resources */,
 				67A2E17926559EEE005F26AE /* ChallengeParticipationVC.xib in Resources */,
 				67C43D4E264047A200DBB09D /* NoChallengeCell.xib in Resources */,
+				6704DDDA2668432D00DAF326 /* ChallengeStatCell.xib in Resources */,
+				6704DDE02668710000DAF326 /* ChallengeResultOverviewCell.xib in Resources */,
 				67C43D1E263AE79F00DBB09D /* ChallengeListVC.xib in Resources */,
 				67462D8D2660CE0400016FAF /* ChallengeResultsVC.xib in Resources */,
 				67C43D12263AE23600DBB09D /* DKChallengeLocalizable.strings in Resources */,
@@ -3119,6 +3136,7 @@
 				6704DDD62664F6AC00DAF326 /* ChallengeDriverRank.swift in Sources */,
 				67462D8F2660CE2600016FAF /* ChallengeResultsViewModel.swift in Sources */,
 				67C43D4D264047A200DBB09D /* NoChallengeCell.swift in Sources */,
+				6704DDDC2668458F00DAF326 /* ChallengeStatType.swift in Sources */,
 				67C43D592641262500DBB09D /* DKChallenge+UI.swift in Sources */,
 				67462D81265CD4AE00016FAF /* ChallengeConditionProgressViewModel.swift in Sources */,
 				6704DDD2266148B500DAF326 /* ChallengeType.swift in Sources */,
@@ -3131,8 +3149,10 @@
 				67462D84265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.swift in Sources */,
 				6704DDD42664B55900DAF326 /* ChallengeTrip.swift in Sources */,
 				67C43D0A263A98B600DBB09D /* DriveKitChallengeUI.swift in Sources */,
+				6704DDD92668432D00DAF326 /* ChallengeStatCell.swift in Sources */,
 				67E807DC26579592003AFAA8 /* ChallengeRulesViewModel.swift in Sources */,
 				67A2E17C26559F0B005F26AE /* ChallengeRulesVC.swift in Sources */,
+				6704DDDF2668710000DAF326 /* ChallengeResultOverviewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

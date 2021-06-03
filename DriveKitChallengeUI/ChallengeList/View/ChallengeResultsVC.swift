@@ -10,6 +10,7 @@ import UIKit
 
 class ChallengeResultsVC: UIViewController {
     private let viewModel: ChallengeResultsViewModel?
+    @IBOutlet private weak var tableView: UITableView?
 
     public init(viewModel: ChallengeResultsViewModel) {
         self.viewModel = viewModel
@@ -22,6 +23,8 @@ class ChallengeResultsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView?.register(ChallengeStatCell.nib, forCellReuseIdentifier: "ChallengeStatCellIdentifier")
+        tableView?.register(ChallengeResultOverviewCell.nib, forCellReuseIdentifier: "ChallengeResultOverviewCellIdentifier")
     }
 }
 
@@ -35,10 +38,36 @@ extension ChallengeResultsVC: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        if section == 2 {
+            return viewModel?.challengeStats.count ?? 0
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        if indexPath.section == 1 {
+            if let cell: ChallengeResultOverviewCell = tableView.dequeueReusableCell(withIdentifier: "ChallengeResultOverviewCellIdentifier", for: indexPath) as? ChallengeResultOverviewCell, let viewModel = viewModel {
+                cell.clipsToBounds = false
+                cell.selectionStyle = .none
+                cell.configureCell(viewModel: viewModel)
+            return cell
+            }
+        } else if indexPath.section == 2 {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "ChallengeStatCellIdentifier"),
+               let statCell: ChallengeStatCell = cell as? ChallengeStatCell,
+               let viewModel = viewModel,
+               indexPath.row < viewModel.challengeStats.count {
+                let type = viewModel.challengeStats[indexPath.row]
+                statCell.configure(viewModel: viewModel, type: type)
+                return statCell
+            }
+        }
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "ChallengeResultHeaderCell")
+        cell.clipsToBounds = false
+        cell.selectionStyle = .none
+        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.attributedText = self.viewModel?.getHeaderCellAttributedString()
+        return cell
     }
 }

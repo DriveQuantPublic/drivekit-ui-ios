@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import DriveKitCommonUI
 
 enum ChallengeType {
     case distance
@@ -30,13 +31,13 @@ enum ChallengeType {
     var indiceType: String {
         switch self {
         case .distance:
-            return "dk_common_unit_kilometer".dkChallengeLocalized()
+            return DKCommonLocalizable.unitKilometer.text()
         case .duration:
             return ""
         case .score:
             return "/10"
         case .nbTrips:
-            return "dk_common_trip_plural".dkChallengeLocalized()
+            return DKCommonLocalizable.tripPlural.text()
         }
     }
 }

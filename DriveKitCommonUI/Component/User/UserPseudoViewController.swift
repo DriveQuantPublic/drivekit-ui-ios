@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitCoreModule
 
 public class UserPseudoViewController : UIViewController {
 
@@ -20,8 +21,11 @@ public class UserPseudoViewController : UIViewController {
     @IBOutlet private weak var loadingView: UIView!
     private var appeared = false
 
-    init() {
+    public init(delegate: UserPseudoViewControllerDelegate) {
         super.init(nibName: "UserPseudoViewController", bundle: Bundle.driveKitCommonUIBundle)
+        self.modalPresentationStyle = .overFullScreen
+        self.modalTransitionStyle = .crossDissolve
+        self.delegate = delegate
     }
 
     required init?(coder: NSCoder) {
@@ -37,9 +41,33 @@ public class UserPseudoViewController : UIViewController {
         if let appName = Bundle.main.appName {
             self.titleLabel.attributedText = appName.dkAttributedString().font(dkFont: .primary, style: .headLine1).color(DKUIColors.mainFontColor).build()
         }
-        self.descriptionLabel.attributedText = "[TODO]Please enter a pseudo to access this page[TODO]".dkAttributedString().font(dkFont: .primary, style: .normalText).color(DKUIColors.mainFontColor).build()
+        self.descriptionLabel.attributedText = DKCommonLocalizable.noPseudo.text().dkAttributedString().font(dkFont: .primary, style: .smallText).color(DKUIColors.mainFontColor).build()
         self.validateButton.setTitle(DKCommonLocalizable.validate.text(), for: .normal)
         self.cancelButton.setTitle(DKCommonLocalizable.cancel.text(), for: .normal)
+        self.pseudoInput.delegate = self
+
+        self.loadingView.isHidden = false
+        DriveKit.shared.getUserInfo(synchronizationType: .cache) { [weak self] status, userInfo in
+            DispatchQueue.main.async {
+                if let self = self {
+                    if let pseudo = userInfo?.pseudo, self.isPseudoValid(pseudo) {
+                        self.delegate?.pseudoDidUpdate(success: true)
+                    } else {
+                        DriveKit.shared.getUserInfo(synchronizationType: .defaultSync) { [weak self] status, userInfo in
+                            DispatchQueue.main.async {
+                                if let self = self {
+                                    if let pseudo = userInfo?.pseudo, self.isPseudoValid(pseudo) {
+                                        self.delegate?.pseudoDidUpdate(success: true)
+                                    } else {
+                                        self.loadingView.isHidden = true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public override func viewWillAppear(_ animated: Bool) {
@@ -57,12 +85,35 @@ public class UserPseudoViewController : UIViewController {
     }
 
     @IBAction private func validate() {
-        //TODO
-        self.dismiss(animated: true, completion: nil)
+        if let pseudo = self.pseudoInput.text, isPseudoValid(pseudo) {
+            self.loadingView.isHidden = false
+            DriveKit.shared.updateUserInfo(pseudo: pseudo) { [weak self] success in
+                DispatchQueue.main.async {
+                    if let self = self {
+                        self.delegate?.pseudoDidUpdate(success: success)
+                    }
+                }
+            }
+        }
     }
 
     @IBAction private func cancel() {
         self.delegate?.pseudoDidUpdate(success: false)
     }
 
+    private func isPseudoValid(_ pseudo: String?) -> Bool {
+        if let pseudo = pseudo, !pseudo.isCompletelyEmpty() {
+            return true
+        } else {
+            return false
+        }
+    }
+
+}
+
+extension UserPseudoViewController : UITextFieldDelegate {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

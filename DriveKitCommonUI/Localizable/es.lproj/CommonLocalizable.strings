@@ -61,3 +61,4 @@
 "dk_common_ranking_driver"="Conductor";
 "dk_common_ranking_rank"="Rango";
 "dk_common_ranking_score"="Puntuaciones";
+"dk_common_no_pseudo_set"="You need to enter a pseudo to access this content";

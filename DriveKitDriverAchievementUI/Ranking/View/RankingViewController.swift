@@ -46,7 +46,6 @@ class RankingViewController: DKUIViewController {
 
         self.viewModel.delegate = self
         self.viewModel.update()
-
     }
 
     private func updateHeader() {
@@ -91,5 +90,19 @@ extension RankingViewController : RankingViewModelDelegate {
             updateHeader()
             updateData()
         }
+    }
+
+    func updateUserPseudo() {
+        let userPseudoViewController = UserPseudoViewController(delegate: self)
+        self.present(userPseudoViewController, animated: true, completion: nil)
+    }
+}
+
+extension RankingViewController : UserPseudoViewControllerDelegate {
+    func pseudoDidUpdate(success: Bool) {
+        if success {
+            self.viewModel.update()
+        }
+        self.dismiss(animated: true, completion: nil)
     }
 }

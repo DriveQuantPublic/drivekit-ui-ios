@@ -28,25 +28,25 @@ extension DriveKitChallengeUI: DriveKitChallengeUIEntryPoint {
 
     public func getChallengeViewController(challengeId: String, completion: @escaping (UIViewController?) -> ()) {
 
-        DriveKitChallenge.shared.getChallenge(challengeId: challengeId, type: .cache) { [weak self] status, challenge in
-            if let challenge = challenge {
-                DispatchQueue.main.async {
-                    let challengeVC = self?.getViewControllerForChallenge(challenge: challenge)
-                    completion(challengeVC)
-                }
-            } else {
-                DriveKitChallenge.shared.getChallenge(challengeId: challengeId, type: .defaultSync) { [weak self] status, challenge in
-                    if let challenge = challenge {
-                        DispatchQueue.main.async {
-                            let challengeVC = self?.getViewControllerForChallenge(challenge: challenge)
-                            completion(challengeVC)
-                        }
-                    } else {
-                        completion(nil)
-                    }
-                }
-            }
-        }
+//        DriveKitChallenge.shared.getChallenge(challengeId: challengeId, type: .cache) { [weak self] status, challenge in
+//            if let challenge = challenge {
+//                DispatchQueue.main.async {
+//                    let challengeVC = self?.getViewControllerForChallenge(challenge: challenge)
+//                    completion(challengeVC)
+//                }
+//            } else {
+//                DriveKitChallenge.shared.getChallenge(challengeId: challengeId, type: .defaultSync) { [weak self] status, challenge in
+//                    if let challenge = challenge {
+//                        DispatchQueue.main.async {
+//                            let challengeVC = self?.getViewControllerForChallenge(challenge: challenge)
+//                            completion(challengeVC)
+//                        }
+//                    } else {
+//                        completion(nil)
+//                    }
+//                }
+//            }
+//        }
     }
 
     private func getViewControllerForChallenge(challenge: DKChallenge) -> UIViewController {

@@ -10,17 +10,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChallengeResultOverviewCellIdentifier" rowHeight="184" id="Fkh-Fl-yJs" customClass="ChallengeResultOverviewCell" customModule="ALTIMA" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="408" height="184"/>
+            <rect key="frame" x="0.0" y="0.0" width="408" height="194"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fkh-Fl-yJs" id="Kr0-4T-hrm">
-                <rect key="frame" x="0.0" y="0.0" width="408" height="184"/>
+                <rect key="frame" x="0.0" y="0.0" width="408" height="194"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EdS-e2-d2P" customClass="CardView" customModule="ALTIMA" customModuleProvider="target">
-                        <rect key="frame" x="2" y="1" width="405" height="180"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EdS-e2-d2P" customClass="CardView" customModule="DriveKitCommonUI">
+                        <rect key="frame" x="22" y="12" width="365" height="169"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ev4-ev-42O">
-                                <rect key="frame" x="8" y="8" width="389" height="30"/>
+                                <rect key="frame" x="8" y="8" width="349" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance Travelled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXl-V5-VlB">
                                         <rect key="frame" x="0.0" y="0.0" width="139.5" height="30"/>
@@ -38,10 +38,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WxK-2J-ekZ">
-                                <rect key="frame" x="8" y="46" width="262" height="126"/>
+                                <rect key="frame" x="8" y="46" width="222" height="115"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24 Trips" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqo-sr-067">
-                                        <rect key="frame" x="69" y="44" width="124" height="38"/>
+                                        <rect key="frame" x="49" y="44" width="124" height="27"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -55,10 +55,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rCQ-ZC-CCO">
-                                <rect key="frame" x="278" y="46" width="119" height="126"/>
+                                <rect key="frame" x="238" y="46" width="119" height="115"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tRi-wx-5a6">
-                                        <rect key="frame" x="16" y="8" width="30" height="110"/>
+                                        <rect key="frame" x="16" y="8" width="30" height="99"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Medal" translatesAutoresizingMaskIntoConstraints="NO" id="Uda-gl-yiY">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -68,10 +68,10 @@
                                                 </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KXn-O0-FlI">
-                                                <rect key="frame" x="5" y="38" width="20" height="72"/>
+                                                <rect key="frame" x="5" y="38" width="20" height="61"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jMB-5S-far">
-                                                        <rect key="frame" x="0.0" y="60" width="20" height="12"/>
+                                                        <rect key="frame" x="0.0" y="60" width="20" height="1"/>
                                                         <color key="backgroundColor" red="0.65639167750000005" green="0.031710028129999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </view>
                                                 </subviews>
@@ -96,7 +96,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m2t-dA-UW3">
-                                        <rect key="frame" x="50" y="8" width="61" height="110"/>
+                                        <rect key="frame" x="50" y="8" width="61" height="99"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28 Trips" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Boo-Ml-SZP">
                                                 <rect key="frame" x="0.0" y="0.0" width="53" height="17"/>
@@ -105,7 +105,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 Trips" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zas-Lb-fpn">
-                                                <rect key="frame" x="0.0" y="93" width="53" height="17"/>
+                                                <rect key="frame" x="0.0" y="82" width="53" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -150,14 +150,15 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="EdS-e2-d2P" firstAttribute="top" secondItem="Kr0-4T-hrm" secondAttribute="top" constant="1" id="FWo-AY-Dpo"/>
-                    <constraint firstAttribute="bottom" secondItem="EdS-e2-d2P" secondAttribute="bottom" constant="3" id="GMO-BE-mw6"/>
-                    <constraint firstItem="EdS-e2-d2P" firstAttribute="leading" secondItem="Kr0-4T-hrm" secondAttribute="leading" constant="2" id="WNA-ey-PtX"/>
-                    <constraint firstAttribute="trailing" secondItem="EdS-e2-d2P" secondAttribute="trailing" constant="1" id="pRm-8Q-2wl"/>
+                    <constraint firstItem="EdS-e2-d2P" firstAttribute="top" secondItem="Kr0-4T-hrm" secondAttribute="topMargin" constant="1" id="FWo-AY-Dpo"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="EdS-e2-d2P" secondAttribute="bottom" constant="2" id="GMO-BE-mw6"/>
+                    <constraint firstItem="EdS-e2-d2P" firstAttribute="leading" secondItem="Kr0-4T-hrm" secondAttribute="leadingMargin" constant="2" id="WNA-ey-PtX"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="EdS-e2-d2P" secondAttribute="trailing" constant="1" id="pRm-8Q-2wl"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="challengeTypeTitle" destination="oXl-V5-VlB" id="ZF5-hT-CNk"/>
                 <outlet property="challengeValue" destination="tqo-sr-067" id="nk8-3s-aax"/>

@@ -18,10 +18,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k4h-ej-NVD" customClass="CardView" customModule="DriveKitCommonUI">
-                        <rect key="frame" x="-6" y="1" width="309" height="92"/>
+                        <rect key="frame" x="18" y="1" width="285" height="92"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0c-ch-5qL">
-                                <rect key="frame" x="0.0" y="0.0" width="80" height="92"/>
+                                <rect key="frame" x="8" y="0.0" width="80" height="92"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fdf-ZS-0OY">
                                         <rect key="frame" x="15" y="21" width="50" height="50"/>
@@ -39,13 +39,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMP-Ux-YZ5">
-                                <rect key="frame" x="96" y="16" width="213" height="20.5"/>
+                                <rect key="frame" x="104" y="16" width="181" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkP-qg-jya">
-                                <rect key="frame" x="96" y="52.5" width="213" height="20.5"/>
+                                <rect key="frame" x="104" y="52.5" width="181" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -61,19 +61,21 @@
                             <constraint firstAttribute="trailing" secondItem="xkP-qg-jya" secondAttribute="trailing" id="ZqE-6P-dVV"/>
                             <constraint firstAttribute="trailing" secondItem="XMP-Ux-YZ5" secondAttribute="trailing" id="l68-7B-QZ1"/>
                             <constraint firstItem="M0c-ch-5qL" firstAttribute="top" secondItem="k4h-ej-NVD" secondAttribute="top" id="obR-O0-TdU"/>
-                            <constraint firstItem="M0c-ch-5qL" firstAttribute="leading" secondItem="k4h-ej-NVD" secondAttribute="leading" id="qNi-fu-U3l"/>
+                            <constraint firstItem="M0c-ch-5qL" firstAttribute="leading" secondItem="k4h-ej-NVD" secondAttribute="leadingMargin" id="qNi-fu-U3l"/>
                             <constraint firstItem="XMP-Ux-YZ5" firstAttribute="leading" secondItem="M0c-ch-5qL" secondAttribute="trailing" constant="16" id="umg-qe-ifm"/>
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="k4h-ej-NVD" firstAttribute="leadingMargin" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="2" id="9HZ-AQ-v1c"/>
+                    <constraint firstItem="k4h-ej-NVD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="9HZ-AQ-v1c"/>
                     <constraint firstAttribute="bottomMargin" secondItem="k4h-ej-NVD" secondAttribute="bottom" constant="3" id="CdT-bg-JLe"/>
                     <constraint firstAttribute="trailingMargin" secondItem="k4h-ej-NVD" secondAttribute="trailing" constant="1" id="JAM-cM-9Ey"/>
                     <constraint firstItem="k4h-ej-NVD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="1" id="u2x-kU-jw4"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="containerView" destination="k4h-ej-NVD" id="OUd-D5-Nhb"/>
                 <outlet property="driverStatLabel" destination="XMP-Ux-YZ5" id="Qwi-ea-PFr"/>

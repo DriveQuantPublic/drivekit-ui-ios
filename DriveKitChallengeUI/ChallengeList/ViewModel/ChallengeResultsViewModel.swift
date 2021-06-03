@@ -51,10 +51,10 @@ struct ChallengeResultsViewModel {
         let score = challengeDetail.driverStats.score
         let maxScore = challengeDetail.challengeStats.maxScore
         let goldStarsNbr: Int = Int(((4 * score) / maxScore).rounded(.down))
-        let goldStarsAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 66).with(.traitBold), NSAttributedString.Key.foregroundColor: goldColor]
+        let goldStarsAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 62).with(.traitBold), NSAttributedString.Key.foregroundColor: goldColor]
         let stars = "⭑⭑⭑⭑"
         let goldStarsAttributedString = NSMutableAttributedString(string: String(stars.prefix(goldStarsNbr)), attributes: goldStarsAttributes)
-        let lightGoldStarsAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 60).with(.traitBold), NSAttributedString.Key.foregroundColor: lightGoldColor]
+        let lightGoldStarsAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 62).with(.traitBold), NSAttributedString.Key.foregroundColor: lightGoldColor]
         let lightGoldStarsAttributedString = NSMutableAttributedString(string: String(stars.prefix(4 - goldStarsNbr)), attributes: lightGoldStarsAttributes)
         headerAttributedString.append(goldStarsAttributedString)
         headerAttributedString.append(lightGoldStarsAttributedString)

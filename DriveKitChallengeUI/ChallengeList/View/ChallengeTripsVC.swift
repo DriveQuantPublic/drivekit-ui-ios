@@ -36,4 +36,8 @@ class ChallengeTripsVC: DKUIViewController {
         }
         self.titleAttributedLabel?.attributedText = viewModel?.getTitleAttributedString()
     }
+
+    func didSelectTrip(itinId: String, showAdvice: Bool) {
+        viewModel?.delegate?.didSelectTrip(tripId: itinId, showAdvice: showAdvice)
+    }
 }

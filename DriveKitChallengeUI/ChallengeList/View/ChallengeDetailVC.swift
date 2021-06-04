@@ -163,9 +163,9 @@ extension ChallengeDetailVC: UIPageViewControllerDelegate {
 }
 
 extension ChallengeDetailVC: ChallengeDetailViewModelDelegate {
-    func didSelectTrip(tripId: String) {
+    func didSelectTrip(tripId: String, showAdvice: Bool) {
         if let driverDataUI = DriveKitNavigationController.shared.driverDataUI, let navigationController = self.navigationController {
-            let tripDetail = driverDataUI.getTripDetailViewController(itinId: tripId)
+            let tripDetail = driverDataUI.getTripDetailViewController(itinId: tripId, showAdvice: showAdvice, alternativeTransport: false)
             navigationController.pushViewController(tripDetail, animated: true)
         } else {
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DKShowTripDetail"), object: nil, userInfo: ["itinId": tripId])

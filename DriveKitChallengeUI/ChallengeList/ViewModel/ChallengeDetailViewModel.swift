@@ -12,7 +12,7 @@ import DriveKitDBTripAccessModule
 import DriveKitDBChallengeAccessModule
 
 protocol ChallengeDetailViewModelDelegate {
-    func didSelectTrip(tripId: String)
+    func didSelectTrip(tripId: String, showAdvice: Bool)
 }
 
 class ChallengeDetailViewModel {
@@ -166,7 +166,7 @@ class ChallengeDetailViewModel {
 
 extension ChallengeDetailViewModel: DKTripList {
     func didSelectTrip(itinId: String) {
-        self.delegate?.didSelectTrip(tripId: itinId)
+        self.delegate?.didSelectTrip(tripId: itinId, showAdvice: false)
     }
 
     func getTripData() -> TripData {

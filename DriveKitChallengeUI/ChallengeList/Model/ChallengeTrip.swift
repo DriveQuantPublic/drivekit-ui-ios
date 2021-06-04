@@ -84,20 +84,50 @@ struct ChallengeTrip: DKTripListItem {
     }
 
     public func infoText() -> String? {
-        return nil
+        guard let tripAdvices: Set<TripAdvice>  = trip.tripAdvices as? Set<TripAdvice> else {
+            return nil
+        }
+        if tripAdvices.count > 1 {
+            return "\(tripAdvices.count)"
+        } else {
+            return nil
+        }
     }
 
     public func infoImage() -> UIImage? {
+        guard let tripAdvices: [TripAdvice]  = trip.tripAdvices?.allObjects as? [TripAdvice] else {
+            return nil
+        }
+        if tripAdvices.count > 1 {
+            return UIImage(named: "dk_trip_info_count", in: Bundle.driveKitCommonUIBundle, compatibleWith: nil)
+        } else if tripAdvices.count == 1 {
+            let advice = tripAdvices[0]
+            if advice.theme == "SAFETY" {
+                return UIImage(named: "dk_safety_advice", in: Bundle.driveKitCommonUIBundle, compatibleWith: nil)
+            } else if advice.theme == "ECODRIVING" {
+                return UIImage(named: "dk_eco_advice", in: Bundle.driveKitCommonUIBundle, compatibleWith: nil)
+            }
+        }
         return nil
     }
 
     public func infoClickAction(parentViewController: UIViewController) {
-    }
-    func hasInfoActionConfigured() -> Bool {
-        return false
+        let showAdvice = (trip.tripAdvices as? Set<TripAdvice>)?.count ?? 0 > 0
+        if let tripId = trip.itinId {
+            if let challengeTripsVC: ChallengeTripsVC = parentViewController.parent as? ChallengeTripsVC {
+                challengeTripsVC.didSelectTrip(itinId: tripId, showAdvice: showAdvice)
+            }
+        }
     }
 
-    func isInfoDisplayable() -> Bool {
-        return false
+    public func hasInfoActionConfigured() -> Bool {
+        return true
+    }
+
+    public func isInfoDisplayable() -> Bool {
+        guard let tripAdvices: Set<TripAdvice>  = trip.tripAdvices as? Set<TripAdvice> else {
+            return false
+        }
+        return tripAdvices.count > 0
     }
 }

@@ -73,6 +73,22 @@ class ChallengeDetailViewModel {
                 } else {
                     name = DKCommonLocalizable.anonymous.text()
                 }
+                let scoreString: String
+                let totalScoreString: String
+                switch challengeType {
+                case .score:
+                    scoreString = self.formatScore(driverRanked.score)
+                    totalScoreString = " / 10"
+                case .distance:
+                    scoreString = driverRanked.distance.formatKilometerDistance()
+                    totalScoreString = ""
+                case .duration:
+                    scoreString = (driverRanked.score * 3600).ceilSecondDuration(ifGreaterThan: 600).formatSecondDuration(maxUnit: .hour)
+                    totalScoreString = ""
+                case .nbTrips:
+                    scoreString = driverRanked.score.format()
+                    totalScoreString = ""
+                }
                 if driverRanked.rank == challengeDetail.userIndex {
                     return CurrentChallengeDriverRank(nbDrivers: challengeDetail.nbDriverRanked,
                                                position: driverRanked.rank,
@@ -83,8 +99,8 @@ class ChallengeDetailViewModel {
                                                distance: driverRanked.distance,
                                                distanceString: driverRanked.distance.formatKilometerDistance(),
                                                score: driverRanked.score,
-                                               scoreString: self.formatScore(driverRanked.score),
-                                               totalScoreString: " / 10")
+                                               scoreString: scoreString,
+                                               totalScoreString: totalScoreString)
                 } else {
                     return ChallengeDriverRank(nbDrivers: challengeDetail.nbDriverRanked,
                                                position: driverRanked.rank,
@@ -95,8 +111,8 @@ class ChallengeDetailViewModel {
                                                distance: driverRanked.distance,
                                                distanceString: driverRanked.distance.formatKilometerDistance(),
                                                score: driverRanked.score,
-                                               scoreString: self.formatScore(driverRanked.score),
-                                               totalScoreString: " / 10")
+                                               scoreString: scoreString,
+                                               totalScoreString: totalScoreString)
                 }
             
         })

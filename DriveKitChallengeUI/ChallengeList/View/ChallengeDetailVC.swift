@@ -42,7 +42,7 @@ class ChallengeDetailVC: UIViewController {
             tabsViewControllers.append(ChallengeResultsVC(viewModel: viewModel.getResultsViewModel()))
             tabsViewControllers.append(DKDriverRankingCollectionVC(viewModel: viewModel.getRankingViewModel()))
             tabsViewControllers.append(TripsListTableVC<ChallengeTrip>(viewModel: viewModel.getTripListViewModel()))
-            tabsViewControllers.append(ChallengeParticipationVC(viewModel: viewModel.getRulesViewModel()))
+            tabsViewControllers.append(ChallengeParticipationVC(viewModel: viewModel.getRulesViewModel(), parentView: self.navigationController))
         }
         tripsTabButton?.setImage(DKImages.trip.image, for: .normal)
         selectorHighlightView?.backgroundColor = DKUIColors.secondaryColor.color

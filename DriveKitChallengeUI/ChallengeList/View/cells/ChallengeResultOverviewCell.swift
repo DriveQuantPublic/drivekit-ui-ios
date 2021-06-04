@@ -103,16 +103,15 @@ final class ChallengeResultOverviewCell: UITableViewCell, Nibable {
 
         switch viewModel.challengeType {
         case .score:
-            
             configureChallenge(value: (viewModel.driverScore.formatDouble(fractionDigits: 2)))
             configureProgressBar(maxValue: viewModel.maxScore, minValue: viewModel.minScore, score: viewModel.driverScore, value: viewModel.driverScore.formatDouble(fractionDigits: 2), maxString: viewModel.maxScore.formatDouble(fractionDigits: 2), minString: viewModel.minScore.formatDouble(fractionDigits: 2))
         case .distance:
-            configureChallenge(value: viewModel.driverScore.formatDouble(fractionDigits: 2))
-            configureProgressBar(maxValue: viewModel.maxScore, minValue: viewModel.minScore, score: viewModel.driverScore, value: viewModel.driverScore.stringWithoutZeroFraction, maxString: viewModel.maxScore.stringWithoutZeroFraction, minString: viewModel.minScore.stringWithoutZeroFraction)
+            configureChallenge(value: viewModel.driverScore.formatKilometerDistance(appendingUnit: false))
+            configureProgressBar(maxValue: viewModel.maxScore, minValue: viewModel.minScore, score: viewModel.driverScore, value: viewModel.driverScore.formatKilometerDistance(appendingUnit: false), maxString: viewModel.maxScore.formatKilometerDistance(appendingUnit: false), minString: viewModel.minScore.formatKilometerDistance(appendingUnit: false))
         case .duration:
             let duration = viewModel.driverScore * 3600
             let maxDuration = viewModel.maxScore * 3600
-            let minDuration = viewModel.minScore * 3600            
+            let minDuration = viewModel.minScore * 3600
             configureChallenge(value: duration.ceilSecondDuration(ifGreaterThan: 600).formatSecondDuration(maxUnit: .hour))
             configureProgressBar(maxValue: maxDuration, minValue: minDuration, score: duration, value: duration.ceilSecondDuration(ifGreaterThan: 600).formatSecondDuration(maxUnit: .hour), maxString: maxDuration.ceilSecondDuration(ifGreaterThan: 600).formatSecondDuration(maxUnit: .hour), minString: minDuration.ceilSecondDuration(ifGreaterThan: 600).formatSecondDuration(maxUnit: .hour) )
         case .nbTrips:

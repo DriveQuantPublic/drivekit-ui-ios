@@ -47,6 +47,9 @@ class ChallengeParticipationVC: DKUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = viewModel?.getTitle()
+        if parentView == nil {
+            DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_join", viewController: self)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

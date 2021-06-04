@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k4h-ej-NVD" customClass="CardView" customModule="DriveKitCommonUI">
-                        <rect key="frame" x="18" y="1" width="285" height="92"/>
+                        <rect key="frame" x="17" y="1" width="287" height="92"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0c-ch-5qL">
                                 <rect key="frame" x="8" y="0.0" width="80" height="92"/>
@@ -39,13 +39,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMP-Ux-YZ5">
-                                <rect key="frame" x="104" y="16" width="181" height="20.5"/>
+                                <rect key="frame" x="104" y="16" width="183" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkP-qg-jya">
-                                <rect key="frame" x="104" y="52.5" width="181" height="20.5"/>
+                                <rect key="frame" x="104" y="52.5" width="183" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -68,9 +68,9 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="k4h-ej-NVD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="9HZ-AQ-v1c"/>
+                    <constraint firstItem="k4h-ej-NVD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="1" id="9HZ-AQ-v1c"/>
                     <constraint firstAttribute="bottomMargin" secondItem="k4h-ej-NVD" secondAttribute="bottom" constant="3" id="CdT-bg-JLe"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="k4h-ej-NVD" secondAttribute="trailing" constant="1" id="JAM-cM-9Ey"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="k4h-ej-NVD" secondAttribute="trailing" id="JAM-cM-9Ey"/>
                     <constraint firstItem="k4h-ej-NVD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="1" id="u2x-kU-jw4"/>
                 </constraints>
             </tableViewCellContentView>

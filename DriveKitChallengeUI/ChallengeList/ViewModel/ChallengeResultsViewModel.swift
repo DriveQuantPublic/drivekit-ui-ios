@@ -16,6 +16,7 @@ struct ChallengeResultsViewModel {
     let challengeTheme: ChallengeTheme
     private let goldColor = UIColor(red: 255, green: 215, blue: 0)
     private let lightGoldColor = UIColor(red: 1, green: 215.0/255, blue: 0, alpha: 0.2)
+    private let grayColor = UIColor(hex:0x9e9e9e)
 
     init(challengeDetail: DKChallengeDetail,
          challengeType: ChallengeType = .score,
@@ -37,12 +38,13 @@ struct ChallengeResultsViewModel {
         let titleMajorAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 44).with(.traitBold), NSAttributedString.Key.foregroundColor: DKUIColors.secondaryColor.color]
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
+        paragraphStyle.lineHeightMultiple = 0.85
 
         let name = getDriverNickname()
         let stringRank = String(challengeDetail.userIndex)
         let stringMaxRank = String(challengeDetail.challengeStats.numberDriver)
         
-        let scoreHeaderString = name + " " + stringRank + " / " + stringMaxRank + "\n"
+        let scoreHeaderString = "\n" + name + " " + stringRank + " / " + stringMaxRank + "\n"
         let headerAttributedString = NSMutableAttributedString(string: scoreHeaderString, attributes: titleAttributes)
         let rankRange = (scoreHeaderString as NSString).range(of: stringRank)
         headerAttributedString.setAttributes(titleMajorAttributes, range: rankRange)
@@ -106,7 +108,7 @@ struct ChallengeResultsViewModel {
     }
 
     func getGlobalStatAttributedString(challengeStatType: ChallengeStatType) -> NSAttributedString {
-        let titleAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 12), NSAttributedString.Key.foregroundColor: UIColor.black]
+        let titleAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 12), NSAttributedString.Key.foregroundColor: grayColor]
         let majorAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 14).with(.traitBold), NSAttributedString.Key.foregroundColor: DKUIColors.primaryColor.color]
         switch challengeStatType {
         case .duration:

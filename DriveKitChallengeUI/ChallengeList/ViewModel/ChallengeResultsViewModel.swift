@@ -88,7 +88,7 @@ struct ChallengeResultsViewModel {
             attributedDuration.setAttributes(majorAttributes, range: rangeDuration)
             return attributedDuration
         case .distance:
-            let formattedDistance = challengeDetail.driverStats.distance.formatKilometerDistance()
+            let formattedDistance = challengeDetail.driverStats.distance.formatKilometerDistance(appendingUnit: true, minDistanceToRemoveFractions: 10)
             let distanceString = String(format: "dk_challenge_driver_distance".dkChallengeLocalized(), formattedDistance)
             let rangeDistance = (distanceString as NSString).range(of: formattedDistance)
             let attributedDistance = NSMutableAttributedString(string: distanceString, attributes: titleAttributes)
@@ -118,7 +118,7 @@ struct ChallengeResultsViewModel {
             attributedDuration.setAttributes(majorAttributes, range: rangeDuration)
             return attributedDuration
         case .distance:
-            let formattedDistance = challengeDetail.challengeStats.distance.formatKilometerDistance()
+            let formattedDistance = challengeDetail.challengeStats.distance.formatKilometerDistance(appendingUnit: true, minDistanceToRemoveFractions: 10)
             let distanceString = String(format: "dk_challenge_competitors_distance".dkChallengeLocalized(), formattedDistance)
             let rangeDistance = (distanceString as NSString).range(of: formattedDistance)
             let attributedDistance = NSMutableAttributedString(string: distanceString, attributes: titleAttributes)

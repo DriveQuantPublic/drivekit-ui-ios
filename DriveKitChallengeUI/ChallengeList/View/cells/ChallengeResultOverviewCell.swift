@@ -106,8 +106,8 @@ final class ChallengeResultOverviewCell: UITableViewCell, Nibable {
             configureChallenge(value: (viewModel.driverScore.formatDouble(fractionDigits: 2)))
             configureProgressBar(maxValue: viewModel.maxScore, minValue: viewModel.minScore, score: viewModel.driverScore, value: viewModel.driverScore.formatDouble(fractionDigits: 2), maxString: viewModel.maxScore.formatDouble(fractionDigits: 2), minString: viewModel.minScore.formatDouble(fractionDigits: 2))
         case .distance:
-            configureChallenge(value: viewModel.driverScore.formatKilometerDistance(appendingUnit: false))
-            configureProgressBar(maxValue: viewModel.maxScore, minValue: viewModel.minScore, score: viewModel.driverScore, value: viewModel.driverScore.formatKilometerDistance(appendingUnit: false), maxString: viewModel.maxScore.formatKilometerDistance(appendingUnit: false), minString: viewModel.minScore.formatKilometerDistance(appendingUnit: false))
+            configureChallenge(value: viewModel.driverScore.formatKilometerDistance(appendingUnit: false, minDistanceToRemoveFractions: 10))
+            configureProgressBar(maxValue: viewModel.maxScore, minValue: viewModel.minScore, score: viewModel.driverScore, value: viewModel.driverScore.formatKilometerDistance(appendingUnit: false, minDistanceToRemoveFractions: 10), maxString: viewModel.maxScore.formatKilometerDistance(appendingUnit: false, minDistanceToRemoveFractions: 10), minString: viewModel.minScore.formatKilometerDistance(appendingUnit: false, minDistanceToRemoveFractions: 10))
         case .duration:
             let duration = viewModel.driverScore * 3600
             let maxDuration = viewModel.maxScore * 3600

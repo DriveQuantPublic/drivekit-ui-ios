@@ -80,7 +80,7 @@ class ChallengeDetailViewModel {
                     scoreString = self.formatScore(driverRanked.score)
                     totalScoreString = " / 10"
                 case .distance:
-                    scoreString = driverRanked.distance.formatKilometerDistance()
+                    scoreString = driverRanked.distance.formatKilometerDistance(appendingUnit: true, minDistanceToRemoveFractions: 10)
                     totalScoreString = ""
                 case .duration:
                     scoreString = (driverRanked.score * 3600).ceilSecondDuration(ifGreaterThan: 600).formatSecondDuration(maxUnit: .hour)
@@ -97,7 +97,7 @@ class ChallengeDetailViewModel {
                                                rankString: " / \(challengeDetail.nbDriverRanked)",
                                                name: name,
                                                distance: driverRanked.distance,
-                                               distanceString: driverRanked.distance.formatKilometerDistance(),
+                                               distanceString: driverRanked.distance.formatKilometerDistance(appendingUnit: true, minDistanceToRemoveFractions: 10),
                                                score: driverRanked.score,
                                                scoreString: scoreString,
                                                totalScoreString: totalScoreString)
@@ -109,7 +109,7 @@ class ChallengeDetailViewModel {
                                                rankString: " / \(challengeDetail.nbDriverRanked)",
                                                name: name,
                                                distance: driverRanked.distance,
-                                               distanceString: driverRanked.distance.formatKilometerDistance(),
+                                               distanceString: driverRanked.distance.formatKilometerDistance(appendingUnit: true, minDistanceToRemoveFractions: 10),
                                                score: driverRanked.score,
                                                scoreString: scoreString,
                                                totalScoreString: totalScoreString)
@@ -201,7 +201,6 @@ extension ChallengeDetailViewModel: DKTripList {
 }
 
 extension ChallengeDetailViewModel: DKDriverRanking {
-    // TODO: correct implmeentation with accurate values
     func getHeaderDisplayType() -> DKRankingHeaderDisplayType {
         return .full
     }

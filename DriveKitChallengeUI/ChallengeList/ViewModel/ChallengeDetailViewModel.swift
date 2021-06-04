@@ -186,7 +186,6 @@ extension ChallengeDetailViewModel: DKTripList {
             return .distance
         case .duration:
             return .duration
-            // TODO: What about nbTrip case? add new value to TripData enum?
         default:
             return .distance
         }

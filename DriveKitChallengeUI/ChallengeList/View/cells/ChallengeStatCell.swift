@@ -9,7 +9,7 @@
 import UIKit
 import DriveKitCommonUI
 
-class ChallengeStatCell: UITableViewCell, Nibable {
+final class ChallengeStatCell: UITableViewCell, Nibable {
     @IBOutlet weak var statImage: UIImageView?
     @IBOutlet weak var driverStatLabel: UILabel?
     @IBOutlet weak var globalStatLabel: UILabel?
@@ -28,5 +28,4 @@ class ChallengeStatCell: UITableViewCell, Nibable {
         self.driverStatLabel?.attributedText = viewModel.getStatAttributedString(challengeStatType: type)
         self.globalStatLabel?.attributedText = viewModel.getGlobalStatAttributedString(challengeStatType: type)
     }
-    
 }

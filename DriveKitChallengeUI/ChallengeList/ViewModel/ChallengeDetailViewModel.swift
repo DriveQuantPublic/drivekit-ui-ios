@@ -24,6 +24,7 @@ class ChallengeDetailViewModel {
     private(set) var ranks = [ChallengeDriverRank]()
     private(set) var nbDrivers = 0
     public var delegate: ChallengeDetailViewModelDelegate?
+    private let grayColor = UIColor(hex:0x9e9e9e)
 
     init(challenge: DKChallenge, challengeDetail: DKChallengeDetail) {
         self.challenge = challenge
@@ -150,6 +151,17 @@ class ChallengeDetailViewModel {
     func getChallengeName() -> String {
         return challenge.title
     }
+
+    func getTitleAttributedString() -> NSAttributedString {
+        let alignment = NSMutableParagraphStyle()
+        alignment.alignment = .center
+        let titleAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 20).with(.traitBold), NSAttributedString.Key.foregroundColor: DKUIColors.mainFontColor.color, NSAttributedString.Key.paragraphStyle: alignment]
+        let titleString = challenge.title
+        var titleAttributedString = NSMutableAttributedString(string: titleString, attributes: titleAttributes)
+        titleAttributedString = "%@\n\n\n%@".dkAttributedString().buildWithArgs(titleAttributedString, ChallengeItemViewModel.formatStartAndEndDates(startDate: challenge.startDate, endDate: challenge.endDate, tintColor: grayColor, alignment: .center))
+        return titleAttributedString
+    }
+
 }
 
 extension ChallengeDetailViewModel: DKTripList {

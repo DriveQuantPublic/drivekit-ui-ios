@@ -256,6 +256,8 @@
 		6704DDDC2668458F00DAF326 /* ChallengeStatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6704DDDB2668458F00DAF326 /* ChallengeStatType.swift */; };
 		6704DDDF2668710000DAF326 /* ChallengeResultOverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6704DDDD2668710000DAF326 /* ChallengeResultOverviewCell.swift */; };
 		6704DDE02668710000DAF326 /* ChallengeResultOverviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6704DDDE2668710000DAF326 /* ChallengeResultOverviewCell.xib */; };
+		6704DDE3266A17B200DAF326 /* ChallengeTripsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6704DDE1266A17B200DAF326 /* ChallengeTripsVC.swift */; };
+		6704DDE4266A17B200DAF326 /* ChallengeTripsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6704DDE2266A17B200DAF326 /* ChallengeTripsVC.xib */; };
 		67301C3E261D106B006B0432 /* DKTripList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301C3D261D106B006B0432 /* DKTripList.swift */; };
 		67301C46261D121C006B0432 /* TripData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301C45261D121C006B0432 /* TripData.swift */; };
 		67301C5C261EE900006B0432 /* DKTripsByDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301C5B261EE900006B0432 /* DKTripsByDate.swift */; };
@@ -817,6 +819,8 @@
 		6704DDDB2668458F00DAF326 /* ChallengeStatType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeStatType.swift; sourceTree = "<group>"; };
 		6704DDDD2668710000DAF326 /* ChallengeResultOverviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeResultOverviewCell.swift; sourceTree = "<group>"; };
 		6704DDDE2668710000DAF326 /* ChallengeResultOverviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeResultOverviewCell.xib; sourceTree = "<group>"; };
+		6704DDE1266A17B200DAF326 /* ChallengeTripsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeTripsVC.swift; sourceTree = "<group>"; };
+		6704DDE2266A17B200DAF326 /* ChallengeTripsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeTripsVC.xib; sourceTree = "<group>"; };
 		67301C3D261D106B006B0432 /* DKTripList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripList.swift; sourceTree = "<group>"; };
 		67301C45261D121C006B0432 /* TripData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripData.swift; sourceTree = "<group>"; };
 		67301C5B261EE900006B0432 /* DKTripsByDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripsByDate.swift; sourceTree = "<group>"; };
@@ -1860,6 +1864,8 @@
 				67462D872660CDE800016FAF /* ChallengeDetailVC.xib */,
 				67462D8A2660CE0400016FAF /* ChallengeResultsVC.swift */,
 				67462D8B2660CE0400016FAF /* ChallengeResultsVC.xib */,
+				6704DDE1266A17B200DAF326 /* ChallengeTripsVC.swift */,
+				6704DDE2266A17B200DAF326 /* ChallengeTripsVC.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2686,6 +2692,7 @@
 				67C43D4E264047A200DBB09D /* NoChallengeCell.xib in Resources */,
 				6704DDDA2668432D00DAF326 /* ChallengeStatCell.xib in Resources */,
 				6704DDE02668710000DAF326 /* ChallengeResultOverviewCell.xib in Resources */,
+				6704DDE4266A17B200DAF326 /* ChallengeTripsVC.xib in Resources */,
 				67C43D1E263AE79F00DBB09D /* ChallengeListVC.xib in Resources */,
 				67462D8D2660CE0400016FAF /* ChallengeResultsVC.xib in Resources */,
 				67C43D12263AE23600DBB09D /* DKChallengeLocalizable.strings in Resources */,
@@ -3150,6 +3157,7 @@
 				6704DDD42664B55900DAF326 /* ChallengeTrip.swift in Sources */,
 				67C43D0A263A98B600DBB09D /* DriveKitChallengeUI.swift in Sources */,
 				6704DDD92668432D00DAF326 /* ChallengeStatCell.swift in Sources */,
+				6704DDE3266A17B200DAF326 /* ChallengeTripsVC.swift in Sources */,
 				67E807DC26579592003AFAA8 /* ChallengeRulesViewModel.swift in Sources */,
 				67A2E17C26559F0B005F26AE /* ChallengeRulesVC.swift in Sources */,
 				6704DDDF2668710000DAF326 /* ChallengeResultOverviewCell.swift in Sources */,

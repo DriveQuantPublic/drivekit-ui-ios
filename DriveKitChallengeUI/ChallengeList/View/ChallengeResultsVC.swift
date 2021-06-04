@@ -9,7 +9,7 @@
 import UIKit
 import DriveKitCommonUI
 
-class ChallengeResultsVC: UIViewController {
+class ChallengeResultsVC: DKUIViewController {
     private let viewModel: ChallengeResultsViewModel?
     @IBOutlet private weak var tableView: UITableView?
 

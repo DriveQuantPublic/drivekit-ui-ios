@@ -13,7 +13,7 @@ enum ChallengeDetaiItem {
     case results, ranking, tripList, rules
 }
 
-class ChallengeDetailVC: UIViewController {
+class ChallengeDetailVC: DKUIViewController {
     private let viewModel: ChallengeDetailViewModel?
     @IBOutlet private weak var pageContainer: UIView?
     @IBOutlet private weak var statsTabButton: UIButton?
@@ -41,7 +41,7 @@ class ChallengeDetailVC: UIViewController {
             viewModel.delegate = self
             tabsViewControllers.append(ChallengeResultsVC(viewModel: viewModel.getResultsViewModel()))
             tabsViewControllers.append(DKDriverRankingCollectionVC(viewModel: viewModel.getRankingViewModel()))
-            tabsViewControllers.append(TripsListTableVC<ChallengeTrip>(viewModel: viewModel.getTripListViewModel()))
+            tabsViewControllers.append(ChallengeTripsVC(viewModel: viewModel))
             tabsViewControllers.append(ChallengeParticipationVC(viewModel: viewModel.getRulesViewModel(), parentView: self.navigationController))
         }
         tripsTabButton?.setImage(DKImages.trip.image, for: .normal)

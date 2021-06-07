@@ -7,10 +7,16 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Oswald-Bold.ttf">
+            <string>Oswald-Bold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChallengeTripsVC" customModule="DriveKitChallengeUI" customModuleProvider="target">
             <connections>
-                <outlet property="titleAttributedLabel" destination="qU5-fS-sy9" id="NCf-Vu-FnQ"/>
+                <outlet property="dateAttributedLabel" destination="POL-OZ-WMR" id="Lgw-0Q-aZX"/>
+                <outlet property="titleAttributedLabel" destination="ClP-go-fhG" id="Igl-fC-OCh"/>
                 <outlet property="tripsStackView" destination="PvB-3v-74E" id="DX1-lm-wL1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,37 +29,43 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PvB-3v-74E">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S1R-DL-yQg">
+                        <view contentMode="scaleToFill" id="Lcv-0u-Wps">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qU5-fS-sy9">
-                                    <rect key="frame" x="8" y="20" width="398" height="790"/>
-                                    <attributedString key="attributedText">
-                                        <fragment content="Label">
-                                            <attributes>
-                                                <font key="NSFont" metaFont="system" size="17"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClP-go-fhG">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="408"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="LZT-nx-MSd"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Oswald-Bold" family="Oswald" pointSize="22"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POL-OZ-WMR">
+                                    <rect key="frame" x="0.0" y="410" width="414" height="408"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="ttd-Mq-SfA"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="qU5-fS-sy9" firstAttribute="top" secondItem="S1R-DL-yQg" secondAttribute="top" constant="20" id="CRz-XU-exH"/>
-                                <constraint firstAttribute="trailing" secondItem="qU5-fS-sy9" secondAttribute="trailing" constant="8" id="JSb-ua-WWi"/>
-                                <constraint firstItem="qU5-fS-sy9" firstAttribute="leading" secondItem="S1R-DL-yQg" secondAttribute="leading" constant="8" id="ZWR-eY-rkT"/>
-                                <constraint firstAttribute="bottom" secondItem="qU5-fS-sy9" secondAttribute="bottom" constant="8" id="gE9-9z-P1P"/>
+                                <constraint firstItem="POL-OZ-WMR" firstAttribute="top" secondItem="ClP-go-fhG" secondAttribute="bottom" constant="2" id="1df-ud-Pqi"/>
+                                <constraint firstAttribute="trailing" secondItem="ClP-go-fhG" secondAttribute="trailing" id="7ul-vU-VWQ"/>
+                                <constraint firstAttribute="bottom" secondItem="POL-OZ-WMR" secondAttribute="bottom" id="RNh-40-zvf"/>
+                                <constraint firstItem="POL-OZ-WMR" firstAttribute="leading" secondItem="Lcv-0u-Wps" secondAttribute="leading" id="VtZ-dK-DaQ"/>
+                                <constraint firstItem="ClP-go-fhG" firstAttribute="top" secondItem="Lcv-0u-Wps" secondAttribute="top" id="W7X-P6-zmH"/>
+                                <constraint firstAttribute="trailing" secondItem="POL-OZ-WMR" secondAttribute="trailing" id="orP-gT-jGS"/>
+                                <constraint firstItem="ClP-go-fhG" firstAttribute="height" secondItem="POL-OZ-WMR" secondAttribute="height" id="sno-t4-uUS"/>
+                                <constraint firstItem="ClP-go-fhG" firstAttribute="leading" secondItem="Lcv-0u-Wps" secondAttribute="leading" id="vaF-HO-tY3"/>
                             </constraints>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="S1R-DL-yQg" secondAttribute="trailing" id="JLc-lR-tb1"/>
-                        <constraint firstItem="S1R-DL-yQg" firstAttribute="leading" secondItem="PvB-3v-74E" secondAttribute="leading" id="klr-3f-hdm"/>
-                        <constraint firstItem="S1R-DL-yQg" firstAttribute="top" secondItem="PvB-3v-74E" secondAttribute="top" id="zFT-ah-8D0"/>
-                    </constraints>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

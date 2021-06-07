@@ -157,11 +157,12 @@ class ChallengeDetailViewModel {
         alignment.alignment = .center
         let titleAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 20).with(.traitBold), NSAttributedString.Key.foregroundColor: DKUIColors.mainFontColor.color, NSAttributedString.Key.paragraphStyle: alignment]
         let titleString = challenge.title
-        var titleAttributedString = NSMutableAttributedString(string: titleString, attributes: titleAttributes)
-        titleAttributedString = "%@\n\n\n%@".dkAttributedString().buildWithArgs(titleAttributedString, ChallengeItemViewModel.formatStartAndEndDates(startDate: challenge.startDate, endDate: challenge.endDate, tintColor: grayColor, alignment: .center))
-        return titleAttributedString
+        return NSAttributedString(string: titleString, attributes: titleAttributes)
     }
 
+    func getDateAttributedString() -> NSAttributedString {
+        return ChallengeItemViewModel.formatStartAndEndDates(startDate: challenge.startDate, endDate: challenge.endDate, tintColor:   grayColor, alignment: .center)
+    }
 }
 
 extension ChallengeDetailViewModel: DKTripList {

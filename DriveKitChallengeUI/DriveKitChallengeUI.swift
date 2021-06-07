@@ -7,9 +7,10 @@
 //
 
 import Foundation
-import DriveKitCommonUI
+import DriveKitCoreModule
 import DriveKitChallengeModule
 import DriveKitDBChallengeAccessModule
+import DriveKitCommonUI
 
 @objc public class DriveKitChallengeUI: NSObject {
 

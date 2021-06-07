@@ -11,6 +11,7 @@ import DriveKitCommonUI
 
 class ChallengeTripsVC: DKUIViewController {
     @IBOutlet private weak var titleAttributedLabel: UILabel?
+    @IBOutlet private weak var dateAttributedLabel: UILabel?
     @IBOutlet private weak var tripsStackView: UIStackView?
 
     private let viewModel: ChallengeDetailViewModel?
@@ -35,6 +36,7 @@ class ChallengeTripsVC: DKUIViewController {
             }
         }
         self.titleAttributedLabel?.attributedText = viewModel?.getTitleAttributedString()
+        self.dateAttributedLabel?.attributedText = viewModel?.getDateAttributedString()
     }
 
     func didSelectTrip(itinId: String, showAdvice: Bool) {

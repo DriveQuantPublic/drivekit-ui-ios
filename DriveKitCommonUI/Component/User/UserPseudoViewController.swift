@@ -15,10 +15,12 @@ public class UserPseudoViewController : UIViewController {
     @IBOutlet private weak var contentView: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var errorLabel: UILabel!
     @IBOutlet private weak var pseudoInput: UITextField!
     @IBOutlet private weak var validateButton: UIButton!
     @IBOutlet private weak var cancelButton: UIButton!
     @IBOutlet private weak var loadingView: UIView!
+    @IBOutlet private weak var errorLabelHeightConstraint: NSLayoutConstraint!
     private var appeared = false
 
     public init(delegate: UserPseudoViewControllerDelegate) {
@@ -37,6 +39,9 @@ public class UserPseudoViewController : UIViewController {
 
         self.contentView.layer.cornerRadius = 10
         self.contentView.backgroundColor = .white
+
+        self.errorLabelHeightConstraint.constant = 0
+        self.errorLabel.attributedText = DKCommonLocalizable.error.text().dkAttributedString().font(dkFont: .primary, style: .smallText).color(DKUIColors.warningColor).build()
 
         if let appName = Bundle.main.appName {
             self.titleLabel.attributedText = appName.dkAttributedString().font(dkFont: .primary, style: .headLine1).color(DKUIColors.mainFontColor).build()
@@ -87,10 +92,16 @@ public class UserPseudoViewController : UIViewController {
     @IBAction private func validate() {
         if let pseudo = self.pseudoInput.text, isPseudoValid(pseudo) {
             self.loadingView.isHidden = false
+            self.errorLabelHeightConstraint.constant = 0
             DriveKit.shared.updateUserInfo(pseudo: pseudo) { [weak self] success in
                 DispatchQueue.main.async {
                     if let self = self {
-                        self.delegate?.pseudoDidUpdate(success: success)
+                        if success {
+                            self.delegate?.pseudoDidUpdate(success: true)
+                        } else {
+                            self.errorLabelHeightConstraint.constant = 40
+                            self.loadingView.isHidden = true
+                        }
                     }
                 }
             }

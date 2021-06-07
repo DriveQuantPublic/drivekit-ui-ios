@@ -62,3 +62,4 @@
 "dk_common_ranking_rank"="Rank";
 "dk_common_ranking_score"="Score";
 "dk_common_no_pseudo_set"="You need to enter a pseudo to access this content";
+"dk_common_error_message"="An error occurred during the request, please retry later.";

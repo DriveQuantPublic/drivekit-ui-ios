@@ -48,6 +48,7 @@ public enum DKCommonLocalizable : String {
     edit = "dk_common_edit",
     delete = "dk_common_delete",
     loading = "dk_common_loading",
+    error = "dk_common_error_message",
     safety = "dk_common_safety",
     speeding = "dk_common_speed_limit",
     distraction = "dk_common_distraction",

@@ -44,10 +44,13 @@ struct ChallengeResultsViewModel {
         let stringRank = String(challengeDetail.userIndex)
         let stringMaxRank = String(challengeDetail.challengeStats.numberDriver)
         
-        let scoreHeaderString = "\n" + name + " " + stringRank + " / " + stringMaxRank + "\n"
+        let scoreHeaderString = "\n" + name + " "
         let headerAttributedString = NSMutableAttributedString(string: scoreHeaderString, attributes: titleAttributes)
-        let rankRange = (scoreHeaderString as NSString).range(of: stringRank)
-        headerAttributedString.setAttributes(titleMajorAttributes, range: rankRange)
+        
+        headerAttributedString.append(NSAttributedString(string: stringRank, attributes: titleMajorAttributes))
+
+        let maxRankString = " / " + stringMaxRank + "\n"
+        headerAttributedString.append(NSAttributedString(string: maxRankString, attributes: titleAttributes))
 
         // Add stars
         let rank = challengeDetail.driverStats.rank

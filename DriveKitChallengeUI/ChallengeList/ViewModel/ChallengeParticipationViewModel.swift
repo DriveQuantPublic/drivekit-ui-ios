@@ -84,7 +84,7 @@ public class ChallengeParticipationViewModel {
 
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
-        let attributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 16).with(.traitBold),
+        let attributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 16),
                 NSAttributedString.Key.foregroundColor: UIColor.white,
                 NSAttributedString.Key.paragraphStyle: paragraphStyle]
         let challengeStartString: String = "dk_challenge_start".dkChallengeLocalized() + "\n"

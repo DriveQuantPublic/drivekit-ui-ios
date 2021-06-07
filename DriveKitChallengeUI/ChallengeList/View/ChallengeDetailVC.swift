@@ -14,7 +14,7 @@ enum ChallengeDetaiItem {
 }
 
 class ChallengeDetailVC: DKUIViewController {
-    private let viewModel: ChallengeDetailViewModel?
+    private let viewModel: ChallengeDetailViewModel
     @IBOutlet private weak var pageContainer: UIView?
     @IBOutlet private weak var statsTabButton: UIButton?
     @IBOutlet private weak var rankingTabButton: UIButton?
@@ -37,17 +37,15 @@ class ChallengeDetailVC: DKUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let viewModel = self.viewModel {
-            viewModel.delegate = self
-            tabsViewControllers.append(ChallengeResultsVC(viewModel: viewModel.getResultsViewModel()))
-            tabsViewControllers.append(DKDriverRankingCollectionVC(viewModel: viewModel.getRankingViewModel()))
-            tabsViewControllers.append(ChallengeTripsVC(viewModel: viewModel))
-            tabsViewControllers.append(ChallengeParticipationVC(viewModel: viewModel.getRulesViewModel(), parentView: self.navigationController))
-        }
+        viewModel.delegate = self
+        tabsViewControllers.append(ChallengeResultsVC(viewModel: viewModel.getResultsViewModel()))
+        tabsViewControllers.append(DKDriverRankingCollectionVC(viewModel: viewModel.getRankingViewModel()))
+        tabsViewControllers.append(ChallengeTripsVC(viewModel: viewModel))
+        tabsViewControllers.append(ChallengeParticipationVC(viewModel: viewModel.getRulesViewModel(), parentView: self.navigationController))
         tripsTabButton?.setImage(DKImages.trip.image, for: .normal)
         selectorHighlightView?.backgroundColor = DKUIColors.secondaryColor.color
         setupPageContainer()
-        title = viewModel?.getChallengeName()
+        title = viewModel.getChallengeName()
     }
 
     func setupPageContainer() {

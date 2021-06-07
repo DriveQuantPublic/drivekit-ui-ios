@@ -14,8 +14,8 @@ class ChallengeTripsVC: DKUIViewController {
     @IBOutlet private weak var dateAttributedLabel: UILabel?
     @IBOutlet private weak var tripsStackView: UIStackView?
 
-    private let viewModel: ChallengeDetailViewModel?
-    private let tripsVC: TripsListTableVC<ChallengeTrip>?
+    private let viewModel: ChallengeDetailViewModel
+    private let tripsVC: TripsListTableVC<ChallengeTrip>
 
     public init(viewModel: ChallengeDetailViewModel) {
         self.viewModel = viewModel
@@ -29,17 +29,15 @@ class ChallengeTripsVC: DKUIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let tripsVC = tripsVC {
-            self.addChild(tripsVC)
-            if let tripsTableView = tripsVC.tableView {
-                self.tripsStackView?.addArrangedSubview(tripsTableView)
-            }
+        self.addChild(tripsVC)
+        if let tripsTableView = tripsVC.tableView {
+            self.tripsStackView?.addArrangedSubview(tripsTableView)
         }
-        self.titleAttributedLabel?.attributedText = viewModel?.getTitleAttributedString()
-        self.dateAttributedLabel?.attributedText = viewModel?.getDateAttributedString()
+        self.titleAttributedLabel?.attributedText = viewModel.getTitleAttributedString()
+        self.dateAttributedLabel?.attributedText = viewModel.getDateAttributedString()
     }
 
     func didSelectTrip(itinId: String, showAdvice: Bool) {
-        viewModel?.delegate?.didSelectTrip(tripId: itinId, showAdvice: showAdvice)
+        viewModel.delegate?.didSelectTrip(tripId: itinId, showAdvice: showAdvice)
     }
 }

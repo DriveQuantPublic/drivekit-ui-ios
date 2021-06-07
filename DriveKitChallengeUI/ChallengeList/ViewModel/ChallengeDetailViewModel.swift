@@ -11,7 +11,7 @@ import DriveKitCommonUI
 import DriveKitDBTripAccessModule
 import DriveKitDBChallengeAccessModule
 
-protocol ChallengeDetailViewModelDelegate {
+protocol ChallengeDetailViewModelDelegate: AnyObject {
     func didSelectTrip(tripId: String, showAdvice: Bool)
 }
 
@@ -23,7 +23,7 @@ class ChallengeDetailViewModel {
     private let sortedTrips: [DKTripsByDate]
     private(set) var ranks = [ChallengeDriverRank]()
     private(set) var nbDrivers = 0
-    public var delegate: ChallengeDetailViewModelDelegate?
+    public weak var delegate: ChallengeDetailViewModelDelegate?
     private let grayColor = UIColor(hex:0x9e9e9e)
 
     init(challenge: DKChallenge, challengeDetail: DKChallengeDetail) {

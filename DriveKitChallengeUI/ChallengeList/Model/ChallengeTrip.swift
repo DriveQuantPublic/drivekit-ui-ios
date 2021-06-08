@@ -80,7 +80,11 @@ struct ChallengeTrip: DKTripListItem {
     }
 
     public func isAlternative() -> Bool {
-        return TransportationMode(rawValue: Int(trip.transportationMode)) != TransportationMode.car
+        let transportationMode = TransportationMode(rawValue: Int(trip.transportationMode))
+        return transportationMode != TransportationMode.car &&
+            transportationMode != TransportationMode.truck &&
+            transportationMode != TransportationMode.moto &&
+            transportationMode != TransportationMode.unknown
     }
 
     public func infoText() -> String? {

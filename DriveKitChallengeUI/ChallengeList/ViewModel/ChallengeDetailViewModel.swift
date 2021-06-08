@@ -69,8 +69,8 @@ class ChallengeDetailViewModel {
             .sorted(by: { $0.rank < $1.rank })
             .map({driverRanked in
                 let name: String
-                if let nickname = driverRanked.nickname, !nickname.isEmpty {
-                    name = nickname
+                if let pseudo = driverRanked.pseudo, !pseudo.isEmpty {
+                    name = pseudo
                 } else {
                     name = DKCommonLocalizable.anonymous.text()
                 }

@@ -26,11 +26,11 @@ struct ChallengeResultsViewModel {
         self.challengeType = challengeType
     }
 
-    func getDriverNickname() -> String {
-        let currentDriver = challengeDetail.driverRanked.filter({ driverRanked in
-            return driverRanked.rank == challengeDetail.userIndex
-        }).first
-        return currentDriver?.nickname ?? ""
+    func getDriverPseudo() -> String {
+        let currentDriver = challengeDetail.driverRanked.first { driverRanked in
+            driverRanked.rank == challengeDetail.userIndex
+        }
+        return currentDriver?.pseudo ?? ""
     }
 
     func getHeaderCellAttributedString() -> NSAttributedString {
@@ -40,7 +40,7 @@ struct ChallengeResultsViewModel {
         paragraphStyle.alignment = .center
         paragraphStyle.lineHeightMultiple = 0.85
 
-        let name = getDriverNickname()
+        let name = getDriverPseudo()
         let stringRank = String(challengeDetail.userIndex)
         let stringMaxRank = String(challengeDetail.challengeStats.numberDriver)
         

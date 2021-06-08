@@ -52,7 +52,7 @@ class ChallengeDriverRank: DKDriverRankingItem {
         }
     }
 
-    func getNickname() -> String {
+    func getPseudo() -> String {
         return name
     }
 

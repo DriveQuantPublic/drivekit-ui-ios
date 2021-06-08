@@ -234,27 +234,20 @@ extension ChallengeDetailViewModel: DKDriverRanking {
         switch challengeTheme {
         case .acceleration, .adherence, .braking, .safety:
             imageName = "dk_challenge_leaderboard_safety"
-            break
         case .distraction:
             imageName = "dk_challenge_leaderboard_phone_distraction"
-            break
         case .ecoDriving:
             imageName = "dk_challenge_leaderboard_ecodriving"
-            break
         case .none:
             switch challengeType {
             case .distance:
                 imageName = "dk_challenge_leaderboard_distance"
-                break
             case .duration:
                 imageName = "dk_challenge_leaderboard_duration"
-                break
             case .nbTrips:
                 imageName = "dk_challenge_leaderboard_trips_number"
-                break
             default:
                 imageName = "dk_challenge_leaderboard_safety"
-                break
             }
         }
         if let imageName = imageName {

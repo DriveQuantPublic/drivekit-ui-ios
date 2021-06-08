@@ -143,16 +143,12 @@ extension ChallengeDetailVC: UIPageViewControllerDelegate {
         switch index {
         case 0:
             DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_detail_results", viewController: selectedVC)
-            break
         case 1:
             DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_detail_ranking", viewController: selectedVC)
-            break
         case 2:
             DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_detail_trips", viewController: selectedVC)
-            break
         case 3:
             DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_detail_rules", viewController: selectedVC)
-            break
         default:
             break
         }

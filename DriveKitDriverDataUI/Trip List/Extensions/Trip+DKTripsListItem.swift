@@ -75,7 +75,26 @@ extension Trip: DKTripListItem {
     }
 
     public func isAlternative() -> Bool {
-        return TransportationMode(rawValue: Int(self.transportationMode)) != TransportationMode.car
+        guard let transportationMode = TransportationMode(rawValue: Int(self.transportationMode)) else {
+            return true
+        }
+        switch transportationMode {
+            case .unknown,
+                 .car,
+                 .moto,
+                 .truck:
+                return false
+            case .bus,
+                 .train,
+                 .boat,
+                 .bike,
+                 .flight,
+                 .skiing,
+                 .onFoot,
+                 .idle,
+                 .other:
+                return true
+        }
     }
 
     public func infoText() -> String? {
@@ -94,7 +113,7 @@ extension Trip: DKTripListItem {
             return nil
         }
         if tripAdvices.count > 1 {
-            return UIImage(named: "dk_trip_info_count", in: Bundle.driverDataUIBundle, compatibleWith: nil)
+            return UIImage(named: "dk_trip_info_count", in: Bundle.driveKitCommonUIBundle, compatibleWith: nil)
         } else if tripAdvices.count == 1 {
             let advice = tripAdvices[0]
             return advice.adviceImage()

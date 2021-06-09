@@ -22,7 +22,7 @@ public protocol DKDriverRanking: AnyObject {
 public protocol DKDriverRankingItem {
     func getRank() -> Int
     func getRankImage() -> UIImage?
-    func getNickname() -> String
+    func getPseudo() -> String
     func getDistance() -> String
     func getScoreAttributedText() -> NSAttributedString
     func isCurrentUser() -> Bool

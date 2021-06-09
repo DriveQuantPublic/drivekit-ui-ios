@@ -9,7 +9,7 @@
 import UIKit
 import DriveKitCommonUI
 
-class ChallengeConditionProgressTableViewCell: UITableViewCell, Nibable {
+final class ChallengeConditionProgressTableViewCell: UITableViewCell, Nibable {
     @IBOutlet private var label: UILabel?
     @IBOutlet private var progressView: UIProgressView?
 

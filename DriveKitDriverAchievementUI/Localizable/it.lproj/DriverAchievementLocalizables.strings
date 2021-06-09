@@ -156,8 +156,7 @@
 "badge_expressway_distance_congrats_3"="Congratulazioni, hai raggiunto l\'obiettivo!";
 "badge_expressway_distance_description_1"="Per ottenere questo badge, devi guidare per almeno 100 km in autostrada. Questi viaggi sono i più monotoni e stancanti. Cerca di non abbassare la vigilanza.";
 "badge_expressway_distance_description_2"="Per ottenere questo badge, devi solo percorrere 300 km in autostrada. Prima della partenza, non dimenticare di controllare le condizioni del veicolo (pressione dei pneumatici, freni, illuminazione e tergicristalli).";
-"badge_expressway_distance_description_3"="Percorri 1000 km in autostrada per guadagnare questo badge. Non dimenticare mai la regola di base: per limitare il rischio di addormentarti, fai delle pause di quindici minuti ogni due ore.
-";
+"badge_expressway_distance_description_3"="Percorri 1000 km in autostrada per guadagnare questo badge. Non dimenticare mai la regola di base: per limitare il rischio di addormentarti, fai delle pause di quindici minuti ogni due ore.";
 "badge_expressway_distance_name_1"="Fast and Serious";
 "badge_expressway_distance_name_2"="Road Trip";
 "badge_expressway_distance_name_3"="Easy Rider";
@@ -171,8 +170,7 @@
 "badge_extra_urban_distance_congrats_1"="Congratulazioni, hai raggiunto l\'obiettivo!";
 "badge_extra_urban_distance_congrats_2"="Congratulazioni, hai raggiunto l\'obiettivo!";
 "badge_extra_urban_distance_congrats_3"="Congratulazioni, hai raggiunto l\'obiettivo!";
-"badge_extra_urban_distance_description_1"="Percorri oltre 100 km al di fuori di un centro abitato per convalidare questo badge. Fuori dalle città, il traffico è più fluido ma esistono dei pericoli. Ricorda sempre di rispettare le distanze di sicurezza e di distogliere lo sguardo per anticipare tutte le situazioni.
-";
+"badge_extra_urban_distance_description_1"="Percorri oltre 100 km al di fuori di un centro abitato per convalidare questo badge. Fuori dalle città, il traffico è più fluido ma esistono dei pericoli. Ricorda sempre di rispettare le distanze di sicurezza e di distogliere lo sguardo per anticipare tutte le situazioni.";
 "badge_extra_urban_distance_description_2"="Per ottenere questo badge, devi percorrere 300 km in un ambiente extraurbano. Su una strada di campagna, pensa alle bici in particolare quando esci dalle curve.";
 "badge_extra_urban_distance_description_3"="Per ottenere questo badge, devi completare 1000 km in un ambiente extraurbano. È importante gestire correttamente i cambiamenti di ritmo quando ci si sposta dalla città alle aree extraurbane. Aumenta gradualmente il ritmo non appena lasci la città. Al contrario, anticipa la decelerazione per raggiungere una velocità di 50 km/h quando torni in un\'area urbana.";
 "badge_extra_urban_distance_name_1"="Passeggiata";
@@ -334,7 +332,6 @@
 "dk_achievements_failed_to_sync_rankings"="Non è stato possibile sincronizzare le classifiche, riprovare più tardi.";
 "dk_achievements_failed_to_sync_streaks"="Impossibile sincronizzare le sequenze di successo, si prega di riprovare più tardi.";
 "dk_achievements_menu_streaks"="Vena di successi";
-"dk_achievements_ranking_anonymous_driver"="Anonimo";
 "dk_achievements_ranking_legacy"="Bimestrale";
 "dk_achievements_ranking_menu_ranking"="La mia posizione in classifica";
 "dk_achievements_ranking_month"="Mensile";

@@ -48,7 +48,7 @@ class RankingCell: UICollectionViewCell {
             self.rankLabel.isHidden = false
         }
 
-        self.driverLabel.attributedText = (driverRank.getNickname()).dkAttributedString().font(dkFont: .primary, style: .headLine2).color(.mainFontColor).build()
+        self.driverLabel.attributedText = (driverRank.getPseudo()).dkAttributedString().font(dkFont: .primary, style: .headLine2).color(.mainFontColor).build()
         self.distanceLabel.attributedText = driverRank.getDistance().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
 
         self.scoreLabel.attributedText = driverRank.getScoreAttributedText()

@@ -20,10 +20,12 @@ public class ChallengeParticipationViewModel {
     private var joinedWithSuccess: Bool = false
     private let grayColor = UIColor(hex:0x9e9e9e)
     private let conditionsArray: [String: ChallengeConditionProgressViewModel]
+    private let isRulesTab: Bool
 
-    init(challenge: DKChallenge) {
+    init(challenge: DKChallenge, isRulesTab: Bool = false) {
         self.challenge = challenge
         self.conditionsArray = ChallengeConditionProgressViewModel.getConditionsViewModel(conditions: challenge.conditions, driverConditions: challenge.driverConditions)
+        self.isRulesTab = isRulesTab
     }
 
     func getTitle() -> String {
@@ -82,10 +84,10 @@ public class ChallengeParticipationViewModel {
 
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
-        let attributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 16).with(.traitBold),
+        let attributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 16),
                 NSAttributedString.Key.foregroundColor: UIColor.white,
                 NSAttributedString.Key.paragraphStyle: paragraphStyle]
-        let challengeStartString: String = "dk_challenge_start".dkChallengeLocalized().replacingOccurrences(of: "%@", with: "")
+        let challengeStartString: String = "dk_challenge_start".dkChallengeLocalized() + "\n"
         attString.append(NSAttributedString(string: challengeStartString, attributes: attributes))
         let text = getTimeAttributedString()
         attString.append(text)
@@ -93,7 +95,9 @@ public class ChallengeParticipationViewModel {
     }
 
     func getDisplayState() -> ChallengeParticipationDisplayState {
-        if !challenge.isRegistered && !joinedWithSuccess {
+        if isRulesTab {
+            return .rulesTab
+        } else if !challenge.isRegistered && !joinedWithSuccess {
             return .join
         } else if challenge.startDate.timeIntervalSinceNow > 0 {
             return .countDown
@@ -195,5 +199,5 @@ public class ChallengeParticipationViewModel {
 }
 
 public enum ChallengeParticipationDisplayState {
-    case join, countDown, progress
+    case join, countDown, progress, rulesTab
 }

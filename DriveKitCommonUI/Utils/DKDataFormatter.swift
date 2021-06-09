@@ -65,10 +65,10 @@ public extension Double {
         return getMeterDistanceFormat().toString()
     }
 
-    func getKilometerDistanceFormat(appendingUnit appendUnit: Bool = true) -> [FormatType] {
+    func getKilometerDistanceFormat(appendingUnit appendUnit: Bool = true, minDistanceToRemoveFractions: Double = 100) -> [FormatType] {
         var formattingTypes: [FormatType] = []
         let formattedDistance: String
-        if self < 100 {
+        if self < minDistanceToRemoveFractions {
             formattedDistance = self.format(maximumFractionDigits: 1)
         } else {
             formattedDistance = String(Int(self.rounded()))
@@ -81,8 +81,8 @@ public extension Double {
         return formattingTypes
     }
 
-    func formatKilometerDistance(appendingUnit appendUnit: Bool = true) -> String {
-        getKilometerDistanceFormat(appendingUnit: appendUnit).toString()
+    func formatKilometerDistance(appendingUnit appendUnit: Bool = true, minDistanceToRemoveFractions: Double = 100) -> String {
+        getKilometerDistanceFormat(appendingUnit: appendUnit, minDistanceToRemoveFractions: minDistanceToRemoveFractions).toString()
     }
 
     func metersToKilometers(places: Int) -> Double {

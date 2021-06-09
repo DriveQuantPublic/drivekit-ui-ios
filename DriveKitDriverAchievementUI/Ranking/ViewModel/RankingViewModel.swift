@@ -141,7 +141,7 @@ class RankingViewModel {
                                 if let nickname = dkRank.nickname, !nickname.isEmpty {
                                     name = nickname
                                 } else {
-                                    name = "dk_achievements_ranking_anonymous_driver".dkAchievementLocalized()
+                                    name = DKCommonLocalizable.anonymous.text()
                                 }
                                 if dkRank.rank == ranking.userPosition {
                                     let progressionImageName: String?

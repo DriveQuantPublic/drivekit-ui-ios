@@ -29,12 +29,14 @@ class ChallengeParticipationVC: DKUIViewController {
     @IBOutlet private weak var separator1: UIView?
     @IBOutlet private weak var separator2: UIView?
     @IBOutlet private weak var separator3: UIView?
+    private weak var parentView: UIViewController?
 
     private let viewModel: ChallengeParticipationViewModel?
     private var timer: Timer? = nil
 
-    public init(viewModel: ChallengeParticipationViewModel) {
+    public init(viewModel: ChallengeParticipationViewModel, parentView: UIViewController? = nil) {
         self.viewModel = viewModel
+        self.parentView = parentView
         super.init(nibName: String(describing: ChallengeParticipationVC.self), bundle: Bundle.challengeUIBundle)
     }
     
@@ -45,6 +47,9 @@ class ChallengeParticipationVC: DKUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = viewModel?.getTitle()
+        if parentView == nil {
+            DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_join", viewController: self)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -111,7 +116,12 @@ class ChallengeParticipationVC: DKUIViewController {
     }
 
     func setupFooter() {
-        if viewModel?.getDisplayState() == .join {
+        if viewModel?.getDisplayState() == .rulesTab {
+            participationAttributedLabel?.isHidden = true
+            countDownAttributedLabel?.isHidden = true
+            joinButton?.isHidden = true
+            footerHeightConstraint?.constant = 0
+        } else if viewModel?.getDisplayState() == .join {
             participationAttributedLabel?.isHidden = true
             countDownAttributedLabel?.isHidden = true
             joinButton?.isHidden = false
@@ -140,7 +150,11 @@ class ChallengeParticipationVC: DKUIViewController {
     @IBAction func goToRulesVC() {
         if let rulesViewModel: ChallengeRulesViewModel = viewModel?.getRulesViewModel() {
             let rulesVC: ChallengeRulesVC = ChallengeRulesVC(viewModel: rulesViewModel)
-            self.navigationController?.pushViewController(rulesVC, animated: true)
+            if let navigationController = self.navigationController {
+                navigationController.pushViewController(rulesVC, animated: true)
+            } else if let parentView: UINavigationController = self.parentView as? UINavigationController{
+                parentView.pushViewController(rulesVC, animated: true)
+            }
         }
     }
 

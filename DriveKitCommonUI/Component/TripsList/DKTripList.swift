@@ -34,7 +34,6 @@ public protocol DKTripList: AnyObject {
     func getTripsList() -> [DKTripsByDate]
     func getCustomHeader() -> DKHeader?
     func getHeaderDay() -> HeaderDay
-    func getDayTripDescendingOrder() -> Bool
     func canPullToRefresh() -> Bool
     func didPullToRefresh()
 }

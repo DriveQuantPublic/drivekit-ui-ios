@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol DKTextFieldDelegate : class {
+public protocol DKTextFieldDelegate: AnyObject {
     func userDidEndEditing(textField: DKTextField)
 }
 

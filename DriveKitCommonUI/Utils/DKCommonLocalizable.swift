@@ -65,8 +65,8 @@ public enum DKCommonLocalizable : String {
     no = "dk_common_no",
     rank = "dk_common_ranking_rank",
     rankingScore = "dk_common_ranking_score",
-    rankingDriver = "dk_common_ranking_driver"
-    
+    rankingDriver = "dk_common_ranking_driver",
+    anonymous = "dk_common_anonymous_driver"
 
     public func text() -> String {
         return self.rawValue.dkLocalized(tableName: "CommonLocalizable", bundle: .driveKitCommonUIBundle ?? .main)

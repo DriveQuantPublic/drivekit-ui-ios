@@ -93,17 +93,13 @@ extension RankingViewController : RankingViewModelDelegate {
     }
 
     func updateUserPseudo() {
-        let userPseudoViewController = UserPseudoViewController(delegate: self)
-        self.present(userPseudoViewController, animated: true, completion: nil)
-    }
-}
-
-extension RankingViewController : UserPseudoViewControllerDelegate {
-    func pseudoDidUpdate(success: Bool) {
-        if success {
-            self.viewModel.clearCache()
+        let userPseudoViewController = UserPseudoViewController { success in
+            if success {
+                self.viewModel.clearCache()
+            }
+            self.viewModel.update(allowEmptyPseudo: true)
+            self.dismiss(animated: true, completion: nil)
         }
-        self.viewModel.update(allowEmptyPseudo: true)
-        self.dismiss(animated: true, completion: nil)
+        self.present(userPseudoViewController, animated: true, completion: nil)
     }
 }

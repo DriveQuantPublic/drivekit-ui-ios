@@ -11,7 +11,9 @@ import DriveKitCoreModule
 
 public class UserPseudoViewController : UIViewController {
 
-    public weak var delegate: UserPseudoViewControllerDelegate? = nil
+    public typealias UserPseudoCompletion = (_ success: Bool) -> Void
+
+    public var completion: UserPseudoCompletion? = nil
     @IBOutlet private weak var contentView: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
@@ -23,11 +25,11 @@ public class UserPseudoViewController : UIViewController {
     @IBOutlet private weak var errorLabelHeightConstraint: NSLayoutConstraint!
     private var appeared = false
 
-    public init(delegate: UserPseudoViewControllerDelegate) {
+    public init(completion: UserPseudoCompletion? = nil) {
+        self.completion = completion
         super.init(nibName: "UserPseudoViewController", bundle: Bundle.driveKitCommonUIBundle)
         self.modalPresentationStyle = .overFullScreen
         self.modalTransitionStyle = .crossDissolve
-        self.delegate = delegate
     }
 
     required init?(coder: NSCoder) {
@@ -56,13 +58,17 @@ public class UserPseudoViewController : UIViewController {
             DispatchQueue.main.async {
                 if let self = self {
                     if let pseudo = userInfo?.pseudo, self.isPseudoValid(pseudo) {
-                        self.delegate?.pseudoDidUpdate(success: true)
+                        if let completion = self.completion {
+                            completion(true)
+                        }
                     } else {
                         DriveKit.shared.getUserInfo(synchronizationType: .defaultSync) { [weak self] status, userInfo in
                             DispatchQueue.main.async {
                                 if let self = self {
                                     if let pseudo = userInfo?.pseudo, self.isPseudoValid(pseudo) {
-                                        self.delegate?.pseudoDidUpdate(success: true)
+                                        if let completion = self.completion {
+                                            completion(true)
+                                        }
                                     } else {
                                         self.loadingView.isHidden = true
                                     }
@@ -97,7 +103,9 @@ public class UserPseudoViewController : UIViewController {
                 DispatchQueue.main.async {
                     if let self = self {
                         if success {
-                            self.delegate?.pseudoDidUpdate(success: true)
+                            if let completion = self.completion {
+                                completion(true)
+                            }
                         } else {
                             self.errorLabelHeightConstraint.constant = 40
                             self.loadingView.isHidden = true
@@ -109,7 +117,9 @@ public class UserPseudoViewController : UIViewController {
     }
 
     @IBAction private func cancel() {
-        self.delegate?.pseudoDidUpdate(success: false)
+        if let completion = self.completion {
+            completion(false)
+        }
     }
 
     private func isPseudoValid(_ pseudo: String?) -> Bool {

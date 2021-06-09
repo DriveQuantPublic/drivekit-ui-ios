@@ -52,5 +52,10 @@
 		<key>SuccessBluetoothVC</key>
 		<string></string>
 	</dict>
+	<key>Challenge</key>
+	<dict>
+		<key>ChallengeDetailVC</key>
+		<string>dk_tag_challenge_detail</string>
+	</dict>
 </dict>
 </plist>

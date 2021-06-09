@@ -26,9 +26,6 @@ extension TripListVC: DKTripList {
     public func getHeaderDay() -> HeaderDay {
         return DriveKitDriverDataUI.shared.headerDay
     }
-    public func getDayTripDescendingOrder() -> Bool {
-        return DriveKitDriverDataUI.shared.dayTripDescendingOrder
-    }
     public func canPullToRefresh() -> Bool {
         return true
     }

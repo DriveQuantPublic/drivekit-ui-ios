@@ -73,10 +73,14 @@ public class ChallengeListViewModel {
             alert.addAction(UIAlertAction(title:DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
             self.delegate?.showAlert(alert)
         } else {
+            delegate?.showLoader()
             DriveKitChallengeUI.shared.getChallengeViewController(challengeId: challengeViewModel.identifier) { [weak self] viewController in
+                DispatchQueue.main.async {
+                    self?.delegate?.hideLoader()
                     if let vc = viewController {
                         self?.delegate?.showViewController(vc, animated: true)
                     }
+                }
             }
         }
     }

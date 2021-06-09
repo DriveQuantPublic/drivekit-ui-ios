@@ -36,6 +36,7 @@ public class DriveKitDriverDataUI: AccessRightListener {
         self.sourceMapItems = mapItems
         filterMapItems()
         DriveKitAccess.shared.addAccessRightListener(self)
+        DriveKitNavigationController.shared.driverDataUI = self
     }
 
     deinit {

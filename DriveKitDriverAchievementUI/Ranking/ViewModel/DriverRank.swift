@@ -67,7 +67,7 @@ class DriverRank: DKDriverRankingItem {
         }
     }
 
-    func getNickname() -> String {
+    func getPseudo() -> String {
         return name
     }
 
@@ -111,7 +111,7 @@ class JumpDriverRank: DKDriverRankingItem {
         return nil
     }
 
-    func getNickname() -> String {
+    func getPseudo() -> String {
         return ""
     }
 

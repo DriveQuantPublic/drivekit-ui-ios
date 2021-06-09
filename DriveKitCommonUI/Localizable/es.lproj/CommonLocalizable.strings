@@ -1,4 +1,5 @@
 "dk_common_activate"="Activar";
+"dk_common_anonymous_driver"="Anónimo";
 "dk_common_back"="Volver";
 "dk_common_cancel"="Anulador";
 "dk_common_close"="Cerrar";
@@ -17,15 +18,21 @@
 "dk_common_ecodriving"="Eco-conducción";
 "dk_common_edit"="Editar";
 "dk_common_error_empty_field"="Este campo no puede estar vacío";
+"dk_common_error_message"="Se ha producido un error durante la solicitud, vuelva a intentarlo más tarde.";
 "dk_common_finish"="Acabado";
+"dk_common_later"="más tarde";
 "dk_common_loading"="Cargando. Por favor, espere...";
 "dk_common_mass"="Masa";
 "dk_common_mean_speed"="Velocidad media";
 "dk_common_no"="No";
+"dk_common_no_pseudo_set"="Para acceder a este contenido es necesario introducir un seudónimo.";
 "dk_common_ok"="OK";
 "dk_common_permission_camera_rationale"="La aplicación necesita permiso para acceder a la cámara de su smartphone para utilizar esta función.";
 "dk_common_permission_storage_rationale"="La aplicación necesita autorización para acceder al almacenamiento de su smartphone para utilizar esta función.";
 "dk_common_permissions"="Permisos";
+"dk_common_ranking_driver"="Conductor";
+"dk_common_ranking_rank"="Rango";
+"dk_common_ranking_score"="Puntuaciones";
 "dk_common_safety"="Seguridad";
 "dk_common_save"="Registro";
 "dk_common_select_image_gallery"="Seleccione una foto existente";
@@ -58,8 +65,3 @@
 "dk_common_update_photo_title"="Cambiar la imagen";
 "dk_common_validate"="Validar";
 "dk_common_yes"="Sí";
-"dk_common_ranking_driver"="Conductor";
-"dk_common_ranking_rank"="Rango";
-"dk_common_ranking_score"="Puntuaciones";
-"dk_common_no_pseudo_set"="You need to enter a pseudo to access this content";
-"dk_common_error_message"="Se ha producido un error durante la solicitud, vuelva a intentarlo más tarde.";

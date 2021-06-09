@@ -63,12 +63,7 @@ public class ChallengeListViewModel {
 
     func challengeViewModelSelected(challengeViewModel: ChallengeItemViewModel) {
         if challengeViewModel.finishedAndNotFilled {
-            var alertTitle = ""
-            if let appName = Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String {
-                alertTitle = appName
-            } else if let bundleName = Bundle.main.infoDictionary?["CFBundleName"] as? String {
-                alertTitle = bundleName
-            }
+            let alertTitle = Bundle.main.appName ?? ""
             let alert = UIAlertController(title: alertTitle, message: "dk_challenge_not_a_participant".dkChallengeLocalized(), preferredStyle: .alert)
             alert.addAction(UIAlertAction(title:DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
             self.delegate?.showAlert(alert)

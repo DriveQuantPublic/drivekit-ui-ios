@@ -48,7 +48,7 @@ public class UserPseudoViewController : UIViewController {
         }
         self.descriptionLabel.attributedText = DKCommonLocalizable.noPseudo.text().dkAttributedString().font(dkFont: .primary, style: .smallText).color(DKUIColors.mainFontColor).build()
         self.validateButton.setTitle(DKCommonLocalizable.validate.text(), for: .normal)
-        self.cancelButton.setTitle(DKCommonLocalizable.cancel.text(), for: .normal)
+        self.cancelButton.setTitle(DKCommonLocalizable.later.text(), for: .normal)
         self.pseudoInput.delegate = self
 
         self.loadingView.isHidden = false

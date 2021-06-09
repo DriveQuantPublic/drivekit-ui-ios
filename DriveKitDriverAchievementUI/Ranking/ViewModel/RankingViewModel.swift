@@ -17,12 +17,12 @@ import UIKit
 class RankingViewModel {
     var selectedRankingType: RankingType? {
         didSet {
-            update()
+            update(allowEmptyPseudo: false)
         }
     }
     var selectedRankingSelector: RankingSelector? {
         didSet {
-            update()
+            update(allowEmptyPseudo: false)
         }
     }
     weak var delegate: RankingViewModelDelegate? = nil
@@ -87,24 +87,32 @@ class RankingViewModel {
         self.initialized = true
     }
 
-    func update() {
+    func update(allowEmptyPseudo: Bool) {
         if self.initialized {
             self.status = .updating
 
-            DriveKit.shared.getUserInfo(synchronizationType: .cache) { [weak self] status, userInfo in
-                if let self = self {
-                    DispatchQueue.main.async { [weak self] in
-                        if let self = self {
-                            if let pseudo = userInfo?.pseudo, !pseudo.isCompletelyEmpty() {
-                                self.updateRanking()
-                            } else {
-                                self.delegate?.updateUserPseudo()
+            if allowEmptyPseudo {
+                self.updateRanking()
+            } else {
+                DriveKit.shared.getUserInfo(synchronizationType: .cache) { [weak self] status, userInfo in
+                    if let self = self {
+                        DispatchQueue.main.async { [weak self] in
+                            if let self = self {
+                                if userInfo?.pseudo?.isCompletelyEmpty() ?? true {
+                                    self.delegate?.updateUserPseudo()
+                                } else {
+                                    self.updateRanking()
+                                }
                             }
                         }
                     }
                 }
             }
         }
+    }
+
+    func clearCache() {
+        self.useCache.removeAll()
     }
 
     private func updateRanking() {

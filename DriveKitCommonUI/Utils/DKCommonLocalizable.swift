@@ -43,6 +43,7 @@ public enum DKCommonLocalizable : String {
     save = "dk_common_save",
     validate = "dk_common_validate",
     confirm = "dk_common_confirm",
+    later = "dk_common_later",
     close = "dk_common_close",
     finish = "dk_common_finish",
     edit = "dk_common_edit",

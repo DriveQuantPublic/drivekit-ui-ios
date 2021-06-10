@@ -188,15 +188,6 @@ class TripListViewModel {
         }
         return false
     }
-    
-    func getTripInfo() -> DKTripListItem? {
-        switch listConfiguration {
-            case .motorized(_):
-                return DriveKitDriverDataUI.shared.customTripInfo ?? Trip()
-            case .alternative(_):
-                return nil
-        }
-    }
 }
 
 protocol TripsDelegate : AnyObject {

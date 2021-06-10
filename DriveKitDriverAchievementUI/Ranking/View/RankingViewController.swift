@@ -16,11 +16,12 @@ class RankingViewController: DKUIViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var loadingView: UIActivityIndicatorView!
     @IBOutlet private weak var viewContainer: UIView!
+    private let viewModel: RankingViewModel
     private var rankingSelectors: RankingSelectorsView? = nil
-    private let viewModel = RankingViewModel()
     private var ranks: [DKDriverRankingItem] = []
 
-    public init() {
+    public init(groupName: String?) {
+        self.viewModel = RankingViewModel(groupName: groupName)
         super.init(nibName: String(describing: RankingViewController.self), bundle: .driverAchievementUIBundle)
     }
 

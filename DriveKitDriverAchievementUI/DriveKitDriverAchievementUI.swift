@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitCoreModule
 import DriveKitCommonUI
 import DriveKitDBAchievementAccessModule
 
@@ -69,8 +70,8 @@ extension DriveKitDriverAchievementUI : DriveKitDriverAchievementUIEntryPoint {
         return BadgesViewController()
     }
 
-    public func getRankingViewController() -> UIViewController {
-        return RankingViewController()
+    public func getRankingViewController(groupName: String?) -> UIViewController {
+        return RankingViewController(groupName: groupName)
     }
 }
 

@@ -17,12 +17,12 @@ import UIKit
 class RankingViewModel {
     var selectedRankingType: RankingType? {
         didSet {
-            update()
+            update(allowEmptyPseudo: false)
         }
     }
     var selectedRankingSelector: RankingSelector? {
         didSet {
-            update()
+            update(allowEmptyPseudo: false)
         }
     }
     weak var delegate: RankingViewModelDelegate? = nil
@@ -87,144 +87,168 @@ class RankingViewModel {
         self.initialized = true
     }
 
-    func update() {
+    func update(allowEmptyPseudo: Bool) {
         if self.initialized {
             self.status = .updating
 
-            let dkRankingType: DKRankingType
-            let rankingTypeIndex = self.selectedRankingType?.index ?? 0
-            if rankingTypeIndex < self.dkRankingTypes.count {
-                dkRankingType = self.dkRankingTypes[rankingTypeIndex]
+            if allowEmptyPseudo {
+                self.updateRanking()
             } else {
-                dkRankingType = self.dkRankingTypes.first ?? .safety
-            }
-
-            let dkRankingPeriod: DKRankingPeriod
-            switch self.dkRankingSelectorType {
-                case .none:
-                    dkRankingPeriod = .weekly
-                case let .period(rankingPeriods):
-                    let periodIndex = self.selectedRankingSelector?.index ?? 0
-                    if periodIndex < rankingPeriods.count {
-                        dkRankingPeriod = rankingPeriods[periodIndex]
-                    } else {
-                        dkRankingPeriod = rankingPeriods.first ?? .weekly
-                    }
-            }
-
-            self.delegate?.rankingDidUpdate()
-
-            let useCacheKey = "\(dkRankingType.rawValue)-\(dkRankingPeriod.rawValue)"
-            let synchronizationType: SynchronizationType = self.useCache[useCacheKey] == true ? .cache : .defaultSync
-            DriveKitDriverAchievement.shared.getRanking(rankingType: dkRankingType, rankingPeriod: dkRankingPeriod, rankingDepth: self.rankingDepth, type: synchronizationType) { [weak self] (rankingSyncStatus, ranking) in
-                DispatchQueue.main.async {
+                DriveKit.shared.getUserInfo(synchronizationType: .cache) { [weak self] status, userInfo in
                     if let self = self {
-                        self.driverRank = nil
-                        if let ranking = ranking {
-                            var ranks = [DKDriverRankingItem]()
-                            let nbDrivers = ranking.nbDriverRanked
-                            self.nbDrivers = nbDrivers
-                            var previousRank: Int? = nil
-                            for dkRank in ranking.driversRanked.sorted(by: { (dkDriverRank1, dkDriverRank2) -> Bool in
-                                if dkDriverRank2.rank == 0 {
-                                    return true
-                                } else if dkDriverRank1.rank == 0 {
-                                    return false
+                        DispatchQueue.main.async { [weak self] in
+                            if let self = self {
+                                if userInfo?.pseudo?.isCompletelyEmpty() ?? true {
+                                    self.delegate?.updateUserPseudo()
                                 } else {
-                                    return dkDriverRank1.rank <= dkDriverRank2.rank
+                                    self.updateRanking()
                                 }
-                            }) {
-                                if let previousRank = previousRank, previousRank + 1 != dkRank.rank {
-                                    ranks.append(JumpDriverRank())
-                                }
-                                let name: String
-                                if let nickname = dkRank.nickname, !nickname.isEmpty {
-                                    name = nickname
-                                } else {
-                                    name = DKCommonLocalizable.anonymous.text()
-                                }
-                                if dkRank.rank == ranking.userPosition {
-                                    let progressionImageName: String?
-                                    if let userPreviousPosition = ranking.userPreviousPosition, ranking.userPosition > 0 {
-                                        let deltaRank = userPreviousPosition - ranking.userPosition
-                                        if deltaRank == 0 {
-                                            progressionImageName = nil
-                                        } else if deltaRank > 0 {
-                                            progressionImageName = "dk_common_ranking_arrow_up"
-                                        } else {
-                                            progressionImageName = "dk_common_ranking_arrow_down"
-                                        }
-                                    } else {
-                                        progressionImageName = nil
-                                    }
-                                    self.progressionImageName = progressionImageName
-                                    let currentDriverRank = CurrentDriverRank(
-                                        nbDrivers: nbDrivers,
-                                        position: dkRank.rank,
-                                        positionString: String(dkRank.rank),
-                                        positionImageName: self.getImageName(fromPosition: dkRank.rank),
-                                        rankString: " / \(nbDrivers)",
-                                        name: name,
-                                        distance: dkRank.distance,
-                                        distanceString: dkRank.distance.formatKilometerDistance(),
-                                        score: dkRank.score,
-                                        scoreString: self.formatScore(dkRank.score),
-                                        totalScoreString: " / 10"
-                                    )
-                                    ranks.append(currentDriverRank)
-                                    self.driverRank = currentDriverRank
-                                } else {
-                                    let driverRank = DriverRank(
-                                        nbDrivers: nbDrivers,
-                                        position: dkRank.rank,
-                                        positionString: String(dkRank.rank),
-                                        positionImageName: self.getImageName(fromPosition: dkRank.rank),
-                                        rankString: " / \(nbDrivers)",
-                                        name: name,
-                                        distance: dkRank.distance,
-                                        distanceString: dkRank.distance.formatKilometerDistance(),
-                                        score: dkRank.score,
-                                        scoreString: self.formatScore(dkRank.score),
-                                        totalScoreString: " / 10"
-                                    )
-                                    ranks.append(driverRank)
-                                }
-                                previousRank = dkRank.rank
                             }
-                            self.ranks = ranks
-                        } else {
-                            self.nbDrivers = 0
-                            self.ranks = []
                         }
-
-                        switch rankingSyncStatus {
-                            case .noError:
-                                self.status = .success
-                            case .userNotRanked:
-                                self.status = .noRankForUser
-                            case .cacheDataOnly, .failedToSyncRanking, .syncAlreadyInProgress:
-                                if ranking != nil {
-                                    self.status = .success
-                                } else {
-                                    self.status = .networkError
-                                }
-                            @unknown default:
-                                break
-                        }
-
-                        let dataError: Bool
-                        switch rankingSyncStatus {
-                            case .noError, .userNotRanked:
-                                dataError = false
-                            case .failedToSyncRanking, .syncAlreadyInProgress, .cacheDataOnly:
-                                dataError = true
-                            @unknown default:
-                                dataError = true
-                        }
-                        self.useCache[useCacheKey] = !dataError
-
-                        self.delegate?.rankingDidUpdate()
                     }
+                }
+            }
+        }
+    }
+
+    func clearCache() {
+        self.useCache.removeAll()
+    }
+
+    private func updateRanking() {
+        let dkRankingType: DKRankingType
+        let rankingTypeIndex = self.selectedRankingType?.index ?? 0
+        if rankingTypeIndex < self.dkRankingTypes.count {
+            dkRankingType = self.dkRankingTypes[rankingTypeIndex]
+        } else {
+            dkRankingType = self.dkRankingTypes.first ?? .safety
+        }
+
+        let dkRankingPeriod: DKRankingPeriod
+        switch self.dkRankingSelectorType {
+            case .none:
+                dkRankingPeriod = .weekly
+            case let .period(rankingPeriods):
+                let periodIndex = self.selectedRankingSelector?.index ?? 0
+                if periodIndex < rankingPeriods.count {
+                    dkRankingPeriod = rankingPeriods[periodIndex]
+                } else {
+                    dkRankingPeriod = rankingPeriods.first ?? .weekly
+                }
+        }
+
+        self.delegate?.rankingDidUpdate()
+
+        let useCacheKey = "\(dkRankingType.rawValue)-\(dkRankingPeriod.rawValue)"
+        let synchronizationType: SynchronizationType = self.useCache[useCacheKey] == true ? .cache : .defaultSync
+        DriveKitDriverAchievement.shared.getRanking(rankingType: dkRankingType, rankingPeriod: dkRankingPeriod, rankingDepth: self.rankingDepth, type: synchronizationType) { [weak self] (rankingSyncStatus, ranking) in
+            DispatchQueue.main.async {
+                if let self = self {
+                    self.driverRank = nil
+                    if let ranking = ranking {
+                        var ranks = [DKDriverRankingItem]()
+                        let nbDrivers = ranking.nbDriverRanked
+                        self.nbDrivers = nbDrivers
+                        var previousRank: Int? = nil
+                        for dkRank in ranking.driversRanked.sorted(by: { (dkDriverRank1, dkDriverRank2) -> Bool in
+                            if dkDriverRank2.rank == 0 {
+                                return true
+                            } else if dkDriverRank1.rank == 0 {
+                                return false
+                            } else {
+                                return dkDriverRank1.rank <= dkDriverRank2.rank
+                            }
+                        }) {
+                            if let previousRank = previousRank, previousRank + 1 != dkRank.rank {
+                                ranks.append(JumpDriverRank())
+                            }
+                            let name: String
+                            if let nickname = dkRank.nickname, !nickname.isEmpty {
+                                name = nickname
+                            } else {
+                                name = DKCommonLocalizable.anonymous.text()
+                            }
+                            if dkRank.rank == ranking.userPosition {
+                                let progressionImageName: String?
+                                if let userPreviousPosition = ranking.userPreviousPosition, ranking.userPosition > 0 {
+                                    let deltaRank = userPreviousPosition - ranking.userPosition
+                                    if deltaRank == 0 {
+                                        progressionImageName = nil
+                                    } else if deltaRank > 0 {
+                                        progressionImageName = "dk_common_ranking_arrow_up"
+                                    } else {
+                                        progressionImageName = "dk_common_ranking_arrow_down"
+                                    }
+                                } else {
+                                    progressionImageName = nil
+                                }
+                                self.progressionImageName = progressionImageName
+                                let currentDriverRank = CurrentDriverRank(
+                                    nbDrivers: nbDrivers,
+                                    position: dkRank.rank,
+                                    positionString: String(dkRank.rank),
+                                    positionImageName: self.getImageName(fromPosition: dkRank.rank),
+                                    rankString: " / \(nbDrivers)",
+                                    name: name,
+                                    distance: dkRank.distance,
+                                    distanceString: dkRank.distance.formatKilometerDistance(),
+                                    score: dkRank.score,
+                                    scoreString: self.formatScore(dkRank.score),
+                                    totalScoreString: " / 10"
+                                )
+                                ranks.append(currentDriverRank)
+                                self.driverRank = currentDriverRank
+                            } else {
+                                let driverRank = DriverRank(
+                                    nbDrivers: nbDrivers,
+                                    position: dkRank.rank,
+                                    positionString: String(dkRank.rank),
+                                    positionImageName: self.getImageName(fromPosition: dkRank.rank),
+                                    rankString: " / \(nbDrivers)",
+                                    name: name,
+                                    distance: dkRank.distance,
+                                    distanceString: dkRank.distance.formatKilometerDistance(),
+                                    score: dkRank.score,
+                                    scoreString: self.formatScore(dkRank.score),
+                                    totalScoreString: " / 10"
+                                )
+                                ranks.append(driverRank)
+                            }
+                            previousRank = dkRank.rank
+                        }
+                        self.ranks = ranks
+                    } else {
+                        self.nbDrivers = 0
+                        self.ranks = []
+                    }
+
+                    switch rankingSyncStatus {
+                        case .noError:
+                            self.status = .success
+                        case .userNotRanked:
+                            self.status = .noRankForUser
+                        case .cacheDataOnly, .failedToSyncRanking, .syncAlreadyInProgress:
+                            if ranking != nil {
+                                self.status = .success
+                            } else {
+                                self.status = .networkError
+                            }
+                        @unknown default:
+                            break
+                    }
+
+                    let dataError: Bool
+                    switch rankingSyncStatus {
+                        case .noError, .userNotRanked:
+                            dataError = false
+                        case .failedToSyncRanking, .syncAlreadyInProgress, .cacheDataOnly:
+                            dataError = true
+                        @unknown default:
+                            dataError = true
+                    }
+                    self.useCache[useCacheKey] = !dataError
+
+                    self.delegate?.rankingDidUpdate()
                 }
             }
         }
@@ -313,6 +337,7 @@ extension DKRankingType {
 
 protocol RankingViewModelDelegate : AnyObject {
     func rankingDidUpdate()
+    func updateUserPseudo()
 }
 
 extension RankingViewModel: DKDriverRanking {

@@ -9,12 +9,13 @@
 import DriveKitChallengeModule
 import DriveKitDBChallengeAccessModule
 import DriveKitCommonUI
+import DriveKitCoreModule
 import UIKit
 
 public protocol ChallengeListDelegate: AnyObject {
     func onChallengesAvailable()
     func didReceiveErrorFromService()
-    func showAlert(_ alertController: UIAlertController)
+    func showAlert(_ viewController: UIViewController)
     func showLoader()
     func hideLoader()
     func showViewController(_ viewController: UIViewController, animated: Bool)
@@ -63,23 +64,40 @@ public class ChallengeListViewModel {
 
     func challengeViewModelSelected(challengeViewModel: ChallengeItemViewModel) {
         if challengeViewModel.finishedAndNotFilled {
-            var alertTitle = ""
-            if let appName = Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String {
-                alertTitle = appName
-            } else if let bundleName = Bundle.main.infoDictionary?["CFBundleName"] as? String {
-                alertTitle = bundleName
-            }
+            let alertTitle = Bundle.main.appName ?? ""
             let alert = UIAlertController(title: alertTitle, message: "dk_challenge_not_a_participant".dkChallengeLocalized(), preferredStyle: .alert)
             alert.addAction(UIAlertAction(title:DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
             self.delegate?.showAlert(alert)
         } else {
-            delegate?.showLoader()
-            DriveKitChallengeUI.shared.getChallengeViewController(challengeId: challengeViewModel.identifier) { [weak self] viewController in
-                DispatchQueue.main.async {
-                    self?.delegate?.hideLoader()
-                    if let vc = viewController {
-                        self?.delegate?.showViewController(vc, animated: true)
+            DriveKit.shared.getUserInfo(synchronizationType: .cache) { [weak self] status, userInfo in
+                if let self = self {
+                    DispatchQueue.main.async { [weak self] in
+                        if let self = self {
+                            if userInfo?.pseudo?.isCompletelyEmpty() ?? true {
+                                let userPseudoViewController = UserPseudoViewController()
+                                userPseudoViewController.completion = { success in
+                                    userPseudoViewController.dismiss(animated: true) {
+                                        self.openChallenge(withItinId: challengeViewModel.identifier)
+                                    }
+                                }
+                                self.delegate?.showAlert(userPseudoViewController)
+                            } else {
+                                self.openChallenge(withItinId: challengeViewModel.identifier)
+                            }
+                        }
                     }
+                }
+            }
+        }
+    }
+
+    private func openChallenge(withItinId itinId: String) {
+        self.delegate?.showLoader()
+        DriveKitChallengeUI.shared.getChallengeViewController(challengeId: itinId) { [weak self] viewController in
+            DispatchQueue.main.async {
+                self?.delegate?.hideLoader()
+                if let vc = viewController {
+                    self?.delegate?.showViewController(vc, animated: true)
                 }
             }
         }

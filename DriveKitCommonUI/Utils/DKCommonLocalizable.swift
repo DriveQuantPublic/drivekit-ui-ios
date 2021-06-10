@@ -43,11 +43,13 @@ public enum DKCommonLocalizable : String {
     save = "dk_common_save",
     validate = "dk_common_validate",
     confirm = "dk_common_confirm",
+    later = "dk_common_later",
     close = "dk_common_close",
     finish = "dk_common_finish",
     edit = "dk_common_edit",
     delete = "dk_common_delete",
     loading = "dk_common_loading",
+    error = "dk_common_error_message",
     safety = "dk_common_safety",
     speeding = "dk_common_speed_limit",
     distraction = "dk_common_distraction",
@@ -66,6 +68,8 @@ public enum DKCommonLocalizable : String {
     rank = "dk_common_ranking_rank",
     rankingScore = "dk_common_ranking_score",
     rankingDriver = "dk_common_ranking_driver",
+    pseudo = "dk_common_pseudo",
+    noPseudo = "dk_common_no_pseudo_set",
     anonymous = "dk_common_anonymous_driver"
 
     public func text() -> String {

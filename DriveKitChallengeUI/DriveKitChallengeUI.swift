@@ -28,7 +28,6 @@ extension DriveKitChallengeUI: DriveKitChallengeUIEntryPoint {
     }
 
     public func getChallengeViewController(challengeId: String, completion: @escaping (UIViewController?) -> ()) {
-
         DriveKitChallenge.shared.getChallenge(challengeId: challengeId, type: .cache) { [weak self] status, challenge in
             if let challenge = challenge {
                 if challenge.conditionsFilled, challenge.isRegistered {

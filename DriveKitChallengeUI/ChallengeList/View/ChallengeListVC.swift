@@ -107,8 +107,8 @@ extension ChallengeListVC: ChallengeListDelegate {
     func didReceiveErrorFromService() {
     }
 
-    func showAlert(_ alertController: UIAlertController) {
-        self.present(alertController, animated: true, completion: nil)
+    func showAlert(_ viewController: UIViewController) {
+        self.present(viewController, animated: true, completion: nil)
     }
 
     func showViewController(_ viewController: UIViewController, animated: Bool) {

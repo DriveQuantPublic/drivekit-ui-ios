@@ -25,11 +25,12 @@
 "dk_common_mass"="Masa";
 "dk_common_mean_speed"="Velocidad media";
 "dk_common_no"="No";
-"dk_common_no_pseudo_set"="Para acceder a este contenido es necesario introducir un seudónimo.";
+"dk_common_no_pseudo_set"="Para compartir su clasificación con los demás participantes, le invitamos a elegir un pseudo. Sin un pseudo aparecerá como anónimo.";
 "dk_common_ok"="OK";
 "dk_common_permission_camera_rationale"="La aplicación necesita permiso para acceder a la cámara de su smartphone para utilizar esta función.";
 "dk_common_permission_storage_rationale"="La aplicación necesita autorización para acceder al almacenamiento de su smartphone para utilizar esta función.";
 "dk_common_permissions"="Permisos";
+"dk_common_pseudo"="Pseudo";
 "dk_common_ranking_driver"="Conductor";
 "dk_common_ranking_rank"="Rango";
 "dk_common_ranking_score"="Puntuaciones";

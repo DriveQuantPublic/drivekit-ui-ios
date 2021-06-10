@@ -25,11 +25,12 @@
 "dk_common_mass"="Gewicht";
 "dk_common_mean_speed"="Mittlere Velocity";
 "dk_common_no"="Nein";
-"dk_common_no_pseudo_set"="Sie müssen ein Pseudo eingeben, um auf diesen Inhalt zuzugreifen.";
+"dk_common_no_pseudo_set"="Um Ihr Ranking mit den anderen Teilnehmern zu teilen, laden wir Sie ein, ein Pseudo zu wählen. Ohne ein Pseudo erscheinen Sie als anonym.";
 "dk_common_ok"="OK";
 "dk_common_permission_camera_rationale"="Für die Nutzung dieser Funktion benötigt die Anwendung die Berechtigung zum Zugriff auf die Kamera Ihres Smartphones.";
 "dk_common_permission_storage_rationale"="Für die Nutzung dieser Funktion benötigt die Anwendung die Berechtigung zum Zugriff auf den Speicher Ihres Smartphones.";
 "dk_common_permissions"="Genehmigungen";
+"dk_common_pseudo"="Pseudo";
 "dk_common_ranking_driver"="Fahrer";
 "dk_common_ranking_rank"="Rang";
 "dk_common_ranking_score"="Punktzahl";

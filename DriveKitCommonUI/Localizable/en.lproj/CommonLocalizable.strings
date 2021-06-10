@@ -25,11 +25,12 @@
 "dk_common_mass"="Mass";
 "dk_common_mean_speed"="Average speed";
 "dk_common_no"="No";
-"dk_common_no_pseudo_set"="You need to enter a pseudo to access this content.";
+"dk_common_no_pseudo_set"="To share your ranking with the other participants, we invite you to choose a pseudo. Without a pseudo you will appear as anonymous.";
 "dk_common_ok"="OK";
 "dk_common_permission_camera_rationale"="The application needs permission to access your smartphone\'s camera to use this feature.";
 "dk_common_permission_storage_rationale"="The application needs authorization to access your smartphone\'s storage to use this feature.";
 "dk_common_permissions"="Permissions";
+"dk_common_pseudo"="Pseudo";
 "dk_common_ranking_driver"="Driver";
 "dk_common_ranking_rank"="Rank";
 "dk_common_ranking_score"="Score";

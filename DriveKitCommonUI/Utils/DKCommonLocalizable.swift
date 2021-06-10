@@ -68,6 +68,7 @@ public enum DKCommonLocalizable : String {
     rank = "dk_common_ranking_rank",
     rankingScore = "dk_common_ranking_score",
     rankingDriver = "dk_common_ranking_driver",
+    pseudo = "dk_common_pseudo",
     noPseudo = "dk_common_no_pseudo_set",
     anonymous = "dk_common_anonymous_driver"
 

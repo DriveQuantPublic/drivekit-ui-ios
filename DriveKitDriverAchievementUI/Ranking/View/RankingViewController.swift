@@ -33,6 +33,8 @@ class RankingViewController: DKUIViewController {
         super.viewDidLoad()
 
         self.title = "dk_achievements_ranking_menu_ranking".dkAchievementLocalized()
+        self.view.backgroundColor = .white
+        self.viewContainer.backgroundColor = .white
 
         let driverRankingViewModel = DKDriverRankingViewModel(ranking: self.viewModel)
         let driverRankingCollectionVC = DKDriverRankingCollectionVC(viewModel: driverRankingViewModel)

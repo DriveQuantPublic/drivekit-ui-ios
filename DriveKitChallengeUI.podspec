@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.resource = ['DriveKitChallengeUI/Localizable/*', 'DriveKitChallengeUI/**/*.xib', 'DriveKitChallengeUI/DriveKitChallenge.xcassets']
 
   s.dependency 'DriveKitCommonUI', s.version.to_s
-  s.dependency 'DriveKitChallenge'
+  s.dependency 'DriveKitChallenge', '1.12-beta10'
 
   s.info_plist = {
     'CFBundleIdentifier' => 'com.drivequant.drivekit-challenge-ui'

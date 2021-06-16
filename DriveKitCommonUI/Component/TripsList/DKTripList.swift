@@ -37,11 +37,3 @@ public protocol DKTripList: AnyObject {
     func canPullToRefresh() -> Bool
     func didPullToRefresh()
 }
-
-public protocol DKTripInfo {
-    func infoText(itinId: String) -> String?
-    func infoImage(itinId: String) -> UIImage?
-    func infoClickAction(parentViewController: UIViewController, itinId: String)
-    func hasInfoActionConfigured(itinId: String) -> Bool
-    func isInfoDisplayable(itinId: String) -> Bool
-}

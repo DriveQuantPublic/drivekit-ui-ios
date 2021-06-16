@@ -99,7 +99,7 @@ extension Trip: DKTripListItem {
 
     public func infoText() -> String? {
         if let customTripInfo = DriveKitDriverDataUI.shared.customTripInfo {
-            return customTripInfo.infoText(itinId: self.getItinId())
+            return customTripInfo.infoText(trip: self)
         } else {
             guard let tripAdvices: Set<TripAdvice>  = self.tripAdvices as? Set<TripAdvice> else {
                 return nil
@@ -114,7 +114,7 @@ extension Trip: DKTripListItem {
 
     public func infoImage() -> UIImage? {
         if let customTripInfo = DriveKitDriverDataUI.shared.customTripInfo {
-            return customTripInfo.infoImage(itinId: self.getItinId())
+            return customTripInfo.infoImage(trip: self)
         } else {
             guard let tripAdvices: [TripAdvice]  = self.tripAdvices?.allObjects as? [TripAdvice] else {
                 return nil
@@ -132,7 +132,7 @@ extension Trip: DKTripListItem {
 
     public func infoClickAction(parentViewController: UIViewController) {
         if let customTripInfo = DriveKitDriverDataUI.shared.customTripInfo {
-            return customTripInfo.infoClickAction(parentViewController: parentViewController, itinId: self.getItinId())
+            return customTripInfo.infoClickAction(parentViewController: parentViewController, trip: self)
         } else {
             let showAdvice = (self.tripAdvices as? Set<TripAdvice>)?.count ?? 0 > 0
             if let itinId = self.itinId {
@@ -148,7 +148,7 @@ extension Trip: DKTripListItem {
 
     public func hasInfoActionConfigured() -> Bool {
         if let customTripInfo = DriveKitDriverDataUI.shared.customTripInfo {
-            return customTripInfo.hasInfoActionConfigured(itinId: self.getItinId())
+            return customTripInfo.hasInfoActionConfigured(trip: self)
         } else {
             return true
         }
@@ -156,7 +156,7 @@ extension Trip: DKTripListItem {
 
     public func isInfoDisplayable() -> Bool {
         if let customTripInfo = DriveKitDriverDataUI.shared.customTripInfo {
-            return customTripInfo.isInfoDisplayable(itinId: self.getItinId())
+            return customTripInfo.isInfoDisplayable(trip: self)
         } else {
             guard let tripAdvices: Set<TripAdvice>  = self.tripAdvices as? Set<TripAdvice> else {
                 return false

@@ -37,7 +37,7 @@ class ChallengeDetailVC: DKUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = DKDefaultColors().backgroundViewColor()
+        self.view.backgroundColor = DKDefaultColors.driveKitBackgroundColor
         viewModel.delegate = self
         tabsViewControllers.append(ChallengeResultsVC(viewModel: viewModel.getResultsViewModel()))
         tabsViewControllers.append(DKDriverRankingCollectionVC(viewModel: viewModel.getRankingViewModel()))

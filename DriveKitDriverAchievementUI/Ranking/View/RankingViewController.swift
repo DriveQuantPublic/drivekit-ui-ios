@@ -33,7 +33,7 @@ class RankingViewController: DKUIViewController {
         super.viewDidLoad()
 
         self.title = "dk_achievements_ranking_menu_ranking".dkAchievementLocalized()
-        let defaultBackgroundColor = DKDefaultColors().backgroundViewColor()
+        let defaultBackgroundColor = DKDefaultColors.driveKitBackgroundColor
         self.view.backgroundColor = defaultBackgroundColor
         self.viewContainer.backgroundColor = defaultBackgroundColor
 

@@ -344,7 +344,7 @@ protocol RankingViewModelDelegate : AnyObject {
 
 extension RankingViewModel: DKDriverRanking {
     func getHeaderDisplayType() -> DKRankingHeaderDisplayType {
-        if rankingTypes.count > 1 {
+        if rankingSelectors.count > 1 {
             return .compact
         } else {
             return .full
@@ -356,14 +356,14 @@ extension RankingViewModel: DKDriverRanking {
     }
 
     func getTitle() -> String {
-        guard rankingTypes.count > 0 else {
+        guard rankingSelectors.count > 0 else {
             return ""
         }
         return rankingTypes[0].name
     }
 
     func getImage() -> UIImage? {
-        guard rankingTypes.count > 0 else {
+        guard rankingSelectors.count > 0 else {
             return nil
         }
         return UIImage(named: rankingTypes[0].imageName, in: Bundle.driverAchievementUIBundle, compatibleWith: nil)

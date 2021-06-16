@@ -30,7 +30,7 @@ class ChallengeTripsVC: DKUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addChild(tripsVC)
-        let defaultBackgroundColor = DKDefaultColors().backgroundViewColor()
+        let defaultBackgroundColor = DKDefaultColors.driveKitBackgroundColor
         self.view.backgroundColor = defaultBackgroundColor
         if let tripsTableView = tripsVC.tableView {
             tripsTableView.backgroundColor = defaultBackgroundColor

@@ -30,7 +30,7 @@ class ChallengeResultsVC: DKUIViewController {
     func setupTableView() {
         if let tableView = tableView {
             let backView = UIView(frame: tableView.bounds)
-                backView.backgroundColor = DKDefaultColors().backgroundViewColor()
+                backView.backgroundColor = DKDefaultColors.driveKitBackgroundColor
             tableView.backgroundView = backView
             tableView.register(ChallengeStatCell.nib, forCellReuseIdentifier: "ChallengeStatCellIdentifier")
             tableView.register(ChallengeResultOverviewCell.nib, forCellReuseIdentifier: "ChallengeResultOverviewCellIdentifier")
@@ -77,7 +77,7 @@ extension ChallengeResultsVC: UITableViewDataSource {
         cell.clipsToBounds = false
         cell.selectionStyle = .none
         cell.textLabel?.numberOfLines = 0
-        cell.backgroundColor = DKDefaultColors().backgroundViewColor()
+        cell.backgroundColor = DKDefaultColors.driveKitBackgroundColor
         cell.textLabel?.attributedText = self.viewModel?.getHeaderCellAttributedString()
         return cell
     }

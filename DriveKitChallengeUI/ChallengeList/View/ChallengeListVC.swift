@@ -56,7 +56,7 @@ class ChallengeListVC: DKUIViewController {
         self.currentChallengesCollectionView?.register(UINib(nibName: "ChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "ChallengeCellIdentifier")
         self.pastChallengesCollectionView?.register(UINib(nibName: "NoChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "NoChallengeCellIdentifier")
         self.pastChallengesCollectionView?.register(UINib(nibName: "ChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "ChallengeCellIdentifier")
-        let defaultBackgroundColor = DKDefaultColors().backgroundViewColor()
+        let defaultBackgroundColor = DKDefaultColors.driveKitBackgroundColor
         self.currentChallengesCollectionView?.backgroundColor = defaultBackgroundColor
         self.pastChallengesCollectionView?.backgroundColor = defaultBackgroundColor
     }

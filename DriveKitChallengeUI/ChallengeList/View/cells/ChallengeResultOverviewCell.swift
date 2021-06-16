@@ -36,7 +36,7 @@ final class ChallengeResultOverviewCell: UITableViewCell, Nibable {
     func configureContainer(){
         clipsToBounds = false
         layer.cornerRadius = 5
-        self.backgroundColor = DKUIColors.backgroundView.color
+        self.backgroundColor = DKDefaultColors().backgroundViewColor()
     }
 
     func configureTitle(title: String){

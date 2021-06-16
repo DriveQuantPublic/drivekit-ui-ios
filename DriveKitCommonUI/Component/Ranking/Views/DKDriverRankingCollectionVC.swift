@@ -30,7 +30,7 @@ public class DKDriverRankingCollectionVC: UICollectionViewController {
         super.viewDidLoad()
 
         // Register cell classes
-        self.collectionView.backgroundColor = .white
+        self.collectionView.backgroundColor = DKDefaultColors().backgroundViewColor()
         self.collectionView.register(UINib(nibName: "RankingCell", bundle: .driveKitCommonUIBundle), forCellWithReuseIdentifier: "RankingCell")
         self.collectionView.register(UINib(nibName: "RankingJumpCell", bundle: .driveKitCommonUIBundle), forCellWithReuseIdentifier: "RankingJumpCell")
         self.collectionView.register(UINib(nibName: "RankingHeaderReusableView", bundle: Bundle.driveKitCommonUIBundle), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "RankingHeaderReusableViewIdentifier")

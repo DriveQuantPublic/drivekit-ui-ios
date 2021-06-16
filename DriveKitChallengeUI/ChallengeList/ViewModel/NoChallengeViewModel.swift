@@ -17,7 +17,7 @@ struct NoChallengeViewModel {
 
     init(text: String,
          image: UIImage?,
-         backgroundColor: UIColor = DKUIColors.backgroundView.color,
+         backgroundColor: UIColor = .white,
          textColor: UIColor = .black ) {
 
         self.text = text

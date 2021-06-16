@@ -30,7 +30,10 @@ class ChallengeTripsVC: DKUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addChild(tripsVC)
+        let defaultBackgroundColor = DKDefaultColors().backgroundViewColor()
+        self.view.backgroundColor = defaultBackgroundColor
         if let tripsTableView = tripsVC.tableView {
+            tripsTableView.backgroundColor = defaultBackgroundColor
             self.tripsStackView?.addArrangedSubview(tripsTableView)
         }
         self.titleAttributedLabel?.attributedText = viewModel.getTitleAttributedString()

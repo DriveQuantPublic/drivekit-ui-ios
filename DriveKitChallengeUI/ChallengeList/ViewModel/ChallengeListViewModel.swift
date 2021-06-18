@@ -68,7 +68,7 @@ public class ChallengeListViewModel {
             let alert = UIAlertController(title: alertTitle, message: "dk_challenge_not_a_participant".dkChallengeLocalized(), preferredStyle: .alert)
             alert.addAction(UIAlertAction(title:DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
             self.delegate?.showAlert(alert)
-        } else {
+        } else if challengeViewModel.shouldVerifyPseudo {
             DriveKit.shared.getUserInfo(synchronizationType: .cache) { [weak self] status, userInfo in
                 if let self = self {
                     DispatchQueue.main.async { [weak self] in
@@ -88,6 +88,8 @@ public class ChallengeListViewModel {
                     }
                 }
             }
+        } else {
+            self.openChallenge(withItinId: challengeViewModel.identifier)
         }
     }
 

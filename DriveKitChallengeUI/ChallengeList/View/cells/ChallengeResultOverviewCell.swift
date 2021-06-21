@@ -103,8 +103,13 @@ final class ChallengeResultOverviewCell: UITableViewCell, Nibable {
 
         switch viewModel.challengeType {
         case .score:
-            configureChallenge(value: (viewModel.driverScore.formatDouble(fractionDigits: 2)))
-            configureProgressBar(maxValue: viewModel.maxScore, minValue: viewModel.minScore, score: viewModel.driverScore, value: viewModel.driverScore.formatDouble(fractionDigits: 2), maxString: viewModel.maxScore.formatDouble(fractionDigits: 2), minString: viewModel.minScore.formatDouble(fractionDigits: 2))
+            configureChallenge(value: (viewModel.driverScore.format(maximumFractionDigits: 2, minimumFractionDigits: 0)))
+            configureProgressBar(maxValue: viewModel.maxScore,
+                                 minValue: viewModel.minScore,
+                                 score: viewModel.driverScore,
+                                 value: viewModel.driverScore.format(maximumFractionDigits: 2, minimumFractionDigits: 0),
+                                 maxString: viewModel.maxScore.format(maximumFractionDigits: 2, minimumFractionDigits: 0),
+                                 minString: viewModel.minScore.format(maximumFractionDigits: 2, minimumFractionDigits: 0))
         case .distance:
             configureChallenge(value: viewModel.driverScore.formatKilometerDistance(appendingUnit: false, minDistanceToRemoveFractions: 10))
             configureProgressBar(maxValue: viewModel.maxScore, minValue: viewModel.minScore, score: viewModel.driverScore, value: viewModel.driverScore.formatKilometerDistance(appendingUnit: false, minDistanceToRemoveFractions: 10), maxString: viewModel.maxScore.formatKilometerDistance(appendingUnit: false, minDistanceToRemoveFractions: 10), minString: viewModel.minScore.formatKilometerDistance(appendingUnit: false, minDistanceToRemoveFractions: 10))

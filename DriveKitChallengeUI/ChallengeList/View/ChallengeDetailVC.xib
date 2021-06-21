@@ -38,10 +38,10 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gbf-jN-oal">
-                            <rect key="frame" x="-1" y="44" width="103.5" height="1"/>
+                            <rect key="frame" x="-1" y="43" width="103.5" height="2"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="1" id="b3H-AX-fKo"/>
+                                <constraint firstAttribute="height" constant="2" id="b3H-AX-fKo"/>
                             </constraints>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="gQO-41-hG0">

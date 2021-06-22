@@ -23,6 +23,7 @@ class ChallengeListVC: DKUIViewController {
     @IBOutlet private weak var pastChallengesCollectionView: UICollectionView?
     @IBOutlet private weak var parentScrollView: UIScrollView?
     private let viewModel: ChallengeListViewModel
+    private let defaultColor = UIColor(red: 153, green: 153, blue: 153)
 
     public init() {
         self.viewModel = ChallengeListViewModel()
@@ -64,9 +65,8 @@ class ChallengeListVC: DKUIViewController {
     func setupHeaders() {
         self.currentTabButton?.setTitle("dk_challenge_active".dkChallengeLocalized().uppercased(), for: .normal)
         self.pastTabButton?.setTitle("dk_challenge_finished".dkChallengeLocalized().uppercased(), for: .normal)
-        self.currentTabButton?.setTitleColor(DKUIColors.mainFontColor.color, for: .normal)
-        self.pastTabButton?.setTitleColor(DKUIColors.mainFontColor.color, for: .normal)
         self.selectorHighlightView?.backgroundColor = DKUIColors.secondaryColor.color
+        updateSelectedButton()
     }
 
     func updateSelectedTab() {
@@ -80,8 +80,20 @@ class ChallengeListVC: DKUIViewController {
                 self.parentScrollView?.scrollRectToVisible(pastChallengesCollectionView.frame, animated: true)
             }
         }
+        updateSelectedButton()
     }
 
+    func updateSelectedButton() {
+        switch self.viewModel.selectedTab {
+        case .current:
+            pastTabButton?.setTitleColor(defaultColor, for: .normal)
+            currentTabButton?.setTitleColor(DKUIColors.secondaryColor.color, for: .normal)
+        case .past:
+            pastTabButton?.setTitleColor(DKUIColors.secondaryColor.color, for: .normal)
+            currentTabButton?.setTitleColor(defaultColor, for: .normal)
+        }
+
+    }
     @IBAction func selectCurrentTab() {
         if viewModel.selectedTab != .current {
             DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_list_active", viewController: self)
@@ -223,6 +235,7 @@ extension ChallengeListVC: UIScrollViewDelegate {
                 viewModel.updateSelectedTab(challengeTab: .past)
                 DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_list_finished", viewController: self)
             }
+            updateSelectedButton()
         }
     }
 }

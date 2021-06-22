@@ -22,6 +22,7 @@ class ChallengeDetailVC: DKUIViewController {
     @IBOutlet private weak var rulesTabButton: UIButton?
     @IBOutlet private weak var selectorHighlightView: UIView?
     @IBOutlet private weak var highlightConstraint: NSLayoutConstraint?
+    private let defaultColor = UIColor(red: 153, green: 153, blue: 153)
 
     var pageViewController: UIPageViewController?
     var tabsViewControllers: [UIViewController] = []
@@ -43,10 +44,18 @@ class ChallengeDetailVC: DKUIViewController {
         tabsViewControllers.append(DKDriverRankingCollectionVC(viewModel: viewModel.getRankingViewModel()))
         tabsViewControllers.append(ChallengeTripsVC(viewModel: viewModel))
         tabsViewControllers.append(ChallengeParticipationVC(viewModel: viewModel.getRulesViewModel(), parentView: self.navigationController))
-        tripsTabButton?.setImage(DKImages.trip.image, for: .normal)
         selectorHighlightView?.backgroundColor = DKUIColors.secondaryColor.color
         setupPageContainer()
         title = viewModel.getChallengeName()
+        setupButtons()
+    }
+
+    func setupButtons() {
+        statsTabButton?.setImage(statsTabButton?.imageView?.image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
+        rankingTabButton?.setImage(rankingTabButton?.imageView?.image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
+        tripsTabButton?.setImage(DKImages.trip.image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
+        rulesTabButton?.setImage(rulesTabButton?.imageView?.image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
+        updateSelector()
     }
 
     func setupPageContainer() {
@@ -95,6 +104,28 @@ class ChallengeDetailVC: DKUIViewController {
         }
         let index = tabsViewControllers.firstIndex(of: selectedVC)
         highlightConstraint?.constant = CGFloat(index ?? 0) * (view.frame.width / 4)
+        switch index {
+        case 1:
+            statsTabButton?.imageView?.tintColor = defaultColor
+            rankingTabButton?.imageView?.tintColor = DKUIColors.secondaryColor.color
+            tripsTabButton?.imageView?.tintColor = defaultColor
+            rulesTabButton?.imageView?.tintColor = defaultColor
+        case 2:
+            statsTabButton?.imageView?.tintColor = defaultColor
+            rankingTabButton?.imageView?.tintColor = defaultColor
+            tripsTabButton?.imageView?.tintColor = DKUIColors.secondaryColor.color
+            rulesTabButton?.imageView?.tintColor = defaultColor
+        case 3:
+            statsTabButton?.imageView?.tintColor = defaultColor
+            rankingTabButton?.imageView?.tintColor = defaultColor
+            tripsTabButton?.imageView?.tintColor = defaultColor
+            rulesTabButton?.imageView?.tintColor = DKUIColors.secondaryColor.color
+        default:
+            statsTabButton?.imageView?.tintColor = DKUIColors.secondaryColor.color
+            rankingTabButton?.imageView?.tintColor = defaultColor
+            tripsTabButton?.imageView?.tintColor = defaultColor
+            rulesTabButton?.imageView?.tintColor = defaultColor
+        }
     }
 }
 

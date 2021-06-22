@@ -39,6 +39,7 @@ class RankingViewModel {
     private var useCache = [String: Bool]()
     private var initialized = false
     private var progressionImageName: String?
+    private var askForPseudoIfEmpty = true
 
     init(groupName: String?) {
         self.groupName = groupName
@@ -93,15 +94,16 @@ class RankingViewModel {
         if self.initialized {
             self.status = .updating
 
-            if allowEmptyPseudo {
+            if allowEmptyPseudo || !self.askForPseudoIfEmpty {
                 self.updateRanking()
             } else {
                 DriveKit.shared.getUserInfo(synchronizationType: .cache) { [weak self] status, userInfo in
                     if let self = self {
                         DispatchQueue.main.async { [weak self] in
                             if let self = self {
-                                if userInfo?.pseudo?.isCompletelyEmpty() ?? true {
+                                if self.askForPseudoIfEmpty && (userInfo?.pseudo?.isCompletelyEmpty() ?? true) {
                                     self.delegate?.updateUserPseudo()
+                                    self.askForPseudoIfEmpty = false
                                 } else {
                                     self.updateRanking()
                                 }

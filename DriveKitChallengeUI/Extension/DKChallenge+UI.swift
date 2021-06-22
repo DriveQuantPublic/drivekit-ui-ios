@@ -13,13 +13,13 @@ extension Array where Element: DKChallenge {
         let now = Date()
         return self.filter {
             $0.endDate <= now
-        }.sorted(by: { $0.startDate.compare($1.startDate) == .orderedDescending})
+        }.sorted(by: { ($0.startDate, $1.id) > ($1.startDate, $0.id) })
     }
 
     func currentChallenges() -> [DKChallenge] {
         let now = Date()
         return self.filter {
             return $0.endDate > now
-        }.sorted(by: { $0.startDate.compare($1.startDate) == .orderedDescending})
+        }.sorted(by: { ($0.startDate, $1.id) > ($1.startDate, $0.id) })
     }
 }

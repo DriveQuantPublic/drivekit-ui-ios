@@ -225,6 +225,10 @@ extension ChallengeDetailVC: UIPageViewControllerDelegate {
             break
         }
         updateSelector()
+
+        if index == 1 {
+            checkPseudo()
+        }
     }
 }
 

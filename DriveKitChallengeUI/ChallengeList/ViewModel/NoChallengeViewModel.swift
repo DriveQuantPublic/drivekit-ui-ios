@@ -17,7 +17,7 @@ struct NoChallengeViewModel {
 
     init(text: String,
          image: UIImage?,
-         backgroundColor: UIColor = .white,
+         backgroundColor: UIColor = DKDefaultColors.driveKitBackgroundColor,
          textColor: UIColor = .black ) {
 
         self.text = text

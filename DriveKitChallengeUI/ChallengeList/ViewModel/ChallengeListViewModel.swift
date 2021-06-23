@@ -14,6 +14,7 @@ import UIKit
 
 public protocol ChallengeListDelegate: AnyObject {
     func onChallengesAvailable()
+    func challengesFetchStarted()
     func didReceiveErrorFromService()
     func showAlert(_ viewController: UIViewController)
     func showLoader()
@@ -39,12 +40,11 @@ public class ChallengeListViewModel {
     }
 
     func fetchChallenges(fromServer: Bool = true) {
-        delegate?.showLoader()
+        delegate?.challengesFetchStarted()
         let syncType: SynchronizationType = fromServer ? .defaultSync : .cache
         DriveKitChallenge.shared.getChallenges(type: syncType) { [weak self] status, challenges in
             DispatchQueue.main.async {
                 if let self = self {
-                    self.delegate?.hideLoader()
                     self.challenges = challenges
                     self.updateChallengeArrays()
                     self.delegate?.onChallengesAvailable()

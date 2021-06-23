@@ -60,6 +60,11 @@ class ChallengeListVC: DKUIViewController {
         let defaultBackgroundColor = DKDefaultColors.driveKitBackgroundColor
         self.currentChallengesCollectionView?.backgroundColor = defaultBackgroundColor
         self.pastChallengesCollectionView?.backgroundColor = defaultBackgroundColor
+        
+        self.currentChallengesCollectionView?.refreshControl = UIRefreshControl()
+        self.currentChallengesCollectionView?.refreshControl?.addTarget(self, action: #selector(refreshChallenges(_ :)), for: .valueChanged)
+        self.pastChallengesCollectionView?.refreshControl = UIRefreshControl()
+        self.pastChallengesCollectionView?.refreshControl?.addTarget(self, action: #selector(refreshChallenges(_ :)), for: .valueChanged)
     }
 
     func setupHeaders() {
@@ -115,10 +120,29 @@ class ChallengeListVC: DKUIViewController {
             self.viewModel.fetchChallenges(fromServer: false)
         }
     }
+
+    @objc func refreshChallenges(_ sender: Any) {
+        self.viewModel.fetchChallenges()
+    }
 }
 
 extension ChallengeListVC: ChallengeListDelegate {
+    func challengesFetchStarted() {
+        if let refreshControl = currentChallengesCollectionView?.refreshControl {
+            refreshControl.beginRefreshing()
+        }
+        if let refreshControl = pastChallengesCollectionView?.refreshControl {
+            refreshControl.beginRefreshing()
+        }
+    }
+
     func onChallengesAvailable() {
+        if let refreshControl = currentChallengesCollectionView?.refreshControl, refreshControl.isRefreshing {
+            refreshControl.endRefreshing()
+        }
+        if let refreshControl = pastChallengesCollectionView?.refreshControl, refreshControl.isRefreshing {
+            refreshControl.endRefreshing()
+        }
         currentChallengesCollectionView?.reloadData()
         pastChallengesCollectionView?.reloadData()
     }

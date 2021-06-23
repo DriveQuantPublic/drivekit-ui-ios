@@ -15,6 +15,9 @@ enum ChallengeDetaiItem {
 
 class ChallengeDetailVC: DKUIViewController {
     private let viewModel: ChallengeDetailViewModel
+    private var resultsVC: ChallengeResultsVC?
+    private var rankingVC: DKDriverRankingCollectionVC?
+    private var tripsVC: ChallengeTripsVC?
     @IBOutlet private weak var pageContainer: UIView?
     @IBOutlet private weak var statsTabButton: UIButton?
     @IBOutlet private weak var rankingTabButton: UIButton?
@@ -26,6 +29,7 @@ class ChallengeDetailVC: DKUIViewController {
 
     var pageViewController: UIPageViewController?
     var tabsViewControllers: [UIViewController] = []
+    var needUpdate: Bool = false
 
     public init(viewModel: ChallengeDetailViewModel) {
         self.viewModel = viewModel
@@ -40,14 +44,26 @@ class ChallengeDetailVC: DKUIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = DKDefaultColors.driveKitBackgroundColor
         viewModel.delegate = self
-        tabsViewControllers.append(ChallengeResultsVC(viewModel: viewModel.getResultsViewModel()))
-        tabsViewControllers.append(DKDriverRankingCollectionVC(viewModel: viewModel.getRankingViewModel()))
-        tabsViewControllers.append(ChallengeTripsVC(viewModel: viewModel))
+        resultsVC = ChallengeResultsVC(viewModel: viewModel.getResultsViewModel())
+        tabsViewControllers.append(resultsVC!)
+        rankingVC = DKDriverRankingCollectionVC(viewModel: viewModel.getRankingViewModel())
+        tabsViewControllers.append(rankingVC!)
+        tripsVC = ChallengeTripsVC(viewModel: viewModel)
+        tabsViewControllers.append(tripsVC!)
         tabsViewControllers.append(ChallengeParticipationVC(viewModel: viewModel.getRulesViewModel(), parentView: self.navigationController))
         selectorHighlightView?.backgroundColor = DKUIColors.secondaryColor.color
         setupPageContainer()
         title = viewModel.getChallengeName()
         setupButtons()
+        if needUpdate {
+            viewModel.updateChallengeDetail()
+        }
+    }
+
+    func refreshUI() {
+        rankingVC?.collectionView.reloadData()
+        resultsVC?.refreshUI()
+        tripsVC?.refreshUI()
     }
 
     func setupButtons() {
@@ -189,6 +205,12 @@ extension ChallengeDetailVC: UIPageViewControllerDelegate {
 }
 
 extension ChallengeDetailVC: ChallengeDetailViewModelDelegate {
+    func didUpdateChallengeDetails() {
+        DispatchQueue.main.async {
+            self.refreshUI()
+        }
+    }
+
     func didSelectTrip(tripId: String, showAdvice: Bool) {
         if let driverDataUI = DriveKitNavigationController.shared.driverDataUI, let navigationController = self.navigationController {
             let tripDetail = driverDataUI.getTripDetailViewController(itinId: tripId, showAdvice: showAdvice, alternativeTransport: false)

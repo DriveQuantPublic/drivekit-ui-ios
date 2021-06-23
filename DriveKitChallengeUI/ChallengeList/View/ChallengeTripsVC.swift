@@ -40,6 +40,12 @@ class ChallengeTripsVC: DKUIViewController {
         self.dateAttributedLabel?.attributedText = viewModel.getDateAttributedString()
     }
 
+    func refreshUI() {
+        self.titleAttributedLabel?.attributedText = viewModel.getTitleAttributedString()
+        self.dateAttributedLabel?.attributedText = viewModel.getDateAttributedString()
+        tripsVC.tableView?.reloadData()
+    }
+
     func didSelectTrip(itinId: String, showAdvice: Bool) {
         viewModel.delegate?.didSelectTrip(tripId: itinId, showAdvice: showAdvice)
     }

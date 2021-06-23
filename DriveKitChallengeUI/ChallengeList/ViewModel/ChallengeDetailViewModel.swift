@@ -10,9 +10,11 @@ import Foundation
 import DriveKitCommonUI
 import DriveKitDBTripAccessModule
 import DriveKitDBChallengeAccessModule
+import DriveKitChallengeModule
 
 protocol ChallengeDetailViewModelDelegate: AnyObject {
     func didSelectTrip(tripId: String, showAdvice: Bool)
+    func didUpdateChallengeDetails()
 }
 
 class ChallengeDetailViewModel {
@@ -130,6 +132,12 @@ class ChallengeDetailViewModel {
     }
     func getRulesViewModel() -> ChallengeParticipationViewModel {
         return ChallengeParticipationViewModel(challenge: challenge, isRulesTab: true)
+    }
+
+    func updateChallengeDetail() {
+        DriveKitChallenge.shared.getChallengeDetail(challengeId: challenge.id, type: .defaultSync) { [weak self] status, challengeDetail in
+            self?.delegate?.didUpdateChallengeDetails()
+        }
     }
 
     private func formatScore(_ score: Double) -> String {

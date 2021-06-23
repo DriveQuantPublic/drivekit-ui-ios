@@ -27,6 +27,10 @@ class ChallengeResultsVC: DKUIViewController {
         setupTableView()
     }
 
+    func refreshUI() {
+        tableView?.reloadData()
+    }
+
     func setupTableView() {
         if let tableView = tableView {
             let backView = UIView(frame: tableView.bounds)

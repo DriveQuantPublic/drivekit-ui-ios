@@ -17,7 +17,6 @@ struct ChallengeItemViewModel {
     let image: UIImage?
     let identifier: String
     let finishedAndNotFilled: Bool
-    let shouldVerifyPseudo: Bool
 
     init(challenge: DKChallenge) {
         identifier = challenge.id
@@ -34,7 +33,6 @@ struct ChallengeItemViewModel {
         } else {
             finishedAndNotFilled = false
         }
-        shouldVerifyPseudo = challenge.isRegistered && challenge.conditionsFilled
     }
 
     static func formatStartAndEndDates(startDate: Date,

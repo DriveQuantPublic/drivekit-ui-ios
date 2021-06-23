@@ -8,6 +8,7 @@
 
 import UIKit
 import DriveKitCommonUI
+import DriveKitCoreModule
 
 enum ChallengeDetaiItem {
     case results, ranking, tripList, rules
@@ -112,6 +113,9 @@ class ChallengeDetailVC: DKUIViewController {
                 })
             }
         }
+        if sender == rankingTabButton {
+            checkPseudo()
+        }
     }
 
     func updateSelector() {
@@ -141,6 +145,26 @@ class ChallengeDetailVC: DKUIViewController {
             rankingTabButton?.imageView?.tintColor = defaultColor
             tripsTabButton?.imageView?.tintColor = defaultColor
             rulesTabButton?.imageView?.tintColor = defaultColor
+        }
+    }
+
+    private func checkPseudo() {
+        DriveKit.shared.getUserInfo(synchronizationType: .cache) { [weak self] status, userInfo in
+            if let self = self {
+                DispatchQueue.main.async { [weak self] in
+                    if let self = self {
+                        if userInfo?.pseudo?.isCompletelyEmpty() ?? true {
+                            let userPseudoViewController = UserPseudoViewController()
+                            userPseudoViewController.completion = { success in
+                                userPseudoViewController.dismiss(animated: true) {
+                                    self.viewModel.updateChallengeDetail()
+                                }
+                            }
+                            self.present(userPseudoViewController, animated: true, completion: nil)
+                        }
+                    }
+                }
+            }
         }
     }
 }

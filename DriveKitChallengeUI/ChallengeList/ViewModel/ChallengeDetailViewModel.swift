@@ -22,7 +22,7 @@ class ChallengeDetailViewModel {
     private var challengeDetail: DKChallengeDetail
     private let challengeType: ChallengeType
     private let challengeTheme: ChallengeTheme
-    private let sortedTrips: [DKTripsByDate]
+    private var sortedTrips: [DKTripsByDate] = []
     private(set) var ranks = [ChallengeDriverRank]()
     private(set) var nbDrivers = 0
     public weak var delegate: ChallengeDetailViewModelDelegate?
@@ -64,6 +64,9 @@ class ChallengeDetailViewModel {
             self.challengeType = .distance
             self.challengeTheme = .none
         }
+        updateTripsAndRanks()
+    }
+    func updateTripsAndRanks() {
         let sortedTrips = DriveKitDBTripAccess.shared.findTrips(itinIds: challengeDetail.itinIds).map({trip in
             return ChallengeTrip(trip: trip)
         }).orderByDay(descOrder: true)
@@ -124,6 +127,7 @@ class ChallengeDetailViewModel {
 
     func getResultsViewModel() -> ChallengeResultsViewModel {
         let resultsVM = ChallengeResultsViewModel(challengeDetail: challengeDetail, challengeType: challengeType, challengeTheme: challengeTheme)
+        self.resultsViewModel = resultsVM
         return resultsVM
     }
     func getRankingViewModel() -> DKDriverRankingViewModel {
@@ -141,6 +145,7 @@ class ChallengeDetailViewModel {
             if let challengeDetail = challengeDetail {
                 self?.challengeDetail = challengeDetail
                 self?.resultsViewModel?.update(challengeDetail: challengeDetail)
+                self?.updateTripsAndRanks()
             }
             self?.delegate?.didUpdateChallengeDetails()
         }

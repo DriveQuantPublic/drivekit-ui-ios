@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.resource = ['DriveKitCommonUI/Graphical/DKImages.xcassets', 'DriveKitCommonUI/Localizable/*','DriveKitCommonUI/**/*.xib','DriveKitCommonUI/AnalyticsScreenToTagKey.plist','DriveKitCommonUI/AnalyticsTags.plist']
 
   s.dependency 'UICircularProgressRing', '6.5.0'
-  s.dependency 'DriveKitCore', '1.12-beta11'
+  s.dependency 'DriveKitCore', '1.12-beta12'
 
   s.info_plist = {
     'CFBundleIdentifier' => 'com.drivequant.drivekit-common-ui'

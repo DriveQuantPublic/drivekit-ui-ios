@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.resource = ['DriveKitPermissionsUtilsUI/PermissionsUtils.xcassets', 'DriveKitPermissionsUtilsUI/Localizable/*', 'DriveKitPermissionsUtilsUI/**/*.xib']
 
   s.dependency 'DriveKitCommonUI', s.version.to_s
-  s.dependency 'DriveKitCore', '1.12-beta11'
+  s.dependency 'DriveKitCore', '1.12-beta12'
 
   s.info_plist = {
     'CFBundleIdentifier' => 'com.drivequant.drivekit-permissions-utils-ui'

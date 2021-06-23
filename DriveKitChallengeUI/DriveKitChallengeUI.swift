@@ -15,16 +15,27 @@ import DriveKitCommonUI
 @objc public class DriveKitChallengeUI: NSObject {
 
     @objc public static let shared = DriveKitChallengeUI()
-
+    private var challengeListVC: ChallengeListVC?
+    
     @objc public func initialize() {
         DriveKitNavigationController.shared.challengeUI = self
     }
 
+    public override init() {
+        super.init()
+        DriveKitChallenge.shared.addListener(listener: self)
+    }
+
+    deinit {
+        DriveKitChallenge.shared.removeListener(listener: self)
+    }
 }
 
 extension DriveKitChallengeUI: DriveKitChallengeUIEntryPoint {
     public func getChallengeListViewController() -> UIViewController {
-        return ChallengeListVC()
+        let challengeListVC = ChallengeListVC()
+        self.challengeListVC = challengeListVC
+        return challengeListVC
     }
 
     public func getChallengeViewController(challengeId: String, completion: @escaping (UIViewController?) -> ()) {
@@ -77,6 +88,12 @@ extension DriveKitChallengeUI: DriveKitChallengeUIEntryPoint {
             let challengeVC: ChallengeParticipationVC = ChallengeParticipationVC(viewModel: challengeParticipationViewModel)
             return challengeVC
         }
+    }
+}
+
+extension DriveKitChallengeUI: DriveKitChallengeListener {
+    public func challengesUpdated() {
+        self.challengeListVC?.refresh()
     }
 }
 

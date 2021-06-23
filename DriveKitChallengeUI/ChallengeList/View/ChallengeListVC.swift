@@ -109,6 +109,12 @@ class ChallengeListVC: DKUIViewController {
         viewModel.updateSelectedTab(challengeTab: .past)
         updateSelectedTab()
     }
+
+    func refresh() {
+        DispatchQueue.main.async {
+            self.viewModel.fetchChallenges(fromServer: false)
+        }
+    }
 }
 
 extension ChallengeListVC: ChallengeListDelegate {

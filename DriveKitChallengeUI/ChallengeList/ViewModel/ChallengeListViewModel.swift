@@ -29,9 +29,19 @@ public class ChallengeListViewModel {
     public weak var delegate: ChallengeListDelegate? = nil
     public private(set) var selectedTab: ChallengeListTab = .current
 
-    func fetchChallenges() {
+    init() {
+        DriveKitChallenge.shared.getChallenges(type: .cache) { [weak self] status, challenges in
+            if let self = self {
+                self.challenges = challenges
+                self.updateChallengeArrays()
+            }
+        }
+    }
+
+    func fetchChallenges(fromServer: Bool = true) {
         delegate?.showLoader()
-        DriveKitChallenge.shared.getChallenges { [weak self] status, challenges in
+        let syncType: SynchronizationType = fromServer ? .defaultSync : .cache
+        DriveKitChallenge.shared.getChallenges(type: syncType) { [weak self] status, challenges in
             DispatchQueue.main.async {
                 if let self = self {
                     self.delegate?.hideLoader()

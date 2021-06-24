@@ -81,7 +81,9 @@ extension DriveKitChallengeUI: DriveKitChallengeUIEntryPoint {
                             }
                         }
                     } else {
-                        completion(nil)
+                        DispatchQueue.main.async {
+                            completion(nil)
+                        }
                     }
                 }
             }

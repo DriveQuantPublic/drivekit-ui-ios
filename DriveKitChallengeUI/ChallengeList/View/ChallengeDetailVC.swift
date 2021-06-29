@@ -8,6 +8,7 @@
 
 import UIKit
 import DriveKitCommonUI
+import DriveKitCoreModule
 
 enum ChallengeDetaiItem {
     case results, ranking, tripList, rules
@@ -15,6 +16,9 @@ enum ChallengeDetaiItem {
 
 class ChallengeDetailVC: DKUIViewController {
     private let viewModel: ChallengeDetailViewModel
+    private var resultsVC: ChallengeResultsVC?
+    private var rankingVC: DKDriverRankingCollectionVC?
+    private var tripsVC: ChallengeTripsVC?
     @IBOutlet private weak var pageContainer: UIView?
     @IBOutlet private weak var statsTabButton: UIButton?
     @IBOutlet private weak var rankingTabButton: UIButton?
@@ -22,9 +26,11 @@ class ChallengeDetailVC: DKUIViewController {
     @IBOutlet private weak var rulesTabButton: UIButton?
     @IBOutlet private weak var selectorHighlightView: UIView?
     @IBOutlet private weak var highlightConstraint: NSLayoutConstraint?
+    private let defaultColor = UIColor(red: 153, green: 153, blue: 153)
 
     var pageViewController: UIPageViewController?
     var tabsViewControllers: [UIViewController] = []
+    var needUpdate: Bool = false
 
     public init(viewModel: ChallengeDetailViewModel) {
         self.viewModel = viewModel
@@ -37,15 +43,36 @@ class ChallengeDetailVC: DKUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = DKDefaultColors.driveKitBackgroundColor
         viewModel.delegate = self
-        tabsViewControllers.append(ChallengeResultsVC(viewModel: viewModel.getResultsViewModel()))
-        tabsViewControllers.append(DKDriverRankingCollectionVC(viewModel: viewModel.getRankingViewModel()))
-        tabsViewControllers.append(ChallengeTripsVC(viewModel: viewModel))
+        resultsVC = ChallengeResultsVC(viewModel: viewModel.getResultsViewModel())
+        tabsViewControllers.append(resultsVC!)
+        rankingVC = DKDriverRankingCollectionVC(viewModel: viewModel.getRankingViewModel())
+        tabsViewControllers.append(rankingVC!)
+        tripsVC = ChallengeTripsVC(viewModel: viewModel)
+        tabsViewControllers.append(tripsVC!)
         tabsViewControllers.append(ChallengeParticipationVC(viewModel: viewModel.getRulesViewModel(), parentView: self.navigationController))
-        tripsTabButton?.setImage(DKImages.trip.image, for: .normal)
         selectorHighlightView?.backgroundColor = DKUIColors.secondaryColor.color
         setupPageContainer()
         title = viewModel.getChallengeName()
+        setupButtons()
+        if needUpdate {
+            viewModel.updateChallengeDetail()
+        }
+    }
+
+    func refreshUI() {
+        rankingVC?.collectionView.reloadData()
+        resultsVC?.refreshUI()
+        tripsVC?.refreshUI()
+    }
+
+    func setupButtons() {
+        statsTabButton?.setImage(statsTabButton?.imageView?.image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
+        rankingTabButton?.setImage(rankingTabButton?.imageView?.image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
+        tripsTabButton?.setImage(DKImages.trip.image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
+        rulesTabButton?.setImage(rulesTabButton?.imageView?.image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
+        updateSelector()
     }
 
     func setupPageContainer() {
@@ -86,6 +113,9 @@ class ChallengeDetailVC: DKUIViewController {
                 })
             }
         }
+        if sender == rankingTabButton {
+            checkPseudo()
+        }
     }
 
     func updateSelector() {
@@ -94,6 +124,48 @@ class ChallengeDetailVC: DKUIViewController {
         }
         let index = tabsViewControllers.firstIndex(of: selectedVC)
         highlightConstraint?.constant = CGFloat(index ?? 0) * (view.frame.width / 4)
+        switch index {
+        case 1:
+            statsTabButton?.imageView?.tintColor = defaultColor
+            rankingTabButton?.imageView?.tintColor = DKUIColors.secondaryColor.color
+            tripsTabButton?.imageView?.tintColor = defaultColor
+            rulesTabButton?.imageView?.tintColor = defaultColor
+        case 2:
+            statsTabButton?.imageView?.tintColor = defaultColor
+            rankingTabButton?.imageView?.tintColor = defaultColor
+            tripsTabButton?.imageView?.tintColor = DKUIColors.secondaryColor.color
+            rulesTabButton?.imageView?.tintColor = defaultColor
+        case 3:
+            statsTabButton?.imageView?.tintColor = defaultColor
+            rankingTabButton?.imageView?.tintColor = defaultColor
+            tripsTabButton?.imageView?.tintColor = defaultColor
+            rulesTabButton?.imageView?.tintColor = DKUIColors.secondaryColor.color
+        default:
+            statsTabButton?.imageView?.tintColor = DKUIColors.secondaryColor.color
+            rankingTabButton?.imageView?.tintColor = defaultColor
+            tripsTabButton?.imageView?.tintColor = defaultColor
+            rulesTabButton?.imageView?.tintColor = defaultColor
+        }
+    }
+
+    private func checkPseudo() {
+        DriveKit.shared.getUserInfo(synchronizationType: .cache) { [weak self] status, userInfo in
+            if let self = self {
+                DispatchQueue.main.async { [weak self] in
+                    if let self = self {
+                        if userInfo?.pseudo?.isCompletelyEmpty() ?? true {
+                            let userPseudoViewController = UserPseudoViewController()
+                            userPseudoViewController.completion = { success in
+                                userPseudoViewController.dismiss(animated: true) {
+                                    self.viewModel.updateChallengeDetail()
+                                }
+                            }
+                            self.present(userPseudoViewController, animated: true, completion: nil)
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -153,10 +225,20 @@ extension ChallengeDetailVC: UIPageViewControllerDelegate {
             break
         }
         updateSelector()
+
+        if index == 1 {
+            checkPseudo()
+        }
     }
 }
 
 extension ChallengeDetailVC: ChallengeDetailViewModelDelegate {
+    func didUpdateChallengeDetails() {
+        DispatchQueue.main.async {
+            self.refreshUI()
+        }
+    }
+
     func didSelectTrip(tripId: String, showAdvice: Bool) {
         if let driverDataUI = DriveKitNavigationController.shared.driverDataUI, let navigationController = self.navigationController {
             let tripDetail = driverDataUI.getTripDetailViewController(itinId: tripId, showAdvice: showAdvice, alternativeTransport: false)

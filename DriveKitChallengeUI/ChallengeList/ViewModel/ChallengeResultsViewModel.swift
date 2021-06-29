@@ -10,8 +10,8 @@ import UIKit
 import DriveKitCommonUI
 import DriveKitDBChallengeAccessModule
 
-struct ChallengeResultsViewModel {
-    private let challengeDetail: DKChallengeDetail
+class ChallengeResultsViewModel {
+    private var challengeDetail: DKChallengeDetail
     let challengeType: ChallengeType
     let challengeTheme: ChallengeTheme
     private let goldColor = UIColor(red: 255, green: 215, blue: 0)
@@ -24,6 +24,10 @@ struct ChallengeResultsViewModel {
         self.challengeDetail = challengeDetail
         self.challengeTheme = challengeTheme
         self.challengeType = challengeType
+    }
+
+    func update(challengeDetail: DKChallengeDetail) {
+        self.challengeDetail = challengeDetail
     }
 
     func getDriverPseudo() -> String {

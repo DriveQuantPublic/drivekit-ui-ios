@@ -20,7 +20,7 @@ class RankingHeaderReusableView: UICollectionReusableView {
         self.rankLabel.attributedText = DKCommonLocalizable.rank.text().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
         self.driverLabel.attributedText = DKCommonLocalizable.rankingDriver.text().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
         self.scoreLabel.attributedText = DKCommonLocalizable.rankingScore.text().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
-        self.backgroundColor = DKUIColors.backgroundView.color
+        self.backgroundColor = DKDefaultColors.driveKitBackgroundColor
     }
 
     func embedSummaryView(summaryView: UIView) {

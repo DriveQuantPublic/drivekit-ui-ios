@@ -23,6 +23,7 @@ class ChallengeListVC: DKUIViewController {
     @IBOutlet private weak var pastChallengesCollectionView: UICollectionView?
     @IBOutlet private weak var parentScrollView: UIScrollView?
     private let viewModel: ChallengeListViewModel
+    private let defaultColor = UIColor(red: 153, green: 153, blue: 153)
 
     public init() {
         self.viewModel = ChallengeListViewModel()
@@ -56,16 +57,21 @@ class ChallengeListVC: DKUIViewController {
         self.currentChallengesCollectionView?.register(UINib(nibName: "ChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "ChallengeCellIdentifier")
         self.pastChallengesCollectionView?.register(UINib(nibName: "NoChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "NoChallengeCellIdentifier")
         self.pastChallengesCollectionView?.register(UINib(nibName: "ChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "ChallengeCellIdentifier")
-        self.currentChallengesCollectionView?.backgroundColor = DKUIColors.backgroundView.color
-        self.pastChallengesCollectionView?.backgroundColor = DKUIColors.backgroundView.color
+        let defaultBackgroundColor = DKDefaultColors.driveKitBackgroundColor
+        self.currentChallengesCollectionView?.backgroundColor = defaultBackgroundColor
+        self.pastChallengesCollectionView?.backgroundColor = defaultBackgroundColor
+        
+        self.currentChallengesCollectionView?.refreshControl = UIRefreshControl()
+        self.currentChallengesCollectionView?.refreshControl?.addTarget(self, action: #selector(refreshChallenges(_ :)), for: .valueChanged)
+        self.pastChallengesCollectionView?.refreshControl = UIRefreshControl()
+        self.pastChallengesCollectionView?.refreshControl?.addTarget(self, action: #selector(refreshChallenges(_ :)), for: .valueChanged)
     }
 
     func setupHeaders() {
         self.currentTabButton?.setTitle("dk_challenge_active".dkChallengeLocalized().uppercased(), for: .normal)
         self.pastTabButton?.setTitle("dk_challenge_finished".dkChallengeLocalized().uppercased(), for: .normal)
-        self.currentTabButton?.setTitleColor(DKUIColors.mainFontColor.color, for: .normal)
-        self.pastTabButton?.setTitleColor(DKUIColors.mainFontColor.color, for: .normal)
         self.selectorHighlightView?.backgroundColor = DKUIColors.secondaryColor.color
+        updateSelectedButton()
     }
 
     func updateSelectedTab() {
@@ -79,8 +85,20 @@ class ChallengeListVC: DKUIViewController {
                 self.parentScrollView?.scrollRectToVisible(pastChallengesCollectionView.frame, animated: true)
             }
         }
+        updateSelectedButton()
     }
 
+    func updateSelectedButton() {
+        switch self.viewModel.selectedTab {
+        case .current:
+            pastTabButton?.setTitleColor(defaultColor, for: .normal)
+            currentTabButton?.setTitleColor(DKUIColors.secondaryColor.color, for: .normal)
+        case .past:
+            pastTabButton?.setTitleColor(DKUIColors.secondaryColor.color, for: .normal)
+            currentTabButton?.setTitleColor(defaultColor, for: .normal)
+        }
+
+    }
     @IBAction func selectCurrentTab() {
         if viewModel.selectedTab != .current {
             DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_list_active", viewController: self)
@@ -96,10 +114,35 @@ class ChallengeListVC: DKUIViewController {
         viewModel.updateSelectedTab(challengeTab: .past)
         updateSelectedTab()
     }
+
+    func refresh() {
+        DispatchQueue.main.async {
+            self.viewModel.fetchChallenges(fromServer: false)
+        }
+    }
+
+    @objc func refreshChallenges(_ sender: Any) {
+        self.viewModel.fetchChallenges()
+    }
 }
 
 extension ChallengeListVC: ChallengeListDelegate {
+    func challengesFetchStarted() {
+        if let refreshControl = currentChallengesCollectionView?.refreshControl {
+            refreshControl.beginRefreshing()
+        }
+        if let refreshControl = pastChallengesCollectionView?.refreshControl {
+            refreshControl.beginRefreshing()
+        }
+    }
+
     func onChallengesAvailable() {
+        if let refreshControl = currentChallengesCollectionView?.refreshControl, refreshControl.isRefreshing {
+            refreshControl.endRefreshing()
+        }
+        if let refreshControl = pastChallengesCollectionView?.refreshControl, refreshControl.isRefreshing {
+            refreshControl.endRefreshing()
+        }
         currentChallengesCollectionView?.reloadData()
         pastChallengesCollectionView?.reloadData()
     }
@@ -222,6 +265,7 @@ extension ChallengeListVC: UIScrollViewDelegate {
                 viewModel.updateSelectedTab(challengeTab: .past)
                 DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_list_finished", viewController: self)
             }
+            updateSelectedButton()
         }
     }
 }

@@ -30,11 +30,20 @@ class ChallengeTripsVC: DKUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addChild(tripsVC)
+        let defaultBackgroundColor = DKDefaultColors.driveKitBackgroundColor
+        self.view.backgroundColor = defaultBackgroundColor
         if let tripsTableView = tripsVC.tableView {
+            tripsTableView.backgroundColor = defaultBackgroundColor
             self.tripsStackView?.addArrangedSubview(tripsTableView)
         }
         self.titleAttributedLabel?.attributedText = viewModel.getTitleAttributedString()
         self.dateAttributedLabel?.attributedText = viewModel.getDateAttributedString()
+    }
+
+    func refreshUI() {
+        self.titleAttributedLabel?.attributedText = viewModel.getTitleAttributedString()
+        self.dateAttributedLabel?.attributedText = viewModel.getDateAttributedString()
+        tripsVC.tableView?.reloadData()
     }
 
     func didSelectTrip(itinId: String, showAdvice: Bool) {

@@ -46,6 +46,7 @@ class ChallengeParticipationVC: DKUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = DKDefaultColors.driveKitBackgroundColor
         title = viewModel?.getTitle()
         if parentView == nil {
             DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_join", viewController: self)
@@ -126,7 +127,7 @@ class ChallengeParticipationVC: DKUIViewController {
             countDownAttributedLabel?.isHidden = true
             joinButton?.isHidden = false
             footerHeightConstraint?.constant = 50
-            footerView?.backgroundColor = .white
+            footerView?.backgroundColor = DKDefaultColors.driveKitBackgroundColor
         } else {
             participationAttributedLabel?.isHidden = false
             joinButton?.isHidden = true

@@ -19,7 +19,7 @@ final class ChallengeStatCell: UITableViewCell, Nibable {
         super.awakeFromNib()
         clipsToBounds = false
         layer.cornerRadius = 5
-        self.backgroundColor = DKUIColors.backgroundView.color
+        self.backgroundColor = DKDefaultColors.driveKitBackgroundColor
     }
     
     func configure(viewModel: ChallengeResultsViewModel, type: ChallengeStatType){

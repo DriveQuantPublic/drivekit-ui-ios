@@ -22,6 +22,8 @@ import UIKit
 }
 
 open class DKDefaultColors : DKColors {
+    public static let driveKitBackgroundColor = UIColor(hex: 0xFAFAFA)
+
     public init() {}
 
     open func primaryColor() -> UIColor {
@@ -52,7 +54,7 @@ open class DKDefaultColors : DKColors {
         return UIColor(hex: 0xF0F0F0)
     }
     open func backgroundViewColor() -> UIColor {
-        return UIColor(hex: 0xFAFAFA)
+        return DKDefaultColors.driveKitBackgroundColor
     }
 }
 

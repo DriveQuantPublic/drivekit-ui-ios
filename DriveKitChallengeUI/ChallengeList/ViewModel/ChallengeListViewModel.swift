@@ -14,6 +14,7 @@ import UIKit
 
 public protocol ChallengeListDelegate: AnyObject {
     func onChallengesAvailable()
+    func challengesFetchStarted()
     func didReceiveErrorFromService()
     func showAlert(_ viewController: UIViewController)
     func showLoader()
@@ -29,12 +30,21 @@ public class ChallengeListViewModel {
     public weak var delegate: ChallengeListDelegate? = nil
     public private(set) var selectedTab: ChallengeListTab = .current
 
-    func fetchChallenges() {
-        delegate?.showLoader()
-        DriveKitChallenge.shared.getChallenges { [weak self] status, challenges in
+    init() {
+        DriveKitChallenge.shared.getChallenges(type: .cache) { [weak self] status, challenges in
+            if let self = self {
+                self.challenges = challenges
+                self.updateChallengeArrays()
+            }
+        }
+    }
+
+    func fetchChallenges(fromServer: Bool = true) {
+        delegate?.challengesFetchStarted()
+        let syncType: SynchronizationType = fromServer ? .defaultSync : .cache
+        DriveKitChallenge.shared.getChallenges(type: syncType) { [weak self] status, challenges in
             DispatchQueue.main.async {
                 if let self = self {
-                    self.delegate?.hideLoader()
                     self.challenges = challenges
                     self.updateChallengeArrays()
                     self.delegate?.onChallengesAvailable()
@@ -69,25 +79,7 @@ public class ChallengeListViewModel {
             alert.addAction(UIAlertAction(title:DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
             self.delegate?.showAlert(alert)
         } else {
-            DriveKit.shared.getUserInfo(synchronizationType: .cache) { [weak self] status, userInfo in
-                if let self = self {
-                    DispatchQueue.main.async { [weak self] in
-                        if let self = self {
-                            if userInfo?.pseudo?.isCompletelyEmpty() ?? true {
-                                let userPseudoViewController = UserPseudoViewController()
-                                userPseudoViewController.completion = { success in
-                                    userPseudoViewController.dismiss(animated: true) {
-                                        self.openChallenge(withItinId: challengeViewModel.identifier)
-                                    }
-                                }
-                                self.delegate?.showAlert(userPseudoViewController)
-                            } else {
-                                self.openChallenge(withItinId: challengeViewModel.identifier)
-                            }
-                        }
-                    }
-                }
-            }
+            self.openChallenge(withItinId: challengeViewModel.identifier)
         }
     }
 

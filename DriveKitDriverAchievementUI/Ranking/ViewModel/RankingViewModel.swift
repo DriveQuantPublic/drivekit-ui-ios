@@ -39,6 +39,7 @@ class RankingViewModel {
     private var useCache = [String: Bool]()
     private var initialized = false
     private var progressionImageName: String?
+    private var askForPseudoIfEmpty = true
 
     init(groupName: String?) {
         self.groupName = groupName
@@ -93,15 +94,16 @@ class RankingViewModel {
         if self.initialized {
             self.status = .updating
 
-            if allowEmptyPseudo {
+            if allowEmptyPseudo || !self.askForPseudoIfEmpty {
                 self.updateRanking()
             } else {
                 DriveKit.shared.getUserInfo(synchronizationType: .cache) { [weak self] status, userInfo in
                     if let self = self {
                         DispatchQueue.main.async { [weak self] in
                             if let self = self {
-                                if userInfo?.pseudo?.isCompletelyEmpty() ?? true {
+                                if self.askForPseudoIfEmpty && (userInfo?.pseudo?.isCompletelyEmpty() ?? true) {
                                     self.delegate?.updateUserPseudo()
+                                    self.askForPseudoIfEmpty = false
                                 } else {
                                     self.updateRanking()
                                 }
@@ -344,7 +346,7 @@ protocol RankingViewModelDelegate : AnyObject {
 
 extension RankingViewModel: DKDriverRanking {
     func getHeaderDisplayType() -> DKRankingHeaderDisplayType {
-        if rankingTypes.count > 1 {
+        if rankingSelectors.count > 1 {
             return .compact
         } else {
             return .full
@@ -356,14 +358,14 @@ extension RankingViewModel: DKDriverRanking {
     }
 
     func getTitle() -> String {
-        guard rankingTypes.count > 0 else {
+        guard rankingSelectors.count > 0 else {
             return ""
         }
         return rankingTypes[0].name
     }
 
     func getImage() -> UIImage? {
-        guard rankingTypes.count > 0 else {
+        guard rankingSelectors.count > 0 else {
             return nil
         }
         return UIImage(named: rankingTypes[0].imageName, in: Bundle.driverAchievementUIBundle, compatibleWith: nil)

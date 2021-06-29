@@ -10,6 +10,7 @@ import Foundation
 import DriveKitDBChallengeAccessModule
 import DriveKitCommonUI
 import DriveKitChallengeModule
+import UIKit
 
 public enum ChallengeParticipationStatus: Int {
     case joined, failedToJoin, joining
@@ -127,6 +128,8 @@ public class ChallengeParticipationViewModel {
                 completionHandler(.failedToJoin)
             case .alreadyInProgress:
                 completionHandler(.joining)
+            @unknown default:
+                completionHandler(.failedToJoin)
             }
         }
     }

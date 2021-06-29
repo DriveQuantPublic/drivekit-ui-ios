@@ -38,10 +38,10 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gbf-jN-oal">
-                            <rect key="frame" x="-1" y="44" width="103.5" height="1"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <rect key="frame" x="-1" y="43" width="103.5" height="2"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="1" id="b3H-AX-fKo"/>
+                                <constraint firstAttribute="height" constant="2" id="b3H-AX-fKo"/>
                             </constraints>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="gQO-41-hG0">
@@ -53,6 +53,7 @@
                                 </view>
                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1l-hr-6wS">
                                     <rect key="frame" x="33.5" y="0.0" width="33" height="33"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="j1l-hr-6wS" secondAttribute="height" multiplier="1:1" id="kuD-Ai-6Yy"/>
                                     </constraints>
@@ -70,6 +71,7 @@
                                 </view>
                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wut-Xd-8RO">
                                     <rect key="frame" x="133" y="0.0" width="33" height="33"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" image="dk_challenge_leaderboard">
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
@@ -87,6 +89,7 @@
                                 </view>
                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gO-2o-cTK">
                                     <rect key="frame" x="232.5" y="0.0" width="33" height="33"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" image="dk_common_trip">
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
@@ -101,6 +104,7 @@
                                 </view>
                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7r-PE-odn">
                                     <rect key="frame" x="332" y="0.0" width="33" height="33"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" image="dk_challenge_rules">
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
@@ -114,6 +118,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                             </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="dsI-dy-ylB" firstAttribute="leading" secondItem="wut-Xd-8RO" secondAttribute="trailing" id="0YL-mj-oxC"/>
                                 <constraint firstItem="uur-eX-Ga8" firstAttribute="leading" secondItem="gQO-41-hG0" secondAttribute="leading" id="1Bu-sf-XxE"/>
@@ -156,7 +161,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="Uvc-TM-bTh" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="5Tg-XP-q7Z"/>
                 <constraint firstItem="aU5-Nr-ksb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="LSr-0H-8KA"/>

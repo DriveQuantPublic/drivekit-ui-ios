@@ -10,21 +10,25 @@ import Foundation
 import DriveKitCommonUI
 import DriveKitDBTripAccessModule
 import DriveKitDBChallengeAccessModule
+import DriveKitChallengeModule
+import UIKit
 
 protocol ChallengeDetailViewModelDelegate: AnyObject {
     func didSelectTrip(tripId: String, showAdvice: Bool)
+    func didUpdateChallengeDetails()
 }
 
 class ChallengeDetailViewModel {
     private let challenge: DKChallenge
-    private let challengeDetail: DKChallengeDetail
+    private var challengeDetail: DKChallengeDetail
     private let challengeType: ChallengeType
     private let challengeTheme: ChallengeTheme
-    private let sortedTrips: [DKTripsByDate]
+    private var sortedTrips: [DKTripsByDate] = []
     private(set) var ranks = [ChallengeDriverRank]()
     private(set) var nbDrivers = 0
     public weak var delegate: ChallengeDetailViewModelDelegate?
     private let grayColor = UIColor(hex:0x9e9e9e)
+    private var resultsViewModel: ChallengeResultsViewModel?
 
     init(challenge: DKChallenge, challengeDetail: DKChallengeDetail) {
         self.challenge = challenge
@@ -61,6 +65,9 @@ class ChallengeDetailViewModel {
             self.challengeType = .distance
             self.challengeTheme = .none
         }
+        updateTripsAndRanks()
+    }
+    func updateTripsAndRanks() {
         let sortedTrips = DriveKitDBTripAccess.shared.findTrips(itinIds: challengeDetail.itinIds).map({trip in
             return ChallengeTrip(trip: trip)
         }).orderByDay(descOrder: true)
@@ -120,7 +127,9 @@ class ChallengeDetailViewModel {
     }
 
     func getResultsViewModel() -> ChallengeResultsViewModel {
-        return ChallengeResultsViewModel(challengeDetail: challengeDetail, challengeType: challengeType, challengeTheme: challengeTheme)
+        let resultsVM = ChallengeResultsViewModel(challengeDetail: challengeDetail, challengeType: challengeType, challengeTheme: challengeTheme)
+        self.resultsViewModel = resultsVM
+        return resultsVM
     }
     func getRankingViewModel() -> DKDriverRankingViewModel {
         return DKDriverRankingViewModel(ranking: self)
@@ -130,6 +139,17 @@ class ChallengeDetailViewModel {
     }
     func getRulesViewModel() -> ChallengeParticipationViewModel {
         return ChallengeParticipationViewModel(challenge: challenge, isRulesTab: true)
+    }
+
+    func updateChallengeDetail() {
+        DriveKitChallenge.shared.getChallengeDetail(challengeId: challenge.id, type: .defaultSync) { [weak self] status, challengeDetail in
+            if let challengeDetail = challengeDetail {
+                self?.challengeDetail = challengeDetail
+                self?.resultsViewModel?.update(challengeDetail: challengeDetail)
+                self?.updateTripsAndRanks()
+            }
+            self?.delegate?.didUpdateChallengeDetails()
+        }
     }
 
     private func formatScore(_ score: Double) -> String {

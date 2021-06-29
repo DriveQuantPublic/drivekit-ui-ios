@@ -11,6 +11,7 @@ import DriveKitCoreModule
 import DriveKitChallengeModule
 import DriveKitDBChallengeAccessModule
 import DriveKitCommonUI
+import UIKit
 
 @objc public class DriveKitChallengeUI: NSObject {
 

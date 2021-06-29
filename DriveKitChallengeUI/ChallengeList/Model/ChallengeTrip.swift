@@ -9,6 +9,7 @@
 import Foundation
 import DriveKitDBTripAccessModule
 import DriveKitCommonUI
+import UIKit
 
 struct ChallengeTrip: DKTripListItem {
     let trip: Trip
@@ -99,6 +100,8 @@ struct ChallengeTrip: DKTripListItem {
                  .idle,
                  .other:
                 return true
+        @unknown default:
+            return true
         }
     }
 

@@ -11,6 +11,7 @@ import DriveKitCommonUI
 import DriveKitDBTripAccessModule
 import DriveKitDBChallengeAccessModule
 import DriveKitChallengeModule
+import UIKit
 
 protocol ChallengeDetailViewModelDelegate: AnyObject {
     func didSelectTrip(tripId: String, showAdvice: Bool)

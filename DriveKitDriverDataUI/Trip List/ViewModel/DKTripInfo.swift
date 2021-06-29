@@ -8,6 +8,7 @@
 
 import Foundation
 import DriveKitDBTripAccessModule
+import UIKit
 
 public protocol DKTripInfo {
     func infoText(trip: Trip) -> String?

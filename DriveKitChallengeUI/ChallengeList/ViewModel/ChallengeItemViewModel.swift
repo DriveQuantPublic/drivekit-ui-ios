@@ -9,6 +9,7 @@
 import Foundation
 import DriveKitDBChallengeAccessModule
 import DriveKitCommonUI
+import UIKit
 
 struct ChallengeItemViewModel {
     let startDate: Date

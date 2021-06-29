@@ -94,6 +94,8 @@ extension Trip: DKTripListItem {
                  .idle,
                  .other:
                 return true
+        @unknown default:
+            return true
         }
     }
 

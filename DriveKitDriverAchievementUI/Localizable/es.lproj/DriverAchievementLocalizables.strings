@@ -332,15 +332,11 @@
 "dk_achievements_failed_to_sync_rankings"="No se sincronizaron las clasificaciones, por favor vuelva a intentarlo más tarde.";
 "dk_achievements_failed_to_sync_streaks"="Incapaz de sincronizar las secuencias de éxito, por favor inténtelo de nuevo más tarde.";
 "dk_achievements_menu_streaks"="Racha de éxitos";
-"dk_achievements_ranking_anonymous_driver"="Anónimo";
-"dk_achievements_ranking_driver"="Conductor";
 "dk_achievements_ranking_legacy"="Bimensual";
 "dk_achievements_ranking_menu_ranking"="Mi clasificación";
 "dk_achievements_ranking_month"="Mensual";
 "dk_achievements_ranking_no_pseudo_set"="Necesita introducir un nick para acceder a esta página.";
 "dk_achievements_ranking_permanent"="Permanente";
-"dk_achievements_ranking_rank"="Rango";
-"dk_achievements_ranking_score"="Puntuaciones";
 "dk_achievements_ranking_week"="Semanal";
 "dk_achievements_streaks_acceleration_reset"="Aceleró bruscamente en su último viaje";
 "dk_achievements_streaks_acceleration_text"="Trate de hacer una serie de viajes sin ninguna aceleración brusca. \n \n Con cada éxito, el contador del número de viajes aumenta. \n \ n Si falla, el contador se reinicia y tienes que empezar de nuevo. \n \ n El número de viajes en su mejor secuencia de pases se almacena en la memoria y puede intentar superarlo.";

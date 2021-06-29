@@ -20,6 +20,7 @@ import DriveKitVehicleUI
 import DriveKitVehicleModule
 import DriveKitDBVehicleAccessModule
 import DriveKitPermissionsUtilsUI
+import DriveKitChallengeUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -42,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitUI.shared.initialize(colors: DefaultColors(), fonts: DefaultFonts(), overridedStringsFileName: "Localizable")
         DriveKitDriverAchievementUI.shared.initialize()
         DriveKitDriverAchievementUI.shared.configureRankingTypes([.safety, .ecoDriving, .distraction, .speeding])
+        DriveKitDriverAchievementUI.shared.configureRankingSelector(DKRankingSelectorType.period(rankingPeriods: [.weekly, .monthly, .allTime]))
         DriveKitDriverDataUI.shared.initialize()
         DriveKitDriverDataUI.shared.enableAlternativeTrips(true)
         DriveKitVehicleUI.shared.initialize()
@@ -54,6 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitPermissionsUtilsUI.shared.configureBluetooth(needed: true)
         DriveKitPermissionsUtilsUI.shared.configureDiagnosisLogs(show: true)
         DriveKitPermissionsUtilsUI.shared.configureContactType(DKContactType.email(self))
+        DriveKitChallengeUI.shared.initialize()
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options : \(options)")
         return true
     }

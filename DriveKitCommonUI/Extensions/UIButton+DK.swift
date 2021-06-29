@@ -14,6 +14,10 @@ public extension UIButton {
         style.configureButton(button: self)
         style.configureText(text: text, button: self)
     }
+
+    func configure(style: DKButtonStyle) {
+        style.configureButton(button: self)
+    }
 }
 
 public enum DKButtonStyle {

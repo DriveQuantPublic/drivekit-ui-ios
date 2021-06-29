@@ -332,15 +332,11 @@
 "dk_achievements_failed_to_sync_rankings"="La récupération du classement a échoué. Veuillez réessayer plus tard.";
 "dk_achievements_failed_to_sync_streaks"="Impossible de synchroniser les séquences de succès, veuillez réessayer plus tard.";
 "dk_achievements_menu_streaks"="Séquences de succès";
-"dk_achievements_ranking_anonymous_driver"="Anonyme";
-"dk_achievements_ranking_driver"="Conducteur";
 "dk_achievements_ranking_legacy"="Bi-mensuel";
 "dk_achievements_ranking_menu_ranking"="Mon classement";
 "dk_achievements_ranking_month"="Mensuel";
 "dk_achievements_ranking_no_pseudo_set"="Vous devez renseigner un pseudo pour accéder à cette page.";
 "dk_achievements_ranking_permanent"="Permanent";
-"dk_achievements_ranking_rank"="Position";
-"dk_achievements_ranking_score"="Score";
 "dk_achievements_ranking_week"="Hebdo";
 "dk_achievements_streaks_acceleration_reset"="Vous avez accéléré brutalement lors de votre dernier trajet";
 "dk_achievements_streaks_acceleration_text"="Essayez d\'enchaîner une série de trajets sans aucune accélération brutale. \n \n A chaque succès, le compteur du nombre de trajets augmente. \n \n En cas d\'échec, le compteur est réinitialisé et vous devez reprendre à zéro. \n \n Le nombre de trajets de votre meilleure séquence de succès est mémorisé et vous pouvez tenter de le dépasser.";

@@ -12,18 +12,20 @@ import DriveKitCoreModule
 import DriveKitDBTripAccessModule
 
 public class TripListVC: DKUIViewController {
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tripsStackView: UIStackView!
+    weak var tripsTableView: UITableView?
     @IBOutlet var noTripsView: UIView!
     @IBOutlet var noTripsImage: UIImageView!
     @IBOutlet var noTripsLabel: UILabel!
     @IBOutlet weak var filterViewContainer: UIView!
     @IBOutlet weak var synthesis: UILabel!
-    
+    @IBOutlet weak var tripsViewPlaceholder: UIView!
+
     private let filterView = DKFilterView.viewFromNib
-    private let refreshControl = UIRefreshControl()
     
     let viewModel: TripListViewModel
-    private var filterViewModel : DKFilterViewModel?
+    var tripListTableViewModel: DKTripListViewModel?
+    private var filterViewModel: DKFilterViewModel?
     private var updating = false
 
     public init() {
@@ -40,15 +42,13 @@ public class TripListVC: DKUIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.title = "dk_driverdata_trips_list_title".dkDriverDataLocalized()
-        self.tableView.register(TripTableViewCell.nib, forCellReuseIdentifier: "TripTableViewCell")
-        if #available(iOS 11, *) {
-          tableView.separatorInset = .zero
+        tripListTableViewModel = DKTripListViewModel(tripList: self)
+        let tripsListTableVC = TripsListTableVC<Trip>(viewModel: tripListTableViewModel!)
+        self.addChild(tripsListTableVC)
+        if let tripsTableView = tripsListTableVC.tableView {
+            self.tripsTableView = tripsTableView
+            self.tripsStackView.addArrangedSubview(tripsTableView)
         }
-        self.tableView.addSubview(refreshControl)
-        refreshControl.addTarget(self, action: #selector(refreshTripList(_ :)), for: .valueChanged)
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        tableView.tableFooterView = UIView(frame: .zero)
 
         self.updating = true
         self.showLoader()
@@ -70,7 +70,7 @@ public class TripListVC: DKUIViewController {
         }
     }
     
-    private func configureFilterButton(){
+    private func configureFilterButton() {
         if DriveKitDriverDataUI.shared.enableAlternativeTrips && self.viewModel.hasAlternativeTrips() {
             let image = UIImage(named: "dk_filter", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.resizeImage(25, opaque: false).withRenderingMode(.alwaysTemplate)
             let filterButton = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(filterAction))
@@ -79,7 +79,7 @@ public class TripListVC: DKUIViewController {
         }
     }
     
-    @objc private func filterAction(){
+    @objc private func filterAction() {
         let items = viewModel.getTripListFilterItems()
         if items.count > 1 {
             let pickerViewModel = DKFilterViewModel(items: items, currentItem: items[0], showPicker: true, delegate: self)
@@ -92,8 +92,8 @@ public class TripListVC: DKUIViewController {
         if self.viewModel.status == .failedToSyncTripsCacheOnly {
             let alert = UIAlertController(title: nil, message: "dk_driverdata_failed_to_sync_trips".dkDriverDataLocalized(), preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: { action in
-                if self.refreshControl.isRefreshing {
-                    self.refreshControl.endRefreshing()
+                if let refreshControl = self.tripsTableView?.refreshControl, refreshControl.isRefreshing {
+                    refreshControl.endRefreshing()
                 }
             }))
             self.present(alert, animated: true, completion: nil)
@@ -101,20 +101,21 @@ public class TripListVC: DKUIViewController {
         
         if self.viewModel.filteredTrips.count > 0 {
             self.noTripsView.isHidden = true
-            self.tableView.isHidden = false
-            self.tableView.reloadData()
-            if self.refreshControl.isRefreshing {
-                self.refreshControl.endRefreshing()
+            self.tripsTableView?.isHidden = false
+            self.tripsViewPlaceholder?.isHidden = true
+            self.tripsTableView?.reloadData()
+            if let refreshControl = self.tripsTableView?.refreshControl, refreshControl.isRefreshing {
+                refreshControl.endRefreshing()
             }
             self.configureSynthesis()
         } else {
             self.noTripsView.isHidden = false
+            self.tripsTableView?.isHidden = true
+            self.tripsViewPlaceholder?.isHidden = false
             if self.viewModel.hasTrips() {
-                self.tableView.isHidden = false
                 self.noTripsImage.image = UIImage(named: "dk_no_vehicle_trips", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withAlignmentRectInsets(UIEdgeInsets(top: -50, left: -50, bottom: -50, right: -50))
                 self.noTripsLabel.text = "dk_driverdata_no_trip_placeholder".dkDriverDataLocalized()
             } else {
-                self.tableView.isHidden = true
                 self.noTripsImage.image = UIImage(named: "dk_no_trips_recorded", in: Bundle.driverDataUIBundle, compatibleWith: nil)
                 self.noTripsLabel.text = "dk_driverdata_no_trips_recorded".dkDriverDataLocalized()
             }
@@ -148,27 +149,21 @@ public class TripListVC: DKUIViewController {
             self.synthesis.isHidden = true
         }
     }
-
-    @objc func refreshTripList(_ sender: Any) {
-        self.viewModel.fetchTrips()
-        DriveKit.shared.modules.tripAnalysis?.checkTripToRepost()
-    }
-
 }
 
-extension TripListVC : TripsDelegate {
+extension TripListVC: TripsDelegate {
     func onTripsAvailable() {
         DispatchQueue.main.async {
             self.hideLoader()
             self.updateUI()
             self.configureFilterButton()
-            self.tableView.reloadData()
+            self.tripsTableView?.reloadData()
             self.updating = false
         }
     }
 }
 
-extension TripListVC : DKFilterItemDelegate {
+extension TripListVC: DKFilterItemDelegate {
     public func onFilterItemSelected(filterItem: DKFilterItem) {
         if filterItem.getId() is TripListConfiguration{
             tripListFilterItemSelected(filterItem: filterItem)
@@ -186,7 +181,7 @@ extension TripListVC : DKFilterItemDelegate {
         }
         self.viewModel.filterTrips(config: .motorized(vehicleId: vehicleId))
         self.updateUI()
-        self.tableView.reloadData()
+        self.tripsTableView?.reloadData()
     }
     
     private func tripListFilterItemSelected(filterItem: DKFilterItem) {
@@ -201,7 +196,7 @@ extension TripListVC : DKFilterItemDelegate {
                 self.filterViewModel = DKFilterViewModel(items: items, currentItem: items[0], showPicker: true, delegate: self)
             }
             self.updateUI()
-            self.tableView.reloadData()
+            self.tripsTableView?.reloadData()
         }
     }
     
@@ -209,6 +204,6 @@ extension TripListVC : DKFilterItemDelegate {
         let mode = filterItem.getId() as? TransportationMode
         self.viewModel.filterTrips(config: .alternative(transportationMode: mode))
         self.updateUI()
-        self.tableView.reloadData()
+        self.tripsTableView?.reloadData()
     }
 }

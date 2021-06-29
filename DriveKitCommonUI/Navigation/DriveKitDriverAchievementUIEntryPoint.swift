@@ -14,4 +14,11 @@ public protocol DriveKitDriverAchievementUIEntryPoint {
     func getBadgesViewController() -> UIViewController
 
     func getRankingViewController() -> UIViewController
+    func getRankingViewController(groupName: String?) -> UIViewController
+}
+
+public extension DriveKitDriverAchievementUIEntryPoint {
+    func getRankingViewController() -> UIViewController {
+        return getRankingViewController(groupName: nil)
+    }
 }

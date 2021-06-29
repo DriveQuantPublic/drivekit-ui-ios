@@ -38,5 +38,21 @@
 	<string>drivekit-permissions-diagnosis</string>
 	<key>dk_tag_permissions_onboarding</key>
 	<string>drivekit-permissions-onboarding</string>
+	<key>dk_tag_challenge_list_active</key>
+	<string>drivekit-challenge-list-active</string>
+	<key>dk_tag_challenge_list_finished</key>
+	<string>drivekit-challenge-list-finished</string>
+	<key>dk_tag_challenge_join</key>
+	<string>drivekit-challenge-join</string>
+	<key>dk_tag_challenge_detail</key>
+	<string>drivekit-challenge-detail</string>
+	<key>dk_tag_challenge_detail_results</key>
+	<string>drivekit-challenge-detail-results</string>
+	<key>dk_tag_challenge_detail_ranking</key>
+	<string>drivekit-challenge-detail-ranking</string>
+	<key>dk_tag_challenge_detail_trips</key>
+	<string>drivekit-challenge-detail-trips</string>
+	<key>dk_tag_challenge_detail_rules</key>
+	<string>drivekit-challenge-detail-rules</string>
 </dict>
 </plist>

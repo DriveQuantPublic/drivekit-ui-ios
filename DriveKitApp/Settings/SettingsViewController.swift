@@ -12,6 +12,7 @@ import DriveKitDriverAchievementModule
 import DriveKitDriverDataModule
 import DriveKitTripAnalysisModule
 import DriveKitVehicleModule
+import DriveKitChallengeModule
 
 class SettingsViewController: UITableViewController {
 
@@ -104,6 +105,7 @@ class SettingsViewController: UITableViewController {
         DriveKitDriverData.shared.reset()
         DriveKitVehicle.shared.reset()
         DriveKitDriverAchievement.shared.reset()
+        DriveKitChallenge.shared.reset()
         if let apiKey = apiKey {
             DriveKit.shared.setApiKey(key: apiKey)
         }

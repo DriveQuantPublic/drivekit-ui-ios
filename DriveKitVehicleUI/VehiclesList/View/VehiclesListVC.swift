@@ -74,7 +74,6 @@ public class VehiclesListVC: DKUIViewController {
         } else {
             self.title = "dk_vehicle_my_vehicles".dkVehicleLocalized()
         }
-        self.navigationController?.navigationBar.topItem?.title = self.title
     }
 }
 

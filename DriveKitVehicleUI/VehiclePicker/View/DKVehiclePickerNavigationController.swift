@@ -37,10 +37,19 @@ public class DKVehiclePickerNavigationController : UINavigationController {
     }
     
     func setupNavigationBar(parentView: UIViewController) {
-        self.navigationBar.barTintColor = parentView.navigationController?.navigationBar.barTintColor
-        self.navigationBar.isTranslucent = parentView.navigationController?.navigationBar.isTranslucent ?? false
-        self.navigationBar.titleTextAttributes = parentView.navigationController?.navigationBar.titleTextAttributes
-        self.navigationBar.tintColor = parentView.navigationController?.navigationBar.tintColor
+        if let navigationBar = parentView.navigationController?.navigationBar {
+            self.navigationBar.isTranslucent = navigationBar.isTranslucent
+            if #available(iOS 15.0, *) {
+                self.navigationBar.standardAppearance = navigationBar.standardAppearance
+                self.navigationBar.scrollEdgeAppearance = navigationBar.scrollEdgeAppearance
+            } else if #available(iOS 13.0, *) {
+                self.navigationBar.standardAppearance = navigationBar.standardAppearance
+            } else {
+                self.navigationBar.titleTextAttributes = navigationBar.titleTextAttributes
+            }
+            self.navigationBar.barTintColor = navigationBar.barTintColor
+            self.navigationBar.tintColor = navigationBar.tintColor
+        }
     }
     
     func showPrevious() {

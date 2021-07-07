@@ -38,11 +38,22 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let navigationController = self.navigationController {
-            if #available(iOS 13.0, *) {
-                navigationController.navigationBar.standardAppearance.titleTextAttributes = [.foregroundColor: DKUIColors.fontColorOnPrimaryColor.color]
+            let titleTextAttributes: [NSAttributedString.Key: Any] = [
+                .foregroundColor: DKUIColors.fontColorOnPrimaryColor.color
+            ]
+            if #available(iOS 15.0, *) {
+                let appearance = UINavigationBarAppearance()
+                appearance.configureWithOpaqueBackground()
+                appearance.backgroundEffect = nil
+                appearance.backgroundColor = DKUIColors.primaryColor.color
+                appearance.titleTextAttributes = titleTextAttributes
+                navigationController.navigationBar.standardAppearance = appearance
+                navigationController.navigationBar.scrollEdgeAppearance = appearance
+            } else if #available(iOS 13.0, *) {
+                navigationController.navigationBar.standardAppearance.titleTextAttributes = titleTextAttributes
                 navigationController.navigationBar.standardAppearance.backgroundColor = DKUIColors.primaryColor.color
             } else {
-                navigationController.navigationBar.titleTextAttributes = [.foregroundColor: DKUIColors.fontColorOnPrimaryColor.color]
+                navigationController.navigationBar.titleTextAttributes = titleTextAttributes
                 navigationController.navigationBar.backgroundColor = DKUIColors.primaryColor.color
             }
         }

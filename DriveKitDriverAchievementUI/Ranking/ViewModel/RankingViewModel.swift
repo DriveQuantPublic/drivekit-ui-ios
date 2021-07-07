@@ -361,14 +361,14 @@ extension RankingViewModel: DKDriverRanking {
         guard rankingSelectors.count > 0 else {
             return ""
         }
-        return rankingTypes[0].name
+        return selectedRankingType?.name ?? DKCommonLocalizable.safety.text()
     }
 
     func getImage() -> UIImage? {
         guard rankingSelectors.count > 0 else {
             return nil
         }
-        return UIImage(named: rankingTypes[0].imageName, in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
+        return UIImage(named: selectedRankingType?.imageName ?? "dk_achievements_ranking_safety", in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
     }
 
     func getProgressionImage() -> UIImage? {

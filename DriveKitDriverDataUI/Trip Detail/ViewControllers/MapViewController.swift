@@ -136,12 +136,15 @@ class MapViewController: DKUIViewController {
         var distractionPolylines: [[CLLocationCoordinate2D]] = []
         let routePolyline = self.getPolyline(longitude: route.longitude!, latitude: route.latitude!)
         if let indexes = route.screenLockedIndex, indexes.count > 1 {
+            let upperBound = route.longitude!.count - 1
             for i in 1..<indexes.count {
                 if route.screenStatus![i - 1] == 1 {
                     let minValue = min(indexes[i - 1], indexes[i])
                     let maxValue = max(indexes[i - 1], indexes[i])
-                    let line = Array(routePolyline[minValue...maxValue])
-                    distractionPolylines.append(line)
+                    if minValue >= 0 && maxValue >= 0 && minValue <= upperBound && maxValue <= upperBound {
+                        let line = Array(routePolyline[minValue...maxValue])
+                        distractionPolylines.append(line)
+                    }
                 }
             }
         }

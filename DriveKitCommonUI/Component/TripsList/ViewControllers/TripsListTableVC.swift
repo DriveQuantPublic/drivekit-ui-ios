@@ -18,8 +18,12 @@ public class TripsListTableVC<TripsListItem: DKTripListItem>: UITableViewControl
         if #available(iOS 11, *) {
           tableView.separatorInset = .zero
         }
+        if #available(iOS 15, *) {
+            self.tableView.sectionHeaderTopPadding = 0
+        }
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.separatorStyle = .none
         tableView.tableFooterView = UIView(frame: .zero)
         if let tripList = viewModel?.tripList, tripList.canPullToRefresh() {
             self.refreshControl = UIRefreshControl()
@@ -68,7 +72,7 @@ public class TripsListTableVC<TripsListItem: DKTripListItem>: UITableViewControl
         if let cell: TripTableViewCell = tableView.dequeueReusableCell(withIdentifier: "TripTableViewCell") as? TripTableViewCell {
             if let trip = self.viewModel?.tripList?.getTripsList()[indexPath.section].trips[indexPath.row] {
                 cell.selectionStyle = .none
-                cell.configure(trip: trip, tripData: self.viewModel?.tripList?.getTripData() ?? .safety)
+                cell.configure(trip: trip, tripData: self.viewModel?.tripList?.getTripData() ?? .safety, isFirst: indexPath.row == 0, separatorColor: tableView.separatorColor)
                 if let tripInfoView = cell.tripInfoView {
                     let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tripInfoAction(_:)))
                     tripInfoView.addGestureRecognizer(gestureRecognizer)

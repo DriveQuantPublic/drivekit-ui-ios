@@ -10,4 +10,5 @@ import UIKit
 
 @objc public protocol DKAnalytics {
     func trackScreen(_ screen: String, viewController: UIViewController)
+    func trackEvent(_ event: DKAnalyticsEvent, parameters: [String: Any]?)
 }

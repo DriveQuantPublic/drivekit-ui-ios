@@ -201,12 +201,14 @@
 		632EDDF124504BEE00110744 /* UIColor+PermissionsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632EDDF024504BEE00110744 /* UIColor+PermissionsUtils.swift */; };
 		633E93D8261D0CA4009543C0 /* SynthesisCardInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633E93D7261D0CA4009543C0 /* SynthesisCardInfoView.swift */; };
 		633E93DF261D0D1A009543C0 /* SynthesisCardInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 633E93DE261D0D1A009543C0 /* SynthesisCardInfoView.xib */; };
+		634C354426BAD53800C75098 /* DKAnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634C354326BAD53800C75098 /* DKAnalyticsEvent.swift */; };
 		635616F624B4B7AC0047EAD8 /* DriverRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635616F524B4B7AC0047EAD8 /* DriverRank.swift */; };
 		635616F824B4CD6D0047EAD8 /* RankingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635616F724B4CD6D0047EAD8 /* RankingType.swift */; };
 		635616FA24B4CDB30047EAD8 /* RankingSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635616F924B4CDB30047EAD8 /* RankingSelector.swift */; };
 		6357AE69261120D20000CA58 /* SynthesisCardUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357AE68261120D20000CA58 /* SynthesisCardUtils.swift */; };
 		6357AE84261135600000CA58 /* DKGaugeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357AE4F26111DD40000CA58 /* DKGaugeConfiguration.swift */; };
 		6357AE85261135600000CA58 /* DKGaugeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6357AE5B26111F180000CA58 /* DKGaugeType.swift */; };
+		635FC8B626BAECF600B1CABE /* DKAnalyticsEventKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635FC8B526BAECF600B1CABE /* DKAnalyticsEventKey.swift */; };
 		63782D912487997A0079F315 /* DKTruckType+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63782D902487997A0079F315 /* DKTruckType+UI.swift */; };
 		63782D932487A1E40079F315 /* VehiclePickerTruckTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63782D922487A1E30079F315 /* VehiclePickerTruckTypeVC.swift */; };
 		63782D952487A23E0079F315 /* VehiclePickerTruckTypeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63782D942487A23D0079F315 /* VehiclePickerTruckTypeVC.xib */; };
@@ -767,12 +769,14 @@
 		632EDDF024504BEE00110744 /* UIColor+PermissionsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+PermissionsUtils.swift"; sourceTree = "<group>"; };
 		633E93D7261D0CA4009543C0 /* SynthesisCardInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesisCardInfoView.swift; sourceTree = "<group>"; };
 		633E93DE261D0D1A009543C0 /* SynthesisCardInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SynthesisCardInfoView.xib; sourceTree = "<group>"; };
+		634C354326BAD53800C75098 /* DKAnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKAnalyticsEvent.swift; sourceTree = "<group>"; };
 		635616F524B4B7AC0047EAD8 /* DriverRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRank.swift; sourceTree = "<group>"; };
 		635616F724B4CD6D0047EAD8 /* RankingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingType.swift; sourceTree = "<group>"; };
 		635616F924B4CDB30047EAD8 /* RankingSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingSelector.swift; sourceTree = "<group>"; };
 		6357AE4F26111DD40000CA58 /* DKGaugeConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKGaugeConfiguration.swift; sourceTree = "<group>"; };
 		6357AE5B26111F180000CA58 /* DKGaugeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKGaugeType.swift; sourceTree = "<group>"; };
 		6357AE68261120D20000CA58 /* SynthesisCardUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesisCardUtils.swift; sourceTree = "<group>"; };
+		635FC8B526BAECF600B1CABE /* DKAnalyticsEventKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKAnalyticsEventKey.swift; sourceTree = "<group>"; };
 		63782D902487997A0079F315 /* DKTruckType+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DKTruckType+UI.swift"; sourceTree = "<group>"; };
 		63782D922487A1E30079F315 /* VehiclePickerTruckTypeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclePickerTruckTypeVC.swift; sourceTree = "<group>"; };
 		63782D942487A23D0079F315 /* VehiclePickerTruckTypeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VehiclePickerTruckTypeVC.xib; sourceTree = "<group>"; };
@@ -1649,6 +1653,8 @@
 			isa = PBXGroup;
 			children = (
 				63199A6D24ED7C250011DCFC /* DKAnalytics.swift */,
+				634C354326BAD53800C75098 /* DKAnalyticsEvent.swift */,
+				635FC8B526BAECF600B1CABE /* DKAnalyticsEventKey.swift */,
 			);
 			path = Analytics;
 			sourceTree = "<group>";
@@ -2952,6 +2958,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				634C354426BAD53800C75098 /* DKAnalyticsEvent.swift in Sources */,
 				67301C91261F55B8006B0432 /* Array+DK.swift in Sources */,
 				3FA24FF62524B9BE000AB7D3 /* DKFilterView.swift in Sources */,
 				67F2D3BC26316D5800ACC69A /* DKDriverRankingViewModel.swift in Sources */,
@@ -2993,6 +3000,7 @@
 				3FF68E8C240C0A430071D74C /* UIViewController+DK.swift in Sources */,
 				3FED7FC52525B7B900D19E18 /* DKFilterTableViewCell.swift in Sources */,
 				67E807DE2657B855003AFAA8 /* NSAttributedString+DK.swift in Sources */,
+				635FC8B626BAECF600B1CABE /* DKAnalyticsEventKey.swift in Sources */,
 				3FF68E8E240CF0420071D74C /* CircularProgressView.swift in Sources */,
 				63ECE8EF26682D49000F08D3 /* UserPseudoViewControllerDelegate.swift in Sources */,
 				3FF68E90240CF0510071D74C /* ConfigurationCircularProgressView.swift in Sources */,

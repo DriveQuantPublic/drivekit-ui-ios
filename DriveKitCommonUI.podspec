@@ -19,9 +19,6 @@ Pod::Spec.new do |s|
   s.dependency 'UICircularProgressRing', '6.5.0'
   s.dependency 'DriveKitCore'
 
-  s.info_plist = {
-    'CFBundleIdentifier' => 'com.drivequant.drivekit-common-ui'
-  }
   s.pod_target_xcconfig = {
     'PRODUCT_BUNDLE_IDENTIFIER': 'com.drivequant.drivekit-common-ui'
   }

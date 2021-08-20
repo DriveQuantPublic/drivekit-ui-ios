@@ -87,6 +87,17 @@ public class DriveKitDriverDataUI: AccessRightListener {
         return DriverDataSynthesisCardsUI.getLastTripsSynthesisCardsView(synthesisCards)
     }
 
+    public func getLastTripsView(
+        lastTripsMaxNumber: Int = 10,
+        headerDay: HeaderDay = .distance,
+        tripData: TripData = .safety,
+        parentViewController: UIViewController? = nil,
+        delegate: DKLastTripsWidgetDelegate?
+    ) -> UIView {
+        let trips = LastTripsWidgetUtils.getLastTrips(limit: lastTripsMaxNumber)
+        return DKLastTripsWidget.getTripsWidget(trips: trips, headerDay: headerDay, tripData: tripData, parentViewController: parentViewController, delegate: delegate)
+    }
+
     private func filterMapItems() {
         self.mapItems = sourceMapItems.filter({
             $0.hasAccess()

@@ -8,26 +8,29 @@
 
 import UIKit
 
-class LastTripsViewCell : UICollectionViewCell {
+class LastTripsViewCell : UICollectionViewCell, Nibable {
 
-    private weak var tripCell: TripTableViewCell?
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var tripCellContainer: UIView!
+    private weak var tripCell: TripTableViewCell!
     var tripInfoView: TripInfoView? {
         return tripCell?.tripInfoView
     }
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
         let tripCell = TripTableViewCell.viewFromNib
-        tripCell.contentView.frame = self.contentView.bounds
-        self.contentView.addSubview(tripCell)
+        tripCell.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        tripCell.frame = self.tripCellContainer.bounds
+        tripCell.selectionStyle = .none
+        tripCell.isUserInteractionEnabled = false
+        self.tripCellContainer.addSubview(tripCell)
         self.tripCell = tripCell
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    func configure(trip: DKTripListItem, tripData: TripData) {
+    func configure(trip: DKTripListItem, tripData: TripData, title: String) {
+        self.titleLabel.attributedText = title.dkAttributedString().font(dkFont: .primary, style: DKStyles.highlightSmall.withSizeDelta(-2)).color(.complementaryFontColor).build()
         self.tripCell?.configure(trip: trip, tripData: tripData)
     }
 

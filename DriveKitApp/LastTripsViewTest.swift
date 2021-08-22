@@ -17,14 +17,14 @@ class LastTripsViewTest : UIViewController {
 
         self.view.backgroundColor = .white
 
-        let lastTripsView = DriveKitDriverDataUI.shared.getLastTripsView(delegate: self)
+        let lastTripsView = DriveKitDriverDataUI.shared.getLastTripsView(parentViewController: self, delegate: self)
         lastTripsView.translatesAutoresizingMaskIntoConstraints = false
         addShadow(to: lastTripsView)
         self.view.addSubview(lastTripsView)
 
         let margin = CGFloat(10)
         self.view.addConstraints([
-            lastTripsView.heightAnchor.constraint(equalToConstant: 100),
+            lastTripsView.heightAnchor.constraint(equalToConstant: 140),
             lastTripsView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: margin),
             lastTripsView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: margin),
             lastTripsView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -margin)

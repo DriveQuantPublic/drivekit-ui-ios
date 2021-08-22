@@ -17,7 +17,7 @@ public class DKLastTripsWidget {
         parentViewController: UIViewController? = nil,
         delegate: DKLastTripsWidgetDelegate?
     ) -> UIView {
-        let viewModel = LastTripsViewModel(trips: trips, tripData: tripData, parentViewController: parentViewController, delegate: delegate)
+        let viewModel = LastTripsViewModel(trips: trips, tripData: tripData, headerDay: headerDay, parentViewController: parentViewController, delegate: delegate)
         let lastTripsView = LastTripsView.viewFromNib
         lastTripsView.viewModel = viewModel
         return lastTripsView

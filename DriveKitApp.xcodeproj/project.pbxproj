@@ -241,6 +241,7 @@
 		63BE1ED726CF97CA00CFEB8B /* LastTripsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE1ED626CF97CA00CFEB8B /* LastTripsViewCell.swift */; };
 		63BE1EDC26D0012F00CFEB8B /* LastTripsWidgetUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE1ED926D0006A00CFEB8B /* LastTripsWidgetUtils.swift */; };
 		63BE1EDE26D0055800CFEB8B /* LastTripsViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE1EDD26D0055800CFEB8B /* LastTripsViewTest.swift */; };
+		63BE1EE026D2765F00CFEB8B /* LastTripsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63BE1EDF26D2765F00CFEB8B /* LastTripsViewCell.xib */; };
 		63BF8EFA24531011006BEB3F /* DKContactType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639346B4244897C1000F42D4 /* DKContactType.swift */; };
 		63C3FD78244EDDA900C2FEEC /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3FD77244EDDA900C2FEEC /* ContactViewModel.swift */; };
 		63C3FD7C244EE56C00C2FEEC /* LoggingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3FD7B244EE56C00C2FEEC /* LoggingViewModel.swift */; };
@@ -820,6 +821,7 @@
 		63BE1ED626CF97CA00CFEB8B /* LastTripsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastTripsViewCell.swift; sourceTree = "<group>"; };
 		63BE1ED926D0006A00CFEB8B /* LastTripsWidgetUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastTripsWidgetUtils.swift; sourceTree = "<group>"; };
 		63BE1EDD26D0055800CFEB8B /* LastTripsViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastTripsViewTest.swift; sourceTree = "<group>"; };
+		63BE1EDF26D2765F00CFEB8B /* LastTripsViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LastTripsViewCell.xib; sourceTree = "<group>"; };
 		63C3FD77244EDDA900C2FEEC /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
 		63C3FD7B244EE56C00C2FEEC /* LoggingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingViewModel.swift; sourceTree = "<group>"; };
 		63C3FD7F244F28B000C2FEEC /* SensorInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorInfoViewModel.swift; sourceTree = "<group>"; };
@@ -1795,6 +1797,7 @@
 				63BE1ED026CEF82300CFEB8B /* LastTripsView.swift */,
 				63BE1ED426CF916000CFEB8B /* LastTripsView.xib */,
 				63BE1ED626CF97CA00CFEB8B /* LastTripsViewCell.swift */,
+				63BE1EDF26D2765F00CFEB8B /* LastTripsViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2690,6 +2693,7 @@
 				63ECE8E92667E09C000F08D3 /* UserPseudoViewController.xib in Resources */,
 				3FF68E82240965E10071D74C /* DKImages.xcassets in Resources */,
 				67301CC5261FB0CD006B0432 /* TripTableViewCell.xib in Resources */,
+				63BE1EE026D2765F00CFEB8B /* LastTripsViewCell.xib in Resources */,
 				63FE778624FD1A9D00C068C3 /* AnalyticsTags.plist in Resources */,
 				3FED7FC62525B7B900D19E18 /* DKFilterTableViewCell.xib in Resources */,
 				67F2D3552630F06B00ACC69A /* RankingScoreSmall.xib in Resources */,

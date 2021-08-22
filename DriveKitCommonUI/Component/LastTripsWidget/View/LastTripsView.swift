@@ -28,7 +28,7 @@ class LastTripsView : UIView, Nibable {
     }
 
     private func setupCollectionView() {
-        self.collectionView.register(LastTripsViewCell.self, forCellWithReuseIdentifier: "LastTripsViewCell")
+        self.collectionView.register(LastTripsViewCell.nib, forCellWithReuseIdentifier: "LastTripsViewCell")
     }
 
     private func setupPageControl() {
@@ -66,10 +66,9 @@ extension LastTripsView : UICollectionViewDataSource {
                 case .trips:
                     if let tripCell = collectionView.dequeueReusableCell(withReuseIdentifier: "LastTripsViewCell", for: indexPath) as? LastTripsViewCell {
                         let trip = viewModel.trips[indexPath.row]
-                        tripCell.configure(trip: trip, tripData: viewModel.tripData)
+                        tripCell.configure(trip: trip, tripData: viewModel.tripData, title: viewModel.titleForTrip(trip))
                         if let tripInfoView = tripCell.tripInfoView {
-                            let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tripInfoAction(_:)))
-                            tripInfoView.addGestureRecognizer(gestureRecognizer)
+                            tripInfoView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tripInfoAction(_:))))
                         }
                         cell = tripCell
                     } else {
@@ -100,7 +99,7 @@ extension LastTripsView : UICollectionViewDataSource {
 
 extension LastTripsView : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        self.viewModel?.didSelectTrip(at: indexPath.row)
     }
 }
 

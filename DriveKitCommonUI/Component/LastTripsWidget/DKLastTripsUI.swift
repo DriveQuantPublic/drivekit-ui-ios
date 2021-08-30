@@ -1,5 +1,5 @@
 //
-//  DKLastTripsWidget.swift
+//  DKLastTripsUI.swift
 //  DriveKitCommonUI
 //
 //  Created by David Bauduin on 19/08/2021.
@@ -8,16 +8,15 @@
 
 import UIKit
 
-public class DKLastTripsWidget {
+public class DKLastTripsUI {
 
     public static func getTripsWidget(
         trips: [DKTripListItem],
         headerDay: HeaderDay = .distance,
         tripData: TripData = .safety,
-        parentViewController: UIViewController? = nil,
-        delegate: DKLastTripsWidgetDelegate?
+        parentViewController: UIViewController
     ) -> UIView {
-        let viewModel = LastTripsViewModel(trips: trips, tripData: tripData, headerDay: headerDay, parentViewController: parentViewController, delegate: delegate)
+        let viewModel = LastTripsViewModel(trips: trips, tripData: tripData, headerDay: headerDay, parentViewController: parentViewController)
         let lastTripsView = LastTripsView.viewFromNib
         lastTripsView.viewModel = viewModel
         return lastTripsView

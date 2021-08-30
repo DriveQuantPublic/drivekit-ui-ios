@@ -37,10 +37,10 @@ class LastTripsViewCell : UICollectionViewCell, Nibable {
             self.addSubview(tripInfoView)
             tripInfoView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
-                NSLayoutConstraint(item: tripInfoView, attribute: .centerY, relatedBy: .equal, toItem: tripCell, attribute: .centerY, multiplier: 1, constant: 0),
-                NSLayoutConstraint(item: tripInfoView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50),
-                NSLayoutConstraint(item: tripInfoView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 32),
-                NSLayoutConstraint(item: tripCell, attribute: .trailing, relatedBy: .equal, toItem: tripInfoView, attribute: .leading, multiplier: 1, constant: 0),
+                tripInfoView.centerYAnchor.constraint(equalTo: tripCell.centerYAnchor),
+                tripInfoView.widthAnchor.constraint(equalToConstant: 50),
+                tripInfoView.heightAnchor.constraint(equalToConstant: 32),
+                tripCell.trailingAnchor.constraint(equalTo: tripInfoView.leadingAnchor),
                 NSLayoutConstraint(item: self, attribute: .trailingMargin, relatedBy: .equal, toItem: tripInfoView, attribute: .trailingMargin, multiplier: 1, constant: 8)
             ])
         }

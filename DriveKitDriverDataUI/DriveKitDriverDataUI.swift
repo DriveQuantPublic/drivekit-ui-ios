@@ -90,12 +90,10 @@ public class DriveKitDriverDataUI: AccessRightListener {
     public func getLastTripsView(
         lastTripsMaxNumber: Int = 10,
         headerDay: HeaderDay = .distance,
-        tripData: TripData = .safety,
-        parentViewController: UIViewController? = nil,
-        delegate: DKLastTripsWidgetDelegate?
+        parentViewController: UIViewController
     ) -> UIView {
         let trips = LastTripsWidgetUtils.getLastTrips(limit: lastTripsMaxNumber)
-        return DKLastTripsWidget.getTripsWidget(trips: trips, headerDay: headerDay, tripData: tripData, parentViewController: parentViewController, delegate: delegate)
+        return DKLastTripsUI.getTripsWidget(trips: trips, headerDay: headerDay, tripData: self.tripData, parentViewController: parentViewController)
     }
 
     private func filterMapItems() {

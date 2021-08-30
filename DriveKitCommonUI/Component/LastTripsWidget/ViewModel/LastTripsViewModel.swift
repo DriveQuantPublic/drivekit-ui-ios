@@ -13,7 +13,6 @@ struct LastTripsViewModel {
     let tripData: TripData
     let headerDay: HeaderDay
     weak var parentViewController: UIViewController?
-    weak var delegate: DKLastTripsWidgetDelegate?
 
     func titleForTrip(_ trip: DKTripListItem) -> String {
         let firstPart: String
@@ -26,9 +25,45 @@ struct LastTripsViewModel {
     }
 
     func didSelectTrip(at index: Int) {
-        if let delegate = delegate, index >= 0 && index < self.trips.count {
+        if index >= 0 && index < self.trips.count {
             let trip = self.trips[index]
-            delegate.didSelectTrip(trip)
+            didSelectTrip(trip)
+        }
+    }
+
+    func didSelectInfoView(of tripItem: DKTripListItem) {
+        if tripItem.hasInfoActionConfigured() {
+            if let parentViewController = self.parentViewController {
+                tripItem.infoClickAction(parentViewController: parentViewController)
+            } else {
+                didSelectTrip(tripItem, showAdvice: true)
+            }
+        } else {
+            didSelectTrip(tripItem)
+        }
+    }
+
+    func didSelectAllTrips() {
+        if self.parentViewController != nil, let tripList = DriveKitNavigationController.shared.driverDataUI?.getTripListViewController() {
+            showViewController(tripList)
+        }
+    }
+
+    private func didSelectTrip(_ trip: DKTripListItem, showAdvice: Bool = false) {
+        if self.parentViewController != nil, let tripDetail = DriveKitNavigationController.shared.driverDataUI?.getTripDetailViewController(itinId: trip.getItinId(), showAdvice: showAdvice, alternativeTransport: false) {
+            showViewController(tripDetail)
+        } else {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DKShowTripDetail"), object: nil, userInfo: ["itinId": trip.getItinId()])
+        }
+    }
+
+    private func showViewController(_ viewController: UIViewController) {
+        if let parentViewController = self.parentViewController {
+            if let navigationController = parentViewController.navigationController {
+                navigationController.pushViewController(viewController, animated: true)
+            } else {
+                parentViewController.present(viewController, animated: true, completion: nil)
+            }
         }
     }
 }

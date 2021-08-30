@@ -12,7 +12,7 @@ class LastTripsView : UIView, Nibable {
 
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var pageControl: UIPageControl!
-    private let sections: [LastTripsViewSection] = [.trips] // [.trips, .showAllTrips]
+    private let sections: [LastTripsViewSection] = [.trips, .showAllTrips]
 
     var viewModel: LastTripsViewModel? = nil {
         didSet {
@@ -29,6 +29,7 @@ class LastTripsView : UIView, Nibable {
 
     private func setupCollectionView() {
         self.collectionView.register(LastTripsViewCell.nib, forCellWithReuseIdentifier: "LastTripsViewCell")
+        self.collectionView.register(MoreTripsViewCell.nib, forCellWithReuseIdentifier: "MoreTripsViewCell")
     }
 
     private func setupPageControl() {
@@ -39,7 +40,7 @@ class LastTripsView : UIView, Nibable {
     private func update() {
         if self.collectionView != nil {
             self.collectionView.reloadData()
-            self.pageControl.numberOfPages = (self.viewModel?.trips.count ?? 0 + 1)
+            self.pageControl.numberOfPages = (self.viewModel?.trips.count ?? 0) + 1
         }
     }
 
@@ -77,8 +78,7 @@ extension LastTripsView : UICollectionViewDataSource {
                         cell = UICollectionViewCell()
                     }
                 case .showAllTrips:
-                    cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TODO", for: indexPath)
-                //TODO
+                    cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoreTripsViewCell", for: indexPath) as? MoreTripsViewCell ?? UICollectionViewCell()
             }
             return cell
         } else {
@@ -87,14 +87,8 @@ extension LastTripsView : UICollectionViewDataSource {
     }
 
     @objc private func tripInfoAction(_ sender: UITapGestureRecognizer) {
-        if let tripInfoView = sender.view as? TripInfoView, let tripItem = tripInfoView.trip {
-            if tripItem.hasInfoActionConfigured() {
-                if let parentViewController = self.viewModel?.parentViewController {
-                    tripItem.infoClickAction(parentViewController: parentViewController)
-                }
-            } else {
-                self.viewModel?.delegate?.didSelectTrip(tripItem)
-            }
+        if let tripInfoView = sender.view as? TripInfoView, let tripItem = tripInfoView.trip, let viewModel = self.viewModel {
+            viewModel.didSelectInfoView(of: tripItem)
         }
     }
 }
@@ -108,7 +102,14 @@ extension LastTripsView: UIGestureRecognizerDelegate {
 
 extension LastTripsView : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.viewModel?.didSelectTrip(at: indexPath.row)
+        if let viewModel = self.viewModel {
+            switch self.sections[indexPath.section] {
+                case .trips:
+                    viewModel.didSelectTrip(at: indexPath.row)
+                case .showAllTrips:
+                    viewModel.didSelectAllTrips()
+            }
+        }
     }
 }
 

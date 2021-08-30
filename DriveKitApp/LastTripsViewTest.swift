@@ -17,7 +17,7 @@ class LastTripsViewTest : UIViewController {
 
         self.view.backgroundColor = .white
 
-        let lastTripsView = DriveKitDriverDataUI.shared.getLastTripsView(parentViewController: self, delegate: self)
+        let lastTripsView = DriveKitDriverDataUI.shared.getLastTripsView(parentViewController: self)
         lastTripsView.translatesAutoresizingMaskIntoConstraints = false
         addShadow(to: lastTripsView)
         self.view.addSubview(lastTripsView)
@@ -39,16 +39,4 @@ class LastTripsViewTest : UIViewController {
         view.layer.masksToBounds = false
     }
 
-}
-
-extension LastTripsViewTest : DKLastTripsWidgetDelegate {
-    func didSelectTrip(_ trip: DKTripListItem) {
-        //TODO
-        print("======== didSelectTrip")
-    }
-
-    func openTripList() {
-        //TODO
-        print("======== openTripList")
-    }
 }

@@ -33,12 +33,12 @@
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstItem="sgL-GX-t81" firstAttribute="leading" secondItem="ovf-dK-zyR" secondAttribute="leading" constant="8" id="80T-CA-SAF"/>
                     <constraint firstItem="zF7-Po-2hS" firstAttribute="top" secondItem="ovf-dK-zyR" secondAttribute="top" id="HAh-WO-9LN"/>
-                    <constraint firstItem="sgL-GX-t81" firstAttribute="trailing" secondItem="zF7-Po-2hS" secondAttribute="trailing" id="Sk2-1f-fHM"/>
                     <constraint firstAttribute="trailing" secondItem="zF7-Po-2hS" secondAttribute="trailing" constant="8" id="WCh-m2-XBJ"/>
                     <constraint firstItem="zF7-Po-2hS" firstAttribute="leading" secondItem="ovf-dK-zyR" secondAttribute="leading" constant="8" id="erS-01-rHh"/>
                     <constraint firstItem="sgL-GX-t81" firstAttribute="top" secondItem="zF7-Po-2hS" secondAttribute="bottom" constant="6" id="lUy-6T-1eK"/>
-                    <constraint firstItem="sgL-GX-t81" firstAttribute="leading" secondItem="zF7-Po-2hS" secondAttribute="leading" id="tu7-sR-l82"/>
+                    <constraint firstAttribute="trailing" secondItem="sgL-GX-t81" secondAttribute="trailing" priority="750" constant="8" id="pzI-aB-8n9"/>
                     <constraint firstAttribute="bottom" secondItem="sgL-GX-t81" secondAttribute="bottom" id="uJP-H4-hNr"/>
                 </constraints>
             </collectionViewCellContentView>

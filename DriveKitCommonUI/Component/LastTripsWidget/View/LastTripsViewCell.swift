@@ -32,17 +32,16 @@ class LastTripsViewCell : UICollectionViewCell, Nibable {
     func configure(trip: DKTripListItem, tripData: TripData, title: String) {
         self.titleLabel.attributedText = title.dkAttributedString().font(dkFont: .primary, style: DKStyles.highlightSmall.withSizeDelta(-2)).color(.complementaryFontColor).build()
         self.tripCell?.configure(trip: trip, tripData: tripData)
-        if let tripInfoView = tripInfoView, let tripCell = self.tripCell, let accessoryView = tripCell.accessoryView {
-            let frame = accessoryView.frame
+        if let tripInfoView = tripInfoView, let tripCell = self.tripCell {
             tripCell.accessoryView = nil
             self.addSubview(tripInfoView)
             tripInfoView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
                 NSLayoutConstraint(item: tripInfoView, attribute: .centerY, relatedBy: .equal, toItem: tripCell, attribute: .centerY, multiplier: 1, constant: 0),
-                NSLayoutConstraint(item: tripInfoView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: frame.width),
-                NSLayoutConstraint(item: tripInfoView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: frame.height),
+                NSLayoutConstraint(item: tripInfoView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50),
+                NSLayoutConstraint(item: tripInfoView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 32),
                 NSLayoutConstraint(item: tripCell, attribute: .trailing, relatedBy: .equal, toItem: tripInfoView, attribute: .leading, multiplier: 1, constant: 0),
-                NSLayoutConstraint(item: self, attribute: .trailingMargin, relatedBy: .equal, toItem: tripInfoView, attribute: .trailingMargin, multiplier: 1, constant: 10)
+                NSLayoutConstraint(item: self, attribute: .trailingMargin, relatedBy: .equal, toItem: tripInfoView, attribute: .trailingMargin, multiplier: 1, constant: 8)
             ])
         }
     }

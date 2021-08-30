@@ -68,7 +68,9 @@ extension LastTripsView : UICollectionViewDataSource {
                         let trip = viewModel.trips[indexPath.row]
                         tripCell.configure(trip: trip, tripData: viewModel.tripData, title: viewModel.titleForTrip(trip))
                         if let tripInfoView = tripCell.tripInfoView {
-                            tripInfoView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tripInfoAction(_:))))
+                            let gestureRec = UITapGestureRecognizer(target: self, action: #selector(tripInfoAction(_:)))
+                            gestureRec.delegate = self
+                            tripInfoView.addGestureRecognizer(gestureRec)
                         }
                         cell = tripCell
                     } else {
@@ -94,6 +96,13 @@ extension LastTripsView : UICollectionViewDataSource {
                 self.viewModel?.delegate?.didSelectTrip(tripItem)
             }
         }
+    }
+}
+
+extension LastTripsView: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if let _ = touch.view as? TripInfoView { return true }
+        return false
     }
 }
 

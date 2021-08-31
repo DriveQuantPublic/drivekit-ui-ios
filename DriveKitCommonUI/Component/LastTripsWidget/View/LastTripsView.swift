@@ -40,7 +40,16 @@ class LastTripsView : UIView, Nibable {
     private func update() {
         if self.collectionView != nil {
             self.collectionView.reloadData()
-            self.pageControl.numberOfPages = (self.viewModel?.trips.count ?? 0) + 1
+            var numberOfItems = 0
+            for section in self.sections {
+                switch section {
+                    case .trips:
+                        numberOfItems += self.viewModel?.trips.count ?? 0
+                    case .showAllTrips:
+                        numberOfItems += 1
+                }
+            }
+            self.pageControl.numberOfPages = numberOfItems
         }
     }
 

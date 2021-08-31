@@ -233,6 +233,14 @@
 		639F3D2124B5C8F10081DFC3 /* RankingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F3D2024B5C8F10081DFC3 /* RankingStatus.swift */; };
 		63B07CD224EFCA110060DF33 /* AnalyticsScreenToTagKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63B07CD124EFCA110060DF33 /* AnalyticsScreenToTagKey.plist */; };
 		63B3A1A024AB73460011F11B /* DKRankingSelectorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B3A19F24AB73460011F11B /* DKRankingSelectorType.swift */; };
+		63BE1ECC26CEF7B500CFEB8B /* DKLastTripsUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE1ECB26CEF7B500CFEB8B /* DKLastTripsUI.swift */; };
+		63BE1ED126CEF82300CFEB8B /* LastTripsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE1ED026CEF82300CFEB8B /* LastTripsView.swift */; };
+		63BE1ED326CEF85200CFEB8B /* LastTripsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE1ED226CEF85200CFEB8B /* LastTripsViewModel.swift */; };
+		63BE1ED526CF916000CFEB8B /* LastTripsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63BE1ED426CF916000CFEB8B /* LastTripsView.xib */; };
+		63BE1ED726CF97CA00CFEB8B /* LastTripsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE1ED626CF97CA00CFEB8B /* LastTripsViewCell.swift */; };
+		63BE1EDC26D0012F00CFEB8B /* LastTripsWidgetUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE1ED926D0006A00CFEB8B /* LastTripsWidgetUtils.swift */; };
+		63BE1EDE26D0055800CFEB8B /* LastTripsViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE1EDD26D0055800CFEB8B /* LastTripsViewTest.swift */; };
+		63BE1EE026D2765F00CFEB8B /* LastTripsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63BE1EDF26D2765F00CFEB8B /* LastTripsViewCell.xib */; };
 		63BF8EFA24531011006BEB3F /* DKContactType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639346B4244897C1000F42D4 /* DKContactType.swift */; };
 		63C3FD78244EDDA900C2FEEC /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3FD77244EDDA900C2FEEC /* ContactViewModel.swift */; };
 		63C3FD7C244EE56C00C2FEEC /* LoggingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3FD7B244EE56C00C2FEEC /* LoggingViewModel.swift */; };
@@ -241,6 +249,8 @@
 		63C3FD86244F89B300C2FEEC /* SensorInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63C3FD84244F89B300C2FEEC /* SensorInfoViewController.xib */; };
 		63C8751524B3727000CA9723 /* RankingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8751424B3727000CA9723 /* RankingViewModel.swift */; };
 		63DA2CD62551BC2C00C228E8 /* KontaktBeaconHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DA2CD52551BC2C00C228E8 /* KontaktBeaconHelper.swift */; };
+		63E75EC026DD2347005A9FDB /* MoreTripsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63E75EBF26DD2347005A9FDB /* MoreTripsViewCell.xib */; };
+		63E75EC226DD23D7005A9FDB /* MoreTripsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E75EC126DD23D7005A9FDB /* MoreTripsViewCell.swift */; };
 		63ECE8E92667E09C000F08D3 /* UserPseudoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63ECE8E82667E09C000F08D3 /* UserPseudoViewController.xib */; };
 		63ECE8EB2667E0CD000F08D3 /* UserPseudoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ECE8EA2667E0CD000F08D3 /* UserPseudoViewController.swift */; };
 		63ECE8ED26682058000F08D3 /* Bundle+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ECE8EC26682058000F08D3 /* Bundle+DK.swift */; };
@@ -804,6 +814,14 @@
 		639F3D2024B5C8F10081DFC3 /* RankingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingStatus.swift; sourceTree = "<group>"; };
 		63B07CD124EFCA110060DF33 /* AnalyticsScreenToTagKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AnalyticsScreenToTagKey.plist; sourceTree = "<group>"; };
 		63B3A19F24AB73460011F11B /* DKRankingSelectorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKRankingSelectorType.swift; sourceTree = "<group>"; };
+		63BE1ECB26CEF7B500CFEB8B /* DKLastTripsUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKLastTripsUI.swift; sourceTree = "<group>"; };
+		63BE1ED026CEF82300CFEB8B /* LastTripsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastTripsView.swift; sourceTree = "<group>"; };
+		63BE1ED226CEF85200CFEB8B /* LastTripsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastTripsViewModel.swift; sourceTree = "<group>"; };
+		63BE1ED426CF916000CFEB8B /* LastTripsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LastTripsView.xib; sourceTree = "<group>"; };
+		63BE1ED626CF97CA00CFEB8B /* LastTripsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastTripsViewCell.swift; sourceTree = "<group>"; };
+		63BE1ED926D0006A00CFEB8B /* LastTripsWidgetUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastTripsWidgetUtils.swift; sourceTree = "<group>"; };
+		63BE1EDD26D0055800CFEB8B /* LastTripsViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastTripsViewTest.swift; sourceTree = "<group>"; };
+		63BE1EDF26D2765F00CFEB8B /* LastTripsViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LastTripsViewCell.xib; sourceTree = "<group>"; };
 		63C3FD77244EDDA900C2FEEC /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
 		63C3FD7B244EE56C00C2FEEC /* LoggingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingViewModel.swift; sourceTree = "<group>"; };
 		63C3FD7F244F28B000C2FEEC /* SensorInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorInfoViewModel.swift; sourceTree = "<group>"; };
@@ -811,6 +829,8 @@
 		63C3FD84244F89B300C2FEEC /* SensorInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SensorInfoViewController.xib; sourceTree = "<group>"; };
 		63C8751424B3727000CA9723 /* RankingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewModel.swift; sourceTree = "<group>"; };
 		63DA2CD52551BC2C00C228E8 /* KontaktBeaconHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KontaktBeaconHelper.swift; sourceTree = "<group>"; };
+		63E75EBF26DD2347005A9FDB /* MoreTripsViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreTripsViewCell.xib; sourceTree = "<group>"; };
+		63E75EC126DD23D7005A9FDB /* MoreTripsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTripsViewCell.swift; sourceTree = "<group>"; };
 		63ECE8E82667E09C000F08D3 /* UserPseudoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserPseudoViewController.xib; sourceTree = "<group>"; };
 		63ECE8EA2667E0CD000F08D3 /* UserPseudoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPseudoViewController.swift; sourceTree = "<group>"; };
 		63ECE8EC26682058000F08D3 /* Bundle+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+DK.swift"; sourceTree = "<group>"; };
@@ -1220,6 +1240,7 @@
 				3FF68E8D240CF0220071D74C /* Gauge */,
 				67F2D3192630713700ACC69A /* Ranking */,
 				67301C3C261D1030006B0432 /* TripsList */,
+				63BE1EC826CEAFDA00CFEB8B /* LastTripsWidget */,
 				63ECE8E72667C62E000F08D3 /* User */,
 				639346B4244897C1000F42D4 /* DKContactType.swift */,
 				3F03A4DC242C8BD3000924A0 /* DKContentMail.swift */,
@@ -1752,6 +1773,53 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		63BE1EC826CEAFDA00CFEB8B /* LastTripsWidget */ = {
+			isa = PBXGroup;
+			children = (
+				63BE1ECF26CEF80B00CFEB8B /* Model */,
+				63BE1ECD26CEF7FD00CFEB8B /* ViewModel */,
+				63BE1ECE26CEF80500CFEB8B /* View */,
+				63BE1ECB26CEF7B500CFEB8B /* DKLastTripsUI.swift */,
+			);
+			path = LastTripsWidget;
+			sourceTree = "<group>";
+		};
+		63BE1ECD26CEF7FD00CFEB8B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				63BE1ED226CEF85200CFEB8B /* LastTripsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		63BE1ECE26CEF80500CFEB8B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				63BE1ED026CEF82300CFEB8B /* LastTripsView.swift */,
+				63BE1ED426CF916000CFEB8B /* LastTripsView.xib */,
+				63BE1ED626CF97CA00CFEB8B /* LastTripsViewCell.swift */,
+				63BE1EDF26D2765F00CFEB8B /* LastTripsViewCell.xib */,
+				63E75EC126DD23D7005A9FDB /* MoreTripsViewCell.swift */,
+				63E75EBF26DD2347005A9FDB /* MoreTripsViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		63BE1ECF26CEF80B00CFEB8B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		63BE1EDB26D000A000CFEB8B /* LastTripsWidget */ = {
+			isa = PBXGroup;
+			children = (
+				63BE1ED926D0006A00CFEB8B /* LastTripsWidgetUtils.swift */,
+			);
+			path = LastTripsWidget;
+			sourceTree = "<group>";
+		};
 		63ECE8E72667C62E000F08D3 /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -2015,6 +2083,7 @@
 				6391E0C926072D5B00A168D4 /* Synthesis Card */,
 				A34238142361A2430001E15D /* Trip Detail */,
 				A342383F2361A2430001E15D /* Trip List */,
+				63BE1EDB26D000A000CFEB8B /* LastTripsWidget */,
 				A34238082361A1FA0001E15D /* DriveKitDriveDataUI.h */,
 				A34238092361A1FA0001E15D /* Info.plist */,
 				3FF68E89240ACD620071D74C /* DriveKitDriverDataUI.swift */,
@@ -2233,9 +2302,9 @@
 			isa = PBXGroup;
 			children = (
 				A3B7B382235F124F0065A332 /* DriveKitApp */,
+				3F0740DB2403BB65005A8D07 /* DriveKitCommonUI */,
 				A34238072361A1FA0001E15D /* DriveKitDriverDataUI */,
 				3FFAD1FB23EDBCD500D1A16C /* DriveKitDriverAchievementUI */,
-				3F0740DB2403BB65005A8D07 /* DriveKitCommonUI */,
 				616946DA243337D600C8A965 /* DriveKitPermissionsUtilsUI */,
 				3FF68EF32413ECC00071D74C /* DriveKitVehicleUI */,
 				67C43CF7263A910D00DBB09D /* DriveKitChallengeUI */,
@@ -2266,6 +2335,7 @@
 				A3B7B383235F124F0065A332 /* AppDelegate.swift */,
 				A3B7B387235F124F0065A332 /* ViewController.swift */,
 				6307ED892625DC9500CB7EED /* SynthesisCardTest.swift */,
+				63BE1EDD26D0055800CFEB8B /* LastTripsViewTest.swift */,
 				A3B7B389235F124F0065A332 /* Main.storyboard */,
 				A3B7B38F235F12510065A332 /* Assets.xcassets */,
 				A3B7B391235F12510065A332 /* LaunchScreen.storyboard */,
@@ -2620,11 +2690,14 @@
 				67F2D3662630F07E00ACC69A /* RankingJumpCell.xib in Resources */,
 				A34FC7372423CDDA000734AB /* DKTextField.xib in Resources */,
 				67301CC2261FB0CD006B0432 /* TripInfoView.xib in Resources */,
+				63BE1ED526CF916000CFEB8B /* LastTripsView.xib in Resources */,
 				679DC8622636E3A6007B5623 /* RankingHeaderReusableView.xib in Resources */,
 				67301CBD261FB0CD006B0432 /* AlternativeTripImageView.xib in Resources */,
 				63ECE8E92667E09C000F08D3 /* UserPseudoViewController.xib in Resources */,
 				3FF68E82240965E10071D74C /* DKImages.xcassets in Resources */,
 				67301CC5261FB0CD006B0432 /* TripTableViewCell.xib in Resources */,
+				63E75EC026DD2347005A9FDB /* MoreTripsViewCell.xib in Resources */,
+				63BE1EE026D2765F00CFEB8B /* LastTripsViewCell.xib in Resources */,
 				63FE778624FD1A9D00C068C3 /* AnalyticsTags.plist in Resources */,
 				3FED7FC62525B7B900D19E18 /* DKFilterTableViewCell.xib in Resources */,
 				67F2D3552630F06B00ACC69A /* RankingScoreSmall.xib in Resources */,
@@ -2969,6 +3042,7 @@
 				3F0740E72403BB9A005A8D07 /* DriveKitUI.swift in Sources */,
 				67301CCC2620D16D006B0432 /* DKHeader.swift in Sources */,
 				67301DB026251921006B0432 /* HeaderDayView.swift in Sources */,
+				63BE1ED726CF97CA00CFEB8B /* LastTripsViewCell.swift in Sources */,
 				3FF68E86240A68D90071D74C /* DKDataFormatter.swift in Sources */,
 				67301CBE261FB0CD006B0432 /* TripInfoView.swift in Sources */,
 				3FF68E7C240938CD0071D74C /* DriveKitNavigationController.swift in Sources */,
@@ -2981,6 +3055,7 @@
 				6357AE84261135600000CA58 /* DKGaugeConfiguration.swift in Sources */,
 				616946E924338E3500C8A965 /* DriveKitPermissionsUtilsUIEntryPoint.swift in Sources */,
 				3FF68E7E240939040071D74C /* DriveKitDriverAchievementUIEntryPoint.swift in Sources */,
+				63BE1ED326CEF85200CFEB8B /* LastTripsViewModel.swift in Sources */,
 				3FF68E80240939BC0071D74C /* DriveKitDriverDataUIEntryPoint.swift in Sources */,
 				67301CC0261FB0CD006B0432 /* TripTableViewCell.swift in Sources */,
 				67F2D3542630F06B00ACC69A /* RankingScoreView.swift in Sources */,
@@ -2990,12 +3065,14 @@
 				679DC8612636E3A5007B5623 /* RankingHeaderReusableView.swift in Sources */,
 				67301CBF261FB0CD006B0432 /* NoScoreImageView.swift in Sources */,
 				67F2D31B2630717300ACC69A /* DKDriverRanking.swift in Sources */,
+				63E75EC226DD23D7005A9FDB /* MoreTripsViewCell.swift in Sources */,
 				67F2D3B42631600000ACC69A /* DKDriverRankingCollectionVC.swift in Sources */,
 				63BF8EFA24531011006BEB3F /* DKContactType.swift in Sources */,
 				A34FC7362423CDDA000734AB /* DKTextField.swift in Sources */,
 				63ECE8ED26682058000F08D3 /* Bundle+DK.swift in Sources */,
 				3F03A4DF242C9983000924A0 /* DriveKitVehicleUIEntryPoint.swift in Sources */,
 				67F2D36A2630F07E00ACC69A /* CircleView.swift in Sources */,
+				63BE1ED126CEF82300CFEB8B /* LastTripsView.swift in Sources */,
 				3FF68E752408390A0071D74C /* CardView.swift in Sources */,
 				3FF68E8C240C0A430071D74C /* UIViewController+DK.swift in Sources */,
 				3FED7FC52525B7B900D19E18 /* DKFilterTableViewCell.swift in Sources */,
@@ -3004,6 +3081,7 @@
 				3FF68E8E240CF0420071D74C /* CircularProgressView.swift in Sources */,
 				63ECE8EF26682D49000F08D3 /* UserPseudoViewControllerDelegate.swift in Sources */,
 				3FF68E90240CF0510071D74C /* ConfigurationCircularProgressView.swift in Sources */,
+				63BE1ECC26CEF7B500CFEB8B /* DKLastTripsUI.swift in Sources */,
 				3FF68E88240A727D0071D74C /* DKDatePattern.swift in Sources */,
 				67F2D3522630F06B00ACC69A /* RankingScoreSmall.swift in Sources */,
 				67F2D3682630F07E00ACC69A /* RankingCell.swift in Sources */,
@@ -3255,6 +3333,7 @@
 				A34238852361A2440001E15D /* TripListViewModel.swift in Sources */,
 				A34238622361A2430001E15D /* CalloutViewModel.swift in Sources */,
 				6391E1052607F64100A168D4 /* SynthesisCardInfoViewModel.swift in Sources */,
+				63BE1EDC26D0012F00CFEB8B /* LastTripsWidgetUtils.swift in Sources */,
 				3F6B67402580B95F008B3BA7 /* TransportationMode+DKFilter.swift in Sources */,
 				3F6B67702580ED78008B3BA7 /* TransportationModeViewModel.swift in Sources */,
 				A34238762361A2440001E15D /* SafetyPageVC.swift in Sources */,
@@ -3276,6 +3355,7 @@
 				3F38C2752369D6ED002E873A /* NotificationSender.swift in Sources */,
 				A32665AE235F64EB00B529B0 /* SettingsBundleKey.swift in Sources */,
 				6307ED8A2625DC9500CB7EED /* SynthesisCardTest.swift in Sources */,
+				63BE1EDE26D0055800CFEB8B /* LastTripsViewTest.swift in Sources */,
 				A3B7B39D235F2E130065A332 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

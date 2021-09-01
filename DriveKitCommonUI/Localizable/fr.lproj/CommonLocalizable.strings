@@ -1,5 +1,8 @@
 "dk_common_activate"="Activer";
 "dk_common_anonymous_driver"="Anonyme";
+"dk_common_app_diag_nearby"="Appareils à proximité";
+"dk_common_app_diag_nearby_ko"="Vous devez autoriser l\'application à détecter les appareils à proximité afin qu\'elle puisse analyser vos trajets.";
+"dk_common_app_diag_nearby_link"="Autoriser la détection des appareils à proximité";
 "dk_common_back"="Retour";
 "dk_common_cancel"="Annuler";
 "dk_common_close"="Fermer";
@@ -36,6 +39,7 @@
 "dk_common_ranking_score"="Score";
 "dk_common_safety"="Sécurité";
 "dk_common_save"="Enregistrer";
+"dk_common_see_more_trips"="Voir plus de trajets";
 "dk_common_select_image_gallery"="Sélectionner une photo existante";
 "dk_common_send_mail_error"="Votre appareil n\'est pas configuré pour l\'envoi d\'email";
 "dk_common_settings"="Paramètres";

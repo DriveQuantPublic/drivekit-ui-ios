@@ -18,27 +18,27 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zF7-Po-2hS">
-                        <rect key="frame" x="8" y="0.0" width="304" height="32"/>
+                        <rect key="frame" x="6" y="0.0" width="308" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="32" id="vs4-tc-MSW"/>
+                            <constraint firstAttribute="height" constant="30" id="vs4-tc-MSW"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sgL-GX-t81">
-                        <rect key="frame" x="8" y="38" width="304" height="64"/>
+                        <rect key="frame" x="6" y="38" width="308" height="64"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="sgL-GX-t81" firstAttribute="leading" secondItem="ovf-dK-zyR" secondAttribute="leading" constant="8" id="80T-CA-SAF"/>
+                    <constraint firstItem="sgL-GX-t81" firstAttribute="leading" secondItem="ovf-dK-zyR" secondAttribute="leading" constant="6" id="80T-CA-SAF"/>
                     <constraint firstItem="zF7-Po-2hS" firstAttribute="top" secondItem="ovf-dK-zyR" secondAttribute="top" id="HAh-WO-9LN"/>
-                    <constraint firstAttribute="trailing" secondItem="zF7-Po-2hS" secondAttribute="trailing" constant="8" id="WCh-m2-XBJ"/>
-                    <constraint firstItem="zF7-Po-2hS" firstAttribute="leading" secondItem="ovf-dK-zyR" secondAttribute="leading" constant="8" id="erS-01-rHh"/>
-                    <constraint firstItem="sgL-GX-t81" firstAttribute="top" secondItem="zF7-Po-2hS" secondAttribute="bottom" constant="6" id="lUy-6T-1eK"/>
-                    <constraint firstAttribute="trailing" secondItem="sgL-GX-t81" secondAttribute="trailing" priority="750" constant="8" id="pzI-aB-8n9"/>
+                    <constraint firstAttribute="trailing" secondItem="zF7-Po-2hS" secondAttribute="trailing" constant="6" id="WCh-m2-XBJ"/>
+                    <constraint firstItem="zF7-Po-2hS" firstAttribute="leading" secondItem="ovf-dK-zyR" secondAttribute="leading" constant="6" id="erS-01-rHh"/>
+                    <constraint firstItem="sgL-GX-t81" firstAttribute="top" secondItem="zF7-Po-2hS" secondAttribute="bottom" constant="8" id="lUy-6T-1eK"/>
+                    <constraint firstAttribute="trailing" secondItem="sgL-GX-t81" secondAttribute="trailing" priority="750" constant="6" id="pzI-aB-8n9"/>
                     <constraint firstAttribute="bottom" secondItem="sgL-GX-t81" secondAttribute="bottom" id="uJP-H4-hNr"/>
                 </constraints>
             </collectionViewCellContentView>

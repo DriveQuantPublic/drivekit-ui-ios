@@ -20,9 +20,6 @@ Pod::Spec.new do |s|
   s.dependency 'DriveKitVehicle', '1.13-beta1'
   s.dependency 'DriveKitTripAnalysis', '1.13-beta1'
 
-  s.info_plist = {
-    'CFBundleIdentifier' => 'com.drivequant.drivekit-vehicle-ui'
-  }
   s.pod_target_xcconfig = {
     'PRODUCT_BUNDLE_IDENTIFIER': 'com.drivequant.drivekit-vehicle-ui'
   }

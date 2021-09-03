@@ -19,9 +19,6 @@ Pod::Spec.new do |s|
   s.dependency 'DriveKitCommonUI', s.version.to_s
   s.dependency 'DriveKitCore', '1.13-beta1'
 
-  s.info_plist = {
-    'CFBundleIdentifier' => 'com.drivequant.drivekit-permissions-utils-ui'
-  }
   s.pod_target_xcconfig = {
     'PRODUCT_BUNDLE_IDENTIFIER': 'com.drivequant.drivekit-permissions-utils-ui'
   }

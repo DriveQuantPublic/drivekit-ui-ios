@@ -34,6 +34,12 @@ class TripDetailVC: DKUIViewController {
         self.viewModel = TripDetailViewModel(itinId: itinId, listConfiguration: listConfiguration)
         self.showAdvice = showAdvice
         super.init(nibName: String(describing: TripDetailVC.self), bundle: Bundle.driverDataUIBundle)
+
+        if let analytics = DriveKitUI.shared.analytics {
+            analytics.trackEvent(.tripOpen, parameters: [
+                DKAnalyticsEventKey.itinId.rawValue: itinId
+            ])
+        }
     }
     
     required init?(coder: NSCoder) {

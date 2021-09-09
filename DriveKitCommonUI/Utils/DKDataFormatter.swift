@@ -177,20 +177,40 @@ public extension Double {
                 if nbHour > 23 && maxUnit != .hour {
                     nbDay = nbHour / 24
                     nbHour = nbHour - (24 * nbDay)
-                    formattingTypes = [
-                        .value(String(nbDay)),
-                        .unit(DKCommonLocalizable.unitDay.text()),
-                        .separator(),
-                        .value(String(nbHour)),
-                        .unit(DKCommonLocalizable.unitHour.text())
-                    ]
+                    if nbHour > 0 {
+                        formattingTypes = [
+                            .value(String(nbDay)),
+                            .separator(),
+                            .unit(DKCommonLocalizable.unitDay.text()),
+                            .separator(),
+                            .value(String(nbHour)),
+                            .separator(),
+                            .unit(DKCommonLocalizable.unitHour.text())
+                        ]
+                    } else {
+                        formattingTypes = [
+                            .value(String(nbDay)),
+                            .separator(),
+                            .unit(DKCommonLocalizable.unitDay.text())
+                        ]
+                    }
                 } else {
-                    let minuteString = String(format: "%02d", nbMinute)
-                    formattingTypes = [
-                        .value(String(nbHour)),
-                        .unit(DKCommonLocalizable.unitHour.text()),
-                        .value(minuteString)
-                    ]
+                    if nbMinute > 0 {
+                        let minuteString = String(format: "%02d", nbMinute)
+                        formattingTypes = [
+                            .value(String(nbHour)),
+                            .separator(),
+                            .unit(DKCommonLocalizable.unitHour.text()),
+                            .separator(),
+                            .value(minuteString)
+                        ]
+                    } else {
+                        formattingTypes = [
+                            .value(String(nbHour)),
+                            .separator(),
+                            .unit(DKCommonLocalizable.unitHour.text())
+                        ]
+                    }
                 }
             } else {
                 let nbSecond = Int(self - 60.0 * Double(Int(self / 60)))
@@ -198,7 +218,9 @@ public extension Double {
                     let secondString = String(format: "%02d", nbSecond)
                     formattingTypes = [
                         .value(String(nbMinute - 1)),
+                        .separator(),
                         .unit(DKCommonLocalizable.unitMinute.text()),
+                        .separator(),
                         .value(secondString)
                     ]
                 } else {

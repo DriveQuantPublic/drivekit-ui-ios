@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LastTripsView : UIView, Nibable {
+final class LastTripsView : UIView, Nibable {
 
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var pageControl: UIPageControl!

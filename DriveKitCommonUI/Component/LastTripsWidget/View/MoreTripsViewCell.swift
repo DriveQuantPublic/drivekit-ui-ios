@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MoreTripsViewCell : UICollectionViewCell, Nibable {
+final class MoreTripsViewCell : UICollectionViewCell, Nibable {
 
     @IBOutlet private weak var label: UILabel!
 

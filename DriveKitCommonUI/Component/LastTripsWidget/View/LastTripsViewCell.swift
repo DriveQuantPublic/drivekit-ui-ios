@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LastTripsViewCell : UICollectionViewCell, Nibable {
+final class LastTripsViewCell : UICollectionViewCell, Nibable {
 
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var tripCellContainer: UIView!

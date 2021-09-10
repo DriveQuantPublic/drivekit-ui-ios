@@ -164,6 +164,10 @@ extension AppDelegate: TripListener {
     func significantLocationChangeDetected(location: CLLocation) {
         print("Trip Location significant change detected")
     }
+
+    func potentialTripStart(startMode: StartMode) {
+
+    }
 }
 
 extension CancelTrip {

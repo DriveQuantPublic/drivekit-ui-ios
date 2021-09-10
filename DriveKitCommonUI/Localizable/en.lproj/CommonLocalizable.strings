@@ -1,5 +1,8 @@
 "dk_common_activate"="Activate";
 "dk_common_anonymous_driver"="Anonymous";
+"dk_common_app_diag_nearby"="Nearby devices";
+"dk_common_app_diag_nearby_ko"="You must allow the application to detect nearby devices so that it can analyze your trips.";
+"dk_common_app_diag_nearby_link"="Allow nearby devices detection";
 "dk_common_back"="Back";
 "dk_common_cancel"="Cancel";
 "dk_common_close"="Close";
@@ -36,6 +39,7 @@
 "dk_common_ranking_score"="Score";
 "dk_common_safety"="Safety";
 "dk_common_save"="Record";
+"dk_common_see_more_trips"="See more trips";
 "dk_common_select_image_gallery"="Select an existing photo";
 "dk_common_send_mail_error"="Your device isn\'t configured to send email";
 "dk_common_settings"="Settings";

@@ -111,19 +111,21 @@ class ViewController: UITableViewController {
                 self.configureDriverDataUI()
             } else if indexPath.row == 2 {
                 self.openSynthesisCards()
-            } else if indexPath.row == 4 {
-                self.configureDriverStreak()
+            } else if indexPath.row == 3 {
+                self.openLastTripsView()
             } else if indexPath.row == 5 {
-                self.configureVehiclePicker()
+                self.configureDriverStreak()
             } else if indexPath.row == 6 {
-                self.configureBeaconPairing()
+                self.configureVehiclePicker()
             } else if indexPath.row == 7 {
+                self.configureBeaconPairing()
+            } else if indexPath.row == 8 {
                 self.configureVehiclesList()
-            } else if indexPath.row == 9 {
-                self.configureDriverBadges()
             } else if indexPath.row == 10 {
-                self.showRanking()
+                self.configureDriverBadges()
             } else if indexPath.row == 11 {
+                self.showRanking()
+            } else if indexPath.row == 12 {
                 self.showChallenges()
             }
         }
@@ -205,6 +207,10 @@ class ViewController: UITableViewController {
 
     func openSynthesisCards() {
         self.navigationController?.pushViewController(SynthesisCardTest.getSynthesisCardViewController(), animated: true)
+    }
+
+    func openLastTripsView() {
+        self.navigationController?.pushViewController(LastTripsViewTest(), animated: true)
     }
     
     func configureDriverStreak() {

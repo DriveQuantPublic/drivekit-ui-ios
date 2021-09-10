@@ -274,11 +274,19 @@ extension TripDetailVC {
         if let trip = viewModel.trip, let advice = viewModel.displayMapItem?.getAdvice(trip: trip) {
             let tripTipVC = TripTipViewController(trip: trip, advice: advice, tripDetailVC: self)
             let navigationTripTip = UINavigationController(rootViewController: tripTipVC)
-            
-            navigationTripTip.navigationBar.barTintColor = self.navigationController?.navigationBar.barTintColor
-            navigationTripTip.navigationBar.isTranslucent = self.navigationController?.navigationBar.isTranslucent ?? false
-            navigationTripTip.navigationBar.titleTextAttributes = self.navigationController?.navigationBar.titleTextAttributes
-            navigationTripTip.navigationBar.tintColor = self.navigationController?.navigationBar.tintColor
+            if let navigationController = self.navigationController {
+                navigationTripTip.navigationBar.isTranslucent = navigationController.navigationBar.isTranslucent
+                if #available(iOS 15.0, *) {
+                    navigationTripTip.navigationBar.standardAppearance = navigationController.navigationBar.standardAppearance
+                    navigationTripTip.navigationBar.scrollEdgeAppearance = navigationController.navigationBar.scrollEdgeAppearance
+                } else if #available(iOS 13.0, *) {
+                    navigationTripTip.navigationBar.standardAppearance = navigationController.navigationBar.standardAppearance
+                } else {
+                    navigationTripTip.navigationBar.titleTextAttributes = navigationController.navigationBar.titleTextAttributes
+                }
+                navigationTripTip.navigationBar.barTintColor = navigationController.navigationBar.barTintColor
+                navigationTripTip.navigationBar.tintColor = navigationController.navigationBar.tintColor
+            }
             self.present(navigationTripTip, animated: true, completion: nil)
         }
     }

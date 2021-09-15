@@ -15,31 +15,31 @@ end
 
 
 target 'DriveKitDriverDataUI' do
-  pod 'DriveKitDriverData', '1.13.0'
+  pod 'DriveKitDriverData', '1.13.1'
   circular_progress_ring
 end
 
 target 'DriveKitDriverAchievementUI' do
-  pod 'DriveKitDriverAchievement', '1.13.0'
+  pod 'DriveKitDriverAchievement', '1.13.1'
   circular_progress_ring
 end
 
 target 'DriveKitCommonUI' do
-  pod 'DriveKitCore', '1.13.0'
+  pod 'DriveKitCore', '1.13.1'
   circular_progress_ring
 end
   
 target 'DriveKitVehicleUI' do
-  pod 'DriveKitVehicle', '1.13.0'
-  pod 'DriveKitTripAnalysis', '1.13.0'
+  pod 'DriveKitVehicle', '1.13.1'
+  pod 'DriveKitTripAnalysis', '1.13.1'
 end
 
 target 'DriveKitPermissionsUtilsUI' do
-  pod 'DriveKitCore', '1.13.0'
+  pod 'DriveKitCore', '1.13.1'
 end
 
 target 'DriveKitChallengeUI' do
-  pod 'DriveKitChallenge', '1.13.0'
+  pod 'DriveKitChallenge', '1.13.1'
 end
 
 

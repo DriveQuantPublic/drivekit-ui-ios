@@ -522,11 +522,8 @@ extension MapViewController: MKMapViewDelegate {
         }
 
         if let currentItem = self.viewModel.displayMapItem, currentItem.displayedMarkers().contains(.all) {
-            if let allEvents = allAnnotations as NSArray? {
-                let indexForEvent = allEvents.index(of: selection)
-                if indexForEvent != NSNotFound {
-                    self.viewModel.setSelectedEvent(position: indexForEvent)
-                }
+            if let (_, index) = getEvent(in: self.viewModel.events, associatedToAnnotation: selection, fromAnnotations: allAnnotations) {
+                self.viewModel.setSelectedEvent(position: index)
             }
         }
         self.zoom(to: selection.coordinate)
@@ -592,76 +589,60 @@ extension MapViewController: MKMapViewDelegate {
             }
         } else {
             if let mapItem = viewModel.displayMapItem, !mapItem.displayedMarkers().contains(.all) {
-                if let safetyEvents = safetyAnnotations as NSArray? {
-                    let indexForSafetyEvent = safetyEvents.index(of: annotation)
-                    if indexForSafetyEvent != NSNotFound {
-                        let event = viewModel.safetyEvents[indexForSafetyEvent]
-                        let image = event.getMapImageID()
-                        view.image = UIImage(named: image, in: Bundle.driverDataUIBundle, compatibleWith: nil)
-                        view.image = annotationView?.image?.resizeImage(36, opaque: false, contentMode: .scaleAspectFit)
-                        view.centerOffset = CGPoint(x: 0, y: -(annotationView?.image?.size.height)! / 2)
-                        view.resistantLayer.resistantZPosition = CGFloat(event.getZIndex())
-                        view.setupAsTripEventCallout(with: event, location: "")
-                        if let infoView = view.rightCalloutAccessoryView as! UIButton? {
-                            infoView.tag = indexForSafetyEvent
-                            infoView.addTarget(self, action: #selector(safetyInfoClicked), for: .touchUpInside)
-                        }
-                    }
-                }
-                
-                if let distractionEvents = distractionAnnotations as NSArray? {
-                    let indexForDistractionEvent = distractionEvents.index(of: annotation)
-                    if indexForDistractionEvent != NSNotFound {
-                        let event = viewModel.distractionEvents[indexForDistractionEvent]
-                        view.image = UIImage(named: event.getMapImageID(), in: Bundle.driverDataUIBundle, compatibleWith: nil)
-                        view.image = annotationView?.image?.resizeImage(36, opaque: false, contentMode: .scaleAspectFit)
-                        view.centerOffset = CGPoint(x: 0, y: -(annotationView?.image?.size.height)! / 2)
-                        view.setupAsTripEventCallout(with: event, location: "")
-                        if let infoView = view.rightCalloutAccessoryView as! UIButton? {
-                            infoView.tag = indexForDistractionEvent
-                            infoView.addTarget(self, action: #selector(distractionInfoClicked), for: .touchUpInside)
-                        }
+                if let (event, index) = getEvent(in: self.viewModel.safetyEvents, associatedToAnnotation: annotation, fromAnnotations: self.safetyAnnotations) {
+                    let image = event.getMapImageID()
+                    view.image = UIImage(named: image, in: Bundle.driverDataUIBundle, compatibleWith: nil)
+                    view.image = annotationView?.image?.resizeImage(36, opaque: false, contentMode: .scaleAspectFit)
+                    view.centerOffset = CGPoint(x: 0, y: -(annotationView?.image?.size.height)! / 2)
+                    view.resistantLayer.resistantZPosition = CGFloat(event.getZIndex())
+                    view.setupAsTripEventCallout(with: event, location: "")
+                    if let infoView = view.rightCalloutAccessoryView as! UIButton? {
+                        infoView.tag = index
+                        infoView.addTarget(self, action: #selector(safetyInfoClicked), for: .touchUpInside)
                     }
                 }
 
-                if let phoneCallAnnotations = self.phoneCallAnnotations as NSArray? {
-                    let phoneCallAnnotationIndex = phoneCallAnnotations.index(of: annotation)
-                    if phoneCallAnnotationIndex != NSNotFound {
-                        let event = viewModel.phoneCallEvents[phoneCallAnnotationIndex]
-                        view.image = UIImage(named: event.getMapImageID(), in: Bundle.driverDataUIBundle, compatibleWith: nil)
-                        view.image = annotationView?.image?.resizeImage(36, opaque: false, contentMode: .scaleAspectFit)
-                        view.centerOffset = CGPoint(x: 0, y: -(annotationView?.image?.size.height)! / 2)
-                        view.setupAsTripEventCallout(with: event, location: "")
-                        if let infoView = view.rightCalloutAccessoryView as! UIButton? {
-                            infoView.tag = phoneCallAnnotationIndex
-                            infoView.addTarget(self, action: #selector(phoneCallInfoClicked), for: .touchUpInside)
-                        }
+                if let (event, index) = getEvent(in: self.viewModel.distractionEvents, associatedToAnnotation: annotation, fromAnnotations: self.distractionAnnotations) {
+                    view.image = UIImage(named: event.getMapImageID(), in: Bundle.driverDataUIBundle, compatibleWith: nil)
+                    view.image = annotationView?.image?.resizeImage(36, opaque: false, contentMode: .scaleAspectFit)
+                    view.centerOffset = CGPoint(x: 0, y: -(annotationView?.image?.size.height)! / 2)
+                    view.setupAsTripEventCallout(with: event, location: "")
+                    if let infoView = view.rightCalloutAccessoryView as! UIButton? {
+                        infoView.tag = index
+                        infoView.addTarget(self, action: #selector(distractionInfoClicked), for: .touchUpInside)
+                    }
+                }
+
+                if let (event, index) = getEvent(in: self.viewModel.phoneCallEvents, associatedToAnnotation: annotation, fromAnnotations: self.phoneCallAnnotations) {
+                    view.image = UIImage(named: event.getMapImageID(), in: Bundle.driverDataUIBundle, compatibleWith: nil)
+                    view.image = annotationView?.image?.resizeImage(36, opaque: false, contentMode: .scaleAspectFit)
+                    view.centerOffset = CGPoint(x: 0, y: -(annotationView?.image?.size.height)! / 2)
+                    view.setupAsTripEventCallout(with: event, location: "")
+                    if let infoView = view.rightCalloutAccessoryView as! UIButton? {
+                        infoView.tag = index
+                        infoView.addTarget(self, action: #selector(phoneCallInfoClicked), for: .touchUpInside)
                     }
                 }
             } else {
-                if let events = allAnnotations as NSArray? {
-                    let indexForEvent = events.index(of: annotation)
-                    if indexForEvent != NSNotFound {
-                        let event = viewModel.events[indexForEvent]
-                        let image = event.getMapImageID()
-                        view.image = UIImage(named: image, in: Bundle.driverDataUIBundle, compatibleWith: nil)
-                        view.image = annotationView?.image
-                        if let sourceImage = view.image {
-                            if image == "dk_map_start_event" || image == "dk_map_end_event" {
-                                view.image = sourceImage.resizeImage(32, opaque: false, contentMode: .scaleAspectFit).tintedImage(withColor: UIColor.dkMapTrace)
-                                view.centerOffset = CGPoint(x: 0, y: 0)
-                                view.resistantLayer.resistantZPosition = 1000
-                            } else {
-                                view.image = sourceImage.resizeImage(36, opaque: false, contentMode: .scaleAspectFit)
-                                view.centerOffset = CGPoint(x: 0, y: -(annotationView?.image?.size.height)! / 2)
-                                view.resistantLayer.resistantZPosition = CGFloat(event.getZIndex())
-                            }
+                if let (event, index) = getEvent(in: self.viewModel.events, associatedToAnnotation: annotation, fromAnnotations: self.allAnnotations) {
+                    let image = event.getMapImageID()
+                    view.image = UIImage(named: image, in: Bundle.driverDataUIBundle, compatibleWith: nil)
+                    view.image = annotationView?.image
+                    if let sourceImage = view.image {
+                        if image == "dk_map_start_event" || image == "dk_map_end_event" {
+                            view.image = sourceImage.resizeImage(32, opaque: false, contentMode: .scaleAspectFit).tintedImage(withColor: UIColor.dkMapTrace)
+                            view.centerOffset = CGPoint(x: 0, y: 0)
+                            view.resistantLayer.resistantZPosition = 1000
+                        } else {
+                            view.image = sourceImage.resizeImage(36, opaque: false, contentMode: .scaleAspectFit)
+                            view.centerOffset = CGPoint(x: 0, y: -(annotationView?.image?.size.height)! / 2)
+                            view.resistantLayer.resistantZPosition = CGFloat(event.getZIndex())
                         }
-                        view.setupAsTripEventCallout(with: event, location: "")
-                        if let infoView = view.rightCalloutAccessoryView as! UIButton?, event.type != .start && event.type != .end {
-                            infoView.tag = indexForEvent
-                            infoView.addTarget(self, action: #selector(allInfoClicked(_:)), for: .touchUpInside)
-                        }
+                    }
+                    view.setupAsTripEventCallout(with: event, location: "")
+                    if let infoView = view.rightCalloutAccessoryView as! UIButton?, event.type != .start && event.type != .end {
+                        infoView.tag = index
+                        infoView.addTarget(self, action: #selector(allInfoClicked(_:)), for: .touchUpInside)
                     }
                 }
             }
@@ -669,6 +650,14 @@ extension MapViewController: MKMapViewDelegate {
         
         view.annotation = annotation
         return view
+    }
+
+    private func getEvent(in events: [TripEvent], associatedToAnnotation annotation: MKAnnotation, fromAnnotations annotations: [MKPointAnnotation]?) -> (TripEvent, Int)? {
+        if let annotations = annotations, let annotation = annotation as? MKPointAnnotation, let index = annotations.firstIndex(of: annotation), index != NSNotFound && index < events.count {
+            return (events[index], index)
+        } else {
+            return nil
+        }
     }
 
     @objc private func safetyInfoClicked(_ sender: UIButton) {

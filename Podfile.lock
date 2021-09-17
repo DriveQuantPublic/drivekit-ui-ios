@@ -1,4 +1,5 @@
 PODS:
+
   - DriveKitChallenge (1.14-beta1):
     - DriveKitDBChallengeAccess (= 1.14-beta1)
     - DriveKitDBTripAccess (= 1.14-beta1)
@@ -51,6 +52,7 @@ SPEC REPOS:
     - DriveKitVehicle
 
 SPEC CHECKSUMS:
+
   DriveKitChallenge: 4db349935eb02c550e17cf14ad047326228fe10d
   DriveKitCore: 58b215dfd5aa8b95da36983d1b82b2e6ab984e88
   DriveKitDBAchievementAccess: 7645c0faf96e764962e2f3b95a71abd0c812e9ba

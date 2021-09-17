@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.4"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -22,6 +23,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RTN-XO-pEf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
+                        <color key="backgroundColor" systemColor="separatorColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="1T7-iZ-LOj"/>
+                        </constraints>
+                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRJ-Va-cCA" userLabel="DataView">
                         <rect key="frame" x="8" y="4" width="56" height="56"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -83,10 +91,13 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="V86-lB-6TW" secondAttribute="trailing" constant="8" id="1Wr-Ap-zYN"/>
+                    <constraint firstItem="RTN-XO-pEf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="5S6-EI-bFN"/>
                     <constraint firstItem="iRJ-Va-cCA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="8Ei-rw-adq"/>
+                    <constraint firstAttribute="trailing" secondItem="RTN-XO-pEf" secondAttribute="trailing" id="Bel-Q6-g05"/>
                     <constraint firstItem="hs6-bu-2CQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="Ctm-LN-aQC"/>
                     <constraint firstAttribute="bottom" secondItem="hs6-bu-2CQ" secondAttribute="bottom" constant="13" id="FDs-Dj-k3z"/>
                     <constraint firstItem="V86-lB-6TW" firstAttribute="leading" secondItem="hs6-bu-2CQ" secondAttribute="trailing" constant="4" id="JAy-tM-EKx"/>
+                    <constraint firstItem="RTN-XO-pEf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Qe9-Dq-znv"/>
                     <constraint firstItem="iRJ-Va-cCA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="hkc-lF-h01"/>
                     <constraint firstItem="V86-lB-6TW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="hud-K6-BIf"/>
                     <constraint firstAttribute="bottom" secondItem="V86-lB-6TW" secondAttribute="bottom" constant="4" id="jAa-G0-RRu"/>
@@ -102,9 +113,16 @@
                 <outlet property="dataView" destination="iRJ-Va-cCA" id="CIK-e8-JrA"/>
                 <outlet property="departureCityLabel" destination="ozI-50-VAD" id="OxK-xh-0wv"/>
                 <outlet property="departureHourLabel" destination="b1a-Z0-mLr" id="vMQ-Hs-dvQ"/>
+                <outlet property="separator" destination="RTN-XO-pEf" id="DVh-7w-MxT"/>
+                <outlet property="separatorHeightConstraint" destination="1T7-iZ-LOj" id="icn-iX-t8E"/>
                 <outlet property="tripLineView" destination="hs6-bu-2CQ" id="Stc-Ez-PBR"/>
             </connections>
             <point key="canvasLocation" x="45" y="115"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

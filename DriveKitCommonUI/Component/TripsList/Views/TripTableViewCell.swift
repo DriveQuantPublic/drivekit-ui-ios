@@ -10,30 +10,23 @@ import UIKit
 
 final class TripTableViewCell: UITableViewCell, Nibable {
 
-    @IBOutlet weak var dataView: UIView!
-    @IBOutlet weak var departureHourLabel: UILabel!
-    @IBOutlet weak var arrivalHourLabel: UILabel!
-    @IBOutlet weak var departureCityLabel: UILabel!
-    @IBOutlet weak var arrivalCityLabel: UILabel!
-    @IBOutlet weak var tripLineView: TripListSeparator!
+    @IBOutlet private weak var dataView: UIView!
+    @IBOutlet private weak var departureHourLabel: UILabel!
+    @IBOutlet private weak var arrivalHourLabel: UILabel!
+    @IBOutlet private weak var departureCityLabel: UILabel!
+    @IBOutlet private weak var arrivalCityLabel: UILabel!
+    @IBOutlet private weak var tripLineView: TripListSeparator!
+    @IBOutlet private weak var separator: UIView!
+    @IBOutlet private weak var separatorHeightConstraint: NSLayoutConstraint!
     
     var tripInfoView: TripInfoView? = nil
     private let timeColor: UIColor = UIColor(hex: 0x9e9e9e)
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
-    func configure(trip: DKTripListItem, tripData: TripData) {
+    func configure(trip: DKTripListItem, tripData: TripData, isFirst: Bool, separatorColor: UIColor?) {
         tripLineView.color = DKUIColors.secondaryColor.color
+        self.separator.isHidden = isFirst
+        self.separator.backgroundColor = separatorColor
+        self.separatorHeightConstraint.constant = 1.0 / UIScreen.main.scale
         configureLabels(trip: trip)
         configureTripData(trip: trip, tripData: tripData)
         configureTripInfo(trip: trip)

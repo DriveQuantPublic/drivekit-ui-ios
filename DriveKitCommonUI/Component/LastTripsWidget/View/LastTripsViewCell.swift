@@ -31,7 +31,7 @@ final class LastTripsViewCell : UICollectionViewCell, Nibable {
 
     func configure(trip: DKTripListItem, tripData: TripData, title: String) {
         self.titleLabel.attributedText = title.dkAttributedString().font(dkFont: .primary, style: DKStyles.highlightSmall.withSizeDelta(-2)).color(.complementaryFontColor).build()
-        self.tripCell?.configure(trip: trip, tripData: tripData)
+        self.tripCell?.configure(trip: trip, tripData: tripData, isFirst: true, separatorColor: nil)
         if let tripInfoView = tripInfoView, let tripCell = self.tripCell {
             tripCell.accessoryView = nil
             self.addSubview(tripInfoView)

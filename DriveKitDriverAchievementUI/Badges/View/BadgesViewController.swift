@@ -43,6 +43,9 @@ public class BadgesViewController : DKUIViewController, UITableViewDelegate {
         self.showLoader()
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        if #available(iOS 15, *) {
+            tableView.sectionHeaderTopPadding = 0
+        }
         let nib = UINib(nibName: "BadgeTableViewCell", bundle: Bundle.driverAchievementUIBundle)
         tableView.register(nib, forCellReuseIdentifier: "BadgeTableViewCell")
         NotificationCenter.default.addObserver(self, selector: #selector(goToBadgeLevelDetailView),

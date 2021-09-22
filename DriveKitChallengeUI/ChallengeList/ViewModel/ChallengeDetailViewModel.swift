@@ -70,6 +70,8 @@ class ChallengeDetailViewModel {
     func updateTripsAndRanks() {
         let sortedTrips = DriveKitDBTripAccess.shared.findTrips(itinIds: challengeDetail.itinIds).map({trip in
             return ChallengeTrip(trip: trip)
+        }).sorted(by: { trip1, trip2 in
+            return trip1.getEndDate() <= trip2.getEndDate()
         }).orderByDay(descOrder: true)
         self.sortedTrips = sortedTrips
         self.ranks = challengeDetail.driverRanked

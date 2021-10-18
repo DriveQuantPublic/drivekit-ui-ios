@@ -13,14 +13,18 @@ import CoreLocation
 
 public class BeaconViewModel {
     
-    var vehicle : DKVehicle?
-    let scanType : DKBeaconScanType
-    var beacon : DKBeacon? = nil
-    weak var delegate : ScanStateDelegate? = nil
-    
-    var vehiclePaired : DKVehicle?
-    var beaconBattery : Int? = nil
-    var clBeacon : CLBeacon? = nil
+    var vehicle: DKVehicle?
+    let scanType: DKBeaconScanType
+    var beacon: DKBeacon? = nil
+    weak var delegate: ScanStateDelegate? = nil
+
+    var vehiclePaired: DKVehicle?
+    var beaconBattery: Int? = nil {
+        didSet {
+            batteryLevelDidUpdate()
+        }
+    }
+    var clBeacon: CLBeacon? = nil
     var vehicles: [DKVehicle] = []
 
     var analyticsTagKey: String {
@@ -37,48 +41,61 @@ public class BeaconViewModel {
             return tagKey
         }
     }
+
+    private func batteryLevelDidUpdate() {
+        if let beaconBattery = self.beaconBattery, let clBeacon = self.clBeacon {
+            let uuid: String
+            if #available(iOS 13.0, *) {
+                uuid = clBeacon.uuid.uuidString
+            } else {
+                uuid = clBeacon.proximityUUID.uuidString
+            }
+            let beacon = DKBeacon(uniqueId: nil, proximityUuid: uuid, major: clBeacon.major.intValue, minor: clBeacon.minor.intValue)
+            DriveKitVehicle.shared.updateBeaconBatteryLevel(batteryLevel: beaconBattery, beacon: beacon) { _ in }
+        }
+    }
     
     public init(vehicle: DKVehicle, scanType: DKBeaconScanType) {
         self.vehicle = vehicle
         self.scanType = scanType
     }
 
-    public init(scanType : DKBeaconScanType){
+    public init(scanType: DKBeaconScanType) {
         self.scanType = scanType
         self.vehicle = nil
     }
     
-    public init(scanType: DKBeaconScanType, beacon : DKBeacon, vehicles: [DKVehicle]) {
+    public init(scanType: DKBeaconScanType, beacon: DKBeacon, vehicles: [DKVehicle]) {
         self.vehicle = nil
         self.scanType = scanType
         self.beacon = beacon
         self.vehicles = vehicles
     }
     
-    public init(scanType: DKBeaconScanType, beacon : DKBeacon) {
+    public init(scanType: DKBeaconScanType, beacon: DKBeacon) {
         self.vehicle = nil
         self.scanType = scanType
         self.beacon = beacon
     }
     
-    public init(vehicle: DKVehicle, scanType: DKBeaconScanType, beacon : DKBeacon) {
+    public init(vehicle: DKVehicle, scanType: DKBeaconScanType, beacon: DKBeacon) {
         self.vehicle = vehicle
         self.scanType = scanType
         self.beacon = beacon
     }
     
-    var vehicleName : String {
+    var vehicleName: String {
         return vehicle?.computeName() ?? ""
     }
     
     func isBeaconValid() -> Bool {
         if let beacon = self.beacon, let clBeacon = self.clBeacon {
             return isBeaconValid(beacon: beacon, clBeacon: clBeacon)
-        }else{
+        } else {
             return false
         }
     }
-    
+
     private func isBeaconValid(beacon: DKBeacon, clBeacon: CLBeacon) -> Bool {
         return beacon.proximityUuid.uppercased() == clBeacon.proximityUUID.uuidString.uppercased() && beacon.major == Int(truncating: clBeacon.major) && beacon.minor == Int(truncating: clBeacon.minor)
     }
@@ -121,8 +138,6 @@ public class BeaconViewModel {
                     completion(vehicle.vehicleId == self.vehiclePaired?.vehicleId ?? "")
                 }
             }
-            
-                
         })
     }
     
@@ -157,7 +172,7 @@ public class BeaconViewModel {
         }
         if vehicle.beacon == nil {
             DriveKitVehicle.shared.addBeacon(vehicleId: vehicle.vehicleId, beacon: beacon, completionHandler: completion)
-        }else{
+        } else {
             DriveKitVehicle.shared.removeBeacon(vehicleId: vehicle.vehicleId, completionHandler: { _ in
                 DriveKitVehicle.shared.addBeacon(vehicleId: vehicle.vehicleId, beacon: beacon, completionHandler: completion)
             })
@@ -171,7 +186,7 @@ public class BeaconViewModel {
         }
         if vehiclePaired?.beacon == nil {
             addBeaconToVehicle(completion: completion)
-        }else{
+        } else {
             DriveKitVehicle.shared.removeBeacon(vehicleId: pairedVehicle.vehicleId, completionHandler: { _ in
                 self.addBeaconToVehicle(completion: completion)
             })
@@ -180,7 +195,7 @@ public class BeaconViewModel {
 }
 
 
-protocol ScanStateDelegate : AnyObject{
+protocol ScanStateDelegate: AnyObject {
     func onStateUpdated(step: BeaconStep)
     func onScanFinished()
     func shouldShowLoader()

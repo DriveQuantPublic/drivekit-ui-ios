@@ -103,7 +103,7 @@ import DriveKitDBVehicleAccessModule
         if let centralManager = self.centralManager {
             if !self.scanningBattery && centralManager.state == .poweredOn {
                 self.scanningBattery = true
-                centralManager.scanForPeripherals(withServices: nil, options: nil)
+                centralManager.scanForPeripherals(withServices: [CBUUID(string:"D00D"), CBUUID(string:"FE6A")], options: nil)
             }
         }
     }

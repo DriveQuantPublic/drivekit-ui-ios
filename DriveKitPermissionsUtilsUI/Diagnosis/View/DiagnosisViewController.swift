@@ -26,12 +26,6 @@ class DiagnosisViewController : DKUIViewController {
     @IBOutlet private weak var contactTitle: UILabel!
     @IBOutlet private weak var contactDescription: UILabel!
     @IBOutlet private weak var contactButton: UIButton!
-    @IBOutlet private weak var loggingContainer: UIView!
-    @IBOutlet private weak var loggingTitle: UILabel!
-    @IBOutlet private weak var loggingDescription: UILabel!
-    @IBOutlet private weak var loggingButton: UISwitch!
-    @IBOutlet private var loggingDescriptionBottomConstraint: NSLayoutConstraint!
-    @IBOutlet private var loggingButtonBottomConstraint: NSLayoutConstraint!
 
     private var viewModel: DiagnosisViewModel
 
@@ -58,7 +52,6 @@ class DiagnosisViewController : DKUIViewController {
         self.updateSensorsUI()
         self.updateBatteryOptimizationUI()
         self.updateContactUI()
-        self.updateLoggingUI()
     }
 
 
@@ -71,11 +64,6 @@ class DiagnosisViewController : DKUIViewController {
             contactViewModel.contactSupport()
         }
     }
-
-    @IBAction private func loggingStateDidChange() {
-        self.viewModel.setLoggingEnabled(self.loggingButton.isOn)
-    }
-
 }
 
 extension DiagnosisViewController : DiagnosisView {
@@ -95,13 +83,9 @@ extension DiagnosisViewController : DiagnosisView {
         if let action = self.viewModel.batteryOptimizationViewModel.action {
             self.batteryOptimizationButton.attributedText = action.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.secondaryColor).build()
             self.batteryOptimizationTouch.isEnabled = true
-            self.loggingDescriptionBottomConstraint.isActive = false
-            self.loggingButtonBottomConstraint.isActive = true
             self.batteryOptimizationButton.isHidden = false
         } else {
             self.batteryOptimizationTouch.isEnabled = false
-            self.loggingDescriptionBottomConstraint.isActive = true
-            self.loggingButtonBottomConstraint.isActive = false
             self.batteryOptimizationButton.isHidden = true
         }
     }
@@ -116,17 +100,4 @@ extension DiagnosisViewController : DiagnosisView {
             self.contactContainer.isHidden = true
         }
     }
-
-    func updateLoggingUI() {
-        if let loggingViewModel = self.viewModel.loggingViewModel {
-            self.loggingTitle.attributedText = loggingViewModel.title.dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.mainFontColor).build()
-            self.loggingDescription.attributedText = loggingViewModel.description.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
-            self.loggingButton.isOn = loggingViewModel.isLoggingEnabled
-            self.loggingButton.onTintColor = DKUIColors.secondaryColor.color
-            self.loggingContainer.isHidden = false
-        } else {
-            self.loggingContainer.isHidden = true
-        }
-    }
-
 }

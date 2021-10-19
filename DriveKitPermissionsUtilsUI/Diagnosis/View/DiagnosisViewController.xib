@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,12 +24,6 @@
                 <outlet property="contactTitle" destination="XRA-Vp-tRC" id="yqv-cL-2mt"/>
                 <outlet property="globalStatus" destination="FFX-If-NLK" id="sq4-2m-XBH"/>
                 <outlet property="locationStatus" destination="JYZ-eC-g3p" id="C1u-wD-27Y"/>
-                <outlet property="loggingButton" destination="X0z-K5-Mzi" id="Sej-bh-MLN"/>
-                <outlet property="loggingButtonBottomConstraint" destination="ThU-qh-XtV" id="dna-kI-YoY"/>
-                <outlet property="loggingContainer" destination="cl6-FZ-HaB" id="g9v-3c-aLm"/>
-                <outlet property="loggingDescription" destination="dR1-jk-TFk" id="gfD-7k-e5M"/>
-                <outlet property="loggingDescriptionBottomConstraint" destination="ED2-5a-yjl" id="WKu-uz-gZ6"/>
-                <outlet property="loggingTitle" destination="U6N-W5-5mq" id="OYB-mI-hxR"/>
                 <outlet property="notificationStatus" destination="dOV-aj-tCJ" id="1eT-2X-DSV"/>
                 <outlet property="view" destination="iN0-l3-epB" id="MBi-xz-bhl"/>
             </connections>
@@ -42,14 +37,14 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4Li-NZ-qfG">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="586"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="497.5"/>
                             <subviews>
                                 <view contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="40" translatesAutoresizingMaskIntoConstraints="NO" id="FFX-If-NLK" userLabel="Global status" customClass="GlobalStateView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z0C-qY-hCe" userLabel="Separator" customClass="SeparatorView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="40" width="414" height="9"/>
-                                    <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" systemColor="separatorColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="9" id="Kb9-ym-5mH"/>
                                     </constraints>
@@ -74,12 +69,12 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cam-ZY-Raf" userLabel="Separator" customClass="SeparatorView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="9"/>
-                                            <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" systemColor="separatorColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="9" id="8jS-rJ-NM0"/>
                                             </constraints>
                                         </view>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Us3-eF-CRG" userLabel="Battery optimization touch">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Us3-eF-CRG" userLabel="Battery optimization touch">
                                             <rect key="frame" x="0.0" y="9" width="414" height="99.5"/>
                                             <connections>
                                                 <action selector="batteryOptimizationDidTouch" destination="-1" eventType="touchUpInside" id="2nI-Sf-uaR"/>
@@ -130,7 +125,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7bH-Bs-hvH" userLabel="Separator" customClass="SeparatorView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="9"/>
-                                            <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" systemColor="separatorColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="9" id="qPn-S2-3xx"/>
                                             </constraints>
@@ -147,7 +142,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIS-vp-9x3">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIS-vp-9x3">
                                             <rect key="frame" x="40" y="86" width="334" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="85U-0l-U9T"/>
@@ -176,51 +171,6 @@
                                         <constraint firstAttribute="trailing" secondItem="7bH-Bs-hvH" secondAttribute="trailing" id="pa7-bc-4mb"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cl6-FZ-HaB" userLabel="Logging container">
-                                    <rect key="frame" x="0.0" y="497.5" width="414" height="88.5"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTt-Yg-ZkE" userLabel="Separator" customClass="SeparatorView" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="9"/>
-                                            <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="9" id="9Vp-of-ynL"/>
-                                            </constraints>
-                                        </view>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X0z-K5-Mzi">
-                                            <rect key="frame" x="355" y="19" width="51" height="31"/>
-                                            <connections>
-                                                <action selector="loggingStateDidChange" destination="-1" eventType="valueChanged" id="waw-MT-3lb"/>
-                                            </connections>
-                                        </switch>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6N-W5-5mq">
-                                            <rect key="frame" x="10" y="19" width="335" height="31"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dR1-jk-TFk">
-                                            <rect key="frame" x="10" y="58" width="394" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="BTt-Yg-ZkE" firstAttribute="top" secondItem="cl6-FZ-HaB" secondAttribute="top" id="FVV-HV-78b"/>
-                                        <constraint firstItem="BTt-Yg-ZkE" firstAttribute="leading" secondItem="cl6-FZ-HaB" secondAttribute="leading" id="GPO-Ib-IFy"/>
-                                        <constraint firstItem="X0z-K5-Mzi" firstAttribute="top" secondItem="BTt-Yg-ZkE" secondAttribute="bottom" constant="10" id="NS1-le-pa6"/>
-                                        <constraint firstAttribute="trailing" secondItem="BTt-Yg-ZkE" secondAttribute="trailing" id="VQG-6h-oRA"/>
-                                        <constraint firstItem="dR1-jk-TFk" firstAttribute="leading" secondItem="U6N-W5-5mq" secondAttribute="leading" id="Zsx-wE-ias"/>
-                                        <constraint firstItem="X0z-K5-Mzi" firstAttribute="leading" secondItem="U6N-W5-5mq" secondAttribute="trailing" constant="10" id="aag-V0-EOU"/>
-                                        <constraint firstItem="U6N-W5-5mq" firstAttribute="centerY" relation="greaterThanOrEqual" secondItem="X0z-K5-Mzi" secondAttribute="centerY" id="fWu-1U-Nej"/>
-                                        <constraint firstItem="dR1-jk-TFk" firstAttribute="top" secondItem="U6N-W5-5mq" secondAttribute="bottom" constant="8" id="jQc-Zo-rWI"/>
-                                        <constraint firstAttribute="bottom" secondItem="dR1-jk-TFk" secondAttribute="bottom" constant="10" id="o5M-pp-gll"/>
-                                        <constraint firstItem="U6N-W5-5mq" firstAttribute="top" secondItem="BTt-Yg-ZkE" secondAttribute="bottom" constant="10" id="qBM-vh-9sJ"/>
-                                        <constraint firstAttribute="trailing" secondItem="X0z-K5-Mzi" secondAttribute="trailing" constant="10" id="ron-vK-nWY"/>
-                                        <constraint firstItem="U6N-W5-5mq" firstAttribute="leading" secondItem="cl6-FZ-HaB" secondAttribute="leading" constant="10" id="vHe-Hq-51a"/>
-                                        <constraint firstItem="dR1-jk-TFk" firstAttribute="trailing" secondItem="X0z-K5-Mzi" secondAttribute="trailing" id="wF8-dY-2xO"/>
-                                    </constraints>
-                                </view>
                             </subviews>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="Z0C-qY-hCe" secondAttribute="trailing" id="B8p-V7-8ZW"/>
@@ -238,6 +188,7 @@
                     </constraints>
                 </scrollView>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <constraints>
                 <constraint firstItem="4Li-NZ-qfG" firstAttribute="width" secondItem="vUN-kp-3ea" secondAttribute="width" id="By6-eb-3YL"/>
                 <constraint firstItem="6CG-aY-Nca" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="JPz-Pc-Akd"/>
@@ -245,8 +196,12 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="6CG-aY-Nca" secondAttribute="bottom" id="YB1-gg-WEi"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="6CG-aY-Nca" secondAttribute="top" id="ius-M5-LNe"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="137.68115942028987" y="153.34821428571428"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

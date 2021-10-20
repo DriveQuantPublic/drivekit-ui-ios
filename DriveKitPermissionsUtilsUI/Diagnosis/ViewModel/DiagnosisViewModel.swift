@@ -117,10 +117,6 @@ class DiagnosisViewModel : NSObject {
         }
     }
 
-    func setLoggingEnabled(_ enabled: Bool) {
-        loggingViewModel.setLoggingEnabled(enabled)
-    }
-
     @objc private func appDidBecomeActive() {
         self.isAppActive = true
         self.updateState()

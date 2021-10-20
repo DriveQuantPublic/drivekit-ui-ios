@@ -11,25 +11,19 @@ import Foundation
 import DriveKitCoreModule
 
 class LoggingViewModel {
-    private(set) var isLoggingEnabled: Bool
-
-    init() {
-        self.isLoggingEnabled = DriveKitLog.shared.isLoggingEnabled
-    }
 
     func setLoggingEnabled(_ enabled: Bool) {
-        if self.isLoggingEnabled != enabled {
+        if DriveKitLog.shared.isLoggingEnabled != enabled {
             if enabled {
                 DriveKit.shared.enableLogging()
             } else {
                 DriveKit.shared.disableLogging()
             }
-            self.isLoggingEnabled = enabled
         }
     }
 
     func getLogFileUrl() -> URL? {
-        if self.isLoggingEnabled {
+        if DriveKitLog.shared.isLoggingEnabled {
             return DriveKitLog.shared.getZippedLogFilesUrl()
         }
         return nil

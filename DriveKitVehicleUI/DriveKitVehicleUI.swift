@@ -28,7 +28,7 @@ public class DriveKitVehicleUI {
     public private(set) var maxVehicles: Int? = nil
     public private(set) var canRemoveBeacon: Bool = true
 
-    public private(set) var vehicleActions : [DKVehicleActionItem] = DKVehicleAction.allCases
+    public private(set) var vehicleActions: [DKVehicleActionItem] = DKVehicleAction.allCases
     public private(set) var detectionModes: [DKDetectionMode] = [.disabled, .gps, .beacon, .bluetooth]
     var customFields = [DKVehicleGroupField: [DKVehicleField]]()
 

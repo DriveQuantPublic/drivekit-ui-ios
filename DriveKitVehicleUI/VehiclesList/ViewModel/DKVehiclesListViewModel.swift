@@ -29,7 +29,7 @@ public class DKVehiclesListViewModel {
     public weak var delegate: VehiclesListDelegate? = nil
     
     func fetchVehicles() {
-        DriveKitVehicle.shared.getVehiclesOrderByNameAsc(completionHandler : { status, vehicles in
+        DriveKitVehicle.shared.getVehiclesOrderByNameAsc(completionHandler: { status, vehicles in
             DispatchQueue.main.async {
                 self.vehicles = vehicles.sortByDisplayNames()
                 self.delegate?.onVehiclesAvailable()
@@ -37,7 +37,7 @@ public class DKVehiclesListViewModel {
         })
     }
     
-    var vehiclesCount : Int {
+    var vehiclesCount: Int {
         return vehicles.count
     }
     
@@ -50,7 +50,7 @@ public class DKVehiclesListViewModel {
         return actions
     }
     
-    var detectionModes : [DKDetectionMode] {
+    var detectionModes: [DKDetectionMode] {
         return DriveKitVehicleUI.shared.detectionModes
     }
     
@@ -66,7 +66,7 @@ public class DKVehiclesListViewModel {
         return vehicles[pos].bluetooth != nil
     }
     
-    func vehicleName(pos : Int) -> String {
+    func vehicleName(pos: Int) -> String {
         return vehicles[pos].getDisplayName(position: pos)
     }
     
@@ -127,7 +127,7 @@ public class DKVehiclesListViewModel {
         })
     }
     
-    private func deleteAlert(title: String, handler: ((UIAlertAction) -> Void)? = nil){
+    private func deleteAlert(title: String, handler: ((UIAlertAction) -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         let yesAction = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default , handler: handler)
         alert.addAction(yesAction)

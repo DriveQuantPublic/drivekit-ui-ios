@@ -125,26 +125,26 @@ extension OdometerVehicleListVC: UITableViewDataSource {
 
 extension OdometerVehicleListVC: OdometerCellDelegate {
     func didTouchActionButton(vehicle: DKVehicle, index: IndexPath, sender: OdometerCell) {
-//        if index.section == 1 {
-//            let odometerActionAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-//            #warning("Manage new string")
-//            let showAction = UIAlertAction(title: "TODO-show".dkVehicleLocalized(), style: .default, handler: { _ in
-//                let odometerViewModel = OdometerViewModel(vehicle: vehicle)
-//                let odometerVC = OdometerVC(viewModel: odometerViewModel)
-//                self.navigationController?.pushViewController(odometerVC, animated: true)
-//            })
-//            odometerActionAlert.addAction(showAction)
-//            #warning("Manage new string")
-//            let addReferenceAction = UIAlertAction(title: "TODO-odometer_add_reference".dkVehicleLocalized(), style: .default, handler: { _ in
-//                let referenceViewModel = ReferenceViewModel(vehicle: vehicle)
-//                referenceViewModel.odometer = self.viewModel.currentVehicle.odometer
-//                referenceViewModel.isWritable = true
-//                let referencesVC = ReferenceDetailVC(viewModel: referenceViewModel)
-//                self.navigationController?.pushViewController(referencesVC, animated: true)
-//            })
-//            odometerActionAlert.addAction(addReferenceAction)
-//            odometerActionAlert.addAction(UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel))
-//            self.present(odometerActionAlert, animated: true)
-//        }
+        if index.section == 1 {
+            let odometerActionAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            #warning("Manage new string")
+            let showAction = UIAlertAction(title: "TODO-show".dkVehicleLocalized(), style: .default, handler: { _ in
+                let vehicleDetailViewModel = OdometerVehicleDetailViewModel(vehicle: vehicle)
+                let vehicleDetailVC = OdometerVehicleDetailVC(viewModel: vehicleDetailViewModel)
+                self.navigationController?.pushViewController(vehicleDetailVC, animated: true)
+            })
+            odometerActionAlert.addAction(showAction)
+            #warning("Manage new string")
+            let addReferenceAction = UIAlertAction(title: "TODO-odometer_add_reference".dkVehicleLocalized(), style: .default, handler: { _ in
+                let historiesViewModel = OdometerHistoriesViewModel(vehicle: vehicle)
+                historiesViewModel.odometer = self.viewModel.currentVehicle.odometer
+                historiesViewModel.isWritable = true
+                let historyDetailVC = OdometerHistoryDetailVC(viewModel: historiesViewModel)
+                self.navigationController?.pushViewController(historyDetailVC, animated: true)
+            })
+            odometerActionAlert.addAction(addReferenceAction)
+            odometerActionAlert.addAction(UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel))
+            self.present(odometerActionAlert, animated: true)
+        }
     }
 }

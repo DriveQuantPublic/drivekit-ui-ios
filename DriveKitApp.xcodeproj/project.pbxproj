@@ -224,20 +224,20 @@
 		637F96BA2720B4DD0027AC1F /* OdometerCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637F96B52720B4DD0027AC1F /* OdometerCellViewModel.swift */; };
 		637F96BB2720B4DD0027AC1F /* OdometerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637F96B62720B4DD0027AC1F /* OdometerCell.swift */; };
 		637F96BC2720B4DD0027AC1F /* OdometerVehicleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637F96B72720B4DD0027AC1F /* OdometerVehicleCell.xib */; };
-		637F96C22720B5660027AC1F /* OdometerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637F96BD2720B5510027AC1F /* OdometerVC.swift */; };
-		637F96C32720B5660027AC1F /* OdometerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637F96BE2720B5560027AC1F /* OdometerViewModel.swift */; };
-		637F96C42720B5660027AC1F /* OdometerButtonsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637F96BF2720B55C0027AC1F /* OdometerButtonsTableViewCell.swift */; };
-		637F96C52720B5660027AC1F /* OdometerButtonsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637F96C02720B5610027AC1F /* OdometerButtonsTableViewCell.xib */; };
-		637F96C62720B5660027AC1F /* OdometerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637F96C12720B5650027AC1F /* OdometerVC.xib */; };
-		637F96D02720B62C0027AC1F /* ReferencesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637F96CB2720B61B0027AC1F /* ReferencesVC.swift */; };
-		637F96D12720B62C0027AC1F /* ReferenceDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637F96CC2720B61E0027AC1F /* ReferenceDetailVC.xib */; };
-		637F96D22720B62C0027AC1F /* ReferenceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637F96CD2720B6220027AC1F /* ReferenceViewModel.swift */; };
-		637F96D32720B62C0027AC1F /* ReferenceDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637F96CE2720B6270027AC1F /* ReferenceDetailVC.swift */; };
-		637F96D42720B62C0027AC1F /* ReferencesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637F96CF2720B62C0027AC1F /* ReferencesVC.xib */; };
-		637F96DA2720B7FD0027AC1F /* ReferenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637F96D62720B7EF0027AC1F /* ReferenceTableViewCell.swift */; };
-		637F96DB2720B7FD0027AC1F /* ReferenceDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637F96D72720B7F40027AC1F /* ReferenceDetailTableViewCell.xib */; };
-		637F96DC2720B7FD0027AC1F /* ReferenceDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637F96D82720B7F90027AC1F /* ReferenceDetailTableViewCell.swift */; };
-		637F96DD2720B7FD0027AC1F /* ReferenceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637F96D92720B7FD0027AC1F /* ReferenceTableViewCell.xib */; };
+		637F96C22720B5660027AC1F /* OdometerVehicleDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637F96BD2720B5510027AC1F /* OdometerVehicleDetailVC.swift */; };
+		637F96C32720B5660027AC1F /* OdometerVehicleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637F96BE2720B5560027AC1F /* OdometerVehicleDetailViewModel.swift */; };
+		637F96C42720B5660027AC1F /* OdometerVehicleDetailButtonsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637F96BF2720B55C0027AC1F /* OdometerVehicleDetailButtonsCell.swift */; };
+		637F96C52720B5660027AC1F /* OdometerVehicleDetailButtonsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637F96C02720B5610027AC1F /* OdometerVehicleDetailButtonsCell.xib */; };
+		637F96C62720B5660027AC1F /* OdometerVehicleDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637F96C12720B5650027AC1F /* OdometerVehicleDetailVC.xib */; };
+		637F96D02720B62C0027AC1F /* OdometerHistoriesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637F96CB2720B61B0027AC1F /* OdometerHistoriesVC.swift */; };
+		637F96D12720B62C0027AC1F /* OdometerHistoryDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637F96CC2720B61E0027AC1F /* OdometerHistoryDetailVC.xib */; };
+		637F96D22720B62C0027AC1F /* OdometerHistoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637F96CD2720B6220027AC1F /* OdometerHistoriesViewModel.swift */; };
+		637F96D32720B62C0027AC1F /* OdometerHistoryDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637F96CE2720B6270027AC1F /* OdometerHistoryDetailVC.swift */; };
+		637F96D42720B62C0027AC1F /* OdometerHistoriesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637F96CF2720B62C0027AC1F /* OdometerHistoriesVC.xib */; };
+		637F96DA2720B7FD0027AC1F /* OdometerHistoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637F96D62720B7EF0027AC1F /* OdometerHistoriesCell.swift */; };
+		637F96DB2720B7FD0027AC1F /* OdometerHistoryDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637F96D72720B7F40027AC1F /* OdometerHistoryDetailCell.xib */; };
+		637F96DC2720B7FD0027AC1F /* OdometerHistoryDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637F96D82720B7F90027AC1F /* OdometerHistoryDetailCell.swift */; };
+		637F96DD2720B7FD0027AC1F /* OdometerHistoriesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637F96D92720B7FD0027AC1F /* OdometerHistoriesCell.xib */; };
 		637F96E02720BA0D0027AC1F /* OdometerVehicleSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637F96DF2720BA0D0027AC1F /* OdometerVehicleSelectionVC.swift */; };
 		637F96E22720BA320027AC1F /* VehicleSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637F96E12720BA320027AC1F /* VehicleSelectionViewModel.swift */; };
 		637F96E42720BA4E0027AC1F /* VehicleSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637F96E32720BA4E0027AC1F /* VehicleSelectionCell.swift */; };
@@ -830,20 +830,20 @@
 		637F96B52720B4DD0027AC1F /* OdometerCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OdometerCellViewModel.swift; sourceTree = "<group>"; };
 		637F96B62720B4DD0027AC1F /* OdometerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OdometerCell.swift; sourceTree = "<group>"; };
 		637F96B72720B4DD0027AC1F /* OdometerVehicleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OdometerVehicleCell.xib; sourceTree = "<group>"; };
-		637F96BD2720B5510027AC1F /* OdometerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OdometerVC.swift; sourceTree = "<group>"; };
-		637F96BE2720B5560027AC1F /* OdometerViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OdometerViewModel.swift; sourceTree = "<group>"; };
-		637F96BF2720B55C0027AC1F /* OdometerButtonsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OdometerButtonsTableViewCell.swift; sourceTree = "<group>"; };
-		637F96C02720B5610027AC1F /* OdometerButtonsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OdometerButtonsTableViewCell.xib; sourceTree = "<group>"; };
-		637F96C12720B5650027AC1F /* OdometerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OdometerVC.xib; sourceTree = "<group>"; };
-		637F96CB2720B61B0027AC1F /* ReferencesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferencesVC.swift; sourceTree = "<group>"; };
-		637F96CC2720B61E0027AC1F /* ReferenceDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReferenceDetailVC.xib; sourceTree = "<group>"; };
-		637F96CD2720B6220027AC1F /* ReferenceViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceViewModel.swift; sourceTree = "<group>"; };
-		637F96CE2720B6270027AC1F /* ReferenceDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceDetailVC.swift; sourceTree = "<group>"; };
-		637F96CF2720B62C0027AC1F /* ReferencesVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReferencesVC.xib; sourceTree = "<group>"; };
-		637F96D62720B7EF0027AC1F /* ReferenceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceTableViewCell.swift; sourceTree = "<group>"; };
-		637F96D72720B7F40027AC1F /* ReferenceDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReferenceDetailTableViewCell.xib; sourceTree = "<group>"; };
-		637F96D82720B7F90027AC1F /* ReferenceDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferenceDetailTableViewCell.swift; sourceTree = "<group>"; };
-		637F96D92720B7FD0027AC1F /* ReferenceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReferenceTableViewCell.xib; sourceTree = "<group>"; };
+		637F96BD2720B5510027AC1F /* OdometerVehicleDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OdometerVehicleDetailVC.swift; sourceTree = "<group>"; };
+		637F96BE2720B5560027AC1F /* OdometerVehicleDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OdometerVehicleDetailViewModel.swift; sourceTree = "<group>"; };
+		637F96BF2720B55C0027AC1F /* OdometerVehicleDetailButtonsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OdometerVehicleDetailButtonsCell.swift; sourceTree = "<group>"; };
+		637F96C02720B5610027AC1F /* OdometerVehicleDetailButtonsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OdometerVehicleDetailButtonsCell.xib; sourceTree = "<group>"; };
+		637F96C12720B5650027AC1F /* OdometerVehicleDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OdometerVehicleDetailVC.xib; sourceTree = "<group>"; };
+		637F96CB2720B61B0027AC1F /* OdometerHistoriesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OdometerHistoriesVC.swift; sourceTree = "<group>"; };
+		637F96CC2720B61E0027AC1F /* OdometerHistoryDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OdometerHistoryDetailVC.xib; sourceTree = "<group>"; };
+		637F96CD2720B6220027AC1F /* OdometerHistoriesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OdometerHistoriesViewModel.swift; sourceTree = "<group>"; };
+		637F96CE2720B6270027AC1F /* OdometerHistoryDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OdometerHistoryDetailVC.swift; sourceTree = "<group>"; };
+		637F96CF2720B62C0027AC1F /* OdometerHistoriesVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OdometerHistoriesVC.xib; sourceTree = "<group>"; };
+		637F96D62720B7EF0027AC1F /* OdometerHistoriesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OdometerHistoriesCell.swift; sourceTree = "<group>"; };
+		637F96D72720B7F40027AC1F /* OdometerHistoryDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OdometerHistoryDetailCell.xib; sourceTree = "<group>"; };
+		637F96D82720B7F90027AC1F /* OdometerHistoryDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OdometerHistoryDetailCell.swift; sourceTree = "<group>"; };
+		637F96D92720B7FD0027AC1F /* OdometerHistoriesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OdometerHistoriesCell.xib; sourceTree = "<group>"; };
 		637F96DF2720BA0D0027AC1F /* OdometerVehicleSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdometerVehicleSelectionVC.swift; sourceTree = "<group>"; };
 		637F96E12720BA320027AC1F /* VehicleSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleSelectionViewModel.swift; sourceTree = "<group>"; };
 		637F96E32720BA4E0027AC1F /* VehicleSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleSelectionCell.swift; sourceTree = "<group>"; };
@@ -1782,10 +1782,10 @@
 		637F96A92720B2610027AC1F /* HistoryDetail */ = {
 			isa = PBXGroup;
 			children = (
-				637F96D82720B7F90027AC1F /* ReferenceDetailTableViewCell.swift */,
-				637F96D72720B7F40027AC1F /* ReferenceDetailTableViewCell.xib */,
-				637F96CE2720B6270027AC1F /* ReferenceDetailVC.swift */,
-				637F96CC2720B61E0027AC1F /* ReferenceDetailVC.xib */,
+				637F96D82720B7F90027AC1F /* OdometerHistoryDetailCell.swift */,
+				637F96D72720B7F40027AC1F /* OdometerHistoryDetailCell.xib */,
+				637F96CE2720B6270027AC1F /* OdometerHistoryDetailVC.swift */,
+				637F96CC2720B61E0027AC1F /* OdometerHistoryDetailVC.xib */,
 			);
 			path = HistoryDetail;
 			sourceTree = "<group>";
@@ -1827,10 +1827,10 @@
 		637F96C72720B5700027AC1F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				637F96BF2720B55C0027AC1F /* OdometerButtonsTableViewCell.swift */,
-				637F96C02720B5610027AC1F /* OdometerButtonsTableViewCell.xib */,
-				637F96BD2720B5510027AC1F /* OdometerVC.swift */,
-				637F96C12720B5650027AC1F /* OdometerVC.xib */,
+				637F96BF2720B55C0027AC1F /* OdometerVehicleDetailButtonsCell.swift */,
+				637F96C02720B5610027AC1F /* OdometerVehicleDetailButtonsCell.xib */,
+				637F96BD2720B5510027AC1F /* OdometerVehicleDetailVC.swift */,
+				637F96C12720B5650027AC1F /* OdometerVehicleDetailVC.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1838,7 +1838,7 @@
 		637F96C82720B5760027AC1F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				637F96BE2720B5560027AC1F /* OdometerViewModel.swift */,
+				637F96BE2720B5560027AC1F /* OdometerVehicleDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1847,8 +1847,8 @@
 			isa = PBXGroup;
 			children = (
 				637F96D52720B7D20027AC1F /* Cells */,
-				637F96CB2720B61B0027AC1F /* ReferencesVC.swift */,
-				637F96CF2720B62C0027AC1F /* ReferencesVC.xib */,
+				637F96CB2720B61B0027AC1F /* OdometerHistoriesVC.swift */,
+				637F96CF2720B62C0027AC1F /* OdometerHistoriesVC.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1856,7 +1856,7 @@
 		637F96CA2720B6060027AC1F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				637F96CD2720B6220027AC1F /* ReferenceViewModel.swift */,
+				637F96CD2720B6220027AC1F /* OdometerHistoriesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1864,8 +1864,8 @@
 		637F96D52720B7D20027AC1F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				637F96D62720B7EF0027AC1F /* ReferenceTableViewCell.swift */,
-				637F96D92720B7FD0027AC1F /* ReferenceTableViewCell.xib */,
+				637F96D62720B7EF0027AC1F /* OdometerHistoriesCell.swift */,
+				637F96D92720B7FD0027AC1F /* OdometerHistoriesCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -2917,25 +2917,25 @@
 				A34FC7332423A1AA000734AB /* VehicleDetailVC.xib in Resources */,
 				3FF68F49241642D50071D74C /* VehiclePickerTextVC.xib in Resources */,
 				3F50D70024179467001226F7 /* SelectBluetoothVC.xib in Resources */,
-				637F96C62720B5660027AC1F /* OdometerVC.xib in Resources */,
+				637F96C62720B5660027AC1F /* OdometerVehicleDetailVC.xib in Resources */,
 				3FF68F3B241535130071D74C /* VehiclePickerLabelCollectionViewCell.xib in Resources */,
 				3FE6A4472420C72800E24C1C /* PicturedIndicatorView.xib in Resources */,
 				3FF68F4F24164E040071D74C /* VehiclePickerInputVC.xib in Resources */,
-				637F96DB2720B7FD0027AC1F /* ReferenceDetailTableViewCell.xib in Resources */,
+				637F96DB2720B7FD0027AC1F /* OdometerHistoryDetailCell.xib in Resources */,
 				A34FC7272422755F000734AB /* VehicleGroupFieldsCell.xib in Resources */,
 				3FE6A44B242122C600E24C1C /* BeaconScannerNotConfiguredVC.xib in Resources */,
 				3F50D70424179467001226F7 /* ErrorBluetoothVC.xib in Resources */,
 				3FF68F34241533480071D74C /* VehiclePickerImageCollectionViewCell.xib in Resources */,
 				63782D952487A23E0079F315 /* VehiclePickerTruckTypeVC.xib in Resources */,
-				637F96D12720B62C0027AC1F /* ReferenceDetailVC.xib in Resources */,
+				637F96D12720B62C0027AC1F /* OdometerHistoryDetailVC.xib in Resources */,
 				3FF68F3F24154ADB0071D74C /* DriveKitVehicle.xcassets in Resources */,
 				A3D51F4F241BA3AE006DACE2 /* VehiclesListVC.xib in Resources */,
 				3FFB2D7D2418FF8E003E6A06 /* BeaconScannerProgressVC.xib in Resources */,
-				637F96C52720B5660027AC1F /* OdometerButtonsTableViewCell.xib in Resources */,
+				637F96C52720B5660027AC1F /* OdometerVehicleDetailButtonsCell.xib in Resources */,
 				3FFB2D692417E2C9003E6A06 /* ConnectBeaconVC.xib in Resources */,
-				637F96D42720B62C0027AC1F /* ReferencesVC.xib in Resources */,
+				637F96D42720B62C0027AC1F /* OdometerHistoriesVC.xib in Resources */,
 				3FFB2D8E241942FB003E6A06 /* BeaconScannerBeaconUnavailableVC.xib in Resources */,
-				637F96DD2720B7FD0027AC1F /* ReferenceTableViewCell.xib in Resources */,
+				637F96DD2720B7FD0027AC1F /* OdometerHistoriesCell.xib in Resources */,
 				637F96BC2720B4DD0027AC1F /* OdometerVehicleCell.xib in Resources */,
 				637F96E62720BA600027AC1F /* VehicleSelectionCell.xib in Resources */,
 				3FFB2D762418F719003E6A06 /* BeaconScannerVC.xib in Resources */,
@@ -3323,9 +3323,9 @@
 				637F96AC2720B2C70027AC1F /* OdometerVehicleListViewModel.swift in Sources */,
 				3FF68EFF2413EEF80071D74C /* DriveKitVehicleUI.swift in Sources */,
 				3FF68F1924150D040071D74C /* VehiclePickerTableViewVC.swift in Sources */,
-				637F96C32720B5660027AC1F /* OdometerViewModel.swift in Sources */,
+				637F96C32720B5660027AC1F /* OdometerVehicleDetailViewModel.swift in Sources */,
 				637F96E02720BA0D0027AC1F /* OdometerVehicleSelectionVC.swift in Sources */,
-				637F96D22720B62C0027AC1F /* ReferenceViewModel.swift in Sources */,
+				637F96D22720B62C0027AC1F /* OdometerHistoriesViewModel.swift in Sources */,
 				3F50D70224179467001226F7 /* ErrorBluetoothVC.swift in Sources */,
 				A39055552424FA4100537EB5 /* VehicleDetailHeader.swift in Sources */,
 				3FE6A45624213EC600E24C1C /* BeaconDetailViewModel.swift in Sources */,
@@ -3333,13 +3333,13 @@
 				3FA3C4562416A96500BD4E14 /* DKCategoryConfigType.swift in Sources */,
 				3FF68F10241501D20071D74C /* VehiclePickerStep.swift in Sources */,
 				3F50D6F52417945B001226F7 /* BluetoothViewModel.swift in Sources */,
-				637F96DC2720B7FD0027AC1F /* ReferenceDetailTableViewCell.swift in Sources */,
+				637F96DC2720B7FD0027AC1F /* OdometerHistoryDetailCell.swift in Sources */,
 				3FF68F4A241642D50071D74C /* VehiclePickerTextVC.swift in Sources */,
 				3FF542892435EE690063A5B9 /* VehicleListHeaderView.swift in Sources */,
 				3FF68F2024150E5F0071D74C /* VehiclePickerStep+TableView.swift in Sources */,
 				3FE6A44A242122C600E24C1C /* BeaconScannerNotConfiguredVC.swift in Sources */,
 				3FF68F312415330A0071D74C /* VehiclePickerCollectionViewDelegate.swift in Sources */,
-				637F96C42720B5660027AC1F /* OdometerButtonsTableViewCell.swift in Sources */,
+				637F96C42720B5660027AC1F /* OdometerVehicleDetailButtonsCell.swift in Sources */,
 				3FFB2D7F241913D0003E6A06 /* DKBeacon+UI.swift in Sources */,
 				A3D51F45241BA39D006DACE2 /* DKVehicleAction.swift in Sources */,
 				63782D932487A1E40079F315 /* VehiclePickerTruckTypeVC.swift in Sources */,
@@ -3350,7 +3350,7 @@
 				3FF68F37241534220071D74C /* VehiclePickerStep+CollectionView.swift in Sources */,
 				A34FC72B2422755F000734AB /* VehicleGroupFieldsCell.swift in Sources */,
 				637F96E42720BA4E0027AC1F /* VehicleSelectionCell.swift in Sources */,
-				637F96D32720B62C0027AC1F /* ReferenceDetailVC.swift in Sources */,
+				637F96D32720B62C0027AC1F /* OdometerHistoryDetailVC.swift in Sources */,
 				A34FC71E24227556000734AB /* DKVehicleGroupFields.swift in Sources */,
 				3FFB2D9124194909003E6A06 /* BeaconScanFailureVC.swift in Sources */,
 				A3D51F4E241BA3AE006DACE2 /* VehiclesListCell.swift in Sources */,
@@ -3361,7 +3361,7 @@
 				A34FC73024227567000734AB /* VehicleDetailViewModel.swift in Sources */,
 				3FF68F3D2415437A0071D74C /* DKVehicleBrand+UI.swift in Sources */,
 				637F96E22720BA320027AC1F /* VehicleSelectionViewModel.swift in Sources */,
-				637F96D02720B62C0027AC1F /* ReferencesVC.swift in Sources */,
+				637F96D02720B62C0027AC1F /* OdometerHistoriesVC.swift in Sources */,
 				3FF68F2F241532EB0071D74C /* VehiclePickerCollectionViewVC.swift in Sources */,
 				3F50D6FF24179467001226F7 /* SelectBluetoothVC.swift in Sources */,
 				3FF68F41241557C20071D74C /* DKVehicleEngineIndex+UI.swift in Sources */,
@@ -3371,9 +3371,9 @@
 				637F96BA2720B4DD0027AC1F /* OdometerCellViewModel.swift in Sources */,
 				3FF68F2A24152BE30071D74C /* VehiclePickerStepView.swift in Sources */,
 				63782D972487A5DD0079F315 /* VehiclePickerTruckTypeHeader.swift in Sources */,
-				637F96DA2720B7FD0027AC1F /* ReferenceTableViewCell.swift in Sources */,
+				637F96DA2720B7FD0027AC1F /* OdometerHistoriesCell.swift in Sources */,
 				3F50D7082417ADDD001226F7 /* DKVehicle+UI.swift in Sources */,
-				637F96C22720B5660027AC1F /* OdometerVC.swift in Sources */,
+				637F96C22720B5660027AC1F /* OdometerVehicleDetailVC.swift in Sources */,
 				A3D51F50241BA3AE006DACE2 /* VehiclesListVC.swift in Sources */,
 				3FFB2D7C2418FF8E003E6A06 /* BeaconScannerProgressVC.swift in Sources */,
 				3FF68F282415198D0071D74C /* VehiclePickerTableViewCell.swift in Sources */,

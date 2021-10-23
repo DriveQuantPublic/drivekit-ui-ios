@@ -25,6 +25,7 @@ class OdometerVehicleListViewModel {
     }
 
     func fetchOdometer(completion: @escaping (Bool) -> ()) {
+        #warning("Pull to refresh")
         let type: DKVehicleSynchronizationType
         if let lastSyncDate = OdometerVehicleListViewModel.lastSyncDate, -lastSyncDate.timeIntervalSinceNow < 600 {
             type = .cache
@@ -32,6 +33,7 @@ class OdometerVehicleListViewModel {
             type = .defaultSync
             OdometerVehicleListViewModel.lastSyncDate = Date()
         }
+        #warning("User odometer service")
         DriveKitVehicle.shared.getVehiclesOrderByNameAsc(type: type) { status, vehicles in
             DispatchQueue.main.async {
                 if status != .syncAlreadyInProgress {

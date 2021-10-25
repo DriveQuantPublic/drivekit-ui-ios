@@ -14,6 +14,8 @@ final class OdometerHistoriesCell: UITableViewCell, Nibable {
     @IBOutlet private weak var referenceLabel: UILabel!
     @IBOutlet private weak var referenceDate: UILabel!
 
+    private var odometerHistoriesCellViewModel: OdometerHistoriesCellViewModel?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         self.configure()
@@ -24,8 +26,8 @@ final class OdometerHistoriesCell: UITableViewCell, Nibable {
         self.referenceImage.tintColor = DKUIColors.complementaryFontColor.color
     }
 
-    func update(distance: Double, date: Date) {
-        self.referenceLabel.attributedText = distance.formatKilometerDistance().dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.complementaryFontColor).build()
-        self.referenceDate.attributedText = date.format(pattern: .fullDate).capitalizeFirstLetter().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+    func update(odometerHistoriesCellViewModel: OdometerHistoriesCellViewModel) {
+        self.referenceLabel.attributedText = odometerHistoriesCellViewModel.getDistance().dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.complementaryFontColor).build()
+        self.referenceDate.attributedText = odometerHistoriesCellViewModel.getDate().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
     }
 }

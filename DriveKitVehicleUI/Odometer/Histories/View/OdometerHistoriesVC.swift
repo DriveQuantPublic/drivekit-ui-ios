@@ -12,10 +12,10 @@ import DriveKitDBVehicleAccessModule
 import DriveKitVehicleModule
 
 class OdometerHistoriesVC: DKUIViewController {
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var addButton: UIButton!
 
-    let viewModel: OdometerHistoriesViewModel
+    private let viewModel: OdometerHistoriesViewModel
 
     init(viewModel: OdometerHistoriesViewModel) {
         self.viewModel = viewModel
@@ -37,10 +37,8 @@ class OdometerHistoriesVC: DKUIViewController {
     }
 
     func configure() {
-        #warning("Manage new string")
-        title = "TODO-odometer_references_title".dkVehicleLocalized()
-        #warning("Manage new string")
-        self.addButton.configure(text: "TODO-odometer_add_reference", style: .full)
+        title = "dk_vehicle_odometer_references_title".dkVehicleLocalized()
+        self.addButton.configure(text: "dk_vehicle_odometer_add_reference".dkVehicleLocalized(), style: .full)
         self.tableView.separatorStyle = .none
         self.tableView.register(OdometerHistoriesCell.nib, forCellReuseIdentifier: "OdometerHistoriesCell")
         self.tableView.rowHeight = UITableView.automaticDimension
@@ -53,30 +51,28 @@ class OdometerHistoriesVC: DKUIViewController {
     }
 
     func reloadReferences() {
-        self.viewModel.configureOdometer(vehicle: DriveKitVehicle.shared.vehiclesQuery().whereEqualTo(field: "vehicleId", value: self.viewModel.vehicle.vehicleId).queryOne().execute() ?? self.viewModel.vehicle)
+        self.viewModel.update()
         self.tableView.reloadData()
     }
 
     @IBAction func addReference(_ sender: Any) {
-        let historiesViewModel = OdometerHistoriesViewModel(vehicle: self.viewModel.vehicle)
-        historiesViewModel.odometer = self.viewModel.vehicle.odometer
-        historiesViewModel.isWritable = true
-        let historyDetailVC = OdometerHistoryDetailVC(viewModel: historiesViewModel)
+        let historyDetailVC = OdometerHistoryDetailVC(viewModel: self.viewModel.getNewOdometerHistoryDetailViewModel())
         self.navigationController?.pushViewController(historyDetailVC, animated: true)
     }
 
-    func deleteOdometerReference(reference: DKVehicleOdometerHistory) {
+    func deleteHistory(atIndex index: Int) {
         self.showLoader()
-        #warning("TODO")
-//        VehicleManager().deleteOdometer(token: Constants.getToken()!, vehicleId: self.viewModel.vehicle.vehicleId, historyId: reference.historyId, completionHandler: { status, error in
-//            self.hideLoader()
-//            if status {
-//                self.showAlertMessage(message: "odometer_reference_delete_success".keyLocalized(), back: false)
-//                self.reloadReferences()
-//            } else {
+        self.viewModel.deleteHistory(atIndex: index) { success in
+            self.hideLoader()
+            if success {
+                #warning("TODO")
+//                self.showAlertMessage(message: "dk_vehicle_odometer_reference_delete_success".dkVehicleLocalized()(), back: false)
+                self.reloadReferences()
+            } else {
+                #warning("TODO")
 //                self.showAlertMessage(message: error?.errorDescription.errorLocalized() ?? "network_unavailable".keyLocalized(), back: false)
-//            }
-//        })
+            }
+        }
     }
 
 }
@@ -95,7 +91,7 @@ extension OdometerHistoriesVC: UITableViewDelegate {
 
 extension OdometerHistoriesVC: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return self.viewModel.histories.count
+        return self.viewModel.getNumberOfHistories()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -104,38 +100,37 @@ extension OdometerHistoriesVC: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OdometerHistoriesCell", for: indexPath) as! OdometerHistoriesCell
-        let history = self.viewModel.histories[indexPath.section]
-        let date = history.updateDate ?? Date()
-        cell.update(distance: history.distance, date: date)
-        cell.selectionStyle = .none
+        if let viewModel = self.viewModel.getOdometerHistoriesCellViewModel(atIndex: indexPath.section) {
+            cell.update(odometerHistoriesCellViewModel: viewModel)
+        }
+//        cell.selectionStyle = .none
         return cell
     }
 
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return self.viewModel.histories.count > 1
+        return self.viewModel.canDeleteHistory()
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            if self.viewModel.histories.count > 1 {
-                let selectedRef = self.viewModel.histories[indexPath.section]
-                self.deleteOdometerReference(reference: selectedRef)
+            if self.viewModel.canDeleteHistory() {
+                self.deleteHistory(atIndex: indexPath.section)
             }
         }
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let history = self.viewModel.histories[indexPath.section]
-        self.viewModel.selectedRef = history
-        if indexPath.section > 0 {
-            self.viewModel.prevRef = self.viewModel.histories[indexPath.section - 1]
-        }
-        if indexPath.section == 0 {
-            self.viewModel.isWritable = true
-        } else {
-            self.viewModel.isWritable = false
-        }
-        let historyDetailVC = OdometerHistoryDetailVC(viewModel: self.viewModel)
+//        let history = self.viewModel.histories[indexPath.section]
+//        self.viewModel.selectedRef = history
+//        if indexPath.section > 0 {
+//            self.viewModel.prevRef = self.viewModel.histories[indexPath.section - 1]
+//        }
+//        if indexPath.section == 0 {
+//            self.viewModel.isWritable = true
+//        } else {
+//            self.viewModel.isWritable = false
+//        }
+        let historyDetailVC = OdometerHistoryDetailVC(viewModel: self.viewModel.getOdometerHistoryDetailViewModel(atIndex: indexPath.section))
         self.navigationController?.pushViewController(historyDetailVC, animated: true)
     }
 

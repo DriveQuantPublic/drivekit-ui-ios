@@ -22,17 +22,15 @@ final class OdometerVehicleDetailButtonsCell: UITableViewCell, Nibable {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        #warning("Manage new string")
-        self.updateButton.configure(text: "TODO-update_odometer_title".dkVehicleLocalized(), style: .full)
-        #warning("Manage new string")
-        self.referenceLink.configure(text: "TODO-odometer_references_link".dkVehicleLocalized(), style: .empty)
+        self.updateButton.configure(text: "dk_vehicle_odometer_reference_update".dkVehicleLocalized(), style: .full)
+        self.referenceLink.configure(text: "dk_vehicle_odometer_references_link".dkVehicleLocalized(), style: .empty)
     }
 
-    @IBAction func selectUpdate(_ sender: Any) {
+    @IBAction private func selectUpdate(_ sender: Any) {
         delegate?.didSelectUpdateButton(sender: self)
     }
 
-    @IBAction func selectReference(_ sender: Any) {
+    @IBAction private func selectReference(_ sender: Any) {
         delegate?.didSelectReferenceLink(sender: self)
     }
 

@@ -12,20 +12,25 @@ import DriveKitVehicleModule
 import DriveKitDBVehicleAccessModule
 
 final class OdometerVehicleCell: UITableViewCell, Nibable {
-    @IBOutlet weak var vehicleImage: UIImageView!
-    @IBOutlet weak var vehicleName: UILabel!
-    @IBOutlet weak var pickerImage: UIImageView!
+    @IBOutlet private weak var vehicleImage: UIImageView!
+    @IBOutlet private weak var vehicleName: UILabel!
+    @IBOutlet private weak var pickerImage: UIImageView!
 
-    func configure(vehicle: DKVehicle) {
-        configureVehicleImage(vehicle: vehicle)
-        self.vehicleName.attributedText = vehicle.computeName().dkAttributedString().color(.complementaryFontColor).font(dkFont: .primary, style: .normalText).build()
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.vehicleImage.layer.cornerRadius = self.vehicleImage.frame.height / 2
+    }
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.vehicleImage.clipsToBounds = true
         self.pickerImage.image = DKImages.arrowDown.image?.withRenderingMode(.alwaysTemplate)
         self.pickerImage.tintColor = UIColor(red: 119, green: 119, blue: 119)
     }
 
-    func configureVehicleImage(vehicle: DKVehicle) {
-        self.vehicleImage.image = vehicle.getVehicleImage()
-        self.vehicleImage.layer.cornerRadius = self.vehicleImage.frame.height / 2
-        self.vehicleImage.clipsToBounds = true
+    func configure(viewModel: OdometerVehicleCellViewModel, showPickerImage: Bool) {
+        self.vehicleName.attributedText = viewModel.getVehicleName().dkAttributedString().color(.complementaryFontColor).font(dkFont: .primary, style: .normalText).build()
+        self.vehicleImage.image = viewModel.getVehicleImage()
+        self.pickerImage.isHidden = !showPickerImage
     }
 }

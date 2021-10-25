@@ -14,7 +14,7 @@ private struct Constants {
     static let minimumLineSpacing: CGFloat = 8
 }
 
-class VehiclePickerTruckTypeVC : VehiclePickerStepView {
+class VehiclePickerTruckTypeVC: VehiclePickerStepView {
     @IBOutlet private weak var collectionView: UICollectionView!
 
     init(viewModel: VehiclePickerViewModel) {
@@ -75,7 +75,7 @@ extension VehiclePickerTruckTypeVC: UICollectionViewDelegate, UICollectionViewDa
     }
 }
 
-extension VehiclePickerTruckTypeVC : UICollectionViewDelegateFlowLayout {
+extension VehiclePickerTruckTypeVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.bounds.width - Constants.insets.left - Constants.insets.right - Constants.minimumInteritemSpacing
         let height = (width * 0.4).rounded() + (self.viewModel.showStepLabel() ? 16 : 0)
@@ -109,9 +109,9 @@ extension VehiclePickerTruckTypeVC : UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension VehiclePickerTruckTypeVC : VehicleDataDelegate {
+extension VehiclePickerTruckTypeVC: VehicleDataDelegate {
     func onDataRetrieved(status: StepStatus) {
-        self.executeOnMainThread {
+        DispatchQueue.dispatchOnMainThread {
             self.hideLoader()
             switch status {
                 case .noError:

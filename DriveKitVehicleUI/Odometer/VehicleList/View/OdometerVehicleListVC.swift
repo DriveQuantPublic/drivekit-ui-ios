@@ -30,8 +30,7 @@ class OdometerVehicleListVC: DKUIViewController {
     }
 
     func configure() {
-        #warning("Manage new string")
-        self.title = "TODO-maintenance_title".dkVehicleLocalized()
+        self.title = "dk_vehicle_odometer_menu".dkVehicleLocalized()
         self.tableView.separatorStyle = .none
         self.tableView.register(OdometerVehicleCell.nib, forCellReuseIdentifier: "OdometerVehicleCell")
         self.tableView.register(OdometerCell.nib, forCellReuseIdentifier: "OdometerCell")
@@ -42,16 +41,24 @@ class OdometerVehicleListVC: DKUIViewController {
         if #available(iOS 15, *) {
             self.tableView.sectionHeaderTopPadding = 0
         }
+
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(update), for: .valueChanged)
+        self.tableView.refreshControl = refreshControl
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        self.fetchOdometer()
+        self.update()
     }
 
-    private func fetchOdometer() {
-        self.showLoader()
-        self.viewModel.fetchOdometer { success in
-            self.hideLoader()
+    @objc private func update() {
+        if let refreshControl = self.tableView?.refreshControl {
+            refreshControl.beginRefreshing()
+        }
+        self.viewModel.update { success in
+            if let refreshControl = self.tableView?.refreshControl, refreshControl.isRefreshing {
+                refreshControl.endRefreshing()
+            }
             if !success {
                 self.showAlertMessage(title: Bundle.main.appName ?? "", message: DKCommonLocalizable.error.text(), back: true, cancel: false)
             }
@@ -84,13 +91,12 @@ extension OdometerVehicleListVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "OdometerVehicleCell", for: indexPath) as! OdometerVehicleCell
-            cell.configure(vehicle: self.viewModel.currentVehicle)
+            cell.configure(viewModel: self.viewModel.getOdometerVehicleCellViewModel(), showPickerImage: true)
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "OdometerCell", for: indexPath) as! OdometerCell
             cell.delegate = self
-            let cellViewModel = OdometerCellViewModel(vehicle: self.viewModel.currentVehicle, index: indexPath, type: .odometer, optionButton: true)
-            cell.configure(viewModel: cellViewModel)
+            cell.configure(viewModel: self.viewModel.getOdometerCellViewModel(), type: .odometer, actionType: .option)
             cell.selectionStyle = .none
             return cell
         }
@@ -124,27 +130,19 @@ extension OdometerVehicleListVC: UITableViewDataSource {
 //}
 
 extension OdometerVehicleListVC: OdometerCellDelegate {
-    func didTouchActionButton(vehicle: DKVehicle, index: IndexPath, sender: OdometerCell) {
-        if index.section == 1 {
-            let odometerActionAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-            #warning("Manage new string")
-            let showAction = UIAlertAction(title: "TODO-show".dkVehicleLocalized(), style: .default, handler: { _ in
-                let vehicleDetailViewModel = OdometerVehicleDetailViewModel(vehicle: vehicle)
-                let vehicleDetailVC = OdometerVehicleDetailVC(viewModel: vehicleDetailViewModel)
-                self.navigationController?.pushViewController(vehicleDetailVC, animated: true)
-            })
-            odometerActionAlert.addAction(showAction)
-            #warning("Manage new string")
-            let addReferenceAction = UIAlertAction(title: "TODO-odometer_add_reference".dkVehicleLocalized(), style: .default, handler: { _ in
-                let historiesViewModel = OdometerHistoriesViewModel(vehicle: vehicle)
-                historiesViewModel.odometer = self.viewModel.currentVehicle.odometer
-                historiesViewModel.isWritable = true
-                let historyDetailVC = OdometerHistoryDetailVC(viewModel: historiesViewModel)
-                self.navigationController?.pushViewController(historyDetailVC, animated: true)
-            })
-            odometerActionAlert.addAction(addReferenceAction)
-            odometerActionAlert.addAction(UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel))
-            self.present(odometerActionAlert, animated: true)
-        }
+    func didTouchActionButton(sender: OdometerCell) {
+        let odometerActionAlert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let showAction = UIAlertAction(title: "dk_vehicle_show".dkVehicleLocalized(), style: .default, handler: { _ in
+            let vehicleDetailVC = OdometerVehicleDetailVC(viewModel: self.viewModel.getOdometerVehicleDetailViewModel())
+            self.navigationController?.pushViewController(vehicleDetailVC, animated: true)
+        })
+        odometerActionAlert.addAction(showAction)
+        let addReferenceAction = UIAlertAction(title: "dk_vehicle_odometer_add_reference".dkVehicleLocalized(), style: .default, handler: { _ in
+            let historyDetailVC = OdometerHistoryDetailVC(viewModel: self.viewModel.getOdometerHistoryDetailViewModel())
+            self.navigationController?.pushViewController(historyDetailVC, animated: true)
+        })
+        odometerActionAlert.addAction(addReferenceAction)
+        odometerActionAlert.addAction(UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel))
+        self.present(odometerActionAlert, animated: true)
     }
 }

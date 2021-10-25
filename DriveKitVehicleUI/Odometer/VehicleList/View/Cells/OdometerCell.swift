@@ -11,7 +11,7 @@ import DriveKitCommonUI
 import DriveKitDBVehicleAccessModule
 
 protocol OdometerCellDelegate: AnyObject {
-    func didTouchActionButton(vehicle: DKVehicle, index: IndexPath, sender: OdometerCell)
+    func didTouchActionButton(sender: OdometerCell)
 }
 
 final class OdometerCell: UITableViewCell, Nibable {
@@ -23,46 +23,63 @@ final class OdometerCell: UITableViewCell, Nibable {
 
     weak var delegate: OdometerCellDelegate?
     private var viewModel: OdometerCellViewModel?
+    private var type: OdometerCellType = .odometer
+    private var actionType: OdometerCellActionType = .none
 
-    func configure(viewModel: OdometerCellViewModel) {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.actionButton.tintColor = DKUIColors.secondaryColor.color
+    }
+
+    func configure(viewModel: OdometerCellViewModel, type: OdometerCellType, actionType: OdometerCellActionType) {
         self.viewModel = viewModel
-        self.configureTitle()
-        self.configureOptionButton()
-        self.configureContent()
+        self.type = type
+        self.actionType = actionType
+        self.configureTitle(viewModel: viewModel, type: type)
+        self.configureOptionButton(actionType: actionType)
+        self.configureContent(viewModel: viewModel, type: type)
     }
 
-    func configureTitle() {
-        self.titleLabel.attributedText = self.viewModel?.type.title.dkAttributedString().color(.mainFontColor).font(dkFont: .primary, style: .normalText).build()
+    private func configureTitle(viewModel: OdometerCellViewModel, type: OdometerCellType) {
+        self.titleLabel.attributedText = viewModel.getTitle(type: type).dkAttributedString().color(.mainFontColor).font(dkFont: .primary, style: .normalText).build()
     }
 
-    func configureOptionButton() {
-        if self.viewModel?.optionButton ?? true {
+    private func configureOptionButton(actionType: OdometerCellActionType) {
+        let image: UIImage?
+        switch actionType {
+            case .option:
+                image = DKImages.dots.image
+            case .info:
+                image = DKImages.info.image
+            case .none:
+                image = nil
+        }
+        if let image = image {
+            self.actionButton.setImage(image.withRenderingMode(.alwaysTemplate), for: .normal)
             self.actionButton.isHidden = false
-            self.actionButton.setImage(DKImages.dots.image?.withRenderingMode(.alwaysTemplate), for: .normal)
-            self.actionButton.tintColor = DKUIColors.secondaryColor.color
-        } else if self.viewModel?.alertButton ?? false {
-            self.actionButton.isHidden = false
-            self.actionButton.setImage(DKImages.info.image?.withRenderingMode(.alwaysTemplate), for: .normal)
-            self.actionButton.tintColor = DKUIColors.secondaryColor.color
         } else {
             self.actionButton.isHidden = true
         }
     }
 
-    func configureContent() {
-        self.valueLabel.attributedText = self.viewModel?.value.dkAttributedString().color(.complementaryFontColor).font(dkFont: .primary, style: DKStyle(size: 34, traits: .traitBold)).build()
-        self.subtitleValue.attributedText = self.viewModel?.subtitle.dkAttributedString().color(.complementaryFontColor).font(dkFont: .primary, style: .smallText).build()
+    private func configureContent(viewModel: OdometerCellViewModel, type: OdometerCellType) {
+        self.valueLabel.attributedText = viewModel.getDistance(type: type).dkAttributedString().color(.complementaryFontColor).font(dkFont: .primary, style: DKStyle(size: 34, traits: .traitBold)).build()
+        self.subtitleValue.attributedText = viewModel.getDescription(type: type).dkAttributedString().color(.complementaryFontColor).font(dkFont: .primary, style: .smallText).build()
     }
     
-    @IBAction func touchActionButton(_ sender: Any) {
-        if let vehicle = self.viewModel?.vehicle {
-            if self.viewModel?.optionButton ?? true {
-                self.delegate?.didTouchActionButton(vehicle: vehicle, index: self.viewModel?.index ?? IndexPath(row: 0, section: 0), sender: self)
-            } else if self.viewModel?.alertButton ?? false {
-                let alert = UIAlertController(title: self.viewModel?.alertTitle, message: self.viewModel?.alertMessage, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel))
-                self.window?.rootViewController?.present(alert, animated: true)
-            }
+    @IBAction private func touchActionButton(_ sender: Any) {
+        switch self.actionType {
+            case .option:
+                self.delegate?.didTouchActionButton(sender: self)
+            case .info:
+                if let viewModel = self.viewModel {
+                    let (title, message) = viewModel.getInfoContent(type: self.type)
+                    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel))
+                    self.window?.rootViewController?.present(alert, animated: true)
+                }
+            case .none:
+                break
         }
     }
 }

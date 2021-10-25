@@ -8,20 +8,45 @@
 
 import Foundation
 import DriveKitDBVehicleAccessModule
+import DriveKitVehicleModule
 
 class OdometerVehicleDetailViewModel {
-    var vehicle: DKVehicle
-    var odometer: DKVehicleOdometer?
-    var cells: [OdometerCellType] = []
+    private var vehicle: DKVehicle
+    private var odometer: DKVehicleOdometer?
+    private var odometerHistories: [DKVehicleOdometerHistory]?
+    let cells: [OdometerCellType] = [.odometer, .analyzedDistance, .estimatedDistance]
 
-    init(vehicle: DKVehicle) {
+    init(vehicle: DKVehicle, odometer: DKVehicleOdometer?, odometerHistories: [DKVehicleOdometerHistory]?) {
         self.vehicle = vehicle
-        self.odometer = vehicle.odometer
-        self.cells = [ .odometer, .analyzedDistance, .estimatedDistance]
+        self.odometer = odometer
+        self.odometerHistories = odometerHistories
     }
 
-    func configureVehicle(vehicle: DKVehicle) {
-        self.vehicle = vehicle
-        self.odometer = vehicle.odometer
+    func update() {
+        if let vehicle = DriveKitVehicle.shared.vehiclesQuery().whereEqualTo(field: "vehicleId", value: self.vehicle.vehicleId).queryOne().execute() {
+            self.vehicle = vehicle
+            self.odometer = vehicle.odometer
+            self.odometerHistories = vehicle.odometerHistories
+        }
+    }
+
+    func showReferenceLink() -> Bool {
+        return !(self.odometerHistories?.isEmpty ?? true)
+    }
+
+    func getOdometerCellViewModel() -> OdometerCellViewModel {
+        return OdometerCellViewModel(odometer: self.odometer)
+    }
+
+    func getOdometerVehicleCellViewModel() -> OdometerVehicleCellViewModel {
+        return OdometerVehicleCellViewModel(vehicle: self.vehicle)
+    }
+
+    func getOdometerHistoriesViewModel() -> OdometerHistoriesViewModel {
+        return OdometerHistoriesViewModel(vehicle: self.vehicle, odometer: self.odometer, odometerHistories: self.odometerHistories)
+    }
+
+    func getOdometerHistoryDetailViewModel() -> OdometerHistoryDetailViewModel {
+        return OdometerHistoryDetailViewModel(vehicle: self.vehicle, history: nil, isEditable: true)
     }
 }

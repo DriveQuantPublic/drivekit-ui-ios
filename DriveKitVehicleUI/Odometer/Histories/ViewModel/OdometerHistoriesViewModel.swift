@@ -7,73 +7,74 @@
 //
 
 import Foundation
-import UIKit
 import DriveKitDBVehicleAccessModule
-import DriveKitCommonUI
-
-enum ReferenceCellType {
-    case distance
-    case date
-    case vehicle(DKVehicle)
-
-    var isEditable: Bool {
-        switch self {
-            case .distance, .date:
-                return true
-            case .vehicle:
-                return false
-        }
-    }
-
-    var image: UIImage? {
-        switch self {
-            case .distance:
-                return DKImages.ecoAccel.image
-            case .date:
-                return DKImages.calendar.image
-            case .vehicle(let vehicle):
-                return vehicle.getVehicleImage()
-        }
-    }
-
-    var placeholder: String {
-        switch self {
-            case .distance:
-                #warning("Manage new string")
-                return "TODO-mileage_kilometer".dkVehicleLocalized()
-            case .date:
-                #warning("Manage new string")
-                return "TODO-date".dkVehicleLocalized()
-            case .vehicle:
-                return ""
-        }
-    }
-}
+import DriveKitVehicleModule
 
 class OdometerHistoriesViewModel {
-    var vehicle: DKVehicle
-    var histories: [DKVehicleOdometerHistory] = []
-    var odometer: DKVehicleOdometer?
-    var index: Int = 0
-    var cellsReferences: [ReferenceCellType]
-    var selectedRef: DKVehicleOdometerHistory? = nil
-    var prevRef: DKVehicleOdometerHistory? = nil
-    var isWritable: Bool = false
+    private var vehicle: DKVehicle
+    private var odometer: DKVehicleOdometer?
+    private var odometerHistories: [DKVehicleOdometerHistory]?
 
-    var updatedRefDate: Date? = nil
-    var updatedValue: Double? = nil
-
-    init(vehicle: DKVehicle) {
+    init(vehicle: DKVehicle, odometer: DKVehicleOdometer?, odometerHistories: [DKVehicleOdometerHistory]?) {
         self.vehicle = vehicle
-        self.cellsReferences = [.distance, .date, .vehicle(vehicle)]
-        self.configureOdometer(vehicle: vehicle)
+        self.odometer = odometer
+        self.odometerHistories = odometerHistories
     }
 
-    func configureOdometer(vehicle: DKVehicle) {
-        self.vehicle = vehicle
-        self.odometer = vehicle.odometer
-        if let history = vehicle.odometerHistories {
-            self.histories = history.sorted(by: {$0.updateDate ?? Date() > $1.updateDate ?? Date()})
+    func update() {
+        if let vehicle = DriveKitVehicle.shared.vehiclesQuery().whereEqualTo(field: "vehicleId", value: self.vehicle.vehicleId).queryOne().execute() {
+            self.vehicle = vehicle
+            self.odometer = vehicle.odometer
+            if let odometerHistories = vehicle.odometerHistories {
+                self.odometerHistories = odometerHistories.sorted { $0.updateDate ?? Date() > $1.updateDate ?? Date() }
+            }
+        }
+    }
+
+    func getOdometerHistoryDetailViewModel(atIndex index: Int) -> OdometerHistoryDetailViewModel {
+        let history = getHistory(atIndex: index)
+        return OdometerHistoryDetailViewModel(vehicle: self.vehicle, history: history, isEditable: index == 0)
+    }
+
+    func getNewOdometerHistoryDetailViewModel() -> OdometerHistoryDetailViewModel {
+        return OdometerHistoryDetailViewModel(vehicle: self.vehicle, history: nil, isEditable: true)
+    }
+
+    func getOdometerHistoriesCellViewModel(atIndex index: Int) -> OdometerHistoriesCellViewModel? {
+        if let history = getHistory(atIndex: index) {
+            return OdometerHistoriesCellViewModel(history: history)
+        } else {
+            return nil
+        }
+    }
+
+    func getNumberOfHistories() -> Int {
+        return self.odometerHistories?.count ?? 0
+    }
+
+    func canDeleteHistory() -> Bool {
+        return self.getNumberOfHistories() > 1
+    }
+
+    func deleteHistory(atIndex index: Int, completion: @escaping (Bool) -> ()) {
+        if let history = getHistory(atIndex: index) {
+            DriveKitVehicle.shared.deleteOdometerHistory(vehicleId: self.vehicle.vehicleId, historyId: String(history.historyId)) { status, odometer, histories in
+                self.odometer = odometer
+                self.odometerHistories = histories
+                DispatchQueue.dispatchOnMainThread {
+                    completion(true)
+                }
+            }
+        } else {
+            completion(false)
+        }
+    }
+
+    private func getHistory(atIndex index: Int) -> DKVehicleOdometerHistory? {
+        if let odometerHistories = self.odometerHistories, index >= 0 && index < odometerHistories.count {
+            return odometerHistories[index]
+        } else {
+            return nil
         }
     }
 }

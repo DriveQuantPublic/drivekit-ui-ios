@@ -78,8 +78,7 @@ final class OdometerHistoryDetailCell: UITableViewCell, Nibable {
                 self.textFieldSubtitle.isHidden = true
                 self.didUpdateDistanceField(distance: value)
             } else {
-                #warning("Manage new string")
-                subtitleError(text: "TODO-error_odometer".dkVehicleLocalized())
+                subtitleError(text: "dk_vehicle_odometer_reference_error".dkVehicleLocalized())
             }
         } else {
             #warning("Manage new string")

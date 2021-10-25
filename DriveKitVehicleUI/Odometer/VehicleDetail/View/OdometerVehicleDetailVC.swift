@@ -13,15 +13,11 @@ import DriveKitVehicleModule
 class OdometerVehicleDetailVC: DKUIViewController {
     @IBOutlet private weak var tableView: UITableView!
 
-    let viewModel: OdometerVehicleDetailViewModel
+    private let viewModel: OdometerVehicleDetailViewModel
 
     init(viewModel: OdometerVehicleDetailViewModel) {
         self.viewModel = viewModel
         super.init(nibName: String(describing: OdometerVehicleDetailVC.self), bundle: Bundle.vehicleUIBundle)
-    }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -34,8 +30,7 @@ class OdometerVehicleDetailVC: DKUIViewController {
     }
 
     func configure() {
-        #warning("Manage new string")
-        self.title = "TODO-odometer_vehicle_title".dkVehicleLocalized()
+        self.title = "dk_vehicle_odometer_vehicle_title".dkVehicleLocalized()
         self.tableView.separatorStyle = .none
         self.tableView.register(OdometerVehicleCell.nib, forCellReuseIdentifier: "OdometerVehicleCell")
         self.tableView.register(OdometerCell.nib, forCellReuseIdentifier: "OdometerCell")
@@ -49,12 +44,11 @@ class OdometerVehicleDetailVC: DKUIViewController {
         }
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.viewModel.configureVehicle(vehicle: DriveKitVehicle.shared.vehiclesQuery().whereEqualTo(field: "vehicleId", value: self.viewModel.vehicle.vehicleId).queryOne().execute() ?? self.viewModel.vehicle)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.viewModel.update()
         self.tableView.reloadData()
     }
-
 }
 
 extension OdometerVehicleDetailVC: UITableViewDelegate {
@@ -81,27 +75,18 @@ extension OdometerVehicleDetailVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "OdometerVehicleCell", for: indexPath) as! OdometerVehicleCell
-            cell.configure(vehicle: self.viewModel.vehicle)
-            cell.pickerImage.isHidden = true
+            cell.configure(viewModel: self.viewModel.getOdometerVehicleCellViewModel(), showPickerImage: false)
             cell.selectionStyle = .none
             return cell
         } else if indexPath.section == 4 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "OdometerVehicleDetailButtonsCell", for: indexPath) as! OdometerVehicleDetailButtonsCell
-            if let histories = self.viewModel.vehicle.odometerHistories, histories.count > 0 {
-                cell.showReferenceLink(true)
-            } else {
-                cell.showReferenceLink(false)
-            }
+            cell.showReferenceLink(self.viewModel.showReferenceLink())
             cell.delegate = self
-            cell.selectionStyle = .none
             return cell
         } else {
+            let type = self.viewModel.cells[indexPath.section - 1]
             let cell = tableView.dequeueReusableCell(withIdentifier: "OdometerCell", for: indexPath) as! OdometerCell
-            if self.viewModel.vehicle.odometer != nil {
-                let cellViewModel = OdometerCellViewModel(vehicle: self.viewModel.vehicle, index: indexPath, type: self.viewModel.cells[indexPath.section - 1], optionButton: false, alertButton: true)
-                cell.configure(viewModel: cellViewModel)
-                cell.selectionStyle = .none
-            }
+            cell.configure(viewModel: self.viewModel.getOdometerCellViewModel(), type: type, actionType: .info)
             return cell
         }
     }
@@ -117,17 +102,12 @@ extension OdometerVehicleDetailVC: UITableViewDataSource {
 
 extension OdometerVehicleDetailVC: OdometerVehicleDetailButtonsCellDelegate {
     func didSelectUpdateButton(sender: OdometerVehicleDetailButtonsCell) {
-        let historiesViewModel = OdometerHistoriesViewModel(vehicle: self.viewModel.vehicle)
-        historiesViewModel.odometer = self.viewModel.vehicle.odometer
-        historiesViewModel.isWritable = true
-        let historyDetailVC = OdometerHistoryDetailVC(viewModel: historiesViewModel)
+        let historyDetailVC = OdometerHistoryDetailVC(viewModel: self.viewModel.getOdometerHistoryDetailViewModel())
         self.navigationController?.pushViewController(historyDetailVC, animated: true)
     }
 
     func didSelectReferenceLink(sender: OdometerVehicleDetailButtonsCell) {
-        let historiesViewModel = OdometerHistoriesViewModel(vehicle: self.viewModel.vehicle)
-        historiesViewModel.odometer = self.viewModel.vehicle.odometer
-        let historiesVC = OdometerHistoriesVC(viewModel: historiesViewModel)
+        let historiesVC = OdometerHistoriesVC(viewModel: self.viewModel.getOdometerHistoriesViewModel())
         self.navigationController?.pushViewController(historiesVC, animated: true)
     }
 }

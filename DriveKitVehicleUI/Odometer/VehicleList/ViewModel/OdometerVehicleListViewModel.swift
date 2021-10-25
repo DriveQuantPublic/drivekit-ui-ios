@@ -11,40 +11,49 @@ import DriveKitVehicleModule
 import DriveKitDBVehicleAccessModule
 
 class OdometerVehicleListViewModel {
-    private var vehicles: [DKVehicle]
-    private var vehicleIndex: Int
-    private static var lastSyncDate: Date? = nil
+    private let vehicles: [DKVehicle]
+    private let vehicle: DKVehicle
+    private var odometer: DKVehicleOdometer?
+    private var odometerHistories: [DKVehicleOdometerHistory]?
 
-    var currentVehicle: DKVehicle {
-        return vehicles[vehicleIndex]
-    }
-    
-    init(sortedVehicles: [DKVehicle], index: Int) {
-        self.vehicleIndex = index
-        self.vehicles = sortedVehicles
+    init(vehicles: [DKVehicle], index: Int) {
+        self.vehicles = vehicles
+        self.vehicle = vehicles[index]
+        self.odometer = self.vehicle.odometer
+        self.odometerHistories = self.vehicle.odometerHistories
     }
 
-    func fetchOdometer(completion: @escaping (Bool) -> ()) {
-        #warning("Pull to refresh")
-        let type: DKVehicleSynchronizationType
-        if let lastSyncDate = OdometerVehicleListViewModel.lastSyncDate, -lastSyncDate.timeIntervalSinceNow < 600 {
-            type = .cache
-        } else {
-            type = .defaultSync
-            OdometerVehicleListViewModel.lastSyncDate = Date()
-        }
-        #warning("User odometer service")
-        DriveKitVehicle.shared.getVehiclesOrderByNameAsc(type: type) { status, vehicles in
-            DispatchQueue.main.async {
-                if status != .syncAlreadyInProgress {
-                    let currentVehicleId = self.currentVehicle.vehicleId
-                    self.vehicles = vehicles
-                    self.vehicleIndex = vehicles.firstIndex(where: { $0.vehicleId == currentVehicleId }) ?? 0
+    func update(completion: @escaping (Bool) -> ()) {
+        DriveKitVehicle.shared.getOdometer(vehicleId: self.vehicle.vehicleId, type: .defaultSync) { status, odometer, odometerHistories in
+            DispatchQueue.dispatchOnMainThread {
+                if status != .vehicleNotFound {
+                    self.odometer = odometer
+                    self.odometerHistories = odometerHistories
                     completion(true)
                 } else {
                     completion(false)
                 }
             }
         }
+    }
+
+    func getOdometerCellViewModel() -> OdometerCellViewModel {
+        return OdometerCellViewModel(odometer: self.odometer)
+    }
+
+    func getOdometerVehicleCellViewModel() -> OdometerVehicleCellViewModel {
+        return OdometerVehicleCellViewModel(vehicle: self.vehicle)
+    }
+
+    func getOdometerVehicleDetailViewModel() -> OdometerVehicleDetailViewModel {
+        return OdometerVehicleDetailViewModel(vehicle: self.vehicle, odometer: self.odometer, odometerHistories: self.odometerHistories)
+    }
+
+    func getOdometerHistoriesViewModel() -> OdometerHistoriesViewModel {
+        return OdometerHistoriesViewModel(vehicle: self.vehicle, odometer: self.odometer, odometerHistories: self.odometerHistories)
+    }
+
+    func getOdometerHistoryDetailViewModel() -> OdometerHistoryDetailViewModel {
+        return OdometerHistoryDetailViewModel(vehicle: self.vehicle, history: nil, isEditable: true)
     }
 }

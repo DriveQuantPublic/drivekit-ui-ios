@@ -18,10 +18,10 @@ public protocol DKVehicleActionItem {
 
 public enum DKVehicleAction: String, CaseIterable, DKVehicleActionItem {
     case show
+    case odometer
     case rename
     case replace
     case delete
-    case odometer
 
     public func title() -> String {
         switch self {
@@ -34,8 +34,7 @@ public enum DKVehicleAction: String, CaseIterable, DKVehicleActionItem {
             case .rename:
                 return "dk_vehicle_rename".dkVehicleLocalized()
             case .odometer:
-                #warning("Add new string")
-                return "dk_vehicle_odometer".dkVehicleLocalized()
+                return "dk_vehicle_odometer_menu".dkVehicleLocalized()
         }
     }
     
@@ -61,7 +60,7 @@ public enum DKVehicleAction: String, CaseIterable, DKVehicleActionItem {
                 }
             case .odometer:
                 completionHandler = { _ in
-                    let odometerVehicleListViewModel = OdometerVehicleListViewModel(sortedVehicles: viewModel.vehicles, index: pos)
+                    let odometerVehicleListViewModel = OdometerVehicleListViewModel(vehicles: viewModel.vehicles, index: pos)
                     let odometerVehicleListVC = OdometerVehicleListVC(viewModel: odometerVehicleListViewModel)
                     viewModel.delegate?.pushViewController(odometerVehicleListVC, animated: true)
                 }

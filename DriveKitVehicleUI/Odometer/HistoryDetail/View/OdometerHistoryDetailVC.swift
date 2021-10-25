@@ -23,9 +23,9 @@ class OdometerHistoryDetailVC: DKUIViewController {
     @IBOutlet private weak var cancelView: UIView!
     @IBOutlet private weak var deleteView: UIView!
 
-    let viewModel: OdometerHistoriesViewModel
+    let viewModel: OdometerHistoryDetailViewModel
 
-    init(viewModel: OdometerHistoriesViewModel) {
+    init(viewModel: OdometerHistoryDetailViewModel) {
         self.viewModel = viewModel
         super.init(nibName: String(describing: OdometerHistoryDetailVC.self), bundle: Bundle.vehicleUIBundle)
     }
@@ -41,20 +41,19 @@ class OdometerHistoryDetailVC: DKUIViewController {
     }
 
     func configure() {
-        if self.viewModel.selectedRef != nil, self.viewModel.histories.count > 1 {
-            self.deleteView.isHidden = false
-        } else {
-            self.deleteView.isHidden = true
-        }
+        #warning("TODO")
+//        if self.viewModel.selectedRef != nil, self.viewModel.histories.count > 1 {
+//            self.deleteView.isHidden = false
+//        } else {
+//            self.deleteView.isHidden = true
+//        }
 
-        #warning("Manage new string")
-        self.panelTitle.attributedText = "TODO-odometer_history_detail_title".dkVehicleLocalized().uppercased().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.secondaryColor).build()
+        self.panelTitle.attributedText = "dk_vehicle_odometer_odometer_history_detail_title".dkVehicleLocalized().uppercased().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.secondaryColor).build()
         self.validateButton.configure(text: DKCommonLocalizable.validate.text(), style: .full)
         self.cancelButton.configure(text: DKCommonLocalizable.cancel.text(), style: .empty)
         self.deleteButton.configure(text: DKCommonLocalizable.delete.text(), style: .empty)
 
-        #warning("Manage new string")
-        self.title = "update_odometer_title".dkVehicleLocalized()
+        self.title = "dk_vehicle_odometer_reference_update".dkVehicleLocalized()
         self.tableView.separatorStyle = .none
         self.tableView.sectionIndexBackgroundColor = .white
         self.tableView.register(OdometerHistoryDetailCell.nib, forCellReuseIdentifier: "OdometerHistoryDetailCell")
@@ -69,15 +68,16 @@ class OdometerHistoryDetailVC: DKUIViewController {
     }
 
     @IBAction func validateReference(_ sender: Any) {
-        if let reference = self.viewModel.selectedRef {
-            #warning("TODO: tracking")
-//            track(page: "maintenance-histories-edit")
-            self.updateReference(reference: reference)
-        } else {
-            #warning("TODO: tracking")
-//            track(page: "maintenance-histories-add")
-            self.createReference()
-        }
+        #warning("TODO")
+//        if let reference = self.viewModel.selectedRef {
+//            #warning("TODO: tracking")
+////            track(page: "maintenance-histories-edit")
+//            self.updateReference(reference: reference)
+//        } else {
+//            #warning("TODO: tracking")
+////            track(page: "maintenance-histories-add")
+//            self.createReference()
+//        }
     }
 
     func createReference() {
@@ -143,9 +143,10 @@ class OdometerHistoryDetailVC: DKUIViewController {
     }
 
     @IBAction func deleteReference(_ sender: Any) {
-        if let reference = self.viewModel.selectedRef {
-            self.deleteOdometerReference(reference: reference)
-        }
+        #warning("TODO")
+//        if let reference = self.viewModel.selectedRef {
+//            self.deleteOdometerReference(reference: reference)
+//        }
     }
 
     func deleteOdometerReference(reference: DKVehicleOdometerHistory) {
@@ -194,42 +195,43 @@ extension OdometerHistoryDetailVC: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OdometerHistoryDetailCell", for: indexPath) as! OdometerHistoryDetailCell
-        let type = self.viewModel.cellsReferences[indexPath.section]
-        var value = ""
-        cell.backgroundColor = DKUIColors.backgroundView.color
-        switch type {
-            case .distance:
-                if let history = self.viewModel.selectedRef {
-                    value = history.distance.formatKilometerDistance(minDistanceToRemoveFractions: 0)
-                }
-                if self.viewModel.isWritable {
-                    cell.enableTextField(true)
-                    cell.selectionStyle = .default
-                    self.cancelView.isHidden = false
-                    self.validateView.isHidden = false
-                } else {
-                    cell.enableTextField(false)
-                    cell.selectionStyle = .none
-                    self.cancelView.isHidden = true
-                    self.validateView.isHidden = true
-                }
-                cell.delegate = self
-            case .date:
-                let refDate: Date
-                if let date = self.viewModel.updatedRefDate {
-                    refDate = date
-                } else if let history = self.viewModel.selectedRef {
-                    refDate = history.updateDate ?? Date()
-                } else {
-                    refDate = Date()
-                }
-                value = DateUtils.convertDateToString(date: refDate)
-                cell.selectionStyle = .none
-            case .vehicle(_):
-                value = self.viewModel.vehicle.computeName()
-                cell.selectionStyle = .none
-        }
-        cell.configure(type: type, value: value, vehicle: self.viewModel.vehicle, history: self.viewModel.selectedRef)
+        #warning("TODO")
+//        let type = self.viewModel.cellsReferences[indexPath.section]
+//        var value = ""
+//        cell.backgroundColor = DKUIColors.backgroundView.color
+//        switch type {
+//            case .distance:
+//                if let history = self.viewModel.selectedRef {
+//                    value = history.distance.formatKilometerDistance(minDistanceToRemoveFractions: 0)
+//                }
+//                if self.viewModel.isWritable {
+//                    cell.enableTextField(true)
+//                    cell.selectionStyle = .default
+//                    self.cancelView.isHidden = false
+//                    self.validateView.isHidden = false
+//                } else {
+//                    cell.enableTextField(false)
+//                    cell.selectionStyle = .none
+//                    self.cancelView.isHidden = true
+//                    self.validateView.isHidden = true
+//                }
+//                cell.delegate = self
+//            case .date:
+//                let refDate: Date
+//                if let date = self.viewModel.updatedRefDate {
+//                    refDate = date
+//                } else if let history = self.viewModel.selectedRef {
+//                    refDate = history.updateDate ?? Date()
+//                } else {
+//                    refDate = Date()
+//                }
+//                value = DateUtils.convertDateToString(date: refDate)
+//                cell.selectionStyle = .none
+//            case .vehicle(_):
+//                value = self.viewModel.vehicle.computeName()
+//                cell.selectionStyle = .none
+//        }
+//        cell.configure(type: type, value: value, vehicle: self.viewModel.vehicle, history: self.viewModel.selectedRef)
         return cell
     }
 
@@ -240,6 +242,7 @@ extension OdometerHistoryDetailVC: UITableViewDataSource {
 
 extension OdometerHistoryDetailVC: OdometerHistoryDelegate {
     func didUpdateDistanceField(distance: Double, sender: OdometerHistoryDetailCell) {
-        self.viewModel.updatedValue = distance
+        #warning("TODO")
+//        self.viewModel.updatedValue = distance
     }
 }

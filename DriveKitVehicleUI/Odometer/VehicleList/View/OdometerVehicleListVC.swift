@@ -105,11 +105,11 @@ extension OdometerVehicleListVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             #warning("TODO")
-//            let vehiclePicker = OdometerVehicleSelectionVC()
+            let vehiclePicker = OdometerVehicleSelectionVC()
 //            vehiclePicker.delegate = self
-//            vehiclePicker.modalPresentationStyle = .overCurrentContext
+            vehiclePicker.modalPresentationStyle = .overCurrentContext
 //            self.tableView.cellForRow(at: indexPath)?.isSelected = false
-//            self.present(vehiclePicker, animated: true, completion: nil)
+            self.present(vehiclePicker, animated: true, completion: nil)
         }
     }
 
@@ -138,7 +138,7 @@ extension OdometerVehicleListVC: OdometerCellDelegate {
         })
         odometerActionAlert.addAction(showAction)
         let addReferenceAction = UIAlertAction(title: "dk_vehicle_odometer_add_reference".dkVehicleLocalized(), style: .default, handler: { _ in
-            let historyDetailVC = OdometerHistoryDetailVC(viewModel: self.viewModel.getOdometerHistoryDetailViewModel())
+            let historyDetailVC = OdometerHistoryDetailVC(viewModel: self.viewModel.getNewOdometerHistoryDetailViewModel())
             self.navigationController?.pushViewController(historyDetailVC, animated: true)
         })
         odometerActionAlert.addAction(addReferenceAction)

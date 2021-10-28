@@ -68,7 +68,7 @@ struct OdometerCellViewModel {
     }
 
     private func getAnalyzedDistanceDescription(localizedDescription: String) -> String {
-        return String(format: localizedDescription, self.odometer?.yearAnalyzedDistance.formatKilometerDistance() ?? "0")
+        return String(format: localizedDescription, self.odometer?.yearAnalyzedDistance.formatKilometerDistance(minDistanceToRemoveFractions: 0) ?? "0")
     }
 
     private func getEstimatedDistanceDescription(localizedDescription: String) -> String {
@@ -77,14 +77,14 @@ struct OdometerCellViewModel {
     }
 
     private func getOdometerDistance() -> String {
-        return self.odometer?.distance.formatKilometerDistance() ?? "0"
+        return self.odometer?.distance.formatKilometerDistance(minDistanceToRemoveFractions: 0) ?? "0"
     }
 
     private func getAnalyzedDistance() -> String {
-        return self.odometer?.analyzedDistance.formatKilometerDistance() ?? "0"
+        return self.odometer?.analyzedDistance.formatKilometerDistance(minDistanceToRemoveFractions: 0) ?? "0"
     }
 
     private func getEstimatedDistance() -> String {
-        return self.odometer?.estimatedYearDistance.formatKilometerDistance() ?? "0"
+        return self.odometer?.estimatedYearDistance.formatKilometerDistance(minDistanceToRemoveFractions: 0) ?? "0"
     }
 }

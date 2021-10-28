@@ -125,13 +125,12 @@ extension String {
     }
 }
 
-extension DriveKitVehicleUI : DriveKitVehicleUIEntryPoint {
-
+extension DriveKitVehicleUI: DriveKitVehicleUIEntryPoint {
     public func getVehicleListViewController() -> UIViewController {
         return VehiclesListVC()
     }
 
-    public func getVehicleDetailViewController(vehicleId: String, completion : @escaping (UIViewController?) -> ()) {
+    public func getVehicleDetailViewController(vehicleId: String, completion: @escaping (UIViewController?) -> ()) {
         DriveKitVehicle.shared.getVehicle(vehicleId: vehicleId, completionHandler: { status, vehicle in
             DispatchQueue.main.async {
                 if let vehicle = vehicle {
@@ -175,6 +174,12 @@ extension DriveKitVehicleUI : DriveKitVehicleUIEntryPoint {
     
     public func getVehicleFilterItems() -> [DKFilterItem] {
         return DriveKitDBVehicleAccess.shared.findVehiclesOrderByNameAsc().execute().sortByDisplayNames()
+    }
+
+    public func getOdometerVehicleList() -> UIViewController {
+        let vehicles = DriveKitVehicle.shared.vehiclesQuery().noFilter().query().execute().sorted { $0.computeName().lowercased() < $1.computeName().lowercased() }
+        let viewModel = OdometerVehicleListViewModel(vehicles: vehicles, index: 0)
+        return OdometerVehicleListVC(viewModel: viewModel)
     }
 }
 

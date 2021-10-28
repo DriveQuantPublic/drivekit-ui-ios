@@ -7,7 +7,8 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 
-class OdometerVehicleSelectionVC {
+class OdometerVehicleSelectionVC: DKUIViewController {
     
 }

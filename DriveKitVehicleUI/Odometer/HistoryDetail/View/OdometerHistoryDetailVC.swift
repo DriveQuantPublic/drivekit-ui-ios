@@ -41,12 +41,7 @@ class OdometerHistoryDetailVC: DKUIViewController {
     }
 
     func configure() {
-        #warning("TODO")
-//        if self.viewModel.selectedRef != nil, self.viewModel.histories.count > 1 {
-//            self.deleteView.isHidden = false
-//        } else {
-//            self.deleteView.isHidden = true
-//        }
+        self.deleteView.isHidden = !self.viewModel.canDelete()
 
         self.panelTitle.attributedText = "dk_vehicle_odometer_odometer_history_detail_title".dkVehicleLocalized().uppercased().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.secondaryColor).build()
         self.validateButton.configure(text: DKCommonLocalizable.validate.text(), style: .full)
@@ -65,77 +60,18 @@ class OdometerHistoryDetailVC: DKUIViewController {
         if #available(iOS 15, *) {
             self.tableView.sectionHeaderTopPadding = 0
         }
+
+        if self.viewModel.isEditable {
+            self.cancelView.isHidden = false
+            self.validateView.isHidden = false
+        } else {
+            self.cancelView.isHidden = true
+            self.validateView.isHidden = true
+        }
     }
 
     @IBAction func validateReference(_ sender: Any) {
-        #warning("TODO")
-//        if let reference = self.viewModel.selectedRef {
-//            #warning("TODO: tracking")
-////            track(page: "maintenance-histories-edit")
-//            self.updateReference(reference: reference)
-//        } else {
-//            #warning("TODO: tracking")
-////            track(page: "maintenance-histories-add")
-//            self.createReference()
-//        }
-    }
-
-    func createReference() {
-        #warning("TODO")
-//        if let value = self.viewModel.updatedValue {
-//            if value >= self.viewModel.vehicle.odometer?.distance ?? 0 {
-//                self.showLoader()
-//                manager.createOdometer(token: Constants.getToken()!, vehicleId: self.viewModel.vehicle.vehicleId, distance: value, completionHandler: { status, error in
-//                    DispatchQueue.main.async {
-//                        self.hideLoader()
-//                        if status {
-//                            self.track(page: "maintenance_new_reference")
-//                            let alert = UIAlertController(title: DQConfiguration.shared.appDisplayName,
-//                                                          message: "odometer_reference_add_success".keyLocalized(),
-//                                                          preferredStyle: .alert)
-//                            let okAction = UIAlertAction(title: "ok".keyLocalized(), style: .cancel, handler: {action in
-//                                self.navigationController?.popViewController(animated: true)
-//                            })
-//                            alert.addAction(okAction)
-//                            self.present(alert, animated: true)
-//
-//                        } else {
-//                            self.showAlertMessage(message: error?.errorKey.errorLocalized() ?? "network_unavailable".keyLocalized(), back: false)
-//                        }
-//                    }
-//                })
-//            } else {
-//                self.showAlertMessage(message: "error_odometer_reference".keyLocalized(), back: false)
-//            }
-//        }
-    }
-
-    func updateReference(reference: DKVehicleOdometerHistory) {
-//        if let value = self.viewModel.updatedValue {
-//            if value >= self.viewModel.prevRef?.distance ?? 0 {
-//                self.showLoader()
-//                manager.updateOdometer(token: Constants.getToken()!, vehicleId: self.viewModel.vehicle.vehicleId, historyId: reference.historyId, distance: value, completionHandler: { status, error in
-//                    DispatchQueue.main.async {
-//                        self.hideLoader()
-//                        if status {
-//                            let alert = UIAlertController(title: DQConfiguration.shared.appDisplayName,
-//                                                          message: "odometer_reference_update_success".keyLocalized(),
-//                                                          preferredStyle: .alert)
-//                            let okAction = UIAlertAction(title: "ok".keyLocalized(), style: .cancel, handler: {action in
-//                                self.navigationController?.popViewController(animated: true)
-//
-//                            })
-//                            alert.addAction(okAction)
-//                            self.present(alert, animated: true)
-//                        } else {
-//                            self.showAlertMessage(message: error?.errorKey.errorLocalized() ?? "network_unavailable".keyLocalized(), back: false)
-//                        }
-//                    }
-//                })
-//            } else {
-//                self.showAlertMessage(message: "error_odometer_reference".keyLocalized(), back: false)
-//            }
-//        }
+        self.viewModel.validateHistory(viewController: self)
     }
 
     @IBAction func cancelAction(_ sender: Any) {
@@ -143,32 +79,7 @@ class OdometerHistoryDetailVC: DKUIViewController {
     }
 
     @IBAction func deleteReference(_ sender: Any) {
-        #warning("TODO")
-//        if let reference = self.viewModel.selectedRef {
-//            self.deleteOdometerReference(reference: reference)
-//        }
-    }
-
-    func deleteOdometerReference(reference: DKVehicleOdometerHistory) {
-        self.showLoader()
-//        manager.deleteOdometer(token: Constants.getToken()!, vehicleId: self.viewModel.vehicle.vehicleId, historyId: reference.historyId, completionHandler: { status, error in
-//            DispatchQueue.main.async {
-//                self.hideLoader()
-//                if status {
-//                    let alert = UIAlertController(title: DQConfiguration.shared.appDisplayName,
-//                                                  message: "odometer_reference_delete_success".keyLocalized(),
-//                                                  preferredStyle: .alert)
-//                    let okAction = UIAlertAction(title: "ok".keyLocalized(), style: .cancel, handler: {action in
-//                        self.navigationController?.popViewController(animated: true)
-//
-//                    })
-//                    alert.addAction(okAction)
-//                    self.present(alert, animated: true)
-//                } else {
-//                    self.showAlertMessage(message: error?.errorDescription.errorLocalized() ?? "network_unavailable".keyLocalized(), back: false)
-//                }
-//            }
-//        })
+        self.viewModel.deleteHistory(viewController: self)
     }
 }
 
@@ -195,43 +106,9 @@ extension OdometerHistoryDetailVC: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OdometerHistoryDetailCell", for: indexPath) as! OdometerHistoryDetailCell
-        #warning("TODO")
-//        let type = self.viewModel.cellsReferences[indexPath.section]
-//        var value = ""
-//        cell.backgroundColor = DKUIColors.backgroundView.color
-//        switch type {
-//            case .distance:
-//                if let history = self.viewModel.selectedRef {
-//                    value = history.distance.formatKilometerDistance(minDistanceToRemoveFractions: 0)
-//                }
-//                if self.viewModel.isWritable {
-//                    cell.enableTextField(true)
-//                    cell.selectionStyle = .default
-//                    self.cancelView.isHidden = false
-//                    self.validateView.isHidden = false
-//                } else {
-//                    cell.enableTextField(false)
-//                    cell.selectionStyle = .none
-//                    self.cancelView.isHidden = true
-//                    self.validateView.isHidden = true
-//                }
-//                cell.delegate = self
-//            case .date:
-//                let refDate: Date
-//                if let date = self.viewModel.updatedRefDate {
-//                    refDate = date
-//                } else if let history = self.viewModel.selectedRef {
-//                    refDate = history.updateDate ?? Date()
-//                } else {
-//                    refDate = Date()
-//                }
-//                value = DateUtils.convertDateToString(date: refDate)
-//                cell.selectionStyle = .none
-//            case .vehicle(_):
-//                value = self.viewModel.vehicle.computeName()
-//                cell.selectionStyle = .none
-//        }
-//        cell.configure(type: type, value: value, vehicle: self.viewModel.vehicle, history: self.viewModel.selectedRef)
+        let viewModel = self.viewModel.getOdometerHistoryDetailCellViewModel(at: indexPath.section)
+        cell.configure(viewModel: viewModel)
+        cell.delegate = self
         return cell
     }
 
@@ -242,7 +119,6 @@ extension OdometerHistoryDetailVC: UITableViewDataSource {
 
 extension OdometerHistoryDetailVC: OdometerHistoryDelegate {
     func didUpdateDistanceField(distance: Double, sender: OdometerHistoryDetailCell) {
-        #warning("TODO")
-//        self.viewModel.updatedValue = distance
+        self.viewModel.updatedValue = distance
     }
 }

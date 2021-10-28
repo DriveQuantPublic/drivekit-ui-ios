@@ -9,10 +9,9 @@
 import Foundation
 
 public class DriveKitNavigationController {
-
-    public var driverDataUI : DriveKitDriverDataUIEntryPoint? = nil
+    public var driverDataUI: DriveKitDriverDataUIEntryPoint? = nil
     public var driverAchievementUI: DriveKitDriverAchievementUIEntryPoint? = nil
-    public var vehicleUI : DriveKitVehicleUIEntryPoint? = nil
+    public var vehicleUI: DriveKitVehicleUIEntryPoint? = nil
     public var permissionsUtilsUI: DriveKitPermissionsUtilsUIEntryPoint? = nil
     public var challengeUI: DriveKitChallengeUIEntryPoint? = nil
 

@@ -102,7 +102,7 @@ extension OdometerVehicleDetailVC: UITableViewDataSource {
 
 extension OdometerVehicleDetailVC: OdometerVehicleDetailButtonsCellDelegate {
     func didSelectUpdateButton(sender: OdometerVehicleDetailButtonsCell) {
-        let historyDetailVC = OdometerHistoryDetailVC(viewModel: self.viewModel.getOdometerHistoryDetailViewModel())
+        let historyDetailVC = OdometerHistoryDetailVC(viewModel: self.viewModel.getNewOdometerHistoryDetailViewModel())
         self.navigationController?.pushViewController(historyDetailVC, animated: true)
     }
 

@@ -18,26 +18,25 @@ class OdometerHistoriesViewModel {
     init(vehicle: DKVehicle, odometer: DKVehicleOdometer?, odometerHistories: [DKVehicleOdometerHistory]?) {
         self.vehicle = vehicle
         self.odometer = odometer
-        self.odometerHistories = odometerHistories
+        self.odometerHistories = sortHistories(odometerHistories)
     }
 
     func update() {
         if let vehicle = DriveKitVehicle.shared.vehiclesQuery().whereEqualTo(field: "vehicleId", value: self.vehicle.vehicleId).queryOne().execute() {
             self.vehicle = vehicle
             self.odometer = vehicle.odometer
-            if let odometerHistories = vehicle.odometerHistories {
-                self.odometerHistories = odometerHistories.sorted { $0.updateDate ?? Date() > $1.updateDate ?? Date() }
-            }
+            self.odometerHistories = sortHistories(vehicle.odometerHistories)
         }
     }
 
     func getOdometerHistoryDetailViewModel(atIndex index: Int) -> OdometerHistoryDetailViewModel {
         let history = getHistory(atIndex: index)
-        return OdometerHistoryDetailViewModel(vehicle: self.vehicle, history: history, isEditable: index == 0)
+        let previousHistory = getHistory(atIndex: index - 1)
+        return OdometerHistoryDetailViewModel(vehicle: self.vehicle, odometer: self.odometer, history: history, previousHistory: previousHistory, historiesNumber: self.odometerHistories?.count ?? 0, isEditable: index == 0)
     }
 
     func getNewOdometerHistoryDetailViewModel() -> OdometerHistoryDetailViewModel {
-        return OdometerHistoryDetailViewModel(vehicle: self.vehicle, history: nil, isEditable: true)
+        return OdometerHistoryDetailViewModel(vehicle: self.vehicle, odometer: self.odometer, history: nil, previousHistory: self.odometerHistories?.first, historiesNumber: self.odometerHistories?.count ?? 0, isEditable: true)
     }
 
     func getOdometerHistoriesCellViewModel(atIndex index: Int) -> OdometerHistoriesCellViewModel? {
@@ -73,6 +72,14 @@ class OdometerHistoriesViewModel {
     private func getHistory(atIndex index: Int) -> DKVehicleOdometerHistory? {
         if let odometerHistories = self.odometerHistories, index >= 0 && index < odometerHistories.count {
             return odometerHistories[index]
+        } else {
+            return nil
+        }
+    }
+
+    private func sortHistories(_ odometerHistories: [DKVehicleOdometerHistory]?) -> [DKVehicleOdometerHistory]? {
+        if let odometerHistories = odometerHistories {
+            return odometerHistories.sorted { $0.updateDate ?? Date() > $1.updateDate ?? Date() }
         } else {
             return nil
         }

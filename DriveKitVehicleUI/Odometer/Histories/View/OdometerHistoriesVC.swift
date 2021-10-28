@@ -31,8 +31,8 @@ class OdometerHistoriesVC: DKUIViewController {
         self.configure()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.reloadReferences()
     }
 
@@ -65,12 +65,10 @@ class OdometerHistoriesVC: DKUIViewController {
         self.viewModel.deleteHistory(atIndex: index) { success in
             self.hideLoader()
             if success {
-                #warning("TODO")
-//                self.showAlertMessage(message: "dk_vehicle_odometer_reference_delete_success".dkVehicleLocalized()(), back: false)
+                self.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_odometer_reference_error_value".dkVehicleLocalized(), back: false, cancel: false)
                 self.reloadReferences()
             } else {
-                #warning("TODO")
-//                self.showAlertMessage(message: error?.errorDescription.errorLocalized() ?? "network_unavailable".keyLocalized(), back: false)
+                self.showAlertMessage(title: Bundle.main.appName ?? "", message: DKCommonLocalizable.error.text(), back: false, cancel: false)
             }
         }
     }

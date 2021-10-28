@@ -53,7 +53,7 @@ class OdometerVehicleListViewModel {
         return OdometerHistoriesViewModel(vehicle: self.vehicle, odometer: self.odometer, odometerHistories: self.odometerHistories)
     }
 
-    func getOdometerHistoryDetailViewModel() -> OdometerHistoryDetailViewModel {
-        return OdometerHistoryDetailViewModel(vehicle: self.vehicle, history: nil, isEditable: true)
+    func getNewOdometerHistoryDetailViewModel() -> OdometerHistoryDetailViewModel {
+        return OdometerHistoryDetailViewModel.addHistoryViewModel(vehicle: self.vehicle, odometer: self.odometer, odometerHistories: self.odometerHistories)
     }
 }

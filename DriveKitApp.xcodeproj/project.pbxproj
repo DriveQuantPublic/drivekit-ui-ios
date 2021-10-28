@@ -212,6 +212,7 @@
 		637517B12727DB0700F7FA4A /* OdometerVehicleCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637517B02727DB0700F7FA4A /* OdometerVehicleCellViewModel.swift */; };
 		637517B42727E42800F7FA4A /* OdometerHistoryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637517B32727E42800F7FA4A /* OdometerHistoryDetailViewModel.swift */; };
 		637517B72728384100F7FA4A /* OdometerHistoriesCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637517B62728384100F7FA4A /* OdometerHistoriesCellViewModel.swift */; };
+		637517B927284D9700F7FA4A /* OdometerHistoryDetailCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637517B827284D9700F7FA4A /* OdometerHistoryDetailCellViewModel.swift */; };
 		63782D912487997A0079F315 /* DKTruckType+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63782D902487997A0079F315 /* DKTruckType+UI.swift */; };
 		63782D932487A1E40079F315 /* VehiclePickerTruckTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63782D922487A1E30079F315 /* VehiclePickerTruckTypeVC.swift */; };
 		63782D952487A23E0079F315 /* VehiclePickerTruckTypeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63782D942487A23D0079F315 /* VehiclePickerTruckTypeVC.xib */; };
@@ -822,6 +823,7 @@
 		637517B02727DB0700F7FA4A /* OdometerVehicleCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdometerVehicleCellViewModel.swift; sourceTree = "<group>"; };
 		637517B32727E42800F7FA4A /* OdometerHistoryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdometerHistoryDetailViewModel.swift; sourceTree = "<group>"; };
 		637517B62728384100F7FA4A /* OdometerHistoriesCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdometerHistoriesCellViewModel.swift; sourceTree = "<group>"; };
+		637517B827284D9700F7FA4A /* OdometerHistoryDetailCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdometerHistoryDetailCellViewModel.swift; sourceTree = "<group>"; };
 		63782D902487997A0079F315 /* DKTruckType+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DKTruckType+UI.swift"; sourceTree = "<group>"; };
 		63782D922487A1E30079F315 /* VehiclePickerTruckTypeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclePickerTruckTypeVC.swift; sourceTree = "<group>"; };
 		63782D942487A23D0079F315 /* VehiclePickerTruckTypeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VehiclePickerTruckTypeVC.xib; sourceTree = "<group>"; };
@@ -1757,6 +1759,7 @@
 		637517B22727E41800F7FA4A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				637517B827284D9700F7FA4A /* OdometerHistoryDetailCellViewModel.swift */,
 				637517B32727E42800F7FA4A /* OdometerHistoryDetailViewModel.swift */,
 			);
 			path = ViewModel;
@@ -3346,6 +3349,7 @@
 				A34FC73A2423EE81000734AB /* VehicleFieldCell.swift in Sources */,
 				3FFB2D682417E2C9003E6A06 /* ConnectBeaconVC.swift in Sources */,
 				3FE6A4422420BEC300E24C1C /* BeaconScannerInfoVC.swift in Sources */,
+				637517B927284D9700F7FA4A /* OdometerHistoryDetailCellViewModel.swift in Sources */,
 				A34FC71F24227556000734AB /* DKVehicleField.swift in Sources */,
 				3FF5428B243649390063A5B9 /* DKDetectionMode+UI.swift in Sources */,
 				A3D51F49241BA3A5006DACE2 /* DKVehiclesListViewModel.swift in Sources */,

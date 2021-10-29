@@ -103,6 +103,14 @@ class OdometerHistoryDetailViewModel {
         self.cellTypes = [.distance(self.history), .date(self.history), .vehicle(self.vehicle)]
     }
 
+    func getTitle() -> String {
+        if self.history == nil {
+            return "dk_vehicle_odometer_history_add".dkVehicleLocalized()
+        } else {
+            return "dk_vehicle_odometer_history_update".dkVehicleLocalized()
+        }
+    }
+
     func getOdometerHistoryDetailCellViewModel(at index: Int) -> OdometerHistoryDetailCellViewModel {
         return OdometerHistoryDetailCellViewModel(type: self.cellTypes[index], isEditable: self.isEditable)
     }

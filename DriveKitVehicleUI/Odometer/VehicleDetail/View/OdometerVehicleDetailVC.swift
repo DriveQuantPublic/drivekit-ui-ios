@@ -30,6 +30,7 @@ class OdometerVehicleDetailVC: DKUIViewController {
     }
 
     func configure() {
+        self.view.backgroundColor = .white
         self.title = "dk_vehicle_odometer_vehicle_title".dkVehicleLocalized()
         self.tableView.separatorStyle = .none
         self.tableView.register(OdometerVehicleCell.nib, forCellReuseIdentifier: "OdometerVehicleCell")
@@ -58,7 +59,6 @@ extension OdometerVehicleDetailVC: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 8))
-        headerView.backgroundColor = DKUIColors.backgroundView.color
         return headerView
     }
 }

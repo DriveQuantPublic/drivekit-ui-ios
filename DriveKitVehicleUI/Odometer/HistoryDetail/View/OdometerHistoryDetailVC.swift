@@ -41,6 +41,7 @@ class OdometerHistoryDetailVC: DKUIViewController {
     }
 
     func configure() {
+        self.view.backgroundColor = .white
         self.deleteView.isHidden = !self.viewModel.canDelete()
 
         self.panelTitle.attributedText = "dk_vehicle_odometer_odometer_history_detail_title".dkVehicleLocalized().uppercased().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.secondaryColor).build()
@@ -48,7 +49,7 @@ class OdometerHistoryDetailVC: DKUIViewController {
         self.cancelButton.configure(text: DKCommonLocalizable.cancel.text(), style: .empty)
         self.deleteButton.configure(text: DKCommonLocalizable.delete.text(), style: .empty)
 
-        self.title = "dk_vehicle_odometer_history_update".dkVehicleLocalized()
+        self.title = self.viewModel.getTitle()
         self.tableView.separatorStyle = .none
         self.tableView.sectionIndexBackgroundColor = .white
         self.tableView.register(OdometerHistoryDetailCell.nib, forCellReuseIdentifier: "OdometerHistoryDetailCell")

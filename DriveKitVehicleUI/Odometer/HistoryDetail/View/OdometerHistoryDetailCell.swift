@@ -27,13 +27,14 @@ final class OdometerHistoryDetailCell: UITableViewCell, Nibable {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = DKUIColors.backgroundView.color
+        self.backgroundColor = UIColor(hex: 0xfafafa)
+        let textColor = UIColor(hex: 0x616161)
         self.textField.font = DKStyles.smallText.style.applyTo(font: DKUIFonts.primary)
-        self.textField.textColor = DKUIColors.complementaryFontColor.color
+        self.textField.textColor = textColor
         self.textField.keyboardType = .numberPad
         self.textFieldSubtitle.isHidden = true
         self.label.font = DKStyles.smallText.style.applyTo(font: DKUIFonts.primary)
-        self.label.textColor = DKUIColors.complementaryFontColor.color
+        self.label.textColor = textColor
     }
 
     func configure(viewModel: OdometerHistoryDetailCellViewModel) {

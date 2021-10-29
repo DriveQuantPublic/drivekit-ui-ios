@@ -30,6 +30,7 @@ class OdometerVehicleListVC: DKUIViewController {
     }
 
     func configure() {
+        self.view.backgroundColor = .white
         self.title = "dk_vehicle_odometer".dkVehicleLocalized()
         self.tableView.separatorStyle = .none
         self.tableView.register(OdometerVehicleCell.nib, forCellReuseIdentifier: "OdometerVehicleCell")
@@ -43,15 +44,15 @@ class OdometerVehicleListVC: DKUIViewController {
         }
 
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(ynchronize), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(synchronize), for: .valueChanged)
         self.tableView.refreshControl = refreshControl
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        self.ynchronize()
+        self.synchronize()
     }
 
-    @objc private func ynchronize() {
+    @objc private func synchronize() {
         if let refreshControl = self.tableView?.refreshControl {
             refreshControl.beginRefreshing()
         }
@@ -74,7 +75,6 @@ extension OdometerVehicleListVC: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 8))
-        headerView.backgroundColor = DKUIColors.backgroundView.color
         return headerView
     }
 }
@@ -127,7 +127,7 @@ extension OdometerVehicleListVC: DKFilterItemDelegate {
         if let vehicleId = filterItem.getId() as? String {
             self.viewModel.updateVehicle(vehicleId: vehicleId)
             self.tableView.reloadData()
-            self.ynchronize()
+            self.synchronize()
         }
     }
 }

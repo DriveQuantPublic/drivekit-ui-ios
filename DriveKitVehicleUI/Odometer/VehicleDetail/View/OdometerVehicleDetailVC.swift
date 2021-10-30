@@ -75,7 +75,9 @@ extension OdometerVehicleDetailVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "OdometerVehicleCell", for: indexPath) as! OdometerVehicleCell
-            cell.configure(viewModel: self.viewModel.getOdometerVehicleCellViewModel(), showPickerImage: false)
+            if let viewModel = self.viewModel.getOdometerVehicleCellViewModel() {
+                cell.configure(viewModel: viewModel, showPickerImage: false)
+            }
             cell.selectionStyle = .none
             return cell
         } else if indexPath.section == 4 {
@@ -102,12 +104,16 @@ extension OdometerVehicleDetailVC: UITableViewDataSource {
 
 extension OdometerVehicleDetailVC: OdometerVehicleDetailButtonsCellDelegate {
     func didSelectUpdateButton(sender: OdometerVehicleDetailButtonsCell) {
-        let historyDetailVC = OdometerHistoryDetailVC(viewModel: self.viewModel.getNewOdometerHistoryDetailViewModel())
-        self.navigationController?.pushViewController(historyDetailVC, animated: true)
+        if let navigationController = self.navigationController, let viewModel = self.viewModel.getNewOdometerHistoryDetailViewModel() {
+            let historyDetailVC = OdometerHistoryDetailVC(viewModel: viewModel)
+            navigationController.pushViewController(historyDetailVC, animated: true)
+        }
     }
 
     func didSelectReferenceLink(sender: OdometerVehicleDetailButtonsCell) {
-        let historiesVC = OdometerHistoriesVC(viewModel: self.viewModel.getOdometerHistoriesViewModel())
-        self.navigationController?.pushViewController(historiesVC, animated: true)
+        if let navigationController = self.navigationController, let viewModel = self.viewModel.getOdometerHistoriesViewModel() {
+            let historiesVC = OdometerHistoriesVC(viewModel: viewModel)
+            navigationController.pushViewController(historiesVC, animated: true)
+        }
     }
 }

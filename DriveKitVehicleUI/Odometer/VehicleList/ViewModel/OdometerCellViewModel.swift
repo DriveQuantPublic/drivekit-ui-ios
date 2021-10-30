@@ -9,14 +9,21 @@
 import Foundation
 import DriveKitCommonUI
 import DriveKitDBVehicleAccessModule
+import DriveKitVehicleModule
 
 struct OdometerCellViewModel {
     let odometer: DKVehicleOdometer?
     let lastUpdate: Date
 
-    init(odometer: DKVehicleOdometer?) {
-        self.odometer = odometer
-        self.lastUpdate = odometer?.updateDate ?? Date()
+    init(vehicleId: String?) {
+        let vehicle: DKVehicle?
+        if let vehicleId = vehicleId {
+            vehicle = DriveKitVehicle.getVehicle(withId: vehicleId)
+        } else {
+            vehicle = nil
+        }
+        self.odometer = vehicle?.odometer
+        self.lastUpdate = self.odometer?.updateDate ?? Date()
     }
 
     func getTitle(type: OdometerCellType) -> String {

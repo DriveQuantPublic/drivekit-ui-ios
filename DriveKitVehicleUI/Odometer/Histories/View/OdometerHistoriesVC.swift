@@ -37,8 +37,8 @@ class OdometerHistoriesVC: DKUIViewController {
     }
 
     func configure() {
-        title = "dk_vehicle_odometer_references_title".dkVehicleLocalized()
-        self.addButton.configure(text: "dk_vehicle_odometer_add_reference".dkVehicleLocalized(), style: .full)
+        title = "dk_vehicle_odometer_histories_title".dkVehicleLocalized()
+        self.addButton.configure(text: "dk_vehicle_odometer_add_history".dkVehicleLocalized(), style: .full)
         self.tableView.separatorStyle = .none
         self.tableView.register(OdometerHistoriesCell.nib, forCellReuseIdentifier: "OdometerHistoriesCell")
         self.tableView.rowHeight = UITableView.automaticDimension
@@ -56,8 +56,10 @@ class OdometerHistoriesVC: DKUIViewController {
     }
 
     @IBAction func addReference(_ sender: Any) {
-        let historyDetailVC = OdometerHistoryDetailVC(viewModel: self.viewModel.getNewOdometerHistoryDetailViewModel())
-        self.navigationController?.pushViewController(historyDetailVC, animated: true)
+        if let navigationController = self.navigationController, let viewModel = self.viewModel.getNewOdometerHistoryDetailViewModel() {
+            let historyDetailVC = OdometerHistoryDetailVC(viewModel: viewModel)
+            navigationController.pushViewController(historyDetailVC, animated: true)
+        }
     }
 
     func deleteHistory(atIndex index: Int) {
@@ -65,7 +67,7 @@ class OdometerHistoriesVC: DKUIViewController {
         self.viewModel.deleteHistory(atIndex: index) { success in
             self.hideLoader()
             if success {
-                self.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_odometer_reference_error_value".dkVehicleLocalized(), back: false, cancel: false)
+                self.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_odometer_history_error_value".dkVehicleLocalized(), back: false, cancel: false)
                 self.reloadReferences()
             } else {
                 self.showAlertMessage(title: Bundle.main.appName ?? "", message: DKCommonLocalizable.error.text(), back: false, cancel: false)
@@ -118,18 +120,10 @@ extension OdometerHistoriesVC: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let history = self.viewModel.histories[indexPath.section]
-//        self.viewModel.selectedRef = history
-//        if indexPath.section > 0 {
-//            self.viewModel.prevRef = self.viewModel.histories[indexPath.section - 1]
-//        }
-//        if indexPath.section == 0 {
-//            self.viewModel.isWritable = true
-//        } else {
-//            self.viewModel.isWritable = false
-//        }
-        let historyDetailVC = OdometerHistoryDetailVC(viewModel: self.viewModel.getOdometerHistoryDetailViewModel(atIndex: indexPath.section))
-        self.navigationController?.pushViewController(historyDetailVC, animated: true)
+        if let navigationController = self.navigationController, let viewModel = self.viewModel.getOdometerHistoryDetailViewModel(atIndex: indexPath.section) {
+            let historyDetailVC = OdometerHistoryDetailVC(viewModel: viewModel)
+            navigationController.pushViewController(historyDetailVC, animated: true)
+        }
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

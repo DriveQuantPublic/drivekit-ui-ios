@@ -7,53 +7,94 @@
 //
 
 import Foundation
-import DriveKitVehicleModule
+import DriveKitCommonUI
 import DriveKitDBVehicleAccessModule
+import DriveKitVehicleModule
 
 class OdometerVehicleListViewModel {
-    private let vehicles: [DKVehicle]
-    private let vehicle: DKVehicle
+    private var vehicle: DKVehicle?
     private var odometer: DKVehicleOdometer?
     private var odometerHistories: [DKVehicleOdometerHistory]?
 
-    init(vehicles: [DKVehicle], index: Int) {
-        self.vehicles = vehicles
-        self.vehicle = vehicles[index]
-        self.odometer = self.vehicle.odometer
-        self.odometerHistories = self.vehicle.odometerHistories
+    init(vehicleId: String?) {
+        if let vehicleId = vehicleId, let vehicle = DriveKitVehicle.getVehicle(withId: vehicleId) {
+            self.vehicle = vehicle
+        } else {
+            self.vehicle = DriveKitVehicle.getVehicles().first
+        }
+        self.odometer = self.vehicle?.odometer
+        self.odometerHistories = self.vehicle?.odometerHistories
     }
 
-    func update(completion: @escaping (Bool) -> ()) {
-        DriveKitVehicle.shared.getOdometer(vehicleId: self.vehicle.vehicleId, type: .defaultSync) { status, odometer, odometerHistories in
-            DispatchQueue.dispatchOnMainThread {
-                if status != .vehicleNotFound {
-                    self.odometer = odometer
-                    self.odometerHistories = odometerHistories
-                    completion(true)
-                } else {
-                    completion(false)
+    func synchronize(completion: @escaping (Bool) -> ()) {
+        if let vehicle = self.vehicle {
+            DriveKitVehicle.shared.getOdometer(vehicleId: vehicle.vehicleId, type: .defaultSync) { status, odometer, odometerHistories in
+                DispatchQueue.dispatchOnMainThread {
+                    if status != .vehicleNotFound {
+                        self.odometer = odometer
+                        self.odometerHistories = odometerHistories
+                        completion(true)
+                    } else {
+                        completion(false)
+                    }
                 }
             }
+        } else {
+            completion(false)
+        }
+    }
+
+    func updateVehicle(vehicleId: String) {
+        if let vehicle = DriveKitVehicle.getVehicle(withId: vehicleId) {
+            self.vehicle = vehicle
+            self.odometer = self.vehicle?.odometer
+            self.odometerHistories = self.vehicle?.odometerHistories
         }
     }
 
     func getOdometerCellViewModel() -> OdometerCellViewModel {
-        return OdometerCellViewModel(odometer: self.odometer)
+        return OdometerCellViewModel(vehicleId: self.vehicle?.vehicleId)
     }
 
-    func getOdometerVehicleCellViewModel() -> OdometerVehicleCellViewModel {
-        return OdometerVehicleCellViewModel(vehicle: self.vehicle)
+    func getOdometerVehicleCellViewModel() -> OdometerVehicleCellViewModel? {
+        if let vehicle = self.vehicle {
+            return OdometerVehicleCellViewModel(vehicle: vehicle)
+        } else {
+            return nil
+        }
     }
 
-    func getOdometerVehicleDetailViewModel() -> OdometerVehicleDetailViewModel {
-        return OdometerVehicleDetailViewModel(vehicle: self.vehicle, odometer: self.odometer, odometerHistories: self.odometerHistories)
+    func getOdometerVehicleDetailViewModel() -> OdometerVehicleDetailViewModel? {
+        if let vehicle = self.vehicle {
+            return OdometerVehicleDetailViewModel(vehicleId: vehicle.vehicleId)
+        } else {
+            return nil
+        }
     }
 
-    func getOdometerHistoriesViewModel() -> OdometerHistoriesViewModel {
-        return OdometerHistoriesViewModel(vehicle: self.vehicle, odometer: self.odometer, odometerHistories: self.odometerHistories)
+    func getOdometerHistoriesViewModel() -> OdometerHistoriesViewModel? {
+        if let vehicle = self.vehicle {
+            return OdometerHistoriesViewModel(vehicleId: vehicle.vehicleId)
+        } else {
+            return nil
+        }
     }
 
-    func getNewOdometerHistoryDetailViewModel() -> OdometerHistoryDetailViewModel {
-        return OdometerHistoryDetailViewModel.addHistoryViewModel(vehicle: self.vehicle, odometer: self.odometer, odometerHistories: self.odometerHistories)
+    func getNewOdometerHistoryDetailViewModel() -> OdometerHistoryDetailViewModel? {
+        if let vehicle = self.vehicle {
+            return OdometerHistoryDetailViewModel(vehicleId: vehicle.vehicleId, historyId: nil, previousHistoryId: nil, isEditable: true)
+        } else {
+            return nil
+        }
+    }
+
+    func getVehicleFilterViewModel(delegate: DKFilterItemDelegate) -> DKFilterViewModel? {
+        let vehicleFilterItems = DriveKitVehicleUI.shared.getVehicleFilterItems()
+        if !vehicleFilterItems.isEmpty {
+            let filterViewModel = DKFilterViewModel(items: vehicleFilterItems, currentItem: vehicleFilterItems[0], showPicker: true, delegate: delegate)
+            return filterViewModel
+        } else {
+            return nil
+        }
     }
 }

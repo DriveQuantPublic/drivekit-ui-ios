@@ -176,9 +176,8 @@ extension DriveKitVehicleUI: DriveKitVehicleUIEntryPoint {
         return DriveKitDBVehicleAccess.shared.findVehiclesOrderByNameAsc().execute().sortByDisplayNames()
     }
 
-    public func getOdometerVehicleList() -> UIViewController {
-        let vehicles = DriveKitVehicle.shared.vehiclesQuery().noFilter().query().execute().sorted { $0.computeName().lowercased() < $1.computeName().lowercased() }
-        let viewModel = OdometerVehicleListViewModel(vehicles: vehicles, index: 0)
+    public func getOdometerUI(vehicleId: String? = nil) -> UIViewController {
+        let viewModel = OdometerVehicleListViewModel(vehicleId: vehicleId)
         return OdometerVehicleListVC(viewModel: viewModel)
     }
 }

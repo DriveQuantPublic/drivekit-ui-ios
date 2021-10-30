@@ -241,8 +241,8 @@ class ViewController: UITableViewController {
     }
 
     func openOdometer() {
-        if let navigationController = self.navigationController, let vehicleUI = DriveKitNavigationController.shared.vehicleUI {
-            let odometerVehicleList = vehicleUI.getOdometerVehicleList()
+        if let navigationController = self.navigationController {
+            let odometerVehicleList = DriveKitVehicleUI.shared.getOdometerUI()
             navigationController.pushViewController(odometerVehicleList, animated: true)
         }
     }

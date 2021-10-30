@@ -15,7 +15,7 @@ import DriveKitVehicleModule
 enum HistoryCellType {
     case distance(DKVehicleOdometerHistory?)
     case date(DKVehicleOdometerHistory?)
-    case vehicle(DKVehicle)
+    case vehicle(DKVehicle?)
 
     var isEditable: Bool {
         switch self {
@@ -33,7 +33,7 @@ enum HistoryCellType {
             case .date:
                 return DKImages.calendar.image
             case .vehicle(let vehicle):
-                return vehicle.getVehicleImage()
+                return vehicle?.getVehicleImage()
         }
     }
 
@@ -63,7 +63,7 @@ enum HistoryCellType {
                 }
                 return date.format(pattern: .fullDate)
             case let .vehicle(vehicle):
-                return vehicle.computeName()
+                return vehicle?.computeName() ?? ""
         }
         return ""
     }
@@ -71,34 +71,36 @@ enum HistoryCellType {
 
 class OdometerHistoryDetailViewModel {
     let isEditable: Bool
-    var updatedValue: Double? = nil {
-        didSet {
-            print("updatedValue = \(updatedValue)")
-        }
-    }
-    private var vehicle: DKVehicle
-    private var odometer: DKVehicleOdometer?
-    private var history: DKVehicleOdometerHistory?
-    private var previousHistory: DKVehicleOdometerHistory?
+    var updatedValue: Double? = nil
+    private let vehicle: DKVehicle?
+    private let odometer: DKVehicleOdometer?
+    private let history: DKVehicleOdometerHistory?
+    private let previousHistory: DKVehicleOdometerHistory?
     private let historiesNumber: Int
-    private var cellTypes: [HistoryCellType]
+    private let cellTypes: [HistoryCellType]
 
-    static func addHistoryViewModel(vehicle: DKVehicle, odometer: DKVehicleOdometer?, odometerHistories: [DKVehicleOdometerHistory]?) -> OdometerHistoryDetailViewModel {
-        let sortedHistories = odometerHistories?.sorted { $0.updateDate ?? Date() > $1.updateDate ?? Date() }
-        return OdometerHistoryDetailViewModel(vehicle: vehicle, odometer: odometer, history: nil, previousHistory: sortedHistories?.first, historiesNumber: odometerHistories?.count ?? 0, isEditable: true)
-    }
-
-    static func updateHistoryViewModel(vehicle: DKVehicle, odometer: DKVehicleOdometer?, history: DKVehicleOdometerHistory?, previousHistory: DKVehicleOdometerHistory?, historiesNumber: Int, isEditable: Bool) -> OdometerHistoryDetailViewModel {
-        return OdometerHistoryDetailViewModel(vehicle: vehicle, odometer: odometer, history: history, previousHistory: previousHistory, historiesNumber: historiesNumber, isEditable: isEditable)
-    }
-
-    init(vehicle: DKVehicle, odometer: DKVehicleOdometer?, history: DKVehicleOdometerHistory?, previousHistory: DKVehicleOdometerHistory?, historiesNumber: Int, isEditable: Bool) {
-        self.vehicle = vehicle
-        self.odometer = odometer
-        self.history = history
-        self.historiesNumber = historiesNumber
+    init(vehicleId: String, historyId: Int?, previousHistoryId: Int?, isEditable: Bool) {
+        self.vehicle = DriveKitVehicle.getVehicle(withId: vehicleId)
+        self.odometer = self.vehicle?.odometer
+        if let histories = self.vehicle?.odometerHistories {
+            self.historiesNumber = histories.count
+            if let historyId = historyId, let history = histories.first(where: { $0.historyId == historyId }) {
+                self.history = history
+            } else {
+                self.history = nil
+            }
+            if let previousHistoryId = previousHistoryId, let previousHistory = histories.first(where: { $0.historyId == previousHistoryId }) {
+                self.previousHistory = previousHistory
+            } else {
+                self.previousHistory = nil
+            }
+        } else {
+            self.historiesNumber = 0
+            self.history = nil
+            self.previousHistory = nil
+        }
         self.isEditable = isEditable
-        self.cellTypes = [.distance(history), .date(history), .vehicle(vehicle)]
+        self.cellTypes = [.distance(self.history), .date(self.history), .vehicle(self.vehicle)]
     }
 
     func getOdometerHistoryDetailCellViewModel(at index: Int) -> OdometerHistoryDetailCellViewModel {
@@ -122,10 +124,10 @@ class OdometerHistoryDetailViewModel {
     }
 
     private func addHistory(viewController: UIViewController) {
-        if let distance = self.updatedValue {
+        if let vehicle = self.vehicle, let distance = self.updatedValue {
             if distance >= self.odometer?.distance ?? 0 {
                 viewController.showLoader()
-                DriveKitVehicle.shared.addOdometerHistory(vehicleId: self.vehicle.vehicleId, distance: distance) { [weak viewController] status, Odometer, histories in
+                DriveKitVehicle.shared.addOdometerHistory(vehicleId: vehicle.vehicleId, distance: distance) { [weak viewController] status, Odometer, histories in
                     DispatchQueue.dispatchOnMainThread {
                         if let viewController = viewController {
                             viewController.hideLoader()
@@ -133,7 +135,7 @@ class OdometerHistoryDetailViewModel {
                                 #warning("TODO: tracking")
 //                            track(page: "maintenance_new_reference")
                                 let alert = UIAlertController(title: Bundle.main.appName ?? "",
-                                                              message: "dk_vehicle_odometer_reference_add_success".dkVehicleLocalized(),
+                                                              message: "dk_vehicle_odometer_history_add_success".dkVehicleLocalized(),
                                                               preferredStyle: .alert)
                                 let okAction = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: { action in
                                     viewController.navigationController?.popViewController(animated: true)
@@ -151,16 +153,16 @@ class OdometerHistoryDetailViewModel {
                     }
                 }
             } else {
-                viewController.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_odometer_reference_error_value".dkVehicleLocalized(), back: false, cancel: false)
+                viewController.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_odometer_history_error_value".dkVehicleLocalized(), back: false, cancel: false)
             }
         }
     }
 
     private func updateHistory(viewController: UIViewController) {
-        if let distance = self.updatedValue, let history = self.history {
+        if let vehicle = self.vehicle, let distance = self.updatedValue, let history = self.history {
             if distance >= self.previousHistory?.distance ?? 0 {
                 viewController.showLoader()
-                DriveKitVehicle.shared.updateOdometerHistory(vehicleId: self.vehicle.vehicleId, historyId: String(history.historyId), distance: distance) { [weak viewController] status, Odometer, histories in
+                DriveKitVehicle.shared.updateOdometerHistory(vehicleId: vehicle.vehicleId, historyId: String(history.historyId), distance: distance) { [weak viewController] status, Odometer, histories in
                     DispatchQueue.dispatchOnMainThread {
                         if let viewController = viewController {
                             viewController.hideLoader()
@@ -168,7 +170,7 @@ class OdometerHistoryDetailViewModel {
                                 #warning("TODO: tracking")
 //                            track(page: "maintenance_new_reference")
                                 let alert = UIAlertController(title: Bundle.main.appName ?? "",
-                                                              message: "dk_vehicle_odometer_reference_update_success".dkVehicleLocalized(),
+                                                              message: "dk_vehicle_odometer_history_update_success".dkVehicleLocalized(),
                                                               preferredStyle: .alert)
                                 let okAction = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: { action in
                                     viewController.navigationController?.popViewController(animated: true)
@@ -197,21 +199,21 @@ class OdometerHistoryDetailViewModel {
                     }
                 }
             } else {
-                viewController.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_odometer_reference_error_value".dkVehicleLocalized(), back: false, cancel: false)
+                viewController.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_odometer_history_error_value".dkVehicleLocalized(), back: false, cancel: false)
             }
         }
     }
 
     func deleteHistory(viewController: UIViewController) {
-        if let history = self.history {
+        if let vehicle = self.vehicle, let history = self.history {
             viewController.showLoader()
-            DriveKitVehicle.shared.deleteOdometerHistory(vehicleId: self.vehicle.vehicleId, historyId: String(history.historyId)) { [weak viewController] status, odometer, histories in
+            DriveKitVehicle.shared.deleteOdometerHistory(vehicleId: vehicle.vehicleId, historyId: String(history.historyId)) { [weak viewController] status, odometer, histories in
                 DispatchQueue.dispatchOnMainThread {
                     if let viewController = viewController {
                         viewController.hideLoader()
                         if status == .success {
                             let alert = UIAlertController(title: Bundle.main.appName ?? "",
-                                                          message: "dk_vehicle_odometer_reference_delete_success".dkVehicleLocalized(),
+                                                          message: "dk_vehicle_odometer_history_delete_success".dkVehicleLocalized(),
                                                           preferredStyle: .alert)
                             let okAction = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: { action in
                                 viewController.navigationController?.popViewController(animated: true)

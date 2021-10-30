@@ -34,7 +34,7 @@ public enum DKVehicleAction: String, CaseIterable, DKVehicleActionItem {
             case .rename:
                 return "dk_vehicle_rename".dkVehicleLocalized()
             case .odometer:
-                return "dk_vehicle_odometer_menu".dkVehicleLocalized()
+                return "dk_vehicle_odometer".dkVehicleLocalized()
         }
     }
     
@@ -60,7 +60,7 @@ public enum DKVehicleAction: String, CaseIterable, DKVehicleActionItem {
                 }
             case .odometer:
                 completionHandler = { _ in
-                    let odometerVehicleListViewModel = OdometerVehicleListViewModel(vehicles: viewModel.vehicles, index: pos)
+                    let odometerVehicleListViewModel = OdometerVehicleListViewModel(vehicleId: viewModel.vehicles[pos].vehicleId)
                     let odometerVehicleListVC = OdometerVehicleListVC(viewModel: odometerVehicleListViewModel)
                     viewModel.delegate?.pushViewController(odometerVehicleListVC, animated: true)
                 }

@@ -48,7 +48,7 @@ class OdometerHistoryDetailVC: DKUIViewController {
         self.cancelButton.configure(text: DKCommonLocalizable.cancel.text(), style: .empty)
         self.deleteButton.configure(text: DKCommonLocalizable.delete.text(), style: .empty)
 
-        self.title = "dk_vehicle_odometer_reference_update".dkVehicleLocalized()
+        self.title = "dk_vehicle_odometer_history_update".dkVehicleLocalized()
         self.tableView.separatorStyle = .none
         self.tableView.sectionIndexBackgroundColor = .white
         self.tableView.register(OdometerHistoryDetailCell.nib, forCellReuseIdentifier: "OdometerHistoryDetailCell")

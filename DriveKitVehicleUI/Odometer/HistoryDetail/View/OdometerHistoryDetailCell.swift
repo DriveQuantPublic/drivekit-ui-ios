@@ -22,8 +22,6 @@ final class OdometerHistoryDetailCell: UITableViewCell, Nibable {
 
     weak var delegate: OdometerHistoryDelegate?
     private var viewModel: OdometerHistoryDetailCellViewModel?
-    private var distanceUpdated: Double = 0
-    private var defaultDistance: Double = 0
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -70,7 +68,7 @@ final class OdometerHistoryDetailCell: UITableViewCell, Nibable {
 
     @IBAction func editingChanged(_ sender: Any) {
         if let text = self.textField.text, let value = Double(text) {
-            self.distanceUpdated = value
+            self.viewModel?.newDistance = value
             if value >= 0 && value <= 1000000 {
                 self.textFieldSubtitle.isHidden = true
                 self.didUpdateDistanceField(distance: value)
@@ -92,13 +90,13 @@ final class OdometerHistoryDetailCell: UITableViewCell, Nibable {
     }
 
     @IBAction func didEnterDistanceField(_ sender: Any) {
-        if self.distanceUpdated > 0 {
-            self.textField.text = self.distanceUpdated.formatKilometerDistance(minDistanceToRemoveFractions: 0)
+        if let newDistance = self.viewModel?.newDistance, newDistance > 0 {
+            self.textField.text = newDistance.formatKilometerDistance(appendingUnit: false, minDistanceToRemoveFractions: 0)
         } else {
-            if self.defaultDistance == 0 {
-                self.textField.text = ""
+            if let initialDistance = self.viewModel?.initialDistance, initialDistance > 0 {
+                self.textField.text = initialDistance.formatKilometerDistance(appendingUnit: false, minDistanceToRemoveFractions: 0)
             } else {
-                self.textField.text = self.defaultDistance.formatKilometerDistance(minDistanceToRemoveFractions: 0)
+                self.textField.text = ""
             }
         }
     }

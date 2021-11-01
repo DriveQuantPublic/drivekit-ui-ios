@@ -18,4 +18,8 @@ extension DriveKitVehicle {
     static func getVehicles() -> [DKVehicle] {
         return DriveKitVehicle.shared.vehiclesQuery().noFilter().query().execute().sorted { $0.computeName().lowercased() < $1.computeName().lowercased() }
     }
+
+    static func hasVehicles() -> Bool {
+        return DriveKitVehicle.shared.vehiclesQuery().noFilter().queryOne().execute() != nil
+    }
 }

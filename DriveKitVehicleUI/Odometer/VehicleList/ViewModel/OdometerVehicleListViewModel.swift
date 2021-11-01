@@ -10,6 +10,7 @@ import Foundation
 import DriveKitCommonUI
 import DriveKitDBVehicleAccessModule
 import DriveKitVehicleModule
+import AVFoundation
 
 class OdometerVehicleListViewModel {
     private var vehicle: DKVehicle?
@@ -39,8 +40,24 @@ class OdometerVehicleListViewModel {
                     }
                 }
             }
-        } else {
+        } else if hasVehicles() {
             completion(false)
+        } else {
+            completion(true)
+        }
+    }
+
+    private func synchronizeOdometer(vehicleId: String, completion: @escaping (Bool) -> ()) {
+        DriveKitVehicle.shared.getOdometer(vehicleId: vehicleId, type: .defaultSync) { status, odometer, odometerHistories in
+            DispatchQueue.dispatchOnMainThread {
+                if status != .vehicleNotFound {
+                    self.odometer = odometer
+                    self.odometerHistories = odometerHistories
+                    completion(true)
+                } else {
+                    completion(false)
+                }
+            }
         }
     }
 
@@ -50,6 +67,10 @@ class OdometerVehicleListViewModel {
             self.odometer = self.vehicle?.odometer
             self.odometerHistories = self.vehicle?.odometerHistories
         }
+    }
+
+    func hasVehicles() -> Bool {
+        return DriveKitVehicle.hasVehicles()
     }
 
     func getOdometerCellViewModel() -> OdometerCellViewModel {

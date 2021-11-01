@@ -13,6 +13,7 @@ import DriveKitDBVehicleAccessModule
 
 class OdometerVehicleListVC: DKUIViewController {
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var noVehicleLabel: UILabel!
     private let viewModel: OdometerVehicleListViewModel
 
     init(viewModel: OdometerVehicleListViewModel) {
@@ -42,10 +43,12 @@ class OdometerVehicleListVC: DKUIViewController {
         if #available(iOS 15, *) {
             self.tableView.sectionHeaderTopPadding = 0
         }
-
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(synchronize), for: .valueChanged)
         self.tableView.refreshControl = refreshControl
+
+        self.noVehicleLabel.attributedText = "dk_vehicle_list_empty".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.mainFontColor).build()
+        update()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -63,7 +66,18 @@ class OdometerVehicleListVC: DKUIViewController {
             if !success {
                 self.showAlertMessage(title: Bundle.main.appName ?? "", message: DKCommonLocalizable.error.text(), back: true, cancel: false)
             }
+            self.update()
+        }
+    }
+
+    private func update() {
+        if self.viewModel.hasVehicles() {
             self.tableView.reloadData()
+            self.tableView.isHidden = false
+            self.noVehicleLabel.isHidden = true
+        } else {
+            self.tableView.isHidden = true
+            self.noVehicleLabel.isHidden = false
         }
     }
 }

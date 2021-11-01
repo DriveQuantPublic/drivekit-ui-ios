@@ -11,8 +11,11 @@ import UIKit
 class OdometerHistoryDetailCellViewModel {
     private let type: HistoryCellType
     let isEditable: Bool
+    let initialDistance: Double
+    var newDistance: Double = 0
 
-    init(type: HistoryCellType, isEditable: Bool) {
+    init(initialDistance: Double?, type: HistoryCellType, isEditable: Bool) {
+        self.initialDistance = initialDistance ?? 0
         self.type = type
         self.isEditable = isEditable
     }

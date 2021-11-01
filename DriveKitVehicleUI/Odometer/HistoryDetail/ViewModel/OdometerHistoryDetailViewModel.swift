@@ -112,7 +112,7 @@ class OdometerHistoryDetailViewModel {
     }
 
     func getOdometerHistoryDetailCellViewModel(at index: Int) -> OdometerHistoryDetailCellViewModel {
-        return OdometerHistoryDetailCellViewModel(type: self.cellTypes[index], isEditable: self.isEditable)
+        return OdometerHistoryDetailCellViewModel(initialDistance: self.history?.distance, type: self.cellTypes[index], isEditable: self.isEditable)
     }
 
     func canDelete() -> Bool {
@@ -121,12 +121,10 @@ class OdometerHistoryDetailViewModel {
 
     func validateHistory(viewController: UIViewController) {
         if self.history != nil {
-            #warning("TODO: tracking")
-//            track(page: "maintenance-histories-edit")
+            DriveKitUI.shared.trackScreen(tagKey: "dk_tag_vehicles_odometer_histories_edit", viewController: viewController)
             updateHistory(viewController: viewController)
         } else {
-            #warning("TODO: tracking")
-//            track(page: "maintenance-histories-add")
+            DriveKitUI.shared.trackScreen(tagKey: "dk_tag_vehicles_odometer_histories_add", viewController: viewController)
             addHistory(viewController: viewController)
         }
     }

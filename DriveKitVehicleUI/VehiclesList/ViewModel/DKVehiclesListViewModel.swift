@@ -27,6 +27,10 @@ public protocol VehiclesListDelegate : AnyObject{
 public class DKVehiclesListViewModel {
     public private(set) var vehicles: [DKVehicle] = []
     public weak var delegate: VehiclesListDelegate? = nil
+
+    init() {
+        self.vehicles = DriveKitDBVehicleAccess.shared.findVehiclesOrderByNameAsc().execute()
+    }
     
     func fetchVehicles() {
         DriveKitVehicle.shared.getVehiclesOrderByNameAsc(completionHandler : { status, vehicles in

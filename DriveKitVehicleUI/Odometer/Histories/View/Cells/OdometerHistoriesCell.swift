@@ -21,13 +21,13 @@ final class OdometerHistoriesCell: UITableViewCell, Nibable {
         self.configure()
     }
 
-    func configure() {
-        self.referenceImage.image = DKImages.ecoAccel.image?.withRenderingMode(.alwaysTemplate)
-        self.referenceImage.tintColor = DKUIColors.mainFontColor.color
-    }
-
     func update(odometerHistoriesCellViewModel: OdometerHistoriesCellViewModel) {
         self.referenceLabel.attributedText = odometerHistoriesCellViewModel.getDistance().dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
         self.referenceDate.attributedText = odometerHistoriesCellViewModel.getDate().dkAttributedString().font(dkFont: .primary, style: .smallText).color(UIColor(hex: 0x9e9e9e)).build()
+    }
+
+    private func configure() {
+        self.referenceImage.image = DKImages.ecoAccel.image?.withRenderingMode(.alwaysTemplate)
+        self.referenceImage.tintColor = DKUIColors.mainFontColor.color
     }
 }

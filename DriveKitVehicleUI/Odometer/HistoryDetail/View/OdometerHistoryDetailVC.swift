@@ -40,7 +40,7 @@ class OdometerHistoryDetailVC: DKUIViewController {
         configure()
     }
 
-    func configure() {
+    private func configure() {
         self.view.backgroundColor = .white
         self.deleteView.isHidden = !self.viewModel.canDelete()
 
@@ -71,15 +71,15 @@ class OdometerHistoryDetailVC: DKUIViewController {
         }
     }
 
-    @IBAction func validateReference(_ sender: Any) {
+    @IBAction private func validateReference(_ sender: Any) {
         self.viewModel.validateHistory(viewController: self)
     }
 
-    @IBAction func cancelAction(_ sender: Any) {
+    @IBAction private func cancelAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
 
-    @IBAction func deleteReference(_ sender: Any) {
+    @IBAction private func deleteReference(_ sender: Any) {
         self.viewModel.deleteHistory(viewController: self)
     }
 }

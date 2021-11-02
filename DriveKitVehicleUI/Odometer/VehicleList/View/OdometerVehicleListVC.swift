@@ -30,7 +30,7 @@ class OdometerVehicleListVC: DKUIViewController {
         self.configure()
     }
 
-    func configure() {
+    private func configure() {
         self.view.backgroundColor = .white
         self.title = "dk_vehicle_odometer".dkVehicleLocalized()
         self.tableView.separatorStyle = .none

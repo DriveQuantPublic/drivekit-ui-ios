@@ -36,7 +36,7 @@ class OdometerHistoriesVC: DKUIViewController {
         self.reloadReferences()
     }
 
-    func configure() {
+    private func configure() {
         self.view.backgroundColor = .white
         self.title = "dk_vehicle_odometer_histories_title".dkVehicleLocalized()
         self.addButton.configure(text: "dk_vehicle_odometer_add_history".dkVehicleLocalized(), style: .full)
@@ -51,19 +51,19 @@ class OdometerHistoriesVC: DKUIViewController {
         }
     }
 
-    func reloadReferences() {
+    private func reloadReferences() {
         self.viewModel.update()
         self.tableView.reloadData()
     }
 
-    @IBAction func addReference(_ sender: Any) {
+    @IBAction private func addReference(_ sender: Any) {
         if let navigationController = self.navigationController, let viewModel = self.viewModel.getNewOdometerHistoryDetailViewModel() {
             let historyDetailVC = OdometerHistoryDetailVC(viewModel: viewModel)
             navigationController.pushViewController(historyDetailVC, animated: true)
         }
     }
 
-    func deleteHistory(atIndex index: Int) {
+    private func deleteHistory(atIndex index: Int) {
         self.showLoader()
         self.viewModel.deleteHistory(atIndex: index) { success in
             self.hideLoader()
@@ -103,7 +103,6 @@ extension OdometerHistoriesVC: UITableViewDataSource {
         if let viewModel = self.viewModel.getOdometerHistoriesCellViewModel(atIndex: indexPath.section) {
             cell.update(odometerHistoriesCellViewModel: viewModel)
         }
-//        cell.selectionStyle = .none
         return cell
     }
 

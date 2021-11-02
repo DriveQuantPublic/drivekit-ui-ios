@@ -59,14 +59,14 @@ final class OdometerHistoryDetailCell: UITableViewCell, Nibable {
         self.cellImage.layer.cornerRadius = viewModel.hasCornerRadius() ? self.cellImage.frame.height / 2 : 0
     }
 
-    @IBAction func didEndEditing(_ sender: Any) {
+    @IBAction private func didEndEditing(_ sender: Any) {
         editingChanged(sender)
         if let text = textField.text {
             textField.text = text + " " + DKCommonLocalizable.unitKilometer.text()
         }
     }
 
-    @IBAction func editingChanged(_ sender: Any) {
+    @IBAction private func editingChanged(_ sender: Any) {
         if let text = self.textField.text, let value = Double(text) {
             self.viewModel?.newDistance = value
             if value >= 0 && value <= 1000000 {
@@ -80,16 +80,16 @@ final class OdometerHistoryDetailCell: UITableViewCell, Nibable {
         }
     }
 
-    func subtitleError(text: String) {
+    private func subtitleError(text: String) {
         self.textFieldSubtitle.isHidden = false
         self.textFieldSubtitle.attributedText = text.dkAttributedString().font(dkFont: .primary, style: DKStyles.smallText.withSizeDelta(-3)).color(.warningColor).build()
     }
 
-    func didUpdateDistanceField(distance: Double) {
+    private func didUpdateDistanceField(distance: Double) {
         self.delegate?.didUpdateDistanceField(distance: distance, sender: self)
     }
 
-    @IBAction func didEnterDistanceField(_ sender: Any) {
+    @IBAction private func didEnterDistanceField(_ sender: Any) {
         if let newDistance = self.viewModel?.newDistance, newDistance > 0 {
             self.textField.text = newDistance.formatKilometerDistance(appendingUnit: false, minDistanceToRemoveFractions: 0)
         } else {

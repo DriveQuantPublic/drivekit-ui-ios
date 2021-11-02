@@ -138,8 +138,6 @@ class OdometerHistoryDetailViewModel {
                         if let viewController = viewController {
                             viewController.hideLoader()
                             if status == .success {
-                                #warning("TODO: tracking")
-//                            track(page: "maintenance_new_reference")
                                 let alert = UIAlertController(title: Bundle.main.appName ?? "",
                                                               message: "dk_vehicle_odometer_history_add_success".dkVehicleLocalized(),
                                                               preferredStyle: .alert)
@@ -173,8 +171,6 @@ class OdometerHistoryDetailViewModel {
                         if let viewController = viewController {
                             viewController.hideLoader()
                             if status == .success {
-                                #warning("TODO: tracking")
-//                            track(page: "maintenance_new_reference")
                                 let alert = UIAlertController(title: Bundle.main.appName ?? "",
                                                               message: "dk_vehicle_odometer_history_update_success".dkVehicleLocalized(),
                                                               preferredStyle: .alert)

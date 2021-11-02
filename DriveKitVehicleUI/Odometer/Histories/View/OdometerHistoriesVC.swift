@@ -71,7 +71,7 @@ class OdometerHistoriesVC: DKUIViewController {
                 self.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_odometer_history_error_value".dkVehicleLocalized(), back: false, cancel: false)
                 self.reloadReferences()
             } else {
-                self.showAlertMessage(title: Bundle.main.appName ?? "", message: DKCommonLocalizable.error.text(), back: false, cancel: false)
+                self.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_odometer_failed_to_sync".dkVehicleLocalized(), back: false, cancel: false)
             }
         }
     }

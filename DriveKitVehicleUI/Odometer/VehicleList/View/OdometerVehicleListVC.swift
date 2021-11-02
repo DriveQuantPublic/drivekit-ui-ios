@@ -64,7 +64,7 @@ class OdometerVehicleListVC: DKUIViewController {
                 refreshControl.endRefreshing()
             }
             if !success {
-                self.showAlertMessage(title: Bundle.main.appName ?? "", message: DKCommonLocalizable.error.text(), back: true, cancel: false)
+                self.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_odometer_failed_to_sync".dkVehicleLocalized(), back: true, cancel: false)
             }
             self.update()
         }

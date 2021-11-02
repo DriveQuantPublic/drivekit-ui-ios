@@ -147,7 +147,7 @@ class OdometerHistoryDetailViewModel {
                                 alert.addAction(okAction)
                                 viewController.present(alert, animated: true)
                             } else if status == .error {
-                                viewController.showAlertMessage(title: Bundle.main.appName ?? "", message: DKCommonLocalizable.error.text(), back: false, cancel: false)
+                                viewController.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_odometer_failed_to_sync".dkVehicleLocalized(), back: false, cancel: false)
                             } else if status == .vehicleNotFound {
                                 viewController.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_not_found".dkVehicleLocalized(), back: false, cancel: false)
                             } else if status == .badDistance {

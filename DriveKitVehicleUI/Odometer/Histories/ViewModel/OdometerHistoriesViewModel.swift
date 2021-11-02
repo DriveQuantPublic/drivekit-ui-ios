@@ -66,9 +66,11 @@ class OdometerHistoriesViewModel {
 
     func deleteHistory(atIndex index: Int, completion: @escaping (Bool) -> ()) {
         if let vehicle = self.vehicle, let history = getHistory(atIndex: index) {
-            DriveKitVehicle.shared.deleteOdometerHistory(vehicleId: vehicle.vehicleId, historyId: String(history.historyId)) { status, odometer, histories in
-                self.odometer = odometer
-                self.odometerHistories = histories
+            DriveKitVehicle.shared.deleteOdometerHistory(vehicleId: vehicle.vehicleId, historyId: String(history.historyId)) { [weak self] status, odometer, histories in
+                if let self = self {
+                    self.odometer = odometer
+                    self.odometerHistories = histories
+                }
                 DispatchQueue.dispatchOnMainThread {
                     completion(true)
                 }

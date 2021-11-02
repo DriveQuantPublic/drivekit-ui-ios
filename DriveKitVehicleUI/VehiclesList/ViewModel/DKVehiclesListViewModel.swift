@@ -29,10 +29,12 @@ public class DKVehiclesListViewModel {
     public weak var delegate: VehiclesListDelegate? = nil
     
     func fetchVehicles() {
-        DriveKitVehicle.shared.getVehiclesOrderByNameAsc(completionHandler: { status, vehicles in
+        DriveKitVehicle.shared.getVehiclesOrderByNameAsc(completionHandler: { [weak self] status, vehicles in
             DispatchQueue.main.async {
-                self.vehicles = vehicles.sortByDisplayNames()
-                self.delegate?.onVehiclesAvailable()
+                if let self = self {
+                    self.vehicles = vehicles.sortByDisplayNames()
+                    self.delegate?.onVehiclesAvailable()
+                }
             }
         })
     }

@@ -65,13 +65,15 @@ class OdometerHistoriesVC: DKUIViewController {
 
     private func deleteHistory(atIndex index: Int) {
         self.showLoader()
-        self.viewModel.deleteHistory(atIndex: index) { success in
-            self.hideLoader()
-            if success {
-                self.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_odometer_history_error_value".dkVehicleLocalized(), back: false, cancel: false)
-                self.reloadReferences()
-            } else {
-                self.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_odometer_failed_to_sync".dkVehicleLocalized(), back: false, cancel: false)
+        self.viewModel.deleteHistory(atIndex: index) { [weak self] success in
+            if let self = self {
+                self.hideLoader()
+                if success {
+                    self.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_odometer_history_error_value".dkVehicleLocalized(), back: false, cancel: false)
+                    self.reloadReferences()
+                } else {
+                    self.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_odometer_failed_to_sync".dkVehicleLocalized(), back: false, cancel: false)
+                }
             }
         }
     }

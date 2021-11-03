@@ -8,8 +8,7 @@
 
 import UIKit
 
-open class DKUIViewController : UIViewController {
-    
+open class DKUIViewController: UIViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         self.configureBackButton()
@@ -24,7 +23,7 @@ open class DKUIViewController : UIViewController {
 
         DriveKitUI.shared.trackScreen(self)
     }
-    
+
     open func configureBackButton(selector: Selector = #selector(onBack)) {
         let backButton = UIButton(type: .custom)
         backButton.frame = CGRect(x: 0, y: 0, width: 36, height: 36)
@@ -34,7 +33,7 @@ open class DKUIViewController : UIViewController {
         backButton.tintColor = DKUIColors.fontColorOnPrimaryColor.color
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
     }
-    
+
     @objc open func onBack(sender: UIBarButtonItem) {
         if let viewControllers = self.navigationController?.viewControllers, viewControllers.count > 1 {
             self.navigationController?.popViewController(animated: true)
@@ -42,5 +41,4 @@ open class DKUIViewController : UIViewController {
             self.navigationController?.dismiss(animated: true, completion: nil)
         }
     }
-
 }

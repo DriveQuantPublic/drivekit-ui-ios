@@ -28,7 +28,7 @@ public class DriveKitVehicleUI {
     public private(set) var maxVehicles: Int? = nil
     public private(set) var canRemoveBeacon: Bool = true
 
-    public private(set) var vehicleActions : [DKVehicleActionItem] = DKVehicleAction.allCases
+    public private(set) var vehicleActions: [DKVehicleActionItem] = DKVehicleAction.allCases
     public private(set) var detectionModes: [DKDetectionMode] = [.disabled, .gps, .beacon, .bluetooth]
     var customFields = [DKVehicleGroupField: [DKVehicleField]]()
 
@@ -125,13 +125,12 @@ extension String {
     }
 }
 
-extension DriveKitVehicleUI : DriveKitVehicleUIEntryPoint {
-
+extension DriveKitVehicleUI: DriveKitVehicleUIEntryPoint {
     public func getVehicleListViewController() -> UIViewController {
         return VehiclesListVC()
     }
 
-    public func getVehicleDetailViewController(vehicleId: String, completion : @escaping (UIViewController?) -> ()) {
+    public func getVehicleDetailViewController(vehicleId: String, completion: @escaping (UIViewController?) -> ()) {
         DriveKitVehicle.shared.getVehicle(vehicleId: vehicleId, completionHandler: { status, vehicle in
             DispatchQueue.main.async {
                 if let vehicle = vehicle {
@@ -175,6 +174,11 @@ extension DriveKitVehicleUI : DriveKitVehicleUIEntryPoint {
     
     public func getVehicleFilterItems() -> [DKFilterItem] {
         return DriveKitDBVehicleAccess.shared.findVehiclesOrderByNameAsc().execute().sortByDisplayNames()
+    }
+
+    public func getOdometerUI(vehicleId: String? = nil) -> UIViewController {
+        let viewModel = OdometerVehicleListViewModel(vehicleId: vehicleId)
+        return OdometerVehicleListVC(viewModel: viewModel)
     }
 }
 

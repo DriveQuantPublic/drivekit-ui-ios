@@ -33,10 +33,12 @@ public class DKVehiclesListViewModel {
     }
     
     func fetchVehicles() {
-        DriveKitVehicle.shared.getVehiclesOrderByNameAsc { status, vehicles in
+        DriveKitVehicle.shared.getVehiclesOrderByNameAsc { [weak self] status, vehicles in
             DispatchQueue.main.async {
-                self.vehicles = vehicles.sortByDisplayNames()
-                self.delegate?.onVehiclesAvailable()
+                if let self = self {
+                    self.vehicles = vehicles.sortByDisplayNames()
+                    self.delegate?.onVehiclesAvailable()
+                }
             }
         }
     }

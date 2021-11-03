@@ -55,6 +55,7 @@ public class VehiclesListVC: DKUIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.refreshControl.beginRefreshing()
+        self.tableView.setContentOffset(CGPoint(x: 0, y: -self.refreshControl.frame.size.height), animated: true)
         self.viewModel.fetchVehicles()
     }
 

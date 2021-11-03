@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OdometerHistoryDetailVC" customModule="DriveKitVehicleUI" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelButton" destination="zdI-gu-Jnp" id="HnF-XI-WcR"/>
+                <outlet property="cancelView" destination="zWf-Pi-1rc" id="T1z-KK-1Bc"/>
+                <outlet property="deleteButton" destination="nOV-Oq-jLu" id="TBu-Yr-b0w"/>
+                <outlet property="deleteView" destination="FWN-Kv-483" id="85V-JX-f2f"/>
+                <outlet property="panelTitle" destination="ShX-e1-Lxz" id="UBK-Oe-SJP"/>
+                <outlet property="panelView" destination="lNJ-CM-lUb" id="6sW-sz-1ND"/>
+                <outlet property="tableView" destination="zu1-53-3VM" id="NFm-S3-zAG"/>
+                <outlet property="validateButton" destination="Mqn-ZA-CXY" id="SaZ-ud-Hyd"/>
+                <outlet property="validateView" destination="d1S-KQ-sXd" id="9Qc-Dy-6Q3"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lNJ-CM-lUb">
+                    <rect key="frame" x="16" y="60" width="382" height="250"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p0q-6I-Lut" customClass="CardView" customModule="DriveKitCommonUI">
+                            <rect key="frame" x="1" y="1" width="379" height="247"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ShX-e1-Lxz">
+                                    <rect key="frame" x="8" y="0.0" width="371" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="L4N-dN-a8p"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zu1-53-3VM">
+                                    <rect key="frame" x="8" y="50" width="363" height="197"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </tableView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="zu1-53-3VM" secondAttribute="bottom" id="0DO-6Q-EXq"/>
+                                <constraint firstItem="ShX-e1-Lxz" firstAttribute="top" secondItem="p0q-6I-Lut" secondAttribute="top" id="5F4-m5-n7K"/>
+                                <constraint firstAttribute="trailing" secondItem="zu1-53-3VM" secondAttribute="trailing" constant="8" id="BQH-xL-nt8"/>
+                                <constraint firstItem="zu1-53-3VM" firstAttribute="top" secondItem="ShX-e1-Lxz" secondAttribute="bottom" id="Bkw-Hv-Z8E"/>
+                                <constraint firstAttribute="trailing" secondItem="ShX-e1-Lxz" secondAttribute="trailing" id="L7v-Pr-5cU"/>
+                                <constraint firstItem="zu1-53-3VM" firstAttribute="leading" secondItem="p0q-6I-Lut" secondAttribute="leading" constant="8" id="c01-Y5-OFj"/>
+                                <constraint firstItem="ShX-e1-Lxz" firstAttribute="leading" secondItem="p0q-6I-Lut" secondAttribute="leading" constant="8" id="cM7-yF-qpl"/>
+                                <constraint firstItem="zu1-53-3VM" firstAttribute="top" secondItem="ShX-e1-Lxz" secondAttribute="bottom" id="rn1-BK-RHj"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="p0q-6I-Lut" secondAttribute="bottom" constant="2" id="RMf-mB-LNv"/>
+                        <constraint firstItem="p0q-6I-Lut" firstAttribute="top" secondItem="lNJ-CM-lUb" secondAttribute="top" constant="1" id="dkF-MV-8KJ"/>
+                        <constraint firstItem="p0q-6I-Lut" firstAttribute="leading" secondItem="lNJ-CM-lUb" secondAttribute="leading" constant="1" id="hGU-DL-PgP"/>
+                        <constraint firstAttribute="trailing" secondItem="p0q-6I-Lut" secondAttribute="trailing" constant="2" id="mMY-nK-CVK"/>
+                        <constraint firstAttribute="height" constant="250" id="tVY-Aw-GQd"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BHp-OO-8Ce">
+                    <rect key="frame" x="0.0" y="326" width="414" height="536"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Itv-3j-Mdf">
+                            <rect key="frame" x="16" y="0.0" width="382" height="198"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d1S-KQ-sXd">
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="66"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mqn-ZA-CXY" customClass="CustomButton" customModule="DriveKitVehicleUI" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="8" width="382" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="oxA-yr-LCh"/>
+                                            </constraints>
+                                            <state key="normal" title="Button"/>
+                                            <connections>
+                                                <action selector="validateReference:" destination="-1" eventType="touchUpInside" id="gQv-1M-Srq"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Mqn-ZA-CXY" secondAttribute="trailing" id="2ar-Pk-SPQ"/>
+                                        <constraint firstItem="Mqn-ZA-CXY" firstAttribute="top" secondItem="d1S-KQ-sXd" secondAttribute="top" constant="8" id="dw6-j8-z1w"/>
+                                        <constraint firstAttribute="bottom" secondItem="Mqn-ZA-CXY" secondAttribute="bottom" constant="8" id="rFB-ox-Nm4"/>
+                                        <constraint firstItem="Mqn-ZA-CXY" firstAttribute="leading" secondItem="d1S-KQ-sXd" secondAttribute="leading" id="ryZ-FS-VYK"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zWf-Pi-1rc">
+                                    <rect key="frame" x="0.0" y="66" width="382" height="66"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdI-gu-Jnp" customClass="CustomButton" customModule="DriveKitVehicleUI" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="8" width="382" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="eg5-wb-lbw"/>
+                                            </constraints>
+                                            <state key="normal" title="Button"/>
+                                            <connections>
+                                                <action selector="cancelAction:" destination="-1" eventType="touchUpInside" id="wB2-tG-Osn"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="zdI-gu-Jnp" firstAttribute="leading" secondItem="zWf-Pi-1rc" secondAttribute="leading" id="3Yy-he-MiK"/>
+                                        <constraint firstAttribute="bottom" secondItem="zdI-gu-Jnp" secondAttribute="bottom" constant="8" id="aIT-5m-0WC"/>
+                                        <constraint firstItem="zdI-gu-Jnp" firstAttribute="top" secondItem="zWf-Pi-1rc" secondAttribute="top" constant="8" id="x2s-R4-KVr"/>
+                                        <constraint firstAttribute="trailing" secondItem="zdI-gu-Jnp" secondAttribute="trailing" id="ybz-Vf-Q4b"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FWN-Kv-483">
+                                    <rect key="frame" x="0.0" y="132" width="382" height="66"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOV-Oq-jLu" customClass="CustomButton" customModule="DriveKitVehicleUI" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="8" width="382" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="C6K-r0-ULy"/>
+                                            </constraints>
+                                            <state key="normal" title="Button"/>
+                                            <connections>
+                                                <action selector="deleteReference:" destination="-1" eventType="touchUpInside" id="JsA-Tr-oaZ"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="nOV-Oq-jLu" firstAttribute="leading" secondItem="FWN-Kv-483" secondAttribute="leading" id="KdW-RX-WFn"/>
+                                        <constraint firstAttribute="trailing" secondItem="nOV-Oq-jLu" secondAttribute="trailing" id="Vzx-er-7e2"/>
+                                        <constraint firstAttribute="bottom" secondItem="nOV-Oq-jLu" secondAttribute="bottom" constant="8" id="Zgs-CF-CJk"/>
+                                        <constraint firstItem="nOV-Oq-jLu" firstAttribute="top" secondItem="FWN-Kv-483" secondAttribute="top" constant="8" id="gSs-Cz-V53"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Itv-3j-Mdf" firstAttribute="top" secondItem="BHp-OO-8Ce" secondAttribute="top" id="7rh-GD-piW"/>
+                        <constraint firstAttribute="trailing" secondItem="Itv-3j-Mdf" secondAttribute="trailing" constant="16" id="CLL-cF-TBm"/>
+                        <constraint firstItem="Itv-3j-Mdf" firstAttribute="leading" secondItem="BHp-OO-8Ce" secondAttribute="leading" constant="16" id="Lcd-Qw-eVc"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="BHp-OO-8Ce" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="4Gt-jW-0w9"/>
+                <constraint firstItem="BHp-OO-8Ce" firstAttribute="top" secondItem="lNJ-CM-lUb" secondAttribute="bottom" constant="16" id="EYg-qG-HQS"/>
+                <constraint firstItem="lNJ-CM-lUb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="EyN-v7-f1d"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lNJ-CM-lUb" secondAttribute="trailing" constant="16" id="Lqv-2n-vp9"/>
+                <constraint firstItem="lNJ-CM-lUb" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="RL0-Kv-R3h"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="BHp-OO-8Ce" secondAttribute="bottom" id="bKt-Z7-0DJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="BHp-OO-8Ce" secondAttribute="trailing" id="hzc-y5-wqq"/>
+            </constraints>
+            <point key="canvasLocation" x="131.8840579710145" y="99.776785714285708"/>
+        </view>
+    </objects>
+</document>

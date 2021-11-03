@@ -27,16 +27,20 @@ public protocol VehiclesListDelegate : AnyObject{
 public class DKVehiclesListViewModel {
     public private(set) var vehicles: [DKVehicle] = []
     public weak var delegate: VehiclesListDelegate? = nil
+
+    init() {
+        self.vehicles = DriveKitDBVehicleAccess.shared.findVehiclesOrderByNameAsc().execute().sortByDisplayNames()
+    }
     
     func fetchVehicles() {
-        DriveKitVehicle.shared.getVehiclesOrderByNameAsc(completionHandler: { [weak self] status, vehicles in
+        DriveKitVehicle.shared.getVehiclesOrderByNameAsc { [weak self] status, vehicles in
             DispatchQueue.main.async {
                 if let self = self {
                     self.vehicles = vehicles.sortByDisplayNames()
                     self.delegate?.onVehiclesAvailable()
                 }
             }
-        })
+        }
     }
     
     var vehiclesCount: Int {
@@ -76,8 +80,8 @@ public class DKVehiclesListViewModel {
         var model = ""
         let vehicle = vehicles[pos]
         if vehicle.liteConfig {
-            if vehicle.name != vehicle.getLiteConfigCategoryName(){
-                model =  vehicle.getLiteConfigCategoryName()
+            if vehicle.name != vehicle.getLiteConfigCategoryName() {
+                model = vehicle.getLiteConfigCategoryName()
             }
         } else {
             model = vehicle.getModel()
@@ -89,7 +93,7 @@ public class DKVehiclesListViewModel {
         let alert = UIAlertController(title: "dk_vehicle_rename_title".dkVehicleLocalized(),
                                       message: "dk_vehicle_rename_description".dkVehicleLocalized(),
                                       preferredStyle: .alert)
-        alert.addTextField { (textField) in
+        alert.addTextField { textField in
             textField.keyboardType = UIKeyboardType.default
             textField.text = self.vehicleName(pos: pos)
         }
@@ -106,27 +110,27 @@ public class DKVehiclesListViewModel {
     func deleteVehicle(pos: Int) {
         let vehicleName = self.vehicleName(pos: pos)
         let title = String(format: "dk_vehicle_delete_confirm".dkVehicleLocalized(), vehicleName)
-        self.deleteAlert(title: title, handler: {  _ in
+        self.deleteAlert(title: title) {  _ in
             self.deleteVehicle(vehicle: self.vehicles[pos])
-        })
+        }
     }
     
     func deleteBeacon(pos: Int) {
         let vehicleName = self.vehicleName(pos: pos)
         let beaconCode = vehicles[pos].beacon?.uniqueId ?? ""
         let title = String(format: "dk_vehicle_beacon_deactivate_alert".dkVehicleLocalized(), beaconCode, vehicleName)
-        self.deleteAlert(title: title, handler: {  _ in
+        self.deleteAlert(title: title) { _ in
             self.deleteBeacon(vehicle: self.vehicles[pos])
-        })
+        }
     }
     
     func deleteBluetooth(pos: Int) {
         let vehicleName = self.vehicleName(pos: pos)
         let bluetoothName = vehicles[pos].bluetooth?.name ?? ""
         let title = String(format: "dk_vehicle_bluetooth_deactivate_alert".dkVehicleLocalized(), bluetoothName, vehicleName)
-        self.deleteAlert(title: title, handler: {  _ in
+        self.deleteAlert(title: title) { _ in
             self.deleteBluetooth(vehicle: self.vehicles[pos])
-        })
+        }
     }
     
     private func deleteAlert(title: String, handler: ((UIAlertAction) -> Void)? = nil) {
@@ -156,51 +160,51 @@ public class DKVehiclesListViewModel {
     }
 
     private func renameVehicle(vehicle: DKVehicle, name: String) {
-        DriveKitVehicle.shared.renameVehicle(name: name, vehicleId: vehicle.vehicleId, completionHandler: { status in
+        DriveKitVehicle.shared.renameVehicle(name: name, vehicleId: vehicle.vehicleId) { status in
             if status == .success {
                 self.delegate?.didUpdateVehicle()
             } else {
                 self.delegate?.didReceiveErrorFromService()
             }
-        })
+        }
     }
     
     private func deleteVehicle(vehicle: DKVehicle) {
-        DriveKitVehicle.shared.deleteVehicle(vehicleId: vehicle.vehicleId, completionHandler: { status in
+        DriveKitVehicle.shared.deleteVehicle(vehicleId: vehicle.vehicleId) { status in
             if status == .success {
                 self.delegate?.didUpdateVehicle()
             } else {
                 self.delegate?.didReceiveErrorFromService()
             }
-        })
+        }
     }
     
     func updateDetectionMode(pos: Int, detectionMode: DKDetectionMode, forceGPSUpdate: Bool = false) {
-        DriveKitVehicle.shared.updateDetectionMode(vehicleId: vehicles[pos].vehicleId, detectionMode: detectionMode, forceGPSVehicleUpdate: forceGPSUpdate, completionHandler: { status in
+        DriveKitVehicle.shared.updateDetectionMode(vehicleId: vehicles[pos].vehicleId, detectionMode: detectionMode, forceGPSVehicleUpdate: forceGPSUpdate) { status in
             if status == .success {
                 self.delegate?.didUpdateVehicle()
             } else {
                 self.delegate?.didReceiveErrorFromService()
             }
-        })
+        }
     }
     
     private func deleteBluetooth(vehicle: DKVehicle) {
-        DriveKitVehicle.shared.removeBluetooth(vehicleId: vehicle.vehicleId, completionHandler: { status in
+        DriveKitVehicle.shared.removeBluetooth(vehicleId: vehicle.vehicleId) { status in
             if status == .success {
                 self.delegate?.didUpdateVehicle()
             } else {
                 self.delegate?.didReceiveErrorFromService()
             }
-        })
+        }
     }
     
     private func deleteBeacon(vehicle: DKVehicle) {
-        DriveKitVehicle.shared.removeBeacon(vehicleId: vehicle.vehicleId, completionHandler: { status in
+        DriveKitVehicle.shared.removeBeacon(vehicleId: vehicle.vehicleId) { status in
             if status == .success {
                 self.delegate?.didUpdateVehicle()
             }
-        })
+        }
     }
     
     func computeDetectionMode() -> DKDetectionMode {

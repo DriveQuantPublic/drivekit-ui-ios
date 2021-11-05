@@ -11,11 +11,10 @@ import DriveKitCommonUI
 import DriveKitDriverAchievementModule
 
 public class StreakViewController: DKUIViewController {
-    
     @IBOutlet weak var tableView: UITableView!
+    private let refreshControl = UIRefreshControl()
     
-    private let viewModel : StreakViewModel
-    
+    private let viewModel: StreakViewModel
     
     public init() {
         self.viewModel = StreakViewModel()
@@ -30,26 +29,37 @@ public class StreakViewController: DKUIViewController {
         super.viewDidLoad()
         self.title = "dk_achievements_menu_streaks".dkAchievementLocalized()
         self.viewModel.delegate = self
-        self.viewModel.getStreakData()
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        self.tableView.addSubview(self.refreshControl)
+        self.refreshControl.addTarget(self, action: #selector(update), for: .valueChanged)
+        self.refreshControl.beginRefreshing()
+        self.tableView.setContentOffset(CGPoint(x: 0, y: -self.refreshControl.bounds.size.height), animated: true)
         let nib = UINib(nibName: "StreakTableViewCell", bundle: Bundle.driverAchievementUIBundle)
-        tableView.register(nib, forCellReuseIdentifier: "StreakTableViewCell")
-        self.showLoader()
+        self.tableView.register(nib, forCellReuseIdentifier: "StreakTableViewCell")
+        update()
+    }
+
+    @objc private func update() {
+        self.viewModel.getStreakData()
     }
 }
 
-extension StreakViewController : StreakVMDelegate {
+extension StreakViewController: StreakVMDelegate {
     func failedToUpdateStreak(status: StreakSyncStatus) {
         DispatchQueue.main.async {
-            self.hideLoader()
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
             self.showAlertMessage(title: nil, message: "dk_achievements_failed_to_sync_streaks".dkAchievementLocalized(), back: false, cancel: false)
         }
     }
     
     func streaksUpdated(status: StreakSyncStatus) {
         DispatchQueue.main.async{
-            self.hideLoader()
+            if self.refreshControl.isRefreshing {
+                self.refreshControl.endRefreshing()
+            }
             self.tableView.reloadData()
             if status == .failedToSyncStreakCacheOnly {
                 self.showAlertMessage(title: nil, message: "dk_achievements_failed_to_sync_streaks".dkAchievementLocalized(), back: false, cancel: false)
@@ -58,7 +68,7 @@ extension StreakViewController : StreakVMDelegate {
     }
 }
 
-extension StreakViewController : UITableViewDataSource {
+extension StreakViewController: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.viewModel.streakData.count
     }
@@ -73,9 +83,8 @@ extension StreakViewController : UITableViewDataSource {
     }
 }
 
-extension StreakViewController : UITableViewDelegate {
+extension StreakViewController: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
 }
-

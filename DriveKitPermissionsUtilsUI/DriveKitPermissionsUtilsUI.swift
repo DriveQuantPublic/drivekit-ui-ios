@@ -14,9 +14,11 @@ import DriveKitCommonUI
 
     @objc public static let shared = DriveKitPermissionsUtilsUI()
     public private(set) var isBluetoothNeeded = false
-    public private(set) var showDiagnosisLogs = false
     public private(set) var contactType = DKContactType.none
     private var stateByType = [StatusType:Bool]()
+
+    @available(*, deprecated, message: "Logs are now enabled by default. To disable logging, just call DriveKit.shared.disableLogging()")
+    public private(set) var showDiagnosisLogs = true
 
     private override init() {
         super.init()
@@ -118,9 +120,8 @@ import DriveKitCommonUI
         }
     }
 
-    @objc public func configureDiagnosisLogs(show: Bool) {
-        self.showDiagnosisLogs = show
-    }
+    @available(*, deprecated, message: "Logs are now enabled by default. To disable logging, just call DriveKit.shared.disableLogging()")
+    @objc public func configureDiagnosisLogs(show: Bool) { }
 
     public func configureContactType(_ contactType: DKContactType) {
         self.contactType = contactType

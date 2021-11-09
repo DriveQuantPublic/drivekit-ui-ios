@@ -54,7 +54,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitVehicleUI.shared.addCustomVehicleField(groupField: .characteristics, fieldsToAdd: [DeclaredPtacField()])
         DriveKitPermissionsUtilsUI.shared.initialize()
         DriveKitPermissionsUtilsUI.shared.configureBluetooth(needed: true)
-        DriveKitPermissionsUtilsUI.shared.configureDiagnosisLogs(show: true)
         DriveKitPermissionsUtilsUI.shared.configureContactType(DKContactType.email(self))
         DriveKitChallengeUI.shared.initialize()
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options : \(options)")

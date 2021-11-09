@@ -101,7 +101,7 @@ class BeaconScannerProgressVC: UIViewController {
             if #available(iOS 13.0, *) {
                 locationManager.stopRangingBeacons(satisfying: beacon.toCLBeaconIdentityConstraint(noMajorMinor: self.viewModel.scanType != .pairing))
             } else {
-                locationManager.stopRangingBeacons(in: beacon.toCLBeaconRegion(noMajorMinor: self.viewModel.scanType != .diagnostic))
+                locationManager.stopRangingBeacons(in: beacon.toCLBeaconRegion(noMajorMinor: self.viewModel.scanType != .pairing))
             }
         }
     }

@@ -192,6 +192,8 @@ class OdometerHistoryDetailViewModel {
                                         message = "dk_vehicle_not_found".dkVehicleLocalized()
                                     case .success:
                                         message = nil
+                                    @unknown default:
+                                        message = nil
                                 }
                                 if let message = message {
                                     viewController.showAlertMessage(title: Bundle.main.appName ?? "", message: message, back: false, cancel: false)
@@ -234,6 +236,8 @@ class OdometerHistoryDetailViewModel {
                                 case .vehicleNotFound:
                                     message = "dk_vehicle_not_found".dkVehicleLocalized()
                                 case .success:
+                                    message = nil
+                                @unknown default:
                                     message = nil
                             }
                             if let message = message {

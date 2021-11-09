@@ -6,7 +6,7 @@
 //  Copyright © 2021 DriveQuant. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import DriveKitDBVehicleAccessModule
 
 struct OdometerVehicleCellViewModel {

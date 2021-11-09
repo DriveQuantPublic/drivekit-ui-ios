@@ -34,6 +34,18 @@
 	<string>drivekit-vehicles-beacon-info</string>
 	<key>dk_tag_vehicles_bluetooth_add</key>
 	<string>drivekit-vehicles-bluetooth-add</string>
+	<key>dk_tag_vehicles_odometer_vehicles_list</key>
+	<string>drivekit-vehicles-odometer-vehicles-list</string>
+	<key>dk_tag_vehicles_odometer_vehicles_detail</key>
+	<string>drivekit-vehicles-odometer-vehicles-detail</string>
+	<key>dk_tag_vehicles_odometer_histories_list</key>
+	<string>drivekit-vehicles-odometer-histories-list</string>
+	<key>dk_tag_vehicles_odometer_histories_detail</key>
+	<string>drivekit-vehicles-odometer-histories-detail</string>
+	<key>dk_tag_vehicles_odometer_histories_add</key>
+	<string>drivekit-vehicles-odometer-histories-add</string>
+	<key>dk_tag_vehicles_odometer_histories_edit</key>
+	<string>drivekit-vehicles-odometer-histories-edit</string>
 	<key>dk_tag_permissions_diagnosis</key>
 	<string>drivekit-permissions-diagnosis</string>
 	<key>dk_tag_permissions_onboarding</key>

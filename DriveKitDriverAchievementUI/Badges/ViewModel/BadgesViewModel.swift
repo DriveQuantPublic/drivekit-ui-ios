@@ -13,32 +13,35 @@ import UIKit
 import DriveKitCommonUI
 
 class BadgeViewModel {
-    
-    weak var delegate : BadgeDelegate? = nil
-    
-    private var badges : [DKBadge] = []
+    weak var delegate: BadgeDelegate? = nil
+    private var badges: [DKBadge] = []
     
     init() {
+        let badges = DriveKitDBAchievementAccess.shared.badgesQuery().noFilter().query().execute()
+        self.badges = self.computeBadges(badges)
     }
     
     func updateBadges() {
-        DriveKitDriverAchievement.shared.getBadges(completionHandler: {status, badges, newBadges in
+        DriveKitDriverAchievement.shared.getBadges() { [weak self] status, badges, newBadges in
             DispatchQueue.main.async {
-                self.computeBadges(badges: badges)
-                self.delegate?.badgesUpdated()
+                if let self = self {
+                    self.badges = self.computeBadges(badges)
+                    self.delegate?.badgesUpdated()
+                }
             }
-        })
-    }
-    
-    private func computeBadges(badges : [DKBadge]) {
-        for configuredBadge in DriveKitDriverAchievementUI.shared.badgeCategories {
-            let badge = (badges.filter { configuredBadge == $0.category })
-            self.badges.append(contentsOf: badge)
         }
     }
-
     
-    var badgesCount : Int {
+    private func computeBadges(_ badges: [DKBadge]) -> [DKBadge] {
+        var result: [DKBadge] = []
+        for configuredBadge in DriveKitDriverAchievementUI.shared.badgeCategories {
+            let badge = badges.filter { configuredBadge == $0.category }
+            result.append(contentsOf: badge)
+        }
+        return result
+    }
+    
+    var badgesCount: Int {
         return badges.count
     }
     
@@ -51,6 +54,6 @@ class BadgeViewModel {
     }
 }
 
-protocol BadgeDelegate : AnyObject {
+protocol BadgeDelegate: AnyObject {
     func badgesUpdated()
 }

@@ -91,7 +91,7 @@ extension VehiclePickerTableViewVC: UITableViewDataSource {
 
 extension VehiclePickerTableViewVC : VehicleDataDelegate {
     func onDataRetrieved(status: StepStatus) {
-        self.executeOnMainThread {
+        DispatchQueue.dispatchOnMainThread {
             self.hideLoader()
             switch status {
                 case .noError:

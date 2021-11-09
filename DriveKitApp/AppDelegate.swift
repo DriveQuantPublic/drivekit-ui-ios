@@ -111,7 +111,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "DriveKit configured with API key")
         if SettingsBundleKeys.getDefaultValuePref() {
             // DriveKit default value
-            DriveKit.shared.disableLogging()
             SettingsBundleKeys.setSandboxPref(sandbox: false)
             SettingsBundleKeys.setPositionPref(share: false)
             SettingsBundleKeys.setAutoStartPref(autoStart: true)

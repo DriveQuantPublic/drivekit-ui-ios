@@ -19,7 +19,7 @@ class BeaconScannerProgressVC: UIViewController {
     private let viewModel: BeaconViewModel
     
     private var timer: Timer? = nil
-    private var batteryTimer : Timer? = nil
+    private var batteryTimer: Timer? = nil
     private let locationManager = CLLocationManager()
     private let kontaktBeaconHelper = KontaktBeaconHelper()
     private var isBeaconFound = false
@@ -43,7 +43,6 @@ class BeaconScannerProgressVC: UIViewController {
         super.viewWillAppear(animated)
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(refreshProgress), userInfo: nil, repeats: true)
         startBeaconScan()
-        self.kontaktBeaconHelper.startBatteryLevelRetrieval(completion: self.onBatteryLevel)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -52,7 +51,11 @@ class BeaconScannerProgressVC: UIViewController {
         stopBeaconScan()
         stopMonitoringBatteryLevel()
     }
-    
+
+    private func startMonitoringBatteryLevel() {
+        self.kontaktBeaconHelper.startBatteryLevelRetrieval(completion: self.onBatteryLevel)
+    }
+
     private func stopMonitoringBatteryLevel() {
         self.kontaktBeaconHelper.stopBatteryLevelRetrieval()
     }
@@ -64,7 +67,7 @@ class BeaconScannerProgressVC: UIViewController {
             if isBeaconFound {
                 batteryTimer?.invalidate()
                 goToNextStep()
-            }else{
+            } else {
                 self.stopBeaconScan()
                 self.stopMonitoringBatteryLevel()
                 viewModel.updateScanState(step: .beaconNotFound)
@@ -98,7 +101,7 @@ class BeaconScannerProgressVC: UIViewController {
             if #available(iOS 13.0, *) {
                 locationManager.stopRangingBeacons(satisfying: beacon.toCLBeaconIdentityConstraint(noMajorMinor: self.viewModel.scanType != .pairing))
             } else {
-                locationManager.stopRangingBeacons(in: beacon.toCLBeaconRegion(noMajorMinor: self.viewModel.scanType != .diagnostic))
+                locationManager.stopRangingBeacons(in: beacon.toCLBeaconRegion(noMajorMinor: self.viewModel.scanType != .pairing))
             }
         }
     }
@@ -107,8 +110,9 @@ class BeaconScannerProgressVC: UIViewController {
         self.stopBeaconScan()
         if self.viewModel.scanType == .pairing {
             goToNextStep()
-        }else{
+        } else {
             self.viewModel.clBeacon = clBeacon
+            startMonitoringBatteryLevel()
             batteryTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(goToNextStep), userInfo: nil, repeats: false)
         }
     }
@@ -149,7 +153,7 @@ class BeaconScannerProgressVC: UIViewController {
             case .verify:
                 if self.viewModel.isBeaconValid() {
                     self.viewModel.updateScanState(step: .verified)
-                }else{
+                } else {
                     self.viewModel.updateScanState(step: .wrongBeacon)
                 }
             case .diagnostic:

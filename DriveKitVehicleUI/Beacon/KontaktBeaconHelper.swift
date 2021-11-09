@@ -33,9 +33,9 @@ import DriveKitDBVehicleAccessModule
             if let locationManager = self.locationManager {
                 for beacon in beacons {
                     if #available(iOS 13.0, *) {
-                        locationManager.startRangingBeacons(satisfying: beacon.toCLBeaconIdentityConstraint(noMajorMinor: true))
+                        locationManager.startRangingBeacons(satisfying: beacon.toCLBeaconIdentityConstraint(noMajorMinor: false))
                     } else {
-                        locationManager.startRangingBeacons(in: beacon.toCLBeaconRegion(noMajorMinor: true))
+                        locationManager.startRangingBeacons(in: beacon.toCLBeaconRegion(noMajorMinor: false))
                     }
                 }
             }
@@ -63,9 +63,9 @@ import DriveKitDBVehicleAccessModule
         if let beacons = self.beacons, let locationManager = self.locationManager {
             for beacon in beacons {
                 if #available(iOS 13.0, *) {
-                    locationManager.stopRangingBeacons(satisfying: beacon.toCLBeaconIdentityConstraint(noMajorMinor: true))
+                    locationManager.stopRangingBeacons(satisfying: beacon.toCLBeaconIdentityConstraint(noMajorMinor: false))
                 } else {
-                    locationManager.stopRangingBeacons(in: beacon.toCLBeaconRegion(noMajorMinor: true))
+                    locationManager.stopRangingBeacons(in: beacon.toCLBeaconRegion(noMajorMinor: false))
                 }
             }
         }
@@ -103,7 +103,7 @@ import DriveKitDBVehicleAccessModule
         if let centralManager = self.centralManager {
             if !self.scanningBattery && centralManager.state == .poweredOn {
                 self.scanningBattery = true
-                centralManager.scanForPeripherals(withServices: nil, options: nil)
+                centralManager.scanForPeripherals(withServices: [CBUUID(string:"D00D"), CBUUID(string:"FE6A")], options: nil)
             }
         }
     }

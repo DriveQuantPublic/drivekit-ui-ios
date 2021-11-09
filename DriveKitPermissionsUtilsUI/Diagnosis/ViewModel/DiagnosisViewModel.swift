@@ -16,7 +16,6 @@ protocol DiagnosisView : UIViewController {
     func updateSensorsUI()
     func updateBatteryOptimizationUI()
     func updateContactUI()
-    func updateLoggingUI()
 }
 
 class DiagnosisViewModel : NSObject {
@@ -50,7 +49,7 @@ class DiagnosisViewModel : NSObject {
     }
     let batteryOptimizationViewModel = BatteryOptimizationViewModel()
     private(set) var contactViewModel: ContactViewModel? = nil
-    private(set) var loggingViewModel: LoggingViewModel? = nil
+    private(set) var loggingViewModel: LoggingViewModel = LoggingViewModel()
     private lazy var requestPermissionHelper: RequestPermissionHelper = RequestPermissionHelper()
     private var stateByType = [StatusType:Bool]()
     private var viewModelByType = [StatusType:SensorStateViewModel]()
@@ -118,13 +117,6 @@ class DiagnosisViewModel : NSObject {
         }
     }
 
-    func setLoggingEnabled(_ enabled: Bool) {
-        if let loggingViewModel = self.loggingViewModel {
-            loggingViewModel.setLoggingEnabled(enabled)
-            self.view?.updateLoggingUI()
-        }
-    }
-
     @objc private func appDidBecomeActive() {
         self.isAppActive = true
         self.updateState()
@@ -168,28 +160,16 @@ class DiagnosisViewModel : NSObject {
 
         // Contact & Logging.
         let contactType = DriveKitPermissionsUtilsUI.shared.contactType
-        let contactByMail: Bool
         switch contactType {
             case .none:
                 self.contactViewModel = nil
-                contactByMail = false
             case .email(_):
                 self.contactViewModel = ContactViewModel(contactType: contactType, diagnosisViewModel: self)
-                contactByMail = true
             case .web(_):
                 self.contactViewModel = ContactViewModel(contactType: contactType, diagnosisViewModel: self)
-                contactByMail = false
         }
 
-        if DriveKitPermissionsUtilsUI.shared.showDiagnosisLogs {
-            let loggingViewModel = LoggingViewModel()
-            loggingViewModel.setContactByMailEnabled(contactByMail)
-            self.loggingViewModel = loggingViewModel
-        } else {
-            self.loggingViewModel = nil
-        }
         self.view?.updateContactUI()
-        self.view?.updateLoggingUI()
     }
 
     private func updateState(_ statusType: StatusType) -> Bool {
@@ -253,7 +233,7 @@ class DiagnosisViewModel : NSObject {
         if let view = self.view {
             if MFMailComposeViewController.canSendMail()  {
                 let mailComposerVC = MFMailComposeViewController()
-                if let logFileUrl = self.loggingViewModel?.getLogFileUrl() {
+                if let logFileUrl = self.loggingViewModel.getLogFileUrl() {
                     do {
                         let attachementData = try Data(contentsOf: logFileUrl)
                         let fileName = logFileUrl.lastPathComponent

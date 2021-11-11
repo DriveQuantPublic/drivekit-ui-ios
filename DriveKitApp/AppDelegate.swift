@@ -52,6 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitVehicleUI.shared.configureCategoryConfigType(type: .bothConfig)
         DriveKitVehicleUI.shared.addCustomVehicleField(groupField: .engine, fieldsToAdd: [DeclaredConsumptionField()])
         DriveKitVehicleUI.shared.addCustomVehicleField(groupField: .characteristics, fieldsToAdd: [DeclaredPtacField()])
+        DriveKitVehicleUI.shared.enableOdometer(true)
         DriveKitPermissionsUtilsUI.shared.initialize()
         DriveKitPermissionsUtilsUI.shared.configureBluetooth(needed: true)
         DriveKitPermissionsUtilsUI.shared.configureDiagnosisLogs(show: true)

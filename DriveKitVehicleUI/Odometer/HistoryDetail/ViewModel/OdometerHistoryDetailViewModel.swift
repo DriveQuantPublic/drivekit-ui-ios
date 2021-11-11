@@ -133,7 +133,7 @@ class OdometerHistoryDetailViewModel {
         if let vehicle = self.vehicle, let distance = self.updatedValue {
             if distance >= self.odometer?.distance ?? 0 {
                 viewController.showLoader()
-                DriveKitVehicle.shared.addOdometerHistory(vehicleId: vehicle.vehicleId, distance: distance) { [weak viewController] status, Odometer, histories in
+                DriveKitVehicle.shared.addOdometerHistory(vehicleId: vehicle.vehicleId, distance: distance) { [weak viewController] status, odometer, histories in
                     DispatchQueue.dispatchOnMainThread {
                         if let viewController = viewController {
                             viewController.hideLoader()

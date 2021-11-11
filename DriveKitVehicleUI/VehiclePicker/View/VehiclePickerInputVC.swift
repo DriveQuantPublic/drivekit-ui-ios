@@ -9,8 +9,7 @@
 import UIKit
 import DriveKitCommonUI
 
-class VehiclePickerInputVC : VehiclePickerStepView {
-    
+class VehiclePickerInputVC: VehiclePickerStepView {
     @IBOutlet weak var inputImageView: UIImageView!
     @IBOutlet weak var inputTextLabel: UILabel!
     @IBOutlet weak var inputTextField: UIView!
@@ -63,12 +62,19 @@ class VehiclePickerInputVC : VehiclePickerStepView {
     @IBAction func didConfirmInput(_ sender: Any) {
         self.showLoader()
         self.viewModel.vehicleName = textFieldView.getTextFieldValue()
-        self.viewModel.addVehicle(completion: {status, vehicleId in
+        self.viewModel.addVehicle { status, vehicleId in
             DispatchQueue.main.async {
                 self.hideLoader()
                 switch status {
                 case .success:
-                    (self.navigationController as? DKVehiclePickerNavigationController)?.checkExtraStep(vehicleId: vehicleId!)
+                    if DriveKitVehicleUI.shared.hasOdometer, let vehicleId = vehicleId {
+                        let odometerViewModel = VehicleOdometerViewModel(vehicleId: vehicleId)
+                        let odometerVC = VehicleOdometerVC(viewModel: odometerViewModel)
+                        odometerVC.modalPresentationStyle = .overFullScreen
+                        self.show(odometerVC, sender: nil)
+                    } else {
+                        (self.navigationController as? DKVehiclePickerNavigationController)?.checkExtraStep(vehicleId: vehicleId!)
+                    }
                 case .unknownVehicle:
                     // We can't have this error, vehicle picker always return a known vehicle
                     break
@@ -78,12 +84,11 @@ class VehiclePickerInputVC : VehiclePickerStepView {
                     break
                 }
             }
-        })
+        }
     }
-
 }
 
-extension VehiclePickerInputVC : DKTextFieldDelegate {
+extension VehiclePickerInputVC: DKTextFieldDelegate {
     func userDidEndEditing(textField: DKTextField) {
         self.viewModel.vehicleName = textField.getTextFieldValue()
     }

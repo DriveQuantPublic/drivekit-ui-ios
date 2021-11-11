@@ -50,10 +50,23 @@ public class DKVehiclesListViewModel {
     func vehicleActions(pos: Int) -> [DKVehicleActionItem] {
         var actions = DriveKitVehicleUI.shared.vehicleActions
         if vehiclesCount <= 1 {
-            actions.removeAll(where: {$0 is DKVehicleAction && ($0 as! DKVehicleAction) == DKVehicleAction.delete})
+            removeAction(.delete, in: &actions)
         }
-        actions.removeAll(where: {!$0.isDisplayable(vehicle: vehicles[pos])})
+        if !DriveKitVehicleUI.shared.hasOdometer {
+            removeAction(.odometer, in: &actions)
+        }
+        actions.removeAll { !$0.isDisplayable(vehicle: vehicles[pos]) }
         return actions
+    }
+
+    private func removeAction(_ actionToRemove: DKVehicleAction, in actions: inout [DKVehicleActionItem]) {
+        actions.removeAll { actionItem in
+            if let action = actionItem as? DKVehicleAction {
+                return action == actionToRemove
+            } else {
+                return false
+            }
+        }
     }
     
     var detectionModes: [DKDetectionMode] {

@@ -11,11 +11,10 @@ import DriveKitCoreModule
 import DriveKitCommonUI
 import DriveKitDBAchievementAccessModule
 
-@objc public class DriveKitDriverAchievementUI : NSObject {
-
+@objc public class DriveKitDriverAchievementUI: NSObject {
     @objc public static let shared = DriveKitDriverAchievementUI()
 
-    public private(set) var streakThemes: [DKStreakTheme] = [.phoneDistraction, .safety, .acceleration, .brake, .adherence]
+    public private(set) var streakThemes: [DKStreakTheme] = [.phoneDistraction, .safety, .acceleration, .brake, .adherence, .call]
     public private(set) var badgeCategories: [DKBadgeCategory] = [.generic, .ecodriving, .safety, .phoneDistraction]
     public private(set) var rankingTypes: [DKRankingType] = [.safety, .ecoDriving, .distraction]
     public private(set) var rankingSelector: DKRankingSelectorType = .period(rankingPeriods: [.weekly, .monthly, .allTime])
@@ -48,7 +47,6 @@ import DriveKitDBAchievementAccessModule
     @objc public func configureRankingDepth(_ rankingDepth: Int) {
         self.rankingDepth = rankingDepth
     }
-
 }
 
 extension Bundle {
@@ -61,7 +59,7 @@ extension String {
     }
 }
 
-extension DriveKitDriverAchievementUI : DriveKitDriverAchievementUIEntryPoint {
+extension DriveKitDriverAchievementUI: DriveKitDriverAchievementUIEntryPoint {
     public func getStreakViewController() -> UIViewController {
         return StreakViewController()
     }
@@ -78,7 +76,6 @@ extension DriveKitDriverAchievementUI : DriveKitDriverAchievementUIEntryPoint {
 // MARK: - Objective-C extension
 
 extension DriveKitDriverAchievementUI {
-
     @objc(configureStreakThemes:) // Usage example: [DriveKitDriverAchievementUI.shared configureStreakThemes:@[ @(DKStreakThemePhoneDistraction), @(DKStreakThemeSafety), @(DKStreakThemeAcceleration), @(DKStreakThemeBrake), @(DKStreakThemeAdherence) ]];
     public func objc_configureStreakThemes(_ streakThemes: [Int]) {
         configureStreakThemes(streakThemes: streakThemes.map { DKStreakTheme(rawValue: $0)! })
@@ -103,5 +100,4 @@ extension DriveKitDriverAchievementUI {
     public func objc_configureRankingSelectorPeriods(_ periods: [Int]) {
         configureRankingSelector(.period(rankingPeriods: periods.map { DKRankingPeriod(rawValue: $0)! }))
     }
-
 }

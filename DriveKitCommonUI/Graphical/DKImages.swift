@@ -8,7 +8,7 @@
 
 import UIKit
 
-public enum DKImages : String {
+public enum DKImages: String {
     case ecoAccel = "dk_common_eco_accel",
     info = "dk_common_info",
     infoFilled = "dk_common_info_filled",
@@ -25,6 +25,7 @@ public enum DKImages : String {
     distractionFilled = "dk_common_distraction_filled",
     speeding = "dk_common_speeding",
     speedingFilled = "dk_common_speeding_filled",
+    call = "dk_common_call",
     warning = "dk_common_warning",
     dots = "dk_common_dots",
     arrowDown = "dk_common_arrow_down",
@@ -34,8 +35,8 @@ public enum DKImages : String {
     trip = "dk_common_trip",
     road = "dk_common_road",
     clock = "dk_common_clock"
-    
-    public var image : UIImage? {
+
+    public var image: UIImage? {
         if let image = UIImage(named: self.rawValue, in: .main, compatibleWith: nil) {
             return image.withRenderingMode(.alwaysTemplate)
         } else {

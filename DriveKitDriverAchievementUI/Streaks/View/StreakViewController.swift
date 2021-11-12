@@ -74,7 +74,7 @@ extension StreakViewController: UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell : StreakTableViewCell = tableView.dequeueReusableCell(withIdentifier: "StreakTableViewCell", for: indexPath) as? StreakTableViewCell {
+        if let cell: StreakTableViewCell = tableView.dequeueReusableCell(withIdentifier: "StreakTableViewCell", for: indexPath) as? StreakTableViewCell {
             cell.configure(streakData: self.viewModel.streakData[indexPath.row], viewController: self)
             return cell
         } else {

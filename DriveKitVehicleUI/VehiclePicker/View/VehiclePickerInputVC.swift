@@ -68,8 +68,8 @@ class VehiclePickerInputVC: VehiclePickerStepView {
                 switch status {
                 case .success:
                     if DriveKitVehicleUI.shared.hasOdometer, let vehicleId = vehicleId {
-                        let odometerViewModel = VehicleOdometerViewModel(vehicleId: vehicleId)
-                        let odometerVC = VehicleOdometerVC(viewModel: odometerViewModel)
+                        let viewModel = OdometerHistoryDetailViewModel(vehicleId: vehicleId, historyId: nil, previousHistoryId: nil, isEditable: true)
+                        let odometerVC = OdometerInitVC(viewModel: viewModel)
                         odometerVC.modalPresentationStyle = .overFullScreen
                         self.show(odometerVC, sender: nil)
                     } else {

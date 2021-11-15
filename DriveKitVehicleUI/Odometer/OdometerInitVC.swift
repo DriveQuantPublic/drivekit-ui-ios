@@ -1,5 +1,5 @@
 //
-//  VehicleOdometerVC.swift
+//  OdometerInitVC.swift
 //  DriveKitVehicleUI
 //
 //  Created by Meryl Barantal on 30/07/2019.
@@ -9,18 +9,18 @@
 import UIKit
 import DriveKitCommonUI
 
-class VehicleOdometerVC: DKUIViewController {
+class OdometerInitVC: DKUIViewController {
     @IBOutlet private weak var odometerImage: UIImageView!
     @IBOutlet private weak var odometerDesc: UILabel!
     @IBOutlet private weak var validateButton: UIButton!
     @IBOutlet private weak var odometerField: UITextField!
     @IBOutlet private weak var errorLabel: UILabel!
 
-    private let viewModel: VehicleOdometerViewModel
+    private let viewModel: OdometerHistoryDetailViewModel
 
-    init(viewModel: VehicleOdometerViewModel) {
+    init(viewModel: OdometerHistoryDetailViewModel) {
         self.viewModel = viewModel
-        super.init(nibName: String(describing: VehicleOdometerVC.self), bundle: .vehicleUIBundle)
+        super.init(nibName: String(describing: OdometerInitVC.self), bundle: .vehicleUIBundle)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -68,35 +68,34 @@ class VehicleOdometerVC: DKUIViewController {
     }
 
     @IBAction private func didEndEditing(_ sender: Any) {
+        _ = checkValue()
+    }
+
+    @IBAction private func validateOdometer(_ sender: Any) {
+        if let text = self.odometerField.text, let value = Double(text) {
+            if checkValue() {
+                self.viewModel.updatedValue = value
+                self.viewModel.validateHistory(viewController: self, showConfirmationAlert: false) { [weak self] in
+                    self?.close()
+                }
+            }
+        } else {
+            self.warningField(error: DKCommonLocalizable.errorEmpty.text())
+        }
+    }
+
+    private func checkValue() -> Bool {
         if let text = self.odometerField.text, let odometer = Double(text) {
-            if odometer >= 0 && odometer <= 1000000 {
+            if odometer >= 0 && odometer < 1000000 {
                 self.configureFieldOdometer()
+                return true
             } else {
                 self.warningField(error: "dk_vehicle_odometer_history_error".dkVehicleLocalized())
             }
         } else {
             self.warningField(error: "dk_vehicle_odometer_error_numeric".dkVehicleLocalized())
         }
-    }
-
-    @IBAction private func validateOdometer(_ sender: Any) {
-        if let text = self.odometerField.text, let odometer = Double(text) {
-            self.showLoader()
-            self.viewModel.addOdometer(distance: odometer, completion: { [weak self] success, errorMessage in
-                DispatchQueue.main.async {
-                    if let self = self {
-                        if success {
-                            self.close()
-                        } else {
-                            self.hideLoader()
-                            self.showAlertMessage(title: Bundle.main.appName ?? "", message: errorMessage, back: false, cancel: false, completion: nil)
-                        }
-                    }
-                }
-            })
-        } else {
-            self.warningField(error: DKCommonLocalizable.errorEmpty.text())
-        }
+        return false
     }
 
     private func warningField(error: String) {
@@ -113,4 +112,3 @@ class VehicleOdometerVC: DKUIViewController {
         }
     }
 }
-

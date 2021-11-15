@@ -72,7 +72,9 @@ class OdometerHistoryDetailVC: DKUIViewController {
     }
 
     @IBAction private func validateReference(_ sender: Any) {
-        self.viewModel.validateHistory(viewController: self)
+        self.viewModel.validateHistory(viewController: self) { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
+        }
     }
 
     @IBAction private func cancelAction(_ sender: Any) {

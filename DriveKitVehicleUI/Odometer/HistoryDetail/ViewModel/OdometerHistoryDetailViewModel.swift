@@ -70,6 +70,7 @@ enum HistoryCellType {
 }
 
 class OdometerHistoryDetailViewModel {
+    let vehicleId: String
     let isEditable: Bool
     var updatedValue: Double? = nil
     private let vehicle: DKVehicle?
@@ -80,6 +81,7 @@ class OdometerHistoryDetailViewModel {
     private let cellTypes: [HistoryCellType]
 
     init(vehicleId: String, historyId: Int?, previousHistoryId: Int?, isEditable: Bool) {
+        self.vehicleId = vehicleId
         self.vehicle = DriveKitVehicle.getVehicle(withId: vehicleId)
         self.odometer = self.vehicle?.odometer
         if let histories = self.vehicle?.odometerHistories {
@@ -119,39 +121,47 @@ class OdometerHistoryDetailViewModel {
         return self.history != nil && self.historiesNumber > 1
     }
 
-    func validateHistory(viewController: UIViewController) {
+    func validateHistory(viewController: UIViewController, showConfirmationAlert: Bool = true, completion: @escaping () -> ()) {
         if self.history != nil {
             DriveKitUI.shared.trackScreen(tagKey: "dk_tag_vehicles_odometer_histories_edit", viewController: viewController)
-            updateHistory(viewController: viewController)
+            updateHistory(viewController: viewController, showConfirmationAlert: showConfirmationAlert, completion: completion)
         } else {
             DriveKitUI.shared.trackScreen(tagKey: "dk_tag_vehicles_odometer_histories_add", viewController: viewController)
-            addHistory(viewController: viewController)
+            addHistory(viewController: viewController, showConfirmationAlert: showConfirmationAlert, completion: completion)
         }
     }
 
-    private func addHistory(viewController: UIViewController) {
+    private func addHistory(viewController: UIViewController, showConfirmationAlert: Bool, completion: @escaping () -> ()) {
         if let vehicle = self.vehicle, let distance = self.updatedValue {
             if distance >= self.odometer?.distance ?? 0 {
-                viewController.showLoader()
-                DriveKitVehicle.shared.addOdometerHistory(vehicleId: vehicle.vehicleId, distance: distance) { [weak viewController] status, odometer, histories in
-                    DispatchQueue.dispatchOnMainThread {
-                        if let viewController = viewController {
-                            viewController.hideLoader()
-                            if status == .success {
-                                let alert = UIAlertController(title: Bundle.main.appName ?? "",
-                                                              message: "dk_vehicle_odometer_history_add_success".dkVehicleLocalized(),
-                                                              preferredStyle: .alert)
-                                let okAction = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: { action in
-                                    viewController.navigationController?.popViewController(animated: true)
-                                })
-                                alert.addAction(okAction)
-                                viewController.present(alert, animated: true)
-                            } else if status == .error {
-                                viewController.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_odometer_failed_to_sync".dkVehicleLocalized(), back: false, cancel: false)
-                            } else if status == .vehicleNotFound {
-                                viewController.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_not_found".dkVehicleLocalized(), back: false, cancel: false)
-                            } else if status == .badDistance {
-                                viewController.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_odometer_bad_distance".dkVehicleLocalized(), back: false, cancel: false)
+                if distance >= 1000000 {
+                    viewController.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_odometer_history_error".dkVehicleLocalized(), back: false, cancel: false)
+                } else {
+                    viewController.showLoader()
+                    DriveKitVehicle.shared.addOdometerHistory(vehicleId: vehicle.vehicleId, distance: distance) { [weak viewController] status, odometer, histories in
+                        DispatchQueue.dispatchOnMainThread {
+                            if let viewController = viewController {
+                                viewController.hideLoader()
+                                if status == .success {
+                                    if showConfirmationAlert {
+                                        let alert = UIAlertController(title: Bundle.main.appName ?? "",
+                                                                      message: "dk_vehicle_odometer_history_add_success".dkVehicleLocalized(),
+                                                                      preferredStyle: .alert)
+                                        let okAction = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: { action in
+                                            completion()
+                                        })
+                                        alert.addAction(okAction)
+                                        viewController.present(alert, animated: true)
+                                    } else {
+                                        completion()
+                                    }
+                                } else if status == .error {
+                                    viewController.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_odometer_failed_to_sync".dkVehicleLocalized(), back: false, cancel: false)
+                                } else if status == .vehicleNotFound {
+                                    viewController.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_not_found".dkVehicleLocalized(), back: false, cancel: false)
+                                } else if status == .badDistance {
+                                    viewController.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_odometer_bad_distance".dkVehicleLocalized(), back: false, cancel: false)
+                                }
                             }
                         }
                     }
@@ -162,41 +172,49 @@ class OdometerHistoryDetailViewModel {
         }
     }
 
-    private func updateHistory(viewController: UIViewController) {
+    private func updateHistory(viewController: UIViewController, showConfirmationAlert: Bool, completion: @escaping () -> ()) {
         if let vehicle = self.vehicle, let distance = self.updatedValue, let history = self.history {
             if distance >= self.previousHistory?.distance ?? 0 {
-                viewController.showLoader()
-                DriveKitVehicle.shared.updateOdometerHistory(vehicleId: vehicle.vehicleId, historyId: String(history.historyId), distance: distance) { [weak viewController] status, Odometer, histories in
-                    DispatchQueue.dispatchOnMainThread {
-                        if let viewController = viewController {
-                            viewController.hideLoader()
-                            if status == .success {
-                                let alert = UIAlertController(title: Bundle.main.appName ?? "",
-                                                              message: "dk_vehicle_odometer_history_update_success".dkVehicleLocalized(),
-                                                              preferredStyle: .alert)
-                                let okAction = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: { action in
-                                    viewController.navigationController?.popViewController(animated: true)
-                                })
-                                alert.addAction(okAction)
-                                viewController.present(alert, animated: true)
-                            } else {
-                                let message: String?
-                                switch status {
-                                    case .error:
-                                        message = DKCommonLocalizable.error.text()
-                                    case .badDistance:
-                                        message = "dk_vehicle_odometer_bad_distance".dkVehicleLocalized()
-                                    case .historyNotFound:
-                                        message = "dk_vehicle_odometer_history_not_found".dkVehicleLocalized()
-                                    case .vehicleNotFound:
-                                        message = "dk_vehicle_not_found".dkVehicleLocalized()
-                                    case .success:
-                                        message = nil
-                                    @unknown default:
-                                        message = nil
-                                }
-                                if let message = message {
-                                    viewController.showAlertMessage(title: Bundle.main.appName ?? "", message: message, back: false, cancel: false)
+                if distance >= 1000000 {
+                    viewController.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_odometer_history_error".dkVehicleLocalized(), back: false, cancel: false)
+                } else {
+                    viewController.showLoader()
+                    DriveKitVehicle.shared.updateOdometerHistory(vehicleId: vehicle.vehicleId, historyId: String(history.historyId), distance: distance) { [weak viewController] status, Odometer, histories in
+                        DispatchQueue.dispatchOnMainThread {
+                            if let viewController = viewController {
+                                viewController.hideLoader()
+                                if status == .success {
+                                    if showConfirmationAlert {
+                                        let alert = UIAlertController(title: Bundle.main.appName ?? "",
+                                                                      message: "dk_vehicle_odometer_history_update_success".dkVehicleLocalized(),
+                                                                      preferredStyle: .alert)
+                                        let okAction = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: { action in
+                                            completion()
+                                        })
+                                        alert.addAction(okAction)
+                                        viewController.present(alert, animated: true)
+                                    } else {
+                                        completion()
+                                    }
+                                } else {
+                                    let message: String?
+                                    switch status {
+                                        case .error:
+                                            message = DKCommonLocalizable.error.text()
+                                        case .badDistance:
+                                            message = "dk_vehicle_odometer_bad_distance".dkVehicleLocalized()
+                                        case .historyNotFound:
+                                            message = "dk_vehicle_odometer_history_not_found".dkVehicleLocalized()
+                                        case .vehicleNotFound:
+                                            message = "dk_vehicle_not_found".dkVehicleLocalized()
+                                        case .success:
+                                            message = nil
+                                        @unknown default:
+                                            message = nil
+                                    }
+                                    if let message = message {
+                                        viewController.showAlertMessage(title: Bundle.main.appName ?? "", message: message, back: false, cancel: false)
+                                    }
                                 }
                             }
                         }

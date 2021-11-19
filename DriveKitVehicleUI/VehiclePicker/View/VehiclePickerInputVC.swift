@@ -73,7 +73,7 @@ class VehiclePickerInputVC: VehiclePickerStepView {
                         odometerVC.modalPresentationStyle = .overFullScreen
                         self.show(odometerVC, sender: nil)
                     } else {
-                        (self.navigationController as? DKVehiclePickerNavigationController)?.checkExtraStep(vehicleId: vehicleId!)
+                        (self.navigationController as? DKVehiclePickerNavigationController)?.endVehiclePicker()
                     }
                 case .unknownVehicle:
                     // We can't have this error, vehicle picker always return a known vehicle

@@ -106,7 +106,7 @@ class OdometerInitVC: DKUIViewController {
 
     private func close() {
         if let vehiclePickerNavigationController = self.navigationController as? DKVehiclePickerNavigationController {
-            vehiclePickerNavigationController.checkExtraStep(vehicleId: self.viewModel.vehicleId)
+            vehiclePickerNavigationController.endVehiclePicker()
         } else {
             dismiss(animated: true, completion: nil)
         }

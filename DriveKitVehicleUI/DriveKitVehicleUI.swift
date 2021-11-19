@@ -34,7 +34,6 @@ public class DriveKitVehicleUI {
 
     var beaconDiagnosticEmail: DKContentMail? = nil
     var beaconDiagnosticSupportLink: String? = nil
-    var vehiclePickerExtraStep: DKVehiclePickerExtraStep? = nil
 
     private init() {}
 
@@ -114,9 +113,8 @@ public class DriveKitVehicleUI {
         self.canRemoveBeacon = canRemoveBeacon
     }
 
-    public func configureVehiclePickerExtraStep(extraStep: DKVehiclePickerExtraStep) {
-        self.vehiclePickerExtraStep = extraStep
-    }
+    @available(*, deprecated, message: "This method is not used anymore.")
+    public func configureVehiclePickerExtraStep(extraStep: DKVehiclePickerExtraStep) { }
 }
 
 extension Bundle {
@@ -186,6 +184,7 @@ extension DriveKitVehicleUI: DriveKitVehicleUIEntryPoint {
     }
 }
 
+@available(*, deprecated, message: "This protocol is not used anymore.")
 public protocol DKVehiclePickerExtraStep {
     func viewController(vehicleId: String) -> UIViewController?
 }

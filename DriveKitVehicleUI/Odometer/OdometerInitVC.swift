@@ -10,6 +10,7 @@ import UIKit
 import DriveKitCommonUI
 
 class OdometerInitVC: DKUIViewController {
+    @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var odometerImage: UIImageView!
     @IBOutlet private weak var odometerDesc: UILabel!
     @IBOutlet private weak var validateButton: UIButton!
@@ -45,6 +46,9 @@ class OdometerInitVC: DKUIViewController {
         button.addTarget(self, action: #selector(cancelSelector), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
         validateButton.configure(text: DKCommonLocalizable.validate.text(), style: .full)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
     }
 
     private func configureHeaderOdometer() {
@@ -61,6 +65,15 @@ class OdometerInitVC: DKUIViewController {
         self.odometerField.leftViewMode = .always
         self.odometerField.placeholder = "dk_vehicle_odometer_enter_mileage".dkVehicleLocalized()
         self.odometerField.keyboardType = .numberPad
+
+        let odometerFieldToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: Int(UIScreen.main.bounds.size.width), height: 40))
+        let button = UIButton.init(type: .system)
+        button.setTitle(DKCommonLocalizable.ok.text(), for: .normal)
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let barButton = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(validateOdometer(_:)))
+        odometerFieldToolbar.items = [flexSpace, barButton]
+        odometerFieldToolbar.sizeToFit()
+        self.odometerField.inputAccessoryView = odometerFieldToolbar
     }
 
     @objc private func cancelSelector(sender: UIBarButtonItem) {
@@ -71,7 +84,8 @@ class OdometerInitVC: DKUIViewController {
         _ = checkValue()
     }
 
-    @IBAction private func validateOdometer(_ sender: Any) {
+    @objc @IBAction private func validateOdometer(_ sender: Any) {
+        self.odometerField.resignFirstResponder()
         if let text = self.odometerField.text, let value = Double(text) {
             if checkValue() {
                 self.viewModel.updatedValue = value
@@ -110,5 +124,20 @@ class OdometerInitVC: DKUIViewController {
         } else {
             dismiss(animated: true, completion: nil)
         }
+    }
+
+    @objc private func keyboardWillShow(notification:NSNotification) {
+        guard let userInfo = notification.userInfo else { return }
+        var keyboardFrame: CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+
+        var contentInset: UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height + 60
+        self.scrollView.contentInset = contentInset
+    }
+
+    @objc private func keyboardWillHide(notification:NSNotification) {
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        self.scrollView.contentInset = contentInset
     }
 }

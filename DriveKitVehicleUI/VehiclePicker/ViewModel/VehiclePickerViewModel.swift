@@ -11,42 +11,41 @@ import UIKit
 import DriveKitVehicleModule
 import DriveKitDBVehicleAccessModule
 
-protocol VehicleDataDelegate : AnyObject {
+protocol VehicleDataDelegate: AnyObject {
     func onDataRetrieved(status: StepStatus)
 }
 
-protocol VehicleNavigationDelegate : AnyObject {
+protocol VehicleNavigationDelegate: AnyObject {
     func showStep(viewController: UIViewController)
 }
 
 class VehiclePickerViewModel {
-
-    let detectionMode : DKDetectionMode
+    let detectionMode: DKDetectionMode
     let previousVehicle: DKVehicle?
 
-    var currentStep : VehiclePickerStep = .type
-    var previousSteps : [VehiclePickerStep] = []
+    var currentStep: VehiclePickerStep = .type
+    var previousSteps: [VehiclePickerStep] = []
 
-    var vehicleType : DKVehicleType? = nil
-    var truckType : DKTruckType? = nil
-    var vehicleCategory : DKVehicleCategory? = nil
-    var vehicleBrand : DKVehicleBrand? = nil
-    var vehicleEngineIndex : DKVehicleEngineIndex? = nil
-    var vehicleModel : String? = nil
-    var vehicleYear : String? = nil
-    var vehicleVersion : DKVehicleVersion? = nil
+    var vehicleType: DKVehicleType? = nil
+    var truckType: DKTruckType? = nil
+    var vehicleCategory: DKVehicleCategory? = nil
+    var vehicleBrand: DKVehicleBrand? = nil
+    var vehicleEngineIndex: DKVehicleEngineIndex? = nil
+    var vehicleModel: String? = nil
+    var vehicleYear: String? = nil
+    var vehicleVersion: DKVehicleVersion? = nil
     var liteConfig: Bool = false
-    var vehicleName : String? = nil
-    var vehicleCharacteristics : DKVehicleCharacteristics? = nil
+    var vehicleName: String? = nil
+    var vehicleCharacteristics: DKVehicleCharacteristics? = nil
 
-    var models : [String]? = nil
-    var years : [String]? = nil
-    var versions : [DKVehicleVersion]? = nil
+    var models: [String]? = nil
+    var years: [String]? = nil
+    var versions: [DKVehicleVersion]? = nil
 
     weak var vehicleDataDelegate: VehicleDataDelegate? = nil
     weak var vehicleNavigationDelegate: VehicleNavigationDelegate? = nil
 
-    init(detectionMode : DKDetectionMode, previousVehicle: DKVehicle? = nil) {
+    init(detectionMode: DKDetectionMode, previousVehicle: DKVehicle? = nil) {
         self.detectionMode = detectionMode
         self.previousVehicle = previousVehicle
         nextStepInternal(nil)
@@ -440,7 +439,7 @@ class VehiclePickerViewModel {
         self.currentStep.getCollectionViewItems(viewModel: self)
     }
 
-    func onCollectionViewItemSelected(pos: Int, completion : (StepStatus) -> ()) {
+    func onCollectionViewItemSelected(pos: Int, completion: (StepStatus) -> ()) {
         self.currentStep.onCollectionViewItemSelected(pos: pos, viewModel: self, completion: completion)
     }
 
@@ -448,7 +447,7 @@ class VehiclePickerViewModel {
         return vehicleCategory
     }
 
-    func addVehicle(completion : @escaping (DKVehicleManagerStatus, String?) -> ()) {
+    func addVehicle(completion: @escaping (DKVehicleManagerStatus, String?) -> ()) {
         if let characteristics = self.vehicleCharacteristics {
             if let previousVehicle = self.previousVehicle {
                 replaceVehicle(previousVehicle: previousVehicle, completion: completion)

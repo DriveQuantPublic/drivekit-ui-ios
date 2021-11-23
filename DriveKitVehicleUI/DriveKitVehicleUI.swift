@@ -13,7 +13,6 @@ import DriveKitVehicleModule
 import DriveKitDBVehicleAccessModule
 
 public class DriveKitVehicleUI {
-
     public static let shared = DriveKitVehicleUI()
 
     public private(set) var vehicleTypes: [DKVehicleType] = DKVehicleType.allCases
@@ -27,6 +26,7 @@ public class DriveKitVehicleUI {
     public private(set) var canAddVehicle: Bool = true
     public private(set) var maxVehicles: Int? = nil
     public private(set) var canRemoveBeacon: Bool = true
+    public private(set) var hasOdometer: Bool = false
 
     public private(set) var vehicleActions: [DKVehicleActionItem] = DKVehicleAction.allCases
     public private(set) var detectionModes: [DKDetectionMode] = [.disabled, .gps, .beacon, .bluetooth]
@@ -34,7 +34,6 @@ public class DriveKitVehicleUI {
 
     var beaconDiagnosticEmail: DKContentMail? = nil
     var beaconDiagnosticSupportLink: String? = nil
-    var vehiclePickerExtraStep: DKVehiclePickerExtraStep? = nil
 
     private init() {}
 
@@ -42,7 +41,7 @@ public class DriveKitVehicleUI {
         DriveKitNavigationController.shared.vehicleUI = self
     }
 
-    public func configureVehicleTypes(types: [DKVehicleType]){
+    public func configureVehicleTypes(types: [DKVehicleType]) {
         if !types.isEmpty {
             self.vehicleTypes = types
         }
@@ -78,6 +77,10 @@ public class DriveKitVehicleUI {
         self.canAddVehicle = enable
     }
 
+    public func enableOdometer(_ enable: Bool) {
+        self.hasOdometer = enable
+    }
+
     public func configureMaxVehicles(max: Int?) {
         if let max = max, max >= 0 {
             self.maxVehicles = max
@@ -106,13 +109,12 @@ public class DriveKitVehicleUI {
         self.beaconDiagnosticSupportLink = url
     }
 
-    public func enableRemoveBeacon(canRemoveBeacon: Bool){
+    public func enableRemoveBeacon(canRemoveBeacon: Bool) {
         self.canRemoveBeacon = canRemoveBeacon
     }
 
-    public func configureVehiclePickerExtraStep(extraStep: DKVehiclePickerExtraStep) {
-        self.vehiclePickerExtraStep = extraStep
-    }
+    @available(*, deprecated, message: "This method is not used anymore.")
+    public func configureVehiclePickerExtraStep(extraStep: DKVehiclePickerExtraStep) { }
 }
 
 extension Bundle {
@@ -182,6 +184,7 @@ extension DriveKitVehicleUI: DriveKitVehicleUIEntryPoint {
     }
 }
 
+@available(*, deprecated, message: "This protocol is not used anymore.")
 public protocol DKVehiclePickerExtraStep {
     func viewController(vehicleId: String) -> UIViewController?
 }

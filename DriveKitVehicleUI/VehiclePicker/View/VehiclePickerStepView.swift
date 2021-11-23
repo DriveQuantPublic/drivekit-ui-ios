@@ -10,7 +10,7 @@ import UIKit
 import DriveKitCommonUI
 
 class VehiclePickerStepView: DKUIViewController {
-    var viewModel : VehiclePickerViewModel!
+    var viewModel: VehiclePickerViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()

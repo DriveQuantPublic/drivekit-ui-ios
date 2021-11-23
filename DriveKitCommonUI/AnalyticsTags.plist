@@ -34,6 +34,8 @@
 	<string>drivekit-vehicles-beacon-info</string>
 	<key>dk_tag_vehicles_bluetooth_add</key>
 	<string>drivekit-vehicles-bluetooth-add</string>
+	<key>dk_tag_vehicles_odometer_init</key>
+	<string>drivekit-vehicles-odometer-init</string>
 	<key>dk_tag_vehicles_odometer_vehicles_list</key>
 	<string>drivekit-vehicles-odometer-vehicles-list</string>
 	<key>dk_tag_vehicles_odometer_vehicles_detail</key>

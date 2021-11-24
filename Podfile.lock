@@ -1,37 +1,37 @@
 PODS:
-  - DriveKitChallenge (1.17-beta1):
-    - DriveKitDBChallengeAccess (= 1.17-beta1)
-    - DriveKitDBTripAccess (= 1.17-beta1)
-  - DriveKitCore (1.17-beta1):
-    - DriveKitNetworking (= 1.17-beta1)
-  - DriveKitDBAchievementAccess (1.17-beta1):
-    - DriveKitCore (= 1.17-beta1)
-  - DriveKitDBChallengeAccess (1.17-beta1):
-    - DriveKitCore (= 1.17-beta1)
-  - DriveKitDBTripAccess (1.17-beta1):
-    - DriveKitCore (= 1.17-beta1)
-  - DriveKitDBVehicleAccess (1.17-beta1):
-    - DriveKitCore (= 1.17-beta1)
-  - DriveKitDriverAchievement (1.17-beta1):
-    - DriveKitDBAchievementAccess (= 1.17-beta1)
-  - DriveKitDriverData (1.17-beta1):
-    - DriveKitDBTripAccess (= 1.17-beta1)
-  - DriveKitNetworking (1.17-beta1)
-  - DriveKitTripAnalysis (1.17-beta1):
-    - DriveKitCore (= 1.17-beta1)
-    - DriveKitDBTripAccess (= 1.17-beta1)
-    - DriveKitDBVehicleAccess (= 1.17-beta1)
-  - DriveKitVehicle (1.17-beta1):
-    - DriveKitDBVehicleAccess (= 1.17-beta1)
+  - DriveKitChallenge (1.17-beta2):
+    - DriveKitDBChallengeAccess (= 1.17-beta2)
+    - DriveKitDBTripAccess (= 1.17-beta2)
+  - DriveKitCore (1.17-beta2):
+    - DriveKitNetworking (= 1.17-beta2)
+  - DriveKitDBAchievementAccess (1.17-beta2):
+    - DriveKitCore (= 1.17-beta2)
+  - DriveKitDBChallengeAccess (1.17-beta2):
+    - DriveKitCore (= 1.17-beta2)
+  - DriveKitDBTripAccess (1.17-beta2):
+    - DriveKitCore (= 1.17-beta2)
+  - DriveKitDBVehicleAccess (1.17-beta2):
+    - DriveKitCore (= 1.17-beta2)
+  - DriveKitDriverAchievement (1.17-beta2):
+    - DriveKitDBAchievementAccess (= 1.17-beta2)
+  - DriveKitDriverData (1.17-beta2):
+    - DriveKitDBTripAccess (= 1.17-beta2)
+  - DriveKitNetworking (1.17-beta2)
+  - DriveKitTripAnalysis (1.17-beta2):
+    - DriveKitCore (= 1.17-beta2)
+    - DriveKitDBTripAccess (= 1.17-beta2)
+    - DriveKitDBVehicleAccess (= 1.17-beta2)
+  - DriveKitVehicle (1.17-beta2):
+    - DriveKitDBVehicleAccess (= 1.17-beta2)
   - UICircularProgressRing (6.5.0)
 
 DEPENDENCIES:
-  - DriveKitChallenge (= 1.17-beta1)
-  - DriveKitCore (= 1.17-beta1)
-  - DriveKitDriverAchievement (= 1.17-beta1)
-  - DriveKitDriverData (= 1.17-beta1)
-  - DriveKitTripAnalysis (= 1.17-beta1)
-  - DriveKitVehicle (= 1.17-beta1)
+  - DriveKitChallenge (= 1.17-beta2)
+  - DriveKitCore (= 1.17-beta2)
+  - DriveKitDriverAchievement (= 1.17-beta2)
+  - DriveKitDriverData (= 1.17-beta2)
+  - DriveKitTripAnalysis (= 1.17-beta2)
+  - DriveKitVehicle (= 1.17-beta2)
   - UICircularProgressRing (= 6.5.0)
 
 SPEC REPOS:
@@ -51,19 +51,19 @@ SPEC REPOS:
     - DriveKitVehicle
 
 SPEC CHECKSUMS:
-  DriveKitChallenge: 94060d36f534b4fd00a3302c2814aef3b26639e4
-  DriveKitCore: d917e54ffef920aa1808ce9a4f633c32a723761b
-  DriveKitDBAchievementAccess: 0092994235c637a232d9a8ce45678d459060c86b
-  DriveKitDBChallengeAccess: f24b91dd221c5e7bf0cd794b6fe91efa72f135bf
-  DriveKitDBTripAccess: 3edb978eded87a781a54e3a5990b9e27c7129fc8
-  DriveKitDBVehicleAccess: 0b489864f68ad1915b6db149bcf452991fcc375c
-  DriveKitDriverAchievement: 86232c08d50060c4877d44842e94692755a5d978
-  DriveKitDriverData: 0c851b33456e19ed0318da4d3dc505d8d9eb42b8
-  DriveKitNetworking: 6e5cc124545fa61455810ca9e40d5a56bd30f668
-  DriveKitTripAnalysis: bc60a050b8006c2416fcde3ac0cb25f415ac9e77
-  DriveKitVehicle: c9e7ba90198e4a5471b9b352fa41f42db1588a10
+  DriveKitChallenge: 642390cfc3107d8d832d5cf4c39ef35ff4ed246d
+  DriveKitCore: 2f1f54230d53c1b466d4ebf072e2750b72578985
+  DriveKitDBAchievementAccess: 39ca917a852c093ecf4a80a47d214b49d387edb4
+  DriveKitDBChallengeAccess: 81ea374e9dbe7db3238a3d5d5c3a28eb5dc8b338
+  DriveKitDBTripAccess: 967b4a3f8fe3d39b4741682d298c9c2970873f3f
+  DriveKitDBVehicleAccess: 70fd7887fa147d28b10b117a2192494747bb5df4
+  DriveKitDriverAchievement: 2ad645656469d68feee294aa2e22f7e75dd061b9
+  DriveKitDriverData: 5113f41854c2731911fac3d3df09da4297e88608
+  DriveKitNetworking: 6c38c67d519e29628b5b6bebcaca68fc507ac1a9
+  DriveKitTripAnalysis: 6ba7af8bfd7afbd9f7f2fd4243d4e73676066bc6
+  DriveKitVehicle: 714946c8807e694c42bca7adc3e87fef76d9e278
   UICircularProgressRing: e6852e8f88e296cbbbe2720cccb55241acda6708
 
-PODFILE CHECKSUM: ec11beb702b84698ce79c918ad56169fa7d4bbb9
+PODFILE CHECKSUM: e32a126a46ec710947183c1d8941e5ad4eef9d08
 
 COCOAPODS: 1.11.2

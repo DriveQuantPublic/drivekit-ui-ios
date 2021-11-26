@@ -128,19 +128,7 @@ class RankingViewModel {
             dkRankingType = self.dkRankingTypes.first ?? .safety
         }
 
-        let dkRankingPeriod: DKRankingPeriod
-        switch self.dkRankingSelectorType {
-            case .none:
-                dkRankingPeriod = .weekly
-            case let .period(rankingPeriods):
-                let periodIndex = self.selectedRankingSelector?.index ?? 0
-                if periodIndex < rankingPeriods.count {
-                    dkRankingPeriod = rankingPeriods[periodIndex]
-                } else {
-                    dkRankingPeriod = rankingPeriods.first ?? .weekly
-                }
-        }
-
+        let dkRankingPeriod: DKRankingPeriod = getRankingPeriod()
         self.delegate?.rankingDidUpdate()
 
         let useCacheKey = "\(dkRankingType.rawValue)-\(dkRankingPeriod.rawValue)"
@@ -256,6 +244,22 @@ class RankingViewModel {
                 }
             }
         }
+    }
+
+    private func getRankingPeriod() -> DKRankingPeriod {
+        let dkRankingPeriod: DKRankingPeriod
+        switch self.dkRankingSelectorType {
+            case .none:
+                dkRankingPeriod = .weekly
+            case let .period(rankingPeriods):
+                let periodIndex = self.selectedRankingSelector?.index ?? 0
+                if periodIndex < rankingPeriods.count {
+                    dkRankingPeriod = rankingPeriods[periodIndex]
+                } else {
+                    dkRankingPeriod = rankingPeriods.first ?? .weekly
+                }
+            }
+        return dkRankingPeriod
     }
 
     private func getImageName(fromPosition position: Int) -> String? {
@@ -395,4 +399,26 @@ extension RankingViewModel: DKDriverRanking {
         return DKCommonLocalizable.rankingScore.text()
     }
 
+    func haveInfoButton() -> Bool {
+        return true
+    }
+
+    func infoPopupTitle() -> String? {
+        return ""
+    }
+
+    func infoPopupMessage() -> String? {
+        let dkRankingPeriod: DKRankingPeriod = getRankingPeriod()
+
+        switch dkRankingPeriod {
+        case .weekly:
+            return "dk_achievements_ranking_week_info".dkAchievementLocalized()
+        case .monthly:
+            return "dk_achievements_ranking_month_info".dkAchievementLocalized()
+        case .allTime:
+            return "dk_achievements_ranking_permanent_info".dkAchievementLocalized()
+        case .legacy:
+            return "dk_achievements_ranking_legacy_info".dkAchievementLocalized()
+        }
+    }
 }

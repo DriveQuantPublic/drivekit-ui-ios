@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -28,17 +28,29 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cv9-Gd-2iD">
-                            <rect key="frame" x="105.5" y="4" width="28" height="28"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ycg-9j-kZa">
+                            <rect key="frame" x="105.5" y="2" width="28" height="32"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cv9-Gd-2iD">
+                                    <rect key="frame" x="0.0" y="4" width="28" height="28"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="28" id="23H-9k-WqL"/>
+                                        <constraint firstAttribute="height" constant="28" id="D2r-Q1-M9x"/>
+                                    </constraints>
+                                    <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                    <connections>
+                                        <action selector="infoAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="qJZ-hq-kcx"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="28" id="23H-9k-WqL"/>
-                                <constraint firstAttribute="height" constant="28" id="D2r-Q1-M9x"/>
+                                <constraint firstItem="cv9-Gd-2iD" firstAttribute="centerX" secondItem="ycg-9j-kZa" secondAttribute="centerX" id="6u6-Nd-oOS"/>
+                                <constraint firstAttribute="width" constant="28" id="BJ8-4q-l6H"/>
+                                <constraint firstAttribute="height" constant="32" id="g5w-k2-wZG"/>
+                                <constraint firstItem="cv9-Gd-2iD" firstAttribute="top" secondItem="ycg-9j-kZa" secondAttribute="top" constant="4" id="rNb-qr-eSl"/>
                             </constraints>
-                            <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
-                            <connections>
-                                <action selector="infoAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="qJZ-hq-kcx"/>
-                            </connections>
-                        </button>
+                        </view>
                     </subviews>
                 </stackView>
             </subviews>

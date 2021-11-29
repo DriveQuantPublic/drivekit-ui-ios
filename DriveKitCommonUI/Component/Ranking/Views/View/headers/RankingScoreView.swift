@@ -42,6 +42,6 @@ class RankingScoreView: UIView {
     }
 
     @IBAction func infoAction(_ sender:UIButton) {
-        self.parentViewController?.showAlertMessage(title: self.infoPopupTitle, message: self.infoPopupMessage, back: false, cancel: false)        
+        self.parentViewController?.showAlertMessage(title: self.infoPopupTitle, message: self.infoPopupMessage, back: false, cancel: false)
     }
 }

@@ -309,7 +309,7 @@ extension ChallengeDetailViewModel: DKDriverRanking {
         }
     }
 
-    func haveInfoButton() -> Bool {
+    func hasInfoButton() -> Bool {
         return false
     }
 

@@ -36,7 +36,7 @@ class RankingScoreView: UIView {
         } else {
             self.progressionView.isHidden = true
         }
-        self.infoButton.isHidden = !ranking.haveInfoButton()
+        self.infoButton.isHidden = !ranking.hasInfoButton()
         self.infoPopupTitle = ranking.infoPopupTitle()
         self.infoPopupMessage = ranking.infoPopupMessage()
     }

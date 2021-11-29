@@ -191,22 +191,6 @@
 "badge_night_trip_progress_2"="Hai ancora dei %@ viaggi da percorrere per vincere questo badge.";
 "badge_night_trip_progress_3"="Hai ancora dei %@ viaggi da percorrere per vincere questo badge.";
 "badge_night_trip_theme"="Guida notturna";
-"badge_phone_call_congrats_1"="Congratulazioni, hai raggiunto l\'obiettivo!";
-"badge_phone_call_congrats_2"="Congratulazioni, hai raggiunto l\'obiettivo!";
-"badge_phone_call_congrats_3"="Congratulazioni, hai raggiunto l\'obiettivo!";
-"badge_phone_call_description_1"="Per guadagnare il distintivo, devi fare 20 viaggi senza effettuare alcuna chiamata. Le chiamate effettuate con un kit vivavoce sono consentite.";
-"badge_phone_call_description_2"="Completa 50 viaggi senza chiamare per guadagnare questo distintivo. Chiamare mentre si guida è pericoloso per voi e per i vostri passeggeri.";
-"badge_phone_call_description_3"="Per guadagnare questo distintivo, devi fare 100 viaggi senza fare una chiamata durante la guida. Non rispondere al telefono significa rimanere concentrati sulla strada ed evitare incidenti.";
-"badge_phone_call_name_1"="Novizio";
-"badge_phone_call_name_2"="Apprendista";
-"badge_phone_call_name_3"="Campione";
-"badge_phone_call_notif_1"="Hai appena vinto il distintivo Novizio (20 viaggi senza fare una chiamata). Congratulazioni!";
-"badge_phone_call_notif_2"="Hai appena vinto il distintivo Apprendista (50 viaggi senza fare una chiamata). Congratulazioni!";
-"badge_phone_call_notif_3"="Hai appena vinto il distintivo Campione (100 viaggi senza fare una chiamata). Congratulazioni!";
-"badge_phone_call_progress_1"="Hai ancora dei %@ viaggi da percorrere per vincere questo badge.";
-"badge_phone_call_progress_2"="Hai ancora dei %@ viaggi da percorrere per vincere questo badge.";
-"badge_phone_call_progress_3"="Hai ancora dei %@ viaggi da percorrere per vincere questo badge.";
-"badge_phone_call_theme"="Chiamare mentre si guida";
 "badge_phone_distraction_congrats_1"="Congratulazioni, hai raggiunto l\'obiettivo!";
 "badge_phone_distraction_congrats_2"="Congratulazioni, hai raggiunto l\'obiettivo!";
 "badge_phone_distraction_congrats_3"="Congratulazioni, hai raggiunto l\'obiettivo!";
@@ -365,8 +349,7 @@
 "dk_achievements_streaks_congrats_text"="Attualmente state facendo la vostra migliore sequenza di successi. Continua a superare te stesso!";
 "dk_achievements_streaks_current_title"="Corrente";
 "dk_achievements_streaks_empty"="Non hai ancora fatto nessun viaggio per completare questa sequenza";
-"dk_achievements_streaks_phone_call_text"="Prova a fare una serie di viaggi senza telefonare.\n \nAd ogni successo, il contatore del numero di viaggi aumenta.\n \nIn caso di fallimento, il contatore si resetta e si deve ricominciare da capo. Le chiamate effettuate con il kit vivavoce dell\'auto sono consentite.
-\n \nIl numero di viaggi nella vostra migliore sequenza di passaggi è memorizzato e potete tentare di superarlo.";
+"dk_achievements_streaks_phone_call_text"="Prova a fare una serie di viaggi senza telefonare.\n \nAd ogni successo, il contatore del numero di viaggi aumenta.\n \nIn caso di fallimento, il contatore si resetta e si deve ricominciare da capo. Le chiamate effettuate con il kit vivavoce dell\'auto sono consentite.\n \nIl numero di viaggi nella vostra migliore sequenza di passaggi è memorizzato e potete tentare di superarlo.";
 "dk_achievements_streaks_phone_call_title"="Non chiamare";
 "dk_achievements_streaks_phone_distraction_reset"="Hai maneggiato il tuo telefono durante il tuo ultimo viaggio";
 "dk_achievements_streaks_phone_distraction_text"="Provate a fare una serie di viaggi senza manipolare il vostro smartphone mentre guidate.\n \nAd ogni successo, il contatore del numero di viaggi aumenta.\n \nIn caso di fallimento, il contatore si resetta e si deve ricominciare da capo.\n \nIl numero di viaggi nella vostra migliore sequenza di passaggi è memorizzato e potete tentare di superarlo.";

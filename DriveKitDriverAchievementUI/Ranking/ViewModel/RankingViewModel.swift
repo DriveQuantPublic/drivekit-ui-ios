@@ -399,7 +399,7 @@ extension RankingViewModel: DKDriverRanking {
         return DKCommonLocalizable.rankingScore.text()
     }
 
-    func haveInfoButton() -> Bool {
+    func hasInfoButton() -> Bool {
         return true
     }
 

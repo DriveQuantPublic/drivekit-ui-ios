@@ -42,8 +42,6 @@ class RankingScoreView: UIView {
     }
 
     @IBAction func infoAction(_ sender:UIButton) {
-        let alert = UIAlertController(title: self.infoPopupTitle, message: self.infoPopupMessage, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
-        self.parentViewController?.present(alert, animated: true, completion: nil)
+        self.parentViewController?.showAlertMessage(title: self.infoPopupTitle, message: self.infoPopupMessage, back: false, cancel: false)        
     }
 }

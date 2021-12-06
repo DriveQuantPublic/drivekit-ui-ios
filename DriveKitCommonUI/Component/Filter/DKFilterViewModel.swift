@@ -15,7 +15,7 @@ public protocol DKFilterItem {
     func getId() -> Any?
 }
 
-public protocol DKFilterItemDelegate : AnyObject {
+public protocol DKFilterItemDelegate: AnyObject {
     func onFilterItemSelected(filterItem: DKFilterItem)
 }
 
@@ -37,7 +37,7 @@ public class DKFilterViewModel {
         self.items = items
     }
     
-    var itemCount : Int {
+    var itemCount: Int {
         return items.count
     }
     

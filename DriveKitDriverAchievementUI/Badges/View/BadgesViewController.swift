@@ -11,11 +11,11 @@ import DriveKitCommonUI
 import DriveKitDriverAchievementModule
 import DriveKitDBAchievementAccessModule
 
-public class BadgesViewController : DKUIViewController, UITableViewDelegate {
-
+public class BadgesViewController: DKUIViewController, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
+    private let refreshControl = UIRefreshControl()
     
-    private let viewModel : BadgeViewModel
+    private let viewModel: BadgeViewModel
 
     public init() {
         self.viewModel = BadgeViewModel()
@@ -39,26 +39,33 @@ public class BadgesViewController : DKUIViewController, UITableViewDelegate {
         super.viewDidLoad()
         self.title = "menu_mybadges".dkAchievementLocalized()
         self.viewModel.delegate = self
-        self.viewModel.updateBadges()
-        self.showLoader()
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        self.tableView.addSubview(self.refreshControl)
+        self.refreshControl.addTarget(self, action: #selector(update), for: .valueChanged)
+        self.refreshControl.beginRefreshing()
+        self.tableView.setContentOffset(CGPoint(x: 0, y: -self.refreshControl.bounds.size.height), animated: true)
         if #available(iOS 15, *) {
-            tableView.sectionHeaderTopPadding = 0
+            self.tableView.sectionHeaderTopPadding = 0
         }
         let nib = UINib(nibName: "BadgeTableViewCell", bundle: Bundle.driverAchievementUIBundle)
-        tableView.register(nib, forCellReuseIdentifier: "BadgeTableViewCell")
+        self.tableView.register(nib, forCellReuseIdentifier: "BadgeTableViewCell")
         NotificationCenter.default.addObserver(self, selector: #selector(goToBadgeLevelDetailView),
                                                name: Notification.Name("goToDetailView"),
                                                object: nil)
+        update()
+    }
+
+    @objc private func update() {
+        self.viewModel.updateBadges()
     }
 }
 
-extension BadgesViewController : UITableViewDataSource {
-
+extension BadgesViewController: UITableViewDataSource {
     public func numberOfSections(in tableView: UITableView) -> Int {
         return self.viewModel.badgesCount
     }
+
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -78,9 +85,11 @@ extension BadgesViewController : UITableViewDataSource {
     }
 }
 
-extension BadgesViewController : BadgeDelegate {
+extension BadgesViewController: BadgeDelegate {
     func badgesUpdated() {
-        tableView.reloadData()
-        self.hideLoader()
+        if self.refreshControl.isRefreshing {
+            self.refreshControl.endRefreshing()
+        }
+        self.tableView.reloadData()
     }
 }

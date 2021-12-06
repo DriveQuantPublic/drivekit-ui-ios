@@ -11,8 +11,7 @@ import DriveKitCommonUI
 import DriveKitDBAchievementAccessModule
 
 public extension DKStreakTheme {
-    
-    var theme : String {
+    var theme: String {
         switch self {
         case .acceleration:
             return "dk_achievements_streaks_acceleration_title".dkAchievementLocalized()
@@ -26,12 +25,14 @@ public extension DKStreakTheme {
             return "dk_achievements_streaks_safety_title".dkAchievementLocalized()
         case .speedLimits:
             return "dk_achievements_streaks_speeding_title".dkAchievementLocalized()
+        case .call:
+            return "dk_achievements_streaks_phone_call_title".dkAchievementLocalized()
         @unknown default:
             return ""
         }
     }
     
-    var icon : UIImage? {
+    var icon: UIImage? {
         switch self {
         case .acceleration:
             return DKImages.safetyAccel.image
@@ -45,12 +46,14 @@ public extension DKStreakTheme {
             return DKImages.safety.image
         case .speedLimits:
             return DKImages.ecoAccel.image
+        case .call:
+            return DKImages.call.image
         @unknown default:
             return nil
         }
     }
     
-    var description : String {
+    var description: String {
         switch self {
         case .acceleration:
             return "dk_achievements_streaks_acceleration_text".dkAchievementLocalized()
@@ -64,12 +67,14 @@ public extension DKStreakTheme {
             return "dk_achievements_streaks_safety_text".dkAchievementLocalized()
         case .speedLimits:
             return "dk_achievements_streaks_speeding_text".dkAchievementLocalized()
+        case .call:
+            return "dk_achievements_streaks_phone_call_text".dkAchievementLocalized()
         @unknown default:
             return ""
         }
     }
     
-    var resetText : String {
+    var resetText: String {
         switch self {
         case .acceleration:
             return "dk_achievements_streaks_acceleration_reset".dkAchievementLocalized()
@@ -83,6 +88,8 @@ public extension DKStreakTheme {
             return "dk_achievements_streaks_safety_reset".dkAchievementLocalized()
         case .speedLimits:
             return "dk_achievements_streaks_speeding_reset".dkAchievementLocalized()
+        case .call:
+            return "dk_achievements_streaks_call_reset".dkAchievementLocalized()
         @unknown default:
             return ""
         }

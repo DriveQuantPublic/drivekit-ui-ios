@@ -51,6 +51,16 @@
 		<string></string>
 		<key>SuccessBluetoothVC</key>
 		<string></string>
+		<key>OdometerInitVC</key>
+		<string>dk_tag_vehicles_odometer_init</string>
+		<key>OdometerVehicleListVC</key>
+		<string>dk_tag_vehicles_odometer_vehicles_list</string>
+		<key>OdometerVehicleDetailVC</key>
+		<string>dk_tag_vehicles_odometer_vehicles_detail</string>
+		<key>OdometerHistoriesVC</key>
+		<string>dk_tag_vehicles_odometer_histories_list</string>
+		<key>OdometerHistoryDetailVC</key>
+		<string>dk_tag_vehicles_odometer_histories_detail</string>
 	</dict>
 	<key>Challenge</key>
 	<dict>

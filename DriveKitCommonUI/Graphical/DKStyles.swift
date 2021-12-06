@@ -71,7 +71,7 @@ public struct DKStyle {
     }
     
     public func applyTo(font: DKUIFonts) -> UIFont {
-        let font =  UIFont(name: font.name, size: size) ?? UIFont.systemFont(ofSize: size)
+        let font = UIFont(name: font.name, size: size) ?? UIFont.systemFont(ofSize: size)
         return applyTraits(font: font)
     }
     

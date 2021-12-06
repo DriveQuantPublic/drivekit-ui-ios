@@ -10,11 +10,10 @@ import UIKit
 import DriveKitCommonUI
 import DriveKitDBVehicleAccessModule
 
-public class DKVehiclePickerNavigationController : UINavigationController {
+public class DKVehiclePickerNavigationController: UINavigationController {
+    let completion: (() -> ())?
     
-    let completion : (() -> ())?
-    
-    public init(parentView: UIViewController, detectionMode: DKDetectionMode = .disabled, vehicle: DKVehicle? = nil, completion : (() -> ())? = nil) {
+    public init(parentView: UIViewController, detectionMode: DKDetectionMode = .disabled, vehicle: DKVehicle? = nil, completion: (() -> ())? = nil) {
         self.completion = completion
         let viewModel = VehiclePickerViewModel(detectionMode: detectionMode, previousVehicle: vehicle)
         let firstViewController = viewModel.getViewController()
@@ -56,14 +55,6 @@ public class DKVehiclePickerNavigationController : UINavigationController {
         self.popViewController(animated: true)
     }
     
-    func checkExtraStep(vehicleId: String) {
-        if let extraStep = DriveKitVehicleUI.shared.vehiclePickerExtraStep, let viewController = extraStep.viewController(vehicleId: vehicleId) {
-            self.showStep(viewController: viewController)
-        }else{
-            endVehiclePicker()
-        }
-    }
-    
     public func endVehiclePicker() {
         dismiss(animated: true, completion: nil)
         if let completion = completion {
@@ -72,7 +63,7 @@ public class DKVehiclePickerNavigationController : UINavigationController {
     }
 }
 
-extension DKVehiclePickerNavigationController : VehicleNavigationDelegate {
+extension DKVehiclePickerNavigationController: VehicleNavigationDelegate {
     func showStep(viewController: UIViewController) {
         viewController.modalPresentationStyle = .overFullScreen
         self.show(viewController, sender: nil)

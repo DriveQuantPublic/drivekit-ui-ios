@@ -65,7 +65,7 @@ class ViewController: UITableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(sensorStateChanged), name: .sensorStateChangedNotification, object: nil)
     }
     
-    private func configureText(){
+    private func configureText() {
         startTripButton.setTitle("start_trip".keyLocalized(), for: .normal)
         stopTripButton.setTitle("stop_trip".keyLocalized(), for: .normal)
         cancelTripButton.setTitle("cancel_trip".keyLocalized(), for: .normal)
@@ -77,7 +77,7 @@ class ViewController: UITableViewController {
         driverDataExplanation.text = "driver_data_explanation".keyLocalized()
     }
     
-    private func configureTripAnalysisButton(){
+    private func configureTripAnalysisButton() {
         let tripAnalysisState = DriveKitTripAnalysis.shared.getRecorderState()
         switch tripAnalysisState {
         case .inactive:
@@ -121,11 +121,13 @@ class ViewController: UITableViewController {
                 self.configureBeaconPairing()
             } else if indexPath.row == 8 {
                 self.configureVehiclesList()
-            } else if indexPath.row == 10 {
-                self.configureDriverBadges()
+            } else if indexPath.row == 9 {
+                self.openOdometer()
             } else if indexPath.row == 11 {
-                self.showRanking()
+                self.configureDriverBadges()
             } else if indexPath.row == 12 {
+                self.showRanking()
+            } else if indexPath.row == 13 {
                 self.showChallenges()
             }
         }
@@ -231,10 +233,17 @@ class ViewController: UITableViewController {
         }
     }
     
-    func configureVehiclesList(){
+    func configureVehiclesList() {
         DispatchQueue.main.async {
             let listVC = VehiclesListVC()
             self.navigationController?.pushViewController(listVC, animated: true)
+        }
+    }
+
+    func openOdometer() {
+        if let navigationController = self.navigationController {
+            let odometerVehicleList = DriveKitVehicleUI.shared.getOdometerUI()
+            navigationController.pushViewController(odometerVehicleList, animated: true)
         }
     }
 

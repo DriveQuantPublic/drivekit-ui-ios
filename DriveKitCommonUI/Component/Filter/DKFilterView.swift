@@ -29,7 +29,7 @@ final public class DKFilterView: UIView, Nibable {
         }
     }
 
-    public func configure(viewModel : DKFilterViewModel, parentViewController: UIViewController) {
+    public func configure(viewModel: DKFilterViewModel, parentViewController: UIViewController) {
         self.viewModel = viewModel
         self.parentViewController = parentViewController
         self.pickerImage.isHidden = !viewModel.showPicker

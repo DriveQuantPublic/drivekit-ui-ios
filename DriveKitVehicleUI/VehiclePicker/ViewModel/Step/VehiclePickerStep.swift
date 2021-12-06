@@ -11,7 +11,6 @@ import UIKit
 enum VehiclePickerStep {
     case type, truckType, category, categoryDescription, brandsIcons, brandsFull, engine, models, years, versions, name
 
-
     func getViewController(viewModel: VehiclePickerViewModel) -> UIViewController {
         switch self {
             case .type:
@@ -54,4 +53,3 @@ enum VehiclePickerStep {
 enum StepStatus {
     case noError, noData, failedToRetreiveData
 }
-

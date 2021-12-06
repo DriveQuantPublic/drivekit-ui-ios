@@ -10,8 +10,7 @@ import UIKit
 import DriveKitCommonUI
 
 class VehiclePickerStepView: DKUIViewController {
-
-    var viewModel : VehiclePickerViewModel!
+    var viewModel: VehiclePickerViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,15 +38,5 @@ class VehiclePickerStepView: DKUIViewController {
     @objc func didDismissManually() {
         self.navigationController?.dismiss(animated: true, completion: nil)
         (self.navigationController as! DKVehiclePickerNavigationController).completion?()
-    }
-
-    func executeOnMainThread(_ block: @escaping () -> Void) {
-        if Thread.isMainThread {
-            block()
-        } else {
-            DispatchQueue.main.async {
-                block()
-            }
-        }
     }
 }

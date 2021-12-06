@@ -96,7 +96,7 @@ extension VehiclePickerCollectionViewVC : UICollectionViewDelegateFlowLayout {
 
 extension VehiclePickerCollectionViewVC : VehicleDataDelegate {
     func onDataRetrieved(status: StepStatus) {
-        self.executeOnMainThread {
+        DispatchQueue.dispatchOnMainThread {
             self.hideLoader()
             switch status {
                 case .noError:

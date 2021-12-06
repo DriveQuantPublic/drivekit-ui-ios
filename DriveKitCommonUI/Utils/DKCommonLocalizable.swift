@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum DKCommonLocalizable : String {
+public enum DKCommonLocalizable: String {
     case unitMeter = "dk_common_unit_meter",
     unitKilometer = "dk_common_unit_kilometer",
     unitMile = "dk_common_unit_mile",
@@ -50,6 +50,7 @@ public enum DKCommonLocalizable : String {
     delete = "dk_common_delete",
     loading = "dk_common_loading",
     error = "dk_common_error_message",
+    errorEmpty = "dk_common_error_empty_field",
     safety = "dk_common_safety",
     speeding = "dk_common_speed_limit",
     distraction = "dk_common_distraction",
@@ -79,7 +80,7 @@ public enum DKCommonLocalizable : String {
 }
 
 public extension String {
-    func dkLocalized(tableName: String, bundle : Bundle) -> String {
+    func dkLocalized(tableName: String, bundle: Bundle) -> String {
         if let overridedFile = DriveKitUI.shared.overridedStringFileName {
             let localizedString = NSLocalizedString(self, tableName: overridedFile, bundle: .main, value: "", comment: "")
             if localizedString.isEmpty || localizedString == self {
@@ -87,7 +88,7 @@ public extension String {
             } else {
                 return localizedString
             }
-        }else{
+        } else {
             return NSLocalizedString(self, tableName: tableName, bundle: bundle, value: self, comment: "")
         }
     }

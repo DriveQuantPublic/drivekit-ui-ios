@@ -13,52 +13,56 @@ import UIKit
 import DriveKitCommonUI
 
 class StreakViewModel {
+    weak var delegate: StreakVMDelegate? = nil
+    var streakData: [StreakData] = []
     
-    weak var delegate : StreakVMDelegate? = nil
-    
-    var streakData : [StreakData] = []
-    
-    init() {}
-    
-    func getStreakData() {
-        DriveKitDriverAchievement.shared.getStreaks(completionHandler: {status, streaks in
-            self.computeStreak(streaks: streaks)
-            if self.streakData.isEmpty {
-                if let delegate = self.delegate {
-                    delegate.failedToUpdateStreak(status: status)
-                }
-            } else {
-                if let delegate = self.delegate {
-                    delegate.streaksUpdated(status: status)
-                }
-            }
-        })
+    init() {
+        self.streakData = computeStreak(DriveKitDBAchievementAccess.shared.streakQuery().noFilter().query().execute())
     }
     
-    private func computeStreak(streaks : [DKStreak]) {
-        var allStreaks : [StreakData] = []
+    func getStreakData() {
+        DriveKitDriverAchievement.shared.getStreaks() { [weak self] status, streaks in
+            if let self = self {
+                self.streakData = self.computeStreak(streaks)
+                if self.streakData.isEmpty {
+                    if let delegate = self.delegate {
+                        delegate.failedToUpdateStreak(status: status)
+                    }
+                } else {
+                    if let delegate = self.delegate {
+                        delegate.streaksUpdated(status: status)
+                    }
+                }
+            }
+        }
+    }
+    
+    private func computeStreak(_ streaks: [DKStreak]) -> [StreakData] {
+        var result: [StreakData] = []
+        var allStreaks: [StreakData] = []
         for streak in streaks {
             allStreaks.append(StreakData(streak: streak))
         }
         for configuredStreak in DriveKitDriverAchievementUI.shared.streakThemes {
             if let streak = (allStreaks.filter { configuredStreak == $0.type }).first {
-                self.streakData.append(streak)
+                result.append(streak)
             }
         }
+        return result
     }
     
 }
 
-protocol StreakVMDelegate : AnyObject {
+protocol StreakVMDelegate: AnyObject {
     func streaksUpdated(status: StreakSyncStatus)
     func failedToUpdateStreak(status: StreakSyncStatus)
 }
 
 struct StreakData {
-    let type : DKStreakTheme
-    let status : StreakStatus
-    let streak : DKStreak
-    let progressPercent : Int
+    let type: DKStreakTheme
+    let status: StreakStatus
+    let streak: DKStreak
+    let progressPercent: Int
     
     init(streak: DKStreak) {
         self.streak = streak
@@ -67,15 +71,15 @@ struct StreakData {
             if streak.current.tripNumber == 0 {
                 status = .initialization
                 progressPercent = 0
-            }else{
+            } else {
                 status = .best
                 progressPercent = 100
             }
-        }else{
+        } else {
             if streak.current.tripNumber == 0 {
                 status = .reset
                 progressPercent = 0
-            }else{
+            } else {
                 status = .inProgress
                 progressPercent = Int((Float(streak.current.tripNumber) / Float(streak.best.tripNumber)) * 100)
             }
@@ -114,7 +118,7 @@ struct StreakData {
         return getTripNumberText(tripNumber: self.streak.best.tripNumber)
     }
     
-    private func getTripNumberText(tripNumber : Int?) -> String {
+    private func getTripNumberText(tripNumber: Int?) -> String {
         var tripsText = DKCommonLocalizable.tripSingular.text()
         if let tripNb = tripNumber, tripNb > 1 {
             tripsText = DKCommonLocalizable.tripPlural.text()

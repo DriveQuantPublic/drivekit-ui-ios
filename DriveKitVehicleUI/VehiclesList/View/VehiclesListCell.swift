@@ -84,7 +84,7 @@ class VehiclesListCell: UITableViewCell {
     }
     
     @IBAction func didSelectEditButton(_ sender: Any) {
-        let vehicleActions : [DKVehicleActionItem] = viewModel.vehicleActions(pos: pos)
+        let vehicleActions: [DKVehicleActionItem] = viewModel.vehicleActions(pos: pos)
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         for vehicleAction in vehicleActions {
             alert.addAction(vehicleAction.alertAction(pos: pos, viewModel: self.viewModel))

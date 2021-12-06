@@ -10,7 +10,6 @@ import UIKit
 import DriveKitCommonUI
 
 class StreakTableViewCell: UITableViewCell {
-    
     @IBOutlet weak var streakIcon: UIImageView!
     @IBOutlet weak var theme: UILabel!
     
@@ -29,7 +28,7 @@ class StreakTableViewCell: UITableViewCell {
     
     @IBOutlet weak var helpView: UIImageView!
     
-    private var streak : StreakData!
+    private var streak: StreakData!
     private weak var parentViewController: UIViewController?
     
     override func awakeFromNib() {
@@ -39,7 +38,7 @@ class StreakTableViewCell: UITableViewCell {
         
     }
     
-    func configure(streakData : StreakData, viewController: UIViewController){
+    func configure(streakData: StreakData, viewController: UIViewController) {
         self.streak = streakData
         self.parentViewController = viewController
         streakIcon.image = streakData.getIcon()
@@ -97,7 +96,7 @@ class StreakTableViewCell: UITableViewCell {
         slider.maximumTrackTintColor = .lightGray
     }
     
-    private func configureTripNumber(){
+    private func configureTripNumber() {
         currentTripNumberView.layer.cornerRadius = 16
         currentTripNumberView.layer.borderWidth = 2.0
         var color = UIColor.lightGray
@@ -123,7 +122,6 @@ class StreakTableViewCell: UITableViewCell {
         if let viewController = parentViewController {
             viewController.present(alert, animated: true)
         }
-        
     }
     
     fileprivate func makeCircleWith(size: CGSize, backgroundColor: UIColor) -> UIImage? {

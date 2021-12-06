@@ -14,32 +14,34 @@ public class VehiclesListVC: DKUIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addVehicleButton: UIButton!
     
-    private let viewModel : DKVehiclesListViewModel
-    
+    private let viewModel: DKVehiclesListViewModel
     private let refreshControl = UIRefreshControl()
-    
+
     public init() {
         self.viewModel = DKVehiclesListViewModel()
         super.init(nibName: String(describing: VehiclesListVC.self), bundle: Bundle.vehicleUIBundle)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     public override func viewDidLoad() {
         super.viewDidLoad()
         updateTitle()
         self.viewModel.delegate = self
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 200
-        self.tableView.addSubview(refreshControl)
-        refreshControl.addTarget(self, action: #selector(refreshVehiclesList(_ :)), for: .valueChanged)
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 200
+        self.tableView.addSubview(self.refreshControl)
+        self.refreshControl.addTarget(self, action: #selector(refreshVehiclesList(_ :)), for: .valueChanged)
         self.tableView.register(UINib(nibName: "VehiclesListCell", bundle: Bundle.vehicleUIBundle), forCellReuseIdentifier: "VehiclesListCell")
         self.tableView.register(VehicleListHeaderView.self, forHeaderFooterViewReuseIdentifier: "VehicleListHeaderView")
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         self.configure()
+        updateUI()
     }
-    
+
     func configure() {
         if DriveKitVehicleUI.shared.canAddVehicle {
             addVehicleButton.backgroundColor = DKUIColors.secondaryColor.color
@@ -49,13 +51,14 @@ public class VehiclesListVC: DKUIViewController {
             addVehicleButton.isHidden = true
         }
     }
-    
+
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.showLoader()
+        self.refreshControl.beginRefreshing()
+        self.tableView.setContentOffset(CGPoint(x: 0, y: -self.refreshControl.frame.size.height), animated: true)
         self.viewModel.fetchVehicles()
     }
-    
+
     @IBAction func goToVehiclePicker(_ sender: Any) {
         if let maxVehicles = DriveKitVehicleUI.shared.maxVehicles, maxVehicles <= self.viewModel.vehiclesCount {
             self.showAlertMessage(title: "", message: "dk_too_many_vehicles_alert".dkVehicleLocalized(), back: false, cancel: false)
@@ -63,7 +66,7 @@ public class VehiclesListVC: DKUIViewController {
             self.showVehiclePicker()
         }
     }
-    
+
     @objc func refreshVehiclesList(_ sender: Any) {
         self.viewModel.fetchVehicles()
     }
@@ -78,7 +81,6 @@ public class VehiclesListVC: DKUIViewController {
 }
 
 extension VehiclesListVC: UITableViewDelegate {
-    
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if self.viewModel.vehiclesCount == 0 {
             let headerView = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "VehicleListHeaderView" ) as! VehicleListHeaderView
@@ -120,44 +122,45 @@ extension VehiclesListVC: UITableViewDataSource {
 }
 
 extension VehiclesListVC: VehiclesListDelegate {
-    
     public func pushViewController(_ viewController: UIViewController, animated: Bool) {
         self.navigationController?.pushViewController(viewController, animated: animated)
     }
-    
+
     public func showAlert(_ alertController: UIAlertController) {
         self.present(alertController, animated: true)
     }
-    
+
     public func onVehiclesAvailable() {
         DispatchQueue.main.async {
             self.hideLoader()
-            if DriveKitVehicleUI.shared.canAddVehicle{
-                if let maxVehicle = DriveKitVehicleUI.shared.maxVehicles, self.viewModel.vehiclesCount >= maxVehicle {
-                    self.addVehicleButton.isHidden = true
-                } else {
-                    self.addVehicleButton.isHidden = false
-                }
-            } else {
-                self.addVehicleButton.isHidden = true
-            }
             if self.refreshControl.isRefreshing {
                 self.refreshControl.endRefreshing()
             }
-            self.tableView.delegate = self
-            self.tableView.dataSource = self
-            self.tableView.reloadData()
-            self.updateTitle()
+            self.updateUI()
         }
     }
-    
+
+    private func updateUI() {
+        if DriveKitVehicleUI.shared.canAddVehicle {
+            if let maxVehicle = DriveKitVehicleUI.shared.maxVehicles, self.viewModel.vehiclesCount >= maxVehicle {
+                self.addVehicleButton.isHidden = true
+            } else {
+                self.addVehicleButton.isHidden = false
+            }
+        } else {
+            self.addVehicleButton.isHidden = true
+        }
+        self.tableView.reloadData()
+        self.updateTitle()
+    }
+
     public func didUpdateVehicle() {
         DispatchQueue.main.async {
             self.showLoader()
             self.viewModel.fetchVehicles()
         }
     }
-    
+
     public func didReceiveErrorFromService() {
         DispatchQueue.main.async {
             self.hideLoader()
@@ -166,7 +169,7 @@ extension VehiclesListVC: VehiclesListDelegate {
             self.present(alert, animated: true)
         }
     }
-    
+
     public func showVehiclePicker(vehicle: DKVehicle? = nil) {
         _ = DKVehiclePickerNavigationController(parentView: self, detectionMode: self.viewModel.computeDetectionMode(), vehicle: vehicle, completion: {
             self.viewModel.fetchVehicles()

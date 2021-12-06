@@ -22,17 +22,17 @@ final class OdometerHistoryDetailCell: UITableViewCell, Nibable {
 
     weak var delegate: OdometerHistoryDelegate?
     private var viewModel: OdometerHistoryDetailCellViewModel?
+    private let textColor = UIColor(hex: 0x616161)
 
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = UIColor(hex: 0xfafafa)
-        let textColor = UIColor(hex: 0x616161)
         self.textField.font = DKStyles.smallText.style.applyTo(font: DKUIFonts.primary)
-        self.textField.textColor = textColor
+        self.textField.textColor = self.textColor
         self.textField.keyboardType = .numberPad
         self.textFieldSubtitle.isHidden = true
         self.label.font = DKStyles.smallText.style.applyTo(font: DKUIFonts.primary)
-        self.label.textColor = textColor
+        self.label.textColor = self.textColor
     }
 
     func configure(viewModel: OdometerHistoryDetailCellViewModel) {
@@ -45,6 +45,9 @@ final class OdometerHistoryDetailCell: UITableViewCell, Nibable {
             self.textField.isHidden = false
             self.textField.placeholder = viewModel.getPlaceHolder()
             self.textField.text = value
+            if viewModel.isEditable {
+                self.textField.textColor = UIColor(hex: 0x9e9e9e)
+            }
         } else {
             self.textField.isHidden = true
         }
@@ -86,6 +89,7 @@ final class OdometerHistoryDetailCell: UITableViewCell, Nibable {
     }
 
     private func didUpdateDistanceField(distance: Double) {
+        self.textField.textColor = self.textColor
         self.delegate?.didUpdateDistanceField(distance: distance, sender: self)
     }
 

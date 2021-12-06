@@ -61,7 +61,7 @@ enum HistoryCellType {
                 } else {
                     date = Date()
                 }
-                return date.format(pattern: .fullDate)
+                return date.format(pattern: .fullDate).capitalizeFirstLetter()
             case let .vehicle(vehicle):
                 return vehicle?.computeName() ?? ""
         }

@@ -69,7 +69,7 @@ class OdometerHistoriesVC: DKUIViewController {
             if let self = self {
                 self.hideLoader()
                 if success {
-                    self.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_odometer_history_error_value".dkVehicleLocalized(), back: false, cancel: false)
+                    self.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_odometer_history_delete_success".dkVehicleLocalized(), back: false, cancel: false)
                     self.reloadReferences()
                 } else {
                     self.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_odometer_failed_to_sync".dkVehicleLocalized(), back: false, cancel: false)

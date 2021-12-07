@@ -12,11 +12,18 @@ class RankingScoreView: UIView {
 
     @IBOutlet private weak var userRankView: UILabel!
     @IBOutlet private weak var progressionView: UIImageView!
+    @IBOutlet private var infoButton: UIButton!
+
+    weak var parentViewController: UIViewController?
+    var infoPopupTitle: String?
+    var infoPopupMessage: String?
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
         self.progressionView.tintColor = DKUIColors.mainFontColor.color
+        self.infoButton.setImage(DKImages.info.image, for: .normal)
+        self.infoButton.tintColor = DKUIColors.secondaryColor.color
     }
 
     func update(ranking: DKDriverRanking) {
@@ -29,5 +36,12 @@ class RankingScoreView: UIView {
         } else {
             self.progressionView.isHidden = true
         }
+        self.infoButton.isHidden = !ranking.hasInfoButton()
+        self.infoPopupTitle = ranking.infoPopupTitle()
+        self.infoPopupMessage = ranking.infoPopupMessage()
+    }
+
+    @IBAction func infoAction(_ sender:UIButton) {
+        self.parentViewController?.showAlertMessage(title: self.infoPopupTitle, message: self.infoPopupMessage, back: false, cancel: false)
     }
 }

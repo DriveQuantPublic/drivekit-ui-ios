@@ -308,4 +308,16 @@ extension ChallengeDetailViewModel: DKDriverRanking {
             return DKCommonLocalizable.tripPlural.text().capitalizeFirstLetter()
         }
     }
+
+    func hasInfoButton() -> Bool {
+        return false
+    }
+
+    func infoPopupTitle() -> String? {
+        return nil
+    }
+
+    func infoPopupMessage() -> String? {
+        return nil
+    }
 }

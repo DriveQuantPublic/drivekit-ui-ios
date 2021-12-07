@@ -325,11 +325,15 @@
 "dk_achievements_failed_to_sync_streaks"="Impossible de synchroniser les séquences de succès, veuillez réessayer plus tard.";
 "dk_achievements_menu_streaks"="Séquences de succès";
 "dk_achievements_ranking_legacy"="Bi-mensuel";
+"dk_achievements_ranking_legacy_info"="Ce classement est calculé à partir de la moyenne des scores des trajets des deux dernières semaines. Pour figurer au classement, il faut avoir réalisé au moins un trajet au cours des 14 derniers jours.";
 "dk_achievements_ranking_menu_ranking"="Mon classement";
 "dk_achievements_ranking_month"="Mensuel";
+"dk_achievements_ranking_month_info"="Le classement mensuel est calculé à partir de la moyenne des scores de tous les trajets d\'une semaine. Pour apparaitre dans ce classement, il faut parcourir au moins 20 km et avoir réalisé 5 trajets.";
 "dk_achievements_ranking_no_pseudo_set"="Vous devez renseigner un pseudo pour accéder à cette page.";
 "dk_achievements_ranking_permanent"="Permanent";
+"dk_achievements_ranking_permanent_info"="Le classement permanent est calculé à partir de la moyenne des scores de tous les trajets. Pour apparaitre dans ce classement, il faut parcourir au moins 50 km et avoir réalisé 10 trajets.";
 "dk_achievements_ranking_week"="Hebdo";
+"dk_achievements_ranking_week_info"="Le classement hebdomadaire est calculé à partir de la moyenne des scores de tous les trajets d\'une semaine. Pour apparaitre dans ce classement, il faut parcourir au moins 10 km et avoir réalisé 2 trajets.";
 "dk_achievements_streaks_acceleration_reset"="Vous avez accéléré brutalement lors de votre dernier trajet";
 "dk_achievements_streaks_acceleration_text"="Essayez d\'enchaîner une série de trajets sans aucune accélération brutale.\n \nÀ chaque succès, le compteur du nombre de trajets augmente.\n \nEn cas d\'échec, le compteur est réinitialisé et vous devez reprendre à zéro.\n \nLe nombre de trajets de votre meilleure séquence de succès est mémorisé et vous pouvez tenter de le dépasser.";
 "dk_achievements_streaks_acceleration_title"="Aucune accélération brutale";

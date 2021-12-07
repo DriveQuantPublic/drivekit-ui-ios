@@ -50,7 +50,6 @@ class StreakViewModel {
         }
         return result
     }
-    
 }
 
 protocol StreakVMDelegate: AnyObject {

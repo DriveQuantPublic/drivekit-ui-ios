@@ -11,8 +11,7 @@ import DriveKitCommonUI
 import DriveKitDBAchievementAccessModule
 import UICircularProgressRing
 
-class BadgeTableViewCell : UITableViewCell {
-
+class BadgeTableViewCell: UITableViewCell {
     @IBOutlet weak var levelsStackView: UIStackView!
     
     override func awakeFromNib() {

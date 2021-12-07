@@ -13,7 +13,6 @@ import DriveKitDriverAchievementModule
 import UICircularProgressRing
 
 public class BadgeLevelDetailViewController: DKUIViewController {
-
     let viewModel: BadgeLevelViewModel
 
     @IBOutlet weak var progressRing: UICircularProgressRing!

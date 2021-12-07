@@ -15,7 +15,7 @@ import DriveKitDBAchievementAccessModule
     @objc public static let shared = DriveKitDriverAchievementUI()
 
     public private(set) var streakThemes: [DKStreakTheme] = [.phoneDistraction, .safety, .acceleration, .brake, .adherence, .call]
-    public private(set) var badgeCategories: [DKBadgeCategory] = [.generic, .ecodriving, .safety, .phoneDistraction]
+    public private(set) var badgeCategories: [DKBadgeCategory] = [.generic, .ecodriving, .safety, .phoneDistraction,  .call]
     public private(set) var rankingTypes: [DKRankingType] = [.safety, .ecoDriving, .distraction]
     public private(set) var rankingSelector: DKRankingSelectorType = .period(rankingPeriods: [.weekly, .monthly, .allTime])
     public private(set) var rankingDepth: Int = 5
@@ -81,7 +81,7 @@ extension DriveKitDriverAchievementUI {
         configureStreakThemes(streakThemes: streakThemes.map { DKStreakTheme(rawValue: $0)! })
     }
 
-    @objc(configureBadgeCategories:) // Usage example: [DriveKitDriverAchievementUI.shared configureBadgeCategories:@[ @(DKBadgeCategoryGeneric), @(DKBadgeCategoryEcodriving), @(DKBadgeCategorySafety), @(DKBadgeCategoryPhoneDistraction) ]];
+    @objc(configureBadgeCategories:) // Usage example: [DriveKitDriverAchievementUI.shared configureBadgeCategories:@[ @(DKBadgeCategoryGeneric), @(DKBadgeCategoryEcodriving), @(DKBadgeCategorySafety), @(DKBadgeCategoryPhoneDistraction), @(DKBadgeCategoryCall) ]];
     public func objc_configureBadgeCategories(_ badgeCategories: [Int]) {
         configureBadgeCategories(badgeCategories: badgeCategories.map { DKBadgeCategory(rawValue: $0)! })
     }

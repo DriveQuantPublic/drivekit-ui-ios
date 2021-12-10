@@ -535,17 +535,11 @@ extension MapViewController: MKMapViewDelegate {
         guard !(annotation is MKUserLocation) else {
             return nil
         }
-        
+
         let reuseIdentifier = "reuseIdentifier"
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
-        if annotationView == nil {
-            annotationView = ResistantAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
-        }
-        
-        let view = annotationView as! ResistantAnnotationView
-        
+        let view: ResistantAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier) as? ResistantAnnotationView ?? ResistantAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
         view.canShowCallout = true
-        
+
         if annotation.isEqual(startAnnotation) {
             let startImage = UIImage(named: "dk_map_start_event", in: Bundle.driverDataUIBundle, compatibleWith: nil)
             view.image = startImage?.resizeImage(32, opaque: false, contentMode: .scaleAspectFit).tintedImage(withColor: UIColor.dkMapTrace)
@@ -553,14 +547,19 @@ extension MapViewController: MKMapViewDelegate {
             view.resistantLayer.resistantZPosition = 1000
             let tripViewModel = viewModel
             if let start = tripViewModel.startEvent {
-                var city = tripViewModel.trip!.departureCity
-                if tripViewModel.trip!.departureAddress != "" {
-                    city = tripViewModel.trip!.departureAddress
+                let city: String?
+                if let trip = tripViewModel.trip {
+                    if let departureAddress = trip.departureAddress, !departureAddress.isEmpty {
+                        city = departureAddress
+                    } else {
+                        city = trip.departureCity
+                    }
+                } else {
+                    city = nil
                 }
-                if city != nil {
-                    view.setupAsTripEventCallout(with: start, location: city!)
-                }
-                else {
+                if let city = city {
+                    view.setupAsTripEventCallout(with: start, location: city)
+                } else {
                     view.setupAsTripEventCallout(with: start, location: "dk_driverdata_start_event".dkDriverDataLocalized())
                 }
             }
@@ -592,11 +591,11 @@ extension MapViewController: MKMapViewDelegate {
                 if let (event, index) = getEvent(in: self.viewModel.safetyEvents, associatedToAnnotation: annotation, fromAnnotations: self.safetyAnnotations) {
                     let image = event.getMapImageID()
                     view.image = UIImage(named: image, in: Bundle.driverDataUIBundle, compatibleWith: nil)
-                    view.image = annotationView?.image?.resizeImage(36, opaque: false, contentMode: .scaleAspectFit)
-                    view.centerOffset = CGPoint(x: 0, y: -(annotationView?.image?.size.height)! / 2)
+                    view.image = view.image?.resizeImage(36, opaque: false, contentMode: .scaleAspectFit)
+                    view.centerOffset = CGPoint(x: 0, y: -(view.image?.size.height ?? 0) / 2)
                     view.resistantLayer.resistantZPosition = CGFloat(event.getZIndex())
                     view.setupAsTripEventCallout(with: event, location: "")
-                    if let infoView = view.rightCalloutAccessoryView as! UIButton? {
+                    if let infoView = view.rightCalloutAccessoryView as? UIButton {
                         infoView.tag = index
                         infoView.addTarget(self, action: #selector(safetyInfoClicked), for: .touchUpInside)
                     }
@@ -604,10 +603,10 @@ extension MapViewController: MKMapViewDelegate {
 
                 if let (event, index) = getEvent(in: self.viewModel.distractionEvents, associatedToAnnotation: annotation, fromAnnotations: self.distractionAnnotations) {
                     view.image = UIImage(named: event.getMapImageID(), in: Bundle.driverDataUIBundle, compatibleWith: nil)
-                    view.image = annotationView?.image?.resizeImage(36, opaque: false, contentMode: .scaleAspectFit)
-                    view.centerOffset = CGPoint(x: 0, y: -(annotationView?.image?.size.height)! / 2)
+                    view.image = view.image?.resizeImage(36, opaque: false, contentMode: .scaleAspectFit)
+                    view.centerOffset = CGPoint(x: 0, y: -(view.image?.size.height ?? 0) / 2)
                     view.setupAsTripEventCallout(with: event, location: "")
-                    if let infoView = view.rightCalloutAccessoryView as! UIButton? {
+                    if let infoView = view.rightCalloutAccessoryView as? UIButton {
                         infoView.tag = index
                         infoView.addTarget(self, action: #selector(distractionInfoClicked), for: .touchUpInside)
                     }
@@ -615,10 +614,10 @@ extension MapViewController: MKMapViewDelegate {
 
                 if let (event, index) = getEvent(in: self.viewModel.phoneCallEvents, associatedToAnnotation: annotation, fromAnnotations: self.phoneCallAnnotations) {
                     view.image = UIImage(named: event.getMapImageID(), in: Bundle.driverDataUIBundle, compatibleWith: nil)
-                    view.image = annotationView?.image?.resizeImage(36, opaque: false, contentMode: .scaleAspectFit)
-                    view.centerOffset = CGPoint(x: 0, y: -(annotationView?.image?.size.height)! / 2)
+                    view.image = view.image?.resizeImage(36, opaque: false, contentMode: .scaleAspectFit)
+                    view.centerOffset = CGPoint(x: 0, y: -(view.image?.size.height ?? 0) / 2)
                     view.setupAsTripEventCallout(with: event, location: "")
-                    if let infoView = view.rightCalloutAccessoryView as! UIButton? {
+                    if let infoView = view.rightCalloutAccessoryView as? UIButton {
                         infoView.tag = index
                         infoView.addTarget(self, action: #selector(phoneCallInfoClicked), for: .touchUpInside)
                     }
@@ -627,7 +626,6 @@ extension MapViewController: MKMapViewDelegate {
                 if let (event, index) = getEvent(in: self.viewModel.events, associatedToAnnotation: annotation, fromAnnotations: self.allAnnotations) {
                     let image = event.getMapImageID()
                     view.image = UIImage(named: image, in: Bundle.driverDataUIBundle, compatibleWith: nil)
-                    view.image = annotationView?.image
                     if let sourceImage = view.image {
                         if image == "dk_map_start_event" || image == "dk_map_end_event" {
                             view.image = sourceImage.resizeImage(32, opaque: false, contentMode: .scaleAspectFit).tintedImage(withColor: UIColor.dkMapTrace)
@@ -635,19 +633,18 @@ extension MapViewController: MKMapViewDelegate {
                             view.resistantLayer.resistantZPosition = 1000
                         } else {
                             view.image = sourceImage.resizeImage(36, opaque: false, contentMode: .scaleAspectFit)
-                            view.centerOffset = CGPoint(x: 0, y: -(annotationView?.image?.size.height)! / 2)
+                            view.centerOffset = CGPoint(x: 0, y: -(view.image?.size.height ?? 0) / 2)
                             view.resistantLayer.resistantZPosition = CGFloat(event.getZIndex())
                         }
                     }
                     view.setupAsTripEventCallout(with: event, location: "")
-                    if let infoView = view.rightCalloutAccessoryView as! UIButton?, event.type != .start && event.type != .end {
+                    if let infoView = view.rightCalloutAccessoryView as? UIButton, event.type != .start && event.type != .end {
                         infoView.tag = index
                         infoView.addTarget(self, action: #selector(allInfoClicked(_:)), for: .touchUpInside)
                     }
                 }
             }
         }
-        
         view.annotation = annotation
         return view
     }

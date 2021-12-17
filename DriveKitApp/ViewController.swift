@@ -129,6 +129,8 @@ class ViewController: UITableViewController {
                 self.showRanking()
             } else if indexPath.row == 13 {
                 self.showChallenges()
+            } else if indexPath.row == 14 {
+                self.showActivationHours()
             }
         }
     }
@@ -268,6 +270,12 @@ class ViewController: UITableViewController {
         }
     }
 
+    func showActivationHours() {
+        if let tripAnalysisUI = DriveKitNavigationController.shared.tripAnalysisUI {
+            let activationHoursVC = tripAnalysisUI.getActivationHoursViewController()
+            self.navigationController?.pushViewController(activationHoursVC, animated: true)
+        }
+    }
     @IBAction private func askOnboardingPermissions() {
         DriveKitPermissionsUtilsUI.shared.showPermissionViews([.location, .activity], parentViewController: self.navigationController!) {
             self.showAlertMessage(title: "Permissions", message: "👍", back: false, cancel: false)

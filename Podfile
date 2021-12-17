@@ -40,6 +40,9 @@ end
 
 target 'DriveKitChallengeUI' do
   pod 'DriveKitChallenge', '1.18-beta1'
+
+target 'DriveKitTripAnalysisUI' do
+  pod 'DriveKitTripAnalysis', :path => '../../gitlab/ios/'
 end
 
 

@@ -11,7 +11,6 @@ import UIKit
 import DriveKitCommonUI
 
 @objc public class DriveKitTripAnalysisUI: NSObject {
-
     @objc public static let shared = DriveKitTripAnalysisUI()
     private var activationHoursVC: ActivationHoursViewController?
     

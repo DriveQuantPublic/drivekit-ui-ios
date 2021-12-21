@@ -2,7 +2,7 @@
 platform :ios, '10.0'
 use_frameworks!
 
-source 'https://gitlab.com/drivequant/drivekit/drivekit-specs.git'
+#source 'https://gitlab.com/drivequant/drivekit/drivekit-specs.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
 def circular_progress_ring
@@ -15,34 +15,45 @@ end
 
 
 target 'DriveKitDriverDataUI' do
-  pod 'DriveKitDriverData', '1.18-beta1'
+  pod 'DriveKitDriverData', :path => '../ios/'
+  pod 'DriveKitDBTripAccess', :path => '../ios/'
+  pod 'DriveKitDBVehicleAccess', :path => '../ios/'
+  pod 'DriveKitTripAnalysis', :path => '../ios/'
+  pod 'DriveKitDBTripAccess', :path => '../ios/'
   circular_progress_ring
 end
 
 target 'DriveKitDriverAchievementUI' do
-  pod 'DriveKitDriverAchievement', '1.18-beta1'
+  pod 'DriveKitDriverAchievement', :path => '../ios/'
+  pod 'DriveKitDBVehicleAccess', :path => '../ios/'
+  pod 'DriveKitDBAchievementAccess', :path => '../ios/'
   circular_progress_ring
 end
 
 target 'DriveKitCommonUI' do
-  pod 'DriveKitCore', '1.18-beta1'
+  pod 'DriveKitCore', :path => '../ios/'
   circular_progress_ring
 end
-  
+
 target 'DriveKitVehicleUI' do
-  pod 'DriveKitVehicle', '1.18-beta1'
-  pod 'DriveKitTripAnalysis', '1.18-beta1'
+  pod 'DriveKitVehicle', :path => '../ios/'
+  pod 'DriveKitDBVehicleAccess', :path => '../ios/'
+  pod 'DriveKitTripAnalysis', :path => '../ios/'
 end
 
 target 'DriveKitPermissionsUtilsUI' do
-  pod 'DriveKitCore', '1.18-beta1'
+  pod 'DriveKitCore', :path => '../ios/'
+  pod 'DriveKitNetworking', :path => '../ios/'
 end
 
 target 'DriveKitChallengeUI' do
-  pod 'DriveKitChallenge', '1.18-beta1'
+  pod 'DriveKitChallenge', :path => '../ios/'
+  pod 'DriveKitDBChallengeAccess', :path => '../ios/'
+end
 
 target 'DriveKitTripAnalysisUI' do
-  pod 'DriveKitTripAnalysis', :path => '../../gitlab/ios/'
+  pod 'DriveKitTripAnalysis', :path => '../ios/'
+  pod 'WARangeSlider'
 end
 
 

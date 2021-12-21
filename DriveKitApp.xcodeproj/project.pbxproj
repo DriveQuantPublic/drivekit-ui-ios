@@ -159,6 +159,7 @@
 		3FFB2D9224194909003E6A06 /* BeaconScanFailureVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FFB2D9024194909003E6A06 /* BeaconScanFailureVC.xib */; };
 		3FFD7FD12363002B00BD2F0D /* DriveKitDriverDataUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */; };
 		3FFD7FD22363002B00BD2F0D /* DriveKitDriverDataUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		54B194CB4EB9C2225CCB5C02 /* Pods_DriveKitTripAnalysisUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32366A485A279B3F568037E0 /* Pods_DriveKitTripAnalysisUI.framework */; };
 		5C180D66246AFCB8001E95FA /* BadgesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C180D65246AFCB8001E95FA /* BadgesViewModel.swift */; };
 		5C180D68246B000D001E95FA /* BadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C180D67246B000D001E95FA /* BadgesViewController.swift */; };
 		5C180D6A246B0258001E95FA /* BadgeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C180D69246B0258001E95FA /* BadgeTableViewCell.swift */; };
@@ -251,6 +252,11 @@
 		638DDC562726E5EA003ED260 /* DKMainDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638DDC552726E5EA003ED260 /* DKMainDispatcher.swift */; };
 		638DDC582726EAAE003ED260 /* OdometerCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638DDC572726EAAE003ED260 /* OdometerCellType.swift */; };
 		638DDC5A2726EB8F003ED260 /* OdometerCellActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638DDC592726EB8F003ED260 /* OdometerCellActionType.swift */; };
+		63913D98277E769600EABBC7 /* ActivationHoursSlotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63913D97277E769600EABBC7 /* ActivationHoursSlotCell.xib */; };
+		63913D9A277E7C0F00EABBC7 /* ActivationHoursSlotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63913D99277E7C0F00EABBC7 /* ActivationHoursSlotCell.swift */; };
+		63913D9C277F512700EABBC7 /* ActivationHoursSeparatorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63913D9B277F512700EABBC7 /* ActivationHoursSeparatorCell.xib */; };
+		63913D9E277F534000EABBC7 /* ActivationHoursDayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63913D9D277F533F00EABBC7 /* ActivationHoursDayCell.xib */; };
+		63913DA0277F534A00EABBC7 /* ActivationHoursDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63913D9F277F534A00EABBC7 /* ActivationHoursDayCell.swift */; };
 		6391E0CB26072DD100A168D4 /* DKSynthesisCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6391E0CA26072DD100A168D4 /* DKSynthesisCard.swift */; };
 		6391E0D726072E6600A168D4 /* DKSynthesisCardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6391E0D626072E6600A168D4 /* DKSynthesisCardInfo.swift */; };
 		6391E0DE2607836900A168D4 /* SynthesisCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6391E0DD2607836900A168D4 /* SynthesisCardView.swift */; };
@@ -481,7 +487,6 @@
 		A3D7013F7B04AC8C56676DE4 /* Pods_DriveKitApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4009FE234BC3EC14A349F8D3 /* Pods_DriveKitApp.framework */; };
 		AD2690683829D301D9573CEC /* Pods_DriveKitChallengeUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158BFF3EE484B6293C97E890 /* Pods_DriveKitChallengeUI.framework */; };
 		C2ECBA09D9742158769AE627 /* Pods_DriveKitPermissionsUtilsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3A98094797ED33BAF53826 /* Pods_DriveKitPermissionsUtilsUI.framework */; };
-		D5025685C5D18FD28F5E2424 /* Pods_DriveKitTripAnalysisUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F59B5659DD629548481878A7 /* Pods_DriveKitTripAnalysisUI.framework */; };
 		FA5F8336F7F9D6E9CBACE91B /* Pods_DriveKitDriverAchievementUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36173251B2A47392720E8B05 /* Pods_DriveKitDriverAchievementUI.framework */; };
 		FE2C04BD97A78F4B22CD7008 /* Pods_DriveKitDriverDataUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55652B494DACA2423EDB5A8E /* Pods_DriveKitDriverDataUI.framework */; };
 /* End PBXBuildFile section */
@@ -623,7 +628,7 @@
 		1A1A8A18A79F9D8AA95BDA72 /* Pods-DriveKitPermissionsUtilsUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitPermissionsUtilsUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitPermissionsUtilsUI/Pods-DriveKitPermissionsUtilsUI.release.xcconfig"; sourceTree = "<group>"; };
 		20449AFA2A35A174B99296E3 /* Pods_DriveKitVehicleUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitVehicleUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		20B69960974EEE2DEB3E079F /* Pods-DriveKitDriverAchievementUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverAchievementUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverAchievementUI/Pods-DriveKitDriverAchievementUI.release.xcconfig"; sourceTree = "<group>"; };
-		30492840C5A4601322972F07 /* Pods-DriveKitTripAnalysisUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitTripAnalysisUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitTripAnalysisUI/Pods-DriveKitTripAnalysisUI.debug.xcconfig"; sourceTree = "<group>"; };
+		32366A485A279B3F568037E0 /* Pods_DriveKitTripAnalysisUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitTripAnalysisUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36173251B2A47392720E8B05 /* Pods_DriveKitDriverAchievementUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitDriverAchievementUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38FD5C43C51C0CF5151B396D /* Pods-DriveKitVehicleUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitVehicleUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitVehicleUI/Pods-DriveKitVehicleUI.release.xcconfig"; sourceTree = "<group>"; };
 		3F03A4DC242C8BD3000924A0 /* DKContentMail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKContentMail.swift; sourceTree = "<group>"; };
@@ -792,7 +797,8 @@
 		3FFB2D9024194909003E6A06 /* BeaconScanFailureVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeaconScanFailureVC.xib; sourceTree = "<group>"; };
 		4009FE234BC3EC14A349F8D3 /* Pods_DriveKitApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		453D6BC570583B1D6DC16DBC /* Pods-DriveKitApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitApp.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitApp/Pods-DriveKitApp.debug.xcconfig"; sourceTree = "<group>"; };
-		4C8F6CC51A680E517B273DA7 /* Pods-DriveKitTripAnalysisUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitTripAnalysisUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitTripAnalysisUI/Pods-DriveKitTripAnalysisUI.release.xcconfig"; sourceTree = "<group>"; };
+		4CD7037C27E50286ED57032C /* Pods-DriveKitTripAnalysisUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitTripAnalysisUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitTripAnalysisUI/Pods-DriveKitTripAnalysisUI.debug.xcconfig"; sourceTree = "<group>"; };
+		4F4AC1B7FA8DAACDF9BADB1D /* Pods-DriveKitTripAnalysisUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitTripAnalysisUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitTripAnalysisUI/Pods-DriveKitTripAnalysisUI.release.xcconfig"; sourceTree = "<group>"; };
 		55652B494DACA2423EDB5A8E /* Pods_DriveKitDriverDataUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitDriverDataUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C180D65246AFCB8001E95FA /* BadgesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesViewModel.swift; sourceTree = "<group>"; };
 		5C180D67246B000D001E95FA /* BadgesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesViewController.swift; sourceTree = "<group>"; };
@@ -898,6 +904,11 @@
 		638DDC552726E5EA003ED260 /* DKMainDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKMainDispatcher.swift; sourceTree = "<group>"; };
 		638DDC572726EAAE003ED260 /* OdometerCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdometerCellType.swift; sourceTree = "<group>"; };
 		638DDC592726EB8F003ED260 /* OdometerCellActionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdometerCellActionType.swift; sourceTree = "<group>"; };
+		63913D97277E769600EABBC7 /* ActivationHoursSlotCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivationHoursSlotCell.xib; sourceTree = "<group>"; };
+		63913D99277E7C0F00EABBC7 /* ActivationHoursSlotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationHoursSlotCell.swift; sourceTree = "<group>"; };
+		63913D9B277F512700EABBC7 /* ActivationHoursSeparatorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivationHoursSeparatorCell.xib; sourceTree = "<group>"; };
+		63913D9D277F533F00EABBC7 /* ActivationHoursDayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivationHoursDayCell.xib; sourceTree = "<group>"; };
+		63913D9F277F534A00EABBC7 /* ActivationHoursDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationHoursDayCell.swift; sourceTree = "<group>"; };
 		6391E0CA26072DD100A168D4 /* DKSynthesisCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKSynthesisCard.swift; sourceTree = "<group>"; };
 		6391E0D626072E6600A168D4 /* DKSynthesisCardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKSynthesisCardInfo.swift; sourceTree = "<group>"; };
 		6391E0DD2607836900A168D4 /* SynthesisCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesisCardView.swift; sourceTree = "<group>"; };
@@ -1144,7 +1155,6 @@
 		C6CF2F88D8CEC4FD0F65BD58 /* Pods-DriveKitChallengeUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitChallengeUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitChallengeUI/Pods-DriveKitChallengeUI.debug.xcconfig"; sourceTree = "<group>"; };
 		DCBF31C151237FEA8EDE3CF0 /* Pods-DriveKitDriverDataUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverDataUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverDataUI/Pods-DriveKitDriverDataUI.release.xcconfig"; sourceTree = "<group>"; };
 		F4E7AE929F1C5F8DBFAE3E0C /* Pods-DriveKitApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitApp.release.xcconfig"; path = "Target Support Files/Pods-DriveKitApp/Pods-DriveKitApp.release.xcconfig"; sourceTree = "<group>"; };
-		F59B5659DD629548481878A7 /* Pods_DriveKitTripAnalysisUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitTripAnalysisUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1185,7 +1195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6781309D276BC38A00701CF1 /* DriveKitCommonUI.framework in Frameworks */,
-				D5025685C5D18FD28F5E2424 /* Pods_DriveKitTripAnalysisUI.framework in Frameworks */,
+				54B194CB4EB9C2225CCB5C02 /* Pods_DriveKitTripAnalysisUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1236,7 +1246,7 @@
 				8A3A98094797ED33BAF53826 /* Pods_DriveKitPermissionsUtilsUI.framework */,
 				20449AFA2A35A174B99296E3 /* Pods_DriveKitVehicleUI.framework */,
 				158BFF3EE484B6293C97E890 /* Pods_DriveKitChallengeUI.framework */,
-				F59B5659DD629548481878A7 /* Pods_DriveKitTripAnalysisUI.framework */,
+				32366A485A279B3F568037E0 /* Pods_DriveKitTripAnalysisUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2213,6 +2223,11 @@
 		678130A7276BF73500701CF1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				63913D9F277F534A00EABBC7 /* ActivationHoursDayCell.swift */,
+				63913D9D277F533F00EABBC7 /* ActivationHoursDayCell.xib */,
+				63913D9B277F512700EABBC7 /* ActivationHoursSeparatorCell.xib */,
+				63913D99277E7C0F00EABBC7 /* ActivationHoursSlotCell.swift */,
+				63913D97277E769600EABBC7 /* ActivationHoursSlotCell.xib */,
 				678130A9276BF77700701CF1 /* ActivationHoursViewController.swift */,
 				678130AA276BF77700701CF1 /* ActivationHoursViewController.xib */,
 			);
@@ -2728,8 +2743,8 @@
 				38FD5C43C51C0CF5151B396D /* Pods-DriveKitVehicleUI.release.xcconfig */,
 				C6CF2F88D8CEC4FD0F65BD58 /* Pods-DriveKitChallengeUI.debug.xcconfig */,
 				6ECF11F340D0E58FB40AF162 /* Pods-DriveKitChallengeUI.release.xcconfig */,
-				30492840C5A4601322972F07 /* Pods-DriveKitTripAnalysisUI.debug.xcconfig */,
-				4C8F6CC51A680E517B273DA7 /* Pods-DriveKitTripAnalysisUI.release.xcconfig */,
+				4CD7037C27E50286ED57032C /* Pods-DriveKitTripAnalysisUI.debug.xcconfig */,
+				4F4AC1B7FA8DAACDF9BADB1D /* Pods-DriveKitTripAnalysisUI.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -2879,7 +2894,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 67813098276BB2A100701CF1 /* Build configuration list for PBXNativeTarget "DriveKitTripAnalysisUI" */;
 			buildPhases = (
-				3772999275BD751487A88401 /* [CP] Check Pods Manifest.lock */,
+				3D74B6267B67A39F5CD36698 /* [CP] Check Pods Manifest.lock */,
 				6781308B276BB2A100701CF1 /* Headers */,
 				6781308C276BB2A100701CF1 /* Sources */,
 				6781308D276BB2A100701CF1 /* Frameworks */,
@@ -3159,7 +3174,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63913D98277E769600EABBC7 /* ActivationHoursSlotCell.xib in Resources */,
+				63913D9E277F534000EABBC7 /* ActivationHoursDayCell.xib in Resources */,
 				678130AC276BF77700701CF1 /* ActivationHoursViewController.xib in Resources */,
+				63913D9C277F512700EABBC7 /* ActivationHoursSeparatorCell.xib in Resources */,
 				678130B3276C048700701CF1 /* DKTripAnalysisLocalizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3249,7 +3267,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DriveKitApp/Pods-DriveKitApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3772999275BD751487A88401 /* [CP] Check Pods Manifest.lock */ = {
+		3D74B6267B67A39F5CD36698 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -3674,6 +3692,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				678130AB276BF77700701CF1 /* ActivationHoursViewController.swift in Sources */,
+				63913D9A277E7C0F00EABBC7 /* ActivationHoursSlotCell.swift in Sources */,
+				63913DA0277F534A00EABBC7 /* ActivationHoursDayCell.swift in Sources */,
 				678130A3276BF59300701CF1 /* DriveKitTripAnalysisUI.swift in Sources */,
 				678130AF276BFDFB00701CF1 /* ActivationHoursViewModel.swift in Sources */,
 			);
@@ -4264,11 +4284,10 @@
 		};
 		67813099276BB2A100701CF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 30492840C5A4601322972F07 /* Pods-DriveKitTripAnalysisUI.debug.xcconfig */;
+			baseConfigurationReference = 4CD7037C27E50286ED57032C /* Pods-DriveKitTripAnalysisUI.debug.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -4300,11 +4319,10 @@
 		};
 		6781309A276BB2A100701CF1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4C8F6CC51A680E517B273DA7 /* Pods-DriveKitTripAnalysisUI.release.xcconfig */;
+			baseConfigurationReference = 4F4AC1B7FA8DAACDF9BADB1D /* Pods-DriveKitTripAnalysisUI.release.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -4579,7 +4597,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 453D6BC570583B1D6DC16DBC /* Pods-DriveKitApp.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DM95YM67TK;
@@ -4600,7 +4617,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F4E7AE929F1C5F8DBFAE3E0C /* Pods-DriveKitApp.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DM95YM67TK;

@@ -9,19 +9,35 @@
 import Foundation
 import DriveKitTripAnalysisModule
 
-public class ActivationHoursViewModel {
+class ActivationHoursViewModel {
+    let sections: [ActivationHoursSection] = [
+        .separator,
+        .slot,
+        .separator,
+        .slot,
+        .separator,
+        .day,
+        .day,
+        .day,
+        .day,
+        .day,
+        .day,
+        .day
+    ]
     private var activationHours: DKActivationHours?
     public weak var delegate: DKActivationHoursConfigDelegate? = nil
 
     func synchronizeActivationHours() {
         self.delegate?.showLoader()
-        DriveKitTripAnalysis.shared.getActivationHours {[weak self] status, activationHours in
-            self?.activationHours = activationHours
-            if status == .success {
-                self?.delegate?.hideLoader()
-                self?.delegate?.onActivationHoursAvaiblale()
-            } else {
-                self?.delegate?.didReceiveErrorFromService()
+        DriveKitTripAnalysis.shared.getActivationHours { [weak self] status, activationHours in
+            if let self = self {
+                self.activationHours = activationHours
+                if status == .success {
+                    self.delegate?.hideLoader()
+                    self.delegate?.onActivationHoursAvaiblale()
+                } else {
+                    self.delegate?.didReceiveErrorFromService()
+                }
             }
         }
     }
@@ -42,3 +58,8 @@ public protocol DKActivationHoursConfigDelegate: AnyObject {
     func hideLoader()
 }
 
+enum ActivationHoursSection {
+    case separator
+    case slot
+    case day
+}

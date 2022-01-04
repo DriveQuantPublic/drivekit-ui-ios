@@ -203,6 +203,9 @@
 		633E93D8261D0CA4009543C0 /* SynthesisCardInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633E93D7261D0CA4009543C0 /* SynthesisCardInfoView.swift */; };
 		633E93DF261D0D1A009543C0 /* SynthesisCardInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 633E93DE261D0D1A009543C0 /* SynthesisCardInfoView.xib */; };
 		634C354426BAD53800C75098 /* DKAnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634C354326BAD53800C75098 /* DKAnalyticsEvent.swift */; };
+		63508C6D278455370036A61E /* ActivationHoursSlotCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63508C6C278455370036A61E /* ActivationHoursSlotCellViewModel.swift */; };
+		63508C6F27847A020036A61E /* ActivationHoursSlotTypeViewSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63508C6E27847A020036A61E /* ActivationHoursSlotTypeViewSelector.swift */; };
+		63508C7127847A270036A61E /* ActivationHoursSlotTypeViewSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63508C7027847A270036A61E /* ActivationHoursSlotTypeViewSelector.xib */; };
 		635616F624B4B7AC0047EAD8 /* DriverRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635616F524B4B7AC0047EAD8 /* DriverRank.swift */; };
 		635616F824B4CD6D0047EAD8 /* RankingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635616F724B4CD6D0047EAD8 /* RankingType.swift */; };
 		635616FA24B4CDB30047EAD8 /* RankingSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635616F924B4CDB30047EAD8 /* RankingSelector.swift */; };
@@ -257,6 +260,7 @@
 		63913D9C277F512700EABBC7 /* ActivationHoursSeparatorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63913D9B277F512700EABBC7 /* ActivationHoursSeparatorCell.xib */; };
 		63913D9E277F534000EABBC7 /* ActivationHoursDayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63913D9D277F533F00EABBC7 /* ActivationHoursDayCell.xib */; };
 		63913DA0277F534A00EABBC7 /* ActivationHoursDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63913D9F277F534A00EABBC7 /* ActivationHoursDayCell.swift */; };
+		63913DA2277F601900EABBC7 /* ActivationHoursDayCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63913DA1277F601900EABBC7 /* ActivationHoursDayCellViewModel.swift */; };
 		6391E0CB26072DD100A168D4 /* DKSynthesisCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6391E0CA26072DD100A168D4 /* DKSynthesisCard.swift */; };
 		6391E0D726072E6600A168D4 /* DKSynthesisCardInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6391E0D626072E6600A168D4 /* DKSynthesisCardInfo.swift */; };
 		6391E0DE2607836900A168D4 /* SynthesisCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6391E0DD2607836900A168D4 /* SynthesisCardView.swift */; };
@@ -853,6 +857,9 @@
 		633E93D7261D0CA4009543C0 /* SynthesisCardInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesisCardInfoView.swift; sourceTree = "<group>"; };
 		633E93DE261D0D1A009543C0 /* SynthesisCardInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SynthesisCardInfoView.xib; sourceTree = "<group>"; };
 		634C354326BAD53800C75098 /* DKAnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKAnalyticsEvent.swift; sourceTree = "<group>"; };
+		63508C6C278455370036A61E /* ActivationHoursSlotCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationHoursSlotCellViewModel.swift; sourceTree = "<group>"; };
+		63508C6E27847A020036A61E /* ActivationHoursSlotTypeViewSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationHoursSlotTypeViewSelector.swift; sourceTree = "<group>"; };
+		63508C7027847A270036A61E /* ActivationHoursSlotTypeViewSelector.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivationHoursSlotTypeViewSelector.xib; sourceTree = "<group>"; };
 		635616F524B4B7AC0047EAD8 /* DriverRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRank.swift; sourceTree = "<group>"; };
 		635616F724B4CD6D0047EAD8 /* RankingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingType.swift; sourceTree = "<group>"; };
 		635616F924B4CDB30047EAD8 /* RankingSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingSelector.swift; sourceTree = "<group>"; };
@@ -909,6 +916,7 @@
 		63913D9B277F512700EABBC7 /* ActivationHoursSeparatorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivationHoursSeparatorCell.xib; sourceTree = "<group>"; };
 		63913D9D277F533F00EABBC7 /* ActivationHoursDayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivationHoursDayCell.xib; sourceTree = "<group>"; };
 		63913D9F277F534A00EABBC7 /* ActivationHoursDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationHoursDayCell.swift; sourceTree = "<group>"; };
+		63913DA1277F601900EABBC7 /* ActivationHoursDayCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivationHoursDayCellViewModel.swift; sourceTree = "<group>"; };
 		6391E0CA26072DD100A168D4 /* DKSynthesisCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKSynthesisCard.swift; sourceTree = "<group>"; };
 		6391E0D626072E6600A168D4 /* DKSynthesisCardInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKSynthesisCardInfo.swift; sourceTree = "<group>"; };
 		6391E0DD2607836900A168D4 /* SynthesisCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesisCardView.swift; sourceTree = "<group>"; };
@@ -2230,6 +2238,8 @@
 				63913D97277E769600EABBC7 /* ActivationHoursSlotCell.xib */,
 				678130A9276BF77700701CF1 /* ActivationHoursViewController.swift */,
 				678130AA276BF77700701CF1 /* ActivationHoursViewController.xib */,
+				63508C6E27847A020036A61E /* ActivationHoursSlotTypeViewSelector.swift */,
+				63508C7027847A270036A61E /* ActivationHoursSlotTypeViewSelector.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2238,6 +2248,8 @@
 			isa = PBXGroup;
 			children = (
 				678130AE276BFDFB00701CF1 /* ActivationHoursViewModel.swift */,
+				63913DA1277F601900EABBC7 /* ActivationHoursDayCellViewModel.swift */,
+				63508C6C278455370036A61E /* ActivationHoursSlotCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -3175,6 +3187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63913D98277E769600EABBC7 /* ActivationHoursSlotCell.xib in Resources */,
+				63508C7127847A270036A61E /* ActivationHoursSlotTypeViewSelector.xib in Resources */,
 				63913D9E277F534000EABBC7 /* ActivationHoursDayCell.xib in Resources */,
 				678130AC276BF77700701CF1 /* ActivationHoursViewController.xib in Resources */,
 				63913D9C277F512700EABBC7 /* ActivationHoursSeparatorCell.xib in Resources */,
@@ -3692,10 +3705,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				678130AB276BF77700701CF1 /* ActivationHoursViewController.swift in Sources */,
+				63508C6D278455370036A61E /* ActivationHoursSlotCellViewModel.swift in Sources */,
 				63913D9A277E7C0F00EABBC7 /* ActivationHoursSlotCell.swift in Sources */,
 				63913DA0277F534A00EABBC7 /* ActivationHoursDayCell.swift in Sources */,
+				63913DA2277F601900EABBC7 /* ActivationHoursDayCellViewModel.swift in Sources */,
 				678130A3276BF59300701CF1 /* DriveKitTripAnalysisUI.swift in Sources */,
 				678130AF276BFDFB00701CF1 /* ActivationHoursViewModel.swift in Sources */,
+				63508C6F27847A020036A61E /* ActivationHoursSlotTypeViewSelector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActivationHoursViewController" customModule="DriveKitTripAnalysisUI" customModuleProvider="target">
             <connections>
+                <outlet property="activationDescriptionLabel" destination="QEV-VJ-jx3" id="tRV-hQ-zei"/>
+                <outlet property="activationSwitch" destination="qkx-hr-3IA" id="wxy-xL-ku6"/>
+                <outlet property="activationTitleLabel" destination="PZH-L0-G8Z" id="Aae-ye-gLZ"/>
                 <outlet property="tableView" destination="aVO-r0-kiZ" id="KCI-6e-OVh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,6 +25,9 @@
             <subviews>
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qkx-hr-3IA">
                     <rect key="frame" x="355" y="52" width="51" height="31"/>
+                    <connections>
+                        <action selector="activationSwitchDidUpdate" destination="-1" eventType="valueChanged" id="4ca-Ea-TMX"/>
+                    </connections>
                 </switch>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZH-L0-G8Z">
                     <rect key="frame" x="10" y="52" width="335" height="31"/>
@@ -29,19 +35,19 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEV-VJ-jx3">
-                    <rect key="frame" x="10" y="83" width="394" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QEV-VJ-jx3">
+                    <rect key="frame" x="10" y="83" width="394" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aVO-r0-kiZ">
-                    <rect key="frame" x="0.0" y="110" width="414" height="744"/>
+                    <rect key="frame" x="0.0" y="109.5" width="414" height="744.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="aVO-r0-kiZ" secondAttribute="bottom" constant="8" id="I8l-6b-rTE"/>
                 <constraint firstItem="PZH-L0-G8Z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="JzH-PW-dhd"/>

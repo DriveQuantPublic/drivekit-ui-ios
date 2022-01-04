@@ -26,6 +26,9 @@
                         </constraints>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
                         <state key="normal" title="Button"/>
+                        <connections>
+                            <action selector="showMenu:" destination="kR2-W3-56a" eventType="touchUpInside" id="RV4-UR-btr"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVK-YC-UaH">
                         <rect key="frame" x="10" y="24.5" width="284" height="21"/>
@@ -51,6 +54,11 @@
                     <constraint firstItem="PVK-YC-UaH" firstAttribute="leading" secondItem="IVp-Ps-uUh" secondAttribute="leading" constant="10" id="eSL-GB-IXm"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="descriptionLabel" destination="9nz-hQ-eTx" id="v8m-mu-0uQ"/>
+                <outlet property="slotTypeButton" destination="plW-1k-666" id="MZa-CI-GoW"/>
+                <outlet property="titleLabel" destination="PVK-YC-UaH" id="Nc8-Hv-6DX"/>
+            </connections>
             <point key="canvasLocation" x="135" y="2"/>
         </tableViewCell>
     </objects>

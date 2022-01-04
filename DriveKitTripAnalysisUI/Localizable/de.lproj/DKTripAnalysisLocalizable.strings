@@ -1,7 +1,12 @@
-/* 
-  DKTripAnalysisLocalizable.strings
-  DriveKitApp
-
-  Created by Amine Gahbiche on 17/12/2021.
-  Copyright © 2021 DriveQuant. All rights reserved.
-*/
+"dk_working_hours_enable_desc"="Mit dieser Funktion können Sie die Zeiten für die Aktivierung des automatischen Modus einstellen und Fahrten mit einem Label versehen.";
+"dk_working_hours_enable_title"="Arbeitszeiten freigeben";
+"dk_working_hours_slot_disabled_desc"="Fahrten werden nicht aufgezeichnet";
+"dk_working_hours_slot_inside_title"="In der Zeitspanne";
+"dk_working_hours_slot_mode_business_title"="Professionell";
+"dk_working_hours_slot_mode_disabled_title"="Deaktiviert";
+"dk_working_hours_slot_mode_personal_title"="Persönlich";
+"dk_working_hours_slot_outside_title"="Außerhalb des Zeitraums";
+"dk_working_hours_sync_failed"="Die Synchronisierung der Einstellungen ist fehlgeschlagen, bitte versuchen Sie es später noch einmal.";
+"dk_working_hours_title"="Arbeitszeit";
+"dk_working_hours_update_failed"="Die Aktualisierung der Einstellungen ist fehlgeschlagen, bitte versuchen Sie es später noch einmal.";
+"dk_working_hours_update_succeed"="Die Einstellungen wurden aktualisiert.";

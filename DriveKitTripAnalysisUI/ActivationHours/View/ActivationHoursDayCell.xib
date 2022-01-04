@@ -19,6 +19,9 @@
                 <subviews>
                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MyO-uQ-bJ8">
                         <rect key="frame" x="8" y="22" width="51" height="31"/>
+                        <connections>
+                            <action selector="switchDidUpdate" destination="KGk-i7-Jjw" eventType="valueChanged" id="wHy-Cy-lAF"/>
+                        </connections>
                     </switch>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q0x-AX-fa1" customClass="RangeSlider" customModule="WARangeSlider">
                         <rect key="frame" x="89" y="23.5" width="199" height="28.5"/>
@@ -27,6 +30,9 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="28.5" id="vfe-5a-4l1"/>
                         </constraints>
+                        <connections>
+                            <action selector="sliderDidUpdate" destination="KGk-i7-Jjw" eventType="valueChanged" id="5lW-nv-GcF"/>
+                        </connections>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aii-Pd-gYo">
                         <rect key="frame" x="11.5" y="57" width="42" height="14"/>

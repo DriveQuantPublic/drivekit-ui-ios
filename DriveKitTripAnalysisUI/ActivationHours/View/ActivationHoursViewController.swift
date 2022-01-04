@@ -10,6 +10,9 @@ import UIKit
 import DriveKitCommonUI
 
 class ActivationHoursViewController: DKUIViewController {
+    @IBOutlet private weak var activationTitleLabel: UILabel!
+    @IBOutlet private weak var activationDescriptionLabel: UILabel!
+    @IBOutlet private weak var activationSwitch: UISwitch!
     @IBOutlet private weak var tableView: UITableView!
     private let viewModel: ActivationHoursViewModel
 
@@ -29,11 +32,23 @@ class ActivationHoursViewController: DKUIViewController {
     }
 
     private func setup() {
+        self.title = "dk_working_hours_title".dkTripAnalysisLocalized()
+
+        self.view.backgroundColor = .white
+        self.activationSwitch.isOn = self.viewModel.isActivated
+        self.activationTitleLabel.text = "dk_working_hours_enable_title".dkTripAnalysisLocalized()
+        self.activationDescriptionLabel.text = "dk_working_hours_enable_desc".dkTripAnalysisLocalized()
+
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: "ActivationHoursSlotCell", bundle: Bundle.tripAnalysisUIBundle), forCellReuseIdentifier: "ActivationHoursSlotCell")
         self.tableView.register(UINib(nibName: "ActivationHoursSeparatorCell", bundle: Bundle.tripAnalysisUIBundle), forCellReuseIdentifier: "ActivationHoursSeparatorCell")
         self.tableView.register(UINib(nibName: "ActivationHoursDayCell", bundle: Bundle.tripAnalysisUIBundle), forCellReuseIdentifier: "ActivationHoursDayCell")
+    }
+
+    @IBAction private func activationSwitchDidUpdate() {
+        self.viewModel.activate(self.activationSwitch.isOn)
+        self.tableView.reloadData()
     }
 }
 
@@ -57,12 +72,18 @@ extension ActivationHoursViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch self.viewModel.sections[indexPath.row] {
-            case .slot:
-                return tableView.dequeueReusableCell(withIdentifier: "ActivationHoursSlotCell", for: indexPath)
+            case let .slot(slotType):
+                let slotCell = tableView.dequeueReusableCell(withIdentifier: "ActivationHoursSlotCell", for: indexPath) as! ActivationHoursSlotCell
+                let viewModel = self.viewModel.getSlotCellViewModel(type: slotType)
+                slotCell.configure(viewModel: viewModel, parentViewController: self)
+                return slotCell
             case .separator:
                 return tableView.dequeueReusableCell(withIdentifier: "ActivationHoursSeparatorCell", for: indexPath)
-            case .day:
-                return tableView.dequeueReusableCell(withIdentifier: "ActivationHoursDayCell", for: indexPath)
+            case let .day(day):
+                let dayCell = tableView.dequeueReusableCell(withIdentifier: "ActivationHoursDayCell", for: indexPath) as! ActivationHoursDayCell
+                let viewModel = self.viewModel.getDayCellViewModel(day: day)
+                dayCell.configure(viewModel: viewModel)
+                return dayCell
         }
     }
 }

@@ -2236,10 +2236,10 @@
 				63913D9B277F512700EABBC7 /* ActivationHoursSeparatorCell.xib */,
 				63913D99277E7C0F00EABBC7 /* ActivationHoursSlotCell.swift */,
 				63913D97277E769600EABBC7 /* ActivationHoursSlotCell.xib */,
-				678130A9276BF77700701CF1 /* ActivationHoursViewController.swift */,
-				678130AA276BF77700701CF1 /* ActivationHoursViewController.xib */,
 				63508C6E27847A020036A61E /* ActivationHoursSlotTypeViewSelector.swift */,
 				63508C7027847A270036A61E /* ActivationHoursSlotTypeViewSelector.xib */,
+				678130A9276BF77700701CF1 /* ActivationHoursViewController.swift */,
+				678130AA276BF77700701CF1 /* ActivationHoursViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2247,9 +2247,9 @@
 		678130AD276BFDE100701CF1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				678130AE276BFDFB00701CF1 /* ActivationHoursViewModel.swift */,
 				63913DA1277F601900EABBC7 /* ActivationHoursDayCellViewModel.swift */,
 				63508C6C278455370036A61E /* ActivationHoursSlotCellViewModel.swift */,
+				678130AE276BFDFB00701CF1 /* ActivationHoursViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";

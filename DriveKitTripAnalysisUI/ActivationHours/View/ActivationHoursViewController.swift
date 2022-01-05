@@ -39,6 +39,12 @@ class ActivationHoursViewController: DKUIViewController {
         self.activationTitleLabel.text = "dk_working_hours_enable_title".dkTripAnalysisLocalized()
         self.activationDescriptionLabel.text = "dk_working_hours_enable_desc".dkTripAnalysisLocalized()
 
+        self.activationSwitch.onTintColor = DKUIColors.secondaryColor.color
+        self.activationTitleLabel.font = DKStyles.normalText.style.applyTo(font: .primary)
+        self.activationTitleLabel.textColor = DKUIColors.primaryColor.color
+        self.activationDescriptionLabel.font = DKStyles.smallText.style.applyTo(font: .primary)
+        self.activationDescriptionLabel.textColor = DKUIColors.complementaryFontColor.color
+
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: "ActivationHoursSlotCell", bundle: Bundle.tripAnalysisUIBundle), forCellReuseIdentifier: "ActivationHoursSlotCell")

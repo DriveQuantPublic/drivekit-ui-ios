@@ -42,7 +42,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aVO-r0-kiZ">
-                    <rect key="frame" x="0.0" y="109.5" width="414" height="744.5"/>
+                    <rect key="frame" x="0.0" y="113.5" width="414" height="740.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
@@ -57,7 +57,7 @@
                 <constraint firstItem="aVO-r0-kiZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cj6-gU-reR"/>
                 <constraint firstItem="PZH-L0-G8Z" firstAttribute="bottom" secondItem="qkx-hr-3IA" secondAttribute="bottom" id="pwK-Ao-nHM"/>
                 <constraint firstItem="QEV-VJ-jx3" firstAttribute="top" secondItem="PZH-L0-G8Z" secondAttribute="bottom" id="shd-tA-npH"/>
-                <constraint firstItem="aVO-r0-kiZ" firstAttribute="top" secondItem="QEV-VJ-jx3" secondAttribute="bottom" constant="6" id="swd-Ed-eZI"/>
+                <constraint firstItem="aVO-r0-kiZ" firstAttribute="top" secondItem="QEV-VJ-jx3" secondAttribute="bottom" constant="10" id="swd-Ed-eZI"/>
                 <constraint firstItem="QEV-VJ-jx3" firstAttribute="leading" secondItem="PZH-L0-G8Z" secondAttribute="leading" id="ux2-ri-8aR"/>
                 <constraint firstItem="PZH-L0-G8Z" firstAttribute="top" secondItem="qkx-hr-3IA" secondAttribute="top" id="vxs-Ys-dOS"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aVO-r0-kiZ" secondAttribute="trailing" id="ykb-XZ-mab"/>

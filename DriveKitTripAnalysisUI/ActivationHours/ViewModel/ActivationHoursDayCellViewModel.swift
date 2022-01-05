@@ -28,7 +28,7 @@ class ActivationHoursDayCellViewModel {
 
         struct Wording {
             static let weekdaySymbolByDay: [DKDay: String] = DateFormatter().weekdaySymbolByDay()
-            static let hourFormatter = "h"
+            static let hourFormatter = "h00"
             static let halfHourFormatter = "h30"
         }
     }

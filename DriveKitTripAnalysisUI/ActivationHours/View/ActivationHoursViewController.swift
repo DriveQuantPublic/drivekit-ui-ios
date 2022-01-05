@@ -19,6 +19,7 @@ class ActivationHoursViewController: DKUIViewController {
     public init() {
         self.viewModel = ActivationHoursViewModel()
         super.init(nibName: String(describing: ActivationHoursViewController.self), bundle: Bundle.tripAnalysisUIBundle)
+        self.viewModel.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -29,6 +30,8 @@ class ActivationHoursViewController: DKUIViewController {
         super.viewDidLoad()
 
         setup()
+        showLoader()
+        self.viewModel.synchronizeActivationHours()
     }
 
     private func setup() {
@@ -50,11 +53,50 @@ class ActivationHoursViewController: DKUIViewController {
         self.tableView.register(UINib(nibName: "ActivationHoursSlotCell", bundle: Bundle.tripAnalysisUIBundle), forCellReuseIdentifier: "ActivationHoursSlotCell")
         self.tableView.register(UINib(nibName: "ActivationHoursSeparatorCell", bundle: Bundle.tripAnalysisUIBundle), forCellReuseIdentifier: "ActivationHoursSeparatorCell")
         self.tableView.register(UINib(nibName: "ActivationHoursDayCell", bundle: Bundle.tripAnalysisUIBundle), forCellReuseIdentifier: "ActivationHoursDayCell")
+
+        self.configureBackButton(selector: #selector(back))
     }
 
     @IBAction private func activationSwitchDidUpdate() {
         self.viewModel.activate(self.activationSwitch.isOn)
         self.tableView.reloadData()
+    }
+
+    @objc func back() {
+        if self.viewModel.hasModifications {
+            let alert = UIAlertController(title: nil, message: "TODO".dkTripAnalysisLocalized(), preferredStyle: .alert)
+            let yesAction = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default) { _ in
+                self.updateWorkingHours()
+            }
+            let noAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .default) { [weak self]  _ in
+                self?.navigationController?.popViewController(animated: true)
+            }
+            alert.addAction(yesAction)
+            alert.addAction(noAction)
+            self.present(alert, animated: true)
+        } else {
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+
+    @objc func updateWorkingHours() {
+        self.showLoader()
+        self.navigationItem.rightBarButtonItem = nil
+        self.viewModel.updateWorkingHours { [weak self] success in
+            if let self = self {
+                DispatchQueue.dispatchOnMainThread {
+                    self.hideLoader()
+                    self.workingHoursDidModify()
+                    if success {
+                        if !self.viewModel.hasModifications {
+                            self.navigationController?.popViewController(animated: true)
+                        }
+                    } else {
+                        self.showAlertMessage(title: nil, message: "dk_working_hours_update_failed".dkTripAnalysisLocalized(), back: false, cancel: false)
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -94,16 +136,25 @@ extension ActivationHoursViewController: UITableViewDataSource {
     }
 }
 
-extension ActivationHoursViewController: DKActivationHoursConfigDelegate {
-    func onActivationHoursAvaiblale() {
-        
+extension ActivationHoursViewController: WorkingHoursViewModelDelegate {
+    func workingHoursViewModelDidUpdate() {
+        hideLoader()
+        self.tableView.reloadData()
     }
-    
-    func onActivationHoursUpdated() {
-        
-    }
-    
-    func didReceiveErrorFromService() {
-        
+
+    func workingHoursDidModify() {
+        if self.viewModel.hasModifications {
+            if self.navigationItem.rightBarButtonItem == nil {
+                let checkButton = UIButton(type: .custom)
+                let image = DKImages.check.image?.resizeImage(30, opaque: false).withRenderingMode(.alwaysTemplate)
+                checkButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+                checkButton.setImage(image, for: .normal)
+                checkButton.tintColor = DKUIColors.fontColorOnPrimaryColor.color
+                checkButton.addTarget(self, action: #selector(updateWorkingHours), for: .touchUpInside)
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: checkButton)
+            }
+        } else {
+            self.navigationItem.rightBarButtonItem = nil
+        }
     }
 }

@@ -14,17 +14,8 @@ class ActivationHoursDayCellViewModel {
 
     private struct Constants {
         static let hours: Double = 24
-        static let defaultStart: Double = 8
-        static let defaultEnd: Double = 18
         static let sliderStart: Double = 0
         static let sliderEnd: Double = 24
-
-        struct CodingKey {
-            static let selection = "selection"
-            static let min = "min"
-            static let max = "max"
-            static let index = "index"
-        }
 
         struct Wording {
             static let weekdaySymbolByDay: [DKDay: String] = DateFormatter().weekdaySymbolByDay()
@@ -33,12 +24,35 @@ class ActivationHoursDayCellViewModel {
         }
     }
 
-    let day: DKDay
-    var isSelected = false
-    var min: Double = 1 / Constants.hours * Constants.defaultStart
-    var max: Double = 1 / Constants.hours * Constants.defaultEnd
+    private let config: DKActivationHoursDayConfiguration
+    var isSelected: Bool {
+        didSet {
+            if config.entireDayOff != !isSelected {
+                config.entireDayOff = !isSelected
+                self.delegate?.activationHoursDayCellViewModelDidUpdate(self)
+            }
+        }
+    }
+    var min: Double {
+        didSet {
+            let startTime = getTime(fromSliderValue: self.min)
+            if config.startTime != startTime {
+                config.startTime = startTime
+                self.delegate?.activationHoursDayCellViewModelDidUpdate(self)
+            }
+        }
+    }
+    var max: Double {
+        didSet {
+            let endTime = getTime(fromSliderValue: self.max)
+            if config.endTime != endTime {
+                config.endTime = endTime
+                self.delegate?.activationHoursDayCellViewModelDidUpdate(self)
+            }
+        }
+    }
     var text: String {
-        return Constants.Wording.weekdaySymbolByDay[self.day] ?? ""
+        return Constants.Wording.weekdaySymbolByDay[self.config.day] ?? ""
     }
     var minFormattedValue: String {
         return hourFormatter(sliderValue: self.min).0
@@ -46,10 +60,13 @@ class ActivationHoursDayCellViewModel {
     var maxFormattedValue: String {
         return hourFormatter(sliderValue: self.max).0
     }
+    weak var delegate: ActivationHoursDayCellViewModelDelegate?
 
-    init(day: DKDay, selected: Bool = true) {
-        self.day = day
-        self.isSelected = selected
+    init(config: DKActivationHoursDayConfiguration) {
+        self.config = config
+        self.isSelected = !config.entireDayOff
+        self.min = 1 / Constants.hours * config.startTime
+        self.max = 1 / Constants.hours * config.endTime
     }
 
     private func hourFormatter(sliderValue: Double) -> Input {
@@ -68,6 +85,15 @@ class ActivationHoursDayCellViewModel {
         }
         return (floorValue + Constants.Wording.halfHourFormatter, Int(fl), 30)
     }
+
+    private func getTime(fromSliderValue sliderValue: Double) -> Double {
+        let rawTime = sliderValue * Constants.hours
+        return rawTime.round(nearest: 0.5)
+    }
+}
+
+protocol ActivationHoursDayCellViewModelDelegate: AnyObject {
+    func activationHoursDayCellViewModelDidUpdate(_ activationHoursDayCellViewModel: ActivationHoursDayCellViewModel)
 }
 
 extension ActivationHoursDayCellViewModel {
@@ -98,23 +124,23 @@ extension DateFormatter {
         let weekdaySymbolByDay: [DKDay: String]
         if let days = self.shortWeekdaySymbols {
             weekdaySymbolByDay = [
-                .sunday: days[0],
-                .monday: days[1],
-                .tuesday: days[2],
-                .wednesday: days[3],
-                .thursday: days[4],
-                .friday: days[5],
-                .saturday: days[6]
+                .sunday: days[0].uppercased(),
+                .monday: days[1].uppercased(),
+                .tuesday: days[2].uppercased(),
+                .wednesday: days[3].uppercased(),
+                .thursday: days[4].uppercased(),
+                .friday: days[5].uppercased(),
+                .saturday: days[6].uppercased()
             ]
         } else {
             weekdaySymbolByDay = [
-                .sunday: "SUN",
-                .monday: "MON",
-                .tuesday: "TUE",
-                .wednesday: "WED",
-                .thursday: "THU",
-                .friday: "FRI",
-                .saturday: "SAT"
+                .sunday: "SUN.",
+                .monday: "MON.",
+                .tuesday: "TUE.",
+                .wednesday: "WED.",
+                .thursday: "THU.",
+                .friday: "FRI.",
+                .saturday: "SAT."
             ]
         }
         return weekdaySymbolByDay

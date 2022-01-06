@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActivationHoursViewController" customModule="DriveKitTripAnalysisUI" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WorkingHoursViewController" customModule="DriveKitTripAnalysisUI" customModuleProvider="target">
             <connections>
                 <outlet property="activationDescriptionLabel" destination="QEV-VJ-jx3" id="tRV-hQ-zei"/>
                 <outlet property="activationSwitch" destination="qkx-hr-3IA" id="wxy-xL-ku6"/>

@@ -1,5 +1,5 @@
 //
-//  ActivationHoursSlotCell.swift
+//  WorkingHoursSlotCell.swift
 //  DriveKitTripAnalysisUI
 //
 //  Created by David Bauduin on 31/12/2021.
@@ -11,11 +11,11 @@ import UIKit
 import DriveKitCommonUI
 import DriveKitTripAnalysisModule
 
-class ActivationHoursSlotCell: UITableViewCell {
+class WorkingHoursSlotCell: UITableViewCell {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var slotTypeButton: UIButton!
-    private var viewModel: ActivationHoursSlotCellViewModel?
+    private var viewModel: WorkingHoursSlotCellViewModel?
     private weak var parentViewController: UIViewController?
 
     override func awakeFromNib() {
@@ -32,7 +32,7 @@ class ActivationHoursSlotCell: UITableViewCell {
         updateUI()
     }
 
-    func configure(viewModel: ActivationHoursSlotCellViewModel, parentViewController: UIViewController) {
+    func configure(viewModel: WorkingHoursSlotCellViewModel, parentViewController: UIViewController) {
         self.viewModel = viewModel
         self.parentViewController = parentViewController
         updateUI()
@@ -71,15 +71,15 @@ class ActivationHoursSlotCell: UITableViewCell {
 
     @IBAction private func showMenu(_ sender: UIView) {
         if let parentViewController = self.parentViewController {
-            let menu = ActivationHoursSlotTypeViewSelector(sourceView: sender, selection: self.viewModel?.tripStatus ?? .disabled)
+            let menu = WorkingHoursSlotTypeViewSelector(sourceView: sender, selection: self.viewModel?.tripStatus ?? .disabled)
             menu.delegate = self
             parentViewController.present(menu, animated: true)
         }
     }
 }
 
-extension ActivationHoursSlotCell: ActivationHoursSlotTypeViewSelectorDelegate {
-    func activationHoursSlotTypeViewSelector(_ selector: ActivationHoursSlotTypeViewSelector, didSelectTripStatus tripStatus: TripStatus) {
+extension WorkingHoursSlotCell: WorkingHoursSlotTypeViewSelectorDelegate {
+    func workingHoursSlotTypeViewSelector(_ selector: WorkingHoursSlotTypeViewSelector, didSelectTripStatus tripStatus: TripStatus) {
         selector.dismiss(animated: true)
         if let viewModel = self.viewModel {
             viewModel.tripStatus = tripStatus

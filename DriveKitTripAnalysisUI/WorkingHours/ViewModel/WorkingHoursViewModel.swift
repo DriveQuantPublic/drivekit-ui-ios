@@ -1,5 +1,5 @@
 //
-//  ActivationHoursViewModel.swift
+//  WorkingHoursViewModel.swift
 //  DriveKitTripAnalysisUI
 //
 //  Created by Amine Gahbiche on 17/12/2021.
@@ -10,9 +10,9 @@ import Foundation
 import DriveKitTripAnalysisModule
 import AVFoundation
 
-class ActivationHoursViewModel {
-    private(set) var sections: [ActivationHoursSection] = []
-    private let activatedSections: [ActivationHoursSection] = [
+class WorkingHoursViewModel {
+    private(set) var sections: [WorkingHoursSection] = []
+    private let activatedSections: [WorkingHoursSection] = [
         .slot(.inside),
         .separator,
         .slot(.outside),
@@ -31,9 +31,9 @@ class ActivationHoursViewModel {
         }
     }
     weak var delegate: WorkingHoursViewModelDelegate? = nil
-    private var dayCellViewModelsByDay: [DKDay: ActivationHoursDayCellViewModel] = [:]
-    private var slotViewModelByType: [SlotType: ActivationHoursSlotCellViewModel] = [:]
-    private var workingHours: DKActivationHours {
+    private var dayCellViewModelsByDay: [DKDay: WorkingHoursDayCellViewModel] = [:]
+    private var slotViewModelByType: [SlotType: WorkingHoursSlotCellViewModel] = [:]
+    private var workingHours: DKWorkingHours {
         didSet {
             self.hasModifications = false
             self.update()
@@ -47,14 +47,14 @@ class ActivationHoursViewModel {
 
     init() {
         self.workingHours = DriveKitTripAnalysisUI.shared.defaultWorkingHours
-        DriveKitTripAnalysis.shared.getActivationHours(type: .cache) { status, workingHours in
+        DriveKitTripAnalysis.shared.getWorkingHours(type: .cache) { status, workingHours in
             if status == .cacheOnly, let workingHours = workingHours, self.areWorkingHoursValid(workingHours) {
                 self.workingHours = workingHours
             }
         }
     }
 
-    private func getActivationHoursSlotCellViewModel(forType type: SlotType) -> ActivationHoursSlotCellViewModel {
+    private func getWorkingHoursSlotCellViewModel(forType type: SlotType) -> WorkingHoursSlotCellViewModel {
         if let viewModel = self.slotViewModelByType[type] {
             return viewModel
         } else {
@@ -65,15 +65,15 @@ class ActivationHoursViewModel {
                 case .outside:
                     tripStatus = self.workingHours.outsideHours
             }
-            let viewModel = ActivationHoursSlotCellViewModel(slotType: type, tripStatus: tripStatus)
+            let viewModel = WorkingHoursSlotCellViewModel(slotType: type, tripStatus: tripStatus)
             viewModel.delegate = self
             self.slotViewModelByType[type] = viewModel
             return viewModel
         }
     }
 
-    func synchronizeActivationHours() {
-        DriveKitTripAnalysis.shared.getActivationHours { [weak self] status, workingHours in
+    func synchronizeWorkingHours() {
+        DriveKitTripAnalysis.shared.getWorkingHours { [weak self] status, workingHours in
             if let self = self {
                 DispatchQueue.dispatchOnMainThread {
                     if let workingHours = workingHours, self.areWorkingHoursValid(workingHours) {
@@ -87,10 +87,10 @@ class ActivationHoursViewModel {
     }
 
     func updateWorkingHours(completion: @escaping (Bool) -> ()) {
-        DriveKitTripAnalysis.shared.updateActivationHours(activationHours: self.workingHours) { status in
+        DriveKitTripAnalysis.shared.updateWorkingHours(workingHours: self.workingHours) { status in
             let success = status == .success
             if success {
-                DriveKitTripAnalysis.shared.getActivationHours(type: .cache, completion: { [weak self] status, hours in
+                DriveKitTripAnalysis.shared.getWorkingHours(type: .cache, completion: { [weak self] status, hours in
                     if let self = self {
                         DispatchQueue.dispatchOnMainThread {
                             if status == .cacheOnly, let hours = hours {
@@ -123,24 +123,24 @@ class ActivationHoursViewModel {
         }
     }
 
-    func getSlotCellViewModel(type: SlotType) -> ActivationHoursSlotCellViewModel {
-        return getActivationHoursSlotCellViewModel(forType: type)
+    func getSlotCellViewModel(type: SlotType) -> WorkingHoursSlotCellViewModel {
+        return getWorkingHoursSlotCellViewModel(forType: type)
     }
 
-    func getDayCellViewModel(day: DKDay) -> ActivationHoursDayCellViewModel {
+    func getDayCellViewModel(day: DKDay) -> WorkingHoursDayCellViewModel {
         if let dayCellViewModel = self.dayCellViewModelsByDay[day] {
             return dayCellViewModel
         } else {
-            let dayConfig = self.workingHours.activationHoursDayConfigurations.first(where: { $0.day == day }) ?? getDefaultConfig(day: day)
-            let dayCellViewModel = ActivationHoursDayCellViewModel(config: dayConfig)
+            let dayConfig = self.workingHours.workingHoursDayConfigurations.first(where: { $0.day == day }) ?? getDefaultConfig(day: day)
+            let dayCellViewModel = WorkingHoursDayCellViewModel(config: dayConfig)
             dayCellViewModel.delegate = self
             self.dayCellViewModelsByDay[day] = dayCellViewModel
             return dayCellViewModel
         }
     }
 
-    private func areWorkingHoursValid(_ workingHours: DKActivationHours?) -> Bool {
-        return !(workingHours?.activationHoursDayConfigurations.isEmpty ?? true)
+    private func areWorkingHoursValid(_ workingHours: DKWorkingHours?) -> Bool {
+        return !(workingHours?.workingHoursDayConfigurations.isEmpty ?? true)
     }
 
     private func update() {
@@ -150,14 +150,14 @@ class ActivationHoursViewModel {
         self.delegate?.workingHoursViewModelDidUpdate()
     }
 
-    private func getDefaultConfig(day: DKDay) -> DKActivationHoursDayConfiguration {
+    private func getDefaultConfig(day: DKDay) -> DKWorkingHoursDayConfiguration {
         let active = day != .saturday && day != .sunday
-        return DKActivationHoursDayConfiguration(day: day, entireDayOff: !active, startTime: 8, endTime: 18, reverse: false)
+        return DKWorkingHoursDayConfiguration(day: day, entireDayOff: !active, startTime: 8, endTime: 18, reverse: false)
     }
 }
 
-extension ActivationHoursViewModel: ActivationHoursSlotCellViewModelDelegate {
-    func activationHoursSlotCellViewModel(_ activationHoursSlotCellViewModel: ActivationHoursSlotCellViewModel, didUpdateTripStatus tripStatus: TripStatus, forType type: SlotType) {
+extension WorkingHoursViewModel: WorkingHoursSlotCellViewModelDelegate {
+    func workingHoursSlotCellViewModel(_ workingHoursSlotCellViewModel: WorkingHoursSlotCellViewModel, didUpdateTripStatus tripStatus: TripStatus, forType type: SlotType) {
         switch type {
             case .inside:
                 self.workingHours.insideHours = tripStatus
@@ -168,8 +168,8 @@ extension ActivationHoursViewModel: ActivationHoursSlotCellViewModelDelegate {
     }
 }
 
-extension ActivationHoursViewModel: ActivationHoursDayCellViewModelDelegate {
-    func activationHoursDayCellViewModelDidUpdate(_ activationHoursDayCellViewModel: ActivationHoursDayCellViewModel) {
+extension WorkingHoursViewModel: WorkingHoursDayCellViewModelDelegate {
+    func workingHoursDayCellViewModelDidUpdate(_ workingHoursDayCellViewModel: WorkingHoursDayCellViewModel) {
         self.hasModifications = true
     }
 }
@@ -179,7 +179,7 @@ public protocol WorkingHoursViewModelDelegate: AnyObject {
     func workingHoursDidModify()
 }
 
-enum ActivationHoursSection {
+enum WorkingHoursSection {
     case separator
     case slot(SlotType)
     case day(DKDay)

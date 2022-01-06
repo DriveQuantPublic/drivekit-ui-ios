@@ -272,7 +272,7 @@ class ViewController: UITableViewController {
 
     func showActivationHours() {
         if let tripAnalysisUI = DriveKitNavigationController.shared.tripAnalysisUI {
-            let activationHoursVC = tripAnalysisUI.getActivationHoursViewController()
+            let activationHoursVC = tripAnalysisUI.getWorkingHoursViewController()
             self.navigationController?.pushViewController(activationHoursVC, animated: true)
         }
     }

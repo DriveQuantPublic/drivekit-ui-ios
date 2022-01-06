@@ -71,17 +71,17 @@ EXTERNAL SOURCES:
     :path: "../ios/"
 
 SPEC CHECKSUMS:
-  DriveKitChallenge: e06c2760c46e030a928272418e7211444988d079
-  DriveKitCore: 2f17c3c43b0625d99b0c3582d812cbc8bfb34bbe
-  DriveKitDBAchievementAccess: 0f6efca20ed9ed7ac059f6709b5b35dc17f9e35f
-  DriveKitDBChallengeAccess: cae6fc71dea5902a24d6973d3dc728e6cb216fb3
-  DriveKitDBTripAccess: 34d73405c3ca0a18625a1eaff6b34567dfd76ead
-  DriveKitDBVehicleAccess: 7b74bdc932e73c977c47192ac1f9503ba3fba89d
-  DriveKitDriverAchievement: 66543bbfe7683b24547c85ae5b233e2dd5b64c24
-  DriveKitDriverData: 3dbf55483196a02c1faad6292e791c221bab9988
-  DriveKitNetworking: 3bb8dbc97dd72b6e1995aa4e9d3248d40f751d66
-  DriveKitTripAnalysis: d6fa8204747e568302140854bdd86f73f9a5d624
-  DriveKitVehicle: 70e5b60c90d374adbe7b0c51796811aee0796597
+  DriveKitChallenge: a46d48d4cdd5d6c2d61b35405fa499948715631f
+  DriveKitCore: bdcfd23d855db0633ba1fc06ea28ff9621c11210
+  DriveKitDBAchievementAccess: a4e5b20b073d662140892299f514ae8b3e7e5cab
+  DriveKitDBChallengeAccess: fd901e655706712c8a2728eac589b2f5fbd62d36
+  DriveKitDBTripAccess: 5b49c6078edb4cc310ca644f3cb4a45030874b2b
+  DriveKitDBVehicleAccess: cb0b647ec60d21a97f84a22818ae70cb94fc2898
+  DriveKitDriverAchievement: ba06b278ad21c06b37e0fb169426d36024f56437
+  DriveKitDriverData: 4997f016eafc2fc59e9bcae6db5f5c621d26d94e
+  DriveKitNetworking: cfa127674799576b6f7d92a04ec09021b2046bca
+  DriveKitTripAnalysis: ab6cc1be6e97d8db705a65fdde9a8e765673288d
+  DriveKitVehicle: f8125d0db317319f04dbfd515c4055972659b5a1
   UICircularProgressRing: e6852e8f88e296cbbbe2720cccb55241acda6708
   WARangeSlider: 54b3e0853b8d16c444fd539005901aecee86837d
 

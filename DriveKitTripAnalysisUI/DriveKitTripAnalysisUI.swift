@@ -13,17 +13,17 @@ import DriveKitTripAnalysisModule
 
 @objc public class DriveKitTripAnalysisUI: NSObject {
     @objc public static let shared = DriveKitTripAnalysisUI()
-    private(set) public var defaultWorkingHours: DKActivationHours = DriveKitTripAnalysisUI.getDefaultWorkingHours()
-    private var activationHoursVC: ActivationHoursViewController?
+    private(set) public var defaultWorkingHours: DKWorkingHours = DriveKitTripAnalysisUI.getDefaultWorkingHours()
+    private var workingHoursVC: WorkingHoursViewController?
     
     @objc public func initialize() {
         DriveKitNavigationController.shared.tripAnalysisUI = self
     }
 
-    private static func getDefaultWorkingHours() -> DKActivationHours {
+    private static func getDefaultWorkingHours() -> DKWorkingHours {
         let days: [DKDay] = [.monday, .tuesday, .wednesday, .thursday, .friday, .saturday, .sunday]
-        let activationHoursDayConfigurations: [DKActivationHoursDayConfiguration] = days.map { day in
-            DKActivationHoursDayConfiguration(
+        let workingHoursDayConfigurations: [DKWorkingHoursDayConfiguration] = days.map { day in
+            DKWorkingHoursDayConfiguration(
                 day: day,
                 entireDayOff: day == .saturday || day == .sunday,
                 startTime: 8,
@@ -31,20 +31,20 @@ import DriveKitTripAnalysisModule
                 reverse: false
             )
         }
-        return DKActivationHours(
+        return DKWorkingHours(
             enabled: false,
             insideHours: .business,
             outsideHours: .personal,
-            activationHoursDayConfigurations: activationHoursDayConfigurations
+            workingHoursDayConfigurations: workingHoursDayConfigurations
         )
     }
 }
 
 extension DriveKitTripAnalysisUI: DriveKitTripAnalysisUIEntryPoint {
-    public func getActivationHoursViewController() -> UIViewController {
-        let activationHoursVC = ActivationHoursViewController()
-        self.activationHoursVC = activationHoursVC
-        return activationHoursVC
+    public func getWorkingHoursViewController() -> UIViewController {
+        let workingHoursVC = WorkingHoursViewController()
+        self.workingHoursVC = workingHoursVC
+        return workingHoursVC
 
     }
 }

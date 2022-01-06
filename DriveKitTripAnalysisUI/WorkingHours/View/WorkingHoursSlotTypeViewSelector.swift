@@ -1,5 +1,5 @@
 //
-//  ActivationHoursSlotTypeViewSelector.swift
+//  WorkingHoursSlotTypeViewSelector.swift
 //  DriveKitTripAnalysisUI
 //
 //  Created by David Bauduin on 04/01/2022.
@@ -11,16 +11,16 @@ import UIKit
 import DriveKitCommonUI
 import DriveKitTripAnalysisModule
 
-class ActivationHoursSlotTypeViewSelector: UIViewController {
+class WorkingHoursSlotTypeViewSelector: UIViewController {
     @IBOutlet private weak var disabledButton: UIButton!
     @IBOutlet private weak var personalButton: UIButton!
     @IBOutlet private weak var businessButton: UIButton!
-    weak var delegate: ActivationHoursSlotTypeViewSelectorDelegate?
+    weak var delegate: WorkingHoursSlotTypeViewSelectorDelegate?
     private var selection: TripStatus
 
     init(sourceView: UIView, selection: TripStatus) {
         self.selection = selection
-        super.init(nibName: "ActivationHoursSlotTypeViewSelector", bundle: Bundle.tripAnalysisUIBundle)
+        super.init(nibName: "WorkingHoursSlotTypeViewSelector", bundle: Bundle.tripAnalysisUIBundle)
         modalPresentationStyle = .popover
         preferredContentSize = CGSize(width: 200, height: 152)
         popoverPresentationController?.permittedArrowDirections = .up
@@ -78,17 +78,17 @@ class ActivationHoursSlotTypeViewSelector: UIViewController {
             } else {
                 selectedStatus = .personal
             }
-            delegate.activationHoursSlotTypeViewSelector(self, didSelectTripStatus: selectedStatus)
+            delegate.workingHoursSlotTypeViewSelector(self, didSelectTripStatus: selectedStatus)
         }
     }
 }
 
-extension ActivationHoursSlotTypeViewSelector: UIPopoverPresentationControllerDelegate {
+extension WorkingHoursSlotTypeViewSelector: UIPopoverPresentationControllerDelegate {
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         return .none
     }
 }
 
-protocol ActivationHoursSlotTypeViewSelectorDelegate: AnyObject {
-    func activationHoursSlotTypeViewSelector(_ selector: ActivationHoursSlotTypeViewSelector, didSelectTripStatus tripStatus: TripStatus)
+protocol WorkingHoursSlotTypeViewSelectorDelegate: AnyObject {
+    func workingHoursSlotTypeViewSelector(_ selector: WorkingHoursSlotTypeViewSelector, didSelectTripStatus tripStatus: TripStatus)
 }

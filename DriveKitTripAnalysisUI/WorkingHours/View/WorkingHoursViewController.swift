@@ -1,5 +1,5 @@
 //
-//  ActivationHoursViewController.swift
+//  WorkingHoursViewController.swift
 //  DriveKitTripAnalysisUI
 //
 //  Created by Amine Gahbiche on 16/12/2021.
@@ -9,16 +9,16 @@
 import UIKit
 import DriveKitCommonUI
 
-class ActivationHoursViewController: DKUIViewController {
+class WorkingHoursViewController: DKUIViewController {
     @IBOutlet private weak var activationTitleLabel: UILabel!
     @IBOutlet private weak var activationDescriptionLabel: UILabel!
     @IBOutlet private weak var activationSwitch: UISwitch!
     @IBOutlet private weak var tableView: UITableView!
-    private let viewModel: ActivationHoursViewModel
+    private let viewModel: WorkingHoursViewModel
 
     public init() {
-        self.viewModel = ActivationHoursViewModel()
-        super.init(nibName: String(describing: ActivationHoursViewController.self), bundle: Bundle.tripAnalysisUIBundle)
+        self.viewModel = WorkingHoursViewModel()
+        super.init(nibName: String(describing: WorkingHoursViewController.self), bundle: Bundle.tripAnalysisUIBundle)
         self.viewModel.delegate = self
     }
     
@@ -31,7 +31,7 @@ class ActivationHoursViewController: DKUIViewController {
 
         setup()
         showLoader()
-        self.viewModel.synchronizeActivationHours()
+        self.viewModel.synchronizeWorkingHours()
     }
 
     private func setup() {
@@ -50,9 +50,9 @@ class ActivationHoursViewController: DKUIViewController {
 
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.register(UINib(nibName: "ActivationHoursSlotCell", bundle: Bundle.tripAnalysisUIBundle), forCellReuseIdentifier: "ActivationHoursSlotCell")
-        self.tableView.register(UINib(nibName: "ActivationHoursSeparatorCell", bundle: Bundle.tripAnalysisUIBundle), forCellReuseIdentifier: "ActivationHoursSeparatorCell")
-        self.tableView.register(UINib(nibName: "ActivationHoursDayCell", bundle: Bundle.tripAnalysisUIBundle), forCellReuseIdentifier: "ActivationHoursDayCell")
+        self.tableView.register(UINib(nibName: "WorkingHoursSlotCell", bundle: Bundle.tripAnalysisUIBundle), forCellReuseIdentifier: "WorkingHoursSlotCell")
+        self.tableView.register(UINib(nibName: "WorkingHoursSeparatorCell", bundle: Bundle.tripAnalysisUIBundle), forCellReuseIdentifier: "WorkingHoursSeparatorCell")
+        self.tableView.register(UINib(nibName: "WorkingHoursDayCell", bundle: Bundle.tripAnalysisUIBundle), forCellReuseIdentifier: "WorkingHoursDayCell")
 
         self.configureBackButton(selector: #selector(back))
     }
@@ -100,7 +100,7 @@ class ActivationHoursViewController: DKUIViewController {
     }
 }
 
-extension ActivationHoursViewController: UITableViewDelegate {
+extension WorkingHoursViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch self.viewModel.sections[indexPath.row] {
             case .slot:
@@ -113,7 +113,7 @@ extension ActivationHoursViewController: UITableViewDelegate {
     }
 }
 
-extension ActivationHoursViewController: UITableViewDataSource {
+extension WorkingHoursViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.viewModel.sections.count
     }
@@ -121,14 +121,14 @@ extension ActivationHoursViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch self.viewModel.sections[indexPath.row] {
             case let .slot(slotType):
-                let slotCell = tableView.dequeueReusableCell(withIdentifier: "ActivationHoursSlotCell", for: indexPath) as! ActivationHoursSlotCell
+                let slotCell = tableView.dequeueReusableCell(withIdentifier: "WorkingHoursSlotCell", for: indexPath) as! WorkingHoursSlotCell
                 let viewModel = self.viewModel.getSlotCellViewModel(type: slotType)
                 slotCell.configure(viewModel: viewModel, parentViewController: self)
                 return slotCell
             case .separator:
-                return tableView.dequeueReusableCell(withIdentifier: "ActivationHoursSeparatorCell", for: indexPath)
+                return tableView.dequeueReusableCell(withIdentifier: "WorkingHoursSeparatorCell", for: indexPath)
             case let .day(day):
-                let dayCell = tableView.dequeueReusableCell(withIdentifier: "ActivationHoursDayCell", for: indexPath) as! ActivationHoursDayCell
+                let dayCell = tableView.dequeueReusableCell(withIdentifier: "WorkingHoursDayCell", for: indexPath) as! WorkingHoursDayCell
                 let viewModel = self.viewModel.getDayCellViewModel(day: day)
                 dayCell.configure(viewModel: viewModel)
                 return dayCell
@@ -136,7 +136,7 @@ extension ActivationHoursViewController: UITableViewDataSource {
     }
 }
 
-extension ActivationHoursViewController: WorkingHoursViewModelDelegate {
+extension WorkingHoursViewController: WorkingHoursViewModelDelegate {
     func workingHoursViewModelDidUpdate() {
         hideLoader()
         self.tableView.reloadData()

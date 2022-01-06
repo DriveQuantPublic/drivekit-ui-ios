@@ -10,5 +10,5 @@ import Foundation
 import UIKit
 
 public protocol DriveKitTripAnalysisUIEntryPoint {
-    func getActivationHoursViewController() -> UIViewController
+    func getWorkingHoursViewController() -> UIViewController
 }

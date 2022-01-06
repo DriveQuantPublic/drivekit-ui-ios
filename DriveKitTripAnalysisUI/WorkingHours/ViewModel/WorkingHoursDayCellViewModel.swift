@@ -1,5 +1,5 @@
 //
-//  ActivationHoursDayCellViewModel.swift
+//  WorkingHoursDayCellViewModel.swift
 //  DriveKitTripAnalysisUI
 //
 //  Created by Jad on 31/12/2021.
@@ -9,7 +9,7 @@
 import Foundation
 import DriveKitTripAnalysisModule
 
-class ActivationHoursDayCellViewModel {
+class WorkingHoursDayCellViewModel {
     typealias Input = (String, Int, Int)
 
     private struct Constants {
@@ -24,12 +24,12 @@ class ActivationHoursDayCellViewModel {
         }
     }
 
-    private let config: DKActivationHoursDayConfiguration
+    private let config: DKWorkingHoursDayConfiguration
     var isSelected: Bool {
         didSet {
             if config.entireDayOff != !isSelected {
                 config.entireDayOff = !isSelected
-                self.delegate?.activationHoursDayCellViewModelDidUpdate(self)
+                self.delegate?.workingHoursDayCellViewModelDidUpdate(self)
             }
         }
     }
@@ -38,7 +38,7 @@ class ActivationHoursDayCellViewModel {
             let startTime = getTime(fromSliderValue: self.min)
             if config.startTime != startTime {
                 config.startTime = startTime
-                self.delegate?.activationHoursDayCellViewModelDidUpdate(self)
+                self.delegate?.workingHoursDayCellViewModelDidUpdate(self)
             }
         }
     }
@@ -47,7 +47,7 @@ class ActivationHoursDayCellViewModel {
             let endTime = getTime(fromSliderValue: self.max)
             if config.endTime != endTime {
                 config.endTime = endTime
-                self.delegate?.activationHoursDayCellViewModelDidUpdate(self)
+                self.delegate?.workingHoursDayCellViewModelDidUpdate(self)
             }
         }
     }
@@ -60,9 +60,9 @@ class ActivationHoursDayCellViewModel {
     var maxFormattedValue: String {
         return hourFormatter(sliderValue: self.max).0
     }
-    weak var delegate: ActivationHoursDayCellViewModelDelegate?
+    weak var delegate: WorkingHoursDayCellViewModelDelegate?
 
-    init(config: DKActivationHoursDayConfiguration) {
+    init(config: DKWorkingHoursDayConfiguration) {
         self.config = config
         self.isSelected = !config.entireDayOff
         self.min = 1 / Constants.hours * config.startTime
@@ -92,11 +92,11 @@ class ActivationHoursDayCellViewModel {
     }
 }
 
-protocol ActivationHoursDayCellViewModelDelegate: AnyObject {
-    func activationHoursDayCellViewModelDidUpdate(_ activationHoursDayCellViewModel: ActivationHoursDayCellViewModel)
+protocol WorkingHoursDayCellViewModelDelegate: AnyObject {
+    func workingHoursDayCellViewModelDidUpdate(_ workingHoursDayCellViewModel: WorkingHoursDayCellViewModel)
 }
 
-extension ActivationHoursDayCellViewModel {
+extension WorkingHoursDayCellViewModel {
     func dateFromSliderValue(sliderValue: Double, date: Date) -> Date {
         let components = hourFormatter(sliderValue: sliderValue)
         let result = dateFromComponents(input: components, date: date)

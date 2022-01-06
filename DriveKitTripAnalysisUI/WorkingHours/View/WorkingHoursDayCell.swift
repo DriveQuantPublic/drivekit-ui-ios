@@ -1,5 +1,5 @@
 //
-//  ActivationHoursDayCell.swift
+//  WorkingHoursDayCell.swift
 //  DriveKitTripAnalysisUI
 //
 //  Created by David Bauduin on 31/12/2021.
@@ -10,20 +10,20 @@ import UIKit
 import WARangeSlider
 import DriveKitCommonUI
 
-class ActivationHoursDayCell: UITableViewCell {
+class WorkingHoursDayCell: UITableViewCell {
     @IBOutlet private weak var optionSwitch: UISwitch!
     @IBOutlet private weak var slider: RangeSlider!
     @IBOutlet private weak var dayLabel: UILabel!
     @IBOutlet private weak var minLabel: UILabel!
     @IBOutlet private weak var maxLabel: UILabel!
-    private var viewModel: ActivationHoursDayCellViewModel?
+    private var viewModel: WorkingHoursDayCellViewModel?
 
     override func awakeFromNib() {
         super.awakeFromNib()
         setupView()
     }
 
-    func configure(viewModel: ActivationHoursDayCellViewModel) {
+    func configure(viewModel: WorkingHoursDayCellViewModel) {
         self.viewModel = viewModel
 
         self.optionSwitch.isOn = viewModel.isSelected
@@ -45,7 +45,7 @@ class ActivationHoursDayCell: UITableViewCell {
         self.optionSwitch.onTintColor = DKUIColors.secondaryColor.color
     }
 
-    private func updateLabels(viewModel: ActivationHoursDayCellViewModel) {
+    private func updateLabels(viewModel: WorkingHoursDayCellViewModel) {
         self.minLabel.text = viewModel.minFormattedValue
         self.maxLabel.text = viewModel.maxFormattedValue
     }

@@ -66,7 +66,11 @@ class WorkingHoursViewController: DKUIViewController {
         if self.viewModel.hasModifications {
             let alert = UIAlertController(title: nil, message: "dk_working_hours_back_save_alert".dkTripAnalysisLocalized(), preferredStyle: .alert)
             let yesAction = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default) { _ in
-                self.updateWorkingHours()
+                self.updateWorkingHours() {
+                    if !self.viewModel.hasModifications {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }
             }
             let noAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .default) { [weak self]  _ in
                 self?.navigationController?.popViewController(animated: true)
@@ -79,7 +83,7 @@ class WorkingHoursViewController: DKUIViewController {
         }
     }
 
-    @objc func updateWorkingHours() {
+    private func updateWorkingHours(completion: @escaping () -> ()) {
         self.showLoader()
         self.navigationItem.rightBarButtonItem = nil
         self.viewModel.updateWorkingHours { [weak self] success in
@@ -88,14 +92,18 @@ class WorkingHoursViewController: DKUIViewController {
                     self.hideLoader()
                     self.workingHoursDidModify()
                     if success {
-                        if !self.viewModel.hasModifications {
-                            self.navigationController?.popViewController(animated: true)
-                        }
+                        completion()
                     } else {
                         self.showAlertMessage(title: nil, message: "dk_working_hours_update_failed".dkTripAnalysisLocalized(), back: false, cancel: false)
                     }
                 }
             }
+        }
+    }
+
+    @objc private func saveWorkingHours() {
+        updateWorkingHours() {
+            self.showAlertMessage(title: nil, message: "dk_working_hours_update_succeed".dkTripAnalysisLocalized(), back: false, cancel: false)
         }
     }
 }
@@ -150,7 +158,7 @@ extension WorkingHoursViewController: WorkingHoursViewModelDelegate {
                 checkButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
                 checkButton.setImage(image, for: .normal)
                 checkButton.tintColor = DKUIColors.fontColorOnPrimaryColor.color
-                checkButton.addTarget(self, action: #selector(updateWorkingHours), for: .touchUpInside)
+                checkButton.addTarget(self, action: #selector(saveWorkingHours), for: .touchUpInside)
                 self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: checkButton)
             }
         } else {

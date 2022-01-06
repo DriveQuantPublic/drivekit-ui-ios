@@ -64,7 +64,7 @@ class WorkingHoursViewController: DKUIViewController {
 
     @objc func back() {
         if self.viewModel.hasModifications {
-            let alert = UIAlertController(title: nil, message: "TODO".dkTripAnalysisLocalized(), preferredStyle: .alert)
+            let alert = UIAlertController(title: nil, message: "dk_working_hours_back_save_alert".dkTripAnalysisLocalized(), preferredStyle: .alert)
             let yesAction = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default) { _ in
                 self.updateWorkingHours()
             }

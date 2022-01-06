@@ -134,13 +134,13 @@ extension DateFormatter {
             ]
         } else {
             weekdaySymbolByDay = [
-                .sunday: "SUN.",
-                .monday: "MON.",
-                .tuesday: "TUE.",
-                .wednesday: "WED.",
-                .thursday: "THU.",
-                .friday: "FRI.",
-                .saturday: "SAT."
+                .sunday: "SUN",
+                .monday: "MON",
+                .tuesday: "TUE",
+                .wednesday: "WED",
+                .thursday: "THU",
+                .friday: "FRI",
+                .saturday: "SAT"
             ]
         }
         return weekdaySymbolByDay

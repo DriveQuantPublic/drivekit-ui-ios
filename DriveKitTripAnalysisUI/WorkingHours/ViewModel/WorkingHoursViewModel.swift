@@ -174,7 +174,7 @@ extension WorkingHoursViewModel: WorkingHoursDayCellViewModelDelegate {
     }
 }
 
-public protocol WorkingHoursViewModelDelegate: AnyObject {
+protocol WorkingHoursViewModelDelegate: AnyObject {
     func workingHoursViewModelDidUpdate()
     func workingHoursDidModify()
 }

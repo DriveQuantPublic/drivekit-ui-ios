@@ -13,9 +13,8 @@ import DriveKitTripAnalysisModule
 
 @objc public class DriveKitTripAnalysisUI: NSObject {
     @objc public static let shared = DriveKitTripAnalysisUI()
-    private(set) public var defaultWorkingHours: DKWorkingHours = DriveKitTripAnalysisUI.getDefaultWorkingHours()
-    private var workingHoursVC: WorkingHoursViewController?
-    
+    @objc public var defaultWorkingHours: DKWorkingHours = DriveKitTripAnalysisUI.getDefaultWorkingHours()
+
     @objc public func initialize() {
         DriveKitNavigationController.shared.tripAnalysisUI = self
     }
@@ -43,9 +42,7 @@ import DriveKitTripAnalysisModule
 extension DriveKitTripAnalysisUI: DriveKitTripAnalysisUIEntryPoint {
     public func getWorkingHoursViewController() -> UIViewController {
         let workingHoursVC = WorkingHoursViewController()
-        self.workingHoursVC = workingHoursVC
         return workingHoursVC
-
     }
 }
 

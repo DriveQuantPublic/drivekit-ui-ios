@@ -35,8 +35,8 @@ class WorkingHoursViewModel {
     private var slotViewModelByType: [SlotType: WorkingHoursSlotCellViewModel] = [:]
     private var workingHours: DKWorkingHours {
         didSet {
-            self.hasModifications = false
             self.update()
+            self.hasModifications = false
         }
     }
     private(set) var hasModifications = false {
@@ -46,7 +46,8 @@ class WorkingHoursViewModel {
     }
 
     init() {
-        self.workingHours = DriveKitTripAnalysisUI.shared.defaultWorkingHours
+        self.workingHours = DriveKitTripAnalysisUI.shared.defaultWorkingHours.copy()
+        self.update()
         DriveKitTripAnalysis.shared.getWorkingHours(type: .cache) { status, workingHours in
             if status == .cacheOnly, let workingHours = workingHours, self.areWorkingHoursValid(workingHours) {
                 self.workingHours = workingHours
@@ -188,4 +189,14 @@ enum WorkingHoursSection {
 enum SlotType {
     case inside
     case outside
+}
+
+extension DKWorkingHours {
+    func copy() -> DKWorkingHours {
+        if let data = try? JSONEncoder().encode(self), let copy = try? JSONDecoder().decode(DKWorkingHours.self, from: data) {
+            return copy
+        } else {
+            return self
+        }
+    }
 }

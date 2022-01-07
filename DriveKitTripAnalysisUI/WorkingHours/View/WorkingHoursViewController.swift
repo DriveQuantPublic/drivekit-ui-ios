@@ -147,6 +147,7 @@ extension WorkingHoursViewController: UITableViewDataSource {
 extension WorkingHoursViewController: WorkingHoursViewModelDelegate {
     func workingHoursViewModelDidUpdate() {
         hideLoader()
+        self.activationSwitch.isOn = self.viewModel.isActivated
         self.tableView.reloadData()
     }
 

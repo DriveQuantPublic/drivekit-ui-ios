@@ -16,6 +16,7 @@ class WorkingHoursDayCell: UITableViewCell {
     @IBOutlet private weak var dayLabel: UILabel!
     @IBOutlet private weak var minLabel: UILabel!
     @IBOutlet private weak var maxLabel: UILabel!
+    @IBOutlet private weak var disableMaskView: UIView!
     private var viewModel: WorkingHoursDayCellViewModel?
 
     override func awakeFromNib() {
@@ -30,6 +31,9 @@ class WorkingHoursDayCell: UITableViewCell {
         self.dayLabel.text = viewModel.text
         self.slider.lowerValue = viewModel.min
         self.slider.upperValue = viewModel.max
+        self.slider.thumbTintColor = DKUIColors.primaryColor.color
+        self.slider.trackTintColor = DKUIColors.neutralColor.color
+        self.slider.trackHighlightTintColor = DKUIColors.secondaryColor.color
         updateLabels(viewModel: viewModel)
         switchDidUpdate()
     }
@@ -37,11 +41,10 @@ class WorkingHoursDayCell: UITableViewCell {
     private func setupView() {
         let font = DKStyles.smallText.style.applyTo(font: .primary)
         self.dayLabel.font = font
-        self.dayLabel.textColor = DKUIColors.neutralColor.color
         self.minLabel.font = font
-        self.dayLabel.textColor = DKUIColors.primaryColor.color
+        self.minLabel.textColor = DKUIColors.primaryColor.color
         self.maxLabel.font = font
-        self.dayLabel.textColor = DKUIColors.primaryColor.color
+        self.maxLabel.textColor = DKUIColors.primaryColor.color
         self.optionSwitch.onTintColor = DKUIColors.secondaryColor.color
     }
 
@@ -51,8 +54,11 @@ class WorkingHoursDayCell: UITableViewCell {
     }
 
     @IBAction private func switchDidUpdate() {
-        self.viewModel?.isSelected = self.optionSwitch.isOn
-        self.slider.setEnabled(self.optionSwitch.isOn)
+        let enabled = self.optionSwitch.isOn
+        self.viewModel?.isSelected = enabled
+        self.slider.isUserInteractionEnabled = enabled
+        self.disableMaskView.isHidden = enabled
+        self.dayLabel.textColor = enabled ? DKUIColors.secondaryColor.color : DKUIColors.neutralColor.color
     }
 
     @IBAction private func sliderDidUpdate() {
@@ -60,22 +66,6 @@ class WorkingHoursDayCell: UITableViewCell {
             viewModel.min = self.slider.lowerValue
             viewModel.max = self.slider.upperValue
             updateLabels(viewModel: viewModel)
-        }
-    }
-}
-
-extension RangeSlider {
-    func setEnabled(_ enabled: Bool) {
-        if enabled {
-            thumbTintColor = DKUIColors.primaryColor.color
-            trackTintColor = DKUIColors.neutralColor.color
-            trackHighlightTintColor = DKUIColors.secondaryColor.color
-            isUserInteractionEnabled = true
-        } else {
-            thumbTintColor = DKUIColors.neutralColor.color
-            trackTintColor = DKUIColors.neutralColor.color
-            trackHighlightTintColor = DKUIColors.neutralColor.color
-            isUserInteractionEnabled = false
         }
     }
 }

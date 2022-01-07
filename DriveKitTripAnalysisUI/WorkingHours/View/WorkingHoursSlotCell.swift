@@ -15,6 +15,7 @@ class WorkingHoursSlotCell: UITableViewCell {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var slotTypeButton: UIButton!
+    @IBOutlet private weak var selectImageView: UIImageView!
     private var viewModel: WorkingHoursSlotCellViewModel?
     private weak var parentViewController: UIViewController?
 
@@ -25,9 +26,11 @@ class WorkingHoursSlotCell: UITableViewCell {
         self.titleLabel.textColor = DKUIColors.primaryColor.color
         self.descriptionLabel.font = DKStyles.smallText.style.applyTo(font: .primary)
         self.descriptionLabel.textColor = DKUIColors.warningColor.color
-        self.slotTypeButton.setTitleColor(DKUIColors.primaryColor.color, for: .normal)
+        self.slotTypeButton.setTitleColor(DKUIColors.mainFontColor.color, for: .normal)
         self.slotTypeButton.backgroundColor = DKUIColors.neutralColor.color
-        self.slotTypeButton.titleLabel?.font = DKStyles.button.style.applyTo(font: .primary)
+        self.slotTypeButton.titleLabel?.font = DKStyles.button.withSizeDelta(-2).applyTo(font: .primary)
+        self.selectImageView.image = DKImages.arrowDown.image
+        self.selectImageView.tintColor = DKUIColors.complementaryFontColor.color
 
         updateUI()
     }

@@ -18,12 +18,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="plW-1k-666">
-                        <rect key="frame" x="284" y="15" width="120" height="40"/>
+                        <rect key="frame" x="266" y="15" width="138" height="40"/>
                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="hmn-3p-V8W"/>
-                            <constraint firstAttribute="width" constant="120" id="qSo-5N-XDd"/>
+                            <constraint firstAttribute="width" constant="138" id="qSo-5N-XDd"/>
                         </constraints>
+                        <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="18" maxY="0.0"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
                         <state key="normal" title="Button"/>
                         <connections>
@@ -31,17 +32,24 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVK-YC-UaH">
-                        <rect key="frame" x="10" y="24.5" width="264" height="21"/>
+                        <rect key="frame" x="10" y="24.5" width="252" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nz-hQ-eTx">
-                        <rect key="frame" x="10" y="45.5" width="264" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nz-hQ-eTx">
+                        <rect key="frame" x="10" y="45.5" width="252" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tzr-nw-DJy">
+                        <rect key="frame" x="384" y="30" width="10" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="10" id="ATv-aQ-I29"/>
+                            <constraint firstAttribute="width" secondItem="tzr-nw-DJy" secondAttribute="height" multiplier="1:1" id="deb-tW-Emi"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="9nz-hQ-eTx" firstAttribute="leading" secondItem="PVK-YC-UaH" secondAttribute="leading" id="3q6-o2-OCC"/>
@@ -49,13 +57,16 @@
                     <constraint firstItem="PVK-YC-UaH" firstAttribute="centerY" secondItem="IVp-Ps-uUh" secondAttribute="centerY" id="HSu-Qn-O9u"/>
                     <constraint firstItem="9nz-hQ-eTx" firstAttribute="trailing" secondItem="PVK-YC-UaH" secondAttribute="trailing" id="LUS-Ep-vhc"/>
                     <constraint firstAttribute="trailing" secondItem="plW-1k-666" secondAttribute="trailing" constant="10" id="Obh-51-hGB"/>
-                    <constraint firstItem="plW-1k-666" firstAttribute="leading" secondItem="PVK-YC-UaH" secondAttribute="trailing" constant="10" id="XFw-8y-xnN"/>
+                    <constraint firstItem="plW-1k-666" firstAttribute="leading" secondItem="PVK-YC-UaH" secondAttribute="trailing" constant="4" id="XFw-8y-xnN"/>
+                    <constraint firstItem="tzr-nw-DJy" firstAttribute="centerY" secondItem="plW-1k-666" secondAttribute="centerY" id="anm-q6-gFt"/>
+                    <constraint firstItem="plW-1k-666" firstAttribute="trailing" secondItem="tzr-nw-DJy" secondAttribute="trailing" constant="10" id="c1g-j2-nsT"/>
                     <constraint firstItem="plW-1k-666" firstAttribute="centerY" secondItem="IVp-Ps-uUh" secondAttribute="centerY" id="cwa-RC-dJI"/>
                     <constraint firstItem="PVK-YC-UaH" firstAttribute="leading" secondItem="IVp-Ps-uUh" secondAttribute="leading" constant="10" id="eSL-GB-IXm"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="descriptionLabel" destination="9nz-hQ-eTx" id="v8m-mu-0uQ"/>
+                <outlet property="selectImageView" destination="tzr-nw-DJy" id="SOx-0h-f4x"/>
                 <outlet property="slotTypeButton" destination="plW-1k-666" id="MZa-CI-GoW"/>
                 <outlet property="titleLabel" destination="PVK-YC-UaH" id="Nc8-Hv-6DX"/>
             </connections>

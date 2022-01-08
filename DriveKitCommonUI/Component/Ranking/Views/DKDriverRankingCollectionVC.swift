@@ -70,6 +70,7 @@ public class DKDriverRankingCollectionVC: UICollectionViewController {
                 rankingScoreView.translatesAutoresizingMaskIntoConstraints = false
                 rankingHeaderView.updateScoreTitle(title: ranking.getScoreTitle())
                 rankingScoreView.update(ranking: ranking)
+                rankingScoreView.parentViewController = self
                 rankingHeaderView.embedSummaryView(summaryView: rankingScoreView)
             }
             headerView.isHidden = false

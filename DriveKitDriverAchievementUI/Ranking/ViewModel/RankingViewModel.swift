@@ -419,6 +419,8 @@ extension RankingViewModel: DKDriverRanking {
             return "dk_achievements_ranking_permanent_info".dkAchievementLocalized()
         case .legacy:
             return "dk_achievements_ranking_legacy_info".dkAchievementLocalized()
+        @unknown default:
+            return nil
         }
     }
 }

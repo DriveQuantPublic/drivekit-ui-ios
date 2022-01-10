@@ -349,7 +349,6 @@
 		67813093276BB2A100701CF1 /* DriveKitTripAnalysisUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 67813092276BB2A100701CF1 /* DriveKitTripAnalysisUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		67813096276BB2A100701CF1 /* DriveKitTripAnalysisUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67813090276BB2A100701CF1 /* DriveKitTripAnalysisUI.framework */; };
 		67813097276BB2A100701CF1 /* DriveKitTripAnalysisUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 67813090276BB2A100701CF1 /* DriveKitTripAnalysisUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		6781309D276BC38A00701CF1 /* DriveKitCommonUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F0740DA2403BB65005A8D07 /* DriveKitCommonUI.framework */; };
 		678130A3276BF59300701CF1 /* DriveKitTripAnalysisUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678130A2276BF59300701CF1 /* DriveKitTripAnalysisUI.swift */; };
 		678130A5276BF65600701CF1 /* DriveKitTripAnalysisUIEntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678130A4276BF65600701CF1 /* DriveKitTripAnalysisUIEntryPoint.swift */; };
 		678130AB276BF77700701CF1 /* WorkingHoursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678130A9276BF77700701CF1 /* WorkingHoursViewController.swift */; };
@@ -565,13 +564,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 6781308F276BB2A100701CF1;
 			remoteInfo = DriveKitTripAnalysisUI;
-		};
-		6781309B276BC35600701CF1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A3B7B378235F124F0065A332 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3F0740D92403BB65005A8D07;
-			remoteInfo = DriveKitCommonUI;
 		};
 		6781309F276BC38A00701CF1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1203,7 +1195,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6781309D276BC38A00701CF1 /* DriveKitCommonUI.framework in Frameworks */,
 				54B194CB4EB9C2225CCB5C02 /* Pods_DriveKitTripAnalysisUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2917,7 +2908,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				6781309C276BC35600701CF1 /* PBXTargetDependency */,
 				678130A0276BC38A00701CF1 /* PBXTargetDependency */,
 			);
 			name = DriveKitTripAnalysisUI;
@@ -3884,11 +3874,6 @@
 			isa = PBXTargetDependency;
 			target = 6781308F276BB2A100701CF1 /* DriveKitTripAnalysisUI */;
 			targetProxy = 67813094276BB2A100701CF1 /* PBXContainerItemProxy */;
-		};
-		6781309C276BC35600701CF1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3F0740D92403BB65005A8D07 /* DriveKitCommonUI */;
-			targetProxy = 6781309B276BC35600701CF1 /* PBXContainerItemProxy */;
 		};
 		678130A0276BC38A00701CF1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

@@ -45,30 +45,14 @@ class WorkingHoursSlotTypeViewSelector: UIViewController {
         applyStyleTo(self.businessButton)
         applyStyleTo(self.disabledButton)
         applyStyleTo(self.personalButton)
-
-        let selectedButton: UIButton
-        switch selection {
-            case .business:
-                selectedButton = self.businessButton
-            case .disabled:
-                selectedButton = self.disabledButton
-            case .personal:
-                selectedButton = self.personalButton
-        }
-        selectButton(selectedButton)
     }
 
     private func applyStyleTo(_ button: UIButton) {
-        button.setTitleColor(DKUIColors.primaryColor.color, for: .normal)
+        button.setTitleColor(DKUIColors.mainFontColor.color, for: .normal)
         button.titleLabel?.font = DKStyle(size: DKStyles.button.style.size, traits: nil).applyTo(font: .primary)
     }
 
-    private func selectButton(_ button: UIButton) {
-        button.titleLabel?.font = DKStyles.highlightSmall.style.applyTo(font: .primary)
-    }
-
     @IBAction private func didSelectButton(_ button: UIButton) {
-        selectButton(button)
         if let delegate = self.delegate {
             let selectedStatus: TripStatus
             if button == self.disabledButton {

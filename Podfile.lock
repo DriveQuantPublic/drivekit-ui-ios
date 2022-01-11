@@ -52,7 +52,6 @@ SPEC REPOS:
     - DriveKitNetworking
     - DriveKitTripAnalysis
     - DriveKitVehicle
-    - UICircularProgressRing
 
 SPEC CHECKSUMS:
   DriveKitChallenge: 79fc616e09dd078e53e7031916974bb95a5367f9

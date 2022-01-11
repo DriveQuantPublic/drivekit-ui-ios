@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
-  s.name             = 'DriveKitVehicleUI'
+  s.name             = 'DriveKitTripAnalysisUI'
   s.version          = '1.6-beta1'
-  s.summary          = 'DriveKit Vehicle UI Framework'
+  s.summary          = 'DriveKit Trip Analysis UI Framework'
 
-  s.description      = 'DriveKit Vehicle features : Vehicles list and detail, beacon and bluetooth management, vehicle selection features'
+  s.description      = 'DriveKit Trip Analysis features: Working hours management'
 
   s.homepage         = 'https://docs.drivequant.com'
   s.license          = 'Apache License, Version 2.0'
@@ -13,14 +13,14 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '10.0'
 
-  s.source_files = 'DriveKitVehicleUI/**/*.swift'
-  s.resource = ['DriveKitVehicleUI/DriveKitVehicle.xcassets', 'DriveKitVehicleUI/Localizable/*', 'DriveKitVehicleUI/**/*.xib']
+  s.source_files = 'DriveKitTripAnalysisUI/**/*.swift'
+  s.resource = ['DriveKitTripAnalysisUI/Localizable/*', 'DriveKitTripAnalysisUI/**/*.xib']
 
+  s.dependency 'WARangeSlider'
   s.dependency 'DriveKitCommonUI', s.version.to_s
-  s.dependency 'DriveKitVehicle', '1.19-beta1'
   s.dependency 'DriveKitTripAnalysis', '1.19-beta1'
 
   s.pod_target_xcconfig = {
-    'PRODUCT_BUNDLE_IDENTIFIER': 'com.drivequant.drivekit-vehicle-ui'
+    'PRODUCT_BUNDLE_IDENTIFIER': 'com.drivequant.drivekit-trip-analysis-ui'
   }
 end

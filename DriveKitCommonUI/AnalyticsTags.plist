@@ -68,5 +68,7 @@
 	<string>drivekit-challenge-detail-trips</string>
 	<key>dk_tag_challenge_detail_rules</key>
 	<string>drivekit-challenge-detail-rules</string>
+	<key>dk_tag_trip_analysis_working_hours</key>
+	<string>drivekit-trip-analysis-working-hours</string>
 </dict>
 </plist>

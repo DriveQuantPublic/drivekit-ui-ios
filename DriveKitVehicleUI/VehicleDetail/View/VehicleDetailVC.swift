@@ -143,10 +143,9 @@ extension VehicleDetailVC: VehicleDetailHeaderDelegate {
 extension VehicleDetailVC: VehicleDetailDelegate {
     func needUpdate() {
         let checkButton = UIButton(type: .custom)
-        let image = UIImage(named: "dk_check", in: Bundle.vehicleUIBundle, compatibleWith: nil)
+        let image = DKImages.check.image?.resizeImage(30, opaque: false).withRenderingMode(.alwaysTemplate)
         checkButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        let img = image?.resizeImage(30, opaque: false).withRenderingMode(.alwaysTemplate)
-        checkButton.setImage(img, for: .normal)
+        checkButton.setImage(image, for: .normal)
         checkButton.tintColor = DKUIColors.fontColorOnPrimaryColor.color
         checkButton.addTarget(self, action:#selector(updateVehicle), for: .touchUpInside)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: checkButton)

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WorkingHoursSlotCell" id="kR2-W3-56a" customClass="WorkingHoursSlotCell" customModule="DriveKitTripAnalysisUI" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kR2-W3-56a" id="IVp-Ps-uUh">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="plW-1k-666">
+                        <rect key="frame" x="266" y="15" width="138" height="40"/>
+                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="hmn-3p-V8W"/>
+                            <constraint firstAttribute="width" constant="138" id="qSo-5N-XDd"/>
+                        </constraints>
+                        <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="18" maxY="0.0"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
+                        <state key="normal" title="Button"/>
+                        <connections>
+                            <action selector="showMenu:" destination="kR2-W3-56a" eventType="touchUpInside" id="RV4-UR-btr"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVK-YC-UaH">
+                        <rect key="frame" x="10" y="24.5" width="252" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nz-hQ-eTx">
+                        <rect key="frame" x="10" y="45.5" width="252" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tzr-nw-DJy">
+                        <rect key="frame" x="384" y="30" width="10" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="10" id="ATv-aQ-I29"/>
+                            <constraint firstAttribute="width" secondItem="tzr-nw-DJy" secondAttribute="height" multiplier="1:1" id="deb-tW-Emi"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="9nz-hQ-eTx" firstAttribute="leading" secondItem="PVK-YC-UaH" secondAttribute="leading" id="3q6-o2-OCC"/>
+                    <constraint firstItem="9nz-hQ-eTx" firstAttribute="top" secondItem="PVK-YC-UaH" secondAttribute="bottom" id="BDq-UI-46K"/>
+                    <constraint firstItem="PVK-YC-UaH" firstAttribute="centerY" secondItem="IVp-Ps-uUh" secondAttribute="centerY" id="HSu-Qn-O9u"/>
+                    <constraint firstItem="9nz-hQ-eTx" firstAttribute="trailing" secondItem="PVK-YC-UaH" secondAttribute="trailing" id="LUS-Ep-vhc"/>
+                    <constraint firstAttribute="trailing" secondItem="plW-1k-666" secondAttribute="trailing" constant="10" id="Obh-51-hGB"/>
+                    <constraint firstItem="plW-1k-666" firstAttribute="leading" secondItem="PVK-YC-UaH" secondAttribute="trailing" constant="4" id="XFw-8y-xnN"/>
+                    <constraint firstItem="tzr-nw-DJy" firstAttribute="centerY" secondItem="plW-1k-666" secondAttribute="centerY" id="anm-q6-gFt"/>
+                    <constraint firstItem="plW-1k-666" firstAttribute="trailing" secondItem="tzr-nw-DJy" secondAttribute="trailing" constant="10" id="c1g-j2-nsT"/>
+                    <constraint firstItem="plW-1k-666" firstAttribute="centerY" secondItem="IVp-Ps-uUh" secondAttribute="centerY" id="cwa-RC-dJI"/>
+                    <constraint firstItem="PVK-YC-UaH" firstAttribute="leading" secondItem="IVp-Ps-uUh" secondAttribute="leading" constant="10" id="eSL-GB-IXm"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="descriptionLabel" destination="9nz-hQ-eTx" id="v8m-mu-0uQ"/>
+                <outlet property="selectImageView" destination="tzr-nw-DJy" id="SOx-0h-f4x"/>
+                <outlet property="slotTypeButton" destination="plW-1k-666" id="MZa-CI-GoW"/>
+                <outlet property="titleLabel" destination="PVK-YC-UaH" id="Nc8-Hv-6DX"/>
+            </connections>
+            <point key="canvasLocation" x="128.98550724637681" y="18.75"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

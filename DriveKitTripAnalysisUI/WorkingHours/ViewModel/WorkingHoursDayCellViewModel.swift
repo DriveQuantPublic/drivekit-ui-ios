@@ -79,7 +79,7 @@ class WorkingHoursDayCellViewModel {
 
         let isInteger = fl == roundedValue
 
-        let floorValue = String(format: "%02i", Int(fl))
+        let floorValue = String(format: "%02i", Int(fl) % 24)
         if isInteger {
             return (floorValue + Constants.Wording.hourFormatter, Int(fl), 0)
         }

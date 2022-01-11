@@ -14,10 +14,11 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '10.0'
 
   s.source_files = 'DriveKitTripAnalysisUI/**/*.swift'
+  s.resource = ['DriveKitTripAnalysisUI/Localizable/*', 'DriveKitTripAnalysisUI/**/*.xib']
 
   s.dependency 'WARangeSlider'
   s.dependency 'DriveKitCommonUI', s.version.to_s
-  s.dependency 'DriveKitTripAnalysis', '1.18-beta1'
+  s.dependency 'DriveKitTripAnalysis', '1.19-beta1'
 
   s.pod_target_xcconfig = {
     'PRODUCT_BUNDLE_IDENTIFIER': 'com.drivequant.drivekit-trip-analysis-ui'

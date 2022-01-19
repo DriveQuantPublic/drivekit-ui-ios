@@ -36,33 +36,15 @@
                                 <action selector="didSelectButton:" destination="-1" eventType="touchUpInside" id="t0o-wg-Xuy"/>
                             </connections>
                         </button>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7c7-mG-gUD" userLabel="Separator">
-                            <rect key="frame" x="0.0" y="50" width="414" height="1"/>
-                            <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="1" id="271-02-zJe"/>
-                            </constraints>
-                        </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7E-Oh-tSu" userLabel="Business button">
-                            <rect key="frame" x="0.0" y="51" width="414" height="50"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="50" id="XDh-S2-aue"/>
-                            </constraints>
-                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" title="Button"/>
-                            <connections>
-                                <action selector="didSelectButton:" destination="-1" eventType="touchUpInside" id="QPA-5b-Bn1"/>
-                            </connections>
-                        </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zX1-3a-Jik" userLabel="Separator">
-                            <rect key="frame" x="0.0" y="101" width="414" height="1"/>
+                            <rect key="frame" x="0.0" y="50" width="414" height="1"/>
                             <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="jyR-Xe-nIf"/>
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EyB-A5-pmL" userLabel="Personal button">
-                            <rect key="frame" x="0.0" y="102" width="414" height="50"/>
+                            <rect key="frame" x="0.0" y="51" width="414" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="2w5-o7-9Vt"/>
                             </constraints>
@@ -70,6 +52,24 @@
                             <state key="normal" title="Button"/>
                             <connections>
                                 <action selector="didSelectButton:" destination="-1" eventType="touchUpInside" id="1ZV-82-aZr"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7c7-mG-gUD" userLabel="Separator">
+                            <rect key="frame" x="0.0" y="101" width="414" height="1"/>
+                            <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="271-02-zJe"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c7E-Oh-tSu" userLabel="Business button">
+                            <rect key="frame" x="0.0" y="102" width="414" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="XDh-S2-aue"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="didSelectButton:" destination="-1" eventType="touchUpInside" id="QPA-5b-Bn1"/>
                             </connections>
                         </button>
                     </subviews>

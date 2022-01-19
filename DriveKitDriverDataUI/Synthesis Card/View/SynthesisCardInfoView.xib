@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -28,6 +28,8 @@
             </subviews>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="EiO-MN-3eF" secondAttribute="trailing" id="5YG-Y5-wai"/>
+                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="8dd-DQ-l8B"/>
+                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="Cxa-1Z-4eg"/>
                 <constraint firstItem="Hao-8H-Y85" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Dvb-2F-qa6"/>
                 <constraint firstItem="EiO-MN-3eF" firstAttribute="leading" secondItem="Hao-8H-Y85" secondAttribute="trailing" constant="10" id="Xa3-W5-0VJ"/>
                 <constraint firstItem="Hao-8H-Y85" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fOf-ek-glt"/>

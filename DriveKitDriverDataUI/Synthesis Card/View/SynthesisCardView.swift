@@ -44,9 +44,13 @@ final class SynthesisCardView: UIView, Nibable {
         let topSynthesisCardInfo = SynthesisCardInfoView.viewFromNib
         let middleSynthesisCardInfo = SynthesisCardInfoView.viewFromNib
         let bottomSynthesisCardInfo = SynthesisCardInfoView.viewFromNib
+        cardInfoContainer.addArrangedSubview(UIView())
         cardInfoContainer.addArrangedSubview(topSynthesisCardInfo)
+        cardInfoContainer.addArrangedSubview(UIView())
         cardInfoContainer.addArrangedSubview(middleSynthesisCardInfo)
+        cardInfoContainer.addArrangedSubview(UIView())
         cardInfoContainer.addArrangedSubview(bottomSynthesisCardInfo)
+        cardInfoContainer.addArrangedSubview(UIView())
         self.topSynthesisCardInfo = topSynthesisCardInfo
         self.middleSynthesisCardInfo = middleSynthesisCardInfo
         self.bottomSynthesisCardInfo = bottomSynthesisCardInfo
@@ -63,6 +67,16 @@ final class SynthesisCardView: UIView, Nibable {
             self.topSynthesisCardInfo.synthesisCardInfoViewModel = tripCardViewModel.getTopSynthesisCardInfoViewModel()
             self.middleSynthesisCardInfo.synthesisCardInfoViewModel = tripCardViewModel.getMiddleSynthesisCardInfoViewModel()
             self.bottomSynthesisCardInfo.synthesisCardInfoViewModel = tripCardViewModel.getBottomSynthesisCardInfoViewModel()
+
+            if self.topSynthesisCardInfo.synthesisCardInfoViewModel?.isEmpty() == true {
+                self.topSynthesisCardInfo.isHidden = true
+            }
+            if self.middleSynthesisCardInfo.synthesisCardInfoViewModel?.isEmpty() == true {
+                self.middleSynthesisCardInfo.isHidden = true
+            }
+            if self.bottomSynthesisCardInfo.synthesisCardInfoViewModel?.isEmpty() == true {
+                self.bottomSynthesisCardInfo.isHidden = true
+            }
         }
     }
 

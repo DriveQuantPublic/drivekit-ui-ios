@@ -50,15 +50,8 @@ struct SynthesisCardViewModel {
     }
 
     func shouldHideCardInfoContainer() -> Bool {
-        let topViewModel = getTopSynthesisCardInfoViewModel()
-        let middleViewModel = getMiddleSynthesisCardInfoViewModel()
-        let bottomViewModel = getBottomSynthesisCardInfoViewModel()
-        
-        return topViewModel.getIcon() == nil
-        && topViewModel.getText().length == 0
-        && middleViewModel.getIcon() == nil
-        && middleViewModel.getText().length == 0
-        && bottomViewModel.getIcon() == nil
-        && bottomViewModel.getText().length == 0
+        return getTopSynthesisCardInfoViewModel().isEmpty()
+        && getMiddleSynthesisCardInfoViewModel().isEmpty()
+        && getBottomSynthesisCardInfoViewModel().isEmpty()
     }
 }

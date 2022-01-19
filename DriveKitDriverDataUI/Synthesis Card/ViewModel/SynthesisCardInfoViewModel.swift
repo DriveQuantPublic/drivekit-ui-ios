@@ -23,4 +23,8 @@ struct SynthesisCardInfoViewModel {
     func getText() -> NSAttributedString {
         self.synthesisCardInfo.getText()
     }
+
+    func isEmpty() -> Bool {
+        return getText().length == 0 && getIcon() == nil
+    }
 }

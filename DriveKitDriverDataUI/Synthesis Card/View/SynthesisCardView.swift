@@ -47,13 +47,9 @@ final class SynthesisCardView: UIView, Nibable {
         let topSynthesisCardInfo = SynthesisCardInfoView.viewFromNib
         let middleSynthesisCardInfo = SynthesisCardInfoView.viewFromNib
         let bottomSynthesisCardInfo = SynthesisCardInfoView.viewFromNib
-        cardInfoContainer.addArrangedSubview(UIView())
         cardInfoContainer.addArrangedSubview(topSynthesisCardInfo)
-        cardInfoContainer.addArrangedSubview(UIView())
         cardInfoContainer.addArrangedSubview(middleSynthesisCardInfo)
-        cardInfoContainer.addArrangedSubview(UIView())
         cardInfoContainer.addArrangedSubview(bottomSynthesisCardInfo)
-        cardInfoContainer.addArrangedSubview(UIView())
         self.topSynthesisCardInfo = topSynthesisCardInfo
         self.middleSynthesisCardInfo = middleSynthesisCardInfo
         self.bottomSynthesisCardInfo = bottomSynthesisCardInfo

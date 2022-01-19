@@ -16,6 +16,9 @@ final class SynthesisCardView: UIView, Nibable {
     @IBOutlet private weak var circularProgressViewContainer: UIView!
     @IBOutlet private weak var cardInfoContainer: UIStackView!
     @IBOutlet private weak var bottomText: UILabel!
+    @IBOutlet private weak var notCenteredConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var centeredConstraint: NSLayoutConstraint!
+
     private weak var topSynthesisCardInfo: SynthesisCardInfoView!
     private weak var middleSynthesisCardInfo: SynthesisCardInfoView!
     private weak var bottomSynthesisCardInfo: SynthesisCardInfoView!
@@ -76,6 +79,15 @@ final class SynthesisCardView: UIView, Nibable {
             }
             if self.bottomSynthesisCardInfo.synthesisCardInfoViewModel?.isEmpty() == true {
                 self.bottomSynthesisCardInfo.isHidden = true
+            }
+            if self.synthesisCardViewModel?.shouldHideCardInfoContainer() == true {
+                self.cardInfoContainer.isHidden = true
+                self.centeredConstraint.isActive = true
+                self.notCenteredConstraint.isActive = false
+            } else {
+                self.cardInfoContainer.isHidden = false
+                self.centeredConstraint.isActive = false
+                self.notCenteredConstraint.isActive = true
             }
         }
     }

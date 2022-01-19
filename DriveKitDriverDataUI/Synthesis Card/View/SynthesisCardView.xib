@@ -63,8 +63,14 @@
                                 <constraint firstItem="zPt-fz-E6m" firstAttribute="leading" secondItem="POK-HP-OZm" secondAttribute="leading" id="X9R-In-aed"/>
                                 <constraint firstAttribute="bottom" secondItem="DjJ-HT-ZS7" secondAttribute="bottom" id="bnW-nX-Ohs"/>
                                 <constraint firstItem="DjJ-HT-ZS7" firstAttribute="top" secondItem="POK-HP-OZm" secondAttribute="top" id="cRK-pu-ImK"/>
+                                <constraint firstItem="zPt-fz-E6m" firstAttribute="centerX" secondItem="POK-HP-OZm" secondAttribute="centerX" id="g4l-if-Eo4"/>
                                 <constraint firstItem="DjJ-HT-ZS7" firstAttribute="leading" secondItem="zPt-fz-E6m" secondAttribute="trailing" constant="20" id="olh-ZI-QVb"/>
                             </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="g4l-if-Eo4"/>
+                                </mask>
+                            </variation>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50C-hP-i9v">
                             <rect key="frame" x="0.0" y="138" width="414" height="32"/>
@@ -95,8 +101,10 @@
             <connections>
                 <outlet property="bottomText" destination="50C-hP-i9v" id="cmg-MS-lIj"/>
                 <outlet property="cardInfoContainer" destination="DjJ-HT-ZS7" id="3jP-Am-Ap0"/>
+                <outlet property="centeredConstraint" destination="g4l-if-Eo4" id="WT9-TV-mAy"/>
                 <outlet property="circularProgressViewContainer" destination="zPt-fz-E6m" id="M3V-xR-hrp"/>
                 <outlet property="explanationButton" destination="FYW-ef-yuT" id="CgT-4R-hf8"/>
+                <outlet property="notCenteredConstraint" destination="X9R-In-aed" id="TdL-Uq-Uh0"/>
                 <outlet property="title" destination="feg-JG-Sr7" id="fCc-ic-CLB"/>
             </connections>
             <point key="canvasLocation" x="44.927536231884062" y="122.54464285714285"/>

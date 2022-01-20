@@ -16,9 +16,9 @@ class WorkingHoursSlotTypeViewSelector: UIViewController {
     @IBOutlet private weak var personalButton: UIButton!
     @IBOutlet private weak var businessButton: UIButton!
     weak var delegate: WorkingHoursSlotTypeViewSelectorDelegate?
-    private var selection: TripStatus
+    private var selection: DKWorkingHoursTimeSlotStatus
 
-    init(sourceView: UIView, selection: TripStatus) {
+    init(sourceView: UIView, selection: DKWorkingHoursTimeSlotStatus) {
         self.selection = selection
         super.init(nibName: "WorkingHoursSlotTypeViewSelector", bundle: Bundle.tripAnalysisUIBundle)
         modalPresentationStyle = .popover
@@ -37,7 +37,7 @@ class WorkingHoursSlotTypeViewSelector: UIViewController {
         setup(selection: self.selection)
     }
 
-    private func setup(selection: TripStatus) {
+    private func setup(selection: DKWorkingHoursTimeSlotStatus) {
         self.disabledButton.setTitle("dk_working_hours_slot_mode_disabled_title".dkTripAnalysisLocalized(), for: .normal)
         self.personalButton.setTitle("dk_working_hours_slot_mode_personal_title".dkTripAnalysisLocalized(), for: .normal)
         self.businessButton.setTitle("dk_working_hours_slot_mode_business_title".dkTripAnalysisLocalized(), for: .normal)
@@ -54,7 +54,7 @@ class WorkingHoursSlotTypeViewSelector: UIViewController {
 
     @IBAction private func didSelectButton(_ button: UIButton) {
         if let delegate = self.delegate {
-            let selectedStatus: TripStatus
+            let selectedStatus: DKWorkingHoursTimeSlotStatus
             if button == self.disabledButton {
                 selectedStatus = .disabled
             } else if button == self.businessButton {
@@ -62,7 +62,7 @@ class WorkingHoursSlotTypeViewSelector: UIViewController {
             } else {
                 selectedStatus = .personal
             }
-            delegate.workingHoursSlotTypeViewSelector(self, didSelectTripStatus: selectedStatus)
+            delegate.workingHoursSlotTypeViewSelector(self, didSelectTimeSlotStatus: selectedStatus)
         }
     }
 }
@@ -74,5 +74,5 @@ extension WorkingHoursSlotTypeViewSelector: UIPopoverPresentationControllerDeleg
 }
 
 protocol WorkingHoursSlotTypeViewSelectorDelegate: AnyObject {
-    func workingHoursSlotTypeViewSelector(_ selector: WorkingHoursSlotTypeViewSelector, didSelectTripStatus tripStatus: TripStatus)
+    func workingHoursSlotTypeViewSelector(_ selector: WorkingHoursSlotTypeViewSelector, didSelectTimeSlotStatus timeSlotStatus: DKWorkingHoursTimeSlotStatus)
 }

@@ -114,3 +114,33 @@ private struct CustomSynthesisCardInfo: DKSynthesisCardInfo {
         self.text.dkAttributedString().build()
     }
 }
+
+private struct CustomGaugeOnlySynthesisCard: DKSynthesisCard {
+    func getTitle() -> String {
+        "Custom gauge only synthesis card"
+    }
+
+    func getExplanationContent() -> String? {
+        return nil
+    }
+
+    func getGaugeConfiguration() -> DKGaugeConfiguration {
+        return CustomGaugeConfiguration()
+    }
+
+    func getTopSynthesisCardInfo() -> DKSynthesisCardInfo {
+        return CustomSynthesisCardInfo(icon: nil, text: "")
+    }
+
+    func getMiddleSynthesisCardInfo() -> DKSynthesisCardInfo {
+        return CustomSynthesisCardInfo(icon: nil, text: "")
+    }
+
+    func getBottomSynthesisCardInfo() -> DKSynthesisCardInfo {
+        return CustomSynthesisCardInfo(icon: nil, text: "")
+    }
+
+    func getBottomText() -> NSAttributedString? {
+        return nil
+    }
+}

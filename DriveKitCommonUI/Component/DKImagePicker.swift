@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 public class DKImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -46,27 +47,57 @@ public class DKImagePickerManager: NSObject, UIImagePickerControllerDelegate, UI
         viewController.present(alert, animated: true, completion: nil)
     }
     
-    func openCamera(){
+    func openCamera() {
         alert.dismiss(animated: true, completion: nil)
-        if(UIImagePickerController .isSourceTypeAvailable(.camera)){
-            picker.sourceType = .camera
-            picker.allowsEditing = true
-            self.viewController!.present(picker, animated: true, completion: nil)
-        } else {
-            let alertWarning = UIAlertController(title: nil, message: DKCommonLocalizable.cameraPermission.text(), preferredStyle: .alert)
-            alertWarning.addAction(UIAlertAction(title: "OK", style: .default))
-            self.viewController!.present(alertWarning, animated: true)
+        checkCameraPermission { [weak self] status in
+            guard let self = self else {
+                return
+            }
+            DispatchQueue.main.async {
+                if status {
+                    if (UIImagePickerController .isSourceTypeAvailable(.camera)) {
+                        self.picker.sourceType = .camera
+                        self.picker.allowsEditing = true
+                        self.viewController?.present(self.picker, animated: true, completion: nil)
+                    } else {
+                        let alertWarning = UIAlertController(title: nil, message: DKCommonLocalizable.cameraPermission.text(), preferredStyle: .alert)
+                        alertWarning.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default))
+                        self.viewController?.present(alertWarning, animated: true)
+                    }
+                } else {
+                    let alertWarning = UIAlertController(title: nil, message: DKCommonLocalizable.cameraPermission.text(), preferredStyle: .alert)
+                    alertWarning.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default))
+                    self.viewController?.present(alertWarning, animated: true)
+                }
+            }
         }
     }
     
-    func openGallery(){
+    func openGallery() {
         alert.dismiss(animated: true, completion: nil)
         picker.sourceType = .photoLibrary
         picker.allowsEditing = true
         self.viewController!.present(picker, animated: true, completion: nil)
     }
-    
-    
+
+    func checkCameraPermission(completionHandler: @escaping (Bool) -> ()) {
+        let currentStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
+        switch currentStatus {
+        case .notDetermined, .restricted, .denied:
+            AVCaptureDevice.requestAccess(for: AVMediaType.video) { response in
+                if response {
+                    completionHandler(true)
+                } else {
+                    completionHandler(false)
+                }
+            }
+        case .authorized:
+            completionHandler(true)
+        @unknown default:
+            completionHandler(false)
+        }
+    }
+
     public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }

@@ -14,7 +14,7 @@ private struct Constants {
     static let minimumLineSpacing: CGFloat = 8
 }
 
-class VehiclePickerCollectionViewVC : VehiclePickerStepView {
+class VehiclePickerCollectionViewVC: VehiclePickerStepView {
     @IBOutlet weak var collectionView: UICollectionView!
 
     init(viewModel: VehiclePickerViewModel) {
@@ -41,7 +41,7 @@ class VehiclePickerCollectionViewVC : VehiclePickerStepView {
     }
 }
 
-extension VehiclePickerCollectionViewVC : UICollectionViewDelegate, UICollectionViewDataSource {
+extension VehiclePickerCollectionViewVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -57,14 +57,14 @@ extension VehiclePickerCollectionViewVC : UICollectionViewDelegate, UICollection
             cell.configure(image: image, text: value.title(), showLabel: viewModel.showStepLabel())
             return cell
         } else {
-            let cell : VehiclePickerLabelCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "VehiclePickerLabelCollectionViewCell", for: indexPath) as! VehiclePickerLabelCollectionViewCell
+            let cell: VehiclePickerLabelCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "VehiclePickerLabelCollectionViewCell", for: indexPath) as! VehiclePickerLabelCollectionViewCell
             cell.configure(text: value.title())
             return cell
         }
     }
 }
 
-extension VehiclePickerCollectionViewVC : UICollectionViewDelegateFlowLayout {
+extension VehiclePickerCollectionViewVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.bounds.width - Constants.insets.left - Constants.insets.right - Constants.minimumInteritemSpacing) / 2
         let height = self.viewModel.showStepLabel() ? width + 16 : width
@@ -94,7 +94,7 @@ extension VehiclePickerCollectionViewVC : UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension VehiclePickerCollectionViewVC : VehicleDataDelegate {
+extension VehiclePickerCollectionViewVC: VehicleDataDelegate {
     func onDataRetrieved(status: StepStatus) {
         DispatchQueue.dispatchOnMainThread {
             self.hideLoader()

@@ -19,8 +19,10 @@ class VehiclePickerStepView: DKUIViewController {
     }
 
     func setupNavigation() {
-        let dismissItem = UIBarButtonItem(title: DKCommonLocalizable.cancel.text(), style: .plain, target: self, action: #selector(self.didDismissManually))
-        navigationItem.rightBarButtonItem = dismissItem
+        if viewModel.showCancel {
+            let dismissItem = UIBarButtonItem(title: DKCommonLocalizable.cancel.text(), style: .plain, target: self, action: #selector(self.didDismissManually))
+            navigationItem.rightBarButtonItem = dismissItem
+        }
         self.configureBackButton(selector: #selector(showPreviousStep))
     }
 

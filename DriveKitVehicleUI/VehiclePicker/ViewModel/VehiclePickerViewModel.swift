@@ -42,12 +42,15 @@ class VehiclePickerViewModel {
     var years: [String]? = nil
     var versions: [DKVehicleVersion]? = nil
 
+    let showCancel: Bool
+
     weak var vehicleDataDelegate: VehicleDataDelegate? = nil
     weak var vehicleNavigationDelegate: VehicleNavigationDelegate? = nil
 
-    init(detectionMode: DKDetectionMode, previousVehicle: DKVehicle? = nil) {
+    init(detectionMode: DKDetectionMode, previousVehicle: DKVehicle? = nil, showCancel: Bool = true) {
         self.detectionMode = detectionMode
         self.previousVehicle = previousVehicle
+        self.showCancel = showCancel
         nextStepInternal(nil)
     }
 

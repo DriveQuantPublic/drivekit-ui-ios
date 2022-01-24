@@ -54,16 +54,10 @@ public class DKImagePickerManager: NSObject, UIImagePickerControllerDelegate, UI
                 return
             }
             DispatchQueue.main.async {
-                if status {
-                    if (UIImagePickerController .isSourceTypeAvailable(.camera)) {
-                        self.picker.sourceType = .camera
-                        self.picker.allowsEditing = true
-                        self.viewController?.present(self.picker, animated: true, completion: nil)
-                    } else {
-                        let alertWarning = UIAlertController(title: nil, message: DKCommonLocalizable.cameraPermission.text(), preferredStyle: .alert)
-                        alertWarning.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default))
-                        self.viewController?.present(alertWarning, animated: true)
-                    }
+                if status && UIImagePickerController .isSourceTypeAvailable(.camera) {
+                    self.picker.sourceType = .camera
+                    self.picker.allowsEditing = true
+                    self.viewController?.present(self.picker, animated: true, completion: nil)
                 } else {
                     let alertWarning = UIAlertController(title: nil, message: DKCommonLocalizable.cameraPermission.text(), preferredStyle: .alert)
                     alertWarning.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default))

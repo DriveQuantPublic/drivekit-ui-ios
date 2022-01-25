@@ -247,7 +247,7 @@ fileprivate class DeclaredConsumptionField : DKVehicleField {
         return "error_consumption".keyLocalized()
     }
     func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> ()) {
-
+        completion(true)
     }
 }
 
@@ -281,6 +281,6 @@ fileprivate class DeclaredPtacField : DKVehicleField {
         return nil
     }
     func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> ()) {
-
+        completion(true)
     }
 }

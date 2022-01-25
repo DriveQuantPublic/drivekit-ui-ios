@@ -53,7 +53,7 @@ class VehicleDetailVC: DKUIViewController {
             if !self.viewModel.updateIsInProgress {
                 self.navigationItem.rightBarButtonItem = nil
                 self.showLoader()
-                self.updateField(succesAlertAction: { [weak self] _ in
+                self.updateField(successAlertAction: { [weak self] _ in
                     self?.navigationController?.popViewController(animated: true)
                 })
             }
@@ -70,20 +70,20 @@ class VehicleDetailVC: DKUIViewController {
         self.view.endEditing(false)
         self.navigationItem.rightBarButtonItem = nil
         self.showLoader()
-        self.updateField(succesAlertAction: { [weak self] _ in
+        self.updateField(successAlertAction: { [weak self] _ in
             if self?.viewModel.mustUpdate() ?? true {
                 self?.needUpdate()
             }
         })
     }
 
-    private func updateField(succesAlertAction: ((UIAlertAction) -> Void)?) {
+    private func updateField(successAlertAction: ((UIAlertAction) -> Void)?) {
         self.viewModel.updateFields(completion: { [weak self] status in
             DispatchQueue.main.async {
                 self?.hideLoader()
                 if status {
                     let alert = UIAlertController(title: nil, message: "dk_change_success".dkVehicleLocalized(), preferredStyle: .alert)
-                    let successAction = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default, handler: succesAlertAction)
+                    let successAction = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default, handler: successAlertAction)
                     alert.addAction(successAction)
                     self?.present(alert, animated: true)
                 } else {

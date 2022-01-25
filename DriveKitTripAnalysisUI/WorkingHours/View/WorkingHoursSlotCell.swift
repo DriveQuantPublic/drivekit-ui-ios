@@ -56,7 +56,7 @@ class WorkingHoursSlotCell: UITableViewCell {
 
             let slotTypeKey: String
             let displayDescription: Bool
-            switch viewModel.tripStatus {
+            switch viewModel.timeSlotStatus {
                 case .disabled:
                     slotTypeKey = "dk_working_hours_slot_mode_disabled_title"
                     displayDescription = true
@@ -74,7 +74,7 @@ class WorkingHoursSlotCell: UITableViewCell {
 
     @IBAction private func showMenu(_ sender: UIView) {
         if let parentViewController = self.parentViewController {
-            let menu = WorkingHoursSlotTypeViewSelector(sourceView: sender, selection: self.viewModel?.tripStatus ?? .disabled)
+            let menu = WorkingHoursSlotTypeViewSelector(sourceView: sender, selection: self.viewModel?.timeSlotStatus ?? .disabled)
             menu.delegate = self
             parentViewController.present(menu, animated: true)
         }
@@ -82,10 +82,10 @@ class WorkingHoursSlotCell: UITableViewCell {
 }
 
 extension WorkingHoursSlotCell: WorkingHoursSlotTypeViewSelectorDelegate {
-    func workingHoursSlotTypeViewSelector(_ selector: WorkingHoursSlotTypeViewSelector, didSelectTripStatus tripStatus: TripStatus) {
+    func workingHoursSlotTypeViewSelector(_ selector: WorkingHoursSlotTypeViewSelector, didSelectTimeSlotStatus timeSlotStatus: DKWorkingHoursTimeSlotStatus) {
         selector.dismiss(animated: true)
         if let viewModel = self.viewModel {
-            viewModel.tripStatus = tripStatus
+            viewModel.timeSlotStatus = timeSlotStatus
             updateUI()
         }
     }

@@ -72,7 +72,7 @@ class WorkingHoursViewController: DKUIViewController {
                     }
                 }
             }
-            let noAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .default) { [weak self]  _ in
+            let noAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel) { [weak self]  _ in
                 self?.navigationController?.popViewController(animated: true)
             }
             alert.addAction(yesAction)

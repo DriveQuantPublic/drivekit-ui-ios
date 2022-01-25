@@ -59,14 +59,14 @@ class WorkingHoursViewModel {
         if let viewModel = self.slotViewModelByType[type] {
             return viewModel
         } else {
-            let tripStatus: TripStatus
+            let timeSlotStatus: DKWorkingHoursTimeSlotStatus
             switch type {
                 case .inside:
-                    tripStatus = self.workingHours.insideHours
+                    timeSlotStatus = self.workingHours.insideHours
                 case .outside:
-                    tripStatus = self.workingHours.outsideHours
+                    timeSlotStatus = self.workingHours.outsideHours
             }
-            let viewModel = WorkingHoursSlotCellViewModel(slotType: type, tripStatus: tripStatus)
+            let viewModel = WorkingHoursSlotCellViewModel(slotType: type, timeSlotStatus: timeSlotStatus)
             viewModel.delegate = self
             self.slotViewModelByType[type] = viewModel
             return viewModel
@@ -158,12 +158,12 @@ class WorkingHoursViewModel {
 }
 
 extension WorkingHoursViewModel: WorkingHoursSlotCellViewModelDelegate {
-    func workingHoursSlotCellViewModel(_ workingHoursSlotCellViewModel: WorkingHoursSlotCellViewModel, didUpdateTripStatus tripStatus: TripStatus, forType type: SlotType) {
+    func workingHoursSlotCellViewModel(_ workingHoursSlotCellViewModel: WorkingHoursSlotCellViewModel, didUpdateTimeSlotStatus timeSlotStatus: DKWorkingHoursTimeSlotStatus, forType type: SlotType) {
         switch type {
             case .inside:
-                self.workingHours.insideHours = tripStatus
+                self.workingHours.insideHours = timeSlotStatus
             case .outside:
-                self.workingHours.outsideHours = tripStatus
+                self.workingHours.outsideHours = timeSlotStatus
         }
         self.hasModifications = true
     }

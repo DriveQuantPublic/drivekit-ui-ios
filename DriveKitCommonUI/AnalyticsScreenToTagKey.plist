@@ -67,5 +67,10 @@
 		<key>ChallengeDetailVC</key>
 		<string>dk_tag_challenge_detail</string>
 	</dict>
+	<key>TripAnalysis</key>
+	<dict>
+		<key>WorkingHoursViewController</key>
+		<string>dk_tag_trip_analysis_working_hours</string>
+	</dict>
 </dict>
 </plist>

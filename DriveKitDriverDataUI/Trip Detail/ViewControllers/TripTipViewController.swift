@@ -86,14 +86,18 @@ class TripTipViewController: DKUIViewController {
         let contentTextView = UITextView(frame: contentView.frame)
         self.automaticallyAdjustsScrollViewInsets = false
 
-        if let htmlData = NSString(string: advice.message ?? "").data(using: String.Encoding.unicode.rawValue){
-            let attributedString = try! NSMutableAttributedString(data: htmlData, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
-            contentTextView.attributedText = NSAttributedString(attributedString: attributedString)
-            contentTextView.font = DKUIFonts.primary.fonts(size: 16)
-            contentTextView.isEditable = false
-            contentTextView.backgroundColor = DKUIColors.backgroundView.color
-            contentView.embedSubview(contentTextView)
-        }else{
+        if let htmlData = NSString(string: advice.message ?? "").data(using: String.Encoding.unicode.rawValue) {
+            do {
+                let attributedString = try NSMutableAttributedString(data: htmlData, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
+                contentTextView.attributedText = NSAttributedString(attributedString: attributedString)
+                contentTextView.font = DKUIFonts.primary.fonts(size: 16)
+                contentTextView.isEditable = false
+                contentTextView.backgroundColor = DKUIColors.backgroundView.color
+                contentView.embedSubview(contentTextView)
+            } catch {
+                self.dismiss(animated: true)
+            }
+        } else {
             self.dismiss(animated: true)
         }
     }

@@ -21,6 +21,7 @@ import DriveKitVehicleModule
 import DriveKitDBVehicleAccessModule
 import DriveKitPermissionsUtilsUI
 import DriveKitChallengeUI
+import DriveKitTripAnalysisUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -57,6 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitPermissionsUtilsUI.shared.configureBluetooth(needed: true)
         DriveKitPermissionsUtilsUI.shared.configureContactType(DKContactType.email(self))
         DriveKitChallengeUI.shared.initialize()
+        DriveKitTripAnalysisUI.shared.initialize()
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options : \(options)")
         return true
     }

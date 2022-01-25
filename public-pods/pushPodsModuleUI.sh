@@ -5,4 +5,5 @@ pod trunk push DriveKitDriverAchievementUI.podspec --allow-warnings --synchronou
 pod trunk push DriveKitVehicleUI.podspec --allow-warnings --synchronous || exit 1
 pod trunk push DriveKitPermissionsUtilsUI.podspec --synchronous || exit 1
 pod trunk push DriveKitChallengeUI.podspec --allow-warnings --synchronous || exit 1
+pod trunk push DriveKitTripAnalysisUI.podspec --allow-warnings --synchronous || exit 1
 

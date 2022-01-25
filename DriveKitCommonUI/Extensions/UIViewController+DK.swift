@@ -31,9 +31,11 @@ public extension UIViewController {
         let alert = UIAlertController(title: title,
                                       message: message,
                                       preferredStyle: .alert)
-        let okAction = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default, handler: {action in
+        let okAction = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default, handler: { _ in
             if back {
                 self.dismiss(animated: false, completion: completion)
+            } else if let completion = completion {
+                completion()
             }
         })
         if cancel {

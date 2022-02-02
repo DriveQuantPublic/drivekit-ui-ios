@@ -9,24 +9,49 @@
 import UIKit
 
 public extension UIViewController {
-    
+    private static let loaderViewTag = 1000
+    private static let loaderTextViewTag = loaderViewTag + 1
+
     func showLoader() {
-        let darkView = UIView(frame: UIScreen.main.bounds)
-        darkView.backgroundColor = UIColor.darkGray.withAlphaComponent(0.7)
-        let loaderView = UIActivityIndicatorView(style: .whiteLarge)
-        loaderView.center = darkView.center
-        darkView.tag = 1000
-        darkView.addSubview(loaderView)
-        view.addSubview(darkView)
-        loaderView.startAnimating()
+        showLoader(message: nil)
     }
-    
+
+    func showLoader(message: String?) {
+        if let loaderView = self.view.viewWithTag(UIViewController.loaderViewTag) {
+            if let label = loaderView.viewWithTag(UIViewController.loaderTextViewTag) as? UILabel {
+                label.text = message
+            }
+        } else {
+            let loaderView = UIView(frame: self.view.bounds)
+            loaderView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+            loaderView.backgroundColor = UIColor.darkGray.withAlphaComponent(0.7)
+            loaderView.tag = UIViewController.loaderViewTag
+
+            let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
+            activityIndicator.autoresizingMask = [.flexibleLeftMargin, .flexibleTopMargin, .flexibleRightMargin, .flexibleBottomMargin]
+            activityIndicator.center = loaderView.center
+            activityIndicator.startAnimating()
+            loaderView.addSubview(activityIndicator)
+
+            let margin: CGFloat = 40
+            let label = UILabel(frame: CGRect(x: margin, y: activityIndicator.frame.maxY, width: self.view.bounds.size.width - 2 * margin, height: 60))
+            label.autoresizingMask = [.flexibleWidth, .flexibleBottomMargin]
+            label.textColor = .white
+            label.textAlignment = .center
+            label.text = message
+            label.tag = UIViewController.loaderTextViewTag
+            loaderView.addSubview(label)
+
+            self.view.addSubview(loaderView)
+        }
+    }
+
     func hideLoader() {
-        if let loaderView = view.viewWithTag(1000) {
+        if let loaderView = self.view.viewWithTag(1000) {
             loaderView.removeFromSuperview()
         }
     }
-    
+
     func showAlertMessage(title: String?, message: String?, back: Bool, cancel: Bool, completion: (() -> Void)? = nil) {
         let alert = UIAlertController(title: title,
                                       message: message,
@@ -44,4 +69,3 @@ public extension UIViewController {
         self.present(alert, animated: true)
     }
 }
-

@@ -9,7 +9,7 @@
 import UIKit
 import DriveKitCommonUI
 
-class VehicleDetailVC : DKUIViewController {
+class VehicleDetailVC: DKUIViewController {
     @IBOutlet weak var tableView: UITableView!
     let viewModel: VehicleDetailViewModel
 
@@ -39,6 +39,7 @@ class VehicleDetailVC : DKUIViewController {
     }
 
     @objc func onDetailBack(sender: UIBarButtonItem) {
+        self.view.endEditing(false)
         if viewModel.mustUpdate() {
             self.showUpdateConfirmationAlert()
         } else {
@@ -49,12 +50,17 @@ class VehicleDetailVC : DKUIViewController {
     private func showUpdateConfirmationAlert() {
         let alert = UIAlertController(title: nil, message: "dk_vehicle_detail_back_edit_alert".dkVehicleLocalized(), preferredStyle: .alert)
         let yesAction = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default, handler: { _ in
-            self.showLoader()
-            self.updateField(succesAlertAction : { [weak self] _ in
-                self?.navigationController?.popViewController(animated: true)
-            })
+            if !self.viewModel.updateIsInProgress {
+                self.navigationItem.rightBarButtonItem = nil
+                self.showLoader()
+                self.updateField() { [weak self] success in
+                    if success {
+                        self?.navigationController?.popViewController(animated: true)
+                    }
+                }
+            }
         })
-        let noAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .default, handler: {  [weak self]  _ in
+        let noAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .default, handler: { [weak self] _ in
             self?.navigationController?.popViewController(animated: true)
         })
         alert.addAction(yesAction)
@@ -63,29 +69,36 @@ class VehicleDetailVC : DKUIViewController {
     }
 
     @objc func updateVehicle(sender: UIBarButtonItem) {
+        self.view.endEditing(false)
+        self.navigationItem.rightBarButtonItem = nil
         self.showLoader()
-        self.updateField(succesAlertAction: { [weak self] _ in
-            if !(self?.viewModel.mustUpdate() ?? true){
-                self?.navigationItem.rightBarButtonItem = nil
-            }
-        })
-    }
-
-    private func updateField(succesAlertAction : ((UIAlertAction) -> Void)?) {
-        self.viewModel.updateFields(completion: { [weak self] status in
-            DispatchQueue.main.async {
-                self?.hideLoader()
-                if status {
-                    let alert = UIAlertController(title: nil, message: "dk_change_success".dkVehicleLocalized(), preferredStyle: .alert)
-                    let successAction = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default, handler: succesAlertAction)
-                    alert.addAction(successAction)
-                    self?.present(alert, animated: true)
-                }else{
-                    self?.tableView.reloadData()
-                    self?.showAlertMessage(title: nil, message: "dk_fields_not_valid".dkVehicleLocalized(), back: false, cancel: false)
+        self.updateField() { [weak self] _ in
+            if let self = self {
+                if self.viewModel.mustUpdate() {
+                    self.needUpdate()
                 }
             }
-        })
+        }
+    }
+
+    private func updateField(completion: ((Bool) -> Void)?) {
+        self.viewModel.updateFields() { [weak self] success in
+            DispatchQueue.main.async {
+                if let self = self {
+                    self.hideLoader()
+                    if success {
+                        self.showAlertMessage(title: nil, message: "dk_change_success".dkVehicleLocalized(), back: false, cancel: false) {
+                            completion?(true)
+                        }
+                    } else {
+                        self.tableView.reloadData()
+                        self.showAlertMessage(title: nil, message: "dk_fields_not_valid".dkVehicleLocalized(), back: false, cancel: false) {
+                            completion?(false)
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -100,14 +113,14 @@ extension VehicleDetailVC: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell : VehicleDetailHeader = self.tableView.dequeueReusableCell(withIdentifier: "VehicleDetailHeader", for: indexPath) as! VehicleDetailHeader
+            let cell: VehicleDetailHeader = self.tableView.dequeueReusableCell(withIdentifier: "VehicleDetailHeader", for: indexPath) as! VehicleDetailHeader
             cell.configure(vehicleName: self.viewModel.vehicleDisplayName, vehicleImage: viewModel.vehicle.getVehicleImage())
             cell.delegate = self
             cell.clipsToBounds = false
             cell.selectionStyle = .none
             return cell
         } else {
-            let cell : VehicleGroupFieldsCell = self.tableView.dequeueReusableCell(withIdentifier: "VehicleGroupFieldsCell", for: indexPath) as! VehicleGroupFieldsCell
+            let cell: VehicleGroupFieldsCell = self.tableView.dequeueReusableCell(withIdentifier: "VehicleGroupFieldsCell", for: indexPath) as! VehicleGroupFieldsCell
             cell.clipsToBounds = false
             cell.selectionStyle = .none
             let groupField = self.viewModel.groupFields[indexPath.section - 1]

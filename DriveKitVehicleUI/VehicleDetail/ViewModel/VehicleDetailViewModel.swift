@@ -11,7 +11,7 @@ import CoreGraphics
 import DriveKitDBVehicleAccessModule
 import DriveKitVehicleModule
 
-protocol VehicleDetailDelegate : AnyObject {
+protocol VehicleDetailDelegate: AnyObject {
     func needUpdate()
 }
 
@@ -26,6 +26,7 @@ class VehicleDetailViewModel {
     private var updatedFields: [DKVehicleField] = []
     private var updateFieldsValue: [String] = []
     private var errorFields: [DKVehicleField] = []
+    private(set) public var updateIsInProgress: Bool = false
 
     weak var delegate: VehicleDetailDelegate? = nil
 
@@ -80,8 +81,9 @@ class VehicleDetailViewModel {
         return !updatedFields.isEmpty
     }
 
-    func updateFields(completion : @escaping (Bool) -> ()) {
+    func updateFields(completion: @escaping (Bool) -> ()) {
         if updatedFields.count > 0 {
+            updateIsInProgress = true
             errorFields.removeAll()
             updateField(pos: 0, completion: completion)
         } else {
@@ -89,21 +91,22 @@ class VehicleDetailViewModel {
         }
     }
 
-    private func updateField(pos: Int, completion : @escaping (Bool) -> ()) {
+    private func updateField(pos: Int, completion: @escaping (Bool) -> ()) {
         if pos >= updatedFields.count {
-            completion(self.updatedFields.count == 0)
+            updateIsInProgress = false
+            completion(self.errorFields.isEmpty)
         } else {
             let field = updatedFields[pos]
             field.onFieldUpdated(value: updateFieldsValue[pos], vehicle: vehicle, completion: { [weak self] status in
-                var inc = 0
-                if status {
-                    self?.updatedFields.removeFirst()
-                    self?.updateFieldsValue.removeFirst()
-                } else {
-                    self?.addErrorField(field: field)
-                    inc = 1
+                if let self = self {
+                    if status {
+                        self.updatedFields.remove(at: pos)
+                        self.updateFieldsValue.remove(at: pos)
+                    } else {
+                        self.addErrorField(field: field)
+                    }
+                    self.updateField(pos: self.errorFields.count, completion: completion)
                 }
-                self?.updateField(pos: inc, completion: completion)
             })
         }
     }

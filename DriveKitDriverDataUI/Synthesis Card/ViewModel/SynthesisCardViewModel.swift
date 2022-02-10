@@ -48,4 +48,10 @@ struct SynthesisCardViewModel {
     private func getSynthesisCardInfoViewModel(from synthesisCardInfo: DKSynthesisCardInfo) -> SynthesisCardInfoViewModel {
         return SynthesisCardInfoViewModel(synthesisCardInfo: synthesisCardInfo)
     }
+
+    func shouldHideCardInfoContainer() -> Bool {
+        return getTopSynthesisCardInfoViewModel().isEmpty()
+        && getMiddleSynthesisCardInfoViewModel().isEmpty()
+        && getBottomSynthesisCardInfoViewModel().isEmpty()
+    }
 }

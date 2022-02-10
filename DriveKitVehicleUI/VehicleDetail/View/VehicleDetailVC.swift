@@ -53,9 +53,11 @@ class VehicleDetailVC: DKUIViewController {
             if !self.viewModel.updateIsInProgress {
                 self.navigationItem.rightBarButtonItem = nil
                 self.showLoader()
-                self.updateField(successAlertAction: { [weak self] _ in
-                    self?.navigationController?.popViewController(animated: true)
-                })
+                self.updateField() { [weak self] success in
+                    if success {
+                        self?.navigationController?.popViewController(animated: true)
+                    }
+                }
             }
         })
         let noAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .default, handler: { [weak self] _ in
@@ -70,28 +72,33 @@ class VehicleDetailVC: DKUIViewController {
         self.view.endEditing(false)
         self.navigationItem.rightBarButtonItem = nil
         self.showLoader()
-        self.updateField(successAlertAction: { [weak self] _ in
-            if self?.viewModel.mustUpdate() ?? true {
-                self?.needUpdate()
-            }
-        })
-    }
-
-    private func updateField(successAlertAction: ((UIAlertAction) -> Void)?) {
-        self.viewModel.updateFields(completion: { [weak self] status in
-            DispatchQueue.main.async {
-                self?.hideLoader()
-                if status {
-                    let alert = UIAlertController(title: nil, message: "dk_change_success".dkVehicleLocalized(), preferredStyle: .alert)
-                    let successAction = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default, handler: successAlertAction)
-                    alert.addAction(successAction)
-                    self?.present(alert, animated: true)
-                } else {
-                    self?.tableView.reloadData()
-                    self?.showAlertMessage(title: nil, message: "dk_fields_not_valid".dkVehicleLocalized(), back: false, cancel: false)
+        self.updateField() { [weak self] _ in
+            if let self = self {
+                if self.viewModel.mustUpdate() {
+                    self.needUpdate()
                 }
             }
-        })
+        }
+    }
+
+    private func updateField(completion: ((Bool) -> Void)?) {
+        self.viewModel.updateFields() { [weak self] success in
+            DispatchQueue.main.async {
+                if let self = self {
+                    self.hideLoader()
+                    if success {
+                        self.showAlertMessage(title: nil, message: "dk_change_success".dkVehicleLocalized(), back: false, cancel: false) {
+                            completion?(true)
+                        }
+                    } else {
+                        self.tableView.reloadData()
+                        self.showAlertMessage(title: nil, message: "dk_fields_not_valid".dkVehicleLocalized(), back: false, cancel: false) {
+                            completion?(false)
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

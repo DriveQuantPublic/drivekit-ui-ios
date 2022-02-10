@@ -94,19 +94,19 @@ class VehicleDetailViewModel {
     private func updateField(pos: Int, completion: @escaping (Bool) -> ()) {
         if pos >= updatedFields.count {
             updateIsInProgress = false
-            completion(self.updatedFields.count == 0)
+            completion(self.errorFields.isEmpty)
         } else {
             let field = updatedFields[pos]
             field.onFieldUpdated(value: updateFieldsValue[pos], vehicle: vehicle, completion: { [weak self] status in
-                var inc = 0
-                if status {
-                    self?.updatedFields.removeFirst()
-                    self?.updateFieldsValue.removeFirst()
-                } else {
-                    self?.addErrorField(field: field)
-                    inc = 1
+                if let self = self {
+                    if status {
+                        self.updatedFields.remove(at: pos)
+                        self.updateFieldsValue.remove(at: pos)
+                    } else {
+                        self.addErrorField(field: field)
+                    }
+                    self.updateField(pos: self.errorFields.count, completion: completion)
                 }
-                self?.updateField(pos: inc, completion: completion)
             })
         }
     }

@@ -40,7 +40,7 @@ You can follow the steps below to install, run and experiment the DriveKit sampl
 ### Configure the demo app
 
 * Click on the **gear icon** to open the app settings.
-* In the app settings, set a unique user identifier. The **User id** can be an email or any strings.
+* In the app settings, set a unique user identifier. We recommend **never** using an email address or phone number to define the unique **User id**. It is recommended that you set up a unique, universal and anonymous user ID. For example, you can generate a globally unique identifier [(GUID)](https://www.guidgenerator.com/online-guid-generator.aspx) for each of your users.
 * Make sure that the **Auto start** is enabled.
 * Grant the required permissions to allow the application to access the smartphone's sensors.
 * Click on **Vehicle picker** to add a vehicle to your account.

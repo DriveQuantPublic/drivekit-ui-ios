@@ -66,6 +66,9 @@ class WorkingHoursSlotCell: UITableViewCell {
                 case .personal:
                     slotTypeKey = "dk_working_hours_slot_mode_personal_title"
                     displayDescription = false
+                @unknown default:
+                    slotTypeKey = ""
+                    displayDescription = false
             }
             self.slotTypeButton.setTitle(slotTypeKey.dkTripAnalysisLocalized(), for: .normal)
             self.descriptionLabel.isHidden = !displayDescription

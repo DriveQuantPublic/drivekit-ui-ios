@@ -34,8 +34,8 @@ public extension UIViewController {
             loaderView.addSubview(activityIndicator)
 
             let margin: CGFloat = 40
-            let label = UILabel(frame: CGRect(x: margin, y: activityIndicator.frame.maxY + 8, width: self.view.bounds.size.width - 2 * margin, height: 60))
-            label.autoresizingMask = [.flexibleWidth]
+            let label = UILabel(frame: CGRect(x: margin, y: activityIndicator.frame.maxY, width: self.view.bounds.size.width - 2 * margin, height: 60))
+            label.autoresizingMask = [.flexibleWidth, .flexibleTopMargin, .flexibleBottomMargin]
             label.numberOfLines = 0
             label.textColor = .white
             label.textAlignment = .center
@@ -50,15 +50,16 @@ public extension UIViewController {
     private func updateLoaderMessage(message: String?, label: UILabel, loaderView: UIView) {
         label.text = message
         var labelFrame = label.frame
+        labelFrame.origin.y = loaderView.center.y + 26
         let maxHeight = loaderView.bounds.size.height - labelFrame.origin.y - 10
         let size = label.sizeThatFits(CGSize(width: labelFrame.size.width, height: maxHeight))
         let height = min(size.height, maxHeight)
-        labelFrame.size = CGSize(width: size.width, height: height)
+        labelFrame.size = CGSize(width: labelFrame.size.width, height: height)
         label.frame = labelFrame
     }
 
     func hideLoader() {
-        if let loaderView = self.view.viewWithTag(1000) {
+        if let loaderView = self.view.viewWithTag(UIViewController.loaderViewTag) {
             loaderView.removeFromSuperview()
         }
     }

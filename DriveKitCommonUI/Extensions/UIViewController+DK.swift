@@ -19,7 +19,7 @@ public extension UIViewController {
     func showLoader(message: String?) {
         if let loaderView = self.view.viewWithTag(UIViewController.loaderViewTag) {
             if let label = loaderView.viewWithTag(UIViewController.loaderTextViewTag) as? UILabel {
-                label.text = message
+                updateLoaderMessage(message: message, label: label, loaderView: loaderView)
             }
         } else {
             let loaderView = UIView(frame: self.view.bounds)
@@ -35,19 +35,31 @@ public extension UIViewController {
 
             let margin: CGFloat = 40
             let label = UILabel(frame: CGRect(x: margin, y: activityIndicator.frame.maxY, width: self.view.bounds.size.width - 2 * margin, height: 60))
-            label.autoresizingMask = [.flexibleWidth, .flexibleBottomMargin]
+            label.autoresizingMask = [.flexibleWidth, .flexibleTopMargin, .flexibleBottomMargin]
+            label.numberOfLines = 0
             label.textColor = .white
             label.textAlignment = .center
-            label.text = message
             label.tag = UIViewController.loaderTextViewTag
             loaderView.addSubview(label)
+            updateLoaderMessage(message: message, label: label, loaderView: loaderView)
 
             self.view.addSubview(loaderView)
         }
     }
 
+    private func updateLoaderMessage(message: String?, label: UILabel, loaderView: UIView) {
+        label.text = message
+        var labelFrame = label.frame
+        labelFrame.origin.y = loaderView.center.y + 26
+        let maxHeight = loaderView.bounds.size.height - labelFrame.origin.y - 10
+        let size = label.sizeThatFits(CGSize(width: labelFrame.size.width, height: maxHeight))
+        let height = min(size.height, maxHeight)
+        labelFrame.size = CGSize(width: labelFrame.size.width, height: height)
+        label.frame = labelFrame
+    }
+
     func hideLoader() {
-        if let loaderView = self.view.viewWithTag(1000) {
+        if let loaderView = self.view.viewWithTag(UIViewController.loaderViewTag) {
             loaderView.removeFromSuperview()
         }
     }

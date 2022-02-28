@@ -7,10 +7,9 @@
 //
 
 import UIKit
-
 import MessageUI
-
 import DriveKitCommonUI
+import DriveKitCoreModule
 
 protocol DiagnosisView : UIViewController {
     func updateSensorsUI()

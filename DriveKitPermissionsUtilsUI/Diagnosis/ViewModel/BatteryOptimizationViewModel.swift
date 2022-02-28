@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import DriveKitCoreModule
 
 class BatteryOptimizationViewModel {
     let title: String

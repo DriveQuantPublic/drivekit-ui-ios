@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitCoreModule
 
 class LocationPermissionViewModel {
 

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import DriveKitCoreModule
 import DriveKitCommonUI
 
 @objc public class DriveKitPermissionsUtilsUI : NSObject {
@@ -84,7 +84,7 @@ import DriveKitCommonUI
     }
 
     @objc public func getDiagnosisDescription() -> String {
-        let locationSensorStatus = getStatusString("dk_perm_utils_app_diag_email_location_sensor", isValid: DKDiagnosisHelper.shared.isSensorActivated(.gps))
+        let locationSensorStatus = getStatusString("dk_perm_utils_app_diag_email_location_sensor", isValid: DKDiagnosisHelper.shared.isActivated(.gps))
         let locationPermissionStatus = getStatusString("dk_perm_utils_app_diag_email_location", isValid: (DKDiagnosisHelper.shared.getPermissionStatus(.location) == .valid))
         let locationAccuracy = getStatusString("dk_perm_utils_app_diag_email_location_accuracy", isValid: (DKDiagnosisHelper.shared.getLocationAccuracy() == .precise))
         let activityStatus = getStatusString(statusType: .activity, titleKey: "dk_perm_utils_app_diag_email_activity")
@@ -196,10 +196,18 @@ extension DriveKitPermissionsUtilsUI : DriveKitPermissionsUtilsUIEntryPoint {
 }
 
 extension DriveKitPermissionsUtilsUI : DiagnosisHelperDelegate {
-    func bluetoothStateChanged() {
+    public func bluetoothStateChanged() {
         updateState()
     }
 }
+
+extension DKDiagnosisHelper {
+    @objc public func openSettings() {
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
+        UIApplication.shared.open(settingsUrl)
+    }
+}
+
 
 // MARK: - Objective-C extension
 

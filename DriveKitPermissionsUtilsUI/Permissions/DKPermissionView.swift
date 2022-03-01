@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitCoreModule
 
 @objc public enum DKPermissionView : Int {
     case activity, location

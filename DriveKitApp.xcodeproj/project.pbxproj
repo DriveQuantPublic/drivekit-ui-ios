@@ -183,10 +183,6 @@
 		616946E624333C6900C8A965 /* DriveKitPermissionsUtilsUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616946E524333C6900C8A965 /* DriveKitPermissionsUtilsUI.swift */; };
 		616946E924338E3500C8A965 /* DriveKitPermissionsUtilsUIEntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616946E824338E3500C8A965 /* DriveKitPermissionsUtilsUIEntryPoint.swift */; };
 		616946F82433A34200C8A965 /* PermissionsUtilsLocalizables.strings in Resources */ = {isa = PBXBuildFile; fileRef = 616946FA2433A34200C8A965 /* PermissionsUtilsLocalizables.strings */; };
-		616947002433A89900C8A965 /* DKDiagnosisHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616946FF2433A89800C8A965 /* DKDiagnosisHelper.swift */; };
-		616947032433A91300C8A965 /* DKSensorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616947022433A91300C8A965 /* DKSensorType.swift */; };
-		616947052433A94D00C8A965 /* DKPermissionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616947042433A94D00C8A965 /* DKPermissionType.swift */; };
-		616947072433A97000C8A965 /* DKPermissionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616947062433A97000C8A965 /* DKPermissionStatus.swift */; };
 		616947092433AA0300C8A965 /* DKPermissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616947082433AA0300C8A965 /* DKPermissionView.swift */; };
 		6169470B2433AA4800C8A965 /* PermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6169470A2433AA4800C8A965 /* PermissionViewController.swift */; };
 		6169470D2433AAB500C8A965 /* ActivityPermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6169470C2433AAB500C8A965 /* ActivityPermissionViewController.swift */; };
@@ -196,7 +192,6 @@
 		61D29B7524361CD70094CA5B /* DriveKitPermissionsUtilsUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 616946D9243337D600C8A965 /* DriveKitPermissionsUtilsUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		61D29B7924362C720094CA5B /* DKReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D29B7824362C720094CA5B /* DKReachability.swift */; };
 		6307ED8A2625DC9500CB7EED /* SynthesisCardTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6307ED892625DC9500CB7EED /* SynthesisCardTest.swift */; };
-		63199A6B24EC132E0011DCFC /* DKLocationAccuracy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63199A6A24EC132E0011DCFC /* DKLocationAccuracy.swift */; };
 		63199A6E24ED7C250011DCFC /* DKAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63199A6D24ED7C250011DCFC /* DKAnalytics.swift */; };
 		632EDDEF2450497500110744 /* BatteryOptimizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632EDDEE2450497500110744 /* BatteryOptimizationViewModel.swift */; };
 		632EDDF124504BEE00110744 /* UIColor+PermissionsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632EDDF024504BEE00110744 /* UIColor+PermissionsUtils.swift */; };
@@ -268,7 +263,6 @@
 		6391E0F92607F57000A168D4 /* SynthesisCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6391E0F82607F57000A168D4 /* SynthesisCardViewModel.swift */; };
 		6391E1052607F64100A168D4 /* SynthesisCardInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6391E1042607F64100A168D4 /* SynthesisCardInfoViewModel.swift */; };
 		639346B724489DDA000F42D4 /* DiagnosisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639346B624489DDA000F42D4 /* DiagnosisViewController.swift */; };
-		639346B92448A8FD000F42D4 /* RequestPermissionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639346B82448A8FD000F42D4 /* RequestPermissionHelper.swift */; };
 		639F3D2124B5C8F10081DFC3 /* RankingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F3D2024B5C8F10081DFC3 /* RankingStatus.swift */; };
 		63B07CD224EFCA110060DF33 /* AnalyticsScreenToTagKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63B07CD124EFCA110060DF33 /* AnalyticsScreenToTagKey.plist */; };
 		63B3A1A024AB73460011F11B /* DKRankingSelectorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B3A19F24AB73460011F11B /* DKRankingSelectorType.swift */; };
@@ -827,10 +821,6 @@
 		616946FC2433A34A00C8A965 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/PermissionsUtilsLocalizables.strings; sourceTree = "<group>"; };
 		616946FD2433A34B00C8A965 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/PermissionsUtilsLocalizables.strings; sourceTree = "<group>"; };
 		616946FE2433A34C00C8A965 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/PermissionsUtilsLocalizables.strings; sourceTree = "<group>"; };
-		616946FF2433A89800C8A965 /* DKDiagnosisHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDiagnosisHelper.swift; sourceTree = "<group>"; };
-		616947022433A91300C8A965 /* DKSensorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKSensorType.swift; sourceTree = "<group>"; };
-		616947042433A94D00C8A965 /* DKPermissionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKPermissionType.swift; sourceTree = "<group>"; };
-		616947062433A97000C8A965 /* DKPermissionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKPermissionStatus.swift; sourceTree = "<group>"; };
 		616947082433AA0300C8A965 /* DKPermissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKPermissionView.swift; sourceTree = "<group>"; };
 		6169470A2433AA4800C8A965 /* PermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionViewController.swift; sourceTree = "<group>"; };
 		6169470C2433AAB500C8A965 /* ActivityPermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPermissionViewController.swift; sourceTree = "<group>"; };
@@ -842,7 +832,6 @@
 		61765A7C243E307400358CCA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		61D29B7824362C720094CA5B /* DKReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKReachability.swift; sourceTree = "<group>"; };
 		6307ED892625DC9500CB7EED /* SynthesisCardTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynthesisCardTest.swift; sourceTree = "<group>"; };
-		63199A6A24EC132E0011DCFC /* DKLocationAccuracy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKLocationAccuracy.swift; sourceTree = "<group>"; };
 		63199A6D24ED7C250011DCFC /* DKAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKAnalytics.swift; sourceTree = "<group>"; };
 		632EDDEE2450497500110744 /* BatteryOptimizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryOptimizationViewModel.swift; sourceTree = "<group>"; };
 		632EDDF024504BEE00110744 /* UIColor+PermissionsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+PermissionsUtils.swift"; sourceTree = "<group>"; };
@@ -917,7 +906,6 @@
 		6391E1042607F64100A168D4 /* SynthesisCardInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesisCardInfoViewModel.swift; sourceTree = "<group>"; };
 		639346B4244897C1000F42D4 /* DKContactType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKContactType.swift; sourceTree = "<group>"; };
 		639346B624489DDA000F42D4 /* DiagnosisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisViewController.swift; sourceTree = "<group>"; };
-		639346B82448A8FD000F42D4 /* RequestPermissionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPermissionHelper.swift; sourceTree = "<group>"; };
 		639F3D2024B5C8F10081DFC3 /* RankingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingStatus.swift; sourceTree = "<group>"; };
 		63B07CD124EFCA110060DF33 /* AnalyticsScreenToTagKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AnalyticsScreenToTagKey.plist; sourceTree = "<group>"; };
 		63B3A19F24AB73460011F11B /* DKRankingSelectorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKRankingSelectorType.swift; sourceTree = "<group>"; };
@@ -1796,12 +1784,6 @@
 			children = (
 				63FF6B59244A41830006992E /* ViewModel */,
 				63FF6B56244A41550006992E /* View */,
-				616946FF2433A89800C8A965 /* DKDiagnosisHelper.swift */,
-				639346B82448A8FD000F42D4 /* RequestPermissionHelper.swift */,
-				616947062433A97000C8A965 /* DKPermissionStatus.swift */,
-				63199A6A24EC132E0011DCFC /* DKLocationAccuracy.swift */,
-				616947042433A94D00C8A965 /* DKPermissionType.swift */,
-				616947022433A91300C8A965 /* DKSensorType.swift */,
 			);
 			path = Diagnosis;
 			sourceTree = "<group>";
@@ -3669,26 +3651,20 @@
 				63C3FD78244EDDA900C2FEEC /* ContactViewModel.swift in Sources */,
 				61377B75243E0C4800E2EC47 /* ActivityPermissionViewModel.swift in Sources */,
 				616947092433AA0300C8A965 /* DKPermissionView.swift in Sources */,
-				616947002433A89900C8A965 /* DKDiagnosisHelper.swift in Sources */,
 				61377B71243E00D700E2EC47 /* LocationPermissionViewModel.swift in Sources */,
 				6169470F2433AAE300C8A965 /* LocationPermissionViewController.swift in Sources */,
 				63F44E89244DDEE000C7F5CC /* GlobalStateView.swift in Sources */,
 				63C3FD85244F89B300C2FEEC /* SensorInfoViewController.swift in Sources */,
 				63FF6B552449EC2B0006992E /* SensorStateView.swift in Sources */,
-				63199A6B24EC132E0011DCFC /* DKLocationAccuracy.swift in Sources */,
-				616947032433A91300C8A965 /* DKSensorType.swift in Sources */,
 				616946E624333C6900C8A965 /* DriveKitPermissionsUtilsUI.swift in Sources */,
 				639346B724489DDA000F42D4 /* DiagnosisViewController.swift in Sources */,
 				63F44E86244DDC8100C7F5CC /* GlobalStateViewModel.swift in Sources */,
 				6378BBE0244D9BC70040A114 /* SensorStateViewModel.swift in Sources */,
 				6378BBE4244DA47B0040A114 /* StatusType.swift in Sources */,
 				6169470B2433AA4800C8A965 /* PermissionViewController.swift in Sources */,
-				616947072433A97000C8A965 /* DKPermissionStatus.swift in Sources */,
 				61377B77243E0DFE00E2EC47 /* PermissionView.swift in Sources */,
 				63C3FD7C244EE56C00C2FEEC /* LoggingViewModel.swift in Sources */,
-				639346B92448A8FD000F42D4 /* RequestPermissionHelper.swift in Sources */,
 				6169470D2433AAB500C8A965 /* ActivityPermissionViewController.swift in Sources */,
-				616947052433A94D00C8A965 /* DKPermissionType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

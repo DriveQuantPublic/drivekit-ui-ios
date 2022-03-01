@@ -7,10 +7,9 @@
 //
 
 import UIKit
-
 import MessageUI
-
 import DriveKitCommonUI
+import DriveKitCoreModule
 
 protocol DiagnosisView : UIViewController {
     func updateSensorsUI()
@@ -50,7 +49,6 @@ class DiagnosisViewModel : NSObject {
     let batteryOptimizationViewModel = BatteryOptimizationViewModel()
     private(set) var contactViewModel: ContactViewModel? = nil
     private(set) var loggingViewModel: LoggingViewModel = LoggingViewModel()
-    private lazy var requestPermissionHelper: RequestPermissionHelper = RequestPermissionHelper()
     private var stateByType = [StatusType:Bool]()
     private var viewModelByType = [StatusType:SensorStateViewModel]()
     private var isAppActive = true
@@ -72,15 +70,15 @@ class DiagnosisViewModel : NSObject {
             var openSettingsImmediatly = false
             switch statusType {
                 case .activity:
-                    self.requestPermissionHelper.requestPermission(.activity)
+                    DKDiagnosisHelper.shared.requestPermission(.activity)
                 case .bluetooth:
-                    self.requestPermissionHelper.requestPermission(.bluetooth)
+                    DKDiagnosisHelper.shared.requestPermission(.bluetooth)
                 case .location:
-                    self.requestPermissionHelper.requestPermission(.location)
+                    DKDiagnosisHelper.shared.requestPermission(.location)
                 case .network:
                     openSettingsImmediatly = true
                 case .notification:
-                    self.requestPermissionHelper.requestNotificationPermission()
+                    DKDiagnosisHelper.shared.requestNotificationPermission()
             }
             if openSettingsImmediatly {
                 DKDiagnosisHelper.shared.openSettings()

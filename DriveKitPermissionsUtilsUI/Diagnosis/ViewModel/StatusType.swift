@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import DriveKitCoreModule
 import DriveKitCommonUI
 
 enum StatusType {
@@ -55,7 +55,7 @@ enum StatusType {
             case .bluetooth:
                 descriptionKey = "dk_perm_utils_app_diag_bluetooth_ko"
             case .location:
-                if !DKDiagnosisHelper.shared.isSensorActivated(.gps) {
+                if !DKDiagnosisHelper.shared.isActivated(.gps) {
                     descriptionKey = "dk_perm_utils_app_diag_loc_sensor_ko"
                 } else {
                     if DKDiagnosisHelper.shared.getLocationAccuracy() == .approximative {
@@ -86,7 +86,7 @@ enum StatusType {
             case .bluetooth:
                 actionKey = "dk_perm_utils_app_diag_bluetooth_link"
             case .location:
-                if !DKDiagnosisHelper.shared.isSensorActivated(.gps) {
+                if !DKDiagnosisHelper.shared.isActivated(.gps) {
                     actionKey = "dk_perm_utils_app_diag_loc_sensor_link"
                 } else if DKDiagnosisHelper.shared.getLocationAccuracy() == .approximative {
                     actionKey = "dk_perm_utils_app_diag_location_full_link"

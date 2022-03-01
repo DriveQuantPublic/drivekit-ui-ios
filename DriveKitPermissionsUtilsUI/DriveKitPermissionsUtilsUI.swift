@@ -195,7 +195,7 @@ extension DriveKitPermissionsUtilsUI : DriveKitPermissionsUtilsUIEntryPoint {
     }
 }
 
-extension DriveKitPermissionsUtilsUI : DiagnosisHelperDelegate {
+extension DriveKitPermissionsUtilsUI: DKDiagnosisHelperDelegate {
     public func bluetoothStateChanged() {
         updateState()
     }

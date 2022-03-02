@@ -69,12 +69,18 @@ final class SynthesisCardView: UIView, Nibable {
 
             if self.topSynthesisCardInfo.synthesisCardInfoViewModel?.isEmpty() == true {
                 self.topSynthesisCardInfo.isHidden = true
+            } else {
+                self.topSynthesisCardInfo.isHidden = false
             }
             if self.middleSynthesisCardInfo.synthesisCardInfoViewModel?.isEmpty() == true {
                 self.middleSynthesisCardInfo.isHidden = true
+            } else {
+                self.middleSynthesisCardInfo.isHidden = false
             }
             if self.bottomSynthesisCardInfo.synthesisCardInfoViewModel?.isEmpty() == true {
                 self.bottomSynthesisCardInfo.isHidden = true
+            } else {
+                self.bottomSynthesisCardInfo.isHidden = false
             }
             if self.synthesisCardViewModel?.shouldHideCardInfoContainer() == true {
                 self.cardInfoContainer.isHidden = true

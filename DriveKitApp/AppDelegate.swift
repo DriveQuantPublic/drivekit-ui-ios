@@ -167,7 +167,15 @@ extension AppDelegate: TripListener {
     }
 
     func potentialTripStart(startMode: StartMode) {
+        print("Potential Trip Start")
+    }
 
+    func crashDetected(crashInfo: DKCrashInfo) {
+        print("Crash Detected")
+    }
+    
+    func crashFeedbackSent(crashInfo: DKCrashInfo, feedbackType: DKCrashFeedbackType, severity: DKCrashFeedbackSeverity) {
+        print("Crash Feedback Sent")
     }
 }
 

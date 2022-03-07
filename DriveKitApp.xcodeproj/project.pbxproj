@@ -381,6 +381,11 @@
 		67CFEA0025FA16EC004D0AE1 /* SpeedingPageItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67CFE9FF25FA16EC004D0AE1 /* SpeedingPageItemView.xib */; };
 		67E807DC26579592003AFAA8 /* ChallengeRulesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E807DB26579592003AFAA8 /* ChallengeRulesViewModel.swift */; };
 		67E807DE2657B855003AFAA8 /* NSAttributedString+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E807DD2657B855003AFAA8 /* NSAttributedString+DK.swift */; };
+		67E8D96727D6136000BD0343 /* DKCrashDetectionFeedbackConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E8D96627D6136000BD0343 /* DKCrashDetectionFeedbackConfig.swift */; };
+		67E8D96A27D6171200BD0343 /* CrashFeedbackStep1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E8D96827D6171200BD0343 /* CrashFeedbackStep1VC.swift */; };
+		67E8D96B27D6171200BD0343 /* CrashFeedbackStep1VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67E8D96927D6171200BD0343 /* CrashFeedbackStep1VC.xib */; };
+		67E8D96F27D617AB00BD0343 /* CrashFeedbackStep1ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E8D96E27D617AB00BD0343 /* CrashFeedbackStep1ViewModel.swift */; };
+		67E8D97127D6529A00BD0343 /* DriveKitTripAnalysis.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67E8D97027D6529A00BD0343 /* DriveKitTripAnalysis.xcassets */; };
 		67F2D31B2630717300ACC69A /* DKDriverRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D31A2630717300ACC69A /* DKDriverRanking.swift */; };
 		67F2D3512630F06B00ACC69A /* RankingScoreBig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D3472630F06A00ACC69A /* RankingScoreBig.swift */; };
 		67F2D3522630F06B00ACC69A /* RankingScoreSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D3482630F06A00ACC69A /* RankingScoreSmall.swift */; };
@@ -1019,6 +1024,11 @@
 		67CFE9FF25FA16EC004D0AE1 /* SpeedingPageItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedingPageItemView.xib; sourceTree = "<group>"; };
 		67E807DB26579592003AFAA8 /* ChallengeRulesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeRulesViewModel.swift; sourceTree = "<group>"; };
 		67E807DD2657B855003AFAA8 /* NSAttributedString+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+DK.swift"; sourceTree = "<group>"; };
+		67E8D96627D6136000BD0343 /* DKCrashDetectionFeedbackConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKCrashDetectionFeedbackConfig.swift; sourceTree = "<group>"; };
+		67E8D96827D6171200BD0343 /* CrashFeedbackStep1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashFeedbackStep1VC.swift; sourceTree = "<group>"; };
+		67E8D96927D6171200BD0343 /* CrashFeedbackStep1VC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CrashFeedbackStep1VC.xib; sourceTree = "<group>"; };
+		67E8D96E27D617AB00BD0343 /* CrashFeedbackStep1ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashFeedbackStep1ViewModel.swift; sourceTree = "<group>"; };
+		67E8D97027D6529A00BD0343 /* DriveKitTripAnalysis.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DriveKitTripAnalysis.xcassets; sourceTree = "<group>"; };
 		67F2D31A2630717300ACC69A /* DKDriverRanking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDriverRanking.swift; sourceTree = "<group>"; };
 		67F2D3472630F06A00ACC69A /* RankingScoreBig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingScoreBig.swift; sourceTree = "<group>"; };
 		67F2D3482630F06A00ACC69A /* RankingScoreSmall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingScoreSmall.swift; sourceTree = "<group>"; };
@@ -2186,10 +2196,12 @@
 			isa = PBXGroup;
 			children = (
 				678130B0276C042100701CF1 /* Localizable */,
+				67E8D96527D6126300BD0343 /* CrashFeedback */,
 				678130A6276BF72900701CF1 /* WorkingHours */,
 				67813092276BB2A100701CF1 /* DriveKitTripAnalysisUI.h */,
 				63E2FB2C278C1AB200733B51 /* Info.plist */,
 				678130A2276BF59300701CF1 /* DriveKitTripAnalysisUI.swift */,
+				67E8D97027D6529A00BD0343 /* DriveKitTripAnalysis.xcassets */,
 			);
 			path = DriveKitTripAnalysisUI;
 			sourceTree = "<group>";
@@ -2327,6 +2339,33 @@
 				67C43D582641262500DBB09D /* DKChallenge+UI.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		67E8D96527D6126300BD0343 /* CrashFeedback */ = {
+			isa = PBXGroup;
+			children = (
+				67E8D96D27D6179700BD0343 /* ViewModel */,
+				67E8D96C27D6177D00BD0343 /* View */,
+				67E8D96627D6136000BD0343 /* DKCrashDetectionFeedbackConfig.swift */,
+			);
+			path = CrashFeedback;
+			sourceTree = "<group>";
+		};
+		67E8D96C27D6177D00BD0343 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				67E8D96827D6171200BD0343 /* CrashFeedbackStep1VC.swift */,
+				67E8D96927D6171200BD0343 /* CrashFeedbackStep1VC.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		67E8D96D27D6179700BD0343 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				67E8D96E27D617AB00BD0343 /* CrashFeedbackStep1ViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		67F2D3192630713700ACC69A /* Ranking */ = {
@@ -3162,6 +3201,8 @@
 			files = (
 				63913D98277E769600EABBC7 /* WorkingHoursSlotCell.xib in Resources */,
 				63508C7127847A270036A61E /* WorkingHoursSlotTypeViewSelector.xib in Resources */,
+				67E8D97127D6529A00BD0343 /* DriveKitTripAnalysis.xcassets in Resources */,
+				67E8D96B27D6171200BD0343 /* CrashFeedbackStep1VC.xib in Resources */,
 				63913D9E277F534000EABBC7 /* WorkingHoursDayCell.xib in Resources */,
 				678130AC276BF77700701CF1 /* WorkingHoursViewController.xib in Resources */,
 				63913D9C277F512700EABBC7 /* WorkingHoursSeparatorCell.xib in Resources */,
@@ -3672,13 +3713,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67E8D96F27D617AB00BD0343 /* CrashFeedbackStep1ViewModel.swift in Sources */,
 				678130AB276BF77700701CF1 /* WorkingHoursViewController.swift in Sources */,
 				63508C6D278455370036A61E /* WorkingHoursSlotCellViewModel.swift in Sources */,
 				63913D9A277E7C0F00EABBC7 /* WorkingHoursSlotCell.swift in Sources */,
+				67E8D96A27D6171200BD0343 /* CrashFeedbackStep1VC.swift in Sources */,
 				63913DA0277F534A00EABBC7 /* WorkingHoursDayCell.swift in Sources */,
 				63913DA2277F601900EABBC7 /* WorkingHoursDayCellViewModel.swift in Sources */,
 				678130A3276BF59300701CF1 /* DriveKitTripAnalysisUI.swift in Sources */,
 				678130AF276BFDFB00701CF1 /* WorkingHoursViewModel.swift in Sources */,
+				67E8D96727D6136000BD0343 /* DKCrashDetectionFeedbackConfig.swift in Sources */,
 				63508C6F27847A020036A61E /* WorkingHoursSlotTypeViewSelector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

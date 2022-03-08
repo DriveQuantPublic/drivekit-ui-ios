@@ -1,3 +1,14 @@
+"dk_crash_detection_feedback_notif_message"="Haz clic en la notificación y cuéntanos cómo te va.";
+"dk_crash_detection_feedback_notif_title"="Se detectó un accidente";
+"dk_crash_detection_feedback_step1_description"="Puede cancelar o confirmar la alerta antes de que finalice la cuenta atrás";
+"dk_crash_detection_feedback_step1_option_critical_accident"="Solicitar asistencia";
+"dk_crash_detection_feedback_step1_option_no_crash"="Estoy bien.";
+"dk_crash_detection_feedback_step1_title"="Se ha detectado un accidente, ¿cómo estás?";
+"dk_crash_detection_feedback_step2_description"="¿Qué te ha pasado?";
+"dk_crash_detection_feedback_step2_option_minor_accident"="Accidente menor";
+"dk_crash_detection_feedback_step2_option_no_crash"="Nada, todo está bien";
+"dk_crash_detection_feedback_step2_title"="Nos tranquiliza saber que estás bien.";
+"dk_crash_detection_feedback_step2option_critical_accident"="Solicitar asistencia";
 "dk_working_hours_back_save_alert"="El horario de trabajo ha sido modificado. ¿Quiere guardarlos?";
 "dk_working_hours_enable_desc"="Esta función permite configurar los tiempos de activación del modo automático y etiquetar los viajes.";
 "dk_working_hours_enable_title"="Activar la gestión de horarios";

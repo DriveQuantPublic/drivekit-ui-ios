@@ -49,6 +49,7 @@ enum ChallengeTheme {
     case safety
     case braking
     case distraction
+    case speeding
     case none
 
     var scoreTitle: String {
@@ -65,6 +66,8 @@ enum ChallengeTheme {
             return "dk_challenge_braking_score".dkChallengeLocalized()
         case .distraction:
             return "dk_challenge_distraction_score".dkChallengeLocalized()
+        case .speeding:
+            return "dk_challenge_speeding_score".dkChallengeLocalized()
         case .none:
             return ""
         }

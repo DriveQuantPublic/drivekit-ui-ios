@@ -169,6 +169,14 @@ extension AppDelegate: TripListener {
     func potentialTripStart(startMode: StartMode) {
 
     }
+
+    func crashDetected(crashInfo: DKCrashInfo) {
+
+    }
+
+    func crashFeedbackSent(crashInfo: DKCrashInfo, feedbackType: DKCrashFeedbackType, severity: DKCrashFeedbackSeverity) {
+
+    }
 }
 
 extension CancelTrip {

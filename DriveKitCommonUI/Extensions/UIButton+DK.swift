@@ -49,11 +49,12 @@ public enum DKButtonStyle {
             break
         case let .rounded(color):
             button.layer.cornerRadius = 8
-            button.layer.masksToBounds = false
+            button.layer.masksToBounds = true
             button.layer.borderColor = color.cgColor
             button.layer.borderWidth = 2
             let bgColor = color.withAlphaComponent(0.1)
             button.setBackgroundImage(UIImage(color: bgColor), for: .normal)
+            button.setBackgroundImage(UIImage(color: bgColor), for: .disabled)
         }
     }
 }

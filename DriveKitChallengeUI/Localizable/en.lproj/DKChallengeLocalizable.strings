@@ -29,6 +29,7 @@
 "dk_challenge_score_alert_message"="The results of this challenge are being analysed, please try again later.";
 "dk_challenge_score_alert_title"="Challenge under analysis";
 "dk_challenge_signin_in_progress"="Signing up…";
+"dk_challenge_speeding_score"="Speeding score";
 "dk_challenge_start"="Start of challenge in";
 "dk_challenge_traveled_distance"="Distance traveled";
 "dk_challenge_unranked_conditions_info"="To enter the leaderboard, you must fulfill the conditions below:";

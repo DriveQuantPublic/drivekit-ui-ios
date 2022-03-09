@@ -13,7 +13,7 @@ import DriveKitCommonUI
 import DriveKitTripAnalysisModule
 
 @objc public class DriveKitTripAnalysisUI: NSObject {
-    private var crashFeedbackConfig: DKCrashDetectionFeedbackConfig? = nil
+    private(set) var crashFeedbackConfig: DKCrashDetectionFeedbackConfig? = nil
     @objc public static let shared = DriveKitTripAnalysisUI()
     @objc public var defaultWorkingHours: DKWorkingHours = DriveKitTripAnalysisUI.getDefaultWorkingHours()
 
@@ -97,7 +97,9 @@ extension DriveKitTripAnalysisUI: UNUserNotificationCenterDelegate {
                     print("crashFeedbackNotificationOpened with success")
                     DispatchQueue.main.async { [weak self] in
                         if let crashFeedbackVC = self?.getCrashFeedbackViewController(crashInfo: crashInfo) {
-                            UIApplication.shared.visibleViewController?.present(crashFeedbackVC, animated: false, completion: {
+                            let navController = UINavigationController(rootViewController: crashFeedbackVC)
+                            navController.modalPresentationStyle = .overFullScreen
+                            UIApplication.shared.visibleViewController?.present(navController, animated: false, completion: {
                             })
                         }
                     }

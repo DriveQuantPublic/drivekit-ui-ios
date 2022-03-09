@@ -11,14 +11,14 @@ import DriveKitTripAnalysisModule
 import DriveKitCommonUI
 
 struct CrashFeedbackStep1ViewModel {
-    var crashInfo: DKCrashInfo
+    private var crashInfo: DKCrashInfo
 
     init(crashInfo: DKCrashInfo) {
         self.crashInfo = crashInfo
     }
 
-    func sendNoCrash() {
-        _ = DriveKitTripAnalysis.shared.noCrashConfirmationOpened(crashId: crashInfo.crashId)
+    func prepareStep2() -> DKCrashInfo? {
+        return DriveKitTripAnalysis.shared.noCrashConfirmationOpened(crashId: crashInfo.crashId)
     }
 
     func sendCriticalCrash() {
@@ -29,7 +29,7 @@ struct CrashFeedbackStep1ViewModel {
     }
 
     func getMessageAttributedText() -> NSAttributedString {
-        let titleString = "dk_crash_detection_feedback_step1_title".dkTripAnalysisLocalized().dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 25, traits: nil)).build()
+        let titleString = "dk_crash_detection_feedback_step1_title".dkTripAnalysisLocalized().dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 25, traits: nil)).color(DKUIColors.mainFontColor.color).build()
         let descriptionString = "dk_crash_detection_feedback_step1_description".dkTripAnalysisLocalized().dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 14, traits: nil)).color(DKUIColors.mainFontColor.color.withAlphaComponent(0.36)).build()
         return "%@\n\n%@".dkAttributedString().buildWithArgs(titleString, descriptionString)
     }

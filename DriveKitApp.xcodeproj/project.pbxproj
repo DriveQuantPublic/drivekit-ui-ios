@@ -310,6 +310,10 @@
 		6704DDE02668710000DAF326 /* ChallengeResultOverviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6704DDDE2668710000DAF326 /* ChallengeResultOverviewCell.xib */; };
 		6704DDE3266A17B200DAF326 /* ChallengeTripsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6704DDE1266A17B200DAF326 /* ChallengeTripsVC.swift */; };
 		6704DDE4266A17B200DAF326 /* ChallengeTripsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6704DDE2266A17B200DAF326 /* ChallengeTripsVC.xib */; };
+		6728DF7B27D8E62D00CC6CC9 /* CrashFeedbackStep2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6728DF7927D8E62D00CC6CC9 /* CrashFeedbackStep2VC.swift */; };
+		6728DF7C27D8E62D00CC6CC9 /* CrashFeedbackStep2VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6728DF7A27D8E62D00CC6CC9 /* CrashFeedbackStep2VC.xib */; };
+		6728DF7E27D8E66500CC6CC9 /* CrashFeedbackStep2ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6728DF7D27D8E66500CC6CC9 /* CrashFeedbackStep2ViewModel.swift */; };
+		6728DF8027D8F62500CC6CC9 /* CrashFeedbackBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6728DF7F27D8F62500CC6CC9 /* CrashFeedbackBaseVC.swift */; };
 		67301C3E261D106B006B0432 /* DKTripList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301C3D261D106B006B0432 /* DKTripList.swift */; };
 		67301C46261D121C006B0432 /* TripData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301C45261D121C006B0432 /* TripData.swift */; };
 		67301C5C261EE900006B0432 /* DKTripsByDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301C5B261EE900006B0432 /* DKTripsByDate.swift */; };
@@ -958,6 +962,10 @@
 		6704DDDE2668710000DAF326 /* ChallengeResultOverviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeResultOverviewCell.xib; sourceTree = "<group>"; };
 		6704DDE1266A17B200DAF326 /* ChallengeTripsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeTripsVC.swift; sourceTree = "<group>"; };
 		6704DDE2266A17B200DAF326 /* ChallengeTripsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeTripsVC.xib; sourceTree = "<group>"; };
+		6728DF7927D8E62D00CC6CC9 /* CrashFeedbackStep2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashFeedbackStep2VC.swift; sourceTree = "<group>"; };
+		6728DF7A27D8E62D00CC6CC9 /* CrashFeedbackStep2VC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CrashFeedbackStep2VC.xib; sourceTree = "<group>"; };
+		6728DF7D27D8E66500CC6CC9 /* CrashFeedbackStep2ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashFeedbackStep2ViewModel.swift; sourceTree = "<group>"; };
+		6728DF7F27D8F62500CC6CC9 /* CrashFeedbackBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashFeedbackBaseVC.swift; sourceTree = "<group>"; };
 		67301C3D261D106B006B0432 /* DKTripList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripList.swift; sourceTree = "<group>"; };
 		67301C45261D121C006B0432 /* TripData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripData.swift; sourceTree = "<group>"; };
 		67301C5B261EE900006B0432 /* DKTripsByDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripsByDate.swift; sourceTree = "<group>"; };
@@ -2356,6 +2364,9 @@
 			children = (
 				67E8D96827D6171200BD0343 /* CrashFeedbackStep1VC.swift */,
 				67E8D96927D6171200BD0343 /* CrashFeedbackStep1VC.xib */,
+				6728DF7927D8E62D00CC6CC9 /* CrashFeedbackStep2VC.swift */,
+				6728DF7A27D8E62D00CC6CC9 /* CrashFeedbackStep2VC.xib */,
+				6728DF7F27D8F62500CC6CC9 /* CrashFeedbackBaseVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2364,6 +2375,7 @@
 			isa = PBXGroup;
 			children = (
 				67E8D96E27D617AB00BD0343 /* CrashFeedbackStep1ViewModel.swift */,
+				6728DF7D27D8E66500CC6CC9 /* CrashFeedbackStep2ViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -3207,6 +3219,7 @@
 				678130AC276BF77700701CF1 /* WorkingHoursViewController.xib in Resources */,
 				63913D9C277F512700EABBC7 /* WorkingHoursSeparatorCell.xib in Resources */,
 				678130B3276C048700701CF1 /* DKTripAnalysisLocalizable.strings in Resources */,
+				6728DF7C27D8E62D00CC6CC9 /* CrashFeedbackStep2VC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3715,6 +3728,9 @@
 			files = (
 				67E8D96F27D617AB00BD0343 /* CrashFeedbackStep1ViewModel.swift in Sources */,
 				678130AB276BF77700701CF1 /* WorkingHoursViewController.swift in Sources */,
+				6728DF8027D8F62500CC6CC9 /* CrashFeedbackBaseVC.swift in Sources */,
+				6728DF7B27D8E62D00CC6CC9 /* CrashFeedbackStep2VC.swift in Sources */,
+				6728DF7E27D8E66500CC6CC9 /* CrashFeedbackStep2ViewModel.swift in Sources */,
 				63508C6D278455370036A61E /* WorkingHoursSlotCellViewModel.swift in Sources */,
 				63913D9A277E7C0F00EABBC7 /* WorkingHoursSlotCell.swift in Sources */,
 				67E8D96A27D6171200BD0343 /* CrashFeedbackStep1VC.swift in Sources */,

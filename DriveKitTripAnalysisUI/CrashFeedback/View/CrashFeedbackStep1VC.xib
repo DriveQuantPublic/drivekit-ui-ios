@@ -32,6 +32,9 @@
                     </constraints>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" image="no_crash"/>
+                    <connections>
+                        <action selector="noCrashAction" destination="-1" eventType="touchUpInside" id="K42-uO-6Oa"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="caE-r7-9pr" customClass="ButtonWithRightIcon" customModule="DriveKitTripAnalysisUI" customModuleProvider="target">
                     <rect key="frame" x="40" y="776" width="334" height="55"/>
@@ -42,6 +45,9 @@
                     <state key="normal" image="crash-severity-major">
                         <attributedString key="attributedTitle"/>
                     </state>
+                    <connections>
+                        <action selector="criticalCrashAction" destination="-1" eventType="touchUpInside" id="uqT-S0-VAb"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMz-ap-Xsl">
                     <rect key="frame" x="0.0" y="343" width="414" height="344"/>
@@ -81,7 +87,7 @@
                         <constraint firstItem="LpJ-JY-B7X" firstAttribute="centerX" secondItem="TMz-ap-Xsl" secondAttribute="centerX" id="zE6-2U-ZVp"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qlF-fb-ixW">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qlF-fb-ixW">
                     <rect key="frame" x="40" y="65" width="334" height="278"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>

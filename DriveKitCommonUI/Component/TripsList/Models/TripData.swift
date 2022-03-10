@@ -34,7 +34,6 @@ public enum TripData: String {
             return trip.getDuration().roundUp(step: 60.0).formatSecondDuration()
         }
     }
-
 }
 
 public enum DisplayType {

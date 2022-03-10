@@ -61,12 +61,16 @@ class ChallengeDetailViewModel {
         case 306, 307, 308, 309:
             self.challengeType = .duration
             self.challengeTheme = .none
+        case 401:
+            self.challengeType = .score
+            self.challengeTheme = .speeding
         default:
             self.challengeType = .distance
             self.challengeTheme = .none
         }
         updateTripsAndRanks()
     }
+
     func updateTripsAndRanks() {
         let sortedTrips = DriveKitDBTripAccess.shared.findTrips(itinIds: challengeDetail.itinIds).map({trip in
             return ChallengeTrip(trip: trip)
@@ -260,6 +264,8 @@ extension ChallengeDetailViewModel: DKDriverRanking {
             imageName = "dk_challenge_leaderboard_phone_distraction"
         case .ecoDriving:
             imageName = "dk_challenge_leaderboard_ecodriving"
+        case .speeding:
+            imageName = "dk_challenge_leaderboard_speeding"
         case .none:
             switch challengeType {
             case .distance:

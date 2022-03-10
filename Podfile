@@ -45,6 +45,7 @@ end
 target 'DriveKitTripAnalysisUI' do
   pod 'DriveKitTripAnalysis', '1.20-beta1'
   pod 'WARangeSlider'
+  circular_progress_ring
 end
 
 

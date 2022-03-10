@@ -1,3 +1,14 @@
+"dk_crash_detection_feedback_notif_message"="Klicken Sie auf die Benachrichtigung und teilen Sie uns mit, wie es Ihnen geht.";
+"dk_crash_detection_feedback_notif_title"="Ein Unfall wurde festgestellt";
+"dk_crash_detection_feedback_step1_description"="Sie können die Warnung vor Ablauf des Countdowns abbrechen oder bestätigen.";
+"dk_crash_detection_feedback_step1_option_critical_accident"="Unterstützung kontaktieren";
+"dk_crash_detection_feedback_step1_option_no_crash"="Mir geht es gut";
+"dk_crash_detection_feedback_step1_title"="Ein Unfall wurde festgestellt, wie geht es Ihnen?";
+"dk_crash_detection_feedback_step2_description"="Was ist mit Ihnen passiert?";
+"dk_crash_detection_feedback_step2_option_minor_accident"="Geringfügiger Unfall";
+"dk_crash_detection_feedback_step2_option_no_crash"="Nichts, alles in Ordnung";
+"dk_crash_detection_feedback_step2_title"="Es beruhigt uns zu wissen, dass es Ihnen gut geht.";
+"dk_crash_detection_feedback_step2option_critical_accident"="Unterstützung kontaktieren";
 "dk_working_hours_back_save_alert"="Die Arbeitszeiten sind geändert worden. Möchten Sie sie speichern?";
 "dk_working_hours_enable_desc"="Mit dieser Funktion können Sie die Zeiten für die Aktivierung des automatischen Modus einstellen und Fahrten mit einem Label versehen.";
 "dk_working_hours_enable_title"="Arbeitszeiten freigeben";

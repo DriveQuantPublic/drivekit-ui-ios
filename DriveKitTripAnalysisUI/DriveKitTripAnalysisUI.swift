@@ -99,6 +99,7 @@ extension DriveKitTripAnalysisUI: UNUserNotificationCenterDelegate {
                         if let crashFeedbackVC = self?.getCrashFeedbackViewController(crashInfo: crashInfo) {
                             let navController = UINavigationController(rootViewController: crashFeedbackVC)
                             navController.modalPresentationStyle = .overFullScreen
+                            navController.setNavigationBarHidden(true, animated: false)
                             UIApplication.shared.visibleViewController?.present(navController, animated: false, completion: {
                             })
                         }

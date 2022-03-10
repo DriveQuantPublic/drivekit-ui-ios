@@ -19,6 +19,7 @@ class CrashFeedbackStep1VC: CrashFeedbackBaseVC {
     @IBOutlet weak private var criticalCrashButton: UIButton!
     @IBOutlet weak private var counterContainer: UIView!
     @IBOutlet weak private var progressRing: UICircularProgressRing!
+    @IBOutlet weak private var shadowRing: UICircularProgressRing!
     @IBOutlet weak private var insideCircleView: UIView!
 
 
@@ -41,10 +42,12 @@ class CrashFeedbackStep1VC: CrashFeedbackBaseVC {
         self.noCrashButton.configure(text: "dk_crash_detection_feedback_step1_option_no_crash".dkTripAnalysisLocalized(), style: .rounded(color: greenColor))
         self.criticalCrashButton.configure(text: "dk_crash_detection_feedback_step1_option_critical_accident".dkTripAnalysisLocalized(), style: .rounded(color: redColor))
         initProgressRing(threshold: 60, progress: 60)
+        setupShadowRing()
         insideCircleView.layer.masksToBounds = true
         insideCircleView.backgroundColor = UIColor(hex: 0xEEB0B2).withAlphaComponent(0.2)
         messageLabel.attributedText = viewModel.getMessageAttributedText()
     }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         insideCircleView.layer.cornerRadius = insideCircleView.frame.width / 2
@@ -61,7 +64,20 @@ class CrashFeedbackStep1VC: CrashFeedbackBaseVC {
         progressRing.innerRingWidth = 8
         progressRing.outerRingWidth = 0
         progressRing.shouldShowValueText = true
-        progressRing.innerRingColor = UIColor(hex: 0xEA676B)
+        progressRing.innerRingColor = redColor
+    }
+
+    private func setupShadowRing() {
+        shadowRing.valueFormatter = UICircularProgressRingFormatter(valueIndicator: "", rightToLeft: false, showFloatingPoint: false, decimalPlaces: 0)
+        shadowRing.fullCircle = true
+        shadowRing.maxValue = 60
+        shadowRing.value = 60
+        shadowRing.startAngle = 270
+        shadowRing.endAngle = 45
+        shadowRing.innerRingWidth = 8
+        shadowRing.outerRingWidth = 0
+        shadowRing.shouldShowValueText = false
+        shadowRing.innerRingColor = redColor.withAlphaComponent(0.1)
     }
 
     deinit {

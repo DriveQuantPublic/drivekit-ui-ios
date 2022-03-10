@@ -17,6 +17,7 @@
                 <outlet property="messageLabel" destination="qlF-fb-ixW" id="5k9-fP-d1f"/>
                 <outlet property="noCrashButton" destination="k98-bM-cMg" id="N87-W9-15D"/>
                 <outlet property="progressRing" destination="Qlg-y1-dhV" id="Ye4-1N-xLp"/>
+                <outlet property="shadowRing" destination="7RU-sq-cmq" id="bCb-ZV-y6F"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -55,6 +56,13 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LpJ-JY-B7X">
                             <rect key="frame" x="75" y="40" width="264" height="264"/>
                             <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7RU-sq-cmq" customClass="UICircularProgressRing" customModule="UICircularProgressRing">
+                                    <rect key="frame" x="0.0" y="0.0" width="264" height="264"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="7RU-sq-cmq" secondAttribute="height" multiplier="1:1" id="wx3-hj-364"/>
+                                    </constraints>
+                                </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qlg-y1-dhV" customClass="UICircularProgressRing" customModule="UICircularProgressRing">
                                     <rect key="frame" x="0.0" y="0.0" width="264" height="264"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -72,10 +80,14 @@
                                 <constraint firstItem="K0x-as-dOg" firstAttribute="top" secondItem="LpJ-JY-B7X" secondAttribute="top" constant="20" id="2uq-Wg-n0b"/>
                                 <constraint firstAttribute="bottom" secondItem="K0x-as-dOg" secondAttribute="bottom" constant="20" id="A3z-OA-mrA"/>
                                 <constraint firstItem="Qlg-y1-dhV" firstAttribute="width" secondItem="LpJ-JY-B7X" secondAttribute="width" id="A9q-Z2-Mu9"/>
+                                <constraint firstItem="7RU-sq-cmq" firstAttribute="top" secondItem="Qlg-y1-dhV" secondAttribute="top" id="FrC-eN-UHV"/>
+                                <constraint firstItem="7RU-sq-cmq" firstAttribute="width" secondItem="7RU-sq-cmq" secondAttribute="height" multiplier="1:1" id="ISS-P2-NRk"/>
                                 <constraint firstItem="Qlg-y1-dhV" firstAttribute="centerX" secondItem="LpJ-JY-B7X" secondAttribute="centerX" id="KLn-oz-JYV"/>
                                 <constraint firstItem="K0x-as-dOg" firstAttribute="leading" secondItem="LpJ-JY-B7X" secondAttribute="leading" constant="20" id="U7S-Vu-3rz"/>
                                 <constraint firstAttribute="trailing" secondItem="K0x-as-dOg" secondAttribute="trailing" constant="20" id="dyx-i0-mbb"/>
                                 <constraint firstItem="Qlg-y1-dhV" firstAttribute="centerY" secondItem="LpJ-JY-B7X" secondAttribute="centerY" id="mPt-tY-fXM"/>
+                                <constraint firstItem="7RU-sq-cmq" firstAttribute="centerX" secondItem="LpJ-JY-B7X" secondAttribute="centerX" id="tY8-sd-6hH"/>
+                                <constraint firstItem="7RU-sq-cmq" firstAttribute="centerY" secondItem="LpJ-JY-B7X" secondAttribute="centerY" id="y4Q-dH-13w"/>
                             </constraints>
                         </view>
                     </subviews>

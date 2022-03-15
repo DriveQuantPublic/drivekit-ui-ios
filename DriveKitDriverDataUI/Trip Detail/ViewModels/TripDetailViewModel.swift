@@ -10,9 +10,9 @@ import UIKit
 import DriveKitDBTripAccessModule
 import DriveKitDriverDataModule
 import CoreLocation
+import DriveKitCommonUI
 
-class TripDetailViewModel : DKTripDetailViewModel {
-
+class TripDetailViewModel: DKTripDetailViewModel {
     let itinId: String
     private let mapItems: [DKMapItem]
 
@@ -71,7 +71,6 @@ class TripDetailViewModel : DKTripDetailViewModel {
             case .alternative:
                 self.mapItems = [AlternativeTripMapItem()]
         }
-        
     }
 
     func getCallFromIndex(_ index: Int) -> Call? {
@@ -86,12 +85,12 @@ class TripDetailViewModel : DKTripDetailViewModel {
             if let route = route {
                 self.route = route
                 self.routeSync = true
-            }else{
+            } else {
                 self.routeSync = false
             }
             self.computeEvents()
         })
-        DriveKitDriverData.shared.getTrip(itinId: itinId, completionHandler: {status, trip in
+        DriveKitDriverData.shared.getTrip(itinId: itinId, completionHandler: { status, trip in
             if let trip = trip?.attachedTrip(itinId: self.itinId) {
                 DispatchQueue.main.async {
                     self.configurableMapItems = []
@@ -122,7 +121,11 @@ class TripDetailViewModel : DKTripDetailViewModel {
     private func computeEvents() {
         if let routeSync = self.routeSync, let tripSyncStatus = self.tripSyncStatus {
             if let trip = trip, route != nil {
-                DriveKitDriverData.shared.getMissingCities(trip: trip)
+                DriveKitDriverData.shared.getMissingCities(trip: trip) { updated in
+                    if updated {
+                        self.delegate?.didUpdateTripCities()
+                    }
+                }
             }
             if routeSync, let trip = trip, !trip.unscored {
                 self.events.removeAll(keepingCapacity: true)
@@ -249,11 +252,12 @@ class TripDetailViewModel : DKTripDetailViewModel {
     }
 }
 
-protocol TripDetailDelegate : AnyObject {
-    func onDataAvailable(tripSyncStatus : TripSyncStatus, routeSync: Bool)
+protocol TripDetailDelegate: AnyObject {
+    func onDataAvailable(tripSyncStatus: TripSyncStatus, routeSync: Bool)
     func noRoute()
     func noData()
     func unScoredTrip(noRoute: Bool)
     func onEventSelected(event: TripEvent, position: Int)
     func onMapTraceSelected(_ mapTrace: DKMapTraceType)
+    func didUpdateTripCities()
 }

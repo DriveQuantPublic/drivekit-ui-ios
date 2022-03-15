@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import DriveKitCommonUI
+import DriveKitCoreModule
 import DriveKitDBTripAccessModule
 
 extension Trip: DKTripListItem {
@@ -28,10 +29,18 @@ extension Trip: DKTripListItem {
         return self.endDate ?? Date()
     }
     public func getDepartureCity() -> String? {
-        return self.departureCity
+        if let departureCity = self.departureCity, !departureCity.isEmpty && departureCity != DKAddress.unknownValue {
+            return self.departureCity
+        } else {
+            return self.departureAddress
+        }
     }
     public func getArrivalCity() -> String? {
-        return self.arrivalCity
+        if let arrivalCity = self.arrivalCity, !arrivalCity.isEmpty && arrivalCity != DKAddress.unknownValue {
+            return self.arrivalCity
+        } else {
+            return self.arrivalAddress
+        }
     }
 
     public func isScored(tripData: TripData) -> Bool {

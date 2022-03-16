@@ -246,6 +246,22 @@ class ViewController: UITableViewController {
                 DriveKitTripSimulator.shared.start(.boatTrip)
                 self.updateTripSimulationButtonTitle()
             }))
+            alert.addAction(UIAlertAction(title: "Crash trip (10km/h)", style: .default, handler: { alertAction in
+                DriveKitTripSimulator.shared.startCrashTrip(.confirmed10KmH)
+                self.updateTripSimulationButtonTitle()
+            }))
+            alert.addAction(UIAlertAction(title: "Crash trip (20km/h)", style: .default, handler: { alertAction in
+                DriveKitTripSimulator.shared.startCrashTrip(.confirmed20KmH)
+                self.updateTripSimulationButtonTitle()
+            }))
+            alert.addAction(UIAlertAction(title: "Crash trip (30km/h)", style: .default, handler: { alertAction in
+                DriveKitTripSimulator.shared.startCrashTrip(.confirmed30KmH)
+                self.updateTripSimulationButtonTitle()
+            }))
+            alert.addAction(UIAlertAction(title: "Unconfirmed Crash trip (0km/h)", style: .default, handler: { alertAction in
+                DriveKitTripSimulator.shared.startCrashTrip(.unconfirmed0KmH)
+                self.updateTripSimulationButtonTitle()
+            }))
         }
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)

@@ -385,7 +385,6 @@
 		67CFEA0025FA16EC004D0AE1 /* SpeedingPageItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67CFE9FF25FA16EC004D0AE1 /* SpeedingPageItemView.xib */; };
 		67E807DC26579592003AFAA8 /* ChallengeRulesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E807DB26579592003AFAA8 /* ChallengeRulesViewModel.swift */; };
 		67E807DE2657B855003AFAA8 /* NSAttributedString+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E807DD2657B855003AFAA8 /* NSAttributedString+DK.swift */; };
-		67E8D96727D6136000BD0343 /* DKCrashDetectionFeedbackConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E8D96627D6136000BD0343 /* DKCrashDetectionFeedbackConfig.swift */; };
 		67E8D96A27D6171200BD0343 /* CrashFeedbackStep1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E8D96827D6171200BD0343 /* CrashFeedbackStep1VC.swift */; };
 		67E8D96B27D6171200BD0343 /* CrashFeedbackStep1VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67E8D96927D6171200BD0343 /* CrashFeedbackStep1VC.xib */; };
 		67E8D96F27D617AB00BD0343 /* CrashFeedbackStep1ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E8D96E27D617AB00BD0343 /* CrashFeedbackStep1ViewModel.swift */; };
@@ -1032,7 +1031,6 @@
 		67CFE9FF25FA16EC004D0AE1 /* SpeedingPageItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedingPageItemView.xib; sourceTree = "<group>"; };
 		67E807DB26579592003AFAA8 /* ChallengeRulesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeRulesViewModel.swift; sourceTree = "<group>"; };
 		67E807DD2657B855003AFAA8 /* NSAttributedString+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+DK.swift"; sourceTree = "<group>"; };
-		67E8D96627D6136000BD0343 /* DKCrashDetectionFeedbackConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKCrashDetectionFeedbackConfig.swift; sourceTree = "<group>"; };
 		67E8D96827D6171200BD0343 /* CrashFeedbackStep1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashFeedbackStep1VC.swift; sourceTree = "<group>"; };
 		67E8D96927D6171200BD0343 /* CrashFeedbackStep1VC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CrashFeedbackStep1VC.xib; sourceTree = "<group>"; };
 		67E8D96E27D617AB00BD0343 /* CrashFeedbackStep1ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashFeedbackStep1ViewModel.swift; sourceTree = "<group>"; };
@@ -2354,7 +2352,6 @@
 			children = (
 				67E8D96D27D6179700BD0343 /* ViewModel */,
 				67E8D96C27D6177D00BD0343 /* View */,
-				67E8D96627D6136000BD0343 /* DKCrashDetectionFeedbackConfig.swift */,
 			);
 			path = CrashFeedback;
 			sourceTree = "<group>";
@@ -3738,7 +3735,6 @@
 				63913DA2277F601900EABBC7 /* WorkingHoursDayCellViewModel.swift in Sources */,
 				678130A3276BF59300701CF1 /* DriveKitTripAnalysisUI.swift in Sources */,
 				678130AF276BFDFB00701CF1 /* WorkingHoursViewModel.swift in Sources */,
-				67E8D96727D6136000BD0343 /* DKCrashDetectionFeedbackConfig.swift in Sources */,
 				63508C6F27847A020036A61E /* WorkingHoursSlotTypeViewSelector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

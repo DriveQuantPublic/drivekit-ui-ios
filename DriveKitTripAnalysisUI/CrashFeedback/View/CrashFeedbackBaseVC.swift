@@ -17,7 +17,7 @@ class CrashFeedbackBaseVC: UIViewController {
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
     func makeCrashAssistanceCall() {
-        if let number = DriveKitTripAnalysisUI.shared.crashFeedbackConfig?.roadsideAssistanceNumber {
+        if let number = DriveKitTripAnalysisUI.shared.roadsideAssistanceNumber {
             let url = URL(string: "tel://\(number)")!
             UIApplication.shared.open(url)
         }

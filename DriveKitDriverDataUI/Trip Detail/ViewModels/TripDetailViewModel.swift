@@ -121,9 +121,9 @@ class TripDetailViewModel: DKTripDetailViewModel {
     private func computeEvents() {
         if let routeSync = self.routeSync, let tripSyncStatus = self.tripSyncStatus {
             if let trip = trip, route != nil {
-                DriveKitDriverData.shared.getMissingCities(trip: trip) { updated in
+                DriveKitDriverData.shared.getMissingCities(trip: trip) { [weak self] updated in
                     if updated {
-                        self.delegate?.didUpdateTripCities()
+                        self?.delegate?.didUpdateTripCities()
                     }
                 }
             }

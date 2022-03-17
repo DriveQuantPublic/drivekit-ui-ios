@@ -12,7 +12,6 @@ import DriveKitDriverDataModule
 import DriveKitCommonUI
 
 class TripDetailVC: DKUIViewController {
-    
     @IBOutlet var mapContainer: UIView!
     @IBOutlet var pageContainer: UIView!
     @IBOutlet var actionView: UIView!
@@ -28,7 +27,7 @@ class TripDetailVC: DKUIViewController {
     var mapViewController: MapViewController!
     var mapItemButtons: [UIButton] = []
     
-    private var showAdvice : Bool
+    private var showAdvice: Bool
     
     init(itinId: String, showAdvice: Bool, listConfiguration: TripListConfiguration) {
         self.viewModel = TripDetailViewModel(itinId: itinId, listConfiguration: listConfiguration)
@@ -56,7 +55,7 @@ class TripDetailVC: DKUIViewController {
         self.configureDeleteButton()
     }
     
-    private func configureDeleteButton(){
+    private func configureDeleteButton() {
         if DriveKitDriverDataUI.shared.enableDeleteTrip {
             let image = UIImage(named: "dk_delete_trip", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.resizeImage(25, opaque: false).withRenderingMode(.alwaysTemplate)
             let deleteButton = UIBarButtonItem(image: image , style: .plain, target: self, action: #selector(deleteTrip))
@@ -65,17 +64,17 @@ class TripDetailVC: DKUIViewController {
         }
     }
     
-    @objc private func deleteTrip(){
+    @objc private func deleteTrip() {
         let alert = UIAlertController(title: "", message: "dk_driverdata_confirm_delete_trip".dkDriverDataLocalized(), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default, handler: { action in
             self.showLoader()
-            DriveKitDriverData.shared.deleteTrip(itinId: self.viewModel.itinId, completionHandler: {deleteSuccessful in
+            DriveKitDriverData.shared.deleteTrip(itinId: self.viewModel.itinId, completionHandler: { deleteSuccessful in
                 DispatchQueue.main.async {
                     self.hideLoader()
                     if deleteSuccessful {
                         self.showSuccessDelete()
-                    }else{
+                    } else {
                         self.showErrorDelete()
                     }
                 }
@@ -100,7 +99,6 @@ class TripDetailVC: DKUIViewController {
 }
 
 extension TripDetailVC {
-    
     func updateViewToCurrentMapItem(direction: UIPageViewController.NavigationDirection? = nil) {
         if showAdvice {
             var mapItemsWithAdvices: [DKMapItem] = []
@@ -215,10 +213,10 @@ extension TripDetailVC {
         }
     }
     
-    private func setupShortTrip(){
+    private func setupShortTrip() {
         if let mapItem = self.viewModel.configurableMapItems.first(where: { $0.overrideShortTrip()}) {
             swipableViewControllers.append(mapItem.viewController(trip: self.viewModel.trip!, parentViewController: self, tripDetailViewModel: self.viewModel))
-        } else{
+        } else {
             let shortTripViewModel = ShortTripPageViewModel(trip: self.viewModel.trip!)
             let shortTripVC = ShortTripPageVC(viewModel: shortTripViewModel)
             swipableViewControllers.append(shortTripVC)
@@ -249,7 +247,7 @@ extension TripDetailVC {
         cameraButton.addTarget(self, action: #selector(tapOnCamera(_:)), for: .touchUpInside)
     }
     
-    func setupTipButton(){
+    func setupTipButton() {
         if let trip = viewModel.trip, let advice = viewModel.displayMapItem?.getAdvice(trip: trip) {
             tipButton.layer.borderColor = UIColor.black.cgColor
             tipButton.layer.cornerRadius = tipButton.bounds.size.width / 2
@@ -265,7 +263,7 @@ extension TripDetailVC {
                 showAdvice = false
                 self.clickedAdvices(tipButton)
             }
-        }else{
+        } else {
             tipButton.isHidden = true
         }
     }
@@ -298,7 +296,6 @@ extension TripDetailVC {
 }
 
 extension TripDetailVC: TripDetailDelegate {
-    
     func noRoute() {
         DispatchQueue.main.async {
             self.showNoRouteAlert()
@@ -356,7 +353,7 @@ extension TripDetailVC: TripDetailDelegate {
         self.hideLoader()
     }
     
-    func onEventSelected(event: TripEvent, position: Int){
+    func onEventSelected(event: TripEvent, position: Int) {
         mapViewController.zoomToEvent(event: event)
         if let pos = viewModel.configurableMapItems.firstIndex(of: MapItem.interactiveMap) {
             (self.swipableViewControllers[pos] as! HistoryPageVC).setToPosition(position: position)
@@ -367,10 +364,14 @@ extension TripDetailVC: TripDetailDelegate {
         self.mapViewController.traceRoute(mapItem: self.viewModel.displayMapItem, mapTraceType: mapTrace)
     }
     
-    private func showNoRouteAlert(){
+    private func showNoRouteAlert() {
         let alert = UIAlertController(title: nil, message: "dk_driverdata_trip_detail_get_road_failed".dkDriverDataLocalized(), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
+    }
+
+    func didUpdateTripCities() {
+        self.mapViewController.updateStartAndEndAnnotations()
     }
 }
 
@@ -398,7 +399,7 @@ extension TripDetailVC: UIPageViewControllerDelegate {
     }
 }
 
-extension TripDetailVC :  UIPageViewControllerDataSource {
+extension TripDetailVC: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = swipableViewControllers.firstIndex(of: viewController), viewControllerIndex > 0 else {
             return nil
@@ -433,4 +434,3 @@ extension TripDetailVC :  UIPageViewControllerDataSource {
         return 0
     }
 }
-

@@ -125,7 +125,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             DriveKitTripAnalysis.shared.setBeaconRequired(required: false)
             DriveKitTripAnalysis.shared.setStopTimeOut(timeOut: 4 * 60)
             DriveKitTripAnalysis.shared.setBeacons(beacons: [])
+        } else {
+            DriveKitTripAnalysis.shared.activateAutoStart(enable: SettingsBundleKeys.getAutoStartPref())
         }
+
+        DriveKitTripAnalysis.shared.activateCrashDetection(true)
+        let crashFeedbackConfig = DKCrashFeedbackConfig(notification: DKCrashFeedbackNotification(title: "Collision detected!", message: "Tap to get help / to provide feedback", crashAlert: .vibration))
+        DriveKitTripAnalysis.shared.enableCrashFeedback(config: crashFeedbackConfig)
     }
 }
 

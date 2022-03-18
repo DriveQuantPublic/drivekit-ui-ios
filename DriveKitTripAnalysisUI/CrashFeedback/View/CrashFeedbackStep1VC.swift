@@ -50,7 +50,7 @@ class CrashFeedbackStep1VC: CrashFeedbackBaseVC {
         messageLabel.addConstraint(self.messageLabelConstraint!)
     }
 
-    public override func viewDidLayoutSubviews() {
+    override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         insideCircleView.layer.cornerRadius = insideCircleView.frame.width / 2
         self.messageLabelConstraint?.constant = messageLabel.intrinsicContentSize.height

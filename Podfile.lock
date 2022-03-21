@@ -1,38 +1,38 @@
 PODS:
-  - DriveKitChallenge (1.20-beta1):
-    - DriveKitDBChallengeAccess (= 1.20-beta1)
-    - DriveKitDBTripAccess (= 1.20-beta1)
-  - DriveKitCore (1.20-beta1):
-    - DriveKitNetworking (= 1.20-beta1)
-  - DriveKitDBAchievementAccess (1.20-beta1):
-    - DriveKitCore (= 1.20-beta1)
-  - DriveKitDBChallengeAccess (1.20-beta1):
-    - DriveKitCore (= 1.20-beta1)
-  - DriveKitDBTripAccess (1.20-beta1):
-    - DriveKitCore (= 1.20-beta1)
-  - DriveKitDBVehicleAccess (1.20-beta1):
-    - DriveKitCore (= 1.20-beta1)
-  - DriveKitDriverAchievement (1.20-beta1):
-    - DriveKitDBAchievementAccess (= 1.20-beta1)
-  - DriveKitDriverData (1.20-beta1):
-    - DriveKitDBTripAccess (= 1.20-beta1)
-  - DriveKitNetworking (1.20-beta1)
-  - DriveKitTripAnalysis (1.20-beta1):
-    - DriveKitCore (= 1.20-beta1)
-    - DriveKitDBTripAccess (= 1.20-beta1)
-    - DriveKitDBVehicleAccess (= 1.20-beta1)
-  - DriveKitVehicle (1.20-beta1):
-    - DriveKitDBVehicleAccess (= 1.20-beta1)
+  - DriveKitChallenge (1.20-beta5):
+    - DriveKitDBChallengeAccess (= 1.20-beta5)
+    - DriveKitDBTripAccess (= 1.20-beta5)
+  - DriveKitCore (1.20-beta5):
+    - DriveKitNetworking (= 1.20-beta5)
+  - DriveKitDBAchievementAccess (1.20-beta5):
+    - DriveKitCore (= 1.20-beta5)
+  - DriveKitDBChallengeAccess (1.20-beta5):
+    - DriveKitCore (= 1.20-beta5)
+  - DriveKitDBTripAccess (1.20-beta5):
+    - DriveKitCore (= 1.20-beta5)
+  - DriveKitDBVehicleAccess (1.20-beta5):
+    - DriveKitCore (= 1.20-beta5)
+  - DriveKitDriverAchievement (1.20-beta5):
+    - DriveKitDBAchievementAccess (= 1.20-beta5)
+  - DriveKitDriverData (1.20-beta5):
+    - DriveKitDBTripAccess (= 1.20-beta5)
+  - DriveKitNetworking (1.20-beta5)
+  - DriveKitTripAnalysis (1.20-beta5):
+    - DriveKitCore (= 1.20-beta5)
+    - DriveKitDBTripAccess (= 1.20-beta5)
+    - DriveKitDBVehicleAccess (= 1.20-beta5)
+  - DriveKitVehicle (1.20-beta5):
+    - DriveKitDBVehicleAccess (= 1.20-beta5)
   - UICircularProgressRing (6.5.0)
   - WARangeSlider (1.1.1)
 
 DEPENDENCIES:
-  - DriveKitChallenge (= 1.20-beta1)
-  - DriveKitCore (= 1.20-beta1)
-  - DriveKitDriverAchievement (= 1.20-beta1)
-  - DriveKitDriverData (= 1.20-beta1)
-  - DriveKitTripAnalysis (= 1.20-beta1)
-  - DriveKitVehicle (= 1.20-beta1)
+  - DriveKitChallenge (= 1.20-beta5)
+  - DriveKitCore (= 1.20-beta5)
+  - DriveKitDriverAchievement (= 1.20-beta5)
+  - DriveKitDriverData (= 1.20-beta5)
+  - DriveKitTripAnalysis (= 1.20-beta5)
+  - DriveKitVehicle (= 1.20-beta5)
   - UICircularProgressRing (= 6.5.0)
   - WARangeSlider
 
@@ -54,20 +54,20 @@ SPEC REPOS:
     - DriveKitVehicle
 
 SPEC CHECKSUMS:
-  DriveKitChallenge: 8b1b34e49969e51b8d34bbeb11e9339c59d37ecc
-  DriveKitCore: 1a8275b03d4d0a5d2db859b0e7e08310f48cf3e1
-  DriveKitDBAchievementAccess: ff7ed1247224c545813a4b1e8b642ab9bd6a8207
-  DriveKitDBChallengeAccess: 85c8d0ad9b4c0482e8b77eb5cf55454373fbc87a
-  DriveKitDBTripAccess: 536109d306652473b03e794aeafd27381839773b
-  DriveKitDBVehicleAccess: f649a74d8168d4878707dde3707ef4da78b9c959
-  DriveKitDriverAchievement: b6bff2bcf9c68960ec0f399a6d7fa24953f6004f
-  DriveKitDriverData: f5cd977dc4eeeb26a33f65233760d36576a5c8f6
-  DriveKitNetworking: 6230ce0bff641f9cc1088a4c103c4dacf3ee4983
-  DriveKitTripAnalysis: 0e9d874ff49657cabdfb1546cc9f35574fa362ce
-  DriveKitVehicle: 5845b4c21d4ee158a96bf820527b2d3f6ddb5b88
+  DriveKitChallenge: 7bc8f1b9bbeb54a73e5c645a09d3279add3709c6
+  DriveKitCore: b7fed18089cb569eee3e2f229c748129d4d0ac97
+  DriveKitDBAchievementAccess: 3b6e2780ab0e3967bc8f39f4c06bc5c0acaf1561
+  DriveKitDBChallengeAccess: 29e4f868954e5eb383b942e12b647d1fbbd0e32c
+  DriveKitDBTripAccess: 4f58b714d0462f0afe1fa3bf1cf83b0b1a644957
+  DriveKitDBVehicleAccess: 8cbbbe4873ad3580a7713a09294df749fde1811f
+  DriveKitDriverAchievement: 813c505769375ff3f036b5a5d7dca46c631724a5
+  DriveKitDriverData: 772e5c1fdbd93d4e697f1bd82d2fd3014b8f3b5f
+  DriveKitNetworking: 0b38224e083ad7663242f614447004d881cc3ff3
+  DriveKitTripAnalysis: 2fb55a71c899ac7b8144179844d3ffd7596ee08f
+  DriveKitVehicle: a0b13da77c289da7da708472b261bd6b577600d0
   UICircularProgressRing: e6852e8f88e296cbbbe2720cccb55241acda6708
   WARangeSlider: 54b3e0853b8d16c444fd539005901aecee86837d
 
-PODFILE CHECKSUM: 8619ed0780731cb74aec4f0922878b540c3f0a33
+PODFILE CHECKSUM: 77307785c8034333a1041cfb918b608f554f1e18
 
 COCOAPODS: 1.11.2

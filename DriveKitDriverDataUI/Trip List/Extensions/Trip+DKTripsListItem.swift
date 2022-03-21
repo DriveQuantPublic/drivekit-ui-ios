@@ -35,12 +35,18 @@ extension Trip: DKTripListItem {
             return self.departureAddress
         }
     }
+    public func getDepartureAddress() -> String? {
+        self.departureAddress
+    }
     public func getArrivalCity() -> String? {
         if let arrivalCity = self.arrivalCity, !arrivalCity.isEmpty && arrivalCity != DKAddress.unknownValue {
             return self.arrivalCity
         } else {
             return self.arrivalAddress
         }
+    }
+    public func getArrivalAddress() -> String? {
+        self.arrivalAddress
     }
 
     public func isScored(tripData: TripData) -> Bool {

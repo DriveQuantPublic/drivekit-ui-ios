@@ -36,8 +36,14 @@ struct ChallengeTrip: DKTripListItem {
     public func getDepartureCity() -> String? {
         return trip.departureCity
     }
+    public func getDepartureAddress() -> String? {
+        return trip.departureAddress
+    }
     public func getArrivalCity() -> String? {
         return trip.arrivalCity
+    }
+    public func getArrivalAddress() -> String? {
+        return trip.arrivalAddress
     }
 
     public func isScored(tripData: TripData) -> Bool {

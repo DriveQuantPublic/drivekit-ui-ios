@@ -32,7 +32,6 @@ extension Array where Element == FormatType {
 }
 
 public extension Double {
-
     func getMeterDistanceInKmFormat(appendingUnit appendUnit: Bool = true) -> [FormatType] {
         return (self / 1000.0).getKilometerDistanceFormat(appendingUnit: appendUnit)
     }
@@ -180,12 +179,8 @@ public extension Double {
                     if nbHour > 0 {
                         formattingTypes = [
                             .value(String(nbDay)),
-                            .separator(),
                             .unit(DKCommonLocalizable.unitDay.text()),
-                            .separator(),
                             .value(String(nbHour)),
-                            .separator(),
-                            .unit(DKCommonLocalizable.unitHour.text())
                         ]
                     } else {
                         formattingTypes = [
@@ -199,9 +194,7 @@ public extension Double {
                         let minuteString = String(format: "%02d", nbMinute)
                         formattingTypes = [
                             .value(String(nbHour)),
-                            .separator(),
                             .unit(DKCommonLocalizable.unitHour.text()),
-                            .separator(),
                             .value(minuteString)
                         ]
                     } else {
@@ -218,9 +211,7 @@ public extension Double {
                     let secondString = String(format: "%02d", nbSecond)
                     formattingTypes = [
                         .value(String(nbMinute - 1)),
-                        .separator(),
                         .unit(DKCommonLocalizable.unitMinute.text()),
-                        .separator(),
                         .value(secondString)
                     ]
                 } else {

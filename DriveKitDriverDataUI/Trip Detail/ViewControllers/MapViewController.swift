@@ -12,9 +12,7 @@ import DriveKitDBTripAccessModule
 import MapKit
 import DriveKitCommonUI
 
-
 class MapViewController: DKUIViewController {
-    
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var adviceButton: UIButton!
     
@@ -27,7 +25,7 @@ class MapViewController: DKUIViewController {
     var authorizedPhoneCallPolylines: [MKPolyline]?
     var speedingPolylines: [MKPolyline]?
 
-    var startAnnotation : MKPointAnnotation? = nil
+    var startAnnotation: MKPointAnnotation? = nil
     var endAnnotation: MKPointAnnotation? = nil
     
     var safetyAnnotations: [MKPointAnnotation]? = nil
@@ -54,10 +52,6 @@ class MapViewController: DKUIViewController {
         self.mapView.delegate = self
         let mapTap = UITapGestureRecognizer(target: self, action: #selector(mapTapped))
         mapView.addGestureRecognizer(mapTap)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
     }
     
     func traceRoute(mapItem: DKMapItem?, mapTraceType: DKMapTraceType = .unlockScreen) {
@@ -482,6 +476,18 @@ class MapViewController: DKUIViewController {
         if let polyLine = self.polyLine {
             self.mapView.setVisibleMapRect(polyLine.boundingMapRect, edgePadding: self.inset, animated: true)
         }
+    }
+
+    func updateStartAndEndAnnotations() {
+        var annotations: [MKAnnotation] = []
+        if let startAnnotation = self.startAnnotation {
+            annotations.append(startAnnotation)
+        }
+        if let endAnnotation = self.endAnnotation {
+            annotations.append(endAnnotation)
+        }
+        self.mapView.removeAnnotations(annotations)
+        self.mapView.addAnnotations(annotations)
     }
     
     func updateTipsButton() {

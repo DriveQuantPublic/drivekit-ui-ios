@@ -68,7 +68,7 @@ struct LastTripsViewModel {
     }
 }
 
-private struct Trip : DKTripListItem {
+private struct Trip: DKTripListItem {
     fileprivate let trip: DKTripListItem
 
     func getItinId() -> String {
@@ -95,8 +95,16 @@ private struct Trip : DKTripListItem {
         trip.getDepartureCity()
     }
 
+    func getDepartureAddress() -> String? {
+        trip.getDepartureAddress()
+    }
+
     func getArrivalCity() -> String? {
         trip.getArrivalCity()
+    }
+
+    func getArrivalAddress() -> String? {
+        trip.getArrivalAddress()
     }
 
     func isScored(tripData: TripData) -> Bool {

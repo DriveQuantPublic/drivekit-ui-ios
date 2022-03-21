@@ -10,7 +10,7 @@ def circular_progress_ring
 end
 
 target 'DriveKitApp' do
-
+  pod 'DriveKitTripSimulator', '1.20-beta5'
 end
 
 

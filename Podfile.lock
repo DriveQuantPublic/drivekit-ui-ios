@@ -21,6 +21,8 @@ PODS:
     - DriveKitCore (= 1.20-beta5)
     - DriveKitDBTripAccess (= 1.20-beta5)
     - DriveKitDBVehicleAccess (= 1.20-beta5)
+  - DriveKitTripSimulator (1.20-beta5):
+    - DriveKitTripAnalysis (= 1.20-beta5)
   - DriveKitVehicle (1.20-beta5):
     - DriveKitDBVehicleAccess (= 1.20-beta5)
   - UICircularProgressRing (6.5.0)
@@ -32,6 +34,7 @@ DEPENDENCIES:
   - DriveKitDriverAchievement (= 1.20-beta5)
   - DriveKitDriverData (= 1.20-beta5)
   - DriveKitTripAnalysis (= 1.20-beta5)
+  - DriveKitTripSimulator (= 1.20-beta5)
   - DriveKitVehicle (= 1.20-beta5)
   - UICircularProgressRing (= 6.5.0)
   - WARangeSlider
@@ -51,6 +54,7 @@ SPEC REPOS:
     - DriveKitDriverData
     - DriveKitNetworking
     - DriveKitTripAnalysis
+    - DriveKitTripSimulator
     - DriveKitVehicle
 
 SPEC CHECKSUMS:
@@ -64,10 +68,11 @@ SPEC CHECKSUMS:
   DriveKitDriverData: 772e5c1fdbd93d4e697f1bd82d2fd3014b8f3b5f
   DriveKitNetworking: 0b38224e083ad7663242f614447004d881cc3ff3
   DriveKitTripAnalysis: 2fb55a71c899ac7b8144179844d3ffd7596ee08f
+  DriveKitTripSimulator: 2ca884d08b76e3a0d81953e24ed9676390c5544b
   DriveKitVehicle: a0b13da77c289da7da708472b261bd6b577600d0
   UICircularProgressRing: e6852e8f88e296cbbbe2720cccb55241acda6708
   WARangeSlider: 54b3e0853b8d16c444fd539005901aecee86837d
 
-PODFILE CHECKSUM: 77307785c8034333a1041cfb918b608f554f1e18
+PODFILE CHECKSUM: 8a1a4be72e49051a6ae2a6ccaffc776fcb66a413
 
 COCOAPODS: 1.11.2

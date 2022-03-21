@@ -30,8 +30,15 @@ struct CrashFeedbackStep1ViewModel {
 
     func getMessageAttributedText() -> NSAttributedString {
         let titleString = "dk_crash_detection_feedback_step1_title".dkTripAnalysisLocalized().dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 25, traits: nil)).color(DKUIColors.mainFontColor.color).build()
+        let titleParagraphStyle = NSMutableParagraphStyle()
+        titleParagraphStyle.lineHeightMultiple = 0.85
+        titleString.addAttributes([NSAttributedString.Key.paragraphStyle: titleParagraphStyle], range: NSRange(location: 0, length: titleString.length))
+
         let descriptionString = "dk_crash_detection_feedback_step1_description".dkTripAnalysisLocalized().dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 14, traits: nil)).color(DKUIColors.mainFontColor.color.withAlphaComponent(0.36)).build()
-        return "%@\n\n%@".dkAttributedString().buildWithArgs(titleString, descriptionString)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.75
+        descriptionString.addAttributes([NSAttributedString.Key.paragraphStyle: paragraphStyle], range: NSRange(location: 0, length: descriptionString.length))
+        return "%@\n%@".dkAttributedString().buildWithArgs(titleString, descriptionString)
     }
 
 }

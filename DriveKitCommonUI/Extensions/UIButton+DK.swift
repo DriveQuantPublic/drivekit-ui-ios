@@ -30,7 +30,7 @@ public enum DKButtonStyle {
         case .empty:
             button.setAttributedTitle(text.dkAttributedString().font(dkFont: .primary, style: .button).color(.secondaryColor).uppercased().build(), for: .normal)
         case let .rounded(color):
-            button.setAttributedTitle(text.dkAttributedString().font(dkFont: .primary, style: .button).color(color).uppercased().build(), for: .normal)
+            button.setAttributedTitle(text.dkAttributedString().font(dkFont: .primary, style: .roundedButton).color(color).build(), for: .normal)
         }
     }
 

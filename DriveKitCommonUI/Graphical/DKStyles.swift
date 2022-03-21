@@ -17,9 +17,10 @@ public enum DKStyles {
     highlightBig,
     highlightNormal,
     highlightSmall,
-    button
+    button,
+    roundedButton
     
-    public var style : DKStyle {
+    public var style: DKStyle {
         var size : CGFloat = 14
         var traits : UIFontDescriptor.SymbolicTraits? = nil
         switch self {
@@ -50,6 +51,9 @@ public enum DKStyles {
         case .button:
             size = 15
             traits = .traitBold
+        case .roundedButton:
+            size = 20
+            traits = nil
         }
         return DKStyle(size: size, traits: traits)
     }

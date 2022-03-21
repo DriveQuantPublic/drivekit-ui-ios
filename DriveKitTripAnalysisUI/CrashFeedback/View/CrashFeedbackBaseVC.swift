@@ -25,14 +25,15 @@ class CrashFeedbackBaseVC: UIViewController {
 }
 
 class ButtonWithRightIcon: UIButton {
-    let padding: CGFloat = 5
+    let verticalPadding: CGFloat = 2
+    let horizonatalPadding: CGFloat = 8
     let imageWidth: CGFloat = 40
     override func layoutSubviews() {
         super.layoutSubviews()
         guard imageView != nil else {
             return
         }
-        imageEdgeInsets = UIEdgeInsets(top: padding, left: (bounds.width - imageWidth - padding), bottom: padding, right: padding)
-        titleEdgeInsets = UIEdgeInsets(top: padding, left: padding * 2 - imageWidth, bottom: padding, right: padding )
+        imageEdgeInsets = UIEdgeInsets(top: verticalPadding, left: (bounds.width - imageWidth - horizonatalPadding), bottom: verticalPadding, right: horizonatalPadding)
+        titleEdgeInsets = UIEdgeInsets(top: verticalPadding, left: horizonatalPadding * 2 - imageWidth, bottom: verticalPadding, right: horizonatalPadding )
     }
 }

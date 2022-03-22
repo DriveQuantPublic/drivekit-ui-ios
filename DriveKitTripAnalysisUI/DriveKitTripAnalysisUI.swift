@@ -53,7 +53,9 @@ import DriveKitTripAnalysisModule
 
     func getCrashFeedbackViewController(crashInfo: DKCrashInfo) -> UIViewController {
         let viewModel = CrashFeedbackStep1ViewModel(crashInfo: crashInfo)
-        return CrashFeedbackStep1VC(viewModel: viewModel)
+        let vc = CrashFeedbackStep1VC(viewModel: viewModel)
+        _ = vc.view
+        return vc
     }
 }
 

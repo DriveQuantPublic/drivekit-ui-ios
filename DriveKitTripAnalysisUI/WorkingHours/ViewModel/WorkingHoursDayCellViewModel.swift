@@ -55,10 +55,12 @@ class WorkingHoursDayCellViewModel {
         return Constants.Wording.weekdaySymbolByDay[self.config.day] ?? ""
     }
     var minFormattedValue: String {
-        return hourFormatter(sliderValue: self.min).0
+        let value = isSelected ? self.min : Constants.sliderStart
+        return hourFormatter(sliderValue: value).0
     }
     var maxFormattedValue: String {
-        return hourFormatter(sliderValue: self.max).0
+        let value = isSelected ? self.max : Constants.sliderEnd
+        return hourFormatter(sliderValue: value).0
     }
     weak var delegate: WorkingHoursDayCellViewModelDelegate?
 

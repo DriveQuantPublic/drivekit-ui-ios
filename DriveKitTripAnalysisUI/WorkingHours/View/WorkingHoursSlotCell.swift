@@ -12,6 +12,7 @@ import DriveKitCommonUI
 import DriveKitTripAnalysisModule
 
 class WorkingHoursSlotCell: UITableViewCell {
+    @IBOutlet private weak var legendLabel: UILabel!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var slotTypeButton: UIButton!
@@ -45,6 +46,7 @@ class WorkingHoursSlotCell: UITableViewCell {
         self.descriptionLabel.text = "dk_working_hours_slot_disabled_desc".dkTripAnalysisLocalized()
 
         if let viewModel = self.viewModel {
+            self.legendLabel.textColor = viewModel.getSlotColor()
             let titleKey: String
             switch viewModel.slotType {
                 case .inside:

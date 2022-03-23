@@ -57,9 +57,8 @@ class WorkingHoursDayCell: UITableViewCell {
         self.dayLabel.textColor = enabled ? DKUIColors.secondaryColor.color : DKUIColors.neutralColor.color
 
         if enabled {
-            let thumbColor = DKUIColors.primaryColor.color
-            self.slider.thumbTintColor = thumbColor
-            self.slider.thumbBorderColor = thumbColor
+            self.slider.thumbTintColor = DKUIColors.primaryColor.color
+            self.slider.thumbBorderColor = .gray
             self.slider.trackHighlightTintColor = DKUIColors.secondaryColor.color
         } else {
             let thumbColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0)

@@ -21,6 +21,7 @@ class WorkingHoursDayCellViewModel {
             static let weekdaySymbolByDay: [DKDay: String] = DateFormatter().weekdaySymbolByDay()
             static let hourFormatter = "h00"
             static let halfHourFormatter = "h30"
+            static let maxHour = "23h59"
         }
     }
 
@@ -55,11 +56,11 @@ class WorkingHoursDayCellViewModel {
         return Constants.Wording.weekdaySymbolByDay[self.config.day] ?? ""
     }
     var minFormattedValue: String {
-        let value = isSelected ? self.min : Constants.sliderStart
+        let value = isSelected ? self.min : 0
         return hourFormatter(sliderValue: value).0
     }
     var maxFormattedValue: String {
-        let value = isSelected ? self.max : Constants.sliderEnd
+        let value = isSelected ? self.max : 1
         return hourFormatter(sliderValue: value).0
     }
     weak var delegate: WorkingHoursDayCellViewModelDelegate?
@@ -80,6 +81,10 @@ class WorkingHoursDayCellViewModel {
         let fl = floor(roundedValue)
 
         let isInteger = fl == roundedValue
+
+        if fl == 24.0 {
+            return (Constants.Wording.maxHour, Int(fl), 0)
+        }
 
         let floorValue = String(format: "%02i", Int(fl) % 24)
         if isInteger {

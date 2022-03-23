@@ -44,6 +44,8 @@ import DriveKitCommonUI
                     return !DKDiagnosisHelper.shared.isLocationValid()
                 case .bluetooth:
                     return false
+                @unknown default:
+                    return false
             }
         }
         if neededPermissionViews.isEmpty {
@@ -202,7 +204,7 @@ extension DriveKitPermissionsUtilsUI: DKDiagnosisHelperDelegate {
 }
 
 extension DKDiagnosisHelper {
-    @objc public func openSettings() {
+    public func openSettings() {
         guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
         UIApplication.shared.open(settingsUrl)
     }

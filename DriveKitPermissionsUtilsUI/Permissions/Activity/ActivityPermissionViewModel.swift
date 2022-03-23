@@ -26,6 +26,8 @@ class ActivityPermissionViewModel {
                 self.view?.next()
             case .invalid, .phoneRestricted:
                 break
+            @unknown default:
+                break
         }
     }
 

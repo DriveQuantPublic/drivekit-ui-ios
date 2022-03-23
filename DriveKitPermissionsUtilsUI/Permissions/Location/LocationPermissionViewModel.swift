@@ -27,6 +27,8 @@ class LocationPermissionViewModel {
                     requestPermission()
                 case .valid, .invalid:
                     break
+                @unknown default:
+                    break
             }
         }
     }

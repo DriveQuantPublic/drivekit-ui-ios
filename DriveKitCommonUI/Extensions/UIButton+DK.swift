@@ -21,7 +21,7 @@ public extension UIButton {
 }
 
 public enum DKButtonStyle {
-    case full, empty
+    case full, empty, rounded(color: UIColor)
 
     func configureText(text: String, button: UIButton) {
         switch self {
@@ -29,10 +29,12 @@ public enum DKButtonStyle {
             button.setAttributedTitle(text.dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).uppercased().build(), for: .normal)
         case .empty:
             button.setAttributedTitle(text.dkAttributedString().font(dkFont: .primary, style: .button).color(.secondaryColor).uppercased().build(), for: .normal)
+        case let .rounded(color):
+            button.setAttributedTitle(text.dkAttributedString().font(dkFont: .primary, style: .roundedButton).color(color).build(), for: .normal)
         }
     }
 
-    func configureButton(button: UIButton){
+    func configureButton(button: UIButton) {
         switch self {
         case .full:
             button.layer.cornerRadius = 2
@@ -45,6 +47,14 @@ public enum DKButtonStyle {
             button.setBackgroundImage(UIImage(color: DKUIColors.secondaryColor.color.withAlphaComponent(0.5)), for: .disabled)
         case .empty:
             break
+        case let .rounded(color):
+            button.layer.cornerRadius = 8
+            button.layer.masksToBounds = true
+            button.layer.borderColor = color.cgColor
+            button.layer.borderWidth = 2
+            let bgColor = color.withAlphaComponent(0.1)
+            button.setBackgroundImage(UIImage(color: bgColor), for: .normal)
+            button.setBackgroundImage(UIImage(color: bgColor), for: .disabled)
         }
     }
 }

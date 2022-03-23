@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitCoreModule
 import DriveKitDriverDataModule
 import DriveKitDriverDataUI
 import DriveKitTripAnalysisModule
@@ -17,24 +18,19 @@ import DriveKitVehicleUI
 import DriveKitVehicleModule
 import DriveKitDBVehicleAccessModule
 import DriveKitPermissionsUtilsUI
+import DriveKitTripSimulatorModule
 
 class ViewController: UITableViewController {
-    
-    @IBOutlet var startTripButton: UIButton!
-    @IBOutlet var stopTripButton: UIButton!
-    @IBOutlet var cancelTripButton: UIButton!
-    
-    @IBOutlet var driverDataExplanation: UILabel!
-    @IBOutlet var locationButton: UIButton!
-    @IBOutlet var motionButton: UIButton!
-    @IBOutlet var notificationButton: UIButton!
+    @IBOutlet private weak var startTripButton: UIButton!
+    @IBOutlet private weak var stopTripButton: UIButton!
+    @IBOutlet private weak var cancelTripButton: UIButton!
+    @IBOutlet private weak var driverDataExplanation: UILabel!
+    @IBOutlet private weak var locationButton: UIButton!
+    @IBOutlet private weak var motionButton: UIButton!
+    @IBOutlet private weak var notificationButton: UIButton!
+    @IBOutlet private weak var sensorsStateLabel: UILabel!
+    @IBOutlet private weak var tripSimulationButton: UIButton!
 
-    @IBOutlet weak var sensorsStateLabel: UILabel!
-
-    
-    let location = CLLocationManager()
-    let motion = CMMotionActivityManager()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let navigationController = self.navigationController {
@@ -84,15 +80,7 @@ class ViewController: UITableViewController {
             stopTripButton.isEnabled = false
             startTripButton.isEnabled = true
             cancelTripButton.isEnabled = false
-        case .starting:
-            stopTripButton.isEnabled = true
-            startTripButton.isEnabled = false
-            cancelTripButton.isEnabled = true
-        case .running:
-            stopTripButton.isEnabled = true
-            startTripButton.isEnabled = false
-            cancelTripButton.isEnabled = true
-        case .stopping:
+        case .starting, .running, .stopping:
             stopTripButton.isEnabled = true
             startTripButton.isEnabled = false
             cancelTripButton.isEnabled = true
@@ -108,33 +96,35 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             if indexPath.row == 1 {
-                self.configureDriverDataUI()
+                configureDriverDataUI()
             } else if indexPath.row == 2 {
-                self.openSynthesisCards()
+                openSynthesisCards()
             } else if indexPath.row == 3 {
-                self.openLastTripsView()
+                openLastTripsView()
             } else if indexPath.row == 5 {
-                self.configureDriverStreak()
+                configureVehiclesList()
             } else if indexPath.row == 6 {
-                self.configureVehiclePicker()
-            } else if indexPath.row == 7 {
-                self.configureBeaconPairing()
+                configureVehiclePicker()
             } else if indexPath.row == 8 {
-                self.configureVehiclesList()
+                simulateTrip()
             } else if indexPath.row == 9 {
-                self.openOdometer()
+                configureDriverStreak()
+            } else if indexPath.row == 10 {
+                configureBeaconPairing()
             } else if indexPath.row == 11 {
-                self.configureDriverBadges()
+                openOdometer()
             } else if indexPath.row == 12 {
-                self.showRanking()
+                configureDriverBadges()
             } else if indexPath.row == 13 {
-                self.showChallenges()
+                showRanking()
             } else if indexPath.row == 14 {
-                self.showActivationHours()
+                showChallenges()
+            } else if indexPath.row == 15 {
+                showActivationHours()
             }
         }
     }
-    
+
     @IBAction func didTouchLocalization(_ sender: Any) {
         if DKDiagnosisHelper.shared.getPermissionStatus(.location) == .valid {
             self.alertAuthorizations()
@@ -216,7 +206,77 @@ class ViewController: UITableViewController {
     func openLastTripsView() {
         self.navigationController?.pushViewController(LastTripsViewTest(), animated: true)
     }
-    
+
+    private func simulateTrip() {
+        let alert: UIAlertController
+        let alertTitle = "Simulate trip"
+        if DriveKitTripSimulator.shared.isSimulatingTrip {
+            alert = UIAlertController(title: alertTitle, message: "Stop current trip?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { alertAction in
+                DriveKitTripSimulator.shared.stop()
+                self.updateTripSimulationButtonTitle()
+            }))
+        } else {
+            alert = UIAlertController(title: alertTitle, message: nil, preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Too short trip", style: .default, handler: { alertAction in
+                DriveKitTripSimulator.shared.start(.shortTrip)
+                self.updateTripSimulationButtonTitle()
+            }))
+            alert.addAction(UIAlertAction(title: "City Suburban - 15 minutes", style: .default, handler: { alertAction in
+                DriveKitTripSimulator.shared.start(.mixedTrip)
+                self.updateTripSimulationButtonTitle()
+            }))
+            alert.addAction(UIAlertAction(title: "City - 20 minutes", style: .default, handler: { alertAction in
+                DriveKitTripSimulator.shared.start(.cityTrip)
+                self.updateTripSimulationButtonTitle()
+            }))
+            alert.addAction(UIAlertAction(title: "Suburban - 30 minutes", style: .default, handler: { alertAction in
+                DriveKitTripSimulator.shared.start(.suburbanTrip)
+                self.updateTripSimulationButtonTitle()
+            }))
+            alert.addAction(UIAlertAction(title: "Highway - 55 minutes", style: .default, handler: { alertAction in
+                DriveKitTripSimulator.shared.start(.highwayTrip)
+                self.updateTripSimulationButtonTitle()
+            }))
+            alert.addAction(UIAlertAction(title: "Train trip", style: .default, handler: { alertAction in
+                DriveKitTripSimulator.shared.start(.trainTrip)
+                self.updateTripSimulationButtonTitle()
+            }))
+            alert.addAction(UIAlertAction(title: "Boat trip", style: .default, handler: { alertAction in
+                DriveKitTripSimulator.shared.start(.boatTrip)
+                self.updateTripSimulationButtonTitle()
+            }))
+            alert.addAction(UIAlertAction(title: "Crash trip (10km/h)", style: .default, handler: { alertAction in
+                DriveKitTripSimulator.shared.startCrashTrip(.confirmed10KmH)
+                self.updateTripSimulationButtonTitle()
+            }))
+            alert.addAction(UIAlertAction(title: "Crash trip (20km/h)", style: .default, handler: { alertAction in
+                DriveKitTripSimulator.shared.startCrashTrip(.confirmed20KmH)
+                self.updateTripSimulationButtonTitle()
+            }))
+            alert.addAction(UIAlertAction(title: "Crash trip (30km/h)", style: .default, handler: { alertAction in
+                DriveKitTripSimulator.shared.startCrashTrip(.confirmed30KmH)
+                self.updateTripSimulationButtonTitle()
+            }))
+            alert.addAction(UIAlertAction(title: "Unconfirmed Crash trip (0km/h)", style: .default, handler: { alertAction in
+                DriveKitTripSimulator.shared.startCrashTrip(.unconfirmed0KmH)
+                self.updateTripSimulationButtonTitle()
+            }))
+        }
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    private func updateTripSimulationButtonTitle() {
+        let buttonTitle: String
+        if DriveKitTripSimulator.shared.isSimulatingTrip {
+            buttonTitle = "⏹"
+        } else {
+            buttonTitle = "▶️"
+        }
+        self.tripSimulationButton.setTitle(buttonTitle, for: .normal)
+    }
+
     func configureDriverStreak() {
         if let driverAchievementUI = DriveKitNavigationController.shared.driverAchievementUI {
             let streakVC = driverAchievementUI.getStreakViewController()

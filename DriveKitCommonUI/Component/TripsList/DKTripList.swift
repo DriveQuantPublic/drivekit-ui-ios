@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import DriveKitCoreModule
 
 public protocol DKTripListItem {
     func getItinId() -> String
@@ -16,7 +17,9 @@ public protocol DKTripListItem {
     func getStartDate() -> Date?
     func getEndDate() -> Date
     func getDepartureCity() -> String?
+    func getDepartureAddress() -> String?
     func getArrivalCity() -> String?
+    func getArrivalAddress() -> String?
     func isScored(tripData: TripData) -> Bool
     func getScore(tripData: TripData) -> Double?
     func getTransportationModeImage() -> UIImage?
@@ -36,4 +39,22 @@ public protocol DKTripList: AnyObject {
     func getHeaderDay() -> HeaderDay
     func canPullToRefresh() -> Bool
     func didPullToRefresh()
+}
+
+public extension DKTripListItem {
+    var computedDepartureInfo: String {
+        if let departureCity = getDepartureCity(), !departureCity.isCompletelyEmpty() && departureCity != DKAddress.unknownValue {
+            return departureCity
+        } else {
+            return getDepartureAddress() ?? ""
+        }
+    }
+
+    var computedArrivalInfo: String {
+        if let arrivalCity = getArrivalCity(), !arrivalCity.isCompletelyEmpty() && arrivalCity != DKAddress.unknownValue {
+            return arrivalCity
+        } else {
+            return getArrivalAddress() ?? ""
+        }
+    }
 }

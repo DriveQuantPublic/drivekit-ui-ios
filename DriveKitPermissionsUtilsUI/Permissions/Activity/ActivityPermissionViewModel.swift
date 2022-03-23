@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitCoreModule
 
 class ActivityPermissionViewModel {
 
@@ -24,6 +25,8 @@ class ActivityPermissionViewModel {
                 NotificationCenter.default.removeObserver(self)
                 self.view?.next()
             case .invalid, .phoneRestricted:
+                break
+            @unknown default:
                 break
         }
     }

@@ -125,7 +125,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             DriveKitTripAnalysis.shared.setBeaconRequired(required: false)
             DriveKitTripAnalysis.shared.setStopTimeOut(timeOut: 4 * 60)
             DriveKitTripAnalysis.shared.setBeacons(beacons: [])
+        } else {
+            DriveKitTripAnalysis.shared.activateAutoStart(enable: SettingsBundleKeys.getAutoStartPref())
         }
+
+        DriveKitTripAnalysis.shared.activateCrashDetection(true)
+        let crashFeedbackConfig = DKCrashFeedbackConfig(notification: DKCrashFeedbackNotification(title: "dk_crash_detection_feedback_notif_title".dkTripAnalysisLocalized(), message: "dk_crash_detection_feedback_notif_message".dkTripAnalysisLocalized(), crashAlert: .vibration))
+        DriveKitTripAnalysisUI.shared.enableCrashFeedback(roadsideAssistanceNumber: "000000", config: crashFeedbackConfig)
     }
 }
 
@@ -167,7 +173,15 @@ extension AppDelegate: TripListener {
     }
 
     func potentialTripStart(startMode: StartMode) {
+        print("Potential Trip Start")
+    }
 
+    func crashDetected(crashInfo: DKCrashInfo) {
+        print("Crash Detected")
+    }
+    
+    func crashFeedbackSent(crashInfo: DKCrashInfo, feedbackType: DKCrashFeedbackType, severity: DKCrashFeedbackSeverity) {
+        print("Crash Feedback Sent")
     }
 }
 

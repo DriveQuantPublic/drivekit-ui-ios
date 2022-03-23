@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitCoreModule
 
 class LocationPermissionViewModel {
 
@@ -25,6 +26,8 @@ class LocationPermissionViewModel {
                 case .notDetermined, .phoneRestricted:
                     requestPermission()
                 case .valid, .invalid:
+                    break
+                @unknown default:
                     break
             }
         }

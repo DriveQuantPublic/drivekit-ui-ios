@@ -13,8 +13,8 @@ import DriveKitCommonUI
 import DriveKitCoreModule
 
 class TripListViewModel {
-    private var trips : [DKTripsByDate] = []
-    var filteredTrips : [DKTripsByDate] = []
+    private var trips: [DKTripsByDate] = []
+    var filteredTrips: [DKTripsByDate] = []
     var status: TripSyncStatus = .noError
     private(set) var listConfiguration: TripListConfiguration = .motorized()
     
@@ -124,10 +124,10 @@ class TripListViewModel {
         }
     }
     
-    private func filterTrips(vehicleId : String?) {
+    private func filterTrips(vehicleId: String?) {
         if let vehicleId = vehicleId {
             self.filterTrips {$0.vehicleId == vehicleId}
-        }else{
+        } else {
             let motorizedModes = TripListConfiguration.motorized().transportationModes()
             self.filterTrips { motorizedModes.contains(TransportationMode(rawValue: Int(($0 as Trip).transportationMode)) ?? TransportationMode.unknown) }
         }
@@ -158,7 +158,7 @@ class TripListViewModel {
         }
     }
     
-    private func filterTrips(_ isIncluded : (Trip) -> Bool) {
+    private func filterTrips(_ isIncluded: (Trip) -> Bool) {
         self.filteredTrips = []
         for tripsByDate in self.trips {
             if let trips = tripsByDate.trips as? [Trip] {
@@ -190,11 +190,11 @@ class TripListViewModel {
     }
 }
 
-protocol TripsDelegate : AnyObject {
+protocol TripsDelegate: AnyObject {
     func onTripsAvailable()
 }
 
-class AllTripFilterItem : DKFilterItem {
+class AllTripFilterItem: DKFilterItem {
     func getImage() -> UIImage? {
         return UIImage(named: "dk_my_trips", in: Bundle.driverDataUIBundle, compatibleWith: nil)
     }
@@ -208,7 +208,7 @@ class AllTripFilterItem : DKFilterItem {
     }
 }
 
-class AllAlternativeMode : DKFilterItem {
+class AllAlternativeMode: DKFilterItem {
     func getImage() -> UIImage? {
         return UIImage(named: "dk_transportation_all", in: Bundle.driverDataUIBundle, compatibleWith: nil)
     }

@@ -140,7 +140,7 @@
 "dk_driverdata_urban"="%@ en zone urbaine";
 "dk_driverdata_value"="Valeur =";
 "dk_driverdata_vehicle_trips"="Trajets en véhicule";
-"dk_driverdata_weak_accel"="Freinage faible";
+"dk_driverdata_weak_accel"="Accélération faible";
 "dk_driverdata_weak_decel"="Freinage faible";
 "dk_driverdata_weak_maintain"="Vitesse irrégulière";
 "dk_driverdata_weather_cloud"="Temps nuageux";

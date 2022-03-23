@@ -1,3 +1,14 @@
+"dk_crash_detection_feedback_notif_message"="Clicca sulla notifica e dicci come stai andando.";
+"dk_crash_detection_feedback_notif_title"="Un incidente è stato rilevato";
+"dk_crash_detection_feedback_step1_description"="È possibile annullare o confermare l\'avviso prima della fine del conto alla rovescia";
+"dk_crash_detection_feedback_step1_option_critical_accident"="Richiesta di assistenza";
+"dk_crash_detection_feedback_step1_option_no_crash"="Sto bene";
+"dk_crash_detection_feedback_step1_title"="È stato rilevato un incidente, come stai?";
+"dk_crash_detection_feedback_step2_description"="Cosa ti è successo?";
+"dk_crash_detection_feedback_step2_option_minor_accident"="Incidente minore";
+"dk_crash_detection_feedback_step2_option_no_crash"="Niente, va tutto bene";
+"dk_crash_detection_feedback_step2_title"="Ci rassicura sapere che stai bene.";
+"dk_crash_detection_feedback_step2option_critical_accident"="Richiesta di assistenza";
 "dk_working_hours_back_save_alert"="L\'orario di lavoro è stato cambiato. Volete salvarli?";
 "dk_working_hours_enable_desc"="Questa funzione permette di configurare i tempi di attivazione della modalità automatica e di etichettare i percorsi.";
 "dk_working_hours_enable_title"="Abilita l\'orario di lavoro";

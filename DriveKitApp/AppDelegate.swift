@@ -130,8 +130,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         DriveKitTripAnalysis.shared.activateCrashDetection(true)
-        let crashFeedbackConfig = DKCrashFeedbackConfig(notification: DKCrashFeedbackNotification(title: "Collision detected!", message: "Tap to get help / to provide feedback", crashAlert: .vibration))
-        DriveKitTripAnalysis.shared.enableCrashFeedback(config: crashFeedbackConfig)
+        let crashFeedbackConfig = DKCrashFeedbackConfig(notification: DKCrashFeedbackNotification(title: "dk_crash_detection_feedback_notif_title".dkTripAnalysisLocalized(), message: "dk_crash_detection_feedback_notif_message".dkTripAnalysisLocalized(), crashAlert: .vibration))
+        DriveKitTripAnalysisUI.shared.enableCrashFeedback(roadsideAssistanceNumber: "000000", config: crashFeedbackConfig)
     }
 }
 

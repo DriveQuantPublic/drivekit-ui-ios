@@ -9,6 +9,7 @@
 import Foundation
 import UserNotifications
 import UIKit
+import DriveKitCoreModule
 
 public class NotificationSender : NSObject{
     
@@ -16,7 +17,14 @@ public class NotificationSender : NSObject{
     
     public static let shared = NotificationSender()
     
-    private override init(){}
+    private override init(){
+        super.init()
+        DriveKit.shared.registerNotificationDelegate(self)
+    }
+
+    deinit {
+        DriveKit.shared.unregisterNotificationDelegate(self)
+    }
     
     public func sendNotification(message: String, userInfo: Dictionary<String,String>? = nil) {
         sendNotificationIOS10(message: message, userInfo: userInfo)
@@ -41,7 +49,6 @@ public class NotificationSender : NSObject{
             content: content,
             trigger: trigger)
         
-        UNUserNotificationCenter.current().delegate = NotificationSender.shared
         UNUserNotificationCenter.current().add(request) { error in
         }
     }

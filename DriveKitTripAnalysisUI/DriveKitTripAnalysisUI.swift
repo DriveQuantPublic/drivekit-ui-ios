@@ -13,7 +13,7 @@ import DriveKitCommonUI
 import DriveKitTripAnalysisModule
 
 @objc public class DriveKitTripAnalysisUI: NSObject {
-    private(set) var crashFeedbackConfig: DKCrashDetectionFeedbackConfig? = nil
+    private(set) var roadsideAssistanceNumber: String? = nil
     @objc public static let shared = DriveKitTripAnalysisUI()
     @objc public var defaultWorkingHours: DKWorkingHours = DriveKitTripAnalysisUI.getDefaultWorkingHours()
 
@@ -42,18 +42,20 @@ import DriveKitTripAnalysisModule
     }
 
     @objc public func disableCrashFeedback() {
-        self.crashFeedbackConfig = nil
+        self.roadsideAssistanceNumber = nil
         DriveKitTripAnalysis.shared.disableCrashFeedback()
     }
 
-    @objc public func enableCrashFeedback(config: DKCrashDetectionFeedbackConfig) {
-        self.crashFeedbackConfig = config
-        DriveKitTripAnalysis.shared.enableCrashFeedback(config: config.config)
+    @objc public func enableCrashFeedback(roadsideAssistanceNumber: String, config: DKCrashFeedbackConfig) {
+        self.roadsideAssistanceNumber = roadsideAssistanceNumber
+        DriveKitTripAnalysis.shared.enableCrashFeedback(config: config)
     }
 
     func getCrashFeedbackViewController(crashInfo: DKCrashInfo) -> UIViewController {
         let viewModel = CrashFeedbackStep1ViewModel(crashInfo: crashInfo)
-        return CrashFeedbackStep1VC(viewModel: viewModel)
+        let vc = CrashFeedbackStep1VC(viewModel: viewModel)
+        _ = vc.view
+        return vc
     }
 }
 

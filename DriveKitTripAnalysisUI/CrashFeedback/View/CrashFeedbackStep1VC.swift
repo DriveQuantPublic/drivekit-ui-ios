@@ -21,7 +21,7 @@ class CrashFeedbackStep1VC: CrashFeedbackBaseVC {
     @IBOutlet weak private var progressRing: UICircularProgressRing!
     @IBOutlet weak private var shadowRing: UICircularProgressRing!
     @IBOutlet weak private var insideCircleView: UIView!
-
+    var messageLabelConstraint: NSLayoutConstraint?
 
     public init(viewModel: CrashFeedbackStep1ViewModel) {
         self.viewModel = viewModel
@@ -46,11 +46,14 @@ class CrashFeedbackStep1VC: CrashFeedbackBaseVC {
         insideCircleView.layer.masksToBounds = true
         insideCircleView.backgroundColor = UIColor(hex: 0xEEB0B2).withAlphaComponent(0.2)
         messageLabel.attributedText = viewModel.getMessageAttributedText()
+        self.messageLabelConstraint = messageLabel.heightAnchor.constraint(equalToConstant: messageLabel.intrinsicContentSize.height)
+        messageLabel.addConstraint(self.messageLabelConstraint!)
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         insideCircleView.layer.cornerRadius = insideCircleView.frame.width / 2
+        self.messageLabelConstraint?.constant = messageLabel.intrinsicContentSize.height
     }
 
     private func initProgressRing(threshold: Float, progress: Float) {

@@ -17,7 +17,7 @@ class CrashFeedbackBaseVC: UIViewController {
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
     func makeCrashAssistanceCall() {
-        if let number = DriveKitTripAnalysisUI.shared.crashFeedbackConfig?.roadsideAssistanceNumber {
+        if let number = DriveKitTripAnalysisUI.shared.roadsideAssistanceNumber {
             let url = URL(string: "tel://\(number)")!
             UIApplication.shared.open(url)
         }
@@ -25,14 +25,15 @@ class CrashFeedbackBaseVC: UIViewController {
 }
 
 class ButtonWithRightIcon: UIButton {
-    let padding: CGFloat = 5
+    let verticalPadding: CGFloat = 2
+    let horizontalPadding: CGFloat = 8
     let imageWidth: CGFloat = 40
     override func layoutSubviews() {
         super.layoutSubviews()
         guard imageView != nil else {
             return
         }
-        imageEdgeInsets = UIEdgeInsets(top: padding, left: (bounds.width - imageWidth - padding), bottom: padding, right: padding)
-        titleEdgeInsets = UIEdgeInsets(top: padding, left: padding * 2 - imageWidth, bottom: padding, right: padding )
+        imageEdgeInsets = UIEdgeInsets(top: verticalPadding, left: (bounds.width - imageWidth - horizontalPadding), bottom: verticalPadding, right: horizontalPadding)
+        titleEdgeInsets = UIEdgeInsets(top: verticalPadding, left: horizontalPadding * 2 - imageWidth, bottom: verticalPadding, right: horizontalPadding )
     }
 }

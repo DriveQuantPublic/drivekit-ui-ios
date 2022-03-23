@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVK-0Q-zIN">
-                    <rect key="frame" x="40" y="65" width="334" height="0.0"/>
+                    <rect key="frame" x="41" y="65" width="332" height="0.0"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -73,12 +73,12 @@
                 <constraint firstItem="jVK-0Q-zIN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="65" id="9Bw-kf-GWv"/>
                 <constraint firstItem="STV-Dq-lb0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="GBv-XQ-obn"/>
                 <constraint firstItem="bre-WS-KWd" firstAttribute="top" secondItem="STV-Dq-lb0" secondAttribute="bottom" constant="34" id="He3-Cs-YxU"/>
-                <constraint firstItem="jVK-0Q-zIN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="JDR-rR-Btj"/>
+                <constraint firstItem="jVK-0Q-zIN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="41" id="JDR-rR-Btj"/>
                 <constraint firstItem="bre-WS-KWd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="Ujw-pM-SmP"/>
                 <constraint firstAttribute="trailing" secondItem="bre-WS-KWd" secondAttribute="trailing" constant="40" id="WxW-PS-Rxe"/>
                 <constraint firstAttribute="bottom" secondItem="bre-WS-KWd" secondAttribute="bottom" constant="65" id="kJd-DS-Rt6"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="STV-Dq-lb0" secondAttribute="trailing" constant="40" id="pCM-qC-ZAL"/>
-                <constraint firstAttribute="trailing" secondItem="jVK-0Q-zIN" secondAttribute="trailing" constant="40" id="r5H-su-ubY"/>
+                <constraint firstAttribute="trailing" secondItem="jVK-0Q-zIN" secondAttribute="trailing" constant="41" id="r5H-su-ubY"/>
                 <constraint firstItem="STV-Dq-lb0" firstAttribute="top" secondItem="4DZ-cP-pfo" secondAttribute="bottom" constant="34" id="rAA-6M-Yi3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4DZ-cP-pfo" secondAttribute="trailing" constant="40" id="wuw-O4-kzv"/>
                 <constraint firstItem="4DZ-cP-pfo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="zV7-Vg-PDn"/>

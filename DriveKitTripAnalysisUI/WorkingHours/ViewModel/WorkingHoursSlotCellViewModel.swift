@@ -8,6 +8,7 @@
 
 import Foundation
 
+import DriveKitCommonUI
 import DriveKitTripAnalysisModule
 
 class WorkingHoursSlotCellViewModel {
@@ -24,6 +25,15 @@ class WorkingHoursSlotCellViewModel {
     init(slotType: SlotType, timeSlotStatus: DKWorkingHoursTimeSlotStatus) {
         self.slotType = slotType
         self.timeSlotStatus = timeSlotStatus
+    }
+
+    func getSlotColor() -> UIColor {
+        switch self.slotType {
+            case .inside:
+                return DKUIColors.secondaryColor.color
+            case .outside:
+                return DKUIColors.neutralColor.color
+        }
     }
 }
 

@@ -74,7 +74,7 @@ public class TripListVC: DKUIViewController {
         if DriveKitDriverDataUI.shared.enableAlternativeTrips && self.viewModel.hasAlternativeTrips() {
             let image = UIImage(named: "dk_filter", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.resizeImage(25, opaque: false).withRenderingMode(.alwaysTemplate)
             let filterButton = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(filterAction))
-            filterButton.tintColor = .white
+            filterButton.tintColor = DKUIColors.navBarElementColor.color
             self.navigationItem.rightBarButtonItem = filterButton
         }
     }

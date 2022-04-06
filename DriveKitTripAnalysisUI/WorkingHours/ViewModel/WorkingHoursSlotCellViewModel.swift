@@ -6,7 +6,7 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 import DriveKitCommonUI
 import DriveKitTripAnalysisModule

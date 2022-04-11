@@ -29,7 +29,7 @@ extension Trip: DKTripListItem {
         return self.endDate ?? Date()
     }
     public func getDepartureCity() -> String? {
-        if let departureCity = self.departureCity, !departureCity.isEmpty && departureCity != DKAddress.unknownValue {
+        if let departureCity = self.departureCity, !departureCity.isEmpty && DKAddress.isEmpty(departureCity) {
             return self.departureCity
         } else {
             return self.departureAddress
@@ -39,7 +39,7 @@ extension Trip: DKTripListItem {
         self.departureAddress
     }
     public func getArrivalCity() -> String? {
-        if let arrivalCity = self.arrivalCity, !arrivalCity.isEmpty && arrivalCity != DKAddress.unknownValue {
+        if let arrivalCity = self.arrivalCity, !arrivalCity.isEmpty && DKAddress.isEmpty(arrivalCity) {
             return self.arrivalCity
         } else {
             return self.arrivalAddress

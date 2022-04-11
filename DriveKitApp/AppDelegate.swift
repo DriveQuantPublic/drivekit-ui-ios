@@ -204,13 +204,6 @@ extension CancelTrip {
     }
 }
 
-extension String {
-   func keyLocalized() -> String {
-        let localizedValue = Bundle.main.localizedString(forKey: self, value: NSLocalizedString(self, comment: ""), table: "Localizable")
-        return localizedValue
-    }
-}
-
 class DefaultColors : DKDefaultColors {
 }
 

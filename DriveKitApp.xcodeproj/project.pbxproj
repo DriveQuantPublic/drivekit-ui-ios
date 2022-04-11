@@ -368,6 +368,8 @@
 		67B5837828040B730065C2E7 /* UserIdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B5837728040B730065C2E7 /* UserIdViewModel.swift */; };
 		67B5837A28040B7E0065C2E7 /* DriveKitDelegateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B5837928040B7E0065C2E7 /* DriveKitDelegateController.swift */; };
 		67B5837C2804487C0065C2E7 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B5837B2804487C0065C2E7 /* CustomTextField.swift */; };
+		67B5837F280468FE0065C2E7 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B5837D280468FE0065C2E7 /* HoshiTextField.swift */; };
+		67B58380280468FE0065C2E7 /* TextFieldEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B5837E280468FE0065C2E7 /* TextFieldEffects.swift */; };
 		67C055C027FDF6CC00B7159D /* ApiKeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C055BE27FDF6CC00B7159D /* ApiKeyViewController.swift */; };
 		67C055C127FDF6CC00B7159D /* ApiKeyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67C055BF27FDF6CC00B7159D /* ApiKeyViewController.xib */; };
 		67C055E727FF2D7200B7159D /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C055E627FF2D7200B7159D /* AppNavigationController.swift */; };
@@ -1020,6 +1022,8 @@
 		67B5837728040B730065C2E7 /* UserIdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIdViewModel.swift; sourceTree = "<group>"; };
 		67B5837928040B7E0065C2E7 /* DriveKitDelegateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveKitDelegateController.swift; sourceTree = "<group>"; };
 		67B5837B2804487C0065C2E7 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		67B5837D280468FE0065C2E7 /* HoshiTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoshiTextField.swift; sourceTree = "<group>"; };
+		67B5837E280468FE0065C2E7 /* TextFieldEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldEffects.swift; sourceTree = "<group>"; };
 		67C055BE27FDF6CC00B7159D /* ApiKeyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeyViewController.swift; sourceTree = "<group>"; };
 		67C055BF27FDF6CC00B7159D /* ApiKeyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApiKeyViewController.xib; sourceTree = "<group>"; };
 		67C055E627FF2D7200B7159D /* AppNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
@@ -2223,6 +2227,7 @@
 			children = (
 				6780809B2800693600A93352 /* String+DK.swift */,
 				67B5837B2804487C0065C2E7 /* CustomTextField.swift */,
+				67B58381280469230065C2E7 /* TextFieldEffects */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -2282,6 +2287,15 @@
 				678130B5276C048700701CF1 /* DKTripAnalysisLocalizable.strings */,
 			);
 			path = Localizable;
+			sourceTree = "<group>";
+		};
+		67B58381280469230065C2E7 /* TextFieldEffects */ = {
+			isa = PBXGroup;
+			children = (
+				67B5837E280468FE0065C2E7 /* TextFieldEffects.swift */,
+				67B5837D280468FE0065C2E7 /* HoshiTextField.swift */,
+			);
+			path = TextFieldEffects;
 			sourceTree = "<group>";
 		};
 		67C055BD27FDF68A00B7159D /* AppSetup */ = {
@@ -3899,8 +3913,10 @@
 				A322728E242BD64500BF69E1 /* TestCustomFields.swift in Sources */,
 				3F38C2752369D6ED002E873A /* NotificationSender.swift in Sources */,
 				67B5837C2804487C0065C2E7 /* CustomTextField.swift in Sources */,
+				67B5837F280468FE0065C2E7 /* HoshiTextField.swift in Sources */,
 				67B5837A28040B7E0065C2E7 /* DriveKitDelegateController.swift in Sources */,
 				67C055C027FDF6CC00B7159D /* ApiKeyViewController.swift in Sources */,
+				67B58380280468FE0065C2E7 /* TextFieldEffects.swift in Sources */,
 				A32665AE235F64EB00B529B0 /* SettingsBundleKey.swift in Sources */,
 				67C055E727FF2D7200B7159D /* AppNavigationController.swift in Sources */,
 				6780809C2800693600A93352 /* String+DK.swift in Sources */,

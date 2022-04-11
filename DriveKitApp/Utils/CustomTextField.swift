@@ -7,9 +7,8 @@
 //
 
 import Foundation
-import TextFieldEffects
-import DriveKitCommonUI
 import UIKit
+import DriveKitCommonUI
 
 class CustomTextField: HoshiTextField {
     override func awakeFromNib() {

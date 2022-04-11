@@ -11,7 +11,6 @@ import Foundation
 
 extension String {
     func keyLocalized() -> String {
-        let localizedValue = Bundle.main.localizedString(forKey: self, value: NSLocalizedString(self, comment: ""), table: "Localizable")
-        return localizedValue
+        return NSLocalizedString(self, comment: "")
     }
 }

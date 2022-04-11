@@ -11,6 +11,7 @@ end
 
 target 'DriveKitApp' do
   pod 'DriveKitTripSimulator', '1.20.0'
+  pod 'TextFieldEffects'
 end
 
 

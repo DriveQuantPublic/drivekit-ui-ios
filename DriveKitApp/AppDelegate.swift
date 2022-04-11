@@ -99,7 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func configureDriveKit(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-        DriveKit.shared.initialize()
+        DriveKit.shared.initialize(delegate: DriveKitDelegateController.shared)
         if DriveKit.shared.isLoggingEnabled() {
             DriveKit.shared.enableLogging()
         }

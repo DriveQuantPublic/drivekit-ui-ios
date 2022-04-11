@@ -31,7 +31,7 @@ struct ApiKeyViewModel {
         let apiKey = self.getApiKey() ?? ""
         let contentAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 14), NSAttributedString.Key.foregroundColor: grayColor]
 
-        let contentString = String(format: "welcome_ok_description_part".keyLocalized(), apiKey)
+        let contentString = String(format: "welcome_ok_description".keyLocalized(), apiKey)
         let attributedContent = NSMutableAttributedString(string: contentString, attributes: contentAttributes)
         let keyRange = (contentString as NSString).range(of: apiKey)
         let keyAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 14).with(.traitBold), NSAttributedString.Key.foregroundColor: darkColor]

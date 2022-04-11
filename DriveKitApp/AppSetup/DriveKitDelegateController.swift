@@ -11,13 +11,15 @@ import DriveKitCoreModule
 
 class DriveKitDelegateController: DriveKitDelegate {
 
-    private var delegates: WeakArray<DriveKitDelegateController> = WeakArray()
+    static let shared = DriveKitDelegateController()
 
-    func registerDelegate(delegate: DriveKitDelegateController) {
+    private var delegates: WeakArray<DriveKitDelegate> = WeakArray()
+
+    func registerDelegate(delegate: DriveKitDelegate) {
         delegates.append(delegate)
     }
 
-    func unregisterDelegate(delegate: DriveKitDelegateController) {
+    func unregisterDelegate(delegate: DriveKitDelegate) {
         delegates.remove(delegate)
     }
 

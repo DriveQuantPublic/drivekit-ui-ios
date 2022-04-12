@@ -16,7 +16,6 @@ class WorkingHoursDayCell: UITableViewCell {
     @IBOutlet private weak var dayLabel: UILabel!
     @IBOutlet private weak var minLabel: UILabel!
     @IBOutlet private weak var maxLabel: UILabel!
-    @IBOutlet private weak var disableMaskView: UIView!
     private var viewModel: WorkingHoursDayCellViewModel?
 
     override func awakeFromNib() {
@@ -31,10 +30,8 @@ class WorkingHoursDayCell: UITableViewCell {
         self.dayLabel.text = viewModel.text
         self.slider.lowerValue = viewModel.min
         self.slider.upperValue = viewModel.max
-        self.slider.thumbTintColor = DKUIColors.primaryColor.color
         self.slider.trackTintColor = DKUIColors.neutralColor.color
-        self.slider.trackHighlightTintColor = DKUIColors.secondaryColor.color
-        updateLabels(viewModel: viewModel)
+
         switchDidUpdate()
     }
 
@@ -57,8 +54,22 @@ class WorkingHoursDayCell: UITableViewCell {
         let enabled = self.optionSwitch.isOn
         self.viewModel?.isSelected = enabled
         self.slider.isUserInteractionEnabled = enabled
-        self.disableMaskView.isHidden = enabled
         self.dayLabel.textColor = enabled ? DKUIColors.secondaryColor.color : DKUIColors.neutralColor.color
+
+        if enabled {
+            self.slider.thumbTintColor = DKUIColors.primaryColor.color
+            self.slider.thumbBorderColor = .gray
+            self.slider.trackHighlightTintColor = DKUIColors.secondaryColor.color
+        } else {
+            let thumbColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0)
+            self.slider.thumbTintColor = thumbColor
+            self.slider.thumbBorderColor = thumbColor
+            self.slider.trackHighlightTintColor = DKUIColors.neutralColor.color
+        }
+
+        if let viewModel = self.viewModel {
+            updateLabels(viewModel: viewModel)
+        }
     }
 
     @IBAction private func sliderDidUpdate() {

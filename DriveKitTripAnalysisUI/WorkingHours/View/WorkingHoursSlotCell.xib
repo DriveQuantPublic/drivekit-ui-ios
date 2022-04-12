@@ -31,8 +31,17 @@
                             <action selector="showMenu:" destination="kR2-W3-56a" eventType="touchUpInside" id="RV4-UR-btr"/>
                         </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="●" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AbB-ey-zI8">
+                        <rect key="frame" x="10" y="24.5" width="24" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="24" id="5h5-VO-gk7"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVK-YC-UaH">
-                        <rect key="frame" x="10" y="24.5" width="252" height="21"/>
+                        <rect key="frame" x="34" y="24.5" width="228" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -52,20 +61,23 @@
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="9nz-hQ-eTx" firstAttribute="leading" secondItem="PVK-YC-UaH" secondAttribute="leading" id="3q6-o2-OCC"/>
+                    <constraint firstItem="9nz-hQ-eTx" firstAttribute="leading" secondItem="AbB-ey-zI8" secondAttribute="leading" id="3q6-o2-OCC"/>
                     <constraint firstItem="9nz-hQ-eTx" firstAttribute="top" secondItem="PVK-YC-UaH" secondAttribute="bottom" id="BDq-UI-46K"/>
                     <constraint firstItem="PVK-YC-UaH" firstAttribute="centerY" secondItem="IVp-Ps-uUh" secondAttribute="centerY" id="HSu-Qn-O9u"/>
                     <constraint firstItem="9nz-hQ-eTx" firstAttribute="trailing" secondItem="PVK-YC-UaH" secondAttribute="trailing" id="LUS-Ep-vhc"/>
                     <constraint firstAttribute="trailing" secondItem="plW-1k-666" secondAttribute="trailing" constant="10" id="Obh-51-hGB"/>
+                    <constraint firstItem="AbB-ey-zI8" firstAttribute="leading" secondItem="IVp-Ps-uUh" secondAttribute="leading" constant="10" id="VaU-Vg-f3x"/>
                     <constraint firstItem="plW-1k-666" firstAttribute="leading" secondItem="PVK-YC-UaH" secondAttribute="trailing" constant="4" id="XFw-8y-xnN"/>
                     <constraint firstItem="tzr-nw-DJy" firstAttribute="centerY" secondItem="plW-1k-666" secondAttribute="centerY" id="anm-q6-gFt"/>
                     <constraint firstItem="plW-1k-666" firstAttribute="trailing" secondItem="tzr-nw-DJy" secondAttribute="trailing" constant="10" id="c1g-j2-nsT"/>
                     <constraint firstItem="plW-1k-666" firstAttribute="centerY" secondItem="IVp-Ps-uUh" secondAttribute="centerY" id="cwa-RC-dJI"/>
-                    <constraint firstItem="PVK-YC-UaH" firstAttribute="leading" secondItem="IVp-Ps-uUh" secondAttribute="leading" constant="10" id="eSL-GB-IXm"/>
+                    <constraint firstItem="PVK-YC-UaH" firstAttribute="leading" secondItem="AbB-ey-zI8" secondAttribute="trailing" id="eSL-GB-IXm"/>
+                    <constraint firstItem="AbB-ey-zI8" firstAttribute="centerY" secondItem="IVp-Ps-uUh" secondAttribute="centerY" id="nJT-kl-cU3"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="descriptionLabel" destination="9nz-hQ-eTx" id="v8m-mu-0uQ"/>
+                <outlet property="legendLabel" destination="AbB-ey-zI8" id="l0C-jW-lV7"/>
                 <outlet property="selectImageView" destination="tzr-nw-DJy" id="SOx-0h-f4x"/>
                 <outlet property="slotTypeButton" destination="plW-1k-666" id="MZa-CI-GoW"/>
                 <outlet property="titleLabel" destination="PVK-YC-UaH" id="Nc8-Hv-6DX"/>

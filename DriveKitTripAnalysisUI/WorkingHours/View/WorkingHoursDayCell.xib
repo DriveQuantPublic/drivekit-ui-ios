@@ -52,22 +52,14 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MQs-2u-mBp">
-                        <rect key="frame" x="89" y="0.0" width="199" height="75"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="MQs-2u-mBp" firstAttribute="trailing" secondItem="q0x-AX-fa1" secondAttribute="trailing" id="0Yd-A0-NtB"/>
                     <constraint firstAttribute="bottom" secondItem="xQX-pO-9iE" secondAttribute="bottom" constant="4" id="ANj-EQ-oaS"/>
-                    <constraint firstAttribute="bottom" secondItem="MQs-2u-mBp" secondAttribute="bottom" id="CRH-FD-b00"/>
-                    <constraint firstItem="MQs-2u-mBp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="KE8-tb-6SW"/>
                     <constraint firstItem="aii-Pd-gYo" firstAttribute="top" secondItem="MyO-uQ-bJ8" secondAttribute="bottom" constant="4" id="OWE-PQ-mKc"/>
                     <constraint firstAttribute="trailing" secondItem="q0x-AX-fa1" secondAttribute="trailing" constant="32" id="QzS-Em-hTs"/>
                     <constraint firstItem="MyO-uQ-bJ8" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="RKB-AN-dJY"/>
                     <constraint firstAttribute="bottom" secondItem="SEd-rB-unB" secondAttribute="bottom" constant="4" id="Twu-uv-xzY"/>
                     <constraint firstItem="q0x-AX-fa1" firstAttribute="centerY" secondItem="MyO-uQ-bJ8" secondAttribute="centerY" id="VQX-vd-yea"/>
-                    <constraint firstItem="MQs-2u-mBp" firstAttribute="leading" secondItem="q0x-AX-fa1" secondAttribute="leading" id="XS1-rR-6la"/>
                     <constraint firstItem="MyO-uQ-bJ8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="dMB-cE-Fpt"/>
                     <constraint firstItem="xQX-pO-9iE" firstAttribute="leading" secondItem="q0x-AX-fa1" secondAttribute="leading" id="jem-Kn-pem"/>
                     <constraint firstItem="aii-Pd-gYo" firstAttribute="centerX" secondItem="MyO-uQ-bJ8" secondAttribute="centerX" id="maX-0U-sjI"/>
@@ -79,7 +71,6 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="dayLabel" destination="aii-Pd-gYo" id="81h-uu-mNo"/>
-                <outlet property="disableMaskView" destination="MQs-2u-mBp" id="Wz5-d7-SsW"/>
                 <outlet property="maxLabel" destination="SEd-rB-unB" id="ogI-hT-YdO"/>
                 <outlet property="minLabel" destination="xQX-pO-9iE" id="fpI-Ut-uhj"/>
                 <outlet property="optionSwitch" destination="MyO-uQ-bJ8" id="IQJ-cP-U1g"/>

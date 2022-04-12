@@ -106,7 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitTripAnalysis.shared.initialize(tripListener: self, appLaunchOptions: launchOptions)
         DriveKitDriverData.shared.initialize()
         let processInfo = ProcessInfo.processInfo
-        let apiKey = processInfo.environment["DriveKit-API-Key"] ?? ""
+        let apiKey = processInfo.environment["DriveKit-API-Key"] ?? "ENTER_YOUR_API_KEY_HERE"
         DriveKit.shared.setApiKey(key: apiKey)
         DriveKitTripAnalysis.shared.setVehiclesConfigTakeover(vehiclesConfigTakeOver: false)
         

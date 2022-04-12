@@ -37,7 +37,7 @@ class UserIdViewController: UIViewController {
         textField.resignFirstResponder()
         if let userId = textField.text, !userId.isEmpty {
             showLoader()
-            viewModel.sendUserId(userId: userId) { [weak self] success in
+            viewModel.sendUserId(userId: userId) { [weak self] success, error in
                 DispatchQueue.dispatchOnMainThread {
                     self?.hideLoader()
                     if success {
@@ -64,7 +64,9 @@ class UserIdViewController: UIViewController {
                             // TODO: if success, open next view
                         }
                     } else {
-                        // TODO: display error message "authentication_error"?
+                        if let error = error {
+                            self?.showAlertMessage(title: nil, message: error.getErrorMessage(), back: false, cancel: false)
+                        }
                     }
                 }
             }

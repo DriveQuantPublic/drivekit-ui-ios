@@ -371,6 +371,7 @@
 		67B5837F280468FE0065C2E7 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B5837D280468FE0065C2E7 /* HoshiTextField.swift */; };
 		67B58380280468FE0065C2E7 /* TextFieldEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B5837E280468FE0065C2E7 /* TextFieldEffects.swift */; };
 		67B58384280481570065C2E7 /* SynchroServicesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B58383280481570065C2E7 /* SynchroServicesManager.swift */; };
+		67B583862805CC640065C2E7 /* RequestError+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B583852805CC630065C2E7 /* RequestError+DK.swift */; };
 		67C055C027FDF6CC00B7159D /* ApiKeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C055BE27FDF6CC00B7159D /* ApiKeyViewController.swift */; };
 		67C055C127FDF6CC00B7159D /* ApiKeyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67C055BF27FDF6CC00B7159D /* ApiKeyViewController.xib */; };
 		67C055E727FF2D7200B7159D /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C055E627FF2D7200B7159D /* AppNavigationController.swift */; };
@@ -1026,6 +1027,7 @@
 		67B5837D280468FE0065C2E7 /* HoshiTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoshiTextField.swift; sourceTree = "<group>"; };
 		67B5837E280468FE0065C2E7 /* TextFieldEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldEffects.swift; sourceTree = "<group>"; };
 		67B58383280481570065C2E7 /* SynchroServicesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchroServicesManager.swift; sourceTree = "<group>"; };
+		67B583852805CC630065C2E7 /* RequestError+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RequestError+DK.swift"; sourceTree = "<group>"; };
 		67C055BE27FDF6CC00B7159D /* ApiKeyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeyViewController.swift; sourceTree = "<group>"; };
 		67C055BF27FDF6CC00B7159D /* ApiKeyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApiKeyViewController.xib; sourceTree = "<group>"; };
 		67C055E627FF2D7200B7159D /* AppNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
@@ -2230,6 +2232,7 @@
 				6780809B2800693600A93352 /* String+DK.swift */,
 				67B5837B2804487C0065C2E7 /* CustomTextField.swift */,
 				67B58381280469230065C2E7 /* TextFieldEffects */,
+				67B583852805CC630065C2E7 /* RequestError+DK.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -3921,6 +3924,7 @@
 				A3B7B38E235F124F0065A332 /* DriveKitApp.xcdatamodeld in Sources */,
 				6780809928000A4C00A93352 /* ApiKeyViewModel.swift in Sources */,
 				67B5837828040B730065C2E7 /* UserIdViewModel.swift in Sources */,
+				67B583862805CC640065C2E7 /* RequestError+DK.swift in Sources */,
 				A322728E242BD64500BF69E1 /* TestCustomFields.swift in Sources */,
 				3F38C2752369D6ED002E873A /* NotificationSender.swift in Sources */,
 				67B58384280481570065C2E7 /* SynchroServicesManager.swift in Sources */,

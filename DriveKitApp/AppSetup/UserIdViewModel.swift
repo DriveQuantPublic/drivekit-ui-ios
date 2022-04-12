@@ -20,6 +20,16 @@ class UserIdViewModel {
         return NSAttributedString(string: contentString, attributes: contentAttributes)
     }
 
+    func getTitleAttributedText() -> NSAttributedString {
+        let titletAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 18), NSAttributedString.Key.foregroundColor: DKUIColors.mainFontColor.color]
+        let titleString = "authentication_title".keyLocalized().appending(" ⓘ")
+        let attributedTitle = NSMutableAttributedString(string: titleString, attributes: titletAttributes)
+        let iconRange = (titleString as NSString).range(of: "ⓘ")
+        let iconAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 18), NSAttributedString.Key.foregroundColor: DKUIColors.secondaryColor.color]
+        attributedTitle.setAttributes(iconAttributes, range: iconRange)
+        return attributedTitle
+    }
+
     func sendUserId(userId: String, completionHandler: @escaping ((Bool) -> ())) {
         DriveKitDelegateController.shared.registerDelegate(delegate: self)
         DriveKit.shared.setUserId(userId: userId)
@@ -40,7 +50,7 @@ extension UserIdViewModel: DriveKitDelegate {
         self.completionHandler = nil
     }
 
-    func driveKitDidReceiveAuthenticationError(_ driveKit: DriveKit) {
+    func driveKit(_ driveKit: DriveKit, didReceiveAuthenticationError error: RequestError) {
         DriveKitDelegateController.shared.unregisterDelegate(delegate: self)
         self.completionHandler?(false)
         self.completionHandler = nil

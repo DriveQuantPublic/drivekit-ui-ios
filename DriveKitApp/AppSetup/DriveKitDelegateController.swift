@@ -10,7 +10,6 @@ import Foundation
 import DriveKitCoreModule
 
 class DriveKitDelegateController: DriveKitDelegate {
-
     static let shared = DriveKitDelegateController()
 
     private var delegates: WeakArray<DriveKitDelegate> = WeakArray()
@@ -28,16 +27,16 @@ class DriveKitDelegateController: DriveKitDelegate {
             delegate?.driveKitDidConnect(driveKit)
         }
     }
-    
+
     func driveKitDidDisconnect(_ driveKit: DriveKit) {
         for delegate in delegates {
             delegate?.driveKitDidDisconnect(driveKit)
         }
     }
-    
-    func driveKitDidReceiveAuthenticationError(_ driveKit: DriveKit) {
+
+    func driveKit(_ driveKit: DriveKit, didReceiveAuthenticationError error: RequestError) {
         for delegate in delegates {
-            delegate?.driveKitDidReceiveAuthenticationError(driveKit)
+            delegate?.driveKit(driveKit, didReceiveAuthenticationError: error)
         }
     }
 

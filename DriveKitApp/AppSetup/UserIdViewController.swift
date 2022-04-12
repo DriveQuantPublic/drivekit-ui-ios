@@ -25,11 +25,12 @@ class UserIdViewController: UIViewController {
         self.title = "authentication_header".keyLocalized()
         self.navigationItem.hidesBackButton = true
         sendButton.configure(text: "button_validation".keyLocalized(), style: .full)
-        topLabel.text = "authentication_title".keyLocalized()
+        topLabel.attributedText = viewModel.getTitleAttributedText()
         descriptionLabel.attributedText = viewModel.getDescriptionAttibutedText()
-        topLabel.textColor = DKUIColors.mainFontColor.color
         textField.placeholder = "authentication_unique_identifier".keyLocalized()
         textField.autocorrectionType = .no
+        topLabel.isUserInteractionEnabled = true
+        topLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openDocAction)))
     }
 
     @IBAction func sendAction() {
@@ -37,7 +38,7 @@ class UserIdViewController: UIViewController {
         if let userId = textField.text, !userId.isEmpty {
             showLoader()
             viewModel.sendUserId(userId: userId) { [weak self] success in
-                DispatchQueue.main.async {
+                DispatchQueue.dispatchOnMainThread {
                     self?.hideLoader()
                     if success {
                         self?.showLoader(message: "sync_user_info_loading_message".keyLocalized())
@@ -68,6 +69,12 @@ class UserIdViewController: UIViewController {
                 }
             }
 
+        }
+    }
+
+    @IBAction func openDocAction() {
+        if let docURL = URL(string: "https://docs.drivequant.com/get-started-drivekit/ios#identify-user") {
+            UIApplication.shared.open(docURL)
         }
     }
 }

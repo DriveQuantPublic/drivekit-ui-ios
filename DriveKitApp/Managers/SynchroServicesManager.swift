@@ -26,7 +26,6 @@ enum DKService {
 enum SyncStatus {
     case success
     case failed
-    case skipped
 }
 
 class SynchroServicesManager {

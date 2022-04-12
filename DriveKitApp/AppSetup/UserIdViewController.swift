@@ -40,7 +40,28 @@ class UserIdViewController: UIViewController {
                 DispatchQueue.main.async {
                     self?.hideLoader()
                     if success {
-                        // TODO: open next view
+                        self?.showLoader(message: "sync_user_info_loading_message".keyLocalized())
+                        SynchroServicesManager.syncModules([.userInfo, .vehicle, .workingHours, .trips], stepCompletion:  { [weak self] status, remainingServices in
+                            self?.hideLoader()
+                            if let service = remainingServices.first {
+                                switch service {
+                                case .userInfo:
+                                    break
+                                case .vehicle:
+                                    self?.showLoader(message: "sync_vehicles_loading_message".keyLocalized())
+                                case .workingHours:
+                                    self?.showLoader(message: "sync_working_hours_loading_message".keyLocalized())
+                                case .trips:
+                                    self?.showLoader(message: "sync_trips_loading_message".keyLocalized())
+                                case .badge:
+                                    break
+                                case .challenge:
+                                    break
+                                }
+                            }
+                        }) { statuses in
+                            // TODO: if success, open next view
+                        }
                     } else {
                         // TODO: display error message "authentication_error"?
                     }

@@ -43,7 +43,7 @@ public protocol DKTripList: AnyObject {
 
 public extension DKTripListItem {
     var computedDepartureInfo: String {
-        if let departureCity = getDepartureCity(), !departureCity.isCompletelyEmpty() && DKAddress.isEmpty(departureCity) {
+        if let departureCity = getDepartureCity(), !DKAddress.isEmpty(departureCity) {
             return departureCity
         } else {
             return getDepartureAddress() ?? ""
@@ -51,7 +51,7 @@ public extension DKTripListItem {
     }
 
     var computedArrivalInfo: String {
-        if let arrivalCity = getArrivalCity(), !arrivalCity.isCompletelyEmpty() && DKAddress.isEmpty(arrivalCity) {
+        if let arrivalCity = getArrivalCity(), !DKAddress.isEmpty(arrivalCity) {
             return arrivalCity
         } else {
             return getArrivalAddress() ?? ""

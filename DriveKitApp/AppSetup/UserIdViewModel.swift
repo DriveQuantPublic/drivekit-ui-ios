@@ -15,19 +15,13 @@ class UserIdViewModel {
     private let grayColor = UIColor(hex:0x9e9e9e)
 
     func getDescriptionAttibutedText() -> NSAttributedString {
-        let contentAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 14), NSAttributedString.Key.foregroundColor: grayColor]
-        let contentString = "authentication_description".keyLocalized()
-        return NSAttributedString(string: contentString, attributes: contentAttributes)
+        return "authentication_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 14, traits: nil)).color(grayColor).build()
     }
 
     func getTitleAttributedText() -> NSAttributedString {
-        let titletAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 18), NSAttributedString.Key.foregroundColor: DKUIColors.mainFontColor.color]
-        let titleString = "authentication_title".keyLocalized().appending(" ⓘ")
-        let attributedTitle = NSMutableAttributedString(string: titleString, attributes: titletAttributes)
-        let iconRange = (titleString as NSString).range(of: "ⓘ")
-        let iconAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 18), NSAttributedString.Key.foregroundColor: DKUIColors.secondaryColor.color]
-        attributedTitle.setAttributes(iconAttributes, range: iconRange)
-        return attributedTitle
+        let iconString = "ⓘ".dkAttributedString().font(dkFont: .primary, style: .bigtext).color(DKUIColors.secondaryColor.color).build()
+        let titleString = "authentication_title".keyLocalized().appending("  ").dkAttributedString().font(dkFont: .primary, style: .bigtext).color(DKUIColors.mainFontColor.color).buildWithArgs(iconString)
+        return titleString
     }
 
     func sendUserId(userId: String, completionHandler: @escaping ((Bool, RequestError?) -> ())) {

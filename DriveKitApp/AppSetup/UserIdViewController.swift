@@ -46,18 +46,14 @@ class UserIdViewController: UIViewController {
                             self?.hideLoader()
                             if let service = remainingServices.first {
                                 switch service {
-                                case .userInfo:
-                                    break
                                 case .vehicle:
                                     self?.showLoader(message: "sync_vehicles_loading_message".keyLocalized())
                                 case .workingHours:
                                     self?.showLoader(message: "sync_working_hours_loading_message".keyLocalized())
                                 case .trips:
                                     self?.showLoader(message: "sync_trips_loading_message".keyLocalized())
-                                case .badge:
-                                    break
-                                case .challenge:
-                                    break
+                                default:
+                                    self?.showLoader(message: "sync_user_info_loading_message".keyLocalized())
                                 }
                             }
                         }) { statuses in

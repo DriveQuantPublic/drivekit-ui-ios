@@ -23,13 +23,12 @@ class ApiKeyViewController: UIViewController {
 
     func setupView() {
         topLabel.textColor = DKUIColors.mainFontColor.color
+        self.title = "welcome_header".keyLocalized()
         if viewModel.shouldDisplayErrorText() {
-            self.title = "welcome_ko_header".keyLocalized()
             bottomButton.configure(text: "button_see_documentation".keyLocalized(), style: .full)
             topLabel.text = "welcome_ko_title".keyLocalized()
             descriptionLabel.attributedText = viewModel.getApiKeyErrorAttibutedText()
         } else {
-            self.title = "welcome_ok_header".keyLocalized()
             bottomButton.configure(text: "welcome_ok_button".keyLocalized(), style: .full)
             topLabel.text = "welcome_ok_title".keyLocalized()
             descriptionLabel.attributedText = viewModel.getContentAttibutedText()

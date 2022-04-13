@@ -16,7 +16,7 @@ struct ApiKeyViewModel {
     private let darkColor = UIColor(hex: 0x193851)
 
     func shouldDisplayErrorText() -> Bool {
-        if let apiKey = DriveKit.shared.config.getApiKey(), !apiKey.isEmpty, apiKey != ApiKeyViewModel.placeHolder {
+        if let apiKey = getApiKey(), !apiKey.isEmpty, apiKey != ApiKeyViewModel.placeHolder {
             return false
         } else {
             return true
@@ -29,20 +29,12 @@ struct ApiKeyViewModel {
 
     func getContentAttibutedText() -> NSAttributedString {
         let apiKey = self.getApiKey() ?? ""
-        let contentAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 14), NSAttributedString.Key.foregroundColor: grayColor]
-
-        let contentString = String(format: "welcome_ok_description".keyLocalized(), apiKey)
-        let attributedContent = NSMutableAttributedString(string: contentString, attributes: contentAttributes)
-        let keyRange = (contentString as NSString).range(of: apiKey)
-        let keyAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 14).with(.traitBold), NSAttributedString.Key.foregroundColor: darkColor]
-        attributedContent.setAttributes(keyAttributes, range: keyRange)
-        return attributedContent
+        let apiKeyString = apiKey.dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 14, traits: .traitBold)).color(darkColor).build()
+        let contentString = "welcome_ok_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 14, traits: nil)).color(grayColor).buildWithArgs(apiKeyString)
+        return contentString
     }
 
     func getApiKeyErrorAttibutedText() -> NSAttributedString {
-        let contentAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 14), NSAttributedString.Key.foregroundColor: grayColor]
-        let contentString = "welcome_ko_description".keyLocalized()
-        return NSAttributedString(string: contentString, attributes: contentAttributes)
+        return "welcome_ko_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 14, traits: nil)).color(grayColor).build()
     }
-
 }

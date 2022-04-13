@@ -53,7 +53,7 @@ class UserIdViewController: UIViewController {
                                 case .trips:
                                     self?.showLoader(message: "sync_trips_loading_message".keyLocalized())
                                 default:
-                                    self?.showLoader(message: "sync_user_info_loading_message".keyLocalized())
+                                    break
                                 }
                             }
                         }) { statuses in

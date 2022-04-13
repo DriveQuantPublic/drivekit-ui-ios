@@ -23,6 +23,7 @@ class ApiKeyViewController: UIViewController {
 
     func setupView() {
         topLabel.textColor = DKUIColors.mainFontColor.color
+        topLabel.font = DKUIFonts.primary.fonts(size: 18.0)
         self.title = "welcome_header".keyLocalized()
         if viewModel.shouldDisplayErrorText() {
             bottomButton.configure(text: "button_see_documentation".keyLocalized(), style: .full)

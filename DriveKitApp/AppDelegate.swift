@@ -99,14 +99,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func configureDriveKit(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-        DriveKit.shared.initialize()
+        DriveKit.shared.initialize(delegate: DriveKitDelegateController.shared)
         if DriveKit.shared.isLoggingEnabled() {
             DriveKit.shared.enableLogging()
         }
         DriveKitTripAnalysis.shared.initialize(tripListener: self, appLaunchOptions: launchOptions)
         DriveKitDriverData.shared.initialize()
         let processInfo = ProcessInfo.processInfo
-        let apiKey = processInfo.environment["DriveKit-API-Key"] ?? ""
+        let apiKey = processInfo.environment["DriveKit-API-Key"] ?? "ENTER_YOUR_API_KEY_HERE"
         DriveKit.shared.setApiKey(key: apiKey)
         DriveKitTripAnalysis.shared.setVehiclesConfigTakeover(vehiclesConfigTakeOver: false)
         
@@ -201,13 +201,6 @@ extension CancelTrip {
         @unknown default:
             return ""
         }
-    }
-}
-
-extension String {
-   func keyLocalized() -> String {
-        let localizedValue = Bundle.main.localizedString(forKey: self, value: NSLocalizedString(self, comment: ""), table: "Localizable")
-        return localizedValue
     }
 }
 

@@ -16,6 +16,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserInfoViewController" customModule="DriveKitApp" customModuleProvider="target">
             <connections>
+                <outlet property="containerScrollView" destination="CwS-qz-QIn" id="2fL-GH-A67"/>
                 <outlet property="descriptionLabel" destination="VS3-te-LFg" id="EhQ-uS-hvS"/>
                 <outlet property="firstNameTextField" destination="251-CJ-1qW" id="cRh-HG-jZs"/>
                 <outlet property="lastNameTextField" destination="xUv-ja-UTh" id="vN3-1u-LdY"/>

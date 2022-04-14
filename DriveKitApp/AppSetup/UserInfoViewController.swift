@@ -11,6 +11,7 @@ import DriveKitCoreModule
 import DriveKitCommonUI
 
 class UserInfoViewController: UIViewController {
+    @IBOutlet private weak var containerScrollView: UIScrollView!
     @IBOutlet private weak var topLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var firstNameTextField: CustomTextField!
@@ -52,6 +53,9 @@ class UserInfoViewController: UIViewController {
         firstNameTextField.text = viewModel.getFirstName()
         lastNameTextField.text = viewModel.getLastName()
         pseudoTextField.text = viewModel.getPseudo()
+        firstNameTextField.delegate = self
+        lastNameTextField.delegate = self
+        pseudoTextField.delegate = self
     }
 
     open func configureBackButton(selector: Selector = #selector(onBack)) {
@@ -74,20 +78,26 @@ class UserInfoViewController: UIViewController {
     }
 
     @IBAction func openDocAction() {
-        self.resignFirstResponder()
+        self.view.endEditing(false)
+        self.containerScrollView.scrollRectToVisible(self.containerScrollView.frame, animated: true)
         if let docURL = URL(string: "https://docs.drivequant.com/get-started-drivekit/ios#update-users-names") {
             UIApplication.shared.open(docURL)
         }
     }
 
     @IBAction func updateUserInfoAction() {
-        self.resignFirstResponder()
+        self.view.endEditing(false)
+        self.containerScrollView.scrollRectToVisible(self.containerScrollView.frame, animated: true)
         if let firstName = firstNameTextField.text,
            let lastName = lastNameTextField.text,
            let pseudo = pseudoTextField.text {
             if !firstName.isCompletelyEmpty() || !lastName.isCompletelyEmpty() || !pseudo.isCompletelyEmpty() {
+                DispatchQueue.dispatchOnMainThread {
+                    self.showLoader()
+                }
                 viewModel.updateUser(firstName: firstName, lastName: lastName, pseudo: pseudo) { [weak self] success in
                     DispatchQueue.dispatchOnMainThread {
+                        self?.hideLoader()
                         if success {
                             self?.goToNext()
                         } else {
@@ -100,6 +110,18 @@ class UserInfoViewController: UIViewController {
     }
 
     @IBAction func goToNext() {
-        
+        self.view.endEditing(false)
+        self.containerScrollView.scrollRectToVisible(self.containerScrollView.frame, animated: true)
+    }
+}
+
+extension UserInfoViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        let targetY = textField.frame.origin.y - 60
+        let targetFrame = CGRect(x: containerScrollView.frame.origin.x,
+                                 y: targetY,
+                                 width: containerScrollView.frame.width,
+                                 height: containerScrollView.frame.height)
+        containerScrollView.scrollRectToVisible(targetFrame, animated: true)
     }
 }

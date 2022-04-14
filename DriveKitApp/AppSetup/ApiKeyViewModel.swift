@@ -28,13 +28,13 @@ struct ApiKeyViewModel {
 
     func getContentAttibutedText() -> NSAttributedString {
         let apiKey = self.getApiKey() ?? ""
-        let apiKeyString = apiKey.dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 14, traits: .traitBold)).color(darkColor).build()
-        let contentString = "welcome_ok_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 14, traits: nil)).color(grayColor).buildWithArgs(apiKeyString)
+        let apiKeyString = apiKey.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(darkColor).build()
+        let contentString = "welcome_ok_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(grayColor).buildWithArgs(apiKeyString)
         return contentString
     }
 
     func getApiKeyErrorAttibutedText() -> NSAttributedString {
-        return "welcome_ko_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 14, traits: nil)).color(grayColor).build()
+        return "welcome_ko_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(grayColor).build()
     }
 }
 

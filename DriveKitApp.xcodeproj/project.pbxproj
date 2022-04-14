@@ -311,6 +311,9 @@
 		6704DDE02668710000DAF326 /* ChallengeResultOverviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6704DDDE2668710000DAF326 /* ChallengeResultOverviewCell.xib */; };
 		6704DDE3266A17B200DAF326 /* ChallengeTripsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6704DDE1266A17B200DAF326 /* ChallengeTripsVC.swift */; };
 		6704DDE4266A17B200DAF326 /* ChallengeTripsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6704DDE2266A17B200DAF326 /* ChallengeTripsVC.xib */; };
+		671087D128072FBE004FA464 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671087CF28072FBE004FA464 /* UserInfoViewController.swift */; };
+		671087D228072FBE004FA464 /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 671087D028072FBE004FA464 /* UserInfoViewController.xib */; };
+		671087D428072FDE004FA464 /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671087D328072FDE004FA464 /* UserInfoViewModel.swift */; };
 		6728DF7B27D8E62D00CC6CC9 /* CrashFeedbackStep2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6728DF7927D8E62D00CC6CC9 /* CrashFeedbackStep2VC.swift */; };
 		6728DF7C27D8E62D00CC6CC9 /* CrashFeedbackStep2VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6728DF7A27D8E62D00CC6CC9 /* CrashFeedbackStep2VC.xib */; };
 		6728DF7E27D8E66500CC6CC9 /* CrashFeedbackStep2ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6728DF7D27D8E66500CC6CC9 /* CrashFeedbackStep2ViewModel.swift */; };
@@ -975,6 +978,9 @@
 		6704DDDE2668710000DAF326 /* ChallengeResultOverviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeResultOverviewCell.xib; sourceTree = "<group>"; };
 		6704DDE1266A17B200DAF326 /* ChallengeTripsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeTripsVC.swift; sourceTree = "<group>"; };
 		6704DDE2266A17B200DAF326 /* ChallengeTripsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeTripsVC.xib; sourceTree = "<group>"; };
+		671087CF28072FBE004FA464 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		671087D028072FBE004FA464 /* UserInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
+		671087D328072FDE004FA464 /* UserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
 		6728DF7927D8E62D00CC6CC9 /* CrashFeedbackStep2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashFeedbackStep2VC.swift; sourceTree = "<group>"; };
 		6728DF7A27D8E62D00CC6CC9 /* CrashFeedbackStep2VC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CrashFeedbackStep2VC.xib; sourceTree = "<group>"; };
 		6728DF7D27D8E66500CC6CC9 /* CrashFeedbackStep2ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashFeedbackStep2ViewModel.swift; sourceTree = "<group>"; };
@@ -2322,6 +2328,9 @@
 				67B5837428040B330065C2E7 /* UserIdViewController.xib */,
 				67B5837728040B730065C2E7 /* UserIdViewModel.swift */,
 				67B5837928040B7E0065C2E7 /* DriveKitDelegateController.swift */,
+				671087CF28072FBE004FA464 /* UserInfoViewController.swift */,
+				671087D028072FBE004FA464 /* UserInfoViewController.xib */,
+				671087D328072FDE004FA464 /* UserInfoViewModel.swift */,
 			);
 			path = AppSetup;
 			sourceTree = "<group>";
@@ -3356,6 +3365,7 @@
 				3F38C26D2369CC10002E873A /* Localizable.strings in Resources */,
 				A3B7B390235F12510065A332 /* Assets.xcassets in Resources */,
 				A3B7B38B235F124F0065A332 /* Main.storyboard in Resources */,
+				671087D228072FBE004FA464 /* UserInfoViewController.xib in Resources */,
 				61765A76243E306D00358CCA /* InfoPlist.strings in Resources */,
 				67B5837628040B330065C2E7 /* UserIdViewController.xib in Resources */,
 			);
@@ -3923,6 +3933,7 @@
 				A3B7B384235F124F0065A332 /* AppDelegate.swift in Sources */,
 				A3B7B38E235F124F0065A332 /* DriveKitApp.xcdatamodeld in Sources */,
 				6780809928000A4C00A93352 /* ApiKeyViewModel.swift in Sources */,
+				671087D128072FBE004FA464 /* UserInfoViewController.swift in Sources */,
 				67B5837828040B730065C2E7 /* UserIdViewModel.swift in Sources */,
 				67B583862805CC640065C2E7 /* RequestError+DK.swift in Sources */,
 				A322728E242BD64500BF69E1 /* TestCustomFields.swift in Sources */,
@@ -3930,6 +3941,7 @@
 				67B58384280481570065C2E7 /* SynchroServicesManager.swift in Sources */,
 				67B5837C2804487C0065C2E7 /* CustomTextField.swift in Sources */,
 				67B5837F280468FE0065C2E7 /* HoshiTextField.swift in Sources */,
+				671087D428072FDE004FA464 /* UserInfoViewModel.swift in Sources */,
 				67B5837A28040B7E0065C2E7 /* DriveKitDelegateController.swift in Sources */,
 				67C055C027FDF6CC00B7159D /* ApiKeyViewController.swift in Sources */,
 				67B58380280468FE0065C2E7 /* TextFieldEffects.swift in Sources */,

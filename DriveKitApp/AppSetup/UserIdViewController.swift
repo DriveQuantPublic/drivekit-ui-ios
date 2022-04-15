@@ -84,10 +84,10 @@ class UserIdViewController: UIViewController {
         }
         DriveKit.shared.getUserInfo(synchronizationType: syncStatus ? .cache : .defaultSync) { [weak self] _ , userInfo in
             DispatchQueue.dispatchOnMainThread {
-                self?.hideLoader()
                 let userInfoViewModel = UserInfoViewModel(userInfo: userInfo)
                 let userInfoVC = UserInfoViewController(viewModel: userInfoViewModel)
                 self?.navigationController?.pushViewController(userInfoVC, animated: true)
+                self?.hideLoader()
             }
         }
     }

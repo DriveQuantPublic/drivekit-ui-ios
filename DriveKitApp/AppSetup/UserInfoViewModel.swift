@@ -18,16 +18,6 @@ class UserInfoViewModel {
         self.userInfo = userInfo
     }
 
-    func syncUserInfo(completion: @escaping (UserInfoGetStatus, UserInfo?) -> ()) {
-        if let userInfo = userInfo {
-            completion(.cacheDataOnly, userInfo)
-        } else {
-            DriveKit.shared.getUserInfo(synchronizationType: .defaultSync) { status, uInfo in
-                completion(status, uInfo)
-            }
-        }
-    }
-
     func updateUser(firstName: String, lastName: String, pseudo: String, completion: @escaping (Bool) -> ()) {
         DriveKit.shared.updateUserInfo(firstname: firstName, lastname: lastName, pseudo: pseudo) { success in
             if success {

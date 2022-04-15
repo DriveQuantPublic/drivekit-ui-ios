@@ -39,7 +39,7 @@ struct ApiKeyViewModel {
 }
 
 extension String {
-    fileprivate static let keyPlaceHolderRegEx = "[A-Z]{5}(_[A-Z]{3,5}){4}"
+    fileprivate static let keyPlaceHolderRegEx = "[A-Z]{5}(_[A-Z]{3,4}){4}"
     mutating func replaceApiKeyIfNeeded() {
         if self.isKeyPlaceHolder() {
             let processInfo = ProcessInfo.processInfo
@@ -47,11 +47,6 @@ extension String {
         }
     }
     fileprivate func isKeyPlaceHolder() -> Bool {
-        guard let regex = try? NSRegularExpression(pattern: String.keyPlaceHolderRegEx) else {
-            return false
-        }
-        let range = NSRange(location: 0, length: self.utf16.count)
-        let result: Bool = regex.firstMatch(in: self, range: range) != nil
-        return result
+        return range(of: String.keyPlaceHolderRegEx, options: .regularExpression) != nil
     }
 }

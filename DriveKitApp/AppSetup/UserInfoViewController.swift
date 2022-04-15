@@ -80,7 +80,7 @@ class UserInfoViewController: UIViewController {
     @IBAction func openDocAction() {
         self.view.endEditing(false)
         self.containerScrollView.scrollRectToVisible(self.containerScrollView.frame, animated: true)
-        if let docURL = URL(string: "https://docs.drivequant.com/get-started-drivekit/ios#update-users-names") {
+        if let docURL = URL(string: "https://docs.drivequant.com/get-started-drivekit/ios#update-users-information") {
             UIApplication.shared.open(docURL)
         }
     }
@@ -97,12 +97,12 @@ class UserInfoViewController: UIViewController {
                 }
                 viewModel.updateUser(firstName: firstName, lastName: lastName, pseudo: pseudo) { [weak self] success in
                     DispatchQueue.dispatchOnMainThread {
-                        self?.hideLoader()
                         if success {
                             self?.goToNext()
                         } else {
                             self?.showAlertMessage(title: nil, message: "unknown_error".keyLocalized(), back: false, cancel: false)
                         }
+                        self?.hideLoader()
                     }
                 }
             }

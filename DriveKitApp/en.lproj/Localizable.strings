@@ -1,7 +1,7 @@
 "app_name"="DriveKit Demo App";
 "authentication_description"="To initialize the DriveKit SDK, it is essential to configure a unique identifier for each user.\n\nWe recommend that you enter an anonymous identifier and never use a phone number or an email address.";
 "authentication_error"="Invalid login";
-"authentication_header"="User creation";
+"authentication_header"="User identification";
 "authentication_title"="Please enter a unique user ID";
 "authentication_unique_identifier"="Unique identifier";
 "button_logout"="LOG OUT";
@@ -13,6 +13,21 @@
 "button_validation"="VALIDATE";
 "cancel_trip"="Cancel the trip";
 "client_error"="An error has occurred, please try again later.";
+"drivekit_doc_ios_badges"="https://docs.drivequant.com/driver-achievement/user-interface/ios#select-badges-categories";
+"drivekit_doc_ios_challenges"="https://docs.drivequant.com/user-interface/ios/get-started#display-challenge-list";
+"drivekit_doc_ios_diag"="https://docs.drivequant.com/permissions-utils/permission-utils/ios/main-configurations#sdk-diagnosis";
+"drivekit_doc_ios_driver_data"="https://docs.drivequant.com/driver-data/user-interface/ios/get-started";
+"drivekit_doc_ios_github_ui"="https://github.com/DriveQuantPublic/drivekit-ui-ios";
+"drivekit_doc_ios_odometer"="https://docs.drivequant.com/vehicle/user-interface/ios/main-configurations#vehicle-mileage-tracking-and-editing";
+"drivekit_doc_ios_permission_management"="https://docs.drivequant.com/permissions-utils/permission-utils/ios/main-configurations#permission-management";
+"drivekit_doc_ios_permission_utils"="https://docs.drivequant.com/permissions-utils/permission-utils/ios/main-configurations#permission-management";
+"drivekit_doc_ios_ranking"="https://docs.drivequant.com/driver-achievement/user-interface/ios#select-ranking-themes";
+"drivekit_doc_ios_streaks"="https://docs.drivequant.com/driver-achievement/user-interface/ios#select-streak-themes";
+"drivekit_doc_ios_update_user_info"="https://docs.drivequant.com/get-started-drivekit/ios#update-users-information";
+"drivekit_doc_ios_user_id"="https://docs.drivequant.com/get-started-drivekit/ios#identify-user ";
+"drivekit_doc_ios_vehicle"="https://docs.drivequant.com/vehicle/user-interface";
+"drivekit_doc_ios_vehicle_list"="https://docs.drivequant.com/vehicle/user-interface/ios/get-started#display-vehicle-list-in-navigation-controller";
+"drivekit_doc_ios_working_hours"="https://docs.drivequant.com/trip-analysis/user-interface/ios/get-started#working-hours";
 "feature_badges_description"="The Driver Achievement component contains a function to reward driver achievements with badges. Badges are awarded according to driving scores.";
 "feature_badges_title"="Driver Achievement | Badges";
 "feature_challenges_description"="The driving challenge is a one-time event during which drivers compete to get the best driving score. The Challenge component includes several themes: eco-driving, safety, distraction and speed limit.";
@@ -121,7 +136,7 @@
 "unknown_error"="The service is unavailable, please try again later";
 "userId"="UserId";
 "user_id_error"="Please fill in your login";
-"user_info_description"="You can add information to a user\'s account such as first name, last name, and nickname.\n\nThis data is optional and you can skip this step.";
+"user_info_description"="You can add information to a user\'s account such as first name, last name, and pseudo.\n\nThis data is optional and you can skip this step.";
 "user_info_header"="User edition";
 "user_info_title"="User information";
 "vehicle_intro_button"="ADD A VEHICLE";
@@ -129,6 +144,7 @@
 "vehicle_intro_header"="Vehicle";
 "vehicle_intro_title"="Vehicle configuration";
 "welcome_header"="DriveKit starting";
+"welcome_invalid_key_title"="Your API key is not valid";
 "welcome_ko_description"="To use this demo application, it is essential to configure a valid API key. \n\nFor more information on configuring the key, follow the instructions in our documentation.\n\nIf you do not have an API key, contact us at contact@drivequant.com.";
 "welcome_ko_title"="Your API key is not configured";
 "welcome_ok_button"="NEXT STEP";

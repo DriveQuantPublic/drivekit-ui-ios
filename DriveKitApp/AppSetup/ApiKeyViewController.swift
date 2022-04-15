@@ -38,7 +38,7 @@ class ApiKeyViewController: UIViewController {
 
     @IBAction func buttonAction() {
         if viewModel.shouldDisplayErrorText() {
-            if let docURL = URL(string: "https://github.com/DriveQuantPublic/drivekit-ui-ios") {
+            if let docURL = URL(string: "drivekit_doc_ios_github_ui".keyLocalized()) {
                 UIApplication.shared.open(docURL)
             }
         } else {

@@ -73,7 +73,7 @@ class UserIdViewController: UIViewController {
     }
 
     @IBAction func openDocAction() {
-        if let docURL = URL(string: "https://docs.drivequant.com/get-started-drivekit/ios#identify-user") {
+        if let docURL = URL(string: "drivekit_doc_ios_user_id".keyLocalized()) {
             UIApplication.shared.open(docURL)
         }
     }

@@ -40,6 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             options = "none"
         }
         requestNotificationPermission()
+        TripListenerController.shared.addTripListener(self)
         configureDriveKit(launchOptions: launchOptions)
         DriveKitUI.shared.initialize(colors: DefaultColors(), fonts: DefaultFonts(), overridedStringsFileName: "Localizable")
         DriveKitDriverAchievementUI.shared.initialize()
@@ -103,7 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if DriveKit.shared.isLoggingEnabled() {
             DriveKit.shared.enableLogging()
         }
-        DriveKitTripAnalysis.shared.initialize(tripListener: self, appLaunchOptions: launchOptions)
+        DriveKitTripAnalysis.shared.initialize(tripListener: TripListenerController.shared, appLaunchOptions: launchOptions)
         DriveKitDriverData.shared.initialize()
         var apiKey = "ENTER_YOUR_API_KEY_HERE"
         apiKey.replaceApiKeyIfNeeded()
@@ -151,7 +152,7 @@ extension AppDelegate: TripListener {
     func tripFinished(post: PostGeneric, response: PostGenericResponse) {
         if response.itineraryStatistics?.transportationMode == TransportationMode.train.rawValue {
             NotificationSender.shared.sendNotification(message: "train_trip".keyLocalized())
-        }else{
+        } else {
             NotificationSender.shared.sendNotification(message: "trip_finished".keyLocalized())
         }
     }

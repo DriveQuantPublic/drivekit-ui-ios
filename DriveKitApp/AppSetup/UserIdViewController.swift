@@ -8,6 +8,7 @@
 
 import UIKit
 import DriveKitCommonUI
+import DriveKitCoreModule
 
 class UserIdViewController: UIViewController {
     @IBOutlet private weak var topLabel: UILabel!
@@ -57,7 +58,8 @@ class UserIdViewController: UIViewController {
                                 }
                             }
                         }) { statuses in
-                            // TODO: if success, open next view
+                            let infoSyncStatus = (statuses.count > 0) ? statuses[0] == .success : true
+                            self?.goToUserInfoVC(syncStatus: infoSyncStatus)
                         }
                     } else {
                         if let error = error {
@@ -73,6 +75,20 @@ class UserIdViewController: UIViewController {
     @IBAction func openDocAction() {
         if let docURL = URL(string: "https://docs.drivequant.com/get-started-drivekit/ios#identify-user") {
             UIApplication.shared.open(docURL)
+        }
+    }
+
+    func goToUserInfoVC(syncStatus: Bool = true) {
+        DispatchQueue.dispatchOnMainThread {
+            self.showLoader()
+        }
+        DriveKit.shared.getUserInfo(synchronizationType: syncStatus ? .cache : .defaultSync) { [weak self] _ , userInfo in
+            DispatchQueue.dispatchOnMainThread {
+                let userInfoViewModel = UserInfoViewModel(userInfo: userInfo)
+                let userInfoVC = UserInfoViewController(viewModel: userInfoViewModel)
+                self?.navigationController?.pushViewController(userInfoVC, animated: true)
+                self?.hideLoader()
+            }
         }
     }
 }

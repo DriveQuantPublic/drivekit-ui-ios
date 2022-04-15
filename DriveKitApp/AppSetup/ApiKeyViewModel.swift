@@ -11,12 +11,11 @@ import DriveKitCoreModule
 import DriveKitCommonUI
 
 struct ApiKeyViewModel {
-    static let placeHolder = "ENTER_YOUR_API_KEY_HERE"
     private let grayColor = UIColor(hex:0x9e9e9e)
     private let darkColor = UIColor(hex: 0x193851)
 
     func shouldDisplayErrorText() -> Bool {
-        if let apiKey = getApiKey(), !apiKey.isEmpty, apiKey != ApiKeyViewModel.placeHolder {
+        if let apiKey = getApiKey(), !apiKey.isEmpty, !apiKey.isKeyPlaceHolder() {
             return false
         } else {
             return true
@@ -29,12 +28,25 @@ struct ApiKeyViewModel {
 
     func getContentAttibutedText() -> NSAttributedString {
         let apiKey = self.getApiKey() ?? ""
-        let apiKeyString = apiKey.dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 14, traits: .traitBold)).color(darkColor).build()
-        let contentString = "welcome_ok_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 14, traits: nil)).color(grayColor).buildWithArgs(apiKeyString)
+        let apiKeyString = apiKey.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(darkColor).build()
+        let contentString = "welcome_ok_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(grayColor).buildWithArgs(apiKeyString)
         return contentString
     }
 
     func getApiKeyErrorAttibutedText() -> NSAttributedString {
-        return "welcome_ko_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 14, traits: nil)).color(grayColor).build()
+        return "welcome_ko_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(grayColor).build()
+    }
+}
+
+extension String {
+    fileprivate static let keyPlaceHolderRegEx = "[A-Z]{5}(_[A-Z]{3,4}){4}"
+    mutating func replaceApiKeyIfNeeded() {
+        if self.isKeyPlaceHolder() {
+            let processInfo = ProcessInfo.processInfo
+            self = processInfo.environment["DriveKit-API-Key"] ?? DriveKit.shared.config.getApiKey() ?? self
+        }
+    }
+    fileprivate func isKeyPlaceHolder() -> Bool {
+        return range(of: String.keyPlaceHolderRegEx, options: .regularExpression) != nil
     }
 }

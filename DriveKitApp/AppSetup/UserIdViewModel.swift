@@ -15,7 +15,7 @@ class UserIdViewModel {
     private let grayColor = UIColor(hex:0x9e9e9e)
 
     func getDescriptionAttibutedText() -> NSAttributedString {
-        return "authentication_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 14, traits: nil)).color(grayColor).build()
+        return "authentication_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(grayColor).build()
     }
 
     func getTitleAttributedText() -> NSAttributedString {

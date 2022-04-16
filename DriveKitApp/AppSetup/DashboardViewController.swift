@@ -18,7 +18,8 @@ class DashboardViewController: UIViewController {
     private var synthesisCardView: UIView?
     private var lastTripsView: UIView?
     private var viewModel: DashboardViewModel = DashboardViewModel()
-    private let margin: CGFloat = 10
+    private let horizontalMargin: CGFloat = 10
+    private let verticalMargin: CGFloat = 6
 
     init() {
         super.init(nibName: String(describing: DashboardViewController.self), bundle: nil)
@@ -33,7 +34,9 @@ class DashboardViewController: UIViewController {
 
         self.viewModel.delegate = self
         self.title = "dashboard_header".keyLocalized()
+        addAllFeatureView()
         updateStartStopButton()
+        self.simulateTripButton.configure(text: "simulate_trip".keyLocalized(), style: .full)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -44,7 +47,8 @@ class DashboardViewController: UIViewController {
     }
 
     @IBAction private func showDriveKitFeatures() {
-        #warning("TODO")
+        #warning("TODO: Open dedicated screen")
+        self.navigationController?.pushViewController(UIViewController(), animated: true)
     }
 
     @IBAction private func startStopTrip() {
@@ -52,7 +56,22 @@ class DashboardViewController: UIViewController {
     }
 
     @IBAction private func simulateTrip() {
-        #warning("TODO")
+        #warning("TODO: Open dedicated screen")
+        self.navigationController?.pushViewController(UIViewController(), animated: true)
+    }
+
+    private func addAllFeatureView() {
+        let featureView = FeatureView.viewFromNib
+        featureView.translatesAutoresizingMaskIntoConstraints = false
+        featureView.addShadow()
+        featureView.update(viewModel: FeatureViewViewModel(type: .all), parentViewController: self)
+        self.featureListViewContainer.addSubview(featureView)
+        NSLayoutConstraint.activate([
+            featureView.topAnchor.constraint(equalTo: self.featureListViewContainer.topAnchor, constant: self.verticalMargin / 2),
+            featureView.bottomAnchor.constraint(equalTo: self.featureListViewContainer.bottomAnchor, constant: -self.verticalMargin / 2),
+            featureView.leftAnchor.constraint(equalTo: self.featureListViewContainer.leftAnchor, constant: self.horizontalMargin),
+            featureView.rightAnchor.constraint(equalTo: self.featureListViewContainer.rightAnchor, constant: -self.horizontalMargin)
+        ])
     }
 
     private func updateSynthesisCardView() {
@@ -64,10 +83,10 @@ class DashboardViewController: UIViewController {
         self.synthesisCardViewContainer.addSubview(synthesisCardView)
 
         self.synthesisCardViewContainer.addConstraints([
-            synthesisCardView.topAnchor.constraint(equalTo: self.synthesisCardViewContainer.topAnchor, constant: self.margin),
-            synthesisCardView.bottomAnchor.constraint(equalTo: self.synthesisCardViewContainer.bottomAnchor, constant: -self.margin),
-            synthesisCardView.leftAnchor.constraint(equalTo: self.synthesisCardViewContainer.leftAnchor, constant: self.margin),
-            synthesisCardView.rightAnchor.constraint(equalTo: self.synthesisCardViewContainer.rightAnchor, constant: -self.margin)
+            synthesisCardView.topAnchor.constraint(equalTo: self.synthesisCardViewContainer.topAnchor, constant: 12),
+            synthesisCardView.bottomAnchor.constraint(equalTo: self.synthesisCardViewContainer.bottomAnchor, constant: -self.verticalMargin / 2),
+            synthesisCardView.leftAnchor.constraint(equalTo: self.synthesisCardViewContainer.leftAnchor, constant: self.horizontalMargin),
+            synthesisCardView.rightAnchor.constraint(equalTo: self.synthesisCardViewContainer.rightAnchor, constant: -self.horizontalMargin)
         ])
     }
 
@@ -80,10 +99,10 @@ class DashboardViewController: UIViewController {
         self.lastTripsViewContainer.addSubview(lastTripView)
 
         self.lastTripsViewContainer.addConstraints([
-            lastTripView.topAnchor.constraint(equalTo: self.lastTripsViewContainer.topAnchor, constant: self.margin),
-            lastTripView.bottomAnchor.constraint(equalTo: self.lastTripsViewContainer.bottomAnchor, constant: -self.margin),
-            lastTripView.leftAnchor.constraint(equalTo: self.lastTripsViewContainer.leftAnchor, constant: self.margin),
-            lastTripView.rightAnchor.constraint(equalTo: self.lastTripsViewContainer.rightAnchor, constant: -self.margin)
+            lastTripView.topAnchor.constraint(equalTo: self.lastTripsViewContainer.topAnchor, constant: self.verticalMargin / 2),
+            lastTripView.bottomAnchor.constraint(equalTo: self.lastTripsViewContainer.bottomAnchor, constant: -self.verticalMargin / 2),
+            lastTripView.leftAnchor.constraint(equalTo: self.lastTripsViewContainer.leftAnchor, constant: self.horizontalMargin),
+            lastTripView.rightAnchor.constraint(equalTo: self.lastTripsViewContainer.rightAnchor, constant: -self.horizontalMargin)
         ])
     }
 }

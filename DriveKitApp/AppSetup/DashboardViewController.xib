@@ -25,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CFE-AG-lEd">
-                    <rect key="frame" x="0.0" y="44" width="414" height="670"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="682"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="7X0-8I-mgV">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="471"/>
@@ -44,21 +44,18 @@
                                         <constraint firstAttribute="height" constant="126" id="usO-KX-qfR"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaH-AM-F6U" userLabel="FeatureListContainer" customClass="UIControl">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaH-AM-F6U" userLabel="FeatureListContainer">
                                     <rect key="frame" x="0.0" y="351" width="414" height="120"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" priority="750" constant="120" id="luv-Rf-dNB"/>
                                     </constraints>
-                                    <connections>
-                                        <action selector="showDriveKitFeatures" destination="-1" eventType="touchUpInside" id="S2O-eY-neY"/>
-                                    </connections>
                                 </view>
                             </subviews>
                         </stackView>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="7X0-8I-mgV" secondAttribute="bottom" id="2Ad-Qc-uOl"/>
+                        <constraint firstAttribute="bottom" secondItem="7X0-8I-mgV" secondAttribute="bottom" constant="12" id="2Ad-Qc-uOl"/>
                         <constraint firstItem="7X0-8I-mgV" firstAttribute="centerX" secondItem="CFE-AG-lEd" secondAttribute="centerX" id="FCn-Ys-oFk"/>
                         <constraint firstAttribute="trailing" secondItem="7X0-8I-mgV" secondAttribute="trailing" id="Q3N-Ff-e76"/>
                         <constraint firstItem="7X0-8I-mgV" firstAttribute="top" secondItem="CFE-AG-lEd" secondAttribute="top" id="vYl-tZ-RBJ"/>
@@ -98,7 +95,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Tfa-kl-Cbd" secondAttribute="trailing" constant="20" id="SrO-Us-0fi"/>
                 <constraint firstItem="sa9-0X-mON" firstAttribute="trailing" secondItem="Tfa-kl-Cbd" secondAttribute="trailing" id="mef-Hb-Uip"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="CFE-AG-lEd" secondAttribute="trailing" id="nUj-Gx-xGV"/>
-                <constraint firstItem="sa9-0X-mON" firstAttribute="top" secondItem="CFE-AG-lEd" secondAttribute="bottom" constant="20" id="qWH-Wh-6WD"/>
+                <constraint firstItem="sa9-0X-mON" firstAttribute="top" secondItem="CFE-AG-lEd" secondAttribute="bottom" constant="8" id="qWH-Wh-6WD"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Tfa-kl-Cbd" secondAttribute="bottom" constant="20" id="tyq-fj-kEg"/>
                 <constraint firstItem="CFE-AG-lEd" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="wOm-W9-ni1"/>
             </constraints>

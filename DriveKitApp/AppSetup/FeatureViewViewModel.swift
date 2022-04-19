@@ -70,7 +70,7 @@ class FeatureViewViewModel {
     func executeAction(parentViewController: UIViewController) {
         #warning("TODO")
         print("TODO: executeAction for type: \(self.type)")
-        viewController.navigationController?.pushViewController(UIViewController(), animated: true)
+        parentViewController.navigationController?.pushViewController(UIViewController(), animated: true)
     }
 }
 

@@ -12,10 +12,8 @@ import DriveKitTripAnalysisModule
 
 class DashboardViewModel {
     weak var delegate: DashboardViewModelDelegate?
-    private var currentState: State
 
     init() {
-        self.currentState = DriveKitTripAnalysis.shared.getRecorderState()
         TripListenerController.shared.addSdkStateChangeListener(self)
     }
 
@@ -24,44 +22,32 @@ class DashboardViewModel {
     }
 
     func getStartStopTripButtonTitle() -> String {
-        if isAnalysingTrip() {
+        if DriveKitTripAnalysis.shared.isTripRunning() {
             return "stop_trip".keyLocalized()
         } else {
             return "start_trip".keyLocalized()
         }
     }
 
-    func getSynthesisCardView() -> UIView {
+    func getSynthesisCardsView() -> UIView {
         return DriveKitDriverDataUI.shared.getLastTripsSynthesisCardsView()
     }
 
-    func getLastTripView(parentViewController: UIViewController) -> UIView {
+    func getLastTripsView(parentViewController: UIViewController) -> UIView {
         return DriveKitDriverDataUI.shared.getLastTripsView(parentViewController: parentViewController)
     }
 
     func startStopTrip() {
-        if isAnalysingTrip() {
+        if DriveKitTripAnalysis.shared.isTripRunning() {
             DriveKitTripAnalysis.shared.stopTrip()
         } else {
             DriveKitTripAnalysis.shared.startTrip()
         }
     }
-
-    func isAnalysingTrip() -> Bool {
-        return isAnalysingTrip(state: self.currentState)
-    }
-
-    private func isAnalysingTrip(state: State) -> Bool {
-        return state == .starting || state == .running || state == .stopping || state == .sending
-    }
 }
 
 extension DashboardViewModel: SdkStateChangeListener {
     func sdkStateChanged(state: State) {
-        let needUpdate = isAnalysingTrip(state: self.currentState) != isAnalysingTrip(state: state)
-        self.currentState = state
-        if needUpdate {
-            self.delegate?.updateStartStopButton()
-        }
+        self.delegate?.updateStartStopButton()
     }
 }

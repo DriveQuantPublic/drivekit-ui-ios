@@ -37,6 +37,7 @@ class DashboardViewController: UIViewController {
         addAllFeatureView()
         updateStartStopButton()
         self.simulateTripButton.configure(text: "simulate_trip".keyLocalized(), style: .full)
+        configureNavBar()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -63,13 +64,12 @@ class DashboardViewController: UIViewController {
     private func addAllFeatureView() {
         let featureView = FeatureView.viewFromNib
         featureView.translatesAutoresizingMaskIntoConstraints = false
-        featureView.isUserInteractionEnabled = false
         featureView.addShadow()
         featureView.update(viewModel: FeatureViewViewModel(type: .all), parentViewController: self)
         self.featureListViewContainer.addSubview(featureView)
         NSLayoutConstraint.activate([
             featureView.topAnchor.constraint(equalTo: self.featureListViewContainer.topAnchor, constant: self.verticalMargin / 2),
-            featureView.bottomAnchor.constraint(equalTo: self.featureListViewContainer.bottomAnchor, constant: -self.verticalMargin / 2),
+            featureView.bottomAnchor.constraint(equalTo: self.featureListViewContainer.bottomAnchor, constant: -self.verticalMargin),
             featureView.leftAnchor.constraint(equalTo: self.featureListViewContainer.leftAnchor, constant: self.horizontalMargin),
             featureView.rightAnchor.constraint(equalTo: self.featureListViewContainer.rightAnchor, constant: -self.horizontalMargin)
         ])
@@ -77,7 +77,7 @@ class DashboardViewController: UIViewController {
 
     private func updateSynthesisCardView() {
         self.synthesisCardViewContainer.removeSubviews()
-        let synthesisCardView = self.viewModel.getSynthesisCardView()
+        let synthesisCardView = self.viewModel.getSynthesisCardsView()
         synthesisCardView.translatesAutoresizingMaskIntoConstraints = false
         synthesisCardView.addShadow()
         UIView.reducePageControl(in: synthesisCardView)
@@ -93,7 +93,7 @@ class DashboardViewController: UIViewController {
 
     private func updateLastTripView() {
         self.lastTripsViewContainer.removeSubviews()
-        let lastTripView = self.viewModel.getLastTripView(parentViewController: self)
+        let lastTripView = self.viewModel.getLastTripsView(parentViewController: self)
         lastTripView.translatesAutoresizingMaskIntoConstraints = false
         lastTripView.addShadow()
         UIView.reducePageControl(in: lastTripView)
@@ -106,10 +106,24 @@ class DashboardViewController: UIViewController {
             lastTripView.rightAnchor.constraint(equalTo: self.lastTripsViewContainer.rightAnchor, constant: -self.horizontalMargin)
         ])
     }
+
+    private func configureNavBar() {
+        let image = UIImage(named: "settings", in: Bundle.main, compatibleWith: nil)?.resizeImage(25, opaque: false).withRenderingMode(.alwaysTemplate)
+        let settingsButton = UIBarButtonItem(image: image , style: .plain, target: self, action: #selector(openSettings))
+        settingsButton.tintColor = DKUIColors.navBarElementColor.color
+        self.navigationItem.rightBarButtonItem = settingsButton
+    }
+
+    @objc private func openSettings() {
+        #warning("TODO: Open settngs view controller")
+        self.navigationController?.pushViewController(UIViewController(), animated: true)
+    }
 }
 
 extension DashboardViewController: DashboardViewModelDelegate {
     func updateStartStopButton() {
-        self.startStopTripButton.configure(text: self.viewModel.getStartStopTripButtonTitle().keyLocalized(), style: .full)
+        DispatchQueue.dispatchOnMainThread {
+            self.startStopTripButton.configure(text: self.viewModel.getStartStopTripButtonTitle().keyLocalized(), style: .full)
+        }
     }
 }

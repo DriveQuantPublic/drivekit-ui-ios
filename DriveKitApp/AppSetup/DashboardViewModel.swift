@@ -48,6 +48,8 @@ class DashboardViewModel {
 
 extension DashboardViewModel: SdkStateChangeListener {
     func sdkStateChanged(state: State) {
-        self.delegate?.updateStartStopButton()
+        DispatchQueue.dispatchOnMainThread {
+            self.delegate?.updateStartStopButton()
+        }
     }
 }

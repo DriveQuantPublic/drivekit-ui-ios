@@ -122,8 +122,6 @@ class DashboardViewController: UIViewController {
 
 extension DashboardViewController: DashboardViewModelDelegate {
     func updateStartStopButton() {
-        DispatchQueue.dispatchOnMainThread {
-            self.startStopTripButton.configure(text: self.viewModel.getStartStopTripButtonTitle().keyLocalized(), style: .full)
-        }
+        self.startStopTripButton.configure(text: self.viewModel.getStartStopTripButtonTitle().keyLocalized(), style: .full)
     }
 }

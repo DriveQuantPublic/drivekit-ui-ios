@@ -348,6 +348,12 @@
 		67462D8D2660CE0400016FAF /* ChallengeResultsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67462D8B2660CE0400016FAF /* ChallengeResultsVC.xib */; };
 		67462D8F2660CE2600016FAF /* ChallengeResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67462D8E2660CE2600016FAF /* ChallengeResultsViewModel.swift */; };
 		67462D912660CE4300016FAF /* ChallengeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67462D902660CE4300016FAF /* ChallengeDetailViewModel.swift */; };
+		6765E70C280EBA9F00FD13F8 /* PermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765E70A280EBA9F00FD13F8 /* PermissionsViewController.swift */; };
+		6765E70D280EBA9F00FD13F8 /* PermissionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6765E70B280EBA9F00FD13F8 /* PermissionsViewController.xib */; };
+		6765E70F280EBAB300FD13F8 /* PermissionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765E70E280EBAB300FD13F8 /* PermissionsViewModel.swift */; };
+		6765E712280EBAC400FD13F8 /* VehiclesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765E710280EBAC400FD13F8 /* VehiclesViewController.swift */; };
+		6765E713280EBAC400FD13F8 /* VehiclesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6765E711280EBAC400FD13F8 /* VehiclesViewController.xib */; };
+		6765E715280EBACF00FD13F8 /* VehiclesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765E714280EBACF00FD13F8 /* VehiclesViewModel.swift */; };
 		6780809928000A4C00A93352 /* ApiKeyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6780809828000A4C00A93352 /* ApiKeyViewModel.swift */; };
 		6780809C2800693600A93352 /* String+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6780809B2800693600A93352 /* String+DK.swift */; };
 		67813093276BB2A100701CF1 /* DriveKitTripAnalysisUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 67813092276BB2A100701CF1 /* DriveKitTripAnalysisUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1004,6 +1010,12 @@
 		67462D8B2660CE0400016FAF /* ChallengeResultsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeResultsVC.xib; sourceTree = "<group>"; };
 		67462D8E2660CE2600016FAF /* ChallengeResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeResultsViewModel.swift; sourceTree = "<group>"; };
 		67462D902660CE4300016FAF /* ChallengeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailViewModel.swift; sourceTree = "<group>"; };
+		6765E70A280EBA9F00FD13F8 /* PermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsViewController.swift; sourceTree = "<group>"; };
+		6765E70B280EBA9F00FD13F8 /* PermissionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PermissionsViewController.xib; sourceTree = "<group>"; };
+		6765E70E280EBAB300FD13F8 /* PermissionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsViewModel.swift; sourceTree = "<group>"; };
+		6765E710280EBAC400FD13F8 /* VehiclesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclesViewController.swift; sourceTree = "<group>"; };
+		6765E711280EBAC400FD13F8 /* VehiclesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VehiclesViewController.xib; sourceTree = "<group>"; };
+		6765E714280EBACF00FD13F8 /* VehiclesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclesViewModel.swift; sourceTree = "<group>"; };
 		6780809828000A4C00A93352 /* ApiKeyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeyViewModel.swift; sourceTree = "<group>"; };
 		6780809B2800693600A93352 /* String+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DK.swift"; sourceTree = "<group>"; };
 		67813090276BB2A100701CF1 /* DriveKitTripAnalysisUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DriveKitTripAnalysisUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2331,6 +2343,12 @@
 				671087CF28072FBE004FA464 /* UserInfoViewController.swift */,
 				671087D028072FBE004FA464 /* UserInfoViewController.xib */,
 				671087D328072FDE004FA464 /* UserInfoViewModel.swift */,
+				6765E70A280EBA9F00FD13F8 /* PermissionsViewController.swift */,
+				6765E70B280EBA9F00FD13F8 /* PermissionsViewController.xib */,
+				6765E70E280EBAB300FD13F8 /* PermissionsViewModel.swift */,
+				6765E710280EBAC400FD13F8 /* VehiclesViewController.swift */,
+				6765E711280EBAC400FD13F8 /* VehiclesViewController.xib */,
+				6765E714280EBACF00FD13F8 /* VehiclesViewModel.swift */,
 			);
 			path = AppSetup;
 			sourceTree = "<group>";
@@ -3361,6 +3379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3B7B393235F12510065A332 /* LaunchScreen.storyboard in Resources */,
+				6765E70D280EBA9F00FD13F8 /* PermissionsViewController.xib in Resources */,
 				67C055C127FDF6CC00B7159D /* ApiKeyViewController.xib in Resources */,
 				3F38C26D2369CC10002E873A /* Localizable.strings in Resources */,
 				A3B7B390235F12510065A332 /* Assets.xcassets in Resources */,
@@ -3368,6 +3387,7 @@
 				671087D228072FBE004FA464 /* UserInfoViewController.xib in Resources */,
 				61765A76243E306D00358CCA /* InfoPlist.strings in Resources */,
 				67B5837628040B330065C2E7 /* UserIdViewController.xib in Resources */,
+				6765E713280EBAC400FD13F8 /* VehiclesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3931,8 +3951,11 @@
 				67B5837528040B330065C2E7 /* UserIdViewController.swift in Sources */,
 				A3B7B388235F124F0065A332 /* ViewController.swift in Sources */,
 				A3B7B384235F124F0065A332 /* AppDelegate.swift in Sources */,
+				6765E712280EBAC400FD13F8 /* VehiclesViewController.swift in Sources */,
 				A3B7B38E235F124F0065A332 /* DriveKitApp.xcdatamodeld in Sources */,
 				6780809928000A4C00A93352 /* ApiKeyViewModel.swift in Sources */,
+				6765E70C280EBA9F00FD13F8 /* PermissionsViewController.swift in Sources */,
+				6765E70F280EBAB300FD13F8 /* PermissionsViewModel.swift in Sources */,
 				671087D128072FBE004FA464 /* UserInfoViewController.swift in Sources */,
 				67B5837828040B730065C2E7 /* UserIdViewModel.swift in Sources */,
 				67B583862805CC640065C2E7 /* RequestError+DK.swift in Sources */,
@@ -3945,6 +3968,7 @@
 				67B5837A28040B7E0065C2E7 /* DriveKitDelegateController.swift in Sources */,
 				67C055C027FDF6CC00B7159D /* ApiKeyViewController.swift in Sources */,
 				67B58380280468FE0065C2E7 /* TextFieldEffects.swift in Sources */,
+				6765E715280EBACF00FD13F8 /* VehiclesViewModel.swift in Sources */,
 				A32665AE235F64EB00B529B0 /* SettingsBundleKey.swift in Sources */,
 				67C055E727FF2D7200B7159D /* AppNavigationController.swift in Sources */,
 				6780809C2800693600A93352 /* String+DK.swift in Sources */,

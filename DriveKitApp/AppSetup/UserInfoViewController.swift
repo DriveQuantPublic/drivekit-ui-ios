@@ -112,6 +112,20 @@ class UserInfoViewController: UIViewController {
     @IBAction func goToNext() {
         self.view.endEditing(false)
         self.containerScrollView.scrollRectToVisible(self.containerScrollView.frame, animated: true)
+
+        if viewModel.shouldDisplayPermissions() {
+            let permissionsVC = PermissionsViewController(nibName: "PermissionsViewController", bundle: nil)
+            self.navigationController?.pushViewController(permissionsVC, animated: true)
+        } else {
+            viewModel.shouldDisplayVehicle() { [weak self] shouldDisplay in
+                if shouldDisplay {
+                    let permissionsVC = VehiclesViewController(nibName: "VehiclesViewController", bundle: nil)
+                    self?.navigationController?.pushViewController(permissionsVC, animated: true)
+                } else {
+                    // TODO: go to dashboard
+                }
+            }
+        }
     }
 }
 

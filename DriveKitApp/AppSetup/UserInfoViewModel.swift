@@ -9,6 +9,7 @@
 import Foundation
 import DriveKitCoreModule
 import DriveKitCommonUI
+import DriveKitVehicleModule
 
 class UserInfoViewModel {
     private var userInfo: UserInfo?
@@ -47,5 +48,24 @@ class UserInfoViewModel {
 
     func getPseudo() -> String? {
         return userInfo?.pseudo
+    }
+
+    func shouldDisplayPermissions() -> Bool {
+        var missingPermissionsCount: Int = 0
+        if DKDiagnosisHelper.shared.getPermissionStatus(.location) != .valid {
+            missingPermissionsCount = missingPermissionsCount + 1
+        }
+        if DKDiagnosisHelper.shared.getPermissionStatus(.activity) != .valid {
+            missingPermissionsCount = missingPermissionsCount + 1
+        }
+        return missingPermissionsCount > 0
+    }
+
+    func shouldDisplayVehicle(completion:@escaping (Bool) -> ()) {
+        DriveKitVehicle.shared.getVehiclesOrderByNameAsc(type: .cache) { _, vehicles in
+            DispatchQueue.dispatchOnMainThread {
+                completion(vehicles.count == 0)
+            }
+        }
     }
 }

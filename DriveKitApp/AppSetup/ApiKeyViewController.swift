@@ -14,7 +14,7 @@ class ApiKeyViewController: UIViewController {
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var bottomButton: UIButton!
 
-    let viewModel = ApiKeyViewModel()
+    var viewModel = ApiKeyViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +25,10 @@ class ApiKeyViewController: UIViewController {
         topLabel.textColor = DKUIColors.mainFontColor.color
         topLabel.font = DKUIFonts.primary.fonts(size: 18.0)
         self.title = "welcome_header".keyLocalized()
+        self.navigationItem.hidesBackButton = true
         if viewModel.shouldDisplayErrorText() {
             bottomButton.configure(text: "button_see_documentation".keyLocalized(), style: .full)
-            topLabel.text = "welcome_ko_title".keyLocalized()
+            topLabel.text = viewModel.getApiKeyErrorTitle()
             descriptionLabel.attributedText = viewModel.getApiKeyErrorAttibutedText()
         } else {
             bottomButton.configure(text: "welcome_ok_button".keyLocalized(), style: .full)

@@ -14,9 +14,11 @@ struct ApiKeyViewModel {
     private let grayColor = UIColor(hex:0x9e9e9e)
     private let darkColor = UIColor(hex: 0x193851)
 
+    var invalidApiKeyErrorReceived: Bool = false
+
     func shouldDisplayErrorText() -> Bool {
         if let apiKey = getApiKey(), !apiKey.isEmpty, !apiKey.isKeyPlaceHolder() {
-            return false
+            return invalidApiKeyErrorReceived
         } else {
             return true
         }
@@ -33,6 +35,13 @@ struct ApiKeyViewModel {
         return contentString
     }
 
+    func getApiKeyErrorTitle() -> String {
+        if invalidApiKeyErrorReceived {
+            return "welcome_invalid_key_title".keyLocalized()
+        } else {
+            return "welcome_ko_title".keyLocalized()
+        }
+    }
     func getApiKeyErrorAttibutedText() -> NSAttributedString {
         return "welcome_ko_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(grayColor).build()
     }

@@ -63,7 +63,13 @@ class UserIdViewController: UIViewController {
                         }
                     } else {
                         if let error = error {
-                            self?.showAlertMessage(title: nil, message: error.getErrorMessage(), back: false, cancel: false)
+                            if error == .unauthenticated {
+                                let apiVC = ApiKeyViewController(nibName: "ApiKeyViewController", bundle: nil)
+                                apiVC.viewModel.invalidApiKeyErrorReceived = true
+                                self?.navigationController?.pushViewController(apiVC, animated: true)
+                            } else {
+                                self?.showAlertMessage(title: nil, message: error.getErrorMessage(), back: false, cancel: false)
+                            }
                         }
                     }
                 }

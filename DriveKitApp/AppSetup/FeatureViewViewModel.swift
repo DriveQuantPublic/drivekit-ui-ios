@@ -35,8 +35,8 @@ class FeatureViewViewModel {
         return self.type.hasInfo()
     }
 
-    func showInfo(viewController: UIViewController) {
         #warning("TODO")
+    func showInfo(parentViewController: UIViewController) {
         let docKey: String?
         switch self.type {
             case .all:

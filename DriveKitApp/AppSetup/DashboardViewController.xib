@@ -44,12 +44,15 @@
                                         <constraint firstAttribute="height" constant="126" id="usO-KX-qfR"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaH-AM-F6U" userLabel="FeatureListContainer">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaH-AM-F6U" userLabel="FeatureListContainer" customClass="UIControl">
                                     <rect key="frame" x="0.0" y="351" width="414" height="120"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" priority="750" constant="120" id="luv-Rf-dNB"/>
                                     </constraints>
+                                    <connections>
+                                        <action selector="showDriveKitFeatures" destination="-1" eventType="touchUpInside" id="S2O-eY-neY"/>
+                                    </connections>
                                 </view>
                             </subviews>
                         </stackView>

@@ -18,7 +18,7 @@ class DashboardViewController: UIViewController {
     private var synthesisCardView: UIView?
     private var lastTripsView: UIView?
     private var viewModel: DashboardViewModel = DashboardViewModel()
-    private let horizontalMargin: CGFloat = 10
+    private let horizontalMargin: CGFloat = 8
     private let verticalMargin: CGFloat = 6
 
     init() {
@@ -63,6 +63,7 @@ class DashboardViewController: UIViewController {
     private func addAllFeatureView() {
         let featureView = FeatureView.viewFromNib
         featureView.translatesAutoresizingMaskIntoConstraints = false
+        featureView.isUserInteractionEnabled = false
         featureView.addShadow()
         featureView.update(viewModel: FeatureViewViewModel(type: .all), parentViewController: self)
         self.featureListViewContainer.addSubview(featureView)

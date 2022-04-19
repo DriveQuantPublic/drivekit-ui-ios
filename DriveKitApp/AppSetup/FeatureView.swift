@@ -35,7 +35,7 @@ final class FeatureView: UIView, Nibable {
         self.actionButton.setAttributedTitle(viewModel.getActionButtonTitle().dkAttributedString().font(dkFont: .primary, style: DKStyle(size: DKStyles.smallText.style.size, traits: .traitBold)).color(.secondaryColor).uppercased().build(), for: .normal)
 
         if viewModel.hasInfo() {
-            self.infoButton.configure(text: "ⓘ", style: .empty)
+            self.infoButton.setAttributedTitle("ⓘ".dkAttributedString().font(dkFont: .primary, style: .normalText).color(.secondaryColor).build(), for: .normal)
             self.infoButton.isHidden = false
         } else {
             self.infoButton.isHidden = true
@@ -44,7 +44,7 @@ final class FeatureView: UIView, Nibable {
 
     @IBAction func executeAction() {
         if let viewModel = viewModel, let parentViewController = self.parentViewController {
-            viewModel.executeAction(viewController: parentViewController)
+            viewModel.executeAction(parentViewController: parentViewController)
         }
     }
 }

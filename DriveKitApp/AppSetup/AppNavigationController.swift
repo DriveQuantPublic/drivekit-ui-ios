@@ -23,6 +23,7 @@ class AppNavigationController: UINavigationController {
     func setupViewController() {
         if DriveKit.shared.isUserConnected() {
             self.showLoader(message: "sync_trips_loading_message".keyLocalized())
+            self.isNavigationBarHidden = true
             SynchroServicesManager.syncModules([.trips, .challenge, .userInfo, .vehicle], stepCompletion:  { [weak self] status, remainingServices in
                 self?.hideLoader()
                 if let service = remainingServices.first {
@@ -45,6 +46,7 @@ class AppNavigationController: UINavigationController {
                 if DKDiagnosisHelper.shared.getPermissionStatus(.activity) != .valid {
                     missingPermissions.append(.activity)
                 }
+                self?.isNavigationBarHidden = false
                 if missingPermissions.count > 0, let self = self {
                     DriveKitPermissionsUtilsUI.shared.showPermissionViews(missingPermissions, parentViewController: self) {
                         self.goToDashboard()

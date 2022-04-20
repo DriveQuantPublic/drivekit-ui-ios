@@ -21,8 +21,7 @@ class AppNavigationController: UINavigationController {
 
     func setupViewController() {
         if DriveKit.shared.isUserConnected() {
-            #warning("to be replaced by the dashboard view")
-            self.setViewControllers([UIViewController()], animated: false)
+            self.setViewControllers([DashboardViewController()], animated: false)
         } else {
             let apiVC = ApiKeyViewController(nibName: "ApiKeyViewController", bundle: nil)
             self.setViewControllers([apiVC], animated: false)

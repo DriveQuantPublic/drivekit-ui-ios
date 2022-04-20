@@ -34,7 +34,6 @@ class DashboardViewController: UIViewController {
 
         self.viewModel.delegate = self
         self.title = "dashboard_header".keyLocalized()
-        self.navigationItem.hidesBackButton = true
         addAllFeatureView()
         updateStartStopButton()
         self.simulateTripButton.configure(text: "simulate_trip".keyLocalized(), style: .full)

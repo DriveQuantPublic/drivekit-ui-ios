@@ -38,15 +38,7 @@ class PermissionsViewController: UIViewController {
     }
 
     @IBAction func openPermissions() {
-        var missingPermissions: [DKPermissionView] = []
-        if DKDiagnosisHelper.shared.getPermissionStatus(.location) != .valid {
-            missingPermissions.append(.location)
-        }
-        if DKDiagnosisHelper.shared.getPermissionStatus(.activity) != .valid {
-            missingPermissions.append(.activity)
-        }
-
-        DriveKitPermissionsUtilsUI.shared.showPermissionViews(missingPermissions, parentViewController: self) {
+        DriveKitPermissionsUtilsUI.shared.showPermissionViews([.location, .activity], parentViewController: self) {
             self.goToVehicles()
         }
     }

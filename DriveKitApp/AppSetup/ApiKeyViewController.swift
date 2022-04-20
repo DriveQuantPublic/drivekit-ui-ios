@@ -14,8 +14,17 @@ class ApiKeyViewController: UIViewController {
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var bottomButton: UIButton!
 
-    var viewModel = ApiKeyViewModel()
+    var viewModel: ApiKeyViewModel!
 
+    init(viewModel: ApiKeyViewModel = ApiKeyViewModel()) {
+        super.init(nibName: String(describing: ApiKeyViewController.self), bundle: nil)
+        self.viewModel = viewModel
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -25,7 +34,6 @@ class ApiKeyViewController: UIViewController {
         topLabel.textColor = DKUIColors.mainFontColor.color
         topLabel.font = DKUIFonts.primary.fonts(size: 18.0)
         self.title = "welcome_header".keyLocalized()
-        self.navigationItem.hidesBackButton = true
         if viewModel.shouldDisplayErrorText() {
             bottomButton.configure(text: "button_see_documentation".keyLocalized(), style: .full)
             topLabel.text = viewModel.getApiKeyErrorTitle()

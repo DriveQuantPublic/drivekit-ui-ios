@@ -64,9 +64,9 @@ class UserIdViewController: UIViewController {
                     } else {
                         if let error = error {
                             if error == .unauthenticated {
-                                let apiVC = ApiKeyViewController(nibName: "ApiKeyViewController", bundle: nil)
-                                apiVC.viewModel.invalidApiKeyErrorReceived = true
-                                self?.navigationController?.pushViewController(apiVC, animated: true)
+                                let apiVM = ApiKeyViewModel(invalidApiKeyErrorReceived: true)
+                                let apiVC = ApiKeyViewController(viewModel: apiVM)
+                                self?.navigationController?.setViewControllers([apiVC], animated: true)
                             } else {
                                 self?.showAlertMessage(title: nil, message: error.getErrorMessage(), back: false, cancel: false)
                             }

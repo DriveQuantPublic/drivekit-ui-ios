@@ -30,6 +30,7 @@ class UserIdViewController: UIViewController {
         descriptionLabel.attributedText = viewModel.getDescriptionAttibutedText()
         textField.placeholder = "authentication_unique_identifier".keyLocalized()
         textField.autocorrectionType = .no
+        textField.spellCheckingType = .no
         topLabel.isUserInteractionEnabled = true
         topLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openDocAction)))
     }
@@ -63,7 +64,13 @@ class UserIdViewController: UIViewController {
                         }
                     } else {
                         if let error = error {
-                            self?.showAlertMessage(title: nil, message: error.getErrorMessage(), back: false, cancel: false)
+                            if error == .unauthenticated {
+                                let apiVM = ApiKeyViewModel(invalidApiKeyErrorReceived: true)
+                                let apiVC = ApiKeyViewController(viewModel: apiVM)
+                                self?.navigationController?.setViewControllers([apiVC], animated: true)
+                            } else {
+                                self?.showAlertMessage(title: nil, message: error.getErrorMessage(), back: false, cancel: false)
+                            }
                         }
                     }
                 }
@@ -73,7 +80,7 @@ class UserIdViewController: UIViewController {
     }
 
     @IBAction func openDocAction() {
-        if let docURL = URL(string: "https://docs.drivequant.com/get-started-drivekit/ios#identify-user") {
+        if let docURL = URL(string: "drivekit_doc_ios_user_id".keyLocalized()) {
             UIApplication.shared.open(docURL)
         }
     }

@@ -42,6 +42,12 @@ final class FeatureView: UIView, Nibable {
         }
     }
 
+    @IBAction func showInfo() {
+        if let viewModel = viewModel, let parentViewController = self.parentViewController {
+            viewModel.showInfo(parentViewController: parentViewController)
+        }
+    }
+
     @IBAction func executeAction() {
         if let viewModel = viewModel, let parentViewController = self.parentViewController {
             viewModel.executeAction(parentViewController: parentViewController)

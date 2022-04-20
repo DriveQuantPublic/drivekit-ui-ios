@@ -14,13 +14,13 @@ class ApiKeyViewController: UIViewController {
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var bottomButton: UIButton!
 
-    var viewModel: ApiKeyViewModel!
+    private let viewModel: ApiKeyViewModel
 
     init(viewModel: ApiKeyViewModel = ApiKeyViewModel()) {
-        super.init(nibName: String(describing: ApiKeyViewController.self), bundle: nil)
         self.viewModel = viewModel
+        super.init(nibName: String(describing: ApiKeyViewController.self), bundle: nil)
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

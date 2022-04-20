@@ -306,6 +306,11 @@
 		63F44E8A244DDEE000C7F5CC /* GlobalStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F44E88244DDEE000C7F5CC /* GlobalStateView.xib */; };
 		63F44E8C244DF16800C7F5CC /* SeparatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F44E8B244DF16800C7F5CC /* SeparatorView.xib */; };
 		63F44E8E244DF2A200C7F5CC /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F44E8D244DF2A200C7F5CC /* SeparatorView.swift */; };
+		63F4C735280DD8B0006396B9 /* FeaturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F4C734280DD8B0006396B9 /* FeaturesViewController.swift */; };
+		63F4C737280DD91D006396B9 /* FeaturesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F4C736280DD91D006396B9 /* FeaturesViewController.xib */; };
+		63F4C739280DD92E006396B9 /* FeaturesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F4C738280DD92E006396B9 /* FeaturesViewModel.swift */; };
+		63F4C73B280E00EE006396B9 /* FeatureViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F4C73A280E00EE006396B9 /* FeatureViewCell.swift */; };
+		63F4C73F280E16A1006396B9 /* FeatureViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F4C73E280E16A1006396B9 /* FeatureViewCell.xib */; };
 		63FE778624FD1A9D00C068C3 /* AnalyticsTags.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63FE778524FD1A9D00C068C3 /* AnalyticsTags.plist */; };
 		63FF6B4F244994B50006992E /* DiagnosisViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63FF6B4E244994B50006992E /* DiagnosisViewController.xib */; };
 		63FF6B532449E7CF0006992E /* SensorStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63FF6B522449E7CF0006992E /* SensorStateView.xib */; };
@@ -982,6 +987,11 @@
 		63F44E88244DDEE000C7F5CC /* GlobalStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GlobalStateView.xib; sourceTree = "<group>"; };
 		63F44E8B244DF16800C7F5CC /* SeparatorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeparatorView.xib; sourceTree = "<group>"; };
 		63F44E8D244DF2A200C7F5CC /* SeparatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
+		63F4C734280DD8B0006396B9 /* FeaturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturesViewController.swift; sourceTree = "<group>"; };
+		63F4C736280DD91D006396B9 /* FeaturesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeaturesViewController.xib; sourceTree = "<group>"; };
+		63F4C738280DD92E006396B9 /* FeaturesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturesViewModel.swift; sourceTree = "<group>"; };
+		63F4C73A280E00EE006396B9 /* FeatureViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureViewCell.swift; sourceTree = "<group>"; };
+		63F4C73E280E16A1006396B9 /* FeatureViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeatureViewCell.xib; sourceTree = "<group>"; };
 		63FE778524FD1A9D00C068C3 /* AnalyticsTags.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AnalyticsTags.plist; sourceTree = "<group>"; };
 		63FF6B4E244994B50006992E /* DiagnosisViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiagnosisViewController.xib; sourceTree = "<group>"; };
 		63FF6B522449E7CF0006992E /* SensorStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SensorStateView.xib; sourceTree = "<group>"; };
@@ -2348,8 +2358,13 @@
 				63570DFD280997600082A446 /* DashboardViewModel.swift */,
 				63570DFF280997790082A446 /* DashboardViewModelDelegate.swift */,
 				67B5837928040B7E0065C2E7 /* DriveKitDelegateController.swift */,
+				63F4C734280DD8B0006396B9 /* FeaturesViewController.swift */,
+				63F4C736280DD91D006396B9 /* FeaturesViewController.xib */,
+				63F4C738280DD92E006396B9 /* FeaturesViewModel.swift */,
 				63570E01280997C80082A446 /* FeatureView.swift */,
 				63570E092809C4140082A446 /* FeatureView.xib */,
+				63F4C73A280E00EE006396B9 /* FeatureViewCell.swift */,
+				63F4C73E280E16A1006396B9 /* FeatureViewCell.xib */,
 				63570E0B2809C70E0082A446 /* FeatureViewViewModel.swift */,
 				63570DFB280996160082A446 /* TripListenerController.swift */,
 				67B5837328040B330065C2E7 /* UserIdViewController.swift */,
@@ -3388,11 +3403,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3B7B393235F12510065A332 /* LaunchScreen.storyboard in Resources */,
+				63F4C737280DD91D006396B9 /* FeaturesViewController.xib in Resources */,
 				67C055C127FDF6CC00B7159D /* ApiKeyViewController.xib in Resources */,
 				63570E0628099D620082A446 /* DashboardViewController.xib in Resources */,
 				3F38C26D2369CC10002E873A /* Localizable.strings in Resources */,
 				A3B7B390235F12510065A332 /* Assets.xcassets in Resources */,
 				A3B7B38B235F124F0065A332 /* Main.storyboard in Resources */,
+				63F4C73F280E16A1006396B9 /* FeatureViewCell.xib in Resources */,
 				671087D228072FBE004FA464 /* UserInfoViewController.xib in Resources */,
 				61765A76243E306D00358CCA /* InfoPlist.strings in Resources */,
 				67B5837628040B330065C2E7 /* UserIdViewController.xib in Resources */,
@@ -3959,11 +3976,13 @@
 			files = (
 				67B5837528040B330065C2E7 /* UserIdViewController.swift in Sources */,
 				A3B7B388235F124F0065A332 /* ViewController.swift in Sources */,
+				63F4C73B280E00EE006396B9 /* FeatureViewCell.swift in Sources */,
 				A3B7B384235F124F0065A332 /* AppDelegate.swift in Sources */,
 				A3B7B38E235F124F0065A332 /* DriveKitApp.xcdatamodeld in Sources */,
 				6780809928000A4C00A93352 /* ApiKeyViewModel.swift in Sources */,
 				671087D128072FBE004FA464 /* UserInfoViewController.swift in Sources */,
 				67B5837828040B730065C2E7 /* UserIdViewModel.swift in Sources */,
+				63F4C739280DD92E006396B9 /* FeaturesViewModel.swift in Sources */,
 				63570E02280997C80082A446 /* FeatureView.swift in Sources */,
 				63570DFE280997600082A446 /* DashboardViewModel.swift in Sources */,
 				63570DFA280995DA0082A446 /* DashboardViewController.swift in Sources */,
@@ -3978,6 +3997,7 @@
 				67C055C027FDF6CC00B7159D /* ApiKeyViewController.swift in Sources */,
 				67B58380280468FE0065C2E7 /* TextFieldEffects.swift in Sources */,
 				A32665AE235F64EB00B529B0 /* SettingsBundleKey.swift in Sources */,
+				63F4C735280DD8B0006396B9 /* FeaturesViewController.swift in Sources */,
 				67C055E727FF2D7200B7159D /* AppNavigationController.swift in Sources */,
 				63570E00280997790082A446 /* DashboardViewModelDelegate.swift in Sources */,
 				6780809C2800693600A93352 /* String+DK.swift in Sources */,

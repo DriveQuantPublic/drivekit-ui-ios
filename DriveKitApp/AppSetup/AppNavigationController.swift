@@ -63,8 +63,6 @@ class AppNavigationController: UINavigationController {
     }
 
     func goToDashboard() {
-        #warning("to be replaced by the dashboard view")
-        self.setViewControllers([UIViewController()], animated: false)
-
+        self.setViewControllers([DashboardViewController()], animated: false)
     }
 }

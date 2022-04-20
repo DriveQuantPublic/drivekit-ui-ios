@@ -122,7 +122,7 @@ class UserInfoViewController: UIViewController {
                     let permissionsVC = VehiclesViewController(nibName: "VehiclesViewController", bundle: nil)
                     self?.navigationController?.pushViewController(permissionsVC, animated: true)
                 } else {
-                    // TODO: go to dashboard
+                    self?.navigationController?.pushViewController(DashboardViewController(), animated: true)
                 }
             }
         }

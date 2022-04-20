@@ -43,8 +43,8 @@ class VehiclesViewController: UIViewController {
         } else {
             parentVC = self
         }
-        _ = DKVehiclePickerNavigationController(parentView: parentVC) {
-            // TODO: go to dashboard
+        _ = DKVehiclePickerNavigationController(parentView: parentVC) { [weak self] in
+            self?.navigationController?.pushViewController(DashboardViewController(), animated: true)
         }
     }
 }

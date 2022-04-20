@@ -58,8 +58,8 @@ class DashboardViewController: UIViewController {
     }
 
     @IBAction private func simulateTrip() {
-        #warning("TODO: Open dedicated screen")
-        self.navigationController?.pushViewController(UIViewController(), animated: true)
+        let simulationVC = PresetTripsListViewController(nibName: "PresetTripsListViewController", bundle: nil)
+        self.navigationController?.pushViewController(simulationVC, animated: true)
     }
 
     private func addAllFeatureView() {

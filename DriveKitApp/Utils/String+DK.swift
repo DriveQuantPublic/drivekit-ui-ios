@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 extension String {
     func keyLocalized() -> String {
         return NSLocalizedString(self, comment: "")

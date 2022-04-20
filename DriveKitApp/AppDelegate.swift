@@ -25,7 +25,6 @@ import DriveKitTripAnalysisUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
     
     static let tag = "DriveKit test app"
@@ -205,19 +204,19 @@ extension CancelTrip {
     }
 }
 
-class DefaultColors : DKDefaultColors {
+class DefaultColors: DKDefaultColors {
 }
 
-class DefaultFonts : DKDefaultFonts {
+class DefaultFonts: DKDefaultFonts {
 }
 
-extension AppDelegate : DKContentMail {
+extension AppDelegate: DKContentMail {
     func overrideMailBodyContent() -> Bool {
         return false
     }
     
     func getRecipients() -> [String] {
-        return []
+        return ["recipient_to_configure@mail.com"]
     }
     
     func getBccRecipients() -> [String] {
@@ -225,15 +224,15 @@ extension AppDelegate : DKContentMail {
     }
     
     func getSubject() -> String {
-        return "Test beacon"
+        return "[Subject to configure]"
     }
     
     func getMailBody() -> String {
-        return "Test mail body"
+        return "[Mail body to configure]"
     }
 }
 
-fileprivate class DeclaredConsumptionField : DKVehicleField {
+fileprivate class DeclaredConsumptionField: DKVehicleField {
     var isEditable: Bool = true
     var keyBoardType: UIKeyboardType = .decimalPad
     func isDisplayable(vehicle: DKVehicle) -> Bool {
@@ -259,7 +258,7 @@ fileprivate class DeclaredConsumptionField : DKVehicleField {
     }
 }
 
-fileprivate class DeclaredPtacField : DKVehicleField {
+fileprivate class DeclaredPtacField: DKVehicleField {
     var isEditable: Bool = true
     var keyBoardType: UIKeyboardType = .decimalPad
     func isDisplayable(vehicle: DKVehicle) -> Bool {

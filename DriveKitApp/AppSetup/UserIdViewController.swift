@@ -30,6 +30,7 @@ class UserIdViewController: UIViewController {
         descriptionLabel.attributedText = viewModel.getDescriptionAttibutedText()
         textField.placeholder = "authentication_unique_identifier".keyLocalized()
         textField.autocorrectionType = .no
+        textField.spellCheckingType = .no
         topLabel.isUserInteractionEnabled = true
         topLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(openDocAction)))
     }

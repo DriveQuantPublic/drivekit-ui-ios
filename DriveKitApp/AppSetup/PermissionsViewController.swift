@@ -49,7 +49,7 @@ class PermissionsViewController: UIViewController {
                 let vehiclesVC = VehiclesViewController(nibName: "VehiclesViewController", bundle: nil)
                 self?.navigationController?.pushViewController(vehiclesVC, animated: true)
             } else {
-                self?.navigationController?.pushViewController(DashboardViewController(), animated: true)
+                self?.navigationController?.setViewControllers([DashboardViewController()], animated: false)
             }
         }
     }

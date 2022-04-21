@@ -12,10 +12,8 @@ import DriveKitCommonUI
 import DriveKitVehicleModule
 
 struct PermissionsViewModel {
-    private let grayColor = UIColor(hex:0x9e9e9e)
-
     func getDescriptionAttibutedText() -> NSAttributedString {
-        return "permissions_intro_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(grayColor).build()
+        return "permissions_intro_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(DKUIColors.complementaryFontColor.color).build()
     }
 
     func getTitleAttributedText() -> NSAttributedString {

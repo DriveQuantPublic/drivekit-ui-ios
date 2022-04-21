@@ -13,7 +13,6 @@ import DriveKitVehicleModule
 
 class UserInfoViewModel {
     private var userInfo: UserInfo?
-    private let grayColor = UIColor(hex:0x9e9e9e)
 
     init(userInfo: UserInfo? = nil) {
         self.userInfo = userInfo
@@ -29,7 +28,7 @@ class UserInfoViewModel {
     }
 
     func getDescriptionAttibutedText() -> NSAttributedString {
-        return "user_info_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(grayColor).build()
+        return "user_info_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(DKUIColors.complementaryFontColor.color).build()
     }
 
     func getTitleAttributedText() -> NSAttributedString {

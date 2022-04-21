@@ -11,7 +11,6 @@ import UIKit
 import DriveKitCommonUI
 
 class TripSimulatorViewModel {
-    private let grayColor = UIColor(hex:0x9e9e9e)
     let items: [TripSimulatorItem] = [
         .trip(.shortTrip),
         .trip(.cityTrip),
@@ -28,19 +27,19 @@ class TripSimulatorViewModel {
     var selectedItemIndex: Int = 0
 
     func getDescriptionAttibutedText() -> NSAttributedString {
-        return "trip_simulator_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(grayColor).build()
+        return "trip_simulator_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(DKUIColors.complementaryFontColor.color).build()
     }
 
     func getSelectedItem() -> TripSimulatorItem {
         if selectedItemIndex >= 0 && selectedItemIndex < items.count {
             return items[selectedItemIndex]
         } else {
-            return items[0]
+            return items.first ?? .trip(.shortTrip)
         }
     }
 
     func getTripDescriptionAttibutedText() -> NSAttributedString {
-        return getSelectedItem().getDescription().dkAttributedString().font(dkFont: .primary, style: .smallText).color(grayColor).build()
+        return getSelectedItem().getDescription().dkAttributedString().font(dkFont: .primary, style: .smallText).color(DKUIColors.complementaryFontColor.color).build()
     }
 
     func getTripTitleText() -> String {

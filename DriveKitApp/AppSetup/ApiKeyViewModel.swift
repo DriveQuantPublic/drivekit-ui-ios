@@ -14,7 +14,11 @@ struct ApiKeyViewModel {
     private let grayColor = UIColor(hex:0x9e9e9e)
     private let darkColor = UIColor(hex: 0x193851)
 
-    var invalidApiKeyErrorReceived: Bool = false
+    var invalidApiKeyErrorReceived: Bool
+
+    init(invalidApiKeyErrorReceived: Bool = false) {
+        self.invalidApiKeyErrorReceived = invalidApiKeyErrorReceived
+    }
 
     func shouldDisplayErrorText() -> Bool {
         if let apiKey = getApiKey(), !apiKey.isEmpty, !apiKey.isKeyPlaceHolder() {

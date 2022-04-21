@@ -39,25 +39,15 @@ class AppNavigationController: UINavigationController {
                     }
                 }
             }) { [weak self] _ in
-                var missingPermissions: [DKPermissionView] = []
-                if DKDiagnosisHelper.shared.getPermissionStatus(.location) != .valid {
-                    missingPermissions.append(.location)
-                }
-                if DKDiagnosisHelper.shared.getPermissionStatus(.activity) != .valid {
-                    missingPermissions.append(.activity)
-                }
-                self?.isNavigationBarHidden = false
-                if missingPermissions.count > 0, let self = self {
-                    DriveKitPermissionsUtilsUI.shared.showPermissionViews(missingPermissions, parentViewController: self) {
+                if let self = self {
+                    DriveKitPermissionsUtilsUI.shared.showPermissionViews([.location, .activity], parentViewController: self) {
+                        self.isNavigationBarHidden = false
                         self.goToDashboard()
                     }
-
-                } else {
-                    self?.goToDashboard()
                 }
             }
         } else {
-            let apiVC = ApiKeyViewController(nibName: "ApiKeyViewController", bundle: nil)
+            let apiVC = ApiKeyViewController()
             self.setViewControllers([apiVC], animated: false)
         }
     }

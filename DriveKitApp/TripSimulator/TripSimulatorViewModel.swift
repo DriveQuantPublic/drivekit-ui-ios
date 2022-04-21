@@ -48,7 +48,7 @@ class TripSimulatorViewModel {
     }
 
     func selectItem(at index:Int) {
-        guard index > 0 && index < items.count else {
+        guard index >= 0 && index < items.count else {
             return
         }
         selectedItemIndex = index

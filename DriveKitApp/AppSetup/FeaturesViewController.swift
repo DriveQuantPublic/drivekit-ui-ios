@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 
 class FeaturesViewController: UITableViewController {
     private var viewModel: FeaturesViewModel = FeaturesViewModel()
@@ -21,6 +22,8 @@ class FeaturesViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "feature_list".keyLocalized()
+        configureBackButton()
         self.tableView.register(FeatureViewCell.nib, forCellReuseIdentifier: "FeatureViewCell")
         self.tableView.estimatedRowHeight = 150
         self.tableView.rowHeight = UITableView.automaticDimension
@@ -35,5 +38,13 @@ class FeaturesViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FeatureViewCell", for: indexPath) as! FeatureViewCell
         cell.update(with: viewModel, parentViewController: self)
         return cell
+    }
+
+    private func configureBackButton() {
+        DKUIViewController.configureBackButton(viewController: self, selector: #selector(onBack))
+    }
+
+    @objc private func onBack(sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
     }
 }

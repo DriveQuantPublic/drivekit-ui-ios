@@ -58,17 +58,11 @@ class UserInfoViewController: UIViewController {
         pseudoTextField.delegate = self
     }
 
-    open func configureBackButton(selector: Selector = #selector(onBack)) {
-        let backButton = UIButton(type: .custom)
-        backButton.frame = CGRect(x: 0, y: 0, width: 36, height: 36)
-        let backImage = DKImages.back.image
-        backButton.setImage(backImage, for: .normal)
-        backButton.addTarget(self, action: selector, for: .touchUpInside)
-        backButton.tintColor = DKUIColors.navBarElementColor.color
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+    private func configureBackButton() {
+        DKUIViewController.configureBackButton(viewController: self, selector: #selector(onBack))
     }
 
-    @objc open func onBack(sender: UIBarButtonItem) {
+    @objc private func onBack(sender: UIBarButtonItem) {
         guard let apiKey = DriveKit.shared.config.getApiKey() else {
             return
         }

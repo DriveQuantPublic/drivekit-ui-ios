@@ -34,7 +34,7 @@ struct ApiKeyViewModel {
     func getContentAttibutedText() -> NSAttributedString {
         let apiKey = self.getApiKey() ?? ""
         let apiKeyString = apiKey.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(darkColor).build()
-        let contentString = "welcome_ok_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(DKUIColors.complementaryFontColor.color).buildWithArgs(apiKeyString)
+        let contentString = "welcome_ok_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).buildWithArgs(apiKeyString)
         return contentString
     }
 
@@ -46,7 +46,7 @@ struct ApiKeyViewModel {
         }
     }
     func getApiKeyErrorAttibutedText() -> NSAttributedString {
-        return "welcome_ko_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(DKUIColors.complementaryFontColor.color).build()
+        return "welcome_ko_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
     }
 }
 

@@ -28,12 +28,12 @@ class UserInfoViewModel {
     }
 
     func getDescriptionAttibutedText() -> NSAttributedString {
-        return "user_info_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(DKUIColors.complementaryFontColor.color).build()
+        return "user_info_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
     }
 
     func getTitleAttributedText() -> NSAttributedString {
-        let iconString = "ⓘ".dkAttributedString().font(dkFont: .primary, style: .bigtext).color(DKUIColors.secondaryColor.color).build()
-        let titleString = "user_info_title".keyLocalized().appending("  ").dkAttributedString().font(dkFont: .primary, style: .bigtext).color(DKUIColors.mainFontColor.color).buildWithArgs(iconString)
+        let iconString = "ⓘ".dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.secondaryColor).build()
+        let titleString = "user_info_title".keyLocalized().appending("  ").dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.mainFontColor).buildWithArgs(iconString)
         return titleString
     }
 

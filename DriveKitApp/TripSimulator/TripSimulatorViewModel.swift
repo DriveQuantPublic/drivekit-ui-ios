@@ -27,7 +27,7 @@ class TripSimulatorViewModel {
     var selectedItemIndex: Int = 0
 
     func getDescriptionAttibutedText() -> NSAttributedString {
-        return "trip_simulator_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(DKUIColors.complementaryFontColor.color).build()
+        return "trip_simulator_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
     }
 
     func getSelectedItem() -> TripSimulatorItem {
@@ -39,7 +39,7 @@ class TripSimulatorViewModel {
     }
 
     func getTripDescriptionAttibutedText() -> NSAttributedString {
-        return getSelectedItem().getDescription().dkAttributedString().font(dkFont: .primary, style: .smallText).color(DKUIColors.complementaryFontColor.color).build()
+        return getSelectedItem().getDescription().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
     }
 
     func getTripTitleText() -> String {

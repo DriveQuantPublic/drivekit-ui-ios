@@ -80,7 +80,7 @@ class UserInfoViewController: UIViewController {
     @IBAction func openDocAction() {
         self.view.endEditing(false)
         self.containerScrollView.scrollRectToVisible(self.containerScrollView.frame, animated: true)
-        if let docURL = URL(string: "https://docs.drivequant.com/get-started-drivekit/ios#update-users-information") {
+        if let docURL = URL(string: "drivekit_doc_ios_update_user_info".keyLocalized()) {
             UIApplication.shared.open(docURL)
         }
     }
@@ -112,6 +112,20 @@ class UserInfoViewController: UIViewController {
     @IBAction func goToNext() {
         self.view.endEditing(false)
         self.containerScrollView.scrollRectToVisible(self.containerScrollView.frame, animated: true)
+
+        if viewModel.shouldDisplayPermissions() {
+            let permissionsVC = PermissionsViewController(nibName: "PermissionsViewController", bundle: nil)
+            self.navigationController?.pushViewController(permissionsVC, animated: true)
+        } else {
+            viewModel.shouldDisplayVehicle() { [weak self] shouldDisplay in
+                if shouldDisplay {
+                    let permissionsVC = VehiclesViewController(nibName: "VehiclesViewController", bundle: nil)
+                    self?.navigationController?.pushViewController(permissionsVC, animated: true)
+                } else {
+                    self?.navigationController?.setViewControllers([DashboardViewController()], animated: true)
+                }
+            }
+        }
     }
 }
 

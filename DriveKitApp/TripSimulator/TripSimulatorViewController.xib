@@ -14,7 +14,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PresetTripsListViewController" customModule="DriveKitApp" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TripSimulatorViewController" customModule="DriveKitApp" customModuleProvider="target">
             <connections>
                 <outlet property="selectTripLabel" destination="jBg-CO-w4P" id="00a-2T-Dwc"/>
                 <outlet property="simulationButton" destination="PnL-SZ-jEe" id="uSK-oI-8ho"/>
@@ -54,7 +54,7 @@
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBg-CO-w4P">
                             <rect key="frame" x="0.0" y="50" width="374" height="0.0"/>
-                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
+                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -65,27 +65,63 @@
                                 <constraint firstAttribute="height" constant="15" id="Hmq-ka-8vc"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="INw-Zs-FSo">
-                            <rect key="frame" x="0.0" y="65" width="374" height="0.0"/>
-                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="16"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vnt-LD-g04">
+                            <rect key="frame" x="0.0" y="65" width="374" height="48"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="INw-Zs-FSo">
+                                    <rect key="frame" x="8" y="0.0" width="316" height="48"/>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="▼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R4U-4Y-Qbh">
+                                    <rect key="frame" x="340" y="0.0" width="16" height="48"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="16" id="yPd-T0-jzU"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
+                                    <color key="textColor" red="0.38039215686274508" green="0.38039215686274508" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pwg-U6-yQR">
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <connections>
+                                        <action selector="openTripSelection" destination="-1" eventType="touchUpInside" id="1Mz-7i-Td0"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="INw-Zs-FSo" secondAttribute="trailing" constant="50" id="2IM-po-JJl"/>
+                                <constraint firstItem="Pwg-U6-yQR" firstAttribute="leading" secondItem="Vnt-LD-g04" secondAttribute="leading" id="3jc-Kt-Ait"/>
+                                <constraint firstItem="INw-Zs-FSo" firstAttribute="leading" secondItem="Vnt-LD-g04" secondAttribute="leading" constant="8" id="Bga-Vc-gE8"/>
+                                <constraint firstItem="Pwg-U6-yQR" firstAttribute="top" secondItem="Vnt-LD-g04" secondAttribute="top" id="FNN-bg-Cnt"/>
+                                <constraint firstAttribute="trailing" secondItem="Pwg-U6-yQR" secondAttribute="trailing" id="Hzy-ZX-ZjR"/>
+                                <constraint firstAttribute="trailing" secondItem="R4U-4Y-Qbh" secondAttribute="trailing" constant="18" id="J1f-vW-8VC"/>
+                                <constraint firstItem="R4U-4Y-Qbh" firstAttribute="top" secondItem="Vnt-LD-g04" secondAttribute="top" id="OgK-5h-5YP"/>
+                                <constraint firstAttribute="bottom" secondItem="Pwg-U6-yQR" secondAttribute="bottom" id="Pzn-XM-je1"/>
+                                <constraint firstAttribute="height" constant="48" id="Tyi-nB-Q5d"/>
+                                <constraint firstAttribute="bottom" secondItem="INw-Zs-FSo" secondAttribute="bottom" id="TzV-pn-OpW"/>
+                                <constraint firstItem="INw-Zs-FSo" firstAttribute="top" secondItem="Vnt-LD-g04" secondAttribute="top" id="cbf-vC-XSq"/>
+                                <constraint firstAttribute="bottom" secondItem="R4U-4Y-Qbh" secondAttribute="bottom" id="e6v-h9-XlY"/>
+                            </constraints>
+                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zy5-xP-kH6">
-                            <rect key="frame" x="0.0" y="65" width="374" height="15"/>
+                            <rect key="frame" x="0.0" y="113" width="374" height="15"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="15" id="CMW-rL-Xvc"/>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYQ-QY-8af">
-                            <rect key="frame" x="0.0" y="80" width="374" height="0.0"/>
+                            <rect key="frame" x="0.0" y="128" width="374" height="0.0"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NJB-SX-JZk">
-                            <rect key="frame" x="0.0" y="80" width="374" height="753"/>
+                            <rect key="frame" x="0.0" y="128" width="374" height="705"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PnL-SZ-jEe">
@@ -103,6 +139,10 @@
                             </constraints>
                         </view>
                     </subviews>
+                    <constraints>
+                        <constraint firstItem="Vnt-LD-g04" firstAttribute="leading" secondItem="W2z-N6-3uv" secondAttribute="leading" id="4Is-7t-quv"/>
+                        <constraint firstAttribute="trailing" secondItem="Vnt-LD-g04" secondAttribute="trailing" id="nc7-Bw-c36"/>
+                    </constraints>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

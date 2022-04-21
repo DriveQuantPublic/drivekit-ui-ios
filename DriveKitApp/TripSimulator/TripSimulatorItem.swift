@@ -1,5 +1,5 @@
 //
-//  PresetSimulatorItem.swift
+//  TripSimulatorItem.swift
 //  DriveKitApp
 //
 //  Created by Amine Gahbiche on 20/04/2022.
@@ -10,10 +10,9 @@ import Foundation
 import DriveKitTripSimulatorModule
 
 
-enum PresetSimulatorItem {
+enum TripSimulatorItem {
     case trip(PresetTrip)
     case crashTrip(PresetCrashConfiguration)
-    case none
 
     func getTitle() -> String {
         switch self {
@@ -47,8 +46,6 @@ enum PresetSimulatorItem {
             case .confirmed30KmH:
                 return "trip_simulator_crash_30_title".keyLocalized()
             }
-        case .none:
-            return "trip_simulator_select_trip".keyLocalized()
         }
     }
 
@@ -84,8 +81,6 @@ enum PresetSimulatorItem {
             case .confirmed30KmH:
                 return "trip_simulator_crash_30_description".keyLocalized()
             }
-        case .none:
-            return ""
         }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  PresetTripsListViewModel.swift
+//  TripSimulatorViewModel.swift
 //  DriveKitApp
 //
 //  Created by Amine Gahbiche on 20/04/2022.
@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 import DriveKitCommonUI
 
-class PresetTripsListViewModel {
+class TripSimulatorViewModel {
     private let grayColor = UIColor(hex:0x9e9e9e)
-    let items: [PresetSimulatorItem] = [
+    let items: [TripSimulatorItem] = [
         .trip(.shortTrip),
         .trip(.cityTrip),
         .trip(.mixedTrip),
@@ -25,17 +25,17 @@ class PresetTripsListViewModel {
         .crashTrip(.confirmed20KmH),
         .crashTrip(.confirmed30KmH)
     ]
-    var selectedItemIndex: Int = -1
+    var selectedItemIndex: Int = 0
 
     func getDescriptionAttibutedText() -> NSAttributedString {
         return "trip_simulator_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(grayColor).build()
     }
 
-    func getSelectedItem() -> PresetSimulatorItem {
-        if selectedItemIndex > 0 && selectedItemIndex < items.count {
+    func getSelectedItem() -> TripSimulatorItem {
+        if selectedItemIndex >= 0 && selectedItemIndex < items.count {
             return items[selectedItemIndex]
         } else {
-            return .none
+            return items[0]
         }
     }
 

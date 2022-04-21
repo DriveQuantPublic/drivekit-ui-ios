@@ -58,7 +58,7 @@ class DashboardViewController: UIViewController {
     }
 
     @IBAction private func simulateTrip() {
-        let simulationVC = PresetTripsListViewController(nibName: "PresetTripsListViewController", bundle: nil)
+        let simulationVC = TripSimulatorViewController(nibName: String(describing: TripSimulatorViewController.self), bundle: nil)
         self.navigationController?.pushViewController(simulationVC, animated: true)
     }
 

@@ -363,10 +363,10 @@
 		6765E712280EBAC400FD13F8 /* VehiclesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765E710280EBAC400FD13F8 /* VehiclesViewController.swift */; };
 		6765E713280EBAC400FD13F8 /* VehiclesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6765E711280EBAC400FD13F8 /* VehiclesViewController.xib */; };
 		6765E715280EBACF00FD13F8 /* VehiclesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765E714280EBACF00FD13F8 /* VehiclesViewModel.swift */; };
-		6765E71928103F3000FD13F8 /* PresetTripsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765E71728103F3000FD13F8 /* PresetTripsListViewController.swift */; };
-		6765E71A28103F3000FD13F8 /* PresetTripsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6765E71828103F3000FD13F8 /* PresetTripsListViewController.xib */; };
-		6765E71C28103F4700FD13F8 /* PresetTripsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765E71B28103F4700FD13F8 /* PresetTripsListViewModel.swift */; };
-		6765E71E28103F6000FD13F8 /* PresetSimulatorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765E71D28103F6000FD13F8 /* PresetSimulatorItem.swift */; };
+		6765E71928103F3000FD13F8 /* TripSimulatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765E71728103F3000FD13F8 /* TripSimulatorViewController.swift */; };
+		6765E71A28103F3000FD13F8 /* TripSimulatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6765E71828103F3000FD13F8 /* TripSimulatorViewController.xib */; };
+		6765E71C28103F4700FD13F8 /* TripSimulatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765E71B28103F4700FD13F8 /* TripSimulatorViewModel.swift */; };
+		6765E71E28103F6000FD13F8 /* TripSimulatorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765E71D28103F6000FD13F8 /* TripSimulatorItem.swift */; };
 		6780809928000A4C00A93352 /* ApiKeyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6780809828000A4C00A93352 /* ApiKeyViewModel.swift */; };
 		6780809C2800693600A93352 /* String+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6780809B2800693600A93352 /* String+DK.swift */; };
 		67813093276BB2A100701CF1 /* DriveKitTripAnalysisUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 67813092276BB2A100701CF1 /* DriveKitTripAnalysisUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1038,10 +1038,10 @@
 		6765E710280EBAC400FD13F8 /* VehiclesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclesViewController.swift; sourceTree = "<group>"; };
 		6765E711280EBAC400FD13F8 /* VehiclesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VehiclesViewController.xib; sourceTree = "<group>"; };
 		6765E714280EBACF00FD13F8 /* VehiclesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclesViewModel.swift; sourceTree = "<group>"; };
-		6765E71728103F3000FD13F8 /* PresetTripsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetTripsListViewController.swift; sourceTree = "<group>"; };
-		6765E71828103F3000FD13F8 /* PresetTripsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PresetTripsListViewController.xib; sourceTree = "<group>"; };
-		6765E71B28103F4700FD13F8 /* PresetTripsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetTripsListViewModel.swift; sourceTree = "<group>"; };
-		6765E71D28103F6000FD13F8 /* PresetSimulatorItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetSimulatorItem.swift; sourceTree = "<group>"; };
+		6765E71728103F3000FD13F8 /* TripSimulatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSimulatorViewController.swift; sourceTree = "<group>"; };
+		6765E71828103F3000FD13F8 /* TripSimulatorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TripSimulatorViewController.xib; sourceTree = "<group>"; };
+		6765E71B28103F4700FD13F8 /* TripSimulatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSimulatorViewModel.swift; sourceTree = "<group>"; };
+		6765E71D28103F6000FD13F8 /* TripSimulatorItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSimulatorItem.swift; sourceTree = "<group>"; };
 		6780809828000A4C00A93352 /* ApiKeyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeyViewModel.swift; sourceTree = "<group>"; };
 		6780809B2800693600A93352 /* String+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DK.swift"; sourceTree = "<group>"; };
 		67813090276BB2A100701CF1 /* DriveKitTripAnalysisUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DriveKitTripAnalysisUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2273,10 +2273,10 @@
 		6765E71628103EEA00FD13F8 /* TripSimulator */ = {
 			isa = PBXGroup;
 			children = (
-				6765E71728103F3000FD13F8 /* PresetTripsListViewController.swift */,
-				6765E71828103F3000FD13F8 /* PresetTripsListViewController.xib */,
-				6765E71B28103F4700FD13F8 /* PresetTripsListViewModel.swift */,
-				6765E71D28103F6000FD13F8 /* PresetSimulatorItem.swift */,
+				6765E71728103F3000FD13F8 /* TripSimulatorViewController.swift */,
+				6765E71828103F3000FD13F8 /* TripSimulatorViewController.xib */,
+				6765E71B28103F4700FD13F8 /* TripSimulatorViewModel.swift */,
+				6765E71D28103F6000FD13F8 /* TripSimulatorItem.swift */,
 			);
 			path = TripSimulator;
 			sourceTree = "<group>";
@@ -3437,7 +3437,7 @@
 				67B5837628040B330065C2E7 /* UserIdViewController.xib in Resources */,
 				6765E713280EBAC400FD13F8 /* VehiclesViewController.xib in Resources */,
 				63570E0A2809C4150082A446 /* FeatureView.xib in Resources */,
-				6765E71A28103F3000FD13F8 /* PresetTripsListViewController.xib in Resources */,
+				6765E71A28103F3000FD13F8 /* TripSimulatorViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4000,8 +4000,8 @@
 			files = (
 				67B5837528040B330065C2E7 /* UserIdViewController.swift in Sources */,
 				A3B7B388235F124F0065A332 /* ViewController.swift in Sources */,
-				6765E71C28103F4700FD13F8 /* PresetTripsListViewModel.swift in Sources */,
-				6765E71E28103F6000FD13F8 /* PresetSimulatorItem.swift in Sources */,
+				6765E71C28103F4700FD13F8 /* TripSimulatorViewModel.swift in Sources */,
+				6765E71E28103F6000FD13F8 /* TripSimulatorItem.swift in Sources */,
 				A3B7B384235F124F0065A332 /* AppDelegate.swift in Sources */,
 				6765E712280EBAC400FD13F8 /* VehiclesViewController.swift in Sources */,
 				A3B7B38E235F124F0065A332 /* DriveKitApp.xcdatamodeld in Sources */,
@@ -4014,7 +4014,7 @@
 				63570DFE280997600082A446 /* DashboardViewModel.swift in Sources */,
 				63570DFA280995DA0082A446 /* DashboardViewController.swift in Sources */,
 				67B583862805CC640065C2E7 /* RequestError+DK.swift in Sources */,
-				6765E71928103F3000FD13F8 /* PresetTripsListViewController.swift in Sources */,
+				6765E71928103F3000FD13F8 /* TripSimulatorViewController.swift in Sources */,
 				A322728E242BD64500BF69E1 /* TestCustomFields.swift in Sources */,
 				3F38C2752369D6ED002E873A /* NotificationSender.swift in Sources */,
 				67B58384280481570065C2E7 /* SynchroServicesManager.swift in Sources */,

@@ -30,9 +30,9 @@ final class FeatureView: UIView, Nibable {
             self.iconView.isHidden = true
         }
 
-        self.titleLabel.attributedText = viewModel.getTitle().dkAttributedString().font(dkFont: .primary, style: DKStyle(size: DKStyles.smallText.style.size, traits: .traitBold)).color(.mainFontColor).build()
-        self.descriptionLabel.attributedText = viewModel.getDescription().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
-        self.actionButton.setAttributedTitle(viewModel.getActionButtonTitle().dkAttributedString().font(dkFont: .primary, style: DKStyle(size: DKStyles.smallText.style.size, traits: .traitBold)).color(.secondaryColor).uppercased().build(), for: .normal)
+        self.titleLabel.attributedText = viewModel.getTitle().dkAttributedString().font(dkFont: .primary, style: DKStyles.highlightSmall.withSizeDelta(-2)).color(.complementaryFontColor).build()
+        self.descriptionLabel.attributedText = viewModel.getDescription().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+        self.actionButton.configure(text: viewModel.getActionButtonTitle().keyLocalized(), style: .empty)
 
         if viewModel.hasInfo() {
             self.infoButton.setAttributedTitle("ⓘ".dkAttributedString().font(dkFont: .primary, style: .normalText).color(.secondaryColor).build(), for: .normal)

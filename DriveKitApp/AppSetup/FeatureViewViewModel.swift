@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import DriveKitCommonUI
+import DriveKitDriverDataUI
+import DriveKitPermissionsUtilsUI
+import DriveKitVehicleUI
 
 class FeatureViewViewModel {
     private let type: FeatureType
@@ -35,32 +39,31 @@ class FeatureViewViewModel {
         return self.type.hasInfo()
     }
 
-        #warning("TODO")
     func showInfo(parentViewController: UIViewController) {
         let docKey: String?
         switch self.type {
             case .all:
                 docKey = nil
             case .challenge_list:
-                docKey = nil
+                docKey = "drivekit_doc_ios_challenges"
             case .driverAchievement_badges:
-                docKey = nil
+                docKey = "drivekit_doc_ios_badges"
             case .driverAchievement_ranking:
-                docKey = nil
+                docKey = "drivekit_doc_ios_ranking"
             case .driverAchievement_streaks:
-                docKey = nil
+                docKey = "drivekit_doc_ios_streaks"
             case .driverData_trips:
-                docKey = nil
+                docKey = "drivekit_doc_ios_driver_data"
             case .permissionsUtils_diagnostic:
-                docKey = nil
+                docKey = "drivekit_doc_ios_diag"
             case .permissionsUtils_onboarding:
-                docKey = nil
+                docKey = "drivekit_doc_ios_permission_management"
             case .tripAnalysis_workingHours:
-                docKey = nil
+                docKey = "drivekit_doc_ios_working_hours"
             case .vehicle_list:
-                docKey = nil
+                docKey = "drivekit_doc_ios_vehicle_list"
             case .vehicle_odometer:
-                docKey = nil
+                docKey = "drivekit_doc_ios_odometer"
         }
         if let docKey = docKey, let docURL = URL(string: docKey.keyLocalized()) {
             UIApplication.shared.open(docURL)
@@ -68,9 +71,62 @@ class FeatureViewViewModel {
     }
 
     func executeAction(parentViewController: UIViewController) {
-        #warning("TODO")
-        print("TODO: executeAction for type: \(self.type)")
-        parentViewController.navigationController?.pushViewController(UIViewController(), animated: true)
+        let viewController: UIViewController?
+        switch self.type {
+            case .all:
+                viewController = FeaturesViewController()
+            case .challenge_list:
+                if let challengeUI = DriveKitNavigationController.shared.challengeUI {
+                    viewController = challengeUI.getChallengeListViewController()
+                } else {
+                    viewController = nil
+                }
+            case .driverAchievement_badges:
+                if let driverAchievementUI = DriveKitNavigationController.shared.driverAchievementUI {
+                    viewController = driverAchievementUI.getBadgesViewController()
+                } else {
+                    viewController = nil
+                }
+            case .driverAchievement_ranking:
+                if let driverAchievementUI = DriveKitNavigationController.shared.driverAchievementUI {
+                    viewController = driverAchievementUI.getRankingViewController()
+                } else {
+                    viewController = nil
+                }
+            case .driverAchievement_streaks:
+                if let driverAchievementUI = DriveKitNavigationController.shared.driverAchievementUI {
+                    viewController = driverAchievementUI.getStreakViewController()
+                } else {
+                    viewController = nil
+                }
+            case .driverData_trips:
+                viewController = TripListVC()
+            case .permissionsUtils_diagnostic:
+                viewController = DriveKitPermissionsUtilsUI.shared.getDiagnosisViewController()
+            case .permissionsUtils_onboarding:
+                // feature_permission_onboarding_ok
+                if DriveKitPermissionsUtilsUI.shared.isPermissionViewValid(.location) && DriveKitPermissionsUtilsUI.shared.isPermissionViewValid(.activity) {
+                    parentViewController.showAlertMessage(title: nil, message: "feature_permission_onboarding_ok".keyLocalized(), back: false, cancel: false)
+                } else {
+                    DriveKitPermissionsUtilsUI.shared.showPermissionViews([.location, .activity], parentViewController: parentViewController) {
+                        // Nothing to do.
+                    }
+                }
+                viewController = nil
+            case .tripAnalysis_workingHours:
+                if let tripAnalysisUI = DriveKitNavigationController.shared.tripAnalysisUI {
+                    viewController = tripAnalysisUI.getWorkingHoursViewController()
+                } else {
+                    viewController = nil
+                }
+            case .vehicle_list:
+                viewController = VehiclesListVC()
+            case .vehicle_odometer:
+                viewController = DriveKitVehicleUI.shared.getOdometerUI()
+        }
+        if let viewController = viewController {
+            parentViewController.navigationController?.pushViewController(viewController, animated: true)
+        }
     }
 }
 
@@ -88,30 +144,31 @@ enum FeatureType {
     case tripAnalysis_workingHours
 
     func getIcon() -> UIImage? {
-        #warning("TODO")
+        let imageName: String?
         switch self {
             case .all:
-                return nil
+                imageName = nil
             case .challenge_list:
-                return nil
+                imageName = "feature_icon_challenge"
             case .driverAchievement_badges:
-                return nil
+                imageName = "feature_icon_driverData_badges"
             case .driverAchievement_ranking:
-                return nil
+                imageName = "feature_icon_driverData_ranking"
             case .driverAchievement_streaks:
-                return nil
+                imageName = "feature_icon_driverData_streaks"
             case .driverData_trips:
-                return nil
-            case .permissionsUtils_diagnostic:
-                return nil
-            case .permissionsUtils_onboarding:
-                return nil
+                imageName = "feature_icon_driverData_trips"
+            case .permissionsUtils_diagnostic, .permissionsUtils_onboarding:
+                imageName = "feature_icon_permissionsUtils"
             case .tripAnalysis_workingHours:
-                return nil
-            case .vehicle_list:
-                return nil
-            case .vehicle_odometer:
-                return nil
+                imageName = "feature_icon_tripAnalysis_workingHours"
+            case .vehicle_list, .vehicle_odometer:
+                imageName = "feature_icon_vehicle"
+        }
+        if let imageName = imageName {
+            return UIImage(named: imageName)
+        } else {
+            return nil
         }
     }
 

@@ -49,8 +49,7 @@ class DashboardViewController: UIViewController {
     }
 
     @IBAction private func showDriveKitFeatures() {
-        #warning("TODO: Open dedicated screen")
-        self.navigationController?.pushViewController(UIViewController(), animated: true)
+        self.navigationController?.pushViewController(FeaturesViewController(), animated: true)
     }
 
     @IBAction private func startStopTrip() {

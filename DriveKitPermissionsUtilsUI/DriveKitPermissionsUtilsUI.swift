@@ -35,18 +35,8 @@ import DriveKitCommonUI
 
     public func showPermissionViews(_ permissionViews: [DKPermissionView], parentViewController: UIViewController, completionHandler: @escaping () -> Void) {
         // Keep only needed permission views.
-        let neededPermissionViews = permissionViews.filter { (permissionView) -> Bool in
-            let permissionType = permissionView.getPermissionType()
-            switch permissionType {
-                case .activity:
-                    return !DKDiagnosisHelper.shared.isActivityValid() && DKDiagnosisHelper.shared.getPermissionStatus(permissionType) != .phoneRestricted // For activity permission, allow `.phoneRestricted` status because of a system bug (if the user allows access to Motion & Fitness in global settings, on coming back to the app, the status of this permission is still "restricted" instead of something else).
-                case .location:
-                    return !DKDiagnosisHelper.shared.isLocationValid()
-                case .bluetooth:
-                    return false
-                @unknown default:
-                    return false
-            }
+        let neededPermissionViews = permissionViews.filter { permissionView -> Bool in
+            return !isPermissionViewValid(permissionView)
         }
         if neededPermissionViews.isEmpty {
             completionHandler()
@@ -74,6 +64,20 @@ import DriveKitCommonUI
                 let navigationController = UINavigationController(rootViewController: permissionViewController)
                 parentViewController.present(navigationController, animated: true, completion: nil)
             }
+        }
+    }
+
+    public func isPermissionViewValid(_ permissionView: DKPermissionView) -> Bool {
+        let permissionType = permissionView.getPermissionType()
+        switch permissionType {
+            case .activity:
+                return DKDiagnosisHelper.shared.isActivityValid() || DKDiagnosisHelper.shared.getPermissionStatus(permissionType) == .phoneRestricted // For activity permission, allow `.phoneRestricted` status because of a system bug (if the user allows access to Motion & Fitness in global settings, on coming back to the app, the status of this permission is still "restricted" instead of something else).
+            case .location:
+                return DKDiagnosisHelper.shared.isLocationValid()
+            case .bluetooth:
+                return true
+            @unknown default:
+                return false
         }
     }
 

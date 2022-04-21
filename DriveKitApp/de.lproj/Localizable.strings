@@ -13,6 +13,7 @@
 "button_validation"="GULTIG";
 "cancel_trip"="Stornierung der Reise";
 "client_error"="Es ist ein Fehler aufgetreten. Bitte versuchen Sie es zu einem späteren Zeitpunkt noch einmal.";
+"dashboard_header"="Dashboard";
 "drivekit_doc_ios_badges"="https://docs.drivequant.com/driver-achievement/user-interface/ios#select-badges-categories";
 "drivekit_doc_ios_challenges"="https://docs.drivequant.com/user-interface/ios/get-started#display-challenge-list";
 "drivekit_doc_ios_diag"="https://docs.drivequant.com/permissions-utils/permission-utils/ios/main-configurations#sdk-diagnosis";
@@ -32,8 +33,6 @@
 "feature_badges_title"="Driver Achievement | Badges";
 "feature_challenges_description"="Eine Fahr-Challenge ist ein einmaliges Ereignis, bei dem Fahrer um die höchste Punktzahl im Fahren konkurrieren. Die Challenge-Komponente bietet verschiedene Themen an: Eco-Driving, Sicherheit, Ablenkung und Geschwindigkeitsbegrenzung.";
 "feature_challenges_title"="Challenge | Liste und Ergebnisse";
-"feature_description_beacon_diag"="Die Komponente Vehicle enthält eine Funktion zur Anzeige der analysierten Entfernung und einer Schätzung der jährlichen Entfernung. Der Benutzer kann auch den Kilometerstand eingeben, der auf dem Tacho seines Autos abgelesen wird.";
-"feature_description_vehicle_odometer"="Vehicle | Kilometerverfolgung";
 "feature_list"="Liste der Funktionen";
 "feature_list_description"="DriveKit ist ein vielseitiges SDK, das Funktionen zur Analyse der Sensoren des Telefons, zur Anzeige von Fahrdaten, zum Fahrercoaching und zur Gamification enthält. Entdecken Sie sie, bevor Sie sie in Ihre App integrieren 🚀.";
 "feature_permission_onboarding_ok"="Die Sammlung der Berechtigungen ist nicht verfügbar, da Sie bereits alle Berechtigungen erteilt haben.";
@@ -48,6 +47,8 @@
 "feature_trip_list_description"="Die Komponente Driver Data zeigt die Ergebnisse der Fahrdatenanalyse. Sie enthält eine Liste der Fahrten und eine Kartenansicht mit den nach Themen gegliederten Ergebnissen: Sicherheit, Eco-Driving, Ablenkung und Geschwindigkeitsbegrenzung.";
 "feature_trip_list_title"="Driver Data | Liste und Anzeige von Fahrten";
 "feature_vehicle_description"="Die Komponente Vehicle zeigt eine Liste der Fahrzeuge und ihrer Eigenschaften an. Sie ermöglicht das Hinzufügen, Ersetzen oder Löschen eines Fahrzeugs. Die Art der Auslösung kann pro Fahrzeug konfiguriert werden (GPS, iBeacon oder Bluetooth-Gerät).";
+"feature_vehicle_odometer_description"="Die Komponente Vehicle enthält eine Funktion zur Anzeige der analysierten Entfernung und einer Schätzung der jährlichen Entfernung. Der Benutzer kann auch den Kilometerstand eingeben, der auf dem Tacho seines Autos abgelesen wird.";
+"feature_vehicle_odometer_title"="Vehicle | Kilometerverfolgung";
 "feature_vehicle_title"="Vehicle | Anzeige und Konfiguration";
 "feature_working_hours_description"="Die Komponente Trip Analysis bietet die Möglichkeit, die Aufzeichnungszeiten für Fahrten einzustellen. Außerdem können Sie die Fahrten für jedes konfigurierte Zeitfenster mit einem Label versehen (geschäftlich oder privat).";
 "feature_working_hours_title"="Trip Analysis | Fahrplanmanagement";
@@ -80,8 +81,10 @@ Um Ihnen bei der Implementierung eines.\n\nTBerechtigungspfads zu helfen, haben 
 "pseudo"="Name";
 "see_settings"="Siehe die Einstellungen";
 "server_error"="Serverfehler, bitte versuchen Sie es später noch einmal";
+"simulate_trip"="Eine Fahrt simulieren";
 "start_trip"="Fahrt beginnen";
 "stop_trip"="Fahrt abbrechen";
+"sync_challenge_loading_message"="Herausforderungen abrufen...";
 "sync_trips_loading_message"="Abrufen bestehender Fahrten...";
 "sync_user_info_loading_message"="Abrufen von Benutzerinformationen...";
 "sync_vehicles_loading_message"="Abrufen der Fahrzeugkonfiguration...";

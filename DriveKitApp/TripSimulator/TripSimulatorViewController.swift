@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 
 class TripSimulatorViewController: UIViewController {
     @IBOutlet private weak var topDescriptionLabel: UILabel!
@@ -26,7 +27,16 @@ class TripSimulatorViewController: UIViewController {
         simulationButton.configure(text: "trip_simulator_start_button".keyLocalized(), style: .full)
         topDescriptionLabel.attributedText = viewModel.getDescriptionAttibutedText()
         selectTripLabel.text = "trip_simulator_select_trip".keyLocalized()
+        configureBackButton()
         updateSelectedItem()
+    }
+
+    private func configureBackButton() {
+        DKUIViewController.configureBackButton(viewController: self, selector: #selector(onBack))
+    }
+
+    @objc private func onBack(sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
     }
 
     func updateSelectedItem() {

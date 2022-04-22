@@ -12,15 +12,14 @@ import DriveKitCommonUI
 
 class UserIdViewModel {
     private var completionHandler: ((Bool, RequestError?) -> ())?
-    private let grayColor = UIColor(hex:0x9e9e9e)
 
     func getDescriptionAttibutedText() -> NSAttributedString {
-        return "authentication_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(grayColor).build()
+        return "authentication_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
     }
 
     func getTitleAttributedText() -> NSAttributedString {
-        let iconString = "ⓘ".dkAttributedString().font(dkFont: .primary, style: .bigtext).color(DKUIColors.secondaryColor.color).build()
-        let titleString = "authentication_title".keyLocalized().appending("  ").dkAttributedString().font(dkFont: .primary, style: .bigtext).color(DKUIColors.mainFontColor.color).buildWithArgs(iconString)
+        let iconString = "ⓘ".dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.secondaryColor).build()
+        let titleString = "authentication_title".keyLocalized().appending("  ").dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.mainFontColor).buildWithArgs(iconString)
         return titleString
     }
 

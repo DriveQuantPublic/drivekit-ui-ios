@@ -42,7 +42,7 @@ class OdometerInitVC: DKUIViewController {
         configureFieldOdometer()
         let button = UIButton(type: .custom)
         button.frame = CGRect(x: 0, y: 0, width: 80, height: 44)
-        button.setAttributedTitle(DKCommonLocalizable.cancel.text().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.white).build(), for: .normal)
+        button.setAttributedTitle(DKCommonLocalizable.cancel.text().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.navBarElementColor).build(), for: .normal)
         button.addTarget(self, action: #selector(cancelSelector), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
         validateButton.configure(text: DKCommonLocalizable.validate.text(), style: .full)

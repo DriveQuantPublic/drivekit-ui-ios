@@ -19,6 +19,7 @@ import UIKit
     func criticalColor() -> UIColor
     func neutralColor() -> UIColor
     func backgroundViewColor() -> UIColor
+    func navBarElementColor() -> UIColor
 }
 
 open class DKDefaultColors : DKColors {
@@ -56,6 +57,9 @@ open class DKDefaultColors : DKColors {
     open func backgroundViewColor() -> UIColor {
         return DKDefaultColors.driveKitBackgroundColor
     }
+    open func navBarElementColor() -> UIColor {
+        return fontColorOnPrimaryColor()
+    }
 }
 
 public enum DKUIColors {
@@ -68,7 +72,8 @@ public enum DKUIColors {
     warningColor,
     criticalColor,
     neutralColor,
-    backgroundView
+    backgroundView,
+    navBarElementColor
 
     public var color: UIColor {
         switch self {
@@ -92,6 +97,8 @@ public enum DKUIColors {
             return DriveKitUI.shared.colors.neutralColor()
         case .backgroundView:
             return DriveKitUI.shared.colors.backgroundViewColor()
+        case .navBarElementColor:
+            return DriveKitUI.shared.colors.navBarElementColor()
         }
     }
 }

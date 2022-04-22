@@ -35,7 +35,7 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         if let navigationController = self.navigationController {
             let titleTextAttributes: [NSAttributedString.Key: Any] = [
-                .foregroundColor: DKUIColors.fontColorOnPrimaryColor.color
+                .foregroundColor: DKUIColors.navBarElementColor.color
             ]
             if #available(iOS 15.0, *) {
                 let appearance = UINavigationBarAppearance()

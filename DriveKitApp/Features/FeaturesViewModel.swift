@@ -12,7 +12,7 @@ class FeaturesViewModel {
     let featureViewViewModels: [FeatureViewViewModel] = [
         FeatureViewViewModel(type: .driverData_trips),
         FeatureViewViewModel(type: .permissionsUtils_onboarding),
-        FeatureViewViewModel(type: .permissionsUtils_diagnostic),
+        FeatureViewViewModel(type: .permissionsUtils_diagnosis),
         FeatureViewViewModel(type: .vehicle_list),
         FeatureViewViewModel(type: .vehicle_odometer),
         FeatureViewViewModel(type: .challenge_list),

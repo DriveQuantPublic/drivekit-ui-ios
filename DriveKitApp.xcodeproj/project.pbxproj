@@ -206,7 +206,7 @@
 		635616F824B4CD6D0047EAD8 /* RankingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635616F724B4CD6D0047EAD8 /* RankingType.swift */; };
 		635616FA24B4CDB30047EAD8 /* RankingSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635616F924B4CDB30047EAD8 /* RankingSelector.swift */; };
 		63570DFA280995DA0082A446 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63570DF9280995D90082A446 /* DashboardViewController.swift */; };
-		63570DFC280996160082A446 /* TripListenerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63570DFB280996160082A446 /* TripListenerController.swift */; };
+		63570DFC280996160082A446 /* TripListenerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63570DFB280996160082A446 /* TripListenerManager.swift */; };
 		63570DFE280997600082A446 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63570DFD280997600082A446 /* DashboardViewModel.swift */; };
 		63570E00280997790082A446 /* DashboardViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63570DFF280997790082A446 /* DashboardViewModelDelegate.swift */; };
 		63570E02280997C80082A446 /* FeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63570E01280997C80082A446 /* FeatureView.swift */; };
@@ -252,6 +252,7 @@
 		637F96DC2720B7FD0027AC1F /* OdometerHistoryDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637F96D82720B7F90027AC1F /* OdometerHistoryDetailCell.swift */; };
 		637F96DD2720B7FD0027AC1F /* OdometerHistoriesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637F96D92720B7FD0027AC1F /* OdometerHistoriesCell.xib */; };
 		637F96E82720C16F0027AC1F /* OdometerVehicleListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637F96E72720C16F0027AC1F /* OdometerVehicleListVC.xib */; };
+		63842D4A2816CC53007F9256 /* FeatureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63842D492816CC53007F9256 /* FeatureType.swift */; };
 		638AC038261F8FFB00602B52 /* SynthesisCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638AC037261F8FFB00602B52 /* SynthesisCardsView.swift */; };
 		638AC03F261F903300602B52 /* SynthesisCardsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638AC03E261F903300602B52 /* SynthesisCardsView.xib */; };
 		638AC046261F970E00602B52 /* SynthesisCardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638AC045261F970E00602B52 /* SynthesisCardsViewModel.swift */; };
@@ -393,7 +394,7 @@
 		67B5837528040B330065C2E7 /* UserIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B5837328040B330065C2E7 /* UserIdViewController.swift */; };
 		67B5837628040B330065C2E7 /* UserIdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67B5837428040B330065C2E7 /* UserIdViewController.xib */; };
 		67B5837828040B730065C2E7 /* UserIdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B5837728040B730065C2E7 /* UserIdViewModel.swift */; };
-		67B5837A28040B7E0065C2E7 /* DriveKitDelegateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B5837928040B7E0065C2E7 /* DriveKitDelegateController.swift */; };
+		67B5837A28040B7E0065C2E7 /* DriveKitDelegateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B5837928040B7E0065C2E7 /* DriveKitDelegateManager.swift */; };
 		67B5837C2804487C0065C2E7 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B5837B2804487C0065C2E7 /* CustomTextField.swift */; };
 		67B5837F280468FE0065C2E7 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B5837D280468FE0065C2E7 /* HoshiTextField.swift */; };
 		67B58380280468FE0065C2E7 /* TextFieldEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B5837E280468FE0065C2E7 /* TextFieldEffects.swift */; };
@@ -462,7 +463,6 @@
 		A317F83023A1383B00AD22A2 /* TripTipFeedbackChoicesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A317F82E23A1383B00AD22A2 /* TripTipFeedbackChoicesCell.xib */; };
 		A317F83123A1383B00AD22A2 /* TripTipFeedbackChoicesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A317F82F23A1383B00AD22A2 /* TripTipFeedbackChoicesCell.swift */; };
 		A322728C2429125700BF69E1 /* DKImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3905557242538E500537EB5 /* DKImagePicker.swift */; };
-		A322728E242BD64500BF69E1 /* TestCustomFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = A322728D242BD64500BF69E1 /* TestCustomFields.swift */; };
 		A32665AE235F64EB00B529B0 /* SettingsBundleKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32665AD235F64EB00B529B0 /* SettingsBundleKey.swift */; };
 		A342380A2361A1FA0001E15D /* DriveKitDriveDataUI.h in Headers */ = {isa = PBXBuildFile; fileRef = A34238082361A1FA0001E15D /* DriveKitDriveDataUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A34238622361A2430001E15D /* CalloutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238162361A2430001E15D /* CalloutViewModel.swift */; };
@@ -894,7 +894,7 @@
 		635616F724B4CD6D0047EAD8 /* RankingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingType.swift; sourceTree = "<group>"; };
 		635616F924B4CDB30047EAD8 /* RankingSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingSelector.swift; sourceTree = "<group>"; };
 		63570DF9280995D90082A446 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
-		63570DFB280996160082A446 /* TripListenerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListenerController.swift; sourceTree = "<group>"; };
+		63570DFB280996160082A446 /* TripListenerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListenerManager.swift; sourceTree = "<group>"; };
 		63570DFD280997600082A446 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		63570DFF280997790082A446 /* DashboardViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModelDelegate.swift; sourceTree = "<group>"; };
 		63570E01280997C80082A446 /* FeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureView.swift; sourceTree = "<group>"; };
@@ -942,6 +942,7 @@
 		637F96D82720B7F90027AC1F /* OdometerHistoryDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OdometerHistoryDetailCell.swift; sourceTree = "<group>"; };
 		637F96D92720B7FD0027AC1F /* OdometerHistoriesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OdometerHistoriesCell.xib; sourceTree = "<group>"; };
 		637F96E72720C16F0027AC1F /* OdometerVehicleListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OdometerVehicleListVC.xib; sourceTree = "<group>"; };
+		63842D492816CC53007F9256 /* FeatureType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureType.swift; sourceTree = "<group>"; };
 		638AC037261F8FFB00602B52 /* SynthesisCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesisCardsView.swift; sourceTree = "<group>"; };
 		638AC03E261F903300602B52 /* SynthesisCardsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SynthesisCardsView.xib; sourceTree = "<group>"; };
 		638AC045261F970E00602B52 /* SynthesisCardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesisCardsViewModel.swift; sourceTree = "<group>"; };
@@ -1076,7 +1077,7 @@
 		67B5837328040B330065C2E7 /* UserIdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIdViewController.swift; sourceTree = "<group>"; };
 		67B5837428040B330065C2E7 /* UserIdViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserIdViewController.xib; sourceTree = "<group>"; };
 		67B5837728040B730065C2E7 /* UserIdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIdViewModel.swift; sourceTree = "<group>"; };
-		67B5837928040B7E0065C2E7 /* DriveKitDelegateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveKitDelegateController.swift; sourceTree = "<group>"; };
+		67B5837928040B7E0065C2E7 /* DriveKitDelegateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveKitDelegateManager.swift; sourceTree = "<group>"; };
 		67B5837B2804487C0065C2E7 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		67B5837D280468FE0065C2E7 /* HoshiTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoshiTextField.swift; sourceTree = "<group>"; };
 		67B5837E280468FE0065C2E7 /* TextFieldEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldEffects.swift; sourceTree = "<group>"; };
@@ -1152,7 +1153,6 @@
 		A317F82A23A137C700AD22A2 /* TripTipFeedbackVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTipFeedbackVC.swift; sourceTree = "<group>"; };
 		A317F82E23A1383B00AD22A2 /* TripTipFeedbackChoicesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripTipFeedbackChoicesCell.xib; sourceTree = "<group>"; };
 		A317F82F23A1383B00AD22A2 /* TripTipFeedbackChoicesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTipFeedbackChoicesCell.swift; sourceTree = "<group>"; };
-		A322728D242BD64500BF69E1 /* TestCustomFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCustomFields.swift; sourceTree = "<group>"; };
 		A32665AD235F64EB00B529B0 /* SettingsBundleKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleKey.swift; sourceTree = "<group>"; };
 		A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DriveKitDriverDataUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A34238082361A1FA0001E15D /* DriveKitDriveDataUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DriveKitDriveDataUI.h; sourceTree = "<group>"; };
@@ -2054,6 +2054,33 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		63842D4C2816E3ED007F9256 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				63570DF9280995D90082A446 /* DashboardViewController.swift */,
+				63570E0528099D620082A446 /* DashboardViewController.xib */,
+				63570DFD280997600082A446 /* DashboardViewModel.swift */,
+				63570DFF280997790082A446 /* DashboardViewModelDelegate.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		63842D4D2816E64C007F9256 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				63F4C734280DD8B0006396B9 /* FeaturesViewController.swift */,
+				63F4C736280DD91D006396B9 /* FeaturesViewController.xib */,
+				63F4C738280DD92E006396B9 /* FeaturesViewModel.swift */,
+				63842D492816CC53007F9256 /* FeatureType.swift */,
+				63570E01280997C80082A446 /* FeatureView.swift */,
+				63570E092809C4140082A446 /* FeatureView.xib */,
+				63F4C73A280E00EE006396B9 /* FeatureViewCell.swift */,
+				63F4C73E280E16A1006396B9 /* FeatureViewCell.xib */,
+				63570E0B2809C70E0082A446 /* FeatureViewViewModel.swift */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
 		6391E0C926072D5B00A168D4 /* Synthesis Card */ = {
 			isa = PBXGroup;
 			children = (
@@ -2294,10 +2321,10 @@
 		6780809A2800691900A93352 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				6780809B2800693600A93352 /* String+DK.swift */,
-				67B5837B2804487C0065C2E7 /* CustomTextField.swift */,
 				67B58381280469230065C2E7 /* TextFieldEffects */,
+				67B5837B2804487C0065C2E7 /* CustomTextField.swift */,
 				67B583852805CC630065C2E7 /* RequestError+DK.swift */,
+				6780809B2800693600A93352 /* String+DK.swift */,
 				63570E072809AEC90082A446 /* UIView+DK.swift */,
 			);
 			path = Utils;
@@ -2372,46 +2399,33 @@
 		67B58382280481340065C2E7 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				67B5837928040B7E0065C2E7 /* DriveKitDelegateManager.swift */,
 				67B58383280481570065C2E7 /* SynchroServicesManager.swift */,
+				63570DFB280996160082A446 /* TripListenerManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		67C055BD27FDF68A00B7159D /* AppSetup */ = {
+		67C055BD27FDF68A00B7159D /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
 				67C055BE27FDF6CC00B7159D /* ApiKeyViewController.swift */,
 				67C055BF27FDF6CC00B7159D /* ApiKeyViewController.xib */,
 				6780809828000A4C00A93352 /* ApiKeyViewModel.swift */,
-				67C055E627FF2D7200B7159D /* AppNavigationController.swift */,
-				63570DF9280995D90082A446 /* DashboardViewController.swift */,
-				63570E0528099D620082A446 /* DashboardViewController.xib */,
-				63570DFD280997600082A446 /* DashboardViewModel.swift */,
-				63570DFF280997790082A446 /* DashboardViewModelDelegate.swift */,
-				67B5837928040B7E0065C2E7 /* DriveKitDelegateController.swift */,
-				63F4C734280DD8B0006396B9 /* FeaturesViewController.swift */,
-				63F4C736280DD91D006396B9 /* FeaturesViewController.xib */,
-				63F4C738280DD92E006396B9 /* FeaturesViewModel.swift */,
-				63570E01280997C80082A446 /* FeatureView.swift */,
-				63570E092809C4140082A446 /* FeatureView.xib */,
-				63F4C73A280E00EE006396B9 /* FeatureViewCell.swift */,
-				63F4C73E280E16A1006396B9 /* FeatureViewCell.xib */,
-				63570E0B2809C70E0082A446 /* FeatureViewViewModel.swift */,
-				63570DFB280996160082A446 /* TripListenerController.swift */,
+				6765E70A280EBA9F00FD13F8 /* PermissionsViewController.swift */,
+				6765E70B280EBA9F00FD13F8 /* PermissionsViewController.xib */,
+				6765E70E280EBAB300FD13F8 /* PermissionsViewModel.swift */,
 				67B5837328040B330065C2E7 /* UserIdViewController.swift */,
 				67B5837428040B330065C2E7 /* UserIdViewController.xib */,
 				67B5837728040B730065C2E7 /* UserIdViewModel.swift */,
 				671087CF28072FBE004FA464 /* UserInfoViewController.swift */,
 				671087D028072FBE004FA464 /* UserInfoViewController.xib */,
 				671087D328072FDE004FA464 /* UserInfoViewModel.swift */,
-				6765E70A280EBA9F00FD13F8 /* PermissionsViewController.swift */,
-				6765E70B280EBA9F00FD13F8 /* PermissionsViewController.xib */,
-				6765E70E280EBAB300FD13F8 /* PermissionsViewModel.swift */,
 				6765E710280EBAC400FD13F8 /* VehiclesViewController.swift */,
 				6765E711280EBAC400FD13F8 /* VehiclesViewController.xib */,
 				6765E714280EBACF00FD13F8 /* VehiclesViewModel.swift */,
 			);
-			path = AppSetup;
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		67C43CF7263A910D00DBB09D /* DriveKitChallengeUI */ = {
@@ -2863,12 +2877,15 @@
 		A3B7B382235F124F0065A332 /* DriveKitApp */ = {
 			isa = PBXGroup;
 			children = (
-				6780809A2800691900A93352 /* Utils */,
-				67B58382280481340065C2E7 /* Managers */,
-				67C055BD27FDF68A00B7159D /* AppSetup */,
-				A3B7B39A235F2DF30065A332 /* Settings */,
-				6765E71628103EEA00FD13F8 /* TripSimulator */,
 				A3B7B383235F124F0065A332 /* AppDelegate.swift */,
+				67C055E627FF2D7200B7159D /* AppNavigationController.swift */,
+				67C055BD27FDF68A00B7159D /* Onboarding */,
+				63842D4C2816E3ED007F9256 /* Dashboard */,
+				63842D4D2816E64C007F9256 /* Features */,
+				6765E71628103EEA00FD13F8 /* TripSimulator */,
+				6780809A2800691900A93352 /* Utils */,
+				A3B7B39A235F2DF30065A332 /* Settings */,
+				67B58382280481340065C2E7 /* Managers */,
 				A3B7B387235F124F0065A332 /* ViewController.swift */,
 				6307ED892625DC9500CB7EED /* SynthesisCardTest.swift */,
 				63BE1EDD26D0055800CFEB8B /* LastTripsViewTest.swift */,
@@ -2879,7 +2896,6 @@
 				A3B7B38C235F124F0065A332 /* DriveKitApp.xcdatamodeld */,
 				3F38C26F2369CC10002E873A /* Localizable.strings */,
 				3F38C2742369D6ED002E873A /* NotificationSender.swift */,
-				A322728D242BD64500BF69E1 /* TestCustomFields.swift */,
 				61765A78243E306D00358CCA /* InfoPlist.strings */,
 			);
 			path = DriveKitApp;
@@ -4017,6 +4033,7 @@
 			files = (
 				67B5837528040B330065C2E7 /* UserIdViewController.swift in Sources */,
 				A3B7B388235F124F0065A332 /* ViewController.swift in Sources */,
+				63842D4A2816CC53007F9256 /* FeatureType.swift in Sources */,
 				6765E71C28103F4700FD13F8 /* TripSimulatorViewModel.swift in Sources */,
 				6765E71E28103F6000FD13F8 /* TripSimulatorItem.swift in Sources */,
 				63F4C73B280E00EE006396B9 /* FeatureViewCell.swift in Sources */,
@@ -4034,13 +4051,12 @@
 				63570DFA280995DA0082A446 /* DashboardViewController.swift in Sources */,
 				67B583862805CC640065C2E7 /* RequestError+DK.swift in Sources */,
 				6765E71928103F3000FD13F8 /* TripSimulatorViewController.swift in Sources */,
-				A322728E242BD64500BF69E1 /* TestCustomFields.swift in Sources */,
 				3F38C2752369D6ED002E873A /* NotificationSender.swift in Sources */,
 				67B58384280481570065C2E7 /* SynchroServicesManager.swift in Sources */,
 				67B5837C2804487C0065C2E7 /* CustomTextField.swift in Sources */,
 				67B5837F280468FE0065C2E7 /* HoshiTextField.swift in Sources */,
 				671087D428072FDE004FA464 /* UserInfoViewModel.swift in Sources */,
-				67B5837A28040B7E0065C2E7 /* DriveKitDelegateController.swift in Sources */,
+				67B5837A28040B7E0065C2E7 /* DriveKitDelegateManager.swift in Sources */,
 				67C055C027FDF6CC00B7159D /* ApiKeyViewController.swift in Sources */,
 				67B58380280468FE0065C2E7 /* TextFieldEffects.swift in Sources */,
 				6765E715280EBACF00FD13F8 /* VehiclesViewModel.swift in Sources */,
@@ -4052,7 +4068,7 @@
 				63570E0C2809C70E0082A446 /* FeatureViewViewModel.swift in Sources */,
 				63570E082809AEC90082A446 /* UIView+DK.swift in Sources */,
 				6307ED8A2625DC9500CB7EED /* SynthesisCardTest.swift in Sources */,
-				63570DFC280996160082A446 /* TripListenerController.swift in Sources */,
+				63570DFC280996160082A446 /* TripListenerManager.swift in Sources */,
 				63BE1EDE26D0055800CFEB8B /* LastTripsViewTest.swift in Sources */,
 				A3B7B39D235F2E130065A332 /* SettingsViewController.swift in Sources */,
 			);

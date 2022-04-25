@@ -1,5 +1,5 @@
 //
-//  DriveKitDelegateController.swift
+//  DriveKitDelegateManager.swift
 //  DriveKitApp
 //
 //  Created by Amine Gahbiche on 11/04/2022.
@@ -9,8 +9,8 @@
 import Foundation
 import DriveKitCoreModule
 
-class DriveKitDelegateController: DriveKitDelegate {
-    static let shared = DriveKitDelegateController()
+class DriveKitDelegateManager: DriveKitDelegate {
+    static let shared = DriveKitDelegateManager()
 
     private var delegates: WeakArray<DriveKitDelegate> = WeakArray()
 

@@ -32,7 +32,7 @@ class PermissionsViewController: UIViewController {
     }
 
     @objc func openDocAction() {
-        if let docURL = URL(string: "drivekit_doc_ios_permission_management".keyLocalized()) {
+        if let docURL = URL(string: "drivekit_doc_ios_permissions_utils".keyLocalized()) {
             UIApplication.shared.open(docURL)
         }
     }

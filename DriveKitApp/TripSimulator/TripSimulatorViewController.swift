@@ -59,4 +59,11 @@ class TripSimulatorViewController: UIViewController {
         }
         self.present(alert, animated: true, completion: nil)
     }
+
+    @IBAction func simulateAction() {
+        let selectedItem = viewModel.getSelectedItem()
+        let detailsViewModel = TripSimulatorDetailViewModel(simulatedItem: selectedItem)
+        let detailsVC = TripSimulatorDetailViewController(viewModel: detailsViewModel)
+        self.navigationController?.pushViewController(detailsVC, animated: true)
+    }
 }

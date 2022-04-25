@@ -11,6 +11,7 @@ end
 
 target 'DriveKitApp' do
   pod 'DriveKitTripSimulator', '1.22-beta1'
+  pod 'Charts'
 end
 
 

@@ -1,4 +1,7 @@
 PODS:
+  - Charts (3.6.0):
+    - Charts/Core (= 3.6.0)
+  - Charts/Core (3.6.0)
   - DriveKitChallenge (1.22-beta1):
     - DriveKitDBChallengeAccess (= 1.22-beta1)
     - DriveKitDBTripAccess (= 1.22-beta1)
@@ -29,6 +32,7 @@ PODS:
   - WARangeSlider (1.1.1)
 
 DEPENDENCIES:
+  - Charts
   - DriveKitChallenge (= 1.22-beta1)
   - DriveKitCore (= 1.22-beta1)
   - DriveKitDriverAchievement (= 1.22-beta1)
@@ -41,6 +45,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - Charts
     - UICircularProgressRing
     - WARangeSlider
   https://gitlab.com/drivequant/drivekit/drivekit-specs.git:
@@ -58,6 +63,7 @@ SPEC REPOS:
     - DriveKitVehicle
 
 SPEC CHECKSUMS:
+  Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
   DriveKitChallenge: d869df4c906fc86ac5055e5bfe3a4a74d54aaa84
   DriveKitCore: e2945fedb065dddb166f5839471b32ab0aa79d14
   DriveKitDBAchievementAccess: b822946fc30513c04c2f3cf1a89cb240a069d2d9
@@ -73,6 +79,6 @@ SPEC CHECKSUMS:
   UICircularProgressRing: e6852e8f88e296cbbbe2720cccb55241acda6708
   WARangeSlider: 54b3e0853b8d16c444fd539005901aecee86837d
 
-PODFILE CHECKSUM: 00d1c3438c0a1ec3dfb3442f7ef62ce9ea62bdd5
+PODFILE CHECKSUM: da5b7e28ceca258e4d54cbed4725455f0b133798
 
 COCOAPODS: 1.11.2

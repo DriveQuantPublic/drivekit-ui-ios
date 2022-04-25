@@ -13,7 +13,7 @@ import DriveKitTripAnalysisModule
 import DriveKitTripSimulatorModule
 
 protocol TripSimulatorDetailViewModelDelegate: NSObject {
-    func updateNeeded()
+    func updateNeeded(updatedValue: Double, timestamp: Double)
 }
 
 class TripSimulatorDetailViewModel {
@@ -50,7 +50,7 @@ class TripSimulatorDetailViewModel {
         case .crashTrip(let presetCrashConfiguration):
             duration = presetCrashConfiguration.getPresetTrip().getSimulationDuration()
         }
-        return duration.formatSecondDuration(maxUnit: .minute)
+        return formatDuration(duration: duration)
     }
 
     func getStateText() -> String {
@@ -70,7 +70,7 @@ class TripSimulatorDetailViewModel {
     }
 
     func getSpentDurationText() -> String {
-        return currentDuration.formatSecondDuration(maxUnit: .minute)
+        return formatDuration(duration: currentDuration)
     }
 
     func getSpeedText() -> String {
@@ -91,7 +91,7 @@ class TripSimulatorDetailViewModel {
         }
         let timeOut: Int = DriveKitTripAnalysis.shared.stopTimeOut
         let remainingDuration = Double(timeOut) - currentDuration + durationWhenEnteredStoppingState
-        return remainingDuration.formatSecondDuration(maxUnit: .minute)
+        return formatDuration(duration: remainingDuration)
     }
 
     func getTripTitle() -> String {
@@ -100,6 +100,13 @@ class TripSimulatorDetailViewModel {
 
     func getTripDescription() -> String {
         return simulatedItem.getDescription()
+    }
+
+    func formatDuration(duration: Double) -> String {
+        let durationInt = Int(duration)
+        let seconds: Int = durationInt % 60
+        let minutes: Int = (durationInt - seconds) / 60
+        return String(format: "%02d:%02d", arguments: [minutes, seconds])
     }
 }
 
@@ -121,7 +128,9 @@ extension TripSimulatorDetailViewModel: DKTripSimulatorDelegate {
         }
 
         DispatchQueue.dispatchOnMainThread { [weak self] in
-            self?.delegate?.updateNeeded()
+            if let self = self, let velocity = self.velocityBuffer.last {
+                self.delegate?.updateNeeded(updatedValue: velocity, timestamp: self.currentDuration)
+            }
         }
     }
 }

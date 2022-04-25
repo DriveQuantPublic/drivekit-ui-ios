@@ -71,6 +71,7 @@ class TripSimulatorDetailViewController: UIViewController {
         self.updateViewContent()
         stopButton.configure(text: "trip_simulator_stop_button".keyLocalized(), style: .full)
         configureBackButton()
+        self.velocityGraphView.setupChart()
     }
 
     func updateViewContent() {
@@ -111,7 +112,8 @@ class TripSimulatorDetailViewController: UIViewController {
 }
 
 extension TripSimulatorDetailViewController: TripSimulatorDetailViewModelDelegate {
-    func updateNeeded() {
+    func updateNeeded(updatedValue: Double, timestamp: Double) {
+        self.velocityGraphView.updateGraph(velocity: updatedValue, timestamp: timestamp)
         self.updateViewContent()
     }
 }

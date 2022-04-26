@@ -24,7 +24,7 @@ class TripSimulatorDetailViewModel {
     private var timeWhenEnteredStoppingState: Date?
     private var stoppingTimer: Timer? = nil
     private(set) var isSimulating: Bool = true
-    var velocityBuffer: CircularBuffer<Double> = CircularBuffer(size: 30)
+    private var velocityBuffer: CircularBuffer<Double> = CircularBuffer(size: 30)
 
     init(simulatedItem: TripSimulatorItem) {
         self.simulatedItem = simulatedItem
@@ -57,13 +57,7 @@ class TripSimulatorDetailViewModel {
     }
 
     func getTotalDurationText() -> String {
-        let duration: Double
-        switch simulatedItem {
-        case .trip(let presetTrip):
-            duration = presetTrip.getSimulationDuration()
-        case .crashTrip(let presetCrashConfiguration):
-            duration = presetCrashConfiguration.getPresetTrip().getSimulationDuration()
-        }
+        let duration: Double = simulatedItem.getSimulationDuration()
         return formatDuration(duration: duration)
     }
 
@@ -177,8 +171,10 @@ extension TripSimulatorDetailViewModel: TripListener {
     }
     
     func tripFinished(post: PostGeneric, response: PostGenericResponse) {
-        isSimulating = false
-        updateNeeded()
+        if currentDuration >= simulatedItem.getSimulationDuration() {
+            isSimulating = false
+            updateNeeded()
+        }
     }
     
     func tripCancelled(cancelTrip: CancelTrip) {

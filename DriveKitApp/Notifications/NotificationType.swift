@@ -13,36 +13,52 @@ import DriveKitDriverDataUI
 
 enum NotificationType {
     case tripStarted(canPostpone: Bool)
-    case tripEnded(message: String?, transportationMode: TransportationMode, itinId: String)
+    case tripEnded(message: String?, transportationMode: TransportationMode)
     case tripCancelled(reason: TripCancellationReason)
     case tripAnalysisError(TripAnalysisError)
     case tripTooShort
+
+    private static let tripEndedError = "trip.ended.error"
 
     var identifier: String {
         let identifier: String
         switch self {
             case .tripStarted:
                 identifier = "trip.started"
-            case .tripEnded:
-                identifier = "trip.ended"
+            case .tripEnded(_, let transportationMode):
+                if transportationMode.isAlternative() && !DriveKitConfig.enableAlternativeTrips {
+                    identifier = NotificationType.tripEndedError
+                } else {
+                    identifier = "trip.ended"
+                }
             case .tripCancelled:
-                identifier = "trip.cancelled"
-            case .tripAnalysisError:
-                identifier = "trip.error"
+                identifier = NotificationType.tripEndedError
+            case .tripAnalysisError(let tripAnalysisError):
+                switch tripAnalysisError {
+                    case .duplicateTrip:
+                        identifier = "trip.error.duplicate"
+                    case .noNetwork:
+                        identifier = "trip.error.noNetwork"
+                    case .noApiKey:
+                        identifier = "trip.error.noApiKey"
+                    case .noBeacon:
+                        identifier = NotificationType.tripEndedError
+                }
             case .tripTooShort:
                 identifier = "trip.tooShort"
         }
         return identifier
     }
 
+    // The category is used to distinguish between the different types of notifications and mainly to add actions to a notification.
     var categoryIdentifier: String? {
         let categoryIdentifier: String?
         switch self {
-            case .tripStarted:
-                categoryIdentifier = NotificationCategory.TripAnalysis.start.identifier
-            case .tripEnded(_, let transportationMode, _):
+            case .tripStarted(let canPostpone):
+                categoryIdentifier = canPostpone ? NotificationCategory.TripAnalysis.start.identifier : nil
+            case .tripEnded(_, let transportationMode):
                 if transportationMode.isAlternative() {
-                    if DriveKitDriverDataUI.shared.enableAlternativeTrips {
+                    if DriveKitConfig.enableAlternativeTrips {
                         categoryIdentifier = NotificationCategory.TripAnalysis.end.identifier
                     } else {
                         categoryIdentifier = nil
@@ -52,12 +68,8 @@ enum NotificationType {
                 }
             case .tripCancelled:
                 categoryIdentifier = nil
-            case .tripAnalysisError(let tripAnalysisError):
-                if tripAnalysisError == .noNetwork {
-                    categoryIdentifier = NotificationCategory.TripAnalysis.noNetworkError.identifier
-                } else {
-                    categoryIdentifier = nil
-                }
+            case .tripAnalysisError:
+                categoryIdentifier = nil
             case .tripTooShort:
                 categoryIdentifier = NotificationCategory.TripAnalysis.end.identifier
         }
@@ -68,8 +80,8 @@ enum NotificationType {
         switch self {
             case .tripStarted:
                 return .tripStarted
-            case .tripEnded(_, let transportationMode, _):
-                if transportationMode.isAlternative() && DriveKitDriverDataUI.shared.enableAlternativeTrips {
+            case .tripEnded(_, let transportationMode):
+                if transportationMode.isAlternative() && DriveKitConfig.enableAlternativeTrips {
                     return .tripEnded
                 } else {
                     return .tripCancelled
@@ -124,7 +136,7 @@ enum NotificationType {
                 } else {
                     key = "notif_trip_started"
                 }
-            case .tripEnded(let message, let transportationMode, _):
+            case .tripEnded(let message, let transportationMode):
                 switch transportationMode {
                     case .car:
                         return message ?? ""
@@ -168,17 +180,6 @@ enum NotificationType {
     }
 }
 
-enum NotificationChannel {
-    case tripStarted
-    case tripCancelled
-    case tripEnded
-
-    var isEnabled: Bool {
-        #warning("TODO")
-        return true
-    }
-}
-
 enum TripCancellationReason {
     case noBeacon
     case highSpeed
@@ -190,28 +191,4 @@ enum TripAnalysisError {
     case noNetwork
     case noApiKey
     case noBeacon
-}
-
-extension TransportationMode {
-    func isAlternative() -> Bool {
-        switch self {
-            case .unknown,
-                    .car,
-                    .moto,
-                    .truck:
-                return false
-            case .bus,
-                    .train,
-                    .boat,
-                    .bike,
-                    .flight,
-                    .skiing,
-                    .onFoot,
-                    .idle,
-                    .other:
-                return true
-            @unknown default:
-                return true
-        }
-    }
 }

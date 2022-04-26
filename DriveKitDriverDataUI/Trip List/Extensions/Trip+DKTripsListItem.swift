@@ -85,25 +85,7 @@ extension Trip: DKTripListItem {
         guard let transportationMode = TransportationMode(rawValue: Int(self.transportationMode)) else {
             return true
         }
-        switch transportationMode {
-            case .unknown,
-                 .car,
-                 .moto,
-                 .truck:
-                return false
-            case .bus,
-                 .train,
-                 .boat,
-                 .bike,
-                 .flight,
-                 .skiing,
-                 .onFoot,
-                 .idle,
-                 .other:
-                return true
-        @unknown default:
-            return true
-        }
+        return transportationMode.isAlternative()
     }
 
     public func infoText() -> String? {

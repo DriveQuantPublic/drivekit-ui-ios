@@ -255,6 +255,8 @@
 		6381410528157A570031BCC0 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6381410428157A570031BCC0 /* NotificationManager.swift */; };
 		6381410728157EA20031BCC0 /* NotificationSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6381410628157EA20031BCC0 /* NotificationSettings.swift */; };
 		63842D4A2816CC53007F9256 /* FeatureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63842D492816CC53007F9256 /* FeatureType.swift */; };
+		63842D4F2817D3FC007F9256 /* NotificationChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63842D4E2817D3FC007F9256 /* NotificationChannel.swift */; };
+		63842D512817FEDB007F9256 /* DriveKitConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63842D502817FEDB007F9256 /* DriveKitConfig.swift */; };
 		638AC038261F8FFB00602B52 /* SynthesisCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638AC037261F8FFB00602B52 /* SynthesisCardsView.swift */; };
 		638AC03F261F903300602B52 /* SynthesisCardsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638AC03E261F903300602B52 /* SynthesisCardsView.xib */; };
 		638AC046261F970E00602B52 /* SynthesisCardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638AC045261F970E00602B52 /* SynthesisCardsViewModel.swift */; };
@@ -950,6 +952,8 @@
 		6381410428157A570031BCC0 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		6381410628157EA20031BCC0 /* NotificationSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettings.swift; sourceTree = "<group>"; };
 		63842D492816CC53007F9256 /* FeatureType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureType.swift; sourceTree = "<group>"; };
+		63842D4E2817D3FC007F9256 /* NotificationChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationChannel.swift; sourceTree = "<group>"; };
+		63842D502817FEDB007F9256 /* DriveKitConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveKitConfig.swift; sourceTree = "<group>"; };
 		638AC037261F8FFB00602B52 /* SynthesisCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesisCardsView.swift; sourceTree = "<group>"; };
 		638AC03E261F903300602B52 /* SynthesisCardsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SynthesisCardsView.xib; sourceTree = "<group>"; };
 		638AC045261F970E00602B52 /* SynthesisCardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesisCardsViewModel.swift; sourceTree = "<group>"; };
@@ -2069,6 +2073,7 @@
 			children = (
 				63E2EFB7281593D100E6A182 /* NotificationAction.swift */,
 				63E2EFB5281586F100E6A182 /* NotificationCategory.swift */,
+				63842D4E2817D3FC007F9256 /* NotificationChannel.swift */,
 				6381410428157A570031BCC0 /* NotificationManager.swift */,
 				6381410628157EA20031BCC0 /* NotificationSettings.swift */,
 				63814102281539EA0031BCC0 /* NotificationType.swift */,
@@ -2902,6 +2907,7 @@
 			children = (
 				A3B7B383235F124F0065A332 /* AppDelegate.swift */,
 				67C055E627FF2D7200B7159D /* AppNavigationController.swift */,
+				63842D502817FEDB007F9256 /* DriveKitConfig.swift */,
 				67C055BD27FDF68A00B7159D /* Onboarding */,
 				63842D4C2816E3ED007F9256 /* Dashboard */,
 				63842D4D2816E64C007F9256 /* Features */,
@@ -4078,6 +4084,7 @@
 				6381410528157A570031BCC0 /* NotificationManager.swift in Sources */,
 				67B583862805CC640065C2E7 /* RequestError+DK.swift in Sources */,
 				6765E71928103F3000FD13F8 /* TripSimulatorViewController.swift in Sources */,
+				63842D512817FEDB007F9256 /* DriveKitConfig.swift in Sources */,
 				67B58384280481570065C2E7 /* SynchroServicesManager.swift in Sources */,
 				67B5837C2804487C0065C2E7 /* CustomTextField.swift in Sources */,
 				67B5837F280468FE0065C2E7 /* HoshiTextField.swift in Sources */,
@@ -4098,6 +4105,7 @@
 				6307ED8A2625DC9500CB7EED /* SynthesisCardTest.swift in Sources */,
 				63570DFC280996160082A446 /* TripListenerManager.swift in Sources */,
 				63BE1EDE26D0055800CFEB8B /* LastTripsViewTest.swift in Sources */,
+				63842D4F2817D3FC007F9256 /* NotificationChannel.swift in Sources */,
 				A3B7B39D235F2E130065A332 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

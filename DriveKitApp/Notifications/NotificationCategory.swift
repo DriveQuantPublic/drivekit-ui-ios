@@ -8,11 +8,13 @@
 
 import Foundation
 
+/**
+ Used to distinguish between the different types of notifications and primarily to create actionable notifications with custom action buttons.
+ */
 enum NotificationCategory {
     enum TripAnalysis {
         case start
         case end
-        case noNetworkError
 
         var identifier: String {
             switch self {
@@ -20,8 +22,6 @@ enum NotificationCategory {
                     return "trip.start"
                 case .end:
                     return "trip.end"
-                case .noNetworkError:
-                    return "trip.noNetworkError"
             }
         }
     }

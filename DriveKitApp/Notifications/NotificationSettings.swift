@@ -7,7 +7,31 @@
 //
 
 import Foundation
+import DriveKitCoreModule
 
 class NotificationSettings {
-    
+    static func enableChannel(_ channel: NotificationChannel) {
+        DriveKitCoreUserDefaults.setPrimitiveType(key: channel.key, value: true)
+    }
+
+    static func disableChannel(_ channel: NotificationChannel) {
+        DriveKitCoreUserDefaults.setPrimitiveType(key: channel.key, value: false)
+    }
+
+    static func isChannelEnabled(_ channel: NotificationChannel) -> Bool {
+        DriveKitCoreUserDefaults.getPrimitiveType(key: channel.key) ?? true
+    }
+}
+
+private extension NotificationChannel {
+    var key: String {
+        switch self {
+            case .tripStarted:
+                return "notif.tripStarted"
+            case .tripCancelled:
+                return "notif.tripCancelled"
+            case .tripEnded:
+                return "notif.tripEnded"
+        }
+    }
 }

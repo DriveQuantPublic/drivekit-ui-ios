@@ -8,6 +8,9 @@
 
 import Foundation
 import CoreLocation
+import DriveKitCommonUI
+import DriveKitDBTripAccessModule
+import DriveKitDriverDataUI
 import DriveKitTripAnalysisModule
 
 class NotificationManager: NSObject {
@@ -43,8 +46,7 @@ class NotificationManager: NSObject {
                                                 content: content,
                                                 trigger: trigger)
 
-            UNUserNotificationCenter.current().add(request) { error in
-            }
+            UNUserNotificationCenter.current().add(request)
         }
     }
 
@@ -141,57 +143,147 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
     }
 
     func showTrip(with identifier: String) {
-        #warning("TODO")
-//        guard let controller = self.window?.rootViewController, let trip = TMService.trips.trip(with: identifier), let itinId = trip.itinId else {
-//            return
-//        }
-//        let alternative = TripListStatus.init(rawValue: Int(trip.transportationMode))?.isAlternativeTransportationMode() ?? false
-//        let showAdvice: Bool
-//        if !alternative {
-//            if let advices = trip.advices, !advices.isEmpty {
-//                showAdvice = true
-//            } else {
-//                showAdvice = false
-//            }
-//        } else {
-//            showAdvice = false
-//        }
-//        let detailVC = DriveKitDriverDataUI.shared.getTripDetailViewController(itinId: itinId, showAdvice: showAdvice, alternativeTransport: alternative)
-//        let navigationController = UINavigationController(rootViewController: detailVC)
-//        navigationController.customize(.branded)
-//        controller.present(navigationController, animated: true)
+        if let appDelegate = UIApplication.shared.delegate, let window = appDelegate.window, let rootViewController = window.rootViewController, let trip = DriveKitDBTripAccess.shared.find(itinId: identifier) {
+            let transportationMode: TransportationMode = TransportationMode(rawValue: Int(trip.transportationMode)) ?? .unknown
+            let isAlternative = transportationMode.isAlternative()
+            let showAdvice: Bool
+            if !isAlternative {
+                if let advices = trip.tripAdvices, advices.count > 0 {
+                    showAdvice = true
+                } else {
+                    showAdvice = false
+                }
+            } else {
+                showAdvice = false
+            }
+            let detailVC = DriveKitDriverDataUI.shared.getTripDetailViewController(itinId: identifier, showAdvice: showAdvice, alternativeTransport: isAlternative)
+            let navigationController = UINavigationController(rootViewController: detailVC)
+            navigationController.configure()
+            rootViewController.present(navigationController, animated: true)
+        }
     }
 }
 
 extension NotificationManager: TripListener {
+    private func sendNotification(_ notificationType: NotificationType, itinId: String? = nil) {
+        let userInfo: [String: String]?
+        if let itinId = itinId {
+            userInfo = ["itineraryId": itinId]
+        } else {
+            userInfo = nil
+        }
+        NotificationManager.sendNotification(notificationType, userInfo: userInfo)
+    }
+
+    private func  sendErrorNotification(_ error: TripAnalysisError) {
+        sendNotification(.tripAnalysisError(error))
+    }
+
     func tripStarted(startMode: StartMode) {
-        //TODO: sendNotification(.tripStarted(DQConfiguration.shared.app_auto_start_postponable))
+        sendNotification(.tripStarted(canPostpone: DriveKitConfig.isAutoStartPostponable))
     }
 
     func tripFinished(post: PostGeneric, response: PostGenericResponse) {
-        //TODO
-//        if let route = post.route, let itineraryData = response.itineraryData{
-//            tripReceived(response: response, route: route, itineraryData: itineraryData)
-//        }
+        let errorCodes: Set<PostGenericResponseError>
+        if let comments = response.comments {
+            errorCodes = Set(comments.map({ PostGenericResponseError(rawValue: $0.errorCode) ?? .unknown }))
+        } else {
+            errorCodes = []
+        }
+        if errorCodes.contains(PostGenericResponseError.noApiKey) {
+            sendErrorNotification(.noApiKey)
+        } else if errorCodes.contains(PostGenericResponseError.noBeaconDetected) || errorCodes.contains(PostGenericResponseError.invalidBeaconDetected) {
+            sendErrorNotification(.noBeacon)
+        } else if errorCodes.contains(PostGenericResponseError.duplicateTrip) {
+            sendErrorNotification(.duplicateTrip)
+        } else if let itinId = response.itinId, let distance = response.itineraryStatistics?.distance, distance > 0 {
+            let transportationMode: TransportationMode
+            if let rawTransporationMode = response.itineraryStatistics?.transportationMode {
+                transportationMode = TransportationMode(rawValue: rawTransporationMode) ?? .unknown
+            } else {
+                transportationMode = .unknown
+            }
+            let message: String?
+            let partialScoredTrip: Bool
+            if transportationMode.isAlternative() {
+                message = nil
+                partialScoredTrip = false
+            } else {
+                if let tripAdvicesData: [TripAdviceData] = response.tripAdvicesData {
+                    let adviceString: String
+                    if tripAdvicesData.count > 1 {
+                        adviceString = "notif_trip_finished_advices".keyLocalized()
+                    } else {
+                        adviceString = "notif_trip_finished_advice".keyLocalized()
+                    }
+                    message = "\("notif_trip_finished".keyLocalized())\n\(adviceString)"
+                    partialScoredTrip = false
+                } else {
+                    var messagePart2: String? = nil
+                    switch DriveKitConfig.tripData {
+                        case .safety:
+                            let safetyScore = response.safety?.safetyScore ?? 11
+                            partialScoredTrip = safetyScore > 10
+                            if !partialScoredTrip {
+                                messagePart2 = "\("notif_trip_finished_safety".keyLocalized()) : \(safetyScore.formatDouble(places: 1))/10"
+                            }
+                        case .ecoDriving:
+                            let ecoDrivingScore = response.ecoDriving?.score ?? 11
+                            partialScoredTrip = ecoDrivingScore > 10
+                            if !partialScoredTrip {
+                                messagePart2 = "\("notif_trip_finished_efficiency".keyLocalized()) : \(ecoDrivingScore.formatDouble(places: 1))/10"
+                            }
+                        case .distraction:
+                            let distractionScore = response.driverDistraction?.score ?? 11
+                            partialScoredTrip = distractionScore > 10
+                            if !partialScoredTrip {
+                                messagePart2 = "\("notif_trip_finished_distraction".keyLocalized()) : \(distractionScore.formatDouble(places: 1))/10"
+                            }
+                        case .speeding:
+                            partialScoredTrip = false
+                        case .distance:
+                            if let itineraryStatistics = response.itineraryStatistics {
+                                let distance = Int(ceil(itineraryStatistics.distance / 1000.0))
+                                messagePart2 = "\(DKCommonLocalizable.distance.text()) : \(distance) \(DKCommonLocalizable.unitKilometer.text())"
+                            }
+                            partialScoredTrip = false
+                        case .duration:
+                            if let itineraryStatistics = response.itineraryStatistics {
+                                let duration = Int(ceil(itineraryStatistics.tripDuration / 60))
+                                messagePart2 = "\(DKCommonLocalizable.duration.text()) : \(duration) \(DKCommonLocalizable.unitMinute.text())"
+                            }
+                            partialScoredTrip = false
+                    }
+                    if let messagePart2 = messagePart2 {
+                        message = "\("notif_trip_finished".keyLocalized())\n\(messagePart2)"
+                    } else {
+                        message = "notif_trip_finished".keyLocalized()
+                    }
+                }
+            }
+            if partialScoredTrip {
+                sendNotification(.tripTooShort, itinId: itinId)
+            } else {
+                sendNotification(.tripEnded(message: message, transportationMode: transportationMode), itinId: itinId)
+            }
+        }
     }
 
     func tripCancelled(cancelTrip: CancelTrip) {
-        //TODO
-//        switch cancelTrip {
-//            case .highspeed: // highSpeed
-//                sendNotification(.cancelHighSpeed)
-//            case .noBeacon: // no beacon
-//                sendNotification(.cancelNoBeacon)
-//            case .noGPSData:
-//                sendNotification(.noGPSPoint)
-//            default:
-//                // other cancel reasons : 0 -> user, 1 -> speed not confirmed
-//                return
-//        }
+        switch cancelTrip {
+            case .highspeed:
+                NotificationManager.sendNotification(.tripCancelled(reason: .highSpeed))
+            case .noBeacon:
+                NotificationManager.sendNotification(.tripCancelled(reason: .noBeacon))
+            case .noGPSData:
+                NotificationManager.sendNotification(.tripCancelled(reason: .noGpsPoint))
+            case .user, .noSpeed, .missingConfiguration, .reset, .beaconNoSpeed:
+                NotificationManager.removeNotification(.tripStarted(canPostpone: DriveKitConfig.isAutoStartPostponable))
+        }
     }
 
     func tripSavedForRepost() {
-        //TODO: sendNotification(.noNetwork)
+        sendErrorNotification(.noNetwork)
     }
 
     func tripPoint(tripPoint: TripPoint) {
@@ -220,5 +312,14 @@ extension NotificationManager: TripListener {
 
     func crashFeedbackSent(crashInfo: DKCrashInfo, feedbackType: DKCrashFeedbackType, severity: DKCrashFeedbackSeverity) {
         // Nothing to do.
+    }
+
+    private enum PostGenericResponseError: Int {
+        case unknown = -1
+        case noError = 0
+        case noApiKey = 21
+        case noBeaconDetected = 29
+        case invalidBeaconDetected = 30
+        case duplicateTrip = 31
     }
 }

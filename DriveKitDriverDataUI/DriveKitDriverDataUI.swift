@@ -21,7 +21,7 @@ public class DriveKitDriverDataUI: AccessRightListener {
     private(set) var customMapItem: DKMapItem?
     private(set) var enableDeleteTrip = true
     private(set) var enableAdviceFeedback = true
-    public private(set) var enableAlternativeTrips = false
+    private(set) var enableAlternativeTrips = false
     private(set) var enableVehicleFilter = true
     private(set) var customHeaders: DKHeader?
     private(set) var customTripInfo: DKTripInfo?

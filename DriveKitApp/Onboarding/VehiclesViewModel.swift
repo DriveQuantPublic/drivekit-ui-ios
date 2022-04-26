@@ -17,7 +17,7 @@ struct VehiclesViewModel {
 
     func getTitleAttributedText() -> NSAttributedString {
         let iconString = "ⓘ".dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.secondaryColor).build()
-        let titleString = "vehicle_intro_title".keyLocalized().appending("  ").dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.mainFontColor).buildWithArgs(iconString)
+        let titleString = "vehicle_intro_title".keyLocalized().appending("  ").dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.mainFontColor).buildWithArgs(iconString)
         return titleString
     }
 

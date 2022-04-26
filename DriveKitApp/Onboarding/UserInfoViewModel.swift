@@ -60,7 +60,7 @@ class UserInfoViewModel {
         return missingPermissionsCount > 0
     }
 
-    func shouldDisplayVehicle(completion:@escaping (Bool) -> ()) {
+    func shouldDisplayVehicle(completion: @escaping (Bool) -> ()) {
         DriveKitVehicle.shared.getVehiclesOrderByNameAsc(type: .cache) { _, vehicles in
             DispatchQueue.dispatchOnMainThread {
                 completion(vehicles.count == 0)

@@ -36,11 +36,11 @@ public class DKVehiclePickerNavigationController: UINavigationController {
     }
     
     func setupNavigationBar(parentView: UIViewController) {
-      if let parentNavigationController = parentView.navigationController {
-        self.configure(from: parentNavigationController)
-      } else {
-        self.configure()
-      }
+        if let parentNavigationController = parentView.navigationController {
+            self.configure(from: parentNavigationController)
+        } else {
+            self.configure()
+        }
     }
 
     func showPrevious() {

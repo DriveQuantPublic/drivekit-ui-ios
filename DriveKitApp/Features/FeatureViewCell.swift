@@ -18,7 +18,7 @@ final class FeatureViewCell: UITableViewCell, Nibable {
         self.featureView.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(self.featureView)
         self.featureView.addShadow()
-        let verticalMargin: CGFloat = 10
+        let verticalMargin: CGFloat = 11
         let horizontalMargin: CGFloat = 8
         NSLayoutConstraint.activate([
             self.featureView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: verticalMargin),

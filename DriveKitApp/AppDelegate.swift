@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             options = "none"
         }
         requestNotificationPermission()
-        TripListenerController.shared.addTripListener(self)
+        TripListenerManager.shared.addTripListener(self)
         configureDriveKit(launchOptions: launchOptions)
         DriveKitUI.shared.initialize(colors: DefaultColors(), fonts: DefaultFonts(), overridedStringsFileName: "Localizable")
         DriveKitDriverAchievementUI.shared.initialize()
@@ -99,11 +99,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func configureDriveKit(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-        DriveKit.shared.initialize(delegate: DriveKitDelegateController.shared)
+        DriveKit.shared.initialize(delegate: DriveKitDelegateManager.shared)
         if DriveKit.shared.isLoggingEnabled() {
             DriveKit.shared.enableLogging()
         }
-        DriveKitTripAnalysis.shared.initialize(tripListener: TripListenerController.shared, appLaunchOptions: launchOptions)
+        DriveKitTripAnalysis.shared.initialize(tripListener: TripListenerManager.shared, appLaunchOptions: launchOptions)
         DriveKitDriverData.shared.initialize()
         var apiKey = "ENTER_YOUR_API_KEY_HERE"
         apiKey.replaceApiKeyIfNeeded()

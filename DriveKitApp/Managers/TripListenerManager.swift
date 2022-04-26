@@ -1,5 +1,5 @@
 //
-//  TripListenerController.swift
+//  TripListenerManager.swift
 //  DriveKitApp
 //
 //  Created by David Bauduin on 15/04/2022.
@@ -11,8 +11,8 @@ import DriveKitCoreModule
 import DriveKitTripAnalysisModule
 import CoreLocation
 
-class TripListenerController {
-    static let shared: TripListenerController = TripListenerController()
+class TripListenerManager {
+    static let shared: TripListenerManager = TripListenerManager()
     private var tripListeners: WeakArray<TripListener> = WeakArray()
     private var sdkStateChangeListeners: WeakArray<SdkStateChangeListener> = WeakArray()
 
@@ -41,7 +41,7 @@ class TripListenerController {
     func sdkStateChanged(state: State)
 }
 
-extension TripListenerController: TripListener {
+extension TripListenerManager: TripListener {
     func tripStarted(startMode: StartMode) {
         for tripListener in self.tripListeners {
             tripListener?.tripStarted(startMode: startMode)

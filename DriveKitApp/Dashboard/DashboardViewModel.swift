@@ -14,11 +14,11 @@ class DashboardViewModel {
     weak var delegate: DashboardViewModelDelegate?
 
     init() {
-        TripListenerController.shared.addSdkStateChangeListener(self)
+        TripListenerManager.shared.addSdkStateChangeListener(self)
     }
 
     deinit {
-        TripListenerController.shared.removeSdkStateChangeListener(self)
+        TripListenerManager.shared.removeSdkStateChangeListener(self)
     }
 
     func getStartStopTripButtonTitle() -> String {

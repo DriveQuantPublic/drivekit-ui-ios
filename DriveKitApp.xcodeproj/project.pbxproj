@@ -373,6 +373,7 @@
 		6765E71A28103F3000FD13F8 /* TripSimulatorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6765E71828103F3000FD13F8 /* TripSimulatorViewController.xib */; };
 		6765E71C28103F4700FD13F8 /* TripSimulatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765E71B28103F4700FD13F8 /* TripSimulatorViewModel.swift */; };
 		6765E71E28103F6000FD13F8 /* TripSimulatorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765E71D28103F6000FD13F8 /* TripSimulatorItem.swift */; };
+		6765E72B2818373300FD13F8 /* UINavigationController+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765E72A2818373300FD13F8 /* UINavigationController+DK.swift */; };
 		6780809928000A4C00A93352 /* ApiKeyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6780809828000A4C00A93352 /* ApiKeyViewModel.swift */; };
 		6780809C2800693600A93352 /* String+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6780809B2800693600A93352 /* String+DK.swift */; };
 		67813093276BB2A100701CF1 /* DriveKitTripAnalysisUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 67813092276BB2A100701CF1 /* DriveKitTripAnalysisUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1053,6 +1054,7 @@
 		6765E71828103F3000FD13F8 /* TripSimulatorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TripSimulatorViewController.xib; sourceTree = "<group>"; };
 		6765E71B28103F4700FD13F8 /* TripSimulatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSimulatorViewModel.swift; sourceTree = "<group>"; };
 		6765E71D28103F6000FD13F8 /* TripSimulatorItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSimulatorItem.swift; sourceTree = "<group>"; };
+		6765E72A2818373300FD13F8 /* UINavigationController+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+DK.swift"; sourceTree = "<group>"; };
 		6780809828000A4C00A93352 /* ApiKeyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeyViewModel.swift; sourceTree = "<group>"; };
 		6780809B2800693600A93352 /* String+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DK.swift"; sourceTree = "<group>"; };
 		67813090276BB2A100701CF1 /* DriveKitTripAnalysisUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DriveKitTripAnalysisUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1396,6 +1398,7 @@
 				3FF68E87240A727D0071D74C /* DKDatePattern.swift */,
 				638DDC552726E5EA003ED260 /* DKMainDispatcher.swift */,
 				61D29B7824362C720094CA5B /* DKReachability.swift */,
+				6765E72A2818373300FD13F8 /* UINavigationController+DK.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -3724,6 +3727,7 @@
 				3FF68E8C240C0A430071D74C /* UIViewController+DK.swift in Sources */,
 				3FED7FC52525B7B900D19E18 /* DKFilterTableViewCell.swift in Sources */,
 				67E807DE2657B855003AFAA8 /* NSAttributedString+DK.swift in Sources */,
+				6765E72B2818373300FD13F8 /* UINavigationController+DK.swift in Sources */,
 				635FC8B626BAECF600B1CABE /* DKAnalyticsEventKey.swift in Sources */,
 				3FF68E8E240CF0420071D74C /* CircularProgressView.swift in Sources */,
 				63ECE8EF26682D49000F08D3 /* UserPseudoViewControllerDelegate.swift in Sources */,

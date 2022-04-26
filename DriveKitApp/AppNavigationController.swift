@@ -21,6 +21,7 @@ class AppNavigationController: UINavigationController {
     }
 
     func setupViewController() {
+        configure()
         if DriveKit.shared.isUserConnected() {
             self.showLoader(message: "sync_trips_loading_message".keyLocalized())
             self.isNavigationBarHidden = true

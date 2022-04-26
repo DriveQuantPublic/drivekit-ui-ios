@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             options = "none"
         }
-        requestNotificationPermission()
+        NotificationManager.configure()
         TripListenerManager.shared.addTripListener(self)
         configureDriveKit(launchOptions: launchOptions)
         DriveKitUI.shared.initialize(colors: DefaultColors(), fonts: DefaultFonts(), overridedStringsFileName: "Localizable")
@@ -61,18 +61,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitTripAnalysisUI.shared.initialize()
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options : \(options)")
         return true
-    }
-    
-    private func requestNotificationPermission(){
-        let center = UNUserNotificationCenter.current()
-        let options: UNAuthorizationOptions = [.alert, .badge, .sound]
-        center.requestAuthorization(options: options) { (granted, error) in
-            if granted {
-                DispatchQueue.main.async {
-                    UIApplication.shared.registerForRemoteNotifications()
-                }
-            }
-        }
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

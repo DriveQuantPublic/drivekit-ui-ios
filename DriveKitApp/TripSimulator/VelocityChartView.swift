@@ -67,4 +67,12 @@ class VelocityChartView: LineChartView {
         }
         self.notifyDataSetChanged()
     }
+
+    func clean() {
+        while graphData.count > 0 {
+            let oldEntry = graphData.removeFirst()
+            self.data?.removeEntry(oldEntry, dataSetIndex: 0)
+        }
+        self.notifyDataSetChanged()
+    }
 }

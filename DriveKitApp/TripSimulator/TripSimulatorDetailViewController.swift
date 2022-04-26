@@ -86,6 +86,11 @@ class TripSimulatorDetailViewController: UIViewController {
             self.autoStopTitleLabel.isHidden = true
             self.autoStopValueLabel.isHidden = true
         }
+        if viewModel.isSimulating {
+            stopButton.configure(text: "trip_simulator_stop_button".keyLocalized(), style: .full)
+        } else {
+            stopButton.configure(text: "trip_simulator_restart_button".keyLocalized(), style: .full)
+        }
     }
 
     private func configureBackButton() {
@@ -93,27 +98,39 @@ class TripSimulatorDetailViewController: UIViewController {
     }
 
     @objc private func onBack(sender: UIBarButtonItem) {
-        let alert = UIAlertController(title: nil, message: "trip_simulator_stop_simulation_content".keyLocalized(), preferredStyle: .alert)
-        let yesAction = UIAlertAction(title: "button_stop".keyLocalized(), style: .default) { [weak self] _ in
-            self?.viewModel.stopSimulation()
-            self?.navigationController?.popViewController(animated: true)
+        if viewModel.isSimulating {
+            let alert = UIAlertController(title: nil, message: "trip_simulator_stop_simulation_content".keyLocalized(), preferredStyle: .alert)
+            let yesAction = UIAlertAction(title: "button_stop".keyLocalized(), style: .default) { [weak self] _ in
+                self?.viewModel.stopSimulation()
+                self?.navigationController?.popViewController(animated: true)
+            }
+            let noAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel) {  _ in
+            }
+            alert.addAction(yesAction)
+            alert.addAction(noAction)
+            self.present(alert, animated: true)
+        } else {
+            self.navigationController?.popViewController(animated: true)
         }
-        let noAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel) {  _ in
-        }
-        alert.addAction(yesAction)
-        alert.addAction(noAction)
-        self.present(alert, animated: true)
     }
 
-    @IBAction func stopSimulation() {
-        self.viewModel.stopSimulation()
-        self.navigationController?.popViewController(animated: true)
+    @IBAction func startStopSimulation() {
+        if viewModel.isSimulating {
+            self.viewModel.stopSimulation()
+            self.navigationController?.popViewController(animated: true)
+        } else {
+            self.velocityGraphView.clean()
+            self.viewModel.startSimulation()
+        }
+        updateViewContent()
     }
 }
 
 extension TripSimulatorDetailViewController: TripSimulatorDetailViewModelDelegate {
-    func updateNeeded(updatedValue: Double, timestamp: Double) {
-        self.velocityGraphView.updateGraph(velocity: updatedValue, timestamp: timestamp)
+    func updateNeeded(updatedValue: Double?, timestamp: Double?) {
+        if let updatedValue = updatedValue, let timestamp = timestamp {
+            self.velocityGraphView.updateGraph(velocity: updatedValue, timestamp: timestamp)
+        }
         self.updateViewContent()
     }
 }

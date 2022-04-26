@@ -13,7 +13,7 @@ import DriveKitTripAnalysisModule
 import DriveKitTripSimulatorModule
 
 protocol TripSimulatorDetailViewModelDelegate: NSObject {
-    func updateNeeded(updatedValue: Double, timestamp: Double)
+    func updateNeeded(updatedValue: Double?, timestamp: Double?)
 }
 
 class TripSimulatorDetailViewModel {
@@ -21,25 +21,39 @@ class TripSimulatorDetailViewModel {
     private var simulatedItem: TripSimulatorItem
     private var lastSimulatedLocation: CLLocation?
     private var currentDuration: Double = 0
-    private var durationWhenEnteredStoppingState: Double?
+    private var timeWhenEnteredStoppingState: Date?
+    private var stoppingTimer: Timer? = nil
+    private(set) var isSimulating: Bool = true
     var velocityBuffer: CircularBuffer<Double> = CircularBuffer(size: 30)
 
     init(simulatedItem: TripSimulatorItem) {
         self.simulatedItem = simulatedItem
         self.startSimulation()
+        TripListenerManager.shared.addTripListener(self)
+    }
+
+    deinit {
+        TripListenerManager.shared.removeTripListener(self)
     }
 
     func stopSimulation() {
         DriveKitTripSimulator.shared.stop()
+        isSimulating = false
     }
 
     func startSimulation() {
+        lastSimulatedLocation = nil
+        currentDuration = 0
+        timeWhenEnteredStoppingState = nil
+        stoppingTimer = nil
+
         switch simulatedItem {
         case .trip(let presetTrip):
             DriveKitTripSimulator.shared.start(presetTrip, delegate: self)
         case .crashTrip(let presetCrashConfiguration):
             DriveKitTripSimulator.shared.startCrashTrip(presetCrashConfiguration, delegate: self)
         }
+        isSimulating = true
     }
 
     func getTotalDurationText() -> String {
@@ -70,11 +84,15 @@ class TripSimulatorDetailViewModel {
     }
 
     func getSpentDurationText() -> String {
-        return formatDuration(duration: currentDuration)
+        if isSimulating {
+            return formatDuration(duration: currentDuration)
+        } else {
+            return "-"
+        }
     }
 
     func getSpeedText() -> String {
-        if let lastSpeed = velocityBuffer.last {
+        if let lastSpeed = velocityBuffer.last, isSimulating {
             return lastSpeed.formatSpeedMean()
         } else {
             return "-"
@@ -86,11 +104,11 @@ class TripSimulatorDetailViewModel {
     }
 
     func getRemainingTimeToStopText() -> String {
-        guard let durationWhenEnteredStoppingState = durationWhenEnteredStoppingState else {
+        guard let timeWhenEnteredStoppingState = timeWhenEnteredStoppingState else {
             return ""
         }
         let timeOut: Int = DriveKitTripAnalysis.shared.stopTimeOut
-        let remainingDuration = Double(timeOut) - currentDuration + durationWhenEnteredStoppingState
+        let remainingDuration = Double(timeOut) - Date().timeIntervalSince(timeWhenEnteredStoppingState)
         return formatDuration(duration: remainingDuration)
     }
 
@@ -108,29 +126,84 @@ class TripSimulatorDetailViewModel {
         let minutes: Int = (durationInt - seconds) / 60
         return String(format: "%02d:%02d", arguments: [minutes, seconds])
     }
+
+    func updateStoppingTime(state: State) {
+        if state == .stopping {
+          if timeWhenEnteredStoppingState == nil {
+              timeWhenEnteredStoppingState = Date()
+              self.stoppingTimer?.invalidate()
+              self.stoppingTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateNeeded), userInfo: nil, repeats: true)
+          }
+        } else {
+            self.stoppingTimer?.invalidate()
+            self.stoppingTimer = nil
+            timeWhenEnteredStoppingState = nil
+        }
+    }
+
+    @objc func updateNeeded() {
+        DispatchQueue.dispatchOnMainThread { [weak self] in
+            if let self = self {
+                self.delegate?.updateNeeded(updatedValue: nil, timestamp: nil)
+            }
+        }
+    }
 }
 
 
 extension TripSimulatorDetailViewModel: DKTripSimulatorDelegate {
     func locationSent(location: CLLocation, durationSinceStart: Double) {
         self.lastSimulatedLocation = location
-        self.currentDuration = durationSinceStart
+        self.currentDuration = durationSinceStart + 1
         let speedKmH = location.speed * 3600 / 1000
         self.velocityBuffer.append(speedKmH)
 
         let state = DriveKitTripAnalysis.shared.getRecorderState()
-        if state == .stopping {
-          if durationWhenEnteredStoppingState == nil {
-              durationWhenEnteredStoppingState = durationSinceStart
-          }
-        } else {
-            durationWhenEnteredStoppingState = nil
-        }
+        updateStoppingTime(state: state)
 
         DispatchQueue.dispatchOnMainThread { [weak self] in
             if let self = self, let velocity = self.velocityBuffer.last {
                 self.delegate?.updateNeeded(updatedValue: velocity, timestamp: self.currentDuration)
             }
         }
+    }
+}
+
+extension TripSimulatorDetailViewModel: TripListener {
+    func tripStarted(startMode: StartMode) {
+    }
+    
+    func tripPoint(tripPoint: TripPoint) {
+    }
+    
+    func tripFinished(post: PostGeneric, response: PostGenericResponse) {
+        isSimulating = false
+        updateNeeded()
+    }
+    
+    func tripCancelled(cancelTrip: CancelTrip) {
+    }
+    
+    func tripSavedForRepost() {
+    }
+    
+    func beaconDetected() {
+    }
+    
+    func significantLocationChangeDetected(location: CLLocation) {
+    }
+    
+    func sdkStateChanged(state: State) {
+        updateStoppingTime(state: state)
+        updateNeeded()
+    }
+    
+    func potentialTripStart(startMode: StartMode) {
+    }
+    
+    func crashDetected(crashInfo: DKCrashInfo) {
+    }
+    
+    func crashFeedbackSent(crashInfo: DKCrashInfo, feedbackType: DKCrashFeedbackType, severity: DKCrashFeedbackSeverity) {
     }
 }

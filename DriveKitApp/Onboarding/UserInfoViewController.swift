@@ -113,8 +113,8 @@ class UserInfoViewController: UIViewController {
         } else {
             viewModel.shouldDisplayVehicle() { [weak self] shouldDisplay in
                 if shouldDisplay {
-                    let permissionsVC = VehiclesViewController(nibName: "VehiclesViewController", bundle: nil)
-                    self?.navigationController?.pushViewController(permissionsVC, animated: true)
+                    let vehiclesVC = VehiclesViewController(nibName: "VehiclesViewController", bundle: nil)
+                    self?.navigationController?.pushViewController(vehiclesVC, animated: true)
                 } else {
                     self?.navigationController?.setViewControllers([DashboardViewController()], animated: true)
                 }

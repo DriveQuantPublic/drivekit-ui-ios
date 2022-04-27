@@ -43,8 +43,12 @@ class VehiclesViewController: UIViewController {
         } else {
             parentVC = self
         }
-        _ = DKVehiclePickerNavigationController(parentView: parentVC) { [weak self] in
-            self?.navigationController?.setViewControllers([DashboardViewController()], animated: true)
+        _ = DKVehiclePickerNavigationController(parentView: parentVC, showCancel: false) { [weak self] in
+            self?.viewModel.areVehiclesConfigured { configured in
+                if configured {
+                    self?.navigationController?.setViewControllers([DashboardViewController()], animated: true)
+                }
+            }
         }
     }
 }

@@ -19,7 +19,7 @@ class UserIdViewModel {
 
     func getTitleAttributedText() -> NSAttributedString {
         let iconString = "ⓘ".dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.secondaryColor).build()
-        let titleString = "authentication_title".keyLocalized().appending("  ").dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.mainFontColor).buildWithArgs(iconString)
+        let titleString = "authentication_title".keyLocalized().appending("  ").dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.mainFontColor).buildWithArgs(iconString)
         return titleString
     }
 

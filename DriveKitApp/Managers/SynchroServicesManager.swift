@@ -19,7 +19,7 @@ enum DKService {
     case vehicle
     case workingHours
     case trips
-    case badge
+    case badges
     case challenge
 }
 
@@ -32,7 +32,7 @@ class SynchroServicesManager {
 
     static func syncModule(_ service: DKService, completion: ((SyncStatus) -> ())? = nil) {
         switch service {
-            case .badge:
+            case .badges:
                 syncBadges(completion: completion)
             case .challenge:
                 syncChallenges(completion: completion)

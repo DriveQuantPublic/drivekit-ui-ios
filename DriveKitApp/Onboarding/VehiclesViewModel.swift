@@ -6,9 +6,9 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import DriveKitCommonUI
+import DriveKitVehicleModule
 
 struct VehiclesViewModel {
     func getDescriptionAttibutedText() -> NSAttributedString {
@@ -17,7 +17,15 @@ struct VehiclesViewModel {
 
     func getTitleAttributedText() -> NSAttributedString {
         let iconString = "ⓘ".dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.secondaryColor).build()
-        let titleString = "vehicle_intro_title".keyLocalized().appending("  ").dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.mainFontColor).buildWithArgs(iconString)
+        let titleString = "vehicle_intro_title".keyLocalized().appending("  ").dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.mainFontColor).buildWithArgs(iconString)
         return titleString
+    }
+
+    func areVehiclesConfigured(completion: @escaping (Bool) -> ()) {
+        DriveKitVehicle.shared.getVehiclesOrderByNameAsc(type: .cache) { _, vehicles in
+            DispatchQueue.dispatchOnMainThread {
+                completion(!vehicles.isEmpty)
+            }
+        }
     }
 }

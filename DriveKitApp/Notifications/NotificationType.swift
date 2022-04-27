@@ -137,21 +137,23 @@ enum NotificationType {
                     key = "notif_trip_started"
                 }
             case .tripEnded(let message, let transportationMode):
-                switch transportationMode {
-                    case .car:
-                        return message ?? ""
-                    case .train:
-                        key = "notif_trip_train_detected"
-                    case .boat:
-                        key = "notif_trip_boat_detected"
-                    case .bike:
-                        key = "notif_trip_bike_detected"
-                    case .skiing:
-                        key = "notif_trip_skiing_detected"
-                    case .idle:
-                        key = "notif_trip_idle_detected"
-                    case .unknown, .moto, .truck, .bus, .flight, .onFoot, .other:
-                        return ""
+                if !transportationMode.isAlternative() {
+                    return message ?? ""
+                } else {
+                    switch transportationMode {
+                        case .train:
+                            key = "notif_trip_train_detected"
+                        case .boat:
+                            key = "notif_trip_boat_detected"
+                        case .bike:
+                            key = "notif_trip_bike_detected"
+                        case .skiing:
+                            key = "notif_trip_skiing_detected"
+                        case .idle:
+                            key = "notif_trip_idle_detected"
+                        case .car, .unknown, .truck, .moto, .bus, .flight, .onFoot, .other:
+                            return ""
+                    }
                 }
             case .tripCancelled(let reason):
                 switch reason {

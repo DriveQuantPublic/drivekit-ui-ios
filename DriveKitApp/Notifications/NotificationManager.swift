@@ -9,6 +9,7 @@
 import Foundation
 import CoreLocation
 import DriveKitCommonUI
+import DriveKitCoreModule
 import DriveKitDBTripAccessModule
 import DriveKitDriverDataUI
 import DriveKitTripAnalysisModule
@@ -16,17 +17,17 @@ import DriveKitTripAnalysisModule
 class NotificationManager: NSObject {
     private static let shared = NotificationManager()
     private static let delay = 2.0
-    private var initialized = false
 
-    private override init() {}
+    private override init() {
+        super.init()
+        DriveKit.shared.registerNotificationDelegate(self)
+        TripListenerManager.shared.addTripListener(self)
+    }
 
     static func configure() {
+        NotificationManager.shared.configure()
         requestNotificationPermission()
         configureNotifications()
-        if !shared.initialized {
-            shared.initialized = true
-            TripListenerManager.shared.addTripListener(shared)
-        }
     }
 
     static func sendNotification(_ notification: NotificationType, userInfo: [String: String]? = nil) {
@@ -88,6 +89,10 @@ class NotificationManager: NSObject {
         let center = UNUserNotificationCenter.current()
         center.setNotificationCategories([notificationCategory])
     }
+
+    private func configure() {
+
+    }
 }
 
 extension NotificationManager: UNUserNotificationCenterDelegate {
@@ -143,7 +148,7 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
     }
 
     func showTrip(with identifier: String) {
-        if let appDelegate = UIApplication.shared.delegate, let window = appDelegate.window, let rootViewController = window.rootViewController, let trip = DriveKitDBTripAccess.shared.find(itinId: identifier) {
+        if let appDelegate = UIApplication.shared.delegate, let rootViewController = appDelegate.window??.rootViewController, let trip = DriveKitDBTripAccess.shared.find(itinId: identifier) {
             let transportationMode: TransportationMode = TransportationMode(rawValue: Int(trip.transportationMode)) ?? .unknown
             let isAlternative = transportationMode.isAlternative()
             let showAdvice: Bool
@@ -166,6 +171,7 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
 
 extension NotificationManager: TripListener {
     private func sendNotification(_ notificationType: NotificationType, itinId: String? = nil) {
+        removeNotifications(before: notificationType)
         let userInfo: [String: String]?
         if let itinId = itinId {
             userInfo = ["itineraryId": itinId]
@@ -175,7 +181,26 @@ extension NotificationManager: TripListener {
         NotificationManager.sendNotification(notificationType, userInfo: userInfo)
     }
 
-    private func  sendErrorNotification(_ error: TripAnalysisError) {
+    private func removeNotifications(before notification: NotificationType) {
+        switch notification {
+            case .tripStarted:
+                // Nothing to remove.
+                break
+            case .tripEnded, .tripAnalysisError:
+                NotificationManager.removeNotifications([
+                    .tripStarted(canPostpone: DriveKitConfig.isAutoStartPostponable),
+                    .tripAnalysisError(.noNetwork)
+                ])
+            case .tripCancelled, .tripTooShort:
+                NotificationManager.removeNotification(.tripStarted(canPostpone: DriveKitConfig.isAutoStartPostponable))
+        }
+    }
+
+    private func sendCancelNotification(_ reason: TripCancellationReason) {
+        sendNotification(.tripCancelled(reason: reason))
+    }
+
+    private func sendErrorNotification(_ error: TripAnalysisError) {
         sendNotification(.tripAnalysisError(error))
     }
 
@@ -272,11 +297,11 @@ extension NotificationManager: TripListener {
     func tripCancelled(cancelTrip: CancelTrip) {
         switch cancelTrip {
             case .highspeed:
-                NotificationManager.sendNotification(.tripCancelled(reason: .highSpeed))
+                sendCancelNotification(.highSpeed)
             case .noBeacon:
-                NotificationManager.sendNotification(.tripCancelled(reason: .noBeacon))
+                sendCancelNotification(.noBeacon)
             case .noGPSData:
-                NotificationManager.sendNotification(.tripCancelled(reason: .noGpsPoint))
+                sendCancelNotification(.noGpsPoint)
             case .user, .noSpeed, .missingConfiguration, .reset, .beaconNoSpeed:
                 NotificationManager.removeNotification(.tripStarted(canPostpone: DriveKitConfig.isAutoStartPostponable))
         }

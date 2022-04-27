@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             options = "none"
         }
-        NotificationManager.configure()
+        DriveKitConfig.configureDriveKit(launchOptions: launchOptions)
         configureDriveKit(launchOptions: launchOptions)
         DriveKitUI.shared.initialize(colors: DefaultColors(), fonts: DefaultFonts(), overridedStringsFileName: "Localizable")
         DriveKitDriverAchievementUI.shared.initialize()
@@ -86,17 +86,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func configureDriveKit(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-        DriveKit.shared.initialize(delegate: DriveKitDelegateManager.shared)
-        if DriveKit.shared.isLoggingEnabled() {
-            DriveKit.shared.enableLogging()
-        }
-        DriveKitTripAnalysis.shared.initialize(tripListener: TripListenerManager.shared, appLaunchOptions: launchOptions)
-        DriveKitDriverData.shared.initialize()
-        var apiKey = "ENTER_YOUR_API_KEY_HERE"
-        apiKey.replaceApiKeyIfNeeded()
-        DriveKit.shared.setApiKey(key: apiKey)
-        DriveKitTripAnalysis.shared.setVehiclesConfigTakeover(vehiclesConfigTakeOver: false)
-        
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "DriveKit configured with API key")
         if SettingsBundleKeys.getDefaultValuePref() {
             // DriveKit default value
@@ -115,10 +104,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             DriveKitTripAnalysis.shared.activateAutoStart(enable: SettingsBundleKeys.getAutoStartPref())
         }
-
-        DriveKitTripAnalysis.shared.activateCrashDetection(true)
-        let crashFeedbackConfig = DKCrashFeedbackConfig(notification: DKCrashFeedbackNotification(title: "dk_crash_detection_feedback_notif_title".dkTripAnalysisLocalized(), message: "dk_crash_detection_feedback_notif_message".dkTripAnalysisLocalized(), crashAlert: .vibration))
-        DriveKitTripAnalysisUI.shared.enableCrashFeedback(roadsideAssistanceNumber: "000000", config: crashFeedbackConfig)
     }
 }
 

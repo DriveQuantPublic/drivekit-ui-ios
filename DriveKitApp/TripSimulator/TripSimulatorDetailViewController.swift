@@ -45,6 +45,7 @@ class TripSimulatorDetailViewController: UIViewController {
     func setupView() {
         self.title = "trip_simulator_header".keyLocalized()
         self.tripTitleLabel.text = viewModel.getTripTitle()
+        self.tripTitleLabel.font = DKStyles.headLine1.style.applyTo(font: .primary)
         self.tripDescriptionLabel.text = viewModel.getTripDescription()
         self.durationValueLabel.text = viewModel.getTotalDurationText()
         self.durationTitleLabel.text = "trip_simulator_run_duration".keyLocalized()

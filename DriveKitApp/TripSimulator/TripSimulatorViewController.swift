@@ -27,6 +27,7 @@ class TripSimulatorViewController: UIViewController {
         simulationButton.configure(text: "trip_simulator_start_button".keyLocalized(), style: .full)
         topDescriptionLabel.attributedText = viewModel.getDescriptionAttibutedText()
         selectTripLabel.text = "trip_simulator_select_trip".keyLocalized()
+        selectTripLabel.font = DKStyles.headLine1.style.applyTo(font: .primary)
         configureBackButton()
         updateSelectedItem()
     }

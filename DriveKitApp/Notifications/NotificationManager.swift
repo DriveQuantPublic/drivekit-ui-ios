@@ -30,7 +30,7 @@ class NotificationManager: NSObject {
         configureNotifications()
     }
 
-    static func sendNotification(_ notification: NotificationType, userInfo: [String: String]? = nil) {
+    static func sendNotification(_ notification: NotificationType, userInfo: [String: Any]? = nil) {
         if notification.channel.isEnabled {
             let content = UNMutableNotificationContent()
             content.title = notification.title
@@ -127,7 +127,8 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
                 break
             case NotificationCategory.TripAnalysis.end.identifier:
                 if let itineraryId = content.userInfo["itineraryId"] as? String {
-                    showTrip(with: itineraryId)
+                    let hasAdvices = content.userInfo["hasAdvices"] as? Bool ?? false
+                    showTrip(with: itineraryId, hasAdvices: hasAdvices)
                 }
             default:
                 break
@@ -140,20 +141,11 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
         completionHandler()
     }
 
-    func showTrip(with identifier: String) {
+    func showTrip(with identifier: String, hasAdvices: Bool) {
         if let appDelegate = UIApplication.shared.delegate, let rootViewController = appDelegate.window??.rootViewController, let trip = DriveKitDBTripAccess.shared.find(itinId: identifier) {
             let transportationMode: TransportationMode = TransportationMode(rawValue: Int(trip.transportationMode)) ?? .unknown
             let isAlternative = transportationMode.isAlternative()
-            let showAdvice: Bool
-            if !isAlternative {
-                if let advices = trip.tripAdvices, advices.count > 0 {
-                    showAdvice = true
-                } else {
-                    showAdvice = false
-                }
-            } else {
-                showAdvice = false
-            }
+            let showAdvice = !isAlternative && hasAdvices
             let detailVC = DriveKitDriverDataUI.shared.getTripDetailViewController(itinId: identifier, showAdvice: showAdvice, alternativeTransport: isAlternative)
             let navigationController = UINavigationController(rootViewController: detailVC)
             navigationController.configure()
@@ -165,9 +157,19 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
 extension NotificationManager: TripListener {
     private func sendNotification(_ notificationType: NotificationType, itinId: String? = nil) {
         removeNotifications(before: notificationType)
-        let userInfo: [String: String]?
+        let hasAdvices: Bool
+        switch notificationType {
+            case .tripEnded(_, _, let tripHasAdvices):
+                hasAdvices = tripHasAdvices
+            default:
+                hasAdvices = false
+        }
+        let userInfo: [String: Any]?
         if let itinId = itinId {
-            userInfo = ["itineraryId": itinId]
+            userInfo = [
+                "itineraryId": itinId,
+                "hasAdvices": hasAdvices
+            ]
         } else {
             userInfo = nil
         }
@@ -223,9 +225,11 @@ extension NotificationManager: TripListener {
             }
             let message: String?
             let partialScoredTrip: Bool
+            let hasAdvices: Bool
             if transportationMode.isAlternative() {
                 message = nil
                 partialScoredTrip = false
+                hasAdvices = false
             } else {
                 if let tripAdvicesData: [TripAdviceData] = response.tripAdvicesData {
                     let adviceString: String
@@ -236,6 +240,7 @@ extension NotificationManager: TripListener {
                     }
                     message = "\("notif_trip_finished".keyLocalized())\n\(adviceString)"
                     partialScoredTrip = false
+                    hasAdvices = !tripAdvicesData.isEmpty
                 } else {
                     var messagePart2: String? = nil
                     switch DriveKitConfig.tripData {
@@ -272,6 +277,7 @@ extension NotificationManager: TripListener {
                             }
                             partialScoredTrip = false
                     }
+                    hasAdvices = false
                     if let messagePart2 = messagePart2 {
                         message = "\("notif_trip_finished".keyLocalized())\n\(messagePart2)"
                     } else {
@@ -282,7 +288,7 @@ extension NotificationManager: TripListener {
             if partialScoredTrip {
                 sendNotification(.tripTooShort, itinId: itinId)
             } else {
-                sendNotification(.tripEnded(message: message, transportationMode: transportationMode), itinId: itinId)
+                sendNotification(.tripEnded(message: message, transportationMode: transportationMode, hasAdvices: hasAdvices), itinId: itinId)
             }
         }
     }

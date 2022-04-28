@@ -13,7 +13,7 @@ import DriveKitDriverDataUI
 
 enum NotificationType {
     case tripStarted(canPostpone: Bool)
-    case tripEnded(message: String?, transportationMode: TransportationMode)
+    case tripEnded(message: String?, transportationMode: TransportationMode, hasAdvices: Bool)
     case tripCancelled(reason: TripCancellationReason)
     case tripAnalysisError(TripAnalysisError)
     case tripTooShort
@@ -25,7 +25,7 @@ enum NotificationType {
         switch self {
             case .tripStarted:
                 identifier = "trip.started"
-            case .tripEnded(_, let transportationMode):
+            case .tripEnded(_, let transportationMode, _):
                 if transportationMode.isAlternative() && !DriveKitConfig.enableAlternativeTrips {
                     identifier = NotificationType.tripEndedError
                 } else {
@@ -56,7 +56,7 @@ enum NotificationType {
         switch self {
             case .tripStarted(let canPostpone):
                 categoryIdentifier = canPostpone ? NotificationCategory.TripAnalysis.start.identifier : nil
-            case .tripEnded(_, let transportationMode):
+            case .tripEnded(_, let transportationMode, _):
                 if transportationMode.isAlternative() {
                     if DriveKitConfig.enableAlternativeTrips {
                         categoryIdentifier = NotificationCategory.TripAnalysis.end.identifier
@@ -80,7 +80,7 @@ enum NotificationType {
         switch self {
             case .tripStarted:
                 return .tripStarted
-            case .tripEnded(_, let transportationMode):
+            case .tripEnded(_, let transportationMode, _):
                 if transportationMode.isAlternative() && DriveKitConfig.enableAlternativeTrips {
                     return .tripEnded
                 } else {
@@ -136,7 +136,7 @@ enum NotificationType {
                 } else {
                     key = "notif_trip_started"
                 }
-            case .tripEnded(let message, let transportationMode):
+            case .tripEnded(let message, let transportationMode, _):
                 if !transportationMode.isAlternative() {
                     return message ?? ""
                 } else {

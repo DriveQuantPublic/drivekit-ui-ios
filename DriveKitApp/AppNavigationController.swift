@@ -9,6 +9,7 @@
 import UIKit
 import DriveKitCoreModule
 import DriveKitPermissionsUtilsUI
+import DriveKitVehicleModule
 
 class AppNavigationController: UINavigationController {
 
@@ -21,6 +22,7 @@ class AppNavigationController: UINavigationController {
     }
 
     func setupViewController() {
+        configure()
         if DriveKit.shared.isUserConnected() {
             self.showLoader(message: "sync_trips_loading_message".keyLocalized())
             self.isNavigationBarHidden = true
@@ -42,7 +44,16 @@ class AppNavigationController: UINavigationController {
                 if let self = self {
                     DriveKitPermissionsUtilsUI.shared.showPermissionViews([.location, .activity], parentViewController: self) {
                         self.isNavigationBarHidden = false
-                        self.goToDashboard()
+                        DriveKitVehicle.shared.getVehiclesOrderByNameAsc(type: .cache) { _, vehicles in
+                            DispatchQueue.dispatchOnMainThread {
+                                if vehicles.isEmpty {
+                                    let vehiclesVC = VehiclesViewController(nibName: "VehiclesViewController", bundle: nil)
+                                    self.setViewControllers([vehiclesVC], animated: false)
+                                } else {
+                                    self.goToDashboard()
+                                }
+                            }
+                        }
                     }
                 }
             }

@@ -33,7 +33,7 @@ class UserInfoViewModel {
 
     func getTitleAttributedText() -> NSAttributedString {
         let iconString = "ⓘ".dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.secondaryColor).build()
-        let titleString = "user_info_title".keyLocalized().appending("  ").dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.mainFontColor).buildWithArgs(iconString)
+        let titleString = "user_info_title".keyLocalized().appending("  ").dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.mainFontColor).buildWithArgs(iconString)
         return titleString
     }
 
@@ -60,7 +60,7 @@ class UserInfoViewModel {
         return missingPermissionsCount > 0
     }
 
-    func shouldDisplayVehicle(completion:@escaping (Bool) -> ()) {
+    func shouldDisplayVehicle(completion: @escaping (Bool) -> ()) {
         DriveKitVehicle.shared.getVehiclesOrderByNameAsc(type: .cache) { _, vehicles in
             DispatchQueue.dispatchOnMainThread {
                 completion(vehicles.count == 0)

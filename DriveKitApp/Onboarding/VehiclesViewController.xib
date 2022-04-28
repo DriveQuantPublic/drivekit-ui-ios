@@ -28,7 +28,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ivz-BK-HuG">
-                    <rect key="frame" x="20" y="0.0" width="374" height="896"/>
+                    <rect key="frame" x="20" y="44" width="374" height="818"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mUW-3W-Qhx">
                             <rect key="frame" x="0.0" y="0.0" width="374" height="35"/>
@@ -57,11 +57,11 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jgM-X1-EYT">
-                            <rect key="frame" x="0.0" y="50" width="374" height="783"/>
+                            <rect key="frame" x="0.0" y="50" width="374" height="705"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fu3-RM-6Lg">
-                            <rect key="frame" x="0.0" y="833" width="374" height="48"/>
+                            <rect key="frame" x="0.0" y="755" width="374" height="48"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="48" id="ckV-aM-QHB"/>
                             </constraints>
@@ -71,7 +71,7 @@
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="msd-u6-8hN">
-                            <rect key="frame" x="0.0" y="881" width="374" height="15"/>
+                            <rect key="frame" x="0.0" y="803" width="374" height="15"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="15" id="slR-Tn-t9y"/>
@@ -83,8 +83,8 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="ivz-BK-HuG" secondAttribute="bottom" id="0sR-Qg-mZI"/>
-                <constraint firstItem="ivz-BK-HuG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="KT6-AY-dRy"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ivz-BK-HuG" secondAttribute="bottom" id="0sR-Qg-mZI"/>
+                <constraint firstItem="ivz-BK-HuG" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="KT6-AY-dRy"/>
                 <constraint firstItem="ivz-BK-HuG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="bp4-bx-SY6"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ivz-BK-HuG" secondAttribute="trailing" constant="20" id="ibL-WP-a2D"/>
             </constraints>

@@ -24,7 +24,7 @@ class TripSimulatorViewModel {
         .crashTrip(.confirmed20KmH),
         .crashTrip(.confirmed30KmH)
     ]
-    var selectedItemIndex: Int = 0
+    private var selectedItemIndex: Int = 0
 
     func getDescriptionAttibutedText() -> NSAttributedString {
         return "trip_simulator_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()

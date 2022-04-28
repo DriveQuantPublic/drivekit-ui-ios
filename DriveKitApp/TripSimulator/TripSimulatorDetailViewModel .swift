@@ -128,6 +128,9 @@ class TripSimulatorDetailViewModel {
               self.stoppingTimer?.invalidate()
               self.stoppingTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateNeeded), userInfo: nil, repeats: true)
           }
+            if currentDuration >= simulatedItem.getSimulationDuration() {
+                currentSpeed = nil
+            }
         } else {
             self.stoppingTimer?.invalidate()
             self.stoppingTimer = nil

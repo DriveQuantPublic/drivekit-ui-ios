@@ -83,4 +83,13 @@ enum TripSimulatorItem {
             }
         }
     }
+
+    func getSimulationDuration() -> Double {
+        switch self {
+        case .trip(let presetTrip):
+            return presetTrip.getSimulationDuration()
+        case .crashTrip(let presetCrashConfiguration):
+            return presetCrashConfiguration.getPresetTrip().getSimulationDuration()
+        }
+    }
 }

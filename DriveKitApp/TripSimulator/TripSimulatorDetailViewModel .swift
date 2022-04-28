@@ -23,7 +23,7 @@ class TripSimulatorDetailViewModel {
     private var timeWhenEnteredStoppingState: Date?
     private var stoppingTimer: Timer? = nil
     private(set) var isSimulating: Bool = true
-    private var velocityBuffer: CircularBuffer<Double> = CircularBuffer(size: 30)
+    private var currentSpeed: Double? = nil
 
     init(simulatedItem: TripSimulatorItem) {
         self.simulatedItem = simulatedItem
@@ -42,6 +42,7 @@ class TripSimulatorDetailViewModel {
 
     func startSimulation() {
         currentDuration = 0
+        currentSpeed = nil
         timeWhenEnteredStoppingState = nil
         stoppingTimer?.invalidate()
         stoppingTimer = nil
@@ -85,7 +86,7 @@ class TripSimulatorDetailViewModel {
     }
 
     func getSpeedText() -> String {
-        if let lastSpeed = velocityBuffer.last, isSimulating {
+        if let lastSpeed = currentSpeed, isSimulating {
             return lastSpeed.formatSpeedMean()
         } else {
             return "-"
@@ -148,14 +149,14 @@ extension TripSimulatorDetailViewModel: DKTripSimulatorDelegate {
     func locationSent(location: CLLocation, durationSinceStart: Double) {
         self.currentDuration = durationSinceStart + 1
         let speedKmH = location.speed * 3600 / 1000
-        self.velocityBuffer.append(speedKmH)
+        self.currentSpeed = speedKmH
 
         let state = DriveKitTripAnalysis.shared.getRecorderState()
         updateStoppingTime(state: state)
 
         DispatchQueue.dispatchOnMainThread { [weak self] in
-            if let self = self, let velocity = self.velocityBuffer.last {
-                self.delegate?.updateNeeded(updatedValue: velocity, timestamp: self.currentDuration)
+            if let self = self {
+                self.delegate?.updateNeeded(updatedValue: speedKmH, timestamp: self.currentDuration)
             }
         }
     }

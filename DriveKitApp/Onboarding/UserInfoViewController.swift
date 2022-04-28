@@ -85,19 +85,17 @@ class UserInfoViewController: UIViewController {
         if let firstName = firstNameTextField.text,
            let lastName = lastNameTextField.text,
            let pseudo = pseudoTextField.text {
-            if !firstName.isCompletelyEmpty() || !lastName.isCompletelyEmpty() || !pseudo.isCompletelyEmpty() {
                 DispatchQueue.dispatchOnMainThread {
                     self.showLoader()
                 }
                 viewModel.updateUser(firstName: firstName, lastName: lastName, pseudo: pseudo) { [weak self] success in
-                    DispatchQueue.dispatchOnMainThread {
-                        if success {
-                            self?.goToNext()
-                        } else {
-                            self?.showAlertMessage(title: nil, message: "unknown_error".keyLocalized(), back: false, cancel: false)
-                        }
-                        self?.hideLoader()
+                DispatchQueue.dispatchOnMainThread {
+                    if success {
+                        self?.goToNext()
+                    } else {
+                        self?.showAlertMessage(title: nil, message: "unknown_error".keyLocalized(), back: false, cancel: false)
                     }
+                    self?.hideLoader()
                 }
             }
         }

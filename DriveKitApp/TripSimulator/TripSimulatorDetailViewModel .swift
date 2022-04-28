@@ -19,7 +19,6 @@ protocol TripSimulatorDetailViewModelDelegate: NSObject {
 class TripSimulatorDetailViewModel {
     weak var delegate: TripSimulatorDetailViewModelDelegate?
     private var simulatedItem: TripSimulatorItem
-    private var lastSimulatedLocation: CLLocation?
     private var currentDuration: Double = 0
     private var timeWhenEnteredStoppingState: Date?
     private var stoppingTimer: Timer? = nil
@@ -42,9 +41,9 @@ class TripSimulatorDetailViewModel {
     }
 
     func startSimulation() {
-        lastSimulatedLocation = nil
         currentDuration = 0
         timeWhenEnteredStoppingState = nil
+        stoppingTimer?.invalidate()
         stoppingTimer = nil
 
         switch simulatedItem {
@@ -147,7 +146,6 @@ class TripSimulatorDetailViewModel {
 
 extension TripSimulatorDetailViewModel: DKTripSimulatorDelegate {
     func locationSent(location: CLLocation, durationSinceStart: Double) {
-        self.lastSimulatedLocation = location
         self.currentDuration = durationSinceStart + 1
         let speedKmH = location.speed * 3600 / 1000
         self.velocityBuffer.append(speedKmH)

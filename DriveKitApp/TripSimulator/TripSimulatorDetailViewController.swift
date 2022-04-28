@@ -54,7 +54,7 @@ class TripSimulatorDetailViewController: UIViewController {
         self.velocityTitleLabel.text = "trip_simulator_run_velocity".keyLocalized()
         self.autoStopTitleLabel.text = "trip_simulator_automatic_stop_in".keyLocalized()
 
-        let smallFont = DKStyle(size: DKStyles.smallText.style.size, traits: nil).applyTo(font: DKUIFonts.primary)
+        let smallFont = DKStyles.smallText.style.applyTo(font: DKUIFonts.primary)
         self.tripDescriptionLabel.font = smallFont
         self.durationTitleLabel.font = smallFont
         self.sdkStateTitleLabel.font = smallFont

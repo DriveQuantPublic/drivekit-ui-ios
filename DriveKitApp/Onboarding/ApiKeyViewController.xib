@@ -64,10 +64,10 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b2L-4Z-qaB">
-                            <rect key="frame" x="0.0" y="218.5" width="374" height="492.5"/>
+                            <rect key="frame" x="0.0" y="218.5" width="374" height="487.5"/>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1B-Rn-1fL">
-                            <rect key="frame" x="0.0" y="711" width="374" height="48"/>
+                            <rect key="frame" x="0.0" y="706" width="374" height="48"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="48" id="dj9-0Q-qmB"/>
                             </constraints>
@@ -77,9 +77,9 @@
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VKO-Fb-PFt">
-                            <rect key="frame" x="0.0" y="759" width="374" height="15"/>
+                            <rect key="frame" x="0.0" y="754" width="374" height="20"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="15" id="fpe-7x-bHl"/>
+                                <constraint firstAttribute="height" constant="20" id="fpe-7x-bHl"/>
                             </constraints>
                         </view>
                     </subviews>

@@ -57,11 +57,11 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mfY-mN-76R">
-                            <rect key="frame" x="0.0" y="50" width="374" height="749"/>
+                            <rect key="frame" x="0.0" y="50" width="374" height="744"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D4u-vL-ShX">
-                            <rect key="frame" x="0.0" y="799" width="374" height="48"/>
+                            <rect key="frame" x="0.0" y="794" width="374" height="48"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="48" id="qhk-21-Ax5"/>
                             </constraints>
@@ -71,10 +71,10 @@
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="33F-x5-HRf">
-                            <rect key="frame" x="0.0" y="847" width="374" height="15"/>
+                            <rect key="frame" x="0.0" y="842" width="374" height="20"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="15" id="juu-db-F1b"/>
+                                <constraint firstAttribute="height" constant="20" id="juu-db-F1b"/>
                             </constraints>
                         </view>
                     </subviews>

@@ -62,6 +62,13 @@ class TripSimulatorDetailViewController: UIViewController {
         self.velocityTitleLabel.font = smallFont
         self.autoStopTitleLabel.font = smallFont
 
+        let boldlFont = DKStyles.headLine2.style.applyTo(font: DKUIFonts.primary)
+        self.durationValueLabel.font = boldlFont
+        self.sdkStateValueLabel.font = boldlFont
+        self.timeValueLabel.font = boldlFont
+        self.velocityValueLabel.font = boldlFont
+        self.autoStopValueLabel.font = boldlFont
+
         let complementaryFontColor = DKUIColors.complementaryFontColor.color
         self.tripDescriptionLabel.textColor = complementaryFontColor
         self.durationTitleLabel.textColor = complementaryFontColor
@@ -117,8 +124,18 @@ class TripSimulatorDetailViewController: UIViewController {
 
     @IBAction func startStopSimulation() {
         if viewModel.isSimulating {
-            self.viewModel.stopSimulation()
-            self.navigationController?.popViewController(animated: true)
+            let alert = UIAlertController(title: nil, message: "trip_simulator_stop_simulation_content".keyLocalized(), preferredStyle: .alert)
+            let yesAction = UIAlertAction(title: "button_stop".keyLocalized(), style: .default) { [weak self] _ in
+                self?.viewModel.stopSimulation()
+                DispatchQueue.dispatchOnMainThread {
+                    self?.updateViewContent()
+                }
+            }
+            let noAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel) {  _ in
+            }
+            alert.addAction(yesAction)
+            alert.addAction(noAction)
+            self.present(alert, animated: true)
         } else {
             self.velocityGraphView.clean()
             self.viewModel.startSimulation()

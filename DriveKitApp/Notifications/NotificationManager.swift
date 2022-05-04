@@ -226,7 +226,7 @@ extension NotificationManager: TripListener {
             let message: String?
             let partialScoredTrip: Bool
             let hasAdvices: Bool
-            if transportationMode.isAlternative() {
+            if transportationMode.isAlternative() && transportationMode.isAlternativeNotificationManaged {
                 message = nil
                 partialScoredTrip = false
                 hasAdvices = false
@@ -243,7 +243,7 @@ extension NotificationManager: TripListener {
                     hasAdvices = !tripAdvicesData.isEmpty
                 } else {
                     var messagePart2: String? = nil
-                    switch DriveKitConfig.tripData {
+                    switch DriveKitDriverDataUI.shared.tripData {
                         case .safety:
                             let safetyScore = response.safety?.safetyScore ?? 11
                             partialScoredTrip = safetyScore > 10
@@ -345,5 +345,16 @@ extension NotificationManager: TripListener {
         case noBeaconDetected = 29
         case invalidBeaconDetected = 30
         case duplicateTrip = 31
+    }
+}
+
+extension TransportationMode {
+    var isAlternativeNotificationManaged: Bool {
+        switch self {
+            case .unknown, .car, .moto, .truck, .bus, .flight, .onFoot, .other:
+                return false
+            case .train, .boat, .bike, .skiing, .idle:
+                return true
+        }
     }
 }

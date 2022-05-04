@@ -266,6 +266,7 @@
 		63842D4A2816CC53007F9256 /* FeatureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63842D492816CC53007F9256 /* FeatureType.swift */; };
 		63842D4F2817D3FC007F9256 /* NotificationChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63842D4E2817D3FC007F9256 /* NotificationChannel.swift */; };
 		63842D512817FEDB007F9256 /* DriveKitConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63842D502817FEDB007F9256 /* DriveKitConfig.swift */; };
+		63852E1F2821E73800F7CE00 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63852E1E2821E73800F7CE00 /* SettingsViewModel.swift */; };
 		638AC038261F8FFB00602B52 /* SynthesisCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638AC037261F8FFB00602B52 /* SynthesisCardsView.swift */; };
 		638AC03F261F903300602B52 /* SynthesisCardsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638AC03E261F903300602B52 /* SynthesisCardsView.xib */; };
 		638AC046261F970E00602B52 /* SynthesisCardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638AC045261F970E00602B52 /* SynthesisCardsViewModel.swift */; };
@@ -318,6 +319,8 @@
 		63ECE8EB2667E0CD000F08D3 /* UserPseudoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ECE8EA2667E0CD000F08D3 /* UserPseudoViewController.swift */; };
 		63ECE8ED26682058000F08D3 /* Bundle+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ECE8EC26682058000F08D3 /* Bundle+DK.swift */; };
 		63ECE8EF26682D49000F08D3 /* UserPseudoViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ECE8EE26682D49000F08D3 /* UserPseudoViewControllerDelegate.swift */; };
+		63F2777B282128FD0051F7FA /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F2777A282128FD0051F7FA /* SettingsViewController.xib */; };
+		63F2777D28213C790051F7FA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F2777C28213C790051F7FA /* SettingsViewController.swift */; };
 		63F44E86244DDC8100C7F5CC /* GlobalStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F44E85244DDC8100C7F5CC /* GlobalStateViewModel.swift */; };
 		63F44E89244DDEE000C7F5CC /* GlobalStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F44E87244DDEE000C7F5CC /* GlobalStateView.swift */; };
 		63F44E8A244DDEE000C7F5CC /* GlobalStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F44E88244DDEE000C7F5CC /* GlobalStateView.xib */; };
@@ -545,7 +548,7 @@
 		A3B7B38E235F124F0065A332 /* DriveKitApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A3B7B38C235F124F0065A332 /* DriveKitApp.xcdatamodeld */; };
 		A3B7B390235F12510065A332 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3B7B38F235F12510065A332 /* Assets.xcassets */; };
 		A3B7B393235F12510065A332 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3B7B391235F12510065A332 /* LaunchScreen.storyboard */; };
-		A3B7B39D235F2E130065A332 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B7B39B235F2E130065A332 /* SettingsViewController.swift */; };
+		A3B7B39D235F2E130065A332 /* OldSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B7B39B235F2E130065A332 /* OldSettingsViewController.swift */; };
 		A3D51F45241BA39D006DACE2 /* DKVehicleAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D51F43241BA39D006DACE2 /* DKVehicleAction.swift */; };
 		A3D51F49241BA3A5006DACE2 /* DKVehiclesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D51F47241BA3A4006DACE2 /* DKVehiclesListViewModel.swift */; };
 		A3D51F4E241BA3AE006DACE2 /* VehiclesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D51F4A241BA3AE006DACE2 /* VehiclesListCell.swift */; };
@@ -977,6 +980,7 @@
 		63842D492816CC53007F9256 /* FeatureType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureType.swift; sourceTree = "<group>"; };
 		63842D4E2817D3FC007F9256 /* NotificationChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationChannel.swift; sourceTree = "<group>"; };
 		63842D502817FEDB007F9256 /* DriveKitConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveKitConfig.swift; sourceTree = "<group>"; };
+		63852E1E2821E73800F7CE00 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		638AC037261F8FFB00602B52 /* SynthesisCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesisCardsView.swift; sourceTree = "<group>"; };
 		638AC03E261F903300602B52 /* SynthesisCardsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SynthesisCardsView.xib; sourceTree = "<group>"; };
 		638AC045261F970E00602B52 /* SynthesisCardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesisCardsViewModel.swift; sourceTree = "<group>"; };
@@ -1030,6 +1034,8 @@
 		63ECE8EA2667E0CD000F08D3 /* UserPseudoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPseudoViewController.swift; sourceTree = "<group>"; };
 		63ECE8EC26682058000F08D3 /* Bundle+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+DK.swift"; sourceTree = "<group>"; };
 		63ECE8EE26682D49000F08D3 /* UserPseudoViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPseudoViewControllerDelegate.swift; sourceTree = "<group>"; };
+		63F2777A282128FD0051F7FA /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		63F2777C28213C790051F7FA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		63F44E85244DDC8100C7F5CC /* GlobalStateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalStateViewModel.swift; sourceTree = "<group>"; };
 		63F44E87244DDEE000C7F5CC /* GlobalStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalStateView.swift; sourceTree = "<group>"; };
 		63F44E88244DDEE000C7F5CC /* GlobalStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GlobalStateView.xib; sourceTree = "<group>"; };
@@ -1275,7 +1281,7 @@
 		A3B7B38F235F12510065A332 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3B7B392235F12510065A332 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A3B7B394235F12510065A332 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A3B7B39B235F2E130065A332 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A3B7B39B235F2E130065A332 /* OldSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldSettingsViewController.swift; sourceTree = "<group>"; };
 		A3D51F43241BA39D006DACE2 /* DKVehicleAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKVehicleAction.swift; sourceTree = "<group>"; };
 		A3D51F47241BA3A4006DACE2 /* DKVehiclesListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKVehiclesListViewModel.swift; sourceTree = "<group>"; };
 		A3D51F4A241BA3AE006DACE2 /* VehiclesListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiclesListCell.swift; sourceTree = "<group>"; };
@@ -2975,8 +2981,11 @@
 				63057419281B399800FFB782 /* NotificationSettingsViewController.swift */,
 				6305741B281B39B900FFB782 /* NotificationSettingsViewController.xib */,
 				6305741D281B3A6500FFB782 /* NotificationSettingsViewModel.swift */,
+				A3B7B39B235F2E130065A332 /* OldSettingsViewController.swift */,
 				A32665AD235F64EB00B529B0 /* SettingsBundleKey.swift */,
-				A3B7B39B235F2E130065A332 /* SettingsViewController.swift */,
+				63F2777C28213C790051F7FA /* SettingsViewController.swift */,
+				63F2777A282128FD0051F7FA /* SettingsViewController.xib */,
+				63852E1E2821E73800F7CE00 /* SettingsViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -3546,6 +3555,7 @@
 				63057427281B4A5A00FFB782 /* NotificationSettingsTextCell.xib in Resources */,
 				63570E0A2809C4150082A446 /* FeatureView.xib in Resources */,
 				6765E71A28103F3000FD13F8 /* TripSimulatorViewController.xib in Resources */,
+				63F2777B282128FD0051F7FA /* SettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4112,6 +4122,7 @@
 				63842D4A2816CC53007F9256 /* FeatureType.swift in Sources */,
 				6765E71C28103F4700FD13F8 /* TripSimulatorViewModel.swift in Sources */,
 				6765E71E28103F6000FD13F8 /* TripSimulatorItem.swift in Sources */,
+				63F2777D28213C790051F7FA /* SettingsViewController.swift in Sources */,
 				63F4C73B280E00EE006396B9 /* FeatureViewCell.swift in Sources */,
 				63057428281B4A5A00FFB782 /* NotificationSettingsTextCell.swift in Sources */,
 				A3B7B384235F124F0065A332 /* AppDelegate.swift in Sources */,
@@ -4151,6 +4162,7 @@
 				A32665AE235F64EB00B529B0 /* SettingsBundleKey.swift in Sources */,
 				63F4C735280DD8B0006396B9 /* FeaturesViewController.swift in Sources */,
 				67C055E727FF2D7200B7159D /* AppNavigationController.swift in Sources */,
+				63852E1F2821E73800F7CE00 /* SettingsViewModel.swift in Sources */,
 				6765E7292816AB5E00FD13F8 /* VelocityChartView.swift in Sources */,
 				63570E00280997790082A446 /* DashboardViewModelDelegate.swift in Sources */,
 				6780809C2800693600A93352 /* String+DK.swift in Sources */,
@@ -4162,7 +4174,7 @@
 				63BE1EDE26D0055800CFEB8B /* LastTripsViewTest.swift in Sources */,
 				63842D4F2817D3FC007F9256 /* NotificationChannel.swift in Sources */,
 				63057420281B3F6200FFB782 /* NotificationSettingsConfigurationCell.swift in Sources */,
-				A3B7B39D235F2E130065A332 /* SettingsViewController.swift in Sources */,
+				A3B7B39D235F2E130065A332 /* OldSettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

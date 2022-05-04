@@ -114,8 +114,7 @@ class DashboardViewController: UIViewController {
     }
 
     @objc private func openSettings() {
-        #warning("TODO: Open settngs view controller")
-        self.navigationController?.pushViewController(UIViewController(), animated: true)
+        self.navigationController?.pushViewController(SettingsViewController(), animated: true)
     }
 }
 

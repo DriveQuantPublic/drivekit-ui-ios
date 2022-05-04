@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import DriveKitChallengeModule
 import DriveKitCommonUI
 import DriveKitCoreModule
+import DriveKitDriverAchievementModule
 import DriveKitDriverDataModule
 import DriveKitTripAnalysisModule
 import DriveKitTripAnalysisUI
+import DriveKitVehicleModule
 
 class DriveKitConfig {
     // ===============================
@@ -31,6 +34,34 @@ class DriveKitConfig {
         //TODO
     }
 
+    static func isTripAnalysisAutoStartEnabled() -> Bool {
+        if UserDefaults.standard.object(forKey: Constants.tripAnalysisAutoStart.key) == nil {
+            return true
+        } else {
+            return UserDefaults.standard.bool(forKey: Constants.tripAnalysisAutoStart.key)
+        }
+    }
+
+    static func enableTripAnalysisAutoStart(_ enable: Bool) {
+        UserDefaults.standard.set(enable, forKey: Constants.tripAnalysisAutoStart.key)
+        DriveKitTripAnalysis.shared.activateAutoStart(enable: enable)
+    }
+
+    static func reset() {
+        let apiKey = DriveKit.shared.config.getApiKey()
+        DriveKit.shared.reset()
+        DriveKitTripAnalysis.shared.reset()
+        DriveKitDriverData.shared.reset()
+        DriveKitVehicle.shared.reset()
+        DriveKitDriverAchievement.shared.reset()
+        DriveKitChallenge.shared.reset()
+        if let apiKey = apiKey {
+            DriveKit.shared.setApiKey(key: apiKey)
+        }
+        // Clear UserDefaults.
+        UserDefaults.standard.removeObject(forKey: Constants.tripAnalysisAutoStart.key)
+    }
+
     private static func configureDriveKit() {
         DriveKit.shared.initialize(delegate: DriveKitDelegateManager.shared)
         DriveKit.shared.setApiKey(key: getApiKey())
@@ -38,7 +69,7 @@ class DriveKitConfig {
 
     private static func configureTripAnalysis(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         DriveKitTripAnalysis.shared.initialize(tripListener: TripListenerManager.shared, appLaunchOptions: launchOptions)
-        DriveKitTripAnalysis.shared.activateAutoStart(enable: true)
+        DriveKitTripAnalysis.shared.activateAutoStart(enable: isTripAnalysisAutoStartEnabled())
         #warning("TODO: Add a comment to explain why it is needed or not to call setVehiclesConfigTakeover")
         DriveKitTripAnalysis.shared.setVehiclesConfigTakeover(vehiclesConfigTakeOver: true)
 
@@ -59,5 +90,16 @@ class DriveKitConfig {
             return processInfo.environment["DriveKit-API-Key"] ?? DriveKit.shared.config.getApiKey() ?? DriveKitConfig.apiKey
         }
         return DriveKitConfig.apiKey
+    }
+
+    private enum Constants {
+        case tripAnalysisAutoStart
+
+        var key: String {
+            switch self {
+                case .tripAnalysisAutoStart:
+                    return "tripAnalysisAutoStartKey"
+            }
+        }
     }
 }

@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitDriverAchievementUI.shared.configureRankingTypes([.safety, .ecoDriving, .distraction, .speeding])
         DriveKitDriverAchievementUI.shared.configureRankingSelector(DKRankingSelectorType.period(rankingPeriods: [.weekly, .monthly, .allTime]))
         DriveKitDriverDataUI.shared.initialize()
-        DriveKitDriverDataUI.shared.enableAlternativeTrips(true)
+        DriveKitDriverDataUI.shared.enableAlternativeTrips(DriveKitConfig.enableAlternativeTrips)
         DriveKitVehicleUI.shared.initialize()
         DriveKitVehicleUI.shared.configureBeaconDetailEmail(beaconDiagnosticEmail: self)
         DriveKitVehicleUI.shared.configureBeaconDiagnosticSupportURL(url: "https://www.google.com")

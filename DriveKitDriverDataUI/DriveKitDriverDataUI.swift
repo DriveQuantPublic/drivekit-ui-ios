@@ -13,7 +13,7 @@ import DriveKitCoreModule
 import DriveKitDBTripAccessModule
 
 public class DriveKitDriverDataUI: AccessRightListener {
-    private(set) var tripData: TripData = .safety
+    public private(set) var tripData: TripData = .safety
     private(set) var sourceMapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .speeding, .interactiveMap, .synthesis]
     private(set) var mapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .speeding, .interactiveMap, .synthesis]
     private(set) var headerDay: HeaderDay = .durationDistance
@@ -21,7 +21,7 @@ public class DriveKitDriverDataUI: AccessRightListener {
     private(set) var customMapItem: DKMapItem?
     private(set) var enableDeleteTrip = true
     private(set) var enableAdviceFeedback = true
-    private(set) var enableAlternativeTrips = false
+    public private(set) var enableAlternativeTrips = false
     private(set) var enableVehicleFilter = true
     private(set) var customHeaders: DKHeader?
     private(set) var customTripInfo: DKTripInfo?

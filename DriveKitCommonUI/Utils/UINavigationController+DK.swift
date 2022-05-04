@@ -29,6 +29,7 @@ public extension UINavigationController {
             self.navigationBar.backgroundColor = DKUIColors.primaryColor.color
         }
     }
+
     func configure(from navigationController: UINavigationController) {
         self.navigationBar.isTranslucent = navigationController.navigationBar.isTranslucent
         if #available(iOS 15.0, *) {

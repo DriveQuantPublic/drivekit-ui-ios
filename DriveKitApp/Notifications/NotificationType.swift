@@ -18,34 +18,34 @@ enum NotificationType {
     case tripAnalysisError(TripAnalysisError)
     case tripTooShort
 
-    private static let tripEndedError = "trip.ended.error"
+    private static let tripEndedError = "300"
 
     var identifier: String {
         let identifier: String
         switch self {
             case .tripStarted:
-                identifier = "trip.started"
-            case .tripEnded(_, let transportationMode, _):
-                if transportationMode.isAlternative() && !DriveKitConfig.enableAlternativeTrips {
+                identifier = "100"
+            case .tripEnded(_, let transportationMode, let hasAdvices):
+                if transportationMode.isAlternative() && transportationMode.isAlternativeNotificationManaged {
                     identifier = NotificationType.tripEndedError
                 } else {
-                    identifier = "trip.ended"
+                    identifier = hasAdvices ? "201" : "200"
                 }
             case .tripCancelled:
                 identifier = NotificationType.tripEndedError
             case .tripAnalysisError(let tripAnalysisError):
                 switch tripAnalysisError {
                     case .duplicateTrip:
-                        identifier = "trip.error.duplicate"
+                        identifier = "203"
                     case .noNetwork:
-                        identifier = "trip.error.noNetwork"
+                        identifier = "205"
                     case .noApiKey:
-                        identifier = "trip.error.noApiKey"
+                        identifier = "204"
                     case .noBeacon:
                         identifier = NotificationType.tripEndedError
                 }
             case .tripTooShort:
-                identifier = "trip.tooShort"
+                identifier = "202"
         }
         return identifier
     }
@@ -58,7 +58,7 @@ enum NotificationType {
                 categoryIdentifier = canPostpone ? NotificationCategory.TripAnalysis.start.identifier : nil
             case .tripEnded(_, let transportationMode, _):
                 if transportationMode.isAlternative() {
-                    if DriveKitConfig.enableAlternativeTrips {
+                    if transportationMode.isAlternativeNotificationManaged && DriveKitDriverDataUI.shared.enableAlternativeTrips {
                         categoryIdentifier = NotificationCategory.TripAnalysis.end.identifier
                     } else {
                         categoryIdentifier = nil
@@ -81,10 +81,14 @@ enum NotificationType {
             case .tripStarted:
                 return .tripStarted
             case .tripEnded(_, let transportationMode, _):
-                if transportationMode.isAlternative() && DriveKitConfig.enableAlternativeTrips {
+                if !transportationMode.isAlternative() || !transportationMode.isAlternativeNotificationManaged {
                     return .tripEnded
                 } else {
-                    return .tripCancelled
+                    if DriveKitDriverDataUI.shared.enableAlternativeTrips {
+                        return .tripEnded
+                    } else {
+                        return .tripCancelled
+                    }
                 }
             case .tripTooShort:
                 return .tripEnded

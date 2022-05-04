@@ -20,7 +20,7 @@ struct ApiKeyViewModel {
     }
 
     func shouldDisplayErrorText() -> Bool {
-        if let apiKey = getApiKey(), !apiKey.isEmpty, !apiKey.isKeyPlaceHolder() {
+        if let apiKey = getApiKey(), !apiKey.isEmpty {
             return invalidApiKeyErrorReceived
         } else {
             return true
@@ -47,18 +47,5 @@ struct ApiKeyViewModel {
     }
     func getApiKeyErrorAttibutedText() -> NSAttributedString {
         return "welcome_ko_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
-    }
-}
-
-extension String {
-    fileprivate static let keyPlaceHolderRegEx = "[A-Z]{5}(_[A-Z]{3,4}){4}"
-    mutating func replaceApiKeyIfNeeded() {
-        if self.isKeyPlaceHolder() {
-            let processInfo = ProcessInfo.processInfo
-            self = processInfo.environment["DriveKit-API-Key"] ?? DriveKit.shared.config.getApiKey() ?? self
-        }
-    }
-    fileprivate func isKeyPlaceHolder() -> Bool {
-        return range(of: String.keyPlaceHolderRegEx, options: .regularExpression) != nil
     }
 }

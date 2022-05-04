@@ -38,8 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             options = "none"
         }
-        requestNotificationPermission()
-        TripListenerManager.shared.addTripListener(self)
+        DriveKitConfig.configureDriveKit(launchOptions: launchOptions)
         configureDriveKit(launchOptions: launchOptions)
         DriveKitUI.shared.initialize(colors: DefaultColors(), fonts: DefaultFonts(), overridedStringsFileName: "Localizable")
         DriveKitDriverAchievementUI.shared.initialize()
@@ -61,18 +60,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DriveKitTripAnalysisUI.shared.initialize()
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options : \(options)")
         return true
-    }
-    
-    private func requestNotificationPermission(){
-        let center = UNUserNotificationCenter.current()
-        let options: UNAuthorizationOptions = [.alert, .badge, .sound]
-        center.requestAuthorization(options: options) { (granted, error) in
-            if granted {
-                DispatchQueue.main.async {
-                    UIApplication.shared.registerForRemoteNotifications()
-                }
-            }
-        }
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -99,17 +86,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func configureDriveKit(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-        DriveKit.shared.initialize(delegate: DriveKitDelegateManager.shared)
-        if DriveKit.shared.isLoggingEnabled() {
-            DriveKit.shared.enableLogging()
-        }
-        DriveKitTripAnalysis.shared.initialize(tripListener: TripListenerManager.shared, appLaunchOptions: launchOptions)
-        DriveKitDriverData.shared.initialize()
-        var apiKey = "ENTER_YOUR_API_KEY_HERE"
-        apiKey.replaceApiKeyIfNeeded()
-        DriveKit.shared.setApiKey(key: apiKey)
-        DriveKitTripAnalysis.shared.setVehiclesConfigTakeover(vehiclesConfigTakeOver: false)
-        
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "DriveKit configured with API key")
         if SettingsBundleKeys.getDefaultValuePref() {
             // DriveKit default value
@@ -128,60 +104,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             DriveKitTripAnalysis.shared.activateAutoStart(enable: SettingsBundleKeys.getAutoStartPref())
         }
-
-        DriveKitTripAnalysis.shared.activateCrashDetection(true)
-        let crashFeedbackConfig = DKCrashFeedbackConfig(notification: DKCrashFeedbackNotification(title: "dk_crash_detection_feedback_notif_title".dkTripAnalysisLocalized(), message: "dk_crash_detection_feedback_notif_message".dkTripAnalysisLocalized(), crashAlert: .vibration))
-        DriveKitTripAnalysisUI.shared.enableCrashFeedback(roadsideAssistanceNumber: "000000", config: crashFeedbackConfig)
-    }
-}
-
-extension AppDelegate: TripListener {
-    func sdkStateChanged(state: State) {
-        
-    }
-    
-    func tripStarted(startMode: StartMode) {
-        NotificationSender.shared.sendNotification(message: "\("trip_started".keyLocalized()) : \(startMode.rawValue)")
-    }
-    
-    func tripPoint(tripPoint: TripPoint) {
-        print("New trip point")
-    }
-    
-    func tripFinished(post: PostGeneric, response: PostGenericResponse) {
-        if response.itineraryStatistics?.transportationMode == TransportationMode.train.rawValue {
-            NotificationSender.shared.sendNotification(message: "train_trip".keyLocalized())
-        } else {
-            NotificationSender.shared.sendNotification(message: "trip_finished".keyLocalized())
-        }
-    }
-    
-    func tripCancelled(cancelTrip: CancelTrip) {
-        NotificationSender.shared.sendNotification(message: cancelTrip.reason())
-    }
-    
-    func tripSavedForRepost() {
-        NotificationSender.shared.sendNotification(message: "trip_save_for_repost".keyLocalized())
-    }
-    
-    func beaconDetected() {
-        print("Trip Beacon Detected")
-    }
-    
-    func significantLocationChangeDetected(location: CLLocation) {
-        print("Trip Location significant change detected")
-    }
-
-    func potentialTripStart(startMode: StartMode) {
-        print("Potential Trip Start")
-    }
-
-    func crashDetected(crashInfo: DKCrashInfo) {
-        print("Crash Detected")
-    }
-    
-    func crashFeedbackSent(crashInfo: DKCrashInfo, feedbackType: DKCrashFeedbackType, severity: DKCrashFeedbackSeverity) {
-        print("Crash Feedback Sent")
     }
 }
 

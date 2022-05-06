@@ -29,9 +29,6 @@
 "drivekit_doc_ios_vehicle"="https://docs.drivequant.com/vehicle/user-interface/ios/get-started#display-vehicle-picker-in-navigation-controller";
 "drivekit_doc_ios_vehicle_list"="https://docs.drivequant.com/vehicle/user-interface/ios/get-started#display-vehicle-list-in-navigation-controller";
 "drivekit_doc_ios_working_hours"="https://docs.drivequant.com/trip-analysis/user-interface/ios/get-started#working-hours";
-"empty_firstname_error"="Geben Sie Ihren Vornamen ein";
-"empty_lastname_error"="Geben Sie Ihren Nachnamen ein";
-"empty_pseudo_error"="Geben Sie einen Benutzernamen ein";
 "feature_badges_description"="Die Komponente Driver Achievement enthält eine Funktion, mit der die Leistungen des Fahrers mit Abzeichen belohnt werden. Die Abzeichen werden auf der Grundlage der Fahrergebnisse vergeben.";
 "feature_badges_title"="Driver Achievement | Badges";
 "feature_challenges_description"="Eine Fahr-Challenge ist ein einmaliges Ereignis, bei dem Fahrer um die höchste Punktzahl im Fahren konkurrieren. Die Challenge-Komponente bietet verschiedene Themen an: Eco-Driving, Sicherheit, Ablenkung und Geschwindigkeitsbegrenzung.";
@@ -58,6 +55,7 @@
 "firstname"="Vorname";
 "forbidden_error"="Sie haben nicht die nötigen Rechte";
 "lastname"="Nachname";
+"logout_confirmation"="Möchten Sie die Verbindung wirklich trennen?";
 "network_ko_error"="Mobile Daten sind nicht aktiviert";
 "notif_trip_analysis_continue"="Analyse fortsetzen";
 "notif_trip_analysis_not_driving"="Ich fahre nicht";
@@ -104,6 +102,9 @@
 "parameters_auto_start_disabled"="Der Automatikbetrieb befindet sich im Standby-Modus. Aktivieren Sie diese Funktion, wenn Sie möchten, dass die Anwendung Ihre Routen automatisch erkennt und analysiert.";
 "parameters_auto_start_enabled"="Der Automatikbetrieb ist aktiviert. In dieser Konfiguration analysiert die Anwendung Ihre Routen ohne manuelles Eingreifen, auch wenn sie sich im Hintergrund befindet.";
 "parameters_auto_start_title"="Automatisches Starten";
+"parameters_enter_firstname"="Geben Sie Ihren Vornamen ein";
+"parameters_enter_lastname"="Geben Sie Ihren Nachnamen ein";
+"parameters_enter_pseudo"="Geben Sie Ihr Pseudo";
 "parameters_header"="Einstellungen";
 "parameters_notification_description"="Hier erfahren Sie, wie Sie die Benachrichtigungen konfigurieren können, die das DriveKit SDK während und nach der Analyse einer Fahrt sendet.";
 "parameters_notification_title"="Verwaltung von Benachrichtigungen";
@@ -157,7 +158,8 @@ Um Ihnen bei der Implementierung eines.\n\nTBerechtigungspfads zu helfen, haben 
 "trip_simulator_short_trip_title"="Kurze Fahrt (weniger als 2 km)";
 "trip_simulator_start_button"="DIE SIMULATION STARTEN";
 "trip_simulator_stop_button"="DIE SIMULATION ABBRECHEN";
-"trip_simulator_stop_simulation_content"="Simulation stoppen? \n\nDadurch wird die aktuelle Fahrt gestoppt.";
+"trip_simulator_stop_simulation_alert_content"="Dadurch wird die aktuelle Fahrt gestoppt.";
+"trip_simulator_stop_simulation_alert_title"="Simulation stoppen?";
 "trip_simulator_suburban_description"="Dieses Beispiel simuliert eine überwiegend außerstädtische Fahrt mit einer Dauer von 30 Minuten. Die Durchschnittsgeschwindigkeit beträgt 62 km/h.";
 "trip_simulator_suburban_title"="Außerstädtische Fahrt (30 km)";
 "trip_simulator_train_description"="Diese Fahrt entspricht einer Fahrt mit dem Zug. Sie kann verwendet werden, um die Erkennung von alternativen Verkehrsmitteln zu testen.";

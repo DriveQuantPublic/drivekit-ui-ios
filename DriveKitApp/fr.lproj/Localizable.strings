@@ -29,9 +29,6 @@
 "drivekit_doc_ios_vehicle"="https://docs.drivequant.com/vehicle/user-interface/ios/get-started#display-vehicle-picker-in-navigation-controller";
 "drivekit_doc_ios_vehicle_list"="https://docs.drivequant.com/vehicle/user-interface/ios/get-started#display-vehicle-list-in-navigation-controller";
 "drivekit_doc_ios_working_hours"="https://docs.drivequant.com/trip-analysis/user-interface/ios/get-started#working-hours";
-"empty_firstname_error"="Veuillez renseigner votre prénom";
-"empty_lastname_error"="Veuillez renseigner votre nom";
-"empty_pseudo_error"="Veuillez renseigner un pseudo";
 "feature_badges_description"="Le composant Driver Achievement contient une fonction pour récompenser les accomplissements du conducteur avec des badges. Les badges sont attribué en fonction des scores de conduite.";
 "feature_badges_title"="Driver Achievement | Badges";
 "feature_challenges_description"="Le challenge de conduite est un événement ponctuel pendant lequel des conducteurs concourent pour obtenir le meilleur score de conduite. Le composant Challenge propose plusieurs thèmes : éco-conduite, sécurité, distraction et limitation de vitesse.";
@@ -58,6 +55,7 @@
 "firstname"="Prénom";
 "forbidden_error"="Vous n\'avez pas les droits nécessaires";
 "lastname"="Nom";
+"logout_confirmation"="Etes-vous sûr de vouloir vous déconnecter ?";
 "network_ko_error"="Les données mobiles ne sont pas activées";
 "notif_trip_analysis_continue"="Continuer l\'analyse";
 "notif_trip_analysis_not_driving"="Je ne conduis pas";
@@ -104,6 +102,9 @@
 "parameters_auto_start_disabled"="Le mode automatique est en veille. Activez cette fonction si vous souhaitez que l\'application détecte et analyse vos trajets automatiquement.";
 "parameters_auto_start_enabled"="Le mode automatique est activé. Dans cette configuration, l\'application analyse vos trajets sans intervention manuelle même si elle est en arrière-plan.";
 "parameters_auto_start_title"="Démarrage automatique";
+"parameters_enter_firstname"="Entrez votre prénom";
+"parameters_enter_lastname"="Entrez votre nom";
+"parameters_enter_pseudo"="Entrez votre pseudo";
 "parameters_header"="Paramètres";
 "parameters_notification_description"="Découvrez comment configurer les notifications qui sont envoyées par le SDK DriveKit pendant et après l\’analyse d\'un trajet.";
 "parameters_notification_title"="Gestion des notifications";
@@ -132,11 +133,11 @@
 "trip_simulator_city_title"="Trajet en ville (8 km)";
 "trip_simulator_crash_0_description"="Cet exemple est un trajet court avec une collision que l\'algorithme de détection ne confirme pas.";
 "trip_simulator_crash_0_title"="Accident non confirmé";
-"trip_simulator_crash_10_description"="Cet exemple est un trajet court avec un accident confirmé à un vitesse de 10 km/h.";
+"trip_simulator_crash_10_description"="Cet exemple est un trajet court avec un accident confirmé à une vitesse de 10 km/h.";
 "trip_simulator_crash_10_title"="Accident confirmé à 10 km/h";
-"trip_simulator_crash_20_description"="Cet exemple est un trajet court avec un accident confirmé à un vitesse de 20 km/h.";
+"trip_simulator_crash_20_description"="Cet exemple est un trajet court avec un accident confirmé à une vitesse de 20 km/h.";
 "trip_simulator_crash_20_title"="Accident confirmé à 20 km/h";
-"trip_simulator_crash_30_description"="Cet exemple est un trajet court avec un accident confirmé à un vitesse de 30 km/h.";
+"trip_simulator_crash_30_description"="Cet exemple est un trajet court avec un accident confirmé à une vitesse de 30 km/h.";
 "trip_simulator_crash_30_title"="Accident confirmé à 30 km/h";
 "trip_simulator_description"="Le simulateur a pour objectif de vous aider à reproduire un trajet et à comprendre le cycle de vie du composant Trip Analysis de DriveKit. Nous vous conseillons de l\'utiliser après l\'intégration du SDK. Il reproduit des données GPS réelles pour plusieurs types de trajets.\n\nC\'est un outil de test, il ne faut pas l\'embarquer dans une application de production.\n\nNous vous recommandons également de toujours tester votre application en condition réelles avant de la publier.";
 "trip_simulator_error_dev_mode"="Vous devez activer le mode développeur pour accéder à l\'option permettant de sélectionner une application fictive et permettre le bon fonctionnement de l\'application. Pour cela, suivez la documentation officielle.";
@@ -155,8 +156,9 @@
 "trip_simulator_short_trip_description"="Cet exemple simule un trajet trop court pour permettre l\'évaluation du comportement du conducteur. Il vous permet de visualiser le type d\'affichage qui convient de présenter dans ce cas là.";
 "trip_simulator_short_trip_title"="Trajet court (moins de 2 km)";
 "trip_simulator_start_button"="LANCER LA SIMULATION";
-"trip_simulator_stop_button"="STOPPER LA SIMULATION";
-"trip_simulator_stop_simulation_content"="Arrêter la simulation ?\n\nCela stoppera le trajet en cours.";
+"trip_simulator_stop_button"="ARRÊTER LA SIMULATION";
+"trip_simulator_stop_simulation_alert_content"="Cela stoppera le trajet en cours.";
+"trip_simulator_stop_simulation_alert_title"="Arrêter la simulation ?";
 "trip_simulator_suburban_description"="Cet exemple simule un trajet majoritairement extra urbain et d\'une durée de 30 minutes. La vitesse moyenne est de 62 km/h.";
 "trip_simulator_suburban_title"="Trajet extra-urbain (30 km)";
 "trip_simulator_train_description"="Ce trajet correspond à un déplacement en train. Il peut être utilisé pour tester la détection des modes de transport alternatifs.";

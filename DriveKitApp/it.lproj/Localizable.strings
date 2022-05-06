@@ -29,9 +29,6 @@
 "drivekit_doc_ios_vehicle"="https://docs.drivequant.com/vehicle/user-interface/ios/get-started#display-vehicle-picker-in-navigation-controller";
 "drivekit_doc_ios_vehicle_list"="https://docs.drivequant.com/vehicle/user-interface/ios/get-started#display-vehicle-list-in-navigation-controller";
 "drivekit_doc_ios_working_hours"="https://docs.drivequant.com/trip-analysis/user-interface/ios/get-started#working-hours";
-"empty_firstname_error"="Inserisci il tuo cognome";
-"empty_lastname_error"="Inserisci il tuo nome";
-"empty_pseudo_error"="Scrivi un nickname";
 "feature_badges_description"="Il componente Driver Achievement contiene una funzione per premiare i risultati del pilota con dei badge. I distintivi vengono assegnati in base ai punteggi di guida.";
 "feature_badges_title"="Driver Achievement | Badges";
 "feature_challenges_description"="La sfida di guida è un evento unico in cui i piloti competono per ottenere il miglior punteggio di guida. La componente Challenge offre diversi temi: eco-guida, sicurezza, distrazione e limite di velocità.";
@@ -58,6 +55,7 @@
 "firstname"="Nome";
 "forbidden_error"="Non hai i diritti necessari";
 "lastname"="Cognome";
+"logout_confirmation"="Sei sicuro di voler disconnettere?";
 "network_ko_error"="I dati mobili non sono attivati";
 "notif_trip_analysis_continue"="Continua analisi";
 "notif_trip_analysis_not_driving"="Io non guido";
@@ -104,6 +102,9 @@
 "parameters_auto_start_disabled"="La modalità automatica è in standby. Attivare questa funzione se si desidera che l\'applicazione rilevi e analizzi automaticamente le rotte.";
 "parameters_auto_start_enabled"="Il modo automatico è attivato. In questa configurazione, l\'applicazione analizza i percorsi senza intervento manuale anche se in background.";
 "parameters_auto_start_title"="Inizio automatico";
+"parameters_enter_firstname"="Inserisci il tuo nome";
+"parameters_enter_lastname"="Inserisci il tuo cognome";
+"parameters_enter_pseudo"="Inserisci il tuo pseudo";
 "parameters_header"="Parametri";
 "parameters_notification_description"="Scopri come configurare le notifiche che vengono inviate dal DriveKit SDK durante e dopo l\'analisi di un viaggio.";
 "parameters_notification_title"="Gestione delle notifiche";
@@ -156,7 +157,8 @@
 "trip_simulator_short_trip_title"="Viaggio breve (meno di 2 km)";
 "trip_simulator_start_button"="AVVIARE LA SIMULAZIONE";
 "trip_simulator_stop_button"="FERMARE LA SIMULAZIONE";
-"trip_simulator_stop_simulation_content"="Fermare la simulazione? \n\nQuesto fermerà il viaggio in corso.";
+"trip_simulator_stop_simulation_alert_content"="Questo fermerà il viaggio in corso.";
+"trip_simulator_stop_simulation_alert_title"="Fermare la simulazione?";
 "trip_simulator_suburban_description"="Questo esempio simula un viaggio prevalentemente extraurbano di 30 minuti. La velocità media è di 62 km/h.";
 "trip_simulator_suburban_title"="Percorso extraurbano (30 km)";
 "trip_simulator_train_description"="Questo percorso corrisponde a un viaggio in treno. Può essere usato per testare il rilevamento di modi di trasporto alternativi.";

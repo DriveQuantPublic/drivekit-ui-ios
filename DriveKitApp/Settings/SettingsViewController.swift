@@ -89,7 +89,7 @@ class SettingsViewController: UIViewController {
         configureUserAccountValue(self.userAccount_firstnameValue, value: self.viewModel.getUserFirstname())
         configureUserAccountValue(self.userAccount_lastnameValue, value: self.viewModel.getUserLastname())
         configureUserAccountValue(self.userAccount_pseudoValue, value: self.viewModel.getUserPseudo())
-        configureDescription(self.autoStartDescription, key: self.viewModel.getAutoStartDescriptionKey())
+        configureDescription(self.autoStartDescription, key: self.viewModel.getAutoStartDescriptionKey(), warning: !self.viewModel.isTripAnalysisAutoStartEnabled())
     }
 
     private func configureIcon(_ icon: UIImageView) {
@@ -102,8 +102,8 @@ class SettingsViewController: UIViewController {
         titleLabel.text = key.keyLocalized()
     }
 
-    private func configureDescription(_ descriptionLabel: UILabel, key: String) {
-        descriptionLabel.textColor = DKUIColors.complementaryFontColor.color
+    private func configureDescription(_ descriptionLabel: UILabel, key: String, warning: Bool = false) {
+        descriptionLabel.textColor = warning ? DKUIColors.warningColor.color : DKUIColors.complementaryFontColor.color
         descriptionLabel.font = DKStyles.smallText.style.applyTo(font: .primary)
         descriptionLabel.text = key.keyLocalized()
     }

@@ -120,6 +120,11 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
         }
     }
 
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // Used to display notifications while the app is in foreground.
+        completionHandler(.alert)
+    }
+
     private func userDidTapNotification(content: UNNotificationContent, completionHandler: @escaping () -> Void) {
         let categoryIdentifier = content.categoryIdentifier
         switch categoryIdentifier {

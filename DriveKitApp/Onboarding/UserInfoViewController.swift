@@ -63,11 +63,7 @@ class UserInfoViewController: UIViewController {
     }
 
     @objc private func onBack(sender: UIBarButtonItem) {
-        guard let apiKey = DriveKit.shared.config.getApiKey() else {
-            return
-        }
-        DriveKit.shared.reset()
-        DriveKit.shared.setApiKey(key: apiKey)
+        DriveKitConfig.reset()
         self.navigationController?.popViewController(animated: true)
     }
 

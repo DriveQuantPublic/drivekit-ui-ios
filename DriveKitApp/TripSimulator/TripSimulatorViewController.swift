@@ -42,6 +42,7 @@ class TripSimulatorViewController: UIViewController {
 
     func updateSelectedItem() {
         tripDescriptionLabel.attributedText = viewModel.getTripDescriptionAttibutedText()
+        tripTitleLabel.font = DKStyle(size: DKStyles.smallText.style.size, traits: .traitBold).applyTo(font: .primary)
         tripTitleLabel.text = viewModel.getTripTitleText()
     }
 

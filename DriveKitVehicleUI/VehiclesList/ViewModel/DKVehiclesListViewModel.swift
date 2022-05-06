@@ -221,19 +221,7 @@ public class DKVehiclesListViewModel {
     }
     
     func computeDetectionMode() -> DKDetectionMode {
-        let detectionModes = DriveKitVehicleUI.shared.detectionModes
-        if detectionModes.isEmpty {
-            return .disabled
-        } else if detectionModes.contains(.gps) {
-            let vehiclesGPS = vehicles.filter { $0.detectionMode ?? .disabled == DKDetectionMode.gps }
-            if vehiclesGPS.isEmpty {
-                return .gps
-            } else {
-                return detectionModes[0]
-            }
-        } else {
-            return detectionModes[0]
-        }
+        return DriveKitVehicleUtils.getBestDetectionModeForNewVehicle(vehicleList: self.vehicles)
     }
     
     func gpsVehicle() -> DKVehicle? {

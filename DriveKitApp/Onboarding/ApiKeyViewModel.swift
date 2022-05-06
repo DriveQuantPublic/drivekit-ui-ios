@@ -11,9 +11,8 @@ import DriveKitCoreModule
 import DriveKitCommonUI
 
 struct ApiKeyViewModel {
+    private let invalidApiKeyErrorReceived: Bool
     private let darkColor = UIColor(hex: 0x193851)
-
-    var invalidApiKeyErrorReceived: Bool
 
     init(invalidApiKeyErrorReceived: Bool = false) {
         self.invalidApiKeyErrorReceived = invalidApiKeyErrorReceived

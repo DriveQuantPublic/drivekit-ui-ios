@@ -107,16 +107,9 @@ class TripSimulatorDetailViewController: UIViewController {
 
     @objc private func onBack(sender: UIBarButtonItem) {
         if viewModel.isSimulating {
-            let alert = UIAlertController(title: nil, message: "trip_simulator_stop_simulation_content".keyLocalized(), preferredStyle: .alert)
-            let yesAction = UIAlertAction(title: "button_stop".keyLocalized(), style: .default) { [weak self] _ in
-                self?.viewModel.stopSimulation()
-                self?.navigationController?.popViewController(animated: true)
+            stopSimulator {
+                self.navigationController?.popViewController(animated: true)
             }
-            let noAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel) {  _ in
-            }
-            alert.addAction(yesAction)
-            alert.addAction(noAction)
-            self.present(alert, animated: true)
         } else {
             self.navigationController?.popViewController(animated: true)
         }
@@ -124,23 +117,26 @@ class TripSimulatorDetailViewController: UIViewController {
 
     @IBAction func startStopSimulation() {
         if viewModel.isSimulating {
-            let alert = UIAlertController(title: nil, message: "trip_simulator_stop_simulation_content".keyLocalized(), preferredStyle: .alert)
-            let yesAction = UIAlertAction(title: "button_stop".keyLocalized(), style: .default) { [weak self] _ in
-                self?.viewModel.stopSimulation()
-                DispatchQueue.dispatchOnMainThread {
-                    self?.updateViewContent()
-                }
+            stopSimulator {
+                self.updateViewContent()
             }
-            let noAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel) {  _ in
-            }
-            alert.addAction(yesAction)
-            alert.addAction(noAction)
-            self.present(alert, animated: true)
         } else {
             self.velocityGraphView.clean()
             self.viewModel.startSimulation()
         }
         updateViewContent()
+    }
+
+    private func stopSimulator(stopCompletion: @escaping () -> ()) {
+        let alert = UIAlertController(title: "trip_simulator_stop_simulation_alert_title".keyLocalized(), message: "trip_simulator_stop_simulation_alert_content".keyLocalized(), preferredStyle: .alert)
+        let stopAction = UIAlertAction(title: "button_stop".keyLocalized(), style: .default) { [weak self] _ in
+            self?.viewModel.stopSimulation()
+            stopCompletion()
+        }
+        let cancelAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel)
+        alert.addAction(stopAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true)
     }
 }
 

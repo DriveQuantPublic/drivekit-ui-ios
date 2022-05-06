@@ -132,12 +132,7 @@ class SettingsViewController: UIViewController {
                 if self.viewModel.getUserFirstname(orPlaceholder: false) != newFirstname {
                     self.showLoader()
                     self.viewModel.updateUserFirstname(newFirstname) { [weak self] success in
-                        DispatchQueue.dispatchOnMainThread {
-                            if let self = self {
-                                self.updateUI()
-                                self.hideLoader()
-                            }
-                        }
+                        self?.userInfoDidEdit(success: success)
                     }
                 }
             }
@@ -150,12 +145,7 @@ class SettingsViewController: UIViewController {
                 if self.viewModel.getUserLastname(orPlaceholder: false) != newLastname {
                     self.showLoader()
                     self.viewModel.updateUserLastname(newLastname) { [weak self] success in
-                        DispatchQueue.dispatchOnMainThread {
-                            if let self = self {
-                                self.updateUI()
-                                self.hideLoader()
-                            }
-                        }
+                        self?.userInfoDidEdit(success: success)
                     }
                 }
             }
@@ -168,14 +158,20 @@ class SettingsViewController: UIViewController {
                 if self.viewModel.getUserPseudo(orPlaceholder: false) != newPseudo {
                     self.showLoader()
                     self.viewModel.updateUserPseudo(newPseudo) { [weak self] success in
-                        DispatchQueue.dispatchOnMainThread {
-                            if let self = self {
-                                self.updateUI()
-                                self.hideLoader()
-                            }
-                        }
+                        self?.userInfoDidEdit(success: success)
                     }
                 }
+            }
+        }
+    }
+
+    private func userInfoDidEdit(success: Bool) {
+        DispatchQueue.dispatchOnMainThread {
+            self.hideLoader()
+            if success {
+                self.updateUI()
+            } else {
+                self.showAlertMessage(title: "client_error".keyLocalized(), message: nil, back: false, cancel: false)
             }
         }
     }

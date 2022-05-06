@@ -86,9 +86,9 @@ class SettingsViewController: UIViewController {
     }
 
     private func updateUI() {
-        configureUserAccountValue(self.userAccount_firstnameValue, value: self.viewModel.getUserFirstname())
-        configureUserAccountValue(self.userAccount_lastnameValue, value: self.viewModel.getUserLastname())
-        configureUserAccountValue(self.userAccount_pseudoValue, value: self.viewModel.getUserPseudo())
+        configureUserAccountValue(self.userAccount_firstnameValue, value: self.viewModel.getUserFirstname(), placeholder: "parameters_enter_firstname".keyLocalized())
+        configureUserAccountValue(self.userAccount_lastnameValue, value: self.viewModel.getUserLastname(), placeholder: "parameters_enter_lastname".keyLocalized())
+        configureUserAccountValue(self.userAccount_pseudoValue, value: self.viewModel.getUserPseudo(), placeholder: "parameters_enter_pseudo".keyLocalized())
         configureDescription(self.autoStartDescription, key: self.viewModel.getAutoStartDescriptionKey(), warning: !self.viewModel.isTripAnalysisAutoStartEnabled())
     }
 
@@ -114,9 +114,21 @@ class SettingsViewController: UIViewController {
         label.text = key.keyLocalized()
     }
 
-    private func configureUserAccountValue(_ button: UIButton, value: String, enabled: Bool = true) {
-        let color: DKUIColors = enabled ? .secondaryColor : .complementaryFontColor
-        button.setAttributedTitle(value.dkAttributedString().font(dkFont: .primary, style: .smallText).color(color).build(), for: .normal)
+    private func configureUserAccountValue(_ button: UIButton, value: String?, placeholder: String? = nil, enabled: Bool = true) {
+        let color: DKUIColors
+        let emptyValue = value?.isCompletelyEmpty() ?? true
+        if !emptyValue {
+            color = enabled ? .secondaryColor : .complementaryFontColor
+        } else {
+            color = .warningColor
+        }
+        let displayValue: String
+        if let value = value, !emptyValue {
+            displayValue = value
+        } else {
+            displayValue = placeholder ?? "-"
+        }
+        button.setAttributedTitle(displayValue.dkAttributedString().font(dkFont: .primary, style: .smallText).color(color).build(), for: .normal)
         button.isEnabled = enabled
     }
 
@@ -127,9 +139,9 @@ class SettingsViewController: UIViewController {
     }
 
     @IBAction private func editFirstname() {
-        showEditAlert(title: "firstname".keyLocalized(), currentValue: self.viewModel.getUserFirstname(orPlaceholder: false)) { [weak self] newFirstname in
+        showEditAlert(title: "parameters_enter_firstname".keyLocalized(), currentValue: self.viewModel.getUserFirstname()) { [weak self] newFirstname in
             if let self = self {
-                if self.viewModel.getUserFirstname(orPlaceholder: false) != newFirstname {
+                if self.viewModel.getUserFirstname() != newFirstname {
                     self.showLoader()
                     self.viewModel.updateUserFirstname(newFirstname) { [weak self] success in
                         self?.userInfoDidEdit(success: success)
@@ -140,9 +152,9 @@ class SettingsViewController: UIViewController {
     }
 
     @IBAction private func editLastname() {
-        showEditAlert(title: "lastname".keyLocalized(), currentValue: self.viewModel.getUserLastname(orPlaceholder: false)) { [weak self] newLastname in
+        showEditAlert(title: "parameters_enter_lastname".keyLocalized(), currentValue: self.viewModel.getUserLastname()) { [weak self] newLastname in
             if let self = self {
-                if self.viewModel.getUserLastname(orPlaceholder: false) != newLastname {
+                if self.viewModel.getUserLastname() != newLastname {
                     self.showLoader()
                     self.viewModel.updateUserLastname(newLastname) { [weak self] success in
                         self?.userInfoDidEdit(success: success)
@@ -153,9 +165,9 @@ class SettingsViewController: UIViewController {
     }
 
     @IBAction private func editPseudo() {
-        showEditAlert(title: "pseudo".keyLocalized(), currentValue: self.viewModel.getUserPseudo(orPlaceholder: false)) { [weak self] newPseudo in
+        showEditAlert(title: "parameters_enter_pseudo".keyLocalized(), currentValue: self.viewModel.getUserPseudo()) { [weak self] newPseudo in
             if let self = self {
-                if self.viewModel.getUserPseudo(orPlaceholder: false) != newPseudo {
+                if self.viewModel.getUserPseudo() != newPseudo {
                     self.showLoader()
                     self.viewModel.updateUserPseudo(newPseudo) { [weak self] success in
                         self?.userInfoDidEdit(success: success)
@@ -176,7 +188,7 @@ class SettingsViewController: UIViewController {
         }
     }
 
-    private func showEditAlert(title: String, currentValue: String, completion: @escaping (String) -> ()) {
+    private func showEditAlert(title: String, currentValue: String?, completion: @escaping (String) -> ()) {
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         alert.addTextField { textField in
             textField.keyboardType = UIKeyboardType.default

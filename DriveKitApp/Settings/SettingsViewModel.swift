@@ -21,14 +21,8 @@ class SettingsViewModel {
         return DriveKit.shared.config.getUserId() ?? ""
     }
 
-    func getUserFirstname(orPlaceholder allowPlaceholder: Bool = true) -> String {
-        if let firstname = self.userInfo?.firstname, !firstname.isCompletelyEmpty() {
-            return firstname
-        } else if allowPlaceholder {
-            return "parameters_enter_firstname".keyLocalized()
-        } else {
-            return ""
-        }
+    func getUserFirstname() -> String? {
+        return self.userInfo?.firstname
     }
 
     func updateUserFirstname(_ firstname: String, completion: @escaping (Bool) -> ()) {
@@ -38,14 +32,8 @@ class SettingsViewModel {
         }
     }
 
-    func getUserLastname(orPlaceholder allowPlaceholder: Bool = true) -> String {
-        if let lastname = self.userInfo?.lastname, !lastname.isCompletelyEmpty() {
-            return lastname
-        } else if allowPlaceholder {
-            return "parameters_enter_lastname".keyLocalized()
-        } else {
-            return ""
-        }
+    func getUserLastname() -> String? {
+        return self.userInfo?.lastname
     }
 
     func updateUserLastname(_ lastname: String, completion: @escaping (Bool) -> ()) {
@@ -55,14 +43,8 @@ class SettingsViewModel {
         }
     }
 
-    func getUserPseudo(orPlaceholder allowPlaceholder: Bool = true) -> String {
-        if let pseudo = self.userInfo?.pseudo, !pseudo.isCompletelyEmpty() {
-            return pseudo
-        } else if allowPlaceholder {
-            return "parameters_enter_pseudo".keyLocalized()
-        } else {
-            return ""
-        }
+    func getUserPseudo() -> String? {
+        return self.userInfo?.pseudo
     }
 
     func updateUserPseudo(_ pseudo: String, completion: @escaping (Bool) -> ()) {

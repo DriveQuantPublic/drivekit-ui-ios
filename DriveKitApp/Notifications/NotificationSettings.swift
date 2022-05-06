@@ -11,15 +11,19 @@ import DriveKitCoreModule
 
 class NotificationSettings {
     static func enableChannel(_ channel: NotificationChannel) {
-        DriveKitCoreUserDefaults.setPrimitiveType(key: channel.key, value: true)
+        UserDefaults.standard.set(true, forKey: channel.key)
     }
 
     static func disableChannel(_ channel: NotificationChannel) {
-        DriveKitCoreUserDefaults.setPrimitiveType(key: channel.key, value: false)
+        UserDefaults.standard.set(false, forKey: channel.key)
     }
 
     static func isChannelEnabled(_ channel: NotificationChannel) -> Bool {
-        DriveKitCoreUserDefaults.getPrimitiveType(key: channel.key) ?? true
+        if UserDefaults.standard.object(forKey: channel.key) != nil {
+            return UserDefaults.standard.bool(forKey: channel.key)
+        } else {
+            return true
+        }
     }
 }
 

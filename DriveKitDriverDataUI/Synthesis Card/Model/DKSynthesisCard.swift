@@ -164,7 +164,7 @@ public enum SynthesisCard: DKSynthesisCard {
 
 }
 
-private struct GaugeConfiguration : DKGaugeConfiguration {
+private struct GaugeConfiguration: DKGaugeConfiguration {
     let trips: [Trip]
     let scoreType: ScoreType
     let value: Double

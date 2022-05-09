@@ -27,25 +27,25 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CFE-AG-lEd">
                     <rect key="frame" x="0.0" y="44" width="414" height="682"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="7X0-8I-mgV">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="471"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7X0-8I-mgV">
+                            <rect key="frame" x="8" y="6" width="398" height="487"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTW-BE-ahw" userLabel="SynthesisCardViewContainer">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="221"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="398" height="221"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="221" id="H3p-HG-2aA"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rzu-AD-EMr" userLabel="LastTripsViewContainer">
-                                    <rect key="frame" x="0.0" y="223" width="414" height="126"/>
+                                    <rect key="frame" x="0.0" y="231" width="398" height="126"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="126" id="usO-KX-qfR"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaH-AM-F6U" userLabel="FeatureListContainer">
-                                    <rect key="frame" x="0.0" y="351" width="414" height="120"/>
+                                    <rect key="frame" x="0.0" y="367" width="398" height="120"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" priority="750" constant="120" id="luv-Rf-dNB"/>
@@ -58,7 +58,7 @@
                         <constraint firstAttribute="bottom" secondItem="7X0-8I-mgV" secondAttribute="bottom" constant="12" id="2Ad-Qc-uOl"/>
                         <constraint firstItem="7X0-8I-mgV" firstAttribute="centerX" secondItem="CFE-AG-lEd" secondAttribute="centerX" id="FCn-Ys-oFk"/>
                         <constraint firstAttribute="trailing" secondItem="7X0-8I-mgV" secondAttribute="trailing" id="Q3N-Ff-e76"/>
-                        <constraint firstItem="7X0-8I-mgV" firstAttribute="top" secondItem="CFE-AG-lEd" secondAttribute="top" id="vYl-tZ-RBJ"/>
+                        <constraint firstItem="7X0-8I-mgV" firstAttribute="top" secondItem="CFE-AG-lEd" secondAttribute="top" constant="6" id="vYl-tZ-RBJ"/>
                     </constraints>
                 </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sa9-0X-mON" userLabel="StartStopTripButton">
@@ -88,7 +88,7 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="CFE-AG-lEd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="1ly-Zo-z7C"/>
-                <constraint firstItem="7X0-8I-mgV" firstAttribute="width" secondItem="vUN-kp-3ea" secondAttribute="width" id="7bh-g1-gct"/>
+                <constraint firstItem="7X0-8I-mgV" firstAttribute="width" secondItem="vUN-kp-3ea" secondAttribute="width" constant="-16" id="7bh-g1-gct"/>
                 <constraint firstItem="Tfa-kl-Cbd" firstAttribute="top" secondItem="sa9-0X-mON" secondAttribute="bottom" constant="20" id="87E-dk-JPf"/>
                 <constraint firstItem="Tfa-kl-Cbd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="8Ui-4m-9fc"/>
                 <constraint firstItem="sa9-0X-mON" firstAttribute="leading" secondItem="Tfa-kl-Cbd" secondAttribute="leading" id="FnY-K7-Amj"/>

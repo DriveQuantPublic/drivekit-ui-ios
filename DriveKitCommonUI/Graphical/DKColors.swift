@@ -31,13 +31,13 @@ open class DKDefaultColors : DKColors {
         return UIColor(hex:0x0B4D6E)
     }
     open func secondaryColor() -> UIColor {
-        return UIColor(hex: 0x00EBB8)
+        return UIColor(hex: 0x77E2B0)
     }
     open func mainFontColor() -> UIColor {
         return UIColor(hex: 0x161616)
     }
     open func complementaryFontColor() -> UIColor {
-        return UIColor(hex: 0x555555)
+        return UIColor(hex: 0x9e9e9e)
     }
     open func fontColorOnPrimaryColor() -> UIColor {
         return UIColor.white

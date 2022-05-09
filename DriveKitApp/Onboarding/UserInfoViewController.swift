@@ -63,7 +63,7 @@ class UserInfoViewController: UIViewController {
     }
 
     @objc private func onBack(sender: UIBarButtonItem) {
-        DriveKitConfig.reset()
+        self.viewModel.resetDriveKit()
         self.navigationController?.popViewController(animated: true)
     }
 

@@ -27,7 +27,6 @@ class ChallengeDetailViewModel {
     private(set) var ranks = [ChallengeDriverRank]()
     private(set) var nbDrivers = 0
     public weak var delegate: ChallengeDetailViewModelDelegate?
-    private let grayColor = UIColor(hex:0x9e9e9e)
     private var resultsViewModel: ChallengeResultsViewModel?
 
     init(challenge: DKChallenge, challengeDetail: DKChallengeDetail) {
@@ -187,7 +186,7 @@ class ChallengeDetailViewModel {
     }
 
     func getDateAttributedString() -> NSAttributedString {
-        return ChallengeItemViewModel.formatStartAndEndDates(startDate: challenge.startDate, endDate: challenge.endDate, tintColor:   grayColor, alignment: .center)
+        return ChallengeItemViewModel.formatStartAndEndDates(startDate: challenge.startDate, endDate: challenge.endDate, tintColor:  DKUIColors.complementaryFontColor.color, alignment: .center)
     }
 }
 

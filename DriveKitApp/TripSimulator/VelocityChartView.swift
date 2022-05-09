@@ -11,7 +11,7 @@ import Charts
 import DriveKitCommonUI
 
 class VelocityChartView: LineChartView {
-    private let maxPoints: Int = 30
+    private let maxPoints: Int = 90
     private var graphData: [ChartDataEntry] = []
     private var graphDataSet: LineChartDataSet!
 
@@ -29,6 +29,7 @@ class VelocityChartView: LineChartView {
         legend.verticalAlignment = .top
         legend.orientation = .horizontal
         legend.drawInside = true
+        legend.form = .none
 
         let yAxis = self.leftAxis
         yAxis.labelFont = .systemFont(ofSize: 12, weight: .semibold)
@@ -43,6 +44,7 @@ class VelocityChartView: LineChartView {
         xAxis.labelTextColor = .black
         xAxis.labelPosition = .bottom
         xAxis.axisLineColor = .black
+        xAxis.drawGridLinesEnabled = false
 
         self.chartDescription?.text = "trip_simulator_graph_time".keyLocalized()
         
@@ -50,6 +52,7 @@ class VelocityChartView: LineChartView {
         dataSet.mode = .linear
         dataSet.drawCirclesEnabled = false
         dataSet.setColor(DKUIColors.primaryColor.color)
+        dataSet.lineWidth = 2
         dataSet.drawValuesEnabled = false
 
         let data = LineChartData(dataSet: dataSet)

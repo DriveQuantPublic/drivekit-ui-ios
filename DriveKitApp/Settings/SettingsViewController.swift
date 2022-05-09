@@ -93,7 +93,7 @@ class SettingsViewController: UIViewController {
     }
 
     private func configureIcon(_ icon: UIImageView) {
-        icon.tintColor = DKUIColors.complementaryFontColor.color
+        icon.tintColor = DKUIColors.mainFontColor.color
     }
 
     private func configureTitle(_ titleLabel: UILabel, key: String) {
@@ -109,7 +109,7 @@ class SettingsViewController: UIViewController {
     }
 
     private func configureUserAccountTitle(_ label: UILabel, key: String) {
-        label.textColor = DKUIColors.complementaryFontColor.color
+        label.textColor = DKUIColors.mainFontColor.color
         label.font = DKStyles.headLine2.withSizeDelta(-2).applyTo(font: .primary)
         label.text = key.keyLocalized()
     }

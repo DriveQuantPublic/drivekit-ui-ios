@@ -9,7 +9,6 @@
 import UIKit
 
 final class TripTableViewCell: UITableViewCell, Nibable {
-
     @IBOutlet private weak var dataView: UIView!
     @IBOutlet private weak var departureHourLabel: UILabel!
     @IBOutlet private weak var arrivalHourLabel: UILabel!
@@ -18,10 +17,9 @@ final class TripTableViewCell: UITableViewCell, Nibable {
     @IBOutlet private weak var tripLineView: TripListSeparator!
     @IBOutlet private weak var separator: UIView!
     @IBOutlet private weak var separatorHeightConstraint: NSLayoutConstraint!
-    
+
     var tripInfoView: TripInfoView? = nil
-    private let timeColor: UIColor = UIColor(hex: 0x9e9e9e)
-    
+
     func configure(trip: DKTripListItem, tripData: TripData, isFirst: Bool, separatorColor: UIColor?) {
         tripLineView.color = DKUIColors.secondaryColor.color
         self.separator.isHidden = isFirst
@@ -33,8 +31,8 @@ final class TripTableViewCell: UITableViewCell, Nibable {
     }
     
     private func configureLabels(trip: DKTripListItem) {
-        self.departureHourLabel.attributedText = trip.getStartDate()?.format(pattern: .hourMinuteLetter).dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(self.timeColor).build()
-        self.arrivalHourLabel.attributedText = trip.getEndDate().format(pattern: .hourMinuteLetter).dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(self.timeColor).build()
+        self.departureHourLabel.attributedText = trip.getStartDate()?.format(pattern: .hourMinuteLetter).dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.complementaryFontColor).build()
+        self.arrivalHourLabel.attributedText = trip.getEndDate().format(pattern: .hourMinuteLetter).dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.complementaryFontColor).build()
 
         self.departureCityLabel.attributedText = trip.computedDepartureInfo.dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
         self.arrivalCityLabel.attributedText = trip.computedArrivalInfo.dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()

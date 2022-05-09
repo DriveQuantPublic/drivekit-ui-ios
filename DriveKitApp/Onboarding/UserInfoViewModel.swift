@@ -67,4 +67,11 @@ class UserInfoViewModel {
             }
         }
     }
+
+    func resetDriveKit() {
+        if let apiKey = DriveKit.shared.config.getApiKey() {
+            DriveKitConfig.reset()
+            DriveKit.shared.setApiKey(key: apiKey)
+        }
+    }
 }

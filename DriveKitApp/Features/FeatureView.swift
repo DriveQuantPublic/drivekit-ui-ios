@@ -18,6 +18,11 @@ final class FeatureView: UIView, Nibable {
     private var viewModel: FeatureViewViewModel?
     private weak var parentViewController: UIViewController?
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.iconView.tintColor = DKUIColors.mainFontColor.color
+    }
+
     func update(viewModel: FeatureViewViewModel, parentViewController: UIViewController) {
         self.viewModel = viewModel
         self.parentViewController = parentViewController
@@ -30,7 +35,7 @@ final class FeatureView: UIView, Nibable {
             self.iconView.isHidden = true
         }
 
-        self.titleLabel.attributedText = viewModel.getTitle().dkAttributedString().font(dkFont: .primary, style: DKStyles.highlightSmall.withSizeDelta(-2)).color(.complementaryFontColor).build()
+        self.titleLabel.attributedText = viewModel.getTitle().dkAttributedString().font(dkFont: .primary, style: DKStyles.highlightSmall.withSizeDelta(-2)).color(.mainFontColor).build()
         self.descriptionLabel.attributedText = viewModel.getDescription().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
         self.actionButton.configure(text: viewModel.getActionButtonTitle().keyLocalized(), style: .empty)
 

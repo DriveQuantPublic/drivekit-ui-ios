@@ -63,7 +63,7 @@ class UserInfoViewController: UIViewController {
     }
 
     @objc private func onBack(sender: UIBarButtonItem) {
-        self.viewModel.resetDriveKit()
+        self.viewModel.logout()
         self.navigationController?.popViewController(animated: true)
     }
 

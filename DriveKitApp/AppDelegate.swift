@@ -14,23 +14,29 @@ import DriveKitTripAnalysisModule
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
-    static let tag = "DriveKit test app"
+    private static let tag = "DriveKit demo app"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        var options = ""
-        if let opt = launchOptions {
-            for opti in opt {
-                options = "\(options) \(opti.key.rawValue)"
-            }
-        } else {
-            options = "none"
-        }
-        DriveKitConfig.configure(launchOptions: launchOptions)
-        DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options: \(options)")
+        // The following line is specific to DriveQuant. Do not copy this code into your project:
+        drivequantSpecific(launchOptions: launchOptions)
+
+        // Initialisation of DriveKit:
+        DriveKitConfig.initialize(launchOptions: launchOptions)
         return true
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
+        // Try to repost trips that couldn't be sent to the server previously:
         DriveKitTripAnalysis.shared.checkTripToRepost()
+    }
+}
+
+private extension AppDelegate {
+    // This method is for DriveQuant internal usage. Do not copy it into your code.
+    private func drivequantSpecific(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
+        DriveQuantSpecific.initialize()
+
+        let options = launchOptions?.map { $0.key.rawValue }.joined(separator: " ") ?? "none"
+        DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options: \(options)")
     }
 }

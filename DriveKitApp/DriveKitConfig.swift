@@ -34,16 +34,34 @@ class DriveKitConfig {
     private static let enableTripAnalysisCrashDetection = true
     private static let enableVehicleOdometer = true
     private static let vehicleTypes: [DKVehicleType] = DKVehicleType.allCases
-    private static let vehicleBrands = DKVehicleBrand.allCases
+    private static let vehicleBrands: [DKVehicleBrand] = DKVehicleBrand.allCases
 
-    static func configure(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
+    static func initialize(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         // Configure trip notifications:
         NotificationManager.configure()
 
+        // DriveKit modules initialization:
+        initializeModules(launchOptions: launchOptions)
+
+        // DriveKit modules configuration:
+        configureModules()
+    }
+
+    private static func initializeModules(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
+        // DriveKit Initialization:
+        DriveKit.shared.initialize(delegate: DriveKitDelegateManager.shared)
+
+        // TripAnalysis initialization:
+        DriveKitTripAnalysis.shared.initialize(tripListener: TripListenerManager.shared, appLaunchOptions: launchOptions)
+
+        // Initialize DriverData:
+        DriveKitDriverData.shared.initialize()
+    }
+
+    private static func configureModules() {
         // Internal modules configuration:
         configureCore()
-        configureTripAnalysis(launchOptions: launchOptions)
-        configureDriverData()
+        configureTripAnalysis()
 
         // UI modules configuration:
         configureCommonUI()
@@ -68,18 +86,24 @@ class DriveKitConfig {
         DriveKitTripAnalysis.shared.activateAutoStart(enable: enable)
     }
 
+    static func logout() {
+        // Reset DriveKit modules:
+        reset()
+
+        // Reconfigure modules:
+        configureModules()
+    }
+
     static func reset() {
-        let apiKey = DriveKit.shared.config.getApiKey()
+        // Reset DriveKit:
         DriveKit.shared.reset()
         DriveKitTripAnalysis.shared.reset()
         DriveKitDriverData.shared.reset()
         DriveKitVehicle.shared.reset()
         DriveKitDriverAchievement.shared.reset()
         DriveKitChallenge.shared.reset()
-        if let apiKey = apiKey {
-            DriveKit.shared.setApiKey(key: apiKey)
-        }
-        // Clear all UserDefaults.
+
+        // Clear all UserDefaults:
         if let bundleID = Bundle.main.bundleIdentifier {
             UserDefaults.standard.removePersistentDomain(forName: bundleID)
         }
@@ -87,25 +111,19 @@ class DriveKitConfig {
 
 
     private static func configureCore() {
-        DriveKit.shared.initialize(delegate: DriveKitDelegateManager.shared)
         let apiKey = getApiKey()
         if apiKey != DriveKit.shared.config.getApiKey() {
-            DriveKitConfig.reset()
+            reset()
         }
         DriveKit.shared.setApiKey(key: apiKey)
     }
 
-    private static func configureTripAnalysis(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-        DriveKitTripAnalysis.shared.initialize(tripListener: TripListenerManager.shared, appLaunchOptions: launchOptions)
+    private static func configureTripAnalysis() {
         DriveKitTripAnalysis.shared.activateAutoStart(enable: isTripAnalysisAutoStartEnabled())
         DriveKitTripAnalysis.shared.activateCrashDetection(DriveKitConfig.enableTripAnalysisCrashDetection)
 
         // You must call this method if you use DriveKit Vehicle component:
         DriveKitTripAnalysis.shared.setVehiclesConfigTakeover(vehiclesConfigTakeOver: true)
-    }
-
-    private static func configureDriverData() {
-        DriveKitDriverData.shared.initialize()
     }
 
 
@@ -162,8 +180,8 @@ class DriveKitConfig {
 
     static func getApiKey() -> String {
         if DriveKitConfig.apiKey.isEmpty {
-            let processInfo = ProcessInfo.processInfo
-            return processInfo.environment["DriveKit-API-Key"] ?? DriveKit.shared.config.getApiKey() ?? DriveKitConfig.apiKey
+            // This behavior is specific to DriveQuant. You must not do this in your project but return directly `DriveKitConfig.apiKey`:
+            return DriveQuantSpecific.getSavedApiKey() ?? ""
         }
         return DriveKitConfig.apiKey
     }

@@ -315,6 +315,7 @@
 		63E2EFBA2815954200E6A182 /* TripAnalysisPostponeDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E2EFB92815954200E6A182 /* TripAnalysisPostponeDuration.swift */; };
 		63E75EC026DD2347005A9FDB /* MoreTripsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63E75EBF26DD2347005A9FDB /* MoreTripsViewCell.xib */; };
 		63E75EC226DD23D7005A9FDB /* MoreTripsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E75EC126DD23D7005A9FDB /* MoreTripsViewCell.swift */; };
+		63E95A41282A39CE003DC276 /* DriveQuantSpecific.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E95A40282A39CE003DC276 /* DriveQuantSpecific.swift */; };
 		63ECE8E92667E09C000F08D3 /* UserPseudoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63ECE8E82667E09C000F08D3 /* UserPseudoViewController.xib */; };
 		63ECE8EB2667E0CD000F08D3 /* UserPseudoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ECE8EA2667E0CD000F08D3 /* UserPseudoViewController.swift */; };
 		63ECE8ED26682058000F08D3 /* Bundle+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ECE8EC26682058000F08D3 /* Bundle+DK.swift */; };
@@ -1026,6 +1027,7 @@
 		63E2FB2C278C1AB200733B51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63E75EBF26DD2347005A9FDB /* MoreTripsViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreTripsViewCell.xib; sourceTree = "<group>"; };
 		63E75EC126DD23D7005A9FDB /* MoreTripsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTripsViewCell.swift; sourceTree = "<group>"; };
+		63E95A40282A39CE003DC276 /* DriveQuantSpecific.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveQuantSpecific.swift; sourceTree = "<group>"; };
 		63ECE8E82667E09C000F08D3 /* UserPseudoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserPseudoViewController.xib; sourceTree = "<group>"; };
 		63ECE8EA2667E0CD000F08D3 /* UserPseudoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPseudoViewController.swift; sourceTree = "<group>"; };
 		63ECE8EC26682058000F08D3 /* Bundle+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+DK.swift"; sourceTree = "<group>"; };
@@ -2963,6 +2965,7 @@
 				A3B7B394235F12510065A332 /* Info.plist */,
 				3F38C26F2369CC10002E873A /* Localizable.strings */,
 				61765A78243E306D00358CCA /* InfoPlist.strings */,
+				63E95A40282A39CE003DC276 /* DriveQuantSpecific.swift */,
 			);
 			path = DriveKitApp;
 			sourceTree = "<group>";
@@ -4134,6 +4137,7 @@
 				67B5837828040B730065C2E7 /* UserIdViewModel.swift in Sources */,
 				63E2EFB8281593D100E6A182 /* NotificationAction.swift in Sources */,
 				63F4C739280DD92E006396B9 /* FeaturesViewModel.swift in Sources */,
+				63E95A41282A39CE003DC276 /* DriveQuantSpecific.swift in Sources */,
 				63570E02280997C80082A446 /* FeatureView.swift in Sources */,
 				63570DFE280997600082A446 /* DashboardViewModel.swift in Sources */,
 				63570DFA280995DA0082A446 /* DashboardViewController.swift in Sources */,

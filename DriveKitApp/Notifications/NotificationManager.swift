@@ -25,8 +25,11 @@ class NotificationManager: NSObject {
     }
 
     static func configure() {
+        // Configure NotificationManager shared instance:
         NotificationManager.shared.configure()
+        // Request permission to present notifications:
         requestNotificationPermission()
+        // Configure notifications, adding actions to some notifications:
         configureNotifications()
     }
 
@@ -91,7 +94,7 @@ class NotificationManager: NSObject {
     }
 
     private func configure() {
-
+        // Nothing special to do, but calling this method lets NotificationManager shared instance to be created.
     }
 }
 

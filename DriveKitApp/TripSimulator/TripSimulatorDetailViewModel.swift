@@ -1,5 +1,5 @@
 //
-//  TripSimulatorDetailViewModel .swift
+//  TripSimulatorDetailViewModel.swift
 //  DriveKitApp
 //
 //  Created by Amine Gahbiche on 22/04/2022.

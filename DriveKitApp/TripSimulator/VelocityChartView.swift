@@ -34,13 +34,16 @@ class VelocityChartView: LineChartView {
         let yAxis = self.leftAxis
         yAxis.labelFont = .systemFont(ofSize: 12, weight: .semibold)
         yAxis.setLabelCount(5, force: false)
+        yAxis.decimals = 0
         yAxis.labelTextColor = .black
         yAxis.labelPosition = .outsideChart
         yAxis.axisLineColor = .black
+        yAxis.axisMinimum = 0
 
         let xAxis = self.xAxis
         xAxis.labelFont = .systemFont(ofSize: 12, weight: .semibold)
-        xAxis.setLabelCount(2, force: false)
+        xAxis.setLabelCount(6, force: false)
+        xAxis.decimals = 0
         xAxis.labelTextColor = .black
         xAxis.labelPosition = .bottom
         xAxis.axisLineColor = .black
@@ -61,7 +64,7 @@ class VelocityChartView: LineChartView {
 
     func updateGraph(velocity: Double, timestamp: Double) {
         let dataSetIndex = 0
-        let newPoint = ChartDataEntry(x: Double(timestamp), y: velocity)
+        let newPoint = ChartDataEntry(x: timestamp, y: velocity)
         graphData.append(newPoint)
         self.data?.addEntry(newPoint, dataSetIndex: dataSetIndex)
         if graphData.count > self.maxPoints {

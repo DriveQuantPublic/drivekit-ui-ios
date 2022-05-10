@@ -60,13 +60,9 @@ class TripSimulatorViewModel {
 
     func hasVehicleAutoStartMode() -> Bool {
         let vehicles = DriveKitVehicle.shared.vehiclesQuery().noFilter().query().execute()
-        if vehicles.isEmpty {
-            return false
-        } else {
-            let hasAutoStartMode = vehicles.contains { vehicle -> Bool in
-                vehicle.detectionMode != .disabled
-            }
-            return hasAutoStartMode
+        let hasAutoStartMode = vehicles.contains { vehicle -> Bool in
+            vehicle.detectionMode != .disabled
         }
+        return hasAutoStartMode
     }
 }

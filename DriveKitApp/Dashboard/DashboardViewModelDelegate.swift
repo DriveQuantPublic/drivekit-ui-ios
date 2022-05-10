@@ -10,4 +10,5 @@ import Foundation
 
 protocol DashboardViewModelDelegate: AnyObject {
     func updateStartStopButton()
+    func bannersDidUpdate()
 }

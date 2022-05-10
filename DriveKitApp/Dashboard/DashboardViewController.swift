@@ -8,8 +8,10 @@
 
 import UIKit
 import DriveKitCommonUI
+import DriveKitPermissionsUtilsUI
 
 class DashboardViewController: UIViewController {
+    @IBOutlet private weak var bannersContainer: UIStackView!
     @IBOutlet private weak var synthesisCardViewContainer: UIView!
     @IBOutlet private weak var lastTripsViewContainer: UIView!
     @IBOutlet private weak var featureListViewContainer: UIView!
@@ -31,6 +33,7 @@ class DashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.view.backgroundColor = DKUIColors.backgroundView.color
         self.viewModel.delegate = self
         self.title = "dashboard_header".keyLocalized()
         self.synthesisCardViewContainer.addShadow()
@@ -39,11 +42,14 @@ class DashboardViewController: UIViewController {
         updateStartStopButton()
         self.simulateTripButton.configure(text: "simulate_trip".keyLocalized(), style: .full)
         configureNavBar()
+        updateBanners()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        DriveKitPermissionsUtilsUI.shared.configureBluetooth(needed: DriveKitConfig.isBluetoothNeeded())
+        self.viewModel.updateBanners()
         updateSynthesisCardView()
         updateLastTripView()
     }
@@ -105,6 +111,30 @@ class DashboardViewController: UIViewController {
         ])
     }
 
+    private func updateBanners() {
+        let bannerViewModels = self.viewModel.bannerViewModels
+        for view in self.bannersContainer.arrangedSubviews {
+            view.removeFromSuperview()
+        }
+        if bannerViewModels.isEmpty {
+            self.bannersContainer.isHidden = true
+        } else {
+            for bannerViewModel in bannerViewModels {
+                let bannerView = InfoBannerView.viewFromNib
+                bannerView.translatesAutoresizingMaskIntoConstraints = false
+                bannerView.update(with: bannerViewModel)
+                if bannerViewModel.hasAction {
+                    bannerView.addTarget(self, action: #selector(didTouchBannerView(_:)), for: .touchUpInside)
+                }
+                NSLayoutConstraint.activate([
+                    bannerView.heightAnchor.constraint(equalToConstant: 50)
+                ])
+                self.bannersContainer.addArrangedSubview(bannerView)
+            }
+            self.bannersContainer.isHidden = false
+        }
+    }
+
     private func configureNavBar() {
         let image = UIImage(named: "settings", in: Bundle.main, compatibleWith: nil)?.resizeImage(25, opaque: false).withRenderingMode(.alwaysTemplate)
         let settingsButton = UIBarButtonItem(image: image , style: .plain, target: self, action: #selector(openSettings))
@@ -115,10 +145,18 @@ class DashboardViewController: UIViewController {
     @objc private func openSettings() {
         self.navigationController?.pushViewController(SettingsViewController(), animated: true)
     }
+
+    @objc private func didTouchBannerView(_ sender: InfoBannerView) {
+        sender.viewModel?.showAction(parentViewController: self)
+    }
 }
 
 extension DashboardViewController: DashboardViewModelDelegate {
     func updateStartStopButton() {
         self.startStopTripButton.configure(text: self.viewModel.getStartStopTripButtonTitle().keyLocalized(), style: .full)
+    }
+
+    func bannersDidUpdate() {
+        updateBanners()
     }
 }

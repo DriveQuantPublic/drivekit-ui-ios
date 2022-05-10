@@ -169,7 +169,7 @@ class DriveKitConfig {
     }
 
 
-    private static func isBluetoothNeeded() -> Bool {
+    static func isBluetoothNeeded() -> Bool {
         let vehicles = DriveKitVehicle.shared.vehiclesQuery().noFilter().query().execute()
         let isBluetoothNeeded = vehicles.contains { vehicle -> Bool in
             vehicle.detectionMode == .beacon || vehicle.detectionMode == .bluetooth

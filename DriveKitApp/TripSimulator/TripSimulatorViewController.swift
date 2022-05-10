@@ -63,9 +63,15 @@ class TripSimulatorViewController: UIViewController {
     }
 
     @IBAction func simulateAction() {
-        let selectedItem = viewModel.getSelectedItem()
-        let detailsViewModel = TripSimulatorDetailViewModel(simulatedItem: selectedItem)
-        let detailsVC = TripSimulatorDetailViewController(viewModel: detailsViewModel)
-        self.navigationController?.pushViewController(detailsVC, animated: true)
+        if !self.viewModel.isAutoStartEnabled() {
+            self.showAlertMessage(title: "trip_simulator_error_auto_mode".keyLocalized(), message: nil, back: false, cancel: false)
+        } else if !self.viewModel.hasVehicleAutoStartMode() {
+            self.showAlertMessage(title: "trip_simulator_error_vehicle_disabled".keyLocalized(), message: nil, back: false, cancel: false)
+        } else if let navigationController = self.navigationController {
+            let selectedItem = self.viewModel.getSelectedItem()
+            let detailsViewModel = TripSimulatorDetailViewModel(simulatedItem: selectedItem)
+            let detailsVC = TripSimulatorDetailViewController(viewModel: detailsViewModel)
+            navigationController.pushViewController(detailsVC, animated: true)
+        }
     }
 }

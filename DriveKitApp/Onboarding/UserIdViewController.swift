@@ -41,11 +41,9 @@ class UserIdViewController: UIViewController {
             showLoader()
             viewModel.sendUserId(userId: userId) { [weak self] success, error in
                 DispatchQueue.dispatchOnMainThread {
-                    self?.hideLoader()
                     if success {
                         self?.showLoader(message: "sync_user_info_loading_message".keyLocalized())
                         SynchroServicesManager.syncModules([.userInfo, .vehicle, .workingHours, .trips], stepCompletion:  { [weak self] status, remainingServices in
-                            self?.hideLoader()
                             if let service = remainingServices.first {
                                 switch service {
                                 case .vehicle:
@@ -59,10 +57,12 @@ class UserIdViewController: UIViewController {
                                 }
                             }
                         }) { statuses in
+                            self?.hideLoader()
                             let infoSyncStatus = (statuses.count > 0) ? statuses[0] == .success : true
                             self?.goToUserInfoVC(syncStatus: infoSyncStatus)
                         }
                     } else {
+                        self?.hideLoader()
                         if let error = error {
                             if error == .unauthenticated {
                                 let apiVM = ApiKeyViewModel(invalidApiKeyErrorReceived: true)

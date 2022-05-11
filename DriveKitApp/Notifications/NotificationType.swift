@@ -157,6 +157,8 @@ enum NotificationType {
                             key = "notif_trip_idle_detected"
                         case .car, .unknown, .truck, .moto, .bus, .flight, .onFoot, .other:
                             return ""
+                        @unknown default:
+                            return ""
                     }
                 }
             case .tripCancelled(let reason):

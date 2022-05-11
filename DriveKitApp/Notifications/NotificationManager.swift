@@ -6,7 +6,8 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import UserNotifications
 import CoreLocation
 import DriveKitCommonUI
 import DriveKitCoreModule
@@ -311,6 +312,8 @@ extension NotificationManager: TripListener {
                 sendCancelNotification(.noGpsPoint)
             case .user, .noSpeed, .missingConfiguration, .reset, .beaconNoSpeed:
                 NotificationManager.removeNotification(.tripStarted(canPostpone: DriveKitConfig.isAutoStartPostponable))
+            @unknown default:
+                break
         }
     }
 
@@ -363,6 +366,8 @@ extension TransportationMode {
                 return false
             case .train, .boat, .bike, .skiing, .idle:
                 return true
+            @unknown default:
+                return false
         }
     }
 }

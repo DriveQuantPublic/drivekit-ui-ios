@@ -64,16 +64,18 @@ class TripSimulatorDetailViewModel {
     func getStateText() -> String {
         let state = DriveKitTripAnalysis.shared.getRecorderState()
         switch state {
-        case .inactive:
-            return "INACTIVE"
-        case .starting:
-            return "STARTING"
-        case .running:
-            return "RUNNING"
-        case .stopping:
-            return "STOPPING"
-        case .sending:
-            return "SENDING"
+            case .inactive:
+                return "INACTIVE"
+            case .starting:
+                return "STARTING"
+            case .running:
+                return "RUNNING"
+            case .stopping:
+                return "STOPPING"
+            case .sending:
+                return "SENDING"
+            @unknown default:
+                return "?"
         }
     }
 

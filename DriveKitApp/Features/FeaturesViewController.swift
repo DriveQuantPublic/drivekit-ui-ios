@@ -23,6 +23,7 @@ class FeaturesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "feature_list".keyLocalized()
+        self.view.backgroundColor = DKUIColors.backgroundView.color
         configureBackButton()
         self.tableView.register(FeatureViewCell.nib, forCellReuseIdentifier: "FeatureViewCell")
         self.tableView.estimatedRowHeight = 150

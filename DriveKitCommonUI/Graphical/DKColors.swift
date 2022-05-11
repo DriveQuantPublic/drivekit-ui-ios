@@ -22,7 +22,7 @@ import UIKit
     func navBarElementColor() -> UIColor
 }
 
-open class DKDefaultColors : DKColors {
+open class DKDefaultColors: DKColors {
     public static let driveKitBackgroundColor = UIColor(hex: 0xFAFAFA)
 
     public init() {}

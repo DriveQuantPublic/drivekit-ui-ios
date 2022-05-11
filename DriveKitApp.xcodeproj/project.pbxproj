@@ -2788,20 +2788,20 @@
 			children = (
 				3F6B67462580D268008B3BA7 /* AlternativeTripDetailInfoVC.swift */,
 				3F6B67472580D268008B3BA7 /* AlternativeTripDetailInfoVC.xib */,
-				A30F4F1623D5DA14009A37C2 /* SynthesisPageVC.swift */,
-				A30F4F1723D5DA14009A37C2 /* SynthesisPageVC.xib */,
 				A34238282361A2430001E15D /* DistractionPageVC.swift */,
 				A34238292361A2430001E15D /* DistractionPageVC.xib */,
-				A342382B2361A2430001E15D /* ShortTripPageVC.swift */,
-				A342382A2361A2430001E15D /* ShortTripPageVC.xib */,
-				A342382C2361A2430001E15D /* HistoryPageVC.swift */,
-				A34238312361A2430001E15D /* HistoryPageVC.xib */,
 				A342382F2361A2430001E15D /* EcoDrivingPageVC.swift */,
 				A342382D2361A2430001E15D /* EcoDrivingPageVC.xib */,
+				A342382C2361A2430001E15D /* HistoryPageVC.swift */,
+				A34238312361A2430001E15D /* HistoryPageVC.xib */,
 				A342382E2361A2430001E15D /* SafetyPageVC.swift */,
 				A34238302361A2430001E15D /* SafetyPageVC.xib */,
+				A342382B2361A2430001E15D /* ShortTripPageVC.swift */,
+				A342382A2361A2430001E15D /* ShortTripPageVC.xib */,
 				67CFE99D25F6425F004D0AE1 /* SpeedingPageVC.swift */,
 				67CFE99E25F6425F004D0AE1 /* SpeedingPageVC.xib */,
+				A30F4F1623D5DA14009A37C2 /* SynthesisPageVC.swift */,
+				A30F4F1723D5DA14009A37C2 /* SynthesisPageVC.xib */,
 			);
 			path = Pages;
 			sourceTree = "<group>";

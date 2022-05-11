@@ -16,7 +16,7 @@ class SafetyPageVC: UIViewController {
 
     @IBOutlet var eventContainer: UIStackView!
     
-    var viewModel : SafetyPageViewModel
+    var viewModel: SafetyPageViewModel
     
     init(viewModel: SafetyPageViewModel) {
         self.viewModel = viewModel

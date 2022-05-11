@@ -8,8 +8,7 @@
 import UIKit
 import DriveKitCommonUI
 
-final class DistractionPageView : UIControl, Nibable {
-
+final class DistractionPageView: UIControl, Nibable {
     override var isSelected: Bool {
         didSet {
             if isSelected {
@@ -67,6 +66,4 @@ final class DistractionPageView : UIControl, Nibable {
         self.eventTitle.invalidateIntrinsicContentSize()
         self.eventDescription.invalidateIntrinsicContentSize()
     }
-    
 }
-

@@ -42,4 +42,3 @@ final class HistoryPageView: UITableViewCell, Nibable {
         descriptionLabel.attributedText = event.getTitle().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
     }
 }
-

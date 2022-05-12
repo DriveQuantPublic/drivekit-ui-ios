@@ -10,8 +10,7 @@ import UIKit
 import DriveKitCoreModule
 import DriveKitCommonUI
 
-@objc public class DriveKitPermissionsUtilsUI : NSObject {
-
+@objc public class DriveKitPermissionsUtilsUI: NSObject {
     @objc public static let shared = DriveKitPermissionsUtilsUI()
     public private(set) var isBluetoothNeeded = false
     public private(set) var contactType = DKContactType.none

@@ -6,7 +6,6 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import DriveKitCommonUI
 
@@ -19,11 +18,10 @@ class CustomTextField: HoshiTextField {
 
 extension HoshiTextField {
     func customizeAsBranded() {
-        let mainColor = UIColor(hex:0x616161)
         borderActiveColor = DKUIColors.secondaryColor.color
-        borderInactiveColor = mainColor
-        placeholderColor = mainColor
-        textColor = mainColor
+        borderInactiveColor = DKUIColors.complementaryFontColor.color
+        placeholderColor = DKUIColors.complementaryFontColor.color
+        textColor = DKUIColors.mainFontColor.color
         font = DKUIFonts.primary.fonts(size: 16.0)
         placeholderFontScale = 1
         borderStyle = .none

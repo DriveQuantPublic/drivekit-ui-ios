@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import DriveKitCommonUI
+import DriveKitVehicleModule
 
 class TripSimulatorViewModel {
     let items: [TripSimulatorItem] = [
@@ -51,5 +52,17 @@ class TripSimulatorViewModel {
             return
         }
         selectedItemIndex = index
+    }
+
+    func isAutoStartEnabled() -> Bool {
+        return DriveKitConfig.isTripAnalysisAutoStartEnabled()
+    }
+
+    func hasVehicleAutoStartMode() -> Bool {
+        let vehicles = DriveKitVehicle.shared.vehiclesQuery().noFilter().query().execute()
+        let hasAutoStartMode = vehicles.contains { vehicle -> Bool in
+            vehicle.detectionMode != .disabled
+        }
+        return hasAutoStartMode
     }
 }

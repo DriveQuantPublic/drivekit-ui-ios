@@ -200,7 +200,6 @@
 		63057427281B4A5A00FFB782 /* NotificationSettingsTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63057425281B4A5900FFB782 /* NotificationSettingsTextCell.xib */; };
 		63057428281B4A5A00FFB782 /* NotificationSettingsTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63057426281B4A5900FFB782 /* NotificationSettingsTextCell.swift */; };
 		6305742A281BC95000FFB782 /* NotificationSettingsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63057429281BC95000FFB782 /* NotificationSettingsDelegate.swift */; };
-		6307ED8A2625DC9500CB7EED /* SynthesisCardTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6307ED892625DC9500CB7EED /* SynthesisCardTest.swift */; };
 		63199A6E24ED7C250011DCFC /* DKAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63199A6D24ED7C250011DCFC /* DKAnalytics.swift */; };
 		632EDDEF2450497500110744 /* BatteryOptimizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632EDDEE2450497500110744 /* BatteryOptimizationViewModel.swift */; };
 		632EDDF124504BEE00110744 /* UIColor+PermissionsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632EDDF024504BEE00110744 /* UIColor+PermissionsUtils.swift */; };
@@ -266,6 +265,7 @@
 		63842D4A2816CC53007F9256 /* FeatureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63842D492816CC53007F9256 /* FeatureType.swift */; };
 		63842D4F2817D3FC007F9256 /* NotificationChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63842D4E2817D3FC007F9256 /* NotificationChannel.swift */; };
 		63842D512817FEDB007F9256 /* DriveKitConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63842D502817FEDB007F9256 /* DriveKitConfig.swift */; };
+		63852E1F2821E73800F7CE00 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63852E1E2821E73800F7CE00 /* SettingsViewModel.swift */; };
 		638AC038261F8FFB00602B52 /* SynthesisCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638AC037261F8FFB00602B52 /* SynthesisCardsView.swift */; };
 		638AC03F261F903300602B52 /* SynthesisCardsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638AC03E261F903300602B52 /* SynthesisCardsView.xib */; };
 		638AC046261F970E00602B52 /* SynthesisCardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638AC045261F970E00602B52 /* SynthesisCardsViewModel.swift */; };
@@ -288,6 +288,8 @@
 		6391E1052607F64100A168D4 /* SynthesisCardInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6391E1042607F64100A168D4 /* SynthesisCardInfoViewModel.swift */; };
 		639346B724489DDA000F42D4 /* DiagnosisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639346B624489DDA000F42D4 /* DiagnosisViewController.swift */; };
 		639F3D2124B5C8F10081DFC3 /* RankingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F3D2024B5C8F10081DFC3 /* RankingStatus.swift */; };
+		63A6DF642823F5920096F48E /* DriveKitVehicleUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A6DF632823F5920096F48E /* DriveKitVehicleUtils.swift */; };
+		63A6DF6628255EEB0096F48E /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A6DF6528255EEB0096F48E /* Analytics.swift */; };
 		63B07CD224EFCA110060DF33 /* AnalyticsScreenToTagKey.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63B07CD124EFCA110060DF33 /* AnalyticsScreenToTagKey.plist */; };
 		63B3A1A024AB73460011F11B /* DKRankingSelectorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B3A19F24AB73460011F11B /* DKRankingSelectorType.swift */; };
 		63BE1ECC26CEF7B500CFEB8B /* DKLastTripsUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE1ECB26CEF7B500CFEB8B /* DKLastTripsUI.swift */; };
@@ -296,7 +298,6 @@
 		63BE1ED526CF916000CFEB8B /* LastTripsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63BE1ED426CF916000CFEB8B /* LastTripsView.xib */; };
 		63BE1ED726CF97CA00CFEB8B /* LastTripsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE1ED626CF97CA00CFEB8B /* LastTripsViewCell.swift */; };
 		63BE1EDC26D0012F00CFEB8B /* LastTripsWidgetUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE1ED926D0006A00CFEB8B /* LastTripsWidgetUtils.swift */; };
-		63BE1EDE26D0055800CFEB8B /* LastTripsViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BE1EDD26D0055800CFEB8B /* LastTripsViewTest.swift */; };
 		63BE1EE026D2765F00CFEB8B /* LastTripsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63BE1EDF26D2765F00CFEB8B /* LastTripsViewCell.xib */; };
 		63BF8EFA24531011006BEB3F /* DKContactType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639346B4244897C1000F42D4 /* DKContactType.swift */; };
 		63C3FD78244EDDA900C2FEEC /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3FD77244EDDA900C2FEEC /* ContactViewModel.swift */; };
@@ -314,10 +315,17 @@
 		63E2EFBA2815954200E6A182 /* TripAnalysisPostponeDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E2EFB92815954200E6A182 /* TripAnalysisPostponeDuration.swift */; };
 		63E75EC026DD2347005A9FDB /* MoreTripsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63E75EBF26DD2347005A9FDB /* MoreTripsViewCell.xib */; };
 		63E75EC226DD23D7005A9FDB /* MoreTripsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E75EC126DD23D7005A9FDB /* MoreTripsViewCell.swift */; };
+		63E95A41282A39CE003DC276 /* DriveQuantSpecific.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E95A40282A39CE003DC276 /* DriveQuantSpecific.swift */; };
+		63E95A43282AA901003DC276 /* InfoBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E95A42282AA901003DC276 /* InfoBannerView.swift */; };
+		63E95A45282AAAFA003DC276 /* InfoBannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E95A44282AAAFA003DC276 /* InfoBannerViewModel.swift */; };
+		63E95A47282AACC1003DC276 /* InfoBannerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E95A46282AACC1003DC276 /* InfoBannerType.swift */; };
+		63E95A49282AADC7003DC276 /* InfoBannerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63E95A48282AADC7003DC276 /* InfoBannerView.xib */; };
 		63ECE8E92667E09C000F08D3 /* UserPseudoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63ECE8E82667E09C000F08D3 /* UserPseudoViewController.xib */; };
 		63ECE8EB2667E0CD000F08D3 /* UserPseudoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ECE8EA2667E0CD000F08D3 /* UserPseudoViewController.swift */; };
 		63ECE8ED26682058000F08D3 /* Bundle+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ECE8EC26682058000F08D3 /* Bundle+DK.swift */; };
 		63ECE8EF26682D49000F08D3 /* UserPseudoViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63ECE8EE26682D49000F08D3 /* UserPseudoViewControllerDelegate.swift */; };
+		63F2777B282128FD0051F7FA /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F2777A282128FD0051F7FA /* SettingsViewController.xib */; };
+		63F2777D28213C790051F7FA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F2777C28213C790051F7FA /* SettingsViewController.swift */; };
 		63F44E86244DDC8100C7F5CC /* GlobalStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F44E85244DDC8100C7F5CC /* GlobalStateViewModel.swift */; };
 		63F44E89244DDEE000C7F5CC /* GlobalStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F44E87244DDEE000C7F5CC /* GlobalStateView.swift */; };
 		63F44E8A244DDEE000C7F5CC /* GlobalStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F44E88244DDEE000C7F5CC /* GlobalStateView.xib */; };
@@ -391,7 +399,7 @@
 		6765E71E28103F6000FD13F8 /* TripSimulatorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765E71D28103F6000FD13F8 /* TripSimulatorItem.swift */; };
 		6765E72128135A5000FD13F8 /* TripSimulatorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765E71F28135A5000FD13F8 /* TripSimulatorDetailViewController.swift */; };
 		6765E72228135A5000FD13F8 /* TripSimulatorDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6765E72028135A5000FD13F8 /* TripSimulatorDetailViewController.xib */; };
-		6765E72428135A6500FD13F8 /* TripSimulatorDetailViewModel .swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765E72328135A6500FD13F8 /* TripSimulatorDetailViewModel .swift */; };
+		6765E72428135A6500FD13F8 /* TripSimulatorDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765E72328135A6500FD13F8 /* TripSimulatorDetailViewModel.swift */; };
 		6765E7292816AB5E00FD13F8 /* VelocityChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765E7282816AB5E00FD13F8 /* VelocityChartView.swift */; };
 		6765E72B2818373300FD13F8 /* UINavigationController+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765E72A2818373300FD13F8 /* UINavigationController+DK.swift */; };
 		6780809928000A4C00A93352 /* ApiKeyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6780809828000A4C00A93352 /* ApiKeyViewModel.swift */; };
@@ -484,7 +492,6 @@
 		A317F83023A1383B00AD22A2 /* TripTipFeedbackChoicesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A317F82E23A1383B00AD22A2 /* TripTipFeedbackChoicesCell.xib */; };
 		A317F83123A1383B00AD22A2 /* TripTipFeedbackChoicesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A317F82F23A1383B00AD22A2 /* TripTipFeedbackChoicesCell.swift */; };
 		A322728C2429125700BF69E1 /* DKImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3905557242538E500537EB5 /* DKImagePicker.swift */; };
-		A32665AE235F64EB00B529B0 /* SettingsBundleKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A32665AD235F64EB00B529B0 /* SettingsBundleKey.swift */; };
 		A342380A2361A1FA0001E15D /* DriveKitDriveDataUI.h in Headers */ = {isa = PBXBuildFile; fileRef = A34238082361A1FA0001E15D /* DriveKitDriveDataUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A34238622361A2430001E15D /* CalloutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238162361A2430001E15D /* CalloutViewModel.swift */; };
 		A34238632361A2430001E15D /* TripDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238172361A2430001E15D /* TripDetailViewModel.swift */; };
@@ -540,12 +547,9 @@
 		A39055552424FA4100537EB5 /* VehicleDetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A39055532424FA4000537EB5 /* VehicleDetailHeader.swift */; };
 		A39055562424FA4100537EB5 /* VehicleDetailHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A39055542424FA4000537EB5 /* VehicleDetailHeader.xib */; };
 		A3B7B384235F124F0065A332 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B7B383235F124F0065A332 /* AppDelegate.swift */; };
-		A3B7B388235F124F0065A332 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B7B387235F124F0065A332 /* ViewController.swift */; };
 		A3B7B38B235F124F0065A332 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3B7B389235F124F0065A332 /* Main.storyboard */; };
-		A3B7B38E235F124F0065A332 /* DriveKitApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A3B7B38C235F124F0065A332 /* DriveKitApp.xcdatamodeld */; };
 		A3B7B390235F12510065A332 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3B7B38F235F12510065A332 /* Assets.xcassets */; };
 		A3B7B393235F12510065A332 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3B7B391235F12510065A332 /* LaunchScreen.storyboard */; };
-		A3B7B39D235F2E130065A332 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B7B39B235F2E130065A332 /* SettingsViewController.swift */; };
 		A3D51F45241BA39D006DACE2 /* DKVehicleAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D51F43241BA39D006DACE2 /* DKVehicleAction.swift */; };
 		A3D51F49241BA3A5006DACE2 /* DKVehiclesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D51F47241BA3A4006DACE2 /* DKVehiclesListViewModel.swift */; };
 		A3D51F4E241BA3AE006DACE2 /* VehiclesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D51F4A241BA3AE006DACE2 /* VehiclesListCell.swift */; };
@@ -909,7 +913,6 @@
 		63057425281B4A5900FFB782 /* NotificationSettingsTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationSettingsTextCell.xib; sourceTree = "<group>"; };
 		63057426281B4A5900FFB782 /* NotificationSettingsTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationSettingsTextCell.swift; sourceTree = "<group>"; };
 		63057429281BC95000FFB782 /* NotificationSettingsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsDelegate.swift; sourceTree = "<group>"; };
-		6307ED892625DC9500CB7EED /* SynthesisCardTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynthesisCardTest.swift; sourceTree = "<group>"; };
 		63199A6D24ED7C250011DCFC /* DKAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKAnalytics.swift; sourceTree = "<group>"; };
 		632EDDEE2450497500110744 /* BatteryOptimizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryOptimizationViewModel.swift; sourceTree = "<group>"; };
 		632EDDF024504BEE00110744 /* UIColor+PermissionsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+PermissionsUtils.swift"; sourceTree = "<group>"; };
@@ -977,6 +980,7 @@
 		63842D492816CC53007F9256 /* FeatureType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureType.swift; sourceTree = "<group>"; };
 		63842D4E2817D3FC007F9256 /* NotificationChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationChannel.swift; sourceTree = "<group>"; };
 		63842D502817FEDB007F9256 /* DriveKitConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveKitConfig.swift; sourceTree = "<group>"; };
+		63852E1E2821E73800F7CE00 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		638AC037261F8FFB00602B52 /* SynthesisCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesisCardsView.swift; sourceTree = "<group>"; };
 		638AC03E261F903300602B52 /* SynthesisCardsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SynthesisCardsView.xib; sourceTree = "<group>"; };
 		638AC045261F970E00602B52 /* SynthesisCardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesisCardsViewModel.swift; sourceTree = "<group>"; };
@@ -1000,6 +1004,8 @@
 		639346B4244897C1000F42D4 /* DKContactType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKContactType.swift; sourceTree = "<group>"; };
 		639346B624489DDA000F42D4 /* DiagnosisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisViewController.swift; sourceTree = "<group>"; };
 		639F3D2024B5C8F10081DFC3 /* RankingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingStatus.swift; sourceTree = "<group>"; };
+		63A6DF632823F5920096F48E /* DriveKitVehicleUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveKitVehicleUtils.swift; sourceTree = "<group>"; };
+		63A6DF6528255EEB0096F48E /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
 		63B07CD124EFCA110060DF33 /* AnalyticsScreenToTagKey.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AnalyticsScreenToTagKey.plist; sourceTree = "<group>"; };
 		63B3A19F24AB73460011F11B /* DKRankingSelectorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKRankingSelectorType.swift; sourceTree = "<group>"; };
 		63BE1ECB26CEF7B500CFEB8B /* DKLastTripsUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKLastTripsUI.swift; sourceTree = "<group>"; };
@@ -1008,7 +1014,6 @@
 		63BE1ED426CF916000CFEB8B /* LastTripsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LastTripsView.xib; sourceTree = "<group>"; };
 		63BE1ED626CF97CA00CFEB8B /* LastTripsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastTripsViewCell.swift; sourceTree = "<group>"; };
 		63BE1ED926D0006A00CFEB8B /* LastTripsWidgetUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastTripsWidgetUtils.swift; sourceTree = "<group>"; };
-		63BE1EDD26D0055800CFEB8B /* LastTripsViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastTripsViewTest.swift; sourceTree = "<group>"; };
 		63BE1EDF26D2765F00CFEB8B /* LastTripsViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LastTripsViewCell.xib; sourceTree = "<group>"; };
 		63C3FD77244EDDA900C2FEEC /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
 		63C3FD7B244EE56C00C2FEEC /* LoggingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingViewModel.swift; sourceTree = "<group>"; };
@@ -1026,10 +1031,17 @@
 		63E2FB2C278C1AB200733B51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63E75EBF26DD2347005A9FDB /* MoreTripsViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreTripsViewCell.xib; sourceTree = "<group>"; };
 		63E75EC126DD23D7005A9FDB /* MoreTripsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTripsViewCell.swift; sourceTree = "<group>"; };
+		63E95A40282A39CE003DC276 /* DriveQuantSpecific.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveQuantSpecific.swift; sourceTree = "<group>"; };
+		63E95A42282AA901003DC276 /* InfoBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBannerView.swift; sourceTree = "<group>"; };
+		63E95A44282AAAFA003DC276 /* InfoBannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBannerViewModel.swift; sourceTree = "<group>"; };
+		63E95A46282AACC1003DC276 /* InfoBannerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBannerType.swift; sourceTree = "<group>"; };
+		63E95A48282AADC7003DC276 /* InfoBannerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoBannerView.xib; sourceTree = "<group>"; };
 		63ECE8E82667E09C000F08D3 /* UserPseudoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserPseudoViewController.xib; sourceTree = "<group>"; };
 		63ECE8EA2667E0CD000F08D3 /* UserPseudoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPseudoViewController.swift; sourceTree = "<group>"; };
 		63ECE8EC26682058000F08D3 /* Bundle+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+DK.swift"; sourceTree = "<group>"; };
 		63ECE8EE26682D49000F08D3 /* UserPseudoViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPseudoViewControllerDelegate.swift; sourceTree = "<group>"; };
+		63F2777A282128FD0051F7FA /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		63F2777C28213C790051F7FA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		63F44E85244DDC8100C7F5CC /* GlobalStateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalStateViewModel.swift; sourceTree = "<group>"; };
 		63F44E87244DDEE000C7F5CC /* GlobalStateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalStateView.swift; sourceTree = "<group>"; };
 		63F44E88244DDEE000C7F5CC /* GlobalStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GlobalStateView.xib; sourceTree = "<group>"; };
@@ -1092,7 +1104,7 @@
 		6765E71D28103F6000FD13F8 /* TripSimulatorItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSimulatorItem.swift; sourceTree = "<group>"; };
 		6765E71F28135A5000FD13F8 /* TripSimulatorDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSimulatorDetailViewController.swift; sourceTree = "<group>"; };
 		6765E72028135A5000FD13F8 /* TripSimulatorDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TripSimulatorDetailViewController.xib; sourceTree = "<group>"; };
-		6765E72328135A6500FD13F8 /* TripSimulatorDetailViewModel .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TripSimulatorDetailViewModel .swift"; sourceTree = "<group>"; };
+		6765E72328135A6500FD13F8 /* TripSimulatorDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSimulatorDetailViewModel.swift; sourceTree = "<group>"; };
 		6765E7282816AB5E00FD13F8 /* VelocityChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VelocityChartView.swift; sourceTree = "<group>"; };
 		6765E72A2818373300FD13F8 /* UINavigationController+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+DK.swift"; sourceTree = "<group>"; };
 		6780809828000A4C00A93352 /* ApiKeyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeyViewModel.swift; sourceTree = "<group>"; };
@@ -1195,7 +1207,6 @@
 		A317F82A23A137C700AD22A2 /* TripTipFeedbackVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTipFeedbackVC.swift; sourceTree = "<group>"; };
 		A317F82E23A1383B00AD22A2 /* TripTipFeedbackChoicesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripTipFeedbackChoicesCell.xib; sourceTree = "<group>"; };
 		A317F82F23A1383B00AD22A2 /* TripTipFeedbackChoicesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTipFeedbackChoicesCell.swift; sourceTree = "<group>"; };
-		A32665AD235F64EB00B529B0 /* SettingsBundleKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleKey.swift; sourceTree = "<group>"; };
 		A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DriveKitDriverDataUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A34238082361A1FA0001E15D /* DriveKitDriveDataUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DriveKitDriveDataUI.h; sourceTree = "<group>"; };
 		A34238092361A1FA0001E15D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1269,13 +1280,10 @@
 		A3905557242538E500537EB5 /* DKImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKImagePicker.swift; sourceTree = "<group>"; };
 		A3B7B380235F124F0065A332 /* DriveKitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DriveKitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3B7B383235F124F0065A332 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A3B7B387235F124F0065A332 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A3B7B38A235F124F0065A332 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A3B7B38D235F124F0065A332 /* DriveKitApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DriveKitApp.xcdatamodel; sourceTree = "<group>"; };
 		A3B7B38F235F12510065A332 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3B7B392235F12510065A332 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A3B7B394235F12510065A332 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A3B7B39B235F2E130065A332 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A3D51F43241BA39D006DACE2 /* DKVehicleAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKVehicleAction.swift; sourceTree = "<group>"; };
 		A3D51F47241BA3A4006DACE2 /* DKVehiclesListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKVehiclesListViewModel.swift; sourceTree = "<group>"; };
 		A3D51F4A241BA3AE006DACE2 /* VehiclesListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiclesListCell.swift; sourceTree = "<group>"; };
@@ -1615,6 +1623,7 @@
 			children = (
 				3FF68F022414FD5B0071D74C /* Localizable */,
 				3F50D7062417ADC9001226F7 /* Extension */,
+				63A6DF622823F56A0096F48E /* Utils */,
 				A3D51F3E241BA2E6006DACE2 /* VehiclesList */,
 				3FBAE399241B906300B2FBFB /* VehicleDetail */,
 				3FFB2D642417E17C003E6A06 /* Beacon */,
@@ -2118,6 +2127,10 @@
 				63570E0528099D620082A446 /* DashboardViewController.xib */,
 				63570DFD280997600082A446 /* DashboardViewModel.swift */,
 				63570DFF280997790082A446 /* DashboardViewModelDelegate.swift */,
+				63E95A46282AACC1003DC276 /* InfoBannerType.swift */,
+				63E95A42282AA901003DC276 /* InfoBannerView.swift */,
+				63E95A48282AADC7003DC276 /* InfoBannerView.xib */,
+				63E95A44282AAAFA003DC276 /* InfoBannerViewModel.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -2181,6 +2194,14 @@
 				638AC04C261F996D00602B52 /* SynthesisCardViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		63A6DF622823F56A0096F48E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				63A6DF632823F5920096F48E /* DriveKitVehicleUtils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		63B3A19C24AB3A1F0011F11B /* Ranking */ = {
@@ -2373,7 +2394,7 @@
 				6765E71D28103F6000FD13F8 /* TripSimulatorItem.swift */,
 				6765E71F28135A5000FD13F8 /* TripSimulatorDetailViewController.swift */,
 				6765E72028135A5000FD13F8 /* TripSimulatorDetailViewController.xib */,
-				6765E72328135A6500FD13F8 /* TripSimulatorDetailViewModel .swift */,
+				6765E72328135A6500FD13F8 /* TripSimulatorDetailViewModel.swift */,
 				6765E7282816AB5E00FD13F8 /* VelocityChartView.swift */,
 			);
 			path = TripSimulator;
@@ -2767,20 +2788,20 @@
 			children = (
 				3F6B67462580D268008B3BA7 /* AlternativeTripDetailInfoVC.swift */,
 				3F6B67472580D268008B3BA7 /* AlternativeTripDetailInfoVC.xib */,
-				A30F4F1623D5DA14009A37C2 /* SynthesisPageVC.swift */,
-				A30F4F1723D5DA14009A37C2 /* SynthesisPageVC.xib */,
 				A34238282361A2430001E15D /* DistractionPageVC.swift */,
 				A34238292361A2430001E15D /* DistractionPageVC.xib */,
-				A342382B2361A2430001E15D /* ShortTripPageVC.swift */,
-				A342382A2361A2430001E15D /* ShortTripPageVC.xib */,
-				A342382C2361A2430001E15D /* HistoryPageVC.swift */,
-				A34238312361A2430001E15D /* HistoryPageVC.xib */,
 				A342382F2361A2430001E15D /* EcoDrivingPageVC.swift */,
 				A342382D2361A2430001E15D /* EcoDrivingPageVC.xib */,
+				A342382C2361A2430001E15D /* HistoryPageVC.swift */,
+				A34238312361A2430001E15D /* HistoryPageVC.xib */,
 				A342382E2361A2430001E15D /* SafetyPageVC.swift */,
 				A34238302361A2430001E15D /* SafetyPageVC.xib */,
+				A342382B2361A2430001E15D /* ShortTripPageVC.swift */,
+				A342382A2361A2430001E15D /* ShortTripPageVC.xib */,
 				67CFE99D25F6425F004D0AE1 /* SpeedingPageVC.swift */,
 				67CFE99E25F6425F004D0AE1 /* SpeedingPageVC.xib */,
+				A30F4F1623D5DA14009A37C2 /* SynthesisPageVC.swift */,
+				A30F4F1723D5DA14009A37C2 /* SynthesisPageVC.xib */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -2941,6 +2962,7 @@
 				A3B7B383235F124F0065A332 /* AppDelegate.swift */,
 				67C055E627FF2D7200B7159D /* AppNavigationController.swift */,
 				63842D502817FEDB007F9256 /* DriveKitConfig.swift */,
+				63A6DF6528255EEB0096F48E /* Analytics.swift */,
 				67C055BD27FDF68A00B7159D /* Onboarding */,
 				63842D4C2816E3ED007F9256 /* Dashboard */,
 				63842D4D2816E64C007F9256 /* Features */,
@@ -2949,16 +2971,13 @@
 				6780809A2800691900A93352 /* Utils */,
 				A3B7B39A235F2DF30065A332 /* Settings */,
 				67B58382280481340065C2E7 /* Managers */,
-				A3B7B387235F124F0065A332 /* ViewController.swift */,
-				6307ED892625DC9500CB7EED /* SynthesisCardTest.swift */,
-				63BE1EDD26D0055800CFEB8B /* LastTripsViewTest.swift */,
 				A3B7B389235F124F0065A332 /* Main.storyboard */,
 				A3B7B38F235F12510065A332 /* Assets.xcassets */,
 				A3B7B391235F12510065A332 /* LaunchScreen.storyboard */,
 				A3B7B394235F12510065A332 /* Info.plist */,
-				A3B7B38C235F124F0065A332 /* DriveKitApp.xcdatamodeld */,
 				3F38C26F2369CC10002E873A /* Localizable.strings */,
 				61765A78243E306D00358CCA /* InfoPlist.strings */,
+				63E95A40282A39CE003DC276 /* DriveQuantSpecific.swift */,
 			);
 			path = DriveKitApp;
 			sourceTree = "<group>";
@@ -2975,8 +2994,9 @@
 				63057419281B399800FFB782 /* NotificationSettingsViewController.swift */,
 				6305741B281B39B900FFB782 /* NotificationSettingsViewController.xib */,
 				6305741D281B3A6500FFB782 /* NotificationSettingsViewModel.swift */,
-				A32665AD235F64EB00B529B0 /* SettingsBundleKey.swift */,
-				A3B7B39B235F2E130065A332 /* SettingsViewController.swift */,
+				63F2777C28213C790051F7FA /* SettingsViewController.swift */,
+				63F2777A282128FD0051F7FA /* SettingsViewController.xib */,
+				63852E1E2821E73800F7CE00 /* SettingsViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -3531,6 +3551,7 @@
 				A3B7B393235F12510065A332 /* LaunchScreen.storyboard in Resources */,
 				63F4C737280DD91D006396B9 /* FeaturesViewController.xib in Resources */,
 				6765E70D280EBA9F00FD13F8 /* PermissionsViewController.xib in Resources */,
+				63E95A49282AADC7003DC276 /* InfoBannerView.xib in Resources */,
 				67C055C127FDF6CC00B7159D /* ApiKeyViewController.xib in Resources */,
 				63570E0628099D620082A446 /* DashboardViewController.xib in Resources */,
 				3F38C26D2369CC10002E873A /* Localizable.strings in Resources */,
@@ -3546,6 +3567,7 @@
 				63057427281B4A5A00FFB782 /* NotificationSettingsTextCell.xib in Resources */,
 				63570E0A2809C4150082A446 /* FeatureView.xib in Resources */,
 				6765E71A28103F3000FD13F8 /* TripSimulatorViewController.xib in Resources */,
+				63F2777B282128FD0051F7FA /* SettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3916,6 +3938,7 @@
 				3FFB2D6F2417E55A003E6A06 /* BeaconInputIdVC.swift in Sources */,
 				63DA2CD62551BC2C00C228E8 /* KontaktBeaconHelper.swift in Sources */,
 				3FF5428D243A17E30063A5B9 /* DKVehiclePickerNavigationController.swift in Sources */,
+				63A6DF642823F5920096F48E /* DriveKitVehicleUtils.swift in Sources */,
 				3FF68F46241640720071D74C /* DKVehicleVersion+UI.swift in Sources */,
 				3FFB2D782418F937003E6A06 /* BeaconStep.swift in Sources */,
 				63782D912487997A0079F315 /* DKTruckType+UI.swift in Sources */,
@@ -4108,17 +4131,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				67B5837528040B330065C2E7 /* UserIdViewController.swift in Sources */,
-				A3B7B388235F124F0065A332 /* ViewController.swift in Sources */,
 				63842D4A2816CC53007F9256 /* FeatureType.swift in Sources */,
 				6765E71C28103F4700FD13F8 /* TripSimulatorViewModel.swift in Sources */,
 				6765E71E28103F6000FD13F8 /* TripSimulatorItem.swift in Sources */,
+				63F2777D28213C790051F7FA /* SettingsViewController.swift in Sources */,
 				63F4C73B280E00EE006396B9 /* FeatureViewCell.swift in Sources */,
 				63057428281B4A5A00FFB782 /* NotificationSettingsTextCell.swift in Sources */,
 				A3B7B384235F124F0065A332 /* AppDelegate.swift in Sources */,
 				63057424281B415F00FFB782 /* NotificationSettingsConfigurationCellViewModel.swift in Sources */,
 				63814103281539EA0031BCC0 /* NotificationType.swift in Sources */,
 				6765E712280EBAC400FD13F8 /* VehiclesViewController.swift in Sources */,
-				A3B7B38E235F124F0065A332 /* DriveKitApp.xcdatamodeld in Sources */,
 				6780809928000A4C00A93352 /* ApiKeyViewModel.swift in Sources */,
 				63E2EFBA2815954200E6A182 /* TripAnalysisPostponeDuration.swift in Sources */,
 				6765E70C280EBA9F00FD13F8 /* PermissionsViewController.swift in Sources */,
@@ -4128,6 +4150,7 @@
 				67B5837828040B730065C2E7 /* UserIdViewModel.swift in Sources */,
 				63E2EFB8281593D100E6A182 /* NotificationAction.swift in Sources */,
 				63F4C739280DD92E006396B9 /* FeaturesViewModel.swift in Sources */,
+				63E95A41282A39CE003DC276 /* DriveQuantSpecific.swift in Sources */,
 				63570E02280997C80082A446 /* FeatureView.swift in Sources */,
 				63570DFE280997600082A446 /* DashboardViewModel.swift in Sources */,
 				63570DFA280995DA0082A446 /* DashboardViewController.swift in Sources */,
@@ -4136,6 +4159,7 @@
 				67B583862805CC640065C2E7 /* RequestError+DK.swift in Sources */,
 				6765E71928103F3000FD13F8 /* TripSimulatorViewController.swift in Sources */,
 				63842D512817FEDB007F9256 /* DriveKitConfig.swift in Sources */,
+				63A6DF6628255EEB0096F48E /* Analytics.swift in Sources */,
 				67B58384280481570065C2E7 /* SynchroServicesManager.swift in Sources */,
 				6305741A281B399800FFB782 /* NotificationSettingsViewController.swift in Sources */,
 				67B5837C2804487C0065C2E7 /* CustomTextField.swift in Sources */,
@@ -4143,26 +4167,26 @@
 				63E2EFB6281586F100E6A182 /* NotificationCategory.swift in Sources */,
 				6381410728157EA20031BCC0 /* NotificationSettings.swift in Sources */,
 				671087D428072FDE004FA464 /* UserInfoViewModel.swift in Sources */,
-				6765E72428135A6500FD13F8 /* TripSimulatorDetailViewModel .swift in Sources */,
+				6765E72428135A6500FD13F8 /* TripSimulatorDetailViewModel.swift in Sources */,
 				67B5837A28040B7E0065C2E7 /* DriveKitDelegateManager.swift in Sources */,
 				67C055C027FDF6CC00B7159D /* ApiKeyViewController.swift in Sources */,
 				67B58380280468FE0065C2E7 /* TextFieldEffects.swift in Sources */,
 				6765E715280EBACF00FD13F8 /* VehiclesViewModel.swift in Sources */,
-				A32665AE235F64EB00B529B0 /* SettingsBundleKey.swift in Sources */,
+				63E95A43282AA901003DC276 /* InfoBannerView.swift in Sources */,
 				63F4C735280DD8B0006396B9 /* FeaturesViewController.swift in Sources */,
 				67C055E727FF2D7200B7159D /* AppNavigationController.swift in Sources */,
+				63852E1F2821E73800F7CE00 /* SettingsViewModel.swift in Sources */,
 				6765E7292816AB5E00FD13F8 /* VelocityChartView.swift in Sources */,
 				63570E00280997790082A446 /* DashboardViewModelDelegate.swift in Sources */,
 				6780809C2800693600A93352 /* String+DK.swift in Sources */,
 				63570E0C2809C70E0082A446 /* FeatureViewViewModel.swift in Sources */,
+				63E95A45282AAAFA003DC276 /* InfoBannerViewModel.swift in Sources */,
 				63570E082809AEC90082A446 /* UIView+DK.swift in Sources */,
-				6307ED8A2625DC9500CB7EED /* SynthesisCardTest.swift in Sources */,
 				6765E72128135A5000FD13F8 /* TripSimulatorDetailViewController.swift in Sources */,
+				63E95A47282AACC1003DC276 /* InfoBannerType.swift in Sources */,
 				63570DFC280996160082A446 /* TripListenerManager.swift in Sources */,
-				63BE1EDE26D0055800CFEB8B /* LastTripsViewTest.swift in Sources */,
 				63842D4F2817D3FC007F9256 /* NotificationChannel.swift in Sources */,
 				63057420281B3F6200FFB782 /* NotificationSettingsConfigurationCell.swift in Sources */,
-				A3B7B39D235F2E130065A332 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5071,19 +5095,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		A3B7B38C235F124F0065A332 /* DriveKitApp.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				A3B7B38D235F124F0065A332 /* DriveKitApp.xcdatamodel */,
-			);
-			currentVersion = A3B7B38D235F124F0065A332 /* DriveKitApp.xcdatamodel */;
-			path = DriveKitApp.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = A3B7B378235F124F0065A332 /* Project object */;
 }

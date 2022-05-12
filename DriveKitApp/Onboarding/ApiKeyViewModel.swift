@@ -11,9 +11,7 @@ import DriveKitCoreModule
 import DriveKitCommonUI
 
 struct ApiKeyViewModel {
-    private let darkColor = UIColor(hex: 0x193851)
-
-    var invalidApiKeyErrorReceived: Bool
+    private let invalidApiKeyErrorReceived: Bool
 
     init(invalidApiKeyErrorReceived: Bool = false) {
         self.invalidApiKeyErrorReceived = invalidApiKeyErrorReceived
@@ -33,7 +31,7 @@ struct ApiKeyViewModel {
 
     func getContentAttibutedText() -> NSAttributedString {
         let apiKey = self.getApiKey() ?? ""
-        let apiKeyString = apiKey.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(darkColor).build()
+        let apiKeyString = apiKey.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()
         let contentString = "welcome_ok_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).buildWithArgs(apiKeyString)
         return contentString
     }

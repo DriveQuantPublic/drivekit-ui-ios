@@ -6,15 +6,20 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import DriveKitDriverDataUI
+import DriveKitPermissionsUtilsUI
 import DriveKitTripAnalysisModule
 
 class DashboardViewModel {
+    private(set) var bannerViewModels: [InfoBannerViewModel] = []
     weak var delegate: DashboardViewModelDelegate?
 
     init() {
         TripListenerManager.shared.addSdkStateChangeListener(self)
+        updateBanners()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBanners), name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateBanners), name: .sensorStateChangedNotification, object: nil)
     }
 
     deinit {
@@ -43,6 +48,17 @@ class DashboardViewModel {
         } else {
             DriveKitTripAnalysis.shared.startTrip()
         }
+    }
+
+    @objc func updateBanners() {
+        var newBannerViewModels: [InfoBannerViewModel] = []
+        for banner in InfoBannerType.allCases {
+            if banner.shouldDisplay {
+                newBannerViewModels.append(InfoBannerViewModel(type: banner))
+            }
+        }
+        self.bannerViewModels = newBannerViewModels
+        self.delegate?.bannersDidUpdate()
     }
 }
 

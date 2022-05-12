@@ -8,8 +8,10 @@
 
 import UIKit
 import DriveKitCommonUI
+import DriveKitPermissionsUtilsUI
 
 class DashboardViewController: UIViewController {
+    @IBOutlet private weak var bannersContainer: UIStackView!
     @IBOutlet private weak var synthesisCardViewContainer: UIView!
     @IBOutlet private weak var lastTripsViewContainer: UIView!
     @IBOutlet private weak var featureListViewContainer: UIView!
@@ -19,7 +21,6 @@ class DashboardViewController: UIViewController {
     private var lastTripsView: UIView?
     private var viewModel: DashboardViewModel = DashboardViewModel()
     private let horizontalMargin: CGFloat = 8
-    private let verticalMargin: CGFloat = 6
 
     init() {
         super.init(nibName: String(describing: DashboardViewController.self), bundle: nil)
@@ -32,17 +33,23 @@ class DashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.view.backgroundColor = DKUIColors.backgroundView.color
         self.viewModel.delegate = self
         self.title = "dashboard_header".keyLocalized()
+        self.synthesisCardViewContainer.addShadow()
+        self.lastTripsViewContainer.addShadow()
         addAllFeatureView()
         updateStartStopButton()
         self.simulateTripButton.configure(text: "simulate_trip".keyLocalized(), style: .full)
         configureNavBar()
+        updateBanners()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        DriveKitPermissionsUtilsUI.shared.configureBluetooth(needed: DriveKitConfig.isBluetoothNeeded())
+        self.viewModel.updateBanners()
         updateSynthesisCardView()
         updateLastTripView()
     }
@@ -63,12 +70,12 @@ class DashboardViewController: UIViewController {
     private func addAllFeatureView() {
         let featureView = FeatureView.viewFromNib
         featureView.translatesAutoresizingMaskIntoConstraints = false
-        featureView.addShadow()
         featureView.update(viewModel: FeatureViewViewModel(type: .all), parentViewController: self)
         self.featureListViewContainer.addSubview(featureView)
+        self.featureListViewContainer.addShadow()
         NSLayoutConstraint.activate([
-            featureView.topAnchor.constraint(equalTo: self.featureListViewContainer.topAnchor, constant: self.verticalMargin / 2),
-            featureView.bottomAnchor.constraint(equalTo: self.featureListViewContainer.bottomAnchor, constant: -self.verticalMargin),
+            featureView.topAnchor.constraint(equalTo: self.featureListViewContainer.topAnchor),
+            featureView.bottomAnchor.constraint(equalTo: self.featureListViewContainer.bottomAnchor),
             featureView.leftAnchor.constraint(equalTo: self.featureListViewContainer.leftAnchor, constant: self.horizontalMargin),
             featureView.rightAnchor.constraint(equalTo: self.featureListViewContainer.rightAnchor, constant: -self.horizontalMargin)
         ])
@@ -78,13 +85,12 @@ class DashboardViewController: UIViewController {
         self.synthesisCardViewContainer.removeSubviews()
         let synthesisCardView = self.viewModel.getSynthesisCardsView()
         synthesisCardView.translatesAutoresizingMaskIntoConstraints = false
-        synthesisCardView.addShadow()
         UIView.reducePageControl(in: synthesisCardView)
         self.synthesisCardViewContainer.addSubview(synthesisCardView)
 
         self.synthesisCardViewContainer.addConstraints([
-            synthesisCardView.topAnchor.constraint(equalTo: self.synthesisCardViewContainer.topAnchor, constant: 12),
-            synthesisCardView.bottomAnchor.constraint(equalTo: self.synthesisCardViewContainer.bottomAnchor, constant: -self.verticalMargin / 2),
+            synthesisCardView.topAnchor.constraint(equalTo: self.synthesisCardViewContainer.topAnchor),
+            synthesisCardView.bottomAnchor.constraint(equalTo: self.synthesisCardViewContainer.bottomAnchor),
             synthesisCardView.leftAnchor.constraint(equalTo: self.synthesisCardViewContainer.leftAnchor, constant: self.horizontalMargin),
             synthesisCardView.rightAnchor.constraint(equalTo: self.synthesisCardViewContainer.rightAnchor, constant: -self.horizontalMargin)
         ])
@@ -94,16 +100,39 @@ class DashboardViewController: UIViewController {
         self.lastTripsViewContainer.removeSubviews()
         let lastTripView = self.viewModel.getLastTripsView(parentViewController: self)
         lastTripView.translatesAutoresizingMaskIntoConstraints = false
-        lastTripView.addShadow()
         UIView.reducePageControl(in: lastTripView)
         self.lastTripsViewContainer.addSubview(lastTripView)
 
         self.lastTripsViewContainer.addConstraints([
-            lastTripView.topAnchor.constraint(equalTo: self.lastTripsViewContainer.topAnchor, constant: self.verticalMargin / 2),
-            lastTripView.bottomAnchor.constraint(equalTo: self.lastTripsViewContainer.bottomAnchor, constant: -self.verticalMargin / 2),
+            lastTripView.topAnchor.constraint(equalTo: self.lastTripsViewContainer.topAnchor),
+            lastTripView.bottomAnchor.constraint(equalTo: self.lastTripsViewContainer.bottomAnchor),
             lastTripView.leftAnchor.constraint(equalTo: self.lastTripsViewContainer.leftAnchor, constant: self.horizontalMargin),
             lastTripView.rightAnchor.constraint(equalTo: self.lastTripsViewContainer.rightAnchor, constant: -self.horizontalMargin)
         ])
+    }
+
+    private func updateBanners() {
+        let bannerViewModels = self.viewModel.bannerViewModels
+        for view in self.bannersContainer.arrangedSubviews {
+            view.removeFromSuperview()
+        }
+        if bannerViewModels.isEmpty {
+            self.bannersContainer.isHidden = true
+        } else {
+            for bannerViewModel in bannerViewModels {
+                let bannerView = InfoBannerView.viewFromNib
+                bannerView.translatesAutoresizingMaskIntoConstraints = false
+                bannerView.update(with: bannerViewModel)
+                if bannerViewModel.hasAction {
+                    bannerView.addTarget(self, action: #selector(didTouchBannerView(_:)), for: .touchUpInside)
+                }
+                NSLayoutConstraint.activate([
+                    bannerView.heightAnchor.constraint(equalToConstant: 50)
+                ])
+                self.bannersContainer.addArrangedSubview(bannerView)
+            }
+            self.bannersContainer.isHidden = false
+        }
     }
 
     private func configureNavBar() {
@@ -114,13 +143,20 @@ class DashboardViewController: UIViewController {
     }
 
     @objc private func openSettings() {
-        #warning("TODO: Open settngs view controller")
-        self.navigationController?.pushViewController(UIViewController(), animated: true)
+        self.navigationController?.pushViewController(SettingsViewController(), animated: true)
+    }
+
+    @objc private func didTouchBannerView(_ sender: InfoBannerView) {
+        sender.viewModel?.showAction(parentViewController: self)
     }
 }
 
 extension DashboardViewController: DashboardViewModelDelegate {
     func updateStartStopButton() {
         self.startStopTripButton.configure(text: self.viewModel.getStartStopTripButtonTitle().keyLocalized(), style: .full)
+    }
+
+    func bannersDidUpdate() {
+        updateBanners()
     }
 }

@@ -29,9 +29,6 @@
 "drivekit_doc_ios_vehicle"="https://docs.drivequant.com/vehicle/user-interface/ios/get-started#display-vehicle-picker-in-navigation-controller";
 "drivekit_doc_ios_vehicle_list"="https://docs.drivequant.com/vehicle/user-interface/ios/get-started#display-vehicle-list-in-navigation-controller";
 "drivekit_doc_ios_working_hours"="https://docs.drivequant.com/trip-analysis/user-interface/ios/get-started#working-hours";
-"empty_firstname_error"="Please fill your last name";
-"empty_lastname_error"="Please fill your first name";
-"empty_pseudo_error"="Please write a nickname";
 "feature_badges_description"="The Driver Achievement component contains a function to reward driver achievements with badges. Badges are awarded according to driving scores.";
 "feature_badges_title"="Driver Achievement | Badges";
 "feature_challenges_description"="The driving challenge is a one-time event during which drivers compete to get the best driving score. The Challenge component includes several themes: eco-driving, safety, distraction and speed limit.";
@@ -57,7 +54,9 @@
 "feature_working_hours_title"="Trip Analysis | Working Hours";
 "firstname"="First name";
 "forbidden_error"="You do not have the required rights";
+"info_banner_diagnosis_title"="A problem has been detected! You must set up your phone.";
 "lastname"="Last name";
+"logout_confirmation"="Are you sure you want to logout?";
 "network_ko_error"="Mobile data is not enabled";
 "notif_trip_analysis_continue"="Continue analysis";
 "notif_trip_analysis_not_driving"="I do not drive";
@@ -104,6 +103,9 @@
 "parameters_auto_start_disabled"="The automatic mode is in idle mode. Enable this function if you want the application to automatically detect and analyze your trips.";
 "parameters_auto_start_enabled"="The automatic mode is activated. In this configuration, the application analyzes your trips without any manual action even if it is in the background.";
 "parameters_auto_start_title"="Auto Start";
+"parameters_enter_firstname"="Enter your first name";
+"parameters_enter_lastname"="Enter your last name";
+"parameters_enter_pseudo"="Enter your pseudo";
 "parameters_header"="Parameters";
 "parameters_notification_description"="Find out how to configure the notifications sent by the DriveKit SDK during and after the analysis of a trip.";
 "parameters_notification_title"="Notification management";
@@ -139,8 +141,10 @@
 "trip_simulator_crash_30_description"="This example is a short trip with a confirmed accident at a speed of 30 km/h.";
 "trip_simulator_crash_30_title"="Crash confirmed at 30 km/h";
 "trip_simulator_description"="The purpose of the simulator is to help you reproduce a trip and understand the life cycle of the Trip Analysis component of DriveKit. We advise you to use it after the SDK integration. It reproduces real GPS data for several types of trips.\n\nIt is a test tool, you should not embed it in a production application.\n\nWe also recommend that you always test your application in real conditions before publishing it.";
+"trip_simulator_error_auto_mode"="Automatic mode is disabled. No trips can be analyzed automatically.";
 "trip_simulator_error_dev_mode"="You must activate the developer mode to access the option to select a mock application and allow the application to work properly. To do this, follow the official documentation.";
 "trip_simulator_error_mock_location"="To make the simulator work properly, you must select this application as the mock location app. To do this, type \"mock location\" in the parameters search, and select this application.";
+"trip_simulator_error_vehicle_disabled"="All vehicles have an auto-start mode disabled. No trips can be analyzed automatically.";
 "trip_simulator_graph_time"="Time (s)";
 "trip_simulator_graph_velocity"="Speed (km/h)";
 "trip_simulator_header"="Trip simulator";
@@ -156,7 +160,8 @@
 "trip_simulator_short_trip_title"="Short trip (less than 2 km)";
 "trip_simulator_start_button"="START THE SIMULATION";
 "trip_simulator_stop_button"="STOP THE SIMULATION";
-"trip_simulator_stop_simulation_content"="Stop the simulation?\n\nThis will stop the current trip.";
+"trip_simulator_stop_simulation_alert_content"="This will stop the current trip.";
+"trip_simulator_stop_simulation_alert_title"="Stop the simulation?";
 "trip_simulator_suburban_description"="This example simulates a suburban trip lasting 30 minutes. The average speed is 62 km/h.";
 "trip_simulator_suburban_title"="Suburban trip (30 km)";
 "trip_simulator_train_description"="This trip corresponds to a train commute and can be used to test the alternative transportation modes detection.";

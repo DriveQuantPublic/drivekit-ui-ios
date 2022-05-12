@@ -6,7 +6,8 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import UserNotifications
 import CoreLocation
 import DriveKitCommonUI
 import DriveKitCoreModule
@@ -25,8 +26,11 @@ class NotificationManager: NSObject {
     }
 
     static func configure() {
+        // Configure NotificationManager shared instance:
         NotificationManager.shared.configure()
+        // Request permission to present notifications:
         requestNotificationPermission()
+        // Configure notifications, adding actions to some notifications:
         configureNotifications()
     }
 
@@ -91,7 +95,7 @@ class NotificationManager: NSObject {
     }
 
     private func configure() {
-
+        // Nothing special to do, but calling this method lets NotificationManager shared instance to be created.
     }
 }
 
@@ -118,6 +122,11 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
             default:
                 completionHandler()
         }
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // Used to display notifications while the app is in foreground.
+        completionHandler(.alert)
     }
 
     private func userDidTapNotification(content: UNNotificationContent, completionHandler: @escaping () -> Void) {
@@ -303,6 +312,8 @@ extension NotificationManager: TripListener {
                 sendCancelNotification(.noGpsPoint)
             case .user, .noSpeed, .missingConfiguration, .reset, .beaconNoSpeed:
                 NotificationManager.removeNotification(.tripStarted(canPostpone: DriveKitConfig.isAutoStartPostponable))
+            @unknown default:
+                break
         }
     }
 
@@ -355,6 +366,8 @@ extension TransportationMode {
                 return false
             case .train, .boat, .bike, .skiing, .idle:
                 return true
+            @unknown default:
+                return false
         }
     }
 }

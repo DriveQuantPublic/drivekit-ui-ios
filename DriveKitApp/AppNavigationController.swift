@@ -23,7 +23,6 @@ class AppNavigationController: UINavigationController {
             self.showLoader(message: "sync_trips_loading_message".keyLocalized())
             self.isNavigationBarHidden = true
             SynchroServicesManager.syncModules([.trips, .challenge, .userInfo, .vehicle], stepCompletion:  { [weak self] status, remainingServices in
-                self?.hideLoader()
                 if let service = remainingServices.first {
                     switch service {
                     case .userInfo:
@@ -38,6 +37,7 @@ class AppNavigationController: UINavigationController {
                 }
             }) { [weak self] _ in
                 if let self = self {
+                    self.hideLoader()
                     DriveKitPermissionsUtilsUI.shared.showPermissionViews([.location, .activity], parentViewController: self) {
                         self.isNavigationBarHidden = false
                         DriveKitVehicle.shared.getVehiclesOrderByNameAsc(type: .cache) { _, vehicles in

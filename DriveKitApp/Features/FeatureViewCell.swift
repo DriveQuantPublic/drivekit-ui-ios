@@ -10,21 +10,21 @@ import UIKit
 import DriveKitCommonUI
 
 final class FeatureViewCell: UITableViewCell, Nibable {
+    @IBOutlet private weak var featureViewContainer: UIView!
     private let featureView: FeatureView = FeatureView.viewFromNib
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
         self.featureView.translatesAutoresizingMaskIntoConstraints = false
-        self.contentView.addSubview(self.featureView)
-        self.featureView.addShadow()
-        let verticalMargin: CGFloat = 11
-        let horizontalMargin: CGFloat = 8
+        self.featureViewContainer.addSubview(self.featureView)
+        self.featureViewContainer.addShadow()
+        let horizontalMargin: CGFloat = 6
         NSLayoutConstraint.activate([
-            self.featureView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: verticalMargin),
-            self.featureView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -verticalMargin),
-            self.featureView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor, constant: horizontalMargin),
-            self.featureView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor, constant: -horizontalMargin)
+            self.featureView.topAnchor.constraint(equalTo: self.featureViewContainer.topAnchor),
+            self.featureView.bottomAnchor.constraint(equalTo: self.featureViewContainer.bottomAnchor),
+            self.featureView.leftAnchor.constraint(equalTo: self.featureViewContainer.leftAnchor, constant: horizontalMargin),
+            self.featureView.rightAnchor.constraint(equalTo: self.featureViewContainer.rightAnchor, constant: -horizontalMargin)
         ])
     }
 

@@ -8,8 +8,7 @@
 
 import UIKit
 
-final class LastTripsViewCell : UICollectionViewCell, Nibable {
-
+final class LastTripsViewCell: UICollectionViewCell, Nibable {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var tripCellContainer: UIView!
     private weak var tripCell: TripTableViewCell!
@@ -30,7 +29,7 @@ final class LastTripsViewCell : UICollectionViewCell, Nibable {
     }
 
     func configure(trip: DKTripListItem, tripData: TripData, title: String) {
-        self.titleLabel.attributedText = title.dkAttributedString().font(dkFont: .primary, style: DKStyles.highlightSmall.withSizeDelta(-2)).color(.complementaryFontColor).build()
+        self.titleLabel.attributedText = title.dkAttributedString().font(dkFont: .primary, style: DKStyles.highlightSmall.withSizeDelta(-2)).color(.mainFontColor).build()
         self.tripCell?.configure(trip: trip, tripData: tripData, isFirst: true, separatorColor: nil)
         if let tripInfoView = tripInfoView, let tripCell = self.tripCell {
             tripCell.accessoryView = nil

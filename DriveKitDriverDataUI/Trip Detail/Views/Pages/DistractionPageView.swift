@@ -8,8 +8,7 @@
 import UIKit
 import DriveKitCommonUI
 
-final class DistractionPageView : UIControl, Nibable {
-
+final class DistractionPageView: UIControl, Nibable {
     override var isSelected: Bool {
         didSet {
             if isSelected {
@@ -17,7 +16,7 @@ final class DistractionPageView : UIControl, Nibable {
                 self.eventDescription.textColor = DKUIColors.secondaryColor.color
             } else {
                 self.eventValue.backgroundColor = UIColor(hex:0xf3f3f3)
-                self.eventDescription.textColor = grayColor
+                self.eventDescription.textColor = DKUIColors.complementaryFontColor.color
             }
         }
     }
@@ -27,7 +26,6 @@ final class DistractionPageView : UIControl, Nibable {
     @IBOutlet private var separator: UIView!
     @IBOutlet private(set) var button: UIButton!
     private(set) var mapTrace: DKMapTraceType = .unlockScreen
-    private let grayColor = UIColor(hex:0x9e9e9e)
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,7 +39,7 @@ final class DistractionPageView : UIControl, Nibable {
         self.eventValue.textColor = DKUIColors.primaryColor.color
         self.eventValue.layer.masksToBounds = true
         // Description.
-        self.eventDescription.textColor = grayColor
+        self.eventDescription.textColor = DKUIColors.complementaryFontColor.color
         self.eventDescription.font = DKStyles.smallText.style.applyTo(font: .primary)
         // Separator.
         self.separator.backgroundColor = DKUIColors.neutralColor.color
@@ -68,6 +66,4 @@ final class DistractionPageView : UIControl, Nibable {
         self.eventTitle.invalidateIntrinsicContentSize()
         self.eventDescription.invalidateIntrinsicContentSize()
     }
-    
 }
-

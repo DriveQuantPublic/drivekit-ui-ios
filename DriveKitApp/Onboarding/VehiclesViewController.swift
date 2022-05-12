@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitDBVehicleAccessModule
 import DriveKitVehicleUI
 
 class VehiclesViewController: UIViewController {
@@ -43,7 +44,8 @@ class VehiclesViewController: UIViewController {
         } else {
             parentVC = self
         }
-        _ = DKVehiclePickerNavigationController(parentView: parentVC, showCancel: false) { [weak self] in
+        let detectionMode = DriveKitVehicleUtils.getBestDetectionModeForNewVehicle()
+        _ = DKVehiclePickerNavigationController(parentView: parentVC, detectionMode: detectionMode, showCancel: false) { [weak self] in
             self?.viewModel.areVehiclesConfigured { configured in
                 if configured {
                     self?.navigationController?.setViewControllers([DashboardViewController()], animated: true)

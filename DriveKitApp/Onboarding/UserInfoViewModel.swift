@@ -67,4 +67,8 @@ class UserInfoViewModel {
             }
         }
     }
+
+    func logout() {
+        DriveKitConfig.logout()
+    }
 }

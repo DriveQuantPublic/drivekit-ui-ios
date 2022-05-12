@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardViewController" customModule="DriveKitApp" customModuleProvider="target">
             <connections>
+                <outlet property="bannersContainer" destination="q2B-qo-pKK" id="wJN-qr-zGr"/>
                 <outlet property="featureListViewContainer" destination="gaH-AM-F6U" id="EL6-9Z-5By"/>
                 <outlet property="lastTripsViewContainer" destination="rzu-AD-EMr" id="xUn-ER-64M"/>
                 <outlet property="simulateTripButton" destination="Tfa-kl-Cbd" id="hna-67-yCF"/>
@@ -24,43 +25,68 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CFE-AG-lEd">
-                    <rect key="frame" x="0.0" y="44" width="414" height="682"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="b3T-ew-1Ac">
+                    <rect key="frame" x="0.0" y="44" width="414" height="690"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="7X0-8I-mgV">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="471"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="q2B-qo-pKK" userLabel="Banners container">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTW-BE-ahw" userLabel="SynthesisCardViewContainer">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="221"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tMx-eP-eUX">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="221" id="H3p-HG-2aA"/>
-                                    </constraints>
-                                </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rzu-AD-EMr" userLabel="LastTripsViewContainer">
-                                    <rect key="frame" x="0.0" y="223" width="414" height="126"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="126" id="usO-KX-qfR"/>
-                                    </constraints>
-                                </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaH-AM-F6U" userLabel="FeatureListContainer">
-                                    <rect key="frame" x="0.0" y="351" width="414" height="120"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" priority="750" constant="120" id="luv-Rf-dNB"/>
+                                        <constraint firstAttribute="height" constant="50" id="2dO-eJ-Tav"/>
                                     </constraints>
                                 </view>
                             </subviews>
                         </stackView>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CFE-AG-lEd">
+                            <rect key="frame" x="0.0" y="50" width="414" height="640"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7X0-8I-mgV">
+                                    <rect key="frame" x="8" y="8" width="398" height="487"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTW-BE-ahw" userLabel="SynthesisCardViewContainer">
+                                            <rect key="frame" x="0.0" y="0.0" width="398" height="221"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="221" id="H3p-HG-2aA"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rzu-AD-EMr" userLabel="LastTripsViewContainer">
+                                            <rect key="frame" x="0.0" y="231" width="398" height="126"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="126" id="usO-KX-qfR"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaH-AM-F6U" userLabel="FeatureListContainer">
+                                            <rect key="frame" x="0.0" y="367" width="398" height="120"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" priority="750" constant="120" id="luv-Rf-dNB"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="gaH-AM-F6U" firstAttribute="width" secondItem="tTW-BE-ahw" secondAttribute="width" id="1xN-Nv-rcX"/>
+                                        <constraint firstItem="rzu-AD-EMr" firstAttribute="width" secondItem="tTW-BE-ahw" secondAttribute="width" id="HJE-cG-hTm"/>
+                                        <constraint firstItem="tTW-BE-ahw" firstAttribute="width" secondItem="7X0-8I-mgV" secondAttribute="width" id="Heg-Ip-c5h"/>
+                                    </constraints>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="7X0-8I-mgV" secondAttribute="bottom" constant="12" id="2Ad-Qc-uOl"/>
+                                <constraint firstItem="7X0-8I-mgV" firstAttribute="centerX" secondItem="CFE-AG-lEd" secondAttribute="centerX" id="FCn-Ys-oFk"/>
+                                <constraint firstAttribute="trailing" secondItem="7X0-8I-mgV" secondAttribute="trailing" id="Q3N-Ff-e76"/>
+                                <constraint firstItem="7X0-8I-mgV" firstAttribute="top" secondItem="CFE-AG-lEd" secondAttribute="top" constant="8" id="vYl-tZ-RBJ"/>
+                            </constraints>
+                        </scrollView>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="7X0-8I-mgV" secondAttribute="bottom" constant="12" id="2Ad-Qc-uOl"/>
-                        <constraint firstItem="7X0-8I-mgV" firstAttribute="centerX" secondItem="CFE-AG-lEd" secondAttribute="centerX" id="FCn-Ys-oFk"/>
-                        <constraint firstAttribute="trailing" secondItem="7X0-8I-mgV" secondAttribute="trailing" id="Q3N-Ff-e76"/>
-                        <constraint firstItem="7X0-8I-mgV" firstAttribute="top" secondItem="CFE-AG-lEd" secondAttribute="top" id="vYl-tZ-RBJ"/>
+                        <constraint firstItem="7X0-8I-mgV" firstAttribute="width" secondItem="b3T-ew-1Ac" secondAttribute="width" constant="-16" id="bM4-Mn-JOq"/>
                     </constraints>
-                </scrollView>
+                </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sa9-0X-mON" userLabel="StartStopTripButton">
                     <rect key="frame" x="20" y="734" width="374" height="44"/>
                     <constraints>
@@ -87,17 +113,16 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="CFE-AG-lEd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="1ly-Zo-z7C"/>
-                <constraint firstItem="7X0-8I-mgV" firstAttribute="width" secondItem="vUN-kp-3ea" secondAttribute="width" id="7bh-g1-gct"/>
                 <constraint firstItem="Tfa-kl-Cbd" firstAttribute="top" secondItem="sa9-0X-mON" secondAttribute="bottom" constant="20" id="87E-dk-JPf"/>
                 <constraint firstItem="Tfa-kl-Cbd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="8Ui-4m-9fc"/>
+                <constraint firstItem="sa9-0X-mON" firstAttribute="top" secondItem="b3T-ew-1Ac" secondAttribute="bottom" id="EAb-1o-tNd"/>
                 <constraint firstItem="sa9-0X-mON" firstAttribute="leading" secondItem="Tfa-kl-Cbd" secondAttribute="leading" id="FnY-K7-Amj"/>
+                <constraint firstItem="b3T-ew-1Ac" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="MO6-Nu-2xj"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="b3T-ew-1Ac" secondAttribute="trailing" id="Peh-1b-fZY"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Tfa-kl-Cbd" secondAttribute="trailing" constant="20" id="SrO-Us-0fi"/>
                 <constraint firstItem="sa9-0X-mON" firstAttribute="trailing" secondItem="Tfa-kl-Cbd" secondAttribute="trailing" id="mef-Hb-Uip"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="CFE-AG-lEd" secondAttribute="trailing" id="nUj-Gx-xGV"/>
-                <constraint firstItem="sa9-0X-mON" firstAttribute="top" secondItem="CFE-AG-lEd" secondAttribute="bottom" constant="8" id="qWH-Wh-6WD"/>
+                <constraint firstItem="b3T-ew-1Ac" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="mk5-U3-Nl4"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Tfa-kl-Cbd" secondAttribute="bottom" constant="20" id="tyq-fj-kEg"/>
-                <constraint firstItem="CFE-AG-lEd" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="wOm-W9-ni1"/>
             </constraints>
             <point key="canvasLocation" x="139" y="126"/>
         </view>

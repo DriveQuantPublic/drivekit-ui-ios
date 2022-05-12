@@ -9,18 +9,13 @@
 import UIKit
 import DriveKitCommonUI
 
-final class SafetyPageView : UIView, Nibable {
-
+final class SafetyPageView: UIView, Nibable {
     @IBOutlet var eventTitle: UILabel!
     @IBOutlet var eventImage: UIImageView!
     @IBOutlet var eventCount: UILabel!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
     func configure(title: String, image: UIImage?, count: Int) {
-        eventTitle.attributedText = title.dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.complementaryFontColor).build()
+        eventTitle.attributedText = title.dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
         eventImage.image = image
         eventImage.tintColor = DKUIColors.mainFontColor.color
         eventCount.attributedText = String(count).dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.primaryColor).build()

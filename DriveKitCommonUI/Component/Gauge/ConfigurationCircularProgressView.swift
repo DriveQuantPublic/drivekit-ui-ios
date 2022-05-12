@@ -84,7 +84,7 @@ public class ConfigurationCircularProgressView {
         self.ringWidth = size.ringWidth
         self.startAngle = 45
         self.endAngle = 270
-        self.fontColor = DKUIColors.complementaryFontColor.color
+        self.fontColor = DKUIColors.mainFontColor.color
         self.fontSize = size.fontSize
         self.valueIndicator = ""
         self.decimalPlaces = 1
@@ -99,7 +99,7 @@ public class ConfigurationCircularProgressView {
         self.value = (gaugeConfiguration.getProgress() * self.maxValue).round(places: 1)
         self.steps = []
         self.ringWidth = size.ringWidth
-        self.fontColor = DKUIColors.complementaryFontColor.color
+        self.fontColor = DKUIColors.mainFontColor.color
         self.fontSize = size.fontSize
         self.valueIndicator = gaugeConfiguration.getTitle()
         self.decimalPlaces = 1

@@ -18,7 +18,7 @@ final class NotificationSettingsConfigurationCell: UITableViewCell, Nibable {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.channelTitle.font = DKStyles.headLine2.style.applyTo(font: .primary)
-        self.channelTitle.textColor = DKUIColors.complementaryFontColor.color
+        self.channelTitle.textColor = DKUIColors.primaryColor.color
         self.channelDescription.font = DKStyles.smallText.style.applyTo(font: .primary)
         self.channelDescription.textColor = DKUIColors.complementaryFontColor.color
         self.channelSwitch.onTintColor = DKUIColors.secondaryColor.color

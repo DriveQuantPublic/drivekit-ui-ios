@@ -29,9 +29,6 @@
 "drivekit_doc_ios_vehicle"="https://docs.drivequant.com/vehicle/user-interface/ios/get-started#display-vehicle-picker-in-navigation-controller";
 "drivekit_doc_ios_vehicle_list"="https://docs.drivequant.com/vehicle/user-interface/ios/get-started#display-vehicle-list-in-navigation-controller";
 "drivekit_doc_ios_working_hours"="https://docs.drivequant.com/trip-analysis/user-interface/ios/get-started#working-hours";
-"empty_firstname_error"="Introduzca su apellido";
-"empty_lastname_error"="Introduzca su nombre";
-"empty_pseudo_error"="Escriba un nick";
 "feature_badges_description"="El componente Driver Achievements contiene una función para premiar los logros del conductor con insignias. Las insignias se conceden en función de las puntuaciones de conducción.";
 "feature_badges_title"="Driver Achievement | Insignias";
 "feature_challenges_description"="El reto de conducción es un evento único en el que los conductores compiten para conseguir la mejor puntuación de conducción. El componente Challenge ofrece varios temas: conducción ecológica, seguridad, distracción y límite de velocidad.";
@@ -57,7 +54,9 @@
 "feature_working_hours_title"="Trip Analysis | Gestión de horarios";
 "firstname"="Primer nombre";
 "forbidden_error"="No tiene los derechos necesarios";
+"info_banner_diagnosis_title"="Se ha detectado un problema! Debe configurar su teléfono.";
 "lastname"="Apellido";
+"logout_confirmation"="¿Estás seguro de que quieres desconectarte?";
 "network_ko_error"="Los datos móviles no están activados";
 "notif_trip_analysis_continue"="Continuar el análisis";
 "notif_trip_analysis_not_driving"="Yo no manejo";
@@ -104,6 +103,9 @@
 "parameters_auto_start_disabled"="El modo automático está en espera. Active esta función si desea que la aplicación detecte y analice automáticamente sus rutas.";
 "parameters_auto_start_enabled"="El modo automático está activado. En esta configuración, la aplicación analiza sus rutas sin intervención manual, incluso si está en segundo plano.";
 "parameters_auto_start_title"="Inicio automático";
+"parameters_enter_firstname"="Introduzca su nombre de pila";
+"parameters_enter_lastname"="Introduzca su apellido";
+"parameters_enter_pseudo"="Introduzca su seudónimo";
 "parameters_header"="Parámetros";
 "parameters_notification_description"="Descubra cómo configurar las notificaciones que envía el SDK de DriveKit durante y después del análisis de un viaje.";
 "parameters_notification_title"="Gestión de las notificaciones";
@@ -139,8 +141,10 @@
 "trip_simulator_crash_30_description"="Este ejemplo es un viaje corto con un accidente confirmado a una velocidad de 30 km/h.";
 "trip_simulator_crash_30_title"="Accidente confirmado a 30 km/h";
 "trip_simulator_description"="El simulador tiene como objetivo ayudarle a reproducir un viaje y a comprender el ciclo de vida del componente de análisis de viajes de DriveKit. Le aconsejamos que lo utilice después de la integración del SDK. Reproduce datos GPS reales para varios tipos de viajes.\n\nSe trata de una herramienta de prueba, no debe incrustarla en una aplicación de producción.\n\nTambién le recomendamos que siempre pruebe su aplicación en condiciones reales antes de publicarla.";
+"trip_simulator_error_auto_mode"="El modo automático está desactivado. Ningún viaje puede ser analizado automáticamente.";
 "trip_simulator_error_dev_mode"="Debe activar el modo de desarrollador para acceder a la opción de seleccionar una aplicación ficticia y permitir que la aplicación se ejecute. Para ello, siga la documentación oficial.";
 "trip_simulator_error_mock_location"="Para que el simulador funcione correctamente, debe seleccionar esta aplicación como aplicación de posición ficticia. Para ello, escriba \"posición ficticia\" en la búsqueda de parámetros y seleccione esta aplicación.";
+"trip_simulator_error_vehicle_disabled"="Todos los vehículos tienen desactivado el modo de arranque automático. Ningún viaje puede ser analizado automáticamente.";
 "trip_simulator_graph_time"="Tiempo (s)";
 "trip_simulator_graph_velocity"="Velocidad (km/h)";
 "trip_simulator_header"="Simulador de viaje";
@@ -156,7 +160,8 @@
 "trip_simulator_short_trip_title"="Viaje corto (menos de 2 km)";
 "trip_simulator_start_button"="INICIAR LA SIMULACIÓN";
 "trip_simulator_stop_button"="DETENER LA SIMULACIÓN";
-"trip_simulator_stop_simulation_content"="¿Detener la simulación? \n\nEsto detendrá el viaje actual.";
+"trip_simulator_stop_simulation_alert_content"="Esto detendrá el viaje actual.";
+"trip_simulator_stop_simulation_alert_title"="¿Detener la simulación?";
 "trip_simulator_suburban_description"="Este ejemplo simula un trayecto principalmente extraurbano de 30 minutos. La velocidad media es de 62 km/h.";
 "trip_simulator_suburban_title"="Vía extraurbana (30 km)";
 "trip_simulator_train_description"="Esta vía corresponde a un viaje en tren. Puede utilizarse para probar la detección de modos de transporte alternativos.";

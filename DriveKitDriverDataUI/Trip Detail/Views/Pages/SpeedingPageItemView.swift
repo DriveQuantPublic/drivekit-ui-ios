@@ -10,15 +10,12 @@ import UIKit
 import DriveKitCommonUI
 
 final class SpeedingPageItemView: UIView, Nibable {
-
     @IBOutlet private var eventTitle: UILabel!
     @IBOutlet private var eventValue: UILabel!
     @IBOutlet private var eventDescription: UILabel!
     @IBOutlet private var separator: UIView!
     @IBOutlet private var percentageViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet private var percentageViewMarginConstraint: NSLayoutConstraint!
-
-    private let grayColor = UIColor(hex:0x9e9e9e)
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,7 +29,7 @@ final class SpeedingPageItemView: UIView, Nibable {
         self.eventValue.textColor = DKUIColors.primaryColor.color
         self.eventValue.layer.masksToBounds = true
         // Description.
-        self.eventDescription.textColor = grayColor
+        self.eventDescription.textColor = DKUIColors.complementaryFontColor.color
         self.eventDescription.font = DKStyles.smallText.style.applyTo(font: .primary)
         // Separator.
         self.separator.backgroundColor = DKUIColors.neutralColor.color

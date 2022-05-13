@@ -13,9 +13,8 @@ To integrate the **DriveKit SDK** in your application, follow the installation g
 
 The Demo application includes all the **DriveKit SDK** components. It has been developed to guide mobile developers to understand how DriveQuant's telematics solution works.
 
-The available components are:
 The components available in the Demo application are:
-* **[Trip Analysis](https://docs.drivequant.com/trip-analysis/introduction)** does not have a graphical user interface. It is the heart of the reactor that allows access to the phone's sensors and contains autostart mechanisms to analyse trips while your app runs in background ;
+* **[Trip Analysis](https://docs.drivequant.com/trip-analysis/introduction)** is the heart of the reactor that allows access to the phone's sensors and contains autostart mechanisms to analyse trips while your app runs in background ;
 * **[Permissions Utils](https://docs.drivequant.com/permissions-utils/introduction)** is used to get user's permissions that allow the SDK to access the smartphone's sensors while running in background ;
 * **[Driver Data](https://docs.drivequant.com/driver-data/introduction)** manages the driver trips display (list and details) and ensures the synchronisation of driver data. This component also offers ready to use widgets to display information about user's last trips ;
 * **[Vehicle](https://docs.drivequant.com/vehicle/introduction)** is made to select one or more vehicles, to choose the autostart mode for each of them and to manage odometer of each vehicle ;
@@ -36,7 +35,7 @@ We encourage you to use the code of this application which has been open-sourced
 
 # How to use the Demo application?
 
-You can follow the steps below to install, run and experiment with the DriveKit sample Demo app.
+You can follow the steps below to install, run and experiment with the DriveKit Demo app.
 
 
 ### ✅  Prerequisites
@@ -56,7 +55,7 @@ For an integration on iOS you will need the following elements:
 
 ### ⚙️ Configure the Demo app
 1. Ensure that you have set the API Key during the previous step. Otherwise, the interface will display an error message.
-2. Set your unique user identifier. We recommend **never** using an email address or phone number to define the unique user ID. It is recommended that you set up a unique, universal and anonymous user ID. For example, you can generate a globally unique identifier [(GUID)](https://www.guidgenerator.com/online-guid-generator.aspx) for each of your users..
+2. Set your unique user identifier. We recommend **never** using an email address or phone number to define the unique user ID. It is recommended that you set up a unique, universal and anonymous user ID. For example, you can generate a globally unique identifier.
 3. Enter some information such as firstname, last name or pseudo. You can skip this step and set information later.
 4. Grant every required permission to allow the application to access the smartphone’s sensors.
 5. Add your first vehicle to your account.

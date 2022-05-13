@@ -53,7 +53,6 @@ For an integration on iOS you will need the following elements:
 * The DriveKit SDK can only be used if you have a valid DriveKit API Key. To get a DriveKit API key, contact us at: contact@drivequant.com.
 * At the beginning of `DriveKitConfig` class, add your **DriveKit API Key** in the `apiKey` property.
 * Build and run the Demo app on your phone.
-Find [here](link) a video that guides you through this step.
 
 ### ⚙️ Configure the Demo app
 1. Ensure that you have set the API Key during the previous step. Otherwise, the interface will display an error message.

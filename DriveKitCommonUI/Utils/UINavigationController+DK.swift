@@ -1,0 +1,47 @@
+//
+//  UINavigationController+DK.swift
+//  DriveKitCommonUI
+//
+//  Created by Amine Gahbiche on 26/04/2022.
+//  Copyright © 2022 DriveQuant. All rights reserved.
+//
+
+import UIKit
+
+public extension UINavigationController {
+    func configure() {
+        let titleTextAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: DKUIColors.navBarElementColor.color
+        ]
+        if #available(iOS 15.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundEffect = nil
+            appearance.backgroundColor = DKUIColors.primaryColor.color
+            appearance.titleTextAttributes = titleTextAttributes
+            self.navigationBar.standardAppearance = appearance
+            self.navigationBar.scrollEdgeAppearance = appearance
+        } else if #available(iOS 13.0, *) {
+            self.navigationBar.standardAppearance.titleTextAttributes = titleTextAttributes
+            self.navigationBar.standardAppearance.backgroundColor = DKUIColors.primaryColor.color
+        } else {
+            self.navigationBar.titleTextAttributes = titleTextAttributes
+            self.navigationBar.backgroundColor = DKUIColors.primaryColor.color
+        }
+    }
+
+    func configure(from navigationController: UINavigationController) {
+        self.navigationBar.isTranslucent = navigationController.navigationBar.isTranslucent
+        if #available(iOS 15.0, *) {
+            self.navigationBar.standardAppearance = navigationController.navigationBar.standardAppearance
+            self.navigationBar.scrollEdgeAppearance = navigationController.navigationBar.scrollEdgeAppearance
+        } else if #available(iOS 13.0, *) {
+            self.navigationBar.standardAppearance = navigationController.navigationBar.standardAppearance
+        } else {
+            self.navigationBar.titleTextAttributes = navigationController.navigationBar.titleTextAttributes
+            self.navigationBar.backgroundColor = navigationController.navigationBar.backgroundColor
+        }
+        self.navigationBar.barTintColor = navigationController.navigationBar.barTintColor
+        self.navigationBar.tintColor = navigationController.navigationBar.tintColor
+    }
+}

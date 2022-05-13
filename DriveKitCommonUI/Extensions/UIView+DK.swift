@@ -9,7 +9,6 @@
 import UIKit
 
 public extension UIView {
-    
     func embedSubview(_ subview: UIView, margins: UIEdgeInsets = UIEdgeInsets.zero) {
         subview.translatesAutoresizingMaskIntoConstraints = false
         addSubview(subview)
@@ -30,6 +29,12 @@ public extension UIView {
                                                       options: [],
                                                       metrics: metrics,
                                                       views: bindings))
+    }
+
+    func removeSubviews() {
+        subviews.forEach { view in
+            view.removeFromSuperview()
+        }
     }
 }
 

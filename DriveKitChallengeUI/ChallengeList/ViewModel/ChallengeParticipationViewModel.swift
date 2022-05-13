@@ -19,7 +19,6 @@ public enum ChallengeParticipationStatus: Int {
 public class ChallengeParticipationViewModel {
     private let challenge: DKChallenge
     private var joinedWithSuccess: Bool = false
-    private let grayColor = UIColor(hex:0x9e9e9e)
     private let conditionsArray: [String: ChallengeConditionProgressViewModel]
     private let isRulesTab: Bool
 
@@ -39,7 +38,7 @@ public class ChallengeParticipationViewModel {
         let titleAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 20).with(.traitBold), NSAttributedString.Key.foregroundColor: DKUIColors.mainFontColor.color, NSAttributedString.Key.paragraphStyle: alignment]
         let titleString = challenge.title
         var titleAttributedString = NSMutableAttributedString(string: titleString, attributes: titleAttributes)
-        titleAttributedString = "%@\n\n\n%@".dkAttributedString().buildWithArgs(titleAttributedString, ChallengeItemViewModel.formatStartAndEndDates(startDate: challenge.startDate, endDate: challenge.endDate, tintColor: grayColor, alignment: .center))
+        titleAttributedString = "%@\n\n\n%@".dkAttributedString().buildWithArgs(titleAttributedString, ChallengeItemViewModel.formatStartAndEndDates(startDate: challenge.startDate, endDate: challenge.endDate, tintColor: DKUIColors.complementaryFontColor.color, alignment: .center))
         return titleAttributedString
     }
 

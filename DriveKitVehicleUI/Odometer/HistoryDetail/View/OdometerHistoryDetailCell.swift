@@ -46,7 +46,7 @@ final class OdometerHistoryDetailCell: UITableViewCell, Nibable {
             self.textField.placeholder = viewModel.getPlaceHolder()
             self.textField.text = value
             if viewModel.isEditable {
-                self.textField.textColor = UIColor(hex: 0x9e9e9e)
+                self.textField.textColor = DKUIColors.complementaryFontColor.color
             }
         } else {
             self.textField.isHidden = true

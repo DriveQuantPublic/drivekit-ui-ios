@@ -9,8 +9,7 @@
 import UIKit
 import DriveKitCommonUI
 
-final class HistoryPageView : UITableViewCell, Nibable {
-    
+final class HistoryPageView: UITableViewCell, Nibable {
     @IBOutlet var historyTimeLabel: UILabel!
     @IBOutlet var topLine: UIView!
     @IBOutlet var historyImage: UIImageView!
@@ -40,7 +39,6 @@ final class HistoryPageView : UITableViewCell, Nibable {
         
         historyImage.image = event.type.getImage()
         historyImage.tintColor = DKUIColors.mainFontColor.color
-        descriptionLabel.attributedText = event.getTitle().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
+        descriptionLabel.attributedText = event.getTitle().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
     }
 }
-

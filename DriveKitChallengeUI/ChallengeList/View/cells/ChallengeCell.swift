@@ -15,13 +15,12 @@ class ChallengeCell: UICollectionViewCell {
     @IBOutlet private var challengeNameLabel: UILabel!
     @IBOutlet private weak var challengeDateImage: UIImageView!
     @IBOutlet private var whiteBackgroundView: UIView!
-    private let grayColor = UIColor(hex:0x9e9e9e)
 
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()
     }
-    
+
     func setup() {
         self.whiteBackgroundView?.layer.cornerRadius = 2.0
         self.whiteBackgroundView?.layer.masksToBounds = false
@@ -29,7 +28,7 @@ class ChallengeCell: UICollectionViewCell {
         self.whiteBackgroundView?.layer.shadowColor = UIColor.black.cgColor
         self.whiteBackgroundView?.layer.shadowOffset = CGSize(width: 1, height: 1)
 
-        challengeDatesLabel.textColor = grayColor
+        challengeDatesLabel.textColor = DKUIColors.complementaryFontColor.color
         challengeDatesLabel.font = DKUIFonts.primary.fonts(size: 14)
         challengeNameLabel.textColor = DKUIColors.mainFontColor.color
         challengeNameLabel.font = DKUIFonts.primary.fonts(size: 22).with(.traitBold)
@@ -38,7 +37,7 @@ class ChallengeCell: UICollectionViewCell {
     }
 
     func configure(challenge: ChallengeItemViewModel) {
-        challengeDatesLabel.attributedText = ChallengeItemViewModel.formatStartAndEndDates(startDate: challenge.startDate, endDate: challenge.endDate, tintColor: grayColor)
+        challengeDatesLabel.attributedText = ChallengeItemViewModel.formatStartAndEndDates(startDate: challenge.startDate, endDate: challenge.endDate, tintColor: DKUIColors.complementaryFontColor.color)
         challengeNameLabel.text = challenge.name
         challengeImageView.image = challenge.image
     }

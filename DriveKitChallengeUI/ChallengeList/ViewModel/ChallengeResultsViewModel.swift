@@ -16,7 +16,6 @@ class ChallengeResultsViewModel {
     let challengeTheme: ChallengeTheme
     private let goldColor = UIColor(red: 255, green: 215, blue: 0)
     private let lightGoldColor = UIColor(red: 1, green: 215.0/255, blue: 0, alpha: 0.2)
-    private let grayColor = UIColor(hex:0x9e9e9e)
 
     init(challengeDetail: DKChallengeDetail,
          challengeType: ChallengeType = .score,
@@ -115,7 +114,7 @@ class ChallengeResultsViewModel {
     }
 
     func getGlobalStatAttributedString(challengeStatType: ChallengeStatType) -> NSAttributedString {
-        let titleAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 12), NSAttributedString.Key.foregroundColor: grayColor]
+        let titleAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 12), NSAttributedString.Key.foregroundColor: DKUIColors.complementaryFontColor.color]
         let majorAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 14).with(.traitBold), NSAttributedString.Key.foregroundColor: DKUIColors.primaryColor.color]
         switch challengeStatType {
         case .duration:

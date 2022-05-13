@@ -9,7 +9,6 @@
 import UIKit
 
 class SynthesisCardViewCell: UICollectionViewCell {
-
     private let cardView: SynthesisCardView
     var viewModel: SynthesisCardViewModel? = nil {
         didSet {

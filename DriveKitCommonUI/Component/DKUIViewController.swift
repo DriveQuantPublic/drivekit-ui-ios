@@ -25,13 +25,17 @@ open class DKUIViewController: UIViewController {
     }
 
     open func configureBackButton(selector: Selector = #selector(onBack)) {
+        DKUIViewController.configureBackButton(viewController: self, selector: selector)
+    }
+
+    public static func configureBackButton(viewController: UIViewController, selector: Selector) {
         let backButton = UIButton(type: .custom)
         backButton.frame = CGRect(x: 0, y: 0, width: 36, height: 36)
         let backImage = DKImages.back.image
         backButton.setImage(backImage, for: .normal)
-        backButton.addTarget(self, action: selector, for: .touchUpInside)
+        backButton.addTarget(viewController, action: selector, for: .touchUpInside)
         backButton.tintColor = DKUIColors.navBarElementColor.color
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
     }
 
     @objc open func onBack(sender: UIBarButtonItem) {

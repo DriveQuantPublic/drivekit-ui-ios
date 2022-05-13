@@ -63,7 +63,6 @@ extension Array where Element: Trip {
 }
 
 extension Route {
-        
     var startLocation: CLLocationCoordinate2D {
         return coordinate(at: 0)
     }
@@ -86,12 +85,12 @@ extension Route {
 }
 
 extension TripAdvice {
-    func adviceImage() -> UIImage?{
+    func adviceImage() -> UIImage? {
         if self.theme == "SAFETY" {
             return UIImage(named: "dk_safety_advice", in: Bundle.driveKitCommonUIBundle, compatibleWith: nil)
-        }else if self.theme == "ECODRIVING" {
+        } else if self.theme == "ECODRIVING" {
             return UIImage(named: "dk_eco_advice", in: Bundle.driveKitCommonUIBundle, compatibleWith: nil)
-        }else{
+        } else {
             return nil
         }
     }
@@ -109,7 +108,7 @@ public extension EcoDrivingContext {
     }
 }
 
-public enum DKRoadCondition : Int, CaseIterable {
+public enum DKRoadCondition: Int, CaseIterable {
     case trafficJam = 0
     case heavyUrbanTraffic = 1
     case city = 2

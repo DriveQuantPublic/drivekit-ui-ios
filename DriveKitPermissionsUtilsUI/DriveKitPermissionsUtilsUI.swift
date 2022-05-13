@@ -10,8 +10,7 @@ import UIKit
 import DriveKitCoreModule
 import DriveKitCommonUI
 
-@objc public class DriveKitPermissionsUtilsUI : NSObject {
-
+@objc public class DriveKitPermissionsUtilsUI: NSObject {
     @objc public static let shared = DriveKitPermissionsUtilsUI()
     public private(set) var isBluetoothNeeded = false
     public private(set) var contactType = DKContactType.none
@@ -35,7 +34,7 @@ import DriveKitCommonUI
 
     public func showPermissionViews(_ permissionViews: [DKPermissionView], parentViewController: UIViewController, completionHandler: @escaping () -> Void) {
         // Keep only needed permission views.
-        let neededPermissionViews = permissionViews.filter { (permissionView) -> Bool in
+        let neededPermissionViews = permissionViews.filter { permissionView in
             let permissionType = permissionView.getPermissionType()
             switch permissionType {
                 case .activity:

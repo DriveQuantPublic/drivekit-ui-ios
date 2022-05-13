@@ -10,7 +10,6 @@ import UIKit
 import DriveKitCommonUI
 
 final class SynthesisCardsView: UIView, Nibable {
-
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var pageControl: UIPageControl!
 

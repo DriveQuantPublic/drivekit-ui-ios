@@ -175,16 +175,14 @@ extension TripSimulatorDetailViewModel: TripListener {
     }
     
     func tripFinished(post: PostGeneric, response: PostGenericResponse) {
-        if currentDuration >= simulatedItem.getSimulationDuration() {
-            isSimulating = false
-            updateNeeded()
-        }
+        tripSimulationDidEnd()
     }
     
     func tripCancelled(cancelTrip: CancelTrip) {
     }
     
     func tripSavedForRepost() {
+        tripSimulationDidEnd()
     }
     
     func beaconDetected() {
@@ -205,5 +203,12 @@ extension TripSimulatorDetailViewModel: TripListener {
     }
     
     func crashFeedbackSent(crashInfo: DKCrashInfo, feedbackType: DKCrashFeedbackType, severity: DKCrashFeedbackSeverity) {
+    }
+
+    private func tripSimulationDidEnd() {
+        if currentDuration >= simulatedItem.getSimulationDuration() {
+            stopSimulation()
+            updateNeeded()
+        }
     }
 }

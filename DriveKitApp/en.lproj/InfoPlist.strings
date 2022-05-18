@@ -1,14 +1,8 @@
-/* 
-  InfoPlist.strings
-  DriveKitApp
-
-  Created by David Bauduin on 08/04/2020.
-  Copyright © 2020 DriveQuant. All rights reserved.
-*/
-
 "NSLocationAlwaysUsageDescription"="The application needs to know your location to analyze your trips, to provide driving scores and to enable use the automatic start mode.";
-"NSLocationWhenInUseUsageDescription"="The application needs to know your location to analyze your trips, to provide driving scores and to enable use the automatic start mode.";
+"NSLocationWhenInUseUsageDescription"="To automatically detect and analyze your trips, the application needs access to your position at all times.";
 "NSLocationAlwaysAndWhenInUseUsageDescription"="To enable automatic trip detection and driving analysis without having to manipulate your phone, select the option \"Always allow\". Good road...";
 "NSBluetoothAlwaysUsageDescription"="The application needs to use bluetooth in order to retreive beacon batterry level";
 "NSBluetoothPeripheralUsageDescription"="The application needs to use bluetooth in order to retreive beacon batterry level";
 "NSMotionUsageDescription"="This application needs to use motion data to detect transportation mode";
+"NSCameraUsageDescription"="This application needs to access the camera";
+"NSPhotoLibraryUsageDescription"="The application needs to access your photo gallery";

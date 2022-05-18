@@ -27,19 +27,21 @@
 	<key>LSSupportsOpeningDocumentsInPlace - 2</key>
 	<true/>
 	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>This app needs to access Bluetooth in order to get Beacon battery</string>
+	<string>The application needs to use bluetooth in order to retreive beacon batterry level</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>The application needs to use bluetooth in order to retreive beacon batterry level</string>
 	<key>NSCameraUsageDescription</key>
-	<string>This app requires access to the camera.</string>
+	<string>This application needs to access the camera</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Acces location to register your trip</string>
+	<string>To enable automatic trip detection and driving analysis without having to manipulate your phone, select the option \&quot;Always allow\&quot;. Good road...</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Acces location to register your trip</string>
+	<string>The application needs to know your location to analyze your trips, to provide driving scores and to enable use the automatic start mode.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Acces location to register your trip</string>
+	<string>To automatically detect and analyze your trips, the application needs access to your position at all times.</string>
 	<key>NSMotionUsageDescription</key>
-	<string>Motion usage to detect transport mode</string>
+	<string>This application needs to use motion data to detect transportation mode</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>This app requires access to the photo library.</string>
+	<string>The application needs to access your photo gallery</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>

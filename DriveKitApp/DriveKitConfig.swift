@@ -37,14 +37,14 @@ class DriveKitConfig {
     private static let vehicleBrands: [DKVehicleBrand] = DKVehicleBrand.allCases
 
     static func initialize(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-        // Configure trip notifications:
-        NotificationManager.configure()
-
         // DriveKit modules initialization:
         initializeModules(launchOptions: launchOptions)
 
         // DriveKit modules configuration:
         configureModules()
+
+        // Configure trip notifications:
+        NotificationManager.configure()
     }
 
     private static func initializeModules(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
@@ -92,6 +92,9 @@ class DriveKitConfig {
 
         // Reconfigure modules:
         configureModules()
+
+        // Reconfigure trip notifications manager:
+        NotificationManager.configure()
     }
 
     static func reset() {
@@ -107,6 +110,9 @@ class DriveKitConfig {
         if let bundleID = Bundle.main.bundleIdentifier {
             UserDefaults.standard.removePersistentDomain(forName: bundleID)
         }
+
+        // Reset trip notifications manager:
+        NotificationManager.reset()
     }
 
 

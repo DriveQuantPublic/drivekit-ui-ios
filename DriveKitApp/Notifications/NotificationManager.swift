@@ -19,19 +19,19 @@ class NotificationManager: NSObject {
     private static let shared = NotificationManager()
     private static let delay = 2.0
 
-    private override init() {
-        super.init()
-        DriveKit.shared.registerNotificationDelegate(self)
-        TripListenerManager.shared.addTripListener(self)
-    }
-
     static func configure() {
         // Configure NotificationManager shared instance:
         NotificationManager.shared.configure()
+
         // Request permission to present notifications:
         requestNotificationPermission()
+
         // Configure notifications, adding actions to some notifications:
         configureNotifications()
+    }
+
+    static func reset() {
+        NotificationManager.shared.reset()
     }
 
     static func sendNotification(_ notification: NotificationType, userInfo: [String: Any]? = nil) {
@@ -95,7 +95,13 @@ class NotificationManager: NSObject {
     }
 
     private func configure() {
-        // Nothing special to do, but calling this method lets NotificationManager shared instance to be created.
+        DriveKit.shared.registerNotificationDelegate(self)
+        TripListenerManager.shared.addTripListener(self)
+    }
+
+    private func reset() {
+        DriveKit.shared.unregisterNotificationDelegate(self)
+        TripListenerManager.shared.removeTripListener(self)
     }
 }
 
@@ -126,7 +132,11 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
 
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         // Used to display notifications while the app is in foreground.
-        completionHandler(.alert)
+        if #available(iOS 14, *) {
+            completionHandler([.list, .banner])
+        } else {
+            completionHandler(.alert)
+        }
     }
 
     private func userDidTapNotification(content: UNNotificationContent, completionHandler: @escaping () -> Void) {

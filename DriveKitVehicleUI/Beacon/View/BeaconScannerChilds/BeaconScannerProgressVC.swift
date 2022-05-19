@@ -12,7 +12,6 @@ import CoreLocation
 import CoreBluetooth
 
 class BeaconScannerProgressVC: UIViewController {
-    
     @IBOutlet weak var progressViewTitleLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
     
@@ -21,7 +20,7 @@ class BeaconScannerProgressVC: UIViewController {
     private var timer: Timer? = nil
     private var batteryTimer: Timer? = nil
     private let locationManager = CLLocationManager()
-    private let kontaktBeaconHelper = KontaktBeaconHelper()
+    private let beaconHelper = BeaconHelper()
     private var isBeaconFound = false
     
     init(viewModel: BeaconViewModel) {
@@ -53,11 +52,11 @@ class BeaconScannerProgressVC: UIViewController {
     }
 
     private func startMonitoringBatteryLevel() {
-        self.kontaktBeaconHelper.startBatteryLevelRetrieval(completion: self.onBatteryLevel)
+        self.beaconHelper.startBatteryLevelRetrieval(completion: self.onBatteryLevel)
     }
 
     private func stopMonitoringBatteryLevel() {
-        self.kontaktBeaconHelper.stopBatteryLevelRetrieval()
+        self.beaconHelper.stopBatteryLevelRetrieval()
     }
     
     @objc func refreshProgress() {
@@ -124,7 +123,7 @@ class BeaconScannerProgressVC: UIViewController {
             case .error:
                 break
         }
-        self.kontaktBeaconHelper.stopBatteryLevelRetrieval()
+        self.beaconHelper.stopBatteryLevelRetrieval()
     }
     
     @objc private func goToNextStep() {
@@ -173,7 +172,7 @@ class BeaconScannerProgressVC: UIViewController {
 }
 
 
-extension BeaconScannerProgressVC : CLLocationManagerDelegate {
+extension BeaconScannerProgressVC: CLLocationManagerDelegate {
     @available(iOS 13.0, *)
     func locationManager(_ manager: CLLocationManager, didRange beacons: [CLBeacon], satisfying beaconConstraint: CLBeaconIdentityConstraint) {
         if !isBeaconFound && !beacons.isEmpty {

@@ -1,5 +1,5 @@
 //
-//  KontaktBeaconHelper.swift
+//  BeaconHelper.swift
 //  DriveKitVehicleUI
 //
 //  Created by David Bauduin on 03/11/2020.
@@ -11,10 +11,11 @@ import CoreLocation
 import CoreBluetooth
 import DriveKitDBVehicleAccessModule
 
-@objc public class KontaktBeaconHelper : NSObject {
+@objc public class BeaconHelper: NSObject {
     public typealias BeaconFound = (_ beacon: CLBeacon) -> Void
     public typealias BatteryLevelResult = (_ result: BeaconResult) -> Void
     public typealias BatteryLevelCompletion = (_ beaconIdentifier: String?, _ batteryLevel: Int, _ error: Bool) -> Void
+    private let beaconTypes: [DKBeaconType]?
     private var beacons: [DKBeacon]? = nil
     private var locationManager: CLLocationManager? = nil
     private var centralManager: CBCentralManager? = nil
@@ -22,6 +23,14 @@ import DriveKitDBVehicleAccessModule
     private var onBeaconFoundBlock: BeaconFound? = nil
     private var completionBlock: BatteryLevelResult? = nil
     private var objcCompletionBlock: BatteryLevelCompletion? = nil
+
+    override init() {
+        self.beaconTypes = [.feasycom, .kontakt, .kontaktPro]
+    }
+
+    init(beaconTypes: [DKBeaconType] = [.feasycom, .kontakt, .kontaktPro]) {
+        self.beaconTypes = beaconTypes.isEmpty ? [.feasycom, .kontakt, .kontaktPro] : beaconTypes
+    }
 
     @objc public func startBeaconScan(beacons: [DKBeacon], onBeaconFound: @escaping BeaconFound) {
         if self.beacons == nil {
@@ -100,17 +109,18 @@ import DriveKitDBVehicleAccessModule
     }
 
     private func startBatteryScan() {
-        if let centralManager = self.centralManager {
+        if let centralManager = self.centralManager, let types = self.beaconTypes {
             if !self.scanningBattery && centralManager.state == .poweredOn {
                 self.scanningBattery = true
-                centralManager.scanForPeripherals(withServices: [CBUUID(string:"D00D"), CBUUID(string:"FE6A")], options: nil)
+                let services: [CBUUID] = types.map { CBUUID(string: $0.service) }
+                centralManager.scanForPeripherals(withServices: services, options: nil)
             }
         }
     }
 }
 
 
-extension KontaktBeaconHelper : CLLocationManagerDelegate {
+extension BeaconHelper : CLLocationManagerDelegate {
     @available(iOS 13.0, *)
     public func locationManager(_ manager: CLLocationManager, didRange beacons: [CLBeacon], satisfying beaconConstraint: CLBeaconIdentityConstraint) {
         onBeaconsFound(beacons)
@@ -132,7 +142,7 @@ extension KontaktBeaconHelper : CLLocationManagerDelegate {
 }
 
 
-extension KontaktBeaconHelper : CBCentralManagerDelegate {
+extension BeaconHelper: CBCentralManagerDelegate {
     public func centralManagerDidUpdateState(_ centralManager: CBCentralManager) {
         switch centralManager.state {
             case .poweredOn:
@@ -150,39 +160,19 @@ extension KontaktBeaconHelper : CBCentralManagerDelegate {
     }
 
     public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        guard let serviceData = advertisementData[CBAdvertisementDataServiceDataKey] as? Dictionary<CBUUID, Data> else {
+        guard let serviceData = advertisementData[CBAdvertisementDataServiceDataKey] as? Dictionary<CBUUID, Data>, let beaconTypes = self.beaconTypes else {
             return
         }
-
-        let beaconIdentifier: String?
-        let batteryPower: Int?
-        if let ktkOldData = serviceData[CBUUID(string:"D00D")] {
-            // Kontakt.io Beacon data from old advertismentData.
-            // Parse identifier get byte 0 - 3.
-            guard let beaconId = String(data: ktkOldData.subdata(in: Range(0...3)), encoding: String.Encoding.ascii) else {
-                return
+        var beaconIdentifier: String? = nil
+        var batteryPower: Int? = nil
+        for beaconType in beaconTypes {
+            let (power, id) = beaconType.parse(serviceData: serviceData)
+            if let power = power {
+                batteryPower = power
+                beaconIdentifier = id
+                break
             }
-            beaconIdentifier = beaconId
-            // Parse battery level get byte 6.
-            var power: UInt8 = 0
-            ktkOldData.copyBytes(to: &power, from: 6..<7)
-            batteryPower = Int(power)
-        } else if let ktkNewData = serviceData[CBUUID(string:"FE6A")] {
-            // Kontakt.io Beacon data from new (pro beacons) advertismentData.
-            // Parse identifier get byte 6 - 9.
-            guard let beaconId = String(data: ktkNewData.subdata(in: Range(6...9)), encoding: String.Encoding.ascii) else {
-                return
-            }
-            beaconIdentifier = beaconId
-            // Parse battery level get byte 4.
-            var power: UInt8 = 0
-            ktkNewData.copyBytes(to: &power, from: 4..<5)
-            batteryPower = Int(power)
-        } else {
-            beaconIdentifier = nil
-            batteryPower = nil
         }
-
         if let batteryPower = batteryPower {
             var stop = true
             if let completionBlock = self.completionBlock {
@@ -203,4 +193,61 @@ extension KontaktBeaconHelper : CBCentralManagerDelegate {
 public enum BeaconResult {
     case success(identifier: String?, batteryLevel: Int)
     case error
+}
+
+@objc public enum DKBeaconType: Int {
+    case kontakt
+    case kontaktPro
+    case feasycom
+
+    var service: String {
+        switch self {
+            case .kontakt:
+                return "D00D"
+            case .kontaktPro:
+                return "FE6A"
+            case .feasycom:
+                return "FFF0"
+        }
+    }
+
+    func parse(serviceData: Dictionary<CBUUID, Data>) -> (batteryPower: Int?, beaconIdentifier: String?) {
+        if let data = serviceData[CBUUID(string: self.service)] {
+            let batteryPower: Int?
+            let beaconIdentifier: String?
+            switch self {
+                case .kontakt:
+                    // Kontakt.io Beacon data from old advertismentData.
+                    // Parse identifier get byte 0 - 3.
+                    guard let beaconId = String(data: data.subdata(in: Range(0...3)), encoding: String.Encoding.ascii) else {
+                        return (nil, nil)
+                    }
+                    beaconIdentifier = beaconId
+                    // Parse battery level get byte 6.
+                    var power: UInt8 = 0
+                    data.copyBytes(to: &power, from: 6..<7)
+                    batteryPower = Int(power)
+                case .kontaktPro:
+                    // Kontakt.io Beacon data from new (pro beacons) advertismentData.
+                    // Parse identifier get byte 6 - 9.
+                    guard let beaconId = String(data: data.subdata(in: Range(6...9)), encoding: String.Encoding.ascii) else {
+                        return (nil, nil)
+                    }
+                    beaconIdentifier = beaconId
+                    // Parse battery level get byte 4.
+                    var power: UInt8 = 0
+                    data.copyBytes(to: &power, from: 4..<5)
+                    batteryPower = Int(power)
+                case .feasycom:
+                    // Feasycom beacon data.
+                    var power: UInt8 = 0
+                    data.copyBytes(to: &power, from: 10..<11)
+                    batteryPower = Int(power)
+                    beaconIdentifier = nil
+            }
+            return (batteryPower, beaconIdentifier)
+        } else {
+            return (nil, nil)
+        }
+    }
 }

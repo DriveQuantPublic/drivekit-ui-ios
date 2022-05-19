@@ -15,7 +15,7 @@ import DriveKitDBVehicleAccessModule
     public typealias BeaconFound = (_ beacon: CLBeacon) -> Void
     public typealias BatteryLevelResult = (_ result: BeaconResult) -> Void
     public typealias BatteryLevelCompletion = (_ beaconIdentifier: String?, _ batteryLevel: Int, _ error: Bool) -> Void
-    private let beaconTypes: [DKBeaconType]?
+    private let beaconTypes: [DKBeaconType]
     private var beacons: [DKBeacon]? = nil
     private var locationManager: CLLocationManager? = nil
     private var centralManager: CBCentralManager? = nil
@@ -24,7 +24,7 @@ import DriveKitDBVehicleAccessModule
     private var completionBlock: BatteryLevelResult? = nil
     private var objcCompletionBlock: BatteryLevelCompletion? = nil
 
-    override init() {
+    @objc override init() {
         self.beaconTypes = [.feasycom, .kontakt, .kontaktPro]
     }
 
@@ -109,10 +109,10 @@ import DriveKitDBVehicleAccessModule
     }
 
     private func startBatteryScan() {
-        if let centralManager = self.centralManager, let types = self.beaconTypes {
+        if let centralManager = self.centralManager {
             if !self.scanningBattery && centralManager.state == .poweredOn {
                 self.scanningBattery = true
-                let services: [CBUUID] = types.map { CBUUID(string: $0.service) }
+                let services: [CBUUID] = self.beaconTypes.map { CBUUID(string: $0.service) }
                 centralManager.scanForPeripherals(withServices: services, options: nil)
             }
         }
@@ -160,12 +160,12 @@ extension BeaconHelper: CBCentralManagerDelegate {
     }
 
     public func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-        guard let serviceData = advertisementData[CBAdvertisementDataServiceDataKey] as? Dictionary<CBUUID, Data>, let beaconTypes = self.beaconTypes else {
+        guard let serviceData = advertisementData[CBAdvertisementDataServiceDataKey] as? Dictionary<CBUUID, Data> else {
             return
         }
         var beaconIdentifier: String? = nil
         var batteryPower: Int? = nil
-        for beaconType in beaconTypes {
+        for beaconType in self.beaconTypes {
             let (power, id) = beaconType.parse(serviceData: serviceData)
             if let power = power {
                 batteryPower = power

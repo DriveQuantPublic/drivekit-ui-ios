@@ -266,6 +266,7 @@
 		63842D4F2817D3FC007F9256 /* NotificationChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63842D4E2817D3FC007F9256 /* NotificationChannel.swift */; };
 		63842D512817FEDB007F9256 /* DriveKitConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63842D502817FEDB007F9256 /* DriveKitConfig.swift */; };
 		63852E1F2821E73800F7CE00 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63852E1E2821E73800F7CE00 /* SettingsViewModel.swift */; };
+		638A7DEB284E327F00A7B001 /* DKBeaconConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638A7DEA284E327F00A7B001 /* DKBeaconConfig.swift */; };
 		638AC038261F8FFB00602B52 /* SynthesisCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638AC037261F8FFB00602B52 /* SynthesisCardsView.swift */; };
 		638AC03F261F903300602B52 /* SynthesisCardsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638AC03E261F903300602B52 /* SynthesisCardsView.xib */; };
 		638AC046261F970E00602B52 /* SynthesisCardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638AC045261F970E00602B52 /* SynthesisCardsViewModel.swift */; };
@@ -309,7 +310,7 @@
 		63C8F0AC272C949B006664A4 /* OdometerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8F0AB272C949B006664A4 /* OdometerUtils.swift */; };
 		63CDB12D273C7B9C00881976 /* OdometerInitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CDB12C273C7B9C00881976 /* OdometerInitVC.swift */; };
 		63CDB131273C87FE00881976 /* OdometerInitVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63CDB130273C87FE00881976 /* OdometerInitVC.xib */; };
-		63DA2CD62551BC2C00C228E8 /* BeaconHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DA2CD52551BC2C00C228E8 /* BeaconHelper.swift */; };
+		63DA2CD62551BC2C00C228E8 /* DKBeaconScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DA2CD52551BC2C00C228E8 /* DKBeaconScanner.swift */; };
 		63E2EFB6281586F100E6A182 /* NotificationCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E2EFB5281586F100E6A182 /* NotificationCategory.swift */; };
 		63E2EFB8281593D100E6A182 /* NotificationAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E2EFB7281593D100E6A182 /* NotificationAction.swift */; };
 		63E2EFBA2815954200E6A182 /* TripAnalysisPostponeDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E2EFB92815954200E6A182 /* TripAnalysisPostponeDuration.swift */; };
@@ -981,6 +982,7 @@
 		63842D4E2817D3FC007F9256 /* NotificationChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationChannel.swift; sourceTree = "<group>"; };
 		63842D502817FEDB007F9256 /* DriveKitConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveKitConfig.swift; sourceTree = "<group>"; };
 		63852E1E2821E73800F7CE00 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		638A7DEA284E327F00A7B001 /* DKBeaconConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKBeaconConfig.swift; sourceTree = "<group>"; };
 		638AC037261F8FFB00602B52 /* SynthesisCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesisCardsView.swift; sourceTree = "<group>"; };
 		638AC03E261F903300602B52 /* SynthesisCardsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SynthesisCardsView.xib; sourceTree = "<group>"; };
 		638AC045261F970E00602B52 /* SynthesisCardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesisCardsViewModel.swift; sourceTree = "<group>"; };
@@ -1024,7 +1026,7 @@
 		63C8F0AB272C949B006664A4 /* OdometerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdometerUtils.swift; sourceTree = "<group>"; };
 		63CDB12C273C7B9C00881976 /* OdometerInitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdometerInitVC.swift; sourceTree = "<group>"; };
 		63CDB130273C87FE00881976 /* OdometerInitVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OdometerInitVC.xib; sourceTree = "<group>"; };
-		63DA2CD52551BC2C00C228E8 /* BeaconHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconHelper.swift; sourceTree = "<group>"; };
+		63DA2CD52551BC2C00C228E8 /* DKBeaconScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKBeaconScanner.swift; sourceTree = "<group>"; };
 		63E2EFB5281586F100E6A182 /* NotificationCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCategory.swift; sourceTree = "<group>"; };
 		63E2EFB7281593D100E6A182 /* NotificationAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAction.swift; sourceTree = "<group>"; };
 		63E2EFB92815954200E6A182 /* TripAnalysisPostponeDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripAnalysisPostponeDuration.swift; sourceTree = "<group>"; };
@@ -1785,7 +1787,8 @@
 			children = (
 				3FFB2D6A2417E3F0003E6A06 /* ViewModel */,
 				3FFB2D652417E26D003E6A06 /* View */,
-				63DA2CD52551BC2C00C228E8 /* BeaconHelper.swift */,
+				63DA2CD52551BC2C00C228E8 /* DKBeaconScanner.swift */,
+				638A7DEA284E327F00A7B001 /* DKBeaconConfig.swift */,
 			);
 			path = Beacon;
 			sourceTree = "<group>";
@@ -3912,6 +3915,7 @@
 				3FFB2D9124194909003E6A06 /* BeaconScanFailureVC.swift in Sources */,
 				A3D51F4E241BA3AE006DACE2 /* VehiclesListCell.swift in Sources */,
 				3FF68F14241504A10071D74C /* DKVehicleType+UI.swift in Sources */,
+				638A7DEB284E327F00A7B001 /* DKBeaconConfig.swift in Sources */,
 				637F96B92720B4DD0027AC1F /* OdometerVehicleCell.swift in Sources */,
 				3FF68F3A241535130071D74C /* VehiclePickerLabelCollectionViewCell.swift in Sources */,
 				637F96BB2720B4DD0027AC1F /* OdometerCell.swift in Sources */,
@@ -3936,7 +3940,7 @@
 				3FFB2D7C2418FF8E003E6A06 /* BeaconScannerProgressVC.swift in Sources */,
 				3FF68F282415198D0071D74C /* VehiclePickerTableViewCell.swift in Sources */,
 				3FFB2D6F2417E55A003E6A06 /* BeaconInputIdVC.swift in Sources */,
-				63DA2CD62551BC2C00C228E8 /* BeaconHelper.swift in Sources */,
+				63DA2CD62551BC2C00C228E8 /* DKBeaconScanner.swift in Sources */,
 				3FF5428D243A17E30063A5B9 /* DKVehiclePickerNavigationController.swift in Sources */,
 				63A6DF642823F5920096F48E /* DriveKitVehicleUtils.swift in Sources */,
 				3FF68F46241640720071D74C /* DKVehicleVersion+UI.swift in Sources */,

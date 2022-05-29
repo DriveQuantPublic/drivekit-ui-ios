@@ -8,19 +8,15 @@
 
 import UIKit
 import DriveKitCommonUI
-import CoreLocation
-import CoreBluetooth
 
 class BeaconScannerProgressVC: UIViewController {
-    @IBOutlet weak var progressViewTitleLabel: UILabel!
-    @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet private weak var progressViewTitleLabel: UILabel!
+    @IBOutlet private weak var progressView: UIProgressView!
     
     private let viewModel: BeaconViewModel
     
     private var timer: Timer? = nil
     private var batteryTimer: Timer? = nil
-    private let locationManager = CLLocationManager()
-    private let beaconHelper = BeaconHelper()
     private var isBeaconFound = false
     
     init(viewModel: BeaconViewModel) {
@@ -48,15 +44,26 @@ class BeaconScannerProgressVC: UIViewController {
         super.viewWillDisappear(animated)
         timer?.invalidate()
         stopBeaconScan()
-        stopMonitoringBatteryLevel()
+        stopBeaconInfoScan()
     }
 
-    private func startMonitoringBatteryLevel() {
-        self.beaconHelper.startBatteryLevelRetrieval(completion: self.onBatteryLevel)
+    private func startBeaconScan() {
+        self.viewModel.startBeaconScan() {
+            self.isBeaconFound = true
+            self.beaconFound()
+        }
     }
 
-    private func stopMonitoringBatteryLevel() {
-        self.beaconHelper.stopBatteryLevelRetrieval()
+    private func stopBeaconScan() {
+        self.viewModel.stopBeaconScan()
+    }
+
+    private func startBeaconInfoScan() {
+        self.viewModel.startBeaconInfoScan()
+    }
+
+    private func stopBeaconInfoScan() {
+        self.viewModel.stopBeaconInfoScan()
     }
     
     @objc func refreshProgress() {
@@ -68,7 +75,7 @@ class BeaconScannerProgressVC: UIViewController {
                 goToNextStep()
             } else {
                 self.stopBeaconScan()
-                self.stopMonitoringBatteryLevel()
+                self.stopBeaconInfoScan()
                 viewModel.updateScanState(step: .beaconNotFound)
             }
         }
@@ -84,51 +91,19 @@ class BeaconScannerProgressVC: UIViewController {
         progressView.tintColor = DKUIColors.secondaryColor.color
     }
     
-    private func startBeaconScan() {
-        locationManager.delegate = self
-        if let beacon = self.viewModel.beacon {
-            if #available(iOS 13.0, *) {
-                locationManager.startRangingBeacons(satisfying: beacon.toCLBeaconIdentityConstraint(noMajorMinor: self.viewModel.scanType != .pairing))
-            } else {
-                locationManager.startRangingBeacons(in: beacon.toCLBeaconRegion(noMajorMinor: self.viewModel.scanType != .pairing))
-            }
-        }
-    }
-    
-    private func stopBeaconScan() {
-        if let beacon = self.viewModel.beacon {
-            if #available(iOS 13.0, *) {
-                locationManager.stopRangingBeacons(satisfying: beacon.toCLBeaconIdentityConstraint(noMajorMinor: self.viewModel.scanType != .pairing))
-            } else {
-                locationManager.stopRangingBeacons(in: beacon.toCLBeaconRegion(noMajorMinor: self.viewModel.scanType != .pairing))
-            }
-        }
-    }
-    
-    private func beaconFound(clBeacon: CLBeacon) {
+    private func beaconFound() {
         self.stopBeaconScan()
         if self.viewModel.scanType == .pairing {
             goToNextStep()
         } else {
-            self.viewModel.clBeacon = clBeacon
-            startMonitoringBatteryLevel()
+            startBeaconInfoScan()
             batteryTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(goToNextStep), userInfo: nil, repeats: false)
         }
     }
 
-    private func onBatteryLevel(_ result: BeaconResult) {
-        switch result {
-            case let .success(_, batteryLevel):
-                self.viewModel.beaconBattery = batteryLevel
-            case .error:
-                break
-        }
-        self.beaconHelper.stopBatteryLevelRetrieval()
-    }
-    
     @objc private func goToNextStep() {
         self.timer?.invalidate()
-        self.stopMonitoringBatteryLevel()
+        self.stopBeaconInfoScan()
         DispatchQueue.main.async {
             switch self.viewModel.scanType {
             case .pairing:
@@ -141,10 +116,10 @@ class BeaconScannerProgressVC: UIViewController {
                                 self?.showAlertMessage(title: "", message: "dk_vehicle_beacon_already_paired_to_vehicle".dkVehicleLocalized(), back: true, cancel: false, completion: {
                                     self?.viewModel.scanValidationFinished()
                                 })
-                            }else{
+                            } else {
                                 self?.viewModel.updateScanState(step: .beaconAlreadyPaired)
                             }
-                        } else{
+                        } else {
                             self?.viewModel.updateScanState(step: .success)
                         }
                     }
@@ -167,25 +142,6 @@ class BeaconScannerProgressVC: UIViewController {
                     }
                 }
             }
-        }
-    }
-}
-
-
-extension BeaconScannerProgressVC: CLLocationManagerDelegate {
-    @available(iOS 13.0, *)
-    func locationManager(_ manager: CLLocationManager, didRange beacons: [CLBeacon], satisfying beaconConstraint: CLBeaconIdentityConstraint) {
-        if !isBeaconFound && !beacons.isEmpty {
-            isBeaconFound = true
-            self.beaconFound(clBeacon: beacons[0])
-        }
-        
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
-        if !isBeaconFound && !beacons.isEmpty{
-            isBeaconFound = true
-            self.beaconFound(clBeacon: beacons[0])
         }
     }
 }

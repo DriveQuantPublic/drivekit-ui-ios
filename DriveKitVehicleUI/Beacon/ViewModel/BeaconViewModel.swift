@@ -12,20 +12,18 @@ import DriveKitVehicleModule
 import CoreLocation
 
 public class BeaconViewModel {
-    
     var vehicle: DKVehicle?
     let scanType: DKBeaconScanType
     var beacon: DKBeacon? = nil
     weak var delegate: ScanStateDelegate? = nil
 
     var vehiclePaired: DKVehicle?
-    var beaconBattery: Int? = nil {
-        didSet {
-            batteryLevelDidUpdate()
-        }
-    }
+    private(set) var beaconBattery: Int? = nil
+    private(set) var beaconDistance: Double? = nil
     var clBeacon: CLBeacon? = nil
     var vehicles: [DKVehicle] = []
+
+    private let beaconScanner = DKBeaconScanner()
 
     var analyticsTagKey: String {
         get {
@@ -42,7 +40,73 @@ public class BeaconViewModel {
         }
     }
 
-    private func batteryLevelDidUpdate() {
+    public init(vehicle: DKVehicle, scanType: DKBeaconScanType) {
+        self.vehicle = vehicle
+        self.scanType = scanType
+    }
+
+    public init(scanType: DKBeaconScanType) {
+        self.scanType = scanType
+        self.vehicle = nil
+    }
+
+    public init(scanType: DKBeaconScanType, beacon: DKBeacon, vehicles: [DKVehicle]) {
+        self.vehicle = nil
+        self.scanType = scanType
+        self.beacon = beacon
+        self.vehicles = vehicles
+    }
+
+    public init(scanType: DKBeaconScanType, beacon: DKBeacon) {
+        self.vehicle = nil
+        self.scanType = scanType
+        self.beacon = beacon
+    }
+
+    public init(vehicle: DKVehicle, scanType: DKBeaconScanType, beacon: DKBeacon) {
+        self.vehicle = vehicle
+        self.scanType = scanType
+        self.beacon = beacon
+    }
+    
+    var vehicleName: String {
+        return vehicle?.computeName() ?? ""
+    }
+
+    func startBeaconScan(completion: @escaping () -> ()) {
+        if let beacon = self.beacon {
+            self.beaconScanner.startBeaconScan(beacons: [beacon], useMajorMinor: self.scanType == .pairing) { beacon in
+                if self.scanType != .pairing {
+                    self.clBeacon = beacon
+                }
+                completion()
+            }
+        }
+    }
+
+    func stopBeaconScan() {
+        self.beaconScanner.stopBeaconScan()
+    }
+
+    func startBeaconInfoScan() {
+        self.beaconScanner.startBeaconInfoScan() { result in
+            switch result {
+                case let .success(batteryLevel, estimatedDistance):
+                    self.update(battery: batteryLevel, distance: estimatedDistance)
+                case .error:
+                    self.update(battery: nil, distance: nil)
+            }
+            self.stopBeaconInfoScan()
+        }
+    }
+
+    func stopBeaconInfoScan() {
+        self.beaconScanner.stopBeaconInfoScan()
+    }
+
+    func update(battery: Int?, distance: Double?) {
+        self.beaconBattery = battery
+        self.beaconDistance = distance
         if let beaconBattery = self.beaconBattery, let clBeacon = self.clBeacon {
             let uuid: String
             if #available(iOS 13.0, *) {
@@ -53,39 +117,6 @@ public class BeaconViewModel {
             let beacon = DKBeacon(uniqueId: nil, proximityUuid: uuid, major: clBeacon.major.intValue, minor: clBeacon.minor.intValue)
             DriveKitVehicle.shared.updateBeaconBatteryLevel(batteryLevel: beaconBattery, beacon: beacon) { _ in }
         }
-    }
-    
-    public init(vehicle: DKVehicle, scanType: DKBeaconScanType) {
-        self.vehicle = vehicle
-        self.scanType = scanType
-    }
-
-    public init(scanType: DKBeaconScanType) {
-        self.scanType = scanType
-        self.vehicle = nil
-    }
-    
-    public init(scanType: DKBeaconScanType, beacon: DKBeacon, vehicles: [DKVehicle]) {
-        self.vehicle = nil
-        self.scanType = scanType
-        self.beacon = beacon
-        self.vehicles = vehicles
-    }
-    
-    public init(scanType: DKBeaconScanType, beacon: DKBeacon) {
-        self.vehicle = nil
-        self.scanType = scanType
-        self.beacon = beacon
-    }
-    
-    public init(vehicle: DKVehicle, scanType: DKBeaconScanType, beacon: DKBeacon) {
-        self.vehicle = vehicle
-        self.scanType = scanType
-        self.beacon = beacon
-    }
-    
-    var vehicleName: String {
-        return vehicle?.computeName() ?? ""
     }
     
     func isBeaconValid() -> Bool {

@@ -24,6 +24,8 @@ extension RequestError {
                 return "server_error".keyLocalized()
             case .clientError:
                 return "client_error".keyLocalized()
+            case .limitReached:
+                return "limit_reached_error".keyLocalized()
             case .unknownError:
                 return "unknown_error".keyLocalized()
             @unknown default:

@@ -64,7 +64,7 @@ class UserIdViewController: UIViewController {
                     } else {
                         self?.hideLoader()
                         if let error = error {
-                            if error == .unauthenticated || error == .limitReached {
+                            if error == .unauthenticated {
                                 let apiVM = ApiKeyViewModel(invalidApiKeyErrorReceived: true)
                                 let apiVC = ApiKeyViewController(viewModel: apiVM)
                                 self?.navigationController?.setViewControllers([apiVC], animated: true)

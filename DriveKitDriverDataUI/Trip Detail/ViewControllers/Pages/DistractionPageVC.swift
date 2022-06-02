@@ -10,7 +10,6 @@ import UIKit
 import DriveKitCommonUI
 
 class DistractionPageVC: UIViewController {
-
     @IBOutlet private var circularRingContainer: UIView!
     @IBOutlet private var circularRingTitle: UILabel!
     @IBOutlet private var eventContainer: UIStackView!
@@ -29,8 +28,7 @@ class DistractionPageVC: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configure()

@@ -56,6 +56,7 @@
 "forbidden_error"="Non hai i diritti necessari";
 "info_banner_diagnosis_title"="È stato rilevato un problema! Devi configurare il tuo telefono.";
 "lastname"="Cognome";
+"limit_reached_error"="È stato raggiunto il numero massimo di conducenti su questa chiave API.";
 "logout_confirmation"="Sei sicuro di voler disconnettere?";
 "network_ko_error"="I dati mobili non sono attivati";
 "notif_trip_analysis_continue"="Continua analisi";

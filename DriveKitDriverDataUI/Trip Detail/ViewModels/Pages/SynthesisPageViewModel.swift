@@ -12,26 +12,57 @@ import DriveKitDBTripAccessModule
 import DriveKitCommonUI
 
 class SynthesisPageViewModel {
-    let trip : Trip
-    
+    let trip: Trip
     let unknown = "dk_driverdata_unknown".dkDriverDataLocalized()
     
     init(trip: Trip) {
         self.trip = trip
     }
-    
-    var vehicleId : String? {
+
+    lazy var consumptionType: ConsumptionType = {
+        if let _ = trip.energyEstimation {
+            return .electric
+        } else {
+            return .fuel
+        }
+    }()
+
+    var vehicleId: String? {
         return trip.vehicleId
     }
     
-    var fuelConsumptionValue : String {
+    var fuelConsumptionValue: String {
         if let value = trip.fuelEstimation?.fuelConsumption, value != 0{
             return value.formatConsumption()
         } else {
             return unknown
         }
     }
-    
+
+    var electricConsumptionValue: String {
+        if let value = trip.energyEstimation?.energyConsumption, value != 0 {
+            return value.formatConsumption()
+        } else {
+            return unknown
+        }
+    }
+
+    var consumptionValue: String {
+        if consumptionType == .fuel {
+            return fuelConsumptionValue
+        } else {
+            return electricConsumptionValue
+        }
+    }
+
+    var consumptionTitle: String {
+        if consumptionType == .fuel {
+            return "dk_driverdata_synthesis_fuel_consumption".dkDriverDataLocalized()
+        } else {
+            return "dk_driverdata_synthesis_energy_consumption".dkDriverDataLocalized()
+        }
+    }
+
     var conditionValue: String {
         if let dayValue = trip.tripStatistics?.day {
             return dayValue ? "dk_driverdata_day".dkDriverDataLocalized() : "dk_driverdata_night".dkDriverDataLocalized()

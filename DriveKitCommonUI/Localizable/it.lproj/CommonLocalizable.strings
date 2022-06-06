@@ -57,6 +57,7 @@
 "dk_common_unit_kg"="kg";
 "dk_common_unit_kilometer"="km";
 "dk_common_unit_km_per_hour"="km/h";
+"dk_common_unit_kwh_per_100km"="kWh/100km";
 "dk_common_unit_l_per_100km"="l/100 km";
 "dk_common_unit_liter"="l";
 "dk_common_unit_meter"="m";

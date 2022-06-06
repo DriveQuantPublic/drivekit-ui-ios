@@ -281,17 +281,23 @@ public extension Double {
     }
 
 
-    func getConsumptionFormat() -> [FormatType] {
+    func getConsumptionFormat(_ type: ConsumptionType = .fuel) -> [FormatType] {
+        let unitText: String
+        if type == .electric {
+            unitText = DKCommonLocalizable.unitkWhPer100Km.text()
+        } else {
+            unitText = DKCommonLocalizable.unitLPer100Km.text()
+        }
         let formattingTypes: [FormatType] = [
             .value(self.format(maximumFractionDigits: 1)),
             .separator(),
-            .unit(DKCommonLocalizable.unitLPer100Km.text())
+            .unit(unitText)
         ]
         return formattingTypes
     }
 
-    func formatConsumption() -> String {
-        return getConsumptionFormat().toString()
+    func formatConsumption(_ type: ConsumptionType = .fuel) -> String {
+        return getConsumptionFormat(type).toString()
     }
 
 
@@ -394,4 +400,8 @@ public extension Int {
     func roundUp(step: Double) -> Double {
         return (Double(self) / step).rounded(.up) * step
     }
+}
+
+public enum ConsumptionType {
+    case fuel, electric
 }

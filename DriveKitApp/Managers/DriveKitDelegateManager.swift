@@ -40,6 +40,10 @@ class DriveKitDelegateManager: DriveKitDelegate {
         }
     }
 
+    func userIdUpdateStatusChanged(status: UpdateUserIdStatus, userId: String?) {
+        //
+    }
+
     func reset() {
         delegates = WeakArray()
     }

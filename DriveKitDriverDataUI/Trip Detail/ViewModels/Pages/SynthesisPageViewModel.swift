@@ -19,7 +19,7 @@ class SynthesisPageViewModel {
         self.trip = trip
     }
 
-    lazy var consumptionType: ConsumptionType = {
+    lazy var consumptionType: DKConsumptionType = {
         if let _ = trip.energyEstimation {
             return .electric
         } else {

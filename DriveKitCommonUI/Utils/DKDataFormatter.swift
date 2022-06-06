@@ -281,7 +281,7 @@ public extension Double {
     }
 
 
-    func getConsumptionFormat(_ type: ConsumptionType = .fuel) -> [FormatType] {
+    func getConsumptionFormat(_ type: DKConsumptionType = .fuel) -> [FormatType] {
         let unitText: String
         if type == .electric {
             unitText = DKCommonLocalizable.unitkWhPer100Km.text()
@@ -296,7 +296,7 @@ public extension Double {
         return formattingTypes
     }
 
-    func formatConsumption(_ type: ConsumptionType = .fuel) -> String {
+    func formatConsumption(_ type: DKConsumptionType = .fuel) -> String {
         return getConsumptionFormat(type).toString()
     }
 
@@ -402,6 +402,6 @@ public extension Int {
     }
 }
 
-public enum ConsumptionType {
+public enum DKConsumptionType {
     case fuel, electric
 }

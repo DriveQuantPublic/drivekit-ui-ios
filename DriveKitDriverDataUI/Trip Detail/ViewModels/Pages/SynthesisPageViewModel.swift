@@ -33,7 +33,7 @@ class SynthesisPageViewModel {
     
     var fuelConsumptionValue: String {
         if let value = trip.fuelEstimation?.fuelConsumption, value != 0{
-            return value.formatConsumption()
+            return value.formatConsumption(.fuel)
         } else {
             return unknown
         }
@@ -41,7 +41,7 @@ class SynthesisPageViewModel {
 
     var electricConsumptionValue: String {
         if let value = trip.energyEstimation?.energyConsumption, value != 0 {
-            return value.formatConsumption()
+            return value.formatConsumption(.electric)
         } else {
             return unknown
         }

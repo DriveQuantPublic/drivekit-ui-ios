@@ -41,7 +41,9 @@ class DriveKitDelegateManager: DriveKitDelegate {
     }
 
     func userIdUpdateStatusChanged(status: UpdateUserIdStatus, userId: String?) {
-        //
+        for delegate in delegates {
+            delegate?.userIdUpdateStatusChanged(status: status, userId: userId)
+        }
     }
 
     func reset() {

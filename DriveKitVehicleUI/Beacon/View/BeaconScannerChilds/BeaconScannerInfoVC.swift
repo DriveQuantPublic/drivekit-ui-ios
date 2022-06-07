@@ -63,7 +63,13 @@ class BeaconScannerInfoVC: UIViewController {
             if let distance = self.viewModel.beaconDistance {
                 distanceIndicatorView.configure(title: distance.formatMeterDistance(), image: UIImage(named: "dk_beacon_distance", in: .vehicleUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate))
             }
-            signalIndicatorView.configure(title: "\(clBeacon.rssi) dBm", image: UIImage(named: "dk_beacon_signal", in: .vehicleUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate))
+            let rssi: Int
+            if let beaconRssi = self.viewModel.beaconRssi {
+                rssi = Int(beaconRssi)
+            } else {
+                rssi = clBeacon.rssi
+            }
+            signalIndicatorView.configure(title: "\(rssi) dBm", image: UIImage(named: "dk_beacon_signal", in: .vehicleUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate))
         }
         if let level = viewModel.beaconBattery {
             batteryContainerView.embedSubview(batteryIndicatorView)
@@ -86,7 +92,7 @@ class BeaconScannerInfoVC: UIViewController {
                 battery = "--"
             }
             let vehicle: DKVehicle? = valid ? self.viewModel.vehicle : nil
-            let beaconDetailViewModel = BeaconDetailViewModel(vehicle: vehicle, beacon: beacon, batteryLevel: battery, distance: self.viewModel.beaconDistance)
+            let beaconDetailViewModel = BeaconDetailViewModel(vehicle: vehicle, beacon: beacon, batteryLevel: battery, distance: self.viewModel.beaconDistance, rssi: self.viewModel.beaconRssi)
             self.navigationController?.pushViewController(BeaconDetailVC(viewModel: beaconDetailViewModel), animated: true)
         }
         

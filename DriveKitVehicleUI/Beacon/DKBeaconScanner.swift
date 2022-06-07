@@ -18,7 +18,7 @@ import DriveKitVehicleModule
     @objc public static var beaconConfigList: [DKBeaconConfig] = [DKKontaktBeacon(), DKFeasycomBeacon()]
     public typealias BeaconFound = (_ beacon: CLBeacon) -> ()
     public typealias BeaconInfoScanResult = (_ result: BeaconInfoResult) -> ()
-    public typealias ObjcBeaconInfoScanResult = (_ batteryLevel: Int, _ estimatedDistance: Double, _ error: Bool) -> Void
+    public typealias ObjcBeaconInfoScanResult = (_ batteryLevel: Int, _ estimatedDistance: Double, _ rssi: Double, _ error: Bool) -> Void
     private var beaconsToScan: [DKBeacon]? = nil
     private var useMajorMinor: Bool = false
     private var beaconInfoConfigurations: [DKBeaconConfig]? = nil
@@ -172,7 +172,7 @@ extension DKBeaconScanner: CBCentralManagerDelegate {
                     completionBlock(.error)
                 }
                 if let objcCompletionBlock = self.objcBeaconInfoResultCompletionBlock {
-                    objcCompletionBlock(0, 0.0, true)
+                    objcCompletionBlock(-1, -1.0, 0.0, true)
                 }
             default:
                 break
@@ -196,11 +196,11 @@ extension DKBeaconScanner: CBCentralManagerDelegate {
             let estimatedDistance = distance(fromRssi: RSSI, rssiAt1m: rssiAt1m)
             var stop = true
             if let completionBlock = self.beaconInfoResultCompletionBlock {
-                completionBlock(.success(batteryLevel: batteryPower, estimatedDistance: estimatedDistance))
+                completionBlock(.success(batteryLevel: batteryPower, estimatedDistance: estimatedDistance, rssi: RSSI.doubleValue))
                 stop = false
             }
             if let objcCompletionBlock = self.objcBeaconInfoResultCompletionBlock {
-                objcCompletionBlock(batteryPower, estimatedDistance, false)
+                objcCompletionBlock(batteryPower, estimatedDistance, RSSI.doubleValue, false)
                 stop = false
             }
             if stop {
@@ -228,6 +228,6 @@ extension DKBeaconScanner: CBCentralManagerDelegate {
 }
 
 public enum BeaconInfoResult {
-    case success(batteryLevel: Int, estimatedDistance: Double)
+    case success(batteryLevel: Int, estimatedDistance: Double, rssi: Double)
     case error
 }

@@ -35,7 +35,7 @@ import Foundation
 @objc public class DKFeasycomBeacon: NSObject, DKBeaconConfig {
     private let rssiAt1m: Int
 
-    public init(rssiAt1m: Int = -60) {
+    public init(rssiAt1m: Int = -65) {
         self.rssiAt1m = rssiAt1m
     }
 

@@ -16,7 +16,7 @@ import DriveKitVehicleModule
 @objc public class DKBeaconScanner: NSObject {
     private let tag: String = "DriveKit BeaconScanner"
     @objc public static var beaconConfigList: [DKBeaconConfig] = [DKKontaktBeacon(), DKFeasycomBeacon()]
-    public typealias BeaconFound = (_ beacon: CLBeacon) -> ()
+    public typealias BeaconsFound = (_ beacons: [CLBeacon]) -> ()
     public typealias BeaconInfoScanResult = (_ result: BeaconInfoResult) -> ()
     public typealias ObjcBeaconInfoScanResult = (_ batteryLevel: Int, _ estimatedDistance: Double, _ rssi: Double, _ error: Bool) -> Void
     private var beaconsToScan: [DKBeacon]? = nil
@@ -24,17 +24,17 @@ import DriveKitVehicleModule
     private var beaconInfoConfigurations: [DKBeaconConfig]? = nil
     private var locationManager: CLLocationManager? = nil
     private var centralManager: CBCentralManager? = nil
-    private var beaconFoundBlock: BeaconFound? = nil
+    private var beaconsFoundBlock: BeaconsFound? = nil
     private var beaconInfoResultCompletionBlock: BeaconInfoScanResult? = nil
     private var objcBeaconInfoResultCompletionBlock: ObjcBeaconInfoScanResult? = nil
 
     // MARK: - iBeacon scan.
 
-    @objc public func startBeaconScan(beacons: [DKBeacon], useMajorMinor: Bool, completion: @escaping BeaconFound) {
+    @objc public func startBeaconScan(beacons: [DKBeacon], useMajorMinor: Bool, completion: @escaping BeaconsFound) {
         if self.beaconsToScan == nil {
             self.beaconsToScan = beacons
             self.useMajorMinor = useMajorMinor
-            self.beaconFoundBlock = completion
+            self.beaconsFoundBlock = completion
             if self.locationManager == nil {
                 self.createLocationManager()
             }
@@ -63,7 +63,7 @@ import DriveKitVehicleModule
             }
         }
         self.beaconsToScan = nil
-        self.beaconFoundBlock = nil
+        self.beaconsFoundBlock = nil
     }
 
     private func createLocationManager() {
@@ -151,10 +151,8 @@ extension DKBeaconScanner: CLLocationManagerDelegate {
     }
 
     private func onBeaconsFound(_ beacons: [CLBeacon]) {
-        if let onBeaconFoundBlock = self.beaconFoundBlock {
-            for beacon in beacons {
-                onBeaconFoundBlock(beacon)
-            }
+        if let beaconsFoundBlock = self.beaconsFoundBlock {
+            beaconsFoundBlock(beacons)
         } else {
             stopBeaconScan()
         }
@@ -213,9 +211,13 @@ extension DKBeaconScanner: CBCentralManagerDelegate {
         let batteryPower: Int?
         if let data = serviceData[CBUUID(string: config.serviceUuid)] {
             let batteryLevelPosition = config.batteryLevelPositionInService
-            var power: UInt8 = 0
-            data.copyBytes(to: &power, from: batteryLevelPosition..<(batteryLevelPosition + 1))
-            batteryPower = Int(power)
+            if batteryLevelPosition >= 0 && batteryLevelPosition < data.count {
+                var power: UInt8 = 0
+                data.copyBytes(to: &power, from: batteryLevelPosition..<(batteryLevelPosition + 1))
+                batteryPower = Int(power)
+            } else {
+                batteryPower = nil
+            }
         } else {
             batteryPower = nil
         }

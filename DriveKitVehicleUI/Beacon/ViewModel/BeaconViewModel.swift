@@ -76,9 +76,13 @@ public class BeaconViewModel {
 
     func startBeaconScan(completion: @escaping () -> ()) {
         if let beacon = self.beacon {
-            self.beaconScanner.startBeaconScan(beacons: [beacon], useMajorMinor: self.scanType == .pairing) { beacon in
+            self.beaconScanner.startBeaconScan(beacons: [beacon], useMajorMinor: self.scanType == .pairing) { beacons in
                 if self.scanType != .pairing {
-                    self.clBeacon = beacon
+                    for foundBeacon in beacons {
+                        if self.clBeacon == nil || (beacon.major == foundBeacon.major.intValue && beacon.minor == foundBeacon.minor.intValue) {
+                            self.clBeacon = foundBeacon
+                        }
+                    }
                 }
                 completion()
             }
@@ -97,7 +101,6 @@ public class BeaconViewModel {
                 case .error:
                     self.update(battery: nil, distance: nil, rssi: nil)
             }
-            self.stopBeaconInfoScan()
         }
     }
 
@@ -106,18 +109,28 @@ public class BeaconViewModel {
     }
 
     func update(battery: Int?, distance: Double?, rssi: Double?) {
-        self.beaconBattery = battery
-        self.beaconDistance = distance
-        self.beaconRssi = rssi
-        if let beaconBattery = self.beaconBattery, let clBeacon = self.clBeacon {
-            let uuid: String
-            if #available(iOS 13.0, *) {
-                uuid = clBeacon.uuid.uuidString
+        if let battery = battery, let distance = distance, let rssi = rssi {
+            let update: Bool
+            if let beaconRssi = self.beaconRssi {
+                update = beaconRssi < rssi
             } else {
-                uuid = clBeacon.proximityUUID.uuidString
+                update = true
             }
-            let beacon = DKBeacon(uniqueId: nil, proximityUuid: uuid, major: clBeacon.major.intValue, minor: clBeacon.minor.intValue)
-            DriveKitVehicle.shared.updateBeaconBatteryLevel(batteryLevel: beaconBattery, beacon: beacon) { _ in }
+            if update {
+                self.beaconBattery = battery
+                self.beaconDistance = distance
+                self.beaconRssi = rssi
+                if let beaconBattery = self.beaconBattery, let clBeacon = self.clBeacon {
+                    let uuid: String
+                    if #available(iOS 13.0, *) {
+                        uuid = clBeacon.uuid.uuidString
+                    } else {
+                        uuid = clBeacon.proximityUUID.uuidString
+                    }
+                    let beacon = DKBeacon(uniqueId: nil, proximityUuid: uuid, major: clBeacon.major.intValue, minor: clBeacon.minor.intValue)
+                    DriveKitVehicle.shared.updateBeaconBatteryLevel(batteryLevel: beaconBattery, beacon: beacon) { _ in }
+                }
+            }
         }
     }
     

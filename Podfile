@@ -10,41 +10,41 @@ def circular_progress_ring
 end
 
 target 'DriveKitApp' do
-  pod 'DriveKitTripSimulator', '1.24-beta1'
+  pod 'DriveKitTripSimulator', '1.24-beta2'
   pod 'Charts'
 end
 
 
 target 'DriveKitDriverDataUI' do
-  pod 'DriveKitDriverData', '1.24-beta1'
+  pod 'DriveKitDriverData', '1.24-beta2'
   circular_progress_ring
 end
 
 target 'DriveKitDriverAchievementUI' do
-  pod 'DriveKitDriverAchievement', '1.24-beta1'
+  pod 'DriveKitDriverAchievement', '1.24-beta2'
   circular_progress_ring
 end
 
 target 'DriveKitCommonUI' do
-  pod 'DriveKitCore', '1.24-beta1'
+  pod 'DriveKitCore', '1.24-beta2'
   circular_progress_ring
 end
 
 target 'DriveKitVehicleUI' do
-  pod 'DriveKitVehicle', '1.24-beta1'
-  pod 'DriveKitTripAnalysis', '1.24-beta1'
+  pod 'DriveKitVehicle', '1.24-beta2'
+  pod 'DriveKitTripAnalysis', '1.24-beta2'
 end
 
 target 'DriveKitPermissionsUtilsUI' do
-  pod 'DriveKitCore', '1.24-beta1'
+  pod 'DriveKitCore', '1.24-beta2'
 end
 
 target 'DriveKitChallengeUI' do
-  pod 'DriveKitChallenge', '1.24-beta1'
+  pod 'DriveKitChallenge', '1.24-beta2'
 end
 
 target 'DriveKitTripAnalysisUI' do
-  pod 'DriveKitTripAnalysis', '1.24-beta1'
+  pod 'DriveKitTripAnalysis', '1.24-beta2'
   pod 'WARangeSlider'
   circular_progress_ring
 end

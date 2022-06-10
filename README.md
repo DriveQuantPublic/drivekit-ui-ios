@@ -81,5 +81,10 @@ Alternatively, you can perform some tests in the office using the [trip simulato
 [![Watch the video](https://cdn.loom.com/sessions/thumbnails/eb8d8f801d9d485488e0f8e1c74e664e-with-play.gif)]([https://youtu.be/vt5fpE0bzSY](https://www.loom.com/embed/eb8d8f801d9d485488e0f8e1c74e664e?hide_owner=true&hide_share=true&hide_title=false&hideEmbedTopBar=true))
 
 
+[<a href="https://www.loom.com/share/fdc75d440476492eaddab3d278f77299">
+    <p>DriveKit Demo App - Android - Part 1 - Watch Video</p>
+    <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/fdc75d440476492eaddab3d278f77299-1653405765475-with-play.gif">
+  </a>](https://www.loom.com/share/fdc75d440476492eaddab3d278f77299)
+
 We hope you will enjoy discovering the DriveKit SDK. Please feel free to contact us if you have any questions or suggestions. Our goal is to help you save time and leverage the full potential of the DriveKit SDK to boost your product.
 Have fun with DriveKit!

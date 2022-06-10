@@ -77,6 +77,7 @@ You can now discover the main screens of the app:
 The best way to become familiar with smartphone telematics is to try the app in real conditions when travelling by car or public transport.
 
 Alternatively, you can perform some tests in the office using the [trip simulator](https://docs.drivequant.com/trip-analysis/trip-simulator) which allows you to reproduce pre-recorded data from real trips.
+[Video](https://www.loom.com/embed/eb8d8f801d9d485488e0f8e1c74e664e?hide_owner=true&hide_share=true&hide_title=false&hideEmbedTopBar=true)
 
 We hope you will enjoy discovering the DriveKit SDK. Please feel free to contact us if you have any questions or suggestions. Our goal is to help you save time and leverage the full potential of the DriveKit SDK to boost your product.
 Have fun with DriveKit!

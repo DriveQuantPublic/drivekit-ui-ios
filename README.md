@@ -78,11 +78,7 @@ The best way to become familiar with smartphone telematics is to try the app in 
 
 Alternatively, you can perform some tests in the office using the [trip simulator](https://docs.drivequant.com/trip-analysis/trip-simulator) which allows you to reproduce pre-recorded data from real trips.
 
-
-[<a href="https://www.loom.com/share/eb8d8f801d9d485488e0f8e1c74e664e">
-    <p>DriveKit Demo App - iOS - Part 3 - Watch Video</p>
-    <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/eb8d8f801d9d485488e0f8e1c74e664e-with-play.gif">
-  </a>](https://www.loom.com/share/eb8d8f801d9d485488e0f8e1c74e664e)
+[![DriveKit Demo App - iOS - Part 3 - Watch Video](https://cdn.loom.com/sessions/thumbnails/eb8d8f801d9d485488e0f8e1c74e664e-with-play.gif)](https://www.loom.com/share/eb8d8f801d9d485488e0f8e1c74e664e)
 
 We hope you will enjoy discovering the DriveKit SDK. Please feel free to contact us if you have any questions or suggestions. Our goal is to help you save time and leverage the full potential of the DriveKit SDK to boost your product.
 Have fun with DriveKit!

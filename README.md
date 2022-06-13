@@ -54,7 +54,7 @@ For an integration on iOS you will need the following elements:
 * Build and run the Demo app on your phone.
 
 You can watch the following tutorial video for more details:
-<a href="https://www.loom.com/share/8ef428eda68345278780a4ab90434974">DriveKit Demo App - iOS - Part 1 - Watch Video</a>
+[DriveKit Demo App - iOS - Part 1](https://www.loom.com/share/8ef428eda68345278780a4ab90434974)
 
 
 ### ⚙️ Configure the Demo app
@@ -66,7 +66,7 @@ You can watch the following tutorial video for more details:
 That’s it!
 
 You can watch the following tutorial video for more details:
-<a href="https://www.loom.com/share/bc3830607c374531935602221e657509">DriveKit Demo App - iOS - Part 2 - Watch Video</a>
+[DriveKit Demo App - iOS - Part 2](https://www.loom.com/share/bc3830607c374531935602221e657509)
 
 
 ### 🚗 Test the Demo app
@@ -86,7 +86,7 @@ The best way to become familiar with smartphone telematics is to try the app in 
 Alternatively, you can perform some tests in the office using the [trip simulator](https://docs.drivequant.com/trip-analysis/trip-simulator) which allows you to reproduce pre-recorded data from real trips.
 
 You can watch the following tutorial video for more details:
-<a href="https://www.loom.com/share/eb8d8f801d9d485488e0f8e1c74e664e">DriveKit Demo App - iOS - Part 3 - Watch Video</a>
+[DriveKit Demo App - iOS - Part 3](https://www.loom.com/share/eb8d8f801d9d485488e0f8e1c74e664e)
 
 We hope you will enjoy discovering the DriveKit SDK. Please feel free to contact us if you have any questions or suggestions. Our goal is to help you save time and leverage the full potential of the DriveKit SDK to boost your product.
 Have fun with DriveKit!

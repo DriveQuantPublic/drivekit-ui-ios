@@ -11,7 +11,6 @@ import DriveKitCommonUI
 import DriveKitDBTripAccessModule
 
 class AlternativeTripDetailInfoVC: UIViewController {
-
     @IBOutlet private weak var transportationModeImage: UIImageView!
     @IBOutlet private weak var changeTransportationModeButton: UIButton!
     @IBOutlet private weak var detectedTransportationModeContainer: UIView!
@@ -28,20 +27,20 @@ class AlternativeTripDetailInfoVC: UIViewController {
     @IBOutlet private weak var tripAverageSpeedTitle: UILabel!
     @IBOutlet private weak var tripAverageSpeedValue: UILabel!
     @IBOutlet private var separators: [UIView]!
-    
-    let viewModel : AlternativeTripViewModel
-    private weak var parentView : UIViewController?
-    
-    init(viewModel: AlternativeTripViewModel, parentView : UIViewController) {
+
+    let viewModel: AlternativeTripViewModel
+    private weak var parentView: UIViewController?
+
+    init(viewModel: AlternativeTripViewModel, parentView: UIViewController) {
         self.viewModel = viewModel
         self.parentView = parentView
         super.init(nibName: String(describing: AlternativeTripDetailInfoVC.self), bundle: Bundle.driverDataUIBundle)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.changeTransportationModeButton.setTitle("dk_driverdata_change_transportation_mode".dkDriverDataLocalized(), for: .normal)
@@ -74,7 +73,7 @@ class AlternativeTripDetailInfoVC: UIViewController {
             self.messageLabel.attributedText = "dk_driverdata_alternative_transportation_thanks".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
             self.declaredTransportationModeValue.textColor = DKUIColors.primaryColor.color
             
-        } else{
+        } else {
             self.detectedTransportationModeValue.attributedText = self.viewModel.detectedTransportationMode().getName().dkAttributedString().font(dkFont: .primary, style: detectionModeStyle).color(.primaryColor).build()
             self.declaredTransportationModeContainer.isHidden = true
             self.transportationModeImage.image = nil
@@ -89,8 +88,7 @@ class AlternativeTripDetailInfoVC: UIViewController {
     }
 
     @IBAction private func changeTransportationMode() {
-        let transportationModeVC = TransportationModeVC(viewModel: TransportationModeViewModel(trip: self.viewModel.trip), parent: self)
+        let transportationModeVC = TransportationModeVC(viewModel: self.viewModel.getTransportationModeViewModel(), parent: self)
         self.parentView?.navigationController?.pushViewController(transportationModeVC, animated: true)
     }
-
 }

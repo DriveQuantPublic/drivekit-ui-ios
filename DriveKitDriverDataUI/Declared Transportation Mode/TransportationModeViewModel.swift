@@ -10,7 +10,6 @@ import Foundation
 import DriveKitDBTripAccessModule
 
 class TransportationModeViewModel {
-    
     private let trip: Trip
     var selectedTransportationMode: TransportationMode? = nil
     

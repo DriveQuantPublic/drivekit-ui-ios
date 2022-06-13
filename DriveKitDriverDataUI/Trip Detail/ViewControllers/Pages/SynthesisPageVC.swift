@@ -67,8 +67,8 @@ class SynthesisPageVC: UIViewController {
         vehicleTitle.attributedText = "dk_driverdata_synthesis_vehicle".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
         vehicleValue.attributedText = "-".dkAttributedString().font(dkFont: .primary, style: valueStyle).color(.secondaryColor).build()
 
-        consumptionTitle.attributedText = "dk_driverdata_synthesis_fuel_consumption".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
-        consumptionValue.attributedText = viewModel.fuelConsumptionValue.dkAttributedString().font(dkFont: .primary, style: valueStyle).color(.primaryColor).build()
+        consumptionTitle.attributedText = viewModel.consumptionTitle.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+        consumptionValue.attributedText = viewModel.consumptionValue.dkAttributedString().font(dkFont: .primary, style: valueStyle).color(.primaryColor).build()
 
         conditionTitle.attributedText = "dk_driverdata_synthesis_condition".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
         conditionValue.attributedText = viewModel.conditionValue.dkAttributedString().font(dkFont: .primary, style: valueStyle).color(.primaryColor).build()

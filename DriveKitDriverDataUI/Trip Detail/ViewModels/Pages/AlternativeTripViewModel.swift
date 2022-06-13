@@ -10,24 +10,11 @@ import Foundation
 import DriveKitDBTripAccessModule
 
 class AlternativeTripViewModel {
-   
-    let trip: Trip
+    private let trip: Trip
     let unknown = "dk_driverdata_unknown".dkDriverDataLocalized()
     
     init(trip: Trip) {
         self.trip = trip
-    }
-    
-    func detectedTransportationMode() -> TransportationMode {
-        return TransportationMode(rawValue: Int(trip.transportationMode)) ?? .unknown
-    }
-    
-    func declaredTransportationMode() -> TransportationMode? {
-        if let declaredTransportation = trip.declaredTransportationMode?.transportationMode {
-            return TransportationMode(rawValue: Int(declaredTransportation))
-        } else {
-            return nil
-        }
     }
     
     var conditionValue: String {
@@ -38,7 +25,7 @@ class AlternativeTripViewModel {
         }
     }
     
-    var weatherValue : String {
+    var weatherValue: String {
         if let meteo = trip.tripStatistics?.meteo {
             switch meteo {
                 case 1:
@@ -61,11 +48,32 @@ class AlternativeTripViewModel {
         }
     }
     
-    var meanSpeedValue : String {
-        if let value = trip.tripStatistics?.speedMean {
-            return value.formatSpeedMean()
+    var meanSpeedValue: String {
+        let transportationMode = declaredTransportationMode() ?? detectedTransportationMode()
+        if transportationMode == .idle {
+            return "-"
         } else {
-            return unknown
+            if let value = trip.tripStatistics?.speedMean {
+                return value.formatSpeedMean()
+            } else {
+                return unknown
+            }
         }
+    }
+
+    func detectedTransportationMode() -> TransportationMode {
+        return TransportationMode(rawValue: Int(trip.transportationMode)) ?? .unknown
+    }
+
+    func declaredTransportationMode() -> TransportationMode? {
+        if let declaredTransportation = trip.declaredTransportationMode?.transportationMode {
+            return TransportationMode(rawValue: Int(declaredTransportation))
+        } else {
+            return nil
+        }
+    }
+
+    func getTransportationModeViewModel() -> TransportationModeViewModel {
+        return TransportationModeViewModel(trip: self.trip)
     }
 }

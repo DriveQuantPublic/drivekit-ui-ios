@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import DriveKitBeaconUtilsModule
 import DriveKitDBVehicleAccessModule
 import DriveKitVehicleModule
 import CoreLocation

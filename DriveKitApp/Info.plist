@@ -27,9 +27,9 @@
 	<key>LSSupportsOpeningDocumentsInPlace - 2</key>
 	<true/>
 	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>The application needs to use bluetooth in order to retreive beacon batterry level</string>
+	<string>The application needs to use bluetooth in order to retrieve beacon battery level</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
-	<string>The application needs to use bluetooth in order to retreive beacon batterry level</string>
+	<string>The application needs to use bluetooth in order to retrieve beacon battery level</string>
 	<key>NSCameraUsageDescription</key>
 	<string>This application needs to access the camera</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>

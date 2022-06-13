@@ -7,9 +7,10 @@
 //
 
 import Foundation
-import DriveKitVehicleModule
 import CoreLocation
+import DriveKitBeaconUtilsModule
 import DriveKitDBVehicleAccessModule
+import DriveKitVehicleModule
 
 extension DKBeacon {
     func toCLBeaconRegion(noMajorMinor: Bool) -> CLBeaconRegion {

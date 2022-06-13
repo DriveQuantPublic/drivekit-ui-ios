@@ -53,6 +53,10 @@ For an integration on iOS you will need the following elements:
 * At the beginning of `DriveKitConfig` class, add your **DriveKit API Key** in the `apiKey` property.
 * Build and run the Demo app on your phone.
 
+You can watch the following tutorial video for more details:
+[DriveKit Demo App - iOS - Part 1](https://www.loom.com/share/8ef428eda68345278780a4ab90434974)
+
+
 ### ⚙️ Configure the Demo app
 1. Ensure that you have set the API Key during the previous step. Otherwise, the interface will display an error message.
 2. Set your unique user identifier. We recommend **never** using an email address or phone number to define the unique user ID. It is recommended that you set up a unique, universal and anonymous user ID. For example, you can generate a globally unique identifier.
@@ -60,6 +64,9 @@ For an integration on iOS you will need the following elements:
 4. Grant every required permission to allow the application to access the smartphone’s sensors.
 5. Add your first vehicle to your account.
 That’s it!
+
+You can watch the following tutorial video for more details:
+[DriveKit Demo App - iOS - Part 2](https://www.loom.com/share/bc3830607c374531935602221e657509)
 
 
 ### 🚗 Test the Demo app
@@ -77,6 +84,9 @@ You can now discover the main screens of the app:
 The best way to become familiar with smartphone telematics is to try the app in real conditions when travelling by car or public transport.
 
 Alternatively, you can perform some tests in the office using the [trip simulator](https://docs.drivequant.com/trip-analysis/trip-simulator) which allows you to reproduce pre-recorded data from real trips.
+
+You can watch the following tutorial video for more details:
+[DriveKit Demo App - iOS - Part 3](https://www.loom.com/share/eb8d8f801d9d485488e0f8e1c74e664e)
 
 We hope you will enjoy discovering the DriveKit SDK. Please feel free to contact us if you have any questions or suggestions. Our goal is to help you save time and leverage the full potential of the DriveKit SDK to boost your product.
 Have fun with DriveKit!

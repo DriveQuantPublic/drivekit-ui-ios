@@ -93,6 +93,7 @@
 "dk_driverdata_synthesis_co2_emissions"="Emisiones de CO2";
 "dk_driverdata_synthesis_co2_mass"="Masa de CO2";
 "dk_driverdata_synthesis_condition"="Condición";
+"dk_driverdata_synthesis_energy_consumption"="Energía consumida";
 "dk_driverdata_synthesis_fuel_consumption"="Consumo de combustible";
 "dk_driverdata_synthesis_info_distraction"="La puntuación que aparece en la tarjeta es la media de los viajes realizados durante 7 días consecutivos desde la fecha del último viaje. Si la puntuación no aparece, significa que no hay suficientes datos para evaluar su conducción.";
 "dk_driverdata_synthesis_info_ecodriving"="La puntuación que aparece en la tarjeta es la media de los viajes realizados durante 7 días consecutivos desde la fecha del último viaje. Si la puntuación no aparece, significa que no hay suficientes datos para evaluar su conducción.";

@@ -56,6 +56,7 @@
 "forbidden_error"="Sie haben nicht die nötigen Rechte";
 "info_banner_diagnosis_title"="Ein Problem wurde erkannt! Sie müssen Ihr Telefon einrichten.";
 "lastname"="Nachname";
+"limit_reached_error"="Die maximale Anzahl an Fahrern auf diesem API-Schlüssel wurde erreicht";
 "logout_confirmation"="Möchten Sie die Verbindung wirklich trennen?";
 "network_ko_error"="Mobile Daten sind nicht aktiviert";
 "notif_trip_analysis_continue"="Analyse fortsetzen";

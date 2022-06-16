@@ -92,7 +92,7 @@ class BeaconScannerInfoVC: UIViewController {
                 battery = "--"
             }
             let vehicle: DKVehicle? = valid ? self.viewModel.vehicle : nil
-            let beaconDetailViewModel = BeaconDetailViewModel(vehicle: vehicle, beacon: beacon, batteryLevel: battery, distance: self.viewModel.beaconDistance, rssi: self.viewModel.beaconRssi)
+            let beaconDetailViewModel = BeaconDetailViewModel(vehicle: vehicle, beacon: beacon, batteryLevel: battery, distance: self.viewModel.beaconDistance, rssi: self.viewModel.beaconRssi, txPower: self.viewModel.beaconTxPower)
             self.navigationController?.pushViewController(BeaconDetailVC(viewModel: beaconDetailViewModel), animated: true)
         }
         

@@ -22,6 +22,7 @@ public class BeaconViewModel {
     private(set) var beaconBattery: Int? = nil
     private(set) var beaconDistance: Double? = nil
     private(set) var beaconRssi: Double? = nil
+    private(set) var beaconTxPower: Int? = nil
     var clBeacon: CLBeacon? = nil
     var vehicles: [DKVehicle] = []
 
@@ -97,10 +98,10 @@ public class BeaconViewModel {
     func startBeaconInfoScan() {
         self.beaconScanner.startBeaconInfoScan() { result in
             switch result {
-                case let .success(batteryLevel, estimatedDistance, rssi):
-                    self.update(battery: batteryLevel, distance: estimatedDistance, rssi: rssi)
+                case let .success(batteryLevel, estimatedDistance, rssi, txPower):
+                    self.update(battery: batteryLevel, distance: estimatedDistance, rssi: rssi, txPower: txPower)
                 case .error:
-                    self.update(battery: nil, distance: nil, rssi: nil)
+                    self.update(battery: nil, distance: nil, rssi: nil, txPower: nil)
             }
         }
     }
@@ -109,7 +110,7 @@ public class BeaconViewModel {
         self.beaconScanner.stopBeaconInfoScan()
     }
 
-    func update(battery: Int?, distance: Double?, rssi: Double?) {
+    func update(battery: Int?, distance: Double?, rssi: Double?, txPower: Int?) {
         if let battery = battery, let distance = distance, let rssi = rssi {
             let update: Bool
             if let beaconRssi = self.beaconRssi {
@@ -121,6 +122,7 @@ public class BeaconViewModel {
                 self.beaconBattery = battery
                 self.beaconDistance = distance
                 self.beaconRssi = rssi
+                self.beaconTxPower = txPower
                 if let beaconBattery = self.beaconBattery, let clBeacon = self.clBeacon {
                     let uuid: String
                     if #available(iOS 13.0, *) {

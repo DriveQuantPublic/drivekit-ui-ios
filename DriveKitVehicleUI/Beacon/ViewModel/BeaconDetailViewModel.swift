@@ -13,7 +13,7 @@ import CoreLocation
 class BeaconDetailViewModel {
     var data: [[String: NSMutableAttributedString]]
     
-    init(vehicle: DKVehicle?, beacon: CLBeacon, batteryLevel: String, distance: Double?, rssi: Double?) {
+    init(vehicle: DKVehicle?, beacon: CLBeacon, batteryLevel: String, distance: Double?, rssi: Double?, txPower: Int?) {
         self.data = []
         if let vehicleName = vehicle?.computeName().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build() {
             data.append(["dk_beacon_vehicule_linked": vehicleName])
@@ -28,12 +28,19 @@ class BeaconDetailViewModel {
         } else {
             rssiValue = beacon.rssi
         }
+        let txPowerString: String
+        if let txPower = txPower {
+            txPowerString = "\(txPower) dBm"
+        } else {
+            txPowerString = "-"
+        }
         data.append(["dk_beacon_uuid": uuid.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()])
         data.append(["dk_vehicle_beacon_major": "\(beacon.major)".dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()])
         data.append(["dk_vehicle_beacon_minor": "\(beacon.minor)".dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()])
         data.append(["dk_beacon_battery": batteryLevel.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()])
         data.append(["dk_beacon_distance": "\((distance ?? beacon.accuracy).formatMeterDistance())".dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()])
         data.append(["dk_beacon_rssi": "\(rssiValue) dBm".dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()])
+        data.append(["dk_beacon_tx": txPowerString.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()])
     }
     
     func mailContent() -> String {

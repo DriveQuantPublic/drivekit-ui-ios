@@ -17,8 +17,8 @@ Pod::Spec.new do |s|
   s.resource = ['DriveKitVehicleUI/DriveKitVehicle.xcassets', 'DriveKitVehicleUI/Localizable/*', 'DriveKitVehicleUI/**/*.xib']
 
   s.dependency 'DriveKitCommonUI', s.version.to_s
-  s.dependency 'DriveKitVehicle', '1.24-beta1'
-  s.dependency 'DriveKitTripAnalysis', '1.24-beta1'
+  s.dependency 'DriveKitVehicle', '1.25-beta1'
+  s.dependency 'DriveKitTripAnalysis', '1.25-beta1'
 
   s.pod_target_xcconfig = {
     'PRODUCT_BUNDLE_IDENTIFIER': 'com.drivequant.drivekit-vehicle-ui'

@@ -6,11 +6,11 @@
 //  Copyright © 2020 DriveQuant. All rights reserved.
 //
 
-import Foundation
 import UIKit
+import DriveKitBeaconUtilsModule
 import DriveKitCommonUI
-import DriveKitVehicleModule
 import DriveKitDBVehicleAccessModule
+import DriveKitVehicleModule
 
 public class DriveKitVehicleUI {
     public static let shared = DriveKitVehicleUI()

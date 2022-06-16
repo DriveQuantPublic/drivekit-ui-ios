@@ -309,7 +309,6 @@
 		63C8F0AC272C949B006664A4 /* OdometerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C8F0AB272C949B006664A4 /* OdometerUtils.swift */; };
 		63CDB12D273C7B9C00881976 /* OdometerInitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CDB12C273C7B9C00881976 /* OdometerInitVC.swift */; };
 		63CDB131273C87FE00881976 /* OdometerInitVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63CDB130273C87FE00881976 /* OdometerInitVC.xib */; };
-		63DA2CD62551BC2C00C228E8 /* KontaktBeaconHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DA2CD52551BC2C00C228E8 /* KontaktBeaconHelper.swift */; };
 		63E2EFB6281586F100E6A182 /* NotificationCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E2EFB5281586F100E6A182 /* NotificationCategory.swift */; };
 		63E2EFB8281593D100E6A182 /* NotificationAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E2EFB7281593D100E6A182 /* NotificationAction.swift */; };
 		63E2EFBA2815954200E6A182 /* TripAnalysisPostponeDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E2EFB92815954200E6A182 /* TripAnalysisPostponeDuration.swift */; };
@@ -1024,7 +1023,6 @@
 		63C8F0AB272C949B006664A4 /* OdometerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdometerUtils.swift; sourceTree = "<group>"; };
 		63CDB12C273C7B9C00881976 /* OdometerInitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdometerInitVC.swift; sourceTree = "<group>"; };
 		63CDB130273C87FE00881976 /* OdometerInitVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OdometerInitVC.xib; sourceTree = "<group>"; };
-		63DA2CD52551BC2C00C228E8 /* KontaktBeaconHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KontaktBeaconHelper.swift; sourceTree = "<group>"; };
 		63E2EFB5281586F100E6A182 /* NotificationCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCategory.swift; sourceTree = "<group>"; };
 		63E2EFB7281593D100E6A182 /* NotificationAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAction.swift; sourceTree = "<group>"; };
 		63E2EFB92815954200E6A182 /* TripAnalysisPostponeDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripAnalysisPostponeDuration.swift; sourceTree = "<group>"; };
@@ -1785,7 +1783,6 @@
 			children = (
 				3FFB2D6A2417E3F0003E6A06 /* ViewModel */,
 				3FFB2D652417E26D003E6A06 /* View */,
-				63DA2CD52551BC2C00C228E8 /* KontaktBeaconHelper.swift */,
 			);
 			path = Beacon;
 			sourceTree = "<group>";
@@ -3936,7 +3933,6 @@
 				3FFB2D7C2418FF8E003E6A06 /* BeaconScannerProgressVC.swift in Sources */,
 				3FF68F282415198D0071D74C /* VehiclePickerTableViewCell.swift in Sources */,
 				3FFB2D6F2417E55A003E6A06 /* BeaconInputIdVC.swift in Sources */,
-				63DA2CD62551BC2C00C228E8 /* KontaktBeaconHelper.swift in Sources */,
 				3FF5428D243A17E30063A5B9 /* DKVehiclePickerNavigationController.swift in Sources */,
 				63A6DF642823F5920096F48E /* DriveKitVehicleUtils.swift in Sources */,
 				3FF68F46241640720071D74C /* DKVehicleVersion+UI.swift in Sources */,

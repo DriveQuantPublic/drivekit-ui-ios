@@ -7,30 +7,40 @@
 //
 
 import Foundation
-import DriveKitVehicleModule
 import CoreLocation
+import DriveKitBeaconUtilsModule
 import DriveKitDBVehicleAccessModule
+import DriveKitVehicleModule
 
 extension DKBeacon {
-    func toCLBeaconRegion(noMajorMinor : Bool) -> CLBeaconRegion {
-        var region = CLBeaconRegion(proximityUUID: UUID(uuidString: proximityUuid)!, identifier: "DKscannedBeacon")
-        if major >= 0 && !noMajorMinor{
-            region = CLBeaconRegion(proximityUUID: UUID(uuidString: proximityUuid)!, major : CLBeaconMajorValue(major), identifier: "DKscannedBeacon")
-            if minor >= 0 {
-                region = CLBeaconRegion(proximityUUID: UUID(uuidString: proximityUuid)!, major : CLBeaconMajorValue(major), minor : CLBeaconMinorValue(minor), identifier: "DKscannedBeacon")
+    func toCLBeaconRegion(noMajorMinor: Bool) -> CLBeaconRegion {
+        let identifier = "DKscannedBeacon"
+        let proximityUuid = UUID(uuidString: self.proximityUuid)!
+        let region: CLBeaconRegion
+        if !noMajorMinor && self.major >= 0 {
+            if self.minor >= 0 {
+                region = CLBeaconRegion(proximityUUID: proximityUuid, major: CLBeaconMajorValue(self.major), minor: CLBeaconMinorValue(self.minor), identifier: identifier)
+            } else {
+                region = CLBeaconRegion(proximityUUID: proximityUuid, major: CLBeaconMajorValue(self.major), identifier: identifier)
             }
+        } else {
+            region = CLBeaconRegion(proximityUUID: proximityUuid, identifier: identifier)
         }
         return region
     }
     
     @available(iOS 13.0, *)
-    func toCLBeaconIdentityConstraint(noMajorMinor : Bool) -> CLBeaconIdentityConstraint {
-        var constraint = CLBeaconIdentityConstraint(uuid: UUID(uuidString: proximityUuid)!)
-        if major >= 0 && !noMajorMinor{
-            constraint = CLBeaconIdentityConstraint(uuid: UUID(uuidString: proximityUuid)!, major : CLBeaconMajorValue(major))
-            if minor >= 0 {
-                constraint = CLBeaconIdentityConstraint(uuid: UUID(uuidString: proximityUuid)!, major : CLBeaconMajorValue(major), minor : CLBeaconMinorValue(minor))
+    func toCLBeaconIdentityConstraint(noMajorMinor: Bool) -> CLBeaconIdentityConstraint {
+        let uuid = UUID(uuidString: self.proximityUuid)!
+        let constraint: CLBeaconIdentityConstraint
+        if !noMajorMinor && self.major >= 0 {
+            if self.minor >= 0 {
+                constraint = CLBeaconIdentityConstraint(uuid: uuid, major: CLBeaconMajorValue(self.major), minor: CLBeaconMinorValue(self.minor))
+            } else {
+                constraint = CLBeaconIdentityConstraint(uuid: uuid, major: CLBeaconMajorValue(self.major))
             }
+        } else {
+            constraint = CLBeaconIdentityConstraint(uuid: uuid)
         }
         return constraint
     }

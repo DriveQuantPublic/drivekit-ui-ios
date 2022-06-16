@@ -9,15 +9,14 @@
 import UIKit
 import DriveKitCommonUI
 
-public class BeaconScannerVC : DKUIViewController {
-
+public class BeaconScannerVC: DKUIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var bottomStackView: UIStackView!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    private var step : BeaconStep
-    private let viewModel : BeaconViewModel
-    private let parentView : UIViewController
+    private var step: BeaconStep
+    private let viewModel: BeaconViewModel
+    private let parentView: UIViewController
     
     public init(viewModel: BeaconViewModel, step: BeaconStep, parentView: UIViewController) {
         self.viewModel = viewModel

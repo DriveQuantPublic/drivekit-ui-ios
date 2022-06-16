@@ -12,7 +12,6 @@ import CoreLocation
 import DriveKitDBVehicleAccessModule
 
 class BeaconScannerInfoVC: UIViewController {
-
     @IBOutlet weak var vehicleTitleLabel: UILabel!
     @IBOutlet weak var infoImageView: UIImageView!
     @IBOutlet weak var majorLabel: UILabel!
@@ -26,7 +25,7 @@ class BeaconScannerInfoVC: UIViewController {
     private let batteryIndicatorView = PicturedIndicatorView.viewFromNib
     private let signalIndicatorView = PicturedIndicatorView.viewFromNib
     
-    private let viewModel : BeaconViewModel
+    private let viewModel: BeaconViewModel
     private let valid: Bool
     
     init(viewModel: BeaconViewModel, valid: Bool) {
@@ -50,7 +49,7 @@ class BeaconScannerInfoVC: UIViewController {
         if valid {
             vehicleTitleLabel.attributedText = self.viewModel.vehicleName.dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.mainFontColor).build()
             startView.backgroundColor = DKUIColors.secondaryColor.color
-        }else{
+        } else {
             vehicleTitleLabel.attributedText = "dk_beacon_vehicle_unknown".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.mainFontColor).build()
             startView.backgroundColor = .darkGray
         }
@@ -61,16 +60,22 @@ class BeaconScannerInfoVC: UIViewController {
             minorLabel.attributedText = "\("dk_vehicle_beacon_minor".dkVehicleLocalized()) %@".dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).buildWithArgs(minor)
             
             
-            if clBeacon.accuracy != -1 {
-                distanceIndicatorView.configure(title: clBeacon.accuracy.formatMeterDistance(), image: UIImage(named: "dk_beacon_distance", in: .vehicleUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate))
+            if let distance = self.viewModel.beaconDistance {
+                distanceIndicatorView.configure(title: distance.formatMeterDistance(), image: UIImage(named: "dk_beacon_distance", in: .vehicleUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate))
             }
-            signalIndicatorView.configure(title: "\(clBeacon.rssi) dBm", image: UIImage(named: "dk_beacon_signal", in: .vehicleUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate))
+            let rssi: Int
+            if let beaconRssi = self.viewModel.beaconRssi {
+                rssi = Int(beaconRssi)
+            } else {
+                rssi = clBeacon.rssi
+            }
+            signalIndicatorView.configure(title: "\(rssi) dBm", image: UIImage(named: "dk_beacon_signal", in: .vehicleUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate))
         }
         if let level = viewModel.beaconBattery {
             batteryContainerView.embedSubview(batteryIndicatorView)
             batteryIndicatorView.configure(title: "\(level) %", image: batteryImage(level: level))
         }
-        
+
         infoImageView.image = DKImages.info.image
         infoImageView.tintColor = DKUIColors.secondaryColor.color
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(showBeaconDetail))
@@ -80,28 +85,29 @@ class BeaconScannerInfoVC: UIViewController {
     
     @objc private func showBeaconDetail() {
         if let beacon = self.viewModel.clBeacon {
-            var battery = "--"
+            let battery: String
             if let batteryLevel = self.viewModel.beaconBattery {
                 battery = "\(batteryLevel) %"
+            } else {
+                battery = "--"
             }
-            var vehicle : DKVehicle? = nil
-            if valid {
-                vehicle = self.viewModel.vehicle
-            }
-            let beaconDetailViewModel = BeaconDetailViewModel(vehicle: vehicle, beacon: beacon, batteryLevel: battery)
+            let vehicle: DKVehicle? = valid ? self.viewModel.vehicle : nil
+            let beaconDetailViewModel = BeaconDetailViewModel(vehicle: vehicle, beacon: beacon, batteryLevel: battery, distance: self.viewModel.beaconDistance, rssi: self.viewModel.beaconRssi, txPower: self.viewModel.beaconTxPower)
             self.navigationController?.pushViewController(BeaconDetailVC(viewModel: beaconDetailViewModel), animated: true)
         }
         
     }
     
     private func batteryImage(level: Int) -> UIImage? {
-        var imageName = "dk_beacon_battery_100"
+        let imageName: String
         if level <= 25 {
             imageName = "dk_beacon_battery_25"
-        }else if level <= 50 {
+        } else if level <= 50 {
             imageName = "dk_beacon_battery_50"
         } else if level <= 75 {
             imageName = "dk_beacon_battery_75"
+        } else {
+            imageName = "dk_beacon_battery_100"
         }
         return UIImage(named: imageName, in: .vehicleUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
     }

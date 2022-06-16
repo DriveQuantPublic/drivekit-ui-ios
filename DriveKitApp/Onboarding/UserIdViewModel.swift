@@ -50,6 +50,6 @@ extension UserIdViewModel: DriveKitDelegate {
     }
 
     func userIdUpdateStatusChanged(status: UpdateUserIdStatus, userId: String?) {
-
+        // Nothing to do.
     }
 }

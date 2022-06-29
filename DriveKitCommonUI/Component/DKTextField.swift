@@ -12,11 +12,11 @@ public protocol DKTextFieldDelegate: AnyObject {
     func userDidEndEditing(textField: DKTextField)
 }
 
-public final class DKTextField : UIView, Nibable {
-    @IBOutlet var titleTextField: UILabel!
-    @IBOutlet var textField: UITextField!
-    @IBOutlet var underline: UIView!
-    @IBOutlet var subtitle: UILabel!
+public final class DKTextField: UIView, Nibable {
+    @IBOutlet private var titleTextField: UILabel!
+    @IBOutlet private var textField: UITextField!
+    @IBOutlet private var underline: UIView!
+    @IBOutlet private var subtitle: UILabel!
 
     public weak var delegate: DKTextFieldDelegate? = nil
 
@@ -26,7 +26,7 @@ public final class DKTextField : UIView, Nibable {
 
     public var placeholder: String = "" {
         didSet {
-            textField.placeholder = placeholder
+            textField.attributedPlaceholder = placeholder.dkAttributedString().font(dkFont: .primary, style: DKStyles.normalText.withSizeDelta(-2)).color(.lightGray).build()
         }
     }
 
@@ -44,7 +44,7 @@ public final class DKTextField : UIView, Nibable {
 
     public var value: String = "" {
         didSet {
-            textField.text = value
+            textField.attributedText = value.dkAttributedString().font(dkFont: .primary, style: DKStyles.normalText.withSizeDelta(-2)).color(DKUIColors.mainFontColor).build()
             configureTitle()
         }
     }

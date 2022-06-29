@@ -11,8 +11,7 @@ import DriveKitCommonUI
 import DriveKitDBTripAccessModule
 import DriveKitDriverDataModule
 
-class TransportationModeVC : DKUIViewController {
-    
+class TransportationModeVC: DKUIViewController {
     private let maxCommentLength = 120
     
     @IBOutlet private weak var messageLabel: UILabel!

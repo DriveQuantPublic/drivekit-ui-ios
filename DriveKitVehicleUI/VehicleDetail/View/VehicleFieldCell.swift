@@ -10,19 +10,15 @@ import UIKit
 import DriveKitCommonUI
 import DriveKitDBVehicleAccessModule
 
-protocol VehicleFieldCellDelegate : AnyObject {
+protocol VehicleFieldCellDelegate: AnyObject {
     func didEndEditing(cell: VehicleFieldCell, value: String)
 }
 
-class VehicleFieldCell : UITableViewCell {
+class VehicleFieldCell: UITableViewCell {
     @IBOutlet weak var textField: UIView!
 
     weak var delegate: VehicleFieldCellDelegate? = nil
     var textFieldView: DKTextField = DKTextField.viewFromNib
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
 
     func configure(vehicle: DKVehicle, field: DKVehicleField, value: String, delegate: VehicleFieldCellDelegate, hasError: Bool) {
         textFieldView.delegate = self

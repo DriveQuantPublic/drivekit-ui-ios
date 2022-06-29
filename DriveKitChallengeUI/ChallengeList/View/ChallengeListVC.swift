@@ -68,8 +68,11 @@ class ChallengeListVC: DKUIViewController {
     }
 
     func setupHeaders() {
+        let font = DKStyles.smallText.withSizeDelta(-2).applyTo(font: .primary)
+        self.currentTabButton?.titleLabel?.font = font
         self.currentTabButton?.setTitle("dk_challenge_active".dkChallengeLocalized().uppercased(), for: .normal)
         self.pastTabButton?.setTitle("dk_challenge_finished".dkChallengeLocalized().uppercased(), for: .normal)
+        self.pastTabButton?.titleLabel?.font = font
         self.selectorHighlightView?.backgroundColor = DKUIColors.secondaryColor.color
         updateSelectedButton()
     }

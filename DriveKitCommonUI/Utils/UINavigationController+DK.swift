@@ -11,6 +11,7 @@ import UIKit
 public extension UINavigationController {
     func configure() {
         let titleTextAttributes: [NSAttributedString.Key: Any] = [
+            .font: DKUIFonts.secondary.fonts(size: 18),
             .foregroundColor: DKUIColors.navBarElementColor.color
         ]
         if #available(iOS 15.0, *) {

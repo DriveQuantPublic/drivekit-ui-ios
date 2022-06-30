@@ -20,10 +20,12 @@ public extension UINavigationController {
             appearance.backgroundEffect = nil
             appearance.backgroundColor = DKUIColors.primaryColor.color
             appearance.titleTextAttributes = titleTextAttributes
+            appearance.buttonAppearance.normal.titleTextAttributes = titleTextAttributes
             self.navigationBar.standardAppearance = appearance
             self.navigationBar.scrollEdgeAppearance = appearance
         } else if #available(iOS 13.0, *) {
             self.navigationBar.standardAppearance.titleTextAttributes = titleTextAttributes
+            self.navigationBar.standardAppearance.buttonAppearance.normal.titleTextAttributes = titleTextAttributes
             self.navigationBar.standardAppearance.backgroundColor = DKUIColors.primaryColor.color
         } else {
             self.navigationBar.titleTextAttributes = titleTextAttributes

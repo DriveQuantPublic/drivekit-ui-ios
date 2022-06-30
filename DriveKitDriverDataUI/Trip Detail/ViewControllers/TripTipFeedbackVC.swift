@@ -11,17 +11,17 @@ import UIKit
 import DriveKitDriverDataModule
 import DriveKitCommonUI
 
-class TripTipFeedbackVC : UITableViewController {
-    @IBOutlet var contentLabel: UILabel!
-    @IBOutlet var commentTextView: UITextView!
-    @IBOutlet var sendButton: UIButton!
-    @IBOutlet var cancelButton: UIButton!
+class TripTipFeedbackVC: UITableViewController {
+    @IBOutlet private var contentLabel: UILabel!
+    @IBOutlet private var commentTextView: UITextView!
+    @IBOutlet private var sendButton: UIButton!
+    @IBOutlet private var cancelButton: UIButton!
 
-    @IBOutlet var feedbackLabel1: UILabel!
-    @IBOutlet var feedbackLabel2: UILabel!
-    @IBOutlet var feedbackLabel3: UILabel!
-    @IBOutlet var feedbackLabel4: UILabel!
-    @IBOutlet var feedbackLabel5: UILabel!
+    @IBOutlet private var feedbackLabel1: UILabel!
+    @IBOutlet private var feedbackLabel2: UILabel!
+    @IBOutlet private var feedbackLabel3: UILabel!
+    @IBOutlet private var feedbackLabel4: UILabel!
+    @IBOutlet private var feedbackLabel5: UILabel!
 
     var viewModel: TripTipFeedbackViewModel!
     var tripDetailVC: TripDetailVC? = nil
@@ -139,6 +139,7 @@ fileprivate extension TripTipFeedbackVC {
         let items = [flexSpace, done]
         doneToolBar.items = items
         doneToolBar.sizeToFit()
+        commentTextView.font = DKStyles.normalText.style.applyTo(font: .primary)
         commentTextView.inputAccessoryView = doneToolBar
         commentTextView.layer.borderWidth = 1
         commentTextView.layer.borderColor = DKUIColors.mainFontColor.color.cgColor

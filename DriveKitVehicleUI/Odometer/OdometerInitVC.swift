@@ -64,6 +64,7 @@ class OdometerInitVC: DKUIViewController {
         self.odometerField.leftView = leftView
         self.odometerField.leftViewMode = .always
         self.odometerField.placeholder = "dk_vehicle_odometer_enter_mileage".dkVehicleLocalized()
+        self.odometerField.font = DKStyles.normalText.withSizeDelta(-2).applyTo(font: .primary)
         self.odometerField.keyboardType = .numberPad
 
         let odometerFieldToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: Int(UIScreen.main.bounds.size.width), height: 40))

@@ -44,6 +44,7 @@
 	<string>The application needs to access your photo gallery</string>
 	<key>UIBackgroundModes</key>
 	<array>
+		<string>bluetooth-central</string>
 		<string>location</string>
 	</array>
 	<key>UIFileSharingEnabled</key>

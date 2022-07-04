@@ -9,6 +9,10 @@
 import UIKit
 import DriveKitCoreModule
 import DriveKitTripAnalysisModule
+import DriveKitVehicleUI
+import DriveKitDBVehicleAccessModule
+import CoreBluetooth
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

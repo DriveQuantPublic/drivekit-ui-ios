@@ -11,7 +11,6 @@ import DriveKitCommonUI
 import MessageUI
 
 class BeaconDetailVC: DKUIViewController {
-
     @IBOutlet weak var tableView: UITableView!
     
     private let viewModel: BeaconDetailViewModel

@@ -71,6 +71,7 @@ class TransportationModeVC: DKUIViewController {
         self.commentTitle.attributedText = "dk_driverdata_transportation_mode_declaration_comment".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
         self.commentError.attributedText = "dk_driverdata_transportation_mode_declaration_comment_error".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.criticalColor).build()
         self.commentTextView.text = self.viewModel.comment
+        self.commentTextView.font = DKStyles.normalText.withSizeDelta(-2).applyTo(font: .primary)
         self.commentTextView.layer.borderWidth = 1
         self.commentTextView.layer.borderColor = UIColor.lightGray.cgColor
         self.commentTextView.layer.cornerRadius = 4

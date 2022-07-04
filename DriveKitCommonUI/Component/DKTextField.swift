@@ -82,6 +82,7 @@ public final class DKTextField: UIView, Nibable {
         textField.placeholder = placeholder
         textField.text = value
         textField.textColor = DKUIColors.mainFontColor.color
+        textField.font = DKStyles.normalText.withSizeDelta(-2).applyTo(font: .primary)
         textField.isEnabled = enable
         textField.keyboardType = keyBoardType
         textField.clearButtonMode = .whileEditing

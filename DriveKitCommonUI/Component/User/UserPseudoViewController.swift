@@ -9,8 +9,7 @@
 import UIKit
 import DriveKitCoreModule
 
-public class UserPseudoViewController : UIViewController {
-
+public class UserPseudoViewController: UIViewController {
     public typealias UserPseudoCompletion = (_ success: Bool) -> Void
 
     public var completion: UserPseudoCompletion? = nil
@@ -49,9 +48,10 @@ public class UserPseudoViewController : UIViewController {
             self.titleLabel.attributedText = appName.dkAttributedString().font(dkFont: .primary, style: .headLine1).color(DKUIColors.mainFontColor).build()
         }
         self.descriptionLabel.attributedText = DKCommonLocalizable.noPseudo.text().dkAttributedString().font(dkFont: .primary, style: .smallText).color(DKUIColors.mainFontColor).build()
-        self.validateButton.setTitle(DKCommonLocalizable.validate.text(), for: .normal)
-        self.cancelButton.setTitle(DKCommonLocalizable.later.text(), for: .normal)
+        self.validateButton.setAttributedTitle(DKCommonLocalizable.validate.text().dkAttributedString().font(dkFont: .primary, style: .highlightSmall).build(), for: .normal)
+        self.cancelButton.setAttributedTitle(DKCommonLocalizable.later.text().dkAttributedString().font(dkFont: .primary, style: .normalText).build(), for: .normal)
 
+        self.pseudoInput.font = DKStyles.normalText.withSizeDelta(-2).applyTo(font: .primary)
         self.pseudoInput.placeholder = DKCommonLocalizable.pseudo.text()
         self.pseudoInput.delegate = self
 

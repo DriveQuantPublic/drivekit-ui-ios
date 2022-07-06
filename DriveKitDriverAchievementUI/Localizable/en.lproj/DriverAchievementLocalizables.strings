@@ -7,9 +7,6 @@
 "badge_acceleration_name_1"="Adagio";
 "badge_acceleration_name_2"="Andante";
 "badge_acceleration_name_3"="Moderato";
-"badge_acceleration_notif_1"="You\'ve just won the Adagio badge (10 trips without strong acceleration ). Bravo!";
-"badge_acceleration_notif_2"="You\'ve just won the Andante badge (20 trips without strong acceleration). Bravo!";
-"badge_acceleration_notif_3"="You\'ve just won the Moderato badge (20 trips without strong acceleration). Bravo!";
 "badge_acceleration_progress_1"="You still have %@ trips to complete to win this badge.";
 "badge_acceleration_progress_2"="You still have %@ trips to complete to win this badge.";
 "badge_acceleration_progress_3"="You still have %@ trips to complete to win this badge.";
@@ -23,9 +20,6 @@
 "badge_adherence_name_1"="Adhesive";
 "badge_adherence_name_2"="Velcro";
 "badge_adherence_name_3"="Super Glue";
-"badge_adherence_notif_1"="You\'ve just won the Adhesive badge (10 trips without traction limit). Bravo!";
-"badge_adherence_notif_2"="You\'ve just won the Velcro badge (20 trips without traction limit). Bravo!";
-"badge_adherence_notif_3"="You\'ve just won the Super Glue badge (50 trips without traction limit). Bravo!";
 "badge_adherence_progress_1"="You still have %@ trips to complete to win this badge.";
 "badge_adherence_progress_2"="You still have %@ trips to complete to win this badge.";
 "badge_adherence_progress_3"="You still have %@ trips to complete to win this badge.";
@@ -39,9 +33,6 @@
 "badge_braking_name_1"="Feather";
 "badge_braking_name_2"="Light Foot";
 "badge_braking_name_3"="Soft Driver";
-"badge_braking_notif_1"="You\'ve just won the Feather badge (10 trips without strong braking). Bravo!";
-"badge_braking_notif_2"="You\'ve just won the Light Foot badge (20 trips without strong braking). Bravo!";
-"badge_braking_notif_3"="You\'ve just won the Light Foot badge (50 trips without strong braking). Bravo!";
 "badge_braking_progress_1"="You still have %@ trips to complete to win this badge.";
 "badge_braking_progress_2"="You still have %@ trips to complete to win this badge.";
 "badge_braking_progress_3"="You still have %@ trips to complete to win this badge.";
@@ -56,9 +47,6 @@
 "badge_distance_beginer_name_1"="Jogging";
 "badge_distance_beginer_name_2"="Marathon";
 "badge_distance_beginer_name_3"="Ultra-trail";
-"badge_distance_beginer_notif_1"="You\'ve just won the Jogging badge (10 km). Bravo!";
-"badge_distance_beginer_notif_2"="You\'ve just won the Marathon badge (50 km). Bravo!";
-"badge_distance_beginer_notif_3"="You\'ve just won the Ultra-trail badge (100 km). Bravo!";
 "badge_distance_beginer_progress_1"="You have %@ kilometers to go to win this badge.";
 "badge_distance_beginer_progress_2"="You have %@ kilometers to go to win this badge.";
 "badge_distance_beginer_progress_3"="You have %@ kilometers to go to win this badge.";
@@ -72,9 +60,6 @@
 "badge_distance_expert_name_1"="Paris-Moscow";
 "badge_distance_expert_name_2"="Route 66";
 "badge_distance_expert_name_3"="Paris - Tokyo";
-"badge_distance_expert_notif_1"="You\'ve just won the Paris - Moscow badge (3000 km). Bravo!";
-"badge_distance_expert_notif_2"="You\'ve just won the Route 66 badge (5000 km). Bravo !";
-"badge_distance_expert_notif_3"="You\'ve just won the Paris - Tokyo badge (10,000 km). Bravo!";
 "badge_distance_expert_progress_1"="You have %@ kilometers to go to win this badge.";
 "badge_distance_expert_progress_2"="You have %@ kilometers to go to win this badge.";
 "badge_distance_expert_progress_3"="You have %@ kilometers to go to win this badge.";
@@ -88,9 +73,6 @@
 "badge_distance_intermediate_name_1"="Paris - Lyon";
 "badge_distance_intermediate_name_2"="Nationale 7";
 "badge_distance_intermediate_name_3"="Paris - Lisbonne";
-"badge_distance_intermediate_notif_1"="You\'ve just won the Paris - Lyon badge (500 km). Bravo!";
-"badge_distance_intermediate_notif_2"="You\'ve just won the Nationale 7 badge (1000 km). Bravo!";
-"badge_distance_intermediate_notif_3"="You\'ve just won the Paris - Lisbonne badge (2000 km). Bravo !";
 "badge_distance_intermediate_progress_1"="You have %@ kilometers to go to win this badge.";
 "badge_distance_intermediate_progress_2"="You have %@ kilometers to go to win this badge.";
 "badge_distance_intermediate_progress_3"="You have %@ kilometers to go to win this badge.";
@@ -104,9 +86,6 @@
 "badge_efficiency_expressway_name_1"="Amateur";
 "badge_efficiency_expressway_name_2"="Experienced";
 "badge_efficiency_expressway_name_3"="Expert";
-"badge_efficiency_expressway_notif_1"="You\'ve just won the Amateur badge (1000 km in a suburban area with an ecodriving score above 9.5 out of 10). Bravo!";
-"badge_efficiency_expressway_notif_2"="You\'ve just won the Experienced badge (300 km on the expressway with an ecodriving score above 9.5 out of 10). Bravo!";
-"badge_efficiency_expressway_notif_3"="You\'ve just won the Expert badge (1000 km on the expressway with an ecodriving score above 9.5 out of 10). Bravo!";
 "badge_efficiency_expressway_progress_1"="You have %@ kilometers to go to win this badge.";
 "badge_efficiency_expressway_progress_2"="You have %@ kilometers to go to win this badge.";
 "badge_efficiency_expressway_progress_3"="You have %@ kilometers to go to win this badge.";
@@ -120,9 +99,6 @@
 "badge_efficiency_extra_urban_name_1"="Amateur";
 "badge_efficiency_extra_urban_name_2"="Experienced";
 "badge_efficiency_extra_urban_name_3"="Expert";
-"badge_efficiency_extra_urban_notif_1"="You\'ve just won the Amateur badge (100 km in a suburban area with an ecodriving score above 8.5 out of 10). Bravo!";
-"badge_efficiency_extra_urban_notif_2"="You\'ve just won the Experienced badge (300 km in a suburban area with an ecodriving score above 8.5 out of 10). Bravo!";
-"badge_efficiency_extra_urban_notif_3"="You\'ve just won the Expert badge (1000 km in a suburban area with an ecodriving score above 8.5 out of 10). Bravo!";
 "badge_efficiency_extra_urban_progress_1"="You have %@ kilometers to go to win this badge.";
 "badge_efficiency_extra_urban_progress_2"="You have %@ kilometers to go to win this badge.";
 "badge_efficiency_extra_urban_progress_3"="You have %@ kilometers to go to win this badge.";
@@ -136,9 +112,6 @@
 "badge_efficiency_urban_name_1"="Amateur";
 "badge_efficiency_urban_name_2"="Experienced";
 "badge_efficiency_urban_name_3"="Expert";
-"badge_efficiency_urban_notif_1"="You\'ve just won the Amateur badge (100 km in the city with an ecodriving score above 8 out of 10). Bravo!";
-"badge_efficiency_urban_notif_2"="You\'ve just won the Experienced badge (100 km in the city with an ecodriving score above 8 out of 10). Bravo!";
-"badge_efficiency_urban_notif_3"="You\'ve just won the Expert badge (400 km in the city with an ecodriving score above 8 out of 10). Bravo!";
 "badge_efficiency_urban_progress_1"="You have %@ kilometers to go to win this badge.";
 "badge_efficiency_urban_progress_2"="You have %@ kilometers to go to win this badge.";
 "badge_efficiency_urban_progress_3"="You have %@ kilometers to go to win this badge.";
@@ -152,9 +125,6 @@
 "badge_expressway_distance_name_1"="Fast and serious";
 "badge_expressway_distance_name_2"="Road Trip";
 "badge_expressway_distance_name_3"="Easy Rider";
-"badge_expressway_distance_notif_1"="You\'ve just won the Fast and Serious badge (100 km on the expressway). Bravo!";
-"badge_expressway_distance_notif_2"="You\'ve just won the Road Trip badge (300 km on the expressway). Bravo!";
-"badge_expressway_distance_notif_3"="You\'ve just won the Easy Rider badge (1000 km on the expressway). Bravo!";
 "badge_expressway_distance_progress_1"="You have %@ kilometers to go to win this badge.";
 "badge_expressway_distance_progress_2"="You have %@ kilometers to go to win this badge.";
 "badge_expressway_distance_progress_3"="You have %@ kilometers to go to win this badge.";
@@ -168,9 +138,6 @@
 "badge_extra_urban_distance_name_1"="Ride";
 "badge_extra_urban_distance_name_2"="Evasion";
 "badge_extra_urban_distance_name_3"="Grand Air";
-"badge_extra_urban_distance_notif_1"="You\'ve just won the Ride badge (100 km in a suburban environment). Bravo!";
-"badge_extra_urban_distance_notif_2"="You\'ve just won the Evasion badge (300 km in a suburban environment). Bravo!";
-"badge_extra_urban_distance_notif_3"="You\'ve just won the Grand Air badge (1000 km in a suburban environment). Bravo!";
 "badge_extra_urban_distance_progress_1"="You have %@ kilometers to go to win this badge.";
 "badge_extra_urban_distance_progress_2"="You have %@ kilometers to go to win this badge.";
 "badge_extra_urban_distance_progress_3"="You have %@ kilometers to go to win this badge.";
@@ -184,9 +151,6 @@
 "badge_night_trip_name_1"="Firefly";
 "badge_night_trip_name_2"="Owl";
 "badge_night_trip_name_3"="Full Moon";
-"badge_night_trip_notif_1"="You\'ve just won the Firefly badge (10 trips at night). Bravo!";
-"badge_night_trip_notif_2"="You\'ve just won the Owl badge (20 trips at night). Bravo!";
-"badge_night_trip_notif_3"="You\'ve just won the Full Moon badge (50 trips at night). Bravo!";
 "badge_night_trip_progress_1"="You still have %@ trips to complete to win this badge.";
 "badge_night_trip_progress_2"="You still have %@ trips to complete to win this badge.";
 "badge_night_trip_progress_3"="You still have %@ trips to complete to win this badge.";
@@ -200,9 +164,6 @@
 "badge_phone_call_name_1"="Novice";
 "badge_phone_call_name_2"="Apprentice";
 "badge_phone_call_name_3"="Champion";
-"badge_phone_call_notif_1"="You\'ve just won the Novice badge (20 trips without making a call). Bravo!";
-"badge_phone_call_notif_2"="You\'ve just won the Apprentice badge (50 trips without making a call). Bravo!";
-"badge_phone_call_notif_3"="You\'ve just won the Champion badge (100 trips without making a call). Bravo!";
 "badge_phone_call_progress_1"="You still have %@ trips to complete to win this badge.";
 "badge_phone_call_progress_2"="You still have %@ trips to complete to win this badge.";
 "badge_phone_call_progress_3"="You still have %@ trips to complete to win this badge.";
@@ -216,9 +177,6 @@
 "badge_phone_distraction_name_1"="Quiet, we\'re driving";
 "badge_phone_distraction_name_2"="No Texto!";
 "badge_phone_distraction_name_3"="Imperturbable";
-"badge_phone_distraction_notif_1"="You\'ve just won the Quiet, we\'re driving badge ( 10 trips without using your cell phone). Bravo!";
-"badge_phone_distraction_notif_2"="You\'ve just won the No Texto badge ( 20 trips without using your cell phone). Bravo!";
-"badge_phone_distraction_notif_3"="You\'ve just won the Imperturbable badge (50 trips without using your cell phone). Bravo!";
 "badge_phone_distraction_progress_1"="You still have %@ trips to complete to win this badge.";
 "badge_phone_distraction_progress_2"="You still have %@ trips to complete to win this badge.";
 "badge_phone_distraction_progress_3"="You still have %@ trips to complete to win this badge.";
@@ -232,9 +190,6 @@
 "badge_rain_trip_name_1"="Droplet";
 "badge_rain_trip_name_2"="Downpour";
 "badge_rain_trip_name_3"="Singing in the rain";
-"badge_rain_trip_notif_1"="You\'ve just won the Droplet badge (10 trips under the rain). Bravo!";
-"badge_rain_trip_notif_2"="You\'ve just won the Downpour badge (20 trips under the rain). Bravo!";
-"badge_rain_trip_notif_3"="You\'ve just won the Singing in the rain badge (20 trips under the rain). Bravo!";
 "badge_rain_trip_progress_1"="You still have %@ trips to complete to win this badge.";
 "badge_rain_trip_progress_2"="You still have %@ trips to complete to win this badge.";
 "badge_rain_trip_progress_3"="You still have %@ trips to complete to win this badge.";
@@ -248,9 +203,6 @@
 "badge_range_average_name_1"="Occasional";
 "badge_range_average_name_2"="Recurring";
 "badge_range_average_name_3"="Frequent";
-"badge_range_average_notif_1"="You\'ve just won the occasional medium distance trips badge (10 trips). Bravo!";
-"badge_range_average_notif_2"="You\'ve just won the recurring medium distance trips badge (20 trips). Bravo!";
-"badge_range_average_notif_3"="You\'ve just won the frequent medium distance trips badge (20 trips). Bravo!";
 "badge_range_average_progress_1"="You still have %@ trips to complete to win this badge.";
 "badge_range_average_progress_2"="You still have %@ trips to complete to win this badge.";
 "badge_range_average_progress_3"="You still have %@ trips to complete to win this badge.";
@@ -264,9 +216,6 @@
 "badge_range_long_name_1"="Occasional";
 "badge_range_long_name_2"="Recurring";
 "badge_range_long_name_3"="Frequent";
-"badge_range_long_notif_1"="You\'ve just won the occasional long distance trips badge (10 trips). Bravo!";
-"badge_range_long_notif_2"="You\'ve just won the recurring long distance trips badge (20 trips). Bravo!";
-"badge_range_long_notif_3"="You\'ve just won the frequent long distance trips badge (50 trips). Bravo!";
 "badge_range_long_progress_1"="You still have %@ trips to complete to win this badge.";
 "badge_range_long_progress_2"="You still have %@ trips to complete to win this badge.";
 "badge_range_long_progress_3"="You still have %@ trips to complete to win this badge.";
@@ -280,9 +229,6 @@
 "badge_range_short_name_1"="Occasional";
 "badge_range_short_name_2"="Recurring";
 "badge_range_short_name_3"="Frequent";
-"badge_range_short_notif_1"="You\'ve just won the Occasional short trips badge (10 trips). Bravo!";
-"badge_range_short_notif_2"="You\'ve just won the daily short trips badge (20 trips). Bravo!";
-"badge_range_short_notif_3"="You\'ve just won the frequent short trips badge (50 trips). Bravo!";
 "badge_range_short_progress_1"="You still have %@ trips to complete to win this badge.";
 "badge_range_short_progress_2"="You still have %@ trips to complete to win this badge.";
 "badge_range_short_progress_3"="You still have %@ trips to complete to win this badge.";
@@ -296,9 +242,6 @@
 "badge_safety_name_1"="Shepherd";
 "badge_safety_name_2"="Sherpa";
 "badge_safety_name_3"="Guardian Angel";
-"badge_safety_notif_1"="You\'ve just won the Shepherd badge (10 trips with a safety score of 10). Bravo!";
-"badge_safety_notif_2"="You\'ve just won the Shepherd badge (20 trips with a safety score of 10). Bravo!";
-"badge_safety_notif_3"="You\'ve just won the Guardian Angel badge (50 trips with a safety score of 10). Bravo!";
 "badge_safety_progress_1"="Still %@ trips before winning this badge.";
 "badge_safety_progress_2"="You still have %@ trips to complete to win this badge.";
 "badge_safety_progress_3"="You still have %@ trips to complete to win this badge.";
@@ -312,9 +255,6 @@
 "badge_trip_number_name_1"="Amateur";
 "badge_trip_number_name_2"="Explorer";
 "badge_trip_number_name_3"="Ambassador";
-"badge_trip_number_notif_1"="You\'ve just won the Amateur badge (10 trips). Bravo!";
-"badge_trip_number_notif_2"="You\'ve just won the Explorer badge (30 trips). Bravo!";
-"badge_trip_number_notif_3"="You\'ve just won the Ambassador badge (100 trips). Bravo!";
 "badge_trip_number_progress_1"="You still have %@ trips to complete to win this badge.";
 "badge_trip_number_progress_2"="You still have %@ trips to complete to win this badge.";
 "badge_trip_number_progress_3"="You still have %@ trips to complete to win this badge.";
@@ -328,9 +268,6 @@
 "badge_urban_distance_name_1"="Relax Max";
 "badge_urban_distance_name_2"="Yoga";
 "badge_urban_distance_name_3"="Zen Master";
-"badge_urban_distance_notif_1"="You\'ve just won the Relax Max badge (100 trips in an urban environment). Bravo!";
-"badge_urban_distance_notif_2"="You\'ve just won the Yoga badge (300 km in an urban environment). Bravo!";
-"badge_urban_distance_notif_3"="You\'ve just won the Zen Master badge (1000 km in an urban environment). Bravo!";
 "badge_urban_distance_progress_1"="You have %@ kilometers to go to win this badge.";
 "badge_urban_distance_progress_2"="You have %@ kilometers to go to win this badge.";
 "badge_urban_distance_progress_3"="You have %@ kilometers to go to win this badge.";

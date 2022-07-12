@@ -131,9 +131,9 @@ struct ChallengeTrip: DKTripListItem {
         } else if tripAdvices.count == 1 {
             let advice = tripAdvices[0]
             if advice.theme == "SAFETY" {
-                return UIImage(named: "dk_safety_advice", in: Bundle.driveKitCommonUIBundle, compatibleWith: nil)
+                return UIImage(named: "dk_common_safety_advice", in: Bundle.driveKitCommonUIBundle, compatibleWith: nil)
             } else if advice.theme == "ECODRIVING" {
-                return UIImage(named: "dk_eco_advice", in: Bundle.driveKitCommonUIBundle, compatibleWith: nil)
+                return UIImage(named: "dk_common_eco_advice", in: Bundle.driveKitCommonUIBundle, compatibleWith: nil)
             }
         }
         return nil

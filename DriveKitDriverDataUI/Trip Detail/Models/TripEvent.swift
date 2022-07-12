@@ -74,9 +74,9 @@ public class TripEvent {
         case .lock:
             return "dk_map_lock"
         case .pickUp:
-            return "dk_begin_call_poi_black"
+            return "dk_map_begin_call"
         case .hangUp:
-            return "dk_end_call_poi_black"
+            return "dk_map_end_call"
         }
     }
     

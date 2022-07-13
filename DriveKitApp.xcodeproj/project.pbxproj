@@ -377,6 +377,7 @@
 		67301DB126251921006B0432 /* HeaderDayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67301DAF26251921006B0432 /* HeaderDayView.xib */; };
 		67301DBD2625C301006B0432 /* Trip+DKTripsListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301DBC2625C301006B0432 /* Trip+DKTripsListItem.swift */; };
 		67301DC42625C3BF006B0432 /* TripListVC+DKTripList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301DC32625C3BF006B0432 /* TripListVC+DKTripList.swift */; };
+		6744776B287ED13A0058D23B /* DKDriverDataImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6744776A287ED13A0058D23B /* DKDriverDataImages.swift */; };
 		67462D81265CD4AE00016FAF /* ChallengeConditionProgressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67462D80265CD4AE00016FAF /* ChallengeConditionProgressViewModel.swift */; };
 		67462D84265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67462D82265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.swift */; };
 		67462D85265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67462D83265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.xib */; };
@@ -1081,6 +1082,7 @@
 		67301DAF26251921006B0432 /* HeaderDayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderDayView.xib; sourceTree = "<group>"; };
 		67301DBC2625C301006B0432 /* Trip+DKTripsListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+DKTripsListItem.swift"; sourceTree = "<group>"; };
 		67301DC32625C3BF006B0432 /* TripListVC+DKTripList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TripListVC+DKTripList.swift"; sourceTree = "<group>"; };
+		6744776A287ED13A0058D23B /* DKDriverDataImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDriverDataImages.swift; sourceTree = "<group>"; };
 		67462D80265CD4AE00016FAF /* ChallengeConditionProgressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeConditionProgressViewModel.swift; sourceTree = "<group>"; };
 		67462D82265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeConditionProgressTableViewCell.swift; sourceTree = "<group>"; };
 		67462D83265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeConditionProgressTableViewCell.xib; sourceTree = "<group>"; };
@@ -2711,6 +2713,7 @@
 				A34238092361A1FA0001E15D /* Info.plist */,
 				3FF68E89240ACD620071D74C /* DriveKitDriverDataUI.swift */,
 				A34238612361A2430001E15D /* DriverData.xcassets */,
+				6744776A287ED13A0058D23B /* DKDriverDataImages.swift */,
 			);
 			path = DriveKitDriverDataUI;
 			sourceTree = "<group>";
@@ -4101,6 +4104,7 @@
 				638AC046261F970E00602B52 /* SynthesisCardsViewModel.swift in Sources */,
 				A34238862361A2440001E15D /* Extension+DK.swift in Sources */,
 				3F6B67572580DA62008B3BA7 /* AlternativeTripMapItem.swift in Sources */,
+				6744776B287ED13A0058D23B /* DKDriverDataImages.swift in Sources */,
 				3F6B67482580D268008B3BA7 /* AlternativeTripDetailInfoVC.swift in Sources */,
 				A342387F2361A2440001E15D /* HistoryPageView.swift in Sources */,
 				67301DBD2625C301006B0432 /* Trip+DKTripsListItem.swift in Sources */,

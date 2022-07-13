@@ -32,9 +32,9 @@ enum EventType {
         case .hangUp:
             return UIImage(named: "dk_end_call", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         case .end:
-            return UIImage(named: "dk_end_event_black", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            return UIImage(named: "dk_arrival", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         case .start:
-            return UIImage(named: "dk_start_event_black", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            return UIImage(named: "dk_departure", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         }
     }
 }
@@ -66,9 +66,9 @@ public class TripEvent {
         case .brake:
             return isHigh ? "dk_map_decel_high" : "dk_map_decel"
         case .start:
-            return "dk_map_start_event"
+            return "dk_map_departure"
         case .end:
-            return "dk_map_end_event"
+            return "dk_map_arrival"
         case .unlock:
             return "dk_map_unlock"
         case .lock:

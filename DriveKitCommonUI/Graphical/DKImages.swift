@@ -10,8 +10,8 @@ import UIKit
 
 public enum DKImages: String {
     case ecoAccel = "dk_common_eco_accel",
-         info = "dk_common_info",
-         infoFilled = "dk_common_info_filled",
+         info = "dk_synthesis",
+         infoFilled = "dk_synthesis_filled",
          ecoDecel = "dk_common_eco_decel",
          ecoMaintain = "dk_common_eco_maintain",
          ecoDriving = "dk_common_ecodriving",

@@ -32,9 +32,9 @@ enum EventType {
         case .hangUp:
             return UIImage(named: "dk_end_call", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         case .end:
-            return UIImage(named: "dk_arrival", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            return DKDriverDataImages.arrival.image?.withRenderingMode(.alwaysTemplate)
         case .start:
-            return UIImage(named: "dk_departure", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            return DKDriverDataImages.departure.image?.withRenderingMode(.alwaysTemplate)
         }
     }
 }
@@ -57,26 +57,26 @@ public class TripEvent {
         self.isForbidden = isForbidden
     }
     
-    func getMapImageID() -> String {
+    func getMapImage() -> DKDriverDataImages {
         switch type {
         case .adherence:
-            return isHigh ? "dk_map_adh_high" : "dk_map_adh"
+            return isHigh ? DKDriverDataImages.mapAdhHigh : DKDriverDataImages.mapAdh
         case .acceleration:
-            return isHigh ? "dk_map_accel_high" : "dk_map_accel"
+            return isHigh ? DKDriverDataImages.mapAccelHigh : DKDriverDataImages.mapAccel
         case .brake:
-            return isHigh ? "dk_map_decel_high" : "dk_map_decel"
+            return isHigh ? DKDriverDataImages.mapDecelHigh : DKDriverDataImages.mapDecel
         case .start:
-            return "dk_map_departure"
+            return DKDriverDataImages.mapDeparture
         case .end:
-            return "dk_map_arrival"
+            return DKDriverDataImages.mapArrival
         case .unlock:
-            return "dk_map_unlock"
+            return DKDriverDataImages.mapUnlock
         case .lock:
-            return "dk_map_lock"
+            return DKDriverDataImages.mapLock
         case .pickUp:
-            return "dk_map_begin_call"
+            return DKDriverDataImages.mapBeginCall
         case .hangUp:
-            return "dk_map_end_call"
+            return DKDriverDataImages.mapEndCall
         }
     }
     

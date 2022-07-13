@@ -19,10 +19,17 @@ public enum DKDriverDataImages: String {
          mapUnlock = "dk_map_unlock",
          mapBeginCall = "dk_map_begin_call",
          mapEndCall = "dk_map_end_call",
+         mapArrival = "dk_map_arrival",
+         mapDeparture = "dk_map_departure",
          lockEvent = "dk_lock_event",
          unlockEvent = "dk_unlock_event",
          beginCall = "dk_begin_call",
-         endCall = "dk_end_call"
+         endCall = "dk_end_call",
+         arrival = "dk_arrival",
+         departure = "dk_departure",
+         history = "dk_history",
+         historyFilled = "dk_history_filled",
+         trash = "dk_trash"
     
     
     public var image: UIImage? {

@@ -260,7 +260,7 @@ extension ChallengeDetailViewModel: DKDriverRanking {
         case .acceleration, .adherence, .braking, .safety:
             imageName = "dk_challenge_leaderboard_safety"
         case .distraction:
-            imageName = "dk_challenge_leaderboard_phone_distraction"
+            imageName = "dk_challenge_leaderboard_distraction"
         case .ecoDriving:
             imageName = "dk_challenge_leaderboard_ecodriving"
         case .speeding:

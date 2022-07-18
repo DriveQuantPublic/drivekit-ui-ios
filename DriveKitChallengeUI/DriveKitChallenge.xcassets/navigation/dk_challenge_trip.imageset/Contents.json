@@ -1,23 +1,23 @@
 {
   "images" : [
     {
+      "filename" : "dk_common_trip.png",
       "idiom" : "universal",
-      "filename" : "Webp.net-resizeimage.png",
       "scale" : "1x"
     },
     {
+      "filename" : "dk_common_trip@2x.png",
       "idiom" : "universal",
-      "filename" : "Webp.net-resizeimage@2x.png",
       "scale" : "2x"
     },
     {
+      "filename" : "dk_common_trip@3x.png",
       "idiom" : "universal",
-      "filename" : "Webp.net-resizeimage@3x.png",
       "scale" : "3x"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   }
 }

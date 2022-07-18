@@ -24,13 +24,13 @@ enum EventType {
         case .acceleration:
             return DKImages.safetyAccel.image
         case .lock:
-            return UIImage(named: "dk_lock_event", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            return DKDriverDataImages.lockEvent.image?.withRenderingMode(.alwaysTemplate)
         case .unlock:
-            return UIImage(named: "dk_unlock_event", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            return DKDriverDataImages.unlockEvent.image?.withRenderingMode(.alwaysTemplate)
         case .pickUp:
-            return UIImage(named: "dk_begin_call", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            return DKDriverDataImages.beginCall.image?.withRenderingMode(.alwaysTemplate)
         case .hangUp:
-            return UIImage(named: "dk_end_call", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            return DKDriverDataImages.endCall.image?.withRenderingMode(.alwaysTemplate)
         case .end:
             return DKDriverDataImages.arrival.image?.withRenderingMode(.alwaysTemplate)
         case .start:

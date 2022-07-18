@@ -29,7 +29,9 @@ public enum DKDriverDataImages: String {
          departure = "dk_departure",
          history = "dk_history",
          historyFilled = "dk_history_filled",
-         trash = "dk_trash"
+         trash = "dk_trash",
+         adviceAgree = "dk_advice_agree",
+         adviceDisagree = "dk_advice_disagree"
     
     
     public var image: UIImage? {

@@ -68,10 +68,10 @@ class ChallengeDetailVC: DKUIViewController {
     }
 
     func setupButtons() {
-        statsTabButton?.setImage(UIImage(named: "dk_challenge_result", in: Bundle.challengeUIBundle, compatibleWith: nil)?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
-        rankingTabButton?.setImage(rankingTabButton?.imageView?.image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
-        tripsTabButton?.setImage(UIImage(named: "dk_challenge_trip", in: Bundle.challengeUIBundle, compatibleWith: nil)?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
-        rulesTabButton?.setImage(rulesTabButton?.imageView?.image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
+        statsTabButton?.setImage(DKChallengeImages.result.image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
+        rankingTabButton?.setImage(DKChallengeImages.leaderboard.image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
+        tripsTabButton?.setImage(DKChallengeImages.trip.image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
+        rulesTabButton?.setImage(DKChallengeImages.rules.image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: .normal)
         updateSelector()
     }
 

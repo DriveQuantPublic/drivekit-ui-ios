@@ -37,7 +37,9 @@ public enum DKImages: String {
          calendar = "dk_common_calendar",
          trip = "dk_common_trip",
          road = "dk_common_road",
-         clock = "dk_common_clock"
+         clock = "dk_common_clock",
+         tripInfoCount = "dk_common_trip_info_count",
+         noScore = "dk_no_score"
 
     public var image: UIImage? {
         if let image = UIImage(named: self.rawValue, in: .main, compatibleWith: nil) {

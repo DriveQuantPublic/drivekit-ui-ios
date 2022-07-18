@@ -47,13 +47,13 @@ class RankingViewModel {
         for (index, rankingType) in self.dkRankingTypes.enumerated() {
             switch rankingType {
                 case .distraction:
-                    self.rankingTypes.append(RankingType(index: index, name: DKCommonLocalizable.distraction.text(), imageName: "dk_achievements_distraction"))
+                    self.rankingTypes.append(RankingType(index: index, name: DKCommonLocalizable.distraction.text(), image: DKDriverAchievementImages.distraction.image))
                 case .ecoDriving:
-                    self.rankingTypes.append(RankingType(index: index, name: DKCommonLocalizable.ecodriving.text(), imageName: "dk_achievements_ecodriving"))
+                    self.rankingTypes.append(RankingType(index: index, name: DKCommonLocalizable.ecodriving.text(), image: DKDriverAchievementImages.ecodriving.image))
                 case .safety:
-                    self.rankingTypes.append(RankingType(index: index, name: DKCommonLocalizable.safety.text(), imageName: "dk_achievements_safety"))
+                    self.rankingTypes.append(RankingType(index: index, name: DKCommonLocalizable.safety.text(), image: DKDriverAchievementImages.safety.image))
                 case .speeding:
-                    self.rankingTypes.append(RankingType(index: index, name: DKCommonLocalizable.speeding.text(), imageName: "dk_achievements_speeding"))
+                    self.rankingTypes.append(RankingType(index: index, name: DKCommonLocalizable.speeding.text(), image: DKDriverAchievementImages.speeding.image))
                 @unknown default:
                     break
             }
@@ -372,7 +372,7 @@ extension RankingViewModel: DKDriverRanking {
         guard rankingSelectors.count > 0 else {
             return nil
         }
-        return UIImage(named: selectedRankingType?.imageName ?? "dk_achievements_safety", in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
+        return selectedRankingType?.image ?? DKDriverAchievementImages.safety.image
     }
 
     func getProgressionImage() -> UIImage? {

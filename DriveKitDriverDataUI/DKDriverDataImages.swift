@@ -36,9 +36,9 @@ public enum DKDriverDataImages: String {
     
     public var image: UIImage? {
         if let image = UIImage(named: self.rawValue, in: .main, compatibleWith: nil) {
-            return image.withRenderingMode(.alwaysTemplate)
+            return image
         } else {
-            return UIImage(named: self.rawValue, in: .driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            return UIImage(named: self.rawValue, in: .driverDataUIBundle, compatibleWith: nil)
         }
     }
 }

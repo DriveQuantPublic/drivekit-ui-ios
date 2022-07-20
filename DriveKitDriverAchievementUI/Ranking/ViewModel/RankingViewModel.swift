@@ -47,13 +47,13 @@ class RankingViewModel {
         for (index, rankingType) in self.dkRankingTypes.enumerated() {
             switch rankingType {
                 case .distraction:
-                    self.rankingTypes.append(RankingType(index: index, name: DKCommonLocalizable.distraction.text(), imageName: "dk_achievements_ranking_phone_distraction"))
+                    self.rankingTypes.append(RankingType(index: index, name: DKCommonLocalizable.distraction.text(), imageName: "dk_achievements_distraction"))
                 case .ecoDriving:
-                    self.rankingTypes.append(RankingType(index: index, name: DKCommonLocalizable.ecodriving.text(), imageName: "dk_achievements_ranking_ecodriving"))
+                    self.rankingTypes.append(RankingType(index: index, name: DKCommonLocalizable.ecodriving.text(), imageName: "dk_achievements_ecodriving"))
                 case .safety:
-                    self.rankingTypes.append(RankingType(index: index, name: DKCommonLocalizable.safety.text(), imageName: "dk_achievements_ranking_safety"))
+                    self.rankingTypes.append(RankingType(index: index, name: DKCommonLocalizable.safety.text(), imageName: "dk_achievements_safety"))
                 case .speeding:
-                    self.rankingTypes.append(RankingType(index: index, name: DKCommonLocalizable.speeding.text(), imageName: "dk_achievements_ranking_speeding"))
+                    self.rankingTypes.append(RankingType(index: index, name: DKCommonLocalizable.speeding.text(), imageName: "dk_achievements_speeding"))
                 @unknown default:
                     break
             }
@@ -372,7 +372,7 @@ extension RankingViewModel: DKDriverRanking {
         guard rankingSelectors.count > 0 else {
             return nil
         }
-        return UIImage(named: selectedRankingType?.imageName ?? "dk_achievements_ranking_safety", in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
+        return UIImage(named: selectedRankingType?.imageName ?? "dk_achievements_safety", in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
     }
 
     func getProgressionImage() -> UIImage? {

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "diagnostic_icon.png",
+      "filename" : "dk_common_trip.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "diagnostic_icon@2x.png",
+      "filename" : "dk_common_trip@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "diagnostic_icon@3x.png",
+      "filename" : "dk_common_trip@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

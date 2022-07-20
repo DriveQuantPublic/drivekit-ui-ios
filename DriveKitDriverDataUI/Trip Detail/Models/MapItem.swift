@@ -69,9 +69,9 @@ public enum MapItem : DKMapItem {
     public func adviceImage() -> UIImage? {
         switch self {
         case .ecoDriving:
-            return UIImage(named: "dk_eco_advice", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            return UIImage(named: "dk_common_eco_advice", in: Bundle.driveKitCommonUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         case .safety:
-            return UIImage(named: "dk_safety_advice", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            return UIImage(named: "dk_common_safety_advice", in: Bundle.driveKitCommonUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
         default:
             return nil
         }

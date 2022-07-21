@@ -30,6 +30,8 @@
 "dk_perm_utils_app_diag_email_app_version"="Version af applikationen:";
 "dk_perm_utils_app_diag_email_auto_reset"="Fastholder tilladelser:";
 "dk_perm_utils_app_diag_email_battery"="Optimering af batteriet:";
+"dk_perm_utils_app_diag_email_battery_disabled"="Deaktiveret";
+"dk_perm_utils_app_diag_email_battery_enabled"="Aktiveret";
 "dk_perm_utils_app_diag_email_bluetooth"="Bluetooth-sensor:";
 "dk_perm_utils_app_diag_email_comment"="Kommentar:";
 "dk_perm_utils_app_diag_email_email"="E-mail:";

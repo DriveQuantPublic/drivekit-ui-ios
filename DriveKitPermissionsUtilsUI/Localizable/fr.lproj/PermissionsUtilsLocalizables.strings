@@ -1,11 +1,3 @@
-/*
-  PermissionsUtilsLocalizables.strings
-  DriveKitApp
-
-  Created by David Bauduin on 31/03/2020.
-  Copyright © 2020 DriveQuant. All rights reserved.
-*/
-
 "dk_perm_utils_app_diag_activity_ko"="Vous devez autoriser l\'application à accéder au suivi de l\'activité afin qu\'elle détecte et analyse vos trajets.";
 "dk_perm_utils_app_diag_activity_link"="Autoriser l\'accès au suivi d\'activité";
 "dk_perm_utils_app_diag_activity_ok"="L\'application utilise le suivi d\'activité de votre téléphone afin de détecter et analyser vos trajets. Elle ne peut pas fonctionner si vous n\'autorisez pas l\'application à accéder au suivi d\'activité.";
@@ -19,6 +11,9 @@
 "dk_perm_utils_app_diag_auto_reset_title"="Ne pas supprimer les autorisations";
 "dk_perm_utils_app_diag_battery_link_android"="Ne pas optimiser la batterie";
 "dk_perm_utils_app_diag_battery_link_ios"="Désactiver le mode économie d\'énergie";
+"dk_perm_utils_app_diag_battery_ok"="Le fonctionnement en arrière-plan est autorisé. L\'application utilise le capteur GPS uniquement pendant vos trajets. Elle a été optimisée pour éviter de décharger la batterie du téléphone.";
+"dk_perm_utils_app_diag_battery_optim_tutorial_text"="Nous vous invitons à consulter les %@. Cela vous permettra de trouver comment désactiver les optimisations de batterie sur votre téléphone.";
+"dk_perm_utils_app_diag_battery_optim_tutorial_url"="tutoriels";
 "dk_perm_utils_app_diag_battery_text_android_01"="Sur certains modèles de téléphones, les services d\'optimisations de la batterie peuvent stopper l\'application lorsqu\'elle fonctionne en arrière-plan.";
 "dk_perm_utils_app_diag_battery_text_android_02"="Si votre téléphone fonctionne avec une version native d\'Android, vous pouvez désactiver les optimisations de la batterie. %@";
 "dk_perm_utils_app_diag_battery_text_android_03"="Si votre téléphone fonctionne avec une version d\'Android avec interface logicielle personnalisée par le fabricant (surcouche), nous vous invitons à désactiver les optimisations directement dans les paramètres de la batterie.";
@@ -45,6 +40,7 @@
 "dk_perm_utils_app_diag_email_location_accuracy"="Position exacte :";
 "dk_perm_utils_app_diag_email_location_sensor"="Capteur de position (GPS) :";
 "dk_perm_utils_app_diag_email_model"="Modèle de téléphone :";
+"dk_perm_utils_app_diag_email_nearby_title"="Détection des appareils à proximité :";
 "dk_perm_utils_app_diag_email_network"="Réseau mobile :";
 "dk_perm_utils_app_diag_email_notification"="Autorisation d\'envoi de notifications :";
 "dk_perm_utils_app_diag_email_os"="Système d\'exploitation :";
@@ -62,19 +58,13 @@
 "dk_perm_utils_app_diag_location_full_ko_ios14"="Vous devez autoriser l\'application à accéder à la position exacte du téléphone pour qu\'elle puisse analyser vos trajets. Dans les paramètres \"Position\", activez \"Position exacte\".";
 "dk_perm_utils_app_diag_location_full_link"="Utiliser la position exacte";
 "dk_perm_utils_app_diag_location_ko_android"="Vous devez autoriser l\'application à accéder à la position du téléphone pour qu\'elle détecte et qu\'elle analyse vos trajets.";
+"dk_perm_utils_app_diag_location_ko_android12"="Vous devez autoriser l\'application à accéder à la position exacte du téléphone pour qu\'elle détecte et qu\'elle analyse vos trajets.";
 "dk_perm_utils_app_diag_location_ko_ios"="Vous devez autoriser l\'application à accéder à la position du téléphone pour qu\'elle détecte et qu\’elle analyse vos trajets. Dans les paramètres du téléphone, trois options sont proposées : (1) jamais, (2) lorsque l\'app est active et (3) toujours. Il est indispensable de sélectionner l\'option (3) toujours sinon, l\'application ne fonctionnera pas.";
 "dk_perm_utils_app_diag_location_ko_ios13"="Vous devez autoriser l\'application à accéder à la position du téléphone pour qu\'elle détecte et qu\’elle analyse vos trajets. Dans les paramètres du téléphone, quatre options sont proposées : (1) jamais, (2) demander la prochaine fois, (3) lorsque l\'app est active et (4) toujours. Il est indispensable de sélectionner l\'option (4) toujours sinon, l\'application ne fonctionnera pas.";
 "dk_perm_utils_app_diag_location_link"="Autoriser l\'accès à la localisation";
 "dk_perm_utils_app_diag_location_ok"="L\'application utilise la localisation de votre téléphone pour détecter et analyser vos trajets. Elle ne peut pas fonctionner si vous n\'autorisez pas l’application à accéder à la localisation.";
 "dk_perm_utils_app_diag_location_title"="Localisation";
-"dk_perm_utils_app_diag_log_folder"="Accéder au dossier du journal d\'activité";
-"dk_perm_utils_app_diag_log_ko"="L\'enregistrement du journal est désactivé. En cas de dysfonctionnement de l\'application, nous vous recommandons d\'autoriser l\'enregistrement du journal pour faciliter le diagnostic.";
-"dk_perm_utils_app_diag_log_link"="Autoriser l\'écriture du journal d\'activité sur votre smartphone.";
-"dk_perm_utils_app_diag_log_ok"="L\'enregistrement du journal est activé. Ce fichier contient les événements importants pour analyser le comportement de l\'application. Il est stocké dans le dossier %@.";
-"dk_perm_utils_app_diag_log_ok_android11"="L\'enregistrement du journal est activé. Ce fichier contient les événements importants pour analyser le comportement de l\'application.";
-"dk_perm_utils_app_diag_log_ok_contact_mail"="L\'enregistrement du journal est activé. Ce fichier contient les événements importants pour analyser le comportement de l\'application. Il sera automatiquement joint au mail de contact du support.";
-"dk_perm_utils_app_diag_log_ok_ios"="L\'enregistrement du journal est activé. Ce fichier contient les événements importants pour analyser le comportement de l\'application. Le fichier est disponible dans le dossier de l\'application sur votre iPhone.";
-"dk_perm_utils_app_diag_log_title"="Enregistrer le journal d\'activité";
+"dk_perm_utils_app_diag_nearby_title"="Détection des appareils à proximité";
 "dk_perm_utils_app_diag_network_ko"="Les données mobiles ne sont pas activées. Cela ne bloquera pas le déclenchement et l\'enregistrement (en local) de votre trajet. En revanche, les données mobiles sont indispensables pour analyser les données de votre trajet. Si les données mobiles sont désactivées, le trajet ne sera pas perdu et l\'analyse sera faite à la reconnexion à un réseau mobile.";
 "dk_perm_utils_app_diag_network_link"="Activer les données mobiles";
 "dk_perm_utils_app_diag_network_ok"="Les données mobiles sont activées. La connexion à un réseau mobile est nécessaire pour analyser les données à la fin de votre trajet. L\'application peut détecter et enregistrer votre trajet sans accéder aux données mobiles. Cependant, l\'analyse sera effectuée uniquement si votre téléphone est connecté à un réseau mobile.";
@@ -94,14 +84,18 @@
 "dk_perm_utils_permissions_location_ios14_ko"="Pour bénéficier de l\'enregistrement automatique de vos trajets, l\'application doit accéder à la position exacte du téléphone. Pour cela, suivez les étapes ci-dessous.";
 "dk_perm_utils_permissions_location_popup_title"="Autorisations";
 "dk_perm_utils_permissions_location_pre_ios13_ko"="Vous devez autoriser l\'application à accéder à la position du téléphone pour qu\'elle détecte et qu\’elle analyse vos trajets.\n\nDans les paramètres du téléphone, trois options sont proposées :\n(1) Jamais\n(2) Lorsque l\'app est active\n(3) Toujours\n\nIl est indispensable de sélectionner l\'option (3) Toujours, sinon, l\'application ne fonctionnera pas.";
-"dk_perm_utils_permissions_location_text1_android"="Afin de bénéficier de l\'enregistrement automatique de vos trajets, l\'application doit accéder à la position du téléphone.";
-"dk_perm_utils_permissions_location_text1_android11"="Afin d’analyser vos trajets et pour le calcul de vos scores de conduite, l\'application doit accéder à la position du téléphone.";
+"dk_perm_utils_permissions_location_text1_android"="Afin de bénéficier de l\'enregistrement automatique de vos trajets, l\'application doit accéder à la localisation du téléphone quand elle fonctionne en arrière-plan.";
+"dk_perm_utils_permissions_location_text1_android11"="Afin d\'analyser vos trajets et pour le calcul de vos scores de conduite, l\'application doit accéder à la localisation du téléphone.";
+"dk_perm_utils_permissions_location_text1_android12"="Afin d\'analyser vos trajets et pour le calcul de vos scores de conduite, l\'application doit accéder à la localisation exacte du téléphone.";
 "dk_perm_utils_permissions_location_text2_android11"="Pour cela, choisissez l\'option \"Lorsque vous utilisez l\'application\" après avoir appuyé sur le bouton ci-dessous.";
+"dk_perm_utils_permissions_location_text2_android12"="Pour cela, choisissez les options \"Exacte\" et \"Lorsque vous utilisez l\'application\" après avoir appuyé sur le bouton ci-dessous.";
 "dk_perm_utils_permissions_location_text2_post_android10"="Pour cela, choisissez \"Toujours autoriser\" lorsque la prochaine popup sera affichée.";
 "dk_perm_utils_permissions_location_text2_pre_android10"="Pour cela, choisissez \"Autoriser\" lorsque la prochaine popup sera affichée.";
-"dk_perm_utils_permissions_location_text3_android11"="Afin de bénéficier de l\'enregistrement automatique de vos trajets, l\'application doit accéder à la position du téléphone quand elle fonctionne en arrière-plan.";
+"dk_perm_utils_permissions_location_text3_android11"="Afin de bénéficier de l\'enregistrement automatique de vos trajets, l\'application doit accéder à la localisation du téléphone quand elle fonctionne en arrière-plan.";
 "dk_perm_utils_permissions_location_text4_android11"="Pour cela, appuyer sur le bouton \"ouvrir les réglages\" et sélectionnez l’option %@ dans les paramètres du téléphone.";
 "dk_perm_utils_permissions_location_title"="Suivi des trajets";
+"dk_perm_utils_permissions_nearby_text1_android12"="Pour reconnaitre votre véhicule et analyser vos trajets, il est indispensable d\'activer la détection des appareils à proximité.";
+"dk_perm_utils_permissions_nearby_text2_android12"="Pour cela, choisissez l\'option \"Autoriser\" après avoir appuyé sur le bouton ci-dessous.";
 "dk_perm_utils_permissions_phone_settings_activity_button"="Autoriser le suivi de l\'activité";
 "dk_perm_utils_permissions_phone_settings_activity_text"="Pour améliorer l\'analyse de vos trajets et identifier le mode de transport utilisé, vous devez activer l\'option Mouvements et forme de votre téléphone.";
 "dk_perm_utils_permissions_phone_settings_activity_text_android"="Pour améliorer l\'analyse de vos trajets et identifier le mode de transport utilisé, vous devez autoriser l\'application à accéder à l\'activité du téléphone.";
@@ -117,3 +111,4 @@
 "dk_perm_utils_permissions_popup_button_settings"="Réglages";
 "dk_perm_utils_permissions_text_button_activity_settings"="Ouvrir les réglages";
 "dk_perm_utils_permissions_text_button_location_settings"="Ouvrir les réglages";
+"dk_perm_utils_permissions_text_button_nearby_devices_settings"="Ouvrir les réglages";

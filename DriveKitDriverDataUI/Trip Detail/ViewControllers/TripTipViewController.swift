@@ -12,7 +12,6 @@ import DriveKitDriverDataModule
 import DriveKitCommonUI
 
 class TripTipViewController: DKUIViewController {
-
     @IBOutlet var contentView: UIView!
     @IBOutlet var closeButton: UIButton!
     @IBOutlet var evaluationButtons: UIStackView!

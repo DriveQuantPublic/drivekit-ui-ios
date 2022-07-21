@@ -70,7 +70,7 @@
 "dk_vehicle_beacon_setup_successlink_message"="Congratulations! \n\n The beacon %@ is now associated with the vehicle %@";
 "dk_vehicle_beacon_start_scan"="Place your beacon near your phone and tap on the screen";
 "dk_vehicle_beacon_verify_wrong_vehicle"="The detected beacon is not associated with this vehicle.";
-"dk_vehicle_beacon_wait_scan"="Wait about 10 seconds ...";
+"dk_vehicle_beacon_wait_scan"="Wait about 10 seconds...";
 "dk_vehicle_begin"="Begin";
 "dk_vehicle_bluetooth_already_paired"="The Bluetooth %@ device is already connected to another vehicle. You must first detach the device before pairing it with %@.";
 "dk_vehicle_bluetooth_combination_view_title"="Link a Bluetooth device";

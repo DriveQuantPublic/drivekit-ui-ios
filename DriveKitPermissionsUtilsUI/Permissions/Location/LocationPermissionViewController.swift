@@ -13,6 +13,7 @@ import DriveKitCommonUI
 class LocationPermissionViewController : PermissionViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var topImageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var settingsContainer1: UIView!
     @IBOutlet weak var settingsDescription1: UILabel!
@@ -29,6 +30,7 @@ class LocationPermissionViewController : PermissionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.topImageView.image = DKPermissionsUtilsImages.backgroundLocationPermission.image
 
         self.viewModel.view = self
         updateView()

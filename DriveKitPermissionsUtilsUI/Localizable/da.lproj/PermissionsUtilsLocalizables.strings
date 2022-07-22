@@ -57,7 +57,7 @@
 "dk_perm_utils_app_diag_loc_sensor_link"="Aktiver lokalisering";
 "dk_perm_utils_app_diag_loc_sensor_ok"="Du har aktiveret geolocation. Placeringssensoren (GPS) måler køretøjets hastighed og retning. Hvis den er deaktiveret, vil applikationen ikke fungere.";
 "dk_perm_utils_app_diag_loc_sensor_title"="Placeringssensor";
-"dk_perm_utils_app_diag_location_full_ko_ios14"="Du skal give appen adgang til den nøjagtige placering af telefonen, så den kan analysere dine ture. I \"Placering \" Bilist+ brug \"præcis lokation\"";
+"dk_perm_utils_app_diag_location_full_ko_ios14"="Du skal give programmet adgang til telefonens nøjagtige placering, så det kan analysere dine rejser. I indstillingerne for \"Placering\" skal du slå \"Præcis placering\" til.";
 "dk_perm_utils_app_diag_location_full_link"="Brug præcis lokation";
 "dk_perm_utils_app_diag_location_ko_android"="For at registrere og analysere dine ture skal appen have adgang til telefonens placering.";
 "dk_perm_utils_app_diag_location_ko_android12"="For at registrere og analysere dine ture skal appen være i stand til at få adgang til telefonens nøjagtige placering.";

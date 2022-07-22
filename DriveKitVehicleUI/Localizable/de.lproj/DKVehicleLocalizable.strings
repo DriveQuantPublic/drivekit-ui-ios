@@ -70,7 +70,7 @@
 "dk_vehicle_beacon_setup_successlink_message"="Herzlichen Glückwunsch! \n\n Der BEACON %@ ist jetzt mit dem Fahrzeug %@ verbunden.";
 "dk_vehicle_beacon_start_scan"="Platzieren Sie den BEACON in der Nähe des Telefons und tippen Sie auf den Bildschirm";
 "dk_vehicle_beacon_verify_wrong_vehicle"="Die erkannte Bake ist nicht mit diesem Fahrzeug verbunden.";
-"dk_vehicle_beacon_wait_scan"="Warten Sie zirka 10 Sekunden ...";
+"dk_vehicle_beacon_wait_scan"="Warten Sie zirka 10 Sekunden...";
 "dk_vehicle_begin"="Beginnen";
 "dk_vehicle_bluetooth_already_paired"="Das Bluetooth %@-Gerät ist bereits mit einem anderen Fahrzeug verbunden. Sie müssen dieses Gerät zuerst freigeben, bevor Sie es mit %@ koppeln können.";
 "dk_vehicle_bluetooth_combination_view_title"="Zuordnen eines Bluetooth-Geräts";

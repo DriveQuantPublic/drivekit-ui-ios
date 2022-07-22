@@ -72,7 +72,7 @@
 "dk_vehicle_beacon_verify_wrong_vehicle"="Le beacon détecté n\'est pas associé à ce véhicule.";
 "dk_vehicle_beacon_wait_scan"="Attendez environ 10 secondes…";
 "dk_vehicle_begin"="Commencer";
-"dk_vehicle_bluetooth_already_paired"="L\'appareil Bluetooth %@ est déjà connecté à un autre véhicule. Vous devez d\'abord libérer cet appareil avant de l\'associer à %@.";
+"dk_vehicle_bluetooth_already_paired"="L\'appareil Bluetooth %@ est déjà connecté à un autre véhicule. Vous devez d\'abord libérer cet appareil avant de l\'associer à %@";
 "dk_vehicle_bluetooth_combination_view_title"="Associer un appareil Bluetooth";
 "dk_vehicle_bluetooth_congrats_desc"="L\'appareil Bluetooth %@ est désormais associé au véhicule %@";
 "dk_vehicle_bluetooth_congrats_notice"="Désormais l\'enregistrement de vos trajets démarrera automatiquement dès que votre téléphone se connecte à l\'appareil Bluetooth %@";

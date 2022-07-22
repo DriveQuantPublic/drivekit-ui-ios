@@ -96,7 +96,7 @@ import DriveKitCommonUI
             let bluetoothStatus = getStatusString(statusType: .bluetooth, titleKey: "dk_perm_utils_app_diag_email_bluetooth")
             info.append(bluetoothStatus)
         }
-        let batteryOptimizationStatus = getStatusString("dk_perm_utils_app_diag_email_battery", isValid: DKDiagnosisHelper.shared.isLowPowerModeEnabled())
+        let batteryOptimizationStatus = getStatusString("dk_perm_utils_app_diag_email_battery", isValid: !DKDiagnosisHelper.shared.isLowPowerModeEnabled(), validValue: "dk_perm_utils_app_diag_email_battery_disabled".dkPermissionsUtilsLocalized(), invalidValue: "dk_perm_utils_app_diag_email_battery_enabled".dkPermissionsUtilsLocalized())
         info.append(batteryOptimizationStatus)
         return info.joined(separator: "\n")
     }
@@ -105,12 +105,8 @@ import DriveKitCommonUI
         return getStatusString(titleKey, isValid: self.stateByType[statusType] ?? false)
     }
 
-    private func getStatusString(_ titleKey: String, isValid: Bool) -> String {
-        if isValid {
-            return "\(titleKey.dkPermissionsUtilsLocalized()) \(DKCommonLocalizable.yes.text())"
-        } else {
-            return "\(titleKey.dkPermissionsUtilsLocalized()) \(DKCommonLocalizable.no.text())"
-        }
+    private func getStatusString(_ titleKey: String, isValid: Bool, validValue: String = DKCommonLocalizable.yes.text(), invalidValue: String = DKCommonLocalizable.no.text()) -> String {
+        return "\(titleKey.dkPermissionsUtilsLocalized()) \(isValid ? validValue : invalidValue)"
     }
 
 
@@ -213,7 +209,6 @@ extension DKDiagnosisHelper {
 // MARK: - Objective-C extension
 
 extension DriveKitPermissionsUtilsUI {
-
     @objc(showPermissionViews:parentViewController:completionHandler:) // Usage example: [DriveKitPermissionsUtilsUI.shared showPermissionViews:@[ @(DKPermissionViewLocation), @(DKPermissionViewActivity) ] parentViewController: ... completionHandler: ...];
     public func objc_showPermissionViews(_ permissionViews: [Int], parentViewController: UIViewController, completionHandler: @escaping () -> Void) {
         showPermissionViews(permissionViews.map({ DKPermissionView(rawValue: $0)! }), parentViewController: parentViewController, completionHandler: completionHandler)
@@ -228,5 +223,4 @@ extension DriveKitPermissionsUtilsUI {
     public func objc_configureContactType(contactUrl: URL) {
         self.configureContactType(.web(contactUrl))
     }
-
 }

@@ -14,5 +14,6 @@ final class NoScoreImageView: UIView, Nibable {
 
 	override func awakeFromNib() {
 		super.awakeFromNib()
+        self.imageView.image = DKImages.noScore.image
 	}
 }

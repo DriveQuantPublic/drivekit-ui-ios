@@ -13,6 +13,7 @@ import DriveKitCommonUI
 class ActivityPermissionViewController : PermissionViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var topImageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var actionButton: UIButton!
 
@@ -21,6 +22,7 @@ class ActivityPermissionViewController : PermissionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.topImageView.image = DKPermissionsUtilsImages.activityPermission.image
 
         self.viewModel.view = self
         updateView()

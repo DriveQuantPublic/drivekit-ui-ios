@@ -54,10 +54,10 @@ final class ChallengeResultOverviewCell: UITableViewCell, Nibable {
 
     func configureMedal(isNumberOne: Bool){
         if isNumberOne {
-            self.medalProgressImage?.image = UIImage(named: "dk_challenge_first_driver", in: .challengeUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            self.medalProgressImage?.image = DKChallengeImages.firstDriver.image?.withRenderingMode(.alwaysTemplate)
             self.medalProgressImage?.tintColor = goldColor
         } else {
-            self.medalProgressImage?.image = UIImage(named: "dk_challenge_first_driver", in: .challengeUIBundle, compatibleWith: nil)
+            self.medalProgressImage?.image = DKChallengeImages.firstDriver.image
         }
     }
 

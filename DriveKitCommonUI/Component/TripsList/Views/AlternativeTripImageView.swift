@@ -14,6 +14,7 @@ final class AlternativeTripImageView: UIView, Nibable {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        imageView.image = DKImages.noScore.image
     }
 
 }

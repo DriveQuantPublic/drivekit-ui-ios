@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
 struct RankingType {
     let index: Int
     let name: String
-    let imageName: String
+    let image: UIImage?
 }

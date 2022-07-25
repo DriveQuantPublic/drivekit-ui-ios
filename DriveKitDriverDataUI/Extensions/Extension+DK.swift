@@ -87,9 +87,9 @@ extension Route {
 extension TripAdvice {
     func adviceImage() -> UIImage? {
         if self.theme == "SAFETY" {
-            return UIImage(named: "dk_safety_advice", in: Bundle.driveKitCommonUIBundle, compatibleWith: nil)
+            return UIImage(named: "dk_common_safety_advice", in: Bundle.driveKitCommonUIBundle, compatibleWith: nil)
         } else if self.theme == "ECODRIVING" {
-            return UIImage(named: "dk_eco_advice", in: Bundle.driveKitCommonUIBundle, compatibleWith: nil)
+            return UIImage(named: "dk_common_eco_advice", in: Bundle.driveKitCommonUIBundle, compatibleWith: nil)
         } else {
             return nil
         }

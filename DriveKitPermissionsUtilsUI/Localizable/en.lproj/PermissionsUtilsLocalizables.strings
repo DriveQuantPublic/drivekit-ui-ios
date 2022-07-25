@@ -30,6 +30,8 @@
 "dk_perm_utils_app_diag_email_app_version"="Version of the application:";
 "dk_perm_utils_app_diag_email_auto_reset"="Retaining permissions:";
 "dk_perm_utils_app_diag_email_battery"="Optimization of the battery:";
+"dk_perm_utils_app_diag_email_battery_disabled"="Disabled";
+"dk_perm_utils_app_diag_email_battery_enabled"="Enabled";
 "dk_perm_utils_app_diag_email_bluetooth"="Bluetooth sensor:";
 "dk_perm_utils_app_diag_email_comment"="Comment :";
 "dk_perm_utils_app_diag_email_email"="Email :";

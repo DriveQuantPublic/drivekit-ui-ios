@@ -42,10 +42,16 @@ public enum DKImages: String {
          noScore = "dk_no_score"
 
     public var image: UIImage? {
-        if let image = UIImage(named: self.rawValue, in: .main, compatibleWith: nil) {
-            return image.withRenderingMode(.alwaysTemplate)
+        let renderingMode: UIImage.RenderingMode
+        if self == .noScore {
+            renderingMode = .automatic
         } else {
-            return UIImage(named: self.rawValue, in: .driveKitCommonUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            renderingMode = .alwaysTemplate
+        }
+        if let image = UIImage(named: self.rawValue, in: .main, compatibleWith: nil) {
+            return image.withRenderingMode(renderingMode)
+        } else {
+            return UIImage(named: self.rawValue, in: .driveKitCommonUIBundle, compatibleWith: nil)?.withRenderingMode(renderingMode)
         }
     }
 }

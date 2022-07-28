@@ -23,7 +23,6 @@ public enum DKDriverDataImages: String {
          mapDeparture = "dk_map_departure",
          lockEvent = "dk_lock_event",
          unlockEvent = "dk_unlock_event",
-         beginCall = "dk_begin_call",
          endCall = "dk_end_call",
          arrival = "dk_arrival",
          departure = "dk_departure",

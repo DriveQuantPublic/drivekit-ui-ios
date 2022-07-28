@@ -28,7 +28,7 @@ enum EventType {
         case .unlock:
             return DKDriverDataImages.unlockEvent.image?.withRenderingMode(.alwaysTemplate)
         case .pickUp:
-            return DKDriverDataImages.beginCall.image?.withRenderingMode(.alwaysTemplate)
+            return DKImages.call.image?.withRenderingMode(.alwaysTemplate)
         case .hangUp:
             return DKDriverDataImages.endCall.image?.withRenderingMode(.alwaysTemplate)
         case .end:

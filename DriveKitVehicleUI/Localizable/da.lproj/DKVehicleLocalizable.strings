@@ -188,6 +188,7 @@
 "dk_vehicle_rename_description"="Vælg et navn for at identificere dit køretøj";
 "dk_vehicle_rename_title"="Omdøb dette køretøj";
 "dk_vehicle_replace"="Erstat";
+"dk_vehicle_replace_button"="Udskift køretøjet";
 "dk_vehicle_select_bluetooth_description"="Vælg en Bluetooth-enhed for at starte turoptagelsen.\n\nSå snart telefonen opretter forbindelse til denne enhed, begynder applikationen at analysere din rejse.\n\nDu kan kun vælge én enhed til dette køretøj.";
 "dk_vehicle_show"="Vis";
 "dk_vehicle_type_car_title"="Lette og erhvervskøretøjer på mindre end 3,5 t";

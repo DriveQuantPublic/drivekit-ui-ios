@@ -227,5 +227,31 @@ public class DKVehiclesListViewModel {
     func gpsVehicle() -> DKVehicle? {
         return vehicles.filter { $0.detectionMode ?? .disabled == DKDetectionMode.gps }.first
     }
+
+    func replaceAvailable() -> Bool {
+        for action in DriveKitVehicleUI.shared.vehicleActions {
+            if action as? DKVehicleAction == .replace {
+                return true
+            }
+        }
+        return false
+    }
+
+    func getAddReplaceButtonTitle() -> String {
+        if shouldReplaceVehicle() {
+            return "dk_vehicle_replace_button".dkVehicleLocalized()
+        } else {
+            return "dk_vehicle_add".dkVehicleLocalized()
+        }
+    }
+
+    func maxVehiclesReached() -> Bool {
+        guard let maxVehicles = DriveKitVehicleUI.shared.maxVehicles else { return false }
+        return maxVehicles <= self.vehiclesCount
+    }
+
+    func shouldReplaceVehicle() -> Bool {
+        return maxVehiclesReached() && replaceAvailable() && self.vehiclesCount == 1
+    }
 }
 

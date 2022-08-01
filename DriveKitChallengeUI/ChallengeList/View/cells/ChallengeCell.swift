@@ -32,6 +32,7 @@ class ChallengeCell: UICollectionViewCell {
         challengeDatesLabel.font = DKUIFonts.primary.fonts(size: 14)
         challengeNameLabel.textColor = DKUIColors.mainFontColor.color
         challengeNameLabel.font = DKUIFonts.primary.fonts(size: 22).with(.traitBold)
+        challengeImageView.image = UIImage(named: "101", in: Bundle.challengeUIBundle, compatibleWith: nil)
         challengeDateImage.image = DKImages.calendar.image
         challengeDateImage.tintColor = DKUIColors.mainFontColor.color
     }

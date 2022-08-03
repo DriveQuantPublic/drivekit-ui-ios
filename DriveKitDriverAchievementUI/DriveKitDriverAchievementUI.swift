@@ -14,7 +14,7 @@ import DriveKitDBAchievementAccessModule
 @objc public class DriveKitDriverAchievementUI: NSObject {
     @objc public static let shared = DriveKitDriverAchievementUI()
 
-    public private(set) var streakThemes: [DKStreakTheme] = [.phoneDistraction, .safety, .acceleration, .brake, .adherence, .call]
+    public private(set) var streakThemes: [DKStreakTheme] = [.phoneDistraction, .safety, .acceleration, .brake, .adherence, .speedLimits, .call]
     public private(set) var badgeCategories: [DKBadgeCategory] = [.generic, .ecodriving, .safety, .phoneDistraction,  .call]
     public private(set) var rankingTypes: [DKRankingType] = [.safety, .ecoDriving, .distraction]
     public private(set) var rankingSelector: DKRankingSelectorType = .period(rankingPeriods: [.weekly, .monthly, .allTime])

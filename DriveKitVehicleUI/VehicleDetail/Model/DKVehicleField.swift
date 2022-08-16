@@ -23,7 +23,7 @@ public protocol DKVehicleField {
     func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> ())
 }
 
-enum EngineField : DKVehicleField, CaseIterable {
+enum EngineField: DKVehicleField, CaseIterable {
     case motor, consumption
 
     var isEditable: Bool {
@@ -74,10 +74,9 @@ enum EngineField : DKVehicleField, CaseIterable {
     func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> ()) {
         completion(true)
     }
-
 }
 
-enum GeneralField : DKVehicleField, CaseIterable {
+enum GeneralField: DKVehicleField, CaseIterable {
     case name, category, brand, model, version
 
     var isEditable: Bool {
@@ -162,7 +161,7 @@ enum GeneralField : DKVehicleField, CaseIterable {
                 switch status {
                 case .success:
                     completion(true)
-                case .unknownVehicle, .error:
+                case .unknownVehicle, .error, .invalidCharacteristics, .vehicleIdAlreadyUsed:
                     completion(false)
                 @unknown default:
                     completion(false)
@@ -174,7 +173,7 @@ enum GeneralField : DKVehicleField, CaseIterable {
     }
 }
 
-enum BluetoothField : DKVehicleField, CaseIterable {
+enum BluetoothField: DKVehicleField, CaseIterable {
     case bluetoothName, macAddress
 
     var isEditable: Bool {
@@ -224,7 +223,7 @@ enum BluetoothField : DKVehicleField, CaseIterable {
     }
 }
 
-enum BeaconField : DKVehicleField, CaseIterable {
+enum BeaconField: DKVehicleField, CaseIterable {
     case uniqueId, major, minor
 
     var isEditable: Bool {
@@ -286,7 +285,7 @@ enum BeaconField : DKVehicleField, CaseIterable {
     }
 }
 
-enum CharacteristicsField : DKVehicleField, CaseIterable {
+enum CharacteristicsField: DKVehicleField, CaseIterable {
     case power, gearbox, mass, ptac
 
     var isEditable: Bool {
@@ -374,5 +373,4 @@ enum CharacteristicsField : DKVehicleField, CaseIterable {
     func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> ()) {
         completion(true)
     }
-
 }

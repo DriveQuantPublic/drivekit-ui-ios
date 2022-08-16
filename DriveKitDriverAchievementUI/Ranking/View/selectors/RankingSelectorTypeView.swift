@@ -24,7 +24,7 @@ class RankingSelectorTypeView : UIControl {
 
     func update(rankingType: RankingType) {
         self.rankingType = rankingType
-        self.imageView.image = UIImage(named: rankingType.imageName, in: Bundle.driverAchievementUIBundle, compatibleWith: nil)
+        self.imageView.image = rankingType.image
     }
 
     func setSelected(_ selected: Bool) {

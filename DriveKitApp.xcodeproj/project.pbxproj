@@ -377,6 +377,10 @@
 		67301DB126251921006B0432 /* HeaderDayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67301DAF26251921006B0432 /* HeaderDayView.xib */; };
 		67301DBD2625C301006B0432 /* Trip+DKTripsListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301DBC2625C301006B0432 /* Trip+DKTripsListItem.swift */; };
 		67301DC42625C3BF006B0432 /* TripListVC+DKTripList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301DC32625C3BF006B0432 /* TripListVC+DKTripList.swift */; };
+		6744776B287ED13A0058D23B /* DKDriverDataImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6744776A287ED13A0058D23B /* DKDriverDataImages.swift */; };
+		6744776D288594500058D23B /* DKChallengeImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6744776C288594500058D23B /* DKChallengeImages.swift */; };
+		6744776F2885A7590058D23B /* DKDriverAchievementImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6744776E2885A7590058D23B /* DKDriverAchievementImages.swift */; };
+		6744778B2889C0FA0058D23B /* DKPermissionsUtilsImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6744778A2889C0FA0058D23B /* DKPermissionsUtilsImages.swift */; };
 		67462D81265CD4AE00016FAF /* ChallengeConditionProgressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67462D80265CD4AE00016FAF /* ChallengeConditionProgressViewModel.swift */; };
 		67462D84265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67462D82265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.swift */; };
 		67462D85265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67462D83265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.xib */; };
@@ -1023,6 +1027,14 @@
 		63C8F0AB272C949B006664A4 /* OdometerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdometerUtils.swift; sourceTree = "<group>"; };
 		63CDB12C273C7B9C00881976 /* OdometerInitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdometerInitVC.swift; sourceTree = "<group>"; };
 		63CDB130273C87FE00881976 /* OdometerInitVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OdometerInitVC.xib; sourceTree = "<group>"; };
+		63DD51BC28763BEA009D0D02 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		63DD51BD28763BEA009D0D02 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/CommonLocalizable.strings; sourceTree = "<group>"; };
+		63DD51BE28763BEA009D0D02 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/DriverDataLocalizables.strings; sourceTree = "<group>"; };
+		63DD51BF28763BEB009D0D02 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/DriverAchievementLocalizables.strings; sourceTree = "<group>"; };
+		63DD51C028763BEB009D0D02 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/PermissionsUtilsLocalizables.strings; sourceTree = "<group>"; };
+		63DD51C128763BEB009D0D02 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/DKVehicleLocalizable.strings; sourceTree = "<group>"; };
+		63DD51C228763BEC009D0D02 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/DKChallengeLocalizable.strings; sourceTree = "<group>"; };
+		63DD51C328763BEC009D0D02 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/DKTripAnalysisLocalizable.strings; sourceTree = "<group>"; };
 		63E2EFB5281586F100E6A182 /* NotificationCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCategory.swift; sourceTree = "<group>"; };
 		63E2EFB7281593D100E6A182 /* NotificationAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAction.swift; sourceTree = "<group>"; };
 		63E2EFB92815954200E6A182 /* TripAnalysisPostponeDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripAnalysisPostponeDuration.swift; sourceTree = "<group>"; };
@@ -1081,6 +1093,10 @@
 		67301DAF26251921006B0432 /* HeaderDayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderDayView.xib; sourceTree = "<group>"; };
 		67301DBC2625C301006B0432 /* Trip+DKTripsListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+DKTripsListItem.swift"; sourceTree = "<group>"; };
 		67301DC32625C3BF006B0432 /* TripListVC+DKTripList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TripListVC+DKTripList.swift"; sourceTree = "<group>"; };
+		6744776A287ED13A0058D23B /* DKDriverDataImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDriverDataImages.swift; sourceTree = "<group>"; };
+		6744776C288594500058D23B /* DKChallengeImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKChallengeImages.swift; sourceTree = "<group>"; };
+		6744776E2885A7590058D23B /* DKDriverAchievementImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDriverAchievementImages.swift; sourceTree = "<group>"; };
+		6744778A2889C0FA0058D23B /* DKPermissionsUtilsImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKPermissionsUtilsImages.swift; sourceTree = "<group>"; };
 		67462D80265CD4AE00016FAF /* ChallengeConditionProgressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeConditionProgressViewModel.swift; sourceTree = "<group>"; };
 		67462D82265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeConditionProgressTableViewCell.swift; sourceTree = "<group>"; };
 		67462D83265CDD0F00016FAF /* ChallengeConditionProgressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeConditionProgressTableViewCell.xib; sourceTree = "<group>"; };
@@ -1745,6 +1761,7 @@
 				3FFAD1FC23EDBCD500D1A16C /* DriveKitDriverAchievementUI.h */,
 				3FFAD1FD23EDBCD500D1A16C /* Info.plist */,
 				5CFCF8B0246D43F3002F9152 /* DriverAchievement.xcassets */,
+				6744776E2885A7590058D23B /* DKDriverAchievementImages.swift */,
 			);
 			path = DriveKitDriverAchievementUI;
 			sourceTree = "<group>";
@@ -1897,6 +1914,7 @@
 			children = (
 				616946E724333CE200C8A965 /* Localizable */,
 				61199C67243B9C5E00F73F37 /* PermissionsUtils.xcassets */,
+				6744778A2889C0FA0058D23B /* DKPermissionsUtilsImages.swift */,
 				616947012433A8C900C8A965 /* Diagnosis */,
 				616946F524339F0F00C8A965 /* Permissions */,
 				616946E524333C6900C8A965 /* DriveKitPermissionsUtilsUI.swift */,
@@ -2517,6 +2535,7 @@
 				67C43CF9263A910D00DBB09D /* Info.plist */,
 				67C43D09263A98B600DBB09D /* DriveKitChallengeUI.swift */,
 				67C43D10263AE0C100DBB09D /* DriveKitChallenge.xcassets */,
+				6744776C288594500058D23B /* DKChallengeImages.swift */,
 			);
 			path = DriveKitChallengeUI;
 			sourceTree = "<group>";
@@ -2711,6 +2730,7 @@
 				A34238092361A1FA0001E15D /* Info.plist */,
 				3FF68E89240ACD620071D74C /* DriveKitDriverDataUI.swift */,
 				A34238612361A2430001E15D /* DriverData.xcassets */,
+				6744776A287ED13A0058D23B /* DKDriverDataImages.swift */,
 			);
 			path = DriveKitDriverDataUI;
 			sourceTree = "<group>";
@@ -3334,6 +3354,7 @@
 				de,
 				it,
 				fr,
+				da,
 			);
 			mainGroup = A3B7B377235F124F0065A332;
 			productRefGroup = A3B7B381235F124F0065A332 /* Products */;
@@ -3956,6 +3977,7 @@
 				67F2D3782631556000ACC69A /* RankingSelectorTypeView.swift in Sources */,
 				3FB5643423F5AA2900F010E3 /* StreakTableViewCell.swift in Sources */,
 				5C180D6A246B0258001E95FA /* BadgeTableViewCell.swift in Sources */,
+				6744776F2885A7590058D23B /* DKDriverAchievementImages.swift in Sources */,
 				5CFCF8B5246D82E6002F9152 /* BadgeSectionHeaderView.swift in Sources */,
 				635616FA24B4CDB30047EAD8 /* RankingSelector.swift in Sources */,
 				639F3D2124B5C8F10081DFC3 /* RankingStatus.swift in Sources */,
@@ -3983,6 +4005,7 @@
 				63C3FD80244F28B000C2FEEC /* SensorInfoViewModel.swift in Sources */,
 				632EDDF124504BEE00110744 /* UIColor+PermissionsUtils.swift in Sources */,
 				632EDDEF2450497500110744 /* BatteryOptimizationViewModel.swift in Sources */,
+				6744778B2889C0FA0058D23B /* DKPermissionsUtilsImages.swift in Sources */,
 				63C3FD78244EDDA900C2FEEC /* ContactViewModel.swift in Sources */,
 				61377B75243E0C4800E2EC47 /* ActivityPermissionViewModel.swift in Sources */,
 				616947092433AA0300C8A965 /* DKPermissionView.swift in Sources */,
@@ -4035,6 +4058,7 @@
 				67462D8F2660CE2600016FAF /* ChallengeResultsViewModel.swift in Sources */,
 				67C43D4D264047A200DBB09D /* NoChallengeCell.swift in Sources */,
 				6704DDDC2668458F00DAF326 /* ChallengeStatType.swift in Sources */,
+				6744776D288594500058D23B /* DKChallengeImages.swift in Sources */,
 				67C43D592641262500DBB09D /* DKChallenge+UI.swift in Sources */,
 				67462D81265CD4AE00016FAF /* ChallengeConditionProgressViewModel.swift in Sources */,
 				6704DDD2266148B500DAF326 /* ChallengeType.swift in Sources */,
@@ -4101,6 +4125,7 @@
 				638AC046261F970E00602B52 /* SynthesisCardsViewModel.swift in Sources */,
 				A34238862361A2440001E15D /* Extension+DK.swift in Sources */,
 				3F6B67572580DA62008B3BA7 /* AlternativeTripMapItem.swift in Sources */,
+				6744776B287ED13A0058D23B /* DKDriverDataImages.swift in Sources */,
 				3F6B67482580D268008B3BA7 /* AlternativeTripDetailInfoVC.swift in Sources */,
 				A342387F2361A2440001E15D /* HistoryPageView.swift in Sources */,
 				67301DBD2625C301006B0432 /* Trip+DKTripsListItem.swift in Sources */,
@@ -4282,6 +4307,7 @@
 				3FB5644623F6B4F700F010E3 /* it */,
 				3FB5644723F6B4F800F010E3 /* es */,
 				3FF68E7624083E500071D74C /* fr */,
+				63DD51BF28763BEB009D0D02 /* da */,
 			);
 			name = DriverAchievementLocalizables.strings;
 			sourceTree = "<group>";
@@ -4294,6 +4320,7 @@
 				3FF68E682407F5710071D74C /* de */,
 				3FF68E692407F5720071D74C /* it */,
 				3FF68E6A2407F5730071D74C /* es */,
+				63DD51BD28763BEA009D0D02 /* da */,
 			);
 			name = CommonLocalizable.strings;
 			sourceTree = "<group>";
@@ -4306,6 +4333,7 @@
 				3FF68F092414FD890071D74C /* de */,
 				3FF68F0A2414FD8A0071D74C /* it */,
 				3FF68F0B2414FD8A0071D74C /* es */,
+				63DD51C128763BEB009D0D02 /* da */,
 			);
 			name = DKVehicleLocalizable.strings;
 			sourceTree = "<group>";
@@ -4318,6 +4346,7 @@
 				616946FC2433A34A00C8A965 /* de */,
 				616946FD2433A34B00C8A965 /* it */,
 				616946FE2433A34C00C8A965 /* es */,
+				63DD51C028763BEB009D0D02 /* da */,
 			);
 			name = PermissionsUtilsLocalizables.strings;
 			sourceTree = "<group>";
@@ -4330,6 +4359,7 @@
 				61765A7A243E307200358CCA /* de */,
 				61765A7B243E307300358CCA /* it */,
 				61765A7C243E307400358CCA /* es */,
+				63DD51BC28763BEA009D0D02 /* da */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -4342,6 +4372,7 @@
 				678130B7276C048A00701CF1 /* de */,
 				678130B8276C048B00701CF1 /* it */,
 				678130B9276C048B00701CF1 /* es */,
+				63DD51C328763BEC009D0D02 /* da */,
 			);
 			name = DKTripAnalysisLocalizable.strings;
 			sourceTree = "<group>";
@@ -4354,6 +4385,7 @@
 				67C43D16263AE23D00DBB09D /* de */,
 				67C43D17263AE23E00DBB09D /* it */,
 				67C43D18263AE23F00DBB09D /* es */,
+				63DD51C228763BEC009D0D02 /* da */,
 			);
 			name = DKChallengeLocalizable.strings;
 			sourceTree = "<group>";
@@ -4366,6 +4398,7 @@
 				A34238A22361A27C0001E15D /* de */,
 				A34238A32361A27E0001E15D /* it */,
 				A34238A42361A2800001E15D /* es */,
+				63DD51BE28763BEA009D0D02 /* da */,
 			);
 			name = DriverDataLocalizables.strings;
 			sourceTree = "<group>";

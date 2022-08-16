@@ -12,7 +12,7 @@ import DriveKitCommonUI
 
 public class VehiclesListVC: DKUIViewController {
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var addVehicleButton: UIButton!
+    @IBOutlet weak var addReplaceVehicleButton: UIButton!
     
     private let viewModel: DKVehiclesListViewModel
     private let refreshControl = UIRefreshControl()
@@ -38,17 +38,17 @@ public class VehiclesListVC: DKUIViewController {
         self.tableView.register(VehicleListHeaderView.self, forHeaderFooterViewReuseIdentifier: "VehicleListHeaderView")
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.configure()
         updateUI()
     }
 
     func configure() {
-        if DriveKitVehicleUI.shared.canAddVehicle {
-            addVehicleButton.backgroundColor = DKUIColors.secondaryColor.color
-            let addTitle = "dk_vehicle_add".dkVehicleLocalized().uppercased().dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).build()
-            addVehicleButton.setAttributedTitle(addTitle, for: .normal)
+        if (DriveKitVehicleUI.shared.canAddVehicle && !viewModel.maxVehiclesReached()) || viewModel.shouldReplaceVehicle() {
+            addReplaceVehicleButton.backgroundColor = DKUIColors.secondaryColor.color
+            let addReplaceTitle = viewModel.getAddReplaceButtonTitle().uppercased().dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).build()
+            addReplaceVehicleButton.setAttributedTitle(addReplaceTitle, for: .normal)
+            addReplaceVehicleButton.isHidden = false
         } else {
-            addVehicleButton.isHidden = true
+            addReplaceVehicleButton.isHidden = true
         }
     }
 
@@ -59,8 +59,10 @@ public class VehiclesListVC: DKUIViewController {
         self.viewModel.fetchVehicles()
     }
 
-    @IBAction func goToVehiclePicker(_ sender: Any) {
-        if let maxVehicles = DriveKitVehicleUI.shared.maxVehicles, maxVehicles <= self.viewModel.vehiclesCount {
+    @IBAction func addOrReplaceVehicleAction(_ sender: Any) {
+        if viewModel.shouldReplaceVehicle() {
+            self.showVehiclePicker(vehicle: viewModel.vehicles.first)
+        } else if viewModel.maxVehiclesReached() {
             self.showAlertMessage(title: "", message: "dk_too_many_vehicles_alert".dkVehicleLocalized(), back: false, cancel: false)
         } else {
             self.showVehiclePicker()
@@ -141,15 +143,7 @@ extension VehiclesListVC: VehiclesListDelegate {
     }
 
     private func updateUI() {
-        if DriveKitVehicleUI.shared.canAddVehicle {
-            if let maxVehicle = DriveKitVehicleUI.shared.maxVehicles, self.viewModel.vehiclesCount >= maxVehicle {
-                self.addVehicleButton.isHidden = true
-            } else {
-                self.addVehicleButton.isHidden = false
-            }
-        } else {
-            self.addVehicleButton.isHidden = true
-        }
+        self.configure()
         self.tableView.reloadData()
         self.updateTitle()
     }

@@ -39,6 +39,7 @@ public extension UIViewController {
             label.numberOfLines = 0
             label.textColor = .white
             label.textAlignment = .center
+            label.font = DKStyles.normalText.withSizeDelta(-2).applyTo(font: .primary)
             label.tag = UIViewController.loaderTextViewTag
             loaderView.addSubview(label)
             updateLoaderMessage(message: message, label: label, loaderView: loaderView)

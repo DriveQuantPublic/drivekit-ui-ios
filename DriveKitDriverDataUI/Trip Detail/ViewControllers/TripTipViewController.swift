@@ -12,7 +12,6 @@ import DriveKitDriverDataModule
 import DriveKitCommonUI
 
 class TripTipViewController: DKUIViewController {
-
     @IBOutlet var contentView: UIView!
     @IBOutlet var closeButton: UIButton!
     @IBOutlet var evaluationButtons: UIStackView!
@@ -103,7 +102,7 @@ class TripTipViewController: DKUIViewController {
     }
     
     func configureYesButton() {
-        yesImage.image = UIImage(named: "dk_advice_agree", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+        yesImage.image = DKDriverDataImages.adviceAgree.image?.withRenderingMode(.alwaysTemplate)
         yesImage.tintColor = DKUIColors.primaryColor.color
         yesLabel.attributedText = "dk_driverdata_advice_agree".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: getButtonStyle()).uppercased().color(.primaryColor).build()
 
@@ -135,7 +134,7 @@ class TripTipViewController: DKUIViewController {
     }
 
     func configureNoButton() {
-        noImage.image = UIImage(named: "dk_advice_disagree", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+        noImage.image = DKDriverDataImages.adviceDisagree.image?.withRenderingMode(.alwaysTemplate)
         noImage.tintColor = DKUIColors.primaryColor.color
         noLabel.attributedText = "dk_driverdata_advice_disagree".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: getButtonStyle()).uppercased().color(.primaryColor).build()
 

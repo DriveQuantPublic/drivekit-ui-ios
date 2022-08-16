@@ -24,17 +24,17 @@ enum EventType {
         case .acceleration:
             return DKImages.safetyAccel.image
         case .lock:
-            return UIImage(named: "dk_lock_event", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            return DKDriverDataImages.lockEvent.image?.withRenderingMode(.alwaysTemplate)
         case .unlock:
-            return UIImage(named: "dk_unlock_event", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            return DKDriverDataImages.unlockEvent.image?.withRenderingMode(.alwaysTemplate)
         case .pickUp:
-            return UIImage(named: "dk_begin_call", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            return DKImages.call.image?.withRenderingMode(.alwaysTemplate)
         case .hangUp:
-            return UIImage(named: "dk_end_call", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            return DKDriverDataImages.endCall.image?.withRenderingMode(.alwaysTemplate)
         case .end:
-            return UIImage(named: "dk_end_event_black", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            return DKDriverDataImages.arrival.image?.withRenderingMode(.alwaysTemplate)
         case .start:
-            return UIImage(named: "dk_start_event_black", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            return DKDriverDataImages.departure.image?.withRenderingMode(.alwaysTemplate)
         }
     }
 }
@@ -57,26 +57,26 @@ public class TripEvent {
         self.isForbidden = isForbidden
     }
     
-    func getMapImageID() -> String {
+    func getMapImage() -> DKDriverDataImages {
         switch type {
         case .adherence:
-            return isHigh ? "dk_map_adh_high" : "dk_map_adh"
+            return isHigh ? DKDriverDataImages.mapAdhHigh : DKDriverDataImages.mapAdh
         case .acceleration:
-            return isHigh ? "dk_map_accel_high" : "dk_map_accel"
+            return isHigh ? DKDriverDataImages.mapAccelHigh : DKDriverDataImages.mapAccel
         case .brake:
-            return isHigh ? "dk_map_decel_high" : "dk_map_decel"
+            return isHigh ? DKDriverDataImages.mapDecelHigh : DKDriverDataImages.mapDecel
         case .start:
-            return "dk_map_start_event"
+            return DKDriverDataImages.mapDeparture
         case .end:
-            return "dk_map_end_event"
+            return DKDriverDataImages.mapArrival
         case .unlock:
-            return "dk_map_unlock"
+            return DKDriverDataImages.mapUnlock
         case .lock:
-            return "dk_map_lock"
+            return DKDriverDataImages.mapLock
         case .pickUp:
-            return "dk_begin_call_poi_black"
+            return DKDriverDataImages.mapBeginCall
         case .hangUp:
-            return "dk_end_call_poi_black"
+            return DKDriverDataImages.mapEndCall
         }
     }
     

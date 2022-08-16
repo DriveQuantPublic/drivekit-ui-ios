@@ -39,7 +39,7 @@ public enum MapItem : DKMapItem {
         case .ecoDriving:
             return DKImages.ecoDriving.image
         case .interactiveMap:
-            return UIImage(named: "dk_history", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            return DKDriverDataImages.history.image?.withRenderingMode(.alwaysTemplate)
         case .distraction:
             return DKImages.distraction.image
         case .synthesis:
@@ -56,7 +56,7 @@ public enum MapItem : DKMapItem {
         case .ecoDriving:
             return DKImages.ecoDrivingFilled.image
         case .interactiveMap:
-            return UIImage(named: "dk_history_filled", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            return DKDriverDataImages.historyFilled.image?.withRenderingMode(.alwaysTemplate)
         case .distraction:
             return DKImages.distractionFilled.image
         case .synthesis:
@@ -69,9 +69,9 @@ public enum MapItem : DKMapItem {
     public func adviceImage() -> UIImage? {
         switch self {
         case .ecoDriving:
-            return UIImage(named: "dk_eco_advice", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            return DKImages.ecoAdvice.image?.withRenderingMode(.alwaysTemplate)
         case .safety:
-            return UIImage(named: "dk_safety_advice", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            return DKImages.safetyAdvice.image?.withRenderingMode(.alwaysTemplate)
         default:
             return nil
         }

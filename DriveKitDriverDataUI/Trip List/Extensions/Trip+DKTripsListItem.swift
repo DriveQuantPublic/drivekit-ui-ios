@@ -111,7 +111,7 @@ extension Trip: DKTripListItem {
                 return nil
             }
             if tripAdvices.count > 1 {
-                return UIImage(named: "dk_trip_info_count", in: Bundle.driveKitCommonUIBundle, compatibleWith: nil)
+                return DKImages.tripInfoCount.image
             } else if tripAdvices.count == 1 {
                 let advice = tripAdvices[0]
                 return advice.adviceImage()

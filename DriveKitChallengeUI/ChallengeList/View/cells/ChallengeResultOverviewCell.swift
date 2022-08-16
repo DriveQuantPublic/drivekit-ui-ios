@@ -19,7 +19,7 @@ final class ChallengeResultOverviewCell: UITableViewCell, Nibable {
     @IBOutlet weak var progressBarValueView: UIView?
     @IBOutlet weak var progressBarMaxLabel: UILabel?
     @IBOutlet weak var progressBarMinLabel: UILabel?
-    private let goldColor = UIColor(red: 255, green: 215, blue: 0)
+    private let goldColor = UIColor(red: 255, green: 210, blue: 50)
 
     var titleAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 20).with(.traitBold), NSAttributedString.Key.foregroundColor: DKUIColors.mainFontColor.color]
     var majorAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 48).with(.traitBold), NSAttributedString.Key.foregroundColor: DKUIColors.primaryColor.color]
@@ -54,10 +54,10 @@ final class ChallengeResultOverviewCell: UITableViewCell, Nibable {
 
     func configureMedal(isNumberOne: Bool){
         if isNumberOne {
-            self.medalProgressImage?.image = UIImage(named: "best_score_gold", in: .challengeUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
+            self.medalProgressImage?.image = DKChallengeImages.firstDriver.image?.withRenderingMode(.alwaysTemplate)
             self.medalProgressImage?.tintColor = goldColor
         } else {
-            self.medalProgressImage?.image = UIImage(named: "best_score", in: .challengeUIBundle, compatibleWith: nil)
+            self.medalProgressImage?.image = DKChallengeImages.firstDriver.image
         }
     }
 

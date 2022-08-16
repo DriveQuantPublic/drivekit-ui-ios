@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -13,6 +14,7 @@
                 <outlet property="actionButton" destination="Adl-gG-rVQ" id="1cy-SD-h7F"/>
                 <outlet property="descriptionLabel" destination="Wl7-84-5o4" id="KuJ-3v-4XJ"/>
                 <outlet property="titleLabel" destination="3t8-Z3-9Fj" id="rs7-FA-zMM"/>
+                <outlet property="topImageView" destination="Daj-rB-hcj" id="btY-WQ-D6E"/>
                 <outlet property="view" destination="iN0-l3-epB" id="1Mr-Ia-LhF"/>
             </connections>
         </placeholder>
@@ -21,7 +23,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="permission_activity" translatesAutoresizingMaskIntoConstraints="NO" id="Daj-rB-hcj" userLabel="Icon">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_perm_utils_activity_permission" translatesAutoresizingMaskIntoConstraints="NO" id="Daj-rB-hcj" userLabel="Icon">
                     <rect key="frame" x="137" y="64" width="140" height="140"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="140" id="PLi-yR-DZc"/>
@@ -40,7 +42,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Adl-gG-rVQ">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Adl-gG-rVQ">
                     <rect key="frame" x="16" y="804" width="382" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="Lgk-gv-GRj"/>
@@ -51,7 +53,8 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="Daj-rB-hcj" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="GXP-ff-JsC"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="3t8-Z3-9Fj" secondAttribute="trailing" constant="16" id="IiZ-m9-3YW"/>
@@ -65,11 +68,13 @@
                 <constraint firstItem="3t8-Z3-9Fj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="zaD-xV-sgk"/>
                 <constraint firstItem="Adl-gG-rVQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="zaH-Pu-HbV"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="139" y="154"/>
         </view>
     </objects>
     <resources>
-        <image name="permission_activity" width="170" height="170"/>
+        <image name="dk_perm_utils_activity_permission" width="170" height="170"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

@@ -1,0 +1,8 @@
+"NSLocationAlwaysUsageDescription"="Appen skal kende din placering for at kunne analysere dine ture, give dig kørselsscore og aktivere automatisk start.";
+"NSLocationWhenInUseUsageDescription"="For automatisk at kunne registrere og analysere dine ture skal programmet hele tiden have adgang til din position.";
+"NSLocationAlwaysAndWhenInUseUsageDescription"="Hvis du vil aktivere automatisk registrering af ture og kørselsanalyse uden at skulle ændre din telefon, skal du vælge indstillingen \"Tillad altid\". God tur...";
+"NSBluetoothAlwaysUsageDescription"="Applikationen skal bruge bluetooth til at hente batteriniveauet for beacon-batteriet.";
+"NSBluetoothPeripheralUsageDescription"="Applikationen skal bruge bluetooth for at kunne hente batteriniveauet for beacon-batteriet.";
+"NSMotionUsageDescription"="Appen skal bruge bevægelsesdata til at registrere transportmetode.";
+"NSCameraUsageDescription"="Denne applikation skal have adgang til kameraet.";
+"NSPhotoLibraryUsageDescription"="Applikationen har brug for at få adgang til dit fotogalleri.";

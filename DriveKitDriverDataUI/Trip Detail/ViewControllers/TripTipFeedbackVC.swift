@@ -11,17 +11,17 @@ import UIKit
 import DriveKitDriverDataModule
 import DriveKitCommonUI
 
-class TripTipFeedbackVC : UITableViewController {
-    @IBOutlet var contentLabel: UILabel!
-    @IBOutlet var commentTextView: UITextView!
-    @IBOutlet var sendButton: UIButton!
-    @IBOutlet var cancelButton: UIButton!
+class TripTipFeedbackVC: UITableViewController {
+    @IBOutlet private var contentLabel: UILabel!
+    @IBOutlet private var commentTextView: UITextView!
+    @IBOutlet private var sendButton: UIButton!
+    @IBOutlet private var cancelButton: UIButton!
 
-    @IBOutlet var feedbackLabel1: UILabel!
-    @IBOutlet var feedbackLabel2: UILabel!
-    @IBOutlet var feedbackLabel3: UILabel!
-    @IBOutlet var feedbackLabel4: UILabel!
-    @IBOutlet var feedbackLabel5: UILabel!
+    @IBOutlet private var feedbackLabel1: UILabel!
+    @IBOutlet private var feedbackLabel2: UILabel!
+    @IBOutlet private var feedbackLabel3: UILabel!
+    @IBOutlet private var feedbackLabel4: UILabel!
+    @IBOutlet private var feedbackLabel5: UILabel!
 
     var viewModel: TripTipFeedbackViewModel!
     var tripDetailVC: TripDetailVC? = nil
@@ -34,6 +34,7 @@ class TripTipFeedbackVC : UITableViewController {
         self.title = viewModel?.title
         tableView.cellForRow(at: IndexPath(row: 0, section: 0))?.tintColor = DKUIColors.secondaryColor.color
         tableView.cellForRow(at: IndexPath(row: 0, section: 0))?.accessoryType = .checkmark
+        configureBackButton()
         self.configureContent()
         self.configureFeedbacks()
         self.configureSend()
@@ -49,6 +50,14 @@ class TripTipFeedbackVC : UITableViewController {
     func configure(viewModel: TripTipFeedbackViewModel, tripDetailVC: TripDetailVC) {
         self.viewModel = viewModel
         self.tripDetailVC = tripDetailVC
+    }
+
+    private func configureBackButton() {
+        DKUIViewController.configureBackButton(viewController: self, selector: #selector(onBack))
+    }
+
+    @objc private func onBack(sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func sendAction(_ sender: Any) {
@@ -139,6 +148,7 @@ fileprivate extension TripTipFeedbackVC {
         let items = [flexSpace, done]
         doneToolBar.items = items
         doneToolBar.sizeToFit()
+        commentTextView.font = DKStyles.normalText.withSizeDelta(-2).applyTo(font: .primary)
         commentTextView.inputAccessoryView = doneToolBar
         commentTextView.layer.borderWidth = 1
         commentTextView.layer.borderColor = DKUIColors.mainFontColor.color.cgColor

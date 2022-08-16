@@ -70,7 +70,7 @@
 "dk_vehicle_beacon_setup_successlink_message"="Herzlichen Glückwunsch! \n\n Der BEACON %@ ist jetzt mit dem Fahrzeug %@ verbunden.";
 "dk_vehicle_beacon_start_scan"="Platzieren Sie den BEACON in der Nähe des Telefons und tippen Sie auf den Bildschirm";
 "dk_vehicle_beacon_verify_wrong_vehicle"="Die erkannte Bake ist nicht mit diesem Fahrzeug verbunden.";
-"dk_vehicle_beacon_wait_scan"="Warten Sie zirka 10 Sekunden ...";
+"dk_vehicle_beacon_wait_scan"="Warten Sie zirka 10 Sekunden...";
 "dk_vehicle_begin"="Beginnen";
 "dk_vehicle_bluetooth_already_paired"="Das Bluetooth %@-Gerät ist bereits mit einem anderen Fahrzeug verbunden. Sie müssen dieses Gerät zuerst freigeben, bevor Sie es mit %@ koppeln können.";
 "dk_vehicle_bluetooth_combination_view_title"="Zuordnen eines Bluetooth-Geräts";
@@ -188,6 +188,7 @@
 "dk_vehicle_rename_description"="Wählen Sie einen Namen, um Ihr Fahrzeug zu identifizieren.";
 "dk_vehicle_rename_title"="Benennen Sie dieses Fahrzeug um";
 "dk_vehicle_replace"="Ersetzen";
+"dk_vehicle_replace_button"="Das Fahrzeug ersetzen";
 "dk_vehicle_select_bluetooth_description"="Wählen Sie ein Bluetooth-Gerät aus, um die Tourenaufzeichnung zu starten. \n \n Sobald sich das Telefon mit diesem Gerät verbindet, beginnt die Anwendung mit der Analyse Ihrer Reise. \n \n Sie können für dieses Fahrzeug nur ein Gerät auswählen.";
 "dk_vehicle_show"="Anzeigen";
 "dk_vehicle_type_car_title"="Leicht- und Nutzfahrzeuge von weniger als 3,5 t";

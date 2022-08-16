@@ -258,13 +258,13 @@ extension ChallengeDetailViewModel: DKDriverRanking {
         var imageName: String? = nil
         switch challengeTheme {
         case .acceleration, .adherence, .braking, .safety:
-            imageName = "dk_challenge_leaderboard_safety"
+            return DKChallengeImages.leaderboardSafety.image
         case .distraction:
-            imageName = "dk_challenge_leaderboard_phone_distraction"
+            return DKChallengeImages.leaderboardDistraction.image
         case .ecoDriving:
-            imageName = "dk_challenge_leaderboard_ecodriving"
+            return DKChallengeImages.leaderboardEcodriving.image
         case .speeding:
-            imageName = "dk_challenge_leaderboard_speeding"
+            return DKChallengeImages.leaderboardSpeeding.image
         case .none:
             switch challengeType {
             case .distance:
@@ -274,7 +274,7 @@ extension ChallengeDetailViewModel: DKDriverRanking {
             case .nbTrips:
                 imageName = "dk_challenge_leaderboard_trips_number"
             default:
-                imageName = "dk_challenge_leaderboard_safety"
+                return DKChallengeImages.leaderboardSafety.image
             }
         }
         if let imageName = imageName {

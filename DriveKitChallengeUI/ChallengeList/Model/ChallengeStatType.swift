@@ -16,9 +16,9 @@ enum ChallengeStatType {
     var image: UIImage? {
         switch self {
         case .duration:
-            return UIImage(named: "Duration", in: .challengeUIBundle, compatibleWith: nil)
+            return DKImages.clock.image
         case .distance:
-            return UIImage(named: "Distance", in: .challengeUIBundle, compatibleWith: nil)
+            return DKImages.road.image
         case .nbTrips:
             return DKImages.trip.image
         }

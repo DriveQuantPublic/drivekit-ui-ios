@@ -377,6 +377,7 @@
 		67301DB126251921006B0432 /* HeaderDayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67301DAF26251921006B0432 /* HeaderDayView.xib */; };
 		67301DBD2625C301006B0432 /* Trip+DKTripsListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301DBC2625C301006B0432 /* Trip+DKTripsListItem.swift */; };
 		67301DC42625C3BF006B0432 /* TripListVC+DKTripList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67301DC32625C3BF006B0432 /* TripListVC+DKTripList.swift */; };
+		6742577228B4D2EC00A61D1F /* DKVehicleImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6742577128B4D2EC00A61D1F /* DKVehicleImages.swift */; };
 		6744776B287ED13A0058D23B /* DKDriverDataImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6744776A287ED13A0058D23B /* DKDriverDataImages.swift */; };
 		6744776D288594500058D23B /* DKChallengeImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6744776C288594500058D23B /* DKChallengeImages.swift */; };
 		6744776F2885A7590058D23B /* DKDriverAchievementImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6744776E2885A7590058D23B /* DKDriverAchievementImages.swift */; };
@@ -1093,6 +1094,7 @@
 		67301DAF26251921006B0432 /* HeaderDayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderDayView.xib; sourceTree = "<group>"; };
 		67301DBC2625C301006B0432 /* Trip+DKTripsListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+DKTripsListItem.swift"; sourceTree = "<group>"; };
 		67301DC32625C3BF006B0432 /* TripListVC+DKTripList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TripListVC+DKTripList.swift"; sourceTree = "<group>"; };
+		6742577128B4D2EC00A61D1F /* DKVehicleImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKVehicleImages.swift; sourceTree = "<group>"; };
 		6744776A287ED13A0058D23B /* DKDriverDataImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDriverDataImages.swift; sourceTree = "<group>"; };
 		6744776C288594500058D23B /* DKChallengeImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKChallengeImages.swift; sourceTree = "<group>"; };
 		6744776E2885A7590058D23B /* DKDriverAchievementImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDriverAchievementImages.swift; sourceTree = "<group>"; };
@@ -1649,6 +1651,7 @@
 				3FF68EFE2413EEF80071D74C /* DriveKitVehicleUI.swift */,
 				3FA3C4552416A96400BD4E14 /* DKCategoryConfigType.swift */,
 				3FF68F3E24154ADB0071D74C /* DriveKitVehicle.xcassets */,
+				6742577128B4D2EC00A61D1F /* DKVehicleImages.swift */,
 			);
 			path = DriveKitVehicleUI;
 			sourceTree = "<group>";
@@ -3941,6 +3944,7 @@
 				3F50D6FF24179467001226F7 /* SelectBluetoothVC.swift in Sources */,
 				3FF68F41241557C20071D74C /* DKVehicleEngineIndex+UI.swift in Sources */,
 				3FFB2D8D241942FB003E6A06 /* BeaconScannerBeaconUnavailableVC.swift in Sources */,
+				6742577228B4D2EC00A61D1F /* DKVehicleImages.swift in Sources */,
 				3FFB2D8724193778003E6A06 /* BeaconScannerAlreadyPairedVC.swift in Sources */,
 				A34FC7282422755F000734AB /* VehicleDetailVC.swift in Sources */,
 				637F96BA2720B4DD0027AC1F /* OdometerCellViewModel.swift in Sources */,

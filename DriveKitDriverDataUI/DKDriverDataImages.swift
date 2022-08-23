@@ -30,8 +30,23 @@ public enum DKDriverDataImages: String {
          historyFilled = "dk_history_filled",
          trash = "dk_trash",
          adviceAgree = "dk_advice_agree",
-         adviceDisagree = "dk_advice_disagree"
-    
+         adviceDisagree = "dk_advice_disagree",
+         transportationOther = "dk_transportation_other",
+         transportationCar = "dk_transportation_car",
+         transportationMotorcycle = "dk_transportation_motorcycle",
+         transportationTruck = "dk_transportation_truck",
+         transportationBus = "dk_transportation_bus",
+         transportationTrain = "dk_transportation_train",
+         transportationBoat = "dk_transportation_boat",
+         transportationBicyle = "dk_transportation_bicycle",
+         transportationPlane = "dk_transportation_plane",
+         transportationSkiing = "dk_transportation_skiing",
+         transportationOnFoot = "dk_transportation_on_foot",
+         transportationIdle = "dk_transportation_idle",
+         transportationAll = "dk_transportation_all",
+         noTripsRecorded = "dk_no_trips_recorded",
+         noVehicleTrips = "dk_no_vehicle_trips",
+         filter = "dk_filter"
     
     public var image: UIImage? {
         if let image = UIImage(named: self.rawValue, in: .main, compatibleWith: nil) {

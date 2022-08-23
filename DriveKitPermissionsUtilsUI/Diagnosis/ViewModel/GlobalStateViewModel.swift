@@ -21,11 +21,11 @@ struct GlobalStateViewModel {
         let infoKey: String
 
         if errorNumber == 0 {
-            icon = UIImage(named: "sensor-ok-full", in: Bundle.permissionsUtilsUIBundle, compatibleWith: nil)
+            icon = DKPermissionsUtilsImages.checked.image
             title = "dk_perm_utils_diag_app_ok".dkPermissionsUtilsLocalized()
             infoKey = "dk_perm_utils_diag_app_ok_text"
         } else {
-            icon = UIImage(named: "sensor-error-full", in: Bundle.permissionsUtilsUIBundle, compatibleWith: nil)
+            icon = DKPermissionsUtilsImages.highPriority.image
             infoKey = "dk_perm_utils_app_diag_app_ko_text"
             let titleKey: String
             if errorNumber == 1 {

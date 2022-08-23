@@ -87,19 +87,19 @@ public enum BeaconStep {
     var image: UIImage? {
         switch self {
         case .initial:
-            return UIImage(named: "dk_beacon_start", in: .vehicleUIBundle, compatibleWith: nil)
+            return DKVehicleImages.beaconStart.image
         case .scan:
-            return UIImage(named: "dk_beacon_scan_running", in: .vehicleUIBundle, compatibleWith: nil)
+            return DKVehicleImages.beaconScanRunning.image
         case .success:
-            return UIImage(named: "dk_beacon_ok", in: .vehicleUIBundle, compatibleWith: nil)
+            return DKVehicleImages.beaconOk.image
         case .beaconNotFound, .beaconAlreadyPaired, .beaconUnavailable, .beaconNotConfigured:
-            return UIImage(named: "dk_beacon_not_found", in: .vehicleUIBundle, compatibleWith: nil)
+            return DKVehicleImages.beaconNotFound.image
         case .congrats:
-            return UIImage(named: "dk_vehicle_congrats", in: .vehicleUIBundle, compatibleWith: nil)
+            return DKVehicleImages.vehicleCongrats.image
         case .verified:
-                return UIImage(named: "dk_beacon_ok", in: .vehicleUIBundle, compatibleWith: nil)
+            return DKVehicleImages.beaconOk.image
         case .wrongBeacon:
-                return UIImage(named: "dk_beacon_not_found", in: .vehicleUIBundle, compatibleWith: nil)
+            return DKVehicleImages.beaconNotFound.image
         }
     }
     

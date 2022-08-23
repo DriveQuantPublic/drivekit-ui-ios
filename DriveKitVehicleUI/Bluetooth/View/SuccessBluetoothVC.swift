@@ -37,7 +37,7 @@ class SuccessBluetoothVC: DKUIViewController {
     func setup() {
         successTitle.attributedText = "dk_vehicle_bluetooth_congrats_title".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
         successButton.configure(text: DKCommonLocalizable.finish.text(), style: .full)
-        successImage.image = UIImage(named: "dk_vehicle_congrats",in: .vehicleUIBundle, compatibleWith: nil)
+        successImage.image = DKVehicleImages.vehicleCongrats.image
         self.navigationItem.leftBarButtonItems = []
         self.navigationItem.hidesBackButton = true
         setupDesc()

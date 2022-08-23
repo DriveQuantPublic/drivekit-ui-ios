@@ -25,6 +25,7 @@ final public class DKFilterView: UIView, Nibable {
     public override func layoutSubviews() {
         super.layoutSubviews()
         if let imageView = self.image {
+            imageView.image = DKImages.arrowDown.image
             imageView.layer.cornerRadius = imageView.frame.height / 2
         }
     }

@@ -37,7 +37,7 @@ class VehicleDetailHeader : UITableViewCell {
         addVehicleImageButton.layer.masksToBounds = true
         addVehicleImageButton.backgroundColor = DKUIColors.secondaryColor.color
         addVehicleImageButton.titleLabel?.text = ""
-        if let headerIcon = UIImage(named: "dk_gallery_image", in: Bundle.vehicleUIBundle, compatibleWith: nil) {
+        if let headerIcon = DKVehicleImages.galleryImage.image {
             headerIcon.withRenderingMode(.alwaysTemplate)
             addVehicleImageButton.setImage(headerIcon, for: .normal)
             addVehicleImageButton.tintColor = DKUIColors.fontColorOnSecondaryColor.color

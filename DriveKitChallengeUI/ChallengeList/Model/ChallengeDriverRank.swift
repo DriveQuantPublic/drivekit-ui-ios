@@ -45,8 +45,9 @@ class ChallengeDriverRank: DKDriverRankingItem {
     }
 
     func getRankImage() -> UIImage? {
-        if let positionImageName = positionImageName {
-            return UIImage(named: positionImageName, in: Bundle.driveKitCommonUIBundle, compatibleWith: nil)
+        if let positionImageName = positionImageName,
+           let positionImage = DKImages(rawValue: positionImageName) {
+            return positionImage.image
         } else {
             return nil
         }

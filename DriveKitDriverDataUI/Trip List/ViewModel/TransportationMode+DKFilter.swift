@@ -12,36 +12,34 @@ import DriveKitDBTripAccessModule
 
 extension TransportationMode : DKFilterItem {
     public func getImage() -> UIImage? {
-        var image = ""
         switch self {
             case .unknown, .other:
-                image = "dk_transportation_other"
+                return DKDriverDataImages.transportationOther.image
             case .car:
-                image = "dk_transportation_car"
+                return DKDriverDataImages.transportationCar.image
             case .moto:
-                image = "dk_transportation_motorcycle"
+                return DKDriverDataImages.transportationMotorcycle.image
             case .truck:
-                image = "dk_transportation_truck"
+                return DKDriverDataImages.transportationTruck.image
             case .bus:
-                image = "dk_transportation_bus"
+                return DKDriverDataImages.transportationBus.image
             case .train:
-                image = "dk_transportation_train"
+                return DKDriverDataImages.transportationTrain.image
             case .boat:
-                image = "dk_transportation_boat"
+                return DKDriverDataImages.transportationBoat.image
             case .bike:
-                image = "dk_transportation_bicycle"
+                return DKDriverDataImages.transportationBicyle.image
             case .flight:
-                image = "dk_transportation_plane"
+                return DKDriverDataImages.transportationPlane.image
             case .skiing:
-                image = "dk_transportation_skiing"
+                return DKDriverDataImages.transportationSkiing.image
             case .onFoot:
-                image = "dk_transportation_on_foot"
+                return DKDriverDataImages.transportationOnFoot.image
             case .idle:
-                image = "dk_transportation_idle"
+                return DKDriverDataImages.transportationIdle.image
             @unknown default:
                 return nil
         }
-        return UIImage(named: image, in: Bundle.driverDataUIBundle, compatibleWith: nil)
     }
     
     public func getName() -> String {

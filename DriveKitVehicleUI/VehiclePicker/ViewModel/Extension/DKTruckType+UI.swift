@@ -26,7 +26,7 @@ extension DKTruckType : VehiclePickerCollectionViewItem {
 
     func image() -> UIImage? {
         if let imageKey = imageKey() {
-            return UIImage(named: imageKey, in: .vehicleUIBundle, compatibleWith: nil)
+            return DKVehicleImages(rawValue: imageKey)?.image
         }
         return nil
     }
@@ -38,7 +38,7 @@ extension DKTruckType : VehiclePickerCollectionViewItem {
     private func imageKey() -> String? {
         switch self {
             case .roadTrain:
-                return "dk_icon_road_train_truck"
+                return "dk_icon_road_train"
             case .semiTrailerTruck:
                 return "dk_icon_semi_trailer_truck"
             case .straightTruck:

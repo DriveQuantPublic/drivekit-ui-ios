@@ -29,6 +29,7 @@ class SensorStateView : UIView {
         if let view = view {
             embedSubview(view)
         }
+        self.statusIcon.image = DKPermissionsUtilsImages.checkedGeneric.image
 
         self.touchBackground.setBackgroundImage(UIImage(color: UIColor.pu_selectionColor), for: .highlighted)
     }

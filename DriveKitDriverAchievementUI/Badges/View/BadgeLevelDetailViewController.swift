@@ -42,9 +42,7 @@ public class BadgeLevelDetailViewController: DKUIViewController {
     
     @objc public func configure() {
         self.title = viewModel.title
-        imageView.image = UIImage(named: viewModel.iconKey,
-                                  in: .driverAchievementUIBundle,
-                                  compatibleWith: nil)
+        imageView.image = DKDriverAchievementImages.image(named: viewModel.iconKey)
         goalTitleLabel.attributedText = "badge_detail_goal_title".dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()
         goalTitleSeparator.backgroundColor = DKUIColors.neutralColor.color
         goalDescriptionLabel.attributedText = viewModel.description.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()

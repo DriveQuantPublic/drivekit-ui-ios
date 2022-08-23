@@ -30,9 +30,8 @@ final class BadgeLevelView: UIView, Nibable {
         let badgeLevel = level
         let threshold = Float(level.threshold)
         let progress = Float(level.progressValue)
-        badgeImage.image = UIImage(named: progress >= threshold ? level.icon : level.defaultIcon,
-                                   in: .driverAchievementUIBundle,
-                                   compatibleWith: nil)
+
+        badgeImage.image = DKDriverAchievementImages.image(named: progress >= threshold ? level.icon : level.defaultIcon)
         nameLabel.attributedText = level.name.dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
         initProgressRing(threshold: threshold, progress: progress, badgeLevel: badgeLevel)
         let tapGesture = DetailTapGestureRecognizer(target: self, action: #selector(self.goToDetailView(sender:)))

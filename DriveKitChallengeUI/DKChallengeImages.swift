@@ -17,7 +17,8 @@ public enum DKChallengeImages: String {
          leaderboardSafety = "dk_challenge_leaderboard_safety",
          leaderboardDistraction = "dk_challenge_leaderboard_distraction",
          leaderboardEcodriving = "dk_challenge_leaderboard_ecodriving",
-         leaderboardSpeeding = "dk_challenge_leaderboard_speeding"
+         leaderboardSpeeding = "dk_challenge_leaderboard_speeding",
+         waiting = "dk_challenge_waiting"
     
     public var image: UIImage? {
         if let image = UIImage(named: self.rawValue, in: .main, compatibleWith: nil) {

@@ -24,10 +24,10 @@ struct ChallengeItemViewModel {
         startDate = challenge.startDate
         endDate = challenge.endDate
         name = challenge.title
-        if let challengeImage = UIImage(named: String(format : "%d", challenge.iconCode), in: Bundle.challengeUIBundle, compatibleWith: nil) {
+        if let challengeImage = DKChallengeImages.imageForTheme(iconCode: challenge.iconCode).image {
             image = challengeImage
         } else {
-            image = UIImage(named: "101", in: Bundle.challengeUIBundle, compatibleWith: nil)
+            image = DKChallengeImages.general101Trophy.image
         }
         if (challenge.isRegistered == false || challenge.conditionsFilled == false) && challenge.endDate.timeIntervalSinceNow < 0 {
             finishedAndNotFilled = true

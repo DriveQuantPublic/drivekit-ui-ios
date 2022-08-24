@@ -38,7 +38,7 @@ public enum DKChallengeImages: String {
          safety407MaximumSpeed = "dk_challenge_safety_407_maximum_speed",
          safety408TrafficLight = "dk_challenge_safety_408_traffic_light"
 
-    var image: UIImage? {
+    public var image: UIImage? {
         if let image = UIImage(named: self.rawValue, in: .main, compatibleWith: nil) {
             return image
         } else {

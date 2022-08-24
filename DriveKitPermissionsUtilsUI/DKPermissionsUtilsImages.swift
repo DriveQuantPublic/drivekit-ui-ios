@@ -10,7 +10,11 @@ import UIKit
 
 public enum DKPermissionsUtilsImages: String {
     case activityPermission = "dk_perm_utils_activity_permission",
-         backgroundLocationPermission = "dk_perm_utils_background_location_permission"
+         backgroundLocationPermission = "dk_perm_utils_background_location_permission",
+         checked = "dk_perm_utils_checked",
+         highPriority = "dk_perm_utils_high_priority",
+         checkedGeneric = "dk_perm_utils_checked_generic",
+         highPriorityGeneric = "dk_perm_utils_high_priority_generic"
     
     public var image: UIImage? {
         if let image = UIImage(named: self.rawValue, in: .main, compatibleWith: nil) {

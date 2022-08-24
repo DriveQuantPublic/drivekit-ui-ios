@@ -53,21 +53,21 @@ extension DKVehicleCategory : VehiclePickerCollectionViewItem {
     func image() -> UIImage? {
         switch self {
             case .micro:
-                return UIImage(named: "dk_icon_micro", in: .vehicleUIBundle, compatibleWith: nil)
+                return DKVehicleImages.iconMicro.image
             case .compact:
-                return UIImage(named: "dk_icon_compact", in: .vehicleUIBundle, compatibleWith: nil)
+                return DKVehicleImages.iconCompact.image
             case .sedan:
-                return UIImage(named: "dk_icon_sedan", in: .vehicleUIBundle, compatibleWith: nil)
+                return DKVehicleImages.iconSedan.image
             case .suv:
-                return UIImage(named: "dk_icon_suv", in: .vehicleUIBundle, compatibleWith: nil)
+                return DKVehicleImages.iconSuv.image
             case .minivan:
-                return UIImage(named: "dk_icon_minivan", in: .vehicleUIBundle, compatibleWith: nil)
+                return DKVehicleImages.iconMinivan.image
             case .commercial:
-                return UIImage(named: "dk_icon_commercial", in: .vehicleUIBundle, compatibleWith: nil)
+                return DKVehicleImages.iconCommercial.image
             case .luxury:
-                return UIImage(named: "dk_icon_luxury", in: .vehicleUIBundle, compatibleWith: nil)
+                return DKVehicleImages.iconLuxury.image
             case .sport:
-                return UIImage(named: "dk_icon_sport", in: .vehicleUIBundle, compatibleWith: nil)
+                return DKVehicleImages.iconSport.image
             case .twoAxlesStraightTruck, .threeAxlesStraightTruck, .fourAxlesStraightTruck, .twoAxlesTractor, .threeAxlesTractor, .fourAxlesTractor:
                 return nil
             @unknown default:
@@ -117,21 +117,21 @@ extension DKVehicleCategory : VehiclePickerTextDelegate {
     func categoryImage() -> UIImage? {
         switch self {
             case .micro:
-                return UIImage(named: "dk_image_micro", in: .vehicleUIBundle, compatibleWith: nil)
+                return DKVehicleImages.imageMicro.image
             case .compact:
-                return UIImage(named: "dk_image_compact", in: .vehicleUIBundle, compatibleWith: nil)
+                return DKVehicleImages.imageCompact.image
             case .sedan:
-                return UIImage(named: "dk_image_sedan", in: .vehicleUIBundle, compatibleWith: nil)
+                return DKVehicleImages.imageSedan.image
             case .suv:
-                return UIImage(named: "dk_image_suv", in: .vehicleUIBundle, compatibleWith: nil)
+                return DKVehicleImages.imageSuv.image
             case .minivan:
-                return UIImage(named: "dk_image_minivan", in: .vehicleUIBundle, compatibleWith: nil)
+                return DKVehicleImages.imageMinivan.image
             case .commercial:
-                return UIImage(named: "dk_image_commercial", in: .vehicleUIBundle, compatibleWith: nil)
+                return DKVehicleImages.imageCommercial.image
             case .luxury:
-                return UIImage(named: "dk_image_luxury", in: .vehicleUIBundle, compatibleWith: nil)
+                return DKVehicleImages.imageLuxury.image
             case .sport:
-                return UIImage(named: "dk_image_sport", in: .vehicleUIBundle, compatibleWith: nil)
+                return DKVehicleImages.imageSport.image
             case .twoAxlesStraightTruck, .threeAxlesStraightTruck, .fourAxlesStraightTruck, .twoAxlesTractor, .threeAxlesTractor, .fourAxlesTractor:
                 return nil
             @unknown default:

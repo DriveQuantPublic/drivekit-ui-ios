@@ -28,6 +28,7 @@ class GlobalStateView : UIView {
         if let view = view {
             embedSubview(view)
         }
+        self.statusIcon.image = DKPermissionsUtilsImages.checked.image
     }
 
     private func update() {

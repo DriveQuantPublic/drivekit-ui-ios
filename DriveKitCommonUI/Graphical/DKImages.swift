@@ -30,6 +30,7 @@ public enum DKImages: String {
          call = "dk_common_call",
          warning = "dk_common_warning",
          dots = "dk_common_dots",
+         jump = "dk_common_jump",
          arrowDown = "dk_common_arrow_down",
          back = "dk_common_back",
          check = "dk_common_check",
@@ -39,13 +40,17 @@ public enum DKImages: String {
          road = "dk_common_road",
          clock = "dk_common_clock",
          tripInfoCount = "dk_common_trip_info_count",
-         noScore = "dk_no_score"
+         noScore = "dk_no_score",
+         rank1 = "dk_common_rank_1",
+         rank2 = "dk_common_rank_2",
+         rank3 = "dk_common_rank_3"
 
     public var image: UIImage? {
         let renderingMode: UIImage.RenderingMode
-        if self == .noScore {
+        switch self  {
+        case .noScore, .rank1, .rank2, .rank3:
             renderingMode = .automatic
-        } else {
+        default:
             renderingMode = .alwaysTemplate
         }
         if let image = UIImage(named: self.rawValue, in: .main, compatibleWith: nil) {

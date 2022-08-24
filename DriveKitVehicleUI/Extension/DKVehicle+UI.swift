@@ -89,9 +89,9 @@ extension DKVehicle {
         let filePath = documentsURL.appendingPathComponent("\(vehicleImage).jpeg")
         var image: UIImage?
         if self.isTruck() {
-            image = UIImage(named: "dk_vehicle_default_truck", in: Bundle.vehicleUIBundle, compatibleWith: nil)
+            image = DKVehicleImages.defaultTruck.image
         } else {
-            image = UIImage(named: "dk_vehicle_default", in: Bundle.vehicleUIBundle, compatibleWith: nil)
+            image = DKVehicleImages.defaultCar.image
         }
         do {
             let files = try fileManager.contentsOfDirectory(atPath: "\(documentPath)")

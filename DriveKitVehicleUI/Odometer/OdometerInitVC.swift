@@ -52,7 +52,7 @@ class OdometerInitVC: DKUIViewController {
     }
 
     private func configureHeaderOdometer() {
-        self.odometerImage.image = UIImage(named: "dk_odometer", in: .vehicleUIBundle, compatibleWith: nil)
+        self.odometerImage.image = DKVehicleImages.vehicleOdometer.image
         self.odometerDesc.attributedText = "dk_vehicle_odometer_car_desc".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.black).build()
     }
 

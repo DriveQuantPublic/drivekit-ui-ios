@@ -38,7 +38,7 @@ class VehiclePickerInputVC: VehiclePickerStepView {
         } else {
             self.topConstraint.constant = 60
         }
-        inputImageView.image = UIImage(named: "dk_vehicle_name_chooser",in: .vehicleUIBundle, compatibleWith: nil)
+        inputImageView.image = DKVehicleImages.vehicleNameChooser.image
         inputTextLabel.attributedText = "dk_vehicle_name_chooser_description".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         inputConfirmButton.configure(text: DKCommonLocalizable.validate.text(), style: .full)
         self.configureTextField(placeholder: "dk_vehicle_name".dkVehicleLocalized())

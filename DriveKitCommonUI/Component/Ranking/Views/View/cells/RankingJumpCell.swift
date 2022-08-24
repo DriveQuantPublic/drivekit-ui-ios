@@ -13,7 +13,7 @@ class RankingJumpCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        self.imageView.image = DKImages.jump.image
         self.imageView.tintColor = DKUIColors.mainFontColor.color
     }
 }

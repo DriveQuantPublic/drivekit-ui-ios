@@ -72,7 +72,7 @@ public class TripListVC: DKUIViewController {
     
     private func configureFilterButton() {
         if DriveKitDriverDataUI.shared.enableAlternativeTrips && self.viewModel.hasAlternativeTrips() {
-            let image = UIImage(named: "dk_filter", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.resizeImage(25, opaque: false).withRenderingMode(.alwaysTemplate)
+            let image = DKDriverDataImages.filter.image?.resizeImage(25, opaque: false).withRenderingMode(.alwaysTemplate)
             let filterButton = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(filterAction))
             filterButton.tintColor = DKUIColors.navBarElementColor.color
             self.navigationItem.rightBarButtonItem = filterButton
@@ -113,10 +113,10 @@ public class TripListVC: DKUIViewController {
             self.tripsTableView?.isHidden = true
             self.tripsViewPlaceholder?.isHidden = false
             if self.viewModel.hasTrips() {
-                self.noTripsImage.image = UIImage(named: "dk_no_vehicle_trips", in: Bundle.driverDataUIBundle, compatibleWith: nil)?.withAlignmentRectInsets(UIEdgeInsets(top: -50, left: -50, bottom: -50, right: -50))
+                self.noTripsImage.image = DKDriverDataImages.noVehicleTrips.image?.withAlignmentRectInsets(UIEdgeInsets(top: -50, left: -50, bottom: -50, right: -50))
                 self.noTripsLabel.text = "dk_driverdata_no_trip_placeholder".dkDriverDataLocalized()
             } else {
-                self.noTripsImage.image = UIImage(named: "dk_no_trips_recorded", in: Bundle.driverDataUIBundle, compatibleWith: nil)
+                self.noTripsImage.image = DKDriverDataImages.noTripsRecorded.image
                 self.noTripsLabel.text = "dk_driverdata_no_trips_recorded".dkDriverDataLocalized()
             }
             self.synthesis.isHidden = true

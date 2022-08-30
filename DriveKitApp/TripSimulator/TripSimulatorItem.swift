@@ -29,6 +29,8 @@ enum TripSimulatorItem {
                         return "trip_simulator_highway_title".keyLocalized()
                     case .trainTrip:
                         return "trip_simulator_train_title".keyLocalized()
+                    case .busTrip:
+                        return "trip_simulator_bus_title".keyLocalized()
                     case .boatTrip:
                         return "trip_simulator_boat_title".keyLocalized()
                     case .tripWithCrash:
@@ -68,6 +70,8 @@ enum TripSimulatorItem {
                         return "trip_simulator_highway_description".keyLocalized()
                     case .trainTrip:
                         return "trip_simulator_train_description".keyLocalized()
+                    case .busTrip:
+                        return "trip_simulator_bus_description".keyLocalized()
                     case .boatTrip:
                         return "trip_simulator_boat_description".keyLocalized()
                     case .tripWithCrash:

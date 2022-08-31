@@ -25,6 +25,7 @@ public class DriveKitDriverDataUI: AccessRightListener {
     private(set) var enableVehicleFilter = true
     private(set) var customHeaders: DKHeader?
     private(set) var customTripInfo: DKTripInfo?
+    public var alternativeTripsDepthInDays: Int? = nil
 
     public static let shared = DriveKitDriverDataUI()
     

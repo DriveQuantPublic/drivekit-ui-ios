@@ -20,7 +20,6 @@ public protocol DKFilterItemDelegate: AnyObject {
 }
 
 public class DKFilterViewModel {
-    
     private(set) var items: [DKFilterItem]
     private(set) var currentItem: DKFilterItem
     let showPicker: Bool

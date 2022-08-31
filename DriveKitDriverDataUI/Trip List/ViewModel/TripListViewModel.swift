@@ -204,7 +204,7 @@ class TripListViewModel {
 
     private func getAlternativeTripsLimitDate() -> Date? {
         let limitDate: Date?
-        if let alternativeTripsDepthInDays = DriveKitDriverDataUI.shared.alternativeTripsDepthInDays, alternativeTripsDepthInDays >= 0 {
+        if let alternativeTripsDepthInDays = DriveKitDriverDataUI.shared.alternativeTripsDepthInDays {
             limitDate = Date().addingTimeInterval(Double(-alternativeTripsDepthInDays * 24 * 3600))
         } else {
             limitDate = nil

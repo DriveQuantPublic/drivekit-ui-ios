@@ -12,22 +12,23 @@ import DriveKitDBTripAccessModule
 import DriveKitCommonUI
 
 enum TripListConfiguration {
-    case motorized(vehicleId: String? = nil), alternative(transportationMode: TransportationMode? = nil)
+    case motorized(vehicleId: String? = nil)
+    case alternative(transportationMode: TransportationMode? = nil)
     
     func transportationModes() -> [TransportationMode] {
         switch self {
             case .motorized:
-                return [.unknown, .car, .moto, .truck]
+                return TransportationMode.allCases.filter { !$0.isAlternative() }
             case .alternative:
-                return [.bus, .train, .boat, .bike, .flight, .skiing, .onFoot, .idle, .other]
+                return TransportationMode.allCases.filter { $0.isAlternative() }
         }
     }
     
     func identifier() -> String {
         switch self {
-            case .motorized(_):
+            case .motorized:
                 return "dkMotorized"
-            case .alternative(_):
+            case .alternative:
                 return "dkAlternative"
         }
     }

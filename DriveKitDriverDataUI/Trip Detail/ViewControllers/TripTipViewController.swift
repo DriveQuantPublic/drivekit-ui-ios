@@ -83,9 +83,8 @@ class TripTipViewController: DKUIViewController {
     
     func configureAdvice() {
         let contentTextView = UITextView(frame: contentView.frame)
-        self.automaticallyAdjustsScrollViewInsets = false
 
-        if let htmlData = NSString(string: advice.message ?? "").data(using: String.Encoding.unicode.rawValue) {
+        if let htmlData = (advice.message ?? "").data(using: .unicode) {
             do {
                 let attributedString = try NSMutableAttributedString(data: htmlData, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
                 contentTextView.attributedText = NSAttributedString(attributedString: attributedString)

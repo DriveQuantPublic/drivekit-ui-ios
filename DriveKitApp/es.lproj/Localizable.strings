@@ -59,6 +59,7 @@
 "limit_reached_error"="Se ha alcanzado el número máximo de conductores en esta llave API";
 "logout_confirmation"="¿Estás seguro de que quieres desconectarte?";
 "network_ko_error"="Los datos móviles no están activados";
+"notif_app_bluetooth_deactivated"="Debes habilitar el sensor Bluetooth para utilizar todas las funciones de la aplicación %@.";
 "notif_trip_analysis_continue"="Continuar el análisis";
 "notif_trip_analysis_not_driving"="Yo no manejo";
 "notif_trip_analysis_suspend"="Detener";

@@ -74,7 +74,7 @@
 "dk_perm_utils_app_diag_notification_ko"="Um benachrichtigt zu werden, dass eine Fahrt gescannt wird, müssen Sie zulassen, dass die App Benachrichtigungen anzeigt.";
 "dk_perm_utils_app_diag_notification_link"="Benachrichtigungen zulassen";
 "dk_perm_utils_app_diag_notification_ok"="Die Anwendung zeigt Benachrichtigungen an, um Sie zu informieren, wenn eine Fahrt durchgeführt wird oder abgeschlossen ist. Wenn Sie der App nicht erlauben, Benachrichtigungen anzuzeigen, werden Sie nie benachrichtigt, wenn eine Fahrt gespeichert wird.";
-"dk_perm_utils_app_diag_notification_title"="Benachrichtigung";
+"dk_perm_utils_app_diag_notification_title"="Benachrichtigungen";
 "dk_perm_utils_app_diag_title"="App-Diagnose";
 "dk_perm_utils_diag_app_ok"="Alles ist normal";
 "dk_perm_utils_diag_app_ok_text"="Die Einstellungen Ihres Telefons sind gut und die für die Analyse Ihrer Fahrten notwendigen Sensoren sind aktiviert.";
@@ -98,6 +98,8 @@
 "dk_perm_utils_permissions_location_title"="Tourenaufzeichnung";
 "dk_perm_utils_permissions_nearby_text1_android12"="Um Ihr Fahrzeug zu erkennen und Ihre Fahrten zu analysieren, müssen Sie die Erkennung von Geräten in der Nähe aktivieren.";
 "dk_perm_utils_permissions_nearby_text2_android12"="Wählen Sie dazu die Option \"Zulassen\", nachdem Sie auf die Schaltfläche unten gedrückt haben.";
+"dk_perm_utils_permissions_notifications_text1"="Um informiert zu werden, wenn eine Reise analysiert wird, und um Tipps zu erhalten, müssen Sie der Anwendung erlauben, Benachrichtigungen anzuzeigen.";
+"dk_perm_utils_permissions_notifications_text2"="Wählen Sie dazu die Option \"Zulassen\", nachdem Sie auf die Schaltfläche unten getippt haben.";
 "dk_perm_utils_permissions_phone_settings_activity_button"="Berechtigung zur Aktivitätsverfolgung";
 "dk_perm_utils_permissions_phone_settings_activity_text"="Um die Analyse Ihrer Fahrten zu verbessern und den verwendeten Verkehrsträger zu identifizieren, müssen Sie die Option Bewegung & Fitness.";
 "dk_perm_utils_permissions_phone_settings_activity_text_android"="Um die Analyse Ihrer Fahrten zu verbessern und den verwendeten Verkehrsträger zu identifizieren, müssen Sie der Anwendung den Zugriff auf die Telefonaktivität ermöglichen.";
@@ -110,7 +112,9 @@
 "dk_perm_utils_permissions_phone_settings_location_step2"="Tippen Sie auf die Position";
 "dk_perm_utils_permissions_phone_settings_location_step3"="Wählen Sie \"Immer\"";
 "dk_perm_utils_permissions_phone_settings_location_step4"="Genaue position zulassen";
+"dk_perm_utils_permissions_phone_settings_notifications_button"="Benachrichtigungen zulassen";
 "dk_perm_utils_permissions_popup_button_settings"="Einstellungen";
-"dk_perm_utils_permissions_text_button_activity_settings"="Öffnen Sie die Einstellungen";
 "dk_perm_utils_permissions_text_button_location_settings"="Öffnen Sie die Einstellungen";
 "dk_perm_utils_permissions_text_button_nearby_devices_settings"="Öffnen Sie die Einstellungen";
+"dk_perm_utils_permissions_text_button_notifications_settings"="Öffnen Sie die Einstellungen";
+"dk_perm_utils_permissions_text_button_skip"="Überspringen und nicht mehr nachfragen";

@@ -41,7 +41,6 @@
 "dk_motor"="Engine type";
 "dk_name"="Name";
 "dk_power"="Power";
-"dk_too_many_vehicles_alert"="You have exceeded the vehicle limit, please delete one before creating a new one.";
 "dk_vehicle_add"="Add a vehicle";
 "dk_vehicle_beacon_already_paired"="The beacon is not available. It\'s already paired to another vehicle.";
 "dk_vehicle_beacon_already_paired_to_vehicle"="This beacon is already paired to this vehicle.";

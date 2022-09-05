@@ -11,7 +11,7 @@
 "dk_beacon_uuid"="Uuid";
 "dk_beacon_vehicle_unknown"="Ukendt køretøj";
 "dk_beacon_vehicule_linked"="Tilknyttet køretøj";
-"dk_beacon_verify"="Inspicere";
+"dk_beacon_verify"="Inspicer";
 "dk_bluetooth_address"="MAC-adresse på Bluetooth-enheden";
 "dk_bluetooth_name"="Bluetooth-enhedsnavn";
 "dk_brand"="Mærke";
@@ -19,8 +19,8 @@
 "dk_change_success"="Ændringerne er gennemført.";
 "dk_consumption"="Brændstofforbrug";
 "dk_detection_mode_beacon_desc_configured"="Beacon %@ er blevet knyttet til dette køretøj. Applikationen registrerer automatisk din rejse, når Beacon er tæt på din smartphone.";
-"dk_detection_mode_beacon_desc_not_configured"="Du skal forbinde et fyrtårn til dette køretøj";
-"dk_detection_mode_beacon_title"="ledestjerne";
+"dk_detection_mode_beacon_desc_not_configured"="Du skal forbinde et beacon til dette køretøj.";
+"dk_detection_mode_beacon_title"="Beacon";
 "dk_detection_mode_bluetooth_desc_configured"="Bluetooth %@ enhed er blevet knyttet til dette køretøj. Applikationen registrerer automatisk din rejse, når din telefon er tilsluttet denne enhed.";
 "dk_detection_mode_bluetooth_desc_not_configured"="Vælg et Bluetooth system til dette køretøj";
 "dk_detection_mode_bluetooth_title"="Bluetooth";
@@ -28,7 +28,7 @@
 "dk_detection_mode_disabled_title"="Slået fra";
 "dk_detection_mode_gps_desc"="Løsningen bruger telefonens sensorer til automatisk at registrere dine ture. Denne tilstand er optimeret til at begrænse batteriforbruget.";
 "dk_detection_mode_gps_title"="GPS";
-"dk_empty_vehicle_name"="Giv et køretøjs navn";
+"dk_empty_vehicle_name"="Navngiv dit køretøj";
 "dk_fields_not_valid"="Kontroller de data, du har indtastet";
 "dk_gearbox"="Gearkasse";
 "dk_gearbox_automatic"="Automatisk";
@@ -36,12 +36,11 @@
 "dk_gearbox_manual_6"="Manuel 6 gear";
 "dk_gearbox_manual_7"="Manuel 7 gear";
 "dk_gearbox_manual_8"="Manuel 8 gear";
-"dk_mass"="Masse";
+"dk_mass"="Vægt";
 "dk_model"="Model";
 "dk_motor"="Motortype";
 "dk_name"="Navn";
 "dk_power"="Strøm";
-"dk_too_many_vehicles_alert"="Du har overskredet køretøjsgrænsen, slet venligst en, før du opretter en ny.";
 "dk_vehicle_add"="Tilføj et køretøj";
 "dk_vehicle_beacon_already_paired"="Beacon er ikke tilgængelig. Det er allerede parret med et andet køretøj.";
 "dk_vehicle_beacon_already_paired_to_vehicle"="Denne fyr er allerede parret med dette køretøj.";
@@ -104,7 +103,7 @@
 "dk_vehicle_category_car_sport_title"="Sportsvogn";
 "dk_vehicle_category_car_suv_description"="Denne kategori svarer til crossover-køretøjer eller off-road køretøjer med firehjulstræk (4x4), og hvis længde varierer i gennemsnit fra 4,10 til 5,20 m.";
 "dk_vehicle_category_car_suv_title"="4x4, SUV, crossover";
-"dk_vehicle_category_display_brands"="Vælg nu mærke og model på dit køretøj";
+"dk_vehicle_category_display_brands"="Vælg mærke og model på dit køretøj";
 "dk_vehicle_category_truck_selection_title"="Hvilken slags lastbil kører du?";
 "dk_vehicle_category_truck_straight"="Lige lastbil";
 "dk_vehicle_category_truck_straight_2_axles"="To-akslet lige lastbil";
@@ -113,15 +112,15 @@
 "dk_vehicle_category_truck_trailer_2_axles"="To-akslet traktor";
 "dk_vehicle_category_truck_trailer_3_axles"="Tre-akslen traktor";
 "dk_vehicle_category_truck_trailer_4_axles"="Fire-akslet traktor";
-"dk_vehicle_configure_beacon_desc"="En fyr er allerede forbundet med køretøjet %@";
-"dk_vehicle_configure_beacon_title"="Konfiguration af fyret";
+"dk_vehicle_configure_beacon_desc"="Et beacon er allerede forbundet med køretøjet %@";
+"dk_vehicle_configure_beacon_title"="Indstilling af beacon";
 "dk_vehicle_configure_bluetooth_desc"="Bluetoothenheden er allerede parret med køretøjet.";
 "dk_vehicle_configure_bluetooth_title"="Konfiguration af Bluetooth";
 "dk_vehicle_curbweight"="Egenvægt";
 "dk_vehicle_delete"="Slet";
-"dk_vehicle_delete_confirm"="Er du sikker på at du vil slette %@? Overvågning af kilometertal og vedligeholdelsesdata slettes definitivt.";
+"dk_vehicle_delete_confirm"="Er du sikker på at du vil slette %@? Overvågning af kilometertal og vedligeholdelsesdata slettes permanent.";
 "dk_vehicle_detail_back_edit_alert"="Køretøjsdataene er blevet ændret. Vil du gemme dem?";
-"dk_vehicle_detection_mode_title"="Automatisk start:";
+"dk_vehicle_detection_mode_title"="Autostart";
 "dk_vehicle_engine_description"="Motortype?";
 "dk_vehicle_engine_diesel"="Diesel";
 "dk_vehicle_engine_diesel_hybrid"="Dieselelektrisk hybrid";
@@ -175,7 +174,7 @@
 "dk_vehicle_odometer_last_history_error"="Den sidste kilometertæller læsning kan ikke slettes.";
 "dk_vehicle_odometer_last_update"="Sidst opdateret %@";
 "dk_vehicle_odometer_mileage_kilometer"="Kilometertal (km)";
-"dk_vehicle_odometer_odometer_history_detail_title"="Kilometertal måling";
+"dk_vehicle_odometer_odometer_history_detail_title"="Kilometerantal";
 "dk_vehicle_odometer_vehicle_title"="Køretøjets kilometertal";
 "dk_vehicle_open_bluetooth_settings"="Åbn Bluetooth indstillinger";
 "dk_vehicle_other_brands"="Andre mærker";
@@ -199,5 +198,5 @@
 "dk_vehicle_type_truck_tractor_semi_trailer"="Semi trailer lastbil";
 "dk_vehicle_unknown"="Køretøjet er ukendt, vælg et andet køretøj.";
 "dk_vehicle_version_description"="Version af køretøjet?";
-"dk_vehicle_year_description"="År med frigivelse?";
+"dk_vehicle_year_description"="Årgang";
 "dk_version"="Version";

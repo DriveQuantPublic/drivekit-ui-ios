@@ -41,7 +41,6 @@
 "dk_motor"="Motorisation";
 "dk_name"="Nom";
 "dk_power"="Puissance";
-"dk_too_many_vehicles_alert"="Vous avez dépassé la limite autorisée du nombre de véhicules, veuillez en supprimer un avant d\'en créer un nouveau.";
 "dk_vehicle_add"="Ajouter un véhicule";
 "dk_vehicle_beacon_already_paired"="Le beacon n\'est pas disponible, il est déjà appairé à un autre véhicule.";
 "dk_vehicle_beacon_already_paired_to_vehicle"="Ce beacon est déjà appairé à ce véhicule.";

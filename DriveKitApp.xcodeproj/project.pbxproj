@@ -1094,6 +1094,7 @@
 		67301DAF26251921006B0432 /* HeaderDayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderDayView.xib; sourceTree = "<group>"; };
 		67301DBC2625C301006B0432 /* Trip+DKTripsListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trip+DKTripsListItem.swift"; sourceTree = "<group>"; };
 		67301DC32625C3BF006B0432 /* TripListVC+DKTripList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TripListVC+DKTripList.swift"; sourceTree = "<group>"; };
+		673D978A28C6052200774668 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6742577128B4D2EC00A61D1F /* DKVehicleImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKVehicleImages.swift; sourceTree = "<group>"; };
 		6744776A287ED13A0058D23B /* DKDriverDataImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDriverDataImages.swift; sourceTree = "<group>"; };
 		6744776C288594500058D23B /* DKChallengeImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKChallengeImages.swift; sourceTree = "<group>"; };
@@ -4299,6 +4300,7 @@
 				3F38C2712369CC14002E873A /* de */,
 				3F38C2722369CC14002E873A /* it */,
 				3F38C2732369CC15002E873A /* es */,
+				673D978A28C6052200774668 /* da */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

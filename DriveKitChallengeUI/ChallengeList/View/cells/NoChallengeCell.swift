@@ -17,9 +17,9 @@ class NoChallengeCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         label.font = DKUIFonts.primary.fonts(size: 16).with(.traitBold)
-        imageView.image = DKChallengeImages.waiting.image
+        imageView.image = DKImages.emptyData.image
     }
-    
+
     func configure(viewModel: NoChallengeViewModel) {
         label.text = viewModel.text
         imageView.image = viewModel.image

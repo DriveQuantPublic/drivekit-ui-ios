@@ -9,8 +9,7 @@
 import UIKit
 import DriveKitCommonUI
 
-class TransportationModeIcon : UIImageView {
-
+class TransportationModeIcon: UIImageView {
     var isSelected: Bool = false {
         didSet {
             update()
@@ -52,5 +51,4 @@ class TransportationModeIcon : UIImageView {
             setNeedsLayout()
         }
     }
-
 }

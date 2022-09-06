@@ -44,6 +44,8 @@ public enum DKDriverDataImages: String {
          transportationOnFoot = "dk_transportation_on_foot",
          transportationIdle = "dk_transportation_idle",
          transportationAll = "dk_transportation_all",
+         transportationDriver = "dk_transportation_driver",
+         transportationPassenger = "dk_transportation_passenger",
          noTripsRecorded = "dk_no_trips_recorded",
          noVehicleTrips = "dk_no_vehicle_trips",
          filter = "dk_filter"

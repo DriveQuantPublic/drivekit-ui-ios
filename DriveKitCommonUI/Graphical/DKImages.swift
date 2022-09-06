@@ -49,7 +49,7 @@ public enum DKImages: String {
     public var image: UIImage? {
         let renderingMode: UIImage.RenderingMode
         switch self  {
-        case .noScore, .rank1, .rank2, .rank3:
+        case .noScore, .rank1, .rank2, .rank3, .emptyData:
             renderingMode = .automatic
         default:
             renderingMode = .alwaysTemplate

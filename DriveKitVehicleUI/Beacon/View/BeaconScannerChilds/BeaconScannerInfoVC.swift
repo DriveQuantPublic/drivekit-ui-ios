@@ -61,7 +61,7 @@ class BeaconScannerInfoVC: UIViewController {
             
             
             if let distance = self.viewModel.beaconDistance {
-                distanceIndicatorView.configure(title: distance.formatMeterDistance(), image: UIImage(named: "dk_beacon_distance", in: .vehicleUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate))
+                distanceIndicatorView.configure(title: distance.formatMeterDistance(), image: DKVehicleImages.beaconDistance.image?.withRenderingMode(.alwaysTemplate))
             }
             let rssi: Int
             if let beaconRssi = self.viewModel.beaconRssi {
@@ -69,7 +69,7 @@ class BeaconScannerInfoVC: UIViewController {
             } else {
                 rssi = clBeacon.rssi
             }
-            signalIndicatorView.configure(title: "\(rssi) dBm", image: UIImage(named: "dk_beacon_signal", in: .vehicleUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate))
+            signalIndicatorView.configure(title: "\(rssi) dBm", image: DKVehicleImages.beaconSignalIntensity.image?.withRenderingMode(.alwaysTemplate))
         }
         if let level = viewModel.beaconBattery {
             batteryContainerView.embedSubview(batteryIndicatorView)
@@ -99,16 +99,14 @@ class BeaconScannerInfoVC: UIViewController {
     }
     
     private func batteryImage(level: Int) -> UIImage? {
-        let imageName: String
         if level <= 25 {
-            imageName = "dk_beacon_battery_25"
+            return DKVehicleImages.beaconBattery25.image?.withRenderingMode(.alwaysTemplate)
         } else if level <= 50 {
-            imageName = "dk_beacon_battery_50"
+            return DKVehicleImages.beaconBattery50.image?.withRenderingMode(.alwaysTemplate)
         } else if level <= 75 {
-            imageName = "dk_beacon_battery_75"
+            return DKVehicleImages.beaconBattery75.image?.withRenderingMode(.alwaysTemplate)
         } else {
-            imageName = "dk_beacon_battery_100"
+            return DKVehicleImages.beaconBattery100.image?.withRenderingMode(.alwaysTemplate)
         }
-        return UIImage(named: imageName, in: .vehicleUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate)
     }
 }

@@ -210,7 +210,7 @@ class AllTripFilterItem: DKFilterItem {
 
 class AllAlternativeMode: DKFilterItem {
     func getImage() -> UIImage? {
-        return UIImage(named: "dk_transportation_all", in: Bundle.driverDataUIBundle, compatibleWith: nil)
+        return DKDriverDataImages.transportationAll.image
     }
     
     func getName() -> String {

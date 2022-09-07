@@ -57,7 +57,20 @@ class TransportationModeVC: DKUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        self.carTransportationModeButton.image = DKDriverDataImages.transportationCar.image
+        self.motoTransportationModeButton.image = DKDriverDataImages.transportationMotorcycle.image
+        self.truckTransportationModeButton.image = DKDriverDataImages.transportationTruck.image
+        self.busTransportationModeButton.image = DKDriverDataImages.transportationBus.image
+        self.trainTransportationModeButton.image = DKDriverDataImages.transportationTrain.image
+        self.bikeTransportationModeButton.image = DKDriverDataImages.transportationBicyle.image
+        self.boatTransportationModeButton.image = DKDriverDataImages.transportationBoat.image
+        self.planeTransportationModeButton.image = DKDriverDataImages.transportationPlane.image
+        self.onFootTransportationModeButton.image = DKDriverDataImages.transportationOnFoot.image
+        self.skiingTransportationModeButton.image = DKDriverDataImages.transportationSkiing.image
+        self.idleTransportationModeButton.image = DKDriverDataImages.transportationIdle.image
+        self.otherTransportationModeButton.image = DKDriverDataImages.transportationOther.image
+
         self.title = "dk_driverdata_transportation_mode_title".dkDriverDataLocalized()
         
         self.messageLabel.attributedText = "dk_driverdata_transportation_mode_declaration_text".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.white).build()

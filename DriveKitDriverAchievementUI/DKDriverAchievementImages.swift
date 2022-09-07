@@ -15,10 +15,14 @@ public enum DKDriverAchievementImages: String {
          speeding = "dk_achievements_speeding"
     
     public var image: UIImage? {
-        if let image = UIImage(named: self.rawValue, in: .main, compatibleWith: nil) {
+        return DKDriverAchievementImages.image(named: self.rawValue)
+    }
+    
+    public static func image(named name: String) -> UIImage? {
+        if let image = UIImage(named: name, in: .main, compatibleWith: nil) {
             return image
         } else {
-            return UIImage(named: self.rawValue, in: .driverAchievementUIBundle, compatibleWith: nil)
+            return UIImage(named: name, in: .driverAchievementUIBundle, compatibleWith: nil)
         }
     }
 }

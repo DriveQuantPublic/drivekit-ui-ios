@@ -548,7 +548,7 @@ extension MapViewController: MKMapViewDelegate {
 
         if annotation.isEqual(startAnnotation) {
             let startImage = DKDriverDataImages.mapDeparture.image
-            view.image = startImage?.resizeImage(32, opaque: false, contentMode: .scaleAspectFit).tintedImage(withColor: UIColor.dkMapTrace)
+            view.image = startImage?.resizeImage(32, opaque: false, contentMode: .scaleAspectFit)
             view.centerOffset = CGPoint(x: 0, y: 0)
             view.resistantLayer.resistantZPosition = 1000
             let tripViewModel = viewModel
@@ -571,7 +571,7 @@ extension MapViewController: MKMapViewDelegate {
             }
         } else if annotation.isEqual(endAnnotation) {
             let endImage = DKDriverDataImages.mapArrival.image
-            view.image = endImage?.resizeImage(32, opaque: false, contentMode: .scaleAspectFit).tintedImage(withColor: UIColor.dkMapTrace)
+            view.image = endImage?.resizeImage(32, opaque: false, contentMode: .scaleAspectFit)
             view.centerOffset = CGPoint(x: 0, y: 0)
             view.resistantLayer.resistantZPosition = 1000
             let tripViewModel = viewModel
@@ -633,7 +633,7 @@ extension MapViewController: MKMapViewDelegate {
                     view.image = mapImage.image
                     if let sourceImage = view.image {
                         if mapImage == .mapDeparture || mapImage == .mapArrival {
-                            view.image = sourceImage.resizeImage(32, opaque: false, contentMode: .scaleAspectFit).tintedImage(withColor: UIColor.dkMapTrace)
+                            view.image = sourceImage.resizeImage(32, opaque: false, contentMode: .scaleAspectFit)
                             view.centerOffset = CGPoint(x: 0, y: 0)
                             view.resistantLayer.resistantZPosition = 1000
                         } else {

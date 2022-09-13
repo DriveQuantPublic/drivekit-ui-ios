@@ -116,7 +116,7 @@ public class TripListVC: DKUIViewController {
                 self.noTripsImage.image = DKDriverDataImages.noVehicleTrips.image?.withAlignmentRectInsets(UIEdgeInsets(top: -50, left: -50, bottom: -50, right: -50))
                 self.noTripsLabel.text = "dk_driverdata_no_trip_placeholder".dkDriverDataLocalized()
             } else {
-                self.noTripsImage.image = DKDriverDataImages.noTripsRecorded.image
+                self.noTripsImage.image = DKDriverDataImages.placeholderNoTrips.image
                 self.noTripsLabel.text = "dk_driverdata_no_trips_recorded".dkDriverDataLocalized()
             }
             self.synthesis.isHidden = true

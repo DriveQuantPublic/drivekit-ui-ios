@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -38,26 +38,31 @@
                         <constraint firstItem="KQq-yP-58q" firstAttribute="leading" secondItem="oE0-Om-j8w" secondAttribute="leading" id="hOW-Fi-Nd0"/>
                         <constraint firstItem="KQq-yP-58q" firstAttribute="top" secondItem="oE0-Om-j8w" secondAttribute="top" id="kFK-pJ-J90"/>
                         <constraint firstItem="Uod-zi-hzB" firstAttribute="centerX" secondItem="oE0-Om-j8w" secondAttribute="centerX" id="lG8-et-ZVf"/>
-                        <constraint firstAttribute="width" secondItem="oE0-Om-j8w" secondAttribute="height" multiplier="1:1" id="tuq-bg-MT4"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIt-wJ-fwd">
-                    <rect key="frame" x="111" y="298" width="42" height="24"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIt-wJ-fwd">
+                    <rect key="frame" x="0.0" y="288" width="264" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" priority="750" constant="44" id="Tv7-x7-SNb"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="MxX-Kh-rTB"/>
             <constraints>
                 <constraint firstItem="XIt-wJ-fwd" firstAttribute="centerX" secondItem="UWu-ZF-w7g" secondAttribute="centerX" id="0ye-W9-Jyd"/>
-                <constraint firstItem="MxX-Kh-rTB" firstAttribute="bottom" secondItem="XIt-wJ-fwd" secondAttribute="bottom" constant="10" id="7ZJ-Wn-knx"/>
+                <constraint firstItem="MxX-Kh-rTB" firstAttribute="bottom" secondItem="XIt-wJ-fwd" secondAttribute="bottom" id="7ZJ-Wn-knx"/>
+                <constraint firstItem="XIt-wJ-fwd" firstAttribute="top" secondItem="oE0-Om-j8w" secondAttribute="bottom" id="A1N-xh-QEK"/>
+                <constraint firstItem="oE0-Om-j8w" firstAttribute="leading" secondItem="MxX-Kh-rTB" secondAttribute="leading" constant="10" id="Aof-7K-lVL"/>
+                <constraint firstItem="XIt-wJ-fwd" firstAttribute="leading" secondItem="MxX-Kh-rTB" secondAttribute="leading" id="FDh-0b-o8z"/>
                 <constraint firstItem="oE0-Om-j8w" firstAttribute="centerX" secondItem="UWu-ZF-w7g" secondAttribute="centerX" id="mtv-lV-5lV"/>
-                <constraint firstItem="XIt-wJ-fwd" firstAttribute="top" secondItem="oE0-Om-j8w" secondAttribute="bottom" constant="10" id="mwz-dB-4pO"/>
                 <constraint firstItem="oE0-Om-j8w" firstAttribute="top" secondItem="MxX-Kh-rTB" secondAttribute="top" id="u7E-LC-dvI"/>
+                <constraint firstItem="MxX-Kh-rTB" firstAttribute="trailing" secondItem="oE0-Om-j8w" secondAttribute="trailing" constant="10" id="w21-we-ca3"/>
                 <constraint firstItem="oE0-Om-j8w" firstAttribute="leading" secondItem="MxX-Kh-rTB" secondAttribute="leading" constant="10" id="xwG-G8-M8t"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="MxX-Kh-rTB"/>
             <connections>
                 <outlet property="badgeImage" destination="Uod-zi-hzB" id="Tmq-UH-je5"/>
                 <outlet property="nameLabel" destination="XIt-wJ-fwd" id="Hey-jA-gqd"/>

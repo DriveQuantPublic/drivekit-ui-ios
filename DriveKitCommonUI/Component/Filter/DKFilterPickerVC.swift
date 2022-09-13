@@ -9,7 +9,6 @@
 import UIKit
 
 final public class DKFilterPickerVC: DKUIViewController {
-
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cancelButton: UIButton!
     
@@ -72,5 +71,4 @@ extension DKFilterPickerVC : UITableViewDataSource {
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 88
     }
-    
 }

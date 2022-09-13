@@ -19,6 +19,7 @@ class TripSimulatorViewModel {
         .trip(.suburbanTrip),
         .trip(.highwayTrip),
         .trip(.trainTrip),
+        .trip(.busTrip),
         .trip(.boatTrip),
         .crashTrip(.unconfirmed0KmH),
         .crashTrip(.confirmed10KmH),

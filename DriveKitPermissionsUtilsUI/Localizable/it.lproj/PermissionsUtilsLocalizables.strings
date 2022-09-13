@@ -74,7 +74,7 @@
 "dk_perm_utils_app_diag_notification_ko"="Per essere avvisati della scansione di un viaggio, è necessario consentire all\'applicazione di visualizzare le notifiche.";
 "dk_perm_utils_app_diag_notification_link"="Consenti notifiche";
 "dk_perm_utils_app_diag_notification_ok"="L\'applicazione visualizza le notifiche per informarti quando un viaggio è in corso o è completo. Se non si consente all\'applicazione di visualizzare le notifiche, non si verrà mai notificati quando si salva un viaggio.";
-"dk_perm_utils_app_diag_notification_title"="Notifica";
+"dk_perm_utils_app_diag_notification_title"="Notifiche";
 "dk_perm_utils_app_diag_title"="Diagnostica dell\'app";
 "dk_perm_utils_diag_app_ok"="Tutto è normale";
 "dk_perm_utils_diag_app_ok_text"="Le impostazioni del telefono sono buone e vengono attivati i sensori necessari per l\'analisi dei tuoi viaggi.";
@@ -98,6 +98,9 @@
 "dk_perm_utils_permissions_location_title"="Tracciabilità automatica dei viaggi";
 "dk_perm_utils_permissions_nearby_text1_android12"="Per riconoscere il suo veicolo e analizzare i suoi viaggi, è essenziale attivare il rilevamento dei dispositivi vicini.";
 "dk_perm_utils_permissions_nearby_text2_android12"="Per farlo, selezionate l\'opzione \"Consenti\" dopo aver premuto il pulsante qui sotto.";
+"dk_perm_utils_permissions_notifications_text1"="Per essere informati quando un viaggio viene analizzato e ricevere suggerimenti, è necessario consentire all\'applicazione di visualizzare le notifiche.
+";
+"dk_perm_utils_permissions_notifications_text2"="A tal fine, selezionare l\'opzione \"Consenti\" dopo aver toccato il pulsante sottostante.";
 "dk_perm_utils_permissions_phone_settings_activity_button"="Autorizzare il monitoraggio delle attività";
 "dk_perm_utils_permissions_phone_settings_activity_text"="Per migliorare l\'analisi dei vostri viaggi e identificare il modo di trasporto utilizzato, è necessario attivare l\'opzione Movimento e fitness.";
 "dk_perm_utils_permissions_phone_settings_activity_text_android"="Per migliorare l\'analisi dei vostri viaggi e identificare il modo di trasporto utilizzato, è necessario consentire all\'applicazione di accedere all\'attività telefonica.";
@@ -110,7 +113,9 @@
 "dk_perm_utils_permissions_phone_settings_location_step2"="Premete su posizione";
 "dk_perm_utils_permissions_phone_settings_location_step3"="Selezionare \"Sempre\"";
 "dk_perm_utils_permissions_phone_settings_location_step4"="Consentire la posizione esatta";
+"dk_perm_utils_permissions_phone_settings_notifications_button"="Accettare le notifiche";
 "dk_perm_utils_permissions_popup_button_settings"="Impostazioni";
-"dk_perm_utils_permissions_text_button_activity_settings"="Aprire le impostazioni";
 "dk_perm_utils_permissions_text_button_location_settings"="Aprire le impostazioni";
 "dk_perm_utils_permissions_text_button_nearby_devices_settings"="Aprire le impostazioni";
+"dk_perm_utils_permissions_text_button_notifications_settings"="Aprire le impostazioni";
+"dk_perm_utils_permissions_text_button_skip"="Salta e non chiedere più";

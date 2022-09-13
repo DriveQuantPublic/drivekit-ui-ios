@@ -144,18 +144,21 @@ enum NotificationType {
                 if !transportationMode.isAlternative() {
                     return message ?? ""
                 } else {
+                    let areAlternativeTripsManaged = DriveKitDriverDataUI.shared.enableAlternativeTrips
                     switch transportationMode {
                         case .train:
-                            key = "notif_trip_train_detected"
+                            key = areAlternativeTripsManaged ? "notif_trip_train_detected" : "notif_trip_train_detected_not_displayed"
+                        case .bus:
+                            key = areAlternativeTripsManaged ? "notif_trip_bus_detected" : "notif_trip_bus_detected_not_displayed"
                         case .boat:
-                            key = "notif_trip_boat_detected"
+                            key = areAlternativeTripsManaged ? "notif_trip_boat_detected" : "notif_trip_boat_detected_not_displayed"
                         case .bike:
-                            key = "notif_trip_bike_detected"
+                            key = areAlternativeTripsManaged ? "notif_trip_bike_detected" : "notif_trip_bike_detected_not_displayed"
                         case .skiing:
-                            key = "notif_trip_skiing_detected"
+                            key = areAlternativeTripsManaged ? "notif_trip_skiing_detected" : "notif_trip_skiing_detected_not_displayed"
                         case .idle:
-                            key = "notif_trip_idle_detected"
-                        case .car, .unknown, .truck, .moto, .bus, .flight, .onFoot, .other:
+                            key = areAlternativeTripsManaged ? "notif_trip_idle_detected" : "notif_trip_idle_detected_not_displayed"
+                        case .car, .unknown, .truck, .moto, .flight, .onFoot, .other:
                             return ""
                         @unknown default:
                             return ""

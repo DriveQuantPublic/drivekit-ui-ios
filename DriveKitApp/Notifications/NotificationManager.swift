@@ -372,9 +372,9 @@ extension NotificationManager: TripListener {
 extension TransportationMode {
     var isAlternativeNotificationManaged: Bool {
         switch self {
-            case .unknown, .car, .moto, .truck, .bus, .flight, .onFoot, .other:
+            case .unknown, .car, .moto, .truck, .flight, .onFoot, .other:
                 return false
-            case .train, .boat, .bike, .skiing, .idle:
+            case .train, .bus, .boat, .bike, .skiing, .idle:
                 return true
             @unknown default:
                 return false

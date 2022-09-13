@@ -41,7 +41,6 @@
 "dk_motor"="Tipo di motore";
 "dk_name"="Nome";
 "dk_power"="Potenza";
-"dk_too_many_vehicles_alert"="Avete superato il limite del numero di veicoli consentiti, vi preghiamo di cancellarne uno prima di crearne uno nuovo.";
 "dk_vehicle_add"="Aggiungi un veicolo";
 "dk_vehicle_beacon_already_paired"="Il beacon non è disponibile, è già abbinato ad un altro veicolo.";
 "dk_vehicle_beacon_already_paired_to_vehicle"="Questo beacon è già accoppiato a questo veicolo.";

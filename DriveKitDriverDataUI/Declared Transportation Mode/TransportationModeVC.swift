@@ -70,6 +70,8 @@ class TransportationModeVC: DKUIViewController {
         self.skiingTransportationModeButton.image = DKDriverDataImages.transportationSkiing.image
         self.idleTransportationModeButton.image = DKDriverDataImages.transportationIdle.image
         self.otherTransportationModeButton.image = DKDriverDataImages.transportationOther.image
+        self.driverButton.image = DKDriverDataImages.transportationDriver.image
+        self.passengerButton.image = DKDriverDataImages.transportationPassenger.image
 
         self.title = "dk_driverdata_transportation_mode_title".dkDriverDataLocalized()
         

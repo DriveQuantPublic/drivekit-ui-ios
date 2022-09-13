@@ -204,7 +204,7 @@ extension ChallengeListVC: UICollectionViewDataSource {
             } else {
                 cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoChallengeCellIdentifier", for: indexPath)
                 if let noChallengeCell = cell as? NoChallengeCell {
-                    noChallengeCell.configure(viewModel: NoChallengeViewModel(text: "dk_challenge_no_active_challenge".dkChallengeLocalized(), image: DKChallengeImages.waiting.image))
+                    noChallengeCell.configure(viewModel: NoChallengeViewModel(text: "dk_challenge_no_active_challenge".dkChallengeLocalized(), image: DKImages.emptyData.image))
                 }
             }
         } else if collectionView == pastChallengesCollectionView {

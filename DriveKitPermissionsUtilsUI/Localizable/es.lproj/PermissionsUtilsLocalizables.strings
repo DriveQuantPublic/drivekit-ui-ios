@@ -74,7 +74,7 @@
 "dk_perm_utils_app_diag_notification_ko"="Para que se le notifique que se está escaneando un viaje, debe permitir que la aplicación muestre las notificaciones.";
 "dk_perm_utils_app_diag_notification_link"="Permitir notificaciones";
 "dk_perm_utils_app_diag_notification_ok"="La aplicación muestra notificaciones para informarle cuando un viaje está en progreso o está completo. Si no permite que la aplicación muestre notificaciones, nunca recibirá una notificación cuando se guarde un viaje.";
-"dk_perm_utils_app_diag_notification_title"="Notificación";
+"dk_perm_utils_app_diag_notification_title"="Notificaciones";
 "dk_perm_utils_app_diag_title"="Diagnóstico de la aplicación";
 "dk_perm_utils_diag_app_ok"="Todo es normal";
 "dk_perm_utils_diag_app_ok_text"="La configuración de su teléfono es buena y los sensores necesarios para el análisis de sus viajes están activados.";
@@ -98,6 +98,8 @@
 "dk_perm_utils_permissions_location_title"="Autoseguimiento de viajes";
 "dk_perm_utils_permissions_nearby_text1_android12"="Para reconocer su vehículo y analizar sus desplazamientos, es imprescindible activar la detección de dispositivos cercanos.";
 "dk_perm_utils_permissions_nearby_text2_android12"="Para ello, seleccione la opción \"Permitir\" tras pulsar el botón.";
+"dk_perm_utils_permissions_notifications_text1"="Para estar informado cuando se analiza un viaje y recibir consejos, debe permitir que la aplicación muestre notificaciones.";
+"dk_perm_utils_permissions_notifications_text2"="Para ello, seleccione la opción \"Permitir\" después de tocar el botón de abajo.";
 "dk_perm_utils_permissions_phone_settings_activity_button"="Autorizar el seguimiento de la actividad";
 "dk_perm_utils_permissions_phone_settings_activity_text"="Para mejorar el análisis de sus viajes e identificar el medio de transporte utilizado, debe activar la opción Condición y actividad física.";
 "dk_perm_utils_permissions_phone_settings_activity_text_android"="Para mejorar el análisis de sus viajes e identificar el medio de transporte utilizado, debe permitir que la aplicación acceda a la actividad telefónica.";
@@ -110,7 +112,9 @@
 "dk_perm_utils_permissions_phone_settings_location_step2"="Pulse sobre la posición";
 "dk_perm_utils_permissions_phone_settings_location_step3"="Seleccione \"Siempre\"";
 "dk_perm_utils_permissions_phone_settings_location_step4"="Permitir la ubicación exacta";
+"dk_perm_utils_permissions_phone_settings_notifications_button"="Aceptar notificaciones";
 "dk_perm_utils_permissions_popup_button_settings"="Ajustes";
-"dk_perm_utils_permissions_text_button_activity_settings"="Abrir los ajustes";
 "dk_perm_utils_permissions_text_button_location_settings"="Abrir los ajustes";
 "dk_perm_utils_permissions_text_button_nearby_devices_settings"="Abrir los ajustes";
+"dk_perm_utils_permissions_text_button_notifications_settings"="Abrir los ajustes";
+"dk_perm_utils_permissions_text_button_skip"="Omitir y no volver a preguntar";

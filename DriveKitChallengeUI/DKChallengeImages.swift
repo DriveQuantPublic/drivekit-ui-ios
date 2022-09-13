@@ -18,7 +18,6 @@ public enum DKChallengeImages: String {
          leaderboardDistraction = "dk_challenge_leaderboard_distraction",
          leaderboardEcodriving = "dk_challenge_leaderboard_ecodriving",
          leaderboardSpeeding = "dk_challenge_leaderboard_speeding",
-         waiting = "dk_challenge_waiting",
          finished = "dk_challenge_finished",
          general101Trophy = "dk_challenge_general_101_trophy",
          general102Medal = "dk_challenge_general_102_medal",

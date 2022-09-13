@@ -43,12 +43,13 @@ public enum DKImages: String {
          noScore = "dk_no_score",
          rank1 = "dk_common_rank_1",
          rank2 = "dk_common_rank_2",
-         rank3 = "dk_common_rank_3"
+         rank3 = "dk_common_rank_3",
+         emptyData = "dk_common_empty_data"
 
     public var image: UIImage? {
         let renderingMode: UIImage.RenderingMode
         switch self  {
-        case .noScore, .rank1, .rank2, .rank3:
+        case .noScore, .rank1, .rank2, .rank3, .emptyData:
             renderingMode = .automatic
         default:
             renderingMode = .alwaysTemplate

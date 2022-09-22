@@ -1,9 +1,13 @@
+"account_deletion_confirmation"="Delete your account permanently?\nThis action is not reversible.";
+"account_deletion_content_1"="If you confirm your choice, you will be automatically logged out and the account deletion request will be taken into account.";
+"account_deletion_content_2"="You have 30 days to re-login to the application. If you reconnect within 30 days, the account deletion request will be cancelled.\n\nAfter this time, if you do not log back in, all your data will be permanently deleted.\n\nThe deletion of your data is not reversible.";
 "app_name"="DriveKit Demo App";
 "authentication_description"="To initialize the DriveKit SDK, it is essential to configure a unique identifier for each user.\n\nWe recommend that you enter an anonymous identifier and never use a phone number or an email address.";
 "authentication_error"="Invalid login";
 "authentication_header"="User identification";
 "authentication_title"="Please enter a unique user ID";
 "authentication_unique_identifier"="Unique identifier";
+"button_delete_account"="Delete my account";
 "button_logout"="LOG OUT";
 "button_next_step"="Go to the next step";
 "button_see_documentation"="SEE THE DOCUMENTATION";
@@ -14,6 +18,7 @@
 "cancel_trip"="Cancel the trip";
 "client_error"="An error has occurred, please try again later.";
 "dashboard_header"="Dashboard";
+"delete_account_header"="Account Deletion";
 "drivekit_doc_ios_badges"="https://docs.drivequant.com/driver-achievement/user-interface/ios#select-badges-categories";
 "drivekit_doc_ios_challenges"="https://docs.drivequant.com/user-interface/ios/get-started#display-challenge-list";
 "drivekit_doc_ios_diag"="https://docs.drivequant.com/permissions-utils/permission-utils/ios/main-configurations#sdk-diagnosis";
@@ -112,6 +117,7 @@
 "parameters_auto_start_disabled"="The automatic mode is in idle mode. Enable this function if you want the application to automatically detect and analyze your trips.";
 "parameters_auto_start_enabled"="The automatic mode is activated. In this configuration, the application analyzes your trips without any manual action even if it is in the background.";
 "parameters_auto_start_title"="Auto Start";
+"parameters_delete_account_title"="Account Deletion";
 "parameters_enter_firstname"="Enter your first name";
 "parameters_enter_lastname"="Enter your last name";
 "parameters_enter_pseudo"="Enter your pseudo";

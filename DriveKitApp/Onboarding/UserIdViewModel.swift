@@ -24,7 +24,7 @@ class UserIdViewModel {
     }
 
     func sendUserId(userId: String, completionHandler: @escaping ((Bool, RequestError?) -> ())) {
-        DriveKitDelegateManager.shared.registerDelegate(delegate: self)
+        DriveKitDelegateManager.shared.register(delegate: self)
         DriveKit.shared.setUserId(userId: userId)
         self.completionHandler = completionHandler
     }
@@ -32,19 +32,19 @@ class UserIdViewModel {
 
 extension UserIdViewModel: DriveKitDelegate {
     func driveKitDidConnect(_ driveKit: DriveKit) {
-        DriveKitDelegateManager.shared.unregisterDelegate(delegate: self)
+        DriveKitDelegateManager.shared.unregister(delegate: self)
         self.completionHandler?(true, nil)
         self.completionHandler = nil
     }
 
     func driveKitDidDisconnect(_ driveKit: DriveKit) {
-        DriveKitDelegateManager.shared.unregisterDelegate(delegate: self)
+        DriveKitDelegateManager.shared.unregister(delegate: self)
         self.completionHandler?(false, nil)
         self.completionHandler = nil
     }
 
     func driveKit(_ driveKit: DriveKit, didReceiveAuthenticationError error: RequestError) {
-        DriveKitDelegateManager.shared.unregisterDelegate(delegate: self)
+        DriveKitDelegateManager.shared.unregister(delegate: self)
         self.completionHandler?(false, error)
         self.completionHandler = nil
     }

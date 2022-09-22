@@ -1,9 +1,13 @@
+"account_deletion_confirmation"="Ihr Konto endgültig löschen?\nDiese Aktion kann nicht rückgängig gemacht werden.";
+"account_deletion_content_1"="Wenn Sie Ihre Wahl bestätigen, werden Sie automatisch abgemeldet und der Antrag auf Löschung des Kontos wird berücksichtigt.";
+"account_deletion_content_2"="Sie haben 30 Tage Zeit, um sich erneut anzumelden.\Wenn Sie sich innerhalb von 30 Tagen erneut anmelden, wird der Antrag auf Löschung des Kontos storniert.\n\nWenn Sie sich nach Ablauf dieser Frist nicht erneut anmelden, werden alle Ihre Daten endgültig gelöscht.\n\nDie Löschung Ihrer Daten kann nicht rückgängig gemacht werden.";
 "app_name"="DriveKit Demo App";
 "authentication_description"="Um das DriveKit SDK zu initialisieren, müssen Sie für jeden Benutzer eine eindeutige ID einrichten.\n\nWir empfehlen Ihnen, eine anonyme ID einzugeben und niemals eine Telefonnummer oder E-Mail-Adresse zu verwenden.";
 "authentication_error"="Ungültige Kennung";
 "authentication_header"="Benutzeridentifikation";
 "authentication_title"="Bitte geben Sie eine eindeutige Benutzerkennung an.";
 "authentication_unique_identifier"="Eindeutige Kennung";
+"button_delete_account"="Mein Konto löschen";
 "button_logout"="ENTFERNUNG";
 "button_next_step"="Zum nächsten Schritt übergehen";
 "button_see_documentation"="DIE DOKUMENTATION ANSEHEN";
@@ -14,6 +18,7 @@
 "cancel_trip"="Stornierung der Reise";
 "client_error"="Es ist ein Fehler aufgetreten. Bitte versuchen Sie es zu einem späteren Zeitpunkt noch einmal.";
 "dashboard_header"="Dashboard";
+"delete_account_header"="Löschung des Kontos";
 "drivekit_doc_ios_badges"="https://docs.drivequant.com/driver-achievement/user-interface/ios#select-badges-categories";
 "drivekit_doc_ios_challenges"="https://docs.drivequant.com/user-interface/ios/get-started#display-challenge-list";
 "drivekit_doc_ios_diag"="https://docs.drivequant.com/permissions-utils/permission-utils/ios/main-configurations#sdk-diagnosis";
@@ -112,6 +117,7 @@
 "parameters_auto_start_disabled"="Der Automatikbetrieb befindet sich im Standby-Modus. Aktivieren Sie diese Funktion, wenn Sie möchten, dass die Anwendung Ihre Routen automatisch erkennt und analysiert.";
 "parameters_auto_start_enabled"="Der Automatikbetrieb ist aktiviert. In dieser Konfiguration analysiert die Anwendung Ihre Routen ohne manuelles Eingreifen, auch wenn sie sich im Hintergrund befindet.";
 "parameters_auto_start_title"="Automatisches Starten";
+"parameters_delete_account_title"="Löschung des Kontos";
 "parameters_enter_firstname"="Geben Sie Ihren Vornamen ein";
 "parameters_enter_lastname"="Geben Sie Ihren Nachnamen ein";
 "parameters_enter_pseudo"="Geben Sie Ihr Pseudo";

@@ -391,6 +391,9 @@
 		67462D8D2660CE0400016FAF /* ChallengeResultsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67462D8B2660CE0400016FAF /* ChallengeResultsVC.xib */; };
 		67462D8F2660CE2600016FAF /* ChallengeResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67462D8E2660CE2600016FAF /* ChallengeResultsViewModel.swift */; };
 		67462D912660CE4300016FAF /* ChallengeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67462D902660CE4300016FAF /* ChallengeDetailViewModel.swift */; };
+		6765604F28DC3295003B74CD /* DeleteAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765604D28DC3295003B74CD /* DeleteAccountVC.swift */; };
+		6765605028DC3295003B74CD /* DeleteAccountVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6765604E28DC3295003B74CD /* DeleteAccountVC.xib */; };
+		6765605228DC340F003B74CD /* DeleteAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765605128DC340F003B74CD /* DeleteAccountViewModel.swift */; };
 		6765E70C280EBA9F00FD13F8 /* PermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765E70A280EBA9F00FD13F8 /* PermissionsViewController.swift */; };
 		6765E70D280EBA9F00FD13F8 /* PermissionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6765E70B280EBA9F00FD13F8 /* PermissionsViewController.xib */; };
 		6765E70F280EBAB300FD13F8 /* PermissionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765E70E280EBAB300FD13F8 /* PermissionsViewModel.swift */; };
@@ -427,7 +430,6 @@
 		67B5837528040B330065C2E7 /* UserIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B5837328040B330065C2E7 /* UserIdViewController.swift */; };
 		67B5837628040B330065C2E7 /* UserIdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67B5837428040B330065C2E7 /* UserIdViewController.xib */; };
 		67B5837828040B730065C2E7 /* UserIdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B5837728040B730065C2E7 /* UserIdViewModel.swift */; };
-		67B5837A28040B7E0065C2E7 /* DriveKitDelegateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B5837928040B7E0065C2E7 /* DriveKitDelegateManager.swift */; };
 		67B5837C2804487C0065C2E7 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B5837B2804487C0065C2E7 /* CustomTextField.swift */; };
 		67B5837F280468FE0065C2E7 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B5837D280468FE0065C2E7 /* HoshiTextField.swift */; };
 		67B58380280468FE0065C2E7 /* TextFieldEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B5837E280468FE0065C2E7 /* TextFieldEffects.swift */; };
@@ -1109,6 +1111,9 @@
 		67462D8B2660CE0400016FAF /* ChallengeResultsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeResultsVC.xib; sourceTree = "<group>"; };
 		67462D8E2660CE2600016FAF /* ChallengeResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeResultsViewModel.swift; sourceTree = "<group>"; };
 		67462D902660CE4300016FAF /* ChallengeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailViewModel.swift; sourceTree = "<group>"; };
+		6765604D28DC3295003B74CD /* DeleteAccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeleteAccountVC.swift; path = "../../../../gitlab/ios-app/IFP-Client/IFPClient/DeleteAccountVC.swift"; sourceTree = "<group>"; };
+		6765604E28DC3295003B74CD /* DeleteAccountVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DeleteAccountVC.xib; path = "../../../../gitlab/ios-app/IFP-Client/IFPClient/DeleteAccountVC.xib"; sourceTree = "<group>"; };
+		6765605128DC340F003B74CD /* DeleteAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewModel.swift; sourceTree = "<group>"; };
 		6765E70A280EBA9F00FD13F8 /* PermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsViewController.swift; sourceTree = "<group>"; };
 		6765E70B280EBA9F00FD13F8 /* PermissionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PermissionsViewController.xib; sourceTree = "<group>"; };
 		6765E70E280EBAB300FD13F8 /* PermissionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsViewModel.swift; sourceTree = "<group>"; };
@@ -1148,7 +1153,6 @@
 		67B5837328040B330065C2E7 /* UserIdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIdViewController.swift; sourceTree = "<group>"; };
 		67B5837428040B330065C2E7 /* UserIdViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserIdViewController.xib; sourceTree = "<group>"; };
 		67B5837728040B730065C2E7 /* UserIdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIdViewModel.swift; sourceTree = "<group>"; };
-		67B5837928040B7E0065C2E7 /* DriveKitDelegateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveKitDelegateManager.swift; sourceTree = "<group>"; };
 		67B5837B2804487C0065C2E7 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		67B5837D280468FE0065C2E7 /* HoshiTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoshiTextField.swift; sourceTree = "<group>"; };
 		67B5837E280468FE0065C2E7 /* TextFieldEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldEffects.swift; sourceTree = "<group>"; };
@@ -2500,7 +2504,6 @@
 		67B58382280481340065C2E7 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				67B5837928040B7E0065C2E7 /* DriveKitDelegateManager.swift */,
 				67B58383280481570065C2E7 /* SynchroServicesManager.swift */,
 				63570DFB280996160082A446 /* TripListenerManager.swift */,
 			);
@@ -3018,6 +3021,9 @@
 				63F2777C28213C790051F7FA /* SettingsViewController.swift */,
 				63F2777A282128FD0051F7FA /* SettingsViewController.xib */,
 				63852E1E2821E73800F7CE00 /* SettingsViewModel.swift */,
+				6765604D28DC3295003B74CD /* DeleteAccountVC.swift */,
+				6765604E28DC3295003B74CD /* DeleteAccountVC.xib */,
+				6765605128DC340F003B74CD /* DeleteAccountViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -3590,6 +3596,7 @@
 				63570E0A2809C4150082A446 /* FeatureView.xib in Resources */,
 				6765E71A28103F3000FD13F8 /* TripSimulatorViewController.xib in Resources */,
 				63F2777B282128FD0051F7FA /* SettingsViewController.xib in Resources */,
+				6765605028DC3295003B74CD /* DeleteAccountVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4159,6 +4166,7 @@
 				67B5837528040B330065C2E7 /* UserIdViewController.swift in Sources */,
 				63842D4A2816CC53007F9256 /* FeatureType.swift in Sources */,
 				6765E71C28103F4700FD13F8 /* TripSimulatorViewModel.swift in Sources */,
+				6765604F28DC3295003B74CD /* DeleteAccountVC.swift in Sources */,
 				6765E71E28103F6000FD13F8 /* TripSimulatorItem.swift in Sources */,
 				63F2777D28213C790051F7FA /* SettingsViewController.swift in Sources */,
 				63F4C73B280E00EE006396B9 /* FeatureViewCell.swift in Sources */,
@@ -4194,9 +4202,9 @@
 				6381410728157EA20031BCC0 /* NotificationSettings.swift in Sources */,
 				671087D428072FDE004FA464 /* UserInfoViewModel.swift in Sources */,
 				6765E72428135A6500FD13F8 /* TripSimulatorDetailViewModel.swift in Sources */,
-				67B5837A28040B7E0065C2E7 /* DriveKitDelegateManager.swift in Sources */,
 				67C055C027FDF6CC00B7159D /* ApiKeyViewController.swift in Sources */,
 				67B58380280468FE0065C2E7 /* TextFieldEffects.swift in Sources */,
+				6765605228DC340F003B74CD /* DeleteAccountViewModel.swift in Sources */,
 				6765E715280EBACF00FD13F8 /* VehiclesViewModel.swift in Sources */,
 				63E95A43282AA901003DC276 /* InfoBannerView.swift in Sources */,
 				63F4C735280DD8B0006396B9 /* FeaturesViewController.swift in Sources */,

@@ -1,9 +1,13 @@
+"account_deletion_confirmation"="Cancellare il tuo account in modo permanente?\nQuesta azione non è reversibile.";
+"account_deletion_content_1"="Se confermate la vostra scelta, sarete automaticamente disconnessi e la richiesta di cancellare il vostro account sarà presa in considerazione.";
+"account_deletion_content_2"="Hai 30 giorni di tempo per riconnetterti all\'applicazione. Se ti riconnetti entro 30 giorni, la richiesta di cancellazione del tuo account sarà annullata.\n\nDopo questo periodo, se non effettui nuovamente il login, tutti i tuoi dati saranno cancellati definitivamente.\n\nLa cancellazione dei suoi dati non è reversibile.";
 "app_name"="DriveKit Demo App";
 "authentication_description"="Per inizializzare l\'SDK DriveKit, è essenziale configurare un identificatore unico per ogni utente.\n\nTi consigliamo di inserire un identificatore anonimo e di non usare mai un numero di telefono o un indirizzo email.";
 "authentication_error"="Accesso non valido";
 "authentication_header"="Identificazione dell\'utente";
 "authentication_title"="Inserisci un ID utente unico";
 "authentication_unique_identifier"="Identificatore unico";
+"button_delete_account"="Cancellare il mio account";
 "button_logout"="DISCONNETTERE";
 "button_next_step"="Passare alla fase successiva";
 "button_see_documentation"="VEDERE LA DOCUMENTAZIONE";
@@ -14,6 +18,7 @@
 "cancel_trip"="Annulla il viaggio";
 "client_error"="Si è verificato un errore, si prega di riprovare più tardi.";
 "dashboard_header"="Dashboard";
+"delete_account_header"="Eliminazione dell\'account";
 "drivekit_doc_ios_badges"="https://docs.drivequant.com/driver-achievement/user-interface/ios#select-badges-categories";
 "drivekit_doc_ios_challenges"="https://docs.drivequant.com/user-interface/ios/get-started#display-challenge-list";
 "drivekit_doc_ios_diag"="https://docs.drivequant.com/permissions-utils/permission-utils/ios/main-configurations#sdk-diagnosis";
@@ -112,6 +117,7 @@
 "parameters_auto_start_disabled"="La modalità automatica è in standby. Attivare questa funzione se si desidera che l\'applicazione rilevi e analizzi automaticamente le rotte.";
 "parameters_auto_start_enabled"="Il modo automatico è attivato. In questa configurazione, l\'applicazione analizza i percorsi senza intervento manuale anche se in background.";
 "parameters_auto_start_title"="Inizio automatico";
+"parameters_delete_account_title"="Eliminazione dell\'account";
 "parameters_enter_firstname"="Inserisci il tuo nome";
 "parameters_enter_lastname"="Inserisci il tuo cognome";
 "parameters_enter_pseudo"="Inserisci il tuo pseudo";

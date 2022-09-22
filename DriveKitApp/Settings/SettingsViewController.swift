@@ -11,7 +11,7 @@ import DriveKitCommonUI
 
 class SettingsViewController: UIViewController {
     private let viewModel = SettingsViewModel()
-
+    
     @IBOutlet private weak var logoutButton: UIButton!
     // UserAccount.
     @IBOutlet private weak var userAccountIcon: UIImageView!
@@ -35,43 +35,51 @@ class SettingsViewController: UIViewController {
     @IBOutlet private weak var notificationsTitle: UILabel!
     @IBOutlet private weak var notificationsDescription: UILabel!
     @IBOutlet private weak var notificationsButton: UIButton!
+    @IBOutlet private weak var deletionIcon: UIImageView!
+    @IBOutlet private weak var deletionTitle: UILabel!
+    @IBOutlet private weak var deletionDescription: UILabel!
+    @IBOutlet private weak var deletionButton: UIButton!
     // Separators.
     @IBOutlet private var separators: [UIView]!
-
+    
     init() {
         super.init(nibName: String(describing: SettingsViewController.self), bundle: nil)
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBackButton()
         setupView()
     }
-
+    
     private func configureBackButton() {
         DKUIViewController.configureBackButton(viewController: self, selector: #selector(onBack))
     }
-
+    
     @objc private func onBack(sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
     }
-
+    
     private func setupView() {
         self.title = "parameters_header".keyLocalized()
         self.notificationsButton.setAttributedTitle("see_settings".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.secondaryColor).uppercased().build(), for: .normal)
+        self.deletionButton.setAttributedTitle("button_delete_account".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.criticalColor).uppercased().build(), for: .normal)
         self.logoutButton.setAttributedTitle("button_logout".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .button).color(.criticalColor).uppercased().build(), for: .normal)
         configureIcon(self.userAccountIcon)
         configureIcon(self.autoStartIcon)
         configureIcon(self.notificationsIcon)
+        configureIcon(self.deletionIcon)
         configureTitle(self.userAccountTitle, key: "parameters_account_title")
         configureTitle(self.autoStartTitle, key: "parameters_auto_start_title")
         configureTitle(self.notificationsTitle, key: "parameters_notification_title")
+        configureTitle(self.deletionTitle, key: "parameters_delete_account_title")
         configureDescription(self.userAccountDescription, key: "parameters_account_description")
         configureDescription(self.notificationsDescription, key: "parameters_notification_description")
+        configureDescription(self.deletionDescription, key: "account_deletion_content_1")
         configureUserAccountTitle(self.userAccount_userIdTitle, key: "userId")
         configureUserAccountTitle(self.userAccount_firstnameTitle, key: "firstname")
         configureUserAccountTitle(self.userAccount_lastnameTitle, key: "lastname")
@@ -84,36 +92,36 @@ class SettingsViewController: UIViewController {
         }
         updateUI()
     }
-
+    
     private func updateUI() {
         configureUserAccountValue(self.userAccount_firstnameValue, value: self.viewModel.getUserFirstname(), placeholder: "parameters_enter_firstname".keyLocalized())
         configureUserAccountValue(self.userAccount_lastnameValue, value: self.viewModel.getUserLastname(), placeholder: "parameters_enter_lastname".keyLocalized())
         configureUserAccountValue(self.userAccount_pseudoValue, value: self.viewModel.getUserPseudo(), placeholder: "parameters_enter_pseudo".keyLocalized())
         configureDescription(self.autoStartDescription, key: self.viewModel.getAutoStartDescriptionKey(), warning: !self.viewModel.isTripAnalysisAutoStartEnabled())
     }
-
+    
     private func configureIcon(_ icon: UIImageView) {
         icon.tintColor = DKUIColors.mainFontColor.color
     }
-
+    
     private func configureTitle(_ titleLabel: UILabel, key: String) {
         titleLabel.textColor = DKUIColors.mainFontColor.color
         titleLabel.font = DKStyles.headLine2.style.applyTo(font: .primary)
         titleLabel.text = key.keyLocalized()
     }
-
+    
     private func configureDescription(_ descriptionLabel: UILabel, key: String, warning: Bool = false) {
         descriptionLabel.textColor = warning ? DKUIColors.warningColor.color : DKUIColors.complementaryFontColor.color
         descriptionLabel.font = DKStyles.smallText.style.applyTo(font: .primary)
         descriptionLabel.text = key.keyLocalized()
     }
-
+    
     private func configureUserAccountTitle(_ label: UILabel, key: String) {
         label.textColor = DKUIColors.mainFontColor.color
         label.font = DKStyles.headLine2.withSizeDelta(-2).applyTo(font: .primary)
         label.text = key.keyLocalized()
     }
-
+    
     private func configureUserAccountValue(_ button: UIButton, value: String?, placeholder: String? = nil, enabled: Bool = true) {
         let color: DKUIColors
         let emptyValue = value?.isCompletelyEmpty() ?? true
@@ -131,13 +139,13 @@ class SettingsViewController: UIViewController {
         button.setAttributedTitle(displayValue.dkAttributedString().font(dkFont: .primary, style: .smallText).color(color).build(), for: .normal)
         button.isEnabled = enabled
     }
-
+    
     @IBAction private func logout() {
         self.showAlertMessage(title: nil, message: "logout_confirmation".keyLocalized(), back: false, cancel: true) {
             self.viewModel.logout()
         }
     }
-
+    
     @IBAction private func editFirstname() {
         showEditAlert(title: "parameters_enter_firstname".keyLocalized(), currentValue: self.viewModel.getUserFirstname()) { [weak self] newFirstname in
             if let self = self {
@@ -150,7 +158,7 @@ class SettingsViewController: UIViewController {
             }
         }
     }
-
+    
     @IBAction private func editLastname() {
         showEditAlert(title: "parameters_enter_lastname".keyLocalized(), currentValue: self.viewModel.getUserLastname()) { [weak self] newLastname in
             if let self = self {
@@ -163,7 +171,7 @@ class SettingsViewController: UIViewController {
             }
         }
     }
-
+    
     @IBAction private func editPseudo() {
         showEditAlert(title: "parameters_enter_pseudo".keyLocalized(), currentValue: self.viewModel.getUserPseudo()) { [weak self] newPseudo in
             if let self = self {
@@ -176,7 +184,7 @@ class SettingsViewController: UIViewController {
             }
         }
     }
-
+    
     private func userInfoDidEdit(success: Bool) {
         DispatchQueue.dispatchOnMainThread {
             self.hideLoader()
@@ -187,7 +195,7 @@ class SettingsViewController: UIViewController {
             }
         }
     }
-
+    
     private func showEditAlert(title: String, currentValue: String?, completion: @escaping (String) -> ()) {
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         alert.addTextField { textField in
@@ -204,13 +212,18 @@ class SettingsViewController: UIViewController {
         alert.addAction(cancelAction)
         self.present(alert, animated: true)
     }
-
+    
     @IBAction private func autoStartSwitchDidChange() {
         self.viewModel.enableAutoStart(self.autoStartSwitch.isOn)
         updateUI()
     }
-
+    
     @IBAction private func openNotificationSettings() {
         self.navigationController?.pushViewController(NotificationSettingsViewController(), animated: true)
     }
+
+    @IBAction private func openDeleteAccountVC() {
+        self.navigationController?.pushViewController(DeleteAccountVC(), animated: true)
+    }
+
 }

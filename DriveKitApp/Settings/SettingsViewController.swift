@@ -38,6 +38,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet private weak var deletionIcon: UIImageView!
     @IBOutlet private weak var deletionTitle: UILabel!
     @IBOutlet private weak var deletionDescription: UILabel!
+    @IBOutlet private weak var deletionWarning: UILabel!
     @IBOutlet private weak var deletionButton: UIButton!
     // Separators.
     @IBOutlet private var separators: [UIView]!
@@ -80,6 +81,7 @@ class SettingsViewController: UIViewController {
         configureDescription(self.userAccountDescription, key: "parameters_account_description")
         configureDescription(self.notificationsDescription, key: "parameters_notification_description")
         configureDescription(self.deletionDescription, key: "account_deletion_content_1")
+        configureDescription(self.deletionWarning, key: "account_deletion_api_key_info", warning: true)
         configureUserAccountTitle(self.userAccount_userIdTitle, key: "userId")
         configureUserAccountTitle(self.userAccount_firstnameTitle, key: "firstname")
         configureUserAccountTitle(self.userAccount_lastnameTitle, key: "lastname")

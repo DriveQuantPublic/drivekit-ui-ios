@@ -11,10 +11,10 @@ import DriveKitCommonUI
 
 class DeleteAccountVC: UIViewController {
     private let viewModel: DeleteAccountViewModel = DeleteAccountViewModel()
-    @IBOutlet weak var deleteButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var mainLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var deleteButton: UIButton!
+    @IBOutlet private weak var cancelButton: UIButton!
+    @IBOutlet private weak var mainLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

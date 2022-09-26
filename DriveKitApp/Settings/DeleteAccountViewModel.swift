@@ -11,7 +11,7 @@ import UIKit
 import DriveKitCoreModule
 
 class DeleteAccountViewModel {
-    var completionHandler: ( (DeleteAccountStatus) -> ())? = nil
+    private var completionHandler: ( (DeleteAccountStatus) -> ())? = nil
 
     init() {
         DriveKitDelegateManager.shared.register(delegate: self)

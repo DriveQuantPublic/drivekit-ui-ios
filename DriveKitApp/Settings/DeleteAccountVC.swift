@@ -42,7 +42,6 @@ class DeleteAccountVC: UIViewController {
         let alert = UIAlertController(title: nil,
                                       message: "account_deletion_confirmation".keyLocalized(),
                                       preferredStyle: .alert)
-        let okAction = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default)
         let cancelAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel, handler: {action in
             self.navigationController?.popViewController(animated: true)
         })
@@ -56,6 +55,9 @@ class DeleteAccountVC: UIViewController {
                     let errorAlert = UIAlertController(title: nil,
                                                   message: errorMessage,
                                                        preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default, handler: { action in
+                        self?.navigationController?.popViewController(animated: true)
+                    })
                     errorAlert.addAction(okAction)
                     self?.present(errorAlert, animated: true)
                 }

@@ -1,9 +1,15 @@
+"account_deletion_api_key_info"="Esta función no está habilitada para todas las claves API. Por favor, póngase en contacto con su contacto de DriveQuant si desea cambiar esta configuración.";
+"account_deletion_confirmation"="¿Borrar su cuenta definitivamente?\nEsta acción no es reversible.";
+"account_deletion_content_1"="Si confirma tu elección, se cerrará automáticamente la sesión y se tendrá en cuenta la solicitud de eliminación de tu cuenta.";
+"account_deletion_content_2"="Tienes 30 días para volver a conectarte a la aplicación. Si te vuelves a conectar antes de los 30 días, se anulará la solicitud de eliminación de tu cuenta.\n\nDespués de este periodo, si no vuelves a conectarte, todos tus datos se borrarán definitivamente.\n\nLa eliminación de sus datos no es reversible.";
+"account_deletion_error_forbidden"="La función de eliminación de cuentas no está habilitada para su clave API.\nPor favor, póngase en contacto con su contacto de DriveQuant si desea habilitarlo.";
 "app_name"="DriveKit Demo App";
 "authentication_description"="Para inicializar el SDK de DriveKit, es imprescindible configurar un identificador único para cada usuario.\n\nLe recomendamos que introduzca un identificador anónimo y nunca utilice un número de teléfono o una dirección de correo electrónico.";
 "authentication_error"="Inicio de sesión inválido";
 "authentication_header"="Identificación del usuario";
 "authentication_title"="Por favor, introduzca un ID de usuario único";
 "authentication_unique_identifier"="Identificador único";
+"button_delete_account"="Borrar mi cuenta";
 "button_logout"="DESCONECTAR";
 "button_next_step"="Pasar al siguiente paso";
 "button_see_documentation"="VER LA DOCUMENTACIÓN";
@@ -14,6 +20,7 @@
 "cancel_trip"="Cancelar el viaje";
 "client_error"="Se ha producido un error, inténtelo de nuevo más tarde.";
 "dashboard_header"="Panel de instrumentos";
+"delete_account_header"="Eliminación de la cuenta";
 "drivekit_doc_ios_badges"="https://docs.drivequant.com/driver-achievement/user-interface/ios#select-badges-categories";
 "drivekit_doc_ios_challenges"="https://docs.drivequant.com/user-interface/ios/get-started#display-challenge-list";
 "drivekit_doc_ios_diag"="https://docs.drivequant.com/permissions-utils/permission-utils/ios/main-configurations#sdk-diagnosis";
@@ -112,6 +119,7 @@
 "parameters_auto_start_disabled"="El modo automático está en espera. Active esta función si desea que la aplicación detecte y analice automáticamente sus rutas.";
 "parameters_auto_start_enabled"="El modo automático está activado. En esta configuración, la aplicación analiza sus rutas sin intervención manual, incluso si está en segundo plano.";
 "parameters_auto_start_title"="Inicio automático";
+"parameters_delete_account_title"="Eliminación de la cuenta";
 "parameters_enter_firstname"="Introduzca su nombre de pila";
 "parameters_enter_lastname"="Introduzca su apellido";
 "parameters_enter_pseudo"="Introduzca su seudónimo";

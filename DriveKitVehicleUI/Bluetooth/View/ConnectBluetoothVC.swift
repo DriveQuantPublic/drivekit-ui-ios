@@ -34,7 +34,7 @@ public class ConnectBluetoothVC: DKUIViewController {
         self.setup()
     }
     
-    func setup(){
+    func setup() {
         setupTitle.attributedText = "dk_vehicle_bluetooth_guide_header".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).uppercased().build()
         setupDesc1.attributedText = "dk_vehicle_bluetooth_guide_desc1_ios".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         setupDesc2.attributedText = "dk_vehicle_bluetooth_guide_desc2_ios".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()

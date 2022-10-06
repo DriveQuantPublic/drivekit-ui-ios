@@ -67,6 +67,7 @@
 "logout_confirmation"="Are you sure you want to logout?";
 "network_ko_error"="Mobile data is not enabled";
 "notif_app_bluetooth_deactivated"="You must enable the Bluetooth sensor to use all the features of the %@ application.";
+"notif_app_channel_name"="General";
 "notif_trip_analysis_continue"="Continue analysis";
 "notif_trip_analysis_not_driving"="I do not drive";
 "notif_trip_analysis_suspend"="Stop";
@@ -78,6 +79,7 @@
 "notif_trip_bus_detected_not_displayed"="Your trip is not scored because it was made by bus";
 "notif_trip_cancelled_highspeed"="Your trip has been canceled because you are traveling by train or plane";
 "notif_trip_cancelled_no_beacon"="Your trip has been canceled because your Bluetooth badge has not been recognized";
+"notif_trip_cancelled_no_bluetooth_device"="Your trip has been canceled because your Bluetooth device has not been recognized";
 "notif_trip_cancelled_no_gps_data"="The trip could not be analyzed because the GPS data could not be retrieved.";
 "notif_trip_cancelled_no_gps_data_title"="Trip analysis is not possible";
 "notif_trip_cancelled_title"="Trip cancelled";
@@ -89,6 +91,7 @@
 "notif_trip_finished_distraction"="Distraction score";
 "notif_trip_finished_efficiency"="Ecodriving score";
 "notif_trip_finished_no_beacon"="Your trip has not been made with your vehicle";
+"notif_trip_finished_no_bluetooth_device"="Your trip has not been made with your vehicle";
 "notif_trip_finished_safety"="Safety score";
 "notif_trip_finished_title"="New trip";
 "notif_trip_idle_detected"="The trip data does not correspond to a vehicle trip.";

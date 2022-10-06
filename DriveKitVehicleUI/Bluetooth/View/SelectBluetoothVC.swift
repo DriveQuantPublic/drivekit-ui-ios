@@ -46,7 +46,7 @@ class SelectBluetoothVC: DKUIViewController {
     @IBAction func confirmAction(_ sender: Any) {
         if let selectedRow = deviceList.indexPathForSelectedRow {
             self.showLoader()
-            self.viewModel.addBluetoothToVehicle(pos: selectedRow.row, completion: {status in
+            self.viewModel.addBluetoothToVehicle(pos: selectedRow.row, completion: { status in
                 DispatchQueue.main.async {
                     self.hideLoader()
                     switch status {
@@ -84,11 +84,10 @@ class SelectBluetoothVC: DKUIViewController {
     private func redirectToSuccesView(pos: Int) {
         let successVC = SuccessBluetoothVC(viewModel: viewModel)
         self.navigationController?.pushViewController(successVC, animated: true)
-        
     }
 }
 
-extension SelectBluetoothVC : UITableViewDelegate {
+extension SelectBluetoothVC: UITableViewDelegate {
     
 }
 

@@ -67,6 +67,7 @@
 "logout_confirmation"="Sei sicuro di voler disconnettere?";
 "network_ko_error"="I dati mobili non sono attivati";
 "notif_app_bluetooth_deactivated"="Per utilizzare tutte le funzioni dell\'applicazione %@ è necessario abilitare il sensore Bluetooth.";
+"notif_app_channel_name"="Generale";
 "notif_trip_analysis_continue"="Continua analisi";
 "notif_trip_analysis_not_driving"="Io non guido";
 "notif_trip_analysis_suspend"="Fermarsi";
@@ -78,6 +79,7 @@
 "notif_trip_bus_detected_not_displayed"="Il vostro viaggio non è stato notato perché è stato fatto in autobus.";
 "notif_trip_cancelled_highspeed"="Il tuo viaggio è stato annullato perché viaggi in treno o in aereo";
 "notif_trip_cancelled_no_beacon"="Il tuo viaggio è stato annullato perché il tuo badge Bluetooth non è stato riconosciuto";
+"notif_trip_cancelled_no_bluetooth_device"="Il viaggio è stato annullato perché il dispositivo Bluetooth non è stato rilevato.";
 "notif_trip_cancelled_no_gps_data"="Il viaggio non può essere analizzato perché i dati GPS non possono essere recuperati.";
 "notif_trip_cancelled_no_gps_data_title"="L\'analisi del viaggio non è possibile";
 "notif_trip_cancelled_title"="Viaggio annullato";
@@ -89,6 +91,7 @@
 "notif_trip_finished_distraction"="Punteggio di distrazione";
 "notif_trip_finished_efficiency"="Punteggio guida ecologica";
 "notif_trip_finished_no_beacon"="Il tuo viaggio non è stato fatto con il tuo veicolo";
+"notif_trip_finished_no_bluetooth_device"="Il tuo viaggio non è stato fatto con il tuo veicolo";
 "notif_trip_finished_safety"="Punteggio di sicurezza";
 "notif_trip_finished_title"="Nuovo viaggio";
 "notif_trip_idle_detected"="I dati non corrispondono a un viaggio in auto.";

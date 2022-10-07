@@ -11,14 +11,14 @@ Pod::Spec.new do |s|
   s.swift_version    = '5.0'
   s.source           = { :git => 'https://github.com/DriveQuantPublic/drivekit-ui-ios.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '11.0'
 
   s.source_files = 'DriveKitVehicleUI/**/*.swift'
   s.resource = ['DriveKitVehicleUI/DriveKitVehicle.xcassets', 'DriveKitVehicleUI/Localizable/*', 'DriveKitVehicleUI/**/*.xib']
 
   s.dependency 'DriveKitCommonUI', s.version.to_s
-  s.dependency 'DriveKitVehicle', '1.28-beta1'
-  s.dependency 'DriveKitTripAnalysis', '1.28-beta1'
+  s.dependency 'DriveKitVehicle', '1.28-beta2'
+  s.dependency 'DriveKitTripAnalysis', '1.28-beta2'
 
   s.pod_target_xcconfig = {
     'PRODUCT_BUNDLE_IDENTIFIER': 'com.drivequant.drivekit-vehicle-ui'

@@ -15,9 +15,7 @@ public class TripsListTableVC<TripsListItem: DKTripListItem>: UITableViewControl
     public override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(TripTableViewCell.nib, forCellReuseIdentifier: "TripTableViewCell")
-        if #available(iOS 11, *) {
-          tableView.separatorInset = .zero
-        }
+        self.tableView.separatorInset = .zero
         if #available(iOS 15, *) {
             self.tableView.sectionHeaderTopPadding = 0
         }

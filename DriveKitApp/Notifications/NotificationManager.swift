@@ -318,6 +318,8 @@ extension NotificationManager: TripListener {
                 sendCancelNotification(.highSpeed)
             case .noBeacon:
                 sendCancelNotification(.noBeacon)
+            case .noBluetoothDevice:
+                sendCancelNotification(.noBluetoothDevice)
             case .noGPSData:
                 sendCancelNotification(.noGpsPoint)
             case .user, .noSpeed, .missingConfiguration, .reset, .beaconNoSpeed:

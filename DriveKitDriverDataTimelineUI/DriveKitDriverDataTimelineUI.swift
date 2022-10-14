@@ -7,11 +7,22 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 
 @objc public class DriveKitDriverDataTimelineUI: NSObject {
     @objc public static let shared = DriveKitDriverDataTimelineUI()
 
     @objc public func getTimelineViewController() -> UIViewController {
         return TimelineViewController()
+    }
+}
+
+extension Bundle {
+    static let driverDataTimelineUIBundle = Bundle(identifier: "com.drivequant.drivekit-driverdata-timeline-ui")
+}
+
+extension String {
+    public func dkDriverDataTimelineLocalized() -> String {
+        return self.dkLocalized(tableName: "DriverDataTimelineLocalizable", bundle: Bundle.driverDataTimelineUIBundle ?? .main)
     }
 }

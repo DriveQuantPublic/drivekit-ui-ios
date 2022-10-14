@@ -20,6 +20,10 @@ target 'DriveKitDriverDataUI' do
   circular_progress_ring
 end
 
+target 'DriveKitDriverDataTimelineUI' do
+  pod 'DriveKitDriverData', '1.28-beta2'
+end
+
 target 'DriveKitDriverAchievementUI' do
   pod 'DriveKitDriverAchievement', '1.28-beta2'
   circular_progress_ring

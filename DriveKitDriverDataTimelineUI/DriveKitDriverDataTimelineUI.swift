@@ -1,0 +1,17 @@
+//
+//  DriveKitDriverDataTimelineUI.swift
+//  DriveKitDriverDataTimelineUI
+//
+//  Created by David Bauduin on 14/10/2022.
+//  Copyright © 2022 DriveQuant. All rights reserved.
+//
+
+import UIKit
+
+@objc public class DriveKitDriverDataTimelineUI: NSObject {
+    @objc public static let shared = DriveKitDriverDataTimelineUI()
+
+    @objc public func getTimelineViewController() -> UIViewController {
+        return TimelineViewController()
+    }
+}

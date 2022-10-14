@@ -357,6 +357,8 @@
 		63F8B2C328F9617C0084B53A /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2C228F9617C0084B53A /* TimelineViewController.swift */; };
 		63F8B2C528F961960084B53A /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2C428F961960084B53A /* TimelineViewModel.swift */; };
 		63F8B2C728F961B10084B53A /* TimelineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F8B2C628F961B10084B53A /* TimelineViewController.xib */; };
+		63F8B2C828F984970084B53A /* DriveKitDriverDataTimelineUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F8B28F28F958B90084B53A /* DriveKitDriverDataTimelineUI.framework */; };
+		63F8B2CC28F9851C0084B53A /* DriveKitDriverDataTimelineUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2CB28F9851C0084B53A /* DriveKitDriverDataTimelineUI.swift */; };
 		63FE778624FD1A9D00C068C3 /* AnalyticsTags.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63FE778524FD1A9D00C068C3 /* AnalyticsTags.plist */; };
 		63FF6B4F244994B50006992E /* DiagnosisViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63FF6B4E244994B50006992E /* DiagnosisViewController.xib */; };
 		63FF6B532449E7CF0006992E /* SensorStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63FF6B522449E7CF0006992E /* SensorStateView.xib */; };
@@ -1125,6 +1127,7 @@
 		63F8B2C228F9617C0084B53A /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		63F8B2C428F961960084B53A /* TimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
 		63F8B2C628F961B10084B53A /* TimelineViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineViewController.xib; sourceTree = "<group>"; };
+		63F8B2CB28F9851C0084B53A /* DriveKitDriverDataTimelineUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveKitDriverDataTimelineUI.swift; sourceTree = "<group>"; };
 		63FE778524FD1A9D00C068C3 /* AnalyticsTags.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AnalyticsTags.plist; sourceTree = "<group>"; };
 		63FF6B4E244994B50006992E /* DiagnosisViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiagnosisViewController.xib; sourceTree = "<group>"; };
 		63FF6B522449E7CF0006992E /* SensorStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SensorStateView.xib; sourceTree = "<group>"; };
@@ -1455,6 +1458,7 @@
 				67C43CFD263A910D00DBB09D /* DriveKitChallengeUI.framework in Frameworks */,
 				63F8B29528F958B90084B53A /* DriveKitDriverDataTimelineUI.framework in Frameworks */,
 				144631166FF6EF95F22253F5 /* Pods_DriveKitApp.framework in Frameworks */,
+				63F8B2C828F984970084B53A /* DriveKitDriverDataTimelineUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2401,9 +2405,10 @@
 				63F8B2BC28F9611E0084B53A /* Timeline */,
 				63F8B2BD28F961250084B53A /* TimelineDetail */,
 				63F8B2A228F95F230084B53A /* Components */,
-				63F8B29128F958B90084B53A /* DriveKitDriverDataTimelineUI.h */,
-				63F8B29C28F95C2C0084B53A /* Info.plist */,
+				63F8B2CB28F9851C0084B53A /* DriveKitDriverDataTimelineUI.swift */,
 				63F8B29D28F95E3F0084B53A /* Timeline.xcassets */,
+				63F8B29C28F95C2C0084B53A /* Info.plist */,
+				63F8B29128F958B90084B53A /* DriveKitDriverDataTimelineUI.h */,
 			);
 			path = DriveKitDriverDataTimelineUI;
 			sourceTree = "<group>";
@@ -4280,6 +4285,7 @@
 				63F8B2B328F960770084B53A /* GraphAxisConfig.swift in Sources */,
 				63F8B2A928F95F980084B53A /* DateSelectorViewModel.swift in Sources */,
 				63F8B2AB28F95FAE0084B53A /* DateSelectorDelegate.swift in Sources */,
+				63F8B2CC28F9851C0084B53A /* DriveKitDriverDataTimelineUI.swift in Sources */,
 				63F8B2C328F9617C0084B53A /* TimelineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

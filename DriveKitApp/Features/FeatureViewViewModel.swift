@@ -10,6 +10,7 @@ import UIKit
 import DriveKitCommonUI
 import DriveKitCoreModule
 import DriveKitDriverDataUI
+import DriveKitDriverDataTimelineUI
 import DriveKitPermissionsUtilsUI
 import DriveKitVehicleUI
 
@@ -77,6 +78,8 @@ class FeatureViewViewModel {
                 }
             case .driverData_trips:
                 viewController = TripListVC()
+            case .driverData_timeline:
+                viewController = DriveKitDriverDataTimelineUI.shared.getTimelineViewController()
             case .permissionsUtils_diagnosis:
                 viewController = DriveKitPermissionsUtilsUI.shared.getDiagnosisViewController()
             case .permissionsUtils_onboarding:

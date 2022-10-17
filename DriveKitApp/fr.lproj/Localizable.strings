@@ -1,9 +1,15 @@
+"account_deletion_api_key_info"="Cette fonctionnalité n\'est pas activée pour toutes les clés API. Veuillez vous rapprocher de votre contact DriveQuant si vous souhaitez modifier cette configuration.";
+"account_deletion_confirmation"="Supprimer définitivement votre compte ?\nCette action n\'est pas réversible.";
+"account_deletion_content_1"="Si vous confirmez votre choix, vous serez déconnecté automatiquement et la demande de suppression de compte sera prise en compte.";
+"account_deletion_content_2"="Vous disposez de 30 jours pour vous reconnecter à l\'application.\n\nSi vous vous reconnectez dans un délai de 30 jours, la demande de suppression de compte sera annulée.\n\nPassé ce délai, si vous ne vous reconnectez pas, toutes vos données seront définitivement supprimées.\n\nLa suppression de vos données n\'est pas réversible.";
+"account_deletion_error_forbidden"="La fonctionnalité de suppression de compte n\'est pas activée pour votre clé API.\nVeuillez vous rapprocher de votre contact DriveQuant si vous souhaitez l\'activer.";
 "app_name"="DriveKit Demo App";
 "authentication_description"="Pour initialiser le SDK DriveKit, il est indispensable de configurer un identifiant unique pour chaque utilisateur.\n\nNous vous recommandons de saisir un identifiant anonyme et de ne jamais utiliser un numéro de téléphone ou une adresse email.";
 "authentication_error"="Identifiant invalide";
 "authentication_header"="Identification utilisateur";
 "authentication_title"="Veuillez renseigner un identifiant unique d\'utilisateur";
 "authentication_unique_identifier"="Identifiant unique";
+"button_delete_account"="Supprimer mon compte";
 "button_logout"="DÉCONNEXION";
 "button_next_step"="Passer à l\'étape suivante";
 "button_see_documentation"="VOIR LA DOCUMENTATION";
@@ -14,8 +20,9 @@
 "cancel_trip"="Annuler le trajet";
 "client_error"="Une erreur est survenue, veuillez réessayer ultérieurement.";
 "dashboard_header"="Tableau de bord";
+"delete_account_header"="Suppression de compte";
 "drivekit_doc_ios_badges"="https://docs.drivequant.com/driver-achievement/user-interface/ios#select-badges-categories";
-"drivekit_doc_ios_challenges"="https://docs.drivequant.com/user-interface/ios/get-started#display-challenge-list";
+"drivekit_doc_ios_challenges"="https://docs.drivequant.com/challenge/user-interface/ios/get-started#display-challenge-list";
 "drivekit_doc_ios_diag"="https://docs.drivequant.com/permissions-utils/permission-utils/ios/main-configurations#sdk-diagnosis";
 "drivekit_doc_ios_driver_data"="https://docs.drivequant.com/driver-data/user-interface/ios/get-started";
 "drivekit_doc_ios_github_ui"="https://github.com/DriveQuantPublic/drivekit-ui-ios";
@@ -60,6 +67,7 @@
 "logout_confirmation"="Etes-vous sûr de vouloir vous déconnecter ?";
 "network_ko_error"="Les données mobiles ne sont pas activées";
 "notif_app_bluetooth_deactivated"="Vous devez activer le capteur Bluetooth pour utiliser toutes les fonctionnalités de l\'application %@";
+"notif_app_channel_name"="Général";
 "notif_trip_analysis_continue"="Continuer l\'analyse";
 "notif_trip_analysis_not_driving"="Je ne conduis pas";
 "notif_trip_analysis_suspend"="Stopper";
@@ -71,6 +79,7 @@
 "notif_trip_bus_detected_not_displayed"="Votre trajet n\'est pas noté car il a été réalisé en bus";
 "notif_trip_cancelled_highspeed"="Votre trajet a été annulé car vous êtes en train ou en avion";
 "notif_trip_cancelled_no_beacon"="Votre trajet a été annulé car votre boîtier Bluetooth n\'a pas été détecté";
+"notif_trip_cancelled_no_bluetooth_device"="Votre trajet a été annulé car votre appareil Bluetooth n\'a pas été détecté";
 "notif_trip_cancelled_no_gps_data"="Le trajet n\'a pas pu être analysé car les données GPS n\'ont pas pu être récupérées.";
 "notif_trip_cancelled_no_gps_data_title"="L\'analyse du trajet n\'est pas possible";
 "notif_trip_cancelled_title"="Trajet annulé";
@@ -82,6 +91,7 @@
 "notif_trip_finished_distraction"="Score distraction";
 "notif_trip_finished_efficiency"="Score d\'efficacité";
 "notif_trip_finished_no_beacon"="Votre trajet n\'a pas été réalisé avec votre véhicule";
+"notif_trip_finished_no_bluetooth_device"="Votre trajet n\'a pas été réalisé avec votre véhicule";
 "notif_trip_finished_safety"="Score de sécurité";
 "notif_trip_finished_title"="Nouveau trajet";
 "notif_trip_idle_detected"="Les données ne correspondent pas à un déplacement en véhicule.";
@@ -112,6 +122,7 @@
 "parameters_auto_start_disabled"="Le mode automatique est en veille. Activez cette fonction si vous souhaitez que l\'application détecte et analyse vos trajets automatiquement.";
 "parameters_auto_start_enabled"="Le mode automatique est activé. Dans cette configuration, l\'application analyse vos trajets sans intervention manuelle même si elle est en arrière-plan.";
 "parameters_auto_start_title"="Démarrage automatique";
+"parameters_delete_account_title"="Suppression de compte";
 "parameters_enter_firstname"="Entrez votre prénom";
 "parameters_enter_lastname"="Entrez votre nom";
 "parameters_enter_pseudo"="Entrez votre pseudo";

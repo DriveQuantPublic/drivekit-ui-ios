@@ -40,11 +40,9 @@ class OdometerInitVC: DKUIViewController {
         self.view.backgroundColor = .white
         configureHeaderOdometer()
         configureFieldOdometer()
-        let button = UIButton(type: .custom)
-        button.frame = CGRect(x: 0, y: 0, width: 80, height: 44)
-        button.setAttributedTitle(DKCommonLocalizable.cancel.text().dkAttributedString().font(dkFont: .secondary, style: .normalText).color(.navBarElementColor).build(), for: .normal)
-        button.addTarget(self, action: #selector(cancelSelector), for: .touchUpInside)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+        let cancelButton = UIBarButtonItem(title: DKCommonLocalizable.cancel.text(), style: .plain, target: self, action: #selector(self.cancelSelector))
+        cancelButton.tintColor = DKUIColors.navBarElementColor.color
+        navigationItem.rightBarButtonItem = cancelButton
         validateButton.configure(text: DKCommonLocalizable.validate.text(), style: .full)
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)

@@ -49,7 +49,7 @@ class DriveKitConfig {
 
     private static func initializeModules(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         // DriveKit Initialization:
-        DriveKit.shared.initialize(delegate: DriveKitDelegateManager.shared)
+        DriveKit.shared.initialize()
 
         // TripAnalysis initialization:
         DriveKitTripAnalysis.shared.initialize(tripListener: TripListenerManager.shared, appLaunchOptions: launchOptions)

@@ -57,9 +57,9 @@ class SuccessBluetoothVC: DKUIViewController {
     
     @IBAction func successAction(_ sender: Any) {
         let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
-        if viewControllers.count >= 4{
+        if viewControllers.count >= 4 {
             self.navigationController?.popToViewController(viewControllers[viewControllers.count - 4], animated: true)
-        } else{
+        } else {
             self.navigationController?.popViewController(animated: true)
         }
     }

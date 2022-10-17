@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DeleteAccountVC" customModule="ALTIMA" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelButton" destination="ah7-l8-k4U" id="8hI-Yp-OAR"/>
+                <outlet property="deleteButton" destination="0UU-KB-C6w" id="djE-Ja-Xbq"/>
+                <outlet property="descriptionLabel" destination="obo-fv-qZz" id="dzJ-YB-557"/>
+                <outlet property="mainLabel" destination="0TF-fT-wed" id="csY-na-bXG"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="4gN-4E-zZd">
+                    <rect key="frame" x="16" y="44" width="382" height="818"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cx5-8Y-riG">
+                            <rect key="frame" x="0.0" y="0.0" width="382" height="120"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="warning" translatesAutoresizingMaskIntoConstraints="NO" id="Yiw-GM-D1s">
+                                    <rect key="frame" x="151" y="20" width="80" height="80"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="80" id="2BS-Jw-eCc"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="Yiw-GM-D1s" firstAttribute="centerY" secondItem="cx5-8Y-riG" secondAttribute="centerY" id="CYh-2J-tJP"/>
+                                <constraint firstItem="Yiw-GM-D1s" firstAttribute="centerX" secondItem="cx5-8Y-riG" secondAttribute="centerX" id="TAm-Yo-VAF"/>
+                                <constraint firstAttribute="height" constant="120" id="yfb-eg-I4n"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0TF-fT-wed">
+                            <rect key="frame" x="0.0" y="135" width="382" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obo-fv-qZz">
+                            <rect key="frame" x="0.0" y="170.5" width="382" height="374.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xnh-Ku-9gs">
+                            <rect key="frame" x="0.0" y="560" width="382" height="128"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ah7-l8-k4U" customClass="CustomButton" customModule="ALTIMA" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="703" width="382" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="rN2-Lx-Yql"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="cancelAction" destination="-1" eventType="touchUpInside" id="41m-xU-tqk"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0UU-KB-C6w" customClass="CustomButton" customModule="ALTIMA" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="768" width="382" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="kpe-zV-cJl"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="deleteAccountAction" destination="-1" eventType="touchUpInside" id="ASE-Zo-eGU"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="4gN-4E-zZd" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="8WV-oK-N5r"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4gN-4E-zZd" secondAttribute="trailing" constant="16" id="B0z-Ra-cSl"/>
+                <constraint firstItem="4gN-4E-zZd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="WQn-oF-yAN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="4gN-4E-zZd" secondAttribute="bottom" id="XdF-Cf-AqW"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="62"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="warning" width="80" height="80"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "start_trip.png",
+      "filename" : "dk_app_trash.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "start_trip@2x.png",
+      "filename" : "dk_app_trash@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "start_trip@3x.png",
+      "filename" : "dk_app_trash@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

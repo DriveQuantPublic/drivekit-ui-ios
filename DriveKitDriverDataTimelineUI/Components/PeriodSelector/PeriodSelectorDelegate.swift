@@ -7,7 +7,8 @@
 //
 
 import Foundation
+import DriveKitDBTripAccessModule
 
-protocol PeriodSelectorDelegate {
-    func periodSelectorDidSelectPeriod(_ period: TimelinePeriod)
+protocol PeriodSelectorDelegate: AnyObject {
+    func periodSelectorDidSelectPeriod(_ period: DKTimelinePeriod)
 }

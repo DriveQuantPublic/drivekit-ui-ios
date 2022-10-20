@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TimelineViewController" customModule="DriveKitDriverDataTimelineUI" customModuleProvider="target">
             <connections>
+                <outlet property="periodSelectorContainer" destination="so8-sZ-4wK" id="4Kf-Gm-xNK"/>
                 <outlet property="scoreSelectorView" destination="zQN-BG-tEM" id="xNg-g8-f1M"/>
                 <outlet property="scrollView" destination="la9-Yj-V8Q" id="Kr9-wP-J6D"/>
                 <outlet property="view" destination="iN0-l3-epB" id="ndo-Ql-Iqz"/>
@@ -21,10 +22,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="la9-Yj-V8Q">
-                    <rect key="frame" x="0.0" y="47" width="390" height="763"/>
+                    <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UnV-SB-mgd" userLabel="ContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="390" height="763"/>
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3BH-gf-u8z">
                                     <rect key="frame" x="0.0" y="8" width="390" height="140"/>
@@ -67,7 +68,7 @@
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLR-Ok-Rvv">
-                                    <rect key="frame" x="20" y="715" width="350" height="40"/>
+                                    <rect key="frame" x="20" y="796" width="350" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="U0Z-lJ-CCQ"/>
                                     </constraints>

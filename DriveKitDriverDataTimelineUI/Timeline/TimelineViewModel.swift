@@ -21,11 +21,12 @@ class TimelineViewModel {
     let roadContextViewModel: RoadContextViewModel
     var selectedScore: DKTimelineScoreType {
         didSet {
-            updateUI()
+            update()
         }
     }
     private var weekTimeline: DKTimeline?
     private var monthTimeline: DKTimeline?
+    private var currentPeriod: DKTimelinePeriod
 
     init() {
         self.scores = DriveKitDriverDataTimelineUI.shared.scores
@@ -36,6 +37,10 @@ class TimelineViewModel {
         self.periodSelectorViewModel = PeriodSelectorViewModel()
         self.roadContextViewModel = RoadContextViewModel()
 
+        self.currentPeriod = self.periodSelectorViewModel.selectedPeriod
+
+        self.periodSelectorViewModel.delegate = self
+
         DriveKitDriverData.shared.getTimelines(periods: [.week, .month], type: .cache) { [weak self] status, timelines in
             if let self {
                 if status == .cacheDataOnly, let timelines {
@@ -45,6 +50,8 @@ class TimelineViewModel {
                                 self.monthTimeline = timeline
                             case .week:
                                 self.weekTimeline = timeline
+                            @unknown default:
+                                break
                         }
                     }
                 }
@@ -65,6 +72,8 @@ class TimelineViewModel {
                                 self.monthTimeline = timeline
                             case .week:
                                 self.weekTimeline = timeline
+                            @unknown default:
+                                break
                         }
                     }
                 }
@@ -74,14 +83,18 @@ class TimelineViewModel {
         }
     }
 
-    private func updateUI() {
-
+    private func update() {
+        print("===== update =====")
+        print("= selectedScore = \(self.selectedScore)")
+        print("= currentPeriod = \(self.currentPeriod)")
+        self.periodSelectorViewModel.update(selectedPeriod: self.currentPeriod)
     }
 }
 
 extension TimelineViewModel: PeriodSelectorDelegate {
-    func periodSelectorDidSelectPeriod(_ period: TimelinePeriod) {
-        //TODO
+    func periodSelectorDidSelectPeriod(_ period: DKTimelinePeriod) {
+        self.currentPeriod = period
+        update()
     }
 }
 

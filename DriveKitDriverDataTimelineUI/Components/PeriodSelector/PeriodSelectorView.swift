@@ -15,7 +15,9 @@ class PeriodSelectorView: UIView {
     @IBOutlet private weak var monthButton: UIButton!
     var viewModel: PeriodSelectorViewModel? {
         didSet {
-            self.viewModel?.viewDelegate = self
+            self.viewModel?.periodDidChange = { [weak self] in
+                self?.periodSelectorViewModelDidUpdate()
+            }
             periodSelectorViewModelDidUpdate()
         }
     }
@@ -63,10 +65,8 @@ class PeriodSelectorView: UIView {
             }
         }
     }
-}
 
-extension PeriodSelectorView: PeriodSelectorViewModelDelegate {
-    func periodSelectorViewModelDidUpdate() {
+    private func periodSelectorViewModelDidUpdate() {
         if let selectedPeriod = self.viewModel?.selectedPeriod {
             let buttonToSelect: UIButton
             switch selectedPeriod {

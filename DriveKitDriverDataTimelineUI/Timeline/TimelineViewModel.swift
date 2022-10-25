@@ -116,6 +116,7 @@ class TimelineViewModel {
                 print("= selectedDateIndex = \(selectedDateIndex)")
 
                 self.periodSelectorViewModel.update(selectedPeriod: self.currentPeriod)
+                self.timelineGraphViewModel.configure(timeline: timelineSource, timelineIndex: selectedDateIndex, graphItem: .score(self.selectedScore), period: self.currentPeriod)
                 //TODO
             }
         }

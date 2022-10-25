@@ -9,5 +9,7 @@
 import Foundation
 
 struct GraphAxisConfig {
-    
+    let min: Double
+    let max: Double
+    let labels: [String]
 }

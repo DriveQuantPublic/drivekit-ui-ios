@@ -1,5 +1,5 @@
 //
-//  TimelineGraphViewModel.swift
+//  GraphViewDelegate.swift
 //  DriveKitDriverDataTimelineUI
 //
 //  Created by David Bauduin on 14/10/2022.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-class TimelineGraphViewModel {
-    
+protocol GraphViewDelegate: AnyObject {
+    func graphDidSelectPoint(_ point: GraphPoint)
 }

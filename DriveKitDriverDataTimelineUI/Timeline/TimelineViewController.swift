@@ -104,7 +104,19 @@ class TimelineViewController: UIViewController {
     }
 
     private func setupGraphView() {
-        
+        let timelineGraphView = Bundle.driverDataTimelineUIBundle?.loadNibNamed("TimelineGraphView", owner: nil, options: nil)?.first as? TimelineGraphView
+        if let timelineGraphView {
+            timelineGraphView.translatesAutoresizingMaskIntoConstraints = false
+            self.timelineGraphViewContainer.addSubview(timelineGraphView)
+            NSLayoutConstraint.activate([
+                timelineGraphView.topAnchor.constraint(equalTo: self.timelineGraphViewContainer.topAnchor),
+                timelineGraphView.bottomAnchor.constraint(equalTo: self.timelineGraphViewContainer.bottomAnchor),
+                timelineGraphView.leftAnchor.constraint(equalTo: self.timelineGraphViewContainer.leftAnchor),
+                timelineGraphView.rightAnchor.constraint(equalTo: self.timelineGraphViewContainer.rightAnchor)
+            ])
+            timelineGraphView.viewModel = self.viewModel.timelineGraphViewModel
+            timelineGraphView.delegate = self.viewModel.timelineGraphViewModel
+        }
     }
 }
 

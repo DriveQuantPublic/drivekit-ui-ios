@@ -7,9 +7,31 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 import DriveKitDBTripAccessModule
 
 class RoadContextView: UIView {
+    @IBOutlet private weak var roadContextBarView: RoadContextBarView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var emptyLabel: UILabel!
+    private var viewModel: RoadContextViewModel?
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setupView()
+    }
+
+    func setupView() {
+        self.titleLabel.font = DKStyles.smallText.style.applyTo(font: .primary)
+        if let viewModel = viewModel {
+            self.titleLabel.text = viewModel.getTitle()
+            self.roadContextBarView.configure(viewModel: viewModel)
+        }
+    }
+    func configure(viewModel: RoadContextViewModel) {
+        self.viewModel = viewModel
+        self.setupView()
+    }
 }
 
 class RoadContextBarView: UIView {

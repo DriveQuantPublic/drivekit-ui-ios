@@ -13,6 +13,9 @@ class TimelineViewController: UIViewController {
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var scoreSelectorView: UIStackView!
     @IBOutlet private weak var periodSelectorContainer: UIView!
+    @IBOutlet private weak var dateSelectorContainer: UIView!
+    @IBOutlet private weak var roadContextContainer: UIView!
+    @IBOutlet private weak var timelineGraphViewContainer: UIView!
     private let viewModel: TimelineViewModel
     private var selectedScoreSelectionTypeView: ScoreSelectionTypeView? = nil
 
@@ -33,6 +36,38 @@ class TimelineViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(refresh(_ :)), for: .valueChanged)
         self.scrollView.refreshControl = refreshControl
 
+        setupSelectors()
+        setupGraphView()
+
+        if self.viewModel.updating {
+            showRefreshControl()
+        } else {
+            hideRefreshControl()
+        }
+    }
+
+    @objc private func refresh(_ sender: Any) {
+        self.viewModel.updateTimeline()
+    }
+
+    private func showRefreshControl() {
+        self.scrollView.refreshControl?.beginRefreshing()
+    }
+
+    private func hideRefreshControl() {
+        self.scrollView.refreshControl?.endRefreshing()
+    }
+
+    @objc private func onScoreSelectionTypeViewSelected(sender: ScoreSelectionTypeView) {
+        self.selectedScoreSelectionTypeView?.setSelected(false)
+        self.selectedScoreSelectionTypeView = sender
+        sender.setSelected(true)
+        if let scoreType = sender.scoreType, self.viewModel.selectedScore != scoreType {
+            self.viewModel.selectedScore = scoreType
+        }
+    }
+
+    private func setupSelectors() {
         let scores = self.viewModel.scores
         if scores.count < 2 {
             self.scoreSelectorView.isHidden = true
@@ -66,33 +101,10 @@ class TimelineViewController: UIViewController {
             ])
             periodSelector.viewModel = self.viewModel.periodSelectorViewModel
         }
-
-        if self.viewModel.updating {
-            showRefreshControl()
-        } else {
-            hideRefreshControl()
-        }
     }
 
-    @objc private func refresh(_ sender: Any) {
-        self.viewModel.updateTimeline()
-    }
-
-    private func showRefreshControl() {
-        self.scrollView.refreshControl?.beginRefreshing()
-    }
-
-    private func hideRefreshControl() {
-        self.scrollView.refreshControl?.endRefreshing()
-    }
-
-    @objc private func onScoreSelectionTypeViewSelected(sender: ScoreSelectionTypeView) {
-        self.selectedScoreSelectionTypeView?.setSelected(false)
-        self.selectedScoreSelectionTypeView = sender
-        sender.setSelected(true)
-        if let scoreType = sender.scoreType, self.viewModel.selectedScore != scoreType {
-            self.viewModel.selectedScore = scoreType
-        }
+    private func setupGraphView() {
+        
     }
 }
 

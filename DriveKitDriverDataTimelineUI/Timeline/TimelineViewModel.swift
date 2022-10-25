@@ -16,9 +16,9 @@ class TimelineViewModel {
     weak var delegate: TimelineViewModelDelegate?
     let scores: [DKTimelineScoreType]
     let dateSelectorViewModel: DateSelectorViewModel
-    let timelineGraphViewModel: TimelineGraphViewModel
     let periodSelectorViewModel: PeriodSelectorViewModel
     let roadContextViewModel: RoadContextViewModel
+    let timelineGraphViewModel: TimelineGraphViewModel
     var selectedScore: DKTimelineScoreType {
         didSet {
             update()
@@ -27,16 +27,16 @@ class TimelineViewModel {
     private var weekTimeline: DKTimeline?
     private var monthTimeline: DKTimeline?
     private var currentPeriod: DKTimelinePeriod
+    private var selectedDate: Date?
 
     init() {
         self.scores = DriveKitDriverDataTimelineUI.shared.scores
         self.selectedScore = self.scores.first ?? .safety
 
         self.dateSelectorViewModel = DateSelectorViewModel()
-        self.timelineGraphViewModel = TimelineGraphViewModel()
         self.periodSelectorViewModel = PeriodSelectorViewModel()
         self.roadContextViewModel = RoadContextViewModel()
-
+        self.timelineGraphViewModel = TimelineGraphViewModel()
         self.currentPeriod = self.periodSelectorViewModel.selectedPeriod
 
         self.periodSelectorViewModel.delegate = self
@@ -54,6 +54,7 @@ class TimelineViewModel {
                                 break
                         }
                     }
+                    self.update()
                 }
             }
         }
@@ -76,6 +77,8 @@ class TimelineViewModel {
                                 break
                         }
                     }
+                    self.selectedDate = nil
+                    self.update()
                 }
                 self.updating = false
                 self.delegate?.didUpdateTimeline()
@@ -87,7 +90,35 @@ class TimelineViewModel {
         print("===== update =====")
         print("= selectedScore = \(self.selectedScore)")
         print("= currentPeriod = \(self.currentPeriod)")
-        self.periodSelectorViewModel.update(selectedPeriod: self.currentPeriod)
+
+        let timelineSource: DKTimeline?
+        switch self.currentPeriod {
+            case .week:
+                timelineSource = self.weekTimeline
+            case .month:
+                timelineSource = self.monthTimeline
+            @unknown default:
+                timelineSource = nil
+        }
+        if let timelineSource {
+            let dates = timelineSource.allContext.date
+
+            let selectedDateIndex: Int?
+            if let date = self.selectedDate {
+                selectedDateIndex = dates.firstIndex(of: date)
+            } else if !dates.isEmpty {
+                selectedDateIndex = dates.count - 1
+            } else {
+                selectedDateIndex = nil
+            }
+            if let selectedDateIndex {
+                print("= dates = \(dates)")
+                print("= selectedDateIndex = \(selectedDateIndex)")
+
+                self.periodSelectorViewModel.update(selectedPeriod: self.currentPeriod)
+                //TODO
+            }
+        }
     }
 }
 
@@ -100,12 +131,14 @@ extension TimelineViewModel: PeriodSelectorDelegate {
 
 extension TimelineViewModel: DateSelectorDelegate {
     func dateSelectorDidSelectDate(_ date: Date) {
-        //TODO
+        self.selectedDate = date
+        update()
     }
 }
 
 extension TimelineViewModel: TimelineGraphDelegate {
     func graphDidSelectDate(_ date: Date) {
-        //TODO
+        self.selectedDate = date
+        update()
     }
 }

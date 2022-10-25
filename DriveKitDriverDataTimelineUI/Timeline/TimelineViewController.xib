@@ -49,9 +49,19 @@
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jgi-Y1-Rg8" userLabel="Road context">
                                     <rect key="frame" x="8" y="198" width="374" height="122"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lVz-iT-NJk" customClass="RoadContextBarView" customModule="DriveKitDriverDataTimelineUI" customModuleProvider="target">
+                                            <rect key="frame" x="11" y="34" width="352" height="54"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        </view>
+                                    </subviews>
                                     <color key="backgroundColor" systemColor="systemGray2Color"/>
                                     <constraints>
+                                        <constraint firstItem="lVz-iT-NJk" firstAttribute="centerX" secondItem="Jgi-Y1-Rg8" secondAttribute="centerX" id="TOg-B4-Qgf"/>
+                                        <constraint firstItem="lVz-iT-NJk" firstAttribute="leading" secondItem="Jgi-Y1-Rg8" secondAttribute="leading" constant="11" id="ZMG-qe-9UA"/>
                                         <constraint firstAttribute="height" priority="750" constant="122" id="jj3-eq-61T"/>
+                                        <constraint firstItem="lVz-iT-NJk" firstAttribute="top" secondItem="Jgi-Y1-Rg8" secondAttribute="top" constant="34" id="pOC-nS-Rbc"/>
+                                        <constraint firstItem="lVz-iT-NJk" firstAttribute="centerY" secondItem="Jgi-Y1-Rg8" secondAttribute="centerY" id="vVS-rl-UFN"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IsM-Ga-xtp" userLabel="Graph">

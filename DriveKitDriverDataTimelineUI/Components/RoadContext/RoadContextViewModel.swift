@@ -13,10 +13,10 @@ class RoadContextViewModel {
     private let distanceByContext: [DKRoadContext: Double]
     private let distance: Double
     private static let backgroundColor = UIColor(hex: 0xFAFAFA)
-    private static let urbainDenseColor = UIColor(hex: 0x036A82)
-    private static let subUrbainColor = UIColor(hex: 0x699DAD)
-    private static let urbainFluidColor = UIColor(hex: 0x3B8497)
-    private static let highwayColor = UIColor(hex: 0x8FB7C2)
+    private static let heavyUrbanTrafficColor = UIColor(hex: 0x036A82)
+    private static let suburbanColor = UIColor(hex: 0x699DAD)
+    private static let cityColor = UIColor(hex: 0x3B8497)
+    private static let expresswaysColor = UIColor(hex: 0x8FB7C2)
 
     init(distanceByContext: [DKRoadContext: Double], distance: Double) {
         self.distanceByContext = distanceByContext
@@ -25,21 +25,11 @@ class RoadContextViewModel {
 
     lazy var itemsToDraw: [(context: DKRoadContext, percent: Double)] = {
         var result: [(context: DKRoadContext, percent: Double)] = []
-        let heavyUrbanTrafficPercent = getHeavyUrbanTrafficPercent()
-        if heavyUrbanTrafficPercent > 0 {
-            result.append((.heavyUrbanTraffic, heavyUrbanTrafficPercent))
-        }
-        let cityPercent = getCityPercent()
-        if cityPercent > 0 {
-            result.append((.city, cityPercent))
-        }
-        let suburbanPercent = getSuburbanPercent()
-        if suburbanPercent > 0 {
-            result.append((.suburban, suburbanPercent))
-        }
-        let expresswaysPercent = getExpresswaysPercent()
-        if expresswaysPercent > 0 {
-            result.append((.expressways, expresswaysPercent))
+        for context: DKRoadContext in [.heavyUrbanTraffic, .city, .suburban, .expressways] {
+            let contextPercent = getPercent(context: context)
+            if contextPercent > 0 {
+                result.append((context, contextPercent))
+            }
         }
        return result
     }()
@@ -67,30 +57,9 @@ class RoadContextViewModel {
         }
         return total
     }
-    
-    func getHeavyUrbanTrafficPercent() -> Double {
-        guard let distance = distanceByContext[.heavyUrbanTraffic] else {
-            return 0
-        }
-        return distance/totalCalculatedDistance
-    }
-    
-    func getCityPercent() -> Double {
-        guard let distance = distanceByContext[.city] else {
-            return 0
-        }
-        return distance/totalCalculatedDistance
-    }
-    
-    func getExpresswaysPercent() -> Double {
-        guard let distance = distanceByContext[.expressways] else {
-            return 0
-        }
-        return distance/totalCalculatedDistance
-    }
-    
-    func getSuburbanPercent() -> Double {
-        guard let distance = distanceByContext[.suburban] else {
+
+    func getPercent(context: DKRoadContext) -> Double {
+        guard let distance = distanceByContext[context] else {
             return 0
         }
         return distance/totalCalculatedDistance
@@ -99,13 +68,13 @@ class RoadContextViewModel {
     static func getContextColor(_ context: DKRoadContext) -> UIColor {
         switch context {
         case .suburban:
-            return RoadContextViewModel.subUrbainColor
+            return RoadContextViewModel.suburbanColor
         case .expressways:
-            return RoadContextViewModel.highwayColor
+            return RoadContextViewModel.expresswaysColor
         case .heavyUrbanTraffic:
-            return RoadContextViewModel.urbainDenseColor
+            return RoadContextViewModel.heavyUrbanTrafficColor
         case .city:
-            return RoadContextViewModel.urbainFluidColor
+            return RoadContextViewModel.cityColor
         default:
             return RoadContextViewModel.backgroundColor
         }

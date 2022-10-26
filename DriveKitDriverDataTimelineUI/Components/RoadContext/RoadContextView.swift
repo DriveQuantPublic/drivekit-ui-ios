@@ -13,7 +13,6 @@ import DriveKitDBTripAccessModule
 class RoadContextView: UIView {
     @IBOutlet private weak var roadContextBarView: RoadContextBarView!
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var emptyLabel: UILabel!
     @IBOutlet private weak var itemsCollectionView: UICollectionView!
     private var viewModel: RoadContextViewModel?
 

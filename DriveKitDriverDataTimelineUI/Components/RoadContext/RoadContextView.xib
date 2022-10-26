@@ -31,18 +31,22 @@
                         <constraint firstAttribute="height" constant="30" id="MCm-7J-mb1"/>
                     </constraints>
                 </view>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="vS5-x0-O60">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="vS5-x0-O60">
                     <rect key="frame" x="14" y="106" width="362" height="52"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="52" id="MWz-G4-lNK"/>
                     </constraints>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HIR-2z-q0h">
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="HIR-2z-q0h">
                         <size key="itemSize" width="146" height="26"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="iN0-l3-epB" id="Mdv-M8-KOE"/>
+                    </connections>
                 </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -60,6 +64,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="itemsCollectionView" destination="vS5-x0-O60" id="Bgx-Go-Q18"/>
                 <outlet property="roadContextBarView" destination="TUU-C1-i6r" id="4ba-rI-Ozh"/>
                 <outlet property="titleLabel" destination="1mc-ZW-Pmc" id="S9c-9M-bJ5"/>
             </connections>

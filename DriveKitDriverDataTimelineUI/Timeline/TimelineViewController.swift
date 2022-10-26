@@ -38,6 +38,7 @@ class TimelineViewController: UIViewController {
 
         setupSelectors()
         setupGraphView()
+        setupRoadContext()
 
         if self.viewModel.updating {
             showRefreshControl()
@@ -105,6 +106,14 @@ class TimelineViewController: UIViewController {
 
     private func setupGraphView() {
         
+    }
+
+    private func setupRoadContext() {
+        guard let roadContextview = Bundle.driverDataTimelineUIBundle?.loadNibNamed("RoadContextView", owner: nil, options: nil)?.first as? RoadContextView else {
+            return
+        }
+        roadContextview.configure(viewModel: self.viewModel.roadContextViewModel)
+        self.roadContextContainer.embedSubview(roadContextview)
     }
 }
 

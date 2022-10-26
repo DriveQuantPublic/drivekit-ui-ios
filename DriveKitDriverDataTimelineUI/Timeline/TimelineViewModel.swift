@@ -35,7 +35,7 @@ class TimelineViewModel {
 
         self.dateSelectorViewModel = DateSelectorViewModel()
         self.periodSelectorViewModel = PeriodSelectorViewModel()
-        self.roadContextViewModel = RoadContextViewModel()
+        self.roadContextViewModel = RoadContextViewModel(distanceByContext: [.expressways: 55, .suburban: 65, .heavyUrbanTraffic: 13], distance: 133)
         self.timelineGraphViewModel = TimelineGraphViewModel()
         self.currentPeriod = self.periodSelectorViewModel.selectedPeriod
 

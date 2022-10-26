@@ -6,7 +6,7 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import DriveKitDBTripAccessModule
 
 class RoadContextViewModel {
@@ -35,7 +35,7 @@ class RoadContextViewModel {
     }()
 
     func getTitle() -> String {
-        return "dk_road_context_title".dkDriverDataTimelineLocalized() + " (\(distance.formatMeterDistanceInKm())"
+        return "dk_road_context_title".dkDriverDataTimelineLocalized() + " (\(distance.formatMeterDistanceInKm()))"
     }
     
     private lazy var totalCalculatedDistance: Double = {
@@ -65,7 +65,7 @@ class RoadContextViewModel {
         return distance/totalCalculatedDistance
     }
 
-    static func getContextColor(_ context: DKRoadContext) -> UIColor {
+    static func getRoadContextColor(_ context: DKRoadContext) -> UIColor {
         switch context {
         case .suburban:
             return RoadContextViewModel.suburbanColor
@@ -77,6 +77,21 @@ class RoadContextViewModel {
             return RoadContextViewModel.cityColor
         default:
             return RoadContextViewModel.backgroundColor
+        }
+    }
+
+    static func getRoadContextTitle(_ context: DKRoadContext) -> String {
+        switch context {
+        case .suburban:
+            return "dk_timeline_road_context_suburban".dkDriverDataTimelineLocalized()
+        case .expressways:
+            return "dk_timeline_road_context_expressways".dkDriverDataTimelineLocalized()
+        case .heavyUrbanTraffic:
+            return "dk_timeline_road_context_heavy_urban_traffic".dkDriverDataTimelineLocalized()
+        case .city:
+            return "dk_timeline_road_context_city".dkDriverDataTimelineLocalized()
+        default:
+            return ""
         }
     }
 }

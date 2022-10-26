@@ -14,6 +14,7 @@ class RoadContextView: UIView {
     @IBOutlet private weak var roadContextBarView: RoadContextBarView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var emptyLabel: UILabel!
+    @IBOutlet private weak var itemsCollectionView: UICollectionView!
     private var viewModel: RoadContextViewModel?
 
     override func awakeFromNib() {
@@ -23,6 +24,8 @@ class RoadContextView: UIView {
 
     func setupView() {
         self.titleLabel.font = DKStyles.smallText.style.applyTo(font: .primary)
+        self.itemsCollectionView.register(UINib(nibName: "RoadContextItemCell", bundle: .driverDataTimelineUIBundle), forCellWithReuseIdentifier: "RoadContextItemCell")
+
         if let viewModel = viewModel {
             self.titleLabel.text = viewModel.getTitle()
             self.roadContextBarView.configure(viewModel: viewModel)
@@ -32,6 +35,26 @@ class RoadContextView: UIView {
         self.viewModel = viewModel
         self.setupView()
     }
+}
+
+extension RoadContextView: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard let viewModel = viewModel else { return 0 }
+        return viewModel.getActiveContextNumber()
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "RoadContextItemCell", for: indexPath)
+        if let itemCell = cell as? RoadContextItemCell,
+           let items = viewModel?.itemsToDraw,
+           items.count > indexPath.row {
+            let context = items[indexPath.row].context
+            itemCell.update(title: RoadContextViewModel.getRoadContextTitle(context), color: RoadContextViewModel.getRoadContextColor(context))
+        }
+        return cell
+    }
+    
+    
 }
 
 class RoadContextBarView: UIView {
@@ -49,7 +72,7 @@ class RoadContextBarView: UIView {
             let roundedEnd: Bool = (i == itemsToDraw.count - 1)
             let startX = drawnPercent*(rect.width - 2*RoadContextBarView.margin) + RoadContextBarView.margin
             let itemRect = CGRect(x: startX, y: RoadContextBarView.margin, width: (rect.width - 2*RoadContextBarView.margin)*itemsToDraw[i].percent, height: rect.height - 2*RoadContextBarView.margin)
-            self.drawPartView(itemRect, color: RoadContextViewModel.getContextColor(itemsToDraw[i].context).cgColor, roundedStart: roundedStart, roundedEnd: roundedEnd)
+            self.drawPartView(itemRect, color: RoadContextViewModel.getRoadContextColor(itemsToDraw[i].context).cgColor, roundedStart: roundedStart, roundedEnd: roundedEnd)
             drawnPercent = drawnPercent + itemsToDraw[i].percent
         }
     }

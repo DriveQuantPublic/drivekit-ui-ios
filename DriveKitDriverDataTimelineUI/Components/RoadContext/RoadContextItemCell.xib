@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="RoadContextItemCell" reuseIdentifier="RoadContextItemCell" id="gTV-IL-0wX" customClass="RoadContextItemCell" customModule="DriveKitDriverDataTimelineUI" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="146" height="26"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="146" height="26"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UP2-pc-71e">
+                        <rect key="frame" x="5" y="6" width="14" height="14"/>
+                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="UP2-pc-71e" secondAttribute="height" multiplier="1:1" id="2LJ-kF-r2U"/>
+                            <constraint firstAttribute="height" constant="14" id="dZf-Cs-s8R"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="7"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gjj-84-MXt">
+                        <rect key="frame" x="31" y="6" width="110" height="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Gjj-84-MXt" secondAttribute="bottom" constant="6" id="8w3-Lt-jdg"/>
+                <constraint firstItem="UP2-pc-71e" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="Qal-rl-9UD"/>
+                <constraint firstAttribute="trailing" secondItem="Gjj-84-MXt" secondAttribute="trailing" constant="5" id="Xt9-ov-Jkh"/>
+                <constraint firstItem="UP2-pc-71e" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="6" id="djO-g1-6Ld"/>
+                <constraint firstItem="Gjj-84-MXt" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="6" id="jE7-zY-EjC"/>
+                <constraint firstItem="Gjj-84-MXt" firstAttribute="leading" secondItem="UP2-pc-71e" secondAttribute="trailing" constant="12" id="t8h-Uo-ceL"/>
+                <constraint firstAttribute="bottom" secondItem="UP2-pc-71e" secondAttribute="bottom" constant="6" id="tg4-4D-qO6"/>
+            </constraints>
+            <connections>
+                <outlet property="circleView" destination="UP2-pc-71e" id="hAK-FD-7xS"/>
+                <outlet property="titleLabel" destination="Gjj-84-MXt" id="vEp-Md-mnw"/>
+            </connections>
+            <point key="canvasLocation" x="28" y="21"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

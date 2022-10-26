@@ -5,13 +5,17 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TimelineViewController" customModule="DriveKitDriverDataTimelineUI" customModuleProvider="target">
             <connections>
+                <outlet property="dateSelectorContainer" destination="8R3-Dt-1oH" id="uF1-1r-vsm"/>
+                <outlet property="periodSelectorContainer" destination="so8-sZ-4wK" id="4Kf-Gm-xNK"/>
+                <outlet property="roadContextContainer" destination="Jgi-Y1-Rg8" id="PTb-Xw-Tpe"/>
+                <outlet property="scoreSelectorView" destination="zQN-BG-tEM" id="xNg-g8-f1M"/>
                 <outlet property="scrollView" destination="la9-Yj-V8Q" id="Kr9-wP-J6D"/>
+                <outlet property="timelineGraphViewContainer" destination="IsM-Ga-xtp" id="5TE-TP-U0O"/>
                 <outlet property="view" destination="iN0-l3-epB" id="ndo-Ql-Iqz"/>
             </connections>
         </placeholder>
@@ -26,81 +30,79 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UnV-SB-mgd" userLabel="ContentView">
                             <rect key="frame" x="0.0" y="0.0" width="390" height="763"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hgs-FT-bEW" userLabel="Score selector">
-                                    <rect key="frame" x="0.0" y="0.0" width="390" height="64"/>
-                                    <color key="backgroundColor" systemColor="systemGray5Color"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="64" id="sTf-jw-Q6Y"/>
-                                    </constraints>
-                                </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="so8-sZ-4wK" userLabel="Period selector">
-                                    <rect key="frame" x="0.0" y="84" width="390" height="36"/>
-                                    <color key="backgroundColor" systemColor="systemGray4Color"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="36" id="oAy-gu-f2a"/>
-                                    </constraints>
-                                </view>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3BH-gf-u8z">
+                                    <rect key="frame" x="0.0" y="8" width="390" height="140"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zQN-BG-tEM">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="64"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="64" id="OIm-Ib-cUH"/>
+                                            </constraints>
+                                        </stackView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="so8-sZ-4wK" userLabel="Period selector">
+                                            <rect key="frame" x="0.0" y="64" width="390" height="76"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="76" id="oAy-gu-f2a"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </stackView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8R3-Dt-1oH" userLabel="Date selector">
-                                    <rect key="frame" x="8" y="140" width="374" height="38"/>
-                                    <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                    <rect key="frame" x="8" y="148" width="374" height="38"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="38" id="Dd8-ff-6rO"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jgi-Y1-Rg8" userLabel="Road context">
-                                    <rect key="frame" x="8" y="198" width="374" height="122"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lVz-iT-NJk" customClass="RoadContextBarView" customModule="DriveKitDriverDataTimelineUI" customModuleProvider="target">
-                                            <rect key="frame" x="11" y="34" width="352" height="54"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        </view>
-                                    </subviews>
-                                    <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                    <rect key="frame" x="8" y="206" width="374" height="122"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstItem="lVz-iT-NJk" firstAttribute="centerX" secondItem="Jgi-Y1-Rg8" secondAttribute="centerX" id="TOg-B4-Qgf"/>
-                                        <constraint firstItem="lVz-iT-NJk" firstAttribute="leading" secondItem="Jgi-Y1-Rg8" secondAttribute="leading" constant="11" id="ZMG-qe-9UA"/>
-                                        <constraint firstAttribute="height" priority="750" constant="122" id="jj3-eq-61T"/>
-                                        <constraint firstItem="lVz-iT-NJk" firstAttribute="top" secondItem="Jgi-Y1-Rg8" secondAttribute="top" constant="34" id="pOC-nS-Rbc"/>
-                                        <constraint firstItem="lVz-iT-NJk" firstAttribute="centerY" secondItem="Jgi-Y1-Rg8" secondAttribute="centerY" id="vVS-rl-UFN"/>
+                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="122" id="dBX-IP-qrC"/>
+                                        <constraint firstAttribute="height" priority="800" constant="122" id="jj3-eq-61T"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IsM-Ga-xtp" userLabel="Graph">
-                                    <rect key="frame" x="8" y="340" width="374" height="360"/>
-                                    <color key="backgroundColor" systemColor="systemGrayColor"/>
+                                    <rect key="frame" x="8" y="348" width="374" height="275"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="275" id="1gx-im-iVz"/>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="260" id="azT-c1-8Fo"/>
+                                    </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLR-Ok-Rvv">
-                                    <rect key="frame" x="20" y="720" width="350" height="35"/>
+                                    <rect key="frame" x="20" y="715" width="350" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="U0Z-lJ-CCQ"/>
+                                    </constraints>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="Hgs-FT-bEW" firstAttribute="top" secondItem="UnV-SB-mgd" secondAttribute="top" id="2Gy-TL-LB9"/>
-                                <constraint firstItem="so8-sZ-4wK" firstAttribute="top" secondItem="Hgs-FT-bEW" secondAttribute="bottom" constant="20" id="6ub-Qp-j9r"/>
-                                <constraint firstItem="yLR-Ok-Rvv" firstAttribute="top" secondItem="IsM-Ga-xtp" secondAttribute="bottom" constant="20" id="CTL-Ub-TnB"/>
-                                <constraint firstItem="so8-sZ-4wK" firstAttribute="leading" secondItem="UnV-SB-mgd" secondAttribute="leading" id="Djk-Dh-DSz"/>
+                                <constraint firstAttribute="trailing" secondItem="3BH-gf-u8z" secondAttribute="trailing" id="2DH-bP-B8l"/>
+                                <constraint firstItem="yLR-Ok-Rvv" firstAttribute="top" secondItem="IsM-Ga-xtp" secondAttribute="bottom" priority="800" constant="20" id="CTL-Ub-TnB"/>
                                 <constraint firstItem="Jgi-Y1-Rg8" firstAttribute="leading" secondItem="UnV-SB-mgd" secondAttribute="leading" constant="8" id="FYA-pX-egC"/>
-                                <constraint firstAttribute="trailing" secondItem="Hgs-FT-bEW" secondAttribute="trailing" id="GAX-yl-pHx"/>
+                                <constraint firstItem="3BH-gf-u8z" firstAttribute="leading" secondItem="UnV-SB-mgd" secondAttribute="leading" id="I17-f3-ZiZ"/>
                                 <constraint firstItem="IsM-Ga-xtp" firstAttribute="top" secondItem="Jgi-Y1-Rg8" secondAttribute="bottom" constant="20" id="LoE-BF-zOt"/>
                                 <constraint firstAttribute="trailing" secondItem="yLR-Ok-Rvv" secondAttribute="trailing" constant="20" id="Pvn-qQ-V7W"/>
                                 <constraint firstItem="Jgi-Y1-Rg8" firstAttribute="top" secondItem="8R3-Dt-1oH" secondAttribute="bottom" constant="20" id="ZuQ-uA-eAN"/>
                                 <constraint firstAttribute="trailing" secondItem="IsM-Ga-xtp" secondAttribute="trailing" constant="8" id="bbQ-el-WW2"/>
                                 <constraint firstAttribute="trailing" secondItem="Jgi-Y1-Rg8" secondAttribute="trailing" constant="8" id="bpr-Rb-jZz"/>
+                                <constraint firstItem="3BH-gf-u8z" firstAttribute="top" secondItem="UnV-SB-mgd" secondAttribute="top" constant="8" id="caq-8T-qau"/>
                                 <constraint firstItem="IsM-Ga-xtp" firstAttribute="leading" secondItem="UnV-SB-mgd" secondAttribute="leading" constant="8" id="eH8-b7-oVu"/>
-                                <constraint firstAttribute="trailing" secondItem="so8-sZ-4wK" secondAttribute="trailing" id="fbZ-90-Ddc"/>
-                                <constraint firstItem="8R3-Dt-1oH" firstAttribute="top" secondItem="so8-sZ-4wK" secondAttribute="bottom" constant="20" id="l90-bu-KEk"/>
+                                <constraint firstItem="8R3-Dt-1oH" firstAttribute="top" secondItem="3BH-gf-u8z" secondAttribute="bottom" id="kLE-eY-sDA"/>
                                 <constraint firstItem="8R3-Dt-1oH" firstAttribute="leading" secondItem="UnV-SB-mgd" secondAttribute="leading" constant="8" id="mjT-rm-6cw"/>
                                 <constraint firstAttribute="trailing" secondItem="8R3-Dt-1oH" secondAttribute="trailing" constant="8" id="pbB-Nm-VAQ"/>
                                 <constraint firstItem="yLR-Ok-Rvv" firstAttribute="leading" secondItem="UnV-SB-mgd" secondAttribute="leading" constant="20" id="tCU-Ao-khK"/>
+                                <constraint firstItem="yLR-Ok-Rvv" firstAttribute="top" relation="greaterThanOrEqual" secondItem="IsM-Ga-xtp" secondAttribute="bottom" constant="20" id="uB7-eK-vJt"/>
                                 <constraint firstAttribute="bottom" secondItem="yLR-Ok-Rvv" secondAttribute="bottom" constant="8" id="wc0-XV-C5X"/>
-                                <constraint firstItem="Hgs-FT-bEW" firstAttribute="leading" secondItem="UnV-SB-mgd" secondAttribute="leading" id="xzM-4Q-L5n"/>
                             </constraints>
                         </view>
                     </subviews>
                     <constraints>
                         <constraint firstItem="UnV-SB-mgd" firstAttribute="width" secondItem="G06-ix-S5S" secondAttribute="width" id="1h7-oX-lit"/>
-                        <constraint firstItem="UnV-SB-mgd" firstAttribute="height" secondItem="la9-Yj-V8Q" secondAttribute="height" id="ivM-VJ-mbu"/>
+                        <constraint firstItem="UnV-SB-mgd" firstAttribute="height" relation="greaterThanOrEqual" secondItem="la9-Yj-V8Q" secondAttribute="height" id="ivM-VJ-mbu"/>
                         <constraint firstItem="UnV-SB-mgd" firstAttribute="bottom" secondItem="9fa-o4-D6F" secondAttribute="bottom" id="q4b-7j-Hrh"/>
                         <constraint firstItem="9fa-o4-D6F" firstAttribute="top" secondItem="UnV-SB-mgd" secondAttribute="top" id="sgQ-Hm-9bl"/>
                         <constraint firstItem="9fa-o4-D6F" firstAttribute="leading" secondItem="UnV-SB-mgd" secondAttribute="leading" id="vg3-x6-rIj"/>
@@ -111,7 +113,7 @@
                 </scrollView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="la9-Yj-V8Q" secondAttribute="trailing" id="1EA-tk-BHR"/>
                 <constraint firstItem="la9-Yj-V8Q" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="RoR-th-77x"/>
@@ -121,24 +123,4 @@
             <point key="canvasLocation" x="140" y="0.0"/>
         </view>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
 </document>

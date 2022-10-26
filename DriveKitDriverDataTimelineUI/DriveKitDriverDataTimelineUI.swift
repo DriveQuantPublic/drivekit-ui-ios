@@ -12,8 +12,17 @@ import DriveKitCommonUI
 @objc public class DriveKitDriverDataTimelineUI: NSObject {
     @objc public static let shared = DriveKitDriverDataTimelineUI()
 
+    var scores: [DKTimelineScoreType] = [.safety, .ecoDriving, .distraction, .speeding] {
+        didSet {
+            if self.scores.isEmpty {
+                self.scores = [.safety]
+            }
+        }
+    }
+
     @objc public func getTimelineViewController() -> UIViewController {
-        return TimelineViewController()
+        let viewModel = TimelineViewModel()
+        return TimelineViewController(viewModel: viewModel)
     }
 }
 

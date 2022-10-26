@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Leaderboard_safety.png",
+      "filename" : "dk_common_distraction_flat.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Leaderboard_safety@2x.png",
+      "filename" : "dk_common_distraction_flat@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Leaderboard_safety@3x.png",
+      "filename" : "dk_common_distraction_flat@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

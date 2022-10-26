@@ -22,7 +22,7 @@
 "dashboard_header"="Dashboard";
 "delete_account_header"="Löschung des Kontos";
 "drivekit_doc_ios_badges"="https://docs.drivequant.com/driver-achievement/user-interface/ios#select-badges-categories";
-"drivekit_doc_ios_challenges"="https://docs.drivequant.com/user-interface/ios/get-started#display-challenge-list";
+"drivekit_doc_ios_challenges"="https://docs.drivequant.com/challenge/user-interface/ios/get-started#display-challenge-list";
 "drivekit_doc_ios_diag"="https://docs.drivequant.com/permissions-utils/permission-utils/ios/main-configurations#sdk-diagnosis";
 "drivekit_doc_ios_driver_data"="https://docs.drivequant.com/driver-data/user-interface/ios/get-started";
 "drivekit_doc_ios_github_ui"="https://github.com/DriveQuantPublic/drivekit-ui-ios";

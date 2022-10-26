@@ -16,17 +16,21 @@ public enum DKImages: String {
          ecoMaintain = "dk_common_eco_maintain",
          ecoDriving = "dk_common_ecodriving",
          ecoDrivingFilled = "dk_common_ecodriving_filled",
+         ecoDrivingFlat = "dk_common_ecodriving_flat",
          ecoAdvice = "dk_common_eco_advice",
          safetyAccel = "dk_common_safety_accel",
          safetyDecel = "dk_common_safety_decel",
          safetyAdherence = "dk_common_safety_adherence",
          safety = "dk_common_safety",
          safetyFilled = "dk_common_safety_filled",
+         safetyFlat = "dk_common_safety_flat",
          safetyAdvice = "dk_common_safety_advice",
          distraction = "dk_common_distraction",
          distractionFilled = "dk_common_distraction_filled",
+         distractionFlat = "dk_common_distraction_flat",
          speeding = "dk_common_speeding",
          speedingFilled = "dk_common_speeding_filled",
+         speedingFlat = "dk_common_speeding_flat",
          call = "dk_common_call",
          warning = "dk_common_warning",
          dots = "dk_common_dots",
@@ -49,10 +53,10 @@ public enum DKImages: String {
     public var image: UIImage? {
         let renderingMode: UIImage.RenderingMode
         switch self  {
-        case .noScore, .rank1, .rank2, .rank3, .emptyData:
-            renderingMode = .automatic
-        default:
-            renderingMode = .alwaysTemplate
+            case .noScore, .rank1, .rank2, .rank3, .emptyData, .safetyFlat, .ecoDrivingFlat, .distractionFlat, .speedingFlat:
+                renderingMode = .automatic
+            default:
+                renderingMode = .alwaysTemplate
         }
         if let image = UIImage(named: self.rawValue, in: .main, compatibleWith: nil) {
             return image.withRenderingMode(renderingMode)

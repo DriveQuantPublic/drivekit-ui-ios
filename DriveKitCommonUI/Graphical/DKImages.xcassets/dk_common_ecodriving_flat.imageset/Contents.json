@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Leaderboard_phone_distraction.png",
+      "filename" : "dk_common_ecodriving_flat.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Leaderboard_phone_distraction@2x.png",
+      "filename" : "dk_common_ecodriving_flat@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Leaderboard_phone_distraction@3x.png",
+      "filename" : "dk_common_ecodriving_flat@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

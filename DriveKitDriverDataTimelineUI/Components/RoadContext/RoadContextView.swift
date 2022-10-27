@@ -24,15 +24,20 @@ class RoadContextView: UIView {
     func setupView() {
         self.titleLabel.font = DKStyles.smallText.style.applyTo(font: .primary)
         self.itemsCollectionView.register(UINib(nibName: "RoadContextItemCell", bundle: .driverDataTimelineUIBundle), forCellWithReuseIdentifier: "RoadContextItemCell")
+        self.refreshView()
+    }
 
+    func refreshView() {
         if let viewModel = viewModel {
             self.titleLabel.text = viewModel.getTitle()
             self.roadContextBarView.configure(viewModel: viewModel)
         }
+        self.itemsCollectionView.reloadData()
     }
+
     func configure(viewModel: RoadContextViewModel) {
         self.viewModel = viewModel
-        self.setupView()
+        self.refreshView()
     }
 }
 
@@ -52,13 +57,16 @@ extension RoadContextView: UICollectionViewDataSource {
         }
         return cell
     }
-    
-    
+}
+extension RoadContextView: RoadContextViewModelDelegate {
+    func roadContextViewModelDidUpdate() {
+        setupView()
+    }
 }
 
 class RoadContextBarView: UIView {
     static private let radius: Double = 10
-    static private let margin: Double = 5
+    static private let margin: Double = 0
     private var viewModel: RoadContextViewModel?
 
     override func draw(_ rect: CGRect) {
@@ -74,6 +82,12 @@ class RoadContextBarView: UIView {
             self.drawPartView(itemRect, color: RoadContextViewModel.getRoadContextColor(itemsToDraw[i].context).cgColor, roundedStart: roundedStart, roundedEnd: roundedEnd)
             drawnPercent = drawnPercent + itemsToDraw[i].percent
         }
+
+        let maskLayer = CAShapeLayer()
+        let path = CGMutablePath()
+        path.addPath(UIBezierPath(roundedRect: rect, cornerRadius: RoadContextBarView.radius).cgPath)
+        maskLayer.path = path
+        self.layer.mask = maskLayer;
     }
 
     private func drawPartView(_ rect: CGRect, color: CGColor, roundedStart: Bool = false, roundedEnd: Bool = false) {

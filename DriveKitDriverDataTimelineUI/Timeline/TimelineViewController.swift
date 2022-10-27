@@ -112,6 +112,7 @@ class TimelineViewController: UIViewController {
         guard let roadContextview = Bundle.driverDataTimelineUIBundle?.loadNibNamed("RoadContextView", owner: nil, options: nil)?.first as? RoadContextView else {
             return
         }
+        self.viewModel.roadContextViewModel.delegate = roadContextview
         roadContextview.configure(viewModel: self.viewModel.roadContextViewModel)
         self.roadContextContainer.embedSubview(roadContextview)
     }
@@ -121,7 +122,7 @@ extension TimelineViewController: TimelineViewModelDelegate {
     func willUpdateTimeline() {
         showRefreshControl()
     }
-
+    
     func didUpdateTimeline() {
         hideRefreshControl()
     }

@@ -35,7 +35,7 @@ class TimelineViewModel {
 
         self.dateSelectorViewModel = DateSelectorViewModel()
         self.periodSelectorViewModel = PeriodSelectorViewModel()
-        self.roadContextViewModel = RoadContextViewModel(distanceByContext: [.expressways: 55, .suburban: 65, .heavyUrbanTraffic: 13], distance: 133)
+        self.roadContextViewModel = RoadContextViewModel()
         self.timelineGraphViewModel = TimelineGraphViewModel()
         self.currentPeriod = self.periodSelectorViewModel.selectedPeriod
 
@@ -117,6 +117,12 @@ class TimelineViewModel {
 
                 self.periodSelectorViewModel.update(selectedPeriod: self.currentPeriod)
                 //TODO
+                var distanceByContext: [DKRoadContext: Double] = [:]
+                for roadContext in timelineSource.roadContexts {
+                    let distance = roadContext.distance[selectedDateIndex]
+                    distanceByContext[roadContext.type] = distance
+                }
+                self.roadContextViewModel.configure(distanceByContext: distanceByContext)
             }
         }
     }

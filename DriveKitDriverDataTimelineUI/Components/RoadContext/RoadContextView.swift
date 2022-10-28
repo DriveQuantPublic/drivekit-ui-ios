@@ -14,6 +14,7 @@ class RoadContextView: UIView {
     @IBOutlet private weak var roadContextBarView: RoadContextBarView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var itemsCollectionView: UICollectionView!
+    @IBOutlet private weak var collectionViewHeightConstraint: NSLayoutConstraint!
     private var viewModel: RoadContextViewModel?
 
     override func awakeFromNib() {
@@ -31,6 +32,11 @@ class RoadContextView: UIView {
         if let viewModel = viewModel {
             self.titleLabel.text = viewModel.getTitle()
             self.roadContextBarView.configure(viewModel: viewModel)
+        }
+        if let viewModel = self.viewModel, viewModel.getActiveContextNumber() < 3 {
+            self.collectionViewHeightConstraint.constant = 26
+        } else {
+            self.collectionViewHeightConstraint.constant = 52
         }
         self.itemsCollectionView.reloadData()
     }
@@ -58,6 +64,11 @@ extension RoadContextView: UICollectionViewDataSource {
         return cell
     }
 }
+extension RoadContextView: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.bounds.width/2, height: 26)
+    }
+}
 extension RoadContextView: RoadContextViewModelDelegate {
     func roadContextViewModelDidUpdate() {
         setupView()
@@ -65,7 +76,7 @@ extension RoadContextView: RoadContextViewModelDelegate {
 }
 
 class RoadContextBarView: UIView {
-    static private let radius: Double = 10
+    static private let radius: Double = 8
     static private let margin: Double = 0
     private var viewModel: RoadContextViewModel?
 

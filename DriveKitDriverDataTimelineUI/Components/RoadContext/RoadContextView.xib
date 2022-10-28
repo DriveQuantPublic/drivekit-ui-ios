@@ -12,7 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RoadContextView" customModule="DriveKitDriverDataTimelineUI" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="390" height="197"/>
+            <rect key="frame" x="0.0" y="0.0" width="390" height="169"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mc-ZW-Pmc">
@@ -46,12 +46,14 @@
                     </collectionViewFlowLayout>
                     <connections>
                         <outlet property="dataSource" destination="iN0-l3-epB" id="Mdv-M8-KOE"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="cxR-mt-d4V"/>
                     </connections>
                 </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="vS5-x0-O60" secondAttribute="bottom" constant="11" id="4mG-X7-RvW"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1mc-ZW-Pmc" secondAttribute="trailing" constant="15" id="8zE-Nh-scE"/>
                 <constraint firstItem="vS5-x0-O60" firstAttribute="top" secondItem="TUU-C1-i6r" secondAttribute="bottom" constant="1" id="Isa-nz-pMH"/>
                 <constraint firstItem="TUU-C1-i6r" firstAttribute="top" secondItem="1mc-ZW-Pmc" secondAttribute="bottom" constant="5" id="SyR-tm-qqV"/>
@@ -64,11 +66,12 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="collectionViewHeightConstraint" destination="MWz-G4-lNK" id="F9q-Bb-NuP"/>
                 <outlet property="itemsCollectionView" destination="vS5-x0-O60" id="Bgx-Go-Q18"/>
                 <outlet property="roadContextBarView" destination="TUU-C1-i6r" id="4ba-rI-Ozh"/>
                 <outlet property="titleLabel" destination="1mc-ZW-Pmc" id="S9c-9M-bJ5"/>
             </connections>
-            <point key="canvasLocation" x="28" y="21"/>
+            <point key="canvasLocation" x="27.69230769230769" y="17.772511848341232"/>
         </view>
     </objects>
     <resources>

@@ -11,6 +11,7 @@ import DriveKitCommonUI
 import DriveKitDBTripAccessModule
 
 class RoadContextView: UIView {
+    static let collectionViewCellHeight: CGFloat = 26.0
     @IBOutlet private weak var roadContextBarView: RoadContextBarView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var itemsCollectionView: UICollectionView!
@@ -34,9 +35,9 @@ class RoadContextView: UIView {
             self.roadContextBarView.configure(viewModel: viewModel)
         }
         if let viewModel = self.viewModel, viewModel.getActiveContextNumber() < 3 {
-            self.collectionViewHeightConstraint.constant = 26
+            self.collectionViewHeightConstraint.constant = RoadContextView.collectionViewCellHeight
         } else {
-            self.collectionViewHeightConstraint.constant = 52
+            self.collectionViewHeightConstraint.constant = RoadContextView.collectionViewCellHeight*2
         }
         self.itemsCollectionView.reloadData()
     }
@@ -66,7 +67,7 @@ extension RoadContextView: UICollectionViewDataSource {
 }
 extension RoadContextView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width/2, height: 26)
+        return CGSize(width: collectionView.bounds.width/2, height: RoadContextView.collectionViewCellHeight)
     }
 }
 extension RoadContextView: RoadContextViewModelDelegate {

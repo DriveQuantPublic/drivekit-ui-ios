@@ -32,6 +32,7 @@ class DateSelectorViewModel {
         self.selectedDateIndex = dates.count - 1
         let date = self.selectedDate
         self.updateAttributes(selectedDate: date)
+        self.delegate?.dateSelectorDidSelectDate(date)
     }
 
     func moveToNextDate() {
@@ -64,9 +65,10 @@ class DateSelectorViewModel {
     private static func getEndDate(fromDate: Date, period: DKTimelinePeriod) -> Date? {
         let calendar = Calendar(identifier: .gregorian)
         if period == .week {
-            return calendar.date(byAdding: .day, value: 7, to: fromDate)
+            return calendar.date(byAdding: .day, value: 6, to: fromDate)
         } else {
-            return calendar.date(byAdding: .month, value: 1, to: fromDate)
+            guard let nextMonth = calendar.date(byAdding: .month, value: 1, to: fromDate) else { return nil }
+            return calendar.date(byAdding: .day, value: -1, to: nextMonth)
         }
     }
 

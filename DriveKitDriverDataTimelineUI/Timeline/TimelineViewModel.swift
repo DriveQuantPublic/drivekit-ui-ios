@@ -115,6 +115,7 @@ class TimelineViewModel {
                 print("= dates = \(dates)")
                 print("= selectedDateIndex = \(selectedDateIndex)")
 
+                self.dateSelectorViewModel.update(dates: dates, period: self.currentPeriod)
                 self.periodSelectorViewModel.update(selectedPeriod: self.currentPeriod)
                 //TODO
             }

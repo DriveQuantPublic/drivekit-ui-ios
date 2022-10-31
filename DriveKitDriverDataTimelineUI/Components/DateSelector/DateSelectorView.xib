@@ -15,26 +15,26 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="84"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K1m-43-J5L">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K1m-43-J5L">
                     <rect key="frame" x="10" y="31" width="22" height="22"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="22" id="C7l-Mj-Yer"/>
                         <constraint firstAttribute="height" constant="22" id="hK9-tv-X5n"/>
                     </constraints>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="&lt;"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="dk_timeline_prev_arrow"/>
                     <connections>
                         <action selector="showPreviousDate" destination="iN0-l3-epB" eventType="touchUpInside" id="0Vb-c5-VoI"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7b-g7-XeY">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7b-g7-XeY">
                     <rect key="frame" x="358" y="31" width="22" height="22"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="22" id="CV4-42-DH1"/>
                         <constraint firstAttribute="width" constant="22" id="L9C-va-Mre"/>
                     </constraints>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="&gt;"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="dk_timeline_next_arrow"/>
                     <connections>
                         <action selector="showNextDate" destination="iN0-l3-epB" eventType="touchUpInside" id="MAT-C4-TsC"/>
                     </connections>
@@ -70,6 +70,8 @@
         </view>
     </objects>
     <resources>
+        <image name="dk_timeline_next_arrow" width="22" height="22"/>
+        <image name="dk_timeline_prev_arrow" width="22" height="22"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

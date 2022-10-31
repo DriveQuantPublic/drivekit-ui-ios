@@ -69,4 +69,11 @@ class DateSelectorViewModel {
             return calendar.date(byAdding: .month, value: 1, to: fromDate)
         }
     }
+
+    func getDateIntervalAttributedText() -> NSAttributedString {
+        let fromDateString = self.fromDate.format(pattern: .standardDate).dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.primaryColor).build()
+        let toDateString = self.toDate.format(pattern: .standardDate).dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.primaryColor).build()
+        let intervalString = "\("dk_timeline_from_date".dkDriverDataTimelineLocalized()) %@ \("dk_timeline_to_date".dkDriverDataTimelineLocalized()) %@".dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.black.withAlphaComponent(0.53)).buildWithArgs(fromDateString, toDateString)
+        return intervalString
+    }
 }

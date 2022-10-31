@@ -37,6 +37,7 @@ class TimelineViewController: UIViewController {
         self.scrollView.refreshControl = refreshControl
 
         setupSelectors()
+        setupDateSelector()
         setupGraphView()
 
         if self.viewModel.updating {
@@ -105,6 +106,15 @@ class TimelineViewController: UIViewController {
 
     private func setupGraphView() {
         
+    }
+
+    private func setupDateSelector() {
+        guard let dateSelectorView = Bundle.driverDataTimelineUIBundle?.loadNibNamed("DateSelectorView", owner: nil, options: nil)?.first as? DateSelectorView else {
+            return
+        }
+        dateSelectorView.configure(viewModel: self.viewModel.dateSelectorViewModel)
+        self.viewModel.dateSelectorViewModel.delegate = dateSelectorView
+        self.dateSelectorContainer.embedSubview(dateSelectorView)
     }
 }
 

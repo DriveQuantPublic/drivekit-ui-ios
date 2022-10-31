@@ -7,7 +7,8 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 
-class DateSelectorView {
-    
+class DateSelectorView: UIView {
+    private var viewModel: DateSelectorViewModel?
 }

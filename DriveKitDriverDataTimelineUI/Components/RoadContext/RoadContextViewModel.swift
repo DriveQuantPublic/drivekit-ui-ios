@@ -10,7 +10,7 @@ import UIKit
 import DriveKitDBTripAccessModule
 
 class RoadContextViewModel {
-    private var distanceByContext: [DKRoadContext: Double] = [:]
+    private var distanceByContext: [TimelineRoadContext: Double] = [:]
     private var distance: Double = 0
     private static let backgroundColor = UIColor(hex: 0xFAFAFA)
     private static let heavyUrbanTrafficColor = UIColor(hex: 0x036A82)
@@ -19,26 +19,24 @@ class RoadContextViewModel {
     private static let expresswaysColor = UIColor(hex: 0x8FB7C2)
     weak var delegate: RoadContextViewModelDelegate?
 
-    var itemsToDraw: [(context: DKRoadContext, percent: Double)] = []
+    var itemsToDraw: [(context: TimelineRoadContext, percent: Double)] = []
 
     func getTitle() -> String {
         return "dk_road_context_title".dkDriverDataTimelineLocalized() + " (\(distance.formatMeterDistanceInKm()))"
     }
 
-    func configure(distanceByContext: [DKRoadContext: Double]) {
+    func configure(distanceByContext: [TimelineRoadContext: Double]) {
         self.distanceByContext = distanceByContext
         self.distance = distanceByContext.reduce(into: 0.0) { distance, element in
-            if element.key != .trafficJam {
-                distance += element.value
-            }
+            distance += element.value
         }
         self.updateItemsToDraw()
         self.delegate?.roadContextViewModelDidUpdate()
     }
 
     private func updateItemsToDraw() {
-        var result: [(context: DKRoadContext, percent: Double)] = []
-        for context: DKRoadContext in [.heavyUrbanTraffic, .city, .suburban, .expressways] {
+        var result: [(context: TimelineRoadContext, percent: Double)] = []
+        for context: TimelineRoadContext in [.heavyUrbanTraffic, .city, .suburban, .expressways] {
             let contextPercent = getPercent(context: context)
             if contextPercent > 0 {
                 result.append((context, contextPercent))
@@ -49,22 +47,22 @@ class RoadContextViewModel {
     
     func getActiveContextNumber() -> Int {
         var total: Int = 0
-        for (context, dist) in distanceByContext {
-            if dist > 0 && context != .trafficJam {
+        for (_, dist) in distanceByContext {
+            if dist > 0 {
                 total = total + 1
             }
         }
         return total
     }
 
-    func getPercent(context: DKRoadContext) -> Double {
+    func getPercent(context: TimelineRoadContext) -> Double {
         guard let contextDistance = distanceByContext[context] else {
             return 0
         }
         return contextDistance/distance
     }
 
-    static func getRoadContextColor(_ context: DKRoadContext) -> UIColor {
+    static func getRoadContextColor(_ context: TimelineRoadContext) -> UIColor {
         switch context {
         case .suburban:
             return RoadContextViewModel.suburbanColor
@@ -74,12 +72,10 @@ class RoadContextViewModel {
             return RoadContextViewModel.heavyUrbanTrafficColor
         case .city:
             return RoadContextViewModel.cityColor
-        default:
-            return RoadContextViewModel.backgroundColor
         }
     }
 
-    static func getRoadContextTitle(_ context: DKRoadContext) -> String {
+    static func getRoadContextTitle(_ context: TimelineRoadContext) -> String {
         switch context {
         case .suburban:
             return "dk_timeline_road_context_suburban".dkDriverDataTimelineLocalized()
@@ -89,12 +85,33 @@ class RoadContextViewModel {
             return "dk_timeline_road_context_heavy_urban_traffic".dkDriverDataTimelineLocalized()
         case .city:
             return "dk_timeline_road_context_city".dkDriverDataTimelineLocalized()
-        default:
-            return ""
         }
     }
 }
 
 protocol RoadContextViewModelDelegate: AnyObject {
     func roadContextViewModelDidUpdate()
+}
+
+
+enum TimelineRoadContext: Int, Codable {
+    case heavyUrbanTraffic
+    case city
+    case suburban
+    case expressways
+
+    init?(roadContext: DKRoadContext) {
+        switch roadContext {
+        case .heavyUrbanTraffic:
+            self = .heavyUrbanTraffic
+        case .city:
+            self = .city
+        case .suburban:
+            self = .suburban
+        case .expressways:
+            self = .expressways
+        default:
+            return nil
+        }
+    }
 }

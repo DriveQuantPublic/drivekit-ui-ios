@@ -50,6 +50,7 @@ class TimelineViewController: UIViewController {
         }
     }
 
+
     @objc private func refresh(_ sender: Any) {
         self.viewModel.updateTimeline()
         self.refreshRoadContextContainer()
@@ -117,7 +118,8 @@ class TimelineViewController: UIViewController {
             return
         }
         dateSelectorView.configure(viewModel: self.viewModel.dateSelectorViewModel)
-        self.viewModel.dateSelectorViewModel.delegate = dateSelectorView
+        self.viewModel.dateSelectorViewModel.delegates.append(dateSelectorView)
+        self.viewModel.dateSelectorViewModel.delegates.append(self.viewModel)
         self.dateSelectorContainer.embedSubview(dateSelectorView)
     }
 

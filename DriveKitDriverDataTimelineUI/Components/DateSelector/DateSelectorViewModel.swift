@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import DriveKitCoreModule
 import DriveKitDBTripAccessModule
 
 class DateSelectorViewModel {
     private var dates: [Date] = []
     private var period: DKTimelinePeriod = .week
     private var selectedDateIndex: Int = -1
-    weak var delegate: DateSelectorDelegate?
+    var delegates: WeakArray<DateSelectorDelegate> = WeakArray()
     private(set) var hasPerviousDate: Bool = false
     private(set) var hasNextDate: Bool = false
     private(set) var fromDate: Date = Date()
@@ -26,13 +27,15 @@ class DateSelectorViewModel {
         return self.dates[self.selectedDateIndex]
     }
 
-    func update(dates: [Date], period: DKTimelinePeriod = .week) {
+    func update(dates: [Date], period: DKTimelinePeriod = .week, selectedIndex: Int? = nil) {
         self.dates = dates
         self.period = period
-        self.selectedDateIndex = dates.count - 1
+        self.selectedDateIndex = selectedIndex ?? dates.count - 1
         let date = self.selectedDate
         self.updateAttributes(selectedDate: date)
-        self.delegate?.dateSelectorDidSelectDate(date)
+        for delegate in self.delegates {
+            delegate?.dateSelectorUpdated()
+        }
     }
 
     func moveToNextDate() {
@@ -40,9 +43,7 @@ class DateSelectorViewModel {
             return
         }
         self.selectedDateIndex = self.selectedDateIndex + 1
-        let date = self.selectedDate
-        self.updateAttributes(selectedDate: date)
-        self.delegate?.dateSelectorDidSelectDate(date)
+        self.updateSelectedDateIndex(selectedIndex: self.selectedDateIndex)
     }
 
     func moveToPreviousDate() {
@@ -50,11 +51,18 @@ class DateSelectorViewModel {
             return
         }
         self.selectedDateIndex = self.selectedDateIndex - 1
+        self.updateSelectedDateIndex(selectedIndex: self.selectedDateIndex)
+    }
+
+    func updateSelectedDateIndex(selectedIndex: Int) {
+        self.selectedDateIndex = selectedIndex
         let date = self.selectedDate
         self.updateAttributes(selectedDate: date)
-        self.delegate?.dateSelectorDidSelectDate(date)
+        for delegate in self.delegates {
+            delegate?.dateSelectorDidSelectDate(date)
+        }
     }
-    
+
     private func updateAttributes(selectedDate: Date) {
         self.hasNextDate = (self.dates.count > self.selectedDateIndex + 1)
         self.hasPerviousDate = self.selectedDateIndex > 0

@@ -42,6 +42,10 @@ class DateSelectorView: UIView {
 }
 
 extension DateSelectorView: DateSelectorDelegate {
+    func dateSelectorUpdated() {
+        self.setupView()
+    }
+
     func dateSelectorDidSelectDate(_ date: Date) {
         self.setupView()
     }

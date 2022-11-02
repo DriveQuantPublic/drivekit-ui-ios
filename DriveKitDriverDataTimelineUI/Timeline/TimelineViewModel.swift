@@ -115,7 +115,7 @@ class TimelineViewModel {
                 print("= dates = \(dates)")
                 print("= selectedDateIndex = \(selectedDateIndex)")
 
-                self.dateSelectorViewModel.update(dates: dates, period: self.currentPeriod)
+                self.dateSelectorViewModel.update(dates: dates, period: self.currentPeriod, selectedIndex: selectedDateIndex)
                 self.periodSelectorViewModel.update(selectedPeriod: self.currentPeriod)
                 //TODO
                 var distanceByContext: [TimelineRoadContext: Double] = [:]
@@ -139,6 +139,9 @@ extension TimelineViewModel: PeriodSelectorDelegate {
 }
 
 extension TimelineViewModel: DateSelectorDelegate {
+    func dateSelectorUpdated() {
+    }
+    
     func dateSelectorDidSelectDate(_ date: Date) {
         self.selectedDate = date
         update()

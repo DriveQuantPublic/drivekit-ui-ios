@@ -8,6 +8,7 @@
 
 import Foundation
 
-protocol DateSelectorDelegate: AnyObject {
+@objc protocol DateSelectorDelegate: AnyObject {
     func dateSelectorDidSelectDate(_ date: Date)
+    func dateSelectorUpdated()
 }

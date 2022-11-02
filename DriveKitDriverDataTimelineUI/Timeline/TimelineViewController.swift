@@ -18,6 +18,8 @@ class TimelineViewController: UIViewController {
     @IBOutlet private weak var timelineGraphViewContainer: UIView!
     private let viewModel: TimelineViewModel
     private var selectedScoreSelectionTypeView: ScoreSelectionTypeView? = nil
+    private let roadContextview = Bundle.driverDataTimelineUIBundle?.loadNibNamed("RoadContextView", owner: nil, options: nil)?.first as? RoadContextView
+    private let emptyRoadContextView = Bundle.driverDataTimelineUIBundle?.loadNibNamed("EmptyRoadContextView", owner: nil, options: nil)?.first as? EmptyRoadContextView
 
     init(viewModel: TimelineViewModel) {
         self.viewModel = viewModel
@@ -38,6 +40,7 @@ class TimelineViewController: UIViewController {
 
         setupSelectors()
         setupGraphView()
+        setupRoadContext()
 
         if self.viewModel.updating {
             showRefreshControl()
@@ -48,6 +51,7 @@ class TimelineViewController: UIViewController {
 
     @objc private func refresh(_ sender: Any) {
         self.viewModel.updateTimeline()
+        self.refreshRoadContextContainer()
     }
 
     private func showRefreshControl() {
@@ -106,13 +110,34 @@ class TimelineViewController: UIViewController {
     private func setupGraphView() {
         
     }
+
+    private func setupRoadContext() {
+        if let roadContextview = self.roadContextview {
+            self.viewModel.roadContextViewModel.delegate = roadContextview
+            roadContextview.configure(viewModel: self.viewModel.roadContextViewModel)
+        }
+
+        self.refreshRoadContextContainer()
+    }
+    private func refreshRoadContextContainer() {
+        guard let roadContextview = self.roadContextview, let emptyRoadContextView = self.emptyRoadContextView else {
+            return
+        }
+        self.roadContextContainer.removeSubviews()
+        if self.viewModel.roadContextViewModel.getActiveContextNumber() > 0 {
+            self.roadContextContainer.embedSubview(roadContextview)
+        } else {
+            self.roadContextContainer.embedSubview(emptyRoadContextView)
+        }
+
+    }
 }
 
 extension TimelineViewController: TimelineViewModelDelegate {
     func willUpdateTimeline() {
         showRefreshControl()
     }
-
+    
     func didUpdateTimeline() {
         hideRefreshControl()
     }

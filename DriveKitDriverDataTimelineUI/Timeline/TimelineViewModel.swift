@@ -117,6 +117,14 @@ class TimelineViewModel {
 
                 self.periodSelectorViewModel.update(selectedPeriod: self.currentPeriod)
                 //TODO
+                var distanceByContext: [TimelineRoadContext: Double] = [:]
+                for roadContext in timelineSource.roadContexts {
+                    if let timelineRoadContext = TimelineRoadContext(roadContext: roadContext.type) {
+                        let distance = roadContext.distance[selectedDateIndex]
+                        distanceByContext[timelineRoadContext] = distance
+                    }
+                }
+                self.roadContextViewModel.configure(distanceByContext: distanceByContext)
             }
         }
     }

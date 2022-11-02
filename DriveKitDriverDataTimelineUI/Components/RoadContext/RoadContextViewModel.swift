@@ -22,7 +22,7 @@ class RoadContextViewModel {
     var itemsToDraw: [(context: TimelineRoadContext, percent: Double)] = []
 
     func getTitle() -> String {
-        return "dk_road_context_title".dkDriverDataTimelineLocalized() + " (\(distance.formatMeterDistanceInKm()))"
+        return "dk_road_context_title".dkDriverDataTimelineLocalized() + " (\(distance.formatKilometerDistance()))"
     }
 
     func configure(distanceByContext: [TimelineRoadContext: Double]) {

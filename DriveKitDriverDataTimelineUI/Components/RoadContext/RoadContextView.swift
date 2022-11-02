@@ -34,11 +34,9 @@ class RoadContextView: UIView {
             self.titleLabel.text = viewModel.getTitle()
             self.roadContextBarView.configure(viewModel: viewModel)
         }
-        if let viewModel = self.viewModel, viewModel.getActiveContextNumber() < 3 {
-            self.collectionViewHeightConstraint.constant = RoadContextView.collectionViewCellHeight
-        } else {
-            self.collectionViewHeightConstraint.constant = RoadContextView.collectionViewCellHeight*2
-        }
+        self.collectionViewHeightConstraint.constant =
+         RoadContextView.collectionViewCellHeight *
+        CGFloat(Int(ceil(Double(viewModel?.getActiveContextNumber() ?? 1) / 2.0)))
         self.itemsCollectionView.reloadData()
     }
 

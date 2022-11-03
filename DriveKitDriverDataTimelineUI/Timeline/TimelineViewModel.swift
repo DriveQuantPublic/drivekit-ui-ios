@@ -128,6 +128,7 @@ class TimelineViewModel {
                 self.roadContextViewModel.configure(distanceByContext: distanceByContext)
             }
         }
+        self.delegate?.needToBeRefreshed()
     }
 }
 

@@ -53,7 +53,6 @@ class TimelineViewController: UIViewController {
 
     @objc private func refresh(_ sender: Any) {
         self.viewModel.updateTimeline()
-        self.refreshRoadContextContainer()
     }
 
     private func showRefreshControl() {
@@ -148,8 +147,14 @@ extension TimelineViewController: TimelineViewModelDelegate {
     func willUpdateTimeline() {
         showRefreshControl()
     }
-    
+
     func didUpdateTimeline() {
         hideRefreshControl()
+        self.refreshRoadContextContainer()
     }
+
+    func needToBeRefreshed() {
+        self.refreshRoadContextContainer()
+    }
+
 }

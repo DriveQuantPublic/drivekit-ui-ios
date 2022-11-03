@@ -43,7 +43,7 @@ class DateSelectorViewModel {
             return
         }
         self.selectedDateIndex = self.selectedDateIndex + 1
-        self.updateSelectedDateIndex(selectedDateIndex: self.selectedDateIndex)
+        self.updateSelectedDateIndex(self.selectedDateIndex)
     }
 
     func moveToPreviousDate() {
@@ -51,10 +51,10 @@ class DateSelectorViewModel {
             return
         }
         self.selectedDateIndex = self.selectedDateIndex - 1
-        self.updateSelectedDateIndex(selectedDateIndex: self.selectedDateIndex)
+        self.updateSelectedDateIndex(self.selectedDateIndex)
     }
 
-    func updateSelectedDateIndex(selectedDateIndex: Int) {
+    func updateSelectedDateIndex(_ selectedDateIndex: Int) {
         self.selectedDateIndex = selectedDateIndex
         let date = self.selectedDate
         self.updateAttributes(selectedDate: date)

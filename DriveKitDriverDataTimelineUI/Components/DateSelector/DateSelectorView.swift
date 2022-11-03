@@ -43,9 +43,3 @@ class DateSelectorView: UIView {
         self.viewModel?.moveToPreviousDate()
     }
 }
-
-extension DateSelectorView: DateSelectorDelegate {
-    func dateSelectorDidSelectDate(_ date: Date) {
-        self.setupView()
-    }
-}

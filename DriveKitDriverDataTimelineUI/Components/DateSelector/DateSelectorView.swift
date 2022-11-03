@@ -31,20 +31,8 @@ class DateSelectorView: UIView {
 
     func setupView() {
         self.dateIntervalLabel.attributedText = self.viewModel?.getDateIntervalAttributedText()
-        if self.viewModel?.hasNextDate == true {
-            self.nextButton.isEnabled = true
-            self.nextButton.imageView?.image = UIImage(named: "dk_timeline_next_arrow",in: Bundle.driverDataTimelineUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate).tintedImage(withColor: DKUIColors.secondaryColor.color)
-        } else {
-            self.nextButton.imageView?.image = UIImage(named: "dk_timeline_next_arrow",in: Bundle.driverDataTimelineUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate).tintedImage(withColor: .gray)
-            self.nextButton.isEnabled = false
-        }
-        if self.viewModel?.hasPreviousDate == true {
-            self.previousButton.isEnabled = true
-            self.previousButton.imageView?.image = UIImage(named: "dk_timeline_prev_arrow",in: Bundle.driverDataTimelineUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate).tintedImage(withColor: DKUIColors.secondaryColor.color)
-        } else {
-            self.previousButton.imageView?.image = UIImage(named: "dk_timeline_prev_arrow",in: Bundle.driverDataTimelineUIBundle, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate).tintedImage(withColor: .gray)
-            self.previousButton.isEnabled = false
-        }
+        self.nextButton.isEnabled = self.viewModel?.hasNextDate ?? false
+        self.previousButton.isEnabled = self.viewModel?.hasPreviousDate ?? false
     }
 
     @IBAction func showNextDate() {

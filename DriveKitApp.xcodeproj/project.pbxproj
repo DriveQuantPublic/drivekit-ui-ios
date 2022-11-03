@@ -490,6 +490,7 @@
 		67CFE9A725F645EA004D0AE1 /* SpeedingPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */; };
 		67CFE9F925FA1385004D0AE1 /* SpeedingPageItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE9F825FA1385004D0AE1 /* SpeedingPageItemView.swift */; };
 		67CFEA0025FA16EC004D0AE1 /* SpeedingPageItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67CFE9FF25FA16EC004D0AE1 /* SpeedingPageItemView.xib */; };
+		67D6CD90291013760055632B /* DateSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67D6CD8F291013760055632B /* DateSelectorView.xib */; };
 		67D6CD862908276F0055632B /* RoadContextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67D6CD852908276F0055632B /* RoadContextView.xib */; };
 		67D6CD8929090B750055632B /* RoadContextItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D6CD8729090B750055632B /* RoadContextItemCell.swift */; };
 		67D6CD8A29090B750055632B /* RoadContextItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67D6CD8829090B750055632B /* RoadContextItemCell.xib */; };
@@ -1270,6 +1271,7 @@
 		67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageViewModel.swift; sourceTree = "<group>"; };
 		67CFE9F825FA1385004D0AE1 /* SpeedingPageItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageItemView.swift; sourceTree = "<group>"; };
 		67CFE9FF25FA16EC004D0AE1 /* SpeedingPageItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedingPageItemView.xib; sourceTree = "<group>"; };
+		67D6CD8F291013760055632B /* DateSelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateSelectorView.xib; sourceTree = "<group>"; };
 		67D6CD852908276F0055632B /* RoadContextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoadContextView.xib; sourceTree = "<group>"; };
 		67D6CD8729090B750055632B /* RoadContextItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadContextItemCell.swift; sourceTree = "<group>"; };
 		67D6CD8829090B750055632B /* RoadContextItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoadContextItemCell.xib; sourceTree = "<group>"; };
@@ -2460,6 +2462,7 @@
 				63F8B2AA28F95FAE0084B53A /* DateSelectorDelegate.swift */,
 				63F8B2A628F95F8C0084B53A /* DateSelectorView.swift */,
 				63F8B2A828F95F980084B53A /* DateSelectorViewModel.swift */,
+				67D6CD8F291013760055632B /* DateSelectorView.xib */,
 			);
 			path = DateSelector;
 			sourceTree = "<group>";
@@ -3751,6 +3754,7 @@
 				67D6CD8A29090B750055632B /* RoadContextItemCell.xib in Resources */,
 				67D6CD862908276F0055632B /* RoadContextView.xib in Resources */,
 				639D184B29008919008293B8 /* PeriodSelectorView.xib in Resources */,
+				67D6CD90291013760055632B /* DateSelectorView.xib in Resources */,
 				63F8B2DF28FDB0A20084B53A /* ScoreSelectionTypeView.xib in Resources */,
 				67D6CD8E290912780055632B /* EmptyRoadContextView.xib in Resources */,
 				63F8B2C728F961B10084B53A /* TimelineViewController.xib in Resources */,

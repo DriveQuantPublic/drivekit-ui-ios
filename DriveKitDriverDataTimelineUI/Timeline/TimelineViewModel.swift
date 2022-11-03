@@ -106,6 +106,7 @@ class TimelineViewModel {
                 print("= dates = \(dates)")
                 print("= selectedDateIndex = \(selectedDateIndex)")
 
+                self.dateSelectorViewModel.update(dates: dates, period: self.currentPeriod, selectedIndex: selectedDateIndex)
                 self.periodSelectorViewModel.update(selectedPeriod: self.currentPeriod)
                 //TODO
                 var distanceByContext: [TimelineRoadContext: Double] = [:]
@@ -118,6 +119,7 @@ class TimelineViewModel {
                 self.roadContextViewModel.configure(distanceByContext: distanceByContext)
             }
         }
+        self.delegate?.needToBeRefreshed()
     }
 
     private func getTimelineSource() -> DKTimeline? {

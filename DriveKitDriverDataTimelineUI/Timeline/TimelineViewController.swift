@@ -39,6 +39,7 @@ class TimelineViewController: UIViewController {
         self.scrollView.refreshControl = refreshControl
 
         setupSelectors()
+        setupDateSelector()
         setupGraphView()
         setupRoadContext()
 
@@ -49,9 +50,9 @@ class TimelineViewController: UIViewController {
         }
     }
 
+
     @objc private func refresh(_ sender: Any) {
         self.viewModel.updateTimeline()
-        self.refreshRoadContextContainer()
     }
 
     private func showRefreshControl() {
@@ -111,6 +112,15 @@ class TimelineViewController: UIViewController {
         
     }
 
+    private func setupDateSelector() {
+        guard let dateSelectorView = Bundle.driverDataTimelineUIBundle?.loadNibNamed("DateSelectorView", owner: nil, options: nil)?.first as? DateSelectorView else {
+            return
+        }
+        dateSelectorView.configure(viewModel: self.viewModel.dateSelectorViewModel)
+        self.viewModel.dateSelectorViewModel.delegate = self.viewModel
+        self.dateSelectorContainer.embedSubview(dateSelectorView)
+    }
+
     private func setupRoadContext() {
         if let roadContextview = self.roadContextview {
             self.viewModel.roadContextViewModel.delegate = roadContextview
@@ -119,6 +129,7 @@ class TimelineViewController: UIViewController {
 
         self.refreshRoadContextContainer()
     }
+
     private func refreshRoadContextContainer() {
         guard let roadContextview = self.roadContextview, let emptyRoadContextView = self.emptyRoadContextView else {
             return
@@ -129,7 +140,6 @@ class TimelineViewController: UIViewController {
         } else {
             self.roadContextContainer.embedSubview(emptyRoadContextView)
         }
-
     }
 }
 
@@ -137,8 +147,14 @@ extension TimelineViewController: TimelineViewModelDelegate {
     func willUpdateTimeline() {
         showRefreshControl()
     }
-    
+
     func didUpdateTimeline() {
         hideRefreshControl()
+        self.refreshRoadContextContainer()
     }
+
+    func needToBeRefreshed() {
+        self.refreshRoadContextContainer()
+    }
+
 }

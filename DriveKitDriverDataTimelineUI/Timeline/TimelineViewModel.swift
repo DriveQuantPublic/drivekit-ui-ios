@@ -91,16 +91,7 @@ class TimelineViewModel {
         print("= selectedScore = \(self.selectedScore)")
         print("= currentPeriod = \(self.currentPeriod)")
 
-        let timelineSource: DKTimeline?
-        switch self.currentPeriod {
-            case .week:
-                timelineSource = self.weekTimeline
-            case .month:
-                timelineSource = self.monthTimeline
-            @unknown default:
-                timelineSource = nil
-        }
-        if let timelineSource {
+        if let timelineSource = getTimelineSource() {
             let dates = timelineSource.allContext.date
 
             let selectedDateIndex: Int?
@@ -128,12 +119,44 @@ class TimelineViewModel {
             }
         }
     }
+
+    private func getTimelineSource() -> DKTimeline? {
+        let timelineSource: DKTimeline?
+        switch self.currentPeriod {
+            case .week:
+                timelineSource = self.weekTimeline
+            case .month:
+                timelineSource = self.monthTimeline
+            @unknown default:
+                timelineSource = nil
+        }
+        return timelineSource
+    }
 }
 
 extension TimelineViewModel: PeriodSelectorDelegate {
     func periodSelectorDidSelectPeriod(_ period: DKTimelinePeriod) {
-        self.currentPeriod = period
-        update()
+        if self.currentPeriod != period {
+            self.currentPeriod = period
+            if let selectedDate = self.selectedDate, let timeline = getTimelineSource() {
+                let dates = timeline.allContext.date
+                let compareDate: Date?
+                if period == .week {
+                    // Changed from .month to .week
+                    compareDate = selectedDate
+                } else {
+                    // Changed from .week to .month
+                    compareDate = DriveKitDriverDataTimelineUI.calendar.date(from: DriveKitDriverDataTimelineUI.calendar.dateComponents([.year, .month], from: selectedDate))
+                }
+                if let compareDate {
+                    let newDate = dates.first { date in
+                        date > compareDate
+                    }
+                    self.selectedDate = newDate
+                }
+            }
+            update()
+        }
     }
 }
 

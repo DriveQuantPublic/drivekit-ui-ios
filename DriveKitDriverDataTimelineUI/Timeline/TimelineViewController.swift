@@ -118,8 +118,7 @@ class TimelineViewController: UIViewController {
             return
         }
         dateSelectorView.configure(viewModel: self.viewModel.dateSelectorViewModel)
-        self.viewModel.dateSelectorViewModel.delegates.append(dateSelectorView)
-        self.viewModel.dateSelectorViewModel.delegates.append(self.viewModel)
+        self.viewModel.dateSelectorViewModel.delegate = self.viewModel
         self.dateSelectorContainer.embedSubview(dateSelectorView)
     }
 

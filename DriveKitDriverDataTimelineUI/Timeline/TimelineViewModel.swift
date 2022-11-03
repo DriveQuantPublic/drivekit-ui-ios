@@ -139,9 +139,6 @@ extension TimelineViewModel: PeriodSelectorDelegate {
 }
 
 extension TimelineViewModel: DateSelectorDelegate {
-    func dateSelectorUpdated() {
-    }
-    
     func dateSelectorDidSelectDate(_ date: Date) {
         self.selectedDate = date
         update()

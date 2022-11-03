@@ -10,5 +10,4 @@ import Foundation
 
 @objc protocol DateSelectorDelegate: AnyObject {
     func dateSelectorDidSelectDate(_ date: Date)
-    func dateSelectorUpdated()
 }

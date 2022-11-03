@@ -11,14 +11,16 @@ import DriveKitCoreModule
 import DriveKitDBTripAccessModule
 
 class DateSelectorViewModel {
+    private static let calendar = Calendar(identifier: .gregorian)
     private var dates: [Date] = []
     private var period: DKTimelinePeriod = .week
     private var selectedDateIndex: Int = -1
-    var delegates: WeakArray<DateSelectorDelegate> = WeakArray()
-    private(set) var hasPerviousDate: Bool = false
+    weak var delegate: DateSelectorDelegate?
+    private(set) var hasPreviousDate: Bool = false
     private(set) var hasNextDate: Bool = false
     private(set) var fromDate: Date = Date()
     private(set) var toDate: Date = Date()
+    var dateSelectorViewModelDidUpdate: (() -> ())?
 
     private var selectedDate: Date {
         guard selectedDateIndex < self.dates.count, selectedDateIndex >= 0 else {
@@ -33,9 +35,7 @@ class DateSelectorViewModel {
         self.selectedDateIndex = selectedIndex ?? dates.count - 1
         let date = self.selectedDate
         self.updateAttributes(selectedDate: date)
-        for delegate in self.delegates {
-            delegate?.dateSelectorUpdated()
-        }
+        self.dateSelectorViewModelDidUpdate?()
     }
 
     func moveToNextDate() {
@@ -43,40 +43,37 @@ class DateSelectorViewModel {
             return
         }
         self.selectedDateIndex = self.selectedDateIndex + 1
-        self.updateSelectedDateIndex(selectedIndex: self.selectedDateIndex)
+        self.updateSelectedDateIndex(selectedDateIndex: self.selectedDateIndex)
     }
 
     func moveToPreviousDate() {
-        guard hasPerviousDate else {
+        guard hasPreviousDate else {
             return
         }
         self.selectedDateIndex = self.selectedDateIndex - 1
-        self.updateSelectedDateIndex(selectedIndex: self.selectedDateIndex)
+        self.updateSelectedDateIndex(selectedDateIndex: self.selectedDateIndex)
     }
 
-    func updateSelectedDateIndex(selectedIndex: Int) {
-        self.selectedDateIndex = selectedIndex
+    func updateSelectedDateIndex(selectedDateIndex: Int) {
+        self.selectedDateIndex = selectedDateIndex
         let date = self.selectedDate
         self.updateAttributes(selectedDate: date)
-        for delegate in self.delegates {
-            delegate?.dateSelectorDidSelectDate(date)
-        }
+        self.delegate?.dateSelectorDidSelectDate(date)
     }
 
     private func updateAttributes(selectedDate: Date) {
         self.hasNextDate = (self.dates.count > self.selectedDateIndex + 1)
-        self.hasPerviousDate = self.selectedDateIndex > 0
+        self.hasPreviousDate = self.selectedDateIndex > 0
         self.fromDate = selectedDate
         self.toDate = DateSelectorViewModel.getEndDate(fromDate: self.fromDate, period: self.period) ?? Date()
     }
 
     private static func getEndDate(fromDate: Date, period: DKTimelinePeriod) -> Date? {
-        let calendar = Calendar(identifier: .gregorian)
         if period == .week {
-            return calendar.date(byAdding: .day, value: 6, to: fromDate)
+            return DateSelectorViewModel.calendar.date(byAdding: .day, value: 6, to: fromDate)
         } else {
-            guard let nextMonth = calendar.date(byAdding: .month, value: 1, to: fromDate) else { return nil }
-            return calendar.date(byAdding: .day, value: -1, to: nextMonth)
+            guard let nextMonth = DateSelectorViewModel.calendar.date(byAdding: .month, value: 1, to: fromDate) else { return nil }
+            return DateSelectorViewModel.calendar.date(byAdding: .day, value: -1, to: nextMonth)
         }
     }
 

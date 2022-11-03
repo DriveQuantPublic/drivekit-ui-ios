@@ -24,12 +24,15 @@ class DateSelectorView: UIView {
     func configure(viewModel: DateSelectorViewModel?) {
         self.viewModel = viewModel
         self.setupView()
+        self.viewModel?.dateSelectorViewModelDidUpdate = { [weak self] in
+            self?.setupView()
+        }
     }
 
     func setupView() {
         self.dateIntervalLabel.attributedText = self.viewModel?.getDateIntervalAttributedText()
         self.nextButton.isEnabled = self.viewModel?.hasNextDate ?? false
-        self.previousButton.isEnabled = self.viewModel?.hasPerviousDate ?? false
+        self.previousButton.isEnabled = self.viewModel?.hasPreviousDate ?? false
     }
 
     @IBAction func showNextDate() {
@@ -42,10 +45,6 @@ class DateSelectorView: UIView {
 }
 
 extension DateSelectorView: DateSelectorDelegate {
-    func dateSelectorUpdated() {
-        self.setupView()
-    }
-
     func dateSelectorDidSelectDate(_ date: Date) {
         self.setupView()
     }

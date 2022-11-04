@@ -55,7 +55,7 @@ class BarGraphView: GraphViewBase {
         self.chartView.dragEnabled = false
         self.chartView.doubleTapToZoomEnabled = false
 
-        self.chartView.xAxis.valueFormatter = GraphAxisFormatter(config: self.viewModel.xAxisConfig, debug: "X")
+        self.chartView.xAxis.valueFormatter = GraphAxisFormatter(config: self.viewModel.xAxisConfig)
         self.chartView.xAxis.labelCount = 8
         self.chartView.xAxis.axisMinimum = 0
         self.chartView.xAxis.axisMaximum = 8

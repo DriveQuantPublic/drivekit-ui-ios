@@ -59,7 +59,7 @@ class LineGraphView: GraphViewBase {
         self.chartView.legend.enabled = false
 
         if let xAxisConfig = self.viewModel.xAxisConfig {
-            self.chartView.xAxis.valueFormatter = GraphAxisFormatter(config: xAxisConfig, debug: "X")
+            self.chartView.xAxis.valueFormatter = GraphAxisFormatter(config: xAxisConfig)
             self.chartView.xAxis.setLabelCount(xAxisConfig.labels.count, force: true)
             self.chartView.xAxis.decimals = 0
             self.chartView.xAxis.axisMinimum = xAxisConfig.min
@@ -68,7 +68,7 @@ class LineGraphView: GraphViewBase {
         self.chartView.xAxis.labelPosition = .bottom
 
         if let yAxisConfig = self.viewModel.yAxisConfig {
-            self.chartView.leftAxis.valueFormatter = GraphAxisFormatter(config: yAxisConfig, debug: "Y")
+            self.chartView.leftAxis.valueFormatter = GraphAxisFormatter(config: yAxisConfig)
             self.chartView.leftAxis.setLabelCount(yAxisConfig.labels.count, force: true)
             self.chartView.leftAxis.decimals = 0
             self.chartView.leftAxis.axisMinimum = yAxisConfig.min

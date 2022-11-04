@@ -11,6 +11,7 @@ import DriveKitCommonUI
 
 @objc public class DriveKitDriverDataTimelineUI: NSObject {
     @objc public static let shared = DriveKitDriverDataTimelineUI()
+    static let calendar = Calendar(identifier: .gregorian)
 
     var scores: [DKTimelineScoreType] = [.safety, .ecoDriving, .distraction, .speeding] {
         didSet {

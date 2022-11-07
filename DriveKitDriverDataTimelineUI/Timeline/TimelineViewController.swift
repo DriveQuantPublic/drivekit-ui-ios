@@ -20,6 +20,7 @@ class TimelineViewController: UIViewController {
     private var selectedScoreSelectionTypeView: ScoreSelectionTypeView? = nil
     private let roadContextview = Bundle.driverDataTimelineUIBundle?.loadNibNamed("RoadContextView", owner: nil, options: nil)?.first as? RoadContextView
     private let emptyRoadContextView = Bundle.driverDataTimelineUIBundle?.loadNibNamed("EmptyRoadContextView", owner: nil, options: nil)?.first as? EmptyRoadContextView
+    private let cornerRadius: CGFloat = 8
 
     init(viewModel: TimelineViewModel) {
         self.viewModel = viewModel
@@ -109,7 +110,9 @@ class TimelineViewController: UIViewController {
     }
 
     private func setupGraphView() {
-        
+        self.timelineGraphViewContainer.layer.cornerRadius = self.cornerRadius
+        self.timelineGraphViewContainer.clipsToBounds = true
+        //TODO
     }
 
     private func setupDateSelector() {
@@ -119,14 +122,17 @@ class TimelineViewController: UIViewController {
         dateSelectorView.configure(viewModel: self.viewModel.dateSelectorViewModel)
         self.viewModel.dateSelectorViewModel.delegate = self.viewModel
         self.dateSelectorContainer.embedSubview(dateSelectorView)
+        self.dateSelectorContainer.layer.cornerRadius = self.cornerRadius
+        self.dateSelectorContainer.clipsToBounds = true
     }
 
     private func setupRoadContext() {
+        self.roadContextContainer.layer.cornerRadius = self.cornerRadius
+        self.roadContextContainer.clipsToBounds = true
         if let roadContextview = self.roadContextview {
             self.viewModel.roadContextViewModel.delegate = roadContextview
             roadContextview.configure(viewModel: self.viewModel.roadContextViewModel)
         }
-
         self.refreshRoadContextContainer()
     }
 

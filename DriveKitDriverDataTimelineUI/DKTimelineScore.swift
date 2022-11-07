@@ -8,6 +8,7 @@
 
 import UIKit
 import DriveKitCommonUI
+import DriveKitCoreModule
 
 @objc public enum DKTimelineScoreType: Int {
     case safety, ecoDriving, distraction, speeding
@@ -24,6 +25,19 @@ extension DKTimelineScoreType {
                 return DKImages.distractionFlat.image
             case .speeding:
                 return DKImages.speedingFlat.image
+        }
+    }
+
+    func hasAccess() -> Bool {
+        switch self {
+            case .distraction:
+                return DriveKitAccess.shared.hasAccess(.phoneDistraction)
+            case .ecoDriving:
+                return DriveKitAccess.shared.hasAccess(.ecoDriving)
+            case .safety:
+                return DriveKitAccess.shared.hasAccess(.safety)
+            case .speeding:
+                return DriveKitAccess.shared.hasAccess(.speeding)
         }
     }
 }

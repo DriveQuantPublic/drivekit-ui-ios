@@ -12,7 +12,8 @@ import DriveKitCommonUI
 
 class LineGraphView: GraphViewBase {
     private let chartView: LineChartView
-    private let defaultIcon = DKImages.info.image //UIImage(systemName: "circle.circle.fill")
+    private let defaultIcon = GraphConstants.circleIcon()
+    private var selectedEntry: ChartDataEntry? = nil
 
     override init(viewModel: GraphViewModel) {
         self.chartView = LineChartView()
@@ -32,7 +33,7 @@ class LineGraphView: GraphViewBase {
 
         for point in self.viewModel.points {
             let value = ChartDataEntry(x: point.x, y: point.y, data: point.data)
-            //            value.icon = self.defaultIcon
+            value.icon = self.defaultIcon
             lineChartEntry.append(value)
         }
 
@@ -84,17 +85,13 @@ extension LineGraphView: ChartViewDelegate {
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         print("\(highlight.x) - \(highlight.y)  -  \(entry.x) - \(entry.y)")
         self.delegate?.graphDidSelectPoint((x: entry.x, y: entry.y, data: entry.data))
-//        selectedEntry?.icon = defaultIcon
-//        if let dataSet = chartView.data?.dataSets.first as? LineChartDataSet {
-//            //            dataSet.circleHoleColor = .green
-//            selectedEntry = dataSet.entries[Int(highlight.x)]
-//            selectedEntry?.icon = self.defaultIcon?.withTintColor(.red)
-//        }
+        selectedEntry?.icon = defaultIcon
+        selectedEntry = entry
+        selectedEntry?.icon = GraphConstants.selectedCircleIcon()
     }
 
     func chartValueNothingSelected(_ chartView: ChartViewBase) {
-//        (chartView.data?.dataSets.first as? LineChartDataSet)?.circleHoleColor = .clear
-//        selectedEntry?.icon = defaultIcon
-//        selectedEntry = nil
+        selectedEntry?.icon = defaultIcon
+        selectedEntry = nil
     }
 }

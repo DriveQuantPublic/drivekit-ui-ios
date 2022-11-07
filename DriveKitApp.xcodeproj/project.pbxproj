@@ -432,6 +432,7 @@
 		67462D8D2660CE0400016FAF /* ChallengeResultsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67462D8B2660CE0400016FAF /* ChallengeResultsVC.xib */; };
 		67462D8F2660CE2600016FAF /* ChallengeResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67462D8E2660CE2600016FAF /* ChallengeResultsViewModel.swift */; };
 		67462D912660CE4300016FAF /* ChallengeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67462D902660CE4300016FAF /* ChallengeDetailViewModel.swift */; };
+		674B3B2329196CE800C62895 /* GraphConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674B3B2229196CE800C62895 /* GraphConstants.swift */; };
 		6765605228DC340F003B74CD /* DeleteAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765605128DC340F003B74CD /* DeleteAccountViewModel.swift */; };
 		6765E70C280EBA9F00FD13F8 /* PermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765E70A280EBA9F00FD13F8 /* PermissionsViewController.swift */; };
 		6765E70D280EBA9F00FD13F8 /* PermissionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6765E70B280EBA9F00FD13F8 /* PermissionsViewController.xib */; };
@@ -500,12 +501,12 @@
 		67CFE9A725F645EA004D0AE1 /* SpeedingPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */; };
 		67CFE9F925FA1385004D0AE1 /* SpeedingPageItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE9F825FA1385004D0AE1 /* SpeedingPageItemView.swift */; };
 		67CFEA0025FA16EC004D0AE1 /* SpeedingPageItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67CFE9FF25FA16EC004D0AE1 /* SpeedingPageItemView.xib */; };
-		67D6CD90291013760055632B /* DateSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67D6CD8F291013760055632B /* DateSelectorView.xib */; };
 		67D6CD862908276F0055632B /* RoadContextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67D6CD852908276F0055632B /* RoadContextView.xib */; };
 		67D6CD8929090B750055632B /* RoadContextItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D6CD8729090B750055632B /* RoadContextItemCell.swift */; };
 		67D6CD8A29090B750055632B /* RoadContextItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67D6CD8829090B750055632B /* RoadContextItemCell.xib */; };
 		67D6CD8C290912640055632B /* EmptyRoadContextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D6CD8B290912640055632B /* EmptyRoadContextView.swift */; };
 		67D6CD8E290912780055632B /* EmptyRoadContextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67D6CD8D290912780055632B /* EmptyRoadContextView.xib */; };
+		67D6CD90291013760055632B /* DateSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67D6CD8F291013760055632B /* DateSelectorView.xib */; };
 		67E807DC26579592003AFAA8 /* ChallengeRulesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E807DB26579592003AFAA8 /* ChallengeRulesViewModel.swift */; };
 		67E807DE2657B855003AFAA8 /* NSAttributedString+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E807DD2657B855003AFAA8 /* NSAttributedString+DK.swift */; };
 		67E8D96A27D6171200BD0343 /* CrashFeedbackStep1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E8D96827D6171200BD0343 /* CrashFeedbackStep1VC.swift */; };
@@ -1217,6 +1218,7 @@
 		67462D8B2660CE0400016FAF /* ChallengeResultsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeResultsVC.xib; sourceTree = "<group>"; };
 		67462D8E2660CE2600016FAF /* ChallengeResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeResultsViewModel.swift; sourceTree = "<group>"; };
 		67462D902660CE4300016FAF /* ChallengeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailViewModel.swift; sourceTree = "<group>"; };
+		674B3B2229196CE800C62895 /* GraphConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphConstants.swift; sourceTree = "<group>"; };
 		6765605128DC340F003B74CD /* DeleteAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewModel.swift; sourceTree = "<group>"; };
 		6765E70A280EBA9F00FD13F8 /* PermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsViewController.swift; sourceTree = "<group>"; };
 		6765E70B280EBA9F00FD13F8 /* PermissionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PermissionsViewController.xib; sourceTree = "<group>"; };
@@ -1291,12 +1293,12 @@
 		67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageViewModel.swift; sourceTree = "<group>"; };
 		67CFE9F825FA1385004D0AE1 /* SpeedingPageItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageItemView.swift; sourceTree = "<group>"; };
 		67CFE9FF25FA16EC004D0AE1 /* SpeedingPageItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedingPageItemView.xib; sourceTree = "<group>"; };
-		67D6CD8F291013760055632B /* DateSelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateSelectorView.xib; sourceTree = "<group>"; };
 		67D6CD852908276F0055632B /* RoadContextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoadContextView.xib; sourceTree = "<group>"; };
 		67D6CD8729090B750055632B /* RoadContextItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadContextItemCell.swift; sourceTree = "<group>"; };
 		67D6CD8829090B750055632B /* RoadContextItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoadContextItemCell.xib; sourceTree = "<group>"; };
 		67D6CD8B290912640055632B /* EmptyRoadContextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyRoadContextView.swift; sourceTree = "<group>"; };
 		67D6CD8D290912780055632B /* EmptyRoadContextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyRoadContextView.xib; sourceTree = "<group>"; };
+		67D6CD8F291013760055632B /* DateSelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateSelectorView.xib; sourceTree = "<group>"; };
 		67E807DB26579592003AFAA8 /* ChallengeRulesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeRulesViewModel.swift; sourceTree = "<group>"; };
 		67E807DD2657B855003AFAA8 /* NSAttributedString+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+DK.swift"; sourceTree = "<group>"; };
 		67E8D96827D6171200BD0343 /* CrashFeedbackStep1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashFeedbackStep1VC.swift; sourceTree = "<group>"; };
@@ -2521,6 +2523,7 @@
 				63454B972906B4B200A9B10F /* GraphItem.swift */,
 				63F8B2AC28F960260084B53A /* GraphType.swift */,
 				63454B9529068FD000A9B10F /* TimelineScoreItemType.swift */,
+				674B3B2229196CE800C62895 /* GraphConstants.swift */,
 			);
 			path = Graph;
 			sourceTree = "<group>";
@@ -4377,6 +4380,7 @@
 				63F8B2BF28F961440084B53A /* RoadContextView.swift in Sources */,
 				63F8B2C128F961570084B53A /* RoadContextViewModel.swift in Sources */,
 				63F8B2C528F961960084B53A /* TimelineViewModel.swift in Sources */,
+				674B3B2329196CE800C62895 /* GraphConstants.swift in Sources */,
 				63F8B2B128F9605A0084B53A /* TimelineGraphViewModel.swift in Sources */,
 				63F8B2A728F95F8C0084B53A /* DateSelectorView.swift in Sources */,
 				63F8B2AF28F960420084B53A /* BarGraphView.swift in Sources */,

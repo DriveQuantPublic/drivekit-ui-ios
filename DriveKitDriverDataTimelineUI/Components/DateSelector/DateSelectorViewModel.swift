@@ -29,7 +29,7 @@ class DateSelectorViewModel {
         return self.dates[self.selectedDateIndex]
     }
 
-    func update(dates: [Date], period: DKTimelinePeriod = .week, selectedIndex: Int? = nil) {
+    func configure(dates: [Date], period: DKTimelinePeriod = .week, selectedIndex: Int? = nil) {
         self.dates = dates
         self.period = period
         self.selectedDateIndex = selectedIndex ?? dates.count - 1

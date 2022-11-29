@@ -40,6 +40,7 @@ class TimelineViewModel {
         self.currentPeriod = self.periodSelectorViewModel.selectedPeriod
 
         self.periodSelectorViewModel.delegate = self
+        self.timelineGraphViewModel.delegate = self
 
         DriveKitDriverData.shared.getTimelines(periods: [.week, .month], type: .cache) { [weak self] status, timelines in
             if let self {
@@ -87,10 +88,6 @@ class TimelineViewModel {
     }
 
     private func update() {
-        print("===== update =====")
-        print("= selectedScore = \(self.selectedScore)")
-        print("= currentPeriod = \(self.currentPeriod)")
-
         if let timelineSource = getTimelineSource() {
             let dates = timelineSource.allContext.date
 
@@ -103,13 +100,9 @@ class TimelineViewModel {
                 selectedDateIndex = nil
             }
             if let selectedDateIndex {
-                print("= dates = \(dates)")
-                print("= selectedDateIndex = \(selectedDateIndex)")
-
                 self.dateSelectorViewModel.update(dates: dates, period: self.currentPeriod, selectedIndex: selectedDateIndex)
                 self.periodSelectorViewModel.update(selectedPeriod: self.currentPeriod)
                 self.timelineGraphViewModel.configure(timeline: timelineSource, timelineIndex: selectedDateIndex, graphItem: .score(self.selectedScore), period: self.currentPeriod)
-                //TODO
                 var distanceByContext: [TimelineRoadContext: Double] = [:]
                 for roadContext in timelineSource.roadContexts {
                     if let timelineRoadContext = TimelineRoadContext(roadContext: roadContext.type) {
@@ -117,7 +110,7 @@ class TimelineViewModel {
                         distanceByContext[timelineRoadContext] = distance
                     }
                 }
-                self.roadContextViewModel.configure(distanceByContext: distanceByContext)
+                self.roadContextViewModel.configure(distanceByContext: distanceByContext, totalDistance: timelineSource.allContext.distance[selectedDateIndex])
             }
         }
         self.delegate?.needToBeRefreshed()

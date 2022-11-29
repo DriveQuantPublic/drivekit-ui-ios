@@ -31,10 +31,16 @@ class LineGraphView: GraphViewBase {
     override func setupData() {
         var lineChartEntry  = [ChartDataEntry]()
 
-        for point in self.viewModel.points {
-            let value = ChartDataEntry(x: point.x, y: point.y, data: point.data)
-            value.icon = self.defaultIcon
-            lineChartEntry.append(value)
+        for (index, point) in self.viewModel.points.enumerated() {
+            if let point {
+                let value = ChartDataEntry(x: point.x, y: point.y, data: point.data)
+                if index == self.viewModel.selectedIndex {
+                    select(entry: value)
+                } else {
+                    value.icon = self.defaultIcon
+                }
+                lineChartEntry.append(value)
+            }
         }
 
         let line1 = LineChartDataSet(entries: lineChartEntry, label: nil)
@@ -79,19 +85,19 @@ class LineGraphView: GraphViewBase {
 
         self.chartView.delegate = self
     }
+
+    private func select(entry: ChartDataEntry) {
+        self.selectedEntry = entry
+        entry.icon = GraphConstants.selectedCircleIcon()
+    }
 }
 
 extension LineGraphView: ChartViewDelegate {
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-        print("\(highlight.x) - \(highlight.y)  -  \(entry.x) - \(entry.y)")
-        self.delegate?.graphDidSelectPoint((x: entry.x, y: entry.y, data: entry.data))
-        selectedEntry?.icon = defaultIcon
-        selectedEntry = entry
-        selectedEntry?.icon = GraphConstants.selectedCircleIcon()
-    }
-
-    func chartValueNothingSelected(_ chartView: ChartViewBase) {
-        selectedEntry?.icon = defaultIcon
-        selectedEntry = nil
+        if entry != self.selectedEntry {
+            self.selectedEntry?.icon = self.defaultIcon
+            select(entry: entry)
+            self.delegate?.graphDidSelectPoint((x: entry.x, y: entry.y, data: entry.data))
+        }
     }
 }

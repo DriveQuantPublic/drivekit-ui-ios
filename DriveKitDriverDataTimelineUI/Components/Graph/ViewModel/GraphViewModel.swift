@@ -12,7 +12,7 @@ import DriveKitDBTripAccessModule
 protocol GraphViewModel {
     var graphViewModelDidUpdate: (() -> ())? { get set }
     var type: GraphType { get }
-    var points: [GraphPoint] { get }
+    var points: [GraphPoint?] { get }
     var selectedIndex: Int? { get }
     var xAxisConfig: GraphAxisConfig? { get }
     var yAxisConfig: GraphAxisConfig? { get }

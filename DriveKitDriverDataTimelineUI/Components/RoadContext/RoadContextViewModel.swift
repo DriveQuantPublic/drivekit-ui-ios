@@ -12,6 +12,7 @@ import DriveKitDBTripAccessModule
 class RoadContextViewModel {
     private var distanceByContext: [TimelineRoadContext: Double] = [:]
     private var distance: Double = 0
+    private var totalDistance: Double = 0
     private static let backgroundColor = UIColor(hex: 0xFAFAFA)
     private static let heavyUrbanTrafficColor = UIColor(hex: 0x036A82)
     private static let suburbanColor = UIColor(hex: 0x699DAD)
@@ -22,14 +23,15 @@ class RoadContextViewModel {
     var itemsToDraw: [(context: TimelineRoadContext, percent: Double)] = []
 
     func getTitle() -> String {
-        return String(format:"dk_timeline_road_context_title".dkDriverDataTimelineLocalized(), distance.formatKilometerDistance())
+        return String(format:"dk_timeline_road_context_title".dkDriverDataTimelineLocalized(), self.totalDistance.formatKilometerDistance(minDistanceToRemoveFractions: 10))
     }
 
-    func configure(distanceByContext: [TimelineRoadContext: Double]) {
+    func configure(distanceByContext: [TimelineRoadContext: Double], totalDistance: Double) {
         self.distanceByContext = distanceByContext
         self.distance = distanceByContext.reduce(into: 0.0) { distance, element in
             distance += element.value
         }
+        self.totalDistance = totalDistance
         self.updateItemsToDraw()
         self.delegate?.roadContextViewModelDidUpdate()
     }
@@ -59,7 +61,7 @@ class RoadContextViewModel {
         guard let contextDistance = distanceByContext[context] else {
             return 0
         }
-        return contextDistance/distance
+        return contextDistance / distance
     }
 
     static func getRoadContextColor(_ context: TimelineRoadContext) -> UIColor {

@@ -12,7 +12,7 @@ import DriveKitDBTripAccessModule
 class TimelineGraphViewModel: GraphViewModel {
     weak var delegate: TimelineGraphDelegate?
     var graphViewModelDidUpdate: (() -> ())?
-    private(set) var points: [GraphPoint] = []
+    private(set) var points: [GraphPoint?] = []
     private(set) var type: GraphType = .line
     private(set) var selectedIndex: Int?
     private(set) var xAxisConfig: GraphAxisConfig?
@@ -21,7 +21,8 @@ class TimelineGraphViewModel: GraphViewModel {
     private(set) var description: String = ""
 
     func configure(timeline: DKTimeline, timelineIndex: Int, graphItem: GraphItem, period: DKTimelinePeriod) {
-        let dates: [Date] = timeline.allContext.date.map { date in
+        let sourceDates = timeline.allContext.date
+        let dates: [Date] = sourceDates.map { date in
             date.dateByRemovingTime() ?? date
         }
         let dateComponent: Calendar.Component
@@ -49,7 +50,7 @@ class TimelineGraphViewModel: GraphViewModel {
             let formatter = DateFormatter()
             formatter.dateFormat = dateFormat
             var graphDates: [String] = []
-            var graphPoints: [GraphPoint] = []
+            var graphPoints: [GraphPoint?] = []
             for i in 0..<graphPointNumber {
                 let date: Date? = startDate?.date(byAdding: i, component: dateComponent)
                 let dateString: String
@@ -60,11 +61,11 @@ class TimelineGraphViewModel: GraphViewModel {
                 }
                 graphDates.append(dateString)
 
-                if let date {
-                    if let index = dates.firstIndex(of: date) {
-                        let value = getValue(atIndex: index, for: graphItem, in: timeline)
-                        graphPoints.append((x: Double(i), y: value, data: date))
-                    }
+                if let date, let index = dates.firstIndex(of: date) {
+                    let value = getValue(atIndex: index, for: graphItem, in: timeline)
+                    graphPoints.append((x: Double(i), y: value, data: sourceDates[index]))
+                } else {
+                    graphPoints.append(nil)
                 }
             }
             print("= graphDates = \(graphDates)")

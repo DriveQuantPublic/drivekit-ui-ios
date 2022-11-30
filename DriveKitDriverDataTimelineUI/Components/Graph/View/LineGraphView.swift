@@ -50,6 +50,7 @@ class LineGraphView: GraphViewBase {
         line1.highlightEnabled = true
         line1.drawValuesEnabled = false
         line1.drawCirclesEnabled = false
+        line1.lineWidth = 2
 
         let data = LineChartData()
         data.addDataSet(line1)
@@ -71,6 +72,8 @@ class LineGraphView: GraphViewBase {
             self.chartView.xAxis.decimals = 0
             self.chartView.xAxis.axisMinimum = xAxisConfig.min
             self.chartView.xAxis.axisMaximum = xAxisConfig.max
+            self.chartView.xAxis.drawAxisLineEnabled = false
+            self.chartView.xAxis.drawGridLinesEnabled = false
         }
         self.chartView.xAxis.labelPosition = .bottom
 
@@ -80,6 +83,8 @@ class LineGraphView: GraphViewBase {
             self.chartView.leftAxis.decimals = 0
             self.chartView.leftAxis.axisMinimum = yAxisConfig.min
             self.chartView.leftAxis.axisMaximum = yAxisConfig.max
+            self.chartView.leftAxis.gridLineDashLengths = [4, 2]
+            self.chartView.leftAxis.drawAxisLineEnabled = false
         }
         self.chartView.leftAxis.labelPosition = .outsideChart
 

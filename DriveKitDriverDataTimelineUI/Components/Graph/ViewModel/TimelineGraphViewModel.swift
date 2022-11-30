@@ -68,17 +68,14 @@ class TimelineGraphViewModel: GraphViewModel {
                     graphPoints.append(nil)
                 }
             }
-            print("= graphDates = \(graphDates)")
-            print("= graphScreenIndex = \(graphScreenIndex)")
-            print("= graphPoints = \(graphPoints)")
-
-            self.type = graphItem.getGraphType()
+            self.type = graphItem.graphType
             self.points = graphPoints
             self.selectedIndex = graphScreenIndex
             self.xAxisConfig = GraphAxisConfig(min: 0, max: Double(graphPointNumber - 1), labels: graphDates)
+            #warning("TODO:")
             self.yAxisConfig = GraphAxisConfig(min: 0, max: 10, labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"])
-            self.title = "Test title - \(self.type)"
-            self.description = "Test description"
+            self.title = graphItem.graphTitle
+            self.description = graphItem.getGraphDescription(fromValue: getValue(atIndex: timelineIndex, for: graphItem, in: timeline))
             self.graphViewModelDidUpdate?()
         }
     }
@@ -118,11 +115,13 @@ class TimelineGraphViewModel: GraphViewModel {
                         return timeline.allContext.efficiencyAcceleration[index]
                     case .ecoDriving_efficiency:
                         return timeline.allContext.efficiency[index]
+                    case .ecoDriving_co2mass:
+                        return timeline.allContext.co2Mass[index]
                     case .distraction_unlock:
                         return Double(timeline.allContext.unlock[index])
-                    case .distraction_numberTripWithForbiddenCall:
-                        return Double(timeline.allContext.numberTripWithForbiddenCall[index])
-                    case .distraction_forbiddenCall:
+                    case .distraction_percentageOfTripsWithForbiddenCall:
+                        return Double(timeline.allContext.numberTripWithForbiddenCall[index]) / Double(timeline.allContext.numberTripTotal[index])
+                    case .distraction_callForbiddenDuration:
                         return Double(timeline.allContext.callForbidden[index])
                 }
         }

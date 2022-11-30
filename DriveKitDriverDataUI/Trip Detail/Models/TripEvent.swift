@@ -98,9 +98,9 @@ public class TripEvent {
         case .adherence:
             return isHigh ? "dk_driverdata_safety_list_adherence_critical".dkDriverDataLocalized() : "dk_driverdata_safety_list_adherence".dkDriverDataLocalized()
         case .acceleration:
-            return isHigh ? "dk_driverdata_safety_list_acceleration_critical".dkDriverDataLocalized() : "dk_driverdata_strong_accel".dkDriverDataLocalized()
+            return isHigh ? "dk_driverdata_safety_list_acceleration_critical".dkDriverDataLocalized() : DKCommonLocalizable.ecodrivingAccelerationStrong.text()
         case .brake:
-            return isHigh ? "dk_driverdata_safety_list_brake_critical".dkDriverDataLocalized() : "dk_driverdata_strong_decel".dkDriverDataLocalized()
+            return isHigh ? "dk_driverdata_safety_list_brake_critical".dkDriverDataLocalized() : DKCommonLocalizable.ecodrivingDecelarationStrong.text()
         case .start:
             return "dk_driverdata_start_event".dkDriverDataLocalized()
         case .end:

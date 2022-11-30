@@ -119,6 +119,20 @@ public extension Double {
     }
 
 
+    func getLiterFormat() -> [FormatType] {
+        let formattingTypes: [FormatType] = [
+            .value(format(maximumFractionDigits: 1)),
+            .separator(),
+            .unit(DKCommonLocalizable.unitLiter.text())
+        ]
+        return formattingTypes
+    }
+
+    func formatLiter() -> String {
+        return getLiterFormat().toString()
+    }
+
+
     func getPowerFormat() -> [FormatType] {
         let formattedPower = self.format(maximumFractionDigits: 0)
         let formattingTypes: [FormatType] = [
@@ -131,6 +145,21 @@ public extension Double {
 
     func formatPower() -> String {
         getPowerFormat().toString()
+    }
+
+
+    func getScoreFormat() -> [FormatType] {
+        let formattedScore = self.format(maximumFractionDigits: 1)
+        let formattingTypes: [FormatType] = [
+            .value(formattedScore),
+            .separator(),
+            .unit(DKCommonLocalizable.unitScore.text())
+        ]
+        return formattingTypes
+    }
+
+    func formatScore() -> String {
+        getScoreFormat().toString()
     }
 
 
@@ -280,6 +309,18 @@ public extension Double {
         return getSpeedMeanFormat().toString()
     }
 
+    func getSpeedMaintainDescription() -> String {
+        let key: DKCommonLocalizable
+        if self < 1.5 {
+            key = .ecodrivingSpeedGoogMaintain
+        } else if self < 3.5 {
+            key = .ecodrivingSpeedWeakMaintain
+        } else {
+            key = .ecodrivingSpeedBadMaintain
+        }
+        return key.text()
+    }
+
 
     func getConsumptionFormat(_ type: DKConsumptionType = .fuel) -> [FormatType] {
         let unitText: String
@@ -312,6 +353,52 @@ public extension Double {
 
     func formatAcceleration() -> String {
         getAccelerationFormat().toString()
+    }
+
+    func getAccelerationDescription() -> String {
+        let key: DKCommonLocalizable
+        if self < -4 {
+            key = .ecodrivingAccelerationLow
+        } else if self < -2 {
+            key =  .ecodrivingAccelerationWeak
+        } else if self < 1 {
+            key =  .ecodrivingAccelerationGood
+        } else if self < 3 {
+            key =  .ecodrivingAccelerationStrong
+        } else {
+            key =  .ecodrivingAccelerationHigh
+        }
+        return key.text()
+    }
+
+    func getDecelerationDescription() -> String {
+        let key: DKCommonLocalizable
+        if self < -4 {
+            key = .ecodrivingDecelarationLow
+        } else if self < -2 {
+            key = .ecodrivingDecelarationWeak
+        } else if self < 1 {
+            key = .ecodrivingDecelarationGood
+        } else if self < 3 {
+            key = .ecodrivingDecelarationStrong
+        } else {
+            key = .ecodrivingDecelarationHigh
+        }
+        return key.text()
+    }
+
+
+    func getPercentageFormat() -> [FormatType] {
+        let formattingTypes: [FormatType] = [
+            .value(self.format(maximumFractionDigits: 1)),
+            .separator(),
+            .unit("%")
+        ]
+        return formattingTypes
+    }
+
+    func formatPercentage() -> String {
+        return getPercentageFormat().toString()
     }
 
 

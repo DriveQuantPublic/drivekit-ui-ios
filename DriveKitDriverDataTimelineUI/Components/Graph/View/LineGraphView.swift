@@ -29,8 +29,7 @@ class LineGraphView: GraphViewBase {
     }
 
     override func setupData() {
-        var lineChartEntry  = [ChartDataEntry]()
-
+        var entries  = [ChartDataEntry]()
         for (index, point) in self.viewModel.points.enumerated() {
             if let point {
                 let value = ChartDataEntry(x: point.x, y: point.y, data: point.data)
@@ -39,21 +38,21 @@ class LineGraphView: GraphViewBase {
                 } else {
                     value.icon = self.defaultIcon
                 }
-                lineChartEntry.append(value)
+                entries.append(value)
             }
         }
 
-        let line1 = LineChartDataSet(entries: lineChartEntry, label: nil)
-        line1.colors = [UIColor(hex: 0x083B54)]
-        line1.drawVerticalHighlightIndicatorEnabled = false
-        line1.drawHorizontalHighlightIndicatorEnabled = false
-        line1.highlightEnabled = true
-        line1.drawValuesEnabled = false
-        line1.drawCirclesEnabled = false
-        line1.lineWidth = 2
+        let line = LineChartDataSet(entries: entries, label: nil)
+        line.colors = [UIColor(hex: 0x083B54)]
+        line.drawVerticalHighlightIndicatorEnabled = false
+        line.drawHorizontalHighlightIndicatorEnabled = false
+        line.highlightEnabled = true
+        line.drawValuesEnabled = false
+        line.drawCirclesEnabled = false
+        line.lineWidth = 2
 
         let data = LineChartData()
-        data.addDataSet(line1)
+        data.addDataSet(line)
         data.highlightEnabled = true
 
         self.chartView.data = data
@@ -65,28 +64,43 @@ class LineGraphView: GraphViewBase {
         self.chartView.doubleTapToZoomEnabled = false
         self.chartView.rightAxis.enabled = false
         self.chartView.legend.enabled = false
+        self.chartView.extraLeftOffset = 4
+        self.chartView.extraRightOffset = 20
 
+        self.chartView.xAxis.decimals = 0
+        self.chartView.xAxis.drawAxisLineEnabled = false
+        self.chartView.xAxis.drawGridLinesEnabled = false
+        self.chartView.xAxis.labelPosition = .bottom
         if let xAxisConfig = self.viewModel.xAxisConfig {
             self.chartView.xAxis.valueFormatter = GraphAxisFormatter(config: xAxisConfig)
-            self.chartView.xAxis.setLabelCount(xAxisConfig.labels.count, force: true)
-            self.chartView.xAxis.decimals = 0
-            self.chartView.xAxis.axisMinimum = xAxisConfig.min
-            self.chartView.xAxis.axisMaximum = xAxisConfig.max
-            self.chartView.xAxis.drawAxisLineEnabled = false
-            self.chartView.xAxis.drawGridLinesEnabled = false
+            if let labels = xAxisConfig.labels {
+                self.chartView.xAxis.setLabelCount(labels.count, force: true)
+            }
+            if let min = xAxisConfig.min {
+                self.chartView.xAxis.axisMinimum = min
+            }
+            if let max = xAxisConfig.max {
+                self.chartView.xAxis.axisMaximum = max
+            }
         }
-        self.chartView.xAxis.labelPosition = .bottom
 
+        self.chartView.leftAxis.decimals = 0
+        self.chartView.leftAxis.gridLineDashLengths = [4, 2]
+        self.chartView.leftAxis.drawAxisLineEnabled = false
+        self.chartView.leftAxis.labelPosition = .outsideChart
+        self.chartView.leftAxis.labelXOffset = -4
         if let yAxisConfig = self.viewModel.yAxisConfig {
             self.chartView.leftAxis.valueFormatter = GraphAxisFormatter(config: yAxisConfig)
-            self.chartView.leftAxis.setLabelCount(yAxisConfig.labels.count, force: true)
-            self.chartView.leftAxis.decimals = 0
-            self.chartView.leftAxis.axisMinimum = yAxisConfig.min
-            self.chartView.leftAxis.axisMaximum = yAxisConfig.max
-            self.chartView.leftAxis.gridLineDashLengths = [4, 2]
-            self.chartView.leftAxis.drawAxisLineEnabled = false
+            if let labels = yAxisConfig.labels {
+                self.chartView.leftAxis.setLabelCount(labels.count, force: true)
+            }
+            if let min = yAxisConfig.min {
+                self.chartView.leftAxis.axisMinimum = min
+            }
+            if let max = yAxisConfig.max {
+                self.chartView.leftAxis.axisMaximum = max
+            }
         }
-        self.chartView.leftAxis.labelPosition = .outsideChart
 
         self.chartView.delegate = self
     }

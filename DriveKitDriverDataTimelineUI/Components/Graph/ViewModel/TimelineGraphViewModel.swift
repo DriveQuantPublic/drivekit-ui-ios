@@ -72,8 +72,12 @@ class TimelineGraphViewModel: GraphViewModel {
             self.points = graphPoints
             self.selectedIndex = graphScreenIndex
             self.xAxisConfig = GraphAxisConfig(min: 0, max: Double(graphPointNumber - 1), labels: graphDates)
-            #warning("TODO:")
-            self.yAxisConfig = GraphAxisConfig(min: 0, max: 10, labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"])
+            let minYValue = graphItem.graphMinValue
+            var labels: [String] = []
+            for i in Int(minYValue)...10 {
+                labels.append("\(i)")
+            }
+            self.yAxisConfig = GraphAxisConfig(min: graphItem.graphMinValue, max: 10, labels: labels)
             self.title = graphItem.graphTitle
             self.description = graphItem.getGraphDescription(fromValue: getValue(atIndex: timelineIndex, for: graphItem, in: timeline))
             self.graphViewModelDidUpdate?()

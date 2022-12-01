@@ -12,6 +12,7 @@ import ChartsForDK
 //TODO
 class BarGraphView: GraphViewBase {
     private let chartView: BarChartView
+    private var selectedEntry: ChartDataEntry? = nil
 
     override init(viewModel: GraphViewModel) {
         self.chartView = BarChartView()
@@ -27,58 +28,94 @@ class BarGraphView: GraphViewBase {
     }
 
     override func setupData() {
-        var lineChartEntry  = [BarChartDataEntry]()
-
-        let numbers: [Double] = [3.4, 3.5, 4, 3.2, 1.1, 4.9, 4.3, 1.4]
-        for i in 0..<numbers.count {
-            let value = BarChartDataEntry(x: Double(i), y: numbers[i])
-//            value.icon = self.defaultIcon
-            lineChartEntry.append(value)
+        var entries  = [BarChartDataEntry]()
+        var entryToSelect: ChartDataEntry?
+        for (index, point) in self.viewModel.points.enumerated() {
+            if let point {
+                let value = BarChartDataEntry(x: point.x, y: point.y, data: point.data)
+                if index == self.viewModel.selectedIndex {
+                    entryToSelect = value
+                }
+                entries.append(value)
+            }
         }
 
-        let line1 = BarChartDataSet(entries: lineChartEntry, label: nil)
-        line1.colors = [.blue]
-        //        line1.setCircleColor(.cyan)
-        line1.highlightEnabled = true
-        line1.highlightColor = .orange
+        let bar = BarChartDataSet(entries: entries, label: nil)
+        bar.colors = [.white]
+        bar.barBorderColor = UIColor(hex: 0x083B54)
+        bar.barBorderWidth = 2
+        bar.highlightEnabled = true
+        bar.highlightColor = GraphConstants.defaultSelectedColor
+        bar.highlightAlpha = 1
+        bar.drawValuesEnabled = false
 
         let data = BarChartData()
-        data.addDataSet(line1)
+        data.addDataSet(bar)
         data.highlightEnabled = true
+        data.barWidth = 0.5
 
         self.chartView.data = data
-        //        self.chartView.xAxis.drawLabelsEnabled = true
         self.chartView.highlightPerTapEnabled = true
         self.chartView.pinchZoomEnabled = false
         self.chartView.scaleXEnabled = false
         self.chartView.scaleYEnabled = false
         self.chartView.dragEnabled = false
         self.chartView.doubleTapToZoomEnabled = false
+        self.chartView.rightAxis.enabled = false
+        self.chartView.legend.enabled = false
+        self.chartView.extraRightOffset = 2
 
-        self.chartView.xAxis.valueFormatter = GraphAxisFormatter(config: self.viewModel.xAxisConfig)
-        self.chartView.xAxis.labelCount = 8
-        self.chartView.xAxis.axisMinimum = 0
-        self.chartView.xAxis.axisMaximum = 8
+        self.chartView.xAxis.decimals = 0
+        self.chartView.xAxis.drawAxisLineEnabled = false
+        self.chartView.xAxis.drawGridLinesEnabled = false
         self.chartView.xAxis.labelPosition = .bottom
+        if let xAxisConfig = self.viewModel.xAxisConfig {
+            self.chartView.xAxis.valueFormatter = GraphAxisFormatter(config: xAxisConfig)
+            if let labels = xAxisConfig.labels {
+                self.chartView.xAxis.setLabelCount(labels.count, force: false)
+            }
+            if let min = xAxisConfig.min {
+                self.chartView.xAxis.axisMinimum = min - 0.5
+            }
+            if let max = xAxisConfig.max {
+                self.chartView.xAxis.axisMaximum = max + 0.5
+            }
+        }
+
+        self.chartView.leftAxis.decimals = 0
+        self.chartView.leftAxis.gridLineDashLengths = [4, 2]
+        self.chartView.leftAxis.drawAxisLineEnabled = false
+        self.chartView.leftAxis.labelPosition = .outsideChart
+        if let yAxisConfig = self.viewModel.yAxisConfig {
+            self.chartView.leftAxis.valueFormatter = GraphAxisFormatter(config: yAxisConfig)
+            if let labels = yAxisConfig.labels {
+                self.chartView.leftAxis.setLabelCount(labels.count, force: true)
+            }
+            if let min = yAxisConfig.min {
+                self.chartView.leftAxis.axisMinimum = min
+            }
+            if let max = yAxisConfig.max {
+                self.chartView.leftAxis.axisMaximum = max
+            }
+        }
 
         self.chartView.delegate = self
+        if let entryToSelect {
+            select(entry: entryToSelect)
+        }
+    }
+
+    private func select(entry: ChartDataEntry) {
+        self.selectedEntry = entry
+        self.chartView.highlightValue(x: entry.x, dataSetIndex: 0)
     }
 }
 
 extension BarGraphView: ChartViewDelegate {
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-        print("\(highlight.x) - \(highlight.y)")
-//        selectedEntry?.icon = defaultIcon
-//        if let dataSet = chartView.data?.dataSets.first as? LineChartDataSet {
-//            //            dataSet.circleHoleColor = .green
-//            selectedEntry = dataSet.entries[Int(highlight.x)]
-//            selectedEntry?.icon = self.defaultIcon?.withTintColor(.red)
-//        }
-    }
-
-    func chartValueNothingSelected(_ chartView: ChartViewBase) {
-//        (chartView.data?.dataSets.first as? LineChartDataSet)?.circleHoleColor = .clear
-//        selectedEntry?.icon = defaultIcon
-//        selectedEntry = nil
+        if entry != self.selectedEntry {
+            select(entry: entry)
+            self.delegate?.graphDidSelectPoint((x: entry.x, y: entry.y, data: entry.data))
+        }
     }
 }

@@ -12,7 +12,6 @@
 "dk_driverdata_alternative_transportation_remark"="💡 Ce trajet n\'a pas de score car l’application ne mesure pas votre conduite lorsque vous n\'êtes pas dans votre véhicule.";
 "dk_driverdata_alternative_transportation_thanks"="❤️ Merci d\'avoir déclaré ce trajet et de nous aider à améliorer l\'identification automatique du mode de transport.";
 "dk_driverdata_alternative_trips"="Transports alternatifs";
-"dk_driverdata_bad_maintain"="Vitesse très irrégulière";
 "dk_driverdata_beginning_authorized_call"="Début d\'un appel autorisé";
 "dk_driverdata_beginning_authorized_call_info_content"="L\'application a détecté le début d\'un appel autorisé, cela signifie qu\'il a été effectué à avec votre kit main-libre. Cette action ne pénalise pas votre score d\'utilisation du téléphone, car elle est légalement autorisée. Cependant, cela reste une distraction lorsque vous conduisez, pour votre sécurité et celle des autres utilisateurs de la route, il est fortement conseillé d\'attendre que votre véhicule soit stationné pour passer un appel.";
 "dk_driverdata_beginning_unauthorized_call"="Début d\'appel non-autorisé";
@@ -40,14 +39,7 @@
 "dk_driverdata_failed_to_declare_transportation"="Le mode de transport n\'a pas pu être mis à jour, veuillez réessayer ultérieurement.";
 "dk_driverdata_failed_to_delete_trip"="Le trajet n\'a pas pu être supprimé, réessayer ultérieurement.";
 "dk_driverdata_failed_to_sync_trips"="Impossible de synchroniser les trajets, veuillez réessayer plus tard.";
-"dk_driverdata_good_accel"="Bonne accélération";
-"dk_driverdata_good_decel"="Freinage idéal";
-"dk_driverdata_good_maintain"="Vitesse régulière";
-"dk_driverdata_high_accel"="Accélération trop forte";
-"dk_driverdata_high_decel"="Freinage trop fort";
 "dk_driverdata_lock_event"="Fermeture de l\'écran";
-"dk_driverdata_low_accel"="Accélération trop faible";
-"dk_driverdata_low_decel"="Freinage trop faible";
 "dk_driverdata_my_weekly_score_distraction"="Mon score hebdomadaire | Distraction";
 "dk_driverdata_my_weekly_score_ecodriving"="Mon score hebdomadaire | Éco-conduite";
 "dk_driverdata_my_weekly_score_safety"="Mon score hebdomadaire | Sécurité";
@@ -88,8 +80,6 @@
 "dk_driverdata_speeding_score"="Score de vitesse";
 "dk_driverdata_speeding_score_info"="Ce score est le reflet du respect des limitations de vitesse. Il évolue en fonction de la distance parcourue au-dessus de la limite réglementaire. Plus la distance en dépassement augmente et plus le score diminue.";
 "dk_driverdata_start_event"="Début de trajet";
-"dk_driverdata_strong_accel"="Accélération forte";
-"dk_driverdata_strong_decel"="Freinage fort";
 "dk_driverdata_synthesis_co2_emissions"="Emissions de CO2";
 "dk_driverdata_synthesis_co2_mass"="Masse de CO2";
 "dk_driverdata_synthesis_condition"="Condition";
@@ -141,9 +131,6 @@
 "dk_driverdata_urban"="%@ en zone urbaine";
 "dk_driverdata_value"="Valeur =";
 "dk_driverdata_vehicle_trips"="Trajets en véhicule";
-"dk_driverdata_weak_accel"="Accélération faible";
-"dk_driverdata_weak_decel"="Freinage faible";
-"dk_driverdata_weak_maintain"="Vitesse irrégulière";
 "dk_driverdata_weather_cloud"="Temps nuageux";
 "dk_driverdata_weather_fog"="Temps brumeux";
 "dk_driverdata_weather_hail"="Temps de gel";

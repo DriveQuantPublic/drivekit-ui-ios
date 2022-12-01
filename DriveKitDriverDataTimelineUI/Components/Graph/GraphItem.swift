@@ -105,6 +105,55 @@ extension GraphItem {
         }
     }
 
+    var graphMinValue: Double {
+        get {
+            switch self {
+                case let .score(type):
+                    switch type {
+                        case .distraction:
+                            return 0
+                        case .ecoDriving:
+                            return 6
+                        case .safety:
+                            return 3
+                        case .speeding:
+                            return 0
+                    }
+                case let .scoreItem(type):
+                    switch type {
+                        case .distraction_callForbiddenDuration:
+                            return 0
+                        case .distraction_percentageOfTripsWithForbiddenCall:
+                            return 0
+                        case .distraction_unlock:
+                            return 0
+                        case .ecoDriving_efficiency:
+                            return 0
+                        case .ecoDriving_efficiencyAcceleration:
+                            return -5
+                        case .ecoDriving_efficiencyBrake:
+                            return -5
+                        case .ecoDriving_efficiencySpeedMaintain:
+                            return 0
+                        case .ecoDriving_fuelVolume:
+                            return 0
+                        case .ecoDriving_co2mass:
+                            return 0
+                        case .safety_acceleration:
+                            return 0
+                        case .safety_adherence:
+                            return 0
+                        case .safety_braking:
+                            return 0
+                        case .speeding_distance:
+                            return 0
+                        case .speeding_duration:
+                            return 0
+                    }
+            }
+        }
+    }
+
     func getGraphDescription(fromValue value: Double) -> String {
         switch self {
             case .score:

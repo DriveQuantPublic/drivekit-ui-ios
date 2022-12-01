@@ -12,7 +12,6 @@
 "dk_driverdata_alternative_transportation_remark"="💡 This trip does not have a score because the application does not measure your driving while you are not in your vehicle.";
 "dk_driverdata_alternative_transportation_thanks"="❤️ Thank you for reporting this trip and for helping us improve transportation mode automatic recognition.";
 "dk_driverdata_alternative_trips"="Alternative transport";
-"dk_driverdata_bad_maintain"="Very fluctuating speed";
 "dk_driverdata_beginning_authorized_call"="Start of authorized call";
 "dk_driverdata_beginning_authorized_call_info_content"="The application has detected the start of an authorized call, this means that it has been made to your hands-free car kit. This action does not penalize your phone usage score, as it is legally permitted. However, it remains a distraction while driving, for your safety and that of other road users, it is strongly recommended that you wait until your vehicle is parked to make a call.";
 "dk_driverdata_beginning_unauthorized_call"="Start of unauthorized call";
@@ -40,14 +39,7 @@
 "dk_driverdata_failed_to_declare_transportation"="Transportation mode couldn\'t be updated, please retry later.";
 "dk_driverdata_failed_to_delete_trip"="The trip could not be deleted, try again later.";
 "dk_driverdata_failed_to_sync_trips"="Failed to synchronize trips, please retry later.";
-"dk_driverdata_good_accel"="Good acceleration";
-"dk_driverdata_good_decel"="Good deceleration";
-"dk_driverdata_good_maintain"="Good speed maintain";
-"dk_driverdata_high_accel"="Acceleration is too high";
-"dk_driverdata_high_decel"="Deceleration is too high";
 "dk_driverdata_lock_event"="Screen locking";
-"dk_driverdata_low_accel"="Acceleration is too low";
-"dk_driverdata_low_decel"="Deceleration is too low";
 "dk_driverdata_my_weekly_score_distraction"="My weekly score | Distraction";
 "dk_driverdata_my_weekly_score_ecodriving"="My weekly score | Eco-driving";
 "dk_driverdata_my_weekly_score_safety"="My weekly score | Safety";
@@ -88,8 +80,6 @@
 "dk_driverdata_speeding_score"="Speeding score";
 "dk_driverdata_speeding_score_info"="This score highlights the respect of speed limits. It changes according to the distance travelled above the legal limit. The greater the distance over the limit, the lower the score.";
 "dk_driverdata_start_event"="Start of trip";
-"dk_driverdata_strong_accel"="Strong acceleration";
-"dk_driverdata_strong_decel"="Strong deceleration";
 "dk_driverdata_synthesis_co2_emissions"="CO2 emissions";
 "dk_driverdata_synthesis_co2_mass"="Mass of CO2";
 "dk_driverdata_synthesis_condition"="Condition";
@@ -141,9 +131,6 @@
 "dk_driverdata_urban"="%@ in urban zone";
 "dk_driverdata_value"="Value =";
 "dk_driverdata_vehicle_trips"="Vehicle trips";
-"dk_driverdata_weak_accel"="Weak acceleration";
-"dk_driverdata_weak_decel"="Weak deceleration";
-"dk_driverdata_weak_maintain"="Irregular speed";
 "dk_driverdata_weather_cloud"="Cloudy weather";
 "dk_driverdata_weather_fog"="Foggy weather";
 "dk_driverdata_weather_hail"="Freezing weather";

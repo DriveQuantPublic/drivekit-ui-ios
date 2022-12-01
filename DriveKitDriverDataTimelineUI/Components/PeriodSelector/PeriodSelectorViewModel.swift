@@ -14,7 +14,7 @@ class PeriodSelectorViewModel {
     var periodDidChange: (() -> ())?
     private(set) var selectedPeriod: DKTimelinePeriod = .week
 
-    func update(selectedPeriod: DKTimelinePeriod) {
+    func configure(selectedPeriod: DKTimelinePeriod) {
         if self.selectedPeriod != selectedPeriod {
             self.selectedPeriod = selectedPeriod
             self.periodDidChange?()

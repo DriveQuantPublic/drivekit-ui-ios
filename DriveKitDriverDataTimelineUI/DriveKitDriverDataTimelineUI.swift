@@ -13,15 +13,29 @@ import DriveKitCommonUI
     @objc public static let shared = DriveKitDriverDataTimelineUI()
     static let calendar = Calendar(identifier: .gregorian)
 
-    var scores: [DKTimelineScoreType] = [.safety, .ecoDriving, .distraction, .speeding] {
-        didSet {
-            if self.scores.isEmpty {
-                self.scores = [.safety]
+    private var internalScores: [DKTimelineScoreType] = [.safety, .ecoDriving, .distraction, .speeding]
+    var scores: [DKTimelineScoreType] {
+        set {
+            if newValue.isEmpty {
+                self.internalScores = [.safety]
+            } else {
+                self.internalScores = newValue
+            }
+        }
+        get {
+            self.internalScores.filter { score in
+                score.hasAccess()
             }
         }
     }
 
-    @objc public func getTimelineViewController() -> UIViewController {
+    public func initialize() {
+        DriveKitNavigationController.shared.driverDataTimelineUI = self
+    }
+}
+
+extension DriveKitDriverDataTimelineUI: DriveKitDriverDataTimelineUIEntryPoint {
+    public func getTimelineViewController() -> UIViewController {
         let viewModel = TimelineViewModel()
         return TimelineViewController(viewModel: viewModel)
     }

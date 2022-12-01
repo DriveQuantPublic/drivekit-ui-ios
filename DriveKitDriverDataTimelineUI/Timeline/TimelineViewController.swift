@@ -9,7 +9,7 @@
 import UIKit
 import DriveKitCommonUI
 
-class TimelineViewController: UIViewController {
+class TimelineViewController: DKUIViewController {
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var scoreSelectorView: UIStackView!
     @IBOutlet private weak var periodSelectorContainer: UIView!
@@ -35,6 +35,8 @@ class TimelineViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = "dk_timeline_title".dkDriverDataTimelineLocalized()
+
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh(_ :)), for: .valueChanged)
         self.scrollView.refreshControl = refreshControl
@@ -51,6 +53,11 @@ class TimelineViewController: UIViewController {
         }
     }
 
+    @IBAction private func openScoreDetailScreen() {
+        let timelineScoreDetailViewModel = TimelineScoreDetailViewModel()
+        let timelineScoreDetailVC = TimelineScoreDetailViewController(viewModel: timelineScoreDetailViewModel)
+        self.navigationController?.pushViewController(timelineScoreDetailVC, animated: true)
+    }
 
     @objc private func refresh(_ sender: Any) {
         self.viewModel.updateTimeline()

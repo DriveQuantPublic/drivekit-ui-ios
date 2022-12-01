@@ -100,8 +100,8 @@ class TimelineViewModel {
                 selectedDateIndex = nil
             }
             if let selectedDateIndex {
-                self.dateSelectorViewModel.update(dates: dates, period: self.currentPeriod, selectedIndex: selectedDateIndex)
-                self.periodSelectorViewModel.update(selectedPeriod: self.currentPeriod)
+                self.dateSelectorViewModel.configure(dates: dates, period: self.currentPeriod, selectedIndex: selectedDateIndex)
+                self.periodSelectorViewModel.configure(selectedPeriod: self.currentPeriod)
                 self.timelineGraphViewModel.configure(timeline: timelineSource, timelineIndex: selectedDateIndex, graphItem: .score(self.selectedScore), period: self.currentPeriod)
                 var distanceByContext: [TimelineRoadContext: Double] = [:]
                 for roadContext in timelineSource.roadContexts {

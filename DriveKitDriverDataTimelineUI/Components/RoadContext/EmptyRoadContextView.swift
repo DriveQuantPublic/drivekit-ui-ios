@@ -21,7 +21,7 @@ class EmptyRoadContextView: UIView {
     func setupView() {
         self.titleLabel.font = DKStyles.headLine2.style.applyTo(font: .primary)
         self.descriptionLabel.font = DKStyles.normalText.style.applyTo(font: .primary)
-        self.titleLabel.text = "dk_timeline_road_context_title_no_data".dkDriverDataTimelineLocalized()
-        self.descriptionLabel.text = "dk_timeline_road_context_description_no_data".dkDriverDataTimelineLocalized()
+        self.titleLabel.text = "dk_timeline_road_context_title_empty_data".dkDriverDataTimelineLocalized()
+        self.descriptionLabel.text = "dk_timeline_road_context_description_empty_data".dkDriverDataTimelineLocalized()
     }
 }

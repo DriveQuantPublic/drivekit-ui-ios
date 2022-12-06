@@ -29,6 +29,9 @@ class LineGraphView: GraphViewBase {
     }
 
     override func setupData() {
+        if let xAxisConfig = self.viewModel.xAxisConfig {
+            self.chartView.xAxisRenderer = DKXAxisRenderer.from(self.chartView, config: xAxisConfig)
+        }
         var entries  = [ChartDataEntry]()
         for (index, point) in self.viewModel.points.enumerated() {
             if let point {
@@ -108,6 +111,9 @@ class LineGraphView: GraphViewBase {
     private func select(entry: ChartDataEntry) {
         self.selectedEntry = entry
         entry.icon = GraphConstants.selectedCircleIcon()
+        if let renderer = self.chartView.xAxisRenderer as? DKXAxisRenderer {
+            renderer.selectedIndex = Int(entry.x)
+        }
     }
 }
 

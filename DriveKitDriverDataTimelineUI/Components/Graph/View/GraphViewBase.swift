@@ -8,6 +8,7 @@
 
 import UIKit
 import ChartsForDK
+import DriveKitCommonUI
 
 class GraphViewBase: UIView {
     weak var delegate: GraphViewDelegate?
@@ -60,5 +61,41 @@ class GraphAxisFormatter: IAxisValueFormatter {
             }
         }
         return String(value)
+    }
+}
+
+class DKXAxisRenderer: XAxisRenderer {
+    private let config: GraphAxisConfig
+    var selectedIndex: Int?
+
+    static func from(_ chartView: BarLineChartViewBase, config: GraphAxisConfig) -> DKXAxisRenderer {
+        let renderer = DKXAxisRenderer(config: config, viewPortHandler: chartView.viewPortHandler, xAxis: chartView.xAxis, transformer: chartView.getTransformer(forAxis: .left))
+        return renderer
+    }
+
+    init(config: GraphAxisConfig, viewPortHandler: ViewPortHandler, xAxis: XAxis?, transformer: Transformer?) {
+        self.config = config
+        super.init(viewPortHandler: viewPortHandler, xAxis: xAxis, transformer: transformer)
+    }
+
+    override func drawLabel(context: CGContext, formattedLabel: String, x: CGFloat, y: CGFloat, attributes: [NSAttributedString.Key : Any], constrainedToSize: CGSize, anchor: CGPoint, angleRadians: CGFloat) {
+        if let index = self.config.labels?.firstIndex(of: formattedLabel), index == self.selectedIndex {
+            let textSize = formattedLabel.boundingRect(with: constrainedToSize, options: .usesLineFragmentOrigin, attributes: attributes, context: nil).size
+            var rect = CGRect(origin: CGPoint(), size: textSize)
+            let point = CGPoint(x: x, y: y)
+            UIGraphicsPushContext(context)
+            if anchor.x != 0.0 || anchor.y != 0.0
+            {
+                rect.origin.x = -textSize.width * anchor.x
+                rect.origin.y = -textSize.height * anchor.y
+            }
+            rect.origin.x += point.x
+            rect.origin.y += point.y
+            DKUIColors.secondaryColor.color.withAlphaComponent(0.5).setFill()
+            let xInset: CGFloat = -4
+            UIBezierPath(roundedRect: rect.insetBy(dx: xInset, dy: 0), cornerRadius: rect.height / 2).fill()
+            UIGraphicsPopContext()
+        }
+        super.drawLabel(context: context, formattedLabel: formattedLabel, x: x, y: y, attributes: attributes, constrainedToSize: constrainedToSize, anchor: anchor, angleRadians: angleRadians)
     }
 }

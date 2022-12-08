@@ -24,6 +24,13 @@ class TimelineViewModel {
             update()
         }
     }
+    var hasData: Bool {
+        if let timelineSource = getTimelineSource() {
+            return !timelineSource.allContext.numberTripTotal.isEmpty
+        } else {
+            return false
+        }
+    }
     private var weekTimeline: DKTimeline?
     private var monthTimeline: DKTimeline?
     private var currentPeriod: DKTimelinePeriod
@@ -104,10 +111,12 @@ class TimelineViewModel {
                 self.periodSelectorViewModel.configure(selectedPeriod: self.currentPeriod)
                 self.timelineGraphViewModel.configure(timeline: timelineSource, timelineIndex: selectedDateIndex, graphItem: .score(self.selectedScore), period: self.currentPeriod)
                 var distanceByContext: [TimelineRoadContext: Double] = [:]
-                for roadContext in timelineSource.roadContexts {
-                    if let timelineRoadContext = TimelineRoadContext(roadContext: roadContext.type) {
-                        let distance = roadContext.distance[selectedDateIndex]
-                        distanceByContext[timelineRoadContext] = distance
+                if self.selectedScore == .distraction || self.selectedScore == .speeding || timelineSource.allContext.numberTripScored[selectedDateIndex] > 0 {
+                    for roadContext in timelineSource.roadContexts {
+                        if let timelineRoadContext = TimelineRoadContext(roadContext: roadContext.type) {
+                            let distance = roadContext.distance[selectedDateIndex]
+                            distanceByContext[timelineRoadContext] = distance
+                        }
                     }
                 }
                 self.roadContextViewModel.configure(distanceByContext: distanceByContext, totalDistance: timelineSource.allContext.distance[selectedDateIndex])

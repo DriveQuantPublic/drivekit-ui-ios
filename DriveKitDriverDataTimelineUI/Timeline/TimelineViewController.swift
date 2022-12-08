@@ -163,6 +163,18 @@ class TimelineViewController: DKUIViewController {
         if self.viewModel.roadContextViewModel.getActiveContextNumber() > 0 {
             self.roadContextContainer.embedSubview(roadContextview)
         } else {
+            if !self.viewModel.hasData {
+                emptyRoadContextView.type = .emptyData
+            } else {
+                switch self.viewModel.selectedScore {
+                    case .distraction, .speeding:
+                        emptyRoadContextView.type = .emptyData
+                    case .safety:
+                        emptyRoadContextView.type = .noDataSafety
+                    case .ecoDriving:
+                        emptyRoadContextView.type = .noDataEcodriving
+                }
+            }
             self.roadContextContainer.embedSubview(emptyRoadContextView)
         }
     }

@@ -121,6 +121,19 @@ class TimelineViewModel {
                 }
                 self.roadContextViewModel.configure(distanceByContext: distanceByContext, totalDistance: timelineSource.allContext.distance[selectedDateIndex])
             }
+        } else {
+            let startDate: Date?
+            switch self.currentPeriod {
+                case .week:
+                    startDate = Date().beginning(of: .weekOfMonth)
+                case .month:
+                    startDate = Date().beginning(of: .month)
+                @unknown default:
+                    startDate = nil
+            }
+            if let startDate {
+                self.dateSelectorViewModel.configure(dates: [startDate], period: self.currentPeriod, selectedIndex: 0)
+            }
         }
         self.delegate?.needToBeRefreshed()
     }

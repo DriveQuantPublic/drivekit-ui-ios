@@ -154,7 +154,10 @@ extension GraphItem {
         }
     }
 
-    func getGraphDescription(fromValue value: Double) -> String {
+    func getGraphDescription(fromValue value: Double?) -> String {
+        guard let value else {
+            return "-"
+        }
         switch self {
             case .score:
                 return value.formatScore()

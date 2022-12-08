@@ -114,8 +114,9 @@ class BarGraphView: GraphViewBase {
 extension BarGraphView: ChartViewDelegate {
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         if entry != self.selectedEntry {
+            let data = entry.data as? PointData
             select(entry: entry)
-            self.delegate?.graphDidSelectPoint((x: entry.x, y: entry.y, data: entry.data))
+            self.delegate?.graphDidSelectPoint((x: entry.x, y: entry.y, data: data))
         }
     }
 }

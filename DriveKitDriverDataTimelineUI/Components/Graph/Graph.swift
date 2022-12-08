@@ -8,4 +8,9 @@
 
 import Foundation
 
-typealias GraphPoint = (x: Double, y: Double, data: Any?)
+typealias GraphPoint = (x: Double, y: Double, data: PointData?)
+
+struct PointData {
+    let date: Date
+    let realPoint: Bool
+}

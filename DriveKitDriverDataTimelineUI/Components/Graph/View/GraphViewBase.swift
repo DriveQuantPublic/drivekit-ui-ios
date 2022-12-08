@@ -11,6 +11,7 @@ import ChartsForDK
 import DriveKitCommonUI
 
 class GraphViewBase: UIView {
+    static let axisLabelColor: UIColor = UIColor(hex: 0x333333)
     weak var delegate: GraphViewDelegate?
     private(set) var viewModel: GraphViewModel
 

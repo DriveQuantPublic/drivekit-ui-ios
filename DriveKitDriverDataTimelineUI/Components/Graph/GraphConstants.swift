@@ -25,6 +25,15 @@ struct GraphConstants {
         return UIGraphicsGetImageFromCurrentImageContext()
     }
 
+    static func invisibleIcon() -> UIImage? {
+        let scale: CGFloat = 0
+        let size = CGSize(width: 1, height: 1)
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        UIColor.clear.setFill()
+        UIRectFill(CGRect(origin: .zero, size: size))
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
+
     static func selectedCircleIcon() -> UIImage? {
         GraphConstants.circleIcon(insideColor: GraphConstants.defaultSelectedColor)
     }

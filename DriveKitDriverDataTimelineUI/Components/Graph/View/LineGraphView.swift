@@ -13,6 +13,7 @@ import DriveKitCommonUI
 class LineGraphView: GraphViewBase {
     private let chartView: LineChartView
     private let defaultIcon = GraphConstants.circleIcon()
+    private let invisibleIcon = GraphConstants.invisibleIcon()
     private var selectedEntry: ChartDataEntry? = nil
 
     override init(viewModel: GraphViewModel) {
@@ -36,10 +37,13 @@ class LineGraphView: GraphViewBase {
         for (index, point) in self.viewModel.points.enumerated() {
             if let point {
                 let value = ChartDataEntry(x: point.x, y: point.y, data: point.data)
+                let realPoint = point.data?.realPoint ?? false
                 if index == self.viewModel.selectedIndex {
-                    select(entry: value)
-                } else {
+                    select(entry: value, realPoint: realPoint)
+                } else if realPoint {
                     value.icon = self.defaultIcon
+                } else {
+                    value.icon = self.invisibleIcon
                 }
                 entries.append(value)
             }
@@ -74,6 +78,7 @@ class LineGraphView: GraphViewBase {
         self.chartView.xAxis.drawAxisLineEnabled = false
         self.chartView.xAxis.drawGridLinesEnabled = false
         self.chartView.xAxis.labelPosition = .bottom
+        self.chartView.xAxis.labelTextColor = GraphViewBase.axisLabelColor
         if let xAxisConfig = self.viewModel.xAxisConfig {
             self.chartView.xAxis.valueFormatter = GraphAxisFormatter(config: xAxisConfig)
             if let labels = xAxisConfig.labels {
@@ -92,6 +97,7 @@ class LineGraphView: GraphViewBase {
         self.chartView.leftAxis.drawAxisLineEnabled = false
         self.chartView.leftAxis.labelPosition = .outsideChart
         self.chartView.leftAxis.labelXOffset = -4
+        self.chartView.leftAxis.labelTextColor = GraphViewBase.axisLabelColor
         if let yAxisConfig = self.viewModel.yAxisConfig {
             self.chartView.leftAxis.valueFormatter = GraphAxisFormatter(config: yAxisConfig)
             if let labels = yAxisConfig.labels {
@@ -108,9 +114,14 @@ class LineGraphView: GraphViewBase {
         self.chartView.delegate = self
     }
 
-    private func select(entry: ChartDataEntry) {
-        self.selectedEntry = entry
-        entry.icon = GraphConstants.selectedCircleIcon()
+    private func select(entry: ChartDataEntry, realPoint: Bool) {
+        if realPoint {
+            self.selectedEntry?.icon = self.defaultIcon
+            self.selectedEntry = entry
+            entry.icon = GraphConstants.selectedCircleIcon()
+        } else {
+            self.selectedEntry = nil
+        }
         if let renderer = self.chartView.xAxisRenderer as? DKXAxisRenderer {
             renderer.selectedIndex = Int(entry.x)
         }
@@ -120,9 +131,11 @@ class LineGraphView: GraphViewBase {
 extension LineGraphView: ChartViewDelegate {
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         if entry != self.selectedEntry {
-            self.selectedEntry?.icon = self.defaultIcon
-            select(entry: entry)
-            self.delegate?.graphDidSelectPoint((x: entry.x, y: entry.y, data: entry.data))
+            let data: PointData? = entry.data as? PointData
+            if let data {
+                select(entry: entry, realPoint: data.realPoint)
+                self.delegate?.graphDidSelectPoint((x: entry.x, y: entry.y, data: data))
+            }
         }
     }
 }

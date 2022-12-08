@@ -133,6 +133,7 @@ class TimelineViewModel {
             }
             if let startDate {
                 self.dateSelectorViewModel.configure(dates: [startDate], period: self.currentPeriod, selectedIndex: 0)
+                self.timelineGraphViewModel.showEmptyGraph(graphItem: .score(self.selectedScore), period: self.currentPeriod)
             }
         }
         self.delegate?.needToBeRefreshed()

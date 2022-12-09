@@ -62,7 +62,7 @@ class TimelineGraphView: UIView {
 
     private func updateTitle() {
         if let viewModel = self.viewModel {
-            self.titleView.attributedText = viewModel.title.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).buildWithArgs(viewModel.description.dkAttributedString().font(dkFont: .primary, style: DKStyle(size: DKStyles.smallText.style.size, traits: .traitBold)).color(.mainFontColor).build())
+            self.titleView.attributedText = viewModel.title.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).buildWithArgs(viewModel.description.dkAttributedString().font(dkFont: .primary, style: DKStyle(size: DKStyles.smallText.style.size, traits: .traitBold)).color(.primaryColor).build())
         }
     }
 }

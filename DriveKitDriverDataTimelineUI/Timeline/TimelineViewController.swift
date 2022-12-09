@@ -104,14 +104,7 @@ class TimelineViewController: DKUIViewController {
 
         let periodSelector = Bundle.driverDataTimelineUIBundle?.loadNibNamed("PeriodSelectorView", owner: nil, options: nil)?.first as? PeriodSelectorView
         if let periodSelector {
-            periodSelector.translatesAutoresizingMaskIntoConstraints = false
-            self.periodSelectorContainer.addSubview(periodSelector)
-            NSLayoutConstraint.activate([
-                periodSelector.topAnchor.constraint(equalTo: self.periodSelectorContainer.topAnchor),
-                periodSelector.bottomAnchor.constraint(equalTo: self.periodSelectorContainer.bottomAnchor),
-                periodSelector.leftAnchor.constraint(equalTo: self.periodSelectorContainer.leftAnchor),
-                periodSelector.rightAnchor.constraint(equalTo: self.periodSelectorContainer.rightAnchor)
-            ])
+            self.periodSelectorContainer.embedSubview(periodSelector)
             periodSelector.viewModel = self.viewModel.periodSelectorViewModel
         }
     }
@@ -121,14 +114,7 @@ class TimelineViewController: DKUIViewController {
         self.timelineGraphViewContainer.clipsToBounds = true
         let timelineGraphView = Bundle.driverDataTimelineUIBundle?.loadNibNamed("TimelineGraphView", owner: nil, options: nil)?.first as? TimelineGraphView
         if let timelineGraphView {
-            timelineGraphView.translatesAutoresizingMaskIntoConstraints = false
-            self.timelineGraphViewContainer.addSubview(timelineGraphView)
-            NSLayoutConstraint.activate([
-                timelineGraphView.topAnchor.constraint(equalTo: self.timelineGraphViewContainer.topAnchor),
-                timelineGraphView.bottomAnchor.constraint(equalTo: self.timelineGraphViewContainer.bottomAnchor),
-                timelineGraphView.leftAnchor.constraint(equalTo: self.timelineGraphViewContainer.leftAnchor),
-                timelineGraphView.rightAnchor.constraint(equalTo: self.timelineGraphViewContainer.rightAnchor)
-            ])
+            self.timelineGraphViewContainer.embedSubview(timelineGraphView)
             timelineGraphView.viewModel = self.viewModel.timelineGraphViewModel
             timelineGraphView.delegate = self.viewModel.timelineGraphViewModel
         }

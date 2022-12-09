@@ -36,14 +36,7 @@ class TimelineGraphView: UIView {
                     case .bar:
                         graphView = BarGraphView(viewModel: viewModel)
                 }
-                graphView.translatesAutoresizingMaskIntoConstraints = false
-                graphViewContainer.addSubview(graphView)
-                NSLayoutConstraint.activate([
-                    graphView.topAnchor.constraint(equalTo: graphViewContainer.topAnchor),
-                    graphView.bottomAnchor.constraint(equalTo: graphViewContainer.bottomAnchor),
-                    graphView.leftAnchor.constraint(equalTo: graphViewContainer.leftAnchor),
-                    graphView.rightAnchor.constraint(equalTo: graphViewContainer.rightAnchor)
-                ])
+                graphViewContainer.embedSubview(graphView)
                 graphView.delegate = self
                 self.graphView = graphView
 

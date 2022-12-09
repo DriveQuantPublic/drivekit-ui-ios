@@ -9,7 +9,6 @@
 import UIKit
 import ChartsForDK
 
-//TODO
 class BarGraphView: GraphViewBase {
     private let chartView: BarChartView
     private var selectedEntry: ChartDataEntry? = nil
@@ -23,7 +22,7 @@ class BarGraphView: GraphViewBase {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func getChartView() -> BarLineChartViewBase? {
+    override func getChartView() -> BarLineChartViewBase {
         return self.chartView
     }
 

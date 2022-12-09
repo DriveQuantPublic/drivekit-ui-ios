@@ -18,16 +18,8 @@ class GraphViewBase: UIView {
     init(viewModel: GraphViewModel) {
         self.viewModel = viewModel
         super.init(frame: .zero)
-        if let chartView = getChartView() {
-            chartView.translatesAutoresizingMaskIntoConstraints = false
-            self.addSubview(chartView)
-            NSLayoutConstraint.activate([
-                chartView.topAnchor.constraint(equalTo: self.topAnchor),
-                chartView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-                chartView.leftAnchor.constraint(equalTo: self.leftAnchor),
-                chartView.rightAnchor.constraint(equalTo: self.rightAnchor)
-            ])
-        }
+        let chartView = getChartView()
+        self.embedSubview(chartView)
         self.viewModel.graphViewModelDidUpdate = { [weak self] in
             self?.setupData()
         }
@@ -38,12 +30,12 @@ class GraphViewBase: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func getChartView() -> BarLineChartViewBase? {
-        return nil
+    func getChartView() -> BarLineChartViewBase {
+        preconditionFailure("Must be overridden by subclass")
     }
 
     func setupData() {
-        // Must be implemented by the subclass.
+        preconditionFailure("Must be overridden by subclass")
     }
 }
 

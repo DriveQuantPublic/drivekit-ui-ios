@@ -121,7 +121,7 @@ class TimelineViewModel {
             if let selectedDateIndex {
                 self.dateSelectorViewModel.configure(dates: dates, period: self.currentPeriod, selectedIndex: selectedDateIndex)
                 self.periodSelectorViewModel.configure(selectedPeriod: self.currentPeriod)
-                self.timelineGraphViewModel.configure(timeline: cleanedTimeline, timelineIndex: selectedDateIndex, graphItem: .score(self.selectedScore), period: self.currentPeriod)
+                self.timelineGraphViewModel.configure(timeline: cleanedTimeline, timelineSelectedIndex: selectedDateIndex, graphItem: .score(self.selectedScore), period: self.currentPeriod)
                 var distanceByContext: [TimelineRoadContext: Double] = [:]
                 if self.selectedScore == .distraction || self.selectedScore == .speeding || cleanedTimeline.allContext.numberTripScored[selectedDateIndex] > 0 {
                     for roadContext in cleanedTimeline.roadContexts {

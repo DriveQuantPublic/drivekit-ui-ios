@@ -12,5 +12,5 @@ typealias GraphPoint = (x: Double, y: Double, data: PointData?)
 
 struct PointData {
     let date: Date
-    let realPoint: Bool
+    let interpolatedPoint: Bool
 }

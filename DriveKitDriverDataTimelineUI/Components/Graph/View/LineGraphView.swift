@@ -37,13 +37,13 @@ class LineGraphView: GraphViewBase {
         for (index, point) in self.viewModel.points.enumerated() {
             if let point {
                 let value = ChartDataEntry(x: point.x, y: point.y, data: point.data)
-                let realPoint = point.data?.realPoint ?? false
+                let interpolatedPoint = point.data?.interpolatedPoint ?? true
                 if index == self.viewModel.selectedIndex {
-                    select(entry: value, realPoint: realPoint)
-                } else if realPoint {
-                    value.icon = self.defaultIcon
-                } else {
+                    select(entry: value, interpolatedPoint: interpolatedPoint)
+                } else if interpolatedPoint {
                     value.icon = self.invisibleIcon
+                } else {
+                    value.icon = self.defaultIcon
                 }
                 entries.append(value)
             }
@@ -114,13 +114,13 @@ class LineGraphView: GraphViewBase {
         self.chartView.delegate = self
     }
 
-    private func select(entry: ChartDataEntry, realPoint: Bool) {
-        if realPoint {
+    private func select(entry: ChartDataEntry, interpolatedPoint: Bool) {
+        if interpolatedPoint {
+            self.selectedEntry = nil
+        } else {
             self.selectedEntry?.icon = self.defaultIcon
             self.selectedEntry = entry
             entry.icon = GraphConstants.selectedCircleIcon()
-        } else {
-            self.selectedEntry = nil
         }
         if let renderer = self.chartView.xAxisRenderer as? DKXAxisRenderer {
             renderer.selectedIndex = Int(entry.x)
@@ -133,7 +133,7 @@ extension LineGraphView: ChartViewDelegate {
         if entry != self.selectedEntry {
             let data: PointData? = entry.data as? PointData
             if let data {
-                select(entry: entry, realPoint: data.realPoint)
+                select(entry: entry, interpolatedPoint: data.interpolatedPoint)
                 self.delegate?.graphDidSelectPoint((x: entry.x, y: entry.y, data: data))
             }
         }

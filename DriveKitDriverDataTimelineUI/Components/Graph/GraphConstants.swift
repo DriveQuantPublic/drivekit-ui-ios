@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct GraphConstants {
+enum GraphConstants {
     static let defaultLineColor = UIColor(hex: 0x083B54)
     static let defaultSelectedColor = UIColor(hex: 0x77E2B0)
 

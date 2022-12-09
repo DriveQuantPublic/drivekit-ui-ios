@@ -312,11 +312,11 @@ public extension Double {
     func getSpeedMaintainDescription() -> String {
         let key: DKCommonLocalizable
         if self < 1.5 {
-            key = .ecodrivingSpeedGoogMaintain
+            key = .ecodrivingSpeedMaintainGood
         } else if self < 3.5 {
-            key = .ecodrivingSpeedWeakMaintain
+            key = .ecodrivingSpeedMaintainWeak
         } else {
-            key = .ecodrivingSpeedBadMaintain
+            key = .ecodrivingSpeedMaintainBad
         }
         return key.text()
     }
@@ -374,15 +374,15 @@ public extension Double {
     func getDecelerationDescription() -> String {
         let key: DKCommonLocalizable
         if self < -4 {
-            key = .ecodrivingDecelarationLow
+            key = .ecodrivingDecelerationLow
         } else if self < -2 {
-            key = .ecodrivingDecelarationWeak
+            key = .ecodrivingDecelerationWeak
         } else if self < 1 {
-            key = .ecodrivingDecelarationGood
+            key = .ecodrivingDecelerationGood
         } else if self < 3 {
-            key = .ecodrivingDecelarationStrong
+            key = .ecodrivingDecelerationStrong
         } else {
-            key = .ecodrivingDecelarationHigh
+            key = .ecodrivingDecelerationHigh
         }
         return key.text()
     }

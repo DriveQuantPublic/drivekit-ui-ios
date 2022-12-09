@@ -100,7 +100,7 @@ public class TripEvent {
         case .acceleration:
             return isHigh ? "dk_driverdata_safety_list_acceleration_critical".dkDriverDataLocalized() : DKCommonLocalizable.ecodrivingAccelerationStrong.text()
         case .brake:
-            return isHigh ? "dk_driverdata_safety_list_brake_critical".dkDriverDataLocalized() : DKCommonLocalizable.ecodrivingDecelarationStrong.text()
+            return isHigh ? "dk_driverdata_safety_list_brake_critical".dkDriverDataLocalized() : DKCommonLocalizable.ecodrivingDecelerationStrong.text()
         case .start:
             return "dk_driverdata_start_event".dkDriverDataLocalized()
         case .end:

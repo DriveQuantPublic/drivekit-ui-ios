@@ -311,9 +311,9 @@ public extension Double {
 
     func getSpeedMaintainDescription() -> String {
         let key: DKCommonLocalizable
-        if self < 1.5 {
+        if self < Constants.Ecodriving.SpeedMaintain.goodLevelThreshold {
             key = .ecodrivingSpeedMaintainGood
-        } else if self < 3.5 {
+        } else if self < Constants.Ecodriving.SpeedMaintain.weakLevelThreshold {
             key = .ecodrivingSpeedMaintainWeak
         } else {
             key = .ecodrivingSpeedMaintainBad
@@ -357,13 +357,13 @@ public extension Double {
 
     func getAccelerationDescription() -> String {
         let key: DKCommonLocalizable
-        if self < -4 {
+        if self < Constants.Ecodriving.Acceleration.lowLevelThreshold {
             key = .ecodrivingAccelerationLow
-        } else if self < -2 {
+        } else if self < Constants.Ecodriving.Acceleration.weakLevelThreshold {
             key =  .ecodrivingAccelerationWeak
-        } else if self < 1 {
+        } else if self < Constants.Ecodriving.Acceleration.goodLevelThreshold {
             key =  .ecodrivingAccelerationGood
-        } else if self < 3 {
+        } else if self < Constants.Ecodriving.Acceleration.strongLevelThreshold {
             key =  .ecodrivingAccelerationStrong
         } else {
             key =  .ecodrivingAccelerationHigh
@@ -373,13 +373,13 @@ public extension Double {
 
     func getDecelerationDescription() -> String {
         let key: DKCommonLocalizable
-        if self < -4 {
+        if self < Constants.Ecodriving.Deceleration.lowLevelThreshold {
             key = .ecodrivingDecelerationLow
-        } else if self < -2 {
+        } else if self < Constants.Ecodriving.Deceleration.weakLevelThreshold {
             key = .ecodrivingDecelerationWeak
-        } else if self < 1 {
+        } else if self < Constants.Ecodriving.Deceleration.goodLevelThreshold {
             key = .ecodrivingDecelerationGood
-        } else if self < 3 {
+        } else if self < Constants.Ecodriving.Deceleration.strongLevelThreshold {
             key = .ecodrivingDecelerationStrong
         } else {
             key = .ecodrivingDecelerationHigh
@@ -491,4 +491,27 @@ public extension Int {
 
 public enum DKConsumptionType {
     case fuel, electric
+}
+
+private enum Constants {
+    enum Ecodriving {
+        enum SpeedMaintain {
+            static let goodLevelThreshold: Double = 1.5
+            static let weakLevelThreshold: Double = 3.5
+        }
+
+        enum Acceleration {
+            static let lowLevelThreshold: Double = -4
+            static let weakLevelThreshold: Double = -2
+            static let goodLevelThreshold: Double = 1
+            static let strongLevelThreshold: Double = 3
+        }
+
+        enum Deceleration {
+            static let lowLevelThreshold: Double = -4
+            static let weakLevelThreshold: Double = -2
+            static let goodLevelThreshold: Double = 1
+            static let strongLevelThreshold: Double = 3
+        }
+    }
 }

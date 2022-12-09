@@ -85,8 +85,7 @@ class TimelineViewModel {
                                 break
                         }
                     }
-                    self.selectedDate = nil
-                    self.update()
+                    self.update(resettingSelectedDate: true)
                 }
                 self.updating = false
                 self.delegate?.didUpdateTimeline()
@@ -94,10 +93,13 @@ class TimelineViewModel {
         }
     }
 
-    private func update() {
+    private func update(resettingSelectedDate shouldResetSelectedDate: Bool = false) {
         if let timelineSource = getTimelineSource() {
             let dates = timelineSource.allContext.date
 
+            if shouldResetSelectedDate {
+                self.selectedDate = nil
+            }
             let selectedDateIndex: Int?
             if let date = self.selectedDate {
                 selectedDateIndex = dates.firstIndex(of: date)

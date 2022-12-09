@@ -182,11 +182,11 @@ extension GraphItem {
                     case .ecoDriving_co2mass:
                         return value.formatCO2Mass()
                     case .safety_acceleration:
-                        return value.formatDouble(places: 2)
+                        return value.formatDouble(places: 1)
                     case .safety_adherence:
-                        return value.formatDouble(places: 2)
+                        return value.formatDouble(places: 1)
                     case .safety_braking:
-                        return value.formatDouble(places: 2)
+                        return value.formatDouble(places: 1)
                     case .speeding_distance:
                         return value.formatPercentage()
                     case .speeding_duration:

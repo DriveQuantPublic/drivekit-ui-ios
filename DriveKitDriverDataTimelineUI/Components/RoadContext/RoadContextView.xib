@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -53,7 +53,7 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="vS5-x0-O60" secondAttribute="bottom" constant="11" id="4mG-X7-RvW"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="TUU-C1-i6r" secondAttribute="bottom" constant="64" id="4mG-X7-RvW"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1mc-ZW-Pmc" secondAttribute="trailing" constant="15" id="8zE-Nh-scE"/>
                 <constraint firstItem="vS5-x0-O60" firstAttribute="top" secondItem="TUU-C1-i6r" secondAttribute="bottom" constant="1" id="Isa-nz-pMH"/>
                 <constraint firstItem="TUU-C1-i6r" firstAttribute="top" secondItem="1mc-ZW-Pmc" secondAttribute="bottom" constant="5" id="SyR-tm-qqV"/>

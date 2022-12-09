@@ -40,14 +40,14 @@ class GraphViewBase: UIView {
 }
 
 class GraphAxisFormatter: IAxisValueFormatter {
-    private let config: GraphAxisConfig?
+    private let config: GraphAxisConfig
 
-    init(config: GraphAxisConfig?) {
+    init(config: GraphAxisConfig) {
         self.config = config
     }
 
     func stringForValue(_ value: Double, axis: ChartsForDK.AxisBase?) -> String {
-        if let config = self.config, let min = config.min, let labels = config.labels {
+        if let min = self.config.min, let labels = self.config.labels {
             let index = Int(value - min)
             if index >= 0 && index < labels.count {
                 return labels[index]

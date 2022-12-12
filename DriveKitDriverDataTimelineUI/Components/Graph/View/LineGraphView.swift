@@ -116,15 +116,20 @@ class LineGraphView: GraphViewBase {
 
     private func select(entry: ChartDataEntry, interpolatedPoint: Bool) {
         if interpolatedPoint {
-            self.selectedEntry = nil
+            clearPreviousSelectedEntry(shouldRestoreIcon: false)
         } else {
-            self.selectedEntry?.icon = self.defaultIcon
+            clearPreviousSelectedEntry()
             self.selectedEntry = entry
             entry.icon = GraphConstants.selectedCircleIcon()
         }
         if let renderer = self.chartView.xAxisRenderer as? DKXAxisRenderer {
             renderer.selectedIndex = Int(entry.x)
         }
+    }
+
+    private func clearPreviousSelectedEntry(shouldRestoreIcon: Bool = true) {
+        self.selectedEntry?.icon = self.defaultIcon
+        self.selectedEntry = nil
     }
 }
 

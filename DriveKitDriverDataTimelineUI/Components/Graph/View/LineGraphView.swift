@@ -79,6 +79,7 @@ class LineGraphView: GraphViewBase {
         self.chartView.xAxis.drawGridLinesEnabled = false
         self.chartView.xAxis.labelPosition = .bottom
         self.chartView.xAxis.labelTextColor = GraphViewBase.axisLabelColor
+        self.chartView.xAxis.labelFont = UIFont.systemFont(ofSize: 12.0)
         if let xAxisConfig = self.viewModel.xAxisConfig {
             self.chartView.xAxis.valueFormatter = GraphAxisFormatter(config: xAxisConfig)
             if let labels = xAxisConfig.labels {

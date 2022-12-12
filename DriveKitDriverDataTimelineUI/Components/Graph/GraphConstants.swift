@@ -12,7 +12,7 @@ enum GraphConstants {
     static let defaultLineColor = UIColor(hex: 0x083B54)
     static let defaultSelectedColor = UIColor(hex: 0x77E2B0)
 
-    static func circleIcon(size: CGSize = CGSize(width: 10, height: 10), insideColor: UIColor = .white) -> UIImage? {
+    static func circleIcon(size: CGSize = CGSize(width: 14, height: 14), insideColor: UIColor = .white) -> UIImage? {
         let scale: CGFloat = 0
         let lineWidth: CGFloat = 4
         UIGraphicsBeginImageContextWithOptions(size, false, scale)

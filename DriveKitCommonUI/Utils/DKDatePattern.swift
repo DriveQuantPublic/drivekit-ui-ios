@@ -18,7 +18,8 @@ public enum DKDatePattern {
     yearOnly,
     year,
     day,
-    month
+    month,
+    monthAbbreviation
 
     public var rawValue: String {
         switch self {
@@ -43,6 +44,8 @@ public enum DKDatePattern {
                 return "EEEE"
             case .month:
                 return "M"
+            case .monthAbbreviation:
+                return "MMM"
         }
     }
 }

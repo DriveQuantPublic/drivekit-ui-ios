@@ -8,6 +8,7 @@
 
 import Foundation
 import DriveKitDBTripAccessModule
+import DriveKitCommonUI
 
 class TimelineGraphViewModel: GraphViewModel {
     weak var delegate: TimelineGraphDelegate?
@@ -32,10 +33,10 @@ class TimelineGraphViewModel: GraphViewModel {
         let graphPointNumber = Self.graphPointNumber
         let selectedDate = dates[timelineSelectedIndex]
         let now = Date()
-        let currentDate = now.beginning(of: dateComponent)
+        let currentDate = now.beginning(relativeTo: dateComponent)
         guard
             let currentDate,
-            let delta = selectedDate.diffWith(date: currentDate, count: dateComponent)
+            let delta = selectedDate.diffWith(date: currentDate, countingIn: dateComponent)
         else { return }
         let selectedIndexInGraph = (graphPointNumber - 1) - (delta % graphPointNumber)
         let graphStartDate = selectedDate.date(byAdding: -selectedIndexInGraph, component: dateComponent)
@@ -84,7 +85,7 @@ class TimelineGraphViewModel: GraphViewModel {
         let dateFormat = dateFormat(for: period)
         let graphPointNumber = Self.graphPointNumber
         let now = Date()
-        if let currentDate = now.beginning(of: dateComponent) {
+        if let currentDate = now.beginning(relativeTo: dateComponent) {
             let startDate = currentDate.date(byAdding: -graphPointNumber + 1, component: dateComponent)
             TimelineGraphViewModel.formatter.dateFormat = dateFormat
             let graphDates: [String] = graphLabelsFrom(startDate: startDate, dateComponent: dateComponent, graphPointNumber: graphPointNumber)
@@ -228,9 +229,9 @@ class TimelineGraphViewModel: GraphViewModel {
         let dateFormat: String
         switch period {
             case .week:
-                dateFormat = "dd/MM"
+                dateFormat = DKDatePattern.dayMonth.rawValue
             case .month:
-                dateFormat = "MMM"
+                dateFormat = DKDatePattern.monthAbbreviation.rawValue
             @unknown default:
                 fatalError("Unknown value: \(period)")
         }
@@ -295,8 +296,8 @@ class TimelineGraphViewModel: GraphViewModel {
     private func interpolateValueFrom(date: Date, previousValidIndex: Int, nextValidIndex: Int, dates: [Date], dateComponent: Calendar.Component, graphItem: GraphItem, timeline: DKTimeline) -> Double? {
         let previousValidDate: Date = dates[previousValidIndex]
         let nextValidDate: Date = dates[nextValidIndex]
-        let diffBetweenPreviousAndNext = previousValidDate.diffWith(date: nextValidDate, count: dateComponent)
-        let diffBetweenPreviousAndDate = previousValidDate.diffWith(date: date, count: dateComponent)
+        let diffBetweenPreviousAndNext = previousValidDate.diffWith(date: nextValidDate, countingIn: dateComponent)
+        let diffBetweenPreviousAndDate = previousValidDate.diffWith(date: date, countingIn: dateComponent)
         let previousValue = getValue(atIndex: previousValidIndex, for: graphItem, in: timeline)
         let nextValue = getValue(atIndex: nextValidIndex, for: graphItem, in: timeline)
         if let previousValue, let nextValue, let diffBetweenPreviousAndNext, let diffBetweenPreviousAndDate {

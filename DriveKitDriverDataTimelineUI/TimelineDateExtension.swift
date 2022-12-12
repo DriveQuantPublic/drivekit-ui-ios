@@ -15,7 +15,7 @@ extension Date {
         return calendar
     }
 
-    func beginning(of component: Calendar.Component) -> Date? {
+    func beginning(relativeTo component: Calendar.Component) -> Date? {
         if component == .day {
             return self.calendar.startOfDay(for: self)
         }
@@ -24,13 +24,13 @@ extension Date {
         return self.calendar.date(from: self.calendar.dateComponents(components, from: self))
     }
 
-    func diffWith(date: Date, count: Calendar.Component) -> Int? {
+    func diffWith(date: Date, countingIn calendarUnit: Calendar.Component) -> Int? {
         let calendar = self.calendar
-        let components = dateComponents(for: count)
+        let components = dateComponents(for: calendarUnit)
         let startDateComponents = calendar.dateComponents(components, from: self)
         let endDateComponents = calendar.dateComponents(components, from: date)
-        let result = calendar.dateComponents([count], from: startDateComponents, to: endDateComponents)
-        return result.value(for: count)
+        let result = calendar.dateComponents([calendarUnit], from: startDateComponents, to: endDateComponents)
+        return result.value(for: calendarUnit)
     }
 
     func date(byAdding value: Int, component: Calendar.Component) -> Date? {

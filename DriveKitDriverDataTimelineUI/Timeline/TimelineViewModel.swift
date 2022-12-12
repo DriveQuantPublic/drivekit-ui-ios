@@ -137,9 +137,9 @@ class TimelineViewModel {
             let startDate: Date?
             switch self.currentPeriod {
                 case .week:
-                    startDate = Date().beginning(of: .weekOfMonth)
+                    startDate = Date().beginning(relativeTo: .weekOfMonth)
                 case .month:
-                    startDate = Date().beginning(of: .month)
+                    startDate = Date().beginning(relativeTo: .month)
                 @unknown default:
                     startDate = nil
             }

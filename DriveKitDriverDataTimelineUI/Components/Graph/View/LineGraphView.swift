@@ -110,6 +110,7 @@ class LineGraphView: GraphViewBase {
                 self.chartView.leftAxis.axisMaximum = max
             }
         }
+        self.chartView.clipDataToContentEnabled = false
 
         self.chartView.delegate = self
     }

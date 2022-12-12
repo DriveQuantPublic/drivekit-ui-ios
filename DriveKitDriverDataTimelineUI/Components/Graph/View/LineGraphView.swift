@@ -50,7 +50,7 @@ class LineGraphView: GraphViewBase {
         }
 
         let line = LineChartDataSet(entries: entries, label: nil)
-        line.colors = [UIColor(hex: 0x083B54)]
+        line.colors = [Self.chartStrokeColor]
         line.drawVerticalHighlightIndicatorEnabled = false
         line.drawHorizontalHighlightIndicatorEnabled = false
         line.highlightEnabled = true

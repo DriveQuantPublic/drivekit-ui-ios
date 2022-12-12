@@ -16,7 +16,7 @@ enum TimelineScoreItemType {
     case ecoDriving_efficiencyBrake
     case ecoDriving_efficiencySpeedMaintain
     case ecoDriving_fuelVolume
-    case ecoDriving_efficiency
+    case ecoDriving_fuelSavings
     case ecoDriving_co2mass
     case distraction_unlock
     case distraction_callForbiddenDuration

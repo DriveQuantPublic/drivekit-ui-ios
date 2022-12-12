@@ -27,7 +27,7 @@ extension GraphItem {
                             return .bar
                         case .distraction_unlock:
                             return .bar
-                        case .ecoDriving_efficiency:
+                        case .ecoDriving_fuelSavings:
                             return .bar
                         case .ecoDriving_efficiencyAcceleration:
                             return .line
@@ -77,7 +77,7 @@ extension GraphItem {
                             key = "dk_timeline_trips_forbidden_calls"
                         case .distraction_unlock:
                             key = "dk_timeline_nb_unlocks"
-                        case .ecoDriving_efficiency:
+                        case .ecoDriving_fuelSavings:
                             key = "dk_timeline_fuel_savings"
                         case .ecoDriving_efficiencyAcceleration:
                             key = "dk_timeline_acceleration_score"
@@ -127,7 +127,7 @@ extension GraphItem {
                             return 0
                         case .distraction_unlock:
                             return 0
-                        case .ecoDriving_efficiency:
+                        case .ecoDriving_fuelSavings:
                             return 0
                         case .ecoDriving_efficiencyAcceleration:
                             return -5
@@ -169,7 +169,7 @@ extension GraphItem {
                         return value.formatPercentage()
                     case .distraction_unlock:
                         return value.formatDouble(places: 1)
-                    case .ecoDriving_efficiency:
+                    case .ecoDriving_fuelSavings:
                         return value.formatConsumption()
                     case .ecoDriving_efficiencyAcceleration:
                         return value.getAccelerationDescription()

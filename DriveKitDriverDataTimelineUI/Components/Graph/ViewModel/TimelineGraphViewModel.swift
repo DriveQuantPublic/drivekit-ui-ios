@@ -24,7 +24,6 @@ class TimelineGraphViewModel: GraphViewModel {
     private var timelineSelectedIndex: Int?
     private var indexOfFirstPointInTimeline: Int?
     private var indexOfLastPointInTimeline: Int?
-    private static let formatter = DateFormatter()
     private static let graphPointNumber: Int = 8
 
     func configure(timeline: DKTimeline, timelineSelectedIndex: Int, graphItem: GraphItem, period: DKTimelinePeriod) {
@@ -33,7 +32,6 @@ class TimelineGraphViewModel: GraphViewModel {
             date.dateByRemovingTime() ?? date
         }
         let dateComponent = dateComponent(for: period)
-        let dateFormat = dateFormat(for: period)
         let graphPointNumber = Self.graphPointNumber
         let selectedDate = dates[timelineSelectedIndex]
         let now = Date()
@@ -48,8 +46,7 @@ class TimelineGraphViewModel: GraphViewModel {
         self.indexOfLastPointInTimeline = nil
         let selectedIndexInGraph = (graphPointNumber - 1) - (delta % graphPointNumber)
         let graphStartDate = selectedDate.date(byAdding: -selectedIndexInGraph, component: dateComponent)
-        TimelineGraphViewModel.formatter.dateFormat = dateFormat
-        let graphDates: [String] = graphLabelsFrom(startDate: graphStartDate, dateComponent: dateComponent, graphPointNumber: graphPointNumber)
+        let graphDates: [String] = graphLabelsFrom(startDate: graphStartDate, dateComponent: dateComponent, period: period, graphPointNumber: graphPointNumber)
         var graphPoints: [GraphPoint?] = []
         for i in 0..<graphPointNumber {
             let xLabelDate: Date? = graphStartDate?.date(byAdding: i, component: dateComponent)
@@ -94,13 +91,11 @@ class TimelineGraphViewModel: GraphViewModel {
 
     func showEmptyGraph(graphItem: GraphItem, period: DKTimelinePeriod) {
         let dateComponent = dateComponent(for: period)
-        let dateFormat = dateFormat(for: period)
         let graphPointNumber = Self.graphPointNumber
         let now = Date()
         if let currentDate = now.beginning(relativeTo: dateComponent) {
             let startDate = currentDate.date(byAdding: -graphPointNumber + 1, component: dateComponent)
-            TimelineGraphViewModel.formatter.dateFormat = dateFormat
-            let graphDates: [String] = graphLabelsFrom(startDate: startDate, dateComponent: dateComponent, graphPointNumber: graphPointNumber)
+            let graphDates: [String] = graphLabelsFrom(startDate: startDate, dateComponent: dateComponent, period: period, graphPointNumber: graphPointNumber)
             let graphPoints: [GraphPoint?] = [(x: 0, y: 10, data: nil)]
             configure(graphItem: graphItem, graphPointNumber: graphPointNumber, graphPoints: graphPoints, graphDates: graphDates, selectedIndex: nil, graphDescription: "-")
         }
@@ -142,13 +137,13 @@ class TimelineGraphViewModel: GraphViewModel {
         self.graphViewModelDidUpdate?()
     }
 
-    private func graphLabelsFrom(startDate: Date?, dateComponent: Calendar.Component, graphPointNumber: Int) -> [String] {
+    private func graphLabelsFrom(startDate: Date?, dateComponent: Calendar.Component, period: DKTimelinePeriod, graphPointNumber: Int) -> [String] {
         var graphDates: [String] = []
         for i in 0..<graphPointNumber {
             let date: Date? = startDate?.date(byAdding: i, component: dateComponent)
             let dateString: String
             if let date {
-                dateString = TimelineGraphViewModel.formatter.string(from: date)
+                dateString = date.format(pattern: dateFormatPattern(for: period))
             } else {
                 dateString = ""
             }
@@ -257,13 +252,13 @@ class TimelineGraphViewModel: GraphViewModel {
         return dateComponent
     }
 
-    private func dateFormat(for period: DKTimelinePeriod) -> String {
-        let dateFormat: String
+    private func dateFormatPattern(for period: DKTimelinePeriod) -> DKDatePattern {
+        let dateFormat: DKDatePattern
         switch period {
             case .week:
-                dateFormat = DKDatePattern.dayMonth.rawValue
+                dateFormat = DKDatePattern.dayMonth
             case .month:
-                dateFormat = DKDatePattern.monthAbbreviation.rawValue
+                dateFormat = DKDatePattern.monthAbbreviation
             @unknown default:
                 fatalError("Unknown value: \(period)")
         }

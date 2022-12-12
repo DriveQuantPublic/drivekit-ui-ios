@@ -33,8 +33,8 @@ extension Date {
         return result.value(for: calendarUnit)
     }
 
-    func date(byAdding value: Int, component: Calendar.Component) -> Date? {
-        return self.calendar.date(byAdding: component, value: value, to: self)
+    func date(byAdding value: Int, calendarUnit: Calendar.Component) -> Date? {
+        return self.calendar.date(byAdding: calendarUnit, value: value, to: self)
     }
 
     func dateByRemovingTime() -> Date? {

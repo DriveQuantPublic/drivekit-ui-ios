@@ -42,37 +42,20 @@ class TimelineGraphViewModel: GraphViewModel {
         else { return }
         self.sourceDates = sourceDates
         self.timelineSelectedIndex = timelineSelectedIndex
-        self.indexOfFirstPointInTimeline = nil
-        self.indexOfLastPointInTimeline = nil
         let selectedIndexInGraph = (graphPointNumber - 1) - (delta % graphPointNumber)
-        let graphStartDate = selectedDate.date(byAdding: -selectedIndexInGraph, component: dateComponent)
+        let graphStartDate = selectedDate.date(byAdding: -selectedIndexInGraph, calendarUnit: dateComponent)
         let graphDates: [String] = graphLabelsFrom(startDate: graphStartDate, dateComponent: dateComponent, period: period, graphPointNumber: graphPointNumber)
         var graphPoints: [GraphPoint?] = []
         for i in 0..<graphPointNumber {
-            let xLabelDate: Date? = graphStartDate?.date(byAdding: i, component: dateComponent)
+            let xLabelDate: Date? = graphStartDate?.date(byAdding: i, calendarUnit: dateComponent)
             var point: GraphPoint? = nil
             if let xLabelDate {
                 let shouldInterpolate = graphItem.graphType == .line
                 if let xLabelDateIndex = dates.firstIndex(of: xLabelDate) {
                     if let value = getValue(atIndex: xLabelDateIndex, for: graphItem, in: timeline) {
                         point = (x: Double(i), y: value, data: PointData(date: sourceDates[xLabelDateIndex], interpolatedPoint: false))
-                        if self.indexOfFirstPointInTimeline == nil {
-                            self.indexOfFirstPointInTimeline = xLabelDateIndex
-                        }
-                        self.indexOfLastPointInTimeline = xLabelDateIndex
                     } else if shouldInterpolate {
-                        // Append "invisible point" (by interpolation)
-                        let previousIndexWithValue = previousIndexWithValue(from: xLabelDateIndex) { index in
-                            getValue(atIndex: index, for: graphItem, in: timeline) != nil
-                        }
-                        let nextIndexWithValue = nextIndexWithValue(from: xLabelDateIndex, to: dates.count) { index in
-                            getValue(atIndex: index, for: graphItem, in: timeline) != nil
-                        }
-                        if let previousIndexWithValue, let nextIndexWithValue {
-                            if let interpolatedValue = interpolateValueFrom(date: xLabelDate, previousValidIndex: previousIndexWithValue, nextValidIndex: nextIndexWithValue, dates: dates, dateComponent: dateComponent, graphItem: graphItem, timeline: timeline) {
-                                point = (x: Double(i), y: interpolatedValue, data: PointData(date: sourceDates[xLabelDateIndex], interpolatedPoint: true))
-                            }
-                        }
+                        point = interpolateSelectableDateWithoutValue(fromDateIndex: xLabelDateIndex, graphItem: graphItem, timeline: timeline, dates: dates, dateComponent: dateComponent, pointX: Double(i), sourceDates: sourceDates)
                     }
                 } else if shouldInterpolate {
                     if let graphStartDate {
@@ -85,6 +68,7 @@ class TimelineGraphViewModel: GraphViewModel {
                 }
             }
             graphPoints.append(point)
+            computeIndexOfFirstAndLastPointInTimeline(from: graphPoints)
         }
         configure(graphItem: graphItem, graphPointNumber: graphPointNumber, graphPoints: graphPoints, graphDates: graphDates, selectedIndex: selectedIndexInGraph, graphDescription: graphItem.getGraphDescription(fromValue: getValue(atIndex: timelineSelectedIndex, for: graphItem, in: timeline)))
     }
@@ -94,7 +78,7 @@ class TimelineGraphViewModel: GraphViewModel {
         let graphPointNumber = Self.graphPointNumber
         let now = Date()
         if let currentDate = now.beginning(relativeTo: dateComponent) {
-            let startDate = currentDate.date(byAdding: -graphPointNumber + 1, component: dateComponent)
+            let startDate = currentDate.date(byAdding: -graphPointNumber + 1, calendarUnit: dateComponent)
             let graphDates: [String] = graphLabelsFrom(startDate: startDate, dateComponent: dateComponent, period: period, graphPointNumber: graphPointNumber)
             let graphPoints: [GraphPoint?] = [(x: 0, y: 10, data: nil)]
             configure(graphItem: graphItem, graphPointNumber: graphPointNumber, graphPoints: graphPoints, graphDates: graphDates, selectedIndex: nil, graphDescription: "-")
@@ -105,7 +89,7 @@ class TimelineGraphViewModel: GraphViewModel {
         if let delegate = self.delegate, let sourceDates = self.sourceDates, let indexOfFirstPointInTimeline = self.indexOfFirstPointInTimeline {
             if indexOfFirstPointInTimeline > 0 {
                 delegate.graphDidSelectDate(sourceDates[indexOfFirstPointInTimeline - 1])
-            } else if let timelineSelectedIndex = self.timelineSelectedIndex, timelineSelectedIndex != indexOfLastPointInTimeline {
+            } else if let timelineSelectedIndex = self.timelineSelectedIndex, timelineSelectedIndex != indexOfFirstPointInTimeline {
                 delegate.graphDidSelectDate(sourceDates[indexOfFirstPointInTimeline])
             }
         }
@@ -140,7 +124,7 @@ class TimelineGraphViewModel: GraphViewModel {
     private func graphLabelsFrom(startDate: Date?, dateComponent: Calendar.Component, period: DKTimelinePeriod, graphPointNumber: Int) -> [String] {
         var graphDates: [String] = []
         for i in 0..<graphPointNumber {
-            let date: Date? = startDate?.date(byAdding: i, component: dateComponent)
+            let date: Date? = startDate?.date(byAdding: i, calendarUnit: dateComponent)
             let dateString: String
             if let date {
                 dateString = date.format(pattern: dateFormatPattern(for: period))
@@ -183,16 +167,20 @@ class TimelineGraphViewModel: GraphViewModel {
         var point: GraphPoint? = nil
         var nextValidIndex: Int?
         var i = 0
-        while nextValidIndex == nil {
+        var hasMoreKnownDates = true
+        let lastDate = dates.last!
+        while nextValidIndex == nil && hasMoreKnownDates {
             i += 1
-            if let nextValidDate = graphStartDate.date(byAdding: i, component: dateComponent) {
-                nextValidIndex = dates.firstIndex(of: nextValidDate)
-                if let index = nextValidIndex {
-                    if getValue(atIndex: index, for: graphItem, in: timeline) == nil {
-                        nextValidIndex = nil
-                    }
+            guard let nextValidDate = graphStartDate.date(byAdding: i, calendarUnit: dateComponent) else {
+                preconditionFailure("We should always be able to add one \(dateComponent) to date: \(graphStartDate)")
+            }
+            nextValidIndex = dates.firstIndex(of: nextValidDate)
+            if let index = nextValidIndex {
+                if getValue(atIndex: index, for: graphItem, in: timeline) == nil {
+                    nextValidIndex = nil
                 }
             }
+            hasMoreKnownDates = nextValidDate <= lastDate
         }
         if let nextValidIndex, nextValidIndex > 0 {
             var previousValidIndex: Int = nextValidIndex - 1
@@ -212,17 +200,21 @@ class TimelineGraphViewModel: GraphViewModel {
         // Find previous valid index
         var point: GraphPoint? = nil
         var previousValidIndex: Int?
-        var index = Self.graphPointNumber - 1
-        while previousValidIndex == nil {
-            index -= 1
-            if let previousValidDate = graphStartDate.date(byAdding: index, component: dateComponent) {
-                previousValidIndex = dates.firstIndex(of: previousValidDate)
-                if let index = previousValidIndex {
-                    if getValue(atIndex: index, for: graphItem, in: timeline) == nil {
-                        previousValidIndex = nil
-                    }
+        var i = Self.graphPointNumber - 1
+        var hasMoreKnownDates = true
+        let firstDate = dates.first!
+        while previousValidIndex == nil && hasMoreKnownDates {
+            i -= 1
+            guard let previousValidDate = graphStartDate.date(byAdding: i, calendarUnit: dateComponent) else {
+                preconditionFailure("We should always be able to add one \(dateComponent) to date: \(graphStartDate)")
+            }
+            previousValidIndex = dates.firstIndex(of: previousValidDate)
+            if let index = previousValidIndex {
+                if getValue(atIndex: index, for: graphItem, in: timeline) == nil {
+                    previousValidIndex = nil
                 }
             }
+            hasMoreKnownDates = previousValidDate >= firstDate
         }
         let max = dates.count
         if let previousValidIndex, previousValidIndex < max - 1 {
@@ -237,6 +229,45 @@ class TimelineGraphViewModel: GraphViewModel {
             }
         }
         return point
+    }
+
+    private func interpolateSelectableDateWithoutValue(fromDateIndex dateIndex: Int, graphItem: GraphItem, timeline: DKTimeline, dates: [Date], dateComponent: Calendar.Component, pointX: Double, sourceDates: [Date]) -> GraphPoint? {
+        let previousIndexWithValue = previousIndexWithValue(from: dateIndex) { index in
+            getValue(atIndex: index, for: graphItem, in: timeline) != nil
+        }
+        let nextIndexWithValue = nextIndexWithValue(from: dateIndex, to: dates.count) { index in
+            getValue(atIndex: index, for: graphItem, in: timeline) != nil
+        }
+        let point: GraphPoint?
+        if let previousIndexWithValue, let nextIndexWithValue, let interpolatedValue = interpolateValueFrom(
+            date: dates[dateIndex],
+            previousValidIndex: previousIndexWithValue,
+            nextValidIndex: nextIndexWithValue,
+            dates: dates,
+            dateComponent: dateComponent,
+            graphItem: graphItem,
+            timeline: timeline
+        ) {
+            point = (x: pointX, y: interpolatedValue, data: PointData(date: sourceDates[dateIndex], interpolatedPoint: true))
+        } else {
+            point = nil
+        }
+        return point
+    }
+
+    private func computeIndexOfFirstAndLastPointInTimeline(from graphPoints: [GraphPoint?]) {
+        self.indexOfFirstPointInTimeline = nil
+        self.indexOfLastPointInTimeline = nil
+        if let sourceDates = self.sourceDates {
+            for graphPoint in graphPoints {
+                if let data = graphPoint?.data, !data.interpolatedPoint {
+                    if self.indexOfFirstPointInTimeline == nil {
+                        self.indexOfFirstPointInTimeline = sourceDates.firstIndex(of: data.date)
+                    }
+                    self.indexOfLastPointInTimeline = sourceDates.firstIndex(of: data.date)
+                }
+            }
+        }
     }
 
     private func dateComponent(for period: DKTimelinePeriod) -> Calendar.Component {

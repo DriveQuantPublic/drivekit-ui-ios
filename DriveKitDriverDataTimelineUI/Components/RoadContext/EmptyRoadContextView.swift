@@ -45,6 +45,8 @@ class EmptyRoadContextView: UIView {
         }
         self.titleLabel.text = titleKey.dkDriverDataTimelineLocalized()
         self.descriptionLabel.text = descriptionKey.dkDriverDataTimelineLocalized()
+        self.titleLabel.textColor = DKUIColors.primaryColor.color
+        self.descriptionLabel.textColor = DKUIColors.complementaryFontColor.color
     }
 }
 

@@ -139,7 +139,7 @@ class TimelineViewModel {
                         }
                     }
                 }
-                self.roadContextViewModel.configure(distanceByContext: distanceByContext, totalDistance: cleanedTimeline.allContext.distance[selectedDateIndex])
+                self.roadContextViewModel.configure(distanceByContext: distanceByContext, totalDistanceForAllContexts: cleanedTimeline.allContext.distance[selectedDateIndex])
             }
         } else {
             let startDate: Date?

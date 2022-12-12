@@ -16,6 +16,7 @@ class RoadContextItemCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.titleLabel.font = DKStyles.smallText.style.applyTo(font: .primary)
+        self.titleLabel.textColor = DKUIColors.complementaryFontColor.color
     }
 
     func update(title: String, color: UIColor) {

@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol TimelineGraphDelegate {
+protocol TimelineGraphDelegate: AnyObject {
     func graphDidSelectDate(_ date: Date)
 }

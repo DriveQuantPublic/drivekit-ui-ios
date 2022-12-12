@@ -10,7 +10,7 @@ def circular_progress_ring
 end
 
 target 'DriveKitApp' do
-  pod 'Charts', :git => 'https://github.com/DriveQuantPublic/Charts-ios11.git', :branch => 'feature/ios11-Xcode14-compatible'
+  pod 'ChartsForDK', :git => 'https://github.com/DriveQuantPublic/Charts-ios11.git', :branch => 'feature/ChartsForDK'
   pod 'DriveKitTripSimulator', '1.28.0'
 end
 
@@ -22,6 +22,7 @@ end
 
 target 'DriveKitDriverDataTimelineUI' do
   pod 'DriveKitDriverData', '1.28.0'
+  pod 'ChartsForDK', :git => 'https://github.com/DriveQuantPublic/Charts-ios11.git', :branch => 'feature/ChartsForDK'
 end
 
 target 'DriveKitDriverAchievementUI' do

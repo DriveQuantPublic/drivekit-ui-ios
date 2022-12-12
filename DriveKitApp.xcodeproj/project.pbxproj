@@ -206,6 +206,16 @@
 		632EDDF124504BEE00110744 /* UIColor+PermissionsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632EDDF024504BEE00110744 /* UIColor+PermissionsUtils.swift */; };
 		633E93D8261D0CA4009543C0 /* SynthesisCardInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633E93D7261D0CA4009543C0 /* SynthesisCardInfoView.swift */; };
 		633E93DF261D0D1A009543C0 /* SynthesisCardInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 633E93DE261D0D1A009543C0 /* SynthesisCardInfoView.xib */; };
+		63454B8E29067C6000A9B10F /* GraphViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63454B8C29067C5F00A9B10F /* GraphViewBase.swift */; };
+		63454B8F29067C6000A9B10F /* GraphViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63454B8D29067C6000A9B10F /* GraphViewModel.swift */; };
+		63454B9129067C8F00A9B10F /* GraphViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63454B9029067C8E00A9B10F /* GraphViewDelegate.swift */; };
+		63454B932906830B00A9B10F /* LineGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63454B922906830B00A9B10F /* LineGraphView.swift */; };
+		63454B9629068FD000A9B10F /* TimelineScoreItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63454B9529068FD000A9B10F /* TimelineScoreItemType.swift */; };
+		63454B982906B4B200A9B10F /* GraphItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63454B972906B4B200A9B10F /* GraphItem.swift */; };
+		63454B9A2906C76700A9B10F /* TimelineGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63454B992906C76700A9B10F /* TimelineGraphView.swift */; };
+		63454B9C2906C7A200A9B10F /* TimelineGraphView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63454B9B2906C7A200A9B10F /* TimelineGraphView.xib */; };
+		63454B9F2907DC8D00A9B10F /* TimelineDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63454B9E2907DC8D00A9B10F /* TimelineDateExtension.swift */; };
+		63454BA129081DD500A9B10F /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63454BA029081DD500A9B10F /* Graph.swift */; };
 		634C354426BAD53800C75098 /* DKAnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634C354326BAD53800C75098 /* DKAnalyticsEvent.swift */; };
 		63508C6D278455370036A61E /* WorkingHoursSlotCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63508C6C278455370036A61E /* WorkingHoursSlotCellViewModel.swift */; };
 		63508C6F27847A020036A61E /* WorkingHoursSlotTypeViewSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63508C6E27847A020036A61E /* WorkingHoursSlotTypeViewSelector.swift */; };
@@ -349,7 +359,7 @@
 		63F8B2A928F95F980084B53A /* DateSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2A828F95F980084B53A /* DateSelectorViewModel.swift */; };
 		63F8B2AB28F95FAE0084B53A /* DateSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2AA28F95FAE0084B53A /* DateSelectorDelegate.swift */; };
 		63F8B2AD28F960260084B53A /* GraphType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2AC28F960260084B53A /* GraphType.swift */; };
-		63F8B2AF28F960420084B53A /* TimelineGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2AE28F960420084B53A /* TimelineGraphView.swift */; };
+		63F8B2AF28F960420084B53A /* BarGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2AE28F960420084B53A /* BarGraphView.swift */; };
 		63F8B2B128F9605A0084B53A /* TimelineGraphViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2B028F9605A0084B53A /* TimelineGraphViewModel.swift */; };
 		63F8B2B328F960770084B53A /* GraphAxisConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2B228F960770084B53A /* GraphAxisConfig.swift */; };
 		63F8B2B528F960900084B53A /* TimelineGraphDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2B428F960900084B53A /* TimelineGraphDelegate.swift */; };
@@ -365,7 +375,7 @@
 		63F8B2CC28F9851C0084B53A /* DriveKitDriverDataTimelineUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2CB28F9851C0084B53A /* DriveKitDriverDataTimelineUI.swift */; };
 		63F8B2D028F9B27B0084B53A /* DriverDataTimelineLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63F8B2D228F9B27B0084B53A /* DriverDataTimelineLocalizable.strings */; };
 		63F8B2D928FD4B500084B53A /* TimelineViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2D828FD4B500084B53A /* TimelineViewModelDelegate.swift */; };
-		63F8B2DB28FD5B250084B53A /* DKTimelineScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2DA28FD5B250084B53A /* DKTimelineScore.swift */; };
+		63F8B2DB28FD5B250084B53A /* DKTimelineScoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2DA28FD5B250084B53A /* DKTimelineScoreType.swift */; };
 		63F8B2DD28FDB0580084B53A /* ScoreSelectionTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2DC28FDB0580084B53A /* ScoreSelectionTypeView.swift */; };
 		63F8B2DF28FDB0A20084B53A /* ScoreSelectionTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F8B2DE28FDB0A20084B53A /* ScoreSelectionTypeView.xib */; };
 		63FE778624FD1A9D00C068C3 /* AnalyticsTags.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63FE778524FD1A9D00C068C3 /* AnalyticsTags.plist */; };
@@ -426,6 +436,7 @@
 		67462D8D2660CE0400016FAF /* ChallengeResultsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67462D8B2660CE0400016FAF /* ChallengeResultsVC.xib */; };
 		67462D8F2660CE2600016FAF /* ChallengeResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67462D8E2660CE2600016FAF /* ChallengeResultsViewModel.swift */; };
 		67462D912660CE4300016FAF /* ChallengeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67462D902660CE4300016FAF /* ChallengeDetailViewModel.swift */; };
+		674B3B2329196CE800C62895 /* GraphConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674B3B2229196CE800C62895 /* GraphConstants.swift */; };
 		6765605228DC340F003B74CD /* DeleteAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765605128DC340F003B74CD /* DeleteAccountViewModel.swift */; };
 		6765E70C280EBA9F00FD13F8 /* PermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765E70A280EBA9F00FD13F8 /* PermissionsViewController.swift */; };
 		6765E70D280EBA9F00FD13F8 /* PermissionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6765E70B280EBA9F00FD13F8 /* PermissionsViewController.xib */; };
@@ -980,6 +991,16 @@
 		632EDDF024504BEE00110744 /* UIColor+PermissionsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+PermissionsUtils.swift"; sourceTree = "<group>"; };
 		633E93D7261D0CA4009543C0 /* SynthesisCardInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesisCardInfoView.swift; sourceTree = "<group>"; };
 		633E93DE261D0D1A009543C0 /* SynthesisCardInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SynthesisCardInfoView.xib; sourceTree = "<group>"; };
+		63454B8C29067C5F00A9B10F /* GraphViewBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewBase.swift; sourceTree = "<group>"; };
+		63454B8D29067C6000A9B10F /* GraphViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewModel.swift; sourceTree = "<group>"; };
+		63454B9029067C8E00A9B10F /* GraphViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphViewDelegate.swift; sourceTree = "<group>"; };
+		63454B922906830B00A9B10F /* LineGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineGraphView.swift; sourceTree = "<group>"; };
+		63454B9529068FD000A9B10F /* TimelineScoreItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineScoreItemType.swift; sourceTree = "<group>"; };
+		63454B972906B4B200A9B10F /* GraphItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphItem.swift; sourceTree = "<group>"; };
+		63454B992906C76700A9B10F /* TimelineGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineGraphView.swift; sourceTree = "<group>"; };
+		63454B9B2906C7A200A9B10F /* TimelineGraphView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineGraphView.xib; sourceTree = "<group>"; };
+		63454B9E2907DC8D00A9B10F /* TimelineDateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineDateExtension.swift; sourceTree = "<group>"; };
+		63454BA029081DD500A9B10F /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		634C354326BAD53800C75098 /* DKAnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKAnalyticsEvent.swift; sourceTree = "<group>"; };
 		63508C6C278455370036A61E /* WorkingHoursSlotCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingHoursSlotCellViewModel.swift; sourceTree = "<group>"; };
 		63508C6E27847A020036A61E /* WorkingHoursSlotTypeViewSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingHoursSlotTypeViewSelector.swift; sourceTree = "<group>"; };
@@ -1134,7 +1155,7 @@
 		63F8B2A828F95F980084B53A /* DateSelectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectorViewModel.swift; sourceTree = "<group>"; };
 		63F8B2AA28F95FAE0084B53A /* DateSelectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectorDelegate.swift; sourceTree = "<group>"; };
 		63F8B2AC28F960260084B53A /* GraphType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphType.swift; sourceTree = "<group>"; };
-		63F8B2AE28F960420084B53A /* TimelineGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineGraphView.swift; sourceTree = "<group>"; };
+		63F8B2AE28F960420084B53A /* BarGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarGraphView.swift; sourceTree = "<group>"; };
 		63F8B2B028F9605A0084B53A /* TimelineGraphViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineGraphViewModel.swift; sourceTree = "<group>"; };
 		63F8B2B228F960770084B53A /* GraphAxisConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphAxisConfig.swift; sourceTree = "<group>"; };
 		63F8B2B428F960900084B53A /* TimelineGraphDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineGraphDelegate.swift; sourceTree = "<group>"; };
@@ -1154,7 +1175,7 @@
 		63F8B2D628F9B2850084B53A /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/DriverDataTimelineLocalizable.strings; sourceTree = "<group>"; };
 		63F8B2D728F9B2870084B53A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/DriverDataTimelineLocalizable.strings; sourceTree = "<group>"; };
 		63F8B2D828FD4B500084B53A /* TimelineViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModelDelegate.swift; sourceTree = "<group>"; };
-		63F8B2DA28FD5B250084B53A /* DKTimelineScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTimelineScore.swift; sourceTree = "<group>"; };
+		63F8B2DA28FD5B250084B53A /* DKTimelineScoreType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTimelineScoreType.swift; sourceTree = "<group>"; };
 		63F8B2DC28FDB0580084B53A /* ScoreSelectionTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreSelectionTypeView.swift; sourceTree = "<group>"; };
 		63F8B2DE28FDB0A20084B53A /* ScoreSelectionTypeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScoreSelectionTypeView.xib; sourceTree = "<group>"; };
 		63FE778524FD1A9D00C068C3 /* AnalyticsTags.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AnalyticsTags.plist; sourceTree = "<group>"; };
@@ -1205,6 +1226,7 @@
 		67462D8B2660CE0400016FAF /* ChallengeResultsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeResultsVC.xib; sourceTree = "<group>"; };
 		67462D8E2660CE2600016FAF /* ChallengeResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeResultsViewModel.swift; sourceTree = "<group>"; };
 		67462D902660CE4300016FAF /* ChallengeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailViewModel.swift; sourceTree = "<group>"; };
+		674B3B2229196CE800C62895 /* GraphConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphConstants.swift; sourceTree = "<group>"; };
 		6765605128DC340F003B74CD /* DeleteAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewModel.swift; sourceTree = "<group>"; };
 		6765E70A280EBA9F00FD13F8 /* PermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsViewController.swift; sourceTree = "<group>"; };
 		6765E70B280EBA9F00FD13F8 /* PermissionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PermissionsViewController.xib; sourceTree = "<group>"; };
@@ -2082,6 +2104,29 @@
 			path = Analytics;
 			sourceTree = "<group>";
 		};
+		63454B942906857400A9B10F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				63F8B2AE28F960420084B53A /* BarGraphView.swift */,
+				63454B8C29067C5F00A9B10F /* GraphViewBase.swift */,
+				63454B9029067C8E00A9B10F /* GraphViewDelegate.swift */,
+				63454B922906830B00A9B10F /* LineGraphView.swift */,
+				63F8B2B428F960900084B53A /* TimelineGraphDelegate.swift */,
+				63454B992906C76700A9B10F /* TimelineGraphView.swift */,
+				63454B9B2906C7A200A9B10F /* TimelineGraphView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		63454B9D2907BFE700A9B10F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				63454B8D29067C6000A9B10F /* GraphViewModel.swift */,
+				63F8B2B028F9605A0084B53A /* TimelineGraphViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		6357AE672611204C0000CA58 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -2443,7 +2488,8 @@
 				63F8B2A228F95F230084B53A /* Components */,
 				63F8B2CD28F9B23B0084B53A /* Localizable */,
 				63F8B2CB28F9851C0084B53A /* DriveKitDriverDataTimelineUI.swift */,
-				63F8B2DA28FD5B250084B53A /* DKTimelineScore.swift */,
+				63F8B2DA28FD5B250084B53A /* DKTimelineScoreType.swift */,
+				63454B9E2907DC8D00A9B10F /* TimelineDateExtension.swift */,
 				63F8B29D28F95E3F0084B53A /* Timeline.xcassets */,
 				63F8B29C28F95C2C0084B53A /* Info.plist */,
 				63F8B29128F958B90084B53A /* DriveKitDriverDataTimelineUI.h */,
@@ -2479,11 +2525,14 @@
 		63F8B2A128F95F150084B53A /* Graph */ = {
 			isa = PBXGroup;
 			children = (
+				63454B9D2907BFE700A9B10F /* ViewModel */,
+				63454B942906857400A9B10F /* View */,
+				63454BA029081DD500A9B10F /* Graph.swift */,
 				63F8B2B228F960770084B53A /* GraphAxisConfig.swift */,
+				63454B972906B4B200A9B10F /* GraphItem.swift */,
 				63F8B2AC28F960260084B53A /* GraphType.swift */,
-				63F8B2B428F960900084B53A /* TimelineGraphDelegate.swift */,
-				63F8B2AE28F960420084B53A /* TimelineGraphView.swift */,
-				63F8B2B028F9605A0084B53A /* TimelineGraphViewModel.swift */,
+				63454B9529068FD000A9B10F /* TimelineScoreItemType.swift */,
+				674B3B2229196CE800C62895 /* GraphConstants.swift */,
 			);
 			path = Graph;
 			sourceTree = "<group>";
@@ -3768,6 +3817,7 @@
 				639D184B29008919008293B8 /* PeriodSelectorView.xib in Resources */,
 				67D6CD90291013760055632B /* DateSelectorView.xib in Resources */,
 				63F8B2DF28FDB0A20084B53A /* ScoreSelectionTypeView.xib in Resources */,
+				63454B9C2906C7A200A9B10F /* TimelineGraphView.xib in Resources */,
 				67D6CD8E290912780055632B /* EmptyRoadContextView.xib in Resources */,
 				638E6840291A3E9200A5CC81 /* TimelineScoreDetailViewController.xib in Resources */,
 				63F8B2C728F961B10084B53A /* TimelineViewController.xib in Resources */,
@@ -4339,27 +4389,37 @@
 			files = (
 				63F8B2B928F960CA0084B53A /* PeriodSelectorViewModel.swift in Sources */,
 				63F8B2B528F960900084B53A /* TimelineGraphDelegate.swift in Sources */,
+				63454B8F29067C6000A9B10F /* GraphViewModel.swift in Sources */,
+				63454B9F2907DC8D00A9B10F /* TimelineDateExtension.swift in Sources */,
 				63F8B2BF28F961440084B53A /* RoadContextView.swift in Sources */,
 				63F8B2C128F961570084B53A /* RoadContextViewModel.swift in Sources */,
 				63F8B2C528F961960084B53A /* TimelineViewModel.swift in Sources */,
+				674B3B2329196CE800C62895 /* GraphConstants.swift in Sources */,
 				63F8B2B128F9605A0084B53A /* TimelineGraphViewModel.swift in Sources */,
 				638E683C291A3D5400A5CC81 /* TimelineScoreDetailViewController.swift in Sources */,
 				63F8B2A728F95F8C0084B53A /* DateSelectorView.swift in Sources */,
-				63F8B2AF28F960420084B53A /* TimelineGraphView.swift in Sources */,
+				63F8B2AF28F960420084B53A /* BarGraphView.swift in Sources */,
+				63454B982906B4B200A9B10F /* GraphItem.swift in Sources */,
+				63454B9A2906C76700A9B10F /* TimelineGraphView.swift in Sources */,
 				63F8B2BB28F960E20084B53A /* PeriodSelectorDelegate.swift in Sources */,
 				63F8B2AD28F960260084B53A /* GraphType.swift in Sources */,
 				638E683E291A3E2000A5CC81 /* TimelineDetailViewModel.swift in Sources */,
 				63F8B2B728F960BA0084B53A /* PeriodSelectorView.swift in Sources */,
 				67D6CD8C290912640055632B /* EmptyRoadContextView.swift in Sources */,
 				63F8B2D928FD4B500084B53A /* TimelineViewModelDelegate.swift in Sources */,
+				63454BA129081DD500A9B10F /* Graph.swift in Sources */,
+				63454B9629068FD000A9B10F /* TimelineScoreItemType.swift in Sources */,
 				63F8B2B328F960770084B53A /* GraphAxisConfig.swift in Sources */,
 				63F8B2A928F95F980084B53A /* DateSelectorViewModel.swift in Sources */,
 				67D6CD8929090B750055632B /* RoadContextItemCell.swift in Sources */,
 				63F8B2AB28F95FAE0084B53A /* DateSelectorDelegate.swift in Sources */,
-				63F8B2DB28FD5B250084B53A /* DKTimelineScore.swift in Sources */,
+				63454B8E29067C6000A9B10F /* GraphViewBase.swift in Sources */,
+				63F8B2DB28FD5B250084B53A /* DKTimelineScoreType.swift in Sources */,
 				63F8B2CC28F9851C0084B53A /* DriveKitDriverDataTimelineUI.swift in Sources */,
+				63454B932906830B00A9B10F /* LineGraphView.swift in Sources */,
 				63F8B2DD28FDB0580084B53A /* ScoreSelectionTypeView.swift in Sources */,
 				63F8B2C328F9617C0084B53A /* TimelineViewController.swift in Sources */,
+				63454B9129067C8F00A9B10F /* GraphViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

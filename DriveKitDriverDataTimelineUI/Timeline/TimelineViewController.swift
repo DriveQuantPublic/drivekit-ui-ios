@@ -46,11 +46,26 @@ class TimelineViewController: DKUIViewController {
         setupGraphView()
         setupRoadContext()
 
+        let leftSwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleLeftSwipe(_:)))
+        leftSwipeGestureRecognizer.direction = .left
+        self.view.addGestureRecognizer(leftSwipeGestureRecognizer)
+        let rightSwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleRightSwipe(_:)))
+        rightSwipeGestureRecognizer.direction = .right
+        self.view.addGestureRecognizer(rightSwipeGestureRecognizer)
+
         if self.viewModel.updating {
             showRefreshControl()
         } else {
             hideRefreshControl()
         }
+    }
+
+    @objc private func handleLeftSwipe(_ swipeGestureRecognizer: UISwipeGestureRecognizer) {
+        self.viewModel.showNextGraphData()
+    }
+
+    @objc private func handleRightSwipe(_ swipeGestureRecognizer: UISwipeGestureRecognizer) {
+        self.viewModel.showPreviousGraphData()
     }
 
     @IBAction private func openScoreDetailScreen() {
@@ -104,14 +119,7 @@ class TimelineViewController: DKUIViewController {
 
         let periodSelector = Bundle.driverDataTimelineUIBundle?.loadNibNamed("PeriodSelectorView", owner: nil, options: nil)?.first as? PeriodSelectorView
         if let periodSelector {
-            periodSelector.translatesAutoresizingMaskIntoConstraints = false
-            self.periodSelectorContainer.addSubview(periodSelector)
-            NSLayoutConstraint.activate([
-                periodSelector.topAnchor.constraint(equalTo: self.periodSelectorContainer.topAnchor),
-                periodSelector.bottomAnchor.constraint(equalTo: self.periodSelectorContainer.bottomAnchor),
-                periodSelector.leftAnchor.constraint(equalTo: self.periodSelectorContainer.leftAnchor),
-                periodSelector.rightAnchor.constraint(equalTo: self.periodSelectorContainer.rightAnchor)
-            ])
+            self.periodSelectorContainer.embedSubview(periodSelector)
             periodSelector.viewModel = self.viewModel.periodSelectorViewModel
         }
     }
@@ -119,7 +127,12 @@ class TimelineViewController: DKUIViewController {
     private func setupGraphView() {
         self.timelineGraphViewContainer.layer.cornerRadius = self.cornerRadius
         self.timelineGraphViewContainer.clipsToBounds = true
-        //TODO
+        let timelineGraphView = Bundle.driverDataTimelineUIBundle?.loadNibNamed("TimelineGraphView", owner: nil, options: nil)?.first as? TimelineGraphView
+        if let timelineGraphView {
+            self.timelineGraphViewContainer.embedSubview(timelineGraphView)
+            timelineGraphView.viewModel = self.viewModel.timelineGraphViewModel
+            timelineGraphView.delegate = self.viewModel.timelineGraphViewModel
+        }
     }
 
     private func setupDateSelector() {
@@ -151,6 +164,18 @@ class TimelineViewController: DKUIViewController {
         if self.viewModel.roadContextViewModel.getActiveContextNumber() > 0 {
             self.roadContextContainer.embedSubview(roadContextview)
         } else {
+            if !self.viewModel.hasData {
+                emptyRoadContextView.type = .emptyData
+            } else {
+                switch self.viewModel.selectedScore {
+                    case .distraction, .speeding:
+                        emptyRoadContextView.type = .emptyData
+                    case .safety:
+                        emptyRoadContextView.type = .noDataSafety
+                    case .ecoDriving:
+                        emptyRoadContextView.type = .noDataEcodriving
+                }
+            }
             self.roadContextContainer.embedSubview(emptyRoadContextView)
         }
     }

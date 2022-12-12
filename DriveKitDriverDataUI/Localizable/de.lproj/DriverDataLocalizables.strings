@@ -12,7 +12,6 @@
 "dk_driverdata_alternative_transportation_remark"="💡 Für diese Reise gibt es keine Punktzahl, da der Antrag Ihre Fahrweise nicht misst, solange Sie nicht in Ihrem Fahrzeug sind.";
 "dk_driverdata_alternative_transportation_thanks"="❤️ Vielen Dank für die Berichterstattung über diese Fahrt und dafür, dass Sie uns helfen, die automatische Erkennung der Verkehrsmittel zu verbessern.";
 "dk_driverdata_alternative_trips"="Alternativer Transport";
-"dk_driverdata_bad_maintain"="Sehr unregelmäßige Geschwindigkeit";
 "dk_driverdata_beginning_authorized_call"="Start eines erlaubten Anrufs";
 "dk_driverdata_beginning_authorized_call_info_content"="Die Anwendung hat den Beginn eines erlaubten Anrufs erkannt, d. h. er wurde mit Ihrer Freisprecheinrichtung geführt. Diese Aktion wirkt sich nicht negativ auf Ihren Punktestand für die Telefonnutzung aus, da sie gesetzlich zulässig ist. Es bleibt jedoch eine Ablenkung während der Fahrt. Zu Ihrer Sicherheit und jener anderer Verkehrsteilnehmer wird dringend empfohlen, dass Sie mit dem Telefonieren warten, bis Ihr Fahrzeug geparkt ist.";
 "dk_driverdata_beginning_unauthorized_call"="Unerlaubter Anruf gestartet";
@@ -40,14 +39,7 @@
 "dk_driverdata_failed_to_declare_transportation"="Transportmodus konnte nicht aktualisiert werden, bitte versuchen Sie es später erneut.";
 "dk_driverdata_failed_to_delete_trip"="Die Fahrt konnte nicht gelöscht werden, versuchen Sie es später noch einmal.";
 "dk_driverdata_failed_to_sync_trips"="Die Synchronisation von Fahrten ist fehlgeschlagen, bitte versuchen Sie es später erneut.";
-"dk_driverdata_good_accel"="Gute Beschleunigung";
-"dk_driverdata_good_decel"="Ideales Bremsen";
-"dk_driverdata_good_maintain"="Regelmäßige Geschwindigkeit";
-"dk_driverdata_high_accel"="Beschleunigung zu hoch";
-"dk_driverdata_high_decel"="Bremsung zu stark";
 "dk_driverdata_lock_event"="Bildschirm sperren";
-"dk_driverdata_low_accel"="Beschleunigung zu schwach";
-"dk_driverdata_low_decel"="Bremsung zu schwach";
 "dk_driverdata_my_weekly_score_distraction"="Resultat letzte 7 Tage | Ablenkung";
 "dk_driverdata_my_weekly_score_ecodriving"="Resultat letzte 7 Tage | Effizienz";
 "dk_driverdata_my_weekly_score_safety"="Resultat letzte 7 Tage | Sicherheit";
@@ -88,8 +80,6 @@
 "dk_driverdata_speeding_score"="Geschwindigkeitswert";
 "dk_driverdata_speeding_score_info"="Dieses Ergebnis spiegelt die Einhaltung der Geschwindigkeitsbegrenzungen wider. Sie entwickelt sich in dem die Strecke gemessen wird, in welcher schneller als gesetzlich erlaubt gefahren wurde. Je größer der Abstand über dem Grenzwert, desto niedriger ist die Punktzahl.";
 "dk_driverdata_start_event"="Beginn der Fahrt";
-"dk_driverdata_strong_accel"="Starke Beschleunigung";
-"dk_driverdata_strong_decel"="Starkes Bremsen";
 "dk_driverdata_synthesis_co2_emissions"="CO2-Emissionen";
 "dk_driverdata_synthesis_co2_mass"="CO2-Masse";
 "dk_driverdata_synthesis_condition"="Bedingung";
@@ -141,9 +131,6 @@
 "dk_driverdata_urban"="%@ in städtischen Gebieten";
 "dk_driverdata_value"="Wert =";
 "dk_driverdata_vehicle_trips"="Fahrzeug-Fahrten";
-"dk_driverdata_weak_accel"="Niedrige Beschleunigung";
-"dk_driverdata_weak_decel"="Schwaches Bremsen";
-"dk_driverdata_weak_maintain"="Unregelmäßige Geschwindigkeit";
 "dk_driverdata_weather_cloud"="an einem bewölkten Tag";
 "dk_driverdata_weather_fog"="bei Nebel";
 "dk_driverdata_weather_hail"="bei Minustemperaturen";

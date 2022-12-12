@@ -1,5 +1,5 @@
 //
-//  DKTimelineScore.swift
+//  DKTimelineScoreType.swift
 //  DriveKitDriverDataTimelineUI
 //
 //  Created by David Bauduin on 17/10/2022.

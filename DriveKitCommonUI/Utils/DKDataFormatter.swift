@@ -119,6 +119,20 @@ public extension Double {
     }
 
 
+    func getLiterFormat() -> [FormatType] {
+        let formattingTypes: [FormatType] = [
+            .value(format(maximumFractionDigits: 1)),
+            .separator(),
+            .unit(DKCommonLocalizable.unitLiter.text())
+        ]
+        return formattingTypes
+    }
+
+    func formatLiter() -> String {
+        return getLiterFormat().toString()
+    }
+
+
     func getPowerFormat() -> [FormatType] {
         let formattedPower = self.format(maximumFractionDigits: 0)
         let formattingTypes: [FormatType] = [
@@ -131,6 +145,21 @@ public extension Double {
 
     func formatPower() -> String {
         getPowerFormat().toString()
+    }
+
+
+    func getScoreFormat() -> [FormatType] {
+        let formattedScore = self.format(maximumFractionDigits: 1)
+        let formattingTypes: [FormatType] = [
+            .value(formattedScore),
+            .separator(),
+            .unit(DKCommonLocalizable.unitScore.text())
+        ]
+        return formattingTypes
+    }
+
+    func formatScore() -> String {
+        getScoreFormat().toString()
     }
 
 
@@ -280,6 +309,18 @@ public extension Double {
         return getSpeedMeanFormat().toString()
     }
 
+    func getSpeedMaintainDescription() -> String {
+        let key: DKCommonLocalizable
+        if self < Constants.Ecodriving.SpeedMaintain.goodLevelThreshold {
+            key = .ecodrivingSpeedMaintainGood
+        } else if self < Constants.Ecodriving.SpeedMaintain.weakLevelThreshold {
+            key = .ecodrivingSpeedMaintainWeak
+        } else {
+            key = .ecodrivingSpeedMaintainBad
+        }
+        return key.text()
+    }
+
 
     func getConsumptionFormat(_ type: DKConsumptionType = .fuel) -> [FormatType] {
         let unitText: String
@@ -312,6 +353,52 @@ public extension Double {
 
     func formatAcceleration() -> String {
         getAccelerationFormat().toString()
+    }
+
+    func getAccelerationDescription() -> String {
+        let key: DKCommonLocalizable
+        if self < Constants.Ecodriving.Acceleration.lowLevelThreshold {
+            key = .ecodrivingAccelerationLow
+        } else if self < Constants.Ecodriving.Acceleration.weakLevelThreshold {
+            key =  .ecodrivingAccelerationWeak
+        } else if self < Constants.Ecodriving.Acceleration.goodLevelThreshold {
+            key =  .ecodrivingAccelerationGood
+        } else if self < Constants.Ecodriving.Acceleration.strongLevelThreshold {
+            key =  .ecodrivingAccelerationStrong
+        } else {
+            key =  .ecodrivingAccelerationHigh
+        }
+        return key.text()
+    }
+
+    func getDecelerationDescription() -> String {
+        let key: DKCommonLocalizable
+        if self < Constants.Ecodriving.Deceleration.lowLevelThreshold {
+            key = .ecodrivingDecelerationLow
+        } else if self < Constants.Ecodriving.Deceleration.weakLevelThreshold {
+            key = .ecodrivingDecelerationWeak
+        } else if self < Constants.Ecodriving.Deceleration.goodLevelThreshold {
+            key = .ecodrivingDecelerationGood
+        } else if self < Constants.Ecodriving.Deceleration.strongLevelThreshold {
+            key = .ecodrivingDecelerationStrong
+        } else {
+            key = .ecodrivingDecelerationHigh
+        }
+        return key.text()
+    }
+
+
+    func getPercentageFormat() -> [FormatType] {
+        let formattingTypes: [FormatType] = [
+            .value(self.format(maximumFractionDigits: 1)),
+            .separator(),
+            .unit("%")
+        ]
+        return formattingTypes
+    }
+
+    func formatPercentage() -> String {
+        return getPercentageFormat().toString()
     }
 
 
@@ -404,4 +491,27 @@ public extension Int {
 
 public enum DKConsumptionType {
     case fuel, electric
+}
+
+private enum Constants {
+    enum Ecodriving {
+        enum SpeedMaintain {
+            static let goodLevelThreshold: Double = 1.5
+            static let weakLevelThreshold: Double = 3.5
+        }
+
+        enum Acceleration {
+            static let lowLevelThreshold: Double = -4
+            static let weakLevelThreshold: Double = -2
+            static let goodLevelThreshold: Double = 1
+            static let strongLevelThreshold: Double = 3
+        }
+
+        enum Deceleration {
+            static let lowLevelThreshold: Double = -4
+            static let weakLevelThreshold: Double = -2
+            static let goodLevelThreshold: Double = 1
+            static let strongLevelThreshold: Double = 3
+        }
+    }
 }

@@ -20,6 +20,10 @@ class TimelineGraphViewModel: GraphViewModel {
     private(set) var yAxisConfig: GraphAxisConfig?
     private(set) var title: String = ""
     private(set) var description: String = ""
+    private var sourceDates: [Date]?
+    private var timelineSelectedIndex: Int?
+    private var indexOfFirstPointInTimeline: Int?
+    private var indexOfLastPointInTimeline: Int?
     private static let formatter = DateFormatter()
     private static let graphPointNumber: Int = 8
 
@@ -38,6 +42,10 @@ class TimelineGraphViewModel: GraphViewModel {
             let currentDate,
             let delta = selectedDate.diffWith(date: currentDate, countingIn: dateComponent)
         else { return }
+        self.sourceDates = sourceDates
+        self.timelineSelectedIndex = timelineSelectedIndex
+        self.indexOfFirstPointInTimeline = nil
+        self.indexOfLastPointInTimeline = nil
         let selectedIndexInGraph = (graphPointNumber - 1) - (delta % graphPointNumber)
         let graphStartDate = selectedDate.date(byAdding: -selectedIndexInGraph, component: dateComponent)
         TimelineGraphViewModel.formatter.dateFormat = dateFormat
@@ -51,6 +59,10 @@ class TimelineGraphViewModel: GraphViewModel {
                 if let xLabelDateIndex = dates.firstIndex(of: xLabelDate) {
                     if let value = getValue(atIndex: xLabelDateIndex, for: graphItem, in: timeline) {
                         point = (x: Double(i), y: value, data: PointData(date: sourceDates[xLabelDateIndex], interpolatedPoint: false))
+                        if self.indexOfFirstPointInTimeline == nil {
+                            self.indexOfFirstPointInTimeline = xLabelDateIndex
+                        }
+                        self.indexOfLastPointInTimeline = xLabelDateIndex
                     } else if shouldInterpolate {
                         // Append "invisible point" (by interpolation)
                         let previousIndexWithValue = previousIndexWithValue(from: xLabelDateIndex) { index in
@@ -91,6 +103,26 @@ class TimelineGraphViewModel: GraphViewModel {
             let graphDates: [String] = graphLabelsFrom(startDate: startDate, dateComponent: dateComponent, graphPointNumber: graphPointNumber)
             let graphPoints: [GraphPoint?] = [(x: 0, y: 10, data: nil)]
             configure(graphItem: graphItem, graphPointNumber: graphPointNumber, graphPoints: graphPoints, graphDates: graphDates, selectedIndex: nil, graphDescription: "-")
+        }
+    }
+
+    func showPreviousGraphData() {
+        if let delegate = self.delegate, let sourceDates = self.sourceDates, let indexOfFirstPointInTimeline = self.indexOfFirstPointInTimeline {
+            if indexOfFirstPointInTimeline > 0 {
+                delegate.graphDidSelectDate(sourceDates[indexOfFirstPointInTimeline - 1])
+            } else if let timelineSelectedIndex = self.timelineSelectedIndex, timelineSelectedIndex != indexOfLastPointInTimeline {
+                delegate.graphDidSelectDate(sourceDates[indexOfFirstPointInTimeline])
+            }
+        }
+    }
+
+    func showNextGraphData() {
+        if let delegate = self.delegate, let sourceDates = self.sourceDates, let indexOfLastPointInTimeline = self.indexOfLastPointInTimeline {
+            if indexOfLastPointInTimeline < sourceDates.count - 1 {
+                delegate.graphDidSelectDate(sourceDates[indexOfLastPointInTimeline + 1])
+            } else if let timelineSelectedIndex = self.timelineSelectedIndex, timelineSelectedIndex != indexOfLastPointInTimeline {
+                delegate.graphDidSelectDate(sourceDates[indexOfLastPointInTimeline])
+            }
         }
     }
 

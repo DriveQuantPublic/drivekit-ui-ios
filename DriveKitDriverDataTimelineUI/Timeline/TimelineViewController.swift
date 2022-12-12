@@ -69,9 +69,9 @@ class TimelineViewController: DKUIViewController {
     }
 
     @IBAction private func openScoreDetailScreen() {
-        let timelineScoreDetailViewModel = TimelineScoreDetailViewModel()
-        let timelineScoreDetailVC = TimelineScoreDetailViewController(viewModel: timelineScoreDetailViewModel)
-        self.navigationController?.pushViewController(timelineScoreDetailVC, animated: true)
+        let timelineDetailViewModel = TimelineDetailViewModel()
+        let timelineDetailVC = TimelineDetailViewController(viewModel: timelineDetailViewModel)
+        self.navigationController?.pushViewController(timelineDetailVC, animated: true)
     }
 
     @objc private func refresh(_ sender: Any) {

@@ -9,12 +9,12 @@
 import UIKit
 import DriveKitCommonUI
 
-class TimelineScoreDetailViewController: DKUIViewController {
-    private let viewModel: TimelineScoreDetailViewModel
+class TimelineDetailViewController: DKUIViewController {
+    private let viewModel: TimelineDetailViewModel
 
-    init(viewModel: TimelineScoreDetailViewModel) {
+    init(viewModel: TimelineDetailViewModel) {
         self.viewModel = viewModel
-        super.init(nibName: String(describing: TimelineScoreDetailViewController.self), bundle: .driverDataTimelineUIBundle)
+        super.init(nibName: String(describing: TimelineDetailViewController.self), bundle: .driverDataTimelineUIBundle)
     }
 
     required init?(coder: NSCoder) {

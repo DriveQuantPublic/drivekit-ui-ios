@@ -286,9 +286,8 @@
 		638DDC582726EAAE003ED260 /* OdometerCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638DDC572726EAAE003ED260 /* OdometerCellType.swift */; };
 		638DDC5A2726EB8F003ED260 /* OdometerCellActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638DDC592726EB8F003ED260 /* OdometerCellActionType.swift */; };
 		638E683A2919419300A5CC81 /* DriveKitDriverDataTimelineUIEntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638E68392919419200A5CC81 /* DriveKitDriverDataTimelineUIEntryPoint.swift */; };
-		638E683C291A3D5400A5CC81 /* TimelineScoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638E683B291A3D5400A5CC81 /* TimelineScoreDetailViewController.swift */; };
+		638E683C291A3D5400A5CC81 /* TimelineDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638E683B291A3D5400A5CC81 /* TimelineDetailViewController.swift */; };
 		638E683E291A3E2000A5CC81 /* TimelineDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638E683D291A3E2000A5CC81 /* TimelineDetailViewModel.swift */; };
-		638E6840291A3E9200A5CC81 /* TimelineScoreDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638E683F291A3E9200A5CC81 /* TimelineScoreDetailViewController.xib */; };
 		63913D98277E769600EABBC7 /* WorkingHoursSlotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63913D97277E769600EABBC7 /* WorkingHoursSlotCell.xib */; };
 		63913D9A277E7C0F00EABBC7 /* WorkingHoursSlotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63913D99277E7C0F00EABBC7 /* WorkingHoursSlotCell.swift */; };
 		63913D9C277F512700EABBC7 /* WorkingHoursSeparatorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63913D9B277F512700EABBC7 /* WorkingHoursSeparatorCell.xib */; };
@@ -616,6 +615,7 @@
 		C2ECBA09D9742158769AE627 /* Pods_DriveKitPermissionsUtilsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3A98094797ED33BAF53826 /* Pods_DriveKitPermissionsUtilsUI.framework */; };
 		E3B8309D294B1DCE00E31848 /* RoadContextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B8309C294B1DCE00E31848 /* RoadContextView.swift */; };
 		E3B8309F294B5D3F00E31848 /* DKTimelineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B8309E294B5D3F00E31848 /* DKTimelineExtension.swift */; };
+		E3559EB729479F8100AAB747 /* TimelineDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3559EB629479F8100AAB747 /* TimelineDetailViewController.xib */; };
 		FA5F8336F7F9D6E9CBACE91B /* Pods_DriveKitDriverAchievementUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36173251B2A47392720E8B05 /* Pods_DriveKitDriverAchievementUI.framework */; };
 		FE2C04BD97A78F4B22CD7008 /* Pods_DriveKitDriverDataUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55652B494DACA2423EDB5A8E /* Pods_DriveKitDriverDataUI.framework */; };
 /* End PBXBuildFile section */
@@ -1075,9 +1075,8 @@
 		638DDC572726EAAE003ED260 /* OdometerCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdometerCellType.swift; sourceTree = "<group>"; };
 		638DDC592726EB8F003ED260 /* OdometerCellActionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdometerCellActionType.swift; sourceTree = "<group>"; };
 		638E68392919419200A5CC81 /* DriveKitDriverDataTimelineUIEntryPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveKitDriverDataTimelineUIEntryPoint.swift; sourceTree = "<group>"; };
-		638E683B291A3D5400A5CC81 /* TimelineScoreDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineScoreDetailViewController.swift; sourceTree = "<group>"; };
+		638E683B291A3D5400A5CC81 /* TimelineDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineDetailViewController.swift; sourceTree = "<group>"; };
 		638E683D291A3E2000A5CC81 /* TimelineDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineDetailViewModel.swift; sourceTree = "<group>"; };
-		638E683F291A3E9200A5CC81 /* TimelineScoreDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineScoreDetailViewController.xib; sourceTree = "<group>"; };
 		63913D97277E769600EABBC7 /* WorkingHoursSlotCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkingHoursSlotCell.xib; sourceTree = "<group>"; };
 		63913D99277E7C0F00EABBC7 /* WorkingHoursSlotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingHoursSlotCell.swift; sourceTree = "<group>"; };
 		63913D9B277F512700EABBC7 /* WorkingHoursSeparatorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkingHoursSeparatorCell.xib; sourceTree = "<group>"; };
@@ -1437,6 +1436,7 @@
 		DCBF31C151237FEA8EDE3CF0 /* Pods-DriveKitDriverDataUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverDataUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverDataUI/Pods-DriveKitDriverDataUI.release.xcconfig"; sourceTree = "<group>"; };
 		E3B8309C294B1DCE00E31848 /* RoadContextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadContextView.swift; sourceTree = "<group>"; };
 		E3B8309E294B5D3F00E31848 /* DKTimelineExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTimelineExtension.swift; sourceTree = "<group>"; };
+		E3559EB629479F8100AAB747 /* TimelineDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineDetailViewController.xib; sourceTree = "<group>"; };
 		FA713DC763C119AEF200C7B2 /* Pods-DriveKitDriverDataTimelineUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverDataTimelineUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverDataTimelineUI/Pods-DriveKitDriverDataTimelineUI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -2488,7 +2488,7 @@
 			isa = PBXGroup;
 			children = (
 				63F8B2BC28F9611E0084B53A /* Timeline */,
-				63F8B2BD28F961250084B53A /* TimelineScoreDetail */,
+				63F8B2BD28F961250084B53A /* TimelineDetail */,
 				63F8B2A228F95F230084B53A /* Components */,
 				63F8B2CD28F9B23B0084B53A /* Localizable */,
 				63F8B2CB28F9851C0084B53A /* DriveKitDriverDataTimelineUI.swift */,
@@ -2578,14 +2578,14 @@
 			path = Timeline;
 			sourceTree = "<group>";
 		};
-		63F8B2BD28F961250084B53A /* TimelineScoreDetail */ = {
+		63F8B2BD28F961250084B53A /* TimelineDetail */ = {
 			isa = PBXGroup;
 			children = (
 				638E683D291A3E2000A5CC81 /* TimelineDetailViewModel.swift */,
-				638E683B291A3D5400A5CC81 /* TimelineScoreDetailViewController.swift */,
-				638E683F291A3E9200A5CC81 /* TimelineScoreDetailViewController.xib */,
+				638E683B291A3D5400A5CC81 /* TimelineDetailViewController.swift */,
+				E3559EB629479F8100AAB747 /* TimelineDetailViewController.xib */,
 			);
-			path = TimelineScoreDetail;
+			path = TimelineDetail;
 			sourceTree = "<group>";
 		};
 		63F8B2CD28F9B23B0084B53A /* Localizable */ = {
@@ -3825,8 +3825,8 @@
 				63F8B2DF28FDB0A20084B53A /* ScoreSelectionTypeView.xib in Resources */,
 				63454B9C2906C7A200A9B10F /* TimelineGraphView.xib in Resources */,
 				67D6CD8E290912780055632B /* EmptyRoadContextView.xib in Resources */,
-				638E6840291A3E9200A5CC81 /* TimelineScoreDetailViewController.xib in Resources */,
 				63F8B2C728F961B10084B53A /* TimelineViewController.xib in Resources */,
+				E3559EB729479F8100AAB747 /* TimelineDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4403,7 +4403,7 @@
 				63F8B2C528F961960084B53A /* TimelineViewModel.swift in Sources */,
 				674B3B2329196CE800C62895 /* GraphConstants.swift in Sources */,
 				63F8B2B128F9605A0084B53A /* TimelineGraphViewModel.swift in Sources */,
-				638E683C291A3D5400A5CC81 /* TimelineScoreDetailViewController.swift in Sources */,
+				638E683C291A3D5400A5CC81 /* TimelineDetailViewController.swift in Sources */,
 				63F8B2A728F95F8C0084B53A /* DateSelectorView.swift in Sources */,
 				63F8B2AF28F960420084B53A /* BarGraphView.swift in Sources */,
 				63454B982906B4B200A9B10F /* GraphItem.swift in Sources */,

@@ -29,6 +29,10 @@ class TimelineViewModel {
     private var currentPeriod: DKTimelinePeriod
     private var selectedDate: Date?
     
+    var isEmpty: Bool {
+        (getTimelineSource()?.hasData ?? false) == false
+    }
+    
     var timelineDetailViewModel: TimelineDetailViewModel {
         guard let weekTimeline, let monthTimeline, let selectedDate else {
             preconditionFailure("This method should not be called until timeline data is available (disable the button)")

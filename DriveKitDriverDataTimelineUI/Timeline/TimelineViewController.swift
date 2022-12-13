@@ -16,6 +16,7 @@ class TimelineViewController: DKUIViewController {
     @IBOutlet private weak var dateSelectorContainer: UIView!
     @IBOutlet private weak var roadContextContainer: UIView!
     @IBOutlet private weak var timelineGraphViewContainer: UIView!
+    @IBOutlet weak var showTimelineDetailButton: UIButton!
     private let viewModel: TimelineViewModel
     private var selectedScoreSelectionTypeView: ScoreSelectionTypeView? = nil
     private let roadContextView = RoadContextView()
@@ -162,5 +163,6 @@ extension TimelineViewController: TimelineViewModelDelegate {
 
     func didUpdateTimeline() {
         hideRefreshControl()
+        self.showTimelineDetailButton.isHidden = viewModel.isEmpty
     }
 }

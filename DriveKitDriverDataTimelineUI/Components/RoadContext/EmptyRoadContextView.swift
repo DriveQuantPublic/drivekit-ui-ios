@@ -25,7 +25,7 @@ class EmptyRoadContextView: UIView {
 
     private func setupView() {
         self.titleLabel.font = DKStyles.headLine2.style.applyTo(font: .primary)
-        self.descriptionLabel.font = DKStyles.normalText.style.applyTo(font: .primary)
+        self.descriptionLabel.font = DKStyles.smallText.style.applyTo(font: .primary)
         update()
     }
 

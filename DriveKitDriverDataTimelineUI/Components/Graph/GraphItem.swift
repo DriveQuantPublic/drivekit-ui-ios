@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import DriveKitCommonUI
 
 enum GraphItem {
-    case score(DKTimelineScoreType)
+    case score(DKScoreType)
     case scoreItem(TimelineScoreItemType)
 }
 

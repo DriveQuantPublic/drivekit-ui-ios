@@ -14,12 +14,12 @@ import DriveKitDriverDataModule
 class TimelineViewModel {
     private(set) var updating: Bool = false
     weak var delegate: TimelineViewModelDelegate?
-    let scores: [DKTimelineScoreType]
+    let scores: [DKScoreType]
     let dateSelectorViewModel: DateSelectorViewModel
     let periodSelectorViewModel: PeriodSelectorViewModel
     let roadContextViewModel: RoadContextViewModel
     let timelineGraphViewModel: TimelineGraphViewModel
-    var selectedScore: DKTimelineScoreType {
+    var selectedScore: DKScoreType {
         didSet {
             update()
         }

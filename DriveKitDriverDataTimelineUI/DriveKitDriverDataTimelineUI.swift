@@ -13,8 +13,8 @@ import DriveKitCommonUI
     @objc public static let shared = DriveKitDriverDataTimelineUI()
     static let calendar = Calendar(identifier: .gregorian)
 
-    private var internalScores: [DKTimelineScoreType] = [.safety, .ecoDriving, .distraction, .speeding]
-    var scores: [DKTimelineScoreType] {
+    private var internalScores: [DKScoreType] = [.safety, .ecoDriving, .distraction, .speeding]
+    var scores: [DKScoreType] {
         set {
             if newValue.isEmpty {
                 self.internalScores = [.safety]

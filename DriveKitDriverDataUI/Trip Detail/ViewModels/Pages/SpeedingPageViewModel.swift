@@ -11,7 +11,7 @@ import DriveKitDBTripAccessModule
 import DriveKitCommonUI
 
 class SpeedingPageViewModel {
-    let scoreType: ScoreType = .speeding
+    let scoreType: DKScoreType = .speeding
     var trip: Trip
 
     init(trip: Trip) {

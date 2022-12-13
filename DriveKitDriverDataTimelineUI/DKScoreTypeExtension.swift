@@ -1,5 +1,5 @@
 //
-//  DKTimelineScoreType.swift
+//  DKScoreType.swift
 //  DriveKitDriverDataTimelineUI
 //
 //  Created by David Bauduin on 17/10/2022.
@@ -10,12 +10,8 @@ import UIKit
 import DriveKitCommonUI
 import DriveKitCoreModule
 
-@objc public enum DKTimelineScoreType: Int {
-    case safety, ecoDriving, distraction, speeding
-}
-
-extension DKTimelineScoreType {
-    public func image() -> UIImage? {
+extension DKScoreType {
+    public func timelineScoreSelectorImage() -> UIImage? {
         switch self {
             case .ecoDriving:
                 return DKImages.ecoDrivingFlat.image

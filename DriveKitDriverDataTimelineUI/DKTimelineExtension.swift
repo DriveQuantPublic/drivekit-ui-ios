@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import DriveKitCommonUI
 import DriveKitDBTripAccessModule
 
 extension DKTimeline {
@@ -17,7 +18,7 @@ extension DKTimeline {
     
     /// Clean timeline to remove, if needed, values where there are only unscored trips.
     func cleaned(
-        forScore score: DKTimelineScoreType,
+        forScore score: DKScoreType,
         selectedIndex: Int?
     ) -> Self {
         let canInsertAtIndex: (Int) -> Bool = { index in
@@ -176,7 +177,7 @@ extension DKTimeline {
     
     /// Compute distance by road contexts from the timeline
     func distanceByRoadContext(
-        selectedScore: DKTimelineScoreType,
+        selectedScore: DKScoreType,
         selectedIndex: Int
     ) -> [TimelineRoadContext: Double] {
         var distanceByContext: [TimelineRoadContext: Double] = [:]

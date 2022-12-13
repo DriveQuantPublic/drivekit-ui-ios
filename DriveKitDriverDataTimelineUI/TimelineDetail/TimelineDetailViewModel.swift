@@ -12,7 +12,7 @@ import DriveKitDBTripAccessModule
 
 class TimelineDetailViewModel {
     weak var delegate: TimelineViewModelDelegate?
-    private let selectedScore: DKTimelineScoreType
+    private let selectedScore: DKScoreType
     private let selectedPeriod: DKTimelinePeriod
     private let selectedDate: Date
     private let weekTimeline: DKTimeline
@@ -27,7 +27,7 @@ class TimelineDetailViewModel {
     }
     
     init(
-        selectedScore: DKTimelineScoreType,
+        selectedScore: DKScoreType,
         selectedPeriod: DKTimelinePeriod,
         selectedDate: Date,
         weekTimeline: DKTimeline,

@@ -1,5 +1,5 @@
 //
-//  ScoreType.swift
+//  DKScoreType.swift
 //  DriveKitCommonUI
 //
 //  Created by Jérémy Bayle on 02/03/2020.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-public enum ScoreType: String {
+public enum DKScoreType: String {
     case safety, ecoDriving, distraction, speeding
     
-    public func image() -> UIImage? {
+    public func gaugeImage() -> UIImage? {
         switch self {
         case .ecoDriving:
             return DKImages.ecoDriving.image

@@ -19,7 +19,7 @@ class TimelineDetailViewModel {
     let periodSelectorViewModel: PeriodSelectorViewModel
     let dateSelectorViewModel: DateSelectorViewModel
     let roadContextViewModel: RoadContextViewModel
-    let timelineGraphViewModelByScoreItem: [TimelineScoreItemType: TimelineGraphViewModel]
+    private(set) var timelineGraphViewModelByScoreItem: [TimelineScoreItemType: TimelineGraphViewModel]
     
     init(
         selectedScore: DKTimelineScoreType,
@@ -37,5 +37,68 @@ class TimelineDetailViewModel {
         self.dateSelectorViewModel = DateSelectorViewModel()
         self.roadContextViewModel = RoadContextViewModel()
         self.timelineGraphViewModelByScoreItem = [:]
+        self.configureViewModels()
+    }
+    
+    private func configureViewModels() {
+        // Clean timeline to remove, if needed, values where there are only unscored trips.
+        let selectedTimeline = getTimelineSource()
+        let sourceDates = selectedTimeline.allContext.date
+        let cleanedTimeline: DKTimeline
+        var selectedDateIndex = sourceDates.firstIndex(of: selectedDate)
+        cleanedTimeline = selectedTimeline.cleaned(
+            forScore: self.selectedScore,
+            selectedIndex: selectedDateIndex
+        )
+
+        // Compute selected index.
+        let dates = cleanedTimeline.allContext.date
+        selectedDateIndex = dates.firstIndex(of: selectedDate)
+        
+        // Update view models.
+        if let selectedDateIndex {
+            self.periodSelectorViewModel.configure(
+                selectedPeriod: selectedPeriod
+            )
+            
+            self.dateSelectorViewModel.configure(
+                dates: dates,
+                period: selectedPeriod,
+                selectedIndex: selectedDateIndex
+            )
+            
+            self.roadContextViewModel.configure(
+                distanceByContext: cleanedTimeline.distanceByRoadContext(
+                    selectedScore: selectedScore,
+                    selectedDateIndex: selectedDateIndex),
+                totalDistanceForAllContexts: cleanedTimeline.allContext.distance[selectedDateIndex]
+            )
+            
+            let scoreItemTypes = self.selectedScore.associatedScoreItemTypes
+            self.timelineGraphViewModelByScoreItem = scoreItemTypes.reduce(into: [:]) { partialResult, scoreItemType in
+                let timelineGraphViewModel = TimelineGraphViewModel()
+                timelineGraphViewModel.configure(
+                    timeline: cleanedTimeline,
+                    timelineSelectedIndex: selectedDateIndex,
+                    graphItem: .scoreItem(scoreItemType),
+                    period: selectedPeriod
+                )
+                partialResult[scoreItemType] = timelineGraphViewModel
+            }
+            
+        }
+    }
+    
+    private func getTimelineSource() -> DKTimeline {
+        let timelineSource: DKTimeline
+        switch self.selectedPeriod {
+            case .week:
+                timelineSource = self.weekTimeline
+            case .month:
+                timelineSource = self.monthTimeline
+            @unknown default:
+                preconditionFailure("period \(self.selectedPeriod) is not implemented yet")
+        }
+        return timelineSource
     }
 }

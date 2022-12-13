@@ -16,10 +16,72 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="RxC-Gi-X5O">
+                    <rect key="frame" x="0.0" y="79" width="393" height="134"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TX2-cJ-UOX" userLabel="Period selector">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="76"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="76" id="d0w-0p-UC1"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E2Z-NE-APt" userLabel="Date selector">
+                            <rect key="frame" x="0.0" y="96" width="393" height="38"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="38" id="3q1-M0-9Wi"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rfR-pb-R4i">
+                    <rect key="frame" x="0.0" y="233" width="393" height="585"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="azD-hm-EUO" userLabel="Scrolled Stack View">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="192"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fPt-G9-IFu" userLabel="Road context">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="122"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="122" id="9bh-qv-fBN"/>
+                                        <constraint firstAttribute="height" priority="800" constant="122" id="hmy-J2-Xua"/>
+                                    </constraints>
+                                </view>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gxw-ug-vpJ" userLabel="Graph Stack View">
+                                    <rect key="frame" x="0.0" y="142" width="393" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" placeholder="YES" id="Ngf-j1-mEa"/>
+                                    </constraints>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="azD-hm-EUO" firstAttribute="leading" secondItem="JuR-WX-Pjx" secondAttribute="leading" id="33B-P7-Ere"/>
+                        <constraint firstItem="azD-hm-EUO" firstAttribute="bottom" secondItem="JuR-WX-Pjx" secondAttribute="bottom" id="Mk0-gf-JPa"/>
+                        <constraint firstItem="azD-hm-EUO" firstAttribute="width" secondItem="tN0-bj-kbw" secondAttribute="width" id="nD4-DO-xLO"/>
+                        <constraint firstItem="azD-hm-EUO" firstAttribute="trailing" secondItem="JuR-WX-Pjx" secondAttribute="trailing" id="suS-aK-Jb4"/>
+                        <constraint firstItem="azD-hm-EUO" firstAttribute="top" secondItem="JuR-WX-Pjx" secondAttribute="top" id="zq9-xJ-zs9"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="JuR-WX-Pjx"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="tN0-bj-kbw"/>
+                </scrollView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="RxC-Gi-X5O" secondAttribute="trailing" id="9Yr-S4-o6e"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="rfR-pb-R4i" secondAttribute="bottom" id="BNG-sY-cI7"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rfR-pb-R4i" secondAttribute="trailing" id="Ucy-fg-srZ"/>
+                <constraint firstItem="rfR-pb-R4i" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ezT-Vu-4sf"/>
+                <constraint firstItem="RxC-Gi-X5O" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="iHI-jb-uxn"/>
+                <constraint firstItem="rfR-pb-R4i" firstAttribute="top" secondItem="RxC-Gi-X5O" secondAttribute="bottom" constant="20" id="q3x-CY-IyB"/>
+                <constraint firstItem="RxC-Gi-X5O" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="usf-8q-p3Y"/>
+            </constraints>
             <point key="canvasLocation" x="61" y="21"/>
         </view>
     </objects>

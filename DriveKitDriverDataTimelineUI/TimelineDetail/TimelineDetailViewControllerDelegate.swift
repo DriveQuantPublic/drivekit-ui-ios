@@ -7,7 +7,9 @@
 //
 
 import Foundation
+import DriveKitDBTripAccessModule
 
 protocol TimelineDetailViewControllerDelegate: AnyObject {
-    
+    func didUpdate(selectedDate: Date)
+    func didUpdate(selectedPeriod: DKTimelinePeriod)
 }

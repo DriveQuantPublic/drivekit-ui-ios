@@ -616,6 +616,8 @@
 		E3B8309D294B1DCE00E31848 /* RoadContextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B8309C294B1DCE00E31848 /* RoadContextView.swift */; };
 		E3B8309F294B5D3F00E31848 /* DKTimelineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B8309E294B5D3F00E31848 /* DKTimelineExtension.swift */; };
 		E3559EB729479F8100AAB747 /* TimelineDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3559EB629479F8100AAB747 /* TimelineDetailViewController.xib */; };
+		E3559EB9294864E700AAB747 /* TimelineDetailViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3559EB8294864E700AAB747 /* TimelineDetailViewControllerDelegate.swift */; };
+		E3559EBB2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3559EBA2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift */; };
 		FA5F8336F7F9D6E9CBACE91B /* Pods_DriveKitDriverAchievementUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36173251B2A47392720E8B05 /* Pods_DriveKitDriverAchievementUI.framework */; };
 		FE2C04BD97A78F4B22CD7008 /* Pods_DriveKitDriverDataUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55652B494DACA2423EDB5A8E /* Pods_DriveKitDriverDataUI.framework */; };
 /* End PBXBuildFile section */
@@ -1437,6 +1439,8 @@
 		E3B8309C294B1DCE00E31848 /* RoadContextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadContextView.swift; sourceTree = "<group>"; };
 		E3B8309E294B5D3F00E31848 /* DKTimelineExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTimelineExtension.swift; sourceTree = "<group>"; };
 		E3559EB629479F8100AAB747 /* TimelineDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineDetailViewController.xib; sourceTree = "<group>"; };
+		E3559EB8294864E700AAB747 /* TimelineDetailViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineDetailViewControllerDelegate.swift; sourceTree = "<group>"; };
+		E3559EBA2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineDetailViewModelDelegate.swift; sourceTree = "<group>"; };
 		FA713DC763C119AEF200C7B2 /* Pods-DriveKitDriverDataTimelineUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverDataTimelineUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverDataTimelineUI/Pods-DriveKitDriverDataTimelineUI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -2584,6 +2588,8 @@
 				638E683D291A3E2000A5CC81 /* TimelineDetailViewModel.swift */,
 				638E683B291A3D5400A5CC81 /* TimelineDetailViewController.swift */,
 				E3559EB629479F8100AAB747 /* TimelineDetailViewController.xib */,
+				E3559EB8294864E700AAB747 /* TimelineDetailViewControllerDelegate.swift */,
+				E3559EBA2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift */,
 			);
 			path = TimelineDetail;
 			sourceTree = "<group>";
@@ -4411,11 +4417,13 @@
 				63F8B2BB28F960E20084B53A /* PeriodSelectorDelegate.swift in Sources */,
 				63F8B2AD28F960260084B53A /* GraphType.swift in Sources */,
 				638E683E291A3E2000A5CC81 /* TimelineDetailViewModel.swift in Sources */,
+				E3559EB9294864E700AAB747 /* TimelineDetailViewControllerDelegate.swift in Sources */,
 				63F8B2B728F960BA0084B53A /* PeriodSelectorView.swift in Sources */,
 				67D6CD8C290912640055632B /* EmptyRoadContextView.swift in Sources */,
 				E3B8309F294B5D3F00E31848 /* DKTimelineExtension.swift in Sources */,
 				63F8B2D928FD4B500084B53A /* TimelineViewModelDelegate.swift in Sources */,
 				63454BA129081DD500A9B10F /* Graph.swift in Sources */,
+				E3559EBB2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift in Sources */,
 				63454B9629068FD000A9B10F /* TimelineScoreItemType.swift in Sources */,
 				63F8B2B328F960770084B53A /* GraphAxisConfig.swift in Sources */,
 				63F8B2A928F95F980084B53A /* DateSelectorViewModel.swift in Sources */,

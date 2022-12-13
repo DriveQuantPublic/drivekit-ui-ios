@@ -78,9 +78,24 @@ class DateSelectorViewModel {
     }
 
     func getDateIntervalAttributedText() -> NSAttributedString {
+        switch self.period {
+            case .week:
+                return weekDateIntervalAttributedText()
+            case .month:
+                return monthDateIntervalAttributedText()
+            @unknown default:
+                fatalError("Unknown case")
+        }
+    }
+
+    private func weekDateIntervalAttributedText() -> NSAttributedString {
         let fromDateString = self.fromDate.format(pattern: .standardDate).dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.primaryColor).build()
         let toDateString = self.toDate.format(pattern: .standardDate).dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.primaryColor).build()
         let intervalString = "\("dk_timeline_from_date".dkDriverDataTimelineLocalized()) %@ \("dk_timeline_to_date".dkDriverDataTimelineLocalized()) %@".dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.black.withAlphaComponent(0.53)).buildWithArgs(fromDateString, toDateString)
         return intervalString
+    }
+
+    private func monthDateIntervalAttributedText() -> NSAttributedString {
+        return self.fromDate.format(pattern: .monthLetterYear).capitalizeFirstLetter().dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.primaryColor).build()
     }
 }

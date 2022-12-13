@@ -10,16 +10,17 @@ import Foundation
 
 public enum DKDatePattern {
     case weekLetter,
-    standardDate,
-    hourMinute,
-    hourMinuteLetter,
-    fullDate,
-    dayMonth,
-    yearOnly,
-    year,
-    day,
-    month,
-    monthAbbreviation
+         standardDate,
+         hourMinute,
+         hourMinuteLetter,
+         fullDate,
+         dayMonth,
+         yearOnly,
+         year,
+         day,
+         month,
+         monthLetterYear,
+         monthAbbreviation
 
     public var rawValue: String {
         switch self {
@@ -44,6 +45,8 @@ public enum DKDatePattern {
                 return "EEEE"
             case .month:
                 return "M"
+            case .monthLetterYear:
+                return "MMMM yyyy"
             case .monthAbbreviation:
                 return "MMM"
         }

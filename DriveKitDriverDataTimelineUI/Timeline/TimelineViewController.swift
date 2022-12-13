@@ -69,8 +69,8 @@ class TimelineViewController: DKUIViewController {
     }
 
     @IBAction private func openScoreDetailScreen() {
-        let timelineDetailViewModel = TimelineDetailViewModel()
-        let timelineDetailVC = TimelineDetailViewController(viewModel: timelineDetailViewModel)
+        
+        let timelineDetailVC = TimelineDetailViewController(viewModel: viewModel.timelineDetailViewModel)
         self.navigationController?.pushViewController(timelineDetailVC, animated: true)
     }
 

@@ -28,6 +28,19 @@ class TimelineViewModel {
     private var monthTimeline: DKTimeline?
     private var currentPeriod: DKTimelinePeriod
     private var selectedDate: Date?
+    
+    var timelineDetailViewModel: TimelineDetailViewModel {
+        guard let weekTimeline, let monthTimeline else {
+            preconditionFailure("Detail button should be disabled until timeline data is available")
+        }
+        TimelineDetailViewModel(
+            selectedScore: selectedScore,
+            selectedPeriod: periodSelectorViewModel.selectedPeriod,
+            selectedDate: dateSelectorViewModel.selectedDate,
+            weekTimeline: weekTimeline,
+            monthTimeline: monthTimeline
+        )
+    }
 
     init() {
         self.scores = DriveKitDriverDataTimelineUI.shared.scores

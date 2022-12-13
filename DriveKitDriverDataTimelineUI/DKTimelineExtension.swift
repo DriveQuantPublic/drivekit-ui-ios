@@ -15,6 +15,7 @@ extension DKTimeline {
         self.allContext.numberTripTotal.isEmpty == false
     }
     
+    /// Clean timeline to remove, if needed, values where there are only unscored trips.
     func cleaned(
         forScore score: DKTimelineScoreType,
         selectedIndex: Int?
@@ -120,11 +121,55 @@ extension DKTimeline {
                     }
                 }
             }
-            let newRoadContext = DKTimeline.RoadContextItem(type: roadContext.type, date: date, numberTripTotal: numberTripTotal, numberTripScored: numberTripScored, distance: distance, duration: duration, efficiency: efficiency, safety: safety, acceleration: acceleration, braking: braking, adherence: adherence, co2Mass: co2Mass, fuelVolume: fuelVolume, efficiencyAcceleration: efficiencyAcceleration, efficiencyBrake: efficiencyBrake, efficiencySpeedMaintain: efficiencySpeedMaintain)
+            let newRoadContext = DKTimeline.RoadContextItem(
+                type: roadContext.type,
+                date: date,
+                numberTripTotal: numberTripTotal,
+                numberTripScored: numberTripScored,
+                distance: distance,
+                duration: duration,
+                efficiency: efficiency,
+                safety: safety,
+                acceleration: acceleration,
+                braking: braking,
+                adherence: adherence,
+                co2Mass: co2Mass,
+                fuelVolume: fuelVolume,
+                efficiencyAcceleration: efficiencyAcceleration,
+                efficiencyBrake: efficiencyBrake,
+                efficiencySpeedMaintain: efficiencySpeedMaintain
+            )
             roadContexts.append(newRoadContext)
         }
 
-        let allContext: DKTimeline.AllContextItem = DKTimeline.AllContextItem(date: date, numberTripTotal: numberTripTotal, numberTripScored: numberTripScored, distance: distance, duration: duration, efficiency: efficiency, safety: safety, acceleration: acceleration, braking: braking, adherence: adherence, phoneDistraction: phoneDistraction, speeding: speeding, co2Mass: co2Mass, fuelVolume: fuelVolume, unlock: unlock, lock: lock, callAuthorized: callAuthorized, callForbidden: callForbidden, callAuthorizedDuration: callAuthorizedDuration, callForbiddenDuration: callForbiddenDuration, numberTripWithForbiddenCall: numberTripWithForbiddenCall, speedingDuration: speedingDuration, speedingDistance: speedingDistance, efficiencyBrake: efficiencyBrake, efficiencyAcceleration: efficiencyAcceleration, efficiencySpeedMaintain: efficiencySpeedMaintain)
+        let allContext: DKTimeline.AllContextItem = DKTimeline.AllContextItem(
+            date: date,
+            numberTripTotal: numberTripTotal,
+            numberTripScored: numberTripScored,
+            distance: distance,
+            duration: duration,
+            efficiency: efficiency,
+            safety: safety,
+            acceleration: acceleration,
+            braking: braking,
+            adherence: adherence,
+            phoneDistraction: phoneDistraction,
+            speeding: speeding,
+            co2Mass: co2Mass,
+            fuelVolume: fuelVolume,
+            unlock: unlock,
+            lock: lock,
+            callAuthorized: callAuthorized,
+            callForbidden: callForbidden,
+            callAuthorizedDuration: callAuthorizedDuration,
+            callForbiddenDuration: callForbiddenDuration,
+            numberTripWithForbiddenCall: numberTripWithForbiddenCall,
+            speedingDuration: speedingDuration,
+            speedingDistance: speedingDistance,
+            efficiencyBrake: efficiencyBrake,
+            efficiencyAcceleration: efficiencyAcceleration,
+            efficiencySpeedMaintain: efficiencySpeedMaintain
+        )
         let cleanedTimeline = DKTimeline(period: self.period, allContext: allContext, roadContexts: roadContexts)
         return cleanedTimeline
     }

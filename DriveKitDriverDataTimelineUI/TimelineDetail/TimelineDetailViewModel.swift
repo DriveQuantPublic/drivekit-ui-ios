@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import DriveKitCommonUI
 import DriveKitDBTripAccessModule
 
 class TimelineDetailViewModel {
@@ -20,6 +21,10 @@ class TimelineDetailViewModel {
     let dateSelectorViewModel: DateSelectorViewModel
     let roadContextViewModel: RoadContextViewModel
     private(set) var timelineGraphViewModelByScoreItem: [TimelineScoreItemType: TimelineGraphViewModel]
+    
+    var localizedTitle: String {
+        "TDB"
+    }
     
     init(
         selectedScore: DKTimelineScoreType,

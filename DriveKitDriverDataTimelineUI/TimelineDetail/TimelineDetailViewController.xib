@@ -11,6 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TimelineDetailViewController" customModule="DriveKitDriverDataTimelineUI" customModuleProvider="target">
             <connections>
+                <outlet property="dateSelectorContainerView" destination="E2Z-NE-APt" id="SKw-7g-Vwd"/>
+                <outlet property="periodSelectorContainerView" destination="TX2-cJ-UOX" id="Yww-Yp-0Du"/>
+                <outlet property="roadContextContainerView" destination="fPt-G9-IFu" id="Dg9-Ni-eu2"/>
+                <outlet property="scoreItemGraphStackView" destination="gxw-ug-vpJ" id="n8M-Xb-ntK"/>
                 <outlet property="view" destination="iN0-l3-epB" id="PKx-93-bsP"/>
             </connections>
         </placeholder>

@@ -169,7 +169,7 @@ class TimelineViewController: DKUIViewController {
             } else {
                 switch self.viewModel.selectedScore {
                     case .distraction, .speeding:
-                        emptyRoadContextView.type = .emptyData
+                        emptyRoadContextView.type = .noData
                     case .safety:
                         emptyRoadContextView.type = .noDataSafety
                     case .ecoDriving:

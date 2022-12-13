@@ -36,6 +36,9 @@ class EmptyRoadContextView: UIView {
             case .emptyData:
                 titleKey = "dk_timeline_road_context_title_empty_data"
                 descriptionKey = "dk_timeline_road_context_description_empty_data"
+            case .noData:
+                titleKey = "dk_timeline_road_context_no_context_title"
+                descriptionKey = "dk_timeline_road_context_no_context_description"
             case .noDataSafety:
                 titleKey = "dk_timeline_road_context_title_no_data"
                 descriptionKey = "dk_timeline_road_context_description_no_data_safety"
@@ -52,6 +55,7 @@ class EmptyRoadContextView: UIView {
 
 enum EmptyRoadContextType {
     case emptyData
+    case noData
     case noDataSafety
     case noDataEcodriving
 }

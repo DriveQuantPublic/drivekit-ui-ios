@@ -232,25 +232,29 @@ class TimelineGraphViewModel: GraphViewModel {
     }
 
     private func interpolateSelectableDateWithoutValue(fromDateIndex dateIndex: Int, graphItem: GraphItem, timeline: DKTimeline, dates: [Date], dateComponent: Calendar.Component, pointX: Double, sourceDates: [Date]) -> GraphPoint? {
-        let previousIndexWithValue = previousIndexWithValue(from: dateIndex) { index in
-            getValue(atIndex: index, for: graphItem, in: timeline) != nil
-        }
-        let nextIndexWithValue = nextIndexWithValue(from: dateIndex, to: dates.count) { index in
-            getValue(atIndex: index, for: graphItem, in: timeline) != nil
-        }
         let point: GraphPoint?
-        if let previousIndexWithValue, let nextIndexWithValue, let interpolatedValue = interpolateValueFrom(
-            date: dates[dateIndex],
-            previousValidIndex: previousIndexWithValue,
-            nextValidIndex: nextIndexWithValue,
-            dates: dates,
-            dateComponent: dateComponent,
-            graphItem: graphItem,
-            timeline: timeline
-        ) {
-            point = (x: pointX, y: interpolatedValue, data: PointData(date: sourceDates[dateIndex], interpolatedPoint: true))
+        if dates.count == 1 {
+            point = (x: pointX, y: 0, data: nil)
         } else {
-            point = nil
+            let previousIndexWithValue = previousIndexWithValue(from: dateIndex) { index in
+                getValue(atIndex: index, for: graphItem, in: timeline) != nil
+            }
+            let nextIndexWithValue = nextIndexWithValue(from: dateIndex, to: dates.count) { index in
+                getValue(atIndex: index, for: graphItem, in: timeline) != nil
+            }
+            if let previousIndexWithValue, let nextIndexWithValue, let interpolatedValue = interpolateValueFrom(
+                date: dates[dateIndex],
+                previousValidIndex: previousIndexWithValue,
+                nextValidIndex: nextIndexWithValue,
+                dates: dates,
+                dateComponent: dateComponent,
+                graphItem: graphItem,
+                timeline: timeline
+            ) {
+                point = (x: pointX, y: interpolatedValue, data: PointData(date: sourceDates[dateIndex], interpolatedPoint: true))
+            } else {
+                point = nil
+            }
         }
         return point
     }

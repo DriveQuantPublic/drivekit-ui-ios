@@ -127,36 +127,52 @@ class TimelineViewModel {
             }
             // Update view models.
             if let selectedDateIndex {
+                self.selectedDate = dates[selectedDateIndex]
                 self.dateSelectorViewModel.configure(dates: dates, period: self.currentPeriod, selectedIndex: selectedDateIndex)
                 self.periodSelectorViewModel.configure(selectedPeriod: self.currentPeriod)
                 self.timelineGraphViewModel.configure(timeline: cleanedTimeline, timelineSelectedIndex: selectedDateIndex, graphItem: .score(self.selectedScore), period: self.currentPeriod)
-                var distanceByContext: [TimelineRoadContext: Double] = [:]
-                if self.selectedScore == .distraction || self.selectedScore == .speeding || cleanedTimeline.allContext.numberTripScored[selectedDateIndex] > 0 {
-                    for roadContext in cleanedTimeline.roadContexts {
-                        if let timelineRoadContext = TimelineRoadContext(roadContext: roadContext.type) {
-                            let distance = roadContext.distance[selectedDateIndex]
-                            distanceByContext[timelineRoadContext] = distance
-                        }
-                    }
-                }
-                self.roadContextViewModel.configure(distanceByContext: distanceByContext, totalDistanceForAllContexts: cleanedTimeline.allContext.distance[selectedDateIndex])
+                updateRoadContextViewModel(timeline: cleanedTimeline, selectedIndex: selectedDateIndex)
+            } else {
+                configureWithNoData()
             }
         } else {
-            let startDate: Date?
-            switch self.currentPeriod {
-                case .week:
-                    startDate = Date().beginning(relativeTo: .weekOfMonth)
-                case .month:
-                    startDate = Date().beginning(relativeTo: .month)
-                @unknown default:
-                    startDate = nil
-            }
-            if let startDate {
-                self.dateSelectorViewModel.configure(dates: [startDate], period: self.currentPeriod, selectedIndex: 0)
-                self.timelineGraphViewModel.showEmptyGraph(graphItem: .score(self.selectedScore), period: self.currentPeriod)
-            }
+            configureWithNoData()
         }
         self.delegate?.needToBeRefreshed()
+    }
+
+    private func configureWithNoData() {
+        let startDate: Date?
+        switch self.currentPeriod {
+            case .week:
+                startDate = Date().beginning(relativeTo: .weekOfMonth)
+            case .month:
+                startDate = Date().beginning(relativeTo: .month)
+            @unknown default:
+                startDate = nil
+        }
+        if let startDate {
+            self.dateSelectorViewModel.configure(dates: [startDate], period: self.currentPeriod, selectedIndex: 0)
+            self.timelineGraphViewModel.showEmptyGraph(graphItem: .score(self.selectedScore), period: self.currentPeriod)
+            updateRoadContextViewModel(timeline: getTimelineSource(), selectedIndex: nil)
+        }
+    }
+
+    private func updateRoadContextViewModel(timeline: DKTimeline?, selectedIndex: Int?) {
+        let totalDistanceForAllContexts: Double
+        var distanceByContext: [TimelineRoadContext: Double] = [:]
+        if let timeline, let selectedIndex, self.selectedScore == .distraction || self.selectedScore == .speeding || timeline.allContext.numberTripScored[selectedIndex] > 0 {
+            totalDistanceForAllContexts = timeline.allContext.distance[selectedIndex]
+            for roadContext in timeline.roadContexts {
+                if let timelineRoadContext = TimelineRoadContext(roadContext: roadContext.type) {
+                    let distance = roadContext.distance[selectedIndex]
+                    distanceByContext[timelineRoadContext] = distance
+                }
+            }
+        } else {
+            totalDistanceForAllContexts = 0
+        }
+        self.roadContextViewModel.configure(distanceByContext: distanceByContext, totalDistanceForAllContexts: totalDistanceForAllContexts)
     }
 
     private func getTimelineSource() -> DKTimeline? {

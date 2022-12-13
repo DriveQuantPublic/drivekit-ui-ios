@@ -30,13 +30,13 @@ class TimelineViewModel {
     private var selectedDate: Date?
     
     var timelineDetailViewModel: TimelineDetailViewModel {
-        guard let weekTimeline, let monthTimeline else {
-            preconditionFailure("Detail button should be disabled until timeline data is available")
+        guard let weekTimeline, let monthTimeline, let selectedDate else {
+            preconditionFailure("This method should not be called until timeline data is available (disable the button)")
         }
-        TimelineDetailViewModel(
+        return TimelineDetailViewModel(
             selectedScore: selectedScore,
             selectedPeriod: periodSelectorViewModel.selectedPeriod,
-            selectedDate: dateSelectorViewModel.selectedDate,
+            selectedDate: selectedDate,
             weekTimeline: weekTimeline,
             monthTimeline: monthTimeline
         )

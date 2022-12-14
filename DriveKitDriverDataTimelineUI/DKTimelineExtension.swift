@@ -196,7 +196,7 @@ extension DKTimeline {
     }
 
     func totalDistanceForAllContexts(
-        selectedScore: DKTimelineScoreType,
+        selectedScore: DKScoreType,
         selectedIndex: Int
     ) -> Double {
         var totalDistanceForAllContexts: Double = 0

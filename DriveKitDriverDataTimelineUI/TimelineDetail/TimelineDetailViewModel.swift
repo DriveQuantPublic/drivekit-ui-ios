@@ -75,8 +75,11 @@ class TimelineDetailViewModel {
             self.roadContextViewModel.configure(
                 distanceByContext: cleanedTimeline.distanceByRoadContext(
                     selectedScore: selectedScore,
-                    selectedDateIndex: selectedDateIndex),
-                totalDistanceForAllContexts: cleanedTimeline.allContext.distance[selectedDateIndex]
+                    selectedIndex: selectedDateIndex),
+                totalDistanceForAllContexts: cleanedTimeline.totalDistanceForAllContexts(
+                    selectedScore: selectedScore,
+                    selectedIndex: selectedDateIndex
+                )
             )
             
             let scoreItemTypes = self.selectedScore.associatedScoreItemTypes

@@ -23,7 +23,7 @@ class TimelineDetailViewModel {
     private(set) var timelineGraphViewModelByScoreItem: [TimelineScoreItemType: TimelineGraphViewModel]
     
     var localizedTitle: String {
-        "TDB"
+        selectedScore.stringValue()
     }
     
     init(

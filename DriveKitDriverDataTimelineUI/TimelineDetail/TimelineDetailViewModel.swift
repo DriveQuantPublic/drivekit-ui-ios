@@ -71,6 +71,7 @@ class TimelineDetailViewModel {
                 period: selectedPeriod,
                 selectedIndex: selectedDateIndex
             )
+            self.dateSelectorViewModel.delegate = self
             
             self.roadContextViewModel.configure(
                 distanceByContext: cleanedTimeline.distanceByRoadContext(
@@ -108,5 +109,11 @@ class TimelineDetailViewModel {
                 preconditionFailure("period \(self.selectedPeriod) is not implemented yet")
         }
         return timelineSource
+    }
+}
+
+extension TimelineDetailViewModel: DateSelectorDelegate {
+    func dateSelectorDidSelectDate(_ date: Date) {
+        #warning("Configure delegate")
     }
 }

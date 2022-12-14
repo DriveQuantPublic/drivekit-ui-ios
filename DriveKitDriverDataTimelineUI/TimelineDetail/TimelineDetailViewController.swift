@@ -30,13 +30,21 @@ class TimelineDetailViewController: DKUIViewController {
         
         self.title = viewModel.localizedTitle
         
-        setupPeriodSelectors()
+        setupPeriodSelector()
         setupDateSelector()
         setupRoadContext()
         setupScoreItemGraphViews()
     }
     
-    private func setupPeriodSelectors() {
+    private func setupPeriodSelector() {
+        if let periodSelector = Bundle.driverDataTimelineUIBundle?.loadNibNamed(
+            "PeriodSelectorView",
+            owner: nil,
+            options: nil
+        )?.first as? PeriodSelectorView {
+            self.periodSelectorContainerView.embedSubview(periodSelector)
+            periodSelector.viewModel = viewModel.periodSelectorViewModel
+        }
     }
     
     private func setupDateSelector() {

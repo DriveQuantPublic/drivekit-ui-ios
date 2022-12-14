@@ -83,3 +83,21 @@ class PeriodSelectorView: UIView {
         }
     }
 }
+
+extension PeriodSelectorView {
+    static func createPeriodSelectorView(
+        configuredWith viewModel: PeriodSelectorViewModel,
+        embededIn containerView: UIView
+    ) {
+        guard let periodSelector = Bundle.driverDataTimelineUIBundle?.loadNibNamed(
+            "PeriodSelectorView",
+            owner: nil,
+            options: nil
+        )?.first as? PeriodSelectorView else {
+            preconditionFailure("Can't find bundle or nib for PeriodSelectorView")
+        }
+        
+        containerView.embedSubview(periodSelector)
+        periodSelector.viewModel = viewModel
+    }
+}

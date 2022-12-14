@@ -116,12 +116,11 @@ class TimelineViewController: DKUIViewController {
                 }
             }
         }
-
-        let periodSelector = Bundle.driverDataTimelineUIBundle?.loadNibNamed("PeriodSelectorView", owner: nil, options: nil)?.first as? PeriodSelectorView
-        if let periodSelector {
-            self.periodSelectorContainer.embedSubview(periodSelector)
-            periodSelector.viewModel = self.viewModel.periodSelectorViewModel
-        }
+        
+        PeriodSelectorView.createPeriodSelectorView(
+            configuredWith: viewModel.periodSelectorViewModel,
+            embededIn: periodSelectorContainer
+        )
     }
 
     private func setupGraphView() {

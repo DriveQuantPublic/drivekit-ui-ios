@@ -80,6 +80,22 @@ class RoadContextViewModel {
         }
     }
     
+    var emptyDataDescription: String {
+        switch roadContextType {
+            case .data:
+                assertionFailure("We should not display emptyDataDescription when we have data")
+                return ""
+            case .emptyData:
+                return "dk_timeline_road_context_description_empty_data".dkDriverDataTimelineLocalized()
+            case .noData:
+                return "dk_timeline_road_context_no_context_description".dkDriverDataTimelineLocalized()
+            case .noDataSafety:
+                return "dk_timeline_road_context_description_no_data_safety".dkDriverDataTimelineLocalized()
+            case .noDataEcodriving:
+                return "dk_timeline_road_context_description_no_data_ecodriving".dkDriverDataTimelineLocalized()
+        }
+    }
+    
     func configure(with roadContextType: RoadContextType) {
         self.roadContextType = roadContextType
         self.totalDistanceForDisplayedContexts = roadContextType.distanceByContext.reduce(

@@ -31,7 +31,7 @@ class RoadContextView: UIView {
 
     func refreshView() {
         if let viewModel = viewModel {
-            self.titleLabel.text = viewModel.getTitle()
+            self.titleLabel.text = viewModel.title
             self.roadContextBarView.configure(viewModel: viewModel)
         }
         self.collectionViewHeightConstraint.constant =

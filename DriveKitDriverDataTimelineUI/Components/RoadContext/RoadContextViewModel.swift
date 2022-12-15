@@ -60,7 +60,7 @@ class RoadContextViewModel {
     
     var itemsToDraw: [(context: TimelineRoadContext, percent: Double)] = []
 
-    func getTitle() -> String {
+    var title: String {
         switch self.roadContextType {
             case let .data(_, totalDistanceForAllContexts):
             return String(

@@ -18,6 +18,33 @@ enum RoadContextType {
     case noData
     case noDataSafety
     case noDataEcodriving
+    
+    var hasData: Bool {
+        switch self {
+        case .data:
+            return true
+        case .noData, .emptyData, .noDataSafety, .noDataEcodriving:
+            return false
+        }
+    }
+    
+    var distanceByContext: [TimelineRoadContext: Double] {
+        switch self {
+        case let .data(distanceByContext, _):
+            return distanceByContext
+        case .noData, .emptyData, .noDataSafety, .noDataEcodriving:
+            return [:]
+        }
+    }
+    
+    var totalDistanceForAllContexts: Double {
+        switch self {
+        case let .data(_, totalDistanceForAllContexts):
+            return totalDistanceForAllContexts
+        case .noData, .emptyData, .noDataSafety, .noDataEcodriving:
+            return 0
+        }
+    }
 }
 
 class RoadContextViewModel {

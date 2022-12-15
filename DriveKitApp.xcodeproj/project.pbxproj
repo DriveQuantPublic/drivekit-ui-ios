@@ -366,7 +366,7 @@
 		63F8B2B728F960BA0084B53A /* PeriodSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2B628F960BA0084B53A /* PeriodSelectorView.swift */; };
 		63F8B2B928F960CA0084B53A /* PeriodSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2B828F960CA0084B53A /* PeriodSelectorViewModel.swift */; };
 		63F8B2BB28F960E20084B53A /* PeriodSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2BA28F960E20084B53A /* PeriodSelectorDelegate.swift */; };
-		63F8B2BF28F961440084B53A /* RoadContextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2BE28F961440084B53A /* RoadContextView.swift */; };
+		63F8B2BF28F961440084B53A /* RoadContextDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2BE28F961440084B53A /* RoadContextDataView.swift */; };
 		63F8B2C128F961570084B53A /* RoadContextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2C028F961570084B53A /* RoadContextViewModel.swift */; };
 		63F8B2C328F9617C0084B53A /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2C228F9617C0084B53A /* TimelineViewController.swift */; };
 		63F8B2C528F961960084B53A /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2C428F961960084B53A /* TimelineViewModel.swift */; };
@@ -505,7 +505,7 @@
 		67CFE9A725F645EA004D0AE1 /* SpeedingPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */; };
 		67CFE9F925FA1385004D0AE1 /* SpeedingPageItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE9F825FA1385004D0AE1 /* SpeedingPageItemView.swift */; };
 		67CFEA0025FA16EC004D0AE1 /* SpeedingPageItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67CFE9FF25FA16EC004D0AE1 /* SpeedingPageItemView.xib */; };
-		67D6CD862908276F0055632B /* RoadContextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67D6CD852908276F0055632B /* RoadContextView.xib */; };
+		67D6CD862908276F0055632B /* RoadContextDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67D6CD852908276F0055632B /* RoadContextDataView.xib */; };
 		67D6CD8929090B750055632B /* RoadContextItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D6CD8729090B750055632B /* RoadContextItemCell.swift */; };
 		67D6CD8A29090B750055632B /* RoadContextItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67D6CD8829090B750055632B /* RoadContextItemCell.xib */; };
 		67D6CD8C290912640055632B /* EmptyRoadContextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D6CD8B290912640055632B /* EmptyRoadContextView.swift */; };
@@ -614,6 +614,7 @@
 		A3D51F51241BA3AE006DACE2 /* VehiclesListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3D51F4D241BA3AE006DACE2 /* VehiclesListCell.xib */; };
 		AD2690683829D301D9573CEC /* Pods_DriveKitChallengeUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158BFF3EE484B6293C97E890 /* Pods_DriveKitChallengeUI.framework */; };
 		C2ECBA09D9742158769AE627 /* Pods_DriveKitPermissionsUtilsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3A98094797ED33BAF53826 /* Pods_DriveKitPermissionsUtilsUI.framework */; };
+		E3B8309D294B1DCE00E31848 /* RoadContextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B8309C294B1DCE00E31848 /* RoadContextView.swift */; };
 		FA5F8336F7F9D6E9CBACE91B /* Pods_DriveKitDriverAchievementUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36173251B2A47392720E8B05 /* Pods_DriveKitDriverAchievementUI.framework */; };
 		FE2C04BD97A78F4B22CD7008 /* Pods_DriveKitDriverDataUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55652B494DACA2423EDB5A8E /* Pods_DriveKitDriverDataUI.framework */; };
 /* End PBXBuildFile section */
@@ -1162,7 +1163,7 @@
 		63F8B2B628F960BA0084B53A /* PeriodSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodSelectorView.swift; sourceTree = "<group>"; };
 		63F8B2B828F960CA0084B53A /* PeriodSelectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodSelectorViewModel.swift; sourceTree = "<group>"; };
 		63F8B2BA28F960E20084B53A /* PeriodSelectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodSelectorDelegate.swift; sourceTree = "<group>"; };
-		63F8B2BE28F961440084B53A /* RoadContextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadContextView.swift; sourceTree = "<group>"; };
+		63F8B2BE28F961440084B53A /* RoadContextDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadContextDataView.swift; sourceTree = "<group>"; };
 		63F8B2C028F961570084B53A /* RoadContextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadContextViewModel.swift; sourceTree = "<group>"; };
 		63F8B2C228F9617C0084B53A /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		63F8B2C428F961960084B53A /* TimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
@@ -1301,7 +1302,7 @@
 		67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageViewModel.swift; sourceTree = "<group>"; };
 		67CFE9F825FA1385004D0AE1 /* SpeedingPageItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageItemView.swift; sourceTree = "<group>"; };
 		67CFE9FF25FA16EC004D0AE1 /* SpeedingPageItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedingPageItemView.xib; sourceTree = "<group>"; };
-		67D6CD852908276F0055632B /* RoadContextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoadContextView.xib; sourceTree = "<group>"; };
+		67D6CD852908276F0055632B /* RoadContextDataView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoadContextDataView.xib; sourceTree = "<group>"; };
 		67D6CD8729090B750055632B /* RoadContextItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadContextItemCell.swift; sourceTree = "<group>"; };
 		67D6CD8829090B750055632B /* RoadContextItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoadContextItemCell.xib; sourceTree = "<group>"; };
 		67D6CD8B290912640055632B /* EmptyRoadContextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyRoadContextView.swift; sourceTree = "<group>"; };
@@ -1433,6 +1434,7 @@
 		A3D51F4D241BA3AE006DACE2 /* VehiclesListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VehiclesListCell.xib; sourceTree = "<group>"; };
 		C6CF2F88D8CEC4FD0F65BD58 /* Pods-DriveKitChallengeUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitChallengeUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitChallengeUI/Pods-DriveKitChallengeUI.debug.xcconfig"; sourceTree = "<group>"; };
 		DCBF31C151237FEA8EDE3CF0 /* Pods-DriveKitDriverDataUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverDataUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverDataUI/Pods-DriveKitDriverDataUI.release.xcconfig"; sourceTree = "<group>"; };
+		E3B8309C294B1DCE00E31848 /* RoadContextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadContextView.swift; sourceTree = "<group>"; };
 		FA713DC763C119AEF200C7B2 /* Pods-DriveKitDriverDataTimelineUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverDataTimelineUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverDataTimelineUI/Pods-DriveKitDriverDataTimelineUI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -2500,9 +2502,10 @@
 		63F8B29F28F95EF70084B53A /* RoadContext */ = {
 			isa = PBXGroup;
 			children = (
-				63F8B2BE28F961440084B53A /* RoadContextView.swift */,
+				E3B8309C294B1DCE00E31848 /* RoadContextView.swift */,
 				63F8B2C028F961570084B53A /* RoadContextViewModel.swift */,
-				67D6CD852908276F0055632B /* RoadContextView.xib */,
+				63F8B2BE28F961440084B53A /* RoadContextDataView.swift */,
+				67D6CD852908276F0055632B /* RoadContextDataView.xib */,
 				67D6CD8729090B750055632B /* RoadContextItemCell.swift */,
 				67D6CD8829090B750055632B /* RoadContextItemCell.xib */,
 				67D6CD8B290912640055632B /* EmptyRoadContextView.swift */,
@@ -3813,7 +3816,7 @@
 				63F8B29E28F95E3F0084B53A /* Timeline.xcassets in Resources */,
 				63F8B2D028F9B27B0084B53A /* DriverDataTimelineLocalizable.strings in Resources */,
 				67D6CD8A29090B750055632B /* RoadContextItemCell.xib in Resources */,
-				67D6CD862908276F0055632B /* RoadContextView.xib in Resources */,
+				67D6CD862908276F0055632B /* RoadContextDataView.xib in Resources */,
 				639D184B29008919008293B8 /* PeriodSelectorView.xib in Resources */,
 				67D6CD90291013760055632B /* DateSelectorView.xib in Resources */,
 				63F8B2DF28FDB0A20084B53A /* ScoreSelectionTypeView.xib in Resources */,
@@ -4391,7 +4394,8 @@
 				63F8B2B528F960900084B53A /* TimelineGraphDelegate.swift in Sources */,
 				63454B8F29067C6000A9B10F /* GraphViewModel.swift in Sources */,
 				63454B9F2907DC8D00A9B10F /* TimelineDateExtension.swift in Sources */,
-				63F8B2BF28F961440084B53A /* RoadContextView.swift in Sources */,
+				E3B8309D294B1DCE00E31848 /* RoadContextView.swift in Sources */,
+				63F8B2BF28F961440084B53A /* RoadContextDataView.swift in Sources */,
 				63F8B2C128F961570084B53A /* RoadContextViewModel.swift in Sources */,
 				63F8B2C528F961960084B53A /* TimelineViewModel.swift in Sources */,
 				674B3B2329196CE800C62895 /* GraphConstants.swift in Sources */,

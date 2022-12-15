@@ -33,6 +33,8 @@ class EmptyRoadContextView: UIView {
         let titleKey: String
         let descriptionKey: String
         switch self.type {
+            case .data:
+                preconditionFailure("We should not display EmptyRoadContextView when we have data")
             case .emptyData:
                 titleKey = "dk_timeline_road_context_title_empty_data"
                 descriptionKey = "dk_timeline_road_context_description_empty_data"

@@ -10,6 +10,10 @@ import UIKit
 import DriveKitDBTripAccessModule
 
 enum RoadContextType {
+    case data(
+        distanceByContext: [TimelineRoadContext: Double],
+        totalDistanceForAllContexts: Double
+    )
     case emptyData
     case noData
     case noDataSafety

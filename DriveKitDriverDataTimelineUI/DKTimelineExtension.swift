@@ -208,7 +208,7 @@ extension DKTimeline {
     }
     
     private func hasValidTripScored(
-        for selectedScore: DKTimelineScoreType,
+        for selectedScore: DKScoreType,
         selectedIndex: Int
     ) -> Bool {
         // Distraction and Speeding can have score for short trip which

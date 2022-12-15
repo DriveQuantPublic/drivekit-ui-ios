@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 import DriveKitDBTripAccessModule
 
 enum RoadContextType {
@@ -100,7 +101,7 @@ class RoadContextViewModel {
     }
     
     func configure(
-        with selectedScore: DKTimelineScoreType,
+        with selectedScore: DKScoreType,
         timeline: DKTimeline?,
         selectedIndex: Int? = nil
     ) {

@@ -139,6 +139,7 @@ class TimelineViewModel {
             if let selectedDateIndex {
                 self.selectedDate = dates[selectedDateIndex]
                 self.dateSelectorViewModel.configure(dates: dates, period: self.currentPeriod, selectedIndex: selectedDateIndex)
+                self.dateSelectorViewModel.delegate = self
                 self.periodSelectorViewModel.configure(selectedPeriod: self.currentPeriod)
                 self.timelineGraphViewModel.configure(timeline: cleanedTimeline, timelineSelectedIndex: selectedDateIndex, graphItem: .score(self.selectedScore), period: self.currentPeriod)
                 self.roadContextViewModel.configure(

@@ -43,3 +43,22 @@ class DateSelectorView: UIView {
         self.viewModel?.moveToPreviousDate()
     }
 }
+
+extension DateSelectorView {
+    static func createDateSelectorView(
+        configuredWith viewModel: DateSelectorViewModel,
+        embededIn containerView: UIView
+    ) {
+        guard let dateSelectorView = Bundle.driverDataTimelineUIBundle?.loadNibNamed(
+            "DateSelectorView",
+            owner: nil
+        )?.first as? DateSelectorView else {
+            preconditionFailure("Can't find bundle or nib for DateSelectorView")
+        }
+        
+        dateSelectorView.configure(viewModel: viewModel)
+        containerView.embedSubview(dateSelectorView)
+        containerView.layer.cornerRadius = TimelineConstants.UIStyle.cornerRadius
+        containerView.clipsToBounds = true
+    }
+}

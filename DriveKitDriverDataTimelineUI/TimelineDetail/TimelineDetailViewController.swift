@@ -44,17 +44,10 @@ class TimelineDetailViewController: DKUIViewController {
     }
     
     private func setupDateSelector() {
-        guard let dateSelectorView = Bundle.driverDataTimelineUIBundle?.loadNibNamed(
-            "DateSelectorView",
-            owner: nil
-        )?.first as? DateSelectorView else {
-            return
-        }
-        
-        dateSelectorView.configure(viewModel: viewModel.dateSelectorViewModel)
-        dateSelectorContainerView.embedSubview(dateSelectorView)
-        dateSelectorContainerView.layer.cornerRadius = TimelineConstants.UIStyle.cornerRadius
-        dateSelectorContainerView.clipsToBounds = true
+        DateSelectorView.createDateSelectorView(
+            configuredWith: viewModel.dateSelectorViewModel,
+            embededIn: dateSelectorContainerView
+        )
     }
     
     private func setupRoadContext() {

@@ -24,13 +24,6 @@ class TimelineViewModel {
             update()
         }
     }
-    var hasData: Bool {
-        if let timelineSource = getTimelineSource() {
-            return !timelineSource.allContext.numberTripTotal.isEmpty
-        } else {
-            return false
-        }
-    }
     private var weekTimeline: DKTimeline?
     private var monthTimeline: DKTimeline?
     private var currentPeriod: DKTimelinePeriod
@@ -142,7 +135,6 @@ class TimelineViewModel {
         } else {
             configureWithNoData()
         }
-        self.delegate?.needToBeRefreshed()
     }
 
     private func configureWithNoData() {

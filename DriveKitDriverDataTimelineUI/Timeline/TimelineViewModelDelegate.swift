@@ -11,5 +11,4 @@ import Foundation
 protocol TimelineViewModelDelegate: AnyObject {
     func willUpdateTimeline()
     func didUpdateTimeline()
-    func needToBeRefreshed()
 }

@@ -18,8 +18,8 @@ class TimelineViewController: DKUIViewController {
     @IBOutlet private weak var timelineGraphViewContainer: UIView!
     private let viewModel: TimelineViewModel
     private var selectedScoreSelectionTypeView: ScoreSelectionTypeView? = nil
-    private let roadContextview = Bundle.driverDataTimelineUIBundle?.loadNibNamed("RoadContextView", owner: nil, options: nil)?.first as? RoadContextView
-    private let emptyRoadContextView = Bundle.driverDataTimelineUIBundle?.loadNibNamed("EmptyRoadContextView", owner: nil, options: nil)?.first as? EmptyRoadContextView
+    private let roadContextView = RoadContextView()
+//    private let emptyRoadContextView = Bundle.driverDataTimelineUIBundle?.loadNibNamed("EmptyRoadContextView", owner: nil, options: nil)?.first as? EmptyRoadContextView
     private let cornerRadius: CGFloat = 8
 
     init(viewModel: TimelineViewModel) {
@@ -149,35 +149,9 @@ class TimelineViewController: DKUIViewController {
     private func setupRoadContext() {
         self.roadContextContainer.layer.cornerRadius = self.cornerRadius
         self.roadContextContainer.clipsToBounds = true
-        if let roadContextview = self.roadContextview {
-            self.viewModel.roadContextViewModel.delegate = roadContextview
-            roadContextview.configure(viewModel: self.viewModel.roadContextViewModel)
-        }
-        self.refreshRoadContextContainer()
-    }
-
-    private func refreshRoadContextContainer() {
-        guard let roadContextview = self.roadContextview, let emptyRoadContextView = self.emptyRoadContextView else {
-            return
-        }
-        self.roadContextContainer.removeSubviews()
-        if self.viewModel.roadContextViewModel.getActiveContextNumber() > 0 {
-            self.roadContextContainer.embedSubview(roadContextview)
-        } else {
-            if !self.viewModel.hasData {
-                emptyRoadContextView.type = .emptyData
-            } else {
-                switch self.viewModel.selectedScore {
-                    case .distraction, .speeding:
-                        emptyRoadContextView.type = .noData
-                    case .safety:
-                        emptyRoadContextView.type = .noDataSafety
-                    case .ecoDriving:
-                        emptyRoadContextView.type = .noDataEcodriving
-                }
-            }
-            self.roadContextContainer.embedSubview(emptyRoadContextView)
-        }
+        self.viewModel.roadContextViewModel.delegate = roadContextView
+        roadContextView.configure(viewModel: self.viewModel.roadContextViewModel)
+        self.roadContextContainer.embedSubview(roadContextView)
     }
 }
 
@@ -188,11 +162,5 @@ extension TimelineViewController: TimelineViewModelDelegate {
 
     func didUpdateTimeline() {
         hideRefreshControl()
-        self.refreshRoadContextContainer()
     }
-
-    func needToBeRefreshed() {
-        self.refreshRoadContextContainer()
-    }
-
 }

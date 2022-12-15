@@ -9,6 +9,13 @@
 import UIKit
 import DriveKitDBTripAccessModule
 
+enum RoadContextType {
+    case emptyData
+    case noData
+    case noDataSafety
+    case noDataEcodriving
+}
+
 class RoadContextViewModel {
     private var distanceByContext: [TimelineRoadContext: Double] = [:]
     private var totalDistanceForDisplayedContexts: Double = 0

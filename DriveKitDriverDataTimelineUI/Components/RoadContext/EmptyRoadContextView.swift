@@ -12,7 +12,7 @@ import DriveKitCommonUI
 class EmptyRoadContextView: UIView {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
-    var type: EmptyRoadContextType = .emptyData {
+    var type: RoadContextType = .emptyData {
         didSet {
             update()
         }
@@ -51,11 +51,4 @@ class EmptyRoadContextView: UIView {
         self.titleLabel.textColor = DKUIColors.primaryColor.color
         self.descriptionLabel.textColor = DKUIColors.complementaryFontColor.color
     }
-}
-
-enum EmptyRoadContextType {
-    case emptyData
-    case noData
-    case noDataSafety
-    case noDataEcodriving
 }

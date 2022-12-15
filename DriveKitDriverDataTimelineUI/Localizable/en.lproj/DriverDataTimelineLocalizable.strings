@@ -30,6 +30,8 @@
 "dk_timeline_road_context_title"="Driving context (%@)";
 "dk_timeline_road_context_title_empty_data"="You don\'t have any data yet";
 "dk_timeline_road_context_title_no_data"="No data to display";
+"dk_timeline_road_context_no_context_title" = "No context";
+"dk_timeline_road_context_no_context_description" = "The trips for the selected dates have no context.";
 "dk_timeline_safety_score"="Safety score: %@";
 "dk_timeline_speeding_score"="Speeding score: %@";
 "dk_timeline_title"="Timeline";

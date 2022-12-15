@@ -30,6 +30,8 @@
 "dk_timeline_road_context_title"="Contesto stradale (%@)";
 "dk_timeline_road_context_title_empty_data"="Non si dispone ancora di dati";
 "dk_timeline_road_context_title_no_data"="Nessun dato da visualizzare";
+"dk_timeline_road_context_no_context_title" = "Nessun contesto";
+"dk_timeline_road_context_no_context_description" = "I viaggi per le date selezionate non sono contestualizzati.";
 "dk_timeline_safety_score"="Punteggio di sicurezza: %@";
 "dk_timeline_speeding_score"="Punteggio di velocità: %@";
 "dk_timeline_title"="Timeline";

@@ -172,7 +172,12 @@ class TimelineViewModel {
         } else {
             totalDistanceForAllContexts = 0
         }
-        self.roadContextViewModel.configure(distanceByContext: distanceByContext, totalDistanceForAllContexts: totalDistanceForAllContexts)
+        self.roadContextViewModel.configure(
+            with: .data(
+                distanceByContext: distanceByContext,
+                totalDistanceForAllContexts: totalDistanceForAllContexts
+            )
+        )
     }
 
     private func getTimelineSource() -> DKTimeline? {

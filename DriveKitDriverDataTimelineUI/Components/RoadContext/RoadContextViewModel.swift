@@ -48,9 +48,8 @@ enum RoadContextType {
 }
 
 class RoadContextViewModel {
-    private var distanceByContext: [TimelineRoadContext: Double] = [:]
+    private var roadContextType: RoadContextType = .emptyData
     private var totalDistanceForDisplayedContexts: Double = 0
-    private var totalDistanceForAllContexts: Double = 0
     private static let backgroundColor = UIColor(hex: 0xFAFAFA)
     private static let heavyUrbanTrafficColor = UIColor(hex: 0x036A82)
     private static let suburbanColor = UIColor(hex: 0x699DAD)
@@ -58,18 +57,36 @@ class RoadContextViewModel {
     private static let expresswaysColor = UIColor(hex: 0x8FB7C2)
     weak var delegate: RoadContextViewModelDelegate?
 
+    
     var itemsToDraw: [(context: TimelineRoadContext, percent: Double)] = []
 
     func getTitle() -> String {
-        return String(format:"dk_timeline_road_context_title".dkDriverDataTimelineLocalized(), self.totalDistanceForAllContexts.formatKilometerDistance(minDistanceToRemoveFractions: 10))
+        switch self.roadContextType {
+            case let .data(_, totalDistanceForAllContexts):
+            return String(
+                format: "dk_timeline_road_context_title".dkDriverDataTimelineLocalized(),
+                totalDistanceForAllContexts.formatKilometerDistance(
+                    minDistanceToRemoveFractions: 10
+                )
+            )
+            case .emptyData:
+                return "dk_timeline_road_context_title_empty_data".dkDriverDataTimelineLocalized()
+            case .noData:
+                return "dk_timeline_road_context_no_context_title".dkDriverDataTimelineLocalized()
+            case .noDataSafety:
+                return "dk_timeline_road_context_title_no_data".dkDriverDataTimelineLocalized()
+            case .noDataEcodriving:
+                return "dk_timeline_road_context_title_no_data".dkDriverDataTimelineLocalized()
+        }
     }
-
-    func configure(distanceByContext: [TimelineRoadContext: Double], totalDistanceForAllContexts: Double) {
-        self.distanceByContext = distanceByContext
-        self.totalDistanceForDisplayedContexts = distanceByContext.reduce(into: 0.0) { distance, element in
+    
+    func configure(with roadContextType: RoadContextType) {
+        self.roadContextType = roadContextType
+        self.totalDistanceForDisplayedContexts = roadContextType.distanceByContext.reduce(
+            into: 0.0
+        ) { distance, element in
             distance += element.value
         }
-        self.totalDistanceForAllContexts = totalDistanceForAllContexts
         self.updateItemsToDraw()
         self.delegate?.roadContextViewModelDidUpdate()
     }
@@ -87,7 +104,7 @@ class RoadContextViewModel {
     
     func getActiveContextNumber() -> Int {
         var total: Int = 0
-        for (_, dist) in distanceByContext {
+        for (_, dist) in roadContextType.distanceByContext {
             if dist > 0 {
                 total = total + 1
             }
@@ -96,7 +113,7 @@ class RoadContextViewModel {
     }
 
     func getPercent(context: TimelineRoadContext) -> Double {
-        guard let contextDistance = distanceByContext[context] else {
+        guard let contextDistance = roadContextType.distanceByContext[context] else {
             return 0
         }
         return contextDistance / totalDistanceForDisplayedContexts

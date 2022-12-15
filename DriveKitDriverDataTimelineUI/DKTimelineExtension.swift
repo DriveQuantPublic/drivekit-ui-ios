@@ -9,6 +9,11 @@ import Foundation
 import DriveKitDBTripAccessModule
 
 extension DKTimeline {
+    
+    var hasData: Bool {
+        self.allContext.numberTripTotal.isEmpty == false
+    }
+    
     /// Compute distance by road contexts from the timeline
     func distanceByRoadContext(
         selectedScore: DKTimelineScoreType,

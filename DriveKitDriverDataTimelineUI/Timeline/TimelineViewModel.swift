@@ -131,7 +131,11 @@ class TimelineViewModel {
                 self.dateSelectorViewModel.configure(dates: dates, period: self.currentPeriod, selectedIndex: selectedDateIndex)
                 self.periodSelectorViewModel.configure(selectedPeriod: self.currentPeriod)
                 self.timelineGraphViewModel.configure(timeline: cleanedTimeline, timelineSelectedIndex: selectedDateIndex, graphItem: .score(self.selectedScore), period: self.currentPeriod)
-                updateRoadContextViewModel(timeline: cleanedTimeline, selectedIndex: selectedDateIndex)
+                self.roadContextViewModel.configure(
+                    with: selectedScore,
+                    timeline: cleanedTimeline,
+                    selectedIndex: selectedDateIndex
+                )
             } else {
                 configureWithNoData()
             }
@@ -154,30 +158,11 @@ class TimelineViewModel {
         if let startDate {
             self.dateSelectorViewModel.configure(dates: [startDate], period: self.currentPeriod, selectedIndex: 0)
             self.timelineGraphViewModel.showEmptyGraph(graphItem: .score(self.selectedScore), period: self.currentPeriod)
-            updateRoadContextViewModel(timeline: getTimelineSource(), selectedIndex: nil)
-        }
-    }
-
-    private func updateRoadContextViewModel(timeline: DKTimeline?, selectedIndex: Int?) {
-        let totalDistanceForAllContexts: Double
-        var distanceByContext: [TimelineRoadContext: Double] = [:]
-        if let timeline, let selectedIndex, self.selectedScore == .distraction || self.selectedScore == .speeding || timeline.allContext.numberTripScored[selectedIndex] > 0 {
-            totalDistanceForAllContexts = timeline.allContext.distance[selectedIndex]
-            for roadContext in timeline.roadContexts {
-                if let timelineRoadContext = TimelineRoadContext(roadContext: roadContext.type) {
-                    let distance = roadContext.distance[selectedIndex]
-                    distanceByContext[timelineRoadContext] = distance
-                }
-            }
-        } else {
-            totalDistanceForAllContexts = 0
-        }
-        self.roadContextViewModel.configure(
-            with: .data(
-                distanceByContext: distanceByContext,
-                totalDistanceForAllContexts: totalDistanceForAllContexts
+            roadContextViewModel.configure(
+                with: selectedScore,
+                timeline: getTimelineSource()
             )
-        )
+        }
     }
 
     private func getTimelineSource() -> DKTimeline? {

@@ -96,8 +96,43 @@ class RoadContextViewModel {
         }
     }
     
-    func configure(with roadContextType: RoadContextType) {
-        self.roadContextType = roadContextType
+    func configure(
+        with selectedScore: DKTimelineScoreType,
+        timeline: DKTimeline?,
+        selectedIndex: Int? = nil
+    ) {
+        if let timeline, let selectedIndex, timeline.hasData {
+            var distanceByContext: [TimelineRoadContext: Double] = [:]
+            var totalDistanceForAllContexts: Double = 0
+            
+            distanceByContext = timeline.distanceByRoadContext(
+                selectedScore: selectedScore,
+                selectedIndex: selectedIndex
+            )
+            totalDistanceForAllContexts = timeline.totalDistanceForAllContexts(
+                selectedScore: selectedScore,
+                selectedIndex: selectedIndex
+            )
+            
+            if distanceByContext.isEmpty {
+                switch selectedScore {
+                case .distraction, .speeding:
+                    roadContextType = .noData
+                case .safety:
+                    roadContextType = .noDataSafety
+                case .ecoDriving:
+                    roadContextType = .noDataEcodriving
+                }
+            } else {
+                roadContextType = .data(
+                    distanceByContext: distanceByContext,
+                    totalDistanceForAllContexts: totalDistanceForAllContexts
+                )
+            }
+        } else {
+            roadContextType = .emptyData
+        }
+        
         self.totalDistanceForDisplayedContexts = roadContextType.distanceByContext.reduce(
             into: 0.0
         ) { distance, element in

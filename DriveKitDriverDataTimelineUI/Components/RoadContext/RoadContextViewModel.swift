@@ -57,6 +57,9 @@ class RoadContextViewModel {
     private static let expresswaysColor = UIColor(hex: 0x8FB7C2)
     weak var delegate: RoadContextViewModelDelegate?
 
+    var hasData: Bool {
+        roadContextType.hasData
+    }
     
     var itemsToDraw: [(context: TimelineRoadContext, percent: Double)] = []
 

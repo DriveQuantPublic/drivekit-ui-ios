@@ -2500,14 +2500,10 @@
 				63F8B2A228F95F230084B53A /* Components */,
 				63F8B2CD28F9B23B0084B53A /* Localizable */,
 				63F8B2CB28F9851C0084B53A /* DriveKitDriverDataTimelineUI.swift */,
-				63F8B2DA28FD5B250084B53A /* DKScoreTypeExtension.swift */,
-				63454B9E2907DC8D00A9B10F /* TimelineDateExtension.swift */,
+				E3B830A2294CB54200E31848 /* Helpers */,
 				63F8B29D28F95E3F0084B53A /* Timeline.xcassets */,
 				63F8B29C28F95C2C0084B53A /* Info.plist */,
 				63F8B29128F958B90084B53A /* DriveKitDriverDataTimelineUI.h */,
-				E3559EBC294868CB00AAB747 /* DKTimelineExtension.swift */,
-				E36085012948C37C0097A639 /* TimelineConstants.swift */,
-				E3B830A0294CB4A700E31848 /* Helpers.swift */,
 			);
 			path = DriveKitDriverDataTimelineUI;
 			sourceTree = "<group>";
@@ -3367,6 +3363,18 @@
 				5E2827ABB27702690C9C0258 /* Pods-DriveKitDriverDataTimelineUI.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E3B830A2294CB54200E31848 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				63F8B2DA28FD5B250084B53A /* DKScoreTypeExtension.swift */,
+				63454B9E2907DC8D00A9B10F /* TimelineDateExtension.swift */,
+				E3559EBC294868CB00AAB747 /* DKTimelineExtension.swift */,
+				E36085012948C37C0097A639 /* TimelineConstants.swift */,
+				E3B830A0294CB4A700E31848 /* Helpers.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -99,6 +99,18 @@ class TimelineDetailViewModel {
         }
     }
     
+    func showPreviousGraphData() {
+        self.timelineGraphViewModelByScoreItem.forEach { _, viewModel in
+            viewModel.showPreviousGraphData()
+        }
+    }
+
+    func showNextGraphData() {
+        self.timelineGraphViewModelByScoreItem.forEach { _, viewModel in
+            viewModel.showNextGraphData()
+        }
+    }
+    
     private func getTimelineSource() -> DKTimeline {
         let timelineSource: DKTimeline
         switch self.selectedPeriod {

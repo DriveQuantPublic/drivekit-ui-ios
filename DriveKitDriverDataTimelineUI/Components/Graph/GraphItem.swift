@@ -154,6 +154,55 @@ extension GraphItem {
             }
         }
     }
+    
+    var graphMaxValue: Double? {
+        get {
+            switch self {
+                case let .score(type):
+                    switch type {
+                        case .distraction:
+                            return 10
+                        case .ecoDriving:
+                            return 10
+                        case .safety:
+                            return 10
+                        case .speeding:
+                            return 10
+                    }
+                case let .scoreItem(type):
+                    switch type {
+                        case .distraction_callForbiddenDuration:
+                            return nil
+                        case .distraction_percentageOfTripsWithForbiddenCall:
+                            return nil
+                        case .distraction_unlock:
+                            return nil
+                        case .ecoDriving_fuelSavings:
+                            return nil
+                        case .ecoDriving_efficiencyAcceleration:
+                            return 5
+                        case .ecoDriving_efficiencyBrake:
+                            return 5
+                        case .ecoDriving_efficiencySpeedMaintain:
+                            return 5
+                        case .ecoDriving_fuelVolume:
+                            return nil
+                        case .ecoDriving_co2mass:
+                            return nil
+                        case .safety_acceleration:
+                            return nil
+                        case .safety_adherence:
+                            return nil
+                        case .safety_braking:
+                            return nil
+                        case .speeding_distance:
+                            return nil
+                        case .speeding_duration:
+                            return nil
+                    }
+            }
+        }
+    }
 
     func getGraphDescription(fromValue value: Double?) -> String {
         guard let value else {

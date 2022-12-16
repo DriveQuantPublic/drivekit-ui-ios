@@ -111,11 +111,12 @@ class TimelineGraphViewModel: GraphViewModel {
         self.selectedIndex = selectedIndex
         self.xAxisConfig = GraphAxisConfig(min: 0, max: Double(graphPointNumber - 1), labels: graphDates)
         let minYValue = graphItem.graphMinValue
+        let maxYValue = graphItem.graphMaxValue ?? max(graphPoints.map { $0?.y ?? 0 }.max() ?? 10, 10)
         var labels: [String] = []
-        for i in Int(minYValue)...10 {
+        for i in Int(minYValue)...Int(maxYValue) {
             labels.append("\(i)")
         }
-        self.yAxisConfig = GraphAxisConfig(min: graphItem.graphMinValue, max: 10, labels: labels)
+        self.yAxisConfig = GraphAxisConfig(min: minYValue, max: maxYValue, labels: labels)
         self.title = graphItem.graphTitle
         self.description = graphDescription
         self.graphViewModelDidUpdate?()

@@ -13,7 +13,7 @@ import DriveKitDBTripAccessModule
 class TimelineDetailViewModel {
     weak var delegate: TimelineViewModelDelegate?
     private let selectedScore: DKScoreType
-    private let selectedPeriod: DKTimelinePeriod
+    private var selectedPeriod: DKTimelinePeriod
     private var selectedDate: Date
     private let weekTimeline: DKTimeline
     private let monthTimeline: DKTimeline
@@ -69,7 +69,8 @@ class TimelineDetailViewModel {
             self.periodSelectorViewModel.configure(
                 selectedPeriod: selectedPeriod
             )
-            
+            self.periodSelectorViewModel.delegate = self
+
             self.dateSelectorViewModel.configure(
                 dates: dates,
                 period: selectedPeriod,
@@ -115,5 +116,20 @@ extension TimelineDetailViewModel: DateSelectorDelegate {
     func dateSelectorDidSelectDate(_ date: Date) {
         selectedDate = date
         configureViewModels()
+    }
+}
+
+extension TimelineDetailViewModel: PeriodSelectorDelegate {
+    func periodSelectorDidSelectPeriod(_ period: DriveKitDBTripAccessModule.DKTimelinePeriod) {
+        if self.selectedPeriod != period {
+            self.selectedPeriod = period
+            self.selectedDate = Helpers.newSelectedDate(
+                from: selectedDate,
+                switchingTo: period,
+                weekTimeline: weekTimeline,
+                monthTimeline: monthTimeline
+            )
+            configureViewModels()
+        }
     }
 }

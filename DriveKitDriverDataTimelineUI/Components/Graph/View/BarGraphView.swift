@@ -97,6 +97,7 @@ class BarGraphView: GraphViewBase {
                 self.chartView.leftAxis.axisMaximum = max
             }
         }
+        self.chartView.clipDataToContentEnabled = false
 
         self.chartView.delegate = self
         if let entryToSelect {

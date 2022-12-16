@@ -42,14 +42,14 @@ class TimelineDetailViewModel {
         self.dateSelectorViewModel = DateSelectorViewModel()
         self.roadContextViewModel = RoadContextViewModel()
         self.timelineGraphViewModelByScoreItem = [:]
-        self.configureViewModels()
+        self.updateViewModels()
     }
     
     var orderedScoreItemTypeToDisplay: [TimelineScoreItemType] {
         self.selectedScore.associatedScoreItemTypes
     }
     
-    private func configureViewModels() {
+    private func updateViewModels() {
         // Clean timeline to remove, if needed, values where there are only unscored trips.
         let selectedTimeline = getTimelineSource()
         let sourceDates = selectedTimeline.allContext.date
@@ -116,7 +116,7 @@ class TimelineDetailViewModel {
 extension TimelineDetailViewModel: DateSelectorDelegate {
     func dateSelectorDidSelectDate(_ date: Date) {
         selectedDate = date
-        configureViewModels()
+        updateViewModels()
     }
 }
 
@@ -130,7 +130,7 @@ extension TimelineDetailViewModel: PeriodSelectorDelegate {
                 weekTimeline: weekTimeline,
                 monthTimeline: monthTimeline
             )
-            configureViewModels()
+            updateViewModels()
         }
     }
 }
@@ -138,6 +138,6 @@ extension TimelineDetailViewModel: PeriodSelectorDelegate {
 extension TimelineDetailViewModel: TimelineGraphDelegate {
     func graphDidSelectDate(_ date: Date) {
         self.selectedDate = date
-        configureViewModels()
+        updateViewModels()
     }
 }

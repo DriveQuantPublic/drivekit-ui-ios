@@ -14,7 +14,7 @@ class TimelineDetailViewModel {
     weak var delegate: TimelineViewModelDelegate?
     private let selectedScore: DKScoreType
     private let selectedPeriod: DKTimelinePeriod
-    private let selectedDate: Date
+    private var selectedDate: Date
     private let weekTimeline: DKTimeline
     private let monthTimeline: DKTimeline
     let periodSelectorViewModel: PeriodSelectorViewModel
@@ -83,8 +83,8 @@ class TimelineDetailViewModel {
                 selectedIndex: selectedDateIndex
             )
             
-            self.timelineGraphViewModelByScoreItem = self.orderedScoreItemTypeToDisplay.reduce(into: [:]) { partialResult, scoreItemType in
-                let timelineGraphViewModel = TimelineGraphViewModel()
+            self.timelineGraphViewModelByScoreItem = self.orderedScoreItemTypeToDisplay.reduce(into: self.timelineGraphViewModelByScoreItem) { partialResult, scoreItemType in
+                let timelineGraphViewModel = partialResult[scoreItemType] ?? TimelineGraphViewModel()
                 timelineGraphViewModel.configure(
                     timeline: cleanedTimeline,
                     timelineSelectedIndex: selectedDateIndex,
@@ -113,6 +113,7 @@ class TimelineDetailViewModel {
 
 extension TimelineDetailViewModel: DateSelectorDelegate {
     func dateSelectorDidSelectDate(_ date: Date) {
-        #warning("Configure delegate")
+        selectedDate = date
+        configureViewModels()
     }
 }

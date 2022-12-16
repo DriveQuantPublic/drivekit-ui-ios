@@ -193,22 +193,13 @@ extension TimelineViewModel: PeriodSelectorDelegate {
     func periodSelectorDidSelectPeriod(_ period: DKTimelinePeriod) {
         if self.currentPeriod != period {
             self.currentPeriod = period
-            if let selectedDate = self.selectedDate, let timeline = getTimelineSource() {
-                let dates = timeline.allContext.date
-                let compareDate: Date?
-                if period == .week {
-                    // Changed from .month to .week
-                    compareDate = selectedDate
-                } else {
-                    // Changed from .week to .month
-                    compareDate = DriveKitDriverDataTimelineUI.calendar.date(from: DriveKitDriverDataTimelineUI.calendar.dateComponents([.year, .month], from: selectedDate))
-                }
-                if let compareDate {
-                    let newDate = dates.first { date in
-                        date >= compareDate
-                    }
-                    self.selectedDate = newDate
-                }
+            if let selectedDate = self.selectedDate, let weekTimeline, let monthTimeline {
+                self.selectedDate = Helpers.newSelectedDate(
+                    from: selectedDate,
+                    switchingTo: period,
+                    weekTimeline: weekTimeline,
+                    monthTimeline: monthTimeline
+                )
             }
             update()
         }

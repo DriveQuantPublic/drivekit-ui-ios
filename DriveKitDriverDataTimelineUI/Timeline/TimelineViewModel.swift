@@ -316,7 +316,7 @@ extension TimelineViewModel: PeriodSelectorDelegate {
                 }
                 if let compareDate {
                     let newDate = dates.first { date in
-                        date > compareDate
+                        date >= compareDate
                     }
                     self.selectedDate = newDate
                 }

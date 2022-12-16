@@ -19,8 +19,6 @@ class TimelineViewController: DKUIViewController {
     @IBOutlet weak var showTimelineDetailButton: UIButton!
     private let viewModel: TimelineViewModel
     private var selectedScoreSelectionTypeView: ScoreSelectionTypeView? = nil
-    private let roadContextView = RoadContextView()
-//    private let emptyRoadContextView = Bundle.driverDataTimelineUIBundle?.loadNibNamed("EmptyRoadContextView", owner: nil, options: nil)?.first as? EmptyRoadContextView
 
     init(viewModel: TimelineViewModel) {
         self.viewModel = viewModel
@@ -142,11 +140,10 @@ class TimelineViewController: DKUIViewController {
     }
 
     private func setupRoadContext() {
-        self.roadContextContainer.layer.cornerRadius = TimelineConstants.UIStyle.cornerRadius
-        self.roadContextContainer.clipsToBounds = true
-        self.viewModel.roadContextViewModel.delegate = roadContextView
-        roadContextView.configure(viewModel: self.viewModel.roadContextViewModel)
-        self.roadContextContainer.embedSubview(roadContextView)
+        RoadContextView.createRoadContextView(
+            configuredWith: viewModel.roadContextViewModel,
+            embededIn: roadContextContainer
+        )
     }
 }
 

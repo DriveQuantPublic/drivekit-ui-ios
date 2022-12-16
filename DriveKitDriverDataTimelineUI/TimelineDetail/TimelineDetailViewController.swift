@@ -51,7 +51,10 @@ class TimelineDetailViewController: DKUIViewController {
     }
     
     private func setupRoadContext() {
-        
+        RoadContextView.createRoadContextView(
+            configuredWith: viewModel.roadContextViewModel,
+            embededIn: roadContextContainerView
+        )
     }
     
     private func setupScoreItemGraphViews() {

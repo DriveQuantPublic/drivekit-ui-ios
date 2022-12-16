@@ -58,6 +58,16 @@ class TimelineDetailViewController: DKUIViewController {
     }
     
     private func setupScoreItemGraphViews() {
-        
+        viewModel.orderedScoreItemTypeToDisplay.forEach { scoreItemType in
+            guard let viewModel = viewModel.timelineGraphViewModelByScoreItem[scoreItemType] else {
+                assertionFailure("We should have a viewModel for score item type \(scoreItemType)")
+                return
+            }
+            
+            TimelineGraphView.createTimelineGraphView(
+                configuredWith: viewModel,
+                embededIn: scoreItemGraphStackView
+            )
+        }
     }
 }

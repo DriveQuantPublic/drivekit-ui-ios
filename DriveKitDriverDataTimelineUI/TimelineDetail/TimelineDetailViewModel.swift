@@ -45,6 +45,10 @@ class TimelineDetailViewModel {
         self.configureViewModels()
     }
     
+    var orderedScoreItemTypeToDisplay: [TimelineScoreItemType] {
+        self.selectedScore.associatedScoreItemTypes
+    }
+    
     private func configureViewModels() {
         // Clean timeline to remove, if needed, values where there are only unscored trips.
         let selectedTimeline = getTimelineSource()
@@ -79,8 +83,7 @@ class TimelineDetailViewModel {
                 selectedIndex: selectedDateIndex
             )
             
-            let scoreItemTypes = self.selectedScore.associatedScoreItemTypes
-            self.timelineGraphViewModelByScoreItem = scoreItemTypes.reduce(into: [:]) { partialResult, scoreItemType in
+            self.timelineGraphViewModelByScoreItem = self.orderedScoreItemTypeToDisplay.reduce(into: [:]) { partialResult, scoreItemType in
                 let timelineGraphViewModel = TimelineGraphViewModel()
                 timelineGraphViewModel.configure(
                     timeline: cleanedTimeline,

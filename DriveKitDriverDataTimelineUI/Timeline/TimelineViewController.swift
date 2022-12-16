@@ -122,14 +122,10 @@ class TimelineViewController: DKUIViewController {
     }
 
     private func setupGraphView() {
-        self.timelineGraphViewContainer.layer.cornerRadius = TimelineConstants.UIStyle.cornerRadius
-        self.timelineGraphViewContainer.clipsToBounds = true
-        let timelineGraphView = Bundle.driverDataTimelineUIBundle?.loadNibNamed("TimelineGraphView", owner: nil, options: nil)?.first as? TimelineGraphView
-        if let timelineGraphView {
-            self.timelineGraphViewContainer.embedSubview(timelineGraphView)
-            timelineGraphView.viewModel = self.viewModel.timelineGraphViewModel
-            timelineGraphView.delegate = self.viewModel.timelineGraphViewModel
-        }
+        TimelineGraphView.createTimelineGraphView(
+            configuredWith: viewModel.timelineGraphViewModel,
+            embededIn: timelineGraphViewContainer
+        )
     }
 
     private func setupDateSelector() {

@@ -69,3 +69,31 @@ extension TimelineGraphView: GraphViewDelegate {
         self.delegate?.graphDidSelectPoint(point)
     }
 }
+
+extension TimelineGraphView {
+    static func createTimelineGraphView(
+        configuredWith viewModel: TimelineGraphViewModel,
+        embededIn containerView: UIView
+    ) {
+        guard let timelineGraphView = Bundle.driverDataTimelineUIBundle?.loadNibNamed(
+            "TimelineGraphView",
+            owner: nil,
+            options: nil
+        )?.first as? TimelineGraphView else {
+            preconditionFailure("Can't find bundle or nib for TimelineGraphView")
+        }
+        
+        timelineGraphView.viewModel = viewModel
+        timelineGraphView.delegate = viewModel
+        
+        if let stackView = containerView as? UIStackView {
+            timelineGraphView.layer.cornerRadius = TimelineConstants.UIStyle.cornerRadius
+            timelineGraphView.clipsToBounds = true
+            stackView.addArrangedSubview(timelineGraphView)
+        } else {
+            containerView.layer.cornerRadius = TimelineConstants.UIStyle.cornerRadius
+            containerView.clipsToBounds = true
+            containerView.embedSubview(timelineGraphView)
+        }
+    }
+}

@@ -614,7 +614,6 @@
 		AD2690683829D301D9573CEC /* Pods_DriveKitChallengeUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158BFF3EE484B6293C97E890 /* Pods_DriveKitChallengeUI.framework */; };
 		C2ECBA09D9742158769AE627 /* Pods_DriveKitPermissionsUtilsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3A98094797ED33BAF53826 /* Pods_DriveKitPermissionsUtilsUI.framework */; };
 		E3559EB729479F8100AAB747 /* TimelineDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3559EB629479F8100AAB747 /* TimelineDetailViewController.xib */; };
-		E3559EB9294864E700AAB747 /* TimelineDetailViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3559EB8294864E700AAB747 /* TimelineDetailViewControllerDelegate.swift */; };
 		E3559EBB2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3559EBA2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift */; };
 		E3559EBD294868CB00AAB747 /* DKTimelineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3559EBC294868CB00AAB747 /* DKTimelineExtension.swift */; };
 		E36085022948C37C0097A639 /* TimelineConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36085012948C37C0097A639 /* TimelineConstants.swift */; };
@@ -1439,7 +1438,6 @@
 		C6CF2F88D8CEC4FD0F65BD58 /* Pods-DriveKitChallengeUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitChallengeUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitChallengeUI/Pods-DriveKitChallengeUI.debug.xcconfig"; sourceTree = "<group>"; };
 		DCBF31C151237FEA8EDE3CF0 /* Pods-DriveKitDriverDataUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverDataUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverDataUI/Pods-DriveKitDriverDataUI.release.xcconfig"; sourceTree = "<group>"; };
 		E3559EB629479F8100AAB747 /* TimelineDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineDetailViewController.xib; sourceTree = "<group>"; };
-		E3559EB8294864E700AAB747 /* TimelineDetailViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineDetailViewControllerDelegate.swift; sourceTree = "<group>"; };
 		E3559EBA2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineDetailViewModelDelegate.swift; sourceTree = "<group>"; };
 		E3559EBC294868CB00AAB747 /* DKTimelineExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTimelineExtension.swift; sourceTree = "<group>"; };
 		E36085012948C37C0097A639 /* TimelineConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineConstants.swift; sourceTree = "<group>"; };
@@ -2590,7 +2588,6 @@
 				638E683D291A3E2000A5CC81 /* TimelineDetailViewModel.swift */,
 				638E683B291A3D5400A5CC81 /* TimelineDetailViewController.swift */,
 				E3559EB629479F8100AAB747 /* TimelineDetailViewController.xib */,
-				E3559EB8294864E700AAB747 /* TimelineDetailViewControllerDelegate.swift */,
 				E3559EBA2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift */,
 			);
 			path = TimelineDetail;
@@ -4434,7 +4431,6 @@
 				E3559EBD294868CB00AAB747 /* DKTimelineExtension.swift in Sources */,
 				63F8B2AD28F960260084B53A /* GraphType.swift in Sources */,
 				638E683E291A3E2000A5CC81 /* TimelineDetailViewModel.swift in Sources */,
-				E3559EB9294864E700AAB747 /* TimelineDetailViewControllerDelegate.swift in Sources */,
 				63F8B2B728F960BA0084B53A /* PeriodSelectorView.swift in Sources */,
 				67D6CD8C290912640055632B /* EmptyRoadContextView.swift in Sources */,
 				63F8B2D928FD4B500084B53A /* TimelineViewModelDelegate.swift in Sources */,

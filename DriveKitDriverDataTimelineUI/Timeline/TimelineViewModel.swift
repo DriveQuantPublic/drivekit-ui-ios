@@ -37,13 +37,15 @@ class TimelineViewModel {
         guard let weekTimeline, let monthTimeline, let selectedDate else {
             preconditionFailure("This method should not be called until timeline data is available (disable the button)")
         }
-        return TimelineDetailViewModel(
+        let detailVM = TimelineDetailViewModel(
             selectedScore: selectedScore,
             selectedPeriod: periodSelectorViewModel.selectedPeriod,
             selectedDate: selectedDate,
             weekTimeline: weekTimeline,
             monthTimeline: monthTimeline
         )
+        detailVM.delegate = self
+        return detailVM
     }
 
     init() {
@@ -217,5 +219,27 @@ extension TimelineViewModel: TimelineGraphDelegate {
     func graphDidSelectDate(_ date: Date) {
         self.selectedDate = date
         update()
+    }
+}
+
+extension TimelineViewModel:  TimelineDetailViewModelDelegate {
+    func didUpdate(selectedDate: Date) {
+        self.selectedDate = selectedDate
+        update()
+    }
+    
+    func didUpdate(selectedPeriod: DKTimelinePeriod) {
+        if self.currentPeriod != selectedPeriod {
+            self.currentPeriod = selectedPeriod
+            if let selectedDate = self.selectedDate, let weekTimeline, let monthTimeline {
+                self.selectedDate = Helpers.newSelectedDate(
+                    from: selectedDate,
+                    switchingTo: selectedPeriod,
+                    weekTimeline: weekTimeline,
+                    monthTimeline: monthTimeline
+                )
+            }
+            update()
+        }
     }
 }

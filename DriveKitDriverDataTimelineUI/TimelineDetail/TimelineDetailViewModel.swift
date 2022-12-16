@@ -92,6 +92,7 @@ class TimelineDetailViewModel {
                     graphItem: .scoreItem(scoreItemType),
                     period: selectedPeriod
                 )
+                timelineGraphViewModel.delegate = self
                 partialResult[scoreItemType] = timelineGraphViewModel
             }
             
@@ -131,5 +132,12 @@ extension TimelineDetailViewModel: PeriodSelectorDelegate {
             )
             configureViewModels()
         }
+    }
+}
+
+extension TimelineDetailViewModel: TimelineGraphDelegate {
+    func graphDidSelectDate(_ date: Date) {
+        self.selectedDate = date
+        configureViewModels()
     }
 }

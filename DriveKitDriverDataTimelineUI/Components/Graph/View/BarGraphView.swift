@@ -27,6 +27,9 @@ class BarGraphView: GraphViewBase {
     }
 
     override func setupData() {
+        if let xAxisConfig = self.viewModel.xAxisConfig {
+            self.chartView.xAxisRenderer = DKXAxisRenderer.from(self.chartView, config: xAxisConfig)
+        }
         var entries  = [BarChartDataEntry]()
         var entryToSelect: ChartDataEntry?
         for (index, point) in self.viewModel.points.enumerated() {
@@ -108,6 +111,9 @@ class BarGraphView: GraphViewBase {
     private func select(entry: ChartDataEntry) {
         self.selectedEntry = entry
         self.chartView.highlightValue(x: entry.x, dataSetIndex: 0)
+        if let renderer = self.chartView.xAxisRenderer as? DKXAxisRenderer {
+            renderer.selectedIndex = Int(entry.x)
+        }
     }
 }
 

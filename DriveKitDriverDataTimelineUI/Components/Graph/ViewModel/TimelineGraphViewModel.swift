@@ -109,14 +109,10 @@ class TimelineGraphViewModel: GraphViewModel {
         self.type = graphItem.graphType
         self.points = graphPoints
         self.selectedIndex = selectedIndex
-        self.xAxisConfig = GraphAxisConfig(min: 0, max: Double(graphPointNumber - 1), labels: graphDates)
+        self.xAxisConfig = GraphAxisConfig(min: 0, max: Double(graphPointNumber - 1), labels: .customLabels(graphDates))
         let minYValue = graphItem.graphMinValue
-        let maxYValue = graphItem.graphMaxValue ?? max(graphPoints.map { $0?.y ?? 0 }.max() ?? 10, 10)
-        var labels: [String] = []
-        for i in Int(minYValue)...Int(maxYValue) {
-            labels.append("\(i)")
-        }
-        self.yAxisConfig = GraphAxisConfig(min: minYValue, max: maxYValue, labels: labels)
+        let maxYValue = graphItem.graphMaxValue(forRealMaxValue: graphPoints.map { $0?.y ?? 0 }.max())
+        self.yAxisConfig = GraphAxisConfig(min: minYValue, max: maxYValue, labels: .rawValues(labelCount: graphItem.maxNumberOfLabels(forMaxValue: maxYValue)))
         self.title = graphItem.graphTitle
         self.description = graphDescription
         self.graphViewModelDidUpdate?()

@@ -73,9 +73,7 @@ class BarGraphView: GraphViewBase {
         self.chartView.xAxis.labelPosition = .bottom
         if let xAxisConfig = self.viewModel.xAxisConfig {
             self.chartView.xAxis.valueFormatter = GraphAxisFormatter(config: xAxisConfig)
-            if let labels = xAxisConfig.labels {
-                self.chartView.xAxis.setLabelCount(labels.count, force: false)
-            }
+            self.chartView.xAxis.setLabelCount(xAxisConfig.labels.count, force: false)
             if let min = xAxisConfig.min {
                 self.chartView.xAxis.axisMinimum = min - 0.5
             }
@@ -90,9 +88,7 @@ class BarGraphView: GraphViewBase {
         self.chartView.leftAxis.labelPosition = .outsideChart
         if let yAxisConfig = self.viewModel.yAxisConfig {
             self.chartView.leftAxis.valueFormatter = GraphAxisFormatter(config: yAxisConfig)
-            if let labels = yAxisConfig.labels {
-                self.chartView.leftAxis.setLabelCount(labels.count, force: true)
-            }
+            self.chartView.leftAxis.setLabelCount(yAxisConfig.labels.count, force: true)
             if let min = yAxisConfig.min {
                 self.chartView.leftAxis.axisMinimum = min
             }

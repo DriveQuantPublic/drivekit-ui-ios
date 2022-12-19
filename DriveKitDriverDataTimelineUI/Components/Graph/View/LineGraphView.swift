@@ -82,9 +82,7 @@ class LineGraphView: GraphViewBase {
         self.chartView.xAxis.labelFont = UIFont.systemFont(ofSize: 12.0)
         if let xAxisConfig = self.viewModel.xAxisConfig {
             self.chartView.xAxis.valueFormatter = GraphAxisFormatter(config: xAxisConfig)
-            if let labels = xAxisConfig.labels {
-                self.chartView.xAxis.setLabelCount(labels.count, force: true)
-            }
+            self.chartView.xAxis.setLabelCount(xAxisConfig.labels.count, force: true)
             if let min = xAxisConfig.min {
                 self.chartView.xAxis.axisMinimum = min
             }
@@ -101,9 +99,7 @@ class LineGraphView: GraphViewBase {
         self.chartView.leftAxis.labelTextColor = GraphViewBase.axisLabelColor
         if let yAxisConfig = self.viewModel.yAxisConfig {
             self.chartView.leftAxis.valueFormatter = GraphAxisFormatter(config: yAxisConfig)
-            if let labels = yAxisConfig.labels {
-                self.chartView.leftAxis.setLabelCount(labels.count, force: true)
-            }
+            self.chartView.leftAxis.setLabelCount(yAxisConfig.labels.count, force: true)
             if let min = yAxisConfig.min {
                 self.chartView.leftAxis.axisMinimum = min
             }

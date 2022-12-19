@@ -11,6 +11,10 @@ import UIKit
 enum GraphConstants {
     static let defaultLineColor = UIColor(hex: 0x083B54)
     static let defaultSelectedColor = UIColor(hex: 0x77E2B0)
+    
+    static let defaultNumberOfIntervalInYAxis = 10
+    static let defaultMaxValueInYAxis = 10.0
+    static let maxValueInYAxisWhenNoDataInGraph = 10.0
 
     static func circleIcon(size: CGSize = CGSize(width: 14, height: 14), insideColor: UIColor = .white) -> UIImage? {
         let scale: CGFloat = 0

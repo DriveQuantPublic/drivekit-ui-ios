@@ -155,7 +155,24 @@ extension GraphItem {
         }
     }
     
-    var graphMaxValue: Double? {
+    func maxNumberOfLabels(forMaxValue maxValue: Double) -> Int {
+        let intervalCountBetweenBounds = Int(ceil(maxValue) - graphMinValue)
+        // Add one because we need X intervals so X+1 values
+        return min(intervalCountBetweenBounds, GraphConstants.defaultNumberOfIntervalInYAxis) + 1
+    }
+    
+    func graphMaxValue(forRealMaxValue realMaxValue: Double?) -> Double {
+        if let graphMaxValue = self.defaultGraphMaxValue {
+            return graphMaxValue
+        }
+        
+        let maxValue = realMaxValue ?? GraphConstants.defaultMaxValueInYAxis
+        return (maxValue == 0)
+            ? GraphConstants.maxValueInYAxisWhenNoDataInGraph
+            : maxValue
+    }
+    
+    private var defaultGraphMaxValue: Double? {
         get {
             switch self {
                 case let .score(type):

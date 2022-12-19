@@ -50,7 +50,6 @@ class TimelineDetailViewModel {
     }
     
     private func updateViewModels() {
-        // Clean timeline to remove, if needed, values where there are only unscored trips.
         let selectedTimeline = getTimelineSource()
         let sourceDates = selectedTimeline.allContext.date
         let cleanedTimeline: DKTimeline

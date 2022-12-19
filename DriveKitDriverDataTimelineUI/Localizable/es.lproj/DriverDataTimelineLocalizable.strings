@@ -26,12 +26,11 @@
 "dk_timeline_road_context_description_no_data_safety"="Los viajes para las fechas seleccionadas son demasiado cortas para tener una puntuación de seguridad";
 "dk_timeline_road_context_expressways"="Autopistas";
 "dk_timeline_road_context_heavy_urban_traffic"="Entorno urbano denso";
+"dk_timeline_road_context_no_context_description"="No hay datos suficientes en este periodo para calcular la distribución de los contextos viales.";
 "dk_timeline_road_context_suburban"="Extraurbano";
 "dk_timeline_road_context_title"="Contexto de carretera (%@)";
 "dk_timeline_road_context_title_empty_data"="Todavía no tiene datos";
 "dk_timeline_road_context_title_no_data"="No hay datos para visualizar";
-"dk_timeline_road_context_no_context_title" = "Sin contexto";
-"dk_timeline_road_context_no_context_description" = "Los viajes para las fechas seleccionadas no tienen contexto.";
 "dk_timeline_safety_score"="Puntuación de seguridad: %@";
 "dk_timeline_speeding_score"="Puntaje de velocidad: %@";
 "dk_timeline_title"="Cronología";

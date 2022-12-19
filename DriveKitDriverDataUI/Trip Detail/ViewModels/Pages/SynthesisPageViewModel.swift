@@ -120,7 +120,7 @@ class SynthesisPageViewModel {
     
     var co2MassValue: String {
         if let value = trip.fuelEstimation?.co2Mass {
-            return value.formatCO2Mass()
+            return value.formatCO2Mass(shouldUseNaturalUnit: true)
         } else {
             return unknown
         }

@@ -247,7 +247,7 @@ extension GraphItem {
                     case .ecoDriving_fuelVolume:
                         return value.formatLiter()
                     case .ecoDriving_co2mass:
-                        return value.formatCO2Mass()
+                        return value.formatCO2Mass(shouldUseNaturalUnit: false)
                     case .safety_acceleration:
                         return value.formatDouble(places: 1)
                     case .safety_adherence:

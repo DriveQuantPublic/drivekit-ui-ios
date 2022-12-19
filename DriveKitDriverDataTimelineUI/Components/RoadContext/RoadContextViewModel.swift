@@ -16,7 +16,7 @@ enum RoadContextType {
         totalDistanceForAllContexts: Double
     )
     case emptyData
-    case noData
+    case noData(totalDistanceForAllContexts: Double)
     case noDataSafety
     case noDataEcodriving
     
@@ -40,9 +40,10 @@ enum RoadContextType {
     
     var totalDistanceForAllContexts: Double {
         switch self {
-        case let .data(_, totalDistanceForAllContexts):
+        case let .data(_, totalDistanceForAllContexts),
+            let .noData(totalDistanceForAllContexts):
             return totalDistanceForAllContexts
-        case .noData, .emptyData, .noDataSafety, .noDataEcodriving:
+        case .emptyData, .noDataSafety, .noDataEcodriving:
             return 0
         }
     }
@@ -66,7 +67,8 @@ class RoadContextViewModel {
 
     var title: String {
         switch self.roadContextType {
-            case let .data(_, totalDistanceForAllContexts):
+            case let .data(_, totalDistanceForAllContexts),
+            let .noData(totalDistanceForAllContexts):
             return String(
                 format: "dk_timeline_road_context_title".dkDriverDataTimelineLocalized(),
                 totalDistanceForAllContexts.formatKilometerDistance(
@@ -75,8 +77,6 @@ class RoadContextViewModel {
             )
             case .emptyData:
                 return "dk_timeline_road_context_title_empty_data".dkDriverDataTimelineLocalized()
-            case .noData:
-                return "dk_timeline_road_context_no_context_title".dkDriverDataTimelineLocalized()
             case .noDataSafety:
                 return "dk_timeline_road_context_title_no_data".dkDriverDataTimelineLocalized()
             case .noDataEcodriving:
@@ -121,7 +121,7 @@ class RoadContextViewModel {
             if distanceByContext.isEmpty {
                 switch selectedScore {
                 case .distraction, .speeding:
-                    roadContextType = .noData
+                    roadContextType = .noData(totalDistanceForAllContexts: totalDistanceForAllContexts)
                 case .safety:
                     roadContextType = .noDataSafety
                 case .ecoDriving:

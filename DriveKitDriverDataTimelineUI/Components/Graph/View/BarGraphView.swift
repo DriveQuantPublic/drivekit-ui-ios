@@ -74,12 +74,8 @@ class BarGraphView: GraphViewBase {
         if let xAxisConfig = self.viewModel.xAxisConfig {
             self.chartView.xAxis.valueFormatter = GraphAxisFormatter(config: xAxisConfig)
             self.chartView.xAxis.setLabelCount(xAxisConfig.labels.count, force: false)
-            if let min = xAxisConfig.min {
-                self.chartView.xAxis.axisMinimum = min - 0.5
-            }
-            if let max = xAxisConfig.max {
-                self.chartView.xAxis.axisMaximum = max + 0.5
-            }
+            self.chartView.xAxis.axisMinimum = xAxisConfig.min - 0.5
+            self.chartView.xAxis.axisMaximum = xAxisConfig.max + 0.5
         }
 
         self.chartView.leftAxis.decimals = 0
@@ -89,12 +85,8 @@ class BarGraphView: GraphViewBase {
         if let yAxisConfig = self.viewModel.yAxisConfig {
             self.chartView.leftAxis.valueFormatter = GraphAxisFormatter(config: yAxisConfig)
             self.chartView.leftAxis.setLabelCount(yAxisConfig.labels.count, force: true)
-            if let min = yAxisConfig.min {
-                self.chartView.leftAxis.axisMinimum = min
-            }
-            if let max = yAxisConfig.max {
-                self.chartView.leftAxis.axisMaximum = max
-            }
+            self.chartView.leftAxis.axisMinimum = yAxisConfig.min
+            self.chartView.leftAxis.axisMaximum = yAxisConfig.max
         }
         self.chartView.clipDataToContentEnabled = false
 

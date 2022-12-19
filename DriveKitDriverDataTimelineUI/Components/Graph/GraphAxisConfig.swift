@@ -9,8 +9,8 @@
 import Foundation
 
 struct GraphAxisConfig {
-    let min: Double?
-    let max: Double?
+    let min: Double
+    let max: Double
     let labels: LabelType
     
     enum LabelType {

@@ -48,8 +48,8 @@ class GraphAxisFormatter: IAxisValueFormatter {
     }
 
     func stringForValue(_ value: Double, axis: ChartsForDK.AxisBase?) -> String {
-        if let min = self.config.min, let labels = self.config.labels.titles {
-            let index = Int(value - min)
+        if let labels = self.config.labels.titles {
+            let index = Int(value - self.config.min)
             if index >= 0 && index < labels.count {
                 return labels[index]
             }

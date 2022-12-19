@@ -213,9 +213,9 @@ extension GraphItem {
                         case .safety_braking:
                             return nil
                         case .speeding_distance:
-                            return nil
+                            return 100
                         case .speeding_duration:
-                            return nil
+                            return 100
                     }
             }
         }

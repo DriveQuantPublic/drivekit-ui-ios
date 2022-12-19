@@ -9,10 +9,47 @@
 import UIKit
 import DriveKitDBTripAccessModule
 
+enum RoadContextType {
+    case data(
+        distanceByContext: [TimelineRoadContext: Double],
+        totalDistanceForAllContexts: Double
+    )
+    case emptyData
+    case noData
+    case noDataSafety
+    case noDataEcodriving
+    
+    var hasData: Bool {
+        switch self {
+        case .data:
+            return true
+        case .noData, .emptyData, .noDataSafety, .noDataEcodriving:
+            return false
+        }
+    }
+    
+    var distanceByContext: [TimelineRoadContext: Double] {
+        switch self {
+        case let .data(distanceByContext, _):
+            return distanceByContext
+        case .noData, .emptyData, .noDataSafety, .noDataEcodriving:
+            return [:]
+        }
+    }
+    
+    var totalDistanceForAllContexts: Double {
+        switch self {
+        case let .data(_, totalDistanceForAllContexts):
+            return totalDistanceForAllContexts
+        case .noData, .emptyData, .noDataSafety, .noDataEcodriving:
+            return 0
+        }
+    }
+}
+
 class RoadContextViewModel {
-    private var distanceByContext: [TimelineRoadContext: Double] = [:]
+    private var roadContextType: RoadContextType = .emptyData
     private var totalDistanceForDisplayedContexts: Double = 0
-    private var totalDistanceForAllContexts: Double = 0
     private static let backgroundColor = UIColor(hex: 0xFAFAFA)
     private static let heavyUrbanTrafficColor = UIColor(hex: 0x036A82)
     private static let suburbanColor = UIColor(hex: 0x699DAD)
@@ -20,18 +57,90 @@ class RoadContextViewModel {
     private static let expresswaysColor = UIColor(hex: 0x8FB7C2)
     weak var delegate: RoadContextViewModelDelegate?
 
+    var hasData: Bool {
+        roadContextType.hasData
+    }
+    
     var itemsToDraw: [(context: TimelineRoadContext, percent: Double)] = []
 
-    func getTitle() -> String {
-        return String(format:"dk_timeline_road_context_title".dkDriverDataTimelineLocalized(), self.totalDistanceForAllContexts.formatKilometerDistance(minDistanceToRemoveFractions: 10))
+    var title: String {
+        switch self.roadContextType {
+            case let .data(_, totalDistanceForAllContexts):
+            return String(
+                format: "dk_timeline_road_context_title".dkDriverDataTimelineLocalized(),
+                totalDistanceForAllContexts.formatKilometerDistance(
+                    minDistanceToRemoveFractions: 10
+                )
+            )
+            case .emptyData:
+                return "dk_timeline_road_context_title_empty_data".dkDriverDataTimelineLocalized()
+            case .noData:
+                return "dk_timeline_road_context_no_context_title".dkDriverDataTimelineLocalized()
+            case .noDataSafety:
+                return "dk_timeline_road_context_title_no_data".dkDriverDataTimelineLocalized()
+            case .noDataEcodriving:
+                return "dk_timeline_road_context_title_no_data".dkDriverDataTimelineLocalized()
+        }
     }
-
-    func configure(distanceByContext: [TimelineRoadContext: Double], totalDistanceForAllContexts: Double) {
-        self.distanceByContext = distanceByContext
-        self.totalDistanceForDisplayedContexts = distanceByContext.reduce(into: 0.0) { distance, element in
+    
+    var emptyDataDescription: String {
+        switch roadContextType {
+            case .data:
+                assertionFailure("We should not display emptyDataDescription when we have data")
+                return ""
+            case .emptyData:
+                return "dk_timeline_road_context_description_empty_data".dkDriverDataTimelineLocalized()
+            case .noData:
+                return "dk_timeline_road_context_no_context_description".dkDriverDataTimelineLocalized()
+            case .noDataSafety:
+                return "dk_timeline_road_context_description_no_data_safety".dkDriverDataTimelineLocalized()
+            case .noDataEcodriving:
+                return "dk_timeline_road_context_description_no_data_ecodriving".dkDriverDataTimelineLocalized()
+        }
+    }
+    
+    func configure(
+        with selectedScore: DKTimelineScoreType,
+        timeline: DKTimeline?,
+        selectedIndex: Int? = nil
+    ) {
+        if let timeline, let selectedIndex, timeline.hasData {
+            var distanceByContext: [TimelineRoadContext: Double] = [:]
+            var totalDistanceForAllContexts: Double = 0
+            
+            distanceByContext = timeline.distanceByRoadContext(
+                selectedScore: selectedScore,
+                selectedIndex: selectedIndex
+            )
+            totalDistanceForAllContexts = timeline.totalDistanceForAllContexts(
+                selectedScore: selectedScore,
+                selectedIndex: selectedIndex
+            )
+            
+            if distanceByContext.isEmpty {
+                switch selectedScore {
+                case .distraction, .speeding:
+                    roadContextType = .noData
+                case .safety:
+                    roadContextType = .noDataSafety
+                case .ecoDriving:
+                    roadContextType = .noDataEcodriving
+                }
+            } else {
+                roadContextType = .data(
+                    distanceByContext: distanceByContext,
+                    totalDistanceForAllContexts: totalDistanceForAllContexts
+                )
+            }
+        } else {
+            roadContextType = .emptyData
+        }
+        
+        self.totalDistanceForDisplayedContexts = roadContextType.distanceByContext.reduce(
+            into: 0.0
+        ) { distance, element in
             distance += element.value
         }
-        self.totalDistanceForAllContexts = totalDistanceForAllContexts
         self.updateItemsToDraw()
         self.delegate?.roadContextViewModelDidUpdate()
     }
@@ -49,7 +158,7 @@ class RoadContextViewModel {
     
     func getActiveContextNumber() -> Int {
         var total: Int = 0
-        for (_, dist) in distanceByContext {
+        for (_, dist) in roadContextType.distanceByContext {
             if dist > 0 {
                 total = total + 1
             }
@@ -58,7 +167,7 @@ class RoadContextViewModel {
     }
 
     func getPercent(context: TimelineRoadContext) -> Double {
-        guard let contextDistance = distanceByContext[context] else {
+        guard let contextDistance = roadContextType.distanceByContext[context] else {
             return 0
         }
         return contextDistance / totalDistanceForDisplayedContexts

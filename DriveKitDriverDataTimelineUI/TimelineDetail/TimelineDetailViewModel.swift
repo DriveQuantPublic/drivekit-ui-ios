@@ -125,7 +125,7 @@ class TimelineDetailViewModel {
 }
 
 extension TimelineDetailViewModel: PeriodSelectorDelegate {
-    func periodSelectorDidSelectPeriod(_ period: DriveKitDBTripAccessModule.DKTimelinePeriod) {
+    func periodSelectorDidSelectPeriod(_ period: DKTimelinePeriod) {
         if self.selectedPeriod != period {
             self.selectedPeriod = period
             self.selectedDate = Helpers.newSelectedDate(

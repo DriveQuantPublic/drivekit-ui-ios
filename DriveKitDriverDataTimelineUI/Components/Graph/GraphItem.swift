@@ -167,8 +167,8 @@ extension GraphItem {
         }
         
         let maxValue = realMaxValue ?? GraphConstants.defaultMaxValueInYAxis
-        return (maxValue == 0)
-            ? GraphConstants.maxValueInYAxisWhenNoDataInGraph
+        return (maxValue <= GraphConstants.notEnoughDataInGraphThreshold)
+            ? GraphConstants.maxValueInYAxisWhenNotEnoughDataInGraph
             : maxValue
     }
     

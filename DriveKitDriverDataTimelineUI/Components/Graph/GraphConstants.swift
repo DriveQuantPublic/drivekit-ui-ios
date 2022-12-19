@@ -14,7 +14,8 @@ enum GraphConstants {
     
     static let defaultNumberOfIntervalInYAxis = 10
     static let defaultMaxValueInYAxis = 10.0
-    static let maxValueInYAxisWhenNoDataInGraph = 10.0
+    static let notEnoughDataInGraphThreshold = 10.0
+    static let maxValueInYAxisWhenNotEnoughDataInGraph = 10.0
 
     static func circleIcon(size: CGSize = CGSize(width: 14, height: 14), insideColor: UIColor = .white) -> UIImage? {
         let scale: CGFloat = 0

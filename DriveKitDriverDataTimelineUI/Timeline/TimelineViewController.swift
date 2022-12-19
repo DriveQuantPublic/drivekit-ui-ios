@@ -43,6 +43,7 @@ class TimelineViewController: DKUIViewController {
         setupDateSelector()
         setupGraphView()
         setupRoadContext()
+        setupDetailButton()
 
         let leftSwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleLeftSwipe(_:)))
         leftSwipeGestureRecognizer.direction = .left
@@ -140,6 +141,10 @@ class TimelineViewController: DKUIViewController {
             configuredWith: viewModel.roadContextViewModel,
             embededIn: roadContextContainer
         )
+    }
+    
+    private func setupDetailButton() {
+        showTimelineDetailButton.configure(text: viewModel.timelineDetailButtonTitle, style: .empty)
     }
 }
 

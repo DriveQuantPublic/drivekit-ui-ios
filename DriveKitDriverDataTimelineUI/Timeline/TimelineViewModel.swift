@@ -33,6 +33,11 @@ class TimelineViewModel {
         (getTimelineSource()?.hasData ?? false) == false
     }
     
+    var timelineDetailButtonTitle: String {
+        "dk_timeline_button_timeline_detail".dkDriverDataTimelineLocalized()
+            .uppercased()
+    }
+    
     var timelineDetailViewModel: TimelineDetailViewModel {
         guard let weekTimeline, let monthTimeline, let selectedDate else {
             preconditionFailure("This method should not be called until timeline data is available (disable the button)")

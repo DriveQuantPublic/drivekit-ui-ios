@@ -22,7 +22,7 @@ extension DKTimeline {
         selectedIndex: Int?
     ) -> Self {
         let canInsertAtIndex: (Int) -> Bool = { index in
-            self.allContext.numberTripScored[index] > 0 || score == .distraction || score == .speeding || index == selectedIndex
+            self.hasValidTripScored(for: score, at: index) || index == selectedIndex
         }
         var date: [Date] = []
         var numberTripTotal: [Int] = []
@@ -181,7 +181,7 @@ extension DKTimeline {
         selectedIndex: Int
     ) -> [TimelineRoadContext: Double] {
         var distanceByContext: [TimelineRoadContext: Double] = [:]
-        if self.hasValidTripScored(for: selectedScore, selectedIndex: selectedIndex) {
+        if self.hasValidTripScored(for: selectedScore, at: selectedIndex) {
             for roadContext in self.roadContexts {
                 if let timelineRoadContext = TimelineRoadContext(roadContext: roadContext.type) {
                     let distance = roadContext.distance[selectedIndex]
@@ -200,7 +200,7 @@ extension DKTimeline {
         selectedIndex: Int
     ) -> Double {
         var totalDistanceForAllContexts: Double = 0
-        if self.hasValidTripScored(for: selectedScore, selectedIndex: selectedIndex) {
+        if self.hasValidTripScored(for: selectedScore, at: selectedIndex) {
             totalDistanceForAllContexts = self.allContext.distance[selectedIndex]
         }
         
@@ -209,13 +209,13 @@ extension DKTimeline {
     
     private func hasValidTripScored(
         for selectedScore: DKScoreType,
-        selectedIndex: Int
+        at index: Int
     ) -> Bool {
         // Distraction and Speeding can have score for short trip which
         // are not counted in `numberTripScored`. `numberTripScored` only
         // count fully scored trip for all four scores
         return selectedScore == .distraction
             || selectedScore == .speeding
-            || self.allContext.numberTripScored[selectedIndex] > 0
+            || self.allContext.numberTripScored[index] > 0
     }
 }

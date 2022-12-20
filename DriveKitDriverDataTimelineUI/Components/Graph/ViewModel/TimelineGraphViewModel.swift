@@ -389,11 +389,11 @@ class TimelineGraphViewModel: GraphViewModel {
                         return Double(numberTripWithForbiddenCall) / Double(numberTripTotal)
                     case .distraction_callForbiddenDuration:
                         guard
-                            let callForbidden = timeline.allContext.callForbidden[safe: index],
+                            let callForbiddenDuration = timeline.allContext.callForbiddenDuration[safe: index],
                             totalDistance > 0
                         else { return nil }
                     
-                        return Double(callForbidden) / (totalDistance / 100)
+                        return Double(callForbiddenDuration) / (totalDistance / 100)
                 }
         }
     }

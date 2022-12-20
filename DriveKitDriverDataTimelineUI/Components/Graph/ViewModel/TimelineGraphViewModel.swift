@@ -323,7 +323,7 @@ class TimelineGraphViewModel: GraphViewModel {
                     case .speeding_duration:
                         return Double(timeline.allContext.speedingDuration[index] / 60)
                     case .speeding_distance:
-                        return timeline.allContext.speedingDistance[index] / 1000
+                        return (timeline.allContext.speedingDistance[index] / 1000) * 100 / timeline.allContext.distance[index]
                     case .safety_braking:
                         return Double(timeline.allContext.braking[index])
                     case .safety_adherence:

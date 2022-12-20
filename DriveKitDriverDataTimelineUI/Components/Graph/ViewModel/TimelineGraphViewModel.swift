@@ -368,8 +368,7 @@ class TimelineGraphViewModel: GraphViewModel {
                     case .ecoDriving_efficiencyAcceleration:
                         return timeline.allContext.efficiencyAcceleration[safe: index]
                     case .ecoDriving_fuelSavings:
-                        #warning("TODO")
-                        return 0
+                        return timeline.allContext.fuelSaving[index]
                     case .ecoDriving_co2mass:
                         return timeline.allContext.co2Mass[safe: index]
                     case .distraction_unlock:

@@ -51,6 +51,7 @@ extension DKTimeline {
         var speeding: [Double] = []
         var co2Mass: [Double] = []
         var fuelVolume: [Double] = []
+        var fuelSaving: [Double] = []
         var unlock: [Int] = []
         var lock: [Int] = []
         var callAuthorized: [Int] = []
@@ -80,6 +81,7 @@ extension DKTimeline {
                 speeding.append(self.allContext.speeding[index])
                 co2Mass.append(self.allContext.co2Mass[index])
                 fuelVolume.append(self.allContext.fuelVolume[index])
+                fuelSaving.append(self.allContext.fuelSaving[index])
                 unlock.append(self.allContext.unlock[index])
                 lock.append(self.allContext.lock[index])
                 callAuthorized.append(self.allContext.callAuthorized[index])
@@ -111,6 +113,7 @@ extension DKTimeline {
             var adherence: [Int] = []
             var co2Mass: [Double] = []
             var fuelVolume: [Double] = []
+            var fuelSaving: [Double] = []
             var efficiencyAcceleration: [Double] = []
             var efficiencyBrake: [Double] = []
             var efficiencySpeedMaintain: [Double] = []
@@ -128,6 +131,7 @@ extension DKTimeline {
                     adherence.append(roadContext.adherence[index])
                     co2Mass.append(roadContext.co2Mass[index])
                     fuelVolume.append(roadContext.fuelVolume[index])
+                    fuelSaving.append(roadContext.fuelSaving[index])
                     if !roadContext.efficiencyAcceleration.isEmpty {
                         efficiencyAcceleration.append(roadContext.efficiencyAcceleration[index])
                         efficiencyBrake.append(roadContext.efficiencyBrake[index])
@@ -149,6 +153,7 @@ extension DKTimeline {
                 adherence: adherence,
                 co2Mass: co2Mass,
                 fuelVolume: fuelVolume,
+                fuelSaving: fuelSaving,
                 efficiencyAcceleration: efficiencyAcceleration,
                 efficiencyBrake: efficiencyBrake,
                 efficiencySpeedMaintain: efficiencySpeedMaintain
@@ -171,6 +176,7 @@ extension DKTimeline {
             speeding: speeding,
             co2Mass: co2Mass,
             fuelVolume: fuelVolume,
+            fuelSaving: fuelSaving,
             unlock: unlock,
             lock: lock,
             callAuthorized: callAuthorized,

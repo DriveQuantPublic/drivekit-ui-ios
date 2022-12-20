@@ -37,7 +37,6 @@ class TimelineViewModel {
     
     var timelineDetailButtonTitle: String {
         "dk_timeline_button_timeline_detail".dkDriverDataTimelineLocalized()
-            .uppercased()
     }
     
     var timelineDetailViewModel: TimelineDetailViewModel {

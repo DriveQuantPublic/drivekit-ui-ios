@@ -298,64 +298,90 @@ class TimelineGraphViewModel: GraphViewModel {
     }
 
     private func getValue(atIndex index: Int, for graphItem: GraphItem, in timeline: DKTimeline) -> Double? {
-        let totalDuration = Double(timeline.allContext.duration[index])
-        let totalDistance = timeline.allContext.distance[index]
+        let totalDuration = timeline.allContext.duration[safe: index].map(Double.init) ?? 0
+        let totalDistance = timeline.allContext.distance[safe: index] ?? 0
         
         switch graphItem {
             case .score(let scoreType):
                 switch scoreType {
                     case .safety:
-                        if timeline.allContext.numberTripScored[index] > 0 {
+                        if let numberTripScored = timeline.allContext.numberTripScored[safe: index],
+                           numberTripScored > 0 {
                             return timeline.allContext.safety[index]
                         } else {
                             return nil
                         }
                     case .distraction:
-                        return timeline.allContext.phoneDistraction[index]
+                        return timeline.allContext.phoneDistraction[safe: index]
                     case .ecoDriving:
-                        if timeline.allContext.numberTripScored[index] > 0 {
+                        if let numberTripScored = timeline.allContext.numberTripScored[safe: index],
+                           numberTripScored > 0 {
                             return timeline.allContext.efficiency[index]
                         } else {
                             return nil
                         }
                     case .speeding:
-                        return timeline.allContext.speeding[index]
+                        return timeline.allContext.speeding[safe: index]
                 }
             case .scoreItem(let scoreItemType):
                 switch scoreItemType {
                     case .speeding_duration:
-                        guard totalDuration > 0 else { return 0 }
-                        return (Double(timeline.allContext.speedingDuration[index]) / 60) / totalDuration * 100
+                        guard
+                            let speedingDuration = timeline.allContext.speedingDuration[safe: index].map(Double.init),
+                            totalDuration > 0
+                        else { return nil }
+                    
+                        return (speedingDuration / 60) / totalDuration * 100
                     case .speeding_distance:
-                        return (timeline.allContext.speedingDistance[index] / 1000) / totalDistance * 100
+                        guard
+                            let speedingDistance = timeline.allContext.speedingDistance[safe: index],
+                            totalDuration > 0
+                        else { return nil }
+                    
+                        return (speedingDistance / 1000) / totalDistance * 100
                     case .safety_braking:
-                        guard totalDistance > 0 else { return 0 }
-                        return Double(timeline.allContext.braking[index]) / (totalDistance / 100)
+                        guard
+                            let braking = timeline.allContext.braking[safe: index],
+                            totalDistance > 0
+                        else { return nil }
+                    
+                        return Double(braking) / (totalDistance / 100)
                     case .safety_adherence:
-                        guard totalDistance > 0 else { return 0 }
-                        return Double(timeline.allContext.adherence[index]) / (totalDistance / 100)
+                        guard
+                            let adherence = timeline.allContext.adherence[safe: index],
+                            totalDistance > 0
+                        else { return nil }
+                    
+                        return Double(adherence) / (totalDistance / 100)
                     case .safety_acceleration:
-                        guard totalDistance > 0 else { return 0 }
-                        return Double(timeline.allContext.acceleration[index]) / (totalDistance / 100)
+                        guard
+                            let acceleration = timeline.allContext.acceleration[safe: index],
+                            totalDistance > 0
+                        else { return nil }
+                        return Double(acceleration) / (totalDistance / 100)
                     case .ecoDriving_fuelVolume:
-                        return timeline.allContext.fuelVolume[index]
+                        return timeline.allContext.fuelVolume[safe: index]
                     case .ecoDriving_efficiencySpeedMaintain:
-                        return timeline.allContext.efficiencySpeedMaintain[index]
+                        return timeline.allContext.efficiencySpeedMaintain[safe: index]
                     case .ecoDriving_efficiencyBrake:
-                        return timeline.allContext.efficiencyBrake[index]
+                        return timeline.allContext.efficiencyBrake[safe: index]
                     case .ecoDriving_efficiencyAcceleration:
-                        return timeline.allContext.efficiencyAcceleration[index]
+                        return timeline.allContext.efficiencyAcceleration[safe: index]
                     case .ecoDriving_fuelSavings:
                         #warning("TODO")
                         return 0
                     case .ecoDriving_co2mass:
-                        return timeline.allContext.co2Mass[index]
+                        return timeline.allContext.co2Mass[safe: index]
                     case .distraction_unlock:
-                        return Double(timeline.allContext.unlock[index])
+                        return timeline.allContext.unlock[safe: index].map(Double.init)
                     case .distraction_percentageOfTripsWithForbiddenCall:
-                        return Double(timeline.allContext.numberTripWithForbiddenCall[index]) / Double(timeline.allContext.numberTripTotal[index])
+                        guard
+                            let numberTripWithForbiddenCall = timeline.allContext.numberTripWithForbiddenCall[safe: index],
+                            let numberTripTotal = timeline.allContext.numberTripTotal[safe: index]
+                        else { return nil }
+                        return Double(numberTripWithForbiddenCall) / Double(numberTripTotal)
                     case .distraction_callForbiddenDuration:
-                        return Double(timeline.allContext.callForbidden[index])
+                        return timeline.allContext.callForbidden[safe: index].map(Double.init)
                 }
         }
     }

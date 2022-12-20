@@ -8,8 +8,16 @@
 
 import UIKit
 
+@available(*, deprecated, renamed: "DKScoreType")
+public typealias ScoreType = DKScoreType
+
 public enum DKScoreType: String {
     case safety, ecoDriving, distraction, speeding
+    
+    @available(*, deprecated, renamed: "gaugeImage")
+    public func image() -> UIImage? {
+        return gaugeImage()
+    }
     
     public func gaugeImage() -> UIImage? {
         switch self {

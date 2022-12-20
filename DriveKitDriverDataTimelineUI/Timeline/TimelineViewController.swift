@@ -45,26 +45,11 @@ class TimelineViewController: DKUIViewController {
         setupRoadContext()
         setupDetailButton()
 
-        let leftSwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleLeftSwipe(_:)))
-        leftSwipeGestureRecognizer.direction = .left
-        self.view.addGestureRecognizer(leftSwipeGestureRecognizer)
-        let rightSwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleRightSwipe(_:)))
-        rightSwipeGestureRecognizer.direction = .right
-        self.view.addGestureRecognizer(rightSwipeGestureRecognizer)
-
         if self.viewModel.updating {
             showRefreshControl()
         } else {
             hideRefreshControl()
         }
-    }
-
-    @objc private func handleLeftSwipe(_ swipeGestureRecognizer: UISwipeGestureRecognizer) {
-        self.viewModel.showNextGraphData()
-    }
-
-    @objc private func handleRightSwipe(_ swipeGestureRecognizer: UISwipeGestureRecognizer) {
-        self.viewModel.showPreviousGraphData()
     }
 
     @IBAction private func openScoreDetailScreen() {

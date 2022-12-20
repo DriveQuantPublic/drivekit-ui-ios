@@ -111,14 +111,6 @@ class TimelineViewModel {
         }
     }
 
-    func showPreviousGraphData() {
-        self.timelineGraphViewModel.showPreviousGraphData()
-    }
-
-    func showNextGraphData() {
-        self.timelineGraphViewModel.showNextGraphData()
-    }
-
     private func update(resettingSelectedDate shouldResetSelectedDate: Bool = false) {
         if let timelineSource = getTimelineSource() {
             if shouldResetSelectedDate {

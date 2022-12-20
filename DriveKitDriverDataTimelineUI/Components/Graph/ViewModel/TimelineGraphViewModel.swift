@@ -321,9 +321,13 @@ class TimelineGraphViewModel: GraphViewModel {
             case .scoreItem(let scoreItemType):
                 switch scoreItemType {
                     case .speeding_duration:
-                        return (100 * Double(timeline.allContext.speedingDuration[index]) / 60) / Double(timeline.allContext.duration[index])
+                        let totalDuration = Double(timeline.allContext.duration[index])
+                        guard totalDuration > 0 else { return 0 }
+                        return (Double(timeline.allContext.speedingDuration[index]) / 60) / totalDuration * 100
                     case .speeding_distance:
-                        return (timeline.allContext.speedingDistance[index] / 1000) * 100 / timeline.allContext.distance[index]
+                        let totalDistance = timeline.allContext.distance[index]
+                        guard totalDistance > 0 else { return 0 }
+                        return (timeline.allContext.speedingDistance[index] / 1000) / totalDistance * 100
                     case .safety_braking:
                         return Double(timeline.allContext.braking[index])
                     case .safety_adherence:

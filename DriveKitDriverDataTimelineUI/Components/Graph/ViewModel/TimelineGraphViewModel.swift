@@ -298,6 +298,9 @@ class TimelineGraphViewModel: GraphViewModel {
     }
 
     private func getValue(atIndex index: Int, for graphItem: GraphItem, in timeline: DKTimeline) -> Double? {
+        let totalDuration = Double(timeline.allContext.duration[index])
+        let totalDistance = timeline.allContext.distance[index]
+        
         switch graphItem {
             case .score(let scoreType):
                 switch scoreType {
@@ -321,19 +324,19 @@ class TimelineGraphViewModel: GraphViewModel {
             case .scoreItem(let scoreItemType):
                 switch scoreItemType {
                     case .speeding_duration:
-                        let totalDuration = Double(timeline.allContext.duration[index])
                         guard totalDuration > 0 else { return 0 }
                         return (Double(timeline.allContext.speedingDuration[index]) / 60) / totalDuration * 100
                     case .speeding_distance:
-                        let totalDistance = timeline.allContext.distance[index]
-                        guard totalDistance > 0 else { return 0 }
                         return (timeline.allContext.speedingDistance[index] / 1000) / totalDistance * 100
                     case .safety_braking:
-                        return Double(timeline.allContext.braking[index])
+                        guard totalDistance > 0 else { return 0 }
+                        return Double(timeline.allContext.braking[index]) / (totalDistance / 100)
                     case .safety_adherence:
-                        return Double(timeline.allContext.adherence[index])
+                        guard totalDistance > 0 else { return 0 }
+                        return Double(timeline.allContext.adherence[index]) / (totalDistance / 100)
                     case .safety_acceleration:
-                        return Double(timeline.allContext.acceleration[index])
+                        guard totalDistance > 0 else { return 0 }
+                        return Double(timeline.allContext.acceleration[index]) / (totalDistance / 100)
                     case .ecoDriving_fuelVolume:
                         return timeline.allContext.fuelVolume[index]
                     case .ecoDriving_efficiencySpeedMaintain:

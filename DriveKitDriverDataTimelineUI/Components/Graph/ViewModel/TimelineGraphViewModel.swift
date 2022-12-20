@@ -358,6 +358,7 @@ class TimelineGraphViewModel: GraphViewModel {
                             let acceleration = timeline.allContext.acceleration[safe: index],
                             totalDistance > 0
                         else { return nil }
+                    
                         return Double(acceleration) / (totalDistance / 100)
                     case .ecoDriving_fuelVolume:
                         return timeline.allContext.fuelVolume[safe: index]
@@ -372,16 +373,27 @@ class TimelineGraphViewModel: GraphViewModel {
                     case .ecoDriving_co2mass:
                         return timeline.allContext.co2Mass[safe: index]
                     case .distraction_unlock:
-                        return timeline.allContext.unlock[safe: index].map(Double.init)
+                        guard
+                            let unlock = timeline.allContext.unlock[safe: index],
+                            totalDistance > 0
+                        else { return nil }
+                    
+                        return Double(unlock) / (totalDistance / 100)
                     case .distraction_percentageOfTripsWithForbiddenCall:
                         guard
                             let numberTripWithForbiddenCall = timeline.allContext.numberTripWithForbiddenCall[safe: index],
                             let numberTripTotal = timeline.allContext.numberTripTotal[safe: index],
                             numberTripTotal > 0
                         else { return nil }
+                    
                         return Double(numberTripWithForbiddenCall) / Double(numberTripTotal)
                     case .distraction_callForbiddenDuration:
-                        return timeline.allContext.callForbidden[safe: index].map(Double.init)
+                        guard
+                            let callForbidden = timeline.allContext.callForbidden[safe: index],
+                            totalDistance > 0
+                        else { return nil }
+                    
+                        return Double(callForbidden) / (totalDistance / 100)
                 }
         }
     }

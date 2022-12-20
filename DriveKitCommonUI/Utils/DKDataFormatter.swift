@@ -270,7 +270,7 @@ public extension Double {
             ]
         } else {
             formattingTypes = [
-                .value(self.format(maximumFractionDigits: 2)),
+                .value(self.format(maximumFractionDigits: 1)),
                 .separator(),
                 .unit(DKCommonLocalizable.unitKilogram.text())
             ]

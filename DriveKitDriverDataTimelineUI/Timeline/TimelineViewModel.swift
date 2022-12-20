@@ -29,8 +29,21 @@ class TimelineViewModel {
     private var currentPeriod: DKTimelinePeriod
     private var selectedDate: Date?
     
-    var isEmpty: Bool {
-        (getTimelineSource()?.hasData ?? false) == false
+    var shouldHideDetailButton: Bool {
+        guard
+            let timelineSource = getTimelineSource(),
+            let selectedIndex = timelineSource.selectedIndex(for: selectedDate)
+        else {
+            return true
+        }
+        
+        let cleanTimeline = timelineSource.cleaned(forScore: selectedScore, selectedIndex: selectedIndex)
+        
+        guard let cleanedSelectedIndex = cleanTimeline.selectedIndex(for: selectedDate) else {
+            return true
+        }
+        
+        return cleanTimeline.hasValidTripScored(for: selectedScore, at: cleanedSelectedIndex) == false
     }
     
     var timelineDetailButtonTitle: String {
@@ -127,23 +140,15 @@ class TimelineViewModel {
             let sourceDates = timelineSource.allContext.date
             let cleanedTimeline: DKTimeline
             if let date = self.selectedDate {
-                let selectedDateIndex = sourceDates.firstIndex(of: date)
+                let selectedDateIndex = timelineSource.selectedIndex(for: date)
                 cleanedTimeline = timelineSource.cleaned(forScore: self.selectedScore, selectedIndex: selectedDateIndex)
             } else {
                 cleanedTimeline = timelineSource.cleaned(forScore: self.selectedScore, selectedIndex: nil)
             }
-            // Compute selected index.
-            let dates = cleanedTimeline.allContext.date
-            let selectedDateIndex: Int?
-            if let date = self.selectedDate {
-                selectedDateIndex = dates.firstIndex(of: date)
-            } else if !dates.isEmpty {
-                selectedDateIndex = dates.count - 1
-            } else {
-                selectedDateIndex = nil
-            }
+
             // Update view models.
-            if let selectedDateIndex {
+            if let selectedDateIndex = cleanedTimeline.selectedIndex(for: selectedDate) {
+                let dates = cleanedTimeline.allContext.date
                 self.selectedDate = dates[selectedDateIndex]
                 self.dateSelectorViewModel.configure(dates: dates, period: self.currentPeriod, selectedIndex: selectedDateIndex)
                 self.dateSelectorViewModel.delegate = self
@@ -160,6 +165,7 @@ class TimelineViewModel {
         } else {
             configureWithNoData()
         }
+        self.delegate?.didUpdateSelection()
     }
 
     private func configureWithNoData() {

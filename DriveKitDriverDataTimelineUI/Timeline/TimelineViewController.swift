@@ -155,6 +155,9 @@ extension TimelineViewController: TimelineViewModelDelegate {
 
     func didUpdateTimeline() {
         hideRefreshControl()
-        self.showTimelineDetailButton.isHidden = viewModel.isEmpty
+    }
+    
+    func didUpdateSelection() {
+        self.showTimelineDetailButton.isHidden = viewModel.shouldHideDetailButton
     }
 }

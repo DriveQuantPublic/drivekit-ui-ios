@@ -29,21 +29,10 @@ class TimelineViewModel {
     private var currentPeriod: DKTimelinePeriod
     private var selectedDate: Date?
     
-    var shouldHideDetailButton: Bool {
-        guard
-            let timelineSource = getTimelineSource(),
-            let selectedIndex = timelineSource.selectedIndex(for: selectedDate)
-        else {
-            return true
+    private(set) var shouldHideDetailButton: Bool = true {
+        didSet {
+            self.delegate?.didUpdateDetailButtonDisplay()
         }
-        
-        let cleanTimeline = timelineSource.cleaned(forScore: selectedScore, selectedIndex: selectedIndex)
-        
-        guard let cleanedSelectedIndex = cleanTimeline.selectedIndex(for: selectedDate) else {
-            return true
-        }
-        
-        return cleanTimeline.hasValidTripScored(for: selectedScore, at: cleanedSelectedIndex) == false
     }
     
     var timelineDetailButtonTitle: String {
@@ -159,13 +148,13 @@ class TimelineViewModel {
                     timeline: cleanedTimeline,
                     selectedIndex: selectedDateIndex
                 )
+                self.shouldHideDetailButton = cleanedTimeline.hasValidTripScored(for: selectedScore, at: selectedDateIndex) == false
             } else {
                 configureWithNoData()
             }
         } else {
             configureWithNoData()
         }
-        self.delegate?.didUpdateSelection()
     }
 
     private func configureWithNoData() {
@@ -186,6 +175,7 @@ class TimelineViewModel {
                 timeline: getTimelineSource()
             )
         }
+        self.shouldHideDetailButton = true
     }
 
     private func getTimelineSource() -> DKTimeline? {

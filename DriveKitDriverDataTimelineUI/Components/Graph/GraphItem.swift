@@ -169,7 +169,7 @@ extension GraphItem {
         let maxValue = realMaxValue ?? GraphConstants.defaultMaxValueInYAxis
         return (maxValue <= GraphConstants.notEnoughDataInGraphThreshold)
             ? GraphConstants.maxValueInYAxisWhenNotEnoughDataInGraph
-            : maxValue.ceiledToValueDivisibleBy10
+            : maxValue.ceiledToLowestValueWithNiceStep
     }
     
     private var defaultGraphMaxValue: Double? {

@@ -240,7 +240,7 @@ extension GraphItem {
                     case .distraction_unlock:
                         return value.formatDouble(places: 1)
                     case .ecoDriving_fuelSavings:
-                        return value.formatConsumption()
+                        return value.formatLiter()
                     case .ecoDriving_efficiencyAcceleration:
                         return value.getAccelerationDescription()
                     case .ecoDriving_efficiencyBrake:

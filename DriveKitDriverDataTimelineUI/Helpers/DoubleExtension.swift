@@ -1,5 +1,5 @@
 //
-//  DoubleExtention.swift
+//  DoubleExtension.swift
 //  DriveKitDriverDataTimelineUI
 //
 //  Created by Frédéric Ruaudel on 20/12/2022.

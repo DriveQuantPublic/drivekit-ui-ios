@@ -392,8 +392,8 @@ class TimelineGraphViewModel: GraphViewModel {
                             let callForbiddenDuration = timeline.allContext.callForbiddenDuration[safe: index],
                             totalDistance > 0
                         else { return nil }
-                    
-                        return Double(callForbiddenDuration) / (totalDistance / 100)
+                        // The result is converted in minute and rounded up to greater integer value
+                        return ceil(Double(callForbiddenDuration / 60) / (totalDistance / 100))
                 }
         }
     }

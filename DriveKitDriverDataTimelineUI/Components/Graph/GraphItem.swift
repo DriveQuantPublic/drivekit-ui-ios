@@ -231,7 +231,10 @@ extension GraphItem {
             case let .scoreItem(type):
                 switch type {
                     case .distraction_callForbiddenDuration:
-                        return value.formatSecondDuration()
+                        // The value is in minute so we convert it back to seconds
+                        // before reformatting. The conversion is done here
+                        // to keep the graph Y Axis in minute
+                        return (value * 60).formatSecondDuration()
                     case .distraction_percentageOfTripsWithForbiddenCall:
                         return value.formatPercentage()
                     case .distraction_unlock:

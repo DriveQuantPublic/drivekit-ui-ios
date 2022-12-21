@@ -307,7 +307,7 @@ class TimelineGraphViewModel: GraphViewModel {
                     case .safety:
                         if let numberTripScored = timeline.allContext.numberTripScored[safe: index],
                            numberTripScored > 0 {
-                            return timeline.allContext.safety[index]
+                            return timeline.allContext.safety[safe: index]
                         } else {
                             return nil
                         }
@@ -316,7 +316,7 @@ class TimelineGraphViewModel: GraphViewModel {
                     case .ecoDriving:
                         if let numberTripScored = timeline.allContext.numberTripScored[safe: index],
                            numberTripScored > 0 {
-                            return timeline.allContext.efficiency[index]
+                            return timeline.allContext.efficiency[safe: index]
                         } else {
                             return nil
                         }
@@ -327,37 +327,37 @@ class TimelineGraphViewModel: GraphViewModel {
                 switch scoreItemType {
                     case .speeding_duration:
                         guard
-                            let speedingDuration = timeline.allContext.speedingDuration[safe: index].map(Double.init),
-                            totalDuration > 0
+                            let speedingDuration = timeline.allContext.speedingDuration[safe: index]
                         else { return nil }
+                        guard totalDuration > 0 else { return 0 }
                     
-                        return (speedingDuration / 60) / totalDuration * 100
+                        return (Double(speedingDuration) / 60) / totalDuration * 100
                     case .speeding_distance:
                         guard
-                            let speedingDistance = timeline.allContext.speedingDistance[safe: index],
-                            totalDuration > 0
+                            let speedingDistance = timeline.allContext.speedingDistance[safe: index]
                         else { return nil }
+                        guard totalDuration > 0 else { return 0 }
                     
                         return (speedingDistance / 1000) / totalDistance * 100
                     case .safety_braking:
                         guard
-                            let braking = timeline.allContext.braking[safe: index],
-                            totalDistance > 0
+                            let braking = timeline.allContext.braking[safe: index]
                         else { return nil }
+                        guard totalDistance > 0 else { return 0 }
                     
                         return Double(braking) / (totalDistance / 100)
                     case .safety_adherence:
                         guard
-                            let adherence = timeline.allContext.adherence[safe: index],
-                            totalDistance > 0
+                            let adherence = timeline.allContext.adherence[safe: index]
                         else { return nil }
+                        guard totalDistance > 0 else { return 0 }
                     
                         return Double(adherence) / (totalDistance / 100)
                     case .safety_acceleration:
                         guard
-                            let acceleration = timeline.allContext.acceleration[safe: index],
-                            totalDistance > 0
+                            let acceleration = timeline.allContext.acceleration[safe: index]
                         else { return nil }
+                        guard totalDistance > 0 else { return 0 }
                     
                         return Double(acceleration) / (totalDistance / 100)
                     case .ecoDriving_fuelVolume:
@@ -374,24 +374,24 @@ class TimelineGraphViewModel: GraphViewModel {
                         return timeline.allContext.co2Mass[safe: index]
                     case .distraction_unlock:
                         guard
-                            let unlock = timeline.allContext.unlock[safe: index],
-                            totalDistance > 0
+                            let unlock = timeline.allContext.unlock[safe: index]
                         else { return nil }
+                        guard totalDistance > 0 else { return 0 }
                     
                         return Double(unlock) / (totalDistance / 100)
                     case .distraction_percentageOfTripsWithForbiddenCall:
                         guard
                             let numberTripWithForbiddenCall = timeline.allContext.numberTripWithForbiddenCall[safe: index],
-                            let numberTripTotal = timeline.allContext.numberTripTotal[safe: index],
-                            numberTripTotal > 0
+                            let numberTripTotal = timeline.allContext.numberTripTotal[safe: index]
                         else { return nil }
+                        guard numberTripTotal > 0 else { return 0 }
                     
                         return Double(numberTripWithForbiddenCall) / Double(numberTripTotal) * 100
                     case .distraction_callForbiddenDuration:
                         guard
-                            let callForbiddenDuration = timeline.allContext.callForbiddenDuration[safe: index],
-                            totalDistance > 0
+                            let callForbiddenDuration = timeline.allContext.callForbiddenDuration[safe: index]
                         else { return nil }
+                        guard totalDistance > 0 else { return 0 }
                         // The result is converted in minute and rounded up to greater integer value
                         return ceil(Double(callForbiddenDuration / 60) / (totalDistance / 100))
                 }

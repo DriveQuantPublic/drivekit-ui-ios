@@ -386,7 +386,7 @@ class TimelineGraphViewModel: GraphViewModel {
                             numberTripTotal > 0
                         else { return nil }
                     
-                        return Double(numberTripWithForbiddenCall) / Double(numberTripTotal)
+                        return Double(numberTripWithForbiddenCall) / Double(numberTripTotal) * 100
                     case .distraction_callForbiddenDuration:
                         guard
                             let callForbiddenDuration = timeline.allContext.callForbiddenDuration[safe: index],

@@ -21,6 +21,7 @@ platform :ios do
     version = values[:pod_version]
     version_bump_podspec(path: "DriveKitCommonUI.podspec", version_number: "#{version}")
     version_bump_podspec(path: "DriveKitDriverDataUI.podspec", version_number: "#{version}")
+    version_bump_podspec(path: "DriveKitDriverDataTimelineUI.podspec", version_number: "#{version}")
     version_bump_podspec(path: "DriveKitDriverAchievementUI.podspec", version_number: "#{version}")
     version_bump_podspec(path: "DriveKitVehicleUI.podspec", version_number: "#{version}")
     version_bump_podspec(path: "DriveKitPermissionsUtilsUI.podspec", version_number: "#{version}")

@@ -25,7 +25,7 @@ class TimelineGraphViewModel: GraphViewModel {
     private var indexOfFirstPointInTimeline: Int?
     private var indexOfLastPointInTimeline: Int?
     private static let graphPointNumber: Int = 8
-
+    
     func configure(timeline: DKTimeline, timelineSelectedIndex: Int, graphItem: GraphItem, period: DKTimelinePeriod) {
         let sourceDates = timeline.allContext.date
         let dates: [Date] = sourceDates.map { date in
@@ -72,7 +72,7 @@ class TimelineGraphViewModel: GraphViewModel {
         }
         configure(graphItem: graphItem, graphPointNumber: graphPointNumber, graphPoints: graphPoints, graphDates: graphDates, selectedIndex: selectedIndexInGraph, graphDescription: graphItem.getGraphDescription(fromValue: getValue(atIndex: timelineSelectedIndex, for: graphItem, in: timeline)))
     }
-
+    
     func showEmptyGraph(graphItem: GraphItem, period: DKTimelinePeriod) {
         let dateComponent = dateComponent(for: period)
         let graphPointNumber = Self.graphPointNumber
@@ -84,7 +84,7 @@ class TimelineGraphViewModel: GraphViewModel {
             configure(graphItem: graphItem, graphPointNumber: graphPointNumber, graphPoints: graphPoints, graphDates: graphDates, selectedIndex: nil, graphDescription: "-")
         }
     }
-
+    
     func showPreviousGraphData() {
         if let delegate = self.delegate, let sourceDates = self.sourceDates, let indexOfFirstPointInTimeline = self.indexOfFirstPointInTimeline {
             if indexOfFirstPointInTimeline > 0 {
@@ -94,7 +94,7 @@ class TimelineGraphViewModel: GraphViewModel {
             }
         }
     }
-
+    
     func showNextGraphData() {
         if let delegate = self.delegate, let sourceDates = self.sourceDates, let indexOfLastPointInTimeline = self.indexOfLastPointInTimeline {
             if indexOfLastPointInTimeline < sourceDates.count - 1 {
@@ -104,7 +104,7 @@ class TimelineGraphViewModel: GraphViewModel {
             }
         }
     }
-
+    
     private func configure(graphItem: GraphItem, graphPointNumber: Int, graphPoints: [GraphPoint?], graphDates: [String], selectedIndex: Int?, graphDescription: String) {
         self.type = graphItem.graphType
         self.points = graphPoints
@@ -117,7 +117,7 @@ class TimelineGraphViewModel: GraphViewModel {
         self.description = graphDescription
         self.graphViewModelDidUpdate?()
     }
-
+    
     private func graphLabelsFrom(startDate: Date?, dateComponent: Calendar.Component, period: DKTimelinePeriod, graphPointNumber: Int) -> [String] {
         var graphDates: [String] = []
         for i in 0..<graphPointNumber {
@@ -132,7 +132,7 @@ class TimelineGraphViewModel: GraphViewModel {
         }
         return graphDates
     }
-
+    
     private func previousIndexWithValue(from startIndex: Int, hasValueAtIndex: (Int) -> Bool) -> Int? {
         var previousValidIndex: Int?
         var currentIndex = startIndex
@@ -145,7 +145,7 @@ class TimelineGraphViewModel: GraphViewModel {
         }
         return previousValidIndex
     }
-
+    
     private func nextIndexWithValue(from startIndex: Int, to maxIndex: Int, hasValueAtIndex: (Int) -> Bool) -> Int? {
         var nextValidIndex: Int?
         var currentIndex = startIndex
@@ -158,7 +158,7 @@ class TimelineGraphViewModel: GraphViewModel {
         }
         return nextValidIndex
     }
-
+    
     private func interpolateStartOfGraph(from graphStartDate: Date, dateComponent: Calendar.Component, dates: [Date], graphItem: GraphItem, timeline: DKTimeline, xLabelDate: Date) -> GraphPoint? {
         // Find next valid index
         var point: GraphPoint? = nil
@@ -192,7 +192,7 @@ class TimelineGraphViewModel: GraphViewModel {
         }
         return point
     }
-
+    
     private func interpolateEndOfGraph(from graphStartDate: Date, dateComponent: Calendar.Component, dates: [Date], graphItem: GraphItem, timeline: DKTimeline, xLabelDate: Date) -> GraphPoint? {
         // Find previous valid index
         var point: GraphPoint? = nil
@@ -227,7 +227,7 @@ class TimelineGraphViewModel: GraphViewModel {
         }
         return point
     }
-
+    
     private func interpolateSelectableDateWithoutValue(fromDateIndex dateIndex: Int, graphItem: GraphItem, timeline: DKTimeline, dates: [Date], dateComponent: Calendar.Component, pointX: Double, sourceDates: [Date]) -> GraphPoint? {
         let point: GraphPoint?
         if dates.count == 1 {
@@ -255,7 +255,7 @@ class TimelineGraphViewModel: GraphViewModel {
         }
         return point
     }
-
+    
     private func computeIndexOfFirstAndLastPointInTimeline(from graphPoints: [GraphPoint?]) {
         self.indexOfFirstPointInTimeline = nil
         self.indexOfLastPointInTimeline = nil
@@ -270,134 +270,134 @@ class TimelineGraphViewModel: GraphViewModel {
             }
         }
     }
-
+    
     private func dateComponent(for period: DKTimelinePeriod) -> Calendar.Component {
         let dateComponent: Calendar.Component
         switch period {
-            case .week:
-                dateComponent = .weekOfYear
-            case .month:
-                dateComponent = .month
-            @unknown default:
-                fatalError("Unknown value: \(period)")
+        case .week:
+            dateComponent = .weekOfYear
+        case .month:
+            dateComponent = .month
+        @unknown default:
+            fatalError("Unknown value: \(period)")
         }
         return dateComponent
     }
-
+    
     private func dateFormatPattern(for period: DKTimelinePeriod) -> DKDatePattern {
         let dateFormat: DKDatePattern
         switch period {
-            case .week:
-                dateFormat = DKDatePattern.dayMonth
-            case .month:
-                dateFormat = DKDatePattern.monthAbbreviation
-            @unknown default:
-                fatalError("Unknown value: \(period)")
+        case .week:
+            dateFormat = DKDatePattern.dayMonth
+        case .month:
+            dateFormat = DKDatePattern.monthAbbreviation
+        @unknown default:
+            fatalError("Unknown value: \(period)")
         }
         return dateFormat
     }
-
+    
     private func getValue(atIndex index: Int, for graphItem: GraphItem, in timeline: DKTimeline) -> Double? {
         let totalDuration = timeline.allContext.duration[safe: index].map(Double.init) ?? 0
         let totalDistance = timeline.allContext.distance[safe: index] ?? 0
         
         switch graphItem {
-            case .score(let scoreType):
-                switch scoreType {
-                    case .safety:
-                        if let numberTripScored = timeline.allContext.numberTripScored[safe: index],
-                           numberTripScored > 0 {
-                            return timeline.allContext.safety[safe: index]
-                        } else {
-                            return nil
-                        }
-                    case .distraction:
-                        return timeline.allContext.phoneDistraction[safe: index]
-                    case .ecoDriving:
-                        if let numberTripScored = timeline.allContext.numberTripScored[safe: index],
-                           numberTripScored > 0 {
-                            return timeline.allContext.efficiency[safe: index]
-                        } else {
-                            return nil
-                        }
-                    case .speeding:
-                        return timeline.allContext.speeding[safe: index]
+        case .score(let scoreType):
+            switch scoreType {
+            case .safety:
+                if let numberTripScored = timeline.allContext.numberTripScored[safe: index],
+                   numberTripScored > 0 {
+                    return timeline.allContext.safety[safe: index]
+                } else {
+                    return nil
                 }
-            case .scoreItem(let scoreItemType):
-                switch scoreItemType {
-                    case .speeding_duration:
-                        guard
-                            let speedingDuration = timeline.allContext.speedingDuration[safe: index]
-                        else { return nil }
-                        guard totalDuration > 0 else { return 0 }
-                    
-                        return (Double(speedingDuration) / 60) / totalDuration * 100
-                    case .speeding_distance:
-                        guard
-                            let speedingDistance = timeline.allContext.speedingDistance[safe: index]
-                        else { return nil }
-                        guard totalDuration > 0 else { return 0 }
-                    
-                        return (speedingDistance / 1000) / totalDistance * 100
-                    case .safety_braking:
-                        guard
-                            let braking = timeline.allContext.braking[safe: index]
-                        else { return nil }
-                        guard totalDistance > 0 else { return 0 }
-                    
-                        return Double(braking) / (totalDistance / 100)
-                    case .safety_adherence:
-                        guard
-                            let adherence = timeline.allContext.adherence[safe: index]
-                        else { return nil }
-                        guard totalDistance > 0 else { return 0 }
-                    
-                        return Double(adherence) / (totalDistance / 100)
-                    case .safety_acceleration:
-                        guard
-                            let acceleration = timeline.allContext.acceleration[safe: index]
-                        else { return nil }
-                        guard totalDistance > 0 else { return 0 }
-                    
-                        return Double(acceleration) / (totalDistance / 100)
-                    case .ecoDriving_fuelVolume:
-                        return timeline.allContext.fuelVolume[safe: index]
-                    case .ecoDriving_efficiencySpeedMaintain:
-                        return timeline.allContext.efficiencySpeedMaintain[safe: index]
-                    case .ecoDriving_efficiencyBrake:
-                        return timeline.allContext.efficiencyBrake[safe: index]
-                    case .ecoDriving_efficiencyAcceleration:
-                        return timeline.allContext.efficiencyAcceleration[safe: index]
-                    case .ecoDriving_fuelSavings:
-                        return timeline.allContext.fuelSaving[safe: index]
-                    case .ecoDriving_co2mass:
-                        return timeline.allContext.co2Mass[safe: index]
-                    case .distraction_unlock:
-                        guard
-                            let unlock = timeline.allContext.unlock[safe: index]
-                        else { return nil }
-                        guard totalDistance > 0 else { return 0 }
-                    
-                        return Double(unlock) / (totalDistance / 100)
-                    case .distraction_percentageOfTripsWithForbiddenCall:
-                        guard
-                            let numberTripWithForbiddenCall = timeline.allContext.numberTripWithForbiddenCall[safe: index],
-                            let numberTripTotal = timeline.allContext.numberTripTotal[safe: index]
-                        else { return nil }
-                        guard numberTripTotal > 0 else { return 0 }
-                    
-                        return Double(numberTripWithForbiddenCall) / Double(numberTripTotal) * 100
-                    case .distraction_callForbiddenDuration:
-                        guard
-                            let callForbiddenDuration = timeline.allContext.callForbiddenDuration[safe: index]
-                        else { return nil }
-                        guard totalDistance > 0 else { return 0 }
-                        // The result is converted in minute and rounded up to greater integer value
-                        return ceil(Double(callForbiddenDuration / 60) / (totalDistance / 100))
+            case .distraction:
+                return timeline.allContext.phoneDistraction[safe: index]
+            case .ecoDriving:
+                if let numberTripScored = timeline.allContext.numberTripScored[safe: index],
+                   numberTripScored > 0 {
+                    return timeline.allContext.efficiency[safe: index]
+                } else {
+                    return nil
                 }
+            case .speeding:
+                return timeline.allContext.speeding[safe: index]
+            }
+        case .scoreItem(let scoreItemType):
+            switch scoreItemType {
+            case .speeding_duration:
+                guard
+                    let speedingDuration = timeline.allContext.speedingDuration[safe: index]
+                else { return nil }
+                guard totalDuration > 0 else { return 0 }
+                
+                return (Double(speedingDuration) / 60) / totalDuration * 100
+            case .speeding_distance:
+                guard
+                    let speedingDistance = timeline.allContext.speedingDistance[safe: index]
+                else { return nil }
+                guard totalDuration > 0 else { return 0 }
+                
+                return (speedingDistance / 1000) / totalDistance * 100
+            case .safety_braking:
+                guard
+                    let braking = timeline.allContext.braking[safe: index]
+                else { return nil }
+                guard totalDistance > 0 else { return 0 }
+                
+                return Double(braking) / (totalDistance / 100)
+            case .safety_adherence:
+                guard
+                    let adherence = timeline.allContext.adherence[safe: index]
+                else { return nil }
+                guard totalDistance > 0 else { return 0 }
+                
+                return Double(adherence) / (totalDistance / 100)
+            case .safety_acceleration:
+                guard
+                    let acceleration = timeline.allContext.acceleration[safe: index]
+                else { return nil }
+                guard totalDistance > 0 else { return 0 }
+                
+                return Double(acceleration) / (totalDistance / 100)
+            case .ecoDriving_fuelVolume:
+                return timeline.allContext.fuelVolume[safe: index]
+            case .ecoDriving_efficiencySpeedMaintain:
+                return timeline.allContext.efficiencySpeedMaintain[safe: index]
+            case .ecoDriving_efficiencyBrake:
+                return timeline.allContext.efficiencyBrake[safe: index]
+            case .ecoDriving_efficiencyAcceleration:
+                return timeline.allContext.efficiencyAcceleration[safe: index]
+            case .ecoDriving_fuelSavings:
+                return timeline.allContext.fuelSaving[safe: index]
+            case .ecoDriving_co2mass:
+                return timeline.allContext.co2Mass[safe: index]
+            case .distraction_unlock:
+                guard
+                    let unlock = timeline.allContext.unlock[safe: index]
+                else { return nil }
+                guard totalDistance > 0 else { return 0 }
+                
+                return Double(unlock) / (totalDistance / 100)
+            case .distraction_percentageOfTripsWithForbiddenCall:
+                guard
+                    let numberTripWithForbiddenCall = timeline.allContext.numberTripWithForbiddenCall[safe: index],
+                    let numberTripTotal = timeline.allContext.numberTripTotal[safe: index]
+                else { return nil }
+                guard numberTripTotal > 0 else { return 0 }
+                
+                return Double(numberTripWithForbiddenCall) / Double(numberTripTotal) * 100
+            case .distraction_callForbiddenDuration:
+                guard
+                    let callForbiddenDuration = timeline.allContext.callForbiddenDuration[safe: index]
+                else { return nil }
+                guard totalDistance > 0 else { return 0 }
+                // The result is converted in minute and rounded up to greater integer value
+                return ceil(Double(callForbiddenDuration / 60) / (totalDistance / 100))
+            }
         }
     }
-
+    
     private func interpolateValueFrom(date: Date, previousValidIndex: Int, nextValidIndex: Int, dates: [Date], dateComponent: Calendar.Component, graphItem: GraphItem, timeline: DKTimeline) -> Double? {
         let previousValidDate: Date = dates[previousValidIndex]
         let nextValidDate: Date = dates[nextValidIndex]

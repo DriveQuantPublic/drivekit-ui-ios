@@ -118,7 +118,9 @@ class LineGraphView: GraphViewBase {
     }
 
     private func clearPreviousSelectedEntry(shouldRestoreIcon: Bool = true) {
-        self.selectedEntry?.icon = self.defaultIcon
+        if shouldRestoreIcon {
+            self.selectedEntry?.icon = self.defaultIcon
+        }
         self.selectedEntry = nil
     }
 }

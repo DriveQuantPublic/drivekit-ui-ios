@@ -78,7 +78,7 @@ public enum SynthesisCard: DKSynthesisCard {
     }
 
     public func getGaugeConfiguration() -> DKGaugeConfiguration {
-        let scoreType: ScoreType
+        let scoreType: DKScoreType
         switch self {
             case .distraction:
                 scoreType = .distraction
@@ -166,12 +166,12 @@ public enum SynthesisCard: DKSynthesisCard {
 
 private struct GaugeConfiguration: DKGaugeConfiguration {
     let trips: [Trip]
-    let scoreType: ScoreType
+    let scoreType: DKScoreType
     let value: Double
     private let progress: Double
     private let gaugeType: DKGaugeType
 
-    init(trips: [Trip], scoreType: ScoreType) {
+    init(trips: [Trip], scoreType: DKScoreType) {
         self.trips = trips.filter { scoreType.rawValue(trip: $0) <= 10 }
         self.scoreType = scoreType
         if self.trips.isEmpty {
@@ -181,7 +181,7 @@ private struct GaugeConfiguration: DKGaugeConfiguration {
             self.value = totalScore / Double(self.trips.count)
         }
         self.progress = self.value / 10.0
-        if let icon = scoreType.image() {
+        if let icon = scoreType.gaugeImage() {
             self.gaugeType = .openWithIcon(icon)
         } else {
             self.gaugeType = .open

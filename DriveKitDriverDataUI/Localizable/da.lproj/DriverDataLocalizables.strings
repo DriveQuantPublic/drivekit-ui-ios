@@ -12,7 +12,6 @@
 "dk_driverdata_alternative_transportation_remark"="💡 Denne tur har ikke en score, fordi appen ikke måler din kørsel, når ikke du er i dit køretøj.";
 "dk_driverdata_alternative_transportation_thanks"="❤️ Tak fordi du rapporterede denne tur og for at hjælpe os med at forbedre automatisk genkendelse af ture.";
 "dk_driverdata_alternative_trips"="Alternativ transport";
-"dk_driverdata_bad_maintain"="Meget svingende hastighed";
 "dk_driverdata_beginning_authorized_call"="Lovligt opkaldt begyndte";
 "dk_driverdata_beginning_authorized_call_info_content"="Det ser ud til, at du har brugt din telefon på lovlig vis under kørslen. Det må du gerne, men vær opmærksom på, at en mobiltelefon kan gøre dig uopmærksom under kørslen (selvom den er fastmonteret) - og det er farligt. Lad mobiltelefonen ligge i tasken eller handskerummet næste gang. Skal du ringe eller sende en besked, så parker først bilen, og sluk for motoren.";
 "dk_driverdata_beginning_unauthorized_call"="Ulovligt opkald begyndte";
@@ -40,14 +39,7 @@
 "dk_driverdata_failed_to_declare_transportation"="Transporttilstand kunne ikke opdateres, prøv igen senere.";
 "dk_driverdata_failed_to_delete_trip"="Turen kunne ikke slettes, prøv igen senere.";
 "dk_driverdata_failed_to_sync_trips"="Kunne ikke synkronisere ture, prøv igen senere.";
-"dk_driverdata_good_accel"="God acceleration";
-"dk_driverdata_good_decel"="God deceleration";
-"dk_driverdata_good_maintain"="God jævn fart";
-"dk_driverdata_high_accel"="Accelerationen er for kraftig";
-"dk_driverdata_high_decel"="Deceleration er for høj";
 "dk_driverdata_lock_event"="Skærmlåsning";
-"dk_driverdata_low_accel"="Acceleration er for lav";
-"dk_driverdata_low_decel"="Deceleration er for lav";
 "dk_driverdata_my_weekly_score_distraction"="Min ugentlige score | Distraktion";
 "dk_driverdata_my_weekly_score_ecodriving"="Min ugentlige score | Øko-kørsel";
 "dk_driverdata_my_weekly_score_safety"="Min ugentlige score | Sikkerhed";
@@ -88,8 +80,6 @@
 "dk_driverdata_speeding_score"="Fartgrænsescore";
 "dk_driverdata_speeding_score_info"="Denne score viser, om du har overholdt fartsgrænserne. Det ændrer sig i henhold til din fart. Jo større overskridelse, jo lavere er scoren.";
 "dk_driverdata_start_event"="Start af turen";
-"dk_driverdata_strong_accel"="Kraftig acceleration";
-"dk_driverdata_strong_decel"="Stærk deceleration";
 "dk_driverdata_synthesis_co2_emissions"="CO2-udledning";
 "dk_driverdata_synthesis_co2_mass"="CO2-mængde";
 "dk_driverdata_synthesis_condition"="Forhold";
@@ -141,9 +131,6 @@
 "dk_driverdata_urban"="%@ i byzone";
 "dk_driverdata_value"="Værdi =";
 "dk_driverdata_vehicle_trips"="Køreture";
-"dk_driverdata_weak_accel"="Svag acceleration";
-"dk_driverdata_weak_decel"="Svag deceleration";
-"dk_driverdata_weak_maintain"="Uregelmæssig hastighed";
 "dk_driverdata_weather_cloud"="Overskyet vejr";
 "dk_driverdata_weather_fog"="Tåget vejr";
 "dk_driverdata_weather_hail"="Frostvejr";

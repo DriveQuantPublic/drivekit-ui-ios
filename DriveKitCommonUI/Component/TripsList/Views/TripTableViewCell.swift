@@ -51,7 +51,7 @@ final class TripTableViewCell: UITableViewCell, Nibable {
         case .gauge:
             if trip.isScored(tripData: tripData) {
                 let score = CircularProgressView.viewFromNib
-                let scoreType: ScoreType = ScoreType(rawValue: tripData.rawValue) ?? .safety
+                let scoreType: DKScoreType = DKScoreType(rawValue: tripData.rawValue) ?? .safety
                 let configScore = ConfigurationCircularProgressView(scoreType: scoreType, value: scoreType.rawValue(trip: trip), size: .small)
                 score.configure(configuration: configScore)
                 score.frame = CGRect(x: 0, y: 0, width: 50, height: 50)

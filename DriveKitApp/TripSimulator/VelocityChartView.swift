@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Charts
+import ChartsForDK
 import DriveKitCommonUI
 
 class VelocityChartView: LineChartView {

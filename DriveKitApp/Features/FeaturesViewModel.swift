@@ -11,6 +11,7 @@ import Foundation
 class FeaturesViewModel {
     let featureViewViewModels: [FeatureViewViewModel] = [
         FeatureViewViewModel(type: .driverData_trips),
+        FeatureViewViewModel(type: .driverData_timeline),
         FeatureViewViewModel(type: .permissionsUtils_onboarding),
         FeatureViewViewModel(type: .permissionsUtils_diagnosis),
         FeatureViewViewModel(type: .vehicle_list),

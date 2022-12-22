@@ -8,8 +8,7 @@
 
 import UIKit
 
-@objc public class DriveKitUI : NSObject {
-
+@objc public class DriveKitUI: NSObject {
     @objc public static let shared = DriveKitUI()
 
     @objc public private(set) var colors: DKColors!
@@ -108,7 +107,6 @@ import UIKit
         }
         return success
     }
-
 }
 
 public extension Bundle {

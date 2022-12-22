@@ -47,13 +47,13 @@ class RankingViewModel {
         for (index, rankingType) in self.dkRankingTypes.enumerated() {
             switch rankingType {
                 case .distraction:
-                    self.rankingTypes.append(RankingType(index: index, name: DKCommonLocalizable.distraction.text(), image: DKDriverAchievementImages.distraction.image))
+                    self.rankingTypes.append(RankingType(index: index, name: DKCommonLocalizable.distraction.text(), image: DKImages.distractionFlat.image))
                 case .ecoDriving:
-                    self.rankingTypes.append(RankingType(index: index, name: DKCommonLocalizable.ecodriving.text(), image: DKDriverAchievementImages.ecodriving.image))
+                    self.rankingTypes.append(RankingType(index: index, name: DKCommonLocalizable.ecodriving.text(), image: DKImages.ecoDrivingFlat.image))
                 case .safety:
-                    self.rankingTypes.append(RankingType(index: index, name: DKCommonLocalizable.safety.text(), image: DKDriverAchievementImages.safety.image))
+                    self.rankingTypes.append(RankingType(index: index, name: DKCommonLocalizable.safety.text(), image: DKImages.safetyFlat.image))
                 case .speeding:
-                    self.rankingTypes.append(RankingType(index: index, name: DKCommonLocalizable.speeding.text(), image: DKDriverAchievementImages.speeding.image))
+                    self.rankingTypes.append(RankingType(index: index, name: DKCommonLocalizable.speeding.text(), image: DKImages.speedingFlat.image))
                 @unknown default:
                     break
             }
@@ -372,7 +372,7 @@ extension RankingViewModel: DKDriverRanking {
         guard rankingSelectors.count > 0 else {
             return nil
         }
-        return selectedRankingType?.image ?? DKDriverAchievementImages.safety.image
+        return selectedRankingType?.image ?? DKImages.safetyFlat.image
     }
 
     func getProgressionImage() -> UIImage? {

@@ -48,13 +48,13 @@ class GraphAxisFormatter: IAxisValueFormatter {
     }
 
     func stringForValue(_ value: Double, axis: ChartsForDK.AxisBase?) -> String {
-        if let min = self.config.min, let labels = self.config.labels {
-            let index = Int(value - min)
+        if let labels = self.config.labels.titles {
+            let index = Int(value - self.config.min)
             if index >= 0 && index < labels.count {
                 return labels[index]
             }
         }
-        return String(value)
+        return String(value.formatDouble(places: 1))
     }
 }
 
@@ -73,7 +73,7 @@ class DKXAxisRenderer: XAxisRenderer {
     }
 
     override func drawLabel(context: CGContext, formattedLabel: String, x: CGFloat, y: CGFloat, attributes: [NSAttributedString.Key : Any], constrainedToSize: CGSize, anchor: CGPoint, angleRadians: CGFloat) {
-        if let index = self.config.labels?.firstIndex(of: formattedLabel), index == self.selectedIndex {
+        if let index = self.config.labels.titles?.firstIndex(of: formattedLabel), index == self.selectedIndex {
             let textSize = formattedLabel.boundingRect(with: constrainedToSize, options: .usesLineFragmentOrigin, attributes: attributes, context: nil).size
             var rect = CGRect(origin: CGPoint(), size: textSize)
             let point = CGPoint(x: x, y: y)

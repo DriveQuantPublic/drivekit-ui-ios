@@ -94,7 +94,7 @@
 		3FF68E8E240CF0420071D74C /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238592361A2430001E15D /* CircularProgressView.swift */; };
 		3FF68E8F240CF0460071D74C /* CircularProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A342385F2361A2430001E15D /* CircularProgressView.xib */; };
 		3FF68E90240CF0510071D74C /* ConfigurationCircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A342384B2361A2430001E15D /* ConfigurationCircularProgressView.swift */; };
-		3FF68E92240CF1300071D74C /* ScoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68E91240CF1300071D74C /* ScoreType.swift */; };
+		3FF68E92240CF1300071D74C /* DKScoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68E91240CF1300071D74C /* DKScoreType.swift */; };
 		3FF68E93240CF5670071D74C /* Nibable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34238442361A2430001E15D /* Nibable.swift */; };
 		3FF68E96240D58DC0071D74C /* UIView+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68E95240D58DC0071D74C /* UIView+DK.swift */; };
 		3FF68E98240D59000071D74C /* UIImage+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68E97240D59000071D74C /* UIImage+DK.swift */; };
@@ -286,9 +286,8 @@
 		638DDC582726EAAE003ED260 /* OdometerCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638DDC572726EAAE003ED260 /* OdometerCellType.swift */; };
 		638DDC5A2726EB8F003ED260 /* OdometerCellActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638DDC592726EB8F003ED260 /* OdometerCellActionType.swift */; };
 		638E683A2919419300A5CC81 /* DriveKitDriverDataTimelineUIEntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638E68392919419200A5CC81 /* DriveKitDriverDataTimelineUIEntryPoint.swift */; };
-		638E683C291A3D5400A5CC81 /* TimelineScoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638E683B291A3D5400A5CC81 /* TimelineScoreDetailViewController.swift */; };
+		638E683C291A3D5400A5CC81 /* TimelineDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638E683B291A3D5400A5CC81 /* TimelineDetailViewController.swift */; };
 		638E683E291A3E2000A5CC81 /* TimelineDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638E683D291A3E2000A5CC81 /* TimelineDetailViewModel.swift */; };
-		638E6840291A3E9200A5CC81 /* TimelineScoreDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638E683F291A3E9200A5CC81 /* TimelineScoreDetailViewController.xib */; };
 		63913D98277E769600EABBC7 /* WorkingHoursSlotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63913D97277E769600EABBC7 /* WorkingHoursSlotCell.xib */; };
 		63913D9A277E7C0F00EABBC7 /* WorkingHoursSlotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63913D99277E7C0F00EABBC7 /* WorkingHoursSlotCell.swift */; };
 		63913D9C277F512700EABBC7 /* WorkingHoursSeparatorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63913D9B277F512700EABBC7 /* WorkingHoursSeparatorCell.xib */; };
@@ -375,7 +374,7 @@
 		63F8B2CC28F9851C0084B53A /* DriveKitDriverDataTimelineUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2CB28F9851C0084B53A /* DriveKitDriverDataTimelineUI.swift */; };
 		63F8B2D028F9B27B0084B53A /* DriverDataTimelineLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63F8B2D228F9B27B0084B53A /* DriverDataTimelineLocalizable.strings */; };
 		63F8B2D928FD4B500084B53A /* TimelineViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2D828FD4B500084B53A /* TimelineViewModelDelegate.swift */; };
-		63F8B2DB28FD5B250084B53A /* DKTimelineScoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2DA28FD5B250084B53A /* DKTimelineScoreType.swift */; };
+		63F8B2DB28FD5B250084B53A /* DKScoreTypeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2DA28FD5B250084B53A /* DKScoreTypeExtension.swift */; };
 		63F8B2DD28FDB0580084B53A /* ScoreSelectionTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2DC28FDB0580084B53A /* ScoreSelectionTypeView.swift */; };
 		63F8B2DF28FDB0A20084B53A /* ScoreSelectionTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F8B2DE28FDB0A20084B53A /* ScoreSelectionTypeView.xib */; };
 		63FE778624FD1A9D00C068C3 /* AnalyticsTags.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63FE778524FD1A9D00C068C3 /* AnalyticsTags.plist */; };
@@ -614,8 +613,14 @@
 		A3D51F51241BA3AE006DACE2 /* VehiclesListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3D51F4D241BA3AE006DACE2 /* VehiclesListCell.xib */; };
 		AD2690683829D301D9573CEC /* Pods_DriveKitChallengeUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158BFF3EE484B6293C97E890 /* Pods_DriveKitChallengeUI.framework */; };
 		C2ECBA09D9742158769AE627 /* Pods_DriveKitPermissionsUtilsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3A98094797ED33BAF53826 /* Pods_DriveKitPermissionsUtilsUI.framework */; };
+		E341FCA62951AF2B00FC5262 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341FCA52951AF2B00FC5262 /* DoubleExtension.swift */; };
+		E341FCA82951EE4900FC5262 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341FCA72951EE4900FC5262 /* ArrayExtension.swift */; };
+		E3559EB729479F8100AAB747 /* TimelineDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3559EB629479F8100AAB747 /* TimelineDetailViewController.xib */; };
+		E3559EBB2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3559EBA2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift */; };
+		E3559EBD294868CB00AAB747 /* DKTimelineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3559EBC294868CB00AAB747 /* DKTimelineExtension.swift */; };
+		E36085022948C37C0097A639 /* TimelineConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36085012948C37C0097A639 /* TimelineConstants.swift */; };
 		E3B8309D294B1DCE00E31848 /* RoadContextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B8309C294B1DCE00E31848 /* RoadContextView.swift */; };
-		E3B8309F294B5D3F00E31848 /* DKTimelineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B8309E294B5D3F00E31848 /* DKTimelineExtension.swift */; };
+		E3B830A1294CB4A700E31848 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B830A0294CB4A700E31848 /* Helpers.swift */; };
 		FA5F8336F7F9D6E9CBACE91B /* Pods_DriveKitDriverAchievementUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36173251B2A47392720E8B05 /* Pods_DriveKitDriverAchievementUI.framework */; };
 		FE2C04BD97A78F4B22CD7008 /* Pods_DriveKitDriverDataUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55652B494DACA2423EDB5A8E /* Pods_DriveKitDriverDataUI.framework */; };
 /* End PBXBuildFile section */
@@ -866,7 +871,7 @@
 		3FF68E87240A727D0071D74C /* DKDatePattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDatePattern.swift; sourceTree = "<group>"; };
 		3FF68E89240ACD620071D74C /* DriveKitDriverDataUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveKitDriverDataUI.swift; sourceTree = "<group>"; };
 		3FF68E8B240C0A430071D74C /* UIViewController+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DK.swift"; sourceTree = "<group>"; };
-		3FF68E91240CF1300071D74C /* ScoreType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreType.swift; sourceTree = "<group>"; };
+		3FF68E91240CF1300071D74C /* DKScoreType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKScoreType.swift; sourceTree = "<group>"; };
 		3FF68E95240D58DC0071D74C /* UIView+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+DK.swift"; sourceTree = "<group>"; };
 		3FF68E97240D59000071D74C /* UIImage+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+DK.swift"; sourceTree = "<group>"; };
 		3FF68EF22413ECC00071D74C /* DriveKitVehicleUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DriveKitVehicleUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1075,9 +1080,8 @@
 		638DDC572726EAAE003ED260 /* OdometerCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdometerCellType.swift; sourceTree = "<group>"; };
 		638DDC592726EB8F003ED260 /* OdometerCellActionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdometerCellActionType.swift; sourceTree = "<group>"; };
 		638E68392919419200A5CC81 /* DriveKitDriverDataTimelineUIEntryPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DriveKitDriverDataTimelineUIEntryPoint.swift; sourceTree = "<group>"; };
-		638E683B291A3D5400A5CC81 /* TimelineScoreDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineScoreDetailViewController.swift; sourceTree = "<group>"; };
+		638E683B291A3D5400A5CC81 /* TimelineDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineDetailViewController.swift; sourceTree = "<group>"; };
 		638E683D291A3E2000A5CC81 /* TimelineDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineDetailViewModel.swift; sourceTree = "<group>"; };
-		638E683F291A3E9200A5CC81 /* TimelineScoreDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineScoreDetailViewController.xib; sourceTree = "<group>"; };
 		63913D97277E769600EABBC7 /* WorkingHoursSlotCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WorkingHoursSlotCell.xib; sourceTree = "<group>"; };
 		63913D99277E7C0F00EABBC7 /* WorkingHoursSlotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingHoursSlotCell.swift; sourceTree = "<group>"; };
 		63913D9B277F512700EABBC7 /* WorkingHoursSeparatorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkingHoursSeparatorCell.xib; sourceTree = "<group>"; };
@@ -1177,7 +1181,7 @@
 		63F8B2D628F9B2850084B53A /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/DriverDataTimelineLocalizable.strings; sourceTree = "<group>"; };
 		63F8B2D728F9B2870084B53A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/DriverDataTimelineLocalizable.strings; sourceTree = "<group>"; };
 		63F8B2D828FD4B500084B53A /* TimelineViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewModelDelegate.swift; sourceTree = "<group>"; };
-		63F8B2DA28FD5B250084B53A /* DKTimelineScoreType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTimelineScoreType.swift; sourceTree = "<group>"; };
+		63F8B2DA28FD5B250084B53A /* DKScoreTypeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKScoreTypeExtension.swift; sourceTree = "<group>"; };
 		63F8B2DC28FDB0580084B53A /* ScoreSelectionTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreSelectionTypeView.swift; sourceTree = "<group>"; };
 		63F8B2DE28FDB0A20084B53A /* ScoreSelectionTypeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScoreSelectionTypeView.xib; sourceTree = "<group>"; };
 		63FE778524FD1A9D00C068C3 /* AnalyticsTags.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AnalyticsTags.plist; sourceTree = "<group>"; };
@@ -1435,8 +1439,14 @@
 		A3D51F4D241BA3AE006DACE2 /* VehiclesListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VehiclesListCell.xib; sourceTree = "<group>"; };
 		C6CF2F88D8CEC4FD0F65BD58 /* Pods-DriveKitChallengeUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitChallengeUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitChallengeUI/Pods-DriveKitChallengeUI.debug.xcconfig"; sourceTree = "<group>"; };
 		DCBF31C151237FEA8EDE3CF0 /* Pods-DriveKitDriverDataUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverDataUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverDataUI/Pods-DriveKitDriverDataUI.release.xcconfig"; sourceTree = "<group>"; };
+		E341FCA52951AF2B00FC5262 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
+		E341FCA72951EE4900FC5262 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		E3559EB629479F8100AAB747 /* TimelineDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineDetailViewController.xib; sourceTree = "<group>"; };
+		E3559EBA2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineDetailViewModelDelegate.swift; sourceTree = "<group>"; };
+		E3559EBC294868CB00AAB747 /* DKTimelineExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTimelineExtension.swift; sourceTree = "<group>"; };
+		E36085012948C37C0097A639 /* TimelineConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineConstants.swift; sourceTree = "<group>"; };
 		E3B8309C294B1DCE00E31848 /* RoadContextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadContextView.swift; sourceTree = "<group>"; };
-		E3B8309E294B5D3F00E31848 /* DKTimelineExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTimelineExtension.swift; sourceTree = "<group>"; };
+		E3B830A0294CB4A700E31848 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		FA713DC763C119AEF200C7B2 /* Pods-DriveKitDriverDataTimelineUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverDataTimelineUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverDataTimelineUI/Pods-DriveKitDriverDataTimelineUI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1671,6 +1681,7 @@
 				63BE1EC826CEAFDA00CFEB8B /* LastTripsWidget */,
 				63ECE8E72667C62E000F08D3 /* User */,
 				639346B4244897C1000F42D4 /* DKContactType.swift */,
+				3FF68E91240CF1300071D74C /* DKScoreType.swift */,
 				3F03A4DC242C8BD3000924A0 /* DKContentMail.swift */,
 				3FB5643923F68BBE00F010E3 /* CardView.swift */,
 				A3905557242538E500537EB5 /* DKImagePicker.swift */,
@@ -1747,7 +1758,6 @@
 				A342384B2361A2430001E15D /* ConfigurationCircularProgressView.swift */,
 				6357AE4F26111DD40000CA58 /* DKGaugeConfiguration.swift */,
 				6357AE5B26111F180000CA58 /* DKGaugeType.swift */,
-				3FF68E91240CF1300071D74C /* ScoreType.swift */,
 			);
 			path = Gauge;
 			sourceTree = "<group>";
@@ -2488,16 +2498,14 @@
 			isa = PBXGroup;
 			children = (
 				63F8B2BC28F9611E0084B53A /* Timeline */,
-				63F8B2BD28F961250084B53A /* TimelineScoreDetail */,
+				63F8B2BD28F961250084B53A /* TimelineDetail */,
 				63F8B2A228F95F230084B53A /* Components */,
 				63F8B2CD28F9B23B0084B53A /* Localizable */,
 				63F8B2CB28F9851C0084B53A /* DriveKitDriverDataTimelineUI.swift */,
-				63F8B2DA28FD5B250084B53A /* DKTimelineScoreType.swift */,
-				63454B9E2907DC8D00A9B10F /* TimelineDateExtension.swift */,
+				E3B830A2294CB54200E31848 /* Helpers */,
 				63F8B29D28F95E3F0084B53A /* Timeline.xcassets */,
 				63F8B29C28F95C2C0084B53A /* Info.plist */,
 				63F8B29128F958B90084B53A /* DriveKitDriverDataTimelineUI.h */,
-				E3B8309E294B5D3F00E31848 /* DKTimelineExtension.swift */,
 			);
 			path = DriveKitDriverDataTimelineUI;
 			sourceTree = "<group>";
@@ -2578,14 +2586,15 @@
 			path = Timeline;
 			sourceTree = "<group>";
 		};
-		63F8B2BD28F961250084B53A /* TimelineScoreDetail */ = {
+		63F8B2BD28F961250084B53A /* TimelineDetail */ = {
 			isa = PBXGroup;
 			children = (
 				638E683D291A3E2000A5CC81 /* TimelineDetailViewModel.swift */,
-				638E683B291A3D5400A5CC81 /* TimelineScoreDetailViewController.swift */,
-				638E683F291A3E9200A5CC81 /* TimelineScoreDetailViewController.xib */,
+				638E683B291A3D5400A5CC81 /* TimelineDetailViewController.swift */,
+				E3559EB629479F8100AAB747 /* TimelineDetailViewController.xib */,
+				E3559EBA2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift */,
 			);
-			path = TimelineScoreDetail;
+			path = TimelineDetail;
 			sourceTree = "<group>";
 		};
 		63F8B2CD28F9B23B0084B53A /* Localizable */ = {
@@ -3357,6 +3366,20 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E3B830A2294CB54200E31848 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				63F8B2DA28FD5B250084B53A /* DKScoreTypeExtension.swift */,
+				63454B9E2907DC8D00A9B10F /* TimelineDateExtension.swift */,
+				E3559EBC294868CB00AAB747 /* DKTimelineExtension.swift */,
+				E36085012948C37C0097A639 /* TimelineConstants.swift */,
+				E3B830A0294CB4A700E31848 /* Helpers.swift */,
+				E341FCA52951AF2B00FC5262 /* DoubleExtension.swift */,
+				E341FCA72951EE4900FC5262 /* ArrayExtension.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -3825,8 +3848,8 @@
 				63F8B2DF28FDB0A20084B53A /* ScoreSelectionTypeView.xib in Resources */,
 				63454B9C2906C7A200A9B10F /* TimelineGraphView.xib in Resources */,
 				67D6CD8E290912780055632B /* EmptyRoadContextView.xib in Resources */,
-				638E6840291A3E9200A5CC81 /* TimelineScoreDetailViewController.xib in Resources */,
 				63F8B2C728F961B10084B53A /* TimelineViewController.xib in Resources */,
+				E3559EB729479F8100AAB747 /* TimelineDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4219,7 +4242,7 @@
 				67F2D3672630F07E00ACC69A /* RankingJumpCell.swift in Sources */,
 				3F7524CE2407A89100AC22CC /* DKCommonLocalizable.swift in Sources */,
 				3FF68E84240966120071D74C /* DKImages.swift in Sources */,
-				3FF68E92240CF1300071D74C /* ScoreType.swift in Sources */,
+				3FF68E92240CF1300071D74C /* DKScoreType.swift in Sources */,
 				3FA2501B2524CE75000AB7D3 /* DKFilterPickerVC.swift in Sources */,
 				61D29B7924362C720094CA5B /* DKReachability.swift in Sources */,
 				3FF68E7024081F060071D74C /* DKAttributedStringBuilder.swift in Sources */,
@@ -4403,27 +4426,32 @@
 				63F8B2C528F961960084B53A /* TimelineViewModel.swift in Sources */,
 				674B3B2329196CE800C62895 /* GraphConstants.swift in Sources */,
 				63F8B2B128F9605A0084B53A /* TimelineGraphViewModel.swift in Sources */,
-				638E683C291A3D5400A5CC81 /* TimelineScoreDetailViewController.swift in Sources */,
+				E3B830A1294CB4A700E31848 /* Helpers.swift in Sources */,
+				638E683C291A3D5400A5CC81 /* TimelineDetailViewController.swift in Sources */,
 				63F8B2A728F95F8C0084B53A /* DateSelectorView.swift in Sources */,
 				63F8B2AF28F960420084B53A /* BarGraphView.swift in Sources */,
 				63454B982906B4B200A9B10F /* GraphItem.swift in Sources */,
 				63454B9A2906C76700A9B10F /* TimelineGraphView.swift in Sources */,
+				E36085022948C37C0097A639 /* TimelineConstants.swift in Sources */,
+				E341FCA62951AF2B00FC5262 /* DoubleExtension.swift in Sources */,
 				63F8B2BB28F960E20084B53A /* PeriodSelectorDelegate.swift in Sources */,
+				E3559EBD294868CB00AAB747 /* DKTimelineExtension.swift in Sources */,
 				63F8B2AD28F960260084B53A /* GraphType.swift in Sources */,
 				638E683E291A3E2000A5CC81 /* TimelineDetailViewModel.swift in Sources */,
 				63F8B2B728F960BA0084B53A /* PeriodSelectorView.swift in Sources */,
 				67D6CD8C290912640055632B /* EmptyRoadContextView.swift in Sources */,
-				E3B8309F294B5D3F00E31848 /* DKTimelineExtension.swift in Sources */,
 				63F8B2D928FD4B500084B53A /* TimelineViewModelDelegate.swift in Sources */,
 				63454BA129081DD500A9B10F /* Graph.swift in Sources */,
+				E3559EBB2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift in Sources */,
 				63454B9629068FD000A9B10F /* TimelineScoreItemType.swift in Sources */,
 				63F8B2B328F960770084B53A /* GraphAxisConfig.swift in Sources */,
 				63F8B2A928F95F980084B53A /* DateSelectorViewModel.swift in Sources */,
 				67D6CD8929090B750055632B /* RoadContextItemCell.swift in Sources */,
 				63F8B2AB28F95FAE0084B53A /* DateSelectorDelegate.swift in Sources */,
 				63454B8E29067C6000A9B10F /* GraphViewBase.swift in Sources */,
-				63F8B2DB28FD5B250084B53A /* DKTimelineScoreType.swift in Sources */,
+				63F8B2DB28FD5B250084B53A /* DKScoreTypeExtension.swift in Sources */,
 				63F8B2CC28F9851C0084B53A /* DriveKitDriverDataTimelineUI.swift in Sources */,
+				E341FCA82951EE4900FC5262 /* ArrayExtension.swift in Sources */,
 				63454B932906830B00A9B10F /* LineGraphView.swift in Sources */,
 				63F8B2DD28FDB0580084B53A /* ScoreSelectionTypeView.swift in Sources */,
 				63F8B2C328F9617C0084B53A /* TimelineViewController.swift in Sources */,

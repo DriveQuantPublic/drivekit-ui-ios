@@ -14,12 +14,12 @@ import DriveKitDriverDataModule
 class TimelineViewModel {
     private(set) var updating: Bool = false
     weak var delegate: TimelineViewModelDelegate?
-    let scores: [DKTimelineScoreType]
+    let scores: [DKScoreType]
     let dateSelectorViewModel: DateSelectorViewModel
     let periodSelectorViewModel: PeriodSelectorViewModel
     let roadContextViewModel: RoadContextViewModel
     let timelineGraphViewModel: TimelineGraphViewModel
-    var selectedScore: DKTimelineScoreType {
+    var selectedScore: DKScoreType {
         didSet {
             update()
         }
@@ -28,6 +28,31 @@ class TimelineViewModel {
     private var monthTimeline: DKTimeline?
     private var currentPeriod: DKTimelinePeriod
     private var selectedDate: Date?
+    
+    private(set) var shouldHideDetailButton: Bool = true {
+        didSet {
+            self.delegate?.didUpdateDetailButtonDisplay()
+        }
+    }
+    
+    var timelineDetailButtonTitle: String {
+        "dk_timeline_button_timeline_detail".dkDriverDataTimelineLocalized()
+    }
+    
+    var timelineDetailViewModel: TimelineDetailViewModel {
+        guard let weekTimeline, let monthTimeline, let selectedDate else {
+            preconditionFailure("This method should not be called until timeline data is available (disable the button)")
+        }
+        let detailVM = TimelineDetailViewModel(
+            selectedScore: selectedScore,
+            selectedPeriod: periodSelectorViewModel.selectedPeriod,
+            selectedDate: selectedDate,
+            weekTimeline: weekTimeline,
+            monthTimeline: monthTimeline
+        )
+        detailVM.delegate = self
+        return detailVM
+    }
 
     init() {
         self.scores = DriveKitDriverDataTimelineUI.shared.scores
@@ -86,14 +111,6 @@ class TimelineViewModel {
         }
     }
 
-    func showPreviousGraphData() {
-        self.timelineGraphViewModel.showPreviousGraphData()
-    }
-
-    func showNextGraphData() {
-        self.timelineGraphViewModel.showNextGraphData()
-    }
-
     private func update(resettingSelectedDate shouldResetSelectedDate: Bool = false) {
         if let timelineSource = getTimelineSource() {
             if shouldResetSelectedDate {
@@ -103,25 +120,18 @@ class TimelineViewModel {
             let sourceDates = timelineSource.allContext.date
             let cleanedTimeline: DKTimeline
             if let date = self.selectedDate {
-                let selectedDateIndex = sourceDates.firstIndex(of: date)
-                cleanedTimeline = cleanTimeline(timelineSource, forScore: self.selectedScore, selectedIndex: selectedDateIndex)
+                let selectedDateIndex = timelineSource.selectedIndex(for: date)
+                cleanedTimeline = timelineSource.cleaned(forScore: self.selectedScore, selectedIndex: selectedDateIndex)
             } else {
-                cleanedTimeline = cleanTimeline(timelineSource, forScore: self.selectedScore, selectedIndex: nil)
+                cleanedTimeline = timelineSource.cleaned(forScore: self.selectedScore, selectedIndex: nil)
             }
-            // Compute selected index.
-            let dates = cleanedTimeline.allContext.date
-            let selectedDateIndex: Int?
-            if let date = self.selectedDate {
-                selectedDateIndex = dates.firstIndex(of: date)
-            } else if !dates.isEmpty {
-                selectedDateIndex = dates.count - 1
-            } else {
-                selectedDateIndex = nil
-            }
+
             // Update view models.
-            if let selectedDateIndex {
+            if let selectedDateIndex = cleanedTimeline.selectedIndex(for: selectedDate) {
+                let dates = cleanedTimeline.allContext.date
                 self.selectedDate = dates[selectedDateIndex]
                 self.dateSelectorViewModel.configure(dates: dates, period: self.currentPeriod, selectedIndex: selectedDateIndex)
+                self.dateSelectorViewModel.delegate = self
                 self.periodSelectorViewModel.configure(selectedPeriod: self.currentPeriod)
                 self.timelineGraphViewModel.configure(timeline: cleanedTimeline, timelineSelectedIndex: selectedDateIndex, graphItem: .score(self.selectedScore), period: self.currentPeriod)
                 self.roadContextViewModel.configure(
@@ -129,6 +139,7 @@ class TimelineViewModel {
                     timeline: cleanedTimeline,
                     selectedIndex: selectedDateIndex
                 )
+                self.shouldHideDetailButton = cleanedTimeline.hasValidTripScored(for: selectedScore, at: selectedDateIndex) == false
             } else {
                 configureWithNoData()
             }
@@ -155,6 +166,7 @@ class TimelineViewModel {
                 timeline: getTimelineSource()
             )
         }
+        self.shouldHideDetailButton = true
     }
 
     private func getTimelineSource() -> DKTimeline? {
@@ -169,139 +181,19 @@ class TimelineViewModel {
         }
         return timelineSource
     }
-
-    private func cleanTimeline(_ timeline: DKTimeline, forScore score: DKTimelineScoreType, selectedIndex: Int?) -> DKTimeline {
-        let canInsertAtIndex: (Int) -> Bool = { index in
-            timeline.allContext.numberTripScored[index] > 0 || score == .distraction || score == .speeding || index == selectedIndex
-        }
-        var date: [Date] = []
-        var numberTripTotal: [Int] = []
-        var numberTripScored: [Int] = []
-        var distance: [Double] = []
-        var duration: [Int] = []
-        var efficiency: [Double] = []
-        var safety: [Double] = []
-        var acceleration: [Int] = []
-        var braking: [Int] = []
-        var adherence: [Int] = []
-        var phoneDistraction: [Double] = []
-        var speeding: [Double] = []
-        var co2Mass: [Double] = []
-        var fuelVolume: [Double] = []
-        var unlock: [Int] = []
-        var lock: [Int] = []
-        var callAuthorized: [Int] = []
-        var callForbidden: [Int] = []
-        var callForbiddenDuration: [Int] = []
-        var callAuthorizedDuration: [Int] = []
-        var numberTripWithForbiddenCall: [Int] = []
-        var speedingDuration: [Int] = []
-        var speedingDistance: [Double] = []
-        var efficiencyBrake: [Double] = []
-        var efficiencyAcceleration: [Double] = []
-        var efficiencySpeedMaintain: [Double] = []
-        let maxItems = timeline.allContext.date.count
-        for index in 0..<maxItems {
-            if canInsertAtIndex(index) {
-                date.append(timeline.allContext.date[index])
-                numberTripTotal.append(timeline.allContext.numberTripTotal[index])
-                numberTripScored.append(timeline.allContext.numberTripScored[index])
-                distance.append(timeline.allContext.distance[index])
-                duration.append(timeline.allContext.duration[index])
-                efficiency.append(timeline.allContext.efficiency[index])
-                safety.append(timeline.allContext.safety[index])
-                acceleration.append(timeline.allContext.acceleration[index])
-                braking.append(timeline.allContext.braking[index])
-                adherence.append(timeline.allContext.adherence[index])
-                phoneDistraction.append(timeline.allContext.phoneDistraction[index])
-                speeding.append(timeline.allContext.speeding[index])
-                co2Mass.append(timeline.allContext.co2Mass[index])
-                fuelVolume.append(timeline.allContext.fuelVolume[index])
-                unlock.append(timeline.allContext.unlock[index])
-                lock.append(timeline.allContext.lock[index])
-                callAuthorized.append(timeline.allContext.callAuthorized[index])
-                callForbidden.append(timeline.allContext.callForbidden[index])
-                callForbiddenDuration.append(timeline.allContext.callForbiddenDuration[index])
-                callAuthorizedDuration.append(timeline.allContext.callAuthorizedDuration[index])
-                if !timeline.allContext.numberTripWithForbiddenCall.isEmpty {
-                    numberTripWithForbiddenCall.append(timeline.allContext.numberTripWithForbiddenCall[index])
-                    speedingDuration.append(timeline.allContext.speedingDuration[index])
-                    speedingDistance.append(timeline.allContext.speedingDistance[index])
-                    efficiencyBrake.append(timeline.allContext.efficiencyBrake[index])
-                    efficiencyAcceleration.append(timeline.allContext.efficiencyAcceleration[index])
-                    efficiencySpeedMaintain.append(timeline.allContext.efficiencySpeedMaintain[index])
-                }
-            }
-        }
-
-        var roadContexts: [DKTimeline.RoadContextItem] = []
-        for roadContext in timeline.roadContexts {
-            var date: [Date] = []
-            var numberTripTotal: [Int] = []
-            var numberTripScored: [Int] = []
-            var distance: [Double] = []
-            var duration: [Int] = []
-            var efficiency: [Double] = []
-            var safety: [Double] = []
-            var acceleration: [Int] = []
-            var braking: [Int] = []
-            var adherence: [Int] = []
-            var co2Mass: [Double] = []
-            var fuelVolume: [Double] = []
-            var efficiencyAcceleration: [Double] = []
-            var efficiencyBrake: [Double] = []
-            var efficiencySpeedMaintain: [Double] = []
-            for index in 0..<maxItems {
-                if canInsertAtIndex(index) {
-                    date.append(roadContext.date[index])
-                    numberTripTotal.append(roadContext.numberTripTotal[index])
-                    numberTripScored.append(roadContext.numberTripScored[index])
-                    distance.append(roadContext.distance[index])
-                    duration.append(roadContext.duration[index])
-                    efficiency.append(roadContext.efficiency[index])
-                    safety.append(roadContext.safety[index])
-                    acceleration.append(roadContext.acceleration[index])
-                    braking.append(roadContext.braking[index])
-                    adherence.append(roadContext.adherence[index])
-                    co2Mass.append(roadContext.co2Mass[index])
-                    fuelVolume.append(roadContext.fuelVolume[index])
-                    if !roadContext.efficiencyAcceleration.isEmpty {
-                        efficiencyAcceleration.append(roadContext.efficiencyAcceleration[index])
-                        efficiencyBrake.append(roadContext.efficiencyBrake[index])
-                        efficiencySpeedMaintain.append(roadContext.efficiencySpeedMaintain[index])
-                    }
-                }
-            }
-            let newRoadContext = DKTimeline.RoadContextItem(type: roadContext.type, date: date, numberTripTotal: numberTripTotal, numberTripScored: numberTripScored, distance: distance, duration: duration, efficiency: efficiency, safety: safety, acceleration: acceleration, braking: braking, adherence: adherence, co2Mass: co2Mass, fuelVolume: fuelVolume, efficiencyAcceleration: efficiencyAcceleration, efficiencyBrake: efficiencyBrake, efficiencySpeedMaintain: efficiencySpeedMaintain)
-            roadContexts.append(newRoadContext)
-        }
-
-        let allContext: DKTimeline.AllContextItem = DKTimeline.AllContextItem(date: date, numberTripTotal: numberTripTotal, numberTripScored: numberTripScored, distance: distance, duration: duration, efficiency: efficiency, safety: safety, acceleration: acceleration, braking: braking, adherence: adherence, phoneDistraction: phoneDistraction, speeding: speeding, co2Mass: co2Mass, fuelVolume: fuelVolume, unlock: unlock, lock: lock, callAuthorized: callAuthorized, callForbidden: callForbidden, callAuthorizedDuration: callAuthorizedDuration, callForbiddenDuration: callForbiddenDuration, numberTripWithForbiddenCall: numberTripWithForbiddenCall, speedingDuration: speedingDuration, speedingDistance: speedingDistance, efficiencyBrake: efficiencyBrake, efficiencyAcceleration: efficiencyAcceleration, efficiencySpeedMaintain: efficiencySpeedMaintain)
-        let cleanedTimeline = DKTimeline(period: timeline.period, allContext: allContext, roadContexts: roadContexts)
-        return cleanedTimeline
-    }
 }
 
 extension TimelineViewModel: PeriodSelectorDelegate {
     func periodSelectorDidSelectPeriod(_ period: DKTimelinePeriod) {
         if self.currentPeriod != period {
             self.currentPeriod = period
-            if let selectedDate = self.selectedDate, let timeline = getTimelineSource() {
-                let dates = timeline.allContext.date
-                let compareDate: Date?
-                if period == .week {
-                    // Changed from .month to .week
-                    compareDate = selectedDate
-                } else {
-                    // Changed from .week to .month
-                    compareDate = DriveKitDriverDataTimelineUI.calendar.date(from: DriveKitDriverDataTimelineUI.calendar.dateComponents([.year, .month], from: selectedDate))
-                }
-                if let compareDate {
-                    let newDate = dates.first { date in
-                        date >= compareDate
-                    }
-                    self.selectedDate = newDate
-                }
+            if let selectedDate = self.selectedDate, let weekTimeline, let monthTimeline {
+                self.selectedDate = Helpers.newSelectedDate(
+                    from: selectedDate,
+                    switchingTo: period,
+                    weekTimeline: weekTimeline,
+                    monthTimeline: monthTimeline
+                )
             }
             update()
         }
@@ -319,5 +211,27 @@ extension TimelineViewModel: TimelineGraphDelegate {
     func graphDidSelectDate(_ date: Date) {
         self.selectedDate = date
         update()
+    }
+}
+
+extension TimelineViewModel:  TimelineDetailViewModelDelegate {
+    func didUpdate(selectedDate: Date) {
+        self.selectedDate = selectedDate
+        update()
+    }
+    
+    func didUpdate(selectedPeriod: DKTimelinePeriod) {
+        if self.currentPeriod != selectedPeriod {
+            self.currentPeriod = selectedPeriod
+            if let selectedDate = self.selectedDate, let weekTimeline, let monthTimeline {
+                self.selectedDate = Helpers.newSelectedDate(
+                    from: selectedDate,
+                    switchingTo: selectedPeriod,
+                    weekTimeline: weekTimeline,
+                    monthTimeline: monthTimeline
+                )
+            }
+            update()
+        }
     }
 }

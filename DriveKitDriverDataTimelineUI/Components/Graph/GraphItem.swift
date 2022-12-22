@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import DriveKitCommonUI
 
 enum GraphItem {
-    case score(DKTimelineScoreType)
+    case score(DKScoreType)
     case scoreItem(TimelineScoreItemType)
 }
 
@@ -153,6 +154,72 @@ extension GraphItem {
             }
         }
     }
+    
+    func maxNumberOfLabels(forMaxValue maxValue: Double) -> Int {
+        let intervalCountBetweenBounds = Int(ceil(maxValue) - graphMinValue)
+        // Add one because we need X intervals so X+1 values
+        return min(intervalCountBetweenBounds, GraphConstants.defaultNumberOfIntervalInYAxis) + 1
+    }
+    
+    func graphMaxValue(forRealMaxValue realMaxValue: Double?) -> Double {
+        if let graphMaxValue = self.defaultGraphMaxValue {
+            return graphMaxValue
+        }
+        
+        let maxValue = realMaxValue ?? GraphConstants.defaultMaxValueInYAxis
+        return (maxValue <= GraphConstants.notEnoughDataInGraphThreshold)
+            ? GraphConstants.maxValueInYAxisWhenNotEnoughDataInGraph
+            : maxValue.ceiledToLowestValueWithNiceStep
+    }
+    
+    private var defaultGraphMaxValue: Double? {
+        get {
+            switch self {
+                case let .score(type):
+                    switch type {
+                        case .distraction:
+                            return 10
+                        case .ecoDriving:
+                            return 10
+                        case .safety:
+                            return 10
+                        case .speeding:
+                            return 10
+                    }
+                case let .scoreItem(type):
+                    switch type {
+                        case .distraction_callForbiddenDuration:
+                            return nil
+                        case .distraction_percentageOfTripsWithForbiddenCall:
+                            return nil
+                        case .distraction_unlock:
+                            return nil
+                        case .ecoDriving_fuelSavings:
+                            return nil
+                        case .ecoDriving_efficiencyAcceleration:
+                            return 5
+                        case .ecoDriving_efficiencyBrake:
+                            return 5
+                        case .ecoDriving_efficiencySpeedMaintain:
+                            return 5
+                        case .ecoDriving_fuelVolume:
+                            return nil
+                        case .ecoDriving_co2mass:
+                            return nil
+                        case .safety_acceleration:
+                            return nil
+                        case .safety_adherence:
+                            return nil
+                        case .safety_braking:
+                            return nil
+                        case .speeding_distance:
+                            return 100
+                        case .speeding_duration:
+                            return 100
+                    }
+            }
+        }
+    }
 
     func getGraphDescription(fromValue value: Double?) -> String {
         guard let value else {
@@ -164,13 +231,16 @@ extension GraphItem {
             case let .scoreItem(type):
                 switch type {
                     case .distraction_callForbiddenDuration:
-                        return value.formatSecondDuration()
+                        // The value is in minute so we convert it back to seconds
+                        // before reformatting. The conversion is done here
+                        // to keep the graph Y Axis in minute
+                        return (value * 60).formatSecondDuration()
                     case .distraction_percentageOfTripsWithForbiddenCall:
                         return value.formatPercentage()
                     case .distraction_unlock:
                         return value.formatDouble(places: 1)
                     case .ecoDriving_fuelSavings:
-                        return value.formatConsumption()
+                        return value.formatLiter()
                     case .ecoDriving_efficiencyAcceleration:
                         return value.getAccelerationDescription()
                     case .ecoDriving_efficiencyBrake:
@@ -180,7 +250,7 @@ extension GraphItem {
                     case .ecoDriving_fuelVolume:
                         return value.formatLiter()
                     case .ecoDriving_co2mass:
-                        return value.formatCO2Mass()
+                        return value.formatCO2Mass(shouldUseNaturalUnit: false)
                     case .safety_acceleration:
                         return value.formatDouble(places: 1)
                     case .safety_adherence:

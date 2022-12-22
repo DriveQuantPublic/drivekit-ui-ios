@@ -260,9 +260,9 @@ public extension Double {
     }
 
 
-    func getCO2MassFormat() -> [FormatType] {
+    func getCO2MassFormat(shouldUseNaturalUnit: Bool) -> [FormatType] {
         let formattingTypes: [FormatType]
-        if self < 1 {
+        if self < 1 && shouldUseNaturalUnit {
             formattingTypes = [
                 .value((self * 1000).format(maximumFractionDigits: 0)),
                 .separator(),
@@ -278,8 +278,8 @@ public extension Double {
         return formattingTypes
     }
 
-    func formatCO2Mass() -> String {
-        return getCO2MassFormat().toString()
+    func formatCO2Mass(shouldUseNaturalUnit: Bool = true) -> String {
+        return getCO2MassFormat(shouldUseNaturalUnit: shouldUseNaturalUnit).toString()
     }
 
     func getCO2Emission() -> [FormatType] {

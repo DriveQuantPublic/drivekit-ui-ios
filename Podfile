@@ -2,7 +2,7 @@
 platform :ios, '11.0'
 use_frameworks!
 
-#source 'https://gitlab.com/drivequant/drivekit/drivekit-specs.git'
+source 'https://gitlab.com/drivequant/drivekit/drivekit-specs.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
 def circular_progress_ring
@@ -11,45 +11,45 @@ end
 
 target 'DriveKitApp' do
   pod 'ChartsForDK', :git => 'https://github.com/DriveQuantPublic/Charts-ios11.git', :branch => 'feature/ChartsForDK'
-  pod 'DriveKitTripSimulator', '1.28.0'
+  pod 'DriveKitTripSimulator', '1.29-beta1'
 end
 
 
 target 'DriveKitDriverDataUI' do
-  pod 'DriveKitDriverData', '1.28.0'
+  pod 'DriveKitDriverData', '1.29-beta1'
   circular_progress_ring
 end
 
 target 'DriveKitDriverDataTimelineUI' do
-  pod 'DriveKitDriverData', '1.28.0'
+  pod 'DriveKitDriverData', '1.29-beta1'
   pod 'ChartsForDK', :git => 'https://github.com/DriveQuantPublic/Charts-ios11.git', :branch => 'feature/ChartsForDK'
 end
 
 target 'DriveKitDriverAchievementUI' do
-  pod 'DriveKitDriverAchievement', '1.28.0'
+  pod 'DriveKitDriverAchievement', '1.29-beta1'
   circular_progress_ring
 end
 
 target 'DriveKitCommonUI' do
-  pod 'DriveKitCore', '1.28.0'
+  pod 'DriveKitCore', '1.29-beta1'
   circular_progress_ring
 end
 
 target 'DriveKitVehicleUI' do
-  pod 'DriveKitVehicle', '1.28.0'
-  pod 'DriveKitTripAnalysis', '1.28.0'
+  pod 'DriveKitVehicle', '1.29-beta1'
+  pod 'DriveKitTripAnalysis', '1.29-beta1'
 end
 
 target 'DriveKitPermissionsUtilsUI' do
-  pod 'DriveKitCore', '1.28.0'
+  pod 'DriveKitCore', '1.29-beta1'
 end
 
 target 'DriveKitChallengeUI' do
-  pod 'DriveKitChallenge', '1.28.0'
+  pod 'DriveKitChallenge', '1.29-beta1'
 end
 
 target 'DriveKitTripAnalysisUI' do
-  pod 'DriveKitTripAnalysis', '1.28.0'
+  pod 'DriveKitTripAnalysis', '1.29-beta1'
   pod 'WARangeSlider'
   circular_progress_ring
 end

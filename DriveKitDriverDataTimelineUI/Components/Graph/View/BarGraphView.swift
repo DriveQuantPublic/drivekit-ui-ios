@@ -27,6 +27,9 @@ class BarGraphView: GraphViewBase {
     }
 
     override func setupData() {
+        if let xAxisConfig = self.viewModel.xAxisConfig {
+            self.chartView.xAxisRenderer = DKXAxisRenderer.from(self.chartView, config: xAxisConfig)
+        }
         var entries  = [BarChartDataEntry]()
         var entryToSelect: ChartDataEntry?
         for (index, point) in self.viewModel.points.enumerated() {
@@ -70,15 +73,9 @@ class BarGraphView: GraphViewBase {
         self.chartView.xAxis.labelPosition = .bottom
         if let xAxisConfig = self.viewModel.xAxisConfig {
             self.chartView.xAxis.valueFormatter = GraphAxisFormatter(config: xAxisConfig)
-            if let labels = xAxisConfig.labels {
-                self.chartView.xAxis.setLabelCount(labels.count, force: false)
-            }
-            if let min = xAxisConfig.min {
-                self.chartView.xAxis.axisMinimum = min - 0.5
-            }
-            if let max = xAxisConfig.max {
-                self.chartView.xAxis.axisMaximum = max + 0.5
-            }
+            self.chartView.xAxis.setLabelCount(xAxisConfig.labels.count, force: false)
+            self.chartView.xAxis.axisMinimum = xAxisConfig.min - 0.5
+            self.chartView.xAxis.axisMaximum = xAxisConfig.max + 0.5
         }
 
         self.chartView.leftAxis.decimals = 0
@@ -87,16 +84,11 @@ class BarGraphView: GraphViewBase {
         self.chartView.leftAxis.labelPosition = .outsideChart
         if let yAxisConfig = self.viewModel.yAxisConfig {
             self.chartView.leftAxis.valueFormatter = GraphAxisFormatter(config: yAxisConfig)
-            if let labels = yAxisConfig.labels {
-                self.chartView.leftAxis.setLabelCount(labels.count, force: true)
-            }
-            if let min = yAxisConfig.min {
-                self.chartView.leftAxis.axisMinimum = min
-            }
-            if let max = yAxisConfig.max {
-                self.chartView.leftAxis.axisMaximum = max
-            }
+            self.chartView.leftAxis.setLabelCount(yAxisConfig.labels.count, force: true)
+            self.chartView.leftAxis.axisMinimum = yAxisConfig.min
+            self.chartView.leftAxis.axisMaximum = yAxisConfig.max
         }
+        self.chartView.clipDataToContentEnabled = false
 
         self.chartView.delegate = self
         if let entryToSelect {
@@ -107,6 +99,9 @@ class BarGraphView: GraphViewBase {
     private func select(entry: ChartDataEntry) {
         self.selectedEntry = entry
         self.chartView.highlightValue(x: entry.x, dataSetIndex: 0)
+        if let renderer = self.chartView.xAxisRenderer as? DKXAxisRenderer {
+            renderer.selectedIndex = Int(entry.x)
+        }
     }
 }
 

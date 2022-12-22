@@ -64,3 +64,17 @@ extension RoadContextView: RoadContextViewModelDelegate {
         self.updateUI()
     }
 }
+
+extension RoadContextView {
+    static func createRoadContextView(
+        configuredWith viewModel: RoadContextViewModel,
+        embededIn containerView: UIView
+    ) {
+        let roadContextView = RoadContextView()
+        containerView.layer.cornerRadius = TimelineConstants.UIStyle.cornerRadius
+        containerView.clipsToBounds = true
+        viewModel.delegate = roadContextView
+        roadContextView.configure(viewModel: viewModel)
+        containerView.embedSubview(roadContextView)
+    }
+}

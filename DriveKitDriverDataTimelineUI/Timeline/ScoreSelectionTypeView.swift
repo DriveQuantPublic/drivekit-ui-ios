@@ -12,16 +12,16 @@ import DriveKitCommonUI
 class ScoreSelectionTypeView: UIControl {
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var selectionIndicator: UIView!
-    private(set) var scoreType: DKTimelineScoreType? = nil
+    private(set) var scoreType: DKScoreType? = nil
 
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionIndicator.backgroundColor = DKUIColors.secondaryColor.color
     }
 
-    func update(scoreType: DKTimelineScoreType) {
+    func update(scoreType: DKScoreType) {
         self.scoreType = scoreType
-        self.imageView.image = scoreType.image()
+        self.imageView.image = scoreType.timelineScoreSelectorImage()
     }
 
     func setSelected(_ selected: Bool) {

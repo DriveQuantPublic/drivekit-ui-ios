@@ -12,7 +12,7 @@ import CoreLocation
 import DriveKitCommonUI
 
 class EcoDrivingPageViewModel {
-    var scoreType: ScoreType = .ecoDriving
+    var scoreType: DKScoreType = .ecoDriving
     var trip: Trip
     
     init(trip: Trip) {

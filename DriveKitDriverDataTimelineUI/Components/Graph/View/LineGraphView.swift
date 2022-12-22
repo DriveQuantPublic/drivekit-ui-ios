@@ -82,15 +82,9 @@ class LineGraphView: GraphViewBase {
         self.chartView.xAxis.labelFont = UIFont.systemFont(ofSize: 12.0)
         if let xAxisConfig = self.viewModel.xAxisConfig {
             self.chartView.xAxis.valueFormatter = GraphAxisFormatter(config: xAxisConfig)
-            if let labels = xAxisConfig.labels {
-                self.chartView.xAxis.setLabelCount(labels.count, force: true)
-            }
-            if let min = xAxisConfig.min {
-                self.chartView.xAxis.axisMinimum = min
-            }
-            if let max = xAxisConfig.max {
-                self.chartView.xAxis.axisMaximum = max
-            }
+            self.chartView.xAxis.setLabelCount(xAxisConfig.labels.count, force: true)
+            self.chartView.xAxis.axisMinimum = xAxisConfig.min
+            self.chartView.xAxis.axisMaximum = xAxisConfig.max
         }
 
         self.chartView.leftAxis.decimals = 0
@@ -101,15 +95,9 @@ class LineGraphView: GraphViewBase {
         self.chartView.leftAxis.labelTextColor = GraphViewBase.axisLabelColor
         if let yAxisConfig = self.viewModel.yAxisConfig {
             self.chartView.leftAxis.valueFormatter = GraphAxisFormatter(config: yAxisConfig)
-            if let labels = yAxisConfig.labels {
-                self.chartView.leftAxis.setLabelCount(labels.count, force: true)
-            }
-            if let min = yAxisConfig.min {
-                self.chartView.leftAxis.axisMinimum = min
-            }
-            if let max = yAxisConfig.max {
-                self.chartView.leftAxis.axisMaximum = max
-            }
+            self.chartView.leftAxis.setLabelCount(yAxisConfig.labels.count, force: true)
+            self.chartView.leftAxis.axisMinimum = yAxisConfig.min
+            self.chartView.leftAxis.axisMaximum = yAxisConfig.max
         }
         self.chartView.clipDataToContentEnabled = false
 
@@ -130,7 +118,9 @@ class LineGraphView: GraphViewBase {
     }
 
     private func clearPreviousSelectedEntry(shouldRestoreIcon: Bool = true) {
-        self.selectedEntry?.icon = self.defaultIcon
+        if shouldRestoreIcon {
+            self.selectedEntry?.icon = self.defaultIcon
+        }
         self.selectedEntry = nil
     }
 }

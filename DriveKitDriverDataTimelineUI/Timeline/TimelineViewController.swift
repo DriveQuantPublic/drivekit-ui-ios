@@ -16,11 +16,9 @@ class TimelineViewController: DKUIViewController {
     @IBOutlet private weak var dateSelectorContainer: UIView!
     @IBOutlet private weak var roadContextContainer: UIView!
     @IBOutlet private weak var timelineGraphViewContainer: UIView!
+    @IBOutlet weak var showTimelineDetailButton: UIButton!
     private let viewModel: TimelineViewModel
     private var selectedScoreSelectionTypeView: ScoreSelectionTypeView? = nil
-    private let roadContextView = RoadContextView()
-//    private let emptyRoadContextView = Bundle.driverDataTimelineUIBundle?.loadNibNamed("EmptyRoadContextView", owner: nil, options: nil)?.first as? EmptyRoadContextView
-    private let cornerRadius: CGFloat = 8
 
     init(viewModel: TimelineViewModel) {
         self.viewModel = viewModel
@@ -45,13 +43,7 @@ class TimelineViewController: DKUIViewController {
         setupDateSelector()
         setupGraphView()
         setupRoadContext()
-
-        let leftSwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleLeftSwipe(_:)))
-        leftSwipeGestureRecognizer.direction = .left
-        self.view.addGestureRecognizer(leftSwipeGestureRecognizer)
-        let rightSwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleRightSwipe(_:)))
-        rightSwipeGestureRecognizer.direction = .right
-        self.view.addGestureRecognizer(rightSwipeGestureRecognizer)
+        setupDetailButton()
 
         if self.viewModel.updating {
             showRefreshControl()
@@ -60,18 +52,10 @@ class TimelineViewController: DKUIViewController {
         }
     }
 
-    @objc private func handleLeftSwipe(_ swipeGestureRecognizer: UISwipeGestureRecognizer) {
-        self.viewModel.showNextGraphData()
-    }
-
-    @objc private func handleRightSwipe(_ swipeGestureRecognizer: UISwipeGestureRecognizer) {
-        self.viewModel.showPreviousGraphData()
-    }
-
     @IBAction private func openScoreDetailScreen() {
-        let timelineScoreDetailViewModel = TimelineScoreDetailViewModel()
-        let timelineScoreDetailVC = TimelineScoreDetailViewController(viewModel: timelineScoreDetailViewModel)
-        self.navigationController?.pushViewController(timelineScoreDetailVC, animated: true)
+        
+        let timelineDetailVC = TimelineDetailViewController(viewModel: viewModel.timelineDetailViewModel)
+        self.navigationController?.pushViewController(timelineDetailVC, animated: true)
     }
 
     @objc private func refresh(_ sender: Any) {
@@ -116,42 +100,36 @@ class TimelineViewController: DKUIViewController {
                 }
             }
         }
-
-        let periodSelector = Bundle.driverDataTimelineUIBundle?.loadNibNamed("PeriodSelectorView", owner: nil, options: nil)?.first as? PeriodSelectorView
-        if let periodSelector {
-            self.periodSelectorContainer.embedSubview(periodSelector)
-            periodSelector.viewModel = self.viewModel.periodSelectorViewModel
-        }
+        
+        PeriodSelectorView.createPeriodSelectorView(
+            configuredWith: viewModel.periodSelectorViewModel,
+            embededIn: periodSelectorContainer
+        )
     }
 
     private func setupGraphView() {
-        self.timelineGraphViewContainer.layer.cornerRadius = self.cornerRadius
-        self.timelineGraphViewContainer.clipsToBounds = true
-        let timelineGraphView = Bundle.driverDataTimelineUIBundle?.loadNibNamed("TimelineGraphView", owner: nil, options: nil)?.first as? TimelineGraphView
-        if let timelineGraphView {
-            self.timelineGraphViewContainer.embedSubview(timelineGraphView)
-            timelineGraphView.viewModel = self.viewModel.timelineGraphViewModel
-            timelineGraphView.delegate = self.viewModel.timelineGraphViewModel
-        }
+        TimelineGraphView.createTimelineGraphView(
+            configuredWith: viewModel.timelineGraphViewModel,
+            embededIn: timelineGraphViewContainer
+        )
     }
 
     private func setupDateSelector() {
-        guard let dateSelectorView = Bundle.driverDataTimelineUIBundle?.loadNibNamed("DateSelectorView", owner: nil, options: nil)?.first as? DateSelectorView else {
-            return
-        }
-        dateSelectorView.configure(viewModel: self.viewModel.dateSelectorViewModel)
-        self.viewModel.dateSelectorViewModel.delegate = self.viewModel
-        self.dateSelectorContainer.embedSubview(dateSelectorView)
-        self.dateSelectorContainer.layer.cornerRadius = self.cornerRadius
-        self.dateSelectorContainer.clipsToBounds = true
+        DateSelectorView.createDateSelectorView(
+            configuredWith: viewModel.dateSelectorViewModel,
+            embededIn: dateSelectorContainer
+        )
     }
 
     private func setupRoadContext() {
-        self.roadContextContainer.layer.cornerRadius = self.cornerRadius
-        self.roadContextContainer.clipsToBounds = true
-        self.viewModel.roadContextViewModel.delegate = roadContextView
-        roadContextView.configure(viewModel: self.viewModel.roadContextViewModel)
-        self.roadContextContainer.embedSubview(roadContextView)
+        RoadContextView.createRoadContextView(
+            configuredWith: viewModel.roadContextViewModel,
+            embededIn: roadContextContainer
+        )
+    }
+    
+    private func setupDetailButton() {
+        showTimelineDetailButton.configure(text: viewModel.timelineDetailButtonTitle, style: .empty)
     }
 }
 
@@ -162,5 +140,9 @@ extension TimelineViewController: TimelineViewModelDelegate {
 
     func didUpdateTimeline() {
         hideRefreshControl()
+    }
+    
+    func didUpdateDetailButtonDisplay() {
+        self.showTimelineDetailButton.isHidden = viewModel.shouldHideDetailButton
     }
 }

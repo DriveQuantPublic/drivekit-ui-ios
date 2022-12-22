@@ -50,6 +50,9 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - UICircularProgressRing
+    - WARangeSlider
+  https://gitlab.com/drivequant/drivekit/drivekit-specs.git:
     - DriveKitBeaconUtils
     - DriveKitChallenge
     - DriveKitCore
@@ -63,8 +66,6 @@ SPEC REPOS:
     - DriveKitTripAnalysis
     - DriveKitTripSimulator
     - DriveKitVehicle
-    - UICircularProgressRing
-    - WARangeSlider
 
 EXTERNAL SOURCES:
   ChartsForDK:
@@ -94,6 +95,6 @@ SPEC CHECKSUMS:
   UICircularProgressRing: e6852e8f88e296cbbbe2720cccb55241acda6708
   WARangeSlider: 54b3e0853b8d16c444fd539005901aecee86837d
 
-PODFILE CHECKSUM: 007d46548fd8b0b8454d6d518578dc9508a2bc41
+PODFILE CHECKSUM: e513cb4f015c845268a1afb289706835f3070b13
 
 COCOAPODS: 1.11.3

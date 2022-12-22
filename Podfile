@@ -2,7 +2,7 @@
 platform :ios, '11.0'
 use_frameworks!
 
-#source 'https://gitlab.com/drivequant/drivekit/drivekit-specs.git'
+source 'https://gitlab.com/drivequant/drivekit/drivekit-specs.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
 def circular_progress_ring

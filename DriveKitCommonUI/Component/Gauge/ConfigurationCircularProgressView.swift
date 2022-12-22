@@ -75,12 +75,12 @@ public class ConfigurationCircularProgressView {
         self.valueFormatter = CircularRingValueFormatter(valueIndicator: self.valueIndicator, decimalPlaces: self.decimalPlaces, rightToLeft: false)
     }
 
-    public init(scoreType: ScoreType, value: Double, size: CircularProgressViewSize) {
+    public init(scoreType: DKScoreType, value: Double, size: CircularProgressViewSize) {
         self.style = .ontop
         self.maxValue = 10
         self.value = value.round(places: 1)
         self.steps = scoreType.getSteps()
-        self.image = scoreType.image()
+        self.image = scoreType.gaugeImage()
         self.ringWidth = size.ringWidth
         self.startAngle = 45
         self.endAngle = 270

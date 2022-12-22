@@ -11,6 +11,13 @@
 		<key>TransportationModeVC</key>
 		<string>dk_tag_trips_detail_transportation_mode</string>
 	</dict>
+	<key>DriverDataTimeline</key>
+	<dict>
+		<key>TimelineViewController</key>
+		<string>dk_tag_timeline</string>
+		<key>TimelineDetailViewController</key>
+		<string>dk_tag_timeline_score_detail</string>
+	</dict>
 	<key>DriverAchievement</key>
 	<dict>
 		<key>BadgesViewController</key>

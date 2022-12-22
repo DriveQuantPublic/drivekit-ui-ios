@@ -17,7 +17,8 @@ Pod::Spec.new do |s|
   s.resource = ['DriveKitDriverDataTimelineUI/Timeline.xcassets', 'DriveKitDriverDataTimelineUI/Localizable/*', 'DriveKitDriverDataTimelineUI/**/*.xib', 'DriveKitDriverDataTimelineUI/**/*.storyboard']
 
   s.dependency 'DriveKitCommonUI', s.version.to_s
-  s.dependency 'DriveKitDriverData', '1.28-beta2'
+  s.dependency 'DriveKitDriverData', '1.29-beta1'
+  s.dependency 'ChartsForDK'
 
   s.pod_target_xcconfig = {
     'PRODUCT_BUNDLE_IDENTIFIER': 'com.drivequant.drivekit-driverdata-timeline-ui'

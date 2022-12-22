@@ -11,9 +11,33 @@ import DriveKitCommonUI
 
 @objc public class DriveKitDriverDataTimelineUI: NSObject {
     @objc public static let shared = DriveKitDriverDataTimelineUI()
+    static let calendar = Calendar(identifier: .gregorian)
 
-    @objc public func getTimelineViewController() -> UIViewController {
-        return TimelineViewController()
+    private var internalScores: [DKScoreType] = [.safety, .ecoDriving, .distraction, .speeding]
+    var scores: [DKScoreType] {
+        set {
+            if newValue.isEmpty {
+                self.internalScores = [.safety]
+            } else {
+                self.internalScores = newValue
+            }
+        }
+        get {
+            self.internalScores.filter { score in
+                score.hasAccess()
+            }
+        }
+    }
+
+    public func initialize() {
+        DriveKitNavigationController.shared.driverDataTimelineUI = self
+    }
+}
+
+extension DriveKitDriverDataTimelineUI: DriveKitDriverDataTimelineUIEntryPoint {
+    public func getTimelineViewController() -> UIViewController {
+        let viewModel = TimelineViewModel()
+        return TimelineViewController(viewModel: viewModel)
     }
 }
 

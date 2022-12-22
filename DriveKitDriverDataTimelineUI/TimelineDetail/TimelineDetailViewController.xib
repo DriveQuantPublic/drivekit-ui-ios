@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TimelineDetailViewController" customModule="DriveKitDriverDataTimelineUI" customModuleProvider="target">
+            <connections>
+                <outlet property="dateSelectorContainerView" destination="E2Z-NE-APt" id="SKw-7g-Vwd"/>
+                <outlet property="periodSelectorContainerView" destination="TX2-cJ-UOX" id="Yww-Yp-0Du"/>
+                <outlet property="roadContextContainerView" destination="fPt-G9-IFu" id="Dg9-Ni-eu2"/>
+                <outlet property="scoreItemGraphStackView" destination="gxw-ug-vpJ" id="n8M-Xb-ntK"/>
+                <outlet property="view" destination="iN0-l3-epB" id="PKx-93-bsP"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="RxC-Gi-X5O">
+                    <rect key="frame" x="8" y="79" width="377" height="236"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TX2-cJ-UOX" userLabel="Period selector">
+                            <rect key="frame" x="0.0" y="0.0" width="377" height="36"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="36" id="d0w-0p-UC1"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E2Z-NE-APt" userLabel="Date selector">
+                            <rect key="frame" x="0.0" y="56" width="377" height="38"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="38" id="3q1-M0-9Wi"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fPt-G9-IFu" userLabel="Road context">
+                            <rect key="frame" x="0.0" y="114" width="377" height="122"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="122" id="9bh-qv-fBN"/>
+                                <constraint firstAttribute="height" priority="800" constant="122" id="hmy-J2-Xua"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rfR-pb-R4i">
+                    <rect key="frame" x="0.0" y="335" width="393" height="483"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gxw-ug-vpJ" userLabel="Graph Stack View">
+                            <rect key="frame" x="8" y="0.0" width="377" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" placeholder="YES" id="Ngf-j1-mEa"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="gxw-ug-vpJ" firstAttribute="width" secondItem="tN0-bj-kbw" secondAttribute="width" constant="-16" id="CSh-7g-iBO"/>
+                        <constraint firstItem="gxw-ug-vpJ" firstAttribute="trailing" secondItem="JuR-WX-Pjx" secondAttribute="trailing" id="LID-od-6Be"/>
+                        <constraint firstItem="gxw-ug-vpJ" firstAttribute="leading" secondItem="JuR-WX-Pjx" secondAttribute="leading" constant="8" id="PiI-fC-Hx2"/>
+                        <constraint firstItem="gxw-ug-vpJ" firstAttribute="bottom" secondItem="JuR-WX-Pjx" secondAttribute="bottom" id="Uda-0K-oRa"/>
+                        <constraint firstItem="gxw-ug-vpJ" firstAttribute="top" secondItem="JuR-WX-Pjx" secondAttribute="top" id="ZhH-7o-rkM"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="JuR-WX-Pjx"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="tN0-bj-kbw"/>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="RxC-Gi-X5O" secondAttribute="trailing" constant="8" id="9Yr-S4-o6e"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="rfR-pb-R4i" secondAttribute="bottom" id="BNG-sY-cI7"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rfR-pb-R4i" secondAttribute="trailing" id="Ucy-fg-srZ"/>
+                <constraint firstItem="rfR-pb-R4i" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ezT-Vu-4sf"/>
+                <constraint firstItem="RxC-Gi-X5O" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="iHI-jb-uxn"/>
+                <constraint firstItem="rfR-pb-R4i" firstAttribute="top" secondItem="RxC-Gi-X5O" secondAttribute="bottom" constant="20" id="q3x-CY-IyB"/>
+                <constraint firstItem="RxC-Gi-X5O" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="usf-8q-p3Y"/>
+            </constraints>
+            <point key="canvasLocation" x="61" y="21"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

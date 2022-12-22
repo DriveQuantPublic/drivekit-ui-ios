@@ -19,6 +19,19 @@
 "dk_common_driving_context_fastlane"="Autopistas";
 "dk_common_duration"="Duración";
 "dk_common_ecodriving"="Eco-conducción";
+"dk_common_ecodriving_accel_good"="Buena aceleración";
+"dk_common_ecodriving_accel_high"="Aceleración demasiado alta";
+"dk_common_ecodriving_accel_low"="Aceleración demasiado débil";
+"dk_common_ecodriving_accel_strong"="Fuerte Aceleración";
+"dk_common_ecodriving_accel_weak"="Baja aceleración";
+"dk_common_ecodriving_decel_good"="Frenos ideales";
+"dk_common_ecodriving_decel_high"="Frenado demasiado fuerte";
+"dk_common_ecodriving_decel_low"="Frenado demasiado débil";
+"dk_common_ecodriving_decel_strong"="Fuerte frenado";
+"dk_common_ecodriving_decel_weak"="Frenado bajo";
+"dk_common_ecodriving_speed_bad_maintain"="Velocidad muy irregular";
+"dk_common_ecodriving_speed_good_maintain"="Velocidad regular";
+"dk_common_ecodriving_speed_weak_maintain"="Velocidad irregular";
 "dk_common_edit"="Editar";
 "dk_common_error_empty_field"="Este campo no puede estar vacío";
 "dk_common_error_message"="Se ha producido un error durante la solicitud, vuelva a intentarlo más tarde.";
@@ -66,6 +79,7 @@
 "dk_common_unit_mpg"="mpg";
 "dk_common_unit_mph"="mph";
 "dk_common_unit_power"="hp";
+"dk_common_unit_score"="/ 10";
 "dk_common_unit_second"="s";
 "dk_common_unit_ton"="t";
 "dk_common_update_photo_title"="Cambiar la imagen";

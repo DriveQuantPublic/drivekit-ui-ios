@@ -38,8 +38,7 @@ enum FeatureType {
             case .driverData_trips:
                 imageName = "feature_icon_driverData_trips"
             case .driverData_timeline:
-                #warning("TODO")
-                imageName = nil
+                imageName = "feature_icon_driverdata_timeline"
             case .permissionsUtils_diagnosis, .permissionsUtils_onboarding:
                 imageName = "feature_icon_permissionsUtils"
             case .tripAnalysis_workingHours:
@@ -70,7 +69,7 @@ enum FeatureType {
             case .driverData_trips:
                 title = "feature_trip_list_title"
             case .driverData_timeline:
-                title = "TODO"
+                title = "feature_timeline_title"
             case .permissionsUtils_diagnosis:
                 title = "feature_permission_utils_title"
             case .permissionsUtils_onboarding:
@@ -101,7 +100,7 @@ enum FeatureType {
             case .driverData_trips:
                 description = "feature_trip_list_description"
             case .driverData_timeline:
-                description = "TODO"
+                description = "feature_timeline_description"
             case .permissionsUtils_diagnosis:
                 description = "feature_permission_utils_description"
             case .permissionsUtils_onboarding:
@@ -132,8 +131,7 @@ enum FeatureType {
             case .driverData_trips:
                 docKey = "drivekit_doc_ios_driver_data"
             case .driverData_timeline:
-                #warning("TODO")
-                docKey = nil
+                docKey = "drivekit_doc_ios_timeline"
             case .permissionsUtils_diagnosis:
                 docKey = "drivekit_doc_ios_diag"
             case .permissionsUtils_onboarding:

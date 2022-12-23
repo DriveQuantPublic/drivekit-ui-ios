@@ -33,6 +33,27 @@ class DateSelectorView: UIView {
         self.dateIntervalLabel.attributedText = self.viewModel?.getDateIntervalAttributedText()
         self.nextButton.isEnabled = self.viewModel?.hasNextDate ?? false
         self.previousButton.isEnabled = self.viewModel?.hasPreviousDate ?? false
+        
+        self.nextButton.setImage(
+            UIImage(
+                named: "dk_timeline_next_arrow",
+                in: .driverDataTimelineUIBundle,
+                compatibleWith: self.traitCollection
+            )?.tintedImage(
+                withColor: DKUIColors.secondaryColor.color
+            ),
+            for: .normal
+        )
+        self.previousButton.setImage(
+            UIImage(
+                named: "dk_timeline_prev_arrow",
+                in: .driverDataTimelineUIBundle,
+                compatibleWith: self.traitCollection
+            )?.tintedImage(
+                withColor: DKUIColors.secondaryColor.color
+            ),
+            for: .normal
+        )
     }
 
     @IBAction func showNextDate() {

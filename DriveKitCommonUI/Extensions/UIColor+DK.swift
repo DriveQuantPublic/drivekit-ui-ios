@@ -23,10 +23,10 @@ import UIKit
     
     @objc var shouldInvertTextColor: Bool {
         // We should have at least a ratio of 2.8:1 or we need to invert foreground color
-        return self.contastRatio(with: DKUIColors.mainFontColor.color) < 2.8
+        return self.contrastRatio(with: DKUIColors.mainFontColor.color) < 2.8
     }
     
-    @objc func contastRatio(with otherColor: UIColor) -> CGFloat {
+    @objc func contrastRatio(with otherColor: UIColor) -> CGFloat {
         var selfBrightness: CGFloat = 0
         var selfAlpha: CGFloat = 0
         var otherColorBrightness: CGFloat = 0

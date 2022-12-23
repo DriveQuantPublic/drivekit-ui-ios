@@ -44,7 +44,7 @@ class BarGraphView: GraphViewBase {
 
         let bar = BarChartDataSet(entries: entries, label: nil)
         bar.colors = [.white]
-        bar.barBorderColor = GraphViewBase.chartStrokeColor
+        bar.barBorderColor = GraphConstants.defaultLineColor
         bar.barBorderWidth = 2
         bar.highlightEnabled = true
         bar.highlightColor = GraphConstants.defaultSelectedColor

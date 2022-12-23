@@ -12,7 +12,6 @@ import DriveKitCommonUI
 
 class GraphViewBase: UIView {
     static let axisLabelColor: UIColor = UIColor(hex: 0x333333)
-    static let chartStrokeColor: UIColor = DKUIColors.primaryColor.color
     weak var delegate: GraphViewDelegate?
     private(set) var viewModel: GraphViewModel
 

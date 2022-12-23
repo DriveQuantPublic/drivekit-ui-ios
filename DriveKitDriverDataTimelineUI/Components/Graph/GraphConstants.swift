@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import DriveKitCommonUI
 
 enum GraphConstants {
-    static let defaultLineColor = UIColor(hex: 0x083B54)
-    static let defaultSelectedColor = UIColor(hex: 0x77E2B0)
+    static let defaultLineColor = DKUIColors.primaryColor.color
+    static let defaultSelectedColor = DKUIColors.secondaryColor.color
     
     static let defaultNumberOfIntervalInYAxis = 10
     static let defaultMaxValueInYAxis = 10.0

@@ -21,6 +21,33 @@ import UIKit
         self.init(red:(hex >> 16) & 0xff, green:(hex >> 8) & 0xff, blue:hex & 0xff)
     }
     
+    @objc var shouldInvertTextColor: Bool {
+        // We should have at least a ratio of 2.8:1 or we need to invert foreground color
+        return self.contastRatio(with: DKUIColors.mainFontColor.color) < 2.8
+    }
+    
+    @objc func contastRatio(with otherColor: UIColor) -> CGFloat {
+        var selfBrightness: CGFloat = 0
+        var selfAlpha: CGFloat = 0
+        var otherColorBrightness: CGFloat = 0
+        var otherColorAlpha: CGFloat = 0
+        self.getHue(
+            nil,
+            saturation: nil,
+            brightness: &selfBrightness,
+            alpha: &selfAlpha
+        )
+        otherColor.getHue(
+            nil,
+            saturation: nil,
+            brightness: &otherColorBrightness,
+            alpha: &otherColorAlpha
+        )
+        
+        // formula source: https://www.w3.org/TR/WCAG20/#contrast-ratiodef
+        return (((selfBrightness * selfAlpha) + 0.05) / ((otherColorBrightness * otherColorAlpha) + 0.05))
+    }
+    
     static let dkGaugeGray = UIColor(hex: 0xE0E0E0)
     
     static let dkVeryBad = UIColor(hex: 0xff6e57)

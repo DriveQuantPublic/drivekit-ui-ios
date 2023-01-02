@@ -21,6 +21,35 @@ import UIKit
         self.init(red:(hex >> 16) & 0xff, green:(hex >> 8) & 0xff, blue:hex & 0xff)
     }
     
+    @objc func tinted(usingHueOf baseColor: UIColor) -> Self {
+        var baseHue: CGFloat = 0
+        var saturation: CGFloat = 0
+        var brightness: CGFloat = 0
+        var baseAlpha: CGFloat = 0
+        var alpha: CGFloat = 0
+        baseColor.getHue(
+            &baseHue,
+            saturation: nil,
+            brightness: nil,
+            alpha: &baseAlpha
+        )
+        guard baseAlpha > 0 else {
+            return self
+        }
+        self.getHue(
+            nil,
+            saturation: &saturation,
+            brightness: &brightness,
+            alpha: &alpha
+        )
+        return .init(
+            hue: baseHue,
+            saturation: saturation,
+            brightness: brightness,
+            alpha: alpha
+        )
+    }
+    
     @objc var shouldInvertTextColor: Bool {
         // We should have at least a ratio of 2.8:1 or we need to invert foreground color
         return self.contrastRatio(with: DKUIColors.mainFontColor.color) < 2.8

@@ -21,15 +21,24 @@ import UIKit
         self.init(red:(hex >> 16) & 0xff, green:(hex >> 8) & 0xff, blue:hex & 0xff)
     }
     
+    /// Take the tint/hue of the `baseColor` and apply it to `self`
+    ///
+    /// if the `baseColor` is fully desaturated, it only keeps the luminosity and alpha
+    ///  of `self`
+    ///
+    /// if `baseColor` is fully transparent, it returns `self` unmodified
+    /// - Parameter baseColor: the base color from which to get the tint/hue to apply
+    /// - Returns: `self` tinted using `baseColor`'s hue
     @objc func tinted(usingHueOf baseColor: UIColor) -> Self {
         var baseHue: CGFloat = 0
+        var baseSaturation: CGFloat = 0
         var saturation: CGFloat = 0
         var brightness: CGFloat = 0
         var baseAlpha: CGFloat = 0
         var alpha: CGFloat = 0
         baseColor.getHue(
             &baseHue,
-            saturation: nil,
+            saturation: &baseSaturation,
             brightness: nil,
             alpha: &baseAlpha
         )
@@ -44,7 +53,7 @@ import UIKit
         )
         return .init(
             hue: baseHue,
-            saturation: saturation,
+            saturation: baseSaturation > 0 ? saturation : baseSaturation,
             brightness: brightness,
             alpha: alpha
         )

@@ -37,7 +37,7 @@ PODS:
   - WARangeSlider (1.1.1)
 
 DEPENDENCIES:
-  - ChartsForDK (from `https://github.com/DriveQuantPublic/Charts-ios11.git`, branch `feature/ChartsForDK`)
+  - ChartsForDK
   - DriveKitChallenge (= 1.29-beta1)
   - DriveKitCore (= 1.29-beta1)
   - DriveKitDriverAchievement (= 1.29-beta1)
@@ -53,6 +53,7 @@ SPEC REPOS:
     - UICircularProgressRing
     - WARangeSlider
   https://gitlab.com/drivequant/drivekit/drivekit-specs.git:
+    - ChartsForDK
     - DriveKitBeaconUtils
     - DriveKitChallenge
     - DriveKitCore
@@ -67,18 +68,8 @@ SPEC REPOS:
     - DriveKitTripSimulator
     - DriveKitVehicle
 
-EXTERNAL SOURCES:
-  ChartsForDK:
-    :branch: feature/ChartsForDK
-    :git: https://github.com/DriveQuantPublic/Charts-ios11.git
-
-CHECKOUT OPTIONS:
-  ChartsForDK:
-    :commit: 8cda9e083529e5d4e656d0cf1085a859398a51f8
-    :git: https://github.com/DriveQuantPublic/Charts-ios11.git
-
 SPEC CHECKSUMS:
-  ChartsForDK: ea966413a77f4abf3b1aa74eff2a14dc5483b6a3
+  ChartsForDK: 7af22eca6a8969a39c8ffc1211a88cde4b3222ec
   DriveKitBeaconUtils: 1bac1b89be98f15403c405d2bee90ddd0dd75761
   DriveKitChallenge: 2a975f42af6024e475fd1a09c27a696b7508062c
   DriveKitCore: 8e8927687c38c54e7f99be57b0f48d60d1275d7c
@@ -95,6 +86,6 @@ SPEC CHECKSUMS:
   UICircularProgressRing: e6852e8f88e296cbbbe2720cccb55241acda6708
   WARangeSlider: 54b3e0853b8d16c444fd539005901aecee86837d
 
-PODFILE CHECKSUM: e513cb4f015c845268a1afb289706835f3070b13
+PODFILE CHECKSUM: 50fe78f7aab53ee5cc3707dba03f054e851d60a0
 
 COCOAPODS: 1.11.3

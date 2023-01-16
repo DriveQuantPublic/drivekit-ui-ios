@@ -14,7 +14,7 @@ import DriveKitCommonUI
     static let calendar = Calendar(identifier: .gregorian)
 
     private var internalScores: [DKScoreType] = [.safety, .ecoDriving, .distraction, .speeding]
-    var scores: [DKScoreType] {
+    public var scores: [DKScoreType] {
         set {
             if newValue.isEmpty {
                 self.internalScores = [.safety]

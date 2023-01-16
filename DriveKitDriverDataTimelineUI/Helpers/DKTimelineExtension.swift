@@ -66,36 +66,34 @@ extension DKTimeline {
         var efficiencySpeedMaintain: [Double] = []
         let maxItems = self.allContext.date.count
         for index in 0..<maxItems {
-            if canInsertAtIndex(index) {
-                date.append(self.allContext.date[index])
-                numberTripTotal.append(self.allContext.numberTripTotal[index])
-                numberTripScored.append(self.allContext.numberTripScored[index])
-                distance.append(self.allContext.distance[index])
-                duration.append(self.allContext.duration[index])
-                efficiency.append(self.allContext.efficiency[index])
-                safety.append(self.allContext.safety[index])
-                acceleration.append(self.allContext.acceleration[index])
-                braking.append(self.allContext.braking[index])
-                adherence.append(self.allContext.adherence[index])
-                phoneDistraction.append(self.allContext.phoneDistraction[index])
-                speeding.append(self.allContext.speeding[index])
-                co2Mass.append(self.allContext.co2Mass[index])
-                fuelVolume.append(self.allContext.fuelVolume[index])
-                fuelSaving.append(self.allContext.fuelSaving[index])
-                unlock.append(self.allContext.unlock[index])
-                lock.append(self.allContext.lock[index])
-                callAuthorized.append(self.allContext.callAuthorized[index])
-                callForbidden.append(self.allContext.callForbidden[index])
-                callForbiddenDuration.append(self.allContext.callForbiddenDuration[index])
-                callAuthorizedDuration.append(self.allContext.callAuthorizedDuration[index])
-                if !self.allContext.numberTripWithForbiddenCall.isEmpty {
-                    numberTripWithForbiddenCall.append(self.allContext.numberTripWithForbiddenCall[index])
-                    speedingDuration.append(self.allContext.speedingDuration[index])
-                    speedingDistance.append(self.allContext.speedingDistance[index])
-                    efficiencyBrake.append(self.allContext.efficiencyBrake[index])
-                    efficiencyAcceleration.append(self.allContext.efficiencyAcceleration[index])
-                    efficiencySpeedMaintain.append(self.allContext.efficiencySpeedMaintain[index])
-                }
+            if let currentDate = self.allContext.date[safe: index], canInsertAtIndex(index) {
+                date.append(currentDate)
+                self.allContext.numberTripTotal.appendIfNotEmpty(valueAtIndex: index, into: &numberTripTotal)
+                self.allContext.numberTripScored.appendIfNotEmpty(valueAtIndex: index, into: &numberTripScored)
+                self.allContext.distance.appendIfNotEmpty(valueAtIndex: index, into: &distance)
+                self.allContext.duration.appendIfNotEmpty(valueAtIndex: index, into: &duration)
+                self.allContext.efficiency.appendIfNotEmpty(valueAtIndex: index, into: &efficiency)
+                self.allContext.safety.appendIfNotEmpty(valueAtIndex: index, into: &safety)
+                self.allContext.acceleration.appendIfNotEmpty(valueAtIndex: index, into: &acceleration)
+                self.allContext.braking.appendIfNotEmpty(valueAtIndex: index, into: &braking)
+                self.allContext.adherence.appendIfNotEmpty(valueAtIndex: index, into: &adherence)
+                self.allContext.phoneDistraction.appendIfNotEmpty(valueAtIndex: index, into: &phoneDistraction)
+                self.allContext.speeding.appendIfNotEmpty(valueAtIndex: index, into: &speeding)
+                self.allContext.co2Mass.appendIfNotEmpty(valueAtIndex: index, into: &co2Mass)
+                self.allContext.fuelVolume.appendIfNotEmpty(valueAtIndex: index, into: &fuelVolume)
+                self.allContext.fuelSaving.appendIfNotEmpty(valueAtIndex: index, into: &fuelSaving)
+                self.allContext.unlock.appendIfNotEmpty(valueAtIndex: index, into: &unlock)
+                self.allContext.lock.appendIfNotEmpty(valueAtIndex: index, into: &lock)
+                self.allContext.callAuthorized.appendIfNotEmpty(valueAtIndex: index, into: &callAuthorized)
+                self.allContext.callForbidden.appendIfNotEmpty(valueAtIndex: index, into: &callForbidden)
+                self.allContext.callForbiddenDuration.appendIfNotEmpty(valueAtIndex: index, into: &callForbiddenDuration)
+                self.allContext.callAuthorizedDuration.appendIfNotEmpty(valueAtIndex: index, into: &callAuthorizedDuration)
+                self.allContext.numberTripWithForbiddenCall.appendIfNotEmpty(valueAtIndex: index, into: &numberTripWithForbiddenCall)
+                self.allContext.speedingDuration.appendIfNotEmpty(valueAtIndex: index, into: &speedingDuration)
+                self.allContext.speedingDistance.appendIfNotEmpty(valueAtIndex: index, into: &speedingDistance)
+                self.allContext.efficiencyBrake.appendIfNotEmpty(valueAtIndex: index, into: &efficiencyBrake)
+                self.allContext.efficiencyAcceleration.appendIfNotEmpty(valueAtIndex: index, into: &efficiencyAcceleration)
+                self.allContext.efficiencySpeedMaintain.appendIfNotEmpty(valueAtIndex: index, into: &efficiencySpeedMaintain)
             }
         }
 
@@ -118,25 +116,23 @@ extension DKTimeline {
             var efficiencyBrake: [Double] = []
             var efficiencySpeedMaintain: [Double] = []
             for index in 0..<maxItems {
-                if canInsertAtIndex(index) {
-                    date.append(roadContext.date[index])
-                    numberTripTotal.append(roadContext.numberTripTotal[index])
-                    numberTripScored.append(roadContext.numberTripScored[index])
-                    distance.append(roadContext.distance[index])
-                    duration.append(roadContext.duration[index])
-                    efficiency.append(roadContext.efficiency[index])
-                    safety.append(roadContext.safety[index])
-                    acceleration.append(roadContext.acceleration[index])
-                    braking.append(roadContext.braking[index])
-                    adherence.append(roadContext.adherence[index])
-                    co2Mass.append(roadContext.co2Mass[index])
-                    fuelVolume.append(roadContext.fuelVolume[index])
-                    fuelSaving.append(roadContext.fuelSaving[index])
-                    if !roadContext.efficiencyAcceleration.isEmpty {
-                        efficiencyAcceleration.append(roadContext.efficiencyAcceleration[index])
-                        efficiencyBrake.append(roadContext.efficiencyBrake[index])
-                        efficiencySpeedMaintain.append(roadContext.efficiencySpeedMaintain[index])
-                    }
+                if let currentDate = roadContext.date[safe: index], canInsertAtIndex(index) {
+                    date.append(currentDate)
+                    roadContext.numberTripTotal.appendIfNotEmpty(valueAtIndex: index, into: &numberTripTotal)
+                    roadContext.numberTripScored.appendIfNotEmpty(valueAtIndex: index, into: &numberTripScored)
+                    roadContext.distance.appendIfNotEmpty(valueAtIndex: index, into: &distance)
+                    roadContext.duration.appendIfNotEmpty(valueAtIndex: index, into: &duration)
+                    roadContext.efficiency.appendIfNotEmpty(valueAtIndex: index, into: &efficiency)
+                    roadContext.safety.appendIfNotEmpty(valueAtIndex: index, into: &safety)
+                    roadContext.acceleration.appendIfNotEmpty(valueAtIndex: index, into: &acceleration)
+                    roadContext.braking.appendIfNotEmpty(valueAtIndex: index, into: &braking)
+                    roadContext.adherence.appendIfNotEmpty(valueAtIndex: index, into: &adherence)
+                    roadContext.co2Mass.appendIfNotEmpty(valueAtIndex: index, into: &co2Mass)
+                    roadContext.fuelVolume.appendIfNotEmpty(valueAtIndex: index, into: &fuelVolume)
+                    roadContext.fuelSaving.appendIfNotEmpty(valueAtIndex: index, into: &fuelSaving)
+                    roadContext.efficiencyAcceleration.appendIfNotEmpty(valueAtIndex: index, into: &efficiencyAcceleration)
+                    roadContext.efficiencyBrake.appendIfNotEmpty(valueAtIndex: index, into: &efficiencyBrake)
+                    roadContext.efficiencySpeedMaintain.appendIfNotEmpty(valueAtIndex: index, into: &efficiencySpeedMaintain)
                 }
             }
             let newRoadContext = DKTimeline.RoadContextItem(
@@ -203,7 +199,7 @@ extension DKTimeline {
         if self.hasValidTripScored(for: selectedScore, at: selectedIndex) {
             for roadContext in self.roadContexts {
                 if let timelineRoadContext = TimelineRoadContext(roadContext: roadContext.type) {
-                    let distance = roadContext.distance[selectedIndex]
+                    let distance = roadContext.distance[selectedIndex, default: 0]
                     if distance > 0 {
                         distanceByContext[timelineRoadContext] = distance
                     }
@@ -220,7 +216,7 @@ extension DKTimeline {
     ) -> Double {
         var totalDistanceForAllContexts: Double = 0
         if self.hasValidTripScored(for: selectedScore, at: selectedIndex) {
-            totalDistanceForAllContexts = self.allContext.distance[selectedIndex]
+            totalDistanceForAllContexts = self.allContext.distance[selectedIndex, default: 0]
         }
         
         return totalDistanceForAllContexts
@@ -235,6 +231,6 @@ extension DKTimeline {
         // count fully scored trip for all four scores
         return selectedScore == .distraction
             || selectedScore == .speeding
-            || self.allContext.numberTripScored[index] > 0
+            || self.allContext.numberTripScored[index, default: 0] > 0
     }
 }

@@ -33,6 +33,9 @@ class DateSelectorView: UIView {
         self.dateIntervalLabel.attributedText = self.viewModel?.getDateIntervalAttributedText()
         self.nextButton.isEnabled = self.viewModel?.hasNextDate ?? false
         self.previousButton.isEnabled = self.viewModel?.hasPreviousDate ?? false
+        
+        self.nextButton.tintColor = DKUIColors.secondaryColor.color
+        self.previousButton.tintColor = DKUIColors.secondaryColor.color
     }
 
     @IBAction func showNextDate() {

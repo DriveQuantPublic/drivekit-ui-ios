@@ -53,10 +53,10 @@ class RoadContextViewModel {
     private var roadContextType: RoadContextType = .emptyData
     private var totalDistanceForDisplayedContexts: Double = 0
     private static let backgroundColor = UIColor(hex: 0xFAFAFA)
-    private static let heavyUrbanTrafficColor = UIColor(hex: 0x036A82)
-    private static let suburbanColor = UIColor(hex: 0x699DAD)
-    private static let cityColor = UIColor(hex: 0x3B8497)
-    private static let expresswaysColor = UIColor(hex: 0x8FB7C2)
+    private static let heavyUrbanTrafficColor = UIColor(hex: 0x036A82).tinted(usingHueOf: DKUIColors.primaryColor.color)
+    private static let suburbanColor = UIColor(hex: 0x699DAD).tinted(usingHueOf: DKUIColors.primaryColor.color)
+    private static let cityColor = UIColor(hex: 0x3B8497).tinted(usingHueOf: DKUIColors.primaryColor.color)
+    private static let expresswaysColor = UIColor(hex: 0x8FB7C2).tinted(usingHueOf: DKUIColors.primaryColor.color)
     weak var delegate: RoadContextViewModelDelegate?
 
     var hasData: Bool {

@@ -21,6 +21,71 @@ import UIKit
         self.init(red:(hex >> 16) & 0xff, green:(hex >> 8) & 0xff, blue:hex & 0xff)
     }
     
+    /// Take the tint/hue of the `baseColor` and apply it to `self`
+    ///
+    /// if the `baseColor` is fully desaturated, it only keeps the luminosity and alpha
+    ///  of `self`
+    ///
+    /// if `baseColor` is fully transparent, it returns `self` unmodified
+    /// - Parameter baseColor: the base color from which to get the tint/hue to apply
+    /// - Returns: `self` tinted using `baseColor`'s hue
+    @objc func tinted(usingHueOf baseColor: UIColor) -> Self {
+        var baseHue: CGFloat = 0
+        var baseSaturation: CGFloat = 0
+        var saturation: CGFloat = 0
+        var brightness: CGFloat = 0
+        var baseAlpha: CGFloat = 0
+        var alpha: CGFloat = 0
+        baseColor.getHue(
+            &baseHue,
+            saturation: &baseSaturation,
+            brightness: nil,
+            alpha: &baseAlpha
+        )
+        guard baseAlpha > 0 else {
+            return self
+        }
+        self.getHue(
+            nil,
+            saturation: &saturation,
+            brightness: &brightness,
+            alpha: &alpha
+        )
+        return .init(
+            hue: baseHue,
+            saturation: baseSaturation > 0 ? saturation : baseSaturation,
+            brightness: brightness,
+            alpha: alpha
+        )
+    }
+    
+    @objc var shouldInvertTextColor: Bool {
+        // We should have at least a ratio of 2.8:1 or we need to invert foreground color
+        return self.contrastRatio(with: DKUIColors.mainFontColor.color) < 2.8
+    }
+    
+    @objc func contrastRatio(with otherColor: UIColor) -> CGFloat {
+        var selfBrightness: CGFloat = 0
+        var selfAlpha: CGFloat = 0
+        var otherColorBrightness: CGFloat = 0
+        var otherColorAlpha: CGFloat = 0
+        self.getHue(
+            nil,
+            saturation: nil,
+            brightness: &selfBrightness,
+            alpha: &selfAlpha
+        )
+        otherColor.getHue(
+            nil,
+            saturation: nil,
+            brightness: &otherColorBrightness,
+            alpha: &otherColorAlpha
+        )
+        
+        // formula source: https://www.w3.org/TR/WCAG20/#contrast-ratiodef
+        return (((selfBrightness * selfAlpha) + 0.05) / ((otherColorBrightness * otherColorAlpha) + 0.05))
+    }
+    
     static let dkGaugeGray = UIColor(hex: 0xE0E0E0)
     
     static let dkVeryBad = UIColor(hex: 0xff6e57)

@@ -31,7 +31,7 @@
 "drivekit_doc_ios_permissions_utils"="https://docs.drivequant.com/permissions-utils/permission-utils/ios/main-configurations#permission-management";
 "drivekit_doc_ios_ranking"="https://docs.drivequant.com/driver-achievement/user-interface/ios#select-ranking-themes";
 "drivekit_doc_ios_streaks"="https://docs.drivequant.com/driver-achievement/user-interface/ios#select-streak-themes";
-"drivekit_doc_ios_timeline"="https://docs.drivequant.com/timeline-ui/ios/get-started";
+"drivekit_doc_ios_timeline"="https://docs.drivequant.com/driver-data-timeline-ui/ios/get-started";
 "drivekit_doc_ios_update_user_info"="https://docs.drivequant.com/get-started-drivekit/ios#update-users-information";
 "drivekit_doc_ios_user_id"="https://docs.drivequant.com/get-started-drivekit/ios#identify-user";
 "drivekit_doc_ios_vehicle"="https://docs.drivequant.com/vehicle/user-interface/ios/get-started#display-vehicle-picker-in-navigation-controller";

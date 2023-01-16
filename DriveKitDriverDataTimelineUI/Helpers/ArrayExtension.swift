@@ -17,4 +17,21 @@ extension Array {
         }
         return self[index]
     }
+    
+    /// Allow access subscripting that returns `defaultValue` when index is out of bounds
+    ///  exemple: `myArray[index, default: 0]`
+    subscript(index: Index, default defaultValue: Element) -> Element {
+        guard index >= 0 && index < self.count else {
+            return defaultValue
+        }
+        return self[index]
+    }
+
+    /// Check if self is empty first and if not, insert its value at given `index`
+    ///  into `otherArray`, otherwise do nothing
+    func appendIfNotEmpty(valueAtIndex index: Self.Index, into otherArray: inout Self) {
+        if self.isEmpty == false {
+            otherArray.append(self[index])
+        }
+    }
 }

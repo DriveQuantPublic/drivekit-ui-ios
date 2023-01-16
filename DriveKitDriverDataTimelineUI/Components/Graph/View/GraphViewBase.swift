@@ -12,7 +12,6 @@ import DriveKitCommonUI
 
 class GraphViewBase: UIView {
     static let axisLabelColor: UIColor = UIColor(hex: 0x333333)
-    static let chartStrokeColor: UIColor = UIColor(hex: 0x083B54)
     weak var delegate: GraphViewDelegate?
     private(set) var viewModel: GraphViewModel
 
@@ -73,6 +72,7 @@ class DKXAxisRenderer: XAxisRenderer {
     }
 
     override func drawLabel(context: CGContext, formattedLabel: String, x: CGFloat, y: CGFloat, attributes: [NSAttributedString.Key : Any], constrainedToSize: CGSize, anchor: CGPoint, angleRadians: CGFloat) {
+        var textAttributes = attributes
         if let index = self.config.labels.titles?.firstIndex(of: formattedLabel), index == self.selectedIndex {
             let textSize = formattedLabel.boundingRect(with: constrainedToSize, options: .usesLineFragmentOrigin, attributes: attributes, context: nil).size
             var rect = CGRect(origin: CGPoint(), size: textSize)
@@ -85,11 +85,15 @@ class DKXAxisRenderer: XAxisRenderer {
             }
             rect.origin.x += point.x
             rect.origin.y += point.y
-            DKUIColors.secondaryColor.color.withAlphaComponent(0.5).setFill()
+            let selectedBackgroundColor = GraphConstants.defaultSelectedColor.withAlphaComponent(0.5)
+            selectedBackgroundColor.setFill()
             let xInset: CGFloat = -4
             UIBezierPath(roundedRect: rect.insetBy(dx: xInset, dy: 0), cornerRadius: rect.height / 2).fill()
             UIGraphicsPopContext()
+            if selectedBackgroundColor.shouldInvertTextColor {
+                textAttributes[.foregroundColor] = UIColor.white
+            }
         }
-        super.drawLabel(context: context, formattedLabel: formattedLabel, x: x, y: y, attributes: attributes, constrainedToSize: constrainedToSize, anchor: anchor, angleRadians: angleRadians)
+        super.drawLabel(context: context, formattedLabel: formattedLabel, x: x, y: y, attributes: textAttributes, constrainedToSize: constrainedToSize, anchor: anchor, angleRadians: angleRadians)
     }
 }

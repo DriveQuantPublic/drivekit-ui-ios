@@ -117,7 +117,6 @@ class TimelineViewModel {
                 self.selectedDate = nil
             }
             // Clean timeline to remove, if needed, values where there are only unscored trips.
-            let sourceDates = timelineSource.allContext.date
             let cleanedTimeline: DKTimeline
             if let date = self.selectedDate {
                 let selectedDateIndex = timelineSource.selectedIndex(for: date)

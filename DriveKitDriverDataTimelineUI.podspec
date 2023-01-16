@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name             = 'DriveKitDriverDataTimelineUI'
   s.version          = '1.6-beta1'
-  s.summary          = 'DriveKit Driver Data UI - Timeline Framework'
+  s.summary          = 'DriveKit Driver Data Timeline UI Framework'
 
-  s.description      = 'DriveKit Driver Data features: Timeline'
+  s.description      = 'DriveKit Driver Data Timeline UI features: Timeline'
 
   s.homepage         = 'https://docs.drivequant.com'
   s.license          = 'Apache License, Version 2.0'

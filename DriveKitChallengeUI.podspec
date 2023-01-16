@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.resource = ['DriveKitChallengeUI/Localizable/*', 'DriveKitChallengeUI/**/*.xib', 'DriveKitChallengeUI/DriveKitChallenge.xcassets']
 
   s.dependency 'DriveKitCommonUI', s.version.to_s
-  s.dependency 'DriveKitChallenge', '1.29-beta1'
+  s.dependency 'DriveKitChallenge'
 
   s.pod_target_xcconfig = {
     'PRODUCT_BUNDLE_IDENTIFIER': 'com.drivequant.drivekit-challenge-ui'

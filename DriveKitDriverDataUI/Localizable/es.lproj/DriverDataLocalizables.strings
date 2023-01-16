@@ -12,7 +12,6 @@
 "dk_driverdata_alternative_transportation_remark"="💡 Este viaje no tiene puntaje porque la aplicación no mide su conducción mientras no está en su vehículo.";
 "dk_driverdata_alternative_transportation_thanks"="❤️ Gracias por reportar este viaje y por ayudarnos a mejorar el reconocimiento automático del modo de transporte.";
 "dk_driverdata_alternative_trips"="Transporte alternativo";
-"dk_driverdata_bad_maintain"="Velocidad muy irregular";
 "dk_driverdata_beginning_authorized_call"="Inicio de una llamada autorizada";
 "dk_driverdata_beginning_authorized_call_info_content"="La aplicación ha detectado el inicio de una llamada autorizada, lo que significa que se ha realizado con tu kit de manos libres. Esta acción no penaliza tu puntuación de uso del teléfono, ya que está legalmente permitida. Sin embargo, sigue siendo una distracción durante la conducción, por su seguridad y la de los demás usuarios de la carretera, se recomienda encarecidamente que espere a que su vehículo esté aparcado antes de hacer una llamada.";
 "dk_driverdata_beginning_unauthorized_call"="Inicio de llamada no autorizada";
@@ -40,14 +39,7 @@
 "dk_driverdata_failed_to_declare_transportation"="El modo de transporte no pudo ser actualizado, por favor vuelva a intentarlo más tarde.";
 "dk_driverdata_failed_to_delete_trip"="El viaje no pudo ser borrado, intente de nuevo más tarde.";
 "dk_driverdata_failed_to_sync_trips"="No se sincronizaron los disparos, inténtelo de nuevo más tarde.";
-"dk_driverdata_good_accel"="Buena aceleración";
-"dk_driverdata_good_decel"="Frenos ideales";
-"dk_driverdata_good_maintain"="Velocidad regular";
-"dk_driverdata_high_accel"="Aceleración demasiado alta";
-"dk_driverdata_high_decel"="Frenado demasiado fuerte";
 "dk_driverdata_lock_event"="Blocco dello schermo";
-"dk_driverdata_low_accel"="Aceleración demasiado débil";
-"dk_driverdata_low_decel"="Frenado demasiado débil";
 "dk_driverdata_my_weekly_score_distraction"="Mi puntuación semanal | Distracción";
 "dk_driverdata_my_weekly_score_ecodriving"="Mi puntuación semanal | Eficiencia";
 "dk_driverdata_my_weekly_score_safety"="Mi puntuación semanal | Seguridad";
@@ -88,8 +80,6 @@
 "dk_driverdata_speeding_score"="Puntaje de velocidad";
 "dk_driverdata_speeding_score_info"="Esta puntuación refleja el respeto de los límites de velocidad. Evoluciona de acuerdo con la distancia recorrida por encima del límite legal. Cuanto mayor sea la distancia sobre el límite, menor será la puntuación.";
 "dk_driverdata_start_event"="Inicio de viaje";
-"dk_driverdata_strong_accel"="Fuerte Aceleración";
-"dk_driverdata_strong_decel"="Fuerte frenado";
 "dk_driverdata_synthesis_co2_emissions"="Emisiones de CO2";
 "dk_driverdata_synthesis_co2_mass"="Masa de CO2";
 "dk_driverdata_synthesis_condition"="Condición";
@@ -141,9 +131,6 @@
 "dk_driverdata_urban"="%@ en zonas urbanas";
 "dk_driverdata_value"="Valore =";
 "dk_driverdata_vehicle_trips"="Viajes en vehículos";
-"dk_driverdata_weak_accel"="Baja aceleración";
-"dk_driverdata_weak_decel"="Frenado bajo";
-"dk_driverdata_weak_maintain"="Velocidad irregular";
 "dk_driverdata_weather_cloud"="en día nublado";
 "dk_driverdata_weather_fog"="en condiciones de niebla";
 "dk_driverdata_weather_hail"="con tiempo gélido";

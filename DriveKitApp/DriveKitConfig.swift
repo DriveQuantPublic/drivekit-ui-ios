@@ -15,6 +15,7 @@ import DriveKitDBAchievementAccessModule
 import DriveKitDriverAchievementModule
 import DriveKitDriverAchievementUI
 import DriveKitDriverDataModule
+import DriveKitDriverDataTimelineUI
 import DriveKitDriverDataUI
 import DriveKitPermissionsUtilsUI
 import DriveKitTripAnalysisModule
@@ -66,6 +67,7 @@ class DriveKitConfig {
         // UI modules configuration:
         configureCommonUI()
         configureDriverDataUI()
+        configureDriverDataTimelineUI()
         configureVehicleUI()
         configureTripAnalysisUI()
         configureDriverAchievementUI()
@@ -141,6 +143,10 @@ class DriveKitConfig {
     private static func configureDriverDataUI() {
         DriveKitDriverDataUI.shared.initialize(tripData: DriveKitConfig.tripData)
         DriveKitDriverDataUI.shared.enableAlternativeTrips(DriveKitConfig.enableAlternativeTrips)
+    }
+
+    private static func configureDriverDataTimelineUI() {
+        DriveKitDriverDataTimelineUI.shared.initialize()
     }
 
     private static func configureVehicleUI() {

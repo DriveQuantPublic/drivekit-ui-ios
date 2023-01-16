@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="RoadContextDataView" customModule="DriveKitDriverDataTimelineUI" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="169"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mc-ZW-Pmc">
+                    <rect key="frame" x="15" y="56" width="360" height="14"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="14" id="fcb-FE-puv"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUU-C1-i6r" customClass="RoadContextBarView" customModule="DriveKitDriverDataTimelineUI" customModuleProvider="target">
+                    <rect key="frame" x="14" y="75" width="362" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="MCm-7J-mb1"/>
+                    </constraints>
+                </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="vS5-x0-O60">
+                    <rect key="frame" x="14" y="106" width="362" height="52"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="52" id="MWz-G4-lNK"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="HIR-2z-q0h">
+                        <size key="itemSize" width="146" height="26"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="iN0-l3-epB" id="Mdv-M8-KOE"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="cxR-mt-d4V"/>
+                    </connections>
+                </collectionView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="TUU-C1-i6r" secondAttribute="bottom" constant="64" id="4mG-X7-RvW"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1mc-ZW-Pmc" secondAttribute="trailing" constant="15" id="8zE-Nh-scE"/>
+                <constraint firstItem="vS5-x0-O60" firstAttribute="top" secondItem="TUU-C1-i6r" secondAttribute="bottom" constant="1" id="Isa-nz-pMH"/>
+                <constraint firstItem="TUU-C1-i6r" firstAttribute="top" secondItem="1mc-ZW-Pmc" secondAttribute="bottom" constant="5" id="SyR-tm-qqV"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vS5-x0-O60" secondAttribute="trailing" constant="14" id="d6P-kl-HZJ"/>
+                <constraint firstItem="1mc-ZW-Pmc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="kQR-vG-3tl"/>
+                <constraint firstItem="TUU-C1-i6r" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="14" id="oFn-Gz-ys7"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="TUU-C1-i6r" secondAttribute="trailing" constant="14" id="qdO-ZI-6Jg"/>
+                <constraint firstItem="1mc-ZW-Pmc" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="9" id="sMf-9Q-hse"/>
+                <constraint firstItem="vS5-x0-O60" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="14" id="yaE-u8-MdH"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="collectionViewHeightConstraint" destination="MWz-G4-lNK" id="F9q-Bb-NuP"/>
+                <outlet property="itemsCollectionView" destination="vS5-x0-O60" id="Bgx-Go-Q18"/>
+                <outlet property="roadContextBarView" destination="TUU-C1-i6r" id="4ba-rI-Ozh"/>
+                <outlet property="titleLabel" destination="1mc-ZW-Pmc" id="S9c-9M-bJ5"/>
+            </connections>
+            <point key="canvasLocation" x="27.69230769230769" y="17.772511848341232"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

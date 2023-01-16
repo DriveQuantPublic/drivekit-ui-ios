@@ -31,6 +31,7 @@
 "drivekit_doc_ios_permissions_utils"="https://docs.drivequant.com/permissions-utils/permission-utils/ios/main-configurations#permission-management";
 "drivekit_doc_ios_ranking"="https://docs.drivequant.com/driver-achievement/user-interface/ios#select-ranking-themes";
 "drivekit_doc_ios_streaks"="https://docs.drivequant.com/driver-achievement/user-interface/ios#select-streak-themes";
+"drivekit_doc_ios_timeline"="https://docs.drivequant.com/driver-data-timeline-ui/ios/get-started";
 "drivekit_doc_ios_update_user_info"="https://docs.drivequant.com/get-started-drivekit/ios#update-users-information";
 "drivekit_doc_ios_user_id"="https://docs.drivequant.com/get-started-drivekit/ios#identify-user";
 "drivekit_doc_ios_vehicle"="https://docs.drivequant.com/vehicle/user-interface/ios/get-started#display-vehicle-picker-in-navigation-controller";
@@ -51,6 +52,8 @@
 "feature_ranking_title"="Driver Achievement | Rankings";
 "feature_streaks_description"="Mit Combos werden Fahrer belohnt, die es schaffen, mehrere aufeinanderfolgende Fahrten mit hohen Punktzahlen zu absolvieren. Um diese Funktion in Ihrer App zu installieren, lesen Sie bitte die Dokumentation der Komponente Driver Achievement.";
 "feature_streaks_title"="Driver Achievement | Combos";
+"feature_timeline_description"="Die Komponente Driver Data enthält ein UI-Untermodul zur Anzeige von Timelines. Diese Bildschirme enthalten Grafiken, die die chronologischen Entwicklungen der wöchentlichen oder monatlichen Punktzahlen eines Fahrers darstellen.";
+"feature_timeline_title"="Driver Data | Timeline";
 "feature_trip_list_description"="Die Komponente Driver Data zeigt die Ergebnisse der Fahrdatenanalyse. Sie enthält eine Liste der Fahrten und eine Kartenansicht mit den nach Themen gegliederten Ergebnissen: Sicherheit, Eco-Driving, Ablenkung und Geschwindigkeitsbegrenzung.";
 "feature_trip_list_title"="Driver Data | Liste und Anzeige von Fahrten";
 "feature_vehicle_description"="Die Komponente Vehicle zeigt eine Liste der Fahrzeuge und ihrer Eigenschaften an. Sie ermöglicht das Hinzufügen, Ersetzen oder Löschen eines Fahrzeugs. Die Art der Auslösung kann pro Fahrzeug konfiguriert werden (GPS, iBeacon oder Bluetooth-Gerät).";

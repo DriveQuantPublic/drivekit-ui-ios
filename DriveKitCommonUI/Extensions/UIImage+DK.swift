@@ -52,8 +52,8 @@ public extension UIImage {
             // draw original image
             context.setBlendMode(.normal)
             context.draw(self.cgImage!, in: rect)
-            // tint image (loosing alpha) - the luminosity of the original image is preserved
-            context.setBlendMode(.color)
+            // tint image (loosing alpha)
+            context.setBlendMode(.normal)
             tintColor.setFill()
             context.fill(rect)
             // mask by alpha values of original image

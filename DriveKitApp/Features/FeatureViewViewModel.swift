@@ -77,6 +77,12 @@ class FeatureViewViewModel {
                 }
             case .driverData_trips:
                 viewController = TripListVC()
+            case .driverData_timeline:
+                if let driverDataTimelineUI = DriveKitNavigationController.shared.driverDataTimelineUI {
+                    viewController = driverDataTimelineUI.getTimelineViewController()
+                } else {
+                    viewController = nil
+                }
             case .permissionsUtils_diagnosis:
                 viewController = DriveKitPermissionsUtilsUI.shared.getDiagnosisViewController()
             case .permissionsUtils_onboarding:

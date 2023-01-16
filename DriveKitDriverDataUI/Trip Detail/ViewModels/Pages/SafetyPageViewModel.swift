@@ -12,7 +12,7 @@ import CoreLocation
 import DriveKitCommonUI
 
 class SafetyPageViewModel {
-    var scoreType: ScoreType = .safety
+    var scoreType: DKScoreType = .safety
     var trip: Trip
     
     init(trip: Trip) {

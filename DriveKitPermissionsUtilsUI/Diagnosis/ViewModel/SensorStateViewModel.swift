@@ -15,7 +15,7 @@ struct SensorStateViewModel {
     let statusIcon: UIImage?
     let statusIconTintColor: UIColor
     let learnMoreText: String
-    weak var diagnosisViewModel: DiagnosisViewModel? = nil
+    weak var diagnosisViewModel: DiagnosisViewModel?
     private let statusType: StatusType
     private let isValid: Bool
 

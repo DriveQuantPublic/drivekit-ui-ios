@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol PermissionView : AnyObject {
+protocol PermissionView: AnyObject {
 
     func next()
 

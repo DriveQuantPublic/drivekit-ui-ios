@@ -12,7 +12,7 @@ import DriveKitCoreModule
 class BatteryOptimizationViewModel {
     let title: String
     var description: String = ""
-    var action: String? = nil
+    var action: String?
 
     init() {
         self.title = "dk_perm_utils_app_diag_battery_title".dkPermissionsUtilsLocalized()

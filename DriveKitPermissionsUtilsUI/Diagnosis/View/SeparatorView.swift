@@ -10,7 +10,7 @@ import UIKit
 
 import DriveKitCommonUI
 
-class SeparatorView : UIView {
+class SeparatorView: UIView {
 
     @IBOutlet private weak var separatorView: UIView!
 

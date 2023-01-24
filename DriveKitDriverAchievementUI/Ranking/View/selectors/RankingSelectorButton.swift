@@ -10,9 +10,9 @@ import UIKit
 
 import DriveKitCommonUI
 
-class RankingSelectorButton : UIButton {
+class RankingSelectorButton: UIButton {
 
-    private(set) var rankingSelector: RankingSelector? = nil
+    private(set) var rankingSelector: RankingSelector?
 
     public convenience init() {
         self.init(type: .system)

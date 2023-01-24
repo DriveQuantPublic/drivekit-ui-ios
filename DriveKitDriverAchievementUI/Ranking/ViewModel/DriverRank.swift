@@ -24,7 +24,6 @@ protocol AnyDriverRank {
     var totalScoreString: String { get }
 }
 
-
 class DriverRank: DKDriverRankingItem {
     let nbDrivers: Int
     let position: Int

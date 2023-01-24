@@ -25,10 +25,10 @@ class RankingViewModel {
             update(allowEmptyPseudo: false)
         }
     }
-    weak var delegate: RankingViewModelDelegate? = nil
+    weak var delegate: RankingViewModelDelegate?
     private(set) var status: RankingStatus = .needsUpdate
     private(set) var ranks = [DKDriverRankingItem]()
-    private(set) var driverRank: CurrentDriverRank? = nil
+    private(set) var driverRank: CurrentDriverRank?
     private(set) var rankingTypes = [RankingType]()
     private(set) var rankingSelectors = [RankingSelector]()
     private(set) var nbDrivers = 0
@@ -97,7 +97,7 @@ class RankingViewModel {
             if allowEmptyPseudo || !self.askForPseudoIfEmpty {
                 self.updateRanking()
             } else {
-                DriveKit.shared.getUserInfo(synchronizationType: .cache) { [weak self] status, userInfo in
+                DriveKit.shared.getUserInfo(synchronizationType: .cache) { [weak self] _, userInfo in
                     if let self = self {
                         DispatchQueue.main.async { [weak self] in
                             if let self = self {
@@ -141,7 +141,7 @@ class RankingViewModel {
                         var ranks = [DKDriverRankingItem]()
                         let nbDrivers = ranking.nbDriverRanked
                         self.nbDrivers = nbDrivers
-                        var previousRank: Int? = nil
+                        var previousRank: Int?
                         for dkRank in ranking.driversRanked.sorted(by: { (dkDriverRank1, dkDriverRank2) -> Bool in
                             if dkDriverRank2.rank == 0 {
                                 return true
@@ -278,7 +278,6 @@ class RankingViewModel {
         }
     }
 
-
     private static func sanitizeRankingTypes(_ rankingTypes: [DKRankingType]) -> [DKRankingType] {
         if rankingTypes.isEmpty {
             return [.safety]
@@ -323,7 +322,6 @@ class RankingViewModel {
 
 }
 
-
 extension DKRankingType {
     func hasAccess() -> Bool {
         let driveKitAccess = DriveKitAccess.shared
@@ -342,8 +340,7 @@ extension DKRankingType {
     }
 }
 
-
-protocol RankingViewModelDelegate : AnyObject {
+protocol RankingViewModelDelegate: AnyObject {
     func rankingDidUpdate()
     func updateUserPseudo()
 }

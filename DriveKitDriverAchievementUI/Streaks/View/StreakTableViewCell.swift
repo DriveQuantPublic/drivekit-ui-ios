@@ -60,7 +60,7 @@ class StreakTableViewCell: UITableViewCell {
         stats.append(secondaryString)
         currentStats.attributedText = stats
         switch streak.status {
-        case .best,.inProgress, .initialization:
+        case .best, .inProgress, .initialization:
             currentDate.attributedText = streak.getCurrentDate().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
         case .reset:
             currentDate.attributedText = streak.getResetText().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()

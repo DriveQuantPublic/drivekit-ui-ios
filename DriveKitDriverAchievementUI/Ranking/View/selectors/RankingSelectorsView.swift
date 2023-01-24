@@ -11,14 +11,14 @@ import UIKit
 import DriveKitCommonUI
 import DriveKitDBAchievementAccessModule
 
-class RankingSelectorsView : UIStackView {
+class RankingSelectorsView: UIStackView {
 
     @IBOutlet private weak var rankingTypesContainer: UIStackView!
     @IBOutlet private weak var rankingSelectorsContainer: UIView!
     @IBOutlet private weak var rankingSelectorsStackView: UIStackView!
-    private var viewModel: RankingViewModel? = nil
-    private var selectedRankingTypeView: RankingSelectorTypeView? = nil
-    private var selectedRankingSelectorView: RankingSelectorButton? = nil
+    private var viewModel: RankingViewModel?
+    private var selectedRankingTypeView: RankingSelectorTypeView?
+    private var selectedRankingSelectorView: RankingSelectorButton?
 
     func update(viewModel: RankingViewModel) {
         self.viewModel = viewModel
@@ -68,7 +68,6 @@ class RankingSelectorsView : UIStackView {
             }
         }
     }
-
 
     @objc private func onRankingTypeContainerSelected(sender: RankingSelectorTypeView) {
         self.selectedRankingTypeView?.setSelected(false)

@@ -10,11 +10,11 @@ import UIKit
 
 import DriveKitCommonUI
 
-class RankingSelectorTypeView : UIControl {
+class RankingSelectorTypeView: UIControl {
 
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var selectionIndicator: UIView!
-    private(set) var rankingType: RankingType? = nil
+    private(set) var rankingType: RankingType?
 
     override func awakeFromNib() {
         super.awakeFromNib()

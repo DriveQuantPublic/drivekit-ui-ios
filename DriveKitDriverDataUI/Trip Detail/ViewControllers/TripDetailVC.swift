@@ -58,7 +58,7 @@ class TripDetailVC: DKUIViewController {
     private func configureDeleteButton() {
         if DriveKitDriverDataUI.shared.enableDeleteTrip {
             let image = DKDriverDataImages.trash.image?.resizeImage(25, opaque: false).withRenderingMode(.alwaysTemplate)
-            let deleteButton = UIBarButtonItem(image: image , style: .plain, target: self, action: #selector(deleteTrip))
+            let deleteButton = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(deleteTrip))
             deleteButton.tintColor = DKUIColors.navBarElementColor.color
             self.navigationItem.rightBarButtonItem = deleteButton
         }
@@ -67,7 +67,7 @@ class TripDetailVC: DKUIViewController {
     @objc private func deleteTrip() {
         let alert = UIAlertController(title: "", message: "dk_driverdata_confirm_delete_trip".dkDriverDataLocalized(), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default, handler: { action in
+        alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default, handler: { _ in
             self.showLoader()
             DriveKitDriverData.shared.deleteTrip(itinId: self.viewModel.itinId, completionHandler: { deleteSuccessful in
                 DispatchQueue.main.async {
@@ -91,7 +91,7 @@ class TripDetailVC: DKUIViewController {
     
     private func showSuccessDelete() {
         let alert = UIAlertController(title: "", message: "dk_driverdata_trip_deleted".dkDriverDataLocalized(), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: { action in
+        alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: { _ in
             self.navigationController?.popViewController(animated: true)
         }))
         self.present(alert, animated: true, completion: nil)
@@ -312,7 +312,7 @@ extension TripDetailVC: TripDetailDelegate {
     func noData() {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: nil, message: "dk_driverdata_trip_detail_data_error".dkDriverDataLocalized(), preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: { action in
+            alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: { _ in
                 self.navigationController?.popViewController(animated: true)
             }))
             self.present(alert, animated: true, completion: nil)
@@ -321,7 +321,7 @@ extension TripDetailVC: TripDetailDelegate {
     
     func unScoredTrip(noRoute: Bool) {
         DispatchQueue.main.async {
-            if (noRoute){
+            if noRoute {
                 self.showNoRouteAlert()
             }
             self.setupHeadeContainer()

@@ -16,7 +16,7 @@ class TripDetailViewModel: DKTripDetailViewModel {
     let itinId: String
     private let mapItems: [DKMapItem]
 
-    private var internalTrip: Trip? = nil
+    private var internalTrip: Trip?
     var trip: Trip? {
         get {
             if let internalTrip = self.internalTrip, !internalTrip.isValid() {
@@ -32,26 +32,26 @@ class TripDetailViewModel: DKTripDetailViewModel {
             self.calls = self.trip?.sortedCalls
         }
     }
-    var route: Route? = nil
-    private var calls: [Call]? = nil
-    private var routeSync: Bool? = nil
-    private var tripSyncStatus: TripSyncStatus? = nil
+    var route: Route?
+    private var calls: [Call]?
+    private var routeSync: Bool?
+    private var tripSyncStatus: TripSyncStatus?
     
     var events: [TripEvent] = []
     
     var configurableMapItems: [DKMapItem] = []
-    var displayMapItem: DKMapItem? = nil
+    var displayMapItem: DKMapItem?
     
-    private(set) var startEvent: TripEvent? = nil
-    private(set) var endEvent: TripEvent? = nil
+    private(set) var startEvent: TripEvent?
+    private(set) var endEvent: TripEvent?
     private(set) var safetyEvents: [TripEvent] = []
     private(set) var distractionEvents: [TripEvent] = []
     private(set) var phoneCallEvents: [TripEvent] = []
     
-    private var selection: Int? = nil
+    private var selection: Int?
     private var selectedMapTrace: DKMapTraceType = .unlockScreen
     
-    weak var delegate: TripDetailDelegate? = nil {
+    weak var delegate: TripDetailDelegate? {
         didSet {
             if self.delegate != nil {
                 self.fetchTripData()

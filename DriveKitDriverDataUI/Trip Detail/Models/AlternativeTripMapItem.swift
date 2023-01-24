@@ -11,7 +11,7 @@ import UIKit
 import DriveKitCommonUI
 import DriveKitDBTripAccessModule
 
-class AlternativeTripMapItem : DKMapItem {
+class AlternativeTripMapItem: DKMapItem {
     
     func identifier() -> String {
         return "dkAlternativeTrip"

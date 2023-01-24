@@ -25,14 +25,14 @@ class MapViewController: DKUIViewController {
     var authorizedPhoneCallPolylines: [MKPolyline]?
     var speedingPolylines: [MKPolyline]?
 
-    var startAnnotation: MKPointAnnotation? = nil
-    var endAnnotation: MKPointAnnotation? = nil
+    var startAnnotation: MKPointAnnotation?
+    var endAnnotation: MKPointAnnotation?
     
-    var safetyAnnotations: [MKPointAnnotation]? = nil
-    var distractionAnnotations: [MKPointAnnotation]? = nil
-    var phoneCallAnnotations: [MKPointAnnotation]? = nil
+    var safetyAnnotations: [MKPointAnnotation]?
+    var distractionAnnotations: [MKPointAnnotation]?
+    var phoneCallAnnotations: [MKPointAnnotation]?
     
-    var allAnnotations: [MKPointAnnotation]? = nil
+    var allAnnotations: [MKPointAnnotation]?
     
     let lineWidth: CGFloat = 3.0
     let maxTapDistanceInPixel: Int = 30
@@ -311,7 +311,7 @@ class MapViewController: DKUIViewController {
         }
     }
 
-    private func drawMarker(mapItem: DKMapItem?, route: Route, mapTraceType: DKMapTraceType){
+    private func drawMarker(mapItem: DKMapItem?, route: Route, mapTraceType: DKMapTraceType) {
         cleanAllMarkers()
         cleanSafetyAndDistractionMarkers()
         if let mapItem = mapItem {
@@ -370,7 +370,7 @@ class MapViewController: DKUIViewController {
     }
     
     private func cleanAllMarkers() {
-        if let all = self.allAnnotations{
+        if let all = self.allAnnotations {
             self.mapView.removeAnnotations(all)
         }
     }
@@ -400,7 +400,7 @@ class MapViewController: DKUIViewController {
                 self.safetyAnnotations!.append(annotation)
                 self.mapView.addAnnotation(annotation)
             }
-        }else{
+        } else {
             self.safetyAnnotations?.forEach({ annotation in
                 self.mapView.addAnnotation(annotation)
             })
@@ -464,7 +464,7 @@ class MapViewController: DKUIViewController {
         adviceButton.tintColor = .white
     }
     
-    func zoomToEvent(event : TripEvent){
+    func zoomToEvent(event: TripEvent) {
         self.zoom(to: event.position)
     }
     
@@ -534,7 +534,7 @@ extension MapViewController: MKMapViewDelegate {
         }
         self.zoom(to: selection.coordinate)
 
-        (view as! ResistantAnnotationView).resistantLayer.resistantZPosition = 1001
+        (view as! ResistantAnnotationView).resistantLayer.resistantZPosition = 1_001
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -550,7 +550,7 @@ extension MapViewController: MKMapViewDelegate {
             let startImage = DKDriverDataImages.mapDeparture.image
             view.image = startImage?.resizeImage(32, opaque: false, contentMode: .scaleAspectFit)
             view.centerOffset = CGPoint(x: 0, y: 0)
-            view.resistantLayer.resistantZPosition = 1000
+            view.resistantLayer.resistantZPosition = 1_000
             let tripViewModel = viewModel
             if let start = tripViewModel.startEvent {
                 let city: String?
@@ -573,7 +573,7 @@ extension MapViewController: MKMapViewDelegate {
             let endImage = DKDriverDataImages.mapArrival.image
             view.image = endImage?.resizeImage(32, opaque: false, contentMode: .scaleAspectFit)
             view.centerOffset = CGPoint(x: 0, y: 0)
-            view.resistantLayer.resistantZPosition = 1000
+            view.resistantLayer.resistantZPosition = 1_000
             let tripViewModel = viewModel
             if let end = tripViewModel.endEvent {
                 let city: String?
@@ -635,7 +635,7 @@ extension MapViewController: MKMapViewDelegate {
                         if mapImage == .mapDeparture || mapImage == .mapArrival {
                             view.image = sourceImage.resizeImage(32, opaque: false, contentMode: .scaleAspectFit)
                             view.centerOffset = CGPoint(x: 0, y: 0)
-                            view.resistantLayer.resistantZPosition = 1000
+                            view.resistantLayer.resistantZPosition = 1_000
                         } else {
                             view.image = sourceImage.resizeImage(36, opaque: false, contentMode: .scaleAspectFit)
                             view.centerOffset = CGPoint(x: 0, y: -(view.image?.size.height ?? 0) / 2)
@@ -672,21 +672,21 @@ extension MapViewController: MKMapViewDelegate {
     @objc private func distractionInfoClicked(_ sender: UIButton) {
         let distractionEvent = viewModel.distractionEvents[sender.tag]
         let alert = UIAlertController(title: distractionEvent.getTitle(), message: distractionEvent.getExplanation(), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title:DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
 
     @objc private func phoneCallInfoClicked(_ sender: UIButton) {
         let phoneCallEvent = self.viewModel.phoneCallEvents[sender.tag]
         let alert = UIAlertController(title: phoneCallEvent.getTitle(), message: phoneCallEvent.getExplanation(), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title:DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
     @objc private func allInfoClicked(_ sender: UIButton) {
         let event = viewModel.events[sender.tag]
         let alert = UIAlertController(title: event.getTitle(), message: event.getExplanation(), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title:DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
 
@@ -731,11 +731,9 @@ extension MapViewController: MKMapViewDelegate {
             var ptClosest: MKMapPoint
             if u < 0.0 {
                 ptClosest = ptA
-            }
-            else if u > 1.0 {
+            } else if u > 1.0 {
                 ptClosest = ptB
-            }
-            else {
+            } else {
                 ptClosest = MKMapPoint(x: ptA.x + u * xDelta, y: ptA.y + u * yDelta)
             }
 
@@ -752,8 +750,8 @@ extension MapViewController: MKMapViewDelegate {
     }
 }
 
-extension MKMapView{
-    func zoomIn(coordinate: CLLocationCoordinate2D, withLevel level:CLLocationDistance = 10000){
+extension MKMapView {
+    func zoomIn(coordinate: CLLocationCoordinate2D, withLevel level: CLLocationDistance = 10_000) {
         let camera =
             MKMapCamera(lookingAtCenter: coordinate, fromEyeCoordinate: coordinate, eyeAltitude: level)
         self.setCamera(camera, animated: true)

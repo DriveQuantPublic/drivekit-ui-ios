@@ -10,7 +10,7 @@ import UIKit
 import DriveKitCommonUI
 import DriveKitDBTripAccessModule
 
-extension TransportationMode : DKFilterItem {
+extension TransportationMode: DKFilterItem {
     public func getImage() -> UIImage? {
         switch self {
             case .unknown, .other:

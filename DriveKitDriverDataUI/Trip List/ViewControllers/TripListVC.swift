@@ -36,7 +36,6 @@ public class TripListVC: DKUIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -91,7 +90,7 @@ public class TripListVC: DKUIViewController {
     func updateUI() {
         if self.viewModel.status == .failedToSyncTripsCacheOnly {
             let alert = UIAlertController(title: nil, message: "dk_driverdata_failed_to_sync_trips".dkDriverDataLocalized(), preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: { action in
+            alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: { _ in
                 if let refreshControl = self.tripsTableView?.refreshControl, refreshControl.isRefreshing {
                     refreshControl.endRefreshing()
                 }
@@ -165,9 +164,9 @@ extension TripListVC: TripsDelegate {
 
 extension TripListVC: DKFilterItemDelegate {
     public func onFilterItemSelected(filterItem: DKFilterItem) {
-        if filterItem.getId() is TripListConfiguration{
+        if filterItem.getId() is TripListConfiguration {
             tripListFilterItemSelected(filterItem: filterItem)
-        } else if filterItem.getId() is TransportationMode  || filterItem.getId() is AllAlternativeMode{
+        } else if filterItem.getId() is TransportationMode || filterItem.getId() is AllAlternativeMode {
             transportationModeFilterItemSelected(filterItem: filterItem)
         } else {
            vehicleFilterItemSelected(filterItem: filterItem)
@@ -175,7 +174,7 @@ extension TripListVC: DKFilterItemDelegate {
     }
     
     private func vehicleFilterItemSelected(filterItem: DKFilterItem) {
-        var vehicleId: String? = nil
+        var vehicleId: String?
         if let itemId = filterItem.getId() as? String {
             vehicleId = itemId
         }
@@ -186,7 +185,7 @@ extension TripListVC: DKFilterItemDelegate {
     
     private func tripListFilterItemSelected(filterItem: DKFilterItem) {
         if let tripListConfiguration = filterItem.getId() as? TripListConfiguration, tripListConfiguration.identifier() != self.viewModel.listConfiguration.identifier() {
-            switch tripListConfiguration  {
+            switch tripListConfiguration {
                 case .motorized:
                     self.viewModel.filterTrips(config: .motorized())
                 case .alternative:

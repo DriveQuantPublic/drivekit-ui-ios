@@ -16,7 +16,7 @@ final class DistractionPageView: UIControl, Nibable {
                 self.eventValue.textColor = DKUIColors.fontColorOnSecondaryColor.color
                 self.eventDescription.textColor = DKUIColors.secondaryColor.color
             } else {
-                self.eventValue.backgroundColor = UIColor(hex:0xf3f3f3)
+                self.eventValue.backgroundColor = UIColor(hex: 0xf3f3f3)
                 self.eventValue.textColor = DKUIColors.primaryColor.color
                 self.eventDescription.textColor = DKUIColors.complementaryFontColor.color
             }

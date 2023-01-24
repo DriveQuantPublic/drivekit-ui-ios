@@ -15,7 +15,6 @@ final class CalloutView: UIView, Nibable {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subtitleLabel: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()    }
     

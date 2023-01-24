@@ -27,7 +27,6 @@ class SpeedingPageVC: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configure()
@@ -58,7 +57,7 @@ class SpeedingPageVC: UIViewController {
         summaryContainer.addArrangedSubview(durationView)
     }
     
-    @IBAction func infoAction(_ sender:UIButton) {
+    @IBAction func infoAction(_ sender: UIButton) {
         let alert = UIAlertController(title: "dk_driverdata_speeding_score".dkDriverDataLocalized(), message: "dk_driverdata_speeding_score_info".dkDriverDataLocalized(), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)

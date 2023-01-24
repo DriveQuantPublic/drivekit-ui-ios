@@ -119,7 +119,7 @@ class TripTipViewController: DKUIViewController {
             if status {
                 DispatchQueue.main.async {
                     self.showAlertMessage(title: nil, message: "dk_driverdata_advice_feedback_success".dkDriverDataLocalized(), back: true, cancel: false, completion: {
-                        DriveKitDriverData.shared.getTrip(itinId: self.trip.itinId ?? "", completionHandler: { status, trip in
+                        DriveKitDriverData.shared.getTrip(itinId: self.trip.itinId ?? "", completionHandler: { _, trip in
                             self.tripDetailVC.viewModel.trip = trip
                         })
                     })

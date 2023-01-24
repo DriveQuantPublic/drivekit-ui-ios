@@ -16,9 +16,9 @@ class DistractionPageVC: UIViewController {
     @IBOutlet private var infoButton: UIButton!
 
     private var viewModel: DistractionPageViewModel
-    private var unlockView: DistractionPageView? = nil
-    private var callsView: DistractionPageView? = nil
-    private var selectedDistractionPageView: DistractionPageView? = nil
+    private var unlockView: DistractionPageView?
+    private var callsView: DistractionPageView?
+    private var selectedDistractionPageView: DistractionPageView?
     
     init(viewModel: DistractionPageViewModel) {
         self.viewModel = viewModel
@@ -87,7 +87,7 @@ class DistractionPageVC: UIViewController {
         }
     }
 
-    @IBAction func infoAction(_ sender:UIButton) {
+    @IBAction func infoAction(_ sender: UIButton) {
         let alert = UIAlertController(title: "dk_driverdata_distraction_score".dkDriverDataLocalized(), message: "dk_driverdata_distraction_score_info".dkDriverDataLocalized(), preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)

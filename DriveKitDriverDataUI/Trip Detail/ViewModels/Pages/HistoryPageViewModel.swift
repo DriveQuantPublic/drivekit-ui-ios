@@ -12,7 +12,7 @@ import CoreLocation
 
 class HistoryPageViewModel {
     let events: [TripEvent]
-    let tripDetailViewModel : DKTripDetailViewModel
+    let tripDetailViewModel: DKTripDetailViewModel
     
     init(tripDetailViewModel: DKTripDetailViewModel) {
         self.events = tripDetailViewModel.getTripEvents()

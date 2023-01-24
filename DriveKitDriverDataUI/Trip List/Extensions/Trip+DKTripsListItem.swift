@@ -92,7 +92,7 @@ extension Trip: DKTripListItem {
         if let customTripInfo = DriveKitDriverDataUI.shared.customTripInfo {
             return customTripInfo.infoText(trip: self)
         } else {
-            guard let tripAdvices: Set<TripAdvice>  = self.tripAdvices as? Set<TripAdvice> else {
+            guard let tripAdvices: Set<TripAdvice> = self.tripAdvices as? Set<TripAdvice> else {
                 return nil
             }
             if tripAdvices.count > 1 {
@@ -107,7 +107,7 @@ extension Trip: DKTripListItem {
         if let customTripInfo = DriveKitDriverDataUI.shared.customTripInfo {
             return customTripInfo.infoImage(trip: self)
         } else {
-            guard let tripAdvices: [TripAdvice]  = self.tripAdvices?.allObjects as? [TripAdvice] else {
+            guard let tripAdvices: [TripAdvice] = self.tripAdvices?.allObjects as? [TripAdvice] else {
                 return nil
             }
             if tripAdvices.count > 1 {
@@ -149,7 +149,7 @@ extension Trip: DKTripListItem {
         if let customTripInfo = DriveKitDriverDataUI.shared.customTripInfo {
             return customTripInfo.isInfoDisplayable(trip: self)
         } else {
-            guard let tripAdvices: Set<TripAdvice>  = self.tripAdvices as? Set<TripAdvice> else {
+            guard let tripAdvices: Set<TripAdvice> = self.tripAdvices as? Set<TripAdvice> else {
                 return false
             }
             return tripAdvices.count > 0

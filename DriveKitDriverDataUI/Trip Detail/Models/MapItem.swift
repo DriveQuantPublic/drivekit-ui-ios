@@ -11,7 +11,7 @@ import DriveKitCoreModule
 import DriveKitDBTripAccessModule
 import DriveKitCommonUI
 
-public enum MapItem : DKMapItem {
+public enum MapItem: DKMapItem {
  
     case ecoDriving, safety, distraction, interactiveMap, synthesis, speeding
     
@@ -94,10 +94,10 @@ public enum MapItem : DKMapItem {
                 case .speeding:
                     return nil
                 }
-            }else{
+            } else {
                 return nil
             }
-        }else{
+        } else {
             return nil
         }
     }

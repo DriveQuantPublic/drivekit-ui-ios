@@ -11,7 +11,6 @@ import DriveKitDriverDataModule
 import CoreLocation
 import DriveKitCommonUI
 
-
 enum EventType {
     case adherence, brake, acceleration, lock, unlock, pickUp, hangUp, end, start
     
@@ -38,7 +37,6 @@ enum EventType {
         }
     }
 }
-
 
 public class TripEvent {
     let type: EventType

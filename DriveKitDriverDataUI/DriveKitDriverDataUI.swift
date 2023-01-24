@@ -9,7 +9,6 @@
 import UIKit
 import DriveKitCoreModule
 import DriveKitCommonUI
-import DriveKitCoreModule
 import DriveKitDBTripAccessModule
 
 public class DriveKitDriverDataUI: AccessRightListener {
@@ -25,7 +24,7 @@ public class DriveKitDriverDataUI: AccessRightListener {
     private(set) var enableVehicleFilter = true
     private(set) var customHeaders: DKHeader?
     private(set) var customTripInfo: DKTripInfo?
-    public var alternativeTripsDepthInDays: Int? = nil
+    public var alternativeTripsDepthInDays: Int?
 
     public static let shared = DriveKitDriverDataUI()
     

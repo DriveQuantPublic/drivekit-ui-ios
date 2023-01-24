@@ -11,7 +11,7 @@ import DriveKitDBTripAccessModule
 
 class TransportationModeViewModel {
     private let trip: Trip
-    var selectedTransportationMode: TransportationMode? = nil
+    var selectedTransportationMode: TransportationMode?
     
     init(trip: Trip) {
         self.trip = trip

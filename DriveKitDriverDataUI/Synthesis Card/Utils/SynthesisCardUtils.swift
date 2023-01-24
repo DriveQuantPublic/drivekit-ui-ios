@@ -25,7 +25,7 @@ public struct SynthesisCardUtils {
 
     public static func getLastTrips(withTransportationModes transportationModes: [TransportationMode] = [.unknown, .car, .moto, .truck]) -> [Trip] {
         if let lastTrip = getLastTrip(withTransportationModes: transportationModes), let lastDate = lastTrip.endDate {
-            let oneWeekBeforeDate = lastDate.addingTimeInterval(-7 * 24 * 3600) // 7 days.
+            let oneWeekBeforeDate = lastDate.addingTimeInterval(-7 * 24 * 3_600) // 7 days.
             let tripsQuery = getTripsQuery(forTransportationModes: transportationModes)
             let lastTrips = tripsQuery
                 .and()
@@ -73,7 +73,7 @@ public struct RoadConditionStats {
                         roadConditionObjects = trip.safetyContexts?.allObjects as? [SafetyContext]
                 }
 
-                var mainRoadCondition: DKRoadCondition? = nil
+                var mainRoadCondition: DKRoadCondition?
                 var maxDistance: Double = 0
                 if let roadConditionObjects = roadConditionObjects {
                     for roadConditionObject in roadConditionObjects {

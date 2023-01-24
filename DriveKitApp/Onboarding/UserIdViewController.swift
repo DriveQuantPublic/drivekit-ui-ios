@@ -43,7 +43,7 @@ class UserIdViewController: UIViewController {
                 DispatchQueue.dispatchOnMainThread {
                     if success {
                         self?.showLoader(message: "sync_user_info_loading_message".keyLocalized())
-                        SynchroServicesManager.syncModules([.userInfo, .vehicle, .workingHours, .trips], stepCompletion:  { [weak self] status, remainingServices in
+                        SynchroServicesManager.syncModules([.userInfo, .vehicle, .workingHours, .trips], stepCompletion: { [weak self] _, remainingServices in
                             if let service = remainingServices.first {
                                 switch service {
                                 case .vehicle:
@@ -88,7 +88,7 @@ class UserIdViewController: UIViewController {
         DispatchQueue.dispatchOnMainThread {
             self.showLoader()
         }
-        DriveKit.shared.getUserInfo(synchronizationType: syncStatus ? .cache : .defaultSync) { [weak self] _ , userInfo in
+        DriveKit.shared.getUserInfo(synchronizationType: syncStatus ? .cache : .defaultSync) { [weak self] _, userInfo in
             DispatchQueue.dispatchOnMainThread {
                 let userInfoViewModel = UserInfoViewModel(userInfo: userInfo)
                 let userInfoVC = UserInfoViewController(viewModel: userInfoViewModel)

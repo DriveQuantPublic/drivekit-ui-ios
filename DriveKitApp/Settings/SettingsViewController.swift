@@ -198,7 +198,7 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    private func showEditAlert(title: String, currentValue: String?, completion: @escaping (String) -> ()) {
+    private func showEditAlert(title: String, currentValue: String?, completion: @escaping (String) -> Void) {
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         alert.addTextField { textField in
             textField.keyboardType = UIKeyboardType.default

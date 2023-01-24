@@ -51,7 +51,7 @@ class VelocityChartView: LineChartView {
 
         self.chartDescription?.text = "trip_simulator_graph_time".keyLocalized()
         
-        let dataSet = LineChartDataSet(entries:  self.graphData, label: "trip_simulator_graph_velocity".keyLocalized())
+        let dataSet = LineChartDataSet(entries: self.graphData, label: "trip_simulator_graph_velocity".keyLocalized())
         dataSet.mode = .linear
         dataSet.drawCirclesEnabled = false
         dataSet.setColor(DKUIColors.primaryColor.color)

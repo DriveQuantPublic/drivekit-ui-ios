@@ -30,7 +30,7 @@ enum SyncStatus {
 
 class SynchroServicesManager {
 
-    static func syncModule(_ service: DKService, completion: ((SyncStatus) -> ())? = nil) {
+    static func syncModule(_ service: DKService, completion: ((SyncStatus) -> Void)? = nil) {
         switch service {
             case .badges:
                 syncBadges(completion: completion)
@@ -47,7 +47,7 @@ class SynchroServicesManager {
         }
     }
 
-    static func syncModules(_ services: [DKService],  previousResults: [SyncStatus] = [], stepCompletion: ((SyncStatus, _ remainingServices: [DKService]) -> ())? = nil, completion: (([SyncStatus]) -> ())? = nil) {
+    static func syncModules(_ services: [DKService], previousResults: [SyncStatus] = [], stepCompletion: ((SyncStatus, _ remainingServices: [DKService]) -> Void)? = nil, completion: (([SyncStatus]) -> Void)? = nil) {
         guard let service = services.first else {
             return
         }
@@ -73,37 +73,37 @@ class SynchroServicesManager {
         }
     }
 
-    private static func syncBadges(completion: ((SyncStatus) -> ())?) {
+    private static func syncBadges(completion: ((SyncStatus) -> Void)?) {
         DriveKitDriverAchievement.shared.getBadges(completionHandler: {status, _, _ in
             completion?(status == .noError ? .success : .failed)
         })
     }
 
-    private static func syncChallenges(completion: ((SyncStatus) -> ())?) {
+    private static func syncChallenges(completion: ((SyncStatus) -> Void)?) {
         DriveKitChallenge.shared.getChallenges(type: .defaultSync) { status, _ in
             completion?(status == .success ? .success : .failed)
         }
     }
 
-    private static func syncVehicles(completion: ((SyncStatus) -> ())?) {
-        DriveKitVehicle.shared.getVehiclesOrderByNameAsc{ status, _ in
+    private static func syncVehicles(completion: ((SyncStatus) -> Void)?) {
+        DriveKitVehicle.shared.getVehiclesOrderByNameAsc { status, _ in
             completion?(status == .noError ? .success : .failed)
         }
     }
 
-    private static func syncWorkingHours(completion: ((SyncStatus) -> ())?) {
-        DriveKitTripAnalysis.shared.getWorkingHours(type: .defaultSync) { status, workingHours in
+    private static func syncWorkingHours(completion: ((SyncStatus) -> Void)?) {
+        DriveKitTripAnalysis.shared.getWorkingHours(type: .defaultSync) { status, _ in
             completion?(status == .success ? .success : .failed)
         }
     }
 
-    private static func syncUserInfo(completion: ((SyncStatus) -> ())?) {
+    private static func syncUserInfo(completion: ((SyncStatus) -> Void)?) {
         DriveKit.shared.getUserInfo(synchronizationType: .defaultSync) { status, _ in
             completion?(status == .success ? .success : .failed)
         }
     }
 
-    private static func syncTrips(completion: ((SyncStatus) -> ())?) {
+    private static func syncTrips(completion: ((SyncStatus) -> Void)?) {
         DriveKitDriverData.shared.getTripsOrderByDateAsc(type: .defaultSync) { status, _ in
             completion?(status == .noError ? .success : .failed)
         }

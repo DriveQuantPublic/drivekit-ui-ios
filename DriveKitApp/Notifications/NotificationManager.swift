@@ -70,7 +70,7 @@ class NotificationManager: NSObject {
 
     private static func requestNotificationPermission() {
         let options: UNAuthorizationOptions = [.alert, .badge, .sound]
-        UNUserNotificationCenter.current().requestAuthorization(options: options) { granted, error in
+        UNUserNotificationCenter.current().requestAuthorization(options: options) { granted, _ in
             if granted {
                 DispatchQueue.main.async {
                     UIApplication.shared.registerForRemoteNotifications()
@@ -261,7 +261,7 @@ extension NotificationManager: TripListener {
                     partialScoredTrip = false
                     hasAdvices = !tripAdvicesData.isEmpty
                 } else {
-                    var messagePart2: String? = nil
+                    var messagePart2: String?
                     switch DriveKitDriverDataUI.shared.tripData {
                         case .safety:
                             let safetyScore = response.safety?.safetyScore ?? 11
@@ -285,7 +285,7 @@ extension NotificationManager: TripListener {
                             partialScoredTrip = false
                         case .distance:
                             if let itineraryStatistics = response.itineraryStatistics {
-                                let distance = Int(ceil(itineraryStatistics.distance / 1000.0))
+                                let distance = Int(ceil(itineraryStatistics.distance / 1_000.0))
                                 messagePart2 = "\(DKCommonLocalizable.distance.text()) : \(distance) \(DKCommonLocalizable.unitKilometer.text())"
                             }
                             partialScoredTrip = false

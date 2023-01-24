@@ -21,7 +21,7 @@ struct VehiclesViewModel {
         return titleString
     }
 
-    func areVehiclesConfigured(completion: @escaping (Bool) -> ()) {
+    func areVehiclesConfigured(completion: @escaping (Bool) -> Void) {
         DriveKitVehicle.shared.getVehiclesOrderByNameAsc(type: .cache) { _, vehicles in
             DispatchQueue.dispatchOnMainThread {
                 completion(!vehicles.isEmpty)

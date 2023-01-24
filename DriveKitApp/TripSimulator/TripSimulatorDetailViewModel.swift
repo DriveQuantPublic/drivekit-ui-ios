@@ -21,9 +21,9 @@ class TripSimulatorDetailViewModel {
     private var simulatedItem: TripSimulatorItem
     private var currentDuration: Double = 0
     private var timeWhenEnteredStoppingState: Date?
-    private var stoppingTimer: Timer? = nil
+    private var stoppingTimer: Timer?
     private(set) var isSimulating: Bool = true
-    private var currentSpeed: Double? = nil
+    private var currentSpeed: Double?
 
     init(simulatedItem: TripSimulatorItem) {
         self.simulatedItem = simulatedItem
@@ -149,11 +149,10 @@ class TripSimulatorDetailViewModel {
     }
 }
 
-
 extension TripSimulatorDetailViewModel: DKTripSimulatorDelegate {
     func locationSent(location: CLLocation, durationSinceStart: Double) {
         self.currentDuration = durationSinceStart + 1
-        let speedKmH = location.speed * 3600 / 1000
+        let speedKmH = location.speed * 3_600 / 1_000
         self.currentSpeed = speedKmH
 
         let state = DriveKitTripAnalysis.shared.getRecorderState()

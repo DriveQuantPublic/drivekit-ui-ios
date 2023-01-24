@@ -14,7 +14,7 @@ import DriveKitTripAnalysisModule
 
 @objc public class DriveKitTripAnalysisUI: NSObject {
     private let tag: String = "DriveKit TripAnalysisUI"
-    private(set) var roadsideAssistanceNumber: String? = nil
+    private(set) var roadsideAssistanceNumber: String?
     @objc public static let shared = DriveKitTripAnalysisUI()
     @objc public var defaultWorkingHours: DKWorkingHours = DriveKitTripAnalysisUI.getDefaultWorkingHours()
 

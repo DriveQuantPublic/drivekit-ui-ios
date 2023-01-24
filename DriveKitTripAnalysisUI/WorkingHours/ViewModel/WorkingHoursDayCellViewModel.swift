@@ -110,7 +110,7 @@ extension WorkingHoursDayCellViewModel {
         return result
     }
 
-    func dateFromComponents(input: Input, date: Date) -> Date{
+    func dateFromComponents(input: Input, date: Date) -> Date {
         var dateComponents = Calendar.current.dateComponents([.day, .month, .year, .hour, .minute], from: date)
         dateComponents.hour = input.1
         dateComponents.minute = input.2

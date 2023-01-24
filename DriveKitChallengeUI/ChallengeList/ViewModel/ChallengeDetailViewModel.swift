@@ -33,7 +33,7 @@ class ChallengeDetailViewModel {
         self.challenge = challenge
         self.challengeDetail = challengeDetail
         switch challenge.themeCode {
-        case 101, 102, 103, 104 :
+        case 101, 102, 103, 104: 
             self.challengeType = .score
             self.challengeTheme = .ecoDriving
         case 201, 202, 203, 204:
@@ -96,7 +96,7 @@ class ChallengeDetailViewModel {
                     scoreString = driverRanked.distance.formatKilometerDistance(appendingUnit: true, minDistanceToRemoveFractions: 10)
                     totalScoreString = ""
                 case .duration:
-                    scoreString = (driverRanked.score * 3600).ceilSecondDuration(ifGreaterThan: 600).formatSecondDuration(maxUnit: .hour)
+                    scoreString = (driverRanked.score * 3_600).ceilSecondDuration(ifGreaterThan: 600).formatSecondDuration(maxUnit: .hour)
                     totalScoreString = ""
                 case .nbTrips:
                     scoreString = driverRanked.score.format()
@@ -147,7 +147,7 @@ class ChallengeDetailViewModel {
     }
 
     func updateChallengeDetail() {
-        DriveKitChallenge.shared.getChallengeDetail(challengeId: challenge.id, type: .defaultSync) { [weak self] status, challengeDetail in
+        DriveKitChallenge.shared.getChallengeDetail(challengeId: challenge.id, type: .defaultSync) { [weak self] _, challengeDetail in
             if let challengeDetail = challengeDetail {
                 self?.challengeDetail = challengeDetail
                 self?.resultsViewModel?.update(challengeDetail: challengeDetail)
@@ -186,7 +186,7 @@ class ChallengeDetailViewModel {
     }
 
     func getDateAttributedString() -> NSAttributedString {
-        return ChallengeItemViewModel.formatStartAndEndDates(startDate: challenge.startDate, endDate: challenge.endDate, tintColor:  DKUIColors.complementaryFontColor.color, alignment: .center)
+        return ChallengeItemViewModel.formatStartAndEndDates(startDate: challenge.startDate, endDate: challenge.endDate, tintColor: DKUIColors.complementaryFontColor.color, alignment: .center)
     }
 }
 
@@ -255,7 +255,7 @@ extension ChallengeDetailViewModel: DKDriverRanking {
     }
 
     func getImage() -> UIImage? {
-        var imageName: String? = nil
+        var imageName: String?
         switch challengeTheme {
         case .acceleration, .adherence, .braking, .safety:
             return DKChallengeImages.leaderboardSafety.image
@@ -290,7 +290,7 @@ extension ChallengeDetailViewModel: DKDriverRanking {
 
     func getDriverGlobalRankAttributedText() -> NSAttributedString {
         if challengeDetail.userIndex > 0, challengeDetail.userIndex <= ranks.count {
-            let driverRank = ranks[challengeDetail.userIndex-1]
+            let driverRank = ranks[challengeDetail.userIndex - 1]
             let driverRankString = driverRank.positionString.dkAttributedString().font(dkFont: .primary, style: .highlightBig).color(.secondaryColor).build()
             let rankString = driverRank.rankString.dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
             return "%@%@".dkAttributedString().buildWithArgs(driverRankString, rankString)

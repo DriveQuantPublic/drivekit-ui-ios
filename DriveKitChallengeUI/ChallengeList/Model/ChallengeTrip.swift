@@ -112,7 +112,7 @@ struct ChallengeTrip: DKTripListItem {
     }
 
     public func infoText() -> String? {
-        guard let tripAdvices: Set<TripAdvice>  = trip.tripAdvices as? Set<TripAdvice> else {
+        guard let tripAdvices: Set<TripAdvice> = trip.tripAdvices as? Set<TripAdvice> else {
             return nil
         }
         if tripAdvices.count > 1 {
@@ -123,7 +123,7 @@ struct ChallengeTrip: DKTripListItem {
     }
 
     public func infoImage() -> UIImage? {
-        guard let tripAdvices: [TripAdvice]  = trip.tripAdvices?.allObjects as? [TripAdvice] else {
+        guard let tripAdvices: [TripAdvice] = trip.tripAdvices?.allObjects as? [TripAdvice] else {
             return nil
         }
         if tripAdvices.count > 1 {
@@ -153,7 +153,7 @@ struct ChallengeTrip: DKTripListItem {
     }
 
     public func isInfoDisplayable() -> Bool {
-        guard let tripAdvices: Set<TripAdvice>  = trip.tripAdvices as? Set<TripAdvice> else {
+        guard let tripAdvices: Set<TripAdvice> = trip.tripAdvices as? Set<TripAdvice> else {
             return false
         }
         return tripAdvices.count > 0

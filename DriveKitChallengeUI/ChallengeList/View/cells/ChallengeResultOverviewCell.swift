@@ -33,13 +33,13 @@ final class ChallengeResultOverviewCell: UITableViewCell, Nibable {
         self.configureContainer()
     }
 
-    func configureContainer(){
+    func configureContainer() {
         clipsToBounds = false
         layer.cornerRadius = 5
         self.backgroundColor = DKDefaultColors.driveKitBackgroundColor
     }
 
-    func configureTitle(title: String){
+    func configureTitle(title: String) {
         let titleAttributedString = NSMutableAttributedString(string: title, attributes: titleAttributes)
         self.challengeTypeTitle?.attributedText = titleAttributedString
     }
@@ -52,7 +52,7 @@ final class ChallengeResultOverviewCell: UITableViewCell, Nibable {
         self.challengeValue?.attributedText = challengeAttributedString
     }
 
-    func configureMedal(isNumberOne: Bool){
+    func configureMedal(isNumberOne: Bool) {
         if isNumberOne {
             self.medalProgressImage?.image = DKChallengeImages.firstDriver.image?.withRenderingMode(.alwaysTemplate)
             self.medalProgressImage?.tintColor = goldColor
@@ -61,7 +61,7 @@ final class ChallengeResultOverviewCell: UITableViewCell, Nibable {
         }
     }
 
-    func configureProgressBar(maxValue: Double, minValue: Double, score: Double, value: String, maxString: String, minString: String){
+    func configureProgressBar(maxValue: Double, minValue: Double, score: Double, value: String, maxString: String, minString: String) {
         var maxValue = maxValue
         var minValue = minValue
         if score > maxValue {
@@ -72,18 +72,18 @@ final class ChallengeResultOverviewCell: UITableViewCell, Nibable {
         }
 
         let minText = minString + " " + self.indiceValue
-        let maxText = maxString +  " " + self.indiceValue
+        let maxText = maxString + " " + self.indiceValue
         self.progressBarMaxLabel?.attributedText = NSAttributedString(string: maxText, attributes: indiceAttributes)
         self.progressBarMinLabel?.attributedText = NSAttributedString(string: minText, attributes: indiceAttributes)
 
-        var ranking : Double = 0
+        var ranking: Double = 0
         if score == minValue && score == maxValue {
             ranking = 100
             self.progressBarMinLabel?.isHidden = true
         } else {
             ranking = ((score - minValue) * 100) / (maxValue - minValue)
         }
-        let progressHeight =  100 - ranking
+        let progressHeight = 100 - ranking
         progressBarValueView?.backgroundColor = goldColor
         if ranking == 100 {
             configureMedal(isNumberOne: true)
@@ -95,7 +95,7 @@ final class ChallengeResultOverviewCell: UITableViewCell, Nibable {
 
     func configureCell(viewModel: ChallengeResultsViewModel) {
         if viewModel.challengeType == .score {
-            configureTitle(title:  viewModel.challengeTheme.scoreTitle)
+            configureTitle(title: viewModel.challengeTheme.scoreTitle)
         } else {
             configureTitle(title: viewModel.challengeType.overviewTitle)
         }
@@ -114,9 +114,9 @@ final class ChallengeResultOverviewCell: UITableViewCell, Nibable {
             configureChallenge(value: viewModel.driverScore.formatKilometerDistance(appendingUnit: false, minDistanceToRemoveFractions: 10))
             configureProgressBar(maxValue: viewModel.maxScore, minValue: viewModel.minScore, score: viewModel.driverScore, value: viewModel.driverScore.formatKilometerDistance(appendingUnit: false, minDistanceToRemoveFractions: 10), maxString: viewModel.maxScore.formatKilometerDistance(appendingUnit: false, minDistanceToRemoveFractions: 10), minString: viewModel.minScore.formatKilometerDistance(appendingUnit: false, minDistanceToRemoveFractions: 10))
         case .duration:
-            let duration = viewModel.driverScore * 3600
-            let maxDuration = viewModel.maxScore * 3600
-            let minDuration = viewModel.minScore * 3600
+            let duration = viewModel.driverScore * 3_600
+            let maxDuration = viewModel.maxScore * 3_600
+            let minDuration = viewModel.minScore * 3_600
             configureChallenge(value: duration.ceilSecondDuration(ifGreaterThan: 600).formatSecondDuration(maxUnit: .hour))
             configureProgressBar(maxValue: maxDuration, minValue: minDuration, score: duration, value: duration.ceilSecondDuration(ifGreaterThan: 600).formatSecondDuration(maxUnit: .hour), maxString: maxDuration.ceilSecondDuration(ifGreaterThan: 600).formatSecondDuration(maxUnit: .hour), minString: minDuration.ceilSecondDuration(ifGreaterThan: 600).formatSecondDuration(maxUnit: .hour) )
         case .nbTrips:

@@ -40,10 +40,10 @@ struct ChallengeConditionProgressViewModel {
     }
 
     var progressValue: Float {
-        return Float(value/total)
+        return Float(value / total)
     }
 
-    static func getConditionsViewModel(conditions: [String: Any], driverConditions:[String: Any]) -> [String: ChallengeConditionProgressViewModel] {
+    static func getConditionsViewModel(conditions: [String: Any], driverConditions: [String: Any]) -> [String: ChallengeConditionProgressViewModel] {
         var resultDict: [String: ChallengeConditionProgressViewModel] = [:]
         for key in ChallengeConditionKey.allCases {
             if let value: Double = conditions[key.rawValue] as? Double, let driverValue: Double = driverConditions[key.rawValue] as? Double {

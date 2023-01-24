@@ -149,13 +149,13 @@ class ChallengeDetailVC: DKUIViewController {
     }
 
     private func checkPseudo() {
-        DriveKit.shared.getUserInfo(synchronizationType: .cache) { [weak self] status, userInfo in
+        DriveKit.shared.getUserInfo(synchronizationType: .cache) { [weak self] _, userInfo in
             if let self = self {
                 DispatchQueue.main.async { [weak self] in
                     if let self = self {
                         if userInfo?.pseudo?.isCompletelyEmpty() ?? true {
                             let userPseudoViewController = UserPseudoViewController()
-                            userPseudoViewController.completion = { success in
+                            userPseudoViewController.completion = { _ in
                                 userPseudoViewController.dismiss(animated: true) {
                                     self.viewModel.updateChallengeDetail()
                                 }

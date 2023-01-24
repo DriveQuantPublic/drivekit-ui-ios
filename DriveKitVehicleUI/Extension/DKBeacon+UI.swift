@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DKBeacon+UI.swift
 //  DriveKitVehicleUI

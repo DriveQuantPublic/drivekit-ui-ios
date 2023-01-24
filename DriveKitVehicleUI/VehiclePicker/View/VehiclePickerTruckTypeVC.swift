@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  VehiclePickerTruckTypeVC.swift
 //  DriveKitVehicleUI

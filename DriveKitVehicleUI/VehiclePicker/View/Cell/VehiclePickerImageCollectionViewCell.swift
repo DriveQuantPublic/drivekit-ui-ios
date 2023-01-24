@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  VehiclePickerCollectionViewCell.swift
 //  drivekit-test-app

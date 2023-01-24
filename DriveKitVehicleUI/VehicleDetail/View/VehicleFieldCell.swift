@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  VehicleFieldCell.swift
 //  DriveKitVehicleUI

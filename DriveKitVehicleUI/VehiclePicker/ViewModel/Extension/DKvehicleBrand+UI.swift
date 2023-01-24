@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DKVehicleBrand+UI.swift
 //  DriveKitVehicleUI

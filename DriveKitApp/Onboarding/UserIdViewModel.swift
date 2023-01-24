@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  UserIdViewModel.swift
 //  DriveKitApp

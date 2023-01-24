@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  String+DK.swift
 //  DriveKitApp

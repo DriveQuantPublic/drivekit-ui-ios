@@ -10,7 +10,7 @@ import UIKit
 import DriveKitCommonUI
 import DriveKitDBVehicleAccessModule
 
-class VehicleGroupFieldsCell : UITableViewCell {
+class VehicleGroupFieldsCell: UITableViewCell {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var cardView: CardView!
 
@@ -27,9 +27,9 @@ class VehicleGroupFieldsCell : UITableViewCell {
         tableView.dataSource = self
     }
 
-    func configure(viewModel : VehicleDetailViewModel, groupField: DKVehicleGroupField) {
+    func configure(viewModel: VehicleDetailViewModel, groupField: DKVehicleGroupField) {
         self.viewModel = viewModel
-        self.groupField  = groupField
+        self.groupField = groupField
         self.tableView.reloadData()
     }
 }

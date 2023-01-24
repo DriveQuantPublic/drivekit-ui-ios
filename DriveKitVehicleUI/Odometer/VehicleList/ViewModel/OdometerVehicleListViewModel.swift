@@ -27,7 +27,7 @@ class OdometerVehicleListViewModel {
         self.odometerHistories = self.vehicle?.odometerHistories
     }
 
-    func synchronize(completion: @escaping (Bool) -> ()) {
+    func synchronize(completion: @escaping (Bool) -> Void) {
         if let vehicle = self.vehicle {
             DriveKitVehicle.shared.getOdometer(vehicleId: vehicle.vehicleId, type: .defaultSync) { [weak self] status, odometer, odometerHistories in
                 DispatchQueue.dispatchOnMainThread {
@@ -49,7 +49,7 @@ class OdometerVehicleListViewModel {
         }
     }
 
-    private func synchronizeOdometer(vehicleId: String, completion: @escaping (Bool) -> ()) {
+    private func synchronizeOdometer(vehicleId: String, completion: @escaping (Bool) -> Void) {
         DriveKitVehicle.shared.getOdometer(vehicleId: vehicleId, type: .defaultSync) { [weak self] status, odometer, odometerHistories in
             DispatchQueue.dispatchOnMainThread {
                 if status != .vehicleNotFound {

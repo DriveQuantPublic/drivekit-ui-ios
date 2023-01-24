@@ -28,8 +28,8 @@ public class ConnectBeaconVC: DKUIViewController {
     
     @IBOutlet weak var confirmButton: UIButton!
     
-    private let viewModel : BeaconViewModel
-    private let parentView : UIViewController
+    private let viewModel: BeaconViewModel
+    private let parentView: UIViewController
     
     public init(vehicle: DKVehicle, parentView: UIViewController) {
         self.viewModel = BeaconViewModel(vehicle: vehicle, scanType: .pairing)
@@ -66,7 +66,7 @@ public class ConnectBeaconVC: DKUIViewController {
     }
     
     private func configureCircle(view: UIView) {
-        view.layer.cornerRadius = view.frame.size.width/2
+        view.layer.cornerRadius = view.frame.size.width / 2
         view.clipsToBounds = true
         view.layer.borderColor = DKUIColors.mainFontColor.color.cgColor
         view.layer.borderWidth = 4.0

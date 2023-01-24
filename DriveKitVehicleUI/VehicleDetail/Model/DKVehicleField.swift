@@ -20,7 +20,7 @@ public protocol DKVehicleField {
     func getValue(vehicle: DKVehicle) -> String?
     func isValid(value: String, vehicle: DKVehicle) -> Bool
     func getErrorDescription(value: String, vehicle: DKVehicle) -> String?
-    func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> ())
+    func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> Void)
 }
 
 enum EngineField: DKVehicleField, CaseIterable {
@@ -71,7 +71,7 @@ enum EngineField: DKVehicleField, CaseIterable {
         return nil
     }
 
-    func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> ()) {
+    func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> Void) {
         completion(true)
     }
 }
@@ -155,7 +155,7 @@ enum GeneralField: DKVehicleField, CaseIterable {
         }
     }
 
-    func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> ()) {
+    func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> Void) {
         if self == .name {
             DriveKitVehicle.shared.renameVehicle(name: value, vehicleId: vehicle.vehicleId, completionHandler: { status in
                 switch status {
@@ -218,7 +218,7 @@ enum BluetoothField: DKVehicleField, CaseIterable {
         return nil
     }
 
-    func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> ()) {
+    func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> Void) {
         completion(true)
     }
 }
@@ -280,7 +280,7 @@ enum BeaconField: DKVehicleField, CaseIterable {
         return nil
     }
 
-    func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> ()) {
+    func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> Void) {
         completion(true)
     }
 }
@@ -370,7 +370,7 @@ enum CharacteristicsField: DKVehicleField, CaseIterable {
         return nil
     }
 
-    func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> ()) {
+    func onFieldUpdated(value: String, vehicle: DKVehicle, completion: @escaping (Bool) -> Void) {
         completion(true)
     }
 }

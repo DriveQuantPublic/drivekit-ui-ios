@@ -8,6 +8,6 @@
 
 import UIKit
 
-class VehiclePickerTruckTypeHeader : UICollectionReusableView {
+class VehiclePickerTruckTypeHeader: UICollectionReusableView {
     @IBOutlet weak var titleLabel: UILabel!
 }

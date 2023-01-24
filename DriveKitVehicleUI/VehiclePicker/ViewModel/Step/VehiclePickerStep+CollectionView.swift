@@ -9,7 +9,7 @@
 import Foundation
 import DriveKitVehicleModule
 
-extension VehiclePickerStep : VehiclePickerCollectionViewDelegate {
+extension VehiclePickerStep: VehiclePickerCollectionViewDelegate {
     func getCollectionViewItems(viewModel: VehiclePickerViewModel) -> [VehiclePickerCollectionViewItem] {
         switch self {
         case .category:
@@ -63,7 +63,7 @@ extension VehiclePickerStep : VehiclePickerCollectionViewDelegate {
         return []
     }
 
-    func onCollectionViewItemSelected(pos: Int, viewModel: VehiclePickerViewModel, completion: (StepStatus) -> ()) {
+    func onCollectionViewItemSelected(pos: Int, viewModel: VehiclePickerViewModel, completion: (StepStatus) -> Void) {
         switch self {
         case .category:
             let items = DriveKitVehiclePicker.shared.getCategories(vehicleType: viewModel.vehicleType!)

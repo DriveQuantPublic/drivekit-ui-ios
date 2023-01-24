@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import DriveKitVehicleModule
 
-extension DKVehicleCategory : VehiclePickerCollectionViewItem {
+extension DKVehicleCategory: VehiclePickerCollectionViewItem {
     func title() -> String {
         return titleRawValue().dkVehicleLocalized()
     }
@@ -76,15 +76,15 @@ extension DKVehicleCategory : VehiclePickerCollectionViewItem {
     }
 }
 
-extension DKVehicleCategory : VehiclePickerTextDelegate {
-    func onLiteConfigSelected(viewModel : VehiclePickerViewModel) {
+extension DKVehicleCategory: VehiclePickerTextDelegate {
+    func onLiteConfigSelected(viewModel: VehiclePickerViewModel) {
         viewModel.liteConfig = true
         viewModel.nextStep(.categoryDescription)
         viewModel.vehicleCharacteristics = DKCarVehicleCharacteristics()
         viewModel.vehicleCharacteristics?.dqIndex = self.liteConfigId() ?? ""
     }
 
-    func onFullConfigSelected(viewModel : VehiclePickerViewModel) {
+    func onFullConfigSelected(viewModel: VehiclePickerViewModel) {
         viewModel.liteConfig = false
         viewModel.nextStep(.categoryDescription)
     }

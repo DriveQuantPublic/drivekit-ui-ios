@@ -73,7 +73,7 @@ final class OdometerHistoryDetailCell: UITableViewCell, Nibable {
         if let text = self.textField.text, let value = Double(text) {
             self.viewModel?.newDistance = value
             self.didUpdateDistanceField(distance: value)
-            if value >= 0 && value < 1000000 {
+            if value >= 0 && value < 1_000_000 {
                 self.textFieldSubtitle.isHidden = true
             } else {
                 subtitleError(text: "dk_vehicle_odometer_history_error".dkVehicleLocalized())

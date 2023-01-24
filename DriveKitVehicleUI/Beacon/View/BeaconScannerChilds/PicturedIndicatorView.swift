@@ -24,4 +24,3 @@ final class PicturedIndicatorView: UIView, Nibable {
         imageView.tintColor = .black
 	}
 }
-

@@ -14,8 +14,8 @@ class BeaconScannerSuccessVC: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var confirmButton: UIButton!
     
-    private let viewModel : BeaconViewModel
-    private let step : BeaconStep
+    private let viewModel: BeaconViewModel
+    private let step: BeaconStep
     
     init(viewModel: BeaconViewModel, step: BeaconStep) {
         self.viewModel = viewModel

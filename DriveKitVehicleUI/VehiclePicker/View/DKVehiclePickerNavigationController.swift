@@ -11,9 +11,9 @@ import DriveKitCommonUI
 import DriveKitDBVehicleAccessModule
 
 public class DKVehiclePickerNavigationController: UINavigationController {
-    let completion: (() -> ())?
+    let completion: (() -> Void)?
     
-    public init(parentView: UIViewController, detectionMode: DKDetectionMode = .disabled, vehicle: DKVehicle? = nil, showCancel: Bool = true, completion: (() -> ())? = nil) {
+    public init(parentView: UIViewController, detectionMode: DKDetectionMode = .disabled, vehicle: DKVehicle? = nil, showCancel: Bool = true, completion: (() -> Void)? = nil) {
         self.completion = completion
         let viewModel = VehiclePickerViewModel(detectionMode: detectionMode, previousVehicle: vehicle, showCancel: showCancel)
         let firstViewController = viewModel.getViewController()

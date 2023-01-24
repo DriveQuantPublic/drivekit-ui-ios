@@ -24,7 +24,7 @@ public class DriveKitVehicleUI {
     public private(set) var brandsWithIcons: Bool = true
 
     public private(set) var canAddVehicle: Bool = true
-    public private(set) var maxVehicles: Int? = nil
+    public private(set) var maxVehicles: Int?
     public private(set) var canRemoveBeacon: Bool = true
     public private(set) var hasOdometer: Bool = false
 
@@ -32,8 +32,8 @@ public class DriveKitVehicleUI {
     public private(set) var detectionModes: [DKDetectionMode] = [.disabled, .gps, .beacon, .bluetooth]
     var customFields = [DKVehicleGroupField: [DKVehicleField]]()
 
-    var beaconDiagnosticEmail: DKContentMail? = nil
-    var beaconDiagnosticSupportLink: String? = nil
+    var beaconDiagnosticEmail: DKContentMail?
+    var beaconDiagnosticSupportLink: String?
 
     private init() {}
 
@@ -132,8 +132,8 @@ extension DriveKitVehicleUI: DriveKitVehicleUIEntryPoint {
         return VehiclesListVC()
     }
 
-    public func getVehicleDetailViewController(vehicleId: String, completion: @escaping (UIViewController?) -> ()) {
-        DriveKitVehicle.shared.getVehicle(vehicleId: vehicleId, completionHandler: { status, vehicle in
+    public func getVehicleDetailViewController(vehicleId: String, completion: @escaping (UIViewController?) -> Void) {
+        DriveKitVehicle.shared.getVehicle(vehicleId: vehicleId, completionHandler: { _, vehicle in
             DispatchQueue.main.async {
                 if let vehicle = vehicle {
                     if vehicle.liteConfig {
@@ -149,15 +149,15 @@ extension DriveKitVehicleUI: DriveKitVehicleUIEntryPoint {
         })
     }
 
-    public func getVehicleNameWith(vehicleId: String, completion: @escaping (String?) -> ()) {
-        DriveKitVehicle.shared.getVehicle(vehicleId: vehicleId, completionHandler: {status, vehicle in
+    public func getVehicleNameWith(vehicleId: String, completion: @escaping (String?) -> Void) {
+        DriveKitVehicle.shared.getVehicle(vehicleId: vehicleId, completionHandler: {_, vehicle in
             completion(vehicle?.computeName())
         })
     }
 
     public func getBeaconDiagnosticViewController(parentView: UIViewController) -> UIViewController {
         let vehicles = DriveKitVehicle.shared.vehiclesQuery().noFilter().query().execute()
-        var uuid : String? = nil
+        var uuid: String?
         for vehicle in vehicles {
             if let beacon = vehicle.beacon {
                 uuid = beacon.proximityUuid

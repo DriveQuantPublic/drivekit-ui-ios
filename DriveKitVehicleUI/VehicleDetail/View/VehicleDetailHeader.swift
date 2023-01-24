@@ -9,16 +9,16 @@
 import UIKit
 import DriveKitCommonUI
 
-protocol VehicleDetailHeaderDelegate : AnyObject {
+protocol VehicleDetailHeaderDelegate: AnyObject {
     func didSelectAddImage(cell: VehicleDetailHeader)
 }
 
-class VehicleDetailHeader : UITableViewCell {
+class VehicleDetailHeader: UITableViewCell {
     @IBOutlet weak var vehicleImage: UIImageView!
     @IBOutlet weak var vehicleName: UILabel!
     @IBOutlet weak var addVehicleImageButton: UIButton!
 
-    weak var delegate: VehicleDetailHeaderDelegate? = nil
+    weak var delegate: VehicleDetailHeaderDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()

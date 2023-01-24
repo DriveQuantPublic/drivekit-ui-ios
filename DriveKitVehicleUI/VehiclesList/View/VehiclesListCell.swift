@@ -32,8 +32,8 @@ class VehiclesListCell: UITableViewCell {
     
     private var viewModel: DKVehiclesListViewModel!
     private var pos: Int!
-    private weak var vehicleListDelegate : VehiclesListDelegate?
-    private weak var parentView: UIViewController? = nil
+    private weak var vehicleListDelegate: VehiclesListDelegate?
+    private weak var parentView: UIViewController?
     
     func configure(viewModel: DKVehiclesListViewModel, pos: Int, parentView: UIViewController) {
         self.viewModel = viewModel
@@ -60,7 +60,7 @@ class VehiclesListCell: UITableViewCell {
         }
         autoStartSelection.attributedText = viewModel.detectionModeTitle(pos: pos).dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 13, traits: .traitBold)).color(.mainFontColor).build()
         descriptionLabel.attributedText = viewModel.detectionModeDescription(pos: pos)
-        if let buttonText = viewModel.detectionModeConfigureButton(pos: pos){
+        if let buttonText = viewModel.detectionModeConfigureButton(pos: pos) {
             configureButton.isHidden = false
             let buttonTitle = buttonText.dkAttributedString().font(dkFont: .primary, style: .button).color(.secondaryColor).build()
             configureButton.setAttributedTitle(buttonTitle, for: .normal)

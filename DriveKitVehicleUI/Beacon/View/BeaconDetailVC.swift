@@ -36,7 +36,7 @@ class BeaconDetailVC: DKUIViewController {
     private func configureMailButton() {
         if DriveKitVehicleUI.shared.beaconDiagnosticEmail != nil {
             let image = DKImages.mail.image?.resizeImage(25, opaque: false)
-            let mailButton = UIBarButtonItem(image: image , style: .plain, target: self, action: #selector(sendEmail))
+            let mailButton = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(sendEmail))
             mailButton.tintColor = DKUIColors.navBarElementColor.color
             self.navigationItem.rightBarButtonItem = mailButton
         }
@@ -48,7 +48,7 @@ class BeaconDetailVC: DKUIViewController {
                 UIApplication.shared.open(url)
             }
         } else {
-            if MFMailComposeViewController.canSendMail(), let mail = DriveKitVehicleUI.shared.beaconDiagnosticEmail  {
+            if MFMailComposeViewController.canSendMail(), let mail = DriveKitVehicleUI.shared.beaconDiagnosticEmail {
                 let mailComposerVC = MFMailComposeViewController()
                 mailComposerVC.mailComposeDelegate = self
                 mailComposerVC.setToRecipients(mail.getRecipients())
@@ -65,7 +65,7 @@ class BeaconDetailVC: DKUIViewController {
     }
 }
 
-extension BeaconDetailVC : UITableViewDataSource {
+extension BeaconDetailVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.viewModel.data.count
     }
@@ -77,7 +77,7 @@ extension BeaconDetailVC : UITableViewDataSource {
     }
 }
 
-extension BeaconDetailVC : UITableViewDelegate {
+extension BeaconDetailVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }

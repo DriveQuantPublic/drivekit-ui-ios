@@ -9,8 +9,8 @@
 import UIKit
 
 protocol VehiclePickerTextDelegate {
-    func onLiteConfigSelected(viewModel : VehiclePickerViewModel)
-    func onFullConfigSelected(viewModel : VehiclePickerViewModel)
+    func onLiteConfigSelected(viewModel: VehiclePickerViewModel)
+    func onFullConfigSelected(viewModel: VehiclePickerViewModel)
     func categoryDescription() -> String
     func categoryImage() -> UIImage?
     func liteConfigId() -> String?

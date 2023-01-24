@@ -9,7 +9,7 @@
 import Foundation
 import DriveKitVehicleModule
 
-extension DKVehicleVersion : VehiclePickerTableViewItem {
+extension DKVehicleVersion: VehiclePickerTableViewItem {
     func text() -> String {
         return self.version
     }

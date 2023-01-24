@@ -9,7 +9,7 @@
 import Foundation
 import DriveKitVehicleModule
 
-extension VehiclePickerStep : VehiclePickerTableViewDelegate {
+extension VehiclePickerStep: VehiclePickerTableViewDelegate {
 
     func getTableViewItems(viewModel: VehiclePickerViewModel) -> [VehiclePickerTableViewItem] {
         switch self {
@@ -17,7 +17,7 @@ extension VehiclePickerStep : VehiclePickerTableViewDelegate {
             return DriveKitVehicleUI.shared.vehicleTypes
         case .brandsFull:
             if let type = viewModel.vehicleType {
-                var brands : [VehiclePickerTableViewItem] = []
+                var brands: [VehiclePickerTableViewItem] = []
                 for brand in  DriveKitVehiclePicker.shared.getBrands(vehicleType: type) {
                     if DriveKitVehicleUI.shared.brands.contains(brand) {
                         brands.append(brand)
@@ -27,7 +27,7 @@ extension VehiclePickerStep : VehiclePickerTableViewDelegate {
             }
         case .engine:
             if let type = viewModel.vehicleType {
-                var engineIndexes : [DKVehicleEngineIndex] = []
+                var engineIndexes: [DKVehicleEngineIndex] = []
                 for engineIndex in DriveKitVehicleUI.shared.vehicleEngineIndexes {
                     if DriveKitVehiclePicker.shared.getEnginesIndex(vehicleType: type).contains(engineIndex) {
                         engineIndexes.append(engineIndex)

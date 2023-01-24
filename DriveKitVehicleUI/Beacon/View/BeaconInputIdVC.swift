@@ -15,8 +15,8 @@ class BeaconInputIdVC: DKUIViewController {
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var textField: UIView!
     
-    private let viewModel : BeaconViewModel
-    private let parentView : UIViewController
+    private let viewModel: BeaconViewModel
+    private let parentView: UIViewController
     private let textFieldView = DKTextField.viewFromNib
     
     public init(viewModel: BeaconViewModel, parentView: UIViewController) {
@@ -59,7 +59,7 @@ class BeaconInputIdVC: DKUIViewController {
                     switch status {
                     case .success:
                         self.navigationController?.pushViewController(BeaconScannerVC(viewModel: self.viewModel, step: .scan, parentView: self.parentView), animated: true)
-                    case .error :
+                    case .error: 
                         self.showAlertMessage(title: "", message: "dk_vehicle_error_message".dkVehicleLocalized(), back: false, cancel: false)
                     case .unknownBeacon:
                         self.showAlertMessage(title: "", message: String(format: "dk_vehicle_beacon_setup_code_invalid_id".dkVehicleLocalized(), self.textFieldView.getTextFieldValue() ?? ""), back: false, cancel: false)
@@ -72,7 +72,7 @@ class BeaconInputIdVC: DKUIViewController {
     }
 }
 
-extension BeaconInputIdVC : DKTextFieldDelegate {
+extension BeaconInputIdVC: DKTextFieldDelegate {
     func userDidEndEditing(textField: DKTextField) {
         return
     }

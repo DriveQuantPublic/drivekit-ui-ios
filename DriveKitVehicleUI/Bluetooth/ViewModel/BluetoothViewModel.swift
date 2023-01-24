@@ -14,19 +14,19 @@ import DriveKitDBVehicleAccessModule
 
 public class BluetoothViewModel {
 
-    private let vehicle : DKVehicle
-    var devices : [BluetoothData] = []
-    var device : BluetoothData? = nil
+    private let vehicle: DKVehicle
+    var devices: [BluetoothData] = []
+    var device: BluetoothData?
     
     init(vehicle: DKVehicle) {
         self.vehicle = vehicle
     }
     
-    var vehicleName : String {
+    var vehicleName: String {
         return vehicle.computeName()
     }
     
-    var bluetoothName : String {
+    var bluetoothName: String {
         return device?.name ?? ""
     }
 
@@ -35,11 +35,10 @@ public class BluetoothViewModel {
         return self.devices
     }
     
-    func addBluetoothToVehicle(pos: Int, completion : @escaping (DKVehicleBluetoothStatus) -> ()){
+    func addBluetoothToVehicle(pos: Int, completion: @escaping (DKVehicleBluetoothStatus) -> Void) {
         device = self.devices[pos]
         let bluetooth = DKBluetooth(name: device?.name ?? "", macAddress: device?.macAddress ?? "")
         DriveKitVehicle.shared.addBluetooth(vehicleId: vehicle.vehicleId, bluetooth: bluetooth, completionHandler: completion)
     }
-    
     
 }

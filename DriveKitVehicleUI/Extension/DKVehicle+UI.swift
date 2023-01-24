@@ -12,7 +12,7 @@ import DriveKitDBVehicleAccessModule
 import DriveKitVehicleModule
 import DriveKitCommonUI
 
-extension Array where Element:DKVehicle {
+extension Array where Element: DKVehicle {
     func sortByDisplayNames() -> [DKVehicle] {
         return self.sorted { $0.getDisplayName(position: $0.getPosition(vehiclesList: self)).lowercased() < $1.getDisplayName(position: $0.getPosition(vehiclesList: self)).lowercased() }
     }
@@ -77,7 +77,7 @@ extension DKVehicle {
         return categoryName
     }
 
-    var vehicleImageTag : String {
+    var vehicleImageTag: String {
         return "DQ_vehicle_" + self.vehicleId
     }
 
@@ -106,12 +106,11 @@ extension DKVehicle {
         return image
     }
 
-
-    var detectionModeDescription :  NSAttributedString {
+    var detectionModeDescription: NSAttributedString {
         switch self.detectionMode {
         case .disabled:
             return "dk_detection_mode_disabled_desc".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
-        case .gps :
+        case .gps: 
             return "dk_detection_mode_gps_desc".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
         case .beacon:
             if beacon != nil {
@@ -123,7 +122,7 @@ extension DKVehicle {
             }
         case .bluetooth:
             if bluetooth != nil {
-                let bluetoothName = String(bluetooth?.name ??  "").dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.complementaryFontColor).build()
+                let bluetoothName = String(bluetooth?.name ?? "").dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.complementaryFontColor).build()
                 let description = "dk_detection_mode_bluetooth_desc_configured".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).buildWithArgs(bluetoothName)
                 return description
             } else {
@@ -136,7 +135,7 @@ extension DKVehicle {
         }
     }
 
-    var detectionModeConfigurationButton : String? {
+    var detectionModeConfigurationButton: String? {
         switch self.detectionMode {
         case .disabled, .gps, .none:
             return nil
@@ -170,6 +169,5 @@ extension DKVehicle: DKFilterItem {
     public func getId() -> Any? {
         return self.vehicleId
     }
-    
     
 }

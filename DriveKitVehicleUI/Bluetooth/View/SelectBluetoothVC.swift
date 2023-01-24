@@ -91,7 +91,6 @@ extension SelectBluetoothVC: UITableViewDelegate {
     
 }
 
-
 extension SelectBluetoothVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.devices.count

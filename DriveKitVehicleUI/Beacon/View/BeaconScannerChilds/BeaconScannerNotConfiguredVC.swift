@@ -11,7 +11,6 @@ import DriveKitCommonUI
 
 class BeaconScannerNotConfiguredVC: UIViewController {
     
-    
     @IBOutlet weak var cancelButton: UIButton!
     
     private let viewModel: BeaconViewModel

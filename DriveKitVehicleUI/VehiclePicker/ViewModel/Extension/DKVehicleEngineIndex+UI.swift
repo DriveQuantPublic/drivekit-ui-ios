@@ -9,7 +9,7 @@
 import Foundation
 import DriveKitVehicleModule
 
-extension DKVehicleEngineIndex : VehiclePickerTableViewItem {
+extension DKVehicleEngineIndex: VehiclePickerTableViewItem {
     func text() -> String {
         switch self {
         case .gasoline:

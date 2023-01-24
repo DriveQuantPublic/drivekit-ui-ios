@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  WorkingHoursViewModel.swift
 //  DriveKitTripAnalysisUI

@@ -10,7 +10,7 @@ import Foundation
 import DriveKitDBTripAccessModule
 
 protocol GraphViewModel {
-    var graphViewModelDidUpdate: (() -> ())? { get set }
+    var graphViewModelDidUpdate: (() -> Void)? { get set }
     var type: GraphType { get }
     var points: [GraphPoint?] { get }
     var selectedIndex: Int? { get }

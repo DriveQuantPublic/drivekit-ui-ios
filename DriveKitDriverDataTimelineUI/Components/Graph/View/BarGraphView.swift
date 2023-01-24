@@ -11,7 +11,7 @@ import ChartsForDK
 
 class BarGraphView: GraphViewBase {
     private let chartView: BarChartView
-    private var selectedEntry: ChartDataEntry? = nil
+    private var selectedEntry: ChartDataEntry?
 
     override init(viewModel: GraphViewModel) {
         self.chartView = BarChartView()
@@ -30,7 +30,7 @@ class BarGraphView: GraphViewBase {
         if let xAxisConfig = self.viewModel.xAxisConfig {
             self.chartView.xAxisRenderer = DKXAxisRenderer.from(self.chartView, config: xAxisConfig)
         }
-        var entries  = [BarChartDataEntry]()
+        var entries = [BarChartDataEntry]()
         var entryToSelect: ChartDataEntry?
         for (index, point) in self.viewModel.points.enumerated() {
             if let point {

@@ -20,7 +20,7 @@ class DateSelectorViewModel {
     private(set) var hasNextDate: Bool = false
     private(set) var fromDate: Date = Date()
     private(set) var toDate: Date = Date()
-    var dateSelectorViewModelDidUpdate: (() -> ())?
+    var dateSelectorViewModelDidUpdate: (() -> Void)?
 
     private var selectedDate: Date {
         guard selectedDateIndex < self.dates.count, selectedDateIndex >= 0 else {

@@ -14,7 +14,7 @@ class LineGraphView: GraphViewBase {
     private let chartView: LineChartView
     private let defaultIcon = GraphConstants.circleIcon()
     private let invisibleIcon = GraphConstants.invisibleIcon()
-    private var selectedEntry: ChartDataEntry? = nil
+    private var selectedEntry: ChartDataEntry?
 
     override init(viewModel: GraphViewModel) {
         self.chartView = LineChartView()
@@ -33,7 +33,7 @@ class LineGraphView: GraphViewBase {
         if let xAxisConfig = self.viewModel.xAxisConfig {
             self.chartView.xAxisRenderer = DKXAxisRenderer.from(self.chartView, config: xAxisConfig)
         }
-        var entries  = [ChartDataEntry]()
+        var entries = [ChartDataEntry]()
         for (index, point) in self.viewModel.points.enumerated() {
             if let point {
                 let value = ChartDataEntry(x: point.x, y: point.y, data: point.data)

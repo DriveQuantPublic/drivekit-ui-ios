@@ -205,7 +205,6 @@ protocol RoadContextViewModelDelegate: AnyObject {
     func roadContextViewModelDidUpdate()
 }
 
-
 enum TimelineRoadContext: Int, Codable {
     case heavyUrbanTraffic
     case city

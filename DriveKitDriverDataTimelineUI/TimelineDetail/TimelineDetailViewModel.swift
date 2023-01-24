@@ -136,7 +136,6 @@ extension TimelineDetailViewModel: DateSelectorDelegate {
     }
 }
 
-
 extension TimelineDetailViewModel: TimelineGraphDelegate {
     func graphDidSelectDate(_ date: Date) {
         self.selectedDate = date

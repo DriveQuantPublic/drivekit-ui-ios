@@ -11,7 +11,7 @@ import DriveKitDBTripAccessModule
 
 class PeriodSelectorViewModel {
     weak var delegate: PeriodSelectorDelegate?
-    var periodDidChange: (() -> ())?
+    var periodDidChange: (() -> Void)?
     private(set) var selectedPeriod: DKTimelinePeriod = .week
 
     func configure(selectedPeriod: DKTimelinePeriod) {

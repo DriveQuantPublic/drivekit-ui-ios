@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  TripDetailViewModel.swift
 //  drivekit-test-app

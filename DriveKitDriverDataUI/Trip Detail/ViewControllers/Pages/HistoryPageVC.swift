@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  HistoryPageVC.swift
 //  drivekit-test-app

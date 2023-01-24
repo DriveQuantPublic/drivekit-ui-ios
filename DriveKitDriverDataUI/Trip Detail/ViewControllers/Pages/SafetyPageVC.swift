@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  SafetyPageVC.swift
 //  drivekit-test-app

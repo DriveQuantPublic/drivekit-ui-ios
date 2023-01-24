@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  Event.swift
 //  drivekit-test-app

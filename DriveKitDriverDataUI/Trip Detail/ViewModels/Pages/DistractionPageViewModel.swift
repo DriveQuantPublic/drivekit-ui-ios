@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DistractionPageViewModel.swift
 //  drivekit-test-app

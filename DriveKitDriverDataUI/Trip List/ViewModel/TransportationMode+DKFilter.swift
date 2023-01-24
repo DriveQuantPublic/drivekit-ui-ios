@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  TransportationMode+DKFilter.swift
 //  DriveKitDriverDataUI

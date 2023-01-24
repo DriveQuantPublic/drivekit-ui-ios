@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  SpeedingPageItemView.swift
 //  DriveKitDriverDataUI

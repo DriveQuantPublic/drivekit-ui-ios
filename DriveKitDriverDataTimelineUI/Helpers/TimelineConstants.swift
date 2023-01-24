@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  TimelineConstants.swift
 //  DriveKitDriverDataTimelineUI

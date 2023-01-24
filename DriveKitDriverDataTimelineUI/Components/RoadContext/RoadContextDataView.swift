@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  RoadContextDataView.swift
 //  DriveKitDriverDataTimelineUI

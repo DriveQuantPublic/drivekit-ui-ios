@@ -33,6 +33,7 @@ PODS:
   - DriveKitVehicle (1.29.0):
     - DriveKitBeaconUtils (= 1.29.0)
     - DriveKitDBVehicleAccess (= 1.29.0)
+  - SwiftLint (0.50.3)
   - UICircularProgressRing (6.5.0)
   - WARangeSlider (1.1.1)
 
@@ -45,6 +46,7 @@ DEPENDENCIES:
   - DriveKitTripAnalysis (= 1.29.0)
   - DriveKitTripSimulator (= 1.29.0)
   - DriveKitVehicle (= 1.29.0)
+  - SwiftLint
   - UICircularProgressRing (= 6.5.0)
   - WARangeSlider
 
@@ -64,6 +66,7 @@ SPEC REPOS:
     - DriveKitTripAnalysis
     - DriveKitTripSimulator
     - DriveKitVehicle
+    - SwiftLint
     - UICircularProgressRing
     - WARangeSlider
 
@@ -82,9 +85,10 @@ SPEC CHECKSUMS:
   DriveKitTripAnalysis: da4afb4fd1dbbe7ae1d64417682ca0c103eed8a6
   DriveKitTripSimulator: 3c934330826a83dfd139eb6ad64e0f94bb9ec2e6
   DriveKitVehicle: 0b95249fec5675603fcf25e5db87bcf626964581
+  SwiftLint: 77f7cb2b9bb81ab4a12fcc86448ba3f11afa50c6
   UICircularProgressRing: e6852e8f88e296cbbbe2720cccb55241acda6708
   WARangeSlider: 54b3e0853b8d16c444fd539005901aecee86837d
 
-PODFILE CHECKSUM: 0ec01e75e30377e4a3b7e5a3e650ce178dc0d035
+PODFILE CHECKSUM: 24c390124f0e1cded44d2dace5269281a177481c
 
 COCOAPODS: 1.11.3

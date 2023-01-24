@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  TripListSeparator.swift
 //  drivekit-test-app

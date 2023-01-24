@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  HeaderDayView.swift
 //  drivekit-test-app

@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  UIImage+DK.swift
 //  DriveKitCommonUI

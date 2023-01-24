@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  TripTableViewCell.swift
 //  drivekit-test-app

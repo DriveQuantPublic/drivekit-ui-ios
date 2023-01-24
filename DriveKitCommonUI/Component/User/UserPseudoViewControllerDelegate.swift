@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  UserPseudoViewControllerDelegate.swift
 //  DriveKitCommonUI

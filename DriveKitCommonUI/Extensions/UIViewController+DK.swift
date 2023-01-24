@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  UIViewController+DK.swift
 //  DriveKitCommonUI

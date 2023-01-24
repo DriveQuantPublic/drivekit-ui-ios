@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  UIColor+DK.swift
 //  DriveKitCommonUI

@@ -12,30 +12,30 @@ import AVFoundation
 
 public class DKImagePickerManager: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var picker = UIImagePickerController();
+    var picker = UIImagePickerController()
     var alert = UIAlertController(title: DKCommonLocalizable.updatePhotoTitle.text(), message: nil, preferredStyle: .actionSheet)
     var viewController: UIViewController?
-    public var pickImageCallback : ((UIImage) -> ())?;
+    public var pickImageCallback: ((UIImage) -> Void)?
     public var selectedImageTag: String = NSUUID().uuidString
     
-    public override init(){
+    public override init() {
         super.init()
     }
     
-    public func pickImage(_ viewController: UIViewController, _ callback: @escaping ((UIImage) -> ())) {
-        pickImageCallback = callback;
-        self.viewController = viewController;
+    public func pickImage(_ viewController: UIViewController, _ callback: @escaping ((UIImage) -> Void)) {
+        pickImageCallback = callback
+        self.viewController = viewController
         
-        let cameraAction = UIAlertAction(title: DKCommonLocalizable.camera.text(), style: .default){
-            UIAlertAction in
+        let cameraAction = UIAlertAction(title: DKCommonLocalizable.camera.text(), style: .default) {
+            _ in
             self.openCamera()
         }
-        let galleryAction = UIAlertAction(title: DKCommonLocalizable.gallery.text(), style: .default){
-            UIAlertAction in
+        let galleryAction = UIAlertAction(title: DKCommonLocalizable.gallery.text(), style: .default) {
+            _ in
             self.openGallery()
         }
-        let cancelAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel){
-            UIAlertAction in
+        let cancelAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel) {
+            _ in
         }
         
         // Add the actions
@@ -74,7 +74,7 @@ public class DKImagePickerManager: NSObject, UIImagePickerControllerDelegate, UI
         self.viewController!.present(picker, animated: true, completion: nil)
     }
 
-    func checkCameraPermission(completionHandler: @escaping (Bool) -> ()) {
+    func checkCameraPermission(completionHandler: @escaping (Bool) -> Void) {
         let currentStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
         switch currentStatus {
         case .notDetermined, .restricted, .denied:
@@ -96,7 +96,7 @@ public class DKImagePickerManager: NSObject, UIImagePickerControllerDelegate, UI
         picker.dismiss(animated: true, completion: nil)
     }
     
-    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let image = info[.originalImage] as? UIImage else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
@@ -121,7 +121,7 @@ public class DKImagePickerManager: NSObject, UIImagePickerControllerDelegate, UI
         }
         
         do {
-            if let editedImage = info[.editedImage] as? UIImage  {
+            if let editedImage = info[.editedImage] as? UIImage {
                 if let jpegImageData = editedImage.jpegData(compressionQuality: 0.8) {
                     try jpegImageData.write(to: filePath, options: .atomic)
                 }
@@ -138,8 +138,6 @@ public class DKImagePickerManager: NSObject, UIImagePickerControllerDelegate, UI
         
         pickImageCallback?(image)
     }
-    
-    
     
     @objc func imagePickerController(_ picker: UIImagePickerController, pickedImage: UIImage?) {
     }

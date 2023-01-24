@@ -14,11 +14,11 @@ public extension UIView {
         addSubview(subview)
         
         let metrics = [
-            "topMargin" : margins.top,
-            "bottomMargin" : margins.bottom,
-            "leftMargin" : margins.left,
-            "rightMargin" : margins.right,
-            ]
+            "topMargin": margins.top,
+            "bottomMargin": margins.bottom,
+            "leftMargin": margins.left,
+            "rightMargin": margins.right
+        ]
         let bindings = ["subview": subview]
         
         addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(topMargin)-[subview]-(bottomMargin@999)-|",

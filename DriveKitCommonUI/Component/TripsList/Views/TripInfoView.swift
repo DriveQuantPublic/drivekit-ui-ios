@@ -13,7 +13,7 @@ final class TripInfoView: UIView, Nibable {
     @IBOutlet weak var text: UILabel!
     @IBOutlet weak var image: UIImageView!
 
-    var trip: DKTripListItem? = nil
+    var trip: DKTripListItem?
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -8,6 +8,6 @@
 
 import UIKit
 
-class RankingScoreSmall : RankingScoreView {
+class RankingScoreSmall: RankingScoreView {
     
 }

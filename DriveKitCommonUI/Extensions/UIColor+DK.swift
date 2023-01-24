@@ -9,7 +9,7 @@
 import UIKit
 
 @objc public extension UIColor {
-    @objc convenience init(red: Int, green: Int, blue: Int) {
+    convenience init(red: Int, green: Int, blue: Int) {
         assert(red >= 0 && red <= 255, "Invalid red component")
         assert(green >= 0 && green <= 255, "Invalid green component")
         assert(blue >= 0 && blue <= 255, "Invalid blue component")
@@ -17,8 +17,8 @@ import UIKit
         self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
     }
     
-    @objc convenience init(hex:Int) {
-        self.init(red:(hex >> 16) & 0xff, green:(hex >> 8) & 0xff, blue:hex & 0xff)
+    convenience init(hex: Int) {
+        self.init(red: (hex >> 16) & 0xff, green: (hex >> 8) & 0xff, blue: hex & 0xff)
     }
     
     /// Take the tint/hue of the `baseColor` and apply it to `self`
@@ -29,7 +29,7 @@ import UIKit
     /// if `baseColor` is fully transparent, it returns `self` unmodified
     /// - Parameter baseColor: the base color from which to get the tint/hue to apply
     /// - Returns: `self` tinted using `baseColor`'s hue
-    @objc func tinted(usingHueOf baseColor: UIColor) -> Self {
+    func tinted(usingHueOf baseColor: UIColor) -> Self {
         var baseHue: CGFloat = 0
         var baseSaturation: CGFloat = 0
         var saturation: CGFloat = 0
@@ -59,12 +59,12 @@ import UIKit
         )
     }
     
-    @objc var shouldInvertTextColor: Bool {
+    var shouldInvertTextColor: Bool {
         // We should have at least a ratio of 2.8:1 or we need to invert foreground color
         return self.contrastRatio(with: DKUIColors.mainFontColor.color) < 2.8
     }
     
-    @objc func contrastRatio(with otherColor: UIColor) -> CGFloat {
+    func contrastRatio(with otherColor: UIColor) -> CGFloat {
         var selfBrightness: CGFloat = 0
         var selfAlpha: CGFloat = 0
         var otherColorBrightness: CGFloat = 0
@@ -97,4 +97,3 @@ import UIKit
     static let dkExcellent = UIColor(hex: 0x30c8fc)
     static let dkValid = UIColor(red: 20, green: 128, blue: 20)
 }
-

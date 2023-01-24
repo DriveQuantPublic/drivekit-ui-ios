@@ -44,7 +44,7 @@ public class DKDriverRankingCollectionVC: UICollectionViewController {
 
     public override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: UICollectionViewCell
-        if let rankingItems = self.viewModel?.ranking?.getDriverRankingItems(), indexPath.item < rankingItems.count, !rankingItems[indexPath.item].isJumpRank()  {
+        if let rankingItems = self.viewModel?.ranking?.getDriverRankingItems(), indexPath.item < rankingItems.count, !rankingItems[indexPath.item].isJumpRank() {
                 let driverRank = rankingItems[indexPath.item]
                 cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RankingCell", for: indexPath)
                 if let rankingCell = cell as? RankingCell {
@@ -80,7 +80,6 @@ public class DKDriverRankingCollectionVC: UICollectionViewController {
         return headerView
     }
 }
-
 
 extension DKDriverRankingCollectionVC: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

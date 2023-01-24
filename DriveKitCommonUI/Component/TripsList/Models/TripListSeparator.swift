@@ -17,22 +17,22 @@ class TripListSeparator: UIView {
         let radius = rect.size.width / 3
         
         // First Fill circle
-        let centerOfFirstCircle =  CGPoint(x: bounds.size.width / 2, y:radius)
-        addFillCircle(color : color, center : centerOfFirstCircle, radius : radius)
+        let centerOfFirstCircle = CGPoint(x: bounds.size.width / 2, y: radius)
+        addFillCircle(color: color, center: centerOfFirstCircle, radius: radius)
         
         // Add a dashed line
         let originPoint = CGPoint(x: centerOfFirstCircle.x, y: radius * 2)
         let destinationPoint = CGPoint(x: centerOfFirstCircle.x, y: rect.size.height - radius * 2)
-        addDashedLine(originPoint : originPoint, destinationPoint : destinationPoint, color : color )
+        addDashedLine(originPoint: originPoint, destinationPoint: destinationPoint, color: color )
         
         // Second Fill circle
-        addFillCircle(color : color, center : CGPoint(x: bounds.size.width / 2, y:rect.size.height - radius), radius : radius)
+        addFillCircle(color: color, center: CGPoint(x: bounds.size.width / 2, y: rect.size.height - radius), radius: radius)
     }
 }
 
 fileprivate extension UIView {
-    func addFillCircle(color : UIColor, center : CGPoint, radius : CGFloat) {
-        let circlePath = UIBezierPath(arcCenter: center, radius: radius, startAngle: CGFloat(0), endAngle:CGFloat(Double.pi * 2), clockwise: true)
+    func addFillCircle(color: UIColor, center: CGPoint, radius: CGFloat) {
+        let circlePath = UIBezierPath(arcCenter: center, radius: radius, startAngle: CGFloat(0), endAngle: CGFloat(Double.pi * 2), clockwise: true)
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = circlePath.cgPath
         shapeLayer.fillColor = color.cgColor
@@ -40,7 +40,7 @@ fileprivate extension UIView {
         layer.addSublayer(shapeLayer)
     }
     
-    func addDashedLine(originPoint : CGPoint, destinationPoint : CGPoint, color: UIColor) {
+    func addDashedLine(originPoint: CGPoint, destinationPoint: CGPoint, color: UIColor) {
         let cgColor = color.cgColor
         let shapeLayer: CAShapeLayer = CAShapeLayer()
         let frameSize = self.frame.size
@@ -52,7 +52,7 @@ fileprivate extension UIView {
         shapeLayer.strokeColor = cgColor
         shapeLayer.lineWidth = 1
         shapeLayer.lineJoin = CAShapeLayerLineJoin.round
-        shapeLayer.lineDashPattern = [1,1]
+        shapeLayer.lineDashPattern = [1, 1]
         let path: CGMutablePath = CGMutablePath()
         path.move(to: originPoint)
         path.addLine(to: destinationPoint)

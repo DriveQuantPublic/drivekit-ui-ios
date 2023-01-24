@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol UserPseudoViewControllerDelegate : AnyObject {
+public protocol UserPseudoViewControllerDelegate: AnyObject {
     func pseudoDidUpdate(success: Bool)
 }

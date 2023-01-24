@@ -22,7 +22,7 @@ public enum DKStyles {
     
     public var style: DKStyle {
         var size: CGFloat = 14
-        var traits: UIFontDescriptor.SymbolicTraits? = nil
+        var traits: UIFontDescriptor.SymbolicTraits?
         switch self {
         case .headLine1:
             size = 18

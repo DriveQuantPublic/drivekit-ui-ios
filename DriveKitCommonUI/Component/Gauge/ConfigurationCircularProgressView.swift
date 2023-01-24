@@ -139,7 +139,7 @@ public class ConfigurationCircularProgressView {
     
 }
 
-private struct CircularRingValueFormatter : UICircularRingValueFormatter {
+private struct CircularRingValueFormatter: UICircularRingValueFormatter {
     fileprivate let valueIndicator: String
     fileprivate let decimalPlaces: Int
     fileprivate let rightToLeft: Bool
@@ -155,7 +155,7 @@ private struct CircularRingValueFormatter : UICircularRingValueFormatter {
     }
 }
 
-private struct ValueIndicator : UICircularRingValueFormatter {
+private struct ValueIndicator: UICircularRingValueFormatter {
     fileprivate let gaugeConfiguration: DKGaugeConfiguration
 
     func string(for value: Any) -> String? {

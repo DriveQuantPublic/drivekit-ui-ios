@@ -35,8 +35,8 @@ public enum DKScoreType: String {
     public func getSteps() -> [Double] {
         switch self {
         case .ecoDriving:
-            let mean : Double = 7.63
-            let sigma : Double = 0.844
+            let mean: Double = 7.63
+            let sigma: Double = 0.844
             let steps = [mean - (2 * sigma),
                          mean - sigma,
                          mean - (0.25 * sigma),

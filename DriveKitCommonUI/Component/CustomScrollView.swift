@@ -9,7 +9,7 @@
 import UIKit
 
 // Custom ScrollView to allow scrolling when a button is pressed, like in a CollectionView.
-class CustomScrollView : UIScrollView {
+class CustomScrollView: UIScrollView {
 
     override func touchesShouldCancel(in view: UIView) -> Bool {
         if view is UIControl {

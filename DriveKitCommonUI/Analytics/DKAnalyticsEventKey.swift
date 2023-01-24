@@ -8,6 +8,6 @@
 
 import Foundation
 
-public enum DKAnalyticsEventKey : String {
+public enum DKAnalyticsEventKey: String {
     case itinId
 }

@@ -15,8 +15,8 @@ final public class DKFilterView: UIView, Nibable {
     @IBOutlet weak var pickerImage: UIImageView!
     @IBOutlet weak var cardView: CardView!
     
-    var viewModel : DKFilterViewModel!
-    weak var parentViewController : UIViewController?
+    var viewModel: DKFilterViewModel!
+    weak var parentViewController: UIViewController?
     
     public override func awakeFromNib() {
         super.awakeFromNib()

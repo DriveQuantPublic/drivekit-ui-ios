@@ -45,7 +45,7 @@ public extension Array where Element: DKTripListItem {
                 tripsSorted.append(newTripsByDate(date: currentDay, trips: dayTrips, descOrder: descOrder))
             }
         }
-        return tripsSorted.sorted(by:{ tripsDay, tripsDay2 in
+        return tripsSorted.sorted(by: { tripsDay, tripsDay2 in
                 return tripsDay.date >= tripsDay2.date
         })
     }

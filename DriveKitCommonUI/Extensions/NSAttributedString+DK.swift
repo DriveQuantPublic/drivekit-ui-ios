@@ -11,7 +11,7 @@ import UIKit
 extension NSMutableAttributedString {
     public func replaceFont(with font: UIFont) {
         beginEditing()
-        enumerateAttribute(.font, in: NSRange(location: 0, length: length)) { (value, range, stop) in
+        enumerateAttribute(.font, in: NSRange(location: 0, length: length)) { (value, range, _) in
             if let f = value as? UIFont {
 
                 let familyName = font.familyName

@@ -18,7 +18,7 @@ final class TripTableViewCell: UITableViewCell, Nibable {
     @IBOutlet private weak var separator: UIView!
     @IBOutlet private weak var separatorHeightConstraint: NSLayoutConstraint!
 
-    var tripInfoView: TripInfoView? = nil
+    var tripInfoView: TripInfoView?
 
     func configure(trip: DKTripListItem, tripData: TripData, isFirst: Bool, separatorColor: UIColor?) {
         tripLineView.color = DKUIColors.secondaryColor.color

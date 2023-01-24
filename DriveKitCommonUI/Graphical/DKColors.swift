@@ -28,7 +28,7 @@ open class DKDefaultColors: DKColors {
     public init() {}
 
     open func primaryColor() -> UIColor {
-        return UIColor(hex:0x0B4D6E)
+        return UIColor(hex: 0x0B4D6E)
     }
     open func secondaryColor() -> UIColor {
         return UIColor(hex: 0x77E2B0)

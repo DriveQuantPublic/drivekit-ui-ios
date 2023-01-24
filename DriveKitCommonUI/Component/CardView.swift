@@ -23,4 +23,3 @@ public class CardView: UIView {
         self.backgroundColor = .white
     }
 }
-

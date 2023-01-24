@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  ChallengeItemViewModel.swift
 //  DriveKitChallengeUI

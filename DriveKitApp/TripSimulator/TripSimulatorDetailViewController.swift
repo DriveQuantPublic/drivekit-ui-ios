@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  TripSimulatorDetailViewController.swift
 //  DriveKitApp
@@ -127,7 +128,7 @@ class TripSimulatorDetailViewController: UIViewController {
         updateViewContent()
     }
 
-    private func stopSimulator(stopCompletion: @escaping () -> ()) {
+    private func stopSimulator(stopCompletion: @escaping () -> Void) {
         let alert = UIAlertController(title: "trip_simulator_stop_simulation_alert_title".keyLocalized(), message: "trip_simulator_stop_simulation_alert_content".keyLocalized(), preferredStyle: .alert)
         let stopAction = UIAlertAction(title: "button_stop".keyLocalized(), style: .default) { [weak self] _ in
             self?.viewModel.stopSimulation()

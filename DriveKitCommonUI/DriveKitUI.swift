@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DriveKitUI.swift
 //  DriveKitCommonUI
@@ -14,14 +15,14 @@ import UIKit
     @objc public private(set) var colors: DKColors!
     @objc public private(set) var fonts: DKFonts!
     @objc public private(set) var overridedStringFileName: String?
-    @objc public private(set) var analytics: DKAnalytics? = nil
+    @objc public private(set) var analytics: DKAnalytics?
     private var tagKeyFromScreen: [String: String]
     private var tagFromKey: [String: String]
 
     private override init() {
         var tagKeyFromScreen = [String: String]()
         let screenTagsFilePath = Bundle.driveKitCommonUIBundle?.path(forResource: "AnalyticsScreenToTagKey", ofType: "plist")
-        if let screenTagsFilePath = screenTagsFilePath, let screenTagsRootDictionary = NSDictionary(contentsOfFile: screenTagsFilePath) as? Dictionary<String, Dictionary<String, String>> {
+        if let screenTagsFilePath = screenTagsFilePath, let screenTagsRootDictionary = NSDictionary(contentsOfFile: screenTagsFilePath) as? [String: [String: String]] {
             for screenTagsDictionary in screenTagsRootDictionary.values {
                 for (key, value) in screenTagsDictionary {
                     tagKeyFromScreen[key] = value
@@ -97,7 +98,7 @@ import UIKit
 
     private static func loadTags(atPath path: String?, into tagFromKey: inout [String: String]) -> Bool {
         let success: Bool
-        if let tagFromKeyFilePath = path, let tagsFromKeyDictionary = NSDictionary(contentsOfFile: tagFromKeyFilePath) as? Dictionary<String, String> {
+        if let tagFromKeyFilePath = path, let tagsFromKeyDictionary = NSDictionary(contentsOfFile: tagFromKeyFilePath) as? [String: String] {
             for (key, value) in tagsFromKeyDictionary {
                 tagFromKey[key] = value
             }

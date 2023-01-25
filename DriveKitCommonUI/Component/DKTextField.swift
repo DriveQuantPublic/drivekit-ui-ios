@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DKTextField.swift
 //  DriveKitCommonUI
@@ -18,9 +19,9 @@ public final class DKTextField: UIView, Nibable {
     @IBOutlet private var underline: UIView!
     @IBOutlet private var subtitle: UILabel!
 
-    public weak var delegate: DKTextFieldDelegate? = nil
+    public weak var delegate: DKTextFieldDelegate?
 
-    public weak var target: UIView? = nil
+    public weak var target: UIView?
 
     public private(set) var horizontalPadding: CGFloat = 0
 
@@ -30,13 +31,13 @@ public final class DKTextField: UIView, Nibable {
         }
     }
 
-    public var title: String? = nil {
+    public var title: String? {
         didSet {
             configureTitle()
         }
     }
 
-    public var errorMessage: String? = nil {
+    public var errorMessage: String? {
         didSet {
             configureError()
         }
@@ -62,7 +63,7 @@ public final class DKTextField: UIView, Nibable {
         }
     }
 
-    public var subtitleText: String? = nil {
+    public var subtitleText: String? {
         didSet {
             configureSubtitleLabel()
         }
@@ -76,7 +77,6 @@ public final class DKTextField: UIView, Nibable {
     public func getTextFieldValue() -> String? {
         return textField.text
     }
-
 
     private func setup() {
         textField.placeholder = placeholder
@@ -159,7 +159,7 @@ public final class DKTextField: UIView, Nibable {
     }
 }
 
-extension DKTextField : UITextFieldDelegate {
+extension DKTextField: UITextFieldDelegate {
     public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return true
     }

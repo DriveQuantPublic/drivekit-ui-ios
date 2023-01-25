@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  TimelineViewController.swift
 //  DriveKitDriverDataTimelineUI
@@ -18,7 +19,7 @@ class TimelineViewController: DKUIViewController {
     @IBOutlet private weak var timelineGraphViewContainer: UIView!
     @IBOutlet weak var showTimelineDetailButton: UIButton!
     private let viewModel: TimelineViewModel
-    private var selectedScoreSelectionTypeView: ScoreSelectionTypeView? = nil
+    private var selectedScoreSelectionTypeView: ScoreSelectionTypeView?
 
     init(viewModel: TimelineViewModel) {
         self.viewModel = viewModel

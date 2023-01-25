@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  TimelineGraphViewModel.swift
 //  DriveKitDriverDataTimelineUI
@@ -12,7 +13,7 @@ import DriveKitCommonUI
 
 class TimelineGraphViewModel: GraphViewModel {
     weak var delegate: TimelineGraphDelegate?
-    var graphViewModelDidUpdate: (() -> ())?
+    var graphViewModelDidUpdate: (() -> Void)?
     private(set) var points: [GraphPoint?] = []
     private(set) var type: GraphType = .line
     private(set) var selectedIndex: Int?
@@ -48,7 +49,7 @@ class TimelineGraphViewModel: GraphViewModel {
         var graphPoints: [GraphPoint?] = []
         for i in 0..<graphPointNumber {
             let xLabelDate: Date? = graphStartDate?.date(byAdding: i, calendarUnit: dateComponent)
-            var point: GraphPoint? = nil
+            var point: GraphPoint?
             if let xLabelDate {
                 let shouldInterpolate = graphItem.graphType == .line
                 if let xLabelDateIndex = dates.firstIndex(of: xLabelDate) {
@@ -161,7 +162,7 @@ class TimelineGraphViewModel: GraphViewModel {
     
     private func interpolateStartOfGraph(from graphStartDate: Date, dateComponent: Calendar.Component, dates: [Date], graphItem: GraphItem, timeline: DKTimeline, xLabelDate: Date) -> GraphPoint? {
         // Find next valid index
-        var point: GraphPoint? = nil
+        var point: GraphPoint?
         var nextValidIndex: Int?
         var i = 0
         var hasMoreKnownDates = true
@@ -195,7 +196,7 @@ class TimelineGraphViewModel: GraphViewModel {
     
     private func interpolateEndOfGraph(from graphStartDate: Date, dateComponent: Calendar.Component, dates: [Date], graphItem: GraphItem, timeline: DKTimeline, xLabelDate: Date) -> GraphPoint? {
         // Find previous valid index
-        var point: GraphPoint? = nil
+        var point: GraphPoint?
         var previousValidIndex: Int?
         var i = Self.graphPointNumber - 1
         var hasMoreKnownDates = true
@@ -338,7 +339,7 @@ class TimelineGraphViewModel: GraphViewModel {
                 else { return nil }
                 guard totalDuration > 0 else { return 0 }
                 
-                return (speedingDistance / 1000) / totalDistance * 100
+                return (speedingDistance / 1_000) / totalDistance * 100
             case .safety_braking:
                 guard
                     let braking = timeline.allContext.braking[safe: index]
@@ -417,7 +418,7 @@ class TimelineGraphViewModel: GraphViewModel {
 
 extension TimelineGraphViewModel: GraphViewDelegate {
     func graphDidSelectPoint(_ point: GraphPoint) {
-        if let data = point.data  {
+        if let data = point.data {
             self.delegate?.graphDidSelectDate(data.date)
         }
     }

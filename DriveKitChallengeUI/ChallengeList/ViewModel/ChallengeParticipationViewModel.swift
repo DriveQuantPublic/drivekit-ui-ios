@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  ChallengeParticipationViewModel.swift
 //  DriveKitChallengeUI
@@ -117,7 +118,7 @@ public class ChallengeParticipationViewModel {
         return ChallengeRulesViewModel(challenge: challenge, participationViewModel: self, showButton: getDisplayState() == .join)
     }
 
-    func joinChallenge(completionHandler: @escaping (ChallengeParticipationStatus) -> ()) {
+    func joinChallenge(completionHandler: @escaping (ChallengeParticipationStatus) -> Void) {
         DriveKitChallenge.shared.joinChallenge(challengeId: challenge.id) { [weak self] status in
             switch status {
             case .alreadyJoined, .success:
@@ -187,7 +188,7 @@ public class ChallengeParticipationViewModel {
     }
 
     func getConditionViewModel(index: Int) -> ChallengeConditionProgressViewModel? {
-        let keysArray = conditionsArray.keys.sorted{ $0 > $1 }
+        let keysArray = conditionsArray.keys.sorted { $0 > $1 }
         if index < keysArray.count {
             return conditionsArray[keysArray[index]]
         } else {

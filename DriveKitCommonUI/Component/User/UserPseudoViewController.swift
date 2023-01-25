@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  UserPseudoViewController.swift
 //  DriveKitPermissionsUtilsUI
@@ -12,7 +13,7 @@ import DriveKitCoreModule
 public class UserPseudoViewController: UIViewController {
     public typealias UserPseudoCompletion = (_ success: Bool) -> Void
 
-    public var completion: UserPseudoCompletion? = nil
+    public var completion: UserPseudoCompletion?
     @IBOutlet private weak var contentView: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
@@ -56,7 +57,7 @@ public class UserPseudoViewController: UIViewController {
         self.pseudoInput.delegate = self
 
         self.loadingView.isHidden = false
-        DriveKit.shared.getUserInfo(synchronizationType: .cache) { [weak self] status, userInfo in
+        DriveKit.shared.getUserInfo(synchronizationType: .cache) { [weak self] _, userInfo in
             DispatchQueue.main.async {
                 if let self = self {
                     if let pseudo = userInfo?.pseudo, self.isPseudoValid(pseudo) {
@@ -64,7 +65,7 @@ public class UserPseudoViewController: UIViewController {
                             completion(true)
                         }
                     } else {
-                        DriveKit.shared.getUserInfo(synchronizationType: .defaultSync) { [weak self] status, userInfo in
+                        DriveKit.shared.getUserInfo(synchronizationType: .defaultSync) { [weak self] _, userInfo in
                             DispatchQueue.main.async {
                                 if let self = self {
                                     if let pseudo = userInfo?.pseudo, self.isPseudoValid(pseudo) {
@@ -134,7 +135,7 @@ public class UserPseudoViewController: UIViewController {
 
 }
 
-extension UserPseudoViewController : UITextFieldDelegate {
+extension UserPseudoViewController: UITextFieldDelegate {
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

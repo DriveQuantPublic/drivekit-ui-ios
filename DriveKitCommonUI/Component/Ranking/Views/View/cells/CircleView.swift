@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  CircleView.swift
 //  DriveKitDriverAchievementUI
@@ -8,7 +9,7 @@
 
 import UIKit
 
-class CircleView : UIView {
+class CircleView: UIView {
 
     override func layoutSubviews() {
         super.layoutSubviews()

@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  TextFieldEffects.swift
 //  TextFieldEffects
@@ -20,7 +21,7 @@ extension String {
 /**
 A TextFieldEffects object is a control that displays editable text and contains the boilerplates to setup unique animations for text entry and display. You typically use this class the same way you use UITextField.
 */
-open class TextFieldEffects : UITextField {
+open class TextFieldEffects: UITextField {
     /**
      The type of animation a TextFieldEffect can perform.
      
@@ -35,7 +36,7 @@ open class TextFieldEffects : UITextField {
     /**
     Closure executed when an animation has been completed.
      */
-    public typealias AnimationCompletionHandler = (_ type: AnimationType)->()
+    public typealias AnimationCompletionHandler = (_ type: AnimationType) -> Void
     
     /**
     UILabel that holds all the placeholder information

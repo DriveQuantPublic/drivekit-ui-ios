@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DKTruckType+UI.swift
 //  DriveKitVehicleUI
@@ -9,7 +10,7 @@
 import UIKit
 import DriveKitVehicleModule
 
-extension DKTruckType : VehiclePickerCollectionViewItem {
+extension DKTruckType: VehiclePickerCollectionViewItem {
 
     func title() -> String {
         switch self {

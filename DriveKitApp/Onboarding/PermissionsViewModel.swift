@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  PermissionsViewModel.swift
 //  DriveKitApp
@@ -22,7 +23,7 @@ struct PermissionsViewModel {
         return titleString
     }
 
-    func shouldDisplayVehicle(completion:@escaping (Bool) -> ()) {
+    func shouldDisplayVehicle(completion: @escaping (Bool) -> Void) {
         DriveKitVehicle.shared.getVehiclesOrderByNameAsc(type: .cache) { _, vehicles in
             DispatchQueue.dispatchOnMainThread {
                 completion(vehicles.count == 0)

@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  VehiclePickerTruckTypeVC.swift
 //  DriveKitVehicleUI
@@ -60,7 +61,7 @@ extension VehiclePickerTruckTypeVC: UICollectionViewDelegate, UICollectionViewDa
             cell.configure(image: image, text: value.title(), showLabel: self.viewModel.showStepLabel())
             return cell
         } else {
-            let cell : VehiclePickerLabelCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "VehiclePickerLabelCollectionViewCell", for: indexPath) as! VehiclePickerLabelCollectionViewCell
+            let cell: VehiclePickerLabelCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "VehiclePickerLabelCollectionViewCell", for: indexPath) as! VehiclePickerLabelCollectionViewCell
             cell.configure(text: value.title())
             return cell
         }

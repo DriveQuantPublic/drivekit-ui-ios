@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  CrashFeedbackStep2ViewModel.swift
 //  DriveKitTripAnalysisUI

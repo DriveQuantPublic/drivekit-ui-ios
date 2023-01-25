@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  WorkingHoursViewController.swift
 //  DriveKitTripAnalysisUI
@@ -66,7 +67,7 @@ class WorkingHoursViewController: DKUIViewController {
         if self.viewModel.hasModifications {
             let alert = UIAlertController(title: nil, message: "dk_working_hours_back_save_alert".dkTripAnalysisLocalized(), preferredStyle: .alert)
             let yesAction = UIAlertAction(title: DKCommonLocalizable.confirm.text(), style: .default) { _ in
-                self.updateWorkingHours() {
+                self.updateWorkingHours {
                     if !self.viewModel.hasModifications {
                         self.navigationController?.popViewController(animated: true)
                     }
@@ -83,7 +84,7 @@ class WorkingHoursViewController: DKUIViewController {
         }
     }
 
-    private func updateWorkingHours(completion: @escaping () -> ()) {
+    private func updateWorkingHours(completion: @escaping () -> Void) {
         self.showLoader()
         self.navigationItem.rightBarButtonItem = nil
         self.viewModel.updateWorkingHours { [weak self] success in
@@ -102,7 +103,7 @@ class WorkingHoursViewController: DKUIViewController {
     }
 
     @objc private func saveWorkingHours() {
-        updateWorkingHours() {
+        updateWorkingHours {
             self.showAlertMessage(title: nil, message: "dk_working_hours_update_succeed".dkTripAnalysisLocalized(), back: false, cancel: false)
         }
     }

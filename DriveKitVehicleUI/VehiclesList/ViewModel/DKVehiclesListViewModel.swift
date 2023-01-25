@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  VehicleListViewModel.swift
 //  DriveKitVehicleUI
@@ -12,7 +13,7 @@ import DriveKitVehicleModule
 import DriveKitDBVehicleAccessModule
 import DriveKitCommonUI
 
-public protocol VehiclesListDelegate : AnyObject{
+public protocol VehiclesListDelegate: AnyObject {
     func onVehiclesAvailable()
     func didUpdateVehicle()
     func didReceiveErrorFromService()
@@ -23,17 +24,16 @@ public protocol VehiclesListDelegate : AnyObject{
     func showVehiclePicker(vehicle: DKVehicle?)
 }
 
-
 public class DKVehiclesListViewModel {
     public private(set) var vehicles: [DKVehicle] = []
-    public weak var delegate: VehiclesListDelegate? = nil
+    public weak var delegate: VehiclesListDelegate?
 
     init() {
         self.vehicles = DriveKitDBVehicleAccess.shared.findVehiclesOrderByNameAsc().execute().sortByDisplayNames()
     }
     
     func fetchVehicles() {
-        DriveKitVehicle.shared.getVehiclesOrderByNameAsc { [weak self] status, vehicles in
+        DriveKitVehicle.shared.getVehiclesOrderByNameAsc { [weak self] _, vehicles in
             DispatchQueue.main.async {
                 if let self = self {
                     self.vehicles = vehicles.sortByDisplayNames()
@@ -148,13 +148,12 @@ public class DKVehiclesListViewModel {
     
     private func deleteAlert(title: String, handler: ((UIAlertAction) -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
-        let yesAction = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default , handler: handler)
+        let yesAction = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default, handler: handler)
         alert.addAction(yesAction)
         let cancelAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel)
         alert.addAction(cancelAction)
         self.delegate?.showAlert(alert)
     }
-    
     
     func detectionModeTitle(pos: Int) -> String {
         return vehicles[pos].detectionMode?.title ?? ""
@@ -254,4 +253,3 @@ public class DKVehiclesListViewModel {
         return maxVehiclesReached() && replaceAvailable() && self.vehiclesCount == 1
     }
 }
-

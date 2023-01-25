@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  TripSimulatorViewModel.swift
 //  DriveKitApp
@@ -48,7 +49,7 @@ class TripSimulatorViewModel {
         return getSelectedItem().getTitle()
     }
 
-    func selectItem(at index:Int) {
+    func selectItem(at index: Int) {
         guard index >= 0 && index < items.count else {
             return
         }

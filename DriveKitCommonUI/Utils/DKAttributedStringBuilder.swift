@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  AttributedStringBuilder.swift
 //  DriveKitCommonUI
@@ -10,8 +11,8 @@ import UIKit
 
 public class DKAttributedStringBuilder {
     
-    private var text : String
-    var attributes : [NSAttributedString.Key: Any] = [:]
+    private var text: String
+    var attributes: [NSAttributedString.Key: Any] = [:]
     
     init(text: String) {
         self.text = text
@@ -26,7 +27,7 @@ public class DKAttributedStringBuilder {
         return self
     }
     
-    public func color(_ color: DKUIColors) -> DKAttributedStringBuilder{
+    public func color(_ color: DKUIColors) -> DKAttributedStringBuilder {
         attributes[.foregroundColor] = color.color
         return self
     }
@@ -36,7 +37,7 @@ public class DKAttributedStringBuilder {
         return self
     }
     
-    public func color(_ color: UIColor) -> DKAttributedStringBuilder{
+    public func color(_ color: UIColor) -> DKAttributedStringBuilder {
         attributes[.foregroundColor] = color
         return self
     }

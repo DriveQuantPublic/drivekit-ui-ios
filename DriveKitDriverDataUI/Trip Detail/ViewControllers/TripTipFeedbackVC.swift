@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  TripTipFeedbackVC.swift
 //  DriveKitDriverDataUI
@@ -24,7 +25,7 @@ class TripTipFeedbackVC: UITableViewController {
     @IBOutlet private var feedbackLabel5: UILabel!
 
     var viewModel: TripTipFeedbackViewModel!
-    var tripDetailVC: TripDetailVC? = nil
+    var tripDetailVC: TripDetailVC?
 
     private let commentChoice = 4
 
@@ -84,7 +85,7 @@ class TripTipFeedbackVC: UITableViewController {
                 if status {
                     DispatchQueue.main.async {
                         self.showAlertMessage(title: nil, message: "dk_driverdata_advice_feedback_success".dkDriverDataLocalized(), back: true, cancel: false, completion: {
-                            DriveKitDriverData.shared.getTrip(itinId: self.viewModel.itinId, completionHandler: { status, trip in
+                            DriveKitDriverData.shared.getTrip(itinId: self.viewModel.itinId, completionHandler: { _, trip in
                                 self.tripDetailVC?.viewModel.trip = trip
                             })
                         })

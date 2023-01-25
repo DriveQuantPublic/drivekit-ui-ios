@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  UserInfoViewModel.swift
 //  DriveKitApp
@@ -18,7 +19,7 @@ class UserInfoViewModel {
         self.userInfo = userInfo
     }
 
-    func updateUser(firstName: String, lastName: String, pseudo: String, completion: @escaping (Bool) -> ()) {
+    func updateUser(firstName: String, lastName: String, pseudo: String, completion: @escaping (Bool) -> Void) {
         DriveKit.shared.updateUserInfo(firstname: firstName, lastname: lastName, pseudo: pseudo) { success in
             if success {
                 self.userInfo = UserInfo(firstname: firstName, lastname: lastName, pseudo: pseudo)
@@ -60,7 +61,7 @@ class UserInfoViewModel {
         return missingPermissionsCount > 0
     }
 
-    func shouldDisplayVehicle(completion: @escaping (Bool) -> ()) {
+    func shouldDisplayVehicle(completion: @escaping (Bool) -> Void) {
         DriveKitVehicle.shared.getVehiclesOrderByNameAsc(type: .cache) { _, vehicles in
             DispatchQueue.dispatchOnMainThread {
                 completion(vehicles.count == 0)

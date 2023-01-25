@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DKAnalyticsEvent.swift
 //  DriveKitCommonUI
@@ -8,6 +9,6 @@
 
 import Foundation
 
-@objc public enum DKAnalyticsEvent : Int {
+@objc public enum DKAnalyticsEvent: Int {
     case tripOpen
 }

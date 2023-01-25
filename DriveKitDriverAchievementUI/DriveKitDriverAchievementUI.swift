@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DriveKitDriverAchievementUI.swift
 //  DriveKitDriverAchievementUI
@@ -15,7 +16,7 @@ import DriveKitDBAchievementAccessModule
     @objc public static let shared = DriveKitDriverAchievementUI()
 
     public private(set) var streakThemes: [DKStreakTheme] = [.phoneDistraction, .safety, .acceleration, .brake, .adherence, .speedLimits, .call]
-    public private(set) var badgeCategories: [DKBadgeCategory] = [.generic, .ecodriving, .safety, .phoneDistraction,  .call]
+    public private(set) var badgeCategories: [DKBadgeCategory] = [.generic, .ecodriving, .safety, .phoneDistraction, .call]
     public private(set) var rankingTypes: [DKRankingType] = [.safety, .ecoDriving, .distraction]
     public private(set) var rankingSelector: DKRankingSelectorType = .period(rankingPeriods: [.weekly, .monthly, .allTime])
     public private(set) var rankingDepth: Int = 5

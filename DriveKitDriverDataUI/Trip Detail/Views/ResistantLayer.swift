@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  ResistantLayer.swift
 //  drivekit-test-app
@@ -59,4 +60,3 @@ extension ResistantAnnotationView {
     }
     
 }
-

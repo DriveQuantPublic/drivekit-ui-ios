@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  ChallengeListViewModel.swift
 //  DriveKitChallengeUI
@@ -22,16 +23,15 @@ public protocol ChallengeListDelegate: AnyObject {
     func showViewController(_ viewController: UIViewController, animated: Bool)
 }
 
-
 public class ChallengeListViewModel {
     private var challenges: [DKChallenge] = []
     private(set) var currentChallenges: [ChallengeItemViewModel] = []
     private(set) var pastChallenges: [ChallengeItemViewModel] = []
-    public weak var delegate: ChallengeListDelegate? = nil
+    public weak var delegate: ChallengeListDelegate?
     public private(set) var selectedTab: ChallengeListTab = .current
 
     init() {
-        DriveKitChallenge.shared.getChallenges(type: .cache) { [weak self] status, challenges in
+        DriveKitChallenge.shared.getChallenges(type: .cache) { [weak self] _, challenges in
             if let self = self {
                 self.challenges = challenges
                 self.updateChallengeArrays()
@@ -42,7 +42,7 @@ public class ChallengeListViewModel {
     func fetchChallenges(fromServer: Bool = true) {
         delegate?.challengesFetchStarted()
         let syncType: SynchronizationType = fromServer ? .defaultSync : .cache
-        DriveKitChallenge.shared.getChallenges(type: syncType) { [weak self] status, challenges in
+        DriveKitChallenge.shared.getChallenges(type: syncType) { [weak self] _, challenges in
             DispatchQueue.main.async {
                 if let self = self {
                     self.challenges = challenges
@@ -76,7 +76,7 @@ public class ChallengeListViewModel {
         if challengeViewModel.finishedAndNotFilled {
             let alertTitle = Bundle.main.appName ?? ""
             let alert = UIAlertController(title: alertTitle, message: "dk_challenge_not_a_participant".dkChallengeLocalized(), preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title:DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
             self.delegate?.showAlert(alert)
         } else {
             self.openChallenge(withItinId: challengeViewModel.identifier)

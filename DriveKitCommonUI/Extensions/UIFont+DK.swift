@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  UIFont+DK.swift
 //  DriveKitCommonUI

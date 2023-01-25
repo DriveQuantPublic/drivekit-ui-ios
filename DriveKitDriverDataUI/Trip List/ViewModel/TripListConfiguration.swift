@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  TripListConfiguration.swift
 //  DriveKitDriverDataUI
@@ -41,9 +42,9 @@ extension TripListConfiguration: DKFilterItem {
     
     func getName() -> String {
         switch self {
-            case .motorized(_):
+            case .motorized:
                 return "dk_driverdata_vehicle_trips".dkDriverDataLocalized()
-            case .alternative(_):
+            case .alternative:
                 return "dk_driverdata_alternative_trips".dkDriverDataLocalized()
         }
     }

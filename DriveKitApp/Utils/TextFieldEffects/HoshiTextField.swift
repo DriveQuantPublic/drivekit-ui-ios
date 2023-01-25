@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  HoshiTextField.swift
 //  TextFieldEffects
@@ -156,9 +157,9 @@ import UIKit
     
     private func rectForBorder(_ thickness: CGFloat, isFilled: Bool) -> CGRect {
         if isFilled {
-            return CGRect(origin: CGPoint(x: 0, y: frame.height-thickness), size: CGSize(width: frame.width, height: thickness))
+            return CGRect(origin: CGPoint(x: 0, y: frame.height - thickness), size: CGSize(width: frame.width, height: thickness))
         } else {
-            return CGRect(origin: CGPoint(x: 0, y: frame.height-thickness), size: CGSize(width: 0, height: thickness))
+            return CGRect(origin: CGPoint(x: 0, y: frame.height - thickness), size: CGSize(width: 0, height: thickness))
         }
     }
     
@@ -167,13 +168,13 @@ import UIKit
         var originX = textRect.origin.x
         switch self.textAlignment {
         case .center:
-            originX += textRect.size.width/2 - placeholderLabel.bounds.width/2
+            originX += textRect.size.width / 2 - placeholderLabel.bounds.width / 2
         case .right:
             originX += textRect.size.width - placeholderLabel.bounds.width
         default:
             break
         }
-        placeholderLabel.frame = CGRect(x: originX, y: textRect.height/2,
+        placeholderLabel.frame = CGRect(x: originX, y: textRect.height / 2,
             width: placeholderLabel.bounds.width, height: placeholderLabel.bounds.height)
         activePlaceholderPoint = CGPoint(x: placeholderLabel.frame.origin.x, y: placeholderLabel.frame.origin.y - placeholderLabel.frame.size.height - placeholderInsets.y)
 

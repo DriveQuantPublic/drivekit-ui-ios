@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DriveKitNavigationController.swift
 //  DriveKitCommonUI
@@ -9,13 +10,13 @@
 import Foundation
 
 public class DriveKitNavigationController {
-    public var driverDataUI: DriveKitDriverDataUIEntryPoint? = nil
-    public var driverDataTimelineUI: DriveKitDriverDataTimelineUIEntryPoint? = nil
-    public var driverAchievementUI: DriveKitDriverAchievementUIEntryPoint? = nil
-    public var vehicleUI: DriveKitVehicleUIEntryPoint? = nil
-    public var permissionsUtilsUI: DriveKitPermissionsUtilsUIEntryPoint? = nil
-    public var challengeUI: DriveKitChallengeUIEntryPoint? = nil
-    public var tripAnalysisUI: DriveKitTripAnalysisUIEntryPoint? = nil
+    public var driverDataUI: DriveKitDriverDataUIEntryPoint?
+    public var driverDataTimelineUI: DriveKitDriverDataTimelineUIEntryPoint?
+    public var driverAchievementUI: DriveKitDriverAchievementUIEntryPoint?
+    public var vehicleUI: DriveKitVehicleUIEntryPoint?
+    public var permissionsUtilsUI: DriveKitPermissionsUtilsUIEntryPoint?
+    public var challengeUI: DriveKitChallengeUIEntryPoint?
+    public var tripAnalysisUI: DriveKitTripAnalysisUIEntryPoint?
 
     public static let shared = DriveKitNavigationController()
 

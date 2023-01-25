@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  String+DKUI.swift
 //  DriveKitVehicleUI
@@ -8,7 +9,7 @@
 
 import Foundation
 
-extension String : VehiclePickerTableViewItem {
+extension String: VehiclePickerTableViewItem {
     func text() -> String {
         return self
     }

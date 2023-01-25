@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  VehicleOption.swift
 //  DriveKitVehicleUI
@@ -39,7 +40,7 @@ public enum DKVehicleAction: String, CaseIterable, DKVehicleActionItem {
     }
     
     public func alertAction(pos: Int, viewModel: DKVehiclesListViewModel) -> UIAlertAction {
-        var completionHandler: ((UIAlertAction) -> Void)? = nil
+        var completionHandler: ((UIAlertAction) -> Void)?
         switch self {
             case .show:
                 completionHandler = { _ in

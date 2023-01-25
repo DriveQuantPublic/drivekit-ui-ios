@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  VehiclePickerTruckTypeHeader.swift
 //  DriveKitVehicleUI
@@ -8,6 +9,6 @@
 
 import UIKit
 
-class VehiclePickerTruckTypeHeader : UICollectionReusableView {
+class VehiclePickerTruckTypeHeader: UICollectionReusableView {
     @IBOutlet weak var titleLabel: UILabel!
 }

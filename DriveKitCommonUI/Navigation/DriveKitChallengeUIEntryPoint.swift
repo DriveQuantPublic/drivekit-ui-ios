@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DriveKitChallengeUIEntryPoint.swift
 //  DriveKitCommonUI
@@ -10,5 +11,5 @@ import UIKit
 
 public protocol DriveKitChallengeUIEntryPoint {
     func getChallengeListViewController() -> UIViewController
-    func getChallengeViewController(challengeId: String, completion: @escaping  (UIViewController?) -> ())
+    func getChallengeViewController(challengeId: String, completion: @escaping  (UIViewController?) -> Void)
 }

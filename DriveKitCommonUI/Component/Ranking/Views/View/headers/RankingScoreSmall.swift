@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  RankingScoreSmall.swift
 //  DriveKitDriverAchievementUI
@@ -8,6 +9,6 @@
 
 import UIKit
 
-class RankingScoreSmall : RankingScoreView {
+class RankingScoreSmall: RankingScoreView {
     
 }

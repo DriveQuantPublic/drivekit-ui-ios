@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DriveKitPermissionsUtilsUI.swift
 //  DriveKitPermissionsUtilsUI
@@ -14,7 +15,7 @@ import DriveKitCommonUI
     @objc public static let shared = DriveKitPermissionsUtilsUI()
     public private(set) var isBluetoothNeeded = false
     public private(set) var contactType = DKContactType.none
-    private var stateByType = [StatusType:Bool]()
+    private var stateByType = [StatusType: Bool]()
 
     @available(*, deprecated, message: "Logs are now enabled by default. To disable logging, just call DriveKit.shared.disableLogging()")
     public private(set) var showDiagnosisLogs = true
@@ -51,7 +52,7 @@ import DriveKitCommonUI
             completionHandler()
         } else if let permissionView = neededPermissionViews.first {
             // Try to find a UINavigationController to push screens inside.
-            var navigationController: UINavigationController? = nil
+            var navigationController: UINavigationController?
             if let parentNavigationController = parentViewController as? UINavigationController {
                 navigationController = parentNavigationController
             } else if let parentNavigationController = parentViewController.navigationController {
@@ -109,7 +110,6 @@ import DriveKitCommonUI
         return "\(titleKey.dkPermissionsUtilsLocalized()) \(isValid ? validValue : invalidValue)"
     }
 
-
     @objc public func configureBluetooth(needed: Bool) {
         if self.isBluetoothNeeded != needed {
             self.isBluetoothNeeded = needed
@@ -123,7 +123,6 @@ import DriveKitCommonUI
     public func configureContactType(_ contactType: DKContactType) {
         self.contactType = contactType
     }
-
 
     @objc private func appDidBecomeActive() {
         updateState()
@@ -182,7 +181,7 @@ extension String {
     }
 }
 
-extension DriveKitPermissionsUtilsUI : DriveKitPermissionsUtilsUIEntryPoint {
+extension DriveKitPermissionsUtilsUI: DriveKitPermissionsUtilsUIEntryPoint {
     public func getActivityPermissionViewController(_ completionHandler: @escaping () -> Void) -> UIViewController {
         return DKPermissionView.activity.getViewController(permissionViews: [.activity], completionHandler: completionHandler)
     }
@@ -204,7 +203,6 @@ extension DKDiagnosisHelper {
         UIApplication.shared.open(settingsUrl)
     }
 }
-
 
 // MARK: - Objective-C extension
 

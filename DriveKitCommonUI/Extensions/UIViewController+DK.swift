@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  UIViewController+DK.swift
 //  DriveKitCommonUI
@@ -9,7 +10,7 @@
 import UIKit
 
 public extension UIViewController {
-    private static let loaderViewTag = 1000
+    private static let loaderViewTag = 1_000
     private static let loaderTextViewTag = loaderViewTag + 1
 
     func showLoader() {

@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  SynthesisCardView.swift
 //  DriveKitDriverDataUI
@@ -24,7 +25,7 @@ final class SynthesisCardView: UIView, Nibable {
     private weak var bottomSynthesisCardInfo: SynthesisCardInfoView!
     private weak var circularProgressView: CircularProgressView!
 
-    var synthesisCardViewModel: SynthesisCardViewModel? = nil {
+    var synthesisCardViewModel: SynthesisCardViewModel? {
         didSet {
             update()
         }

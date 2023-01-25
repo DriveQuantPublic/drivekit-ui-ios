@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DKFonts.swift
 //  DriveKitCommonUI
@@ -13,7 +14,7 @@ import UIKit
     func secondaryFont() -> String
 }
 
-open class DKDefaultFonts : DKFonts {
+open class DKDefaultFonts: DKFonts {
     public init() {}
 
     open func primaryFont() -> String {

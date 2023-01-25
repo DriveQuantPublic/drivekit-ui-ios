@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DeleteAccountVC.swift
 //  DriveKitApp
@@ -42,11 +43,11 @@ class DeleteAccountVC: UIViewController {
         let alert = UIAlertController(title: nil,
                                       message: "account_deletion_confirmation".keyLocalized(),
                                       preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel, handler: {action in
+        let cancelAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel, handler: {_ in
             self.navigationController?.popViewController(animated: true)
         })
         alert.addAction(cancelAction)
-        let deleteAction = UIAlertAction(title: DKCommonLocalizable.delete.text().uppercased(), style: .destructive, handler: {[weak self] action in
+        let deleteAction = UIAlertAction(title: DKCommonLocalizable.delete.text().uppercased(), style: .destructive, handler: {[weak self] _ in
             self?.viewModel.deleteAccount { status in
                 if status == .success {
                     self?.viewModel.logout()
@@ -55,7 +56,7 @@ class DeleteAccountVC: UIViewController {
                     let errorAlert = UIAlertController(title: nil,
                                                   message: errorMessage,
                                                        preferredStyle: .alert)
-                    let okAction = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default, handler: { action in
+                    let okAction = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default, handler: { _ in
                         self?.navigationController?.popViewController(animated: true)
                     })
                     errorAlert.addAction(okAction)

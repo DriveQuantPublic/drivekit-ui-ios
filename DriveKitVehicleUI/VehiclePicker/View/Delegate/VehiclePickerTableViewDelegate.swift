@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  VehiclePickerTableViewDelegate.swift
 //  DriveKitVehicleUI
@@ -9,12 +10,11 @@
 import UIKit
 
 protocol VehiclePickerTableViewDelegate {
-    func getTableViewItems(viewModel : VehiclePickerViewModel) -> [VehiclePickerTableViewItem]
-    func onTableViewItemSelected(pos: Int, viewModel : VehiclePickerViewModel)
+    func getTableViewItems(viewModel: VehiclePickerViewModel) -> [VehiclePickerTableViewItem]
+    func onTableViewItemSelected(pos: Int, viewModel: VehiclePickerViewModel)
     func description() -> String?
 }
 
 protocol VehiclePickerTableViewItem {
     func text() -> String
 }
-

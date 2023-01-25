@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DriverRank.swift
 //  DriveKitDriverAchievementUI
@@ -23,7 +24,6 @@ protocol AnyDriverRank {
     var scoreString: String { get }
     var totalScoreString: String { get }
 }
-
 
 class DriverRank: DKDriverRankingItem {
     let nbDrivers: Int

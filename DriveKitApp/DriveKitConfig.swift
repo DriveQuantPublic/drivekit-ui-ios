@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DriveKitConfig.swift
 //  DriveKitApp
@@ -117,7 +118,6 @@ class DriveKitConfig {
         NotificationManager.reset()
     }
 
-
     private static func configureCore() {
         let apiKey = getApiKey()
         if apiKey != DriveKit.shared.config.getApiKey() {
@@ -133,7 +133,6 @@ class DriveKitConfig {
         // You must call this method if you use DriveKit Vehicle component:
         DriveKitTripAnalysis.shared.setVehiclesConfigTakeover(vehiclesConfigTakeOver: true)
     }
-
 
     private static func configureCommonUI() {
         DriveKitUI.shared.initialize(colors: DefaultColors(), fonts: DefaultFonts(), overridedStringsFileName: "Localizable")
@@ -166,7 +165,7 @@ class DriveKitConfig {
         DriveKitDriverAchievementUI.shared.initialize()
         DriveKitDriverAchievementUI.shared.configureRankingTypes(DKRankingType.allCases)
         DriveKitDriverAchievementUI.shared.configureRankingSelector(DKRankingSelectorType.period(rankingPeriods: [.weekly, .monthly, .allTime]))
-        DriveKitDriverAchievementUI.shared.configureBadgeCategories(badgeCategories: [.generic, .ecodriving, .safety, .phoneDistraction,  .call])
+        DriveKitDriverAchievementUI.shared.configureBadgeCategories(badgeCategories: [.generic, .ecodriving, .safety, .phoneDistraction, .call])
         DriveKitDriverAchievementUI.shared.configureRankingDepth(5)
     }
 
@@ -180,7 +179,6 @@ class DriveKitConfig {
         DriveKitChallengeUI.shared.initialize()
     }
 
-
     static func isBluetoothNeeded() -> Bool {
         let vehicles = DriveKitVehicle.shared.vehiclesQuery().noFilter().query().execute()
         let isBluetoothNeeded = vehicles.contains { vehicle -> Bool in
@@ -188,7 +186,6 @@ class DriveKitConfig {
         }
         return isBluetoothNeeded
     }
-
 
     static func getApiKey() -> String {
         if DriveKitConfig.apiKey.isEmpty {

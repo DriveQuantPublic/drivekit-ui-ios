@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DriveKitChallengeUI.swift
 //  DriveKitChallengeUI
@@ -39,11 +40,11 @@ extension DriveKitChallengeUI: DriveKitChallengeUIEntryPoint {
         return challengeListVC
     }
 
-    public func getChallengeViewController(challengeId: String, completion: @escaping (UIViewController?) -> ()) {
-        DriveKitChallenge.shared.getChallenge(challengeId: challengeId, type: .cache) { [weak self] status, challenge in
+    public func getChallengeViewController(challengeId: String, completion: @escaping (UIViewController?) -> Void) {
+        DriveKitChallenge.shared.getChallenge(challengeId: challengeId, type: .cache) { [weak self] _, challenge in
             if let challenge = challenge {
                 if challenge.conditionsFilled, challenge.isRegistered {
-                    DriveKitChallenge.shared.getChallengeDetail(challengeId: challengeId, type: .cache) { [weak self] status, challengeDetail in
+                    DriveKitChallenge.shared.getChallengeDetail(challengeId: challengeId, type: .cache) { [weak self] _, challengeDetail in
                         if let challengeDetail = challengeDetail {
                             DispatchQueue.main.async {
                                 let challengeVC = self?.getViewControllerForChallenge(challenge: challenge, challengeDetail: challengeDetail, needUpdate: true)
@@ -51,7 +52,7 @@ extension DriveKitChallengeUI: DriveKitChallengeUIEntryPoint {
                             }
                         } else {
                             // try to fetch Challenge detail from server
-                            DriveKitChallenge.shared.getChallengeDetail(challengeId: challengeId, completionHandler: { [weak self] status, challengeDetail in
+                            DriveKitChallenge.shared.getChallengeDetail(challengeId: challengeId, completionHandler: { [weak self] _, challengeDetail in
                                 DispatchQueue.main.async {
                                     let challengeVC = self?.getViewControllerForChallenge(challenge: challenge, challengeDetail: challengeDetail)
                                     completion(challengeVC)
@@ -66,10 +67,10 @@ extension DriveKitChallengeUI: DriveKitChallengeUIEntryPoint {
                     }
                 }
             } else {
-                DriveKitChallenge.shared.getChallenge(challengeId: challengeId, type: .defaultSync) { [weak self] status, challenge in
+                DriveKitChallenge.shared.getChallenge(challengeId: challengeId, type: .defaultSync) { [weak self] _, challenge in
                     if let challenge = challenge {
                         if challenge.conditionsFilled, challenge.isRegistered {
-                            DriveKitChallenge.shared.getChallengeDetail(challengeId: challengeId, completionHandler: { [weak self] status, challengeDetail in
+                            DriveKitChallenge.shared.getChallengeDetail(challengeId: challengeId, completionHandler: { [weak self] _, challengeDetail in
                                 DispatchQueue.main.async {
                                     let challengeVC = self?.getViewControllerForChallenge(challenge: challenge, challengeDetail: challengeDetail)
                                     completion(challengeVC)

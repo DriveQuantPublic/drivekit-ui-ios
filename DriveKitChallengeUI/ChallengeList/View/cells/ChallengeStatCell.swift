@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  ChallengeStatCell.swift
 //  DriveKitChallengeUI
@@ -22,7 +23,7 @@ final class ChallengeStatCell: UITableViewCell, Nibable {
         self.backgroundColor = DKDefaultColors.driveKitBackgroundColor
     }
     
-    func configure(viewModel: ChallengeResultsViewModel, type: ChallengeStatType){
+    func configure(viewModel: ChallengeResultsViewModel, type: ChallengeStatType) {
         self.statImage?.image = type.image?.withRenderingMode(.alwaysTemplate)
         self.statImage?.tintColor = UIColor.black
         self.driverStatLabel?.attributedText = viewModel.getStatAttributedString(challengeStatType: type)

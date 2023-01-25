@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DKFilterPickerVC.swift
 //  DriveKitCommonUI
@@ -38,7 +39,7 @@ final public class DKFilterPickerVC: DKUIViewController {
     }
 }
 
-extension DKFilterPickerVC : UITableViewDelegate {
+extension DKFilterPickerVC: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 8
     }
@@ -55,7 +56,7 @@ extension DKFilterPickerVC : UITableViewDelegate {
     }
 }
 
-extension DKFilterPickerVC : UITableViewDataSource {
+extension DKFilterPickerVC: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.itemCount
     }

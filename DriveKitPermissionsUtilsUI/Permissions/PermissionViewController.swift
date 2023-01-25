@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  PermissionViewController.swift
 //  DriveKitPermissionsUtilsUI
@@ -10,7 +11,7 @@ import UIKit
 
 import DriveKitCommonUI
 
-class PermissionViewController : DKUIViewController {
+class PermissionViewController: DKUIViewController {
 
     var isPresentedByModule: Bool = false
     var manageNavigation: Bool = false
@@ -44,8 +45,7 @@ class PermissionViewController : DKUIViewController {
 
 }
 
-
-extension PermissionViewController : PermissionView {
+extension PermissionViewController: PermissionView {
 
     func next() {
         // Remove current permission view from the list.

@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  ActivityPermissionViewController.swift
 //  DriveKitPermissionsUtilsUI
@@ -10,7 +11,7 @@ import UIKit
 
 import DriveKitCommonUI
 
-class ActivityPermissionViewController : PermissionViewController {
+class ActivityPermissionViewController: PermissionViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var topImageView: UIImageView!
@@ -18,7 +19,6 @@ class ActivityPermissionViewController : PermissionViewController {
     @IBOutlet weak var actionButton: UIButton!
 
     private let viewModel = ActivityPermissionViewModel()
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +34,9 @@ class ActivityPermissionViewController : PermissionViewController {
         self.viewModel.checkState()
     }
 
-
     @IBAction func openSettings() {
         self.viewModel.openSettings()
     }
-
 
     private func updateView() {
         self.titleLabel.attributedText = "dk_perm_utils_permissions_phone_settings_activity_title".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()

@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  SensorInfoViewController.swift
 //  DriveKitPermissionsUtilsUI
@@ -10,7 +11,7 @@ import UIKit
 
 import DriveKitCommonUI
 
-class SensorInfoViewController : UIViewController {
+class SensorInfoViewController: UIViewController {
 
     private let viewModel: SensorInfoViewModel
     @IBOutlet private weak var contentView: UIView!

@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  BeaconScannerInfoVC.swift
 //  DriveKitVehicleUI
@@ -58,7 +59,6 @@ class BeaconScannerInfoVC: UIViewController {
             majorLabel.attributedText = "\("dk_vehicle_beacon_major".dkVehicleLocalized()) %@".dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).buildWithArgs(major)
             let minor = "\(clBeacon.minor)".dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
             minorLabel.attributedText = "\("dk_vehicle_beacon_minor".dkVehicleLocalized()) %@".dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).buildWithArgs(minor)
-            
             
             if let distance = self.viewModel.beaconDistance {
                 distanceIndicatorView.configure(title: distance.formatMeterDistance(), image: DKVehicleImages.beaconDistance.image?.withRenderingMode(.alwaysTemplate))

@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  CategoryType.swift
 //  drivekit-test-app

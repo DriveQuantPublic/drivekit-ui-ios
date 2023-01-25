@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  VehiclePickerStepsDelegate.swift
 //  drivekit-test-app

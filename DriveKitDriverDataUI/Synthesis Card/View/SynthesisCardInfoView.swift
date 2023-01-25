@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  SynthesisCardInfoView.swift
 //  DriveKitDriverDataUI
@@ -13,7 +14,7 @@ final class SynthesisCardInfoView: UIView, Nibable {
     @IBOutlet private weak var icon: UIImageView!
     @IBOutlet private weak var label: UILabel!
 
-    var synthesisCardInfoViewModel: SynthesisCardInfoViewModel? = nil {
+    var synthesisCardInfoViewModel: SynthesisCardInfoViewModel? {
         didSet {
             update()
         }

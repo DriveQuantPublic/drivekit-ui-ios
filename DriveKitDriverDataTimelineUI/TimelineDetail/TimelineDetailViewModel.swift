@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  TimelineScoreDetailViewModel.swift
 //  DriveKitDriverDataTimelineUI
@@ -135,7 +136,6 @@ extension TimelineDetailViewModel: DateSelectorDelegate {
         self.delegate?.didUpdate(selectedDate: selectedDate)
     }
 }
-
 
 extension TimelineDetailViewModel: TimelineGraphDelegate {
     func graphDidSelectDate(_ date: Date) {

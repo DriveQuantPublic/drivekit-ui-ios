@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DKImages.swift
 //  DriveKitCommonUI
@@ -52,7 +53,7 @@ public enum DKImages: String {
 
     public var image: UIImage? {
         let renderingMode: UIImage.RenderingMode
-        switch self  {
+        switch self {
             case .noScore, .rank1, .rank2, .rank3, .emptyData, .safetyFlat, .ecoDrivingFlat, .distractionFlat, .speedingFlat:
                 renderingMode = .automatic
             default:

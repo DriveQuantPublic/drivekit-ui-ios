@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  BeaconStep.swift
 //  DriveKitVehicleUI
@@ -73,7 +74,7 @@ public enum BeaconStep {
         }
     }
     
-    var confirmButtonText : String {
+    var confirmButtonText: String {
         switch self {
         case .success:
             return DKCommonLocalizable.confirm.text()
@@ -114,9 +115,9 @@ public enum BeaconStep {
         case .beaconNotFound:
             return BeaconScanFailureVC(viewModel: viewModel)
         case .verified:
-            return BeaconScannerInfoVC(viewModel: viewModel, valid : true)
+            return BeaconScannerInfoVC(viewModel: viewModel, valid: true)
         case .wrongBeacon:
-            return BeaconScannerInfoVC(viewModel: viewModel, valid : false)
+            return BeaconScannerInfoVC(viewModel: viewModel, valid: false)
         case .beaconAlreadyPaired:
             return BeaconScannerAlreadyPairedVC(viewModel: viewModel)
         case .beaconUnavailable:

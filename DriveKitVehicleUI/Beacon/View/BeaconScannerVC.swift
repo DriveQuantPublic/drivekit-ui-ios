@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  BeaconScannerVC.swift
 //  DriveKitVehicleUI
@@ -39,7 +40,7 @@ public class BeaconScannerVC: DKUIViewController {
         switch self.viewModel.scanType {
         case .pairing:
             self.title = "dk_beacon_paired_title".dkVehicleLocalized()
-        case .diagnostic,.verify:
+        case .diagnostic, .verify:
             self.title = "dk_beacon_diagnostic_title".dkVehicleLocalized()
         }
     }
@@ -68,7 +69,7 @@ public class BeaconScannerVC: DKUIViewController {
     }
 }
 
-extension BeaconScannerVC : ScanStateDelegate {
+extension BeaconScannerVC: ScanStateDelegate {
     func onStateUpdated(step: BeaconStep) {
         self.updateStep(step: step)
     }
@@ -77,7 +78,7 @@ extension BeaconScannerVC : ScanStateDelegate {
         let viewControllers: [UIViewController] = self.navigationController!.viewControllers as [UIViewController]
         if viewControllers.count >= 4 && self.viewModel.scanType == .pairing {
             self.navigationController?.popToViewController(viewControllers[viewControllers.count - 4], animated: true)
-        } else{
+        } else {
             self.navigationController?.popViewController(animated: true)
         }
     }

@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  VehiclePickerCollectionViewDelegate.swift
 //  DriveKitVehicleUI
@@ -9,8 +10,8 @@
 import UIKit
 
 protocol VehiclePickerCollectionViewDelegate {
-    func getCollectionViewItems(viewModel : VehiclePickerViewModel) -> [VehiclePickerCollectionViewItem]
-    func onCollectionViewItemSelected(pos: Int, viewModel : VehiclePickerViewModel, completion : (StepStatus) -> ())
+    func getCollectionViewItems(viewModel: VehiclePickerViewModel) -> [VehiclePickerCollectionViewItem]
+    func onCollectionViewItemSelected(pos: Int, viewModel: VehiclePickerViewModel, completion: (StepStatus) -> Void)
     func showLabel() -> Bool
 }
 

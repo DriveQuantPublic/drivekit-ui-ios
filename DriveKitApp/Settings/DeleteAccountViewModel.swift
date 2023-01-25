@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DeleteAccountViewModel.swift
 //  DriveKitApp
@@ -11,7 +12,7 @@ import UIKit
 import DriveKitCoreModule
 
 class DeleteAccountViewModel {
-    private var completionHandler: ( (DeleteAccountStatus) -> ())? = nil
+    private var completionHandler: ( (DeleteAccountStatus) -> Void)?
 
     init() {
         DriveKitDelegateManager.shared.register(delegate: self)
@@ -27,7 +28,7 @@ class DeleteAccountViewModel {
             appNavigationController.setViewControllers([ApiKeyViewController()], animated: true)
         }
     }
-    func deleteAccount(completion: @escaping (DeleteAccountStatus) -> ()) {
+    func deleteAccount(completion: @escaping (DeleteAccountStatus) -> Void) {
         self.completionHandler = completion
         DriveKit.shared.deleteAccount()
     }

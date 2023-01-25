@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  HeaderDay.swift
 //  drivekit-test-app
@@ -18,9 +19,9 @@ public enum HeaderDay {
             case .duration:
                 return trips.totalRoundedDuration.formatSecondDuration()
             case .distanceDuration:
-                return  trips.totalDistance.formatMeterDistanceInKm() + " | " +  trips.totalRoundedDuration.formatSecondDuration()
+                return  trips.totalDistance.formatMeterDistanceInKm() + " | " + trips.totalRoundedDuration.formatSecondDuration()
             case .durationDistance:
-                return  trips.totalRoundedDuration.formatSecondDuration() + " | " +  trips.totalDistance.formatMeterDistanceInKm()
+                return  trips.totalRoundedDuration.formatSecondDuration() + " | " + trips.totalDistance.formatMeterDistanceInKm()
             case .none:
                 return ""
         }

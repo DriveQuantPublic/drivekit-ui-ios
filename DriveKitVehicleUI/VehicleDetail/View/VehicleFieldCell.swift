@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  VehicleFieldCell.swift
 //  DriveKitVehicleUI
@@ -17,7 +18,7 @@ protocol VehicleFieldCellDelegate: AnyObject {
 class VehicleFieldCell: UITableViewCell {
     @IBOutlet weak var textField: UIView!
 
-    weak var delegate: VehicleFieldCellDelegate? = nil
+    weak var delegate: VehicleFieldCellDelegate?
     var textFieldView: DKTextField = DKTextField.viewFromNib
 
     func configure(vehicle: DKVehicle, field: DKVehicleField, value: String, delegate: VehicleFieldCellDelegate, hasError: Bool) {
@@ -41,7 +42,7 @@ class VehicleFieldCell: UITableViewCell {
     }
 }
 
-extension VehicleFieldCell : DKTextFieldDelegate {
+extension VehicleFieldCell: DKTextFieldDelegate {
     func userDidEndEditing(textField: DKTextField) {
         self.delegate?.didEndEditing(cell: self, value: textField.getTextFieldValue() ?? "")
     }

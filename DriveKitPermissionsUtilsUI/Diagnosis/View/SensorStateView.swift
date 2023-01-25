@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  SensorStateView.swift
 //  DriveKitPermissionsUtilsUI
@@ -10,9 +11,9 @@ import UIKit
 
 import DriveKitCommonUI
 
-class SensorStateView : UIView {
+class SensorStateView: UIView {
 
-    var viewModel: SensorStateViewModel? = nil {
+    var viewModel: SensorStateViewModel? {
         didSet {
             self.update()
         }

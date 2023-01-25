@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DKFilterTableViewCell.swift
 //  DriveKitCommonUI
@@ -25,7 +26,7 @@ class DKFilterTableViewCell: UITableViewCell {
         self.itemImage.layer.cornerRadius = self.itemImage.bounds.height / 2
     }
     
-    func configure(viewModel : DKFilterViewModel, position: Int) {
+    func configure(viewModel: DKFilterViewModel, position: Int) {
         if let image = viewModel.getImageAt(position) {
             self.itemImage.image = image
             self.itemImage.isHidden = false

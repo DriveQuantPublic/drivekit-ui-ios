@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DKDataFormatter.swift
 //  DriveKitCommonUI
@@ -33,7 +34,7 @@ extension Array where Element == FormatType {
 
 public extension Double {
     func getMeterDistanceInKmFormat(appendingUnit appendUnit: Bool = true) -> [FormatType] {
-        return (self / 1000.0).getKilometerDistanceFormat(appendingUnit: appendUnit)
+        return (self / 1_000.0).getKilometerDistanceFormat(appendingUnit: appendUnit)
     }
 
     func formatMeterDistanceInKm(appendingUnit appendUnit: Bool = true) -> String {
@@ -48,7 +49,7 @@ public extension Double {
                 .separator(),
                 .unit(DKCommonLocalizable.unitMeter.text())
             ]
-        } else if self < 1000 {
+        } else if self < 1_000 {
             formattingTypes = [
                 .value(format(maximumFractionDigits: 0)),
                 .separator(),
@@ -85,10 +86,9 @@ public extension Double {
     }
 
     func metersToKilometers(places: Int) -> Double {
-        let km = self / 1000.0
+        let km = self / 1_000.0
         return km.round(places: places)
     }
-
 
     func getMassFormat() -> [FormatType] {
         let formattingTypes: [FormatType] = [
@@ -104,7 +104,7 @@ public extension Double {
     }
 
     func getMassInTonFormat() -> [FormatType] {
-        let massInTon = self / 1000.0
+        let massInTon = self / 1_000.0
         let formattedMass = massInTon.format(maximumFractionDigits: 1)
         let formattingTypes: [FormatType] = [
             .value(formattedMass),
@@ -118,7 +118,6 @@ public extension Double {
         return getMassInTonFormat().toString()
     }
 
-
     func getLiterFormat() -> [FormatType] {
         let formattingTypes: [FormatType] = [
             .value(format(maximumFractionDigits: 1)),
@@ -131,7 +130,6 @@ public extension Double {
     func formatLiter() -> String {
         return getLiterFormat().toString()
     }
-
 
     func getPowerFormat() -> [FormatType] {
         let formattedPower = self.format(maximumFractionDigits: 0)
@@ -147,7 +145,6 @@ public extension Double {
         getPowerFormat().toString()
     }
 
-
     func getScoreFormat() -> [FormatType] {
         let formattedScore = self.format(maximumFractionDigits: 1)
         let formattingTypes: [FormatType] = [
@@ -161,7 +158,6 @@ public extension Double {
     func formatScore() -> String {
         getScoreFormat().toString()
     }
-
 
     func round(places: Int) -> Double {
         let divisor = pow(10.0, Double(places))
@@ -184,7 +180,6 @@ public extension Double {
     var stringWithoutZeroFraction: String {
         return truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%.0f", self) : String(self)
     }
-
 
     func getSecondDurationFormat(maxUnit: DurationUnit = .day) -> [FormatType] {
         let formattingTypes: [FormatType]
@@ -209,7 +204,7 @@ public extension Double {
                         formattingTypes = [
                             .value(String(nbDay)),
                             .unit(DKCommonLocalizable.unitDay.text()),
-                            .value(String(nbHour)),
+                            .value(String(nbHour))
                         ]
                     } else {
                         formattingTypes = [
@@ -259,12 +254,11 @@ public extension Double {
         return getSecondDurationFormat(maxUnit: maxUnit).toString()
     }
 
-
     func getCO2MassFormat(shouldUseNaturalUnit: Bool) -> [FormatType] {
         let formattingTypes: [FormatType]
         if self < 1 && shouldUseNaturalUnit {
             formattingTypes = [
-                .value((self * 1000).format(maximumFractionDigits: 0)),
+                .value((self * 1_000).format(maximumFractionDigits: 0)),
                 .separator(),
                 .unit(DKCommonLocalizable.unitGram.text())
             ]
@@ -295,7 +289,6 @@ public extension Double {
         return getCO2Emission().toString()
     }
 
-
     func getSpeedMeanFormat() -> [FormatType] {
         let formattingTypes: [FormatType] = [
             .value(self.format(maximumFractionDigits: 0)),
@@ -321,7 +314,6 @@ public extension Double {
         return key.text()
     }
 
-
     func getConsumptionFormat(_ type: DKConsumptionType = .fuel) -> [FormatType] {
         let unitText: String
         if type == .electric {
@@ -341,7 +333,6 @@ public extension Double {
         return getConsumptionFormat(type).toString()
     }
 
-
     func getAccelerationFormat() -> [FormatType] {
         let formattingTypes: [FormatType] = [
             .value(self.format(maximumFractionDigits: 2)),
@@ -360,13 +351,13 @@ public extension Double {
         if self < Constants.Ecodriving.Acceleration.lowLevelThreshold {
             key = .ecodrivingAccelerationLow
         } else if self < Constants.Ecodriving.Acceleration.weakLevelThreshold {
-            key =  .ecodrivingAccelerationWeak
+            key = .ecodrivingAccelerationWeak
         } else if self < Constants.Ecodriving.Acceleration.goodLevelThreshold {
-            key =  .ecodrivingAccelerationGood
+            key = .ecodrivingAccelerationGood
         } else if self < Constants.Ecodriving.Acceleration.strongLevelThreshold {
-            key =  .ecodrivingAccelerationStrong
+            key = .ecodrivingAccelerationStrong
         } else {
-            key =  .ecodrivingAccelerationHigh
+            key = .ecodrivingAccelerationHigh
         }
         return key.text()
     }
@@ -387,7 +378,6 @@ public extension Double {
         return key.text()
     }
 
-
     func getPercentageFormat() -> [FormatType] {
         let formattingTypes: [FormatType] = [
             .value(self.format(maximumFractionDigits: 1)),
@@ -400,7 +390,6 @@ public extension Double {
     func formatPercentage() -> String {
         return getPercentageFormat().toString()
     }
-
 
     func formatDouble(places: Int) -> String {
         return self.format(maximumFractionDigits: places)
@@ -422,8 +411,8 @@ public extension Double {
     }
 
     func ceilMeterDistance(ifGreaterThan value: Double) -> Double {
-        if self.truncatingRemainder(dividingBy: 1000) != 0 && self > value {
-            return Double(Int(self / 1000) + 1) * 1000
+        if self.truncatingRemainder(dividingBy: 1_000) != 0 && self > value {
+            return Double(Int(self / 1_000) + 1) * 1_000
         }
         return self
     }
@@ -477,7 +466,6 @@ public extension String {
         return self.trimmingCharacters(in: .whitespaces).isEmpty
     }
 }
-
 
 public enum DurationUnit {
     case second, minute, hour, day

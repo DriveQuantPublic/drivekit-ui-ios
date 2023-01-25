@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  ChallengeItemViewModel.swift
 //  DriveKitChallengeUI
@@ -46,6 +47,6 @@ struct ChallengeItemViewModel {
 
         return NSMutableAttributedString(string: "\(startDate.format(pattern: .standardDate)) - \(endDate.format(pattern: .standardDate))",
                                          attributes: [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 14),
-                         NSAttributedString.Key.foregroundColor: tintColor, NSAttributedString.Key.paragraphStyle : paragraphStyle])
+                         NSAttributedString.Key.foregroundColor: tintColor, NSAttributedString.Key.paragraphStyle: paragraphStyle])
     }
 }

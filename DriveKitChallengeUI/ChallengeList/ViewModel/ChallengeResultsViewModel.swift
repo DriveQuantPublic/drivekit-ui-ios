@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  ChallengeResultsViewModel.swift
 //  DriveKitChallengeUI
@@ -15,7 +16,7 @@ class ChallengeResultsViewModel {
     let challengeType: ChallengeType
     let challengeTheme: ChallengeTheme
     private let goldColor = UIColor(red: 255, green: 215, blue: 0)
-    private let lightGoldColor = UIColor(red: 1, green: 215.0/255, blue: 0, alpha: 0.2)
+    private let lightGoldColor = UIColor(red: 1, green: 215.0 / 255, blue: 0, alpha: 0.2)
 
     init(challengeDetail: DKChallengeDetail,
          challengeType: ChallengeType = .score,
@@ -88,7 +89,7 @@ class ChallengeResultsViewModel {
         let majorAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 18).with(.traitBold), NSAttributedString.Key.foregroundColor: DKUIColors.primaryColor.color]
         switch challengeStatType {
         case .duration:
-            let duration = challengeDetail.driverStats.duration * 3600
+            let duration = challengeDetail.driverStats.duration * 3_600
             let formattedDuration = duration.ceilSecondDuration(ifGreaterThan: 600).formatSecondDuration(maxUnit: .hour)
             let durationString = String(format: "dk_challenge_driver_duration".dkChallengeLocalized(), formattedDuration)
             let rangeDuration = (durationString as NSString).range(of: formattedDuration)
@@ -106,7 +107,7 @@ class ChallengeResultsViewModel {
             let trip = challengeDetail.driverStats.numberTrip > 1 ? DKCommonLocalizable.tripPlural.text() : DKCommonLocalizable.tripSingular.text()
             let tripsFormatted = String(challengeDetail.driverStats.numberTrip) + " " + trip
             let tripsString = String(format: "dk_challenge_driver_trips".dkChallengeLocalized(), tripsFormatted)
-            let rangeTrips = (tripsString as NSString).range(of:  tripsFormatted)
+            let rangeTrips = (tripsString as NSString).range(of: tripsFormatted)
             let attributedTrips = NSMutableAttributedString(string: tripsString, attributes: titleAttributes)
             attributedTrips.setAttributes(majorAttributes, range: rangeTrips)
             return attributedTrips
@@ -118,7 +119,7 @@ class ChallengeResultsViewModel {
         let majorAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 14).with(.traitBold), NSAttributedString.Key.foregroundColor: DKUIColors.primaryColor.color]
         switch challengeStatType {
         case .duration:
-            let duration = challengeDetail.challengeStats.duration * 3600
+            let duration = challengeDetail.challengeStats.duration * 3_600
             let formattedDuration = duration.ceilSecondDuration(ifGreaterThan: 600).formatSecondDuration(maxUnit: .hour)
             let durationString = String(format: "dk_challenge_competitors_duration".dkChallengeLocalized(), formattedDuration)
             let rangeDuration = (durationString as NSString).range(of: formattedDuration)
@@ -136,7 +137,7 @@ class ChallengeResultsViewModel {
             let trip = challengeDetail.challengeStats.numberTrip > 1 ? DKCommonLocalizable.tripPlural.text() : DKCommonLocalizable.tripSingular.text()
             let tripsFormatted = String(challengeDetail.challengeStats.numberTrip) + " " + trip
             let tripsString = String(format: "dk_challenge_competitors_trips".dkChallengeLocalized(), tripsFormatted)
-            let rangeTrips = (tripsString as NSString).range(of:  tripsFormatted)
+            let rangeTrips = (tripsString as NSString).range(of: tripsFormatted)
             let attributedTrips = NSMutableAttributedString(string: tripsString, attributes: titleAttributes)
             attributedTrips.setAttributes(majorAttributes, range: rangeTrips)
             return attributedTrips

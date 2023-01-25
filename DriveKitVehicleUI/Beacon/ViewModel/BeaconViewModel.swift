@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  BeaconViewModel.swift
 //  DriveKitVehicleUI
@@ -15,15 +16,15 @@ import CoreLocation
 public class BeaconViewModel {
     var vehicle: DKVehicle?
     let scanType: DKBeaconScanType
-    var beacon: DKBeacon? = nil
-    weak var delegate: ScanStateDelegate? = nil
+    var beacon: DKBeacon?
+    weak var delegate: ScanStateDelegate?
 
     var vehiclePaired: DKVehicle?
-    private(set) var beaconBattery: Int? = nil
-    private(set) var beaconDistance: Double? = nil
-    private(set) var beaconRssi: Double? = nil
-    private(set) var beaconTxPower: Int? = nil
-    var clBeacon: CLBeacon? = nil
+    private(set) var beaconBattery: Int?
+    private(set) var beaconDistance: Double?
+    private(set) var beaconRssi: Double?
+    private(set) var beaconTxPower: Int?
+    var clBeacon: CLBeacon?
     var vehicles: [DKVehicle] = []
 
     private let beaconScanner = DKBeaconScanner()
@@ -76,7 +77,7 @@ public class BeaconViewModel {
         return vehicle?.computeName() ?? ""
     }
 
-    func startBeaconScan(completion: @escaping () -> ()) {
+    func startBeaconScan(completion: @escaping () -> Void) {
         if let beacon = self.beacon {
             self.beaconScanner.startBeaconScan(beacons: [beacon], useMajorMinor: self.scanType == .pairing) { beacons in
                 if self.scanType != .pairing {
@@ -96,7 +97,7 @@ public class BeaconViewModel {
     }
 
     func startBeaconInfoScan() {
-        self.beaconScanner.startBeaconInfoScan() { result in
+        self.beaconScanner.startBeaconInfoScan { result in
             switch result {
                 case let .success(batteryLevel, estimatedDistance, rssi, txPower):
                     self.update(battery: batteryLevel, distance: estimatedDistance, rssi: rssi, txPower: txPower)
@@ -152,7 +153,7 @@ public class BeaconViewModel {
     }
     
     func vehicleFromBeacon() -> DKVehicle? {
-        var vehicle: DKVehicle? = nil
+        var vehicle: DKVehicle?
         for veh in vehicles {
             if let beacon = veh.beacon, let clBeacon = self.clBeacon, isBeaconValid(beacon: beacon, clBeacon: clBeacon) {
                 vehicle = veh
@@ -161,17 +162,17 @@ public class BeaconViewModel {
         return vehicle
     }
     
-    func checkCode(code: String, completion: @escaping (DKVehicleBeaconInfoStatus) -> ()) {
+    func checkCode(code: String, completion: @escaping (DKVehicleBeaconInfoStatus) -> Void) {
         DriveKitVehicle.shared.getBeacon(uniqueId: code, completionHandler: {status, beacon in
             self.beacon = beacon
             completion(status)
         })
     }
     
-    func checkVehiclePaired(completion: @escaping (Bool) -> ()) {
-        DriveKitVehicle.shared.getVehiclesOrderByNameAsc(completionHandler: {status, vehicles in
+    func checkVehiclePaired(completion: @escaping (Bool) -> Void) {
+        DriveKitVehicle.shared.getVehiclesOrderByNameAsc(completionHandler: {_, vehicles in
             for vehicle in vehicles {
-                if let vehicleBeacon = vehicle.beacon, let beacon = self.beacon  {
+                if let vehicleBeacon = vehicle.beacon, let beacon = self.beacon {
                     if vehicleBeacon.proximityUuid == beacon.proximityUuid && vehicleBeacon.major == beacon.major && vehicleBeacon.minor == beacon.minor {
                         self.vehiclePaired = vehicle
                     }
@@ -216,7 +217,7 @@ public class BeaconViewModel {
         }
     }
     
-    func addBeaconToVehicle(completion: @escaping (DKVehicleBeaconStatus) -> ()) {
+    func addBeaconToVehicle(completion: @escaping (DKVehicleBeaconStatus) -> Void) {
         guard let beacon = self.beacon, let vehicle = self.vehicle else {
             completion(.error)
             return
@@ -230,7 +231,7 @@ public class BeaconViewModel {
         }
     }
     
-    func replaceBeacon(completion: @escaping (DKVehicleBeaconStatus) -> ()) {
+    func replaceBeacon(completion: @escaping (DKVehicleBeaconStatus) -> Void) {
         guard let pairedVehicle = self.vehiclePaired else {
             completion(.error)
             return
@@ -244,7 +245,6 @@ public class BeaconViewModel {
         }
     }
 }
-
 
 protocol ScanStateDelegate: AnyObject {
     func onStateUpdated(step: BeaconStep)

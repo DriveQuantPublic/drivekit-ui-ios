@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  TimelineViewController.swift
 //  DriveKitDriverDataTimelineUI
@@ -82,7 +81,8 @@ class TimelineViewController: DKUIViewController {
 
     private func setupSelectors() {
         let scores = self.viewModel.scores
-        if scores.count < 2 {
+        let minimumScoreCountRequiredToDisplayScoreSelector = 2
+        if scores.count < minimumScoreCountRequiredToDisplayScoreSelector {
             self.scoreSelectorView.isHidden = true
         } else {
             let selectedScore = self.viewModel.selectedScore

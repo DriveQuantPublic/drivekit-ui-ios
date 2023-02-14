@@ -4918,6 +4918,7 @@
 				673D978A28C6052200774668 /* da */,
 			);
 			name = Localizable.strings;
+			path = Localizable;
 			sourceTree = "<group>";
 		};
 		3FB5644323F6B4F000F010E3 /* DriverAchievementLocalizables.strings */ = {
@@ -4983,6 +4984,7 @@
 				63DD51BC28763BEA009D0D02 /* da */,
 			);
 			name = InfoPlist.strings;
+			path = Localizable;
 			sourceTree = "<group>";
 		};
 		63F8B2D228F9B27B0084B53A /* DriverDataTimelineLocalizable.strings */ = {

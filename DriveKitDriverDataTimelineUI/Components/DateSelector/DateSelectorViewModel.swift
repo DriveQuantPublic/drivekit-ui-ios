@@ -90,10 +90,27 @@ class DateSelectorViewModel {
     }
 
     private func weekDateIntervalAttributedText() -> NSAttributedString {
-        let fromDateString = self.fromDate.format(pattern: .standardDate).dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.primaryColor).build()
-        let toDateString = self.toDate.format(pattern: .standardDate).dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.primaryColor).build()
-        let intervalString = "\("dk_timeline_from_date".dkDriverDataTimelineLocalized()) %@ \("dk_timeline_to_date".dkDriverDataTimelineLocalized()) %@".dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.black.withAlphaComponent(0.53)).buildWithArgs(fromDateString, toDateString)
-        return intervalString
+        guard
+            let fromDateMonth = Calendar.current.dateComponents([.month], from: self.fromDate).month,
+            let toDateMonth = Calendar.current.dateComponents([.month], from: self.toDate).month
+        else {
+            assertionFailure("We should have month for both date or we have a problem, Houston")
+            return "".dkAttributedString().build()
+        }
+        
+        if fromDateMonth == toDateMonth {
+            return "\(self.fromDate.format(pattern: .dayOfMonth)) - \(self.toDate.format(pattern: .dayMonthLetterYear))"
+                .dkAttributedString()
+                .font(dkFont: .primary, style: .headLine1)
+                .color(.primaryColor)
+                .build()
+        } else {
+            return "\(self.fromDate.format(pattern: .dayMonthLetter)) - \(self.toDate.format(pattern: .dayMonthLetterYear))"
+                .dkAttributedString()
+                .font(dkFont: .primary, style: .headLine1)
+                .color(.primaryColor)
+                .build()
+        }
     }
 
     private func monthDateIntervalAttributedText() -> NSAttributedString {

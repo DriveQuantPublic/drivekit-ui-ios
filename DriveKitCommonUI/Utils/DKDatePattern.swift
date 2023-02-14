@@ -16,8 +16,11 @@ public enum DKDatePattern {
          hourMinuteLetter,
          fullDate,
          dayMonth,
+         dayMonthLetter,
+         dayMonthLetterYear,
          yearOnly,
          year,
+         dayOfMonth,
          day,
          month,
          monthLetterYear,
@@ -38,10 +41,16 @@ public enum DKDatePattern {
                 return "EEEE d MMMM yyyy"
             case .dayMonth:
                 return "dd/MM"
+            case .dayMonthLetter:
+                return "d MMMM"
+            case .dayMonthLetterYear:
+                return "d MMMM yyyy"
             case .yearOnly:
                 return "E"
             case .year:
                 return "yyyy"
+            case .dayOfMonth:
+                return "d"
             case .day:
                 return "EEEE"
             case .month:

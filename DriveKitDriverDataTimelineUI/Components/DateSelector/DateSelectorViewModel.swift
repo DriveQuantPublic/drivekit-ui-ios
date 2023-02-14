@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  DateSelectorViewModel.swift
 //  DriveKitDriverDataTimelineUI
@@ -43,7 +42,7 @@ class DateSelectorViewModel {
         guard hasNextDate else {
             return
         }
-        self.selectedDateIndex = self.selectedDateIndex + 1
+        self.selectedDateIndex += 1
         self.updateSelectedDateIndex(self.selectedDateIndex)
     }
 
@@ -51,7 +50,7 @@ class DateSelectorViewModel {
         guard hasPreviousDate else {
             return
         }
-        self.selectedDateIndex = self.selectedDateIndex - 1
+        self.selectedDateIndex -= 1
         self.updateSelectedDateIndex(self.selectedDateIndex)
     }
 
@@ -71,10 +70,23 @@ class DateSelectorViewModel {
 
     private static func getEndDate(fromDate: Date, period: DKTimelinePeriod) -> Date? {
         if period == .week {
-            return DateSelectorViewModel.calendar.date(byAdding: .day, value: 6, to: fromDate)
+            let numberOfWeekDays = 7
+            return DateSelectorViewModel.calendar.date(
+                byAdding: .day,
+                value: numberOfWeekDays - 1,
+                to: fromDate
+            )
         } else {
-            guard let nextMonth = DateSelectorViewModel.calendar.date(byAdding: .month, value: 1, to: fromDate) else { return nil }
-            return DateSelectorViewModel.calendar.date(byAdding: .day, value: -1, to: nextMonth)
+            guard let nextMonth = DateSelectorViewModel.calendar.date(
+                byAdding: .month,
+                value: 1,
+                to: fromDate
+            ) else { return nil }
+            return DateSelectorViewModel.calendar.date(
+                byAdding: .day,
+                value: -1,
+                to: nextMonth
+            )
         }
     }
 
@@ -114,6 +126,13 @@ class DateSelectorViewModel {
     }
 
     private func monthDateIntervalAttributedText() -> NSAttributedString {
-        return self.fromDate.format(pattern: .monthLetterYear).capitalizeFirstLetter().dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.primaryColor).build()
+        return self.fromDate
+            .format(pattern: .monthLetterYear)
+            .capitalizeFirstLetter()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .headLine1)
+            .color(.primaryColor)
+            .build()
+    }
     }
 }

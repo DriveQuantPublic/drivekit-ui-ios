@@ -140,7 +140,6 @@ class DateSelectorViewModel {
     private func yearDateIntervalAttributedText() -> NSAttributedString {
         return self.fromDate
             .format(pattern: .year)
-            .capitalizeFirstLetter()
             .dkAttributedString()
             .font(dkFont: .primary, style: .headLine1)
             .color(.primaryColor)

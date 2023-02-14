@@ -38,8 +38,6 @@ extension TransportationMode: DKFilterItem {
                 return DKDriverDataImages.transportationOnFoot.image
             case .idle:
                 return DKDriverDataImages.transportationIdle.image
-            @unknown default:
-                return nil
         }
     }
     
@@ -70,8 +68,6 @@ extension TransportationMode: DKFilterItem {
                 localizable = "dk_driverdata_transportation_mode_on_foot"
             case .idle:
                 localizable = "dk_driverdata_transportation_mode_idle"
-            @unknown default:
-                return ""
         }
         return localizable.dkDriverDataLocalized()
     }

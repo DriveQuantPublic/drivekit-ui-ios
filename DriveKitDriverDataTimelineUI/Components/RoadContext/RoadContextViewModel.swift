@@ -161,10 +161,8 @@ class RoadContextViewModel {
     
     func getActiveContextNumber() -> Int {
         var total: Int = 0
-        for (_, dist) in roadContextType.distanceByContext {
-            if dist > 0 {
-                total = total + 1
-            }
+        for (_, dist) in roadContextType.distanceByContext where dist > 0 {
+            total += 1
         }
         return total
     }

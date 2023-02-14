@@ -55,7 +55,21 @@ public class ConfigurationCircularProgressView {
     let ringColor: UIColor
     let valueFormatter: UICircularRingValueFormatter
 
-    public init(style: UICircularRingStyle?, maxValue: Double, value: Double, steps: [Double], image: UIImage? = nil, ringWidth: Int?, startAngle: Float = 0, endAngle: Float = 360, fontColor: UIColor?, fontSize: Int?, indicator: String?, floatingPoint: Bool = true, decimalPlaces: Int = 1) {
+    public init(
+        style: UICircularRingStyle?,
+        maxValue: Double,
+        value: Double,
+        steps: [Double],
+        image: UIImage? = nil,
+        ringWidth: Int?,
+        startAngle: Float = 0,
+        endAngle: Float = 360,
+        fontColor: UIColor?,
+        fontSize: Int?,
+        indicator: String?,
+        floatingPoint: Bool = true,
+        decimalPlaces: Int = 1
+    ) {
         self.style = style ?? .ontop
         self.maxValue = maxValue
         self.value = value

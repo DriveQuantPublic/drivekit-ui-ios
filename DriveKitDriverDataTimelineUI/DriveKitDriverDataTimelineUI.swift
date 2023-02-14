@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  DriveKitDriverDataTimelineUI.swift
 //  DriveKitDriverDataTimelineUI
@@ -17,16 +16,16 @@ import UIKit
 
     private var internalScores: [DKScoreType] = [.safety, .ecoDriving, .distraction, .speeding]
     public var scores: [DKScoreType] {
+        get {
+            self.internalScores.filter { score in
+                score.hasAccess()
+            }
+        }
         set {
             if newValue.isEmpty {
                 self.internalScores = [.safety]
             } else {
                 self.internalScores = newValue
-            }
-        }
-        get {
-            self.internalScores.filter { score in
-                score.hasAccess()
             }
         }
     }

@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  DKTimelineExtension.swift
 //  DriveKitDriverDataTimelineUI
@@ -31,6 +30,7 @@ extension DKRawTimeline {
         return selectedDateIndex
     }
     
+    // swiftlint:disable function_body_length
     /// Clean timeline to remove, if needed, values where there are only unscored trips.
     func cleaned(
         forScore score: DKScoreType,

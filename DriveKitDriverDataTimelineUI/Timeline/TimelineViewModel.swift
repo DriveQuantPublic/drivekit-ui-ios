@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  TimelineViewModel.swift
 //  DriveKitDriverDataTimelineUI
@@ -69,7 +68,10 @@ class TimelineViewModel {
         self.periodSelectorViewModel.delegate = self
         self.timelineGraphViewModel.delegate = self
 
-        DriveKitDriverData.shared.getTimelines(periods: [.week, .month], type: .cache) { [weak self] status, timelines in
+        DriveKitDriverData.shared.getRawTimelines(
+            periods: [.week, .month],
+            type: .cache
+        ) { [weak self] status, timelines in
             if let self {
                 if status == .cacheDataOnly, let timelines {
                     for timeline in timelines {
@@ -92,7 +94,10 @@ class TimelineViewModel {
     func updateTimeline() {
         self.updating = true
         self.delegate?.willUpdateTimeline()
-        DriveKitDriverData.shared.getTimelines(periods: [.week, .month], type: .defaultSync) { [weak self] status, timelines in
+        DriveKitDriverData.shared.getRawTimelines(
+            periods: [.week, .month],
+            type: .defaultSync
+        ) { [weak self] status, timelines in
             if let self {
                 if status != .noTimelineYet, let timelines {
                     for timeline in timelines {
@@ -134,7 +139,12 @@ class TimelineViewModel {
                 self.dateSelectorViewModel.configure(dates: dates, period: self.currentPeriod, selectedIndex: selectedDateIndex)
                 self.dateSelectorViewModel.delegate = self
                 self.periodSelectorViewModel.configure(selectedPeriod: self.currentPeriod)
-                self.timelineGraphViewModel.configure(timeline: cleanedTimeline, timelineSelectedIndex: selectedDateIndex, graphItem: .score(self.selectedScore), period: self.currentPeriod)
+                self.timelineGraphViewModel.configure(
+                    timeline: cleanedTimeline,
+                    timelineSelectedIndex: selectedDateIndex,
+                    graphItem: .score(self.selectedScore),
+                    period: self.currentPeriod
+                )
                 self.roadContextViewModel.configure(
                     with: selectedScore,
                     timeline: cleanedTimeline,

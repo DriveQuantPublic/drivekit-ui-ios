@@ -13,8 +13,13 @@ class PeriodSelectorViewModel {
     weak var delegate: PeriodSelectorDelegate?
     var periodDidChange: (() -> Void)?
     private(set) var selectedPeriod: DKTimelinePeriod = .week
+    private(set) var displayedPeriods: [DKTimelinePeriod] = [.week, .month]
 
-    func configure(selectedPeriod: DKTimelinePeriod) {
+    func configure(
+        displayedPeriods: [DKTimelinePeriod],// = [.week, .month],
+        selectedPeriod: DKTimelinePeriod
+    ) {
+        self.displayedPeriods = displayedPeriods
         if self.selectedPeriod != selectedPeriod {
             self.selectedPeriod = selectedPeriod
             self.periodDidChange?()
@@ -26,5 +31,9 @@ class PeriodSelectorViewModel {
             self.selectedPeriod = period
             self.delegate?.periodSelectorDidSelectPeriod(period)
         }
+    }
+    
+    func shouldHideButton(for period: DKTimelinePeriod) -> Bool {
+        self.displayedPeriods.contains(period) == false
     }
 }

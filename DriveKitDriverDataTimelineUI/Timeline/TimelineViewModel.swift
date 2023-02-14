@@ -138,7 +138,10 @@ class TimelineViewModel {
                 self.selectedDate = dates[selectedDateIndex]
                 self.dateSelectorViewModel.configure(dates: dates, period: self.currentPeriod, selectedIndex: selectedDateIndex)
                 self.dateSelectorViewModel.delegate = self
-                self.periodSelectorViewModel.configure(selectedPeriod: self.currentPeriod)
+                self.periodSelectorViewModel.configure(
+                    displayedPeriods: [.week, .month],
+                    selectedPeriod: self.currentPeriod
+                )
                 self.timelineGraphViewModel.configure(
                     timeline: cleanedTimeline,
                     timelineSelectedIndex: selectedDateIndex,

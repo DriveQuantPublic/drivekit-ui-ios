@@ -67,6 +67,7 @@ class TimelineDetailViewModel {
         // Update view models.
         if let selectedDateIndex {
             self.periodSelectorViewModel.configure(
+                displayedPeriods: [.week, .month],
                 selectedPeriod: selectedPeriod
             )
             self.periodSelectorViewModel.delegate = self

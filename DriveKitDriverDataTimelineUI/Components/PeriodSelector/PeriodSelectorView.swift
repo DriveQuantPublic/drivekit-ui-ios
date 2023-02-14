@@ -13,8 +13,15 @@ import DriveKitDBTripAccessModule
 class PeriodSelectorView: UIView {
     @IBOutlet private weak var weekButton: UIButton!
     @IBOutlet private weak var monthButton: UIButton!
+    @IBOutlet private weak var yearButton: UIButton!
     var viewModel: PeriodSelectorViewModel? {
         didSet {
+            if let viewModel {
+                self.weekButton.isHidden = viewModel.shouldHideButton(for: .week)
+                self.monthButton.isHidden = viewModel.shouldHideButton(for: .month)
+                self.yearButton.isHidden = viewModel.shouldHideButton(for: .year)
+            }
+            
             self.viewModel?.periodDidChange = { [weak self] in
                 self?.periodSelectorViewModelDidUpdate()
             }
@@ -28,6 +35,7 @@ class PeriodSelectorView: UIView {
 
         configureButton(self.weekButton, title: "dk_timeline_per_week".dkDriverDataTimelineLocalized())
         configureButton(self.monthButton, title: "dk_timeline_per_month".dkDriverDataTimelineLocalized())
+        configureButton(self.yearButton, title: "dk_driverdata_synthesis_year".dkDriverDataTimelineLocalized())
     }
 
     override func layoutSubviews() {
@@ -36,6 +44,7 @@ class PeriodSelectorView: UIView {
         // swiftlint:disable no_magic_numbers
         self.weekButton.layer.cornerRadius = self.weekButton.bounds.size.height / 2
         self.monthButton.layer.cornerRadius = self.monthButton.bounds.size.height / 2
+        self.yearButton.layer.cornerRadius = self.yearButton.bounds.size.height / 2
         // swiftlint:enable no_magic_numbers
     }
 
@@ -76,6 +85,8 @@ class PeriodSelectorView: UIView {
                     buttonToSelect = self.weekButton
                 case .month:
                     buttonToSelect = self.monthButton
+                case .year:
+                    buttonToSelect = self.yearButton
                 @unknown default:
                     buttonToSelect = self.weekButton
             }

@@ -191,6 +191,7 @@ extension DKRawTimeline {
         let cleanedTimeline = DKRawTimeline(period: self.period, allContext: allContext, roadContexts: roadContexts)
         return cleanedTimeline
     }
+    // swiftlint:enable function_body_length
     
     /// Compute distance by road contexts from the timeline
     func distanceByRoadContext(

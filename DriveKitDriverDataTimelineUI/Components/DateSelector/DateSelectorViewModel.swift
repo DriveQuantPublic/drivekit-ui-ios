@@ -96,6 +96,8 @@ class DateSelectorViewModel {
                 return weekDateIntervalAttributedText()
             case .month:
                 return monthDateIntervalAttributedText()
+            case .year:
+                return yearDateIntervalAttributedText()
             @unknown default:
                 fatalError("Unknown case")
         }
@@ -134,5 +136,14 @@ class DateSelectorViewModel {
             .color(.primaryColor)
             .build()
     }
+    
+    private func yearDateIntervalAttributedText() -> NSAttributedString {
+        return self.fromDate
+            .format(pattern: .year)
+            .capitalizeFirstLetter()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .headLine1)
+            .color(.primaryColor)
+            .build()
     }
 }

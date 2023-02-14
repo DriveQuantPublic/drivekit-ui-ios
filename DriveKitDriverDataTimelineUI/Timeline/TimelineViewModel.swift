@@ -7,10 +7,11 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
-import Foundation
 import DriveKitCommonUI
+import DriveKitCoreModule
 import DriveKitDBTripAccessModule
 import DriveKitDriverDataModule
+import Foundation
 
 class TimelineViewModel {
     private(set) var updating: Bool = false

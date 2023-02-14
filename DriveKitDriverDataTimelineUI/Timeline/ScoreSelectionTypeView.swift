@@ -7,8 +7,9 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
-import UIKit
 import DriveKitCommonUI
+import DriveKitCoreModule
+import UIKit
 
 class ScoreSelectionTypeView: UIControl {
     @IBOutlet private weak var imageView: UIImageView!

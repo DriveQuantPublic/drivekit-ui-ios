@@ -7,8 +7,9 @@
 //  Copyright © 2019 DriveQuant. All rights reserved.
 //
 
-import UIKit
+import DriveKitCoreModule
 import UICircularProgressRing
+import UIKit
 
 public enum CircularProgressViewSize {
     case small, medium, large

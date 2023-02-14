@@ -7,9 +7,10 @@
 //  Copyright © 2021 DriveQuant. All rights reserved.
 //
 
-import Foundation
-import DriveKitDBTripAccessModule
 import DriveKitCommonUI
+import DriveKitCoreModule
+import DriveKitDBTripAccessModule
+import Foundation
 
 class SpeedingPageViewModel {
     let scoreType: DKScoreType = .speeding

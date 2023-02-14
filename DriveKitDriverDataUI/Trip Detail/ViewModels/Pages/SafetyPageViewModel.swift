@@ -7,10 +7,11 @@
 //  Copyright © 2019 DriveQuant. All rights reserved.
 //
 
-import UIKit
-import DriveKitDBTripAccessModule
 import CoreLocation
 import DriveKitCommonUI
+import DriveKitCoreModule
+import DriveKitDBTripAccessModule
+import UIKit
 
 class SafetyPageViewModel {
     var scoreType: DKScoreType = .safety

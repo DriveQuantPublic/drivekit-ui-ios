@@ -7,9 +7,10 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
-import Foundation
 import DriveKitCommonUI
+import DriveKitCoreModule
 import DriveKitDBTripAccessModule
+import Foundation
 
 class TimelineDetailViewModel {
     weak var delegate: TimelineDetailViewModelDelegate?

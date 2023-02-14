@@ -7,6 +7,7 @@
 //  Copyright © 2019 DriveQuant. All rights reserved.
 //
 
+import DriveKitCoreModule
 import UIKit
 
 final class TripTableViewCell: UITableViewCell, Nibable {

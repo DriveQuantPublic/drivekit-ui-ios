@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  PeriodSelectorView.swift
 //  DriveKitDriverDataTimelineUI
@@ -34,8 +33,10 @@ class PeriodSelectorView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
 
+        // swiftlint:disable no_magic_numbers
         self.weekButton.layer.cornerRadius = self.weekButton.bounds.size.height / 2
         self.monthButton.layer.cornerRadius = self.monthButton.bounds.size.height / 2
+        // swiftlint:enable no_magic_numbers
     }
 
     private func configureButton(_ button: UIButton, title: String) {

@@ -104,7 +104,7 @@ class RoadContextViewModel {
     
     func configure(
         with selectedScore: DKScoreType,
-        timeline: DKTimeline?,
+        timeline: DKRawTimeline?,
         selectedIndex: Int? = nil
     ) {
         if let timeline, let selectedIndex, timeline.hasData {

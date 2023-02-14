@@ -17,8 +17,8 @@ class TimelineDetailViewModel {
     private let selectedScore: DKScoreType
     private var selectedPeriod: DKTimelinePeriod
     private var selectedDate: Date
-    private let weekTimeline: DKTimeline
-    private let monthTimeline: DKTimeline
+    private let weekTimeline: DKRawTimeline
+    private let monthTimeline: DKRawTimeline
     let periodSelectorViewModel: PeriodSelectorViewModel
     let dateSelectorViewModel: DateSelectorViewModel
     let roadContextViewModel: RoadContextViewModel
@@ -32,8 +32,8 @@ class TimelineDetailViewModel {
         selectedScore: DKScoreType,
         selectedPeriod: DKTimelinePeriod,
         selectedDate: Date,
-        weekTimeline: DKTimeline,
-        monthTimeline: DKTimeline
+        weekTimeline: DKRawTimeline,
+        monthTimeline: DKRawTimeline
     ) {
         self.selectedScore = selectedScore
         self.selectedPeriod = selectedPeriod
@@ -54,7 +54,7 @@ class TimelineDetailViewModel {
     private func updateViewModels() {
         let selectedTimeline = getTimelineSource()
         let sourceDates = selectedTimeline.allContext.date
-        let cleanedTimeline: DKTimeline
+        let cleanedTimeline: DKRawTimeline
         var selectedDateIndex = sourceDates.firstIndex(of: selectedDate)
         cleanedTimeline = selectedTimeline.cleaned(
             forScore: self.selectedScore,
@@ -100,8 +100,8 @@ class TimelineDetailViewModel {
         }
     }
     
-    private func getTimelineSource() -> DKTimeline {
-        let timelineSource: DKTimeline
+    private func getTimelineSource() -> DKRawTimeline {
+        let timelineSource: DKRawTimeline
         switch self.selectedPeriod {
             case .week:
                 timelineSource = self.weekTimeline

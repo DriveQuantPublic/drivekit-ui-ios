@@ -14,14 +14,14 @@ enum Helpers {
     static func newSelectedDate(
         from selectedDate: Date,
         switchingTo nextPeriod: DKTimelinePeriod,
-        weekTimeline: DKTimeline,
-        monthTimeline: DKTimeline
+        weekTimeline: DKRawTimeline,
+        monthTimeline: DKRawTimeline
     ) -> Date {
         guard weekTimeline.period == .week, monthTimeline.period == .month else {
             preconditionFailure("given timeline period are invalid, please check your parameters")
         }
         
-        let nextTimeline: DKTimeline
+        let nextTimeline: DKRawTimeline
         let compareDate: Date?
         var newSelectedDate = selectedDate
         

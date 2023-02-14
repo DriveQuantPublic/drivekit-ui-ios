@@ -26,8 +26,8 @@ class TimelineViewModel {
             update()
         }
     }
-    private var weekTimeline: DKTimeline?
-    private var monthTimeline: DKTimeline?
+    private var weekTimeline: DKRawTimeline?
+    private var monthTimeline: DKRawTimeline?
     private var currentPeriod: DKTimelinePeriod
     private var selectedDate: Date?
     
@@ -119,7 +119,7 @@ class TimelineViewModel {
                 self.selectedDate = nil
             }
             // Clean timeline to remove, if needed, values where there are only unscored trips.
-            let cleanedTimeline: DKTimeline
+            let cleanedTimeline: DKRawTimeline
             if let date = self.selectedDate {
                 let selectedDateIndex = timelineSource.selectedIndex(for: date)
                 cleanedTimeline = timelineSource.cleaned(forScore: self.selectedScore, selectedIndex: selectedDateIndex)
@@ -170,8 +170,8 @@ class TimelineViewModel {
         self.shouldHideDetailButton = true
     }
 
-    private func getTimelineSource() -> DKTimeline? {
-        let timelineSource: DKTimeline?
+    private func getTimelineSource() -> DKRawTimeline? {
+        let timelineSource: DKRawTimeline?
         switch self.currentPeriod {
             case .week:
                 timelineSource = self.weekTimeline

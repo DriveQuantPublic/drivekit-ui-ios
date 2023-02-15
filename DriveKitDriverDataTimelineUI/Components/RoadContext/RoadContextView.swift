@@ -7,6 +7,7 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
+import DriveKitCommonUI
 import UIKit
 
 class RoadContextView: UIView {
@@ -72,7 +73,7 @@ extension RoadContextView {
         embededIn containerView: UIView
     ) {
         let roadContextView = RoadContextView()
-        containerView.layer.cornerRadius = TimelineConstants.UIStyle.cornerRadius
+        containerView.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
         containerView.clipsToBounds = true
         viewModel.delegate = roadContextView
         roadContextView.configure(viewModel: viewModel)

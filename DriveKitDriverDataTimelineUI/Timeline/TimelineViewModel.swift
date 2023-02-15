@@ -27,7 +27,7 @@ class TimelineViewModel {
     }
     private var weekTimeline: DKRawTimeline?
     private var monthTimeline: DKRawTimeline?
-    private var currentPeriod: DKTimelinePeriod
+    private var currentPeriod: DKPeriod
     private var selectedDate: Date?
     
     private(set) var shouldHideDetailButton: Bool = true {
@@ -195,7 +195,7 @@ class TimelineViewModel {
 }
 
 extension TimelineViewModel: PeriodSelectorDelegate {
-    func periodSelectorDidSelectPeriod(_ period: DKTimelinePeriod) {
+    func periodSelectorDidSelectPeriod(_ period: DKPeriod) {
         if self.currentPeriod != period {
             self.currentPeriod = period
             if let selectedDate = self.selectedDate, let weekTimeline, let monthTimeline {
@@ -231,7 +231,7 @@ extension TimelineViewModel: TimelineDetailViewModelDelegate {
         update()
     }
     
-    func didUpdate(selectedPeriod: DKTimelinePeriod) {
+    func didUpdate(selectedPeriod: DKPeriod) {
         if self.currentPeriod != selectedPeriod {
             self.currentPeriod = selectedPeriod
             if let selectedDate = self.selectedDate, let weekTimeline, let monthTimeline {

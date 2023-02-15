@@ -6,13 +6,14 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
-import Foundation
+import DriveKitCoreModule
 import DriveKitDBTripAccessModule
+import Foundation
 
 enum Helpers {
     static func newSelectedDate(
         from selectedDate: Date,
-        switchingTo nextPeriod: DKTimelinePeriod,
+        switchingTo nextPeriod: DKPeriod,
         weekTimeline: DKRawTimeline,
         monthTimeline: DKRawTimeline
     ) -> Date {

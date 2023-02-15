@@ -7,9 +7,10 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
-import Foundation
-import DriveKitDBTripAccessModule
 import DriveKitCommonUI
+import DriveKitCoreModule
+import DriveKitDBTripAccessModule
+import Foundation
 
 class TimelineGraphViewModel: GraphViewModel {
     weak var delegate: TimelineGraphDelegate?
@@ -27,7 +28,7 @@ class TimelineGraphViewModel: GraphViewModel {
     private var indexOfLastPointInTimeline: Int?
     private static let graphPointNumber: Int = 8
     
-    func configure(timeline: DKRawTimeline, timelineSelectedIndex: Int, graphItem: GraphItem, period: DKTimelinePeriod) {
+    func configure(timeline: DKRawTimeline, timelineSelectedIndex: Int, graphItem: GraphItem, period: DKPeriod) {
         let sourceDates = timeline.allContext.date
         let dates: [Date] = sourceDates.map { date in
             date.dateByRemovingTime() ?? date
@@ -109,7 +110,7 @@ class TimelineGraphViewModel: GraphViewModel {
         )
     }
     
-    func showEmptyGraph(graphItem: GraphItem, period: DKTimelinePeriod) {
+    func showEmptyGraph(graphItem: GraphItem, period: DKPeriod) {
         let dateComponent = dateComponent(for: period)
         let graphPointNumber = Self.graphPointNumber
         let now = Date()
@@ -161,7 +162,7 @@ class TimelineGraphViewModel: GraphViewModel {
         self.graphViewModelDidUpdate?()
     }
     
-    private func graphLabelsFrom(startDate: Date?, dateComponent: Calendar.Component, period: DKTimelinePeriod, graphPointNumber: Int) -> [String] {
+    private func graphLabelsFrom(startDate: Date?, dateComponent: Calendar.Component, period: DKPeriod, graphPointNumber: Int) -> [String] {
         var graphDates: [String] = []
         for i in 0..<graphPointNumber {
             let date: Date? = startDate?.date(byAdding: i, calendarUnit: dateComponent)
@@ -352,7 +353,7 @@ class TimelineGraphViewModel: GraphViewModel {
         }
     }
     
-    private func dateComponent(for period: DKTimelinePeriod) -> Calendar.Component {
+    private func dateComponent(for period: DKPeriod) -> Calendar.Component {
         let dateComponent: Calendar.Component
         switch period {
         case .week:
@@ -365,7 +366,7 @@ class TimelineGraphViewModel: GraphViewModel {
         return dateComponent
     }
     
-    private func dateFormatPattern(for period: DKTimelinePeriod) -> DKDatePattern {
+    private func dateFormatPattern(for period: DKPeriod) -> DKDatePattern {
         let dateFormat: DKDatePattern
         switch period {
         case .week:

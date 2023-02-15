@@ -104,12 +104,12 @@ extension TimelineGraphView {
         timelineGraphView.delegate = viewModel
         
         if let stackView = containerView as? UIStackView {
-            timelineGraphView.layer.cornerRadius = TimelineConstants.UIStyle.cornerRadius
+            timelineGraphView.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
             timelineGraphView.clipsToBounds = true
             timelineGraphView.heightAnchor.constraint(equalToConstant: 275).isActive = true
             stackView.addArrangedSubview(timelineGraphView)
         } else {
-            containerView.layer.cornerRadius = TimelineConstants.UIStyle.cornerRadius
+            containerView.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
             containerView.clipsToBounds = true
             containerView.embedSubview(timelineGraphView)
         }

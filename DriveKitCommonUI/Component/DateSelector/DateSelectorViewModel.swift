@@ -1,6 +1,6 @@
 //
 //  DateSelectorViewModel.swift
-//  DriveKitDriverDataTimelineUI
+//  DriveKitCommonUI
 //
 //  Created by David Bauduin on 14/10/2022.
 //  Copyright © 2022 DriveQuant. All rights reserved.
@@ -8,18 +8,17 @@
 
 import Foundation
 import DriveKitCoreModule
-import DriveKitDBTripAccessModule
 
-class DateSelectorViewModel {
+public class DateSelectorViewModel {
     private static let calendar = Calendar(identifier: .gregorian)
-    private var dates: [Date] = []
-    private var period: DKTimelinePeriod = .week
-    private var selectedDateIndex: Int = -1
-    weak var delegate: DateSelectorDelegate?
-    private(set) var hasPreviousDate: Bool = false
-    private(set) var hasNextDate: Bool = false
-    private(set) var fromDate: Date = Date()
-    private(set) var toDate: Date = Date()
+    private var dates: [Date]
+    private var period: DKPeriod
+    private var selectedDateIndex: Int
+    public weak var delegate: DateSelectorDelegate?
+    private(set) var hasPreviousDate: Bool
+    private(set) var hasNextDate: Bool
+    private(set) var fromDate: Date
+    private(set) var toDate: Date
     var dateSelectorViewModelDidUpdate: (() -> Void)?
 
     private var selectedDate: Date {
@@ -28,8 +27,20 @@ class DateSelectorViewModel {
         }
         return self.dates[self.selectedDateIndex]
     }
+    
+    public init() {
+        self.dates = []
+        self.period = .week
+        self.selectedDateIndex = -1
+        self.delegate = nil
+        self.hasPreviousDate = false
+        self.hasNextDate = false
+        self.fromDate = Date()
+        self.toDate = Date()
+        self.dateSelectorViewModelDidUpdate = nil
+    }
 
-    func configure(dates: [Date], period: DKTimelinePeriod = .week, selectedIndex: Int? = nil) {
+    public func configure(dates: [Date], period: DKPeriod = .week, selectedIndex: Int? = nil) {
         self.dates = dates
         self.period = period
         self.selectedDateIndex = selectedIndex ?? dates.count - 1
@@ -68,7 +79,7 @@ class DateSelectorViewModel {
         self.toDate = DateSelectorViewModel.getEndDate(fromDate: self.fromDate, period: self.period) ?? Date()
     }
 
-    private static func getEndDate(fromDate: Date, period: DKTimelinePeriod) -> Date? {
+    private static func getEndDate(fromDate: Date, period: DKPeriod) -> Date? {
         if period == .week {
             let numberOfWeekDays = 7
             return DateSelectorViewModel.calendar.date(

@@ -1,28 +1,26 @@
-// swiftlint:disable all
 //
 //  DateSelectorView.swift
-//  DriveKitDriverDataTimelineUI
+//  DriveKitCommonUI
 //
 //  Created by David Bauduin on 14/10/2022.
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
 import UIKit
-import DriveKitCommonUI
 
-class DateSelectorView: UIView {
+public class DateSelectorView: UIView {
     @IBOutlet private weak var dateIntervalLabel: UILabel!
     @IBOutlet private weak var nextButton: UIButton!
     @IBOutlet private weak var previousButton: UIButton!
 
     private var viewModel: DateSelectorViewModel?
     
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         setupView()
     }
 
-    func configure(viewModel: DateSelectorViewModel?) {
+    public func configure(viewModel: DateSelectorViewModel?) {
         self.viewModel = viewModel
         self.setupView()
         self.viewModel?.dateSelectorViewModelDidUpdate = { [weak self] in
@@ -49,11 +47,11 @@ class DateSelectorView: UIView {
 }
 
 extension DateSelectorView {
-    static func createDateSelectorView(
+    public static func createDateSelectorView(
         configuredWith viewModel: DateSelectorViewModel,
         embededIn containerView: UIView
     ) {
-        guard let dateSelectorView = Bundle.driverDataTimelineUIBundle?.loadNibNamed(
+        guard let dateSelectorView = Bundle.driveKitCommonUIBundle?.loadNibNamed(
             "DateSelectorView",
             owner: nil
         )?.first as? DateSelectorView else {
@@ -62,7 +60,7 @@ extension DateSelectorView {
         
         dateSelectorView.configure(viewModel: viewModel)
         containerView.embedSubview(dateSelectorView)
-        containerView.layer.cornerRadius = TimelineConstants.UIStyle.cornerRadius
+        containerView.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
         containerView.clipsToBounds = true
     }
 }

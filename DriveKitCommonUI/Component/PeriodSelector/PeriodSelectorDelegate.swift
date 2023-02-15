@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  PeriodSelectorDelegate.swift
 //  DriveKitDriverDataTimelineUI
@@ -7,9 +6,9 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
+import DriveKitCoreModule
 import Foundation
-import DriveKitDBTripAccessModule
 
-protocol PeriodSelectorDelegate: AnyObject {
-    func periodSelectorDidSelectPeriod(_ period: DKTimelinePeriod)
+public protocol PeriodSelectorDelegate: AnyObject {
+    func periodSelectorDidSelectPeriod(_ period: DKPeriod)
 }

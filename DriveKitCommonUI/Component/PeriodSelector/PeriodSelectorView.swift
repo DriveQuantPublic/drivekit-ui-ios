@@ -6,11 +6,10 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
+import DriveKitCoreModule
 import UIKit
-import DriveKitCommonUI
-import DriveKitDBTripAccessModule
 
-class PeriodSelectorView: UIView {
+public class PeriodSelectorView: UIView {
     @IBOutlet private weak var weekButton: UIButton!
     @IBOutlet private weak var monthButton: UIButton!
     @IBOutlet private weak var yearButton: UIButton!
@@ -30,15 +29,15 @@ class PeriodSelectorView: UIView {
     }
     private var selectedButton: UIButton?
 
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
 
-        configureButton(self.weekButton, title: "dk_timeline_per_week".dkDriverDataTimelineLocalized())
-        configureButton(self.monthButton, title: "dk_timeline_per_month".dkDriverDataTimelineLocalized())
-        configureButton(self.yearButton, title: "dk_driverdata_synthesis_year".dkDriverDataTimelineLocalized())
+        configureButton(self.weekButton, title: DKCommonLocalizable.periodSelectorWeek.text())
+        configureButton(self.monthButton, title: DKCommonLocalizable.periodSelectorMonth.text())
+        configureButton(self.yearButton, title: DKCommonLocalizable.periodSelectorYear.text())
     }
 
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
 
         // swiftlint:disable no_magic_numbers
@@ -62,7 +61,7 @@ class PeriodSelectorView: UIView {
             self.selectedButton = button
             button.isSelected = true
             if let viewModel = self.viewModel {
-                let period: DKTimelinePeriod?
+                let period: DKPeriod?
                 if button == self.weekButton {
                     period = .week
                 } else if button == self.monthButton {
@@ -98,11 +97,11 @@ class PeriodSelectorView: UIView {
 }
 
 extension PeriodSelectorView {
-    static func createPeriodSelectorView(
+    public static func createPeriodSelectorView(
         configuredWith viewModel: PeriodSelectorViewModel,
         embededIn containerView: UIView
     ) {
-        guard let periodSelector = Bundle.driverDataTimelineUIBundle?.loadNibNamed(
+        guard let periodSelector = Bundle.driveKitCommonUIBundle?.loadNibNamed(
             "PeriodSelectorView",
             owner: nil,
             options: nil

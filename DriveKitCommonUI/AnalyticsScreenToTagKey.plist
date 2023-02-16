@@ -4,6 +4,8 @@
 <dict>
 	<key>DriverData</key>
 	<dict>
+		<key>MySynthesisViewController</key>
+		<string>dk_tag_my_synthesis</string>
 		<key>TripListVC</key>
 		<string>dk_tag_trips_list</string>
 		<key>TripDetailVC</key>

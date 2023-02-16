@@ -17,8 +17,6 @@
 "dk_timeline_nb_unlocks"="Número de desbloqueos / 100 km: %@";
 "dk_timeline_overspeeding_distance"="Distancia relativa al exceso de velocidad: %@";
 "dk_timeline_overspeeding_duration"="Duración relativa de la sobrecarga: %@";
-"dk_timeline_per_month"="Mes";
-"dk_timeline_per_week"="Semana";
 "dk_timeline_road_context_city"="Urbano fluido";
 "dk_timeline_road_context_description_empty_data"="Haz un primer viaje para ver aparecer tus primeros gráficos.";
 "dk_timeline_road_context_description_no_data_ecodriving"="Los viajes para las fechas seleccionadas son demasiado cortos para tener una puntuación de ecoconducción";

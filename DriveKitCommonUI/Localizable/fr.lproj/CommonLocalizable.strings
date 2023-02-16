@@ -43,6 +43,9 @@
 "dk_common_no"="Non";
 "dk_common_no_pseudo_set"="Pour partager votre classement avec les autres participants, nous vous invitons à choisir un pseudo. Sans pseudo, vous apparaitrez comme anonyme.";
 "dk_common_ok"="OK";
+"dk_common_period_selector_month"="Mois";
+"dk_common_period_selector_week"="Semaine";
+"dk_common_period_selector_year"="Année";
 "dk_common_permission_camera_rationale"="L\'application a besoin de l\'autorisation d\'accéder à la caméra de votre smartphone pour utiliser cette fonctionnalité.";
 "dk_common_permission_storage_rationale"="L\'application a besoin de l\'autorisation d\'accéder au stockage de votre smartphone pour utiliser cette fonctionnalité.";
 "dk_common_permissions"="Autorisations";

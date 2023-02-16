@@ -43,6 +43,9 @@
 "dk_common_no"="Nein";
 "dk_common_no_pseudo_set"="Um Ihr Ranking mit den anderen Teilnehmern zu teilen, laden wir Sie ein, ein Pseudo zu wählen. Ohne ein Pseudo erscheinen Sie als anonym.";
 "dk_common_ok"="OK";
+"dk_common_period_selector_month"="Monat";
+"dk_common_period_selector_week"="Woche";
+"dk_common_period_selector_year"="Jahr";
 "dk_common_permission_camera_rationale"="Für die Nutzung dieser Funktion benötigt die Anwendung die Berechtigung zum Zugriff auf die Kamera Ihres Smartphones.";
 "dk_common_permission_storage_rationale"="Für die Nutzung dieser Funktion benötigt die Anwendung die Berechtigung zum Zugriff auf den Speicher Ihres Smartphones.";
 "dk_common_permissions"="Genehmigungen";

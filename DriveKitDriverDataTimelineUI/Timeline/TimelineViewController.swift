@@ -6,19 +6,18 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
-import UIKit
 import DriveKitCommonUI
+import UIKit
 
 class TimelineViewController: DKUIViewController {
     @IBOutlet private weak var scrollView: UIScrollView!
-    @IBOutlet private weak var scoreSelectorView: UIStackView!
+    @IBOutlet private weak var scoreSelectorContainer: UIView!
     @IBOutlet private weak var periodSelectorContainer: UIView!
     @IBOutlet private weak var dateSelectorContainer: UIView!
     @IBOutlet private weak var roadContextContainer: UIView!
     @IBOutlet private weak var timelineGraphViewContainer: UIView!
     @IBOutlet weak var showTimelineDetailButton: UIButton!
     private let viewModel: TimelineViewModel
-    private var selectedScoreSelectionTypeView: ScoreSelectionTypeView?
 
     init(viewModel: TimelineViewModel) {
         self.viewModel = viewModel
@@ -40,7 +39,6 @@ class TimelineViewController: DKUIViewController {
         self.scrollView.refreshControl = refreshControl
 
         setupSelectors()
-        setupDateSelector()
         setupGraphView()
         setupRoadContext()
         setupDetailButton()
@@ -70,41 +68,20 @@ class TimelineViewController: DKUIViewController {
         self.scrollView.refreshControl?.endRefreshing()
     }
 
-    @objc private func onScoreSelectionTypeViewSelected(sender: ScoreSelectionTypeView) {
-        self.selectedScoreSelectionTypeView?.setSelected(false)
-        self.selectedScoreSelectionTypeView = sender
-        sender.setSelected(true)
-        if let scoreType = sender.scoreType, self.viewModel.selectedScore != scoreType {
-            self.viewModel.selectedScore = scoreType
-        }
-    }
-
     private func setupSelectors() {
-        let scores = self.viewModel.scores
-        let minimumScoreCountRequiredToDisplayScoreSelector = 2
-        if scores.count < minimumScoreCountRequiredToDisplayScoreSelector {
-            self.scoreSelectorView.isHidden = true
-        } else {
-            let selectedScore = self.viewModel.selectedScore
-            self.scoreSelectorView.isHidden = false
-            self.scoreSelectorView.removeAllSubviews()
-            for score in scores {
-                if let selectorView = Bundle.driverDataTimelineUIBundle?.loadNibNamed("ScoreSelectionTypeView", owner: nil, options: nil)?.first as? ScoreSelectionTypeView {
-                    selectorView.update(scoreType: score)
-                    let selected = score == selectedScore
-                    selectorView.setSelected(selected)
-                    if selected {
-                        self.selectedScoreSelectionTypeView = selectorView
-                    }
-                    selectorView.addTarget(self, action: #selector(onScoreSelectionTypeViewSelected(sender:)), for: .touchUpInside)
-                    self.scoreSelectorView.addArrangedSubview(selectorView)
-                }
-            }
-        }
+        ScoreSelectorView.createScoreSelectorView(
+            configuredWith: viewModel.scoreSelectorViewModel,
+            embededIn: scoreSelectorContainer
+        )
         
         PeriodSelectorView.createPeriodSelectorView(
             configuredWith: viewModel.periodSelectorViewModel,
             embededIn: periodSelectorContainer
+        )
+        
+        DateSelectorView.createDateSelectorView(
+            configuredWith: viewModel.dateSelectorViewModel,
+            embededIn: dateSelectorContainer
         )
     }
 
@@ -112,13 +89,6 @@ class TimelineViewController: DKUIViewController {
         TimelineGraphView.createTimelineGraphView(
             configuredWith: viewModel.timelineGraphViewModel,
             embededIn: timelineGraphViewContainer
-        )
-    }
-
-    private func setupDateSelector() {
-        DateSelectorView.createDateSelectorView(
-            configuredWith: viewModel.dateSelectorViewModel,
-            embededIn: dateSelectorContainer
         )
     }
 

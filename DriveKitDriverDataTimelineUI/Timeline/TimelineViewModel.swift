@@ -15,16 +15,11 @@ import Foundation
 class TimelineViewModel {
     private(set) var updating: Bool = false
     weak var delegate: TimelineViewModelDelegate?
-    let scores: [DKScoreType]
+    let scoreSelectorViewModel: ScoreSelectorViewModel
     let dateSelectorViewModel: DateSelectorViewModel
     let periodSelectorViewModel: PeriodSelectorViewModel
     let roadContextViewModel: RoadContextViewModel
     let timelineGraphViewModel: TimelineGraphViewModel
-    var selectedScore: DKScoreType {
-        didSet {
-            update()
-        }
-    }
     private var weekTimeline: DKRawTimeline?
     private var monthTimeline: DKRawTimeline?
     private var selectedDate: Date?
@@ -44,7 +39,7 @@ class TimelineViewModel {
             preconditionFailure("This method should not be called until timeline data is available (disable the button)")
         }
         let detailVM = TimelineDetailViewModel(
-            selectedScore: selectedScore,
+            selectedScore: scoreSelectorViewModel.selectedScore,
             selectedPeriod: periodSelectorViewModel.selectedPeriod,
             selectedDate: selectedDate,
             weekTimeline: weekTimeline,
@@ -55,14 +50,13 @@ class TimelineViewModel {
     }
 
     init() {
-        self.scores = DriveKitDriverDataTimelineUI.shared.scores
-        self.selectedScore = self.scores.first ?? .safety
-
+        self.scoreSelectorViewModel = ScoreSelectorViewModel()
         self.dateSelectorViewModel = DateSelectorViewModel()
         self.periodSelectorViewModel = PeriodSelectorViewModel()
         self.roadContextViewModel = RoadContextViewModel()
         self.timelineGraphViewModel = TimelineGraphViewModel()
 
+        self.scoreSelectorViewModel.delegate = self
         self.periodSelectorViewModel.delegate = self
         self.timelineGraphViewModel.delegate = self
 
@@ -125,9 +119,9 @@ class TimelineViewModel {
             let cleanedTimeline: DKRawTimeline
             if let date = self.selectedDate {
                 let selectedDateIndex = timelineSource.selectedIndex(for: date)
-                cleanedTimeline = timelineSource.cleaned(forScore: self.selectedScore, selectedIndex: selectedDateIndex)
+                cleanedTimeline = timelineSource.cleaned(forScore: self.scoreSelectorViewModel.selectedScore, selectedIndex: selectedDateIndex)
             } else {
-                cleanedTimeline = timelineSource.cleaned(forScore: self.selectedScore, selectedIndex: nil)
+                cleanedTimeline = timelineSource.cleaned(forScore: self.scoreSelectorViewModel.selectedScore, selectedIndex: nil)
             }
 
             // Update view models.
@@ -139,15 +133,15 @@ class TimelineViewModel {
                 self.timelineGraphViewModel.configure(
                     timeline: cleanedTimeline,
                     timelineSelectedIndex: selectedDateIndex,
-                    graphItem: .score(self.selectedScore),
+                    graphItem: .score(self.scoreSelectorViewModel.selectedScore),
                     period: self.periodSelectorViewModel.selectedPeriod
                 )
                 self.roadContextViewModel.configure(
-                    with: selectedScore,
+                    with: scoreSelectorViewModel.selectedScore,
                     timeline: cleanedTimeline,
                     selectedIndex: selectedDateIndex
                 )
-                self.shouldHideDetailButton = cleanedTimeline.hasValidTripScored(for: selectedScore, at: selectedDateIndex) == false
+                self.shouldHideDetailButton = cleanedTimeline.hasValidTripScored(for: scoreSelectorViewModel.selectedScore, at: selectedDateIndex) == false
             } else {
                 configureWithNoData()
             }
@@ -172,9 +166,12 @@ class TimelineViewModel {
                 period: self.periodSelectorViewModel.selectedPeriod,
                 selectedIndex: 0
             )
-            self.timelineGraphViewModel.showEmptyGraph(graphItem: .score(self.selectedScore), period: self.periodSelectorViewModel.selectedPeriod)
+            self.timelineGraphViewModel.showEmptyGraph(
+                graphItem: .score(self.scoreSelectorViewModel.selectedScore),
+                period: self.periodSelectorViewModel.selectedPeriod
+            )
             roadContextViewModel.configure(
-                with: selectedScore,
+                with: scoreSelectorViewModel.selectedScore,
                 timeline: getTimelineSource()
             )
         }
@@ -216,6 +213,12 @@ extension TimelineViewModel: PeriodSelectorDelegate {
 extension TimelineViewModel: DateSelectorDelegate {
     func dateSelectorDidSelectDate(_ date: Date) {
         self.selectedDate = date
+        update()
+    }
+}
+
+extension TimelineViewModel: ScoreSelectorDelegate {
+    func scoreSelectorDidSelectScore(_ score: DKScoreType) {
         update()
     }
 }

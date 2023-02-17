@@ -6,14 +6,13 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
-import DriveKitCommonUI
 import DriveKitCoreModule
 import UIKit
 
 class ScoreSelectionTypeView: UIControl {
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var selectionIndicator: UIView!
-    private(set) var scoreType: DKScoreType?
+    private(set) var scoreType: DKScoreType!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,10 +21,23 @@ class ScoreSelectionTypeView: UIControl {
 
     func update(scoreType: DKScoreType) {
         self.scoreType = scoreType
-        self.imageView.image = scoreType.timelineScoreSelectorImage()
+        self.imageView.image = scoreType.scoreSelectorImage()
     }
 
     func setSelected(_ selected: Bool) {
         self.selectionIndicator.isHidden = !selected
+    }
+}
+
+extension ScoreSelectionTypeView {
+    static func createScoreSelectionButton(for score: DKScoreType, isSelected: Bool) -> ScoreSelectionTypeView? {
+        guard let selectorView = Bundle.driveKitCommonUIBundle?.loadNibNamed("ScoreSelectionTypeView", owner: nil, options: nil)?.first as? ScoreSelectionTypeView else {
+            assertionFailure("Can't find ScoreSelectionTypeView.xib file in CommonUI Bundle")
+            return nil
+        }
+        
+        selectorView.update(scoreType: score)
+        selectorView.setSelected(isSelected)
+        return selectorView
     }
 }

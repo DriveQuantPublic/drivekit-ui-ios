@@ -13,7 +13,7 @@ public class PeriodSelectorViewModel {
     public weak var delegate: PeriodSelectorDelegate?
     public var periodDidChange: (() -> Void)?
     public private(set) var selectedPeriod: DKPeriod
-    private(set) var displayedPeriods: Set<DKPeriod>
+    public private(set) var displayedPeriods: Set<DKPeriod>
     
     public init() {
         self.delegate = nil
@@ -33,7 +33,7 @@ public class PeriodSelectorViewModel {
         }
     }
 
-    func didSelectPeriod(_ period: DKPeriod) {
+    public func didSelectPeriod(_ period: DKPeriod) {
         if self.selectedPeriod != period {
             self.selectedPeriod = period
             self.delegate?.periodSelectorDidSelectPeriod(period)

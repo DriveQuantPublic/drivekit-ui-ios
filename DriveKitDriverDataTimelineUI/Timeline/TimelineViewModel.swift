@@ -27,7 +27,6 @@ class TimelineViewModel {
     }
     private var weekTimeline: DKRawTimeline?
     private var monthTimeline: DKRawTimeline?
-    private var currentPeriod: DKPeriod
     private var selectedDate: Date?
     
     private(set) var shouldHideDetailButton: Bool = true {
@@ -63,7 +62,6 @@ class TimelineViewModel {
         self.periodSelectorViewModel = PeriodSelectorViewModel()
         self.roadContextViewModel = RoadContextViewModel()
         self.timelineGraphViewModel = TimelineGraphViewModel()
-        self.currentPeriod = self.periodSelectorViewModel.selectedPeriod
 
         self.periodSelectorViewModel.delegate = self
         self.timelineGraphViewModel.delegate = self
@@ -136,17 +134,13 @@ class TimelineViewModel {
             if let selectedDateIndex = cleanedTimeline.selectedIndex(for: selectedDate) {
                 let dates = cleanedTimeline.allContext.date
                 self.selectedDate = dates[selectedDateIndex]
-                self.dateSelectorViewModel.configure(dates: dates, period: self.currentPeriod, selectedIndex: selectedDateIndex)
+                self.dateSelectorViewModel.configure(dates: dates, period: self.periodSelectorViewModel.selectedPeriod, selectedIndex: selectedDateIndex)
                 self.dateSelectorViewModel.delegate = self
-                self.periodSelectorViewModel.configure(
-                    displayedPeriods: [.week, .month],
-                    selectedPeriod: self.currentPeriod
-                )
                 self.timelineGraphViewModel.configure(
                     timeline: cleanedTimeline,
                     timelineSelectedIndex: selectedDateIndex,
                     graphItem: .score(self.selectedScore),
-                    period: self.currentPeriod
+                    period: self.periodSelectorViewModel.selectedPeriod
                 )
                 self.roadContextViewModel.configure(
                     with: selectedScore,
@@ -164,7 +158,7 @@ class TimelineViewModel {
 
     private func configureWithNoData() {
         let startDate: Date?
-        switch self.currentPeriod {
+        switch self.periodSelectorViewModel.selectedPeriod {
             case .week:
                 startDate = Date().beginning(relativeTo: .weekOfMonth)
             case .month:
@@ -173,8 +167,12 @@ class TimelineViewModel {
                 startDate = nil
         }
         if let startDate {
-            self.dateSelectorViewModel.configure(dates: [startDate], period: self.currentPeriod, selectedIndex: 0)
-            self.timelineGraphViewModel.showEmptyGraph(graphItem: .score(self.selectedScore), period: self.currentPeriod)
+            self.dateSelectorViewModel.configure(
+                dates: [startDate],
+                period: self.periodSelectorViewModel.selectedPeriod,
+                selectedIndex: 0
+            )
+            self.timelineGraphViewModel.showEmptyGraph(graphItem: .score(self.selectedScore), period: self.periodSelectorViewModel.selectedPeriod)
             roadContextViewModel.configure(
                 with: selectedScore,
                 timeline: getTimelineSource()
@@ -185,7 +183,7 @@ class TimelineViewModel {
 
     private func getTimelineSource() -> DKRawTimeline? {
         let timelineSource: DKRawTimeline?
-        switch self.currentPeriod {
+        switch self.periodSelectorViewModel.selectedPeriod {
             case .week:
                 timelineSource = self.weekTimeline
             case .month:
@@ -195,22 +193,23 @@ class TimelineViewModel {
         }
         return timelineSource
     }
+    
+    private func updateStateAfterSelectingPeriod(_ selectedPeriod: DKPeriod) {
+        if let selectedDate = self.selectedDate, let weekTimeline, let monthTimeline {
+            self.selectedDate = Helpers.newSelectedDate(
+                from: selectedDate,
+                switchingTo: selectedPeriod,
+                weekTimeline: weekTimeline,
+                monthTimeline: monthTimeline
+            )
+        }
+        update()
+    }
 }
 
 extension TimelineViewModel: PeriodSelectorDelegate {
     func periodSelectorDidSelectPeriod(_ period: DKPeriod) {
-        if self.currentPeriod != period {
-            self.currentPeriod = period
-            if let selectedDate = self.selectedDate, let weekTimeline, let monthTimeline {
-                self.selectedDate = Helpers.newSelectedDate(
-                    from: selectedDate,
-                    switchingTo: period,
-                    weekTimeline: weekTimeline,
-                    monthTimeline: monthTimeline
-                )
-            }
-            update()
-        }
+        updateStateAfterSelectingPeriod(period)
     }
 }
 
@@ -235,17 +234,12 @@ extension TimelineViewModel: TimelineDetailViewModelDelegate {
     }
     
     func didUpdate(selectedPeriod: DKPeriod) {
-        if self.currentPeriod != selectedPeriod {
-            self.currentPeriod = selectedPeriod
-            if let selectedDate = self.selectedDate, let weekTimeline, let monthTimeline {
-                self.selectedDate = Helpers.newSelectedDate(
-                    from: selectedDate,
-                    switchingTo: selectedPeriod,
-                    weekTimeline: weekTimeline,
-                    monthTimeline: monthTimeline
-                )
-            }
-            update()
+        if self.periodSelectorViewModel.selectedPeriod != selectedPeriod {
+            self.periodSelectorViewModel.configure(
+                displayedPeriods: self.periodSelectorViewModel.displayedPeriods,
+                selectedPeriod: selectedPeriod
+            )
+            updateStateAfterSelectingPeriod(selectedPeriod)
         }
     }
 }

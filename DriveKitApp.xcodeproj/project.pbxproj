@@ -353,7 +353,6 @@
 		63F8B29228F958B90084B53A /* DriveKitDriverDataTimelineUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 63F8B29128F958B90084B53A /* DriveKitDriverDataTimelineUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		63F8B29528F958B90084B53A /* DriveKitDriverDataTimelineUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F8B28F28F958B90084B53A /* DriveKitDriverDataTimelineUI.framework */; };
 		63F8B29628F958B90084B53A /* DriveKitDriverDataTimelineUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 63F8B28F28F958B90084B53A /* DriveKitDriverDataTimelineUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		63F8B29E28F95E3F0084B53A /* Timeline.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63F8B29D28F95E3F0084B53A /* Timeline.xcassets */; };
 		63F8B2AD28F960260084B53A /* GraphType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2AC28F960260084B53A /* GraphType.swift */; };
 		63F8B2AF28F960420084B53A /* BarGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2AE28F960420084B53A /* BarGraphView.swift */; };
 		63F8B2B128F9605A0084B53A /* TimelineGraphViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2B028F9605A0084B53A /* TimelineGraphViewModel.swift */; };
@@ -1156,7 +1155,6 @@
 		63F8B28F28F958B90084B53A /* DriveKitDriverDataTimelineUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DriveKitDriverDataTimelineUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63F8B29128F958B90084B53A /* DriveKitDriverDataTimelineUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DriveKitDriverDataTimelineUI.h; sourceTree = "<group>"; };
 		63F8B29C28F95C2C0084B53A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		63F8B29D28F95E3F0084B53A /* Timeline.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Timeline.xcassets; sourceTree = "<group>"; };
 		63F8B2A628F95F8C0084B53A /* DateSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectorView.swift; sourceTree = "<group>"; };
 		63F8B2A828F95F980084B53A /* DateSelectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectorViewModel.swift; sourceTree = "<group>"; };
 		63F8B2AA28F95FAE0084B53A /* DateSelectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectorDelegate.swift; sourceTree = "<group>"; };
@@ -2505,7 +2503,6 @@
 				63F8B2CD28F9B23B0084B53A /* Localizable */,
 				63F8B2CB28F9851C0084B53A /* DriveKitDriverDataTimelineUI.swift */,
 				E3B830A2294CB54200E31848 /* Helpers */,
-				63F8B29D28F95E3F0084B53A /* Timeline.xcassets */,
 				63F8B29C28F95C2C0084B53A /* Info.plist */,
 				63F8B29128F958B90084B53A /* DriveKitDriverDataTimelineUI.h */,
 			);
@@ -3849,7 +3846,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63F8B29E28F95E3F0084B53A /* Timeline.xcassets in Resources */,
 				63F8B2D028F9B27B0084B53A /* DriverDataTimelineLocalizable.strings in Resources */,
 				67D6CD8A29090B750055632B /* RoadContextItemCell.xib in Resources */,
 				67D6CD862908276F0055632B /* RoadContextDataView.xib in Resources */,

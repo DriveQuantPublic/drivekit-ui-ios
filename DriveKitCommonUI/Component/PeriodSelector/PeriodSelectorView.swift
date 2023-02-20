@@ -66,6 +66,8 @@ public class PeriodSelectorView: UIView {
                     period = .week
                 } else if button == self.monthButton {
                     period = .month
+                } else if button == self.yearButton {
+                    period = .year
                 } else {
                     period = nil
                 }

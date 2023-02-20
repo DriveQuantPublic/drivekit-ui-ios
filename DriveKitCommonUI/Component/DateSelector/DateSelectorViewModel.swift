@@ -141,7 +141,7 @@ public class DateSelectorViewModel {
                 .color(.primaryColor)
                 .build()
         } else {
-            return "\(self.fromDate.format(pattern: .dayMonthLetter)) - \(self.toDate.format(pattern: .dayMonthLetterYear))"
+            return "\(self.fromDate.format(pattern: .dayMonthLetterShort)) - \(self.toDate.format(pattern: .dayMonthLetterYear))"
                 .dkAttributedString()
                 .font(dkFont: .primary, style: .headLine1)
                 .color(.primaryColor)

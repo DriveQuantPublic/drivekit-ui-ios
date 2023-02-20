@@ -13,7 +13,7 @@ public class ScoreSelectorView: UIStackView {
     public private(set) var viewModel: ScoreSelectorViewModel
     private var scoreSelectionButtons: [DKScoreType: ScoreSelectionTypeView] = [:]
 
-    init(viewModel: ScoreSelectorViewModel) {
+    public init(viewModel: ScoreSelectorViewModel) {
         self.viewModel = viewModel
         super.init(frame: .zero)
         setup()

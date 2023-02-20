@@ -23,7 +23,6 @@
 		3F0F6B89257F8ACC00EE7AB3 /* TripListConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F6B88257F8ACC00EE7AB3 /* TripListConfiguration.swift */; };
 		3F38C2692369BD60002E873A /* TripTipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C2672369BD5F002E873A /* TripTipViewController.swift */; };
 		3F38C26A2369BD60002E873A /* TripTipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F38C2682369BD60002E873A /* TripTipViewController.xib */; };
-		3F38C26D2369CC10002E873A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F38C26F2369CC10002E873A /* Localizable.strings */; };
 		3F3E72F5256F9415002B5E30 /* DKMapItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E72F4256F9415002B5E30 /* DKMapItem.swift */; };
 		3F3E72FC256F9B71002B5E30 /* DKTripDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E72FB256F9B71002B5E30 /* DKTripDetailViewModel.swift */; };
 		3F50D6F52417945B001226F7 /* BluetoothViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D6F42417945B001226F7 /* BluetoothViewModel.swift */; };
@@ -188,7 +187,6 @@
 		6169470B2433AA4800C8A965 /* PermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6169470A2433AA4800C8A965 /* PermissionViewController.swift */; };
 		6169470D2433AAB500C8A965 /* ActivityPermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6169470C2433AAB500C8A965 /* ActivityPermissionViewController.swift */; };
 		6169470F2433AAE300C8A965 /* LocationPermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6169470E2433AAE300C8A965 /* LocationPermissionViewController.swift */; };
-		61765A76243E306D00358CCA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61765A78243E306D00358CCA /* InfoPlist.strings */; };
 		61D29B7424361CD70094CA5B /* DriveKitPermissionsUtilsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616946D9243337D600C8A965 /* DriveKitPermissionsUtilsUI.framework */; };
 		61D29B7524361CD70094CA5B /* DriveKitPermissionsUtilsUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 616946D9243337D600C8A965 /* DriveKitPermissionsUtilsUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		61D29B7924362C720094CA5B /* DKReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D29B7824362C720094CA5B /* DKReachability.swift */; };
@@ -619,6 +617,8 @@
 		E32BC442299F6A76006BE5F8 /* DKScoreType+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32BC441299F6A76006BE5F8 /* DKScoreType+Images.swift */; };
 		E32BC444299F6B1A006BE5F8 /* ScoreSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32BC443299F6B1A006BE5F8 /* ScoreSelectorViewModel.swift */; };
 		E32BC446299F6EAA006BE5F8 /* ScoreSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32BC445299F6EAA006BE5F8 /* ScoreSelectorDelegate.swift */; };
+		E32BC45729A3727E006BE5F8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E32BC44929A3727E006BE5F8 /* Localizable.strings */; };
+		E32BC45829A3727E006BE5F8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E32BC44B29A3727E006BE5F8 /* InfoPlist.strings */; };
 		E341FCA62951AF2B00FC5262 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341FCA52951AF2B00FC5262 /* DoubleExtension.swift */; };
 		E341FCA82951EE4900FC5262 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341FCA72951EE4900FC5262 /* ArrayExtension.swift */; };
 		E3559EB729479F8100AAB747 /* TimelineDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3559EB629479F8100AAB747 /* TimelineDetailViewController.xib */; };
@@ -796,11 +796,6 @@
 		3F38C26023696EE0002E873A /* TripInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripInfoView.swift; sourceTree = "<group>"; };
 		3F38C2672369BD5F002E873A /* TripTipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTipViewController.swift; sourceTree = "<group>"; };
 		3F38C2682369BD60002E873A /* TripTipViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripTipViewController.xib; sourceTree = "<group>"; };
-		3F38C26E2369CC10002E873A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		3F38C2702369CC13002E873A /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		3F38C2712369CC14002E873A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		3F38C2722369CC14002E873A /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
-		3F38C2732369CC15002E873A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3F3E72F4256F9415002B5E30 /* DKMapItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKMapItem.swift; sourceTree = "<group>"; };
 		3F3E72FB256F9B71002B5E30 /* DKTripDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripDetailViewModel.swift; sourceTree = "<group>"; };
 		3F3E73592570111C002B5E30 /* DKHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKHeader.swift; sourceTree = "<group>"; };
@@ -983,11 +978,6 @@
 		6169470A2433AA4800C8A965 /* PermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionViewController.swift; sourceTree = "<group>"; };
 		6169470C2433AAB500C8A965 /* ActivityPermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPermissionViewController.swift; sourceTree = "<group>"; };
 		6169470E2433AAE300C8A965 /* LocationPermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionViewController.swift; sourceTree = "<group>"; };
-		61765A77243E306D00358CCA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		61765A79243E307200358CCA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		61765A7A243E307200358CCA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		61765A7B243E307300358CCA /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		61765A7C243E307400358CCA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		61D29B7824362C720094CA5B /* DKReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKReachability.swift; sourceTree = "<group>"; };
 		63057419281B399800FFB782 /* NotificationSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewController.swift; sourceTree = "<group>"; };
 		6305741B281B39B900FFB782 /* NotificationSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationSettingsViewController.xib; sourceTree = "<group>"; };
@@ -1123,7 +1113,6 @@
 		63C8F0AB272C949B006664A4 /* OdometerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdometerUtils.swift; sourceTree = "<group>"; };
 		63CDB12C273C7B9C00881976 /* OdometerInitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdometerInitVC.swift; sourceTree = "<group>"; };
 		63CDB130273C87FE00881976 /* OdometerInitVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OdometerInitVC.xib; sourceTree = "<group>"; };
-		63DD51BC28763BEA009D0D02 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		63DD51BD28763BEA009D0D02 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/CommonLocalizable.strings; sourceTree = "<group>"; };
 		63DD51BE28763BEA009D0D02 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/DriverDataLocalizables.strings; sourceTree = "<group>"; };
 		63DD51BF28763BEB009D0D02 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/DriverAchievementLocalizables.strings; sourceTree = "<group>"; };
@@ -1221,7 +1210,6 @@
 		67301DC32625C3BF006B0432 /* TripListVC+DKTripList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TripListVC+DKTripList.swift"; sourceTree = "<group>"; };
 		673D8CC528DCBB7C00D7CE3D /* DeleteAccountVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeleteAccountVC.xib; sourceTree = "<group>"; };
 		673D8CC628DCBB7C00D7CE3D /* DeleteAccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteAccountVC.swift; sourceTree = "<group>"; };
-		673D978A28C6052200774668 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6742577128B4D2EC00A61D1F /* DKVehicleImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKVehicleImages.swift; sourceTree = "<group>"; };
 		6744776A287ED13A0058D23B /* DKDriverDataImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDriverDataImages.swift; sourceTree = "<group>"; };
 		6744776C288594500058D23B /* DKChallengeImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKChallengeImages.swift; sourceTree = "<group>"; };
@@ -1449,6 +1437,18 @@
 		E32BC441299F6A76006BE5F8 /* DKScoreType+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DKScoreType+Images.swift"; sourceTree = "<group>"; };
 		E32BC443299F6B1A006BE5F8 /* ScoreSelectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreSelectorViewModel.swift; sourceTree = "<group>"; };
 		E32BC445299F6EAA006BE5F8 /* ScoreSelectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreSelectorDelegate.swift; sourceTree = "<group>"; };
+		E32BC44A29A3727E006BE5F8 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E32BC44C29A3727E006BE5F8 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E32BC44D29A3727E006BE5F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E32BC44E29A3727E006BE5F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E32BC44F29A3727E006BE5F8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E32BC45029A3727E006BE5F8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E32BC45129A3727E006BE5F8 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E32BC45229A3727E006BE5F8 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E32BC45329A3727E006BE5F8 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E32BC45429A3727E006BE5F8 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E32BC45529A3727E006BE5F8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E32BC45629A3727E006BE5F8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E341FCA52951AF2B00FC5262 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		E341FCA72951EE4900FC5262 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		E3559EB629479F8100AAB747 /* TimelineDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineDetailViewController.xib; sourceTree = "<group>"; };
@@ -3276,6 +3276,7 @@
 		A3B7B382235F124F0065A332 /* DriveKitApp */ = {
 			isa = PBXGroup;
 			children = (
+				E32BC44829A3727E006BE5F8 /* Localizable */,
 				A3B7B383235F124F0065A332 /* AppDelegate.swift */,
 				67C055E627FF2D7200B7159D /* AppNavigationController.swift */,
 				63842D502817FEDB007F9256 /* DriveKitConfig.swift */,
@@ -3292,8 +3293,6 @@
 				A3B7B38F235F12510065A332 /* Assets.xcassets */,
 				A3B7B391235F12510065A332 /* LaunchScreen.storyboard */,
 				A3B7B394235F12510065A332 /* Info.plist */,
-				3F38C26F2369CC10002E873A /* Localizable.strings */,
-				61765A78243E306D00358CCA /* InfoPlist.strings */,
 				63E95A40282A39CE003DC276 /* DriveQuantSpecific.swift */,
 			);
 			path = DriveKitApp;
@@ -3398,9 +3397,13 @@
 			path = ScoreSelector;
 			sourceTree = "<group>";
 		};
+		E32BC44829A3727E006BE5F8 /* Localizable */ = {
 			isa = PBXGroup;
 			children = (
+				E32BC44929A3727E006BE5F8 /* Localizable.strings */,
+				E32BC44B29A3727E006BE5F8 /* InfoPlist.strings */,
 			);
+			path = Localizable;
 			sourceTree = "<group>";
 		};
 		E3B830A2294CB54200E31848 /* Helpers */ = {
@@ -3978,13 +3981,13 @@
 				63E95A49282AADC7003DC276 /* InfoBannerView.xib in Resources */,
 				67C055C127FDF6CC00B7159D /* ApiKeyViewController.xib in Resources */,
 				63570E0628099D620082A446 /* DashboardViewController.xib in Resources */,
-				3F38C26D2369CC10002E873A /* Localizable.strings in Resources */,
 				A3B7B390235F12510065A332 /* Assets.xcassets in Resources */,
 				6765E72228135A5000FD13F8 /* TripSimulatorDetailViewController.xib in Resources */,
+				E32BC45829A3727E006BE5F8 /* InfoPlist.strings in Resources */,
 				A3B7B38B235F124F0065A332 /* Main.storyboard in Resources */,
+				E32BC45729A3727E006BE5F8 /* Localizable.strings in Resources */,
 				63F4C73F280E16A1006396B9 /* FeatureViewCell.xib in Resources */,
 				671087D228072FBE004FA464 /* UserInfoViewController.xib in Resources */,
-				61765A76243E306D00358CCA /* InfoPlist.strings in Resources */,
 				6305741C281B39B900FFB782 /* NotificationSettingsViewController.xib in Resources */,
 				67B5837628040B330065C2E7 /* UserIdViewController.xib in Resources */,
 				6765E713280EBAC400FD13F8 /* VehiclesViewController.xib in Resources */,
@@ -4952,20 +4955,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3F38C26F2369CC10002E873A /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3F38C26E2369CC10002E873A /* en */,
-				3F38C2702369CC13002E873A /* fr */,
-				3F38C2712369CC14002E873A /* de */,
-				3F38C2722369CC14002E873A /* it */,
-				3F38C2732369CC15002E873A /* es */,
-				673D978A28C6052200774668 /* da */,
-			);
-			name = Localizable.strings;
-			path = Localizable;
-			sourceTree = "<group>";
-		};
 		3FB5644323F6B4F000F010E3 /* DriverAchievementLocalizables.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -5016,20 +5005,6 @@
 				63DD51C028763BEB009D0D02 /* da */,
 			);
 			name = PermissionsUtilsLocalizables.strings;
-			sourceTree = "<group>";
-		};
-		61765A78243E306D00358CCA /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				61765A77243E306D00358CCA /* en */,
-				61765A79243E307200358CCA /* fr */,
-				61765A7A243E307200358CCA /* de */,
-				61765A7B243E307300358CCA /* it */,
-				61765A7C243E307400358CCA /* es */,
-				63DD51BC28763BEA009D0D02 /* da */,
-			);
-			name = InfoPlist.strings;
-			path = Localizable;
 			sourceTree = "<group>";
 		};
 		63F8B2D228F9B27B0084B53A /* DriverDataTimelineLocalizable.strings */ = {
@@ -5098,6 +5073,32 @@
 				A3B7B392235F12510065A332 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E32BC44929A3727E006BE5F8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E32BC44A29A3727E006BE5F8 /* de */,
+				E32BC44D29A3727E006BE5F8 /* en */,
+				E32BC44F29A3727E006BE5F8 /* es */,
+				E32BC45129A3727E006BE5F8 /* da */,
+				E32BC45329A3727E006BE5F8 /* it */,
+				E32BC45529A3727E006BE5F8 /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		E32BC44B29A3727E006BE5F8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E32BC44C29A3727E006BE5F8 /* de */,
+				E32BC44E29A3727E006BE5F8 /* en */,
+				E32BC45029A3727E006BE5F8 /* es */,
+				E32BC45229A3727E006BE5F8 /* da */,
+				E32BC45429A3727E006BE5F8 /* it */,
+				E32BC45629A3727E006BE5F8 /* fr */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

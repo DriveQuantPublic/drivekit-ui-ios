@@ -13,11 +13,13 @@ import DriveKitDriverDataModule
 import Foundation
 
 class MySynthesisViewModel {
+    weak var delegate: MySynthesisViewModelDelegate?
     let scoreSelectorViewModel: ScoreSelectorViewModel
     let periodSelectorViewModel: PeriodSelectorViewModel
     let dateSelectorViewModel: DateSelectorViewModel
     private var timelines: [DKPeriod: DKDriverTimeline]
     private var selectedDate: Date?
+    private(set) var updating: Bool = false
     
     var shouldHideDetailButton: Bool {
         return true
@@ -49,10 +51,34 @@ class MySynthesisViewModel {
         }
     }
     
-    private func update() {
+    func updateData() {
+        self.updating = true
+        self.delegate?.willUpdateData()
+        DriveKitDriverData.shared.getDriverTimelines(
+            periods: [.week, .month, .year],
+            type: .defaultSync
+        ) { [weak self] status, timelines in
+            if let self {
+                if status != .noTimelineYet, let timelines {
+                    self.timelines = timelines.reduce(into: [:]) { resultSoFar, timeline in
+                        resultSoFar[timeline.period] = timeline
+                    }
+                    self.update(resettingSelectedDate: true)
+                }
+                self.updating = false
+                self.delegate?.didUpdateData()
+            }
+        }
+    }
+    
+    private func update(resettingSelectedDate: Bool = false) {
         guard let currentTimeline = timelines[self.periodSelectorViewModel.selectedPeriod] else {
-            assertionFailure("We should have a timeline for the selected period \(self.periodSelectorViewModel.selectedPeriod.rawValue)")
+            configureWithNoData()
             return
+        }
+        
+        if resettingSelectedDate {
+            self.selectedDate = nil
         }
         
         self.periodSelectorViewModel.configure(
@@ -69,6 +95,27 @@ class MySynthesisViewModel {
             period: currentTimeline.period,
             selectedIndex: allDates.selectedIndex(for: selectedDate)
         )
+    }
+    
+    private func configureWithNoData() {
+        let startDate: Date?
+        switch self.periodSelectorViewModel.selectedPeriod {
+            case .week:
+                startDate = Date().beginning(relativeTo: .weekOfMonth)
+            case .month:
+                startDate = Date().beginning(relativeTo: .month)
+            case .year:
+                startDate = Date().beginning(relativeTo: .year)
+            @unknown default:
+                startDate = nil
+        }
+        if let startDate {
+            self.dateSelectorViewModel.configure(
+                dates: [startDate],
+                period: self.periodSelectorViewModel.selectedPeriod,
+                selectedIndex: 0
+            )
+        }
     }
     
     private func updateStateAfterSwitching(from oldPeriod: DKPeriod, to selectedPeriod: DKPeriod) {

@@ -23,6 +23,7 @@ class MySynthesisViewController: DKUIViewController {
     init(viewModel: MySynthesisViewModel) {
         self.viewModel = viewModel
         super.init(nibName: String(describing: MySynthesisViewController.self), bundle: .driverDataUIBundle)
+        self.viewModel.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -33,6 +34,10 @@ class MySynthesisViewController: DKUIViewController {
         super.viewDidLoad()
         
         self.title = "dk_driverdata_mysynthesis_main_title".dkDriverDataLocalized()
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh(_ :)), for: .valueChanged)
+        self.scrollView.refreshControl = refreshControl
         
         ScoreSelectorView.createScoreSelectorView(
             configuredWith: self.viewModel.scoreSelectorViewModel,
@@ -48,6 +53,37 @@ class MySynthesisViewController: DKUIViewController {
         )
         
         showDetailButton.isHidden = viewModel.shouldHideDetailButton
+        
+        if self.viewModel.updating {
+            showRefreshControl()
+        } else {
+            hideRefreshControl()
+        }
+    }
+    
+    @objc private func refresh(_ sender: Any) {
+        self.viewModel.updateData()
+    }
+    
+    private func showRefreshControl() {
+        self.scrollView.refreshControl?.beginRefreshing()
+    }
+    
+    private func hideRefreshControl() {
+        self.scrollView.refreshControl?.endRefreshing()
     }
 }
     
+extension MySynthesisViewController: MySynthesisViewModelDelegate {
+    func willUpdateData() {
+        showRefreshControl()
+    }
+    
+    func didUpdateData() {
+        hideRefreshControl()
+    }
+    
+    func didUpdateDetailButtonDisplay() {
+        self.showDetailButton.isHidden = viewModel.shouldHideDetailButton
+    }
+}

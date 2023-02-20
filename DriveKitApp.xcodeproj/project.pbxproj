@@ -620,12 +620,14 @@
 		E32BC45729A3727E006BE5F8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E32BC44929A3727E006BE5F8 /* Localizable.strings */; };
 		E32BC45829A3727E006BE5F8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E32BC44B29A3727E006BE5F8 /* InfoPlist.strings */; };
 		E32BC45A29A377FD006BE5F8 /* MySynthesisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32BC45929A377FD006BE5F8 /* MySynthesisViewModel.swift */; };
+		E32BC45D29A38C7B006BE5F8 /* DKDriverTimelineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32BC45C29A38C7B006BE5F8 /* DKDriverTimelineExtension.swift */; };
 		E341FCA62951AF2B00FC5262 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341FCA52951AF2B00FC5262 /* DoubleExtension.swift */; };
 		E341FCA82951EE4900FC5262 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341FCA72951EE4900FC5262 /* ArrayExtension.swift */; };
 		E3559EB729479F8100AAB747 /* TimelineDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3559EB629479F8100AAB747 /* TimelineDetailViewController.xib */; };
 		E3559EBB2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3559EBA2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift */; };
 		E3559EBD294868CB00AAB747 /* DKTimelineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3559EBC294868CB00AAB747 /* DKTimelineExtension.swift */; };
 		E3B8309D294B1DCE00E31848 /* RoadContextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B8309C294B1DCE00E31848 /* RoadContextView.swift */; };
+		E3F0213029A3A90600664CD2 /* Array+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F0212F29A3A90600664CD2 /* Array+Date.swift */; };
 		FA5F8336F7F9D6E9CBACE91B /* Pods_DriveKitDriverAchievementUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36173251B2A47392720E8B05 /* Pods_DriveKitDriverAchievementUI.framework */; };
 		FE2C04BD97A78F4B22CD7008 /* Pods_DriveKitDriverDataUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55652B494DACA2423EDB5A8E /* Pods_DriveKitDriverDataUI.framework */; };
 /* End PBXBuildFile section */
@@ -1450,6 +1452,7 @@
 		E32BC45529A3727E006BE5F8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E32BC45629A3727E006BE5F8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E32BC45929A377FD006BE5F8 /* MySynthesisViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySynthesisViewModel.swift; sourceTree = "<group>"; };
+		E32BC45C29A38C7B006BE5F8 /* DKDriverTimelineExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDriverTimelineExtension.swift; sourceTree = "<group>"; };
 		E341FCA52951AF2B00FC5262 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		E341FCA72951EE4900FC5262 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		E3559EB629479F8100AAB747 /* TimelineDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineDetailViewController.xib; sourceTree = "<group>"; };
@@ -1457,6 +1460,7 @@
 		E3559EBC294868CB00AAB747 /* DKTimelineExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTimelineExtension.swift; sourceTree = "<group>"; };
 		E36085012948C37C0097A639 /* DKUIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKUIConstants.swift; sourceTree = "<group>"; };
 		E3B8309C294B1DCE00E31848 /* RoadContextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadContextView.swift; sourceTree = "<group>"; };
+		E3F0212F29A3A90600664CD2 /* Array+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Date.swift"; sourceTree = "<group>"; };
 		FA713DC763C119AEF200C7B2 /* Pods-DriveKitDriverDataTimelineUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverDataTimelineUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverDataTimelineUI/Pods-DriveKitDriverDataTimelineUI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -3016,6 +3020,7 @@
 		A34238072361A1FA0001E15D /* DriveKitDriverDataUI */ = {
 			isa = PBXGroup;
 			children = (
+				E32BC45B29A38BF0006BE5F8 /* Helpers */,
 				E32BC435299E401B006BE5F8 /* MySynthesis */,
 				3F6B675D2580EC83008B3BA7 /* Declared Transportation Mode */,
 				3FF68E94240D4B900071D74C /* Extensions */,
@@ -3405,6 +3410,15 @@
 				E32BC44B29A3727E006BE5F8 /* InfoPlist.strings */,
 			);
 			path = Localizable;
+			sourceTree = "<group>";
+		};
+		E32BC45B29A38BF0006BE5F8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E32BC45C29A38C7B006BE5F8 /* DKDriverTimelineExtension.swift */,
+				E3F0212F29A3A90600664CD2 /* Array+Date.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		E3B830A2294CB54200E31848 /* Helpers */ = {
@@ -4755,6 +4769,7 @@
 				E32BC438299E4049006BE5F8 /* MySynthesisViewController.swift in Sources */,
 				3F0F6B89257F8ACC00EE7AB3 /* TripListConfiguration.swift in Sources */,
 				A317F83123A1383B00AD22A2 /* TripTipFeedbackChoicesCell.swift in Sources */,
+				E3F0213029A3A90600664CD2 /* Array+Date.swift in Sources */,
 				67CFE99F25F6425F004D0AE1 /* SpeedingPageVC.swift in Sources */,
 				A34238702361A2430001E15D /* DistractionPageVC.swift in Sources */,
 				A342386B2361A2430001E15D /* TripEvent.swift in Sources */,
@@ -4779,6 +4794,7 @@
 				A30F4F1823D5DA14009A37C2 /* SynthesisPageVC.swift in Sources */,
 				A342386A2361A2430001E15D /* MapItem.swift in Sources */,
 				3F3E72FC256F9B71002B5E30 /* DKTripDetailViewModel.swift in Sources */,
+				E32BC45D29A38C7B006BE5F8 /* DKDriverTimelineExtension.swift in Sources */,
 				638AC046261F970E00602B52 /* SynthesisCardsViewModel.swift in Sources */,
 				A34238862361A2440001E15D /* Extension+DK.swift in Sources */,
 				3F6B67572580DA62008B3BA7 /* AlternativeTripMapItem.swift in Sources */,

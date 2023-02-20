@@ -10,5 +10,5 @@ import DriveKitCoreModule
 import Foundation
 
 public protocol PeriodSelectorDelegate: AnyObject {
-    func periodSelectorDidSelectPeriod(_ period: DKPeriod)
+    func periodSelectorDidSwitch(from oldPeriod: DKPeriod, to newPeriod: DKPeriod)
 }

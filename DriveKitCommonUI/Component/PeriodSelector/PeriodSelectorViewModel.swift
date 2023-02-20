@@ -35,8 +35,9 @@ public class PeriodSelectorViewModel {
 
     public func didSelectPeriod(_ period: DKPeriod) {
         if self.selectedPeriod != period {
+            let oldPeriod = self.selectedPeriod
             self.selectedPeriod = period
-            self.delegate?.periodSelectorDidSelectPeriod(period)
+            self.delegate?.periodSelectorDidSwitch(from: oldPeriod, to: period)
         }
     }
     

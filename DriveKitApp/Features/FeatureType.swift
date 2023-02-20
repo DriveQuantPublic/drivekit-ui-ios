@@ -1,3 +1,4 @@
+// swiftlint:disable cyclomatic_complexity
 //
 //  FeatureType.swift
 //  DriveKitApp
@@ -41,8 +42,7 @@ enum FeatureType {
             case .driverData_timeline:
                 imageName = "feature_icon_driverdata_timeline"
             case .driverData_my_synthesis:
-                #warning("Update with the correct image")
-                imageName = "feature_icon_driverdata_timeline"
+                imageName = "feature_icon_driverData_my_synthesis"
             case .permissionsUtils_diagnosis, .permissionsUtils_onboarding:
                 imageName = "feature_icon_permissionsUtils"
             case .tripAnalysis_workingHours:

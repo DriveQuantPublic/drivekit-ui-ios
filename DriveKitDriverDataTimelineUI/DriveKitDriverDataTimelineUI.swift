@@ -12,7 +12,6 @@ import UIKit
 
 @objc public class DriveKitDriverDataTimelineUI: NSObject {
     @objc public static let shared = DriveKitDriverDataTimelineUI()
-    static let calendar = Calendar(identifier: .gregorian)
 
     public func initialize() {
         DriveKitNavigationController.shared.driverDataTimelineUI = self

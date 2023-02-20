@@ -21,11 +21,22 @@ public class DateSelectorViewModel {
     private(set) var toDate: Date
     var dateSelectorViewModelDidUpdate: (() -> Void)?
 
-    private var selectedDate: Date {
-        guard selectedDateIndex < self.dates.count, selectedDateIndex >= 0 else {
-            return Date()
+    public var selectedDate: Date {
+        get {
+            guard selectedDateIndex < self.dates.count, selectedDateIndex >= 0 else {
+                assertionFailure("We should have a valid selectedDateIndex (current is \(selectedDateIndex), should be in 0..<\(self.dates.count))")
+                return Date()
+            }
+            return self.dates[self.selectedDateIndex]
         }
-        return self.dates[self.selectedDateIndex]
+        set {
+            guard let newSelectedDateIndex = self.dates.firstIndex(where: { $0 == newValue }) else {
+                assertionFailure("SelectedDate \(newValue) must be inside dates list \(dates)")
+                return
+            }
+            
+            self.selectedDateIndex = newSelectedDateIndex
+        }
     }
     
     public init() {
@@ -155,5 +166,68 @@ public class DateSelectorViewModel {
             .font(dkFont: .primary, style: .headLine1)
             .color(.primaryColor)
             .build()
+    }
+}
+
+extension DateSelectorViewModel {
+    public struct PeriodDates {
+        public var dates: [Date]
+        public var period: DKPeriod
+        
+        public init(
+            dates: [Date] = [],
+            period: DKPeriod
+        ) {
+            self.dates = dates
+            self.period = period
+        }
+    }
+    
+    public static func newSelectedDate(
+        from selectedDate: Date,
+        in currentPeriodDates: PeriodDates,
+        switchingTo nextPeriodDates: PeriodDates
+    ) -> Date {
+        let compareDate: Date?
+        var newSelectedDate = selectedDate
+        
+        switch (currentPeriodDates.period, nextPeriodDates.period) {
+            case (.month, .week),
+                (.year, .week),
+                (.year, .month):
+                compareDate = selectedDate
+            case (.week, .month):
+                compareDate = DriveKitUI.calendar.date(
+                    from: DriveKitUI.calendar.dateComponents(
+                        [.year, .month],
+                        from: selectedDate
+                    )
+                )
+            case (.week, .year),
+                (.month, .year):
+                compareDate = DriveKitUI.calendar.date(
+                    from: DriveKitUI.calendar.dateComponents(
+                        [.year],
+                        from: selectedDate
+                    )
+                )
+            case (.week, .week),
+                (.month, .month),
+                (.year, .year):
+                compareDate = nil
+        }
+        
+        let dates = nextPeriodDates.dates
+        
+        if let compareDate {
+            let newDate = dates.first { date in
+                date >= compareDate
+            }
+            if let newDate {
+                newSelectedDate = newDate
+            }
+        }
+        
+        return newSelectedDate
     }
 }

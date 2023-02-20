@@ -17,19 +17,6 @@ extension DKRawTimeline {
         self.allContext.numberTripTotal.isEmpty == false
     }
     
-    func selectedIndex(for selectedDate: Date?) -> Int? {
-        let dates = self.allContext.date
-        let selectedDateIndex: Int?
-        if let date = selectedDate {
-            selectedDateIndex = dates.firstIndex(of: date)
-        } else if !dates.isEmpty {
-            selectedDateIndex = dates.count - 1
-        } else {
-            selectedDateIndex = nil
-        }
-        return selectedDateIndex
-    }
-    
     // swiftlint:disable function_body_length
     /// Clean timeline to remove, if needed, values where there are only unscored trips.
     func cleaned(

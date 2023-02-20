@@ -10,6 +10,7 @@ import DriveKitCommonUI
 import DriveKitCoreModule
 import DriveKitDBTripAccessModule
 import DriveKitDriverDataModule
+import DriveKitDriverDataUI
 import Foundation
 
 class TimelineViewModel {
@@ -118,14 +119,14 @@ class TimelineViewModel {
             // Clean timeline to remove, if needed, values where there are only unscored trips.
             let cleanedTimeline: DKRawTimeline
             if let date = self.selectedDate {
-                let selectedDateIndex = timelineSource.selectedIndex(for: date)
+                let selectedDateIndex = timelineSource.allContext.date.selectedIndex(for: date)
                 cleanedTimeline = timelineSource.cleaned(forScore: self.scoreSelectorViewModel.selectedScore, selectedIndex: selectedDateIndex)
             } else {
                 cleanedTimeline = timelineSource.cleaned(forScore: self.scoreSelectorViewModel.selectedScore, selectedIndex: nil)
             }
 
             // Update view models.
-            if let selectedDateIndex = cleanedTimeline.selectedIndex(for: selectedDate) {
+            if let selectedDateIndex = cleanedTimeline.allContext.date.selectedIndex(for: selectedDate) {
                 let dates = cleanedTimeline.allContext.date
                 self.selectedDate = dates[selectedDateIndex]
                 self.dateSelectorViewModel.configure(dates: dates, period: self.periodSelectorViewModel.selectedPeriod, selectedIndex: selectedDateIndex)

@@ -101,8 +101,12 @@ class TimelineDetailViewModel {
     }
     
     private func getTimelineSource() -> DKRawTimeline {
+        getTimelineSource(for: selectedPeriod)
+    }
+    
+    private func getTimelineSource(for period: DKPeriod) -> DKRawTimeline {
         let timelineSource: DKRawTimeline
-        switch self.selectedPeriod {
+        switch period {
             case .week:
                 timelineSource = self.weekTimeline
             case .month:
@@ -115,14 +119,13 @@ class TimelineDetailViewModel {
 }
 
 extension TimelineDetailViewModel: PeriodSelectorDelegate {
-    func periodSelectorDidSelectPeriod(_ period: DKPeriod) {
-        if self.selectedPeriod != period {
-            self.selectedPeriod = period
-            self.selectedDate = Helpers.newSelectedDate(
+    func periodSelectorDidSwitch(from oldPeriod: DKPeriod, to newPeriod: DKPeriod) {
+        if self.selectedPeriod != newPeriod {
+            self.selectedPeriod = newPeriod
+            self.selectedDate = DateSelectorViewModel.newSelectedDate(
                 from: selectedDate,
-                switchingTo: period,
-                weekTimeline: weekTimeline,
-                monthTimeline: monthTimeline
+                in: getTimelineSource(for: oldPeriod).periodDates,
+                switchingTo: getTimelineSource(for: newPeriod).periodDates
             )
             updateViewModels()
             self.delegate?.didUpdate(selectedPeriod: selectedPeriod)

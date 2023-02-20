@@ -179,8 +179,12 @@ class TimelineViewModel {
     }
 
     private func getTimelineSource() -> DKRawTimeline? {
+        getTimelineSource(for: self.periodSelectorViewModel.selectedPeriod)
+    }
+    
+    private func getTimelineSource(for period: DKPeriod) -> DKRawTimeline? {
         let timelineSource: DKRawTimeline?
-        switch self.periodSelectorViewModel.selectedPeriod {
+        switch period {
             case .week:
                 timelineSource = self.weekTimeline
             case .month:
@@ -191,13 +195,15 @@ class TimelineViewModel {
         return timelineSource
     }
     
-    private func updateStateAfterSelectingPeriod(_ selectedPeriod: DKPeriod) {
-        if let selectedDate = self.selectedDate, let weekTimeline, let monthTimeline {
-            self.selectedDate = Helpers.newSelectedDate(
+    private func updateStateAfterSwitching(
+        from oldPeriod: DKPeriod,
+        to selectedPeriod: DKPeriod
+    ) {
+        if let selectedDate = self.selectedDate {
+            self.selectedDate = DateSelectorViewModel.newSelectedDate(
                 from: selectedDate,
-                switchingTo: selectedPeriod,
-                weekTimeline: weekTimeline,
-                monthTimeline: monthTimeline
+                in: getTimelineSource(for: oldPeriod)?.periodDates ?? .init(period: oldPeriod),
+                switchingTo: getTimelineSource(for: selectedPeriod)?.periodDates ?? .init(period: selectedPeriod)
             )
         }
         update()
@@ -205,8 +211,8 @@ class TimelineViewModel {
 }
 
 extension TimelineViewModel: PeriodSelectorDelegate {
-    func periodSelectorDidSelectPeriod(_ period: DKPeriod) {
-        updateStateAfterSelectingPeriod(period)
+    func periodSelectorDidSwitch(from oldPeriod: DriveKitCoreModule.DKPeriod, to newPeriod: DriveKitCoreModule.DKPeriod) {
+        updateStateAfterSwitching(from: oldPeriod, to: newPeriod)
     }
 }
 
@@ -238,11 +244,12 @@ extension TimelineViewModel: TimelineDetailViewModelDelegate {
     
     func didUpdate(selectedPeriod: DKPeriod) {
         if self.periodSelectorViewModel.selectedPeriod != selectedPeriod {
+            let oldPeriod = self.periodSelectorViewModel.selectedPeriod
             self.periodSelectorViewModel.configure(
                 displayedPeriods: self.periodSelectorViewModel.displayedPeriods,
                 selectedPeriod: selectedPeriod
             )
-            updateStateAfterSelectingPeriod(selectedPeriod)
+            updateStateAfterSwitching(from: oldPeriod, to: selectedPeriod)
         }
     }
 }

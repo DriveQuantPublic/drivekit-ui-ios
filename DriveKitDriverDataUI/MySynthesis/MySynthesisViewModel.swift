@@ -51,7 +51,7 @@ class MySynthesisViewModel {
     
     private func update() {
         guard let currentTimeline = timelines[self.periodSelectorViewModel.selectedPeriod] else {
-            assertionFailure("We should have a timeline for the selected period \(self.periodSelectorViewModel.selectedPeriod)")
+            assertionFailure("We should have a timeline for the selected period \(self.periodSelectorViewModel.selectedPeriod.rawValue)")
             return
         }
         

@@ -212,7 +212,6 @@
 		63454B982906B4B200A9B10F /* GraphItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63454B972906B4B200A9B10F /* GraphItem.swift */; };
 		63454B9A2906C76700A9B10F /* TimelineGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63454B992906C76700A9B10F /* TimelineGraphView.swift */; };
 		63454B9C2906C7A200A9B10F /* TimelineGraphView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63454B9B2906C7A200A9B10F /* TimelineGraphView.xib */; };
-		63454B9F2907DC8D00A9B10F /* TimelineDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63454B9E2907DC8D00A9B10F /* TimelineDateExtension.swift */; };
 		63454BA129081DD500A9B10F /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63454BA029081DD500A9B10F /* Graph.swift */; };
 		634C354426BAD53800C75098 /* DKAnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634C354326BAD53800C75098 /* DKAnalyticsEvent.swift */; };
 		63508C6D278455370036A61E /* WorkingHoursSlotCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63508C6C278455370036A61E /* WorkingHoursSlotCellViewModel.swift */; };
@@ -628,6 +627,7 @@
 		E3559EBD294868CB00AAB747 /* DKTimelineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3559EBC294868CB00AAB747 /* DKTimelineExtension.swift */; };
 		E3B8309D294B1DCE00E31848 /* RoadContextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B8309C294B1DCE00E31848 /* RoadContextView.swift */; };
 		E3F0213029A3A90600664CD2 /* Array+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F0212F29A3A90600664CD2 /* Array+Date.swift */; };
+		E3F0213129A3B74800664CD2 /* TimelineDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63454B9E2907DC8D00A9B10F /* TimelineDateExtension.swift */; };
 		FA5F8336F7F9D6E9CBACE91B /* Pods_DriveKitDriverAchievementUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36173251B2A47392720E8B05 /* Pods_DriveKitDriverAchievementUI.framework */; };
 		FE2C04BD97A78F4B22CD7008 /* Pods_DriveKitDriverDataUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55652B494DACA2423EDB5A8E /* Pods_DriveKitDriverDataUI.framework */; };
 /* End PBXBuildFile section */
@@ -3416,6 +3416,7 @@
 			isa = PBXGroup;
 			children = (
 				E32BC45C29A38C7B006BE5F8 /* DKDriverTimelineExtension.swift */,
+				63454B9E2907DC8D00A9B10F /* TimelineDateExtension.swift */,
 				E3F0212F29A3A90600664CD2 /* Array+Date.swift */,
 			);
 			path = Helpers;
@@ -3425,7 +3426,6 @@
 			isa = PBXGroup;
 			children = (
 				63F8B2DA28FD5B250084B53A /* DKScoreTypeExtension.swift */,
-				63454B9E2907DC8D00A9B10F /* TimelineDateExtension.swift */,
 				E3559EBC294868CB00AAB747 /* DKTimelineExtension.swift */,
 				E341FCA52951AF2B00FC5262 /* DoubleExtension.swift */,
 				E341FCA72951EE4900FC5262 /* ArrayExtension.swift */,
@@ -4663,7 +4663,6 @@
 			files = (
 				63F8B2B528F960900084B53A /* TimelineGraphDelegate.swift in Sources */,
 				63454B8F29067C6000A9B10F /* GraphViewModel.swift in Sources */,
-				63454B9F2907DC8D00A9B10F /* TimelineDateExtension.swift in Sources */,
 				E3B8309D294B1DCE00E31848 /* RoadContextView.swift in Sources */,
 				63F8B2BF28F961440084B53A /* RoadContextDataView.swift in Sources */,
 				63F8B2C128F961570084B53A /* RoadContextViewModel.swift in Sources */,
@@ -4752,6 +4751,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3F0213129A3B74800664CD2 /* TimelineDateExtension.swift in Sources */,
 				A317F82923A137B600AD22A2 /* TripTipFeedbackViewModel.swift in Sources */,
 				A34238822361A2440001E15D /* DistractionPageView.swift in Sources */,
 				3F6B67502580D4A2008B3BA7 /* AlternativeTripViewModel.swift in Sources */,

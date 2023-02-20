@@ -10,13 +10,13 @@
 import Foundation
 
 extension Date {
-    var calendar: Calendar {
+    public var calendar: Calendar {
         var calendar = Calendar.current
         calendar.firstWeekday = 2
         return calendar
     }
 
-    func beginning(relativeTo component: Calendar.Component) -> Date? {
+    public func beginning(relativeTo component: Calendar.Component) -> Date? {
         if component == .day {
             return self.calendar.startOfDay(for: self)
         }
@@ -25,7 +25,7 @@ extension Date {
         return self.calendar.date(from: self.calendar.dateComponents(components, from: self))
     }
 
-    func diffWith(date: Date, countingIn calendarUnit: Calendar.Component) -> Int? {
+    public func diffWith(date: Date, countingIn calendarUnit: Calendar.Component) -> Int? {
         let calendar = self.calendar
         let components = dateComponents(for: calendarUnit)
         let startDateComponents = calendar.dateComponents(components, from: self)
@@ -34,11 +34,11 @@ extension Date {
         return result.value(for: calendarUnit)
     }
 
-    func date(byAdding value: Int, calendarUnit: Calendar.Component) -> Date? {
+    public func date(byAdding value: Int, calendarUnit: Calendar.Component) -> Date? {
         return self.calendar.date(byAdding: calendarUnit, value: value, to: self)
     }
 
-    func dateByRemovingTime() -> Date? {
+    public func dateByRemovingTime() -> Date? {
         return self.calendar.date(from: self.calendar.dateComponents([.year, .month, .day], from: self))
     }
 

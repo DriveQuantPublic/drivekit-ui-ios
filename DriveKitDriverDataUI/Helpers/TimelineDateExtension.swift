@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  TimelineDateExtension.swift
 //  DriveKitDriverDataTimelineUI
@@ -7,12 +6,14 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
+import DriveKitCommonUI
 import Foundation
 
 extension Date {
     public var calendar: Calendar {
-        var calendar = Calendar.current
-        calendar.firstWeekday = 2
+        var calendar = DriveKitUI.calendar
+        let monday = 2
+        calendar.firstWeekday = monday
         return calendar
     }
 

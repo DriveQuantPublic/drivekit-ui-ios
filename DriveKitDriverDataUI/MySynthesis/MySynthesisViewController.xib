@@ -51,10 +51,10 @@
                     </constraints>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="alR-kl-p1Q">
-                    <rect key="frame" x="0.0" y="253" width="393" height="565"/>
+                    <rect key="frame" x="0.0" y="265" width="393" height="553"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YXg-z3-FCb" userLabel="ContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="565"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="553"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9yM-rr-Xai" userLabel="ScoreCardContainer">
                                     <rect key="frame" x="8" y="0.0" width="377" height="128"/>
@@ -73,7 +73,7 @@
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VdD-2S-fMh">
-                                    <rect key="frame" x="20" y="517" width="353" height="40"/>
+                                    <rect key="frame" x="20" y="505" width="353" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="hlo-Ph-HgS"/>
                                     </constraints>
@@ -119,7 +119,7 @@
                 <constraint firstItem="pL9-Qc-07Y" firstAttribute="top" secondItem="Tzg-4A-FmE" secondAttribute="bottom" id="cJA-Yj-tMN"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="alR-kl-p1Q" secondAttribute="trailing" id="fv2-fh-vCe"/>
                 <constraint firstItem="pL9-Qc-07Y" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="o3S-Aj-uU3"/>
-                <constraint firstItem="alR-kl-p1Q" firstAttribute="top" secondItem="pL9-Qc-07Y" secondAttribute="bottom" constant="8" id="vSm-Eh-Owb"/>
+                <constraint firstItem="alR-kl-p1Q" firstAttribute="top" secondItem="pL9-Qc-07Y" secondAttribute="bottom" constant="20" id="vSm-Eh-Owb"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Tzg-4A-FmE" secondAttribute="trailing" id="z6Q-Et-ME4"/>
             </constraints>
             <point key="canvasLocation" x="6" y="21"/>

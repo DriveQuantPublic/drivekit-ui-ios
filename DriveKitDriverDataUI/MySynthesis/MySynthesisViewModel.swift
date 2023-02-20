@@ -17,12 +17,18 @@ class MySynthesisViewModel {
     let periodSelectorViewModel: PeriodSelectorViewModel
     let dateSelectorViewModel: DateSelectorViewModel
     private var timelines: [DKPeriod: DKDriverTimeline]
+    private var selectedDate: Date?
+    
+    var shouldHideDetailButton: Bool {
+        return true
+    }
     
     init() {
         self.scoreSelectorViewModel = ScoreSelectorViewModel()
         self.periodSelectorViewModel = PeriodSelectorViewModel()
         self.dateSelectorViewModel = DateSelectorViewModel()
         self.timelines = [:]
+        self.selectedDate = nil
 
         self.scoreSelectorViewModel.delegate = self
         self.periodSelectorViewModel.delegate = self
@@ -44,11 +50,29 @@ class MySynthesisViewModel {
     }
     
     private func update() {
+        guard let currentTimeline = timelines[self.periodSelectorViewModel.selectedPeriod] else {
+            assertionFailure("We should have a timeline for the selected period \(self.periodSelectorViewModel.selectedPeriod)")
+            return
+        }
         
+        self.periodSelectorViewModel.configure(
+            displayedPeriods: [
+                .week,
+                .month,
+                .year
+            ],
+            selectedPeriod: currentTimeline.period
+        )
+        let allDates = currentTimeline.allContext.map(\.date)
+        self.dateSelectorViewModel.configure(
+            dates: allDates,
+            period: currentTimeline.period,
+            selectedIndex: allDates.selectedIndex(for: selectedDate)
+        )
     }
     
     private func updateStateAfterSwitching(from oldPeriod: DKPeriod, to selectedPeriod: DKPeriod) {
-        self.dateSelectorViewModel.selectedDate = DateSelectorViewModel.newSelectedDate(
+        self.selectedDate = DateSelectorViewModel.newSelectedDate(
             from: self.dateSelectorViewModel.selectedDate,
             in: self.timelines[oldPeriod]?.periodDates ?? .init(period: oldPeriod),
             switchingTo: self.timelines[selectedPeriod]?.periodDates ?? .init(period: selectedPeriod)
@@ -71,6 +95,7 @@ extension MySynthesisViewModel: PeriodSelectorDelegate {
 
 extension MySynthesisViewModel: DateSelectorDelegate {
     func dateSelectorDidSelectDate(_ date: Date) {
+        selectedDate = date
         update()
     }
 }

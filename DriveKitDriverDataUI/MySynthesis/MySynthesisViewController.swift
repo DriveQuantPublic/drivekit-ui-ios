@@ -31,5 +31,23 @@ class MySynthesisViewController: DKUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "dk_driverdata_mysynthesis_main_title".dkDriverDataLocalized()
+        
+        ScoreSelectorView.createScoreSelectorView(
+            configuredWith: self.viewModel.scoreSelectorViewModel,
+            embededIn: scoreSelectorContainer
+        )
+        PeriodSelectorView.createPeriodSelectorView(
+            configuredWith: self.viewModel.periodSelectorViewModel,
+            embededIn: periodSelectorContainer
+        )
+        DateSelectorView.createDateSelectorView(
+            configuredWith: self.viewModel.dateSelectorViewModel,
+            embededIn: dateSelectorContainer
+        )
+        
+        showDetailButton.isHidden = viewModel.shouldHideDetailButton
     }
 }
+    

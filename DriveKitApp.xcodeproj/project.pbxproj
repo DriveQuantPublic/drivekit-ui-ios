@@ -611,6 +611,8 @@
 		E32BC432299D34D7006BE5F8 /* PeriodSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2BA28F960E20084B53A /* PeriodSelectorDelegate.swift */; };
 		E32BC433299D34D7006BE5F8 /* PeriodSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639D184A29008919008293B8 /* PeriodSelectorView.xib */; };
 		E32BC434299D34D7006BE5F8 /* PeriodSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2B628F960BA0084B53A /* PeriodSelectorView.swift */; };
+		E32BC438299E4049006BE5F8 /* MySynthesisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32BC436299E4049006BE5F8 /* MySynthesisViewController.swift */; };
+		E32BC439299E4049006BE5F8 /* MySynthesisViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E32BC437299E4049006BE5F8 /* MySynthesisViewController.xib */; };
 		E32BC43D299F68B9006BE5F8 /* ScoreSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32BC43C299F68B9006BE5F8 /* ScoreSelectorView.swift */; };
 		E32BC43E299F68C8006BE5F8 /* ScoreSelectionTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2DC28FDB0580084B53A /* ScoreSelectionTypeView.swift */; };
 		E32BC440299F68D3006BE5F8 /* ScoreSelectionTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F8B2DE28FDB0A20084B53A /* ScoreSelectionTypeView.xib */; };
@@ -1441,6 +1443,8 @@
 		A3D51F4D241BA3AE006DACE2 /* VehiclesListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VehiclesListCell.xib; sourceTree = "<group>"; };
 		C6CF2F88D8CEC4FD0F65BD58 /* Pods-DriveKitChallengeUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitChallengeUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitChallengeUI/Pods-DriveKitChallengeUI.debug.xcconfig"; sourceTree = "<group>"; };
 		DCBF31C151237FEA8EDE3CF0 /* Pods-DriveKitDriverDataUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverDataUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverDataUI/Pods-DriveKitDriverDataUI.release.xcconfig"; sourceTree = "<group>"; };
+		E32BC436299E4049006BE5F8 /* MySynthesisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySynthesisViewController.swift; sourceTree = "<group>"; };
+		E32BC437299E4049006BE5F8 /* MySynthesisViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MySynthesisViewController.xib; sourceTree = "<group>"; };
 		E32BC43C299F68B9006BE5F8 /* ScoreSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreSelectorView.swift; sourceTree = "<group>"; };
 		E32BC441299F6A76006BE5F8 /* DKScoreType+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DKScoreType+Images.swift"; sourceTree = "<group>"; };
 		E32BC443299F6B1A006BE5F8 /* ScoreSelectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreSelectorViewModel.swift; sourceTree = "<group>"; };
@@ -3012,6 +3016,7 @@
 		A34238072361A1FA0001E15D /* DriveKitDriverDataUI */ = {
 			isa = PBXGroup;
 			children = (
+				E32BC435299E401B006BE5F8 /* MySynthesis */,
 				3F6B675D2580EC83008B3BA7 /* Declared Transportation Mode */,
 				3FF68E94240D4B900071D74C /* Extensions */,
 				3FF68E9A240E493F0071D74C /* Localizable */,
@@ -3371,6 +3376,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E32BC435299E401B006BE5F8 /* MySynthesis */ = {
+			isa = PBXGroup;
+			children = (
+				E32BC436299E4049006BE5F8 /* MySynthesisViewController.swift */,
+				E32BC437299E4049006BE5F8 /* MySynthesisViewController.xib */,
+			);
+			path = MySynthesis;
+			sourceTree = "<group>";
+		};
 		E32BC43A299F687C006BE5F8 /* ScoreSelector */ = {
 			isa = PBXGroup;
 			children = (
@@ -3382,6 +3396,11 @@
 				E32BC445299F6EAA006BE5F8 /* ScoreSelectorDelegate.swift */,
 			);
 			path = ScoreSelector;
+			sourceTree = "<group>";
+		};
+			isa = PBXGroup;
+			children = (
+			);
 			sourceTree = "<group>";
 		};
 		E3B830A2294CB54200E31848 /* Helpers */ = {
@@ -3932,6 +3951,7 @@
 				633E93DF261D0D1A009543C0 /* SynthesisCardInfoView.xib in Resources */,
 				A34238752361A2430001E15D /* EcoDrivingPageVC.xib in Resources */,
 				638AC03F261F903300602B52 /* SynthesisCardsView.xib in Resources */,
+				E32BC439299E4049006BE5F8 /* MySynthesisViewController.xib in Resources */,
 				A30F4F1B23D5DB18009A37C2 /* TripTipFeedbackVC.storyboard in Resources */,
 				A34238722361A2430001E15D /* ShortTripPageVC.xib in Resources */,
 				A34238832361A2440001E15D /* EcoDrivingPageView.xib in Resources */,
@@ -4729,6 +4749,7 @@
 				6391E0CB26072DD100A168D4 /* DKSynthesisCard.swift in Sources */,
 				6357AE69261120D20000CA58 /* SynthesisCardUtils.swift in Sources */,
 				A342387B2361A2440001E15D /* CalloutView.swift in Sources */,
+				E32BC438299E4049006BE5F8 /* MySynthesisViewController.swift in Sources */,
 				3F0F6B89257F8ACC00EE7AB3 /* TripListConfiguration.swift in Sources */,
 				A317F83123A1383B00AD22A2 /* TripTipFeedbackChoicesCell.swift in Sources */,
 				67CFE99F25F6425F004D0AE1 /* SpeedingPageVC.swift in Sources */,

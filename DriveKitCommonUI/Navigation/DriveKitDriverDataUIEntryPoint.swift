@@ -12,6 +12,7 @@ import UIKit
 public protocol DriveKitDriverDataUIEntryPoint {
     func getTripListViewController() -> UIViewController
     func getTripDetailViewController(itinId: String, showAdvice: Bool, alternativeTransport: Bool) -> UIViewController
+    func getMySynthesisViewController() -> UIViewController
 }
 
 public extension DriveKitDriverDataUIEntryPoint {

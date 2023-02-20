@@ -126,6 +126,11 @@ extension DriveKitDriverDataUI: DriveKitDriverDataUIEntryPoint {
     public func getTripDetailViewController(itinId: String, showAdvice: Bool, alternativeTransport: Bool) -> UIViewController {
         return TripDetailVC(itinId: itinId, showAdvice: showAdvice, listConfiguration: alternativeTransport ? .alternative() : .motorized())
     }
+    
+    public func getMySynthesisViewController() -> UIViewController {
+        let viewModel = MySynthesisViewModel()
+        return MySynthesisViewController(viewModel: viewModel)
+    }
 }
 
 extension UIColor {

@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import DriveKitCoreModule
 import DriveKitDBTripAccessModule
 import CoreLocation
 import DriveKitCommonUI

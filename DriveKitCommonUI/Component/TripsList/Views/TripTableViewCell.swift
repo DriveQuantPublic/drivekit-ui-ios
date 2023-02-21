@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import DriveKitCoreModule
 
 final class TripTableViewCell: UITableViewCell, Nibable {
     @IBOutlet private weak var dataView: UIView!

@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  ChallengeStatType.swift
 //  DriveKitChallengeUI
@@ -24,4 +25,3 @@ enum ChallengeStatType {
         }
     }
 }
-

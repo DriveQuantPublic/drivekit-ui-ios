@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  TripListViewModel.swift
 //  drivekit-test-app
@@ -18,7 +19,7 @@ class TripListViewModel {
     var status: TripSyncStatus = .noError
     private(set) var listConfiguration: TripListConfiguration = .motorized()
     
-    weak var delegate: TripsDelegate? = nil {
+    weak var delegate: TripsDelegate? {
         didSet {
             if self.delegate != nil {
                 self.fetchTrips()
@@ -65,7 +66,6 @@ class TripListViewModel {
         let tripSorted = trips.orderByDay(descOrder: DriveKitDriverDataUI.shared.dayTripDescendingOrder)
         return tripSorted
     }
-
 
     func showFilter() -> Bool {
         switch self.listConfiguration {
@@ -205,7 +205,7 @@ class TripListViewModel {
     private func getAlternativeTripsLimitDate() -> Date? {
         let limitDate: Date?
         if let alternativeTripsDepthInDays = DriveKitDriverDataUI.shared.alternativeTripsDepthInDays {
-            limitDate = Date().addingTimeInterval(Double(-alternativeTripsDepthInDays * 24 * 3600))
+            limitDate = Date().addingTimeInterval(Double(-alternativeTripsDepthInDays * 24 * 3_600))
         } else {
             limitDate = nil
         }

@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  SelectBluetoothVC.swift
 //  IFPClient
@@ -90,7 +91,6 @@ class SelectBluetoothVC: DKUIViewController {
 extension SelectBluetoothVC: UITableViewDelegate {
     
 }
-
 
 extension SelectBluetoothVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  BeaconDetailTableViewCell.swift
 //  DriveKitVehicleUI
@@ -11,10 +12,9 @@ import DriveKitCommonUI
 
 class BeaconDetailTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var keyLabel : UILabel!
-    @IBOutlet weak var valueLabel : UILabel!
+    @IBOutlet weak var keyLabel: UILabel!
+    @IBOutlet weak var valueLabel: UILabel!
     @IBOutlet weak var separatorView: UIView!
-    
 
     func configure(pos: Int, viewModel: BeaconDetailViewModel) {
         keyLabel.attributedText = viewModel.data[pos].keys.first?.dkVehicleLocalized().dkAttributedString().primaryFontNormalTextMainFontColor()

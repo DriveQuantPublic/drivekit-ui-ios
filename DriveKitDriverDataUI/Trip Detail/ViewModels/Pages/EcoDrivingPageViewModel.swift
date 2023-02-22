@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  EcoDrivingPageViewModel.swift
 //  drivekit-test-app

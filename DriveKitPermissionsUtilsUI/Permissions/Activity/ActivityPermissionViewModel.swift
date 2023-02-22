@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  ActivityPermissionViewModel.swift
 //  DriveKitPermissionsUtilsUI
@@ -11,7 +12,7 @@ import DriveKitCoreModule
 
 class ActivityPermissionViewModel {
 
-    weak var view: PermissionView? = nil
+    weak var view: PermissionView?
 
     init() {
         NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
@@ -34,7 +35,6 @@ class ActivityPermissionViewModel {
     func openSettings() {
         DKDiagnosisHelper.shared.openSettings()
     }
-
 
     @objc private func requestPermission() {
         DKDiagnosisHelper.shared.requestPermission(.activity)

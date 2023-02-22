@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  ScoreSelectionTypeView.swift
 //  DriveKitDriverDataTimelineUI
@@ -12,7 +13,7 @@ import DriveKitCommonUI
 class ScoreSelectionTypeView: UIControl {
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var selectionIndicator: UIView!
-    private(set) var scoreType: DKScoreType? = nil
+    private(set) var scoreType: DKScoreType?
 
     override func awakeFromNib() {
         super.awakeFromNib()

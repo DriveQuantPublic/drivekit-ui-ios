@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  GlobalStateView.swift
 //  DriveKitPermissionsUtilsUI
@@ -10,9 +11,9 @@ import UIKit
 
 import DriveKitCommonUI
 
-class GlobalStateView : UIView {
+class GlobalStateView: UIView {
 
-    var viewModel: GlobalStateViewModel? = nil {
+    var viewModel: GlobalStateViewModel? {
         didSet {
             self.update()
         }

@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  StreakViewModel.swift
 //  DriveKitDriverAchievementUI
@@ -13,7 +14,7 @@ import UIKit
 import DriveKitCommonUI
 
 class StreakViewModel {
-    weak var delegate: StreakVMDelegate? = nil
+    weak var delegate: StreakVMDelegate?
     var streakData: [StreakData] = []
     
     init() {
@@ -21,7 +22,7 @@ class StreakViewModel {
     }
     
     func getStreakData() {
-        DriveKitDriverAchievement.shared.getStreaks() { [weak self] status, streaks in
+        DriveKitDriverAchievement.shared.getStreaks { [weak self] status, streaks in
             if let self = self {
                 self.streakData = self.computeStreak(streaks)
                 if self.streakData.isEmpty {

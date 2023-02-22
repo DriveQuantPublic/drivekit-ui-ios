@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  VehiclePickerViewModel.swift
 //  DriveKitVehicleUI
@@ -26,26 +27,26 @@ class VehiclePickerViewModel {
     var currentStep: VehiclePickerStep = .type
     var previousSteps: [VehiclePickerStep] = []
 
-    var vehicleType: DKVehicleType? = nil
-    var truckType: DKTruckType? = nil
-    var vehicleCategory: DKVehicleCategory? = nil
-    var vehicleBrand: DKVehicleBrand? = nil
-    var vehicleEngineIndex: DKVehicleEngineIndex? = nil
-    var vehicleModel: String? = nil
-    var vehicleYear: String? = nil
-    var vehicleVersion: DKVehicleVersion? = nil
+    var vehicleType: DKVehicleType?
+    var truckType: DKTruckType?
+    var vehicleCategory: DKVehicleCategory?
+    var vehicleBrand: DKVehicleBrand?
+    var vehicleEngineIndex: DKVehicleEngineIndex?
+    var vehicleModel: String?
+    var vehicleYear: String?
+    var vehicleVersion: DKVehicleVersion?
     var liteConfig: Bool = false
-    var vehicleName: String? = nil
-    var vehicleCharacteristics: DKVehicleCharacteristics? = nil
+    var vehicleName: String?
+    var vehicleCharacteristics: DKVehicleCharacteristics?
 
-    var models: [String]? = nil
-    var years: [String]? = nil
-    var versions: [DKVehicleVersion]? = nil
+    var models: [String]?
+    var years: [String]?
+    var versions: [DKVehicleVersion]?
 
     let showCancel: Bool
 
-    weak var vehicleDataDelegate: VehicleDataDelegate? = nil
-    weak var vehicleNavigationDelegate: VehicleNavigationDelegate? = nil
+    weak var vehicleDataDelegate: VehicleDataDelegate?
+    weak var vehicleNavigationDelegate: VehicleNavigationDelegate?
 
     init(detectionMode: DKDetectionMode, previousVehicle: DKVehicle? = nil, showCancel: Bool = true) {
         self.detectionMode = detectionMode
@@ -442,7 +443,7 @@ class VehiclePickerViewModel {
         self.currentStep.getCollectionViewItems(viewModel: self)
     }
 
-    func onCollectionViewItemSelected(pos: Int, completion: (StepStatus) -> ()) {
+    func onCollectionViewItemSelected(pos: Int, completion: (StepStatus) -> Void) {
         self.currentStep.onCollectionViewItemSelected(pos: pos, viewModel: self, completion: completion)
     }
 
@@ -450,7 +451,7 @@ class VehiclePickerViewModel {
         return vehicleCategory
     }
 
-    func addVehicle(completion: @escaping (DKVehicleManagerStatus, String?) -> ()) {
+    func addVehicle(completion: @escaping (DKVehicleManagerStatus, String?) -> Void) {
         if let characteristics = self.vehicleCharacteristics {
             if let previousVehicle = self.previousVehicle {
                 replaceVehicle(previousVehicle: previousVehicle, completion: completion)
@@ -475,7 +476,7 @@ class VehiclePickerViewModel {
         }
     }
 
-    func replaceVehicle(previousVehicle: DKVehicle, completion: @escaping (DKVehicleManagerStatus, String?) -> ()) {
+    func replaceVehicle(previousVehicle: DKVehicle, completion: @escaping (DKVehicleManagerStatus, String?) -> Void) {
         if let vehicleType = self.vehicleType, let characteristics = vehicleCharacteristics {
             let detectionMode = previousVehicle.detectionMode ?? .disabled
             let previousBeacon = previousVehicle.beacon

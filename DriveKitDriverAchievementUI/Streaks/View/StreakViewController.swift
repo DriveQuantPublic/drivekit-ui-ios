@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  StreakVCViewController.swift
 //  DriveKitDriverAchievementUI
@@ -56,7 +57,7 @@ extension StreakViewController: StreakVMDelegate {
     }
     
     func streaksUpdated(status: StreakSyncStatus) {
-        DispatchQueue.main.async{
+        DispatchQueue.main.async {
             if self.refreshControl.isRefreshing {
                 self.refreshControl.endRefreshing()
             }

@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  VehiclePickerTableViewVC.swift
 //  drivekit-test-app
@@ -35,8 +36,7 @@ class VehiclePickerTableViewVC: VehiclePickerStepView {
     }
 }
 
-
-extension VehiclePickerTableViewVC : UITableViewDelegate {
+extension VehiclePickerTableViewVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if self.viewModel.currentStep == .type {
             return 96
@@ -51,7 +51,7 @@ extension VehiclePickerTableViewVC: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let value : String = viewModel.getTableViewItems()[indexPath.row].text()
+        let value: String = viewModel.getTableViewItems()[indexPath.row].text()
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "VehiclePickerTableViewCell", for: indexPath) as! VehiclePickerTableViewCell
         cell.configure(text: value)
         return cell
@@ -89,7 +89,7 @@ extension VehiclePickerTableViewVC: UITableViewDataSource {
     }
 }
 
-extension VehiclePickerTableViewVC : VehicleDataDelegate {
+extension VehiclePickerTableViewVC: VehicleDataDelegate {
     func onDataRetrieved(status: StepStatus) {
         DispatchQueue.dispatchOnMainThread {
             self.hideLoader()

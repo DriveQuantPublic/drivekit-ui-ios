@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  UIImage+DK.swift
 //  DriveKitCommonUI
@@ -15,7 +16,7 @@ public extension UIImage {
         var newImage: UIImage
         
         let size = self.size
-        let aspectRatio =  size.width/size.height
+        let aspectRatio = size.width / size.height
         
         switch contentMode {
         case .scaleAspectFit:
@@ -35,13 +36,12 @@ public extension UIImage {
         renderFormat.opaque = opaque
         let renderer = UIGraphicsImageRenderer(size: CGSize(width: width, height: height), format: renderFormat)
         newImage = renderer.image {
-            (context) in
+            (_) in
             self.draw(in: CGRect(x: 0, y: 0, width: width, height: height))
         }
 
         return newImage
     }
-
 
     func tintedImage(withColor tintColor: UIColor) -> UIImage {
         return modifiedImage { context, rect in
@@ -76,7 +76,7 @@ public extension UIImage {
         }
     }
 
-    private func modifiedImage(draw: (CGContext, CGRect) -> ()) -> UIImage {
+    private func modifiedImage(draw: (CGContext, CGRect) -> Void) -> UIImage {
         // using scale correctly preserves retina images
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         let context: CGContext! = UIGraphicsGetCurrentContext()
@@ -93,7 +93,6 @@ public extension UIImage {
         UIGraphicsEndImageContext()
         return image!
     }
-    
 
     convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
         let rect = CGRect(origin: .zero, size: size)

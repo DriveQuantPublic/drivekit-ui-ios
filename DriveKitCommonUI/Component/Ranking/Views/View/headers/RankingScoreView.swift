@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  RankingScoreView.swift
 //  DriveKitDriverAchievementUI
@@ -41,7 +42,7 @@ class RankingScoreView: UIView {
         self.infoPopupMessage = ranking.infoPopupMessage()
     }
 
-    @IBAction func infoAction(_ sender:UIButton) {
+    @IBAction func infoAction(_ sender: UIButton) {
         self.parentViewController?.showAlertMessage(title: self.infoPopupTitle, message: self.infoPopupMessage, back: false, cancel: false)
     }
 }

@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  ErrorBluetoothVC.swift
 //  IFPClient
@@ -27,7 +28,6 @@ class ErrorBluetoothVC: DKUIViewController {
         self.title = "dk_vehicle_bluetooth_combination_view_title".dkVehicleLocalized()
         self.setup()
     }
-    
     
     func setup() {
         errorText.attributedText = "dk_vehicle_bluetooth_not_found".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()

@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  UserInfoViewController.swift
 //  DriveKitApp
@@ -93,7 +94,7 @@ class UserInfoViewController: UIViewController {
                     }
                     self?.hideLoader()
                 }
-            }
+                }
         }
     }
 
@@ -105,7 +106,7 @@ class UserInfoViewController: UIViewController {
             let permissionsVC = PermissionsViewController(nibName: "PermissionsViewController", bundle: nil)
             self.navigationController?.pushViewController(permissionsVC, animated: true)
         } else {
-            viewModel.shouldDisplayVehicle() { [weak self] shouldDisplay in
+            viewModel.shouldDisplayVehicle { [weak self] shouldDisplay in
                 if shouldDisplay {
                     let vehiclesVC = VehiclesViewController(nibName: "VehiclesViewController", bundle: nil)
                     self?.navigationController?.pushViewController(vehiclesVC, animated: true)

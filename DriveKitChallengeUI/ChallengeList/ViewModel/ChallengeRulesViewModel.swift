@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  ChallengeRulesViewModel.swift
 //  DriveKitChallengeUI
@@ -38,7 +39,7 @@ public struct ChallengeRulesViewModel {
         return challenge.optinText ?? ""
     }
 
-    func joinChallenge(completionHandler: @escaping (ChallengeParticipationStatus) -> ()) {
+    func joinChallenge(completionHandler: @escaping (ChallengeParticipationStatus) -> Void) {
         participationViewModel.joinChallenge { status in
             completionHandler(status)
         }

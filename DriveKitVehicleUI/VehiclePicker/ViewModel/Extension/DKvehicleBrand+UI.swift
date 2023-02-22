@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DKVehicleBrand+UI.swift
 //  DriveKitVehicleUI
@@ -10,7 +11,7 @@ import Foundation
 import UIKit
 import DriveKitVehicleModule
 
-extension DKVehicleBrand : VehiclePickerCollectionViewItem {
+extension DKVehicleBrand: VehiclePickerCollectionViewItem {
 
     func title() -> String {
         return self.name
@@ -83,13 +84,13 @@ extension DKVehicleBrand : VehiclePickerCollectionViewItem {
 
 }
 
-extension DKVehicleBrand : VehiclePickerTableViewItem {
+extension DKVehicleBrand: VehiclePickerTableViewItem {
     func text() -> String {
         return self.name
     }
 }
 
-class OtherVehicles : VehiclePickerCollectionViewItem {
+class OtherVehicles: VehiclePickerCollectionViewItem {
     func title() -> String {
         return "dk_vehicle_other_brands".dkVehicleLocalized()
     }

@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  SpeedingPageViewModel.swift
 //  DriveKitDriverDataUI
@@ -65,7 +66,7 @@ class SpeedingPageViewModel {
 
     func getDurationPercentage() -> String {
         if let speedingDuration = trip.speedingStatistics?.speedingDuration, let fullDuration = trip.speedingStatistics?.duration, speedingDuration > 0, fullDuration > speedingDuration {
-            var percentage: Double = Double(speedingDuration) / Double(fullDuration)*100
+            var percentage: Double = Double(speedingDuration) / Double(fullDuration) * 100
             if percentage > 0.5 {
                 percentage.round(.up)
             }
@@ -77,7 +78,7 @@ class SpeedingPageViewModel {
 
     func getDistancePercentage() -> String {
         if let speedingDistance = trip.speedingStatistics?.speedingDistance, let fullDistance = trip.speedingStatistics?.distance, speedingDistance > 0, fullDistance > speedingDistance {
-            var percentage: Double = Double(speedingDistance) / Double(fullDistance)*100
+            var percentage: Double = Double(speedingDistance) / Double(fullDistance) * 100
             if percentage > 0.5 {
                 percentage.round(.up)
             }
@@ -92,6 +93,6 @@ class SpeedingPageViewModel {
     }
 
     private func formatDistance(_ distance: Double) -> String {
-        return distance.ceilMeterDistance(ifGreaterThan: 10000).formatMeterDistance()
+        return distance.ceilMeterDistance(ifGreaterThan: 10_000).formatMeterDistance()
     }
 }

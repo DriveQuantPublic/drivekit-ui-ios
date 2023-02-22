@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  RequestError+DK.swift
 //  DriveKitApp

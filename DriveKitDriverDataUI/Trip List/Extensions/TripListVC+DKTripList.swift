@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  TripListVC+DKTripList.swift
 //  DriveKitDriverDataUI

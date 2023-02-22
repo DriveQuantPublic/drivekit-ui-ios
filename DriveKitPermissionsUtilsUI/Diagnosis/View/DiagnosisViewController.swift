@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DiagnosisViewController.swift
 //  DriveKitPermissionsUtilsUI
@@ -10,7 +11,7 @@ import UIKit
 
 import DriveKitCommonUI
 
-class DiagnosisViewController : DKUIViewController {
+class DiagnosisViewController: DKUIViewController {
 
     @IBOutlet private weak var globalStatus: GlobalStateView!
     @IBOutlet private weak var locationStatus: SensorStateView!
@@ -54,7 +55,6 @@ class DiagnosisViewController : DKUIViewController {
         self.updateContactUI()
     }
 
-
     @IBAction private func batteryOptimizationDidTouch() {
         self.viewModel.batteryOptimizationViewModel.performAction()
     }
@@ -66,7 +66,7 @@ class DiagnosisViewController : DKUIViewController {
     }
 }
 
-extension DiagnosisViewController : DiagnosisView {
+extension DiagnosisViewController: DiagnosisView {
 
     func updateSensorsUI() {
         self.globalStatus.viewModel = self.viewModel.globalStatusViewModel

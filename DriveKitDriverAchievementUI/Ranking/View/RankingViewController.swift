@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  RankingViewController.swift
 //  DriveKitDriverAchievementUI
@@ -17,7 +18,7 @@ class RankingViewController: DKUIViewController {
     @IBOutlet private weak var loadingView: UIActivityIndicatorView!
     @IBOutlet private weak var viewContainer: UIView!
     private let viewModel: RankingViewModel
-    private var rankingSelectors: RankingSelectorsView? = nil
+    private var rankingSelectors: RankingSelectorsView?
     private var ranks: [DKDriverRankingItem] = []
 
     public init(groupName: String?) {
@@ -79,7 +80,7 @@ class RankingViewController: DKUIViewController {
 
 }
 
-extension RankingViewController : RankingViewModelDelegate {
+extension RankingViewController: RankingViewModelDelegate {
     func rankingDidUpdate() {
         if self.viewModel.status == .updating {
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.2) {

@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DiagnosisViewModel.swift
 //  DriveKitPermissionsUtilsUI
@@ -11,16 +12,16 @@ import MessageUI
 import DriveKitCommonUI
 import DriveKitCoreModule
 
-protocol DiagnosisView : UIViewController {
+protocol DiagnosisView: UIViewController {
     func updateSensorsUI()
     func updateBatteryOptimizationUI()
     func updateContactUI()
 }
 
-class DiagnosisViewModel : NSObject {
+class DiagnosisViewModel: NSObject {
 
-    weak var view: DiagnosisView? = nil
-    private(set) var globalStatusViewModel: GlobalStateViewModel? = nil
+    weak var view: DiagnosisView?
+    private(set) var globalStatusViewModel: GlobalStateViewModel?
     var activityStatusViewModel: SensorStateViewModel? {
         get {
             self.viewModelByType[.activity]
@@ -47,12 +48,11 @@ class DiagnosisViewModel : NSObject {
         }
     }
     let batteryOptimizationViewModel = BatteryOptimizationViewModel()
-    private(set) var contactViewModel: ContactViewModel? = nil
+    private(set) var contactViewModel: ContactViewModel?
     private(set) var loggingViewModel: LoggingViewModel = LoggingViewModel()
-    private var stateByType = [StatusType:Bool]()
-    private var viewModelByType = [StatusType:SensorStateViewModel]()
+    private var stateByType = [StatusType: Bool]()
+    private var viewModelByType = [StatusType: SensorStateViewModel]()
     private var isAppActive = true
-
 
     override init() {
         super.init()
@@ -63,7 +63,6 @@ class DiagnosisViewModel : NSObject {
 
         self.updateState()
     }
-
 
     func performDialogAction(for statusType: StatusType, isValid: Bool) {
         if !isValid {
@@ -161,9 +160,9 @@ class DiagnosisViewModel : NSObject {
         switch contactType {
             case .none:
                 self.contactViewModel = nil
-            case .email(_):
+            case .email:
                 self.contactViewModel = ContactViewModel(contactType: contactType, diagnosisViewModel: self)
-            case .web(_):
+            case .web:
                 self.contactViewModel = ContactViewModel(contactType: contactType, diagnosisViewModel: self)
         }
 
@@ -220,7 +219,6 @@ class DiagnosisViewModel : NSObject {
         self.view?.updateSensorsUI()
     }
 
-
     private func openUrl(_ url: URL) {
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -229,7 +227,7 @@ class DiagnosisViewModel : NSObject {
 
     private func sendMail(_ contentMail: DKContentMail) {
         if let view = self.view {
-            if MFMailComposeViewController.canSendMail()  {
+            if MFMailComposeViewController.canSendMail() {
                 let mailComposerVC = MFMailComposeViewController()
                 if let logFileUrl = self.loggingViewModel.getLogFileUrl() {
                     do {
@@ -262,7 +260,7 @@ class DiagnosisViewModel : NSObject {
 
 }
 
-extension DiagnosisViewModel : MFMailComposeViewControllerDelegate {
+extension DiagnosisViewModel: MFMailComposeViewControllerDelegate {
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         if result != .failed {
             controller.dismiss(animated: true)

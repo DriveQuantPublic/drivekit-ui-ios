@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  SynthesisPageVC.swift
 //  DriveKitDriverDataUI
@@ -42,9 +43,9 @@ class SynthesisPageVC: UIViewController {
 
     @IBOutlet private var separators: [UIView]!
     
-    private weak var parentView : UIViewController?
+    private weak var parentView: UIViewController?
     
-    init(viewModel: SynthesisPageViewModel, parentView : UIViewController) {
+    init(viewModel: SynthesisPageViewModel, parentView: UIViewController) {
         self.viewModel = viewModel
         self.parentView = parentView
         super.init(nibName: String(describing: SynthesisPageVC.self), bundle: Bundle.driverDataUIBundle)

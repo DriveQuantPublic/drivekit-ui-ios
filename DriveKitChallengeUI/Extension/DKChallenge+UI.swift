@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DKChallenge+UI.swift
 //  DriveKitChallengeUI

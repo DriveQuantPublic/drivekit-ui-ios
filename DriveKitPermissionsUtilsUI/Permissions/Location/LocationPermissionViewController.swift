@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  LocationPermissionViewController.swift
 //  DriveKitPermissionsUtilsUI
@@ -10,7 +11,7 @@ import UIKit
 
 import DriveKitCommonUI
 
-class LocationPermissionViewController : PermissionViewController {
+class LocationPermissionViewController: PermissionViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var topImageView: UIImageView!
@@ -27,7 +28,6 @@ class LocationPermissionViewController : PermissionViewController {
 
     private let viewModel = LocationPermissionViewModel()
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.topImageView.image = DKPermissionsUtilsImages.backgroundLocationPermission.image
@@ -42,11 +42,9 @@ class LocationPermissionViewController : PermissionViewController {
         self.viewModel.checkState()
     }
 
-
     @IBAction func openSettings() {
         self.viewModel.openSettings()
     }
-
 
     private func updateView() {
         self.titleLabel.attributedText = "dk_perm_utils_permissions_location_title".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()

@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  BeaconScannerProgressVC.swift
 //  DriveKitVehicleUI
@@ -15,8 +16,8 @@ class BeaconScannerProgressVC: UIViewController {
     
     private let viewModel: BeaconViewModel
     
-    private var timer: Timer? = nil
-    private var batteryTimer: Timer? = nil
+    private var timer: Timer?
+    private var batteryTimer: Timer?
     private var isBeaconFound = false
     
     init(viewModel: BeaconViewModel) {
@@ -48,7 +49,7 @@ class BeaconScannerProgressVC: UIViewController {
     }
 
     private func startBeaconScan() {
-        self.viewModel.startBeaconScan() {
+        self.viewModel.startBeaconScan {
             self.isBeaconFound = true
             self.beaconFound()
         }
@@ -67,7 +68,7 @@ class BeaconScannerProgressVC: UIViewController {
     }
     
     @objc func refreshProgress() {
-        progressView.progress += 1/1000
+        progressView.progress += 1 / 1_000
         if progressView.progress == 1 {
             timer?.invalidate()
             if isBeaconFound {

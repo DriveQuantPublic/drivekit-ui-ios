@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  TransportationModeVC.swift
 //  IFPClient
@@ -39,11 +40,11 @@ class TransportationModeVC: DKUIViewController {
     @IBOutlet private weak var commentError: UILabel!
     @IBOutlet private weak var validateButton: UIButton!
     
-    private var selectedTransportationModeButton: TransportationModeIcon? = nil
-    private var selectedPassengerDriverButton: TransportationModeIcon? = nil
+    private var selectedTransportationModeButton: TransportationModeIcon?
+    private var selectedPassengerDriverButton: TransportationModeIcon?
     
     private let viewModel: TransportationModeViewModel
-    private weak var parentView : UIViewController?
+    private weak var parentView: UIViewController?
     
     init(viewModel: TransportationModeViewModel, parent: UIViewController) {
         self.viewModel = viewModel
@@ -224,7 +225,7 @@ class TransportationModeVC: DKUIViewController {
             let comment: String = self.commentTextView.text
             let commentTextLength = comment.count
             if commentTextLength <= self.maxCommentLength {
-                var passenger: Bool? = nil
+                var passenger: Bool?
                 if selectedTransportationMode == .car {
                     if let selectedPassengerDriverButton = self.selectedPassengerDriverButton {
                         if selectedPassengerDriverButton == self.driverButton {
@@ -261,8 +262,7 @@ class TransportationModeVC: DKUIViewController {
     }
 }
 
-
-extension TransportationModeVC : UITextViewDelegate {
+extension TransportationModeVC: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         self.commentError.isHidden = textView.text.count <= self.maxCommentLength

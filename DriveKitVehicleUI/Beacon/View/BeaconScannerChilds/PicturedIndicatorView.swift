@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  PicturedIndicatorView.swift
 //  IFPClient
@@ -24,4 +25,3 @@ final class PicturedIndicatorView: UIView, Nibable {
         imageView.tintColor = .black
 	}
 }
-

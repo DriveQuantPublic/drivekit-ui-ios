@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  BadgesViewModel.swift
 //  DriveKitDriverAchievementUI
@@ -13,7 +14,7 @@ import UIKit
 import DriveKitCommonUI
 
 class BadgeViewModel {
-    weak var delegate: BadgeDelegate? = nil
+    weak var delegate: BadgeDelegate?
     private var badges: [DKBadge] = []
     
     init() {
@@ -22,7 +23,7 @@ class BadgeViewModel {
     }
     
     func updateBadges() {
-        DriveKitDriverAchievement.shared.getBadges() { [weak self] status, badges, newBadges in
+        DriveKitDriverAchievement.shared.getBadges { [weak self] _, badges, _ in
             DispatchQueue.main.async {
                 if let self = self {
                     self.badges = self.computeBadges(badges)

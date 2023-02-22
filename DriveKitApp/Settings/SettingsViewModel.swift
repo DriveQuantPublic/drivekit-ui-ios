@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  SettingsViewModel.swift
 //  DriveKitApp
@@ -25,7 +26,7 @@ class SettingsViewModel {
         return self.userInfo?.firstname
     }
 
-    func updateUserFirstname(_ firstname: String, completion: @escaping (Bool) -> ()) {
+    func updateUserFirstname(_ firstname: String, completion: @escaping (Bool) -> Void) {
         DriveKit.shared.updateUserInfo(firstname: firstname, lastname: nil, pseudo: nil) { [weak self] success in
             self?.updateUserInfo()
             completion(success)
@@ -36,7 +37,7 @@ class SettingsViewModel {
         return self.userInfo?.lastname
     }
 
-    func updateUserLastname(_ lastname: String, completion: @escaping (Bool) -> ()) {
+    func updateUserLastname(_ lastname: String, completion: @escaping (Bool) -> Void) {
         DriveKit.shared.updateUserInfo(firstname: nil, lastname: lastname, pseudo: nil) { [weak self] success in
             self?.updateUserInfo()
             completion(success)
@@ -47,7 +48,7 @@ class SettingsViewModel {
         return self.userInfo?.pseudo
     }
 
-    func updateUserPseudo(_ pseudo: String, completion: @escaping (Bool) -> ()) {
+    func updateUserPseudo(_ pseudo: String, completion: @escaping (Bool) -> Void) {
         DriveKit.shared.updateUserInfo(firstname: nil, lastname: nil, pseudo: pseudo) { [weak self] success in
             self?.updateUserInfo()
             completion(success)
@@ -78,7 +79,7 @@ class SettingsViewModel {
     }
 
     private func updateUserInfo() {
-        DriveKit.shared.getUserInfo(synchronizationType: .cache) { [weak self] _ , userInfo in
+        DriveKit.shared.getUserInfo(synchronizationType: .cache) { [weak self] _, userInfo in
             self?.userInfo = userInfo
         }
     }

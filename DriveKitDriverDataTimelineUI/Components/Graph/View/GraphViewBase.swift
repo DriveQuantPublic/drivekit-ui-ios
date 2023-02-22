@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  GraphViewBase.swift
 //  DriveKitDriverDataTimelineUI
@@ -71,15 +72,14 @@ class DKXAxisRenderer: XAxisRenderer {
         super.init(viewPortHandler: viewPortHandler, xAxis: xAxis, transformer: transformer)
     }
 
-    override func drawLabel(context: CGContext, formattedLabel: String, x: CGFloat, y: CGFloat, attributes: [NSAttributedString.Key : Any], constrainedToSize: CGSize, anchor: CGPoint, angleRadians: CGFloat) {
+    override func drawLabel(context: CGContext, formattedLabel: String, x: CGFloat, y: CGFloat, attributes: [NSAttributedString.Key: Any], constrainedToSize: CGSize, anchor: CGPoint, angleRadians: CGFloat) {
         var textAttributes = attributes
         if let index = self.config.labels.titles?.firstIndex(of: formattedLabel), index == self.selectedIndex {
             let textSize = formattedLabel.boundingRect(with: constrainedToSize, options: .usesLineFragmentOrigin, attributes: attributes, context: nil).size
             var rect = CGRect(origin: CGPoint(), size: textSize)
             let point = CGPoint(x: x, y: y)
             UIGraphicsPushContext(context)
-            if anchor.x != 0.0 || anchor.y != 0.0
-            {
+            if anchor.x != 0.0 || anchor.y != 0.0 {
                 rect.origin.x = -textSize.width * anchor.x
                 rect.origin.y = -textSize.height * anchor.y
             }

@@ -18,7 +18,7 @@ class TimelineViewController: DKUIViewController {
     @IBOutlet private weak var timelineGraphViewContainer: UIView!
     @IBOutlet weak var showTimelineDetailButton: UIButton!
     private let viewModel: TimelineViewModel
-    private var selectedScoreSelectionTypeView: ScoreSelectionTypeView? = nil
+    private var selectedScoreSelectionTypeView: ScoreSelectionTypeView?
 
     init(viewModel: TimelineViewModel) {
         self.viewModel = viewModel
@@ -81,7 +81,8 @@ class TimelineViewController: DKUIViewController {
 
     private func setupSelectors() {
         let scores = self.viewModel.scores
-        if scores.count < 2 {
+        let minimumScoreCountRequiredToDisplayScoreSelector = 2
+        if scores.count < minimumScoreCountRequiredToDisplayScoreSelector {
             self.scoreSelectorView.isHidden = true
         } else {
             let selectedScore = self.viewModel.selectedScore
@@ -130,6 +131,7 @@ class TimelineViewController: DKUIViewController {
     
     private func setupDetailButton() {
         showTimelineDetailButton.configure(text: viewModel.timelineDetailButtonTitle, style: .empty)
+        showTimelineDetailButton.isHidden = viewModel.shouldHideDetailButton
     }
 }
 

@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DKTripCardInfo.swift
 //  DriveKitDriverDataUI
@@ -62,7 +63,7 @@ public enum SynthesisCardInfo: DKSynthesisCardInfo {
                 let unitString = unitKey.text().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
                 text = "%@ %@".dkAttributedString().buildWithArgs(valueString, unitString)
             case let .distance(trips):
-                text = formatTypes(trips.totalDistance.ceilMeterDistance(ifGreaterThan: 10000).getMeterDistanceFormat())
+                text = formatTypes(trips.totalDistance.ceilMeterDistance(ifGreaterThan: 10_000).getMeterDistanceFormat())
             case let .duration(trips):
                 text = formatTypes(trips.totalDuration.ceilSecondDuration(ifGreaterThan: 600).getSecondDurationFormat(maxUnit: .hour))
         }

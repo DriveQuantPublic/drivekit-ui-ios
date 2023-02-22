@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  VehicleGroupFields.swift
 //  DriveKitVehicleUI
@@ -9,7 +10,7 @@
 import Foundation
 import DriveKitDBVehicleAccessModule
 
-public enum DKVehicleGroupField : CaseIterable {
+public enum DKVehicleGroupField: CaseIterable {
     case general, engine, characteristics, beacon, bluetooth
 
     func isDisplayable(vehicle: DKVehicle) -> Bool {

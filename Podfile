@@ -9,43 +9,55 @@ def circular_progress_ring
   pod 'UICircularProgressRing', '6.5.0'
 end
 
+def swiftlint
+  pod 'SwiftLint'
+end
+
 target 'DriveKitApp' do
   pod 'ChartsForDK'
   pod 'DriveKitTripSimulator', '1.29.0'
+  swiftlint
 end
 
 
 target 'DriveKitDriverDataUI' do
   pod 'DriveKitDriverData', '1.29.0'
   circular_progress_ring
+  swiftlint
 end
 
 target 'DriveKitDriverDataTimelineUI' do
   pod 'DriveKitDriverData', '1.29.0'
   pod 'ChartsForDK'
+  swiftlint
 end
 
 target 'DriveKitDriverAchievementUI' do
   pod 'DriveKitDriverAchievement', '1.29.0'
   circular_progress_ring
+  swiftlint
 end
 
 target 'DriveKitCommonUI' do
   pod 'DriveKitCore', '1.29.0'
   circular_progress_ring
+  swiftlint
 end
 
 target 'DriveKitVehicleUI' do
   pod 'DriveKitVehicle', '1.29.0'
   pod 'DriveKitTripAnalysis', '1.29.0'
+  swiftlint
 end
 
 target 'DriveKitPermissionsUtilsUI' do
   pod 'DriveKitCore', '1.29.0'
+  swiftlint
 end
 
 target 'DriveKitChallengeUI' do
   pod 'DriveKitChallenge', '1.29.0'
+  swiftlint
 end
 
 target 'DriveKitTripAnalysisUI' do
@@ -53,6 +65,7 @@ target 'DriveKitTripAnalysisUI' do
 
   pod 'WARangeSlider'
   circular_progress_ring
+  swiftlint
 end
 
 

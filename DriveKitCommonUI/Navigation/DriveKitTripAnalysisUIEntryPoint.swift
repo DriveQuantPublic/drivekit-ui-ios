@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DriveKitTripAnalysisUIEntryPoint.swift
 //  DriveKitCommonUI

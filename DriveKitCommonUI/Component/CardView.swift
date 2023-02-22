@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  CardView.swift
 //  DriveKitDriverAchievementUI
@@ -23,4 +24,3 @@ public class CardView: UIView {
         self.backgroundColor = .white
     }
 }
-

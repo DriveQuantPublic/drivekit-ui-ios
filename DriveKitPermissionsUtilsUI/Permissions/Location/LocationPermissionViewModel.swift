@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  LocationPermissionViewModel.swift
 //  DriveKitPermissionsUtilsUI
@@ -11,7 +12,7 @@ import DriveKitCoreModule
 
 class LocationPermissionViewModel {
 
-    weak var view: PermissionView? = nil
+    weak var view: PermissionView?
 
     init() {
         NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
@@ -36,7 +37,6 @@ class LocationPermissionViewModel {
     func openSettings() {
         DKDiagnosisHelper.shared.openSettings()
     }
-
 
     @objc private func requestPermission() {
         DKDiagnosisHelper.shared.requestPermission(.location)

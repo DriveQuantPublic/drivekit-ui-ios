@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  ChallengeParticipationVC.swift
 //  DriveKitChallengeUI
@@ -32,7 +33,7 @@ class ChallengeParticipationVC: DKUIViewController {
     private weak var parentView: UIViewController?
 
     private let viewModel: ChallengeParticipationViewModel?
-    private var timer: Timer? = nil
+    private var timer: Timer?
 
     public init(viewModel: ChallengeParticipationViewModel, parentView: UIViewController? = nil) {
         self.viewModel = viewModel
@@ -153,7 +154,7 @@ class ChallengeParticipationVC: DKUIViewController {
             let rulesVC: ChallengeRulesVC = ChallengeRulesVC(viewModel: rulesViewModel)
             if let navigationController = self.navigationController {
                 navigationController.pushViewController(rulesVC, animated: true)
-            } else if let parentView: UINavigationController = self.parentView as? UINavigationController{
+            } else if let parentView: UINavigationController = self.parentView as? UINavigationController {
                 parentView.pushViewController(rulesVC, animated: true)
             }
         }

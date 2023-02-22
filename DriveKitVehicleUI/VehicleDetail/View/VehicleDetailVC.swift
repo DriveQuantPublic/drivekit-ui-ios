@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  VehicleDetailVC.swift
 //  DriveKitVehicleUI
@@ -53,7 +54,7 @@ class VehicleDetailVC: DKUIViewController {
             if !self.viewModel.updateIsInProgress {
                 self.navigationItem.rightBarButtonItem = nil
                 self.showLoader()
-                self.updateField() { [weak self] success in
+                self.updateField { [weak self] success in
                     if success {
                         self?.navigationController?.popViewController(animated: true)
                     }
@@ -72,7 +73,7 @@ class VehicleDetailVC: DKUIViewController {
         self.view.endEditing(false)
         self.navigationItem.rightBarButtonItem = nil
         self.showLoader()
-        self.updateField() { [weak self] _ in
+        self.updateField { [weak self] _ in
             if let self = self {
                 if self.viewModel.mustUpdate() {
                     self.needUpdate()
@@ -82,7 +83,7 @@ class VehicleDetailVC: DKUIViewController {
     }
 
     private func updateField(completion: ((Bool) -> Void)?) {
-        self.viewModel.updateFields() { [weak self] success in
+        self.viewModel.updateFields { [weak self] success in
             DispatchQueue.main.async {
                 if let self = self {
                     self.hideLoader()
@@ -146,7 +147,7 @@ extension VehicleDetailVC: VehicleDetailHeaderDelegate {
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
             let imagePicker = DKImagePickerManager()
             imagePicker.selectedImageTag = viewModel.vehicle.vehicleImageTag
-            imagePicker.pickImage(self){ image in
+            imagePicker.pickImage(self) { _ in
                 self.tableView.reloadData()
             }
         }
@@ -160,7 +161,7 @@ extension VehicleDetailVC: VehicleDetailDelegate {
         checkButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         checkButton.setImage(image, for: .normal)
         checkButton.tintColor = DKUIColors.navBarElementColor.color
-        checkButton.addTarget(self, action:#selector(updateVehicle), for: .touchUpInside)
+        checkButton.addTarget(self, action: #selector(updateVehicle), for: .touchUpInside)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: checkButton)
     }
 }

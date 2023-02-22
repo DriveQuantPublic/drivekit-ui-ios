@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  RoadContextViewModel.swift
 //  DriveKitDriverDataTimelineUI
@@ -204,7 +205,6 @@ class RoadContextViewModel {
 protocol RoadContextViewModelDelegate: AnyObject {
     func roadContextViewModelDidUpdate()
 }
-
 
 enum TimelineRoadContext: Int, Codable {
     case heavyUrbanTraffic

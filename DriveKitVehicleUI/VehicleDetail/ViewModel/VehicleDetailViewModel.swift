@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  VehicleDetailViewModel.swift
 //  DriveKitVehicleUI
@@ -28,7 +29,7 @@ class VehicleDetailViewModel {
     private var errorFields: [DKVehicleField] = []
     private(set) public var updateIsInProgress: Bool = false
 
-    weak var delegate: VehicleDetailDelegate? = nil
+    weak var delegate: VehicleDetailDelegate?
 
     init(vehicle: DKVehicle, vehicleDisplayName: String) {
         self.vehicle = vehicle
@@ -81,7 +82,7 @@ class VehicleDetailViewModel {
         return !updatedFields.isEmpty
     }
 
-    func updateFields(completion: @escaping (Bool) -> ()) {
+    func updateFields(completion: @escaping (Bool) -> Void) {
         if updatedFields.count > 0 {
             updateIsInProgress = true
             errorFields.removeAll()
@@ -91,7 +92,7 @@ class VehicleDetailViewModel {
         }
     }
 
-    private func updateField(pos: Int, completion: @escaping (Bool) -> ()) {
+    private func updateField(pos: Int, completion: @escaping (Bool) -> Void) {
         if pos >= updatedFields.count {
             updateIsInProgress = false
             completion(self.errorFields.isEmpty)

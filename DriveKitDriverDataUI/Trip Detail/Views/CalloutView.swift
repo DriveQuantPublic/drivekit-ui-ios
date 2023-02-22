@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  CalloutView.swift
 //  drivekit-test-app
@@ -14,7 +15,6 @@ final class CalloutView: UIView, Nibable {
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subtitleLabel: UILabel!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()    }

@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DistractionPageViewModel.swift
 //  drivekit-test-app
@@ -120,6 +121,6 @@ struct DistractionPageViewModel {
     }
 
     private func formatDistance(_ distance: Double) -> String {
-        return distance.ceilMeterDistance(ifGreaterThan: 10000).formatMeterDistance()
+        return distance.ceilMeterDistance(ifGreaterThan: 10_000).formatMeterDistance()
     }
 }

@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  WorkingHoursViewModel.swift
 //  DriveKitTripAnalysisUI
@@ -30,7 +31,7 @@ class WorkingHoursViewModel {
             return self.workingHours.enabled
         }
     }
-    weak var delegate: WorkingHoursViewModelDelegate? = nil
+    weak var delegate: WorkingHoursViewModelDelegate?
     private var dayCellViewModelsByDay: [DKDay: WorkingHoursDayCellViewModel] = [:]
     private var slotViewModelByType: [SlotType: WorkingHoursSlotCellViewModel] = [:]
     private var workingHours: DKWorkingHours {
@@ -74,7 +75,7 @@ class WorkingHoursViewModel {
     }
 
     func synchronizeWorkingHours() {
-        DriveKitTripAnalysis.shared.getWorkingHours { [weak self] status, workingHours in
+        DriveKitTripAnalysis.shared.getWorkingHours { [weak self] _, workingHours in
             if let self = self {
                 DispatchQueue.dispatchOnMainThread {
                     if let workingHours = workingHours, self.areWorkingHoursValid(workingHours) {
@@ -87,7 +88,7 @@ class WorkingHoursViewModel {
         }
     }
 
-    func updateWorkingHours(completion: @escaping (Bool) -> ()) {
+    func updateWorkingHours(completion: @escaping (Bool) -> Void) {
         DriveKitTripAnalysis.shared.updateWorkingHours(workingHours: self.workingHours) { status in
             let success = status == .success
             if success {

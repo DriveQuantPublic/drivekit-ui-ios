@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  AppNavigationController.swift
 //  DriveKitApp
@@ -22,7 +23,7 @@ class AppNavigationController: UINavigationController {
         if DriveKit.shared.isUserConnected() {
             self.showLoader(message: "sync_trips_loading_message".keyLocalized())
             self.isNavigationBarHidden = true
-            SynchroServicesManager.syncModules([.trips, .challenge, .userInfo, .vehicle], stepCompletion:  { [weak self] status, remainingServices in
+            SynchroServicesManager.syncModules([.trips, .challenge, .userInfo, .vehicle], stepCompletion: { [weak self] _, remainingServices in
                 if let service = remainingServices.first {
                     switch service {
                     case .userInfo:

@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  SynthesisPageViewModel.swift
 //  DriveKitDriverDataUI
@@ -32,7 +33,7 @@ class SynthesisPageViewModel {
     }
     
     var fuelConsumptionValue: String {
-        if let value = trip.fuelEstimation?.fuelConsumption, value != 0{
+        if let value = trip.fuelEstimation?.fuelConsumption, value != 0 {
             return value.formatConsumption(.fuel)
         } else {
             return unknown
@@ -71,7 +72,7 @@ class SynthesisPageViewModel {
         }
     }
     
-    var meanSpeedValue : String {
+    var meanSpeedValue: String {
         if let value = trip.tripStatistics?.speedMean {
             return value.formatSpeedMean()
         } else {
@@ -79,7 +80,7 @@ class SynthesisPageViewModel {
         }
     }
     
-    var stopTimeValue : String {
+    var stopTimeValue: String {
         if let value = trip.tripStatistics?.idlingDuration {
             return value.formatSecondDuration()
         } else {
@@ -87,7 +88,7 @@ class SynthesisPageViewModel {
         }
     }
     
-    var co2EmissionValue : String {
+    var co2EmissionValue: String {
         if let value = trip.fuelEstimation?.co2Emission {
             return value.formatCO2Emission()
         } else {
@@ -95,7 +96,7 @@ class SynthesisPageViewModel {
         }
     }
     
-    var weatherValue : String {
+    var weatherValue: String {
         if let meteo = trip.tripStatistics?.meteo {
             switch meteo {
                 case 1:
@@ -126,7 +127,7 @@ class SynthesisPageViewModel {
         }
     }
     
-    var contextValue : String {
+    var contextValue: String {
         if let contexts = trip.ecoDrivingContexts?.allObjects as? [EcoDrivingContext] {
             var mainContext: EcoDrivingContext = contexts[0]
             

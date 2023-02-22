@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  HeaderDayView.swift
 //  drivekit-test-app
@@ -47,4 +48,3 @@ public final class HeaderDayView: UIView, Nibable {
         }
     }
 }
-

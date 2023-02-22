@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  LastTripsView.swift
 //  DriveKitCommonUI
@@ -13,7 +14,7 @@ final class LastTripsView: UIView, Nibable {
     @IBOutlet private weak var pageControl: UIPageControl!
     private let sections: [LastTripsViewSection] = [.trips, .showAllTrips]
 
-    var viewModel: LastTripsViewModel? = nil {
+    var viewModel: LastTripsViewModel? {
         didSet {
             update()
         }
@@ -54,7 +55,7 @@ final class LastTripsView: UIView, Nibable {
 
 }
 
-extension LastTripsView : UICollectionViewDataSource {
+extension LastTripsView: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return self.sections.count
     }
@@ -108,7 +109,7 @@ extension LastTripsView: UIGestureRecognizerDelegate {
     }
 }
 
-extension LastTripsView : UICollectionViewDelegate {
+extension LastTripsView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let viewModel = self.viewModel {
             switch self.sections[indexPath.section] {
@@ -146,7 +147,7 @@ extension LastTripsView: UICollectionViewDelegateFlowLayout {
     }
 }
 
-private enum LastTripsViewSection : Int {
+private enum LastTripsViewSection: Int {
     case trips
     case showAllTrips
 }

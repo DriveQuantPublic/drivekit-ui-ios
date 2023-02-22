@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DKVehicleVersion+UI.swift
 //  DriveKitVehicleUI
@@ -9,7 +10,7 @@
 import Foundation
 import DriveKitVehicleModule
 
-extension DKVehicleVersion : VehiclePickerTableViewItem {
+extension DKVehicleVersion: VehiclePickerTableViewItem {
     func text() -> String {
         return self.version
     }

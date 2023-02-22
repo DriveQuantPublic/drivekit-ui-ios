@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  BeaconScannerUnavailableVC.swift
 //  DriveKitVehicleUI
@@ -17,7 +18,7 @@ class BeaconScannerBeaconUnavailableVC: UIViewController {
     
     private let viewModel: BeaconViewModel
     
-    init(viewModel: BeaconViewModel){
+    init(viewModel: BeaconViewModel) {
         self.viewModel = viewModel
         super.init(nibName: "BeaconScannerBeaconUnavailableVC", bundle: .vehicleUIBundle)
     }

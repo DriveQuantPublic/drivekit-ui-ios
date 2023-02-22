@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  UserIdViewModel.swift
 //  DriveKitApp
@@ -11,7 +12,7 @@ import DriveKitCoreModule
 import DriveKitCommonUI
 
 class UserIdViewModel {
-    private var completionHandler: ((Bool, RequestError?) -> ())?
+    private var completionHandler: ((Bool, RequestError?) -> Void)?
 
     func getDescriptionAttibutedText() -> NSAttributedString {
         return "authentication_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
@@ -23,7 +24,7 @@ class UserIdViewModel {
         return titleString
     }
 
-    func sendUserId(userId: String, completionHandler: @escaping ((Bool, RequestError?) -> ())) {
+    func sendUserId(userId: String, completionHandler: @escaping ((Bool, RequestError?) -> Void)) {
         DriveKitDelegateManager.shared.register(delegate: self)
         DriveKit.shared.setUserId(userId: userId)
         self.completionHandler = completionHandler

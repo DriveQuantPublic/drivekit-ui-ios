@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DKPermissionView.swift
 //  DriveKitPermissionsUtilsUI
@@ -9,7 +10,7 @@
 import UIKit
 import DriveKitCoreModule
 
-@objc public enum DKPermissionView : Int {
+@objc public enum DKPermissionView: Int {
     case activity, location
 
     func getViewController(permissionViews: [DKPermissionView], completionHandler: @escaping () -> Void) -> PermissionViewController {

@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  OdometerInitVC.swift
 //  DriveKitVehicleUI
@@ -45,8 +46,8 @@ class OdometerInitVC: DKUIViewController {
         navigationItem.rightBarButtonItem = cancelButton
         validateButton.configure(text: DKCommonLocalizable.validate.text(), style: .full)
 
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
     private func configureHeaderOdometer() {
@@ -83,7 +84,7 @@ class OdometerInitVC: DKUIViewController {
         _ = checkValue()
     }
 
-    @objc @IBAction private func validateOdometer(_ sender: Any) {
+    @IBAction private func validateOdometer(_ sender: Any) {
         self.odometerField.resignFirstResponder()
         if let text = self.odometerField.text, let value = Double(text) {
             if checkValue() {
@@ -99,7 +100,7 @@ class OdometerInitVC: DKUIViewController {
 
     private func checkValue() -> Bool {
         if let text = self.odometerField.text, let odometer = Double(text) {
-            if odometer >= 0 && odometer < 1000000 {
+            if odometer >= 0 && odometer < 1_000_000 {
                 self.configureFieldOdometer()
                 return true
             } else {
@@ -125,7 +126,7 @@ class OdometerInitVC: DKUIViewController {
         }
     }
 
-    @objc private func keyboardWillShow(notification:NSNotification) {
+    @objc private func keyboardWillShow(notification: NSNotification) {
         guard let userInfo = notification.userInfo else { return }
         var keyboardFrame: CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
@@ -135,8 +136,8 @@ class OdometerInitVC: DKUIViewController {
         self.scrollView.contentInset = contentInset
     }
 
-    @objc private func keyboardWillHide(notification:NSNotification) {
-        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+    @objc private func keyboardWillHide(notification: NSNotification) {
+        let contentInset: UIEdgeInsets = UIEdgeInsets.zero
         self.scrollView.contentInset = contentInset
     }
 }

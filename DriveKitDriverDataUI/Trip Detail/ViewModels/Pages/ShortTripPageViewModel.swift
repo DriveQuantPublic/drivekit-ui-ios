@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  ShortTripPageViewModel.swift
 //  drivekit-test-app

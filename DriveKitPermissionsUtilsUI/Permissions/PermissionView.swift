@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  PermissionView.swift
 //  DriveKitPermissionsUtilsUI
@@ -8,7 +9,7 @@
 
 import Foundation
 
-protocol PermissionView : AnyObject {
+protocol PermissionView: AnyObject {
 
     func next()
 

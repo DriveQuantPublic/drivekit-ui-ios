@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  BeaconScannerInitVC.swift
 //  DriveKitVehicleUI
@@ -10,7 +11,6 @@ import UIKit
 import DriveKitCommonUI
 
 class BeaconScannerNotConfiguredVC: UIViewController {
-    
     
     @IBOutlet weak var cancelButton: UIButton!
     

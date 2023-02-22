@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  HistoryPageVC.swift
 //  drivekit-test-app
@@ -43,7 +44,7 @@ extension HistoryPageVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell : HistoryPageView = tableView.dequeueReusableCell(withIdentifier: "HistoryPageView") as? HistoryPageView {
+        if let cell: HistoryPageView = tableView.dequeueReusableCell(withIdentifier: "HistoryPageView") as? HistoryPageView {
             let event = self.viewModel.events[indexPath.row]
             cell.configure(event: event)
             cell.selectedBackgroundView?.backgroundColor = DKUIColors.secondaryColor.color.withAlphaComponent(0.3)

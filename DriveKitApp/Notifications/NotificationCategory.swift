@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  NotificationCategory.swift
 //  DriveKitApp

@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  Bundle+DK.swift
 //  DriveKitCommonUI

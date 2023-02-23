@@ -137,13 +137,13 @@ public class DateSelectorViewModel {
         if fromDateMonth == toDateMonth {
             return "\(self.fromDate.format(pattern: .dayOfMonth)) - \(self.toDate.format(pattern: .dayMonthLetterYear))"
                 .dkAttributedString()
-                .font(dkFont: .primary, style: .headLine1)
+                .font(dkFont: .primary, style: .normalText)
                 .color(.primaryColor)
                 .build()
         } else {
-            return "\(self.fromDate.format(pattern: .dayMonthLetterShort)) - \(self.toDate.format(pattern: .dayMonthLetterYear))"
+            return "\(self.fromDate.format(pattern: .dayMonthLetterShort)) - \(self.toDate.format(pattern: .dayMonthLetterShortYear))"
                 .dkAttributedString()
-                .font(dkFont: .primary, style: .headLine1)
+                .font(dkFont: .primary, style: .normalText)
                 .color(.primaryColor)
                 .build()
         }
@@ -154,7 +154,7 @@ public class DateSelectorViewModel {
             .format(pattern: .monthLetterYear)
             .capitalizeFirstLetter()
             .dkAttributedString()
-            .font(dkFont: .primary, style: .headLine1)
+            .font(dkFont: .primary, style: .normalText)
             .color(.primaryColor)
             .build()
     }
@@ -163,7 +163,7 @@ public class DateSelectorViewModel {
         return self.fromDate
             .format(pattern: .year)
             .dkAttributedString()
-            .font(dkFont: .primary, style: .headLine1)
+            .font(dkFont: .primary, style: .normalText)
             .color(.primaryColor)
             .build()
     }

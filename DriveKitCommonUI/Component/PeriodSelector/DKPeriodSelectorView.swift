@@ -1,5 +1,5 @@
 //
-//  PeriodSelectorView.swift
+//  DKPeriodSelectorView.swift
 //  DriveKitDriverDataTimelineUI
 //
 //  Created by David Bauduin on 14/10/2022.
@@ -9,11 +9,11 @@
 import DriveKitCoreModule
 import UIKit
 
-public class PeriodSelectorView: UIView {
+public class DKPeriodSelectorView: UIView {
     @IBOutlet private weak var weekButton: UIButton!
     @IBOutlet private weak var monthButton: UIButton!
     @IBOutlet private weak var yearButton: UIButton!
-    var viewModel: PeriodSelectorViewModel? {
+    var viewModel: DKPeriodSelectorViewModel? {
         didSet {
             if let viewModel {
                 self.weekButton.isHidden = viewModel.shouldHideButton(for: .week)
@@ -98,16 +98,16 @@ public class PeriodSelectorView: UIView {
     }
 }
 
-extension PeriodSelectorView {
+extension DKPeriodSelectorView {
     public static func createPeriodSelectorView(
-        configuredWith viewModel: PeriodSelectorViewModel,
+        configuredWith viewModel: DKPeriodSelectorViewModel,
         embededIn containerView: UIView
     ) {
         guard let periodSelector = Bundle.driveKitCommonUIBundle?.loadNibNamed(
-            "PeriodSelectorView",
+            "DKPeriodSelectorView",
             owner: nil,
             options: nil
-        )?.first as? PeriodSelectorView else {
+        )?.first as? DKPeriodSelectorView else {
             preconditionFailure("Can't find bundle or nib for PeriodSelectorView")
         }
         

@@ -43,7 +43,7 @@ class MySynthesisViewController: DKUIViewController {
             configuredWith: self.viewModel.scoreSelectorViewModel,
             embededIn: scoreSelectorContainer
         )
-        PeriodSelectorView.createPeriodSelectorView(
+        DKPeriodSelectorView.createPeriodSelectorView(
             configuredWith: self.viewModel.periodSelectorViewModel,
             embededIn: periodSelectorContainer
         )

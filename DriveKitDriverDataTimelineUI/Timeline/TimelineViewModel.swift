@@ -18,7 +18,7 @@ class TimelineViewModel {
     weak var delegate: TimelineViewModelDelegate?
     let scoreSelectorViewModel: DKScoreSelectorViewModel
     let dateSelectorViewModel: DKDateSelectorViewModel
-    let periodSelectorViewModel: PeriodSelectorViewModel
+    let periodSelectorViewModel: DKPeriodSelectorViewModel
     let roadContextViewModel: RoadContextViewModel
     let timelineGraphViewModel: TimelineGraphViewModel
     private var weekTimeline: DKRawTimeline?
@@ -53,7 +53,7 @@ class TimelineViewModel {
     init() {
         self.scoreSelectorViewModel = DKScoreSelectorViewModel()
         self.dateSelectorViewModel = DKDateSelectorViewModel()
-        self.periodSelectorViewModel = PeriodSelectorViewModel()
+        self.periodSelectorViewModel = DKPeriodSelectorViewModel()
         self.roadContextViewModel = RoadContextViewModel()
         self.timelineGraphViewModel = TimelineGraphViewModel()
 
@@ -211,7 +211,7 @@ class TimelineViewModel {
     }
 }
 
-extension TimelineViewModel: PeriodSelectorDelegate {
+extension TimelineViewModel: DKPeriodSelectorDelegate {
     func periodSelectorDidSwitch(from oldPeriod: DriveKitCoreModule.DKPeriod, to newPeriod: DriveKitCoreModule.DKPeriod) {
         updateStateAfterSwitching(from: oldPeriod, to: newPeriod)
     }

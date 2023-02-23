@@ -1,5 +1,5 @@
 //
-//  PeriodSelectorDelegate.swift
+//  DKPeriodSelectorDelegate.swift
 //  DriveKitDriverDataTimelineUI
 //
 //  Created by David Bauduin on 14/10/2022.
@@ -9,6 +9,6 @@
 import DriveKitCoreModule
 import Foundation
 
-public protocol PeriodSelectorDelegate: AnyObject {
+public protocol DKPeriodSelectorDelegate: AnyObject {
     func periodSelectorDidSwitch(from oldPeriod: DKPeriod, to newPeriod: DKPeriod)
 }

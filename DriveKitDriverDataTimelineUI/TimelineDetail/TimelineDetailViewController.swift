@@ -38,7 +38,7 @@ class TimelineDetailViewController: DKUIViewController {
     }
     
     private func setupPeriodSelector() {
-        PeriodSelectorView.createPeriodSelectorView(
+        DKPeriodSelectorView.createPeriodSelectorView(
             configuredWith: viewModel.periodSelectorViewModel,
             embededIn: periodSelectorContainerView
         )

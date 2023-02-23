@@ -74,7 +74,7 @@ class TimelineViewController: DKUIViewController {
             embededIn: scoreSelectorContainer
         )
         
-        PeriodSelectorView.createPeriodSelectorView(
+        DKPeriodSelectorView.createPeriodSelectorView(
             configuredWith: viewModel.periodSelectorViewModel,
             embededIn: periodSelectorContainer
         )

@@ -18,7 +18,7 @@ class TimelineDetailViewModel {
     private var selectedDate: Date
     private let weekTimeline: DKRawTimeline
     private let monthTimeline: DKRawTimeline
-    let periodSelectorViewModel: PeriodSelectorViewModel
+    let periodSelectorViewModel: DKPeriodSelectorViewModel
     let dateSelectorViewModel: DKDateSelectorViewModel
     let roadContextViewModel: RoadContextViewModel
     private(set) var timelineGraphViewModelByScoreItem: [TimelineScoreItemType: TimelineGraphViewModel]
@@ -39,7 +39,7 @@ class TimelineDetailViewModel {
         self.selectedDate = selectedDate
         self.weekTimeline = weekTimeline
         self.monthTimeline = monthTimeline
-        self.periodSelectorViewModel = PeriodSelectorViewModel()
+        self.periodSelectorViewModel = DKPeriodSelectorViewModel()
         self.dateSelectorViewModel = DKDateSelectorViewModel()
         self.roadContextViewModel = RoadContextViewModel()
         self.timelineGraphViewModelByScoreItem = [:]
@@ -118,7 +118,7 @@ class TimelineDetailViewModel {
     }
 }
 
-extension TimelineDetailViewModel: PeriodSelectorDelegate {
+extension TimelineDetailViewModel: DKPeriodSelectorDelegate {
     func periodSelectorDidSwitch(from oldPeriod: DKPeriod, to newPeriod: DKPeriod) {
         if self.selectedPeriod != newPeriod {
             self.selectedPeriod = newPeriod

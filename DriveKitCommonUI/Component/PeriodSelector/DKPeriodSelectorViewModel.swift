@@ -1,5 +1,5 @@
 //
-//  PeriodSelectorViewModel.swift
+//  DKPeriodSelectorViewModel.swift
 //  DriveKitDriverDataTimelineUI
 //
 //  Created by David Bauduin on 14/10/2022.
@@ -9,8 +9,8 @@
 import DriveKitCoreModule
 import Foundation
 
-public class PeriodSelectorViewModel {
-    public weak var delegate: PeriodSelectorDelegate?
+public class DKPeriodSelectorViewModel {
+    public weak var delegate: DKPeriodSelectorDelegate?
     public var periodDidChange: (() -> Void)?
     public private(set) var selectedPeriod: DKPeriod
     public private(set) var displayedPeriods: Set<DKPeriod>

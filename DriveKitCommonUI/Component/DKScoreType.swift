@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  DKScoreType.swift
 //  DriveKitCommonUI
@@ -9,6 +8,9 @@
 
 import UIKit
 import DriveKitCoreModule
+
+@available(*, deprecated, renamed: "DKScoreType")
+public typealias ScoreType = DKScoreType
 
 extension DKScoreType {
     @available(*, deprecated, renamed: "gaugeImage")

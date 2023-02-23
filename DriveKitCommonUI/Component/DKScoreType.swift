@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  DKScoreType.swift
 //  DriveKitCommonUI
@@ -9,6 +8,9 @@
 
 import UIKit
 import DriveKitCoreModule
+
+@available(*, deprecated, renamed: "DKScoreType")
+public typealias ScoreType = DKScoreType
 
 extension DKScoreType {
     @available(*, deprecated, renamed: "gaugeImage")
@@ -28,29 +30,7 @@ extension DKScoreType {
             return DKImages.speeding.image
         }
     }
-    
-    public func getSteps() -> [Double] {
-        switch self {
-        case .ecoDriving:
-            let mean: Double = 7.63
-            let sigma: Double = 0.844
-            let steps = [mean - (2 * sigma),
-                         mean - sigma,
-                         mean - (0.25 * sigma),
-                         mean,
-                         mean + (0.25 * sigma),
-                         mean + sigma,
-                         mean + (2 * sigma)]
-            return steps
-        case .safety:
-            return [0, 5.5, 6.5, 7.5, 8.5, 9.5, 10]
-        case .distraction:
-            return [1, 7, 8, 8.5, 9, 9.5, 10]
-        case .speeding:
-            return [3, 5, 7, 8, 9, 9.5, 10]
-        }
-    }
-    
+
     public func stringValue() -> String {
         switch self {
         case .ecoDriving:

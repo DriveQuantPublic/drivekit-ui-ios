@@ -224,7 +224,7 @@ extension DKRawTimeline {
             || self.allContext.numberTripScored[index, default: 0] > 0
     }
     
-    var periodDates: DateSelectorViewModel.PeriodDates {
+    var periodDates: DKDateSelectorViewModel.PeriodDates {
         .init(dates: self.allContext.date, period: self.period)
     }
 }

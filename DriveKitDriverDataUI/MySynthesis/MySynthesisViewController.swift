@@ -47,7 +47,7 @@ class MySynthesisViewController: DKUIViewController {
             configuredWith: self.viewModel.periodSelectorViewModel,
             embededIn: periodSelectorContainer
         )
-        DateSelectorView.createDateSelectorView(
+        DKDateSelectorView.createDateSelectorView(
             configuredWith: self.viewModel.dateSelectorViewModel,
             embededIn: dateSelectorContainer
         )

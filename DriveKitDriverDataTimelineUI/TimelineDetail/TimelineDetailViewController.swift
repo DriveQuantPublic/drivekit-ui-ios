@@ -45,7 +45,7 @@ class TimelineDetailViewController: DKUIViewController {
     }
     
     private func setupDateSelector() {
-        DateSelectorView.createDateSelectorView(
+        DKDateSelectorView.createDateSelectorView(
             configuredWith: viewModel.dateSelectorViewModel,
             embededIn: dateSelectorContainerView
         )

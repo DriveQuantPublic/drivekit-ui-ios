@@ -16,7 +16,7 @@ class MySynthesisViewModel {
     weak var delegate: MySynthesisViewModelDelegate?
     let scoreSelectorViewModel: DKScoreSelectorViewModel
     let periodSelectorViewModel: PeriodSelectorViewModel
-    let dateSelectorViewModel: DateSelectorViewModel
+    let dateSelectorViewModel: DKDateSelectorViewModel
     private var timelines: [DKPeriod: DKDriverTimeline]
     private var selectedDate: Date?
     private(set) var updating: Bool = false
@@ -28,7 +28,7 @@ class MySynthesisViewModel {
     init() {
         self.scoreSelectorViewModel = DKScoreSelectorViewModel()
         self.periodSelectorViewModel = PeriodSelectorViewModel()
-        self.dateSelectorViewModel = DateSelectorViewModel()
+        self.dateSelectorViewModel = DKDateSelectorViewModel()
         self.timelines = [:]
         self.selectedDate = nil
 
@@ -119,7 +119,7 @@ class MySynthesisViewModel {
     }
     
     private func updateStateAfterSwitching(from oldPeriod: DKPeriod, to selectedPeriod: DKPeriod) {
-        self.selectedDate = DateSelectorViewModel.newSelectedDate(
+        self.selectedDate = DKDateSelectorViewModel.newSelectedDate(
             from: self.dateSelectorViewModel.selectedDate,
             in: self.timelines[oldPeriod]?.periodDates ?? .init(period: oldPeriod),
             switchingTo: self.timelines[selectedPeriod]?.periodDates ?? .init(period: selectedPeriod)
@@ -140,7 +140,7 @@ extension MySynthesisViewModel: PeriodSelectorDelegate {
     }
 }
 
-extension MySynthesisViewModel: DateSelectorDelegate {
+extension MySynthesisViewModel: DKDateSelectorDelegate {
     func dateSelectorDidSelectDate(_ date: Date) {
         selectedDate = date
         update()

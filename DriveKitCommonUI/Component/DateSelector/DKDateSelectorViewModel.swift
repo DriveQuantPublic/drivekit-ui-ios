@@ -1,5 +1,5 @@
 //
-//  DateSelectorViewModel.swift
+//  DKDateSelectorViewModel.swift
 //  DriveKitCommonUI
 //
 //  Created by David Bauduin on 14/10/2022.
@@ -9,12 +9,12 @@
 import Foundation
 import DriveKitCoreModule
 
-public class DateSelectorViewModel {
+public class DKDateSelectorViewModel {
     private static let calendar = Calendar(identifier: .gregorian)
     private var dates: [Date]
     private var period: DKPeriod
     private var selectedDateIndex: Int
-    public weak var delegate: DateSelectorDelegate?
+    public weak var delegate: DKDateSelectorDelegate?
     private(set) var hasPreviousDate: Bool
     private(set) var hasNextDate: Bool
     private(set) var fromDate: Date
@@ -87,24 +87,24 @@ public class DateSelectorViewModel {
         self.hasNextDate = (self.dates.count > self.selectedDateIndex + 1)
         self.hasPreviousDate = self.selectedDateIndex > 0
         self.fromDate = selectedDate
-        self.toDate = DateSelectorViewModel.getEndDate(fromDate: self.fromDate, period: self.period) ?? Date()
+        self.toDate = DKDateSelectorViewModel.getEndDate(fromDate: self.fromDate, period: self.period) ?? Date()
     }
 
     private static func getEndDate(fromDate: Date, period: DKPeriod) -> Date? {
         if period == .week {
             let numberOfWeekDays = 7
-            return DateSelectorViewModel.calendar.date(
+            return DKDateSelectorViewModel.calendar.date(
                 byAdding: .day,
                 value: numberOfWeekDays - 1,
                 to: fromDate
             )
         } else {
-            guard let nextMonth = DateSelectorViewModel.calendar.date(
+            guard let nextMonth = DKDateSelectorViewModel.calendar.date(
                 byAdding: .month,
                 value: 1,
                 to: fromDate
             ) else { return nil }
-            return DateSelectorViewModel.calendar.date(
+            return DKDateSelectorViewModel.calendar.date(
                 byAdding: .day,
                 value: -1,
                 to: nextMonth
@@ -169,7 +169,7 @@ public class DateSelectorViewModel {
     }
 }
 
-extension DateSelectorViewModel {
+extension DKDateSelectorViewModel {
     public struct PeriodDates {
         public var dates: [Date]
         public var period: DKPeriod

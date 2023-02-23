@@ -79,7 +79,7 @@ class TimelineViewController: DKUIViewController {
             embededIn: periodSelectorContainer
         )
         
-        DateSelectorView.createDateSelectorView(
+        DKDateSelectorView.createDateSelectorView(
             configuredWith: viewModel.dateSelectorViewModel,
             embededIn: dateSelectorContainer
         )

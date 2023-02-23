@@ -17,7 +17,7 @@ class TimelineViewModel {
     private(set) var updating: Bool = false
     weak var delegate: TimelineViewModelDelegate?
     let scoreSelectorViewModel: DKScoreSelectorViewModel
-    let dateSelectorViewModel: DateSelectorViewModel
+    let dateSelectorViewModel: DKDateSelectorViewModel
     let periodSelectorViewModel: PeriodSelectorViewModel
     let roadContextViewModel: RoadContextViewModel
     let timelineGraphViewModel: TimelineGraphViewModel
@@ -52,7 +52,7 @@ class TimelineViewModel {
 
     init() {
         self.scoreSelectorViewModel = DKScoreSelectorViewModel()
-        self.dateSelectorViewModel = DateSelectorViewModel()
+        self.dateSelectorViewModel = DKDateSelectorViewModel()
         self.periodSelectorViewModel = PeriodSelectorViewModel()
         self.roadContextViewModel = RoadContextViewModel()
         self.timelineGraphViewModel = TimelineGraphViewModel()
@@ -201,7 +201,7 @@ class TimelineViewModel {
         to selectedPeriod: DKPeriod
     ) {
         if let selectedDate = self.selectedDate {
-            self.selectedDate = DateSelectorViewModel.newSelectedDate(
+            self.selectedDate = DKDateSelectorViewModel.newSelectedDate(
                 from: selectedDate,
                 in: getTimelineSource(for: oldPeriod)?.periodDates ?? .init(period: oldPeriod),
                 switchingTo: getTimelineSource(for: selectedPeriod)?.periodDates ?? .init(period: selectedPeriod)
@@ -217,7 +217,7 @@ extension TimelineViewModel: PeriodSelectorDelegate {
     }
 }
 
-extension TimelineViewModel: DateSelectorDelegate {
+extension TimelineViewModel: DKDateSelectorDelegate {
     func dateSelectorDidSelectDate(_ date: Date) {
         self.selectedDate = date
         update()

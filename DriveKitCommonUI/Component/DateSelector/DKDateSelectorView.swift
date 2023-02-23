@@ -1,5 +1,5 @@
 //
-//  DateSelectorView.swift
+//  DKDateSelectorView.swift
 //  DriveKitCommonUI
 //
 //  Created by David Bauduin on 14/10/2022.
@@ -8,19 +8,19 @@
 
 import UIKit
 
-public class DateSelectorView: UIView {
+public class DKDateSelectorView: UIView {
     @IBOutlet private weak var dateIntervalLabel: UILabel!
     @IBOutlet private weak var nextButton: UIButton!
     @IBOutlet private weak var previousButton: UIButton!
 
-    private var viewModel: DateSelectorViewModel?
+    private var viewModel: DKDateSelectorViewModel?
     
     public override func awakeFromNib() {
         super.awakeFromNib()
         setupView()
     }
 
-    public func configure(viewModel: DateSelectorViewModel?) {
+    public func configure(viewModel: DKDateSelectorViewModel?) {
         self.viewModel = viewModel
         self.setupView()
         self.viewModel?.dateSelectorViewModelDidUpdate = { [weak self] in
@@ -46,15 +46,15 @@ public class DateSelectorView: UIView {
     }
 }
 
-extension DateSelectorView {
+extension DKDateSelectorView {
     public static func createDateSelectorView(
-        configuredWith viewModel: DateSelectorViewModel,
+        configuredWith viewModel: DKDateSelectorViewModel,
         embededIn containerView: UIView
     ) {
         guard let dateSelectorView = Bundle.driveKitCommonUIBundle?.loadNibNamed(
-            "DateSelectorView",
+            "DKDateSelectorView",
             owner: nil
-        )?.first as? DateSelectorView else {
+        )?.first as? DKDateSelectorView else {
             preconditionFailure("Can't find bundle or nib for DateSelectorView")
         }
         

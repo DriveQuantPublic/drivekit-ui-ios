@@ -1,5 +1,5 @@
 //
-//  DateSelectorDelegate.swift
+//  DKDateSelectorDelegate.swift
 //  DriveKitCommonUI
 //
 //  Created by David Bauduin on 14/10/2022.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-public protocol DateSelectorDelegate: AnyObject {
+public protocol DKDateSelectorDelegate: AnyObject {
     func dateSelectorDidSelectDate(_ date: Date)
 }

@@ -31,21 +31,13 @@ public class DKDateSelectorView: UIView {
     func setupView() {
         self.dateIntervalLabel.attributedText = self.viewModel?.getDateIntervalAttributedText()
         self.nextButton.setImage(
-            UIImage(
-                named: "dk_timeline_next_arrow",
-                in: .driveKitCommonUIBundle,
-                compatibleWith: self.traitCollection
-            )?.tintedImage(
+            DKImages.arrow_forward_thick.image?.tintedImage(
                 withColor: DKUIColors.secondaryColor.color
             ),
             for: .normal
         )
         self.nextButton.setImage(
-            UIImage(
-                named: "dk_timeline_next_arrow",
-                in: .driveKitCommonUIBundle,
-                compatibleWith: self.traitCollection
-            )?.tintedImage(
+            DKImages.arrow_forward_thick.image?.tintedImage(
                 withColor: DKUIColors.neutralColor.color
             ),
             for: .disabled
@@ -53,21 +45,13 @@ public class DKDateSelectorView: UIView {
         self.nextButton.isEnabled = self.viewModel?.hasNextDate ?? false
         
         self.previousButton.setImage(
-            UIImage(
-                named: "dk_timeline_prev_arrow",
-                in: .driveKitCommonUIBundle,
-                compatibleWith: self.traitCollection
-            )?.tintedImage(
+            DKImages.arrow_back_thick.image?.tintedImage(
                 withColor: DKUIColors.secondaryColor.color
             ),
             for: .normal
         )
         self.previousButton.setImage(
-            UIImage(
-                named: "dk_timeline_prev_arrow",
-                in: .driveKitCommonUIBundle,
-                compatibleWith: self.traitCollection
-            )?.tintedImage(
+            DKImages.arrow_back_thick.image?.tintedImage(
                 withColor: DKUIColors.neutralColor.color
             ),
             for: .disabled

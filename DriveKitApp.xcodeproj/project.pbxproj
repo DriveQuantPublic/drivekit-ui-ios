@@ -711,6 +711,13 @@
 			remoteGlobalIDString = 3F0740D92403BB65005A8D07;
 			remoteInfo = DriveKitCommonUI;
 		};
+		6716612529A7D47B0003F7AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3B7B378235F124F0065A332 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A34238052361A1FA0001E15D;
+			remoteInfo = DriveKitDriverDataUI;
+		};
 		67813094276BB2A100701CF1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A3B7B378235F124F0065A332 /* Project object */;
@@ -3603,6 +3610,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				6716612629A7D47B0003F7AB /* PBXTargetDependency */,
 				63F8B29B28F959BA0084B53A /* PBXTargetDependency */,
 			);
 			name = DriveKitDriverDataTimelineUI;
@@ -4946,6 +4954,11 @@
 			isa = PBXTargetDependency;
 			target = 3F0740D92403BB65005A8D07 /* DriveKitCommonUI */;
 			targetProxy = 63F8B29A28F959BA0084B53A /* PBXContainerItemProxy */;
+		};
+		6716612629A7D47B0003F7AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A34238052361A1FA0001E15D /* DriveKitDriverDataUI */;
+			targetProxy = 6716612529A7D47B0003F7AB /* PBXContainerItemProxy */;
 		};
 		67813095276BB2A100701CF1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

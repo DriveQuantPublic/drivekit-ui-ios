@@ -10,7 +10,7 @@ import DriveKitCommonUI
 import DriveKitDBTripAccessModule
 import Foundation
 
-extension DKDriverTimeline {
+public extension DKDriverTimeline {
     var periodDates: DKDateSelectorViewModel.PeriodDates {
         .init(dates: self.allContext.map(\.date), period: self.period)
     }

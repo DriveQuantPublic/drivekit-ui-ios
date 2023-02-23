@@ -8,6 +8,7 @@
 //
 
 import Foundation
+import DriveKitCoreModule
 import DriveKitDBTripAccessModule
 import DriveKitCommonUI
 

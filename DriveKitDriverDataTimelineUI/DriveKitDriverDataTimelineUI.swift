@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import DriveKitCoreModule
 import DriveKitCommonUI
 
 @objc public class DriveKitDriverDataTimelineUI: NSObject {

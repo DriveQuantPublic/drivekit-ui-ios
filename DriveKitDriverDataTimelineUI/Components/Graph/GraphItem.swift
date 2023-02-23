@@ -8,6 +8,7 @@
 //
 
 import Foundation
+import DriveKitCoreModule
 import DriveKitCommonUI
 
 enum GraphItem {

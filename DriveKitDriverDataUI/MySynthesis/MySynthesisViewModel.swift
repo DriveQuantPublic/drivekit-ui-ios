@@ -14,7 +14,7 @@ import Foundation
 
 class MySynthesisViewModel {
     weak var delegate: MySynthesisViewModelDelegate?
-    let scoreSelectorViewModel: ScoreSelectorViewModel
+    let scoreSelectorViewModel: DKScoreSelectorViewModel
     let periodSelectorViewModel: PeriodSelectorViewModel
     let dateSelectorViewModel: DateSelectorViewModel
     private var timelines: [DKPeriod: DKDriverTimeline]
@@ -26,7 +26,7 @@ class MySynthesisViewModel {
     }
     
     init() {
-        self.scoreSelectorViewModel = ScoreSelectorViewModel()
+        self.scoreSelectorViewModel = DKScoreSelectorViewModel()
         self.periodSelectorViewModel = PeriodSelectorViewModel()
         self.dateSelectorViewModel = DateSelectorViewModel()
         self.timelines = [:]
@@ -128,7 +128,7 @@ class MySynthesisViewModel {
     }
 }
 
-extension MySynthesisViewModel: ScoreSelectorDelegate {
+extension MySynthesisViewModel: DKScoreSelectorDelegate {
     func scoreSelectorDidSelectScore(_ score: DKScoreType) {
         update()
     }

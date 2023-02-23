@@ -1,5 +1,5 @@
 //
-//  ScoreSelectorDelegate.swift
+//  DKScoreSelectorDelegate.swift
 //  DriveKitCommonUI
 //
 //  Created by Frédéric Ruaudel on 17/02/2023.
@@ -9,6 +9,6 @@
 import DriveKitCoreModule
 import Foundation
 
-public protocol ScoreSelectorDelegate: AnyObject {
+public protocol DKScoreSelectorDelegate: AnyObject {
     func scoreSelectorDidSelectScore(_ score: DKScoreType)
 }

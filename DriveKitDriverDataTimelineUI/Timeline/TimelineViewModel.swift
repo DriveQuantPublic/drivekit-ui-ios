@@ -16,7 +16,7 @@ import Foundation
 class TimelineViewModel {
     private(set) var updating: Bool = false
     weak var delegate: TimelineViewModelDelegate?
-    let scoreSelectorViewModel: ScoreSelectorViewModel
+    let scoreSelectorViewModel: DKScoreSelectorViewModel
     let dateSelectorViewModel: DateSelectorViewModel
     let periodSelectorViewModel: PeriodSelectorViewModel
     let roadContextViewModel: RoadContextViewModel
@@ -51,7 +51,7 @@ class TimelineViewModel {
     }
 
     init() {
-        self.scoreSelectorViewModel = ScoreSelectorViewModel()
+        self.scoreSelectorViewModel = DKScoreSelectorViewModel()
         self.dateSelectorViewModel = DateSelectorViewModel()
         self.periodSelectorViewModel = PeriodSelectorViewModel()
         self.roadContextViewModel = RoadContextViewModel()
@@ -224,7 +224,7 @@ extension TimelineViewModel: DateSelectorDelegate {
     }
 }
 
-extension TimelineViewModel: ScoreSelectorDelegate {
+extension TimelineViewModel: DKScoreSelectorDelegate {
     func scoreSelectorDidSelectScore(_ score: DKScoreType) {
         update()
     }

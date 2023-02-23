@@ -69,7 +69,7 @@ class TimelineViewController: DKUIViewController {
     }
 
     private func setupSelectors() {
-        ScoreSelectorView.createScoreSelectorView(
+        DKScoreSelectorView.createScoreSelectorView(
             configuredWith: viewModel.scoreSelectorViewModel,
             embededIn: scoreSelectorContainer
         )

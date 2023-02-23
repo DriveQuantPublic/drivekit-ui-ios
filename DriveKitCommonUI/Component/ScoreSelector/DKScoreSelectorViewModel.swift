@@ -1,5 +1,5 @@
 //
-//  ScoreSelectorViewModel.swift
+//  DKScoreSelectorViewModel.swift
 //  DriveKitCommonUI
 //
 //  Created by Frédéric Ruaudel on 17/02/2023.
@@ -9,9 +9,9 @@
 import DriveKitCoreModule
 import Foundation
 
-public class ScoreSelectorViewModel {
+public class DKScoreSelectorViewModel {
     private let minimumScoreCountRequiredToDisplayScoreSelector = 2
-    public weak var delegate: ScoreSelectorDelegate?
+    public weak var delegate: DKScoreSelectorDelegate?
     private var internalScores: [DKScoreType] = [.safety, .ecoDriving, .distraction, .speeding]
     public var scores: [DKScoreType] {
         self.internalScores.filter { score in

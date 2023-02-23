@@ -610,12 +610,12 @@
 		E32BC434299D34D7006BE5F8 /* PeriodSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2B628F960BA0084B53A /* PeriodSelectorView.swift */; };
 		E32BC438299E4049006BE5F8 /* MySynthesisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32BC436299E4049006BE5F8 /* MySynthesisViewController.swift */; };
 		E32BC439299E4049006BE5F8 /* MySynthesisViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E32BC437299E4049006BE5F8 /* MySynthesisViewController.xib */; };
-		E32BC43D299F68B9006BE5F8 /* ScoreSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32BC43C299F68B9006BE5F8 /* ScoreSelectorView.swift */; };
+		E32BC43D299F68B9006BE5F8 /* DKScoreSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32BC43C299F68B9006BE5F8 /* DKScoreSelectorView.swift */; };
 		E32BC43E299F68C8006BE5F8 /* ScoreSelectionTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2DC28FDB0580084B53A /* ScoreSelectionTypeView.swift */; };
 		E32BC440299F68D3006BE5F8 /* ScoreSelectionTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F8B2DE28FDB0A20084B53A /* ScoreSelectionTypeView.xib */; };
 		E32BC442299F6A76006BE5F8 /* DKScoreType+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32BC441299F6A76006BE5F8 /* DKScoreType+Images.swift */; };
-		E32BC444299F6B1A006BE5F8 /* ScoreSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32BC443299F6B1A006BE5F8 /* ScoreSelectorViewModel.swift */; };
-		E32BC446299F6EAA006BE5F8 /* ScoreSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32BC445299F6EAA006BE5F8 /* ScoreSelectorDelegate.swift */; };
+		E32BC444299F6B1A006BE5F8 /* DKScoreSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32BC443299F6B1A006BE5F8 /* DKScoreSelectorViewModel.swift */; };
+		E32BC446299F6EAA006BE5F8 /* DKScoreSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32BC445299F6EAA006BE5F8 /* DKScoreSelectorDelegate.swift */; };
 		E32BC45729A3727E006BE5F8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E32BC44929A3727E006BE5F8 /* Localizable.strings */; };
 		E32BC45829A3727E006BE5F8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E32BC44B29A3727E006BE5F8 /* InfoPlist.strings */; };
 		E32BC45A29A377FD006BE5F8 /* MySynthesisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32BC45929A377FD006BE5F8 /* MySynthesisViewModel.swift */; };
@@ -1436,10 +1436,10 @@
 		DCBF31C151237FEA8EDE3CF0 /* Pods-DriveKitDriverDataUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverDataUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverDataUI/Pods-DriveKitDriverDataUI.release.xcconfig"; sourceTree = "<group>"; };
 		E32BC436299E4049006BE5F8 /* MySynthesisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySynthesisViewController.swift; sourceTree = "<group>"; };
 		E32BC437299E4049006BE5F8 /* MySynthesisViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MySynthesisViewController.xib; sourceTree = "<group>"; };
-		E32BC43C299F68B9006BE5F8 /* ScoreSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreSelectorView.swift; sourceTree = "<group>"; };
+		E32BC43C299F68B9006BE5F8 /* DKScoreSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKScoreSelectorView.swift; sourceTree = "<group>"; };
 		E32BC441299F6A76006BE5F8 /* DKScoreType+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DKScoreType+Images.swift"; sourceTree = "<group>"; };
-		E32BC443299F6B1A006BE5F8 /* ScoreSelectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreSelectorViewModel.swift; sourceTree = "<group>"; };
-		E32BC445299F6EAA006BE5F8 /* ScoreSelectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreSelectorDelegate.swift; sourceTree = "<group>"; };
+		E32BC443299F6B1A006BE5F8 /* DKScoreSelectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKScoreSelectorViewModel.swift; sourceTree = "<group>"; };
+		E32BC445299F6EAA006BE5F8 /* DKScoreSelectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKScoreSelectorDelegate.swift; sourceTree = "<group>"; };
 		E32BC44A29A3727E006BE5F8 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E32BC44C29A3727E006BE5F8 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E32BC44D29A3727E006BE5F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -3396,12 +3396,12 @@
 		E32BC43A299F687C006BE5F8 /* ScoreSelector */ = {
 			isa = PBXGroup;
 			children = (
-				E32BC43C299F68B9006BE5F8 /* ScoreSelectorView.swift */,
-				E32BC443299F6B1A006BE5F8 /* ScoreSelectorViewModel.swift */,
+				E32BC43C299F68B9006BE5F8 /* DKScoreSelectorView.swift */,
+				E32BC443299F6B1A006BE5F8 /* DKScoreSelectorViewModel.swift */,
 				63F8B2DC28FDB0580084B53A /* ScoreSelectionTypeView.swift */,
 				63F8B2DE28FDB0A20084B53A /* ScoreSelectionTypeView.xib */,
 				E32BC441299F6A76006BE5F8 /* DKScoreType+Images.swift */,
-				E32BC445299F6EAA006BE5F8 /* ScoreSelectorDelegate.swift */,
+				E32BC445299F6EAA006BE5F8 /* DKScoreSelectorDelegate.swift */,
 			);
 			path = ScoreSelector;
 			sourceTree = "<group>";
@@ -4455,9 +4455,9 @@
 				E32BC43E299F68C8006BE5F8 /* ScoreSelectionTypeView.swift in Sources */,
 				67F2D31B2630717300ACC69A /* DKDriverRanking.swift in Sources */,
 				63E75EC226DD23D7005A9FDB /* MoreTripsViewCell.swift in Sources */,
-				E32BC444299F6B1A006BE5F8 /* ScoreSelectorViewModel.swift in Sources */,
+				E32BC444299F6B1A006BE5F8 /* DKScoreSelectorViewModel.swift in Sources */,
 				67F2D3B42631600000ACC69A /* DKDriverRankingCollectionVC.swift in Sources */,
-				E32BC43D299F68B9006BE5F8 /* ScoreSelectorView.swift in Sources */,
+				E32BC43D299F68B9006BE5F8 /* DKScoreSelectorView.swift in Sources */,
 				63BF8EFA24531011006BEB3F /* DKContactType.swift in Sources */,
 				A34FC7362423CDDA000734AB /* DKTextField.swift in Sources */,
 				63ECE8ED26682058000F08D3 /* Bundle+DK.swift in Sources */,
@@ -4478,7 +4478,7 @@
 				3FF68E88240A727D0071D74C /* DKDatePattern.swift in Sources */,
 				67F2D3522630F06B00ACC69A /* RankingScoreSmall.swift in Sources */,
 				67F2D3682630F07E00ACC69A /* RankingCell.swift in Sources */,
-				E32BC446299F6EAA006BE5F8 /* ScoreSelectorDelegate.swift in Sources */,
+				E32BC446299F6EAA006BE5F8 /* DKScoreSelectorDelegate.swift in Sources */,
 				67C43D0C263ADD3300DBB09D /* DriveKitChallengeUIEntryPoint.swift in Sources */,
 				A322728C2429125700BF69E1 /* DKImagePicker.swift in Sources */,
 				E32BC430299D2E48006BE5F8 /* DKUIConstants.swift in Sources */,

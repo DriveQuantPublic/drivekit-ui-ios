@@ -39,7 +39,7 @@ class MySynthesisViewController: DKUIViewController {
         refreshControl.addTarget(self, action: #selector(refresh(_ :)), for: .valueChanged)
         self.scrollView.refreshControl = refreshControl
         
-        ScoreSelectorView.createScoreSelectorView(
+        DKScoreSelectorView.createScoreSelectorView(
             configuredWith: self.viewModel.scoreSelectorViewModel,
             embededIn: scoreSelectorContainer
         )

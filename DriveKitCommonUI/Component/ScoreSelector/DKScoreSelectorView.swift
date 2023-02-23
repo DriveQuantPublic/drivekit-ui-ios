@@ -1,5 +1,5 @@
 //
-//  ScoreSelectorView.swift
+//  DKScoreSelectorView.swift
 //  DriveKitCommonUI
 //
 //  Created by Frédéric Ruaudel on 17/02/2023.
@@ -9,11 +9,11 @@
 import DriveKitCoreModule
 import UIKit
 
-public class ScoreSelectorView: UIStackView {
-    public private(set) var viewModel: ScoreSelectorViewModel
+public class DKScoreSelectorView: UIStackView {
+    public private(set) var viewModel: DKScoreSelectorViewModel
     private var scoreSelectionButtons: [DKScoreType: ScoreSelectionTypeView] = [:]
 
-    public init(viewModel: ScoreSelectorViewModel) {
+    public init(viewModel: DKScoreSelectorViewModel) {
         self.viewModel = viewModel
         super.init(frame: .zero)
         setup()
@@ -57,12 +57,12 @@ public class ScoreSelectorView: UIStackView {
     }
 }
 
-extension ScoreSelectorView {
+extension DKScoreSelectorView {
     public static func createScoreSelectorView(
-        configuredWith viewModel: ScoreSelectorViewModel,
+        configuredWith viewModel: DKScoreSelectorViewModel,
         embededIn containerView: UIView
     ) {
-        let scoreSelector = ScoreSelectorView(viewModel: viewModel)
+        let scoreSelector = DKScoreSelectorView(viewModel: viewModel)
         scoreSelector.isHidden = viewModel.shouldHideScoreSelectorView
         containerView.embedSubview(scoreSelector)
     }

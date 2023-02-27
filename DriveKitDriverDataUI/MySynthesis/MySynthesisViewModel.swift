@@ -13,6 +13,7 @@ import DriveKitDriverDataModule
 import Foundation
 
 class MySynthesisViewModel {
+    let configuredPeriods: [DKPeriod] = [.week, .month, .year]
     weak var delegate: MySynthesisViewModelDelegate?
     let scoreSelectorViewModel: DKScoreSelectorViewModel
     let periodSelectorViewModel: DKPeriodSelectorViewModel
@@ -36,8 +37,13 @@ class MySynthesisViewModel {
         self.periodSelectorViewModel.delegate = self
         self.dateSelectorViewModel.delegate = self
         
+        self.periodSelectorViewModel.configure(
+            displayedPeriods: .init(configuredPeriods),
+            selectedPeriod: .year
+        )
+        
         DriveKitDriverData.shared.getDriverTimelines(
-            periods: [.week, .month, .year],
+            periods: self.configuredPeriods,
             type: .cache
         ) { [weak self] status, timelines in
             if let self {
@@ -55,7 +61,7 @@ class MySynthesisViewModel {
         self.updating = true
         self.delegate?.willUpdateData()
         DriveKitDriverData.shared.getDriverTimelines(
-            periods: [.week, .month, .year],
+            periods: configuredPeriods,
             type: .defaultSync
         ) { [weak self] status, timelines in
             if let self {
@@ -82,11 +88,7 @@ class MySynthesisViewModel {
         }
         
         self.periodSelectorViewModel.configure(
-            displayedPeriods: [
-                .week,
-                .month,
-                .year
-            ],
+            displayedPeriods: .init(configuredPeriods),
             selectedPeriod: currentTimeline.period
         )
         let allDates = currentTimeline.allContext.map(\.date)

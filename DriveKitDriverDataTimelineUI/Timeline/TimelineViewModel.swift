@@ -14,6 +14,7 @@ import DriveKitDriverDataUI
 import Foundation
 
 class TimelineViewModel {
+    let configuredPeriods: [DKPeriod] = [.week, .month]
     private(set) var updating: Bool = false
     weak var delegate: TimelineViewModelDelegate?
     let scoreSelectorViewModel: DKScoreSelectorViewModel
@@ -60,9 +61,14 @@ class TimelineViewModel {
         self.scoreSelectorViewModel.delegate = self
         self.periodSelectorViewModel.delegate = self
         self.timelineGraphViewModel.delegate = self
+        
+        self.periodSelectorViewModel.configure(
+            displayedPeriods: .init(configuredPeriods),
+            selectedPeriod: .week
+        )
 
         DriveKitDriverData.shared.getRawTimelines(
-            periods: [.week, .month],
+            periods: configuredPeriods,
             type: .cache
         ) { [weak self] status, timelines in
             if let self {
@@ -88,7 +94,7 @@ class TimelineViewModel {
         self.updating = true
         self.delegate?.willUpdateTimeline()
         DriveKitDriverData.shared.getRawTimelines(
-            periods: [.week, .month],
+            periods: configuredPeriods,
             type: .defaultSync
         ) { [weak self] status, timelines in
             if let self {

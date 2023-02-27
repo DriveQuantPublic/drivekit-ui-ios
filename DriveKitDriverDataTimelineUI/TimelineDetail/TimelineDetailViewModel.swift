@@ -12,6 +12,7 @@ import DriveKitDBTripAccessModule
 import Foundation
 
 class TimelineDetailViewModel {
+    let configuredPeriods: [DKPeriod] = [.week, .month]
     weak var delegate: TimelineDetailViewModelDelegate?
     private let selectedScore: DKScoreType
     private var selectedPeriod: DKPeriod
@@ -43,6 +44,10 @@ class TimelineDetailViewModel {
         self.dateSelectorViewModel = DKDateSelectorViewModel()
         self.roadContextViewModel = RoadContextViewModel()
         self.timelineGraphViewModelByScoreItem = [:]
+        self.periodSelectorViewModel.configure(
+            displayedPeriods: .init(configuredPeriods),
+            selectedPeriod: selectedPeriod
+        )
         self.updateViewModels()
     }
     
@@ -66,10 +71,6 @@ class TimelineDetailViewModel {
         
         // Update view models.
         if let selectedDateIndex {
-            self.periodSelectorViewModel.configure(
-                displayedPeriods: [.week, .month],
-                selectedPeriod: selectedPeriod
-            )
             self.periodSelectorViewModel.delegate = self
 
             self.dateSelectorViewModel.configure(

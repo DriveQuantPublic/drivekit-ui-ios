@@ -9,7 +9,6 @@
 "dk_timeline_deceleration_score"="Punktzahl für Verlangsamung: %@";
 "dk_timeline_distraction_score"="Ablenkungsmanöver: %@";
 "dk_timeline_eco_score"="Bewertung für umweltfreundliches Fahren: %@";
-"dk_timeline_from_date"="von";
 "dk_timeline_fuel_savings"="Erreichbarer Kraftstoffverbrauch: %@";
 "dk_timeline_info_accel_score"="Der Wert für die Beschleunigung reicht von -5 bis 5. Bei einem Wert von -5 ist die Beschleunigung zu langsam. Ein Wert von 5 zeigt an, dass die Beschleunigung zu schnell ist. Ein Wert von 0 zeigt an, dass die Beschleunigung perfekt zu einer umweltfreundlichen Fahrweise passt.";
 "dk_timeline_info_decel_score"="Die Punktzahl für die Verzögerung variiert von -5 bis 5. Bei einem Wert von -5 ist die Verzögerung zu langsam. Bei einem Wert von 5 ist sie zu schnell. Eine Punktzahl von 0 bedeutet, dass die Verzögerung im Rahmen des umweltbewussten Fahrens perfekt ist.";
@@ -18,8 +17,6 @@
 "dk_timeline_nb_unlocks"="Entsperrungsnummer / 100 km: %@";
 "dk_timeline_overspeeding_distance"="Überdrehzahl relativer Abstand: %@";
 "dk_timeline_overspeeding_duration"="Überdrehzahl relative Dauer: %@";
-"dk_timeline_per_month"="Monat";
-"dk_timeline_per_week"="Woche";
 "dk_timeline_road_context_city"="Städtisch";
 "dk_timeline_road_context_description_empty_data"="Machen Sie eine erste Fahrt, um zu sehen, wie Ihre ersten Grafiken angezeigt werden.";
 "dk_timeline_road_context_description_no_data_ecodriving"="Die Fahrten für die ausgewählten Daten sind zu kurz, um einen Eco-Drive-Score zu erhalten.";
@@ -34,5 +31,4 @@
 "dk_timeline_safety_score"="Sicherheitspunkte: %@";
 "dk_timeline_speeding_score"="Geschwindigkeitswert: %@";
 "dk_timeline_title"="Zeitleiste";
-"dk_timeline_to_date"="bis";
 "dk_timeline_trips_forbidden_calls"="Fahrten mit verbotenen Anrufen: %@";

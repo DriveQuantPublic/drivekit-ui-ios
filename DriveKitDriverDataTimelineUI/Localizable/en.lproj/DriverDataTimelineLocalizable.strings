@@ -9,7 +9,6 @@
 "dk_timeline_deceleration_score"="Deceleration score: %@";
 "dk_timeline_distraction_score"="Distraction score: %@";
 "dk_timeline_eco_score"="Eco-driving score: %@";
-"dk_timeline_from_date"="from";
 "dk_timeline_fuel_savings"="Achievable fuel savings: %@";
 "dk_timeline_info_accel_score"="The acceleration score ranges from -5 to 5. For the value -5, the acceleration is too slow. A score of 5 indicates that the acceleration is too fast. A score of 0 indicates that the acceleration perfectly matches with an eco-driving style.";
 "dk_timeline_info_decel_score"="The deceleration score ranges from -5 to 5. For the value -5, the deceleration is too slow. A score of 5 indicates that the deceleration is too fast. A score of 0 indicates that the deceleration perfectly matches with an eco-driving style.";
@@ -18,8 +17,6 @@
 "dk_timeline_nb_unlocks"="Number of phone unlocks / 100 km: %@";
 "dk_timeline_overspeeding_distance"="Overspeeding relative distance: %@";
 "dk_timeline_overspeeding_duration"="Overspeeding relative duration: %@";
-"dk_timeline_per_month"="Month";
-"dk_timeline_per_week"="Week";
 "dk_timeline_road_context_city"="City";
 "dk_timeline_road_context_description_empty_data"="Make a first trip to see your first graphs displayed.";
 "dk_timeline_road_context_description_no_data_ecodriving"="The trips for the selected dates are too short to have an eco-driving score";
@@ -34,5 +31,4 @@
 "dk_timeline_safety_score"="Safety score: %@";
 "dk_timeline_speeding_score"="Speeding score: %@";
 "dk_timeline_title"="Timeline";
-"dk_timeline_to_date"="to";
 "dk_timeline_trips_forbidden_calls"="Trips with forbidden calls: %@";

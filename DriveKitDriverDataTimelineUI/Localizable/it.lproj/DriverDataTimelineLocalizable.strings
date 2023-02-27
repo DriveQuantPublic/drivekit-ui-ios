@@ -9,7 +9,6 @@
 "dk_timeline_deceleration_score"="Punteggio di decelerazione: %@";
 "dk_timeline_distraction_score"="Punteggio di distrazione: %@";
 "dk_timeline_eco_score"="Punteggio di guida ecologica: %@";
-"dk_timeline_from_date"="dall\'";
 "dk_timeline_fuel_savings"="Risparmio di carburante ottenibile: %@";
 "dk_timeline_info_accel_score"="Il punteggio di accelerazione va da -5 a 5. Per il valore -5, l\'accelerazione è troppo lenta. Un punteggio di 5 indica che l\'accelerazione è troppo veloce. Un punteggio di 0 indica che l\'accelerazione corrisponde perfettamente a uno stile di guida ecologico.";
 "dk_timeline_info_decel_score"="Il punteggio di decelerazione varia da -5 a 5. Per il valore -5, la decelerazione è troppo lenta. Un punteggio di 5 significa che la decelerazione è troppo veloce. Un punteggio di 0 indica che la decelerazione è perfetta per la guida ecologica.";
@@ -18,8 +17,6 @@
 "dk_timeline_nb_unlocks"="Numero di sblocco / 100 km: %@";
 "dk_timeline_overspeeding_distance"="Superamento della distanza relativa: %@";
 "dk_timeline_overspeeding_duration"="Durata relativa dell\'eccesso di velocità: %@";
-"dk_timeline_per_month"="Mese";
-"dk_timeline_per_week"="Settimana";
 "dk_timeline_road_context_city"="Urbano fluido";
 "dk_timeline_road_context_description_empty_data"="Fate un primo viaggio per vedere apparire i primi grafici.";
 "dk_timeline_road_context_description_no_data_ecodriving"="I viaggi per le date selezionate sono troppo brevi per ottenere un punteggio di guida ecologica.";
@@ -34,5 +31,4 @@
 "dk_timeline_safety_score"="Punteggio di sicurezza: %@";
 "dk_timeline_speeding_score"="Punteggio di velocità: %@";
 "dk_timeline_title"="Timeline";
-"dk_timeline_to_date"="al";
 "dk_timeline_trips_forbidden_calls"="Viaggi senza chiamata: %@";

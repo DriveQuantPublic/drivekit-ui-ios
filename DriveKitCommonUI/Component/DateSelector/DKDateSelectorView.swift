@@ -31,13 +31,13 @@ public class DKDateSelectorView: UIView {
     func setupView() {
         self.dateIntervalLabel.attributedText = self.viewModel?.getDateIntervalAttributedText()
         self.nextButton.setImage(
-            DKImages.arrow_forward_thick.image?.tintedImage(
+            DKImages.arrowForwardThick.image?.tintedImage(
                 withColor: DKUIColors.secondaryColor.color
             ),
             for: .normal
         )
         self.nextButton.setImage(
-            DKImages.arrow_forward_thick.image?.tintedImage(
+            DKImages.arrowForwardThick.image?.tintedImage(
                 withColor: DKUIColors.neutralColor.color
             ),
             for: .disabled
@@ -45,13 +45,13 @@ public class DKDateSelectorView: UIView {
         self.nextButton.isEnabled = self.viewModel?.hasNextDate ?? false
         
         self.previousButton.setImage(
-            DKImages.arrow_back_thick.image?.tintedImage(
+            DKImages.arrowBackThick.image?.tintedImage(
                 withColor: DKUIColors.secondaryColor.color
             ),
             for: .normal
         )
         self.previousButton.setImage(
-            DKImages.arrow_back_thick.image?.tintedImage(
+            DKImages.arrowBackThick.image?.tintedImage(
                 withColor: DKUIColors.neutralColor.color
             ),
             for: .disabled

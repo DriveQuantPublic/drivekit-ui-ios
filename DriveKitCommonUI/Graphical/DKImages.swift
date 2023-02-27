@@ -50,8 +50,8 @@ public enum DKImages: String {
          rank2 = "dk_common_rank_2",
          rank3 = "dk_common_rank_3",
          emptyData = "dk_common_empty_data",
-         arrow_back_thick = "dk_common_arrow_back_thick",
-         arrow_forward_thick = "dk_common_arrow_forward_thick"
+         arrowBackThick = "dk_common_arrow_back_thick",
+         arrowForwardThick = "dk_common_arrow_forward_thick"
 
     public var image: UIImage? {
         let renderingMode: UIImage.RenderingMode

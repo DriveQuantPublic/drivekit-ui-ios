@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  DriveKitDriverDataTimelineUI.swift
 //  DriveKitDriverDataTimelineUI
@@ -7,9 +6,9 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
-import UIKit
-import DriveKitCoreModule
 import DriveKitCommonUI
+import DriveKitCoreModule
+import UIKit
 
 @objc public class DriveKitDriverDataTimelineUI: NSObject {
     @objc public static let shared = DriveKitDriverDataTimelineUI()
@@ -17,16 +16,16 @@ import DriveKitCommonUI
 
     private var internalScores: [DKScoreType] = [.safety, .ecoDriving, .distraction, .speeding]
     public var scores: [DKScoreType] {
+        get {
+            self.internalScores.filter { score in
+                score.hasAccess()
+            }
+        }
         set {
             if newValue.isEmpty {
                 self.internalScores = [.safety]
             } else {
                 self.internalScores = newValue
-            }
-        }
-        get {
-            self.internalScores.filter { score in
-                score.hasAccess()
             }
         }
     }

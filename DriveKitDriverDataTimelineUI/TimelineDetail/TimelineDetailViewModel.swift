@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  TimelineScoreDetailViewModel.swift
 //  DriveKitDriverDataTimelineUI
@@ -7,18 +6,18 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
-import Foundation
-import DriveKitCoreModule
 import DriveKitCommonUI
+import DriveKitCoreModule
 import DriveKitDBTripAccessModule
+import Foundation
 
 class TimelineDetailViewModel {
     weak var delegate: TimelineDetailViewModelDelegate?
     private let selectedScore: DKScoreType
-    private var selectedPeriod: DKTimelinePeriod
+    private var selectedPeriod: DKPeriod
     private var selectedDate: Date
-    private let weekTimeline: DKTimeline
-    private let monthTimeline: DKTimeline
+    private let weekTimeline: DKRawTimeline
+    private let monthTimeline: DKRawTimeline
     let periodSelectorViewModel: PeriodSelectorViewModel
     let dateSelectorViewModel: DateSelectorViewModel
     let roadContextViewModel: RoadContextViewModel
@@ -30,10 +29,10 @@ class TimelineDetailViewModel {
     
     init(
         selectedScore: DKScoreType,
-        selectedPeriod: DKTimelinePeriod,
+        selectedPeriod: DKPeriod,
         selectedDate: Date,
-        weekTimeline: DKTimeline,
-        monthTimeline: DKTimeline
+        weekTimeline: DKRawTimeline,
+        monthTimeline: DKRawTimeline
     ) {
         self.selectedScore = selectedScore
         self.selectedPeriod = selectedPeriod
@@ -54,7 +53,7 @@ class TimelineDetailViewModel {
     private func updateViewModels() {
         let selectedTimeline = getTimelineSource()
         let sourceDates = selectedTimeline.allContext.date
-        let cleanedTimeline: DKTimeline
+        let cleanedTimeline: DKRawTimeline
         var selectedDateIndex = sourceDates.firstIndex(of: selectedDate)
         cleanedTimeline = selectedTimeline.cleaned(
             forScore: self.selectedScore,
@@ -100,8 +99,8 @@ class TimelineDetailViewModel {
         }
     }
     
-    private func getTimelineSource() -> DKTimeline {
-        let timelineSource: DKTimeline
+    private func getTimelineSource() -> DKRawTimeline {
+        let timelineSource: DKRawTimeline
         switch self.selectedPeriod {
             case .week:
                 timelineSource = self.weekTimeline
@@ -115,7 +114,7 @@ class TimelineDetailViewModel {
 }
 
 extension TimelineDetailViewModel: PeriodSelectorDelegate {
-    func periodSelectorDidSelectPeriod(_ period: DKTimelinePeriod) {
+    func periodSelectorDidSelectPeriod(_ period: DKPeriod) {
         if self.selectedPeriod != period {
             self.selectedPeriod = period
             self.selectedDate = Helpers.newSelectedDate(

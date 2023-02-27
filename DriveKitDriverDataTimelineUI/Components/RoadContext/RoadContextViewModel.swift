@@ -7,10 +7,10 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
-import UIKit
-import DriveKitCoreModule
 import DriveKitCommonUI
+import DriveKitCoreModule
 import DriveKitDBTripAccessModule
+import UIKit
 
 enum RoadContextType {
     case data(
@@ -104,7 +104,7 @@ class RoadContextViewModel {
     
     func configure(
         with selectedScore: DKScoreType,
-        timeline: DKTimeline?,
+        timeline: DKRawTimeline?,
         selectedIndex: Int? = nil
     ) {
         if let timeline, let selectedIndex, timeline.hasData {
@@ -161,10 +161,8 @@ class RoadContextViewModel {
     
     func getActiveContextNumber() -> Int {
         var total: Int = 0
-        for (_, dist) in roadContextType.distanceByContext {
-            if dist > 0 {
-                total = total + 1
-            }
+        for (_, dist) in roadContextType.distanceByContext where dist > 0 {
+            total += 1
         }
         return total
     }

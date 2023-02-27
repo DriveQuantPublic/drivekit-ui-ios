@@ -7,11 +7,11 @@
 //  Copyright © 2019 DriveQuant. All rights reserved.
 //
 
-import UIKit
-import DriveKitCoreModule
-import DriveKitDBTripAccessModule
 import CoreLocation
 import DriveKitCommonUI
+import DriveKitCoreModule
+import DriveKitDBTripAccessModule
+import UIKit
 
 struct DistractionPageViewModel {
     let trip: Trip

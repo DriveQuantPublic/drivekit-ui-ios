@@ -379,8 +379,6 @@ extension TransportationMode {
                 return false
             case .train, .bus, .boat, .bike, .skiing, .idle:
                 return true
-            @unknown default:
-                return false
         }
     }
 }

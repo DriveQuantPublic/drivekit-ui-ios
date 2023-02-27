@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  DKDatePattern.swift
 //  DriveKitCommonUI
@@ -16,8 +15,10 @@ public enum DKDatePattern {
          hourMinuteLetter,
          fullDate,
          dayMonth,
-         yearOnly,
+         dayMonthLetter,
+         dayMonthLetterYear,
          year,
+         dayOfMonth,
          day,
          month,
          monthLetterYear,
@@ -38,10 +39,14 @@ public enum DKDatePattern {
                 return "EEEE d MMMM yyyy"
             case .dayMonth:
                 return "dd/MM"
-            case .yearOnly:
-                return "E"
+            case .dayMonthLetter:
+                return "d MMMM"
+            case .dayMonthLetterYear:
+                return "d MMMM yyyy"
             case .year:
                 return "yyyy"
+            case .dayOfMonth:
+                return "d"
             case .day:
                 return "EEEE"
             case .month:

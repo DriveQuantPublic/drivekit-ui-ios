@@ -7,9 +7,9 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
-import Foundation
-import DriveKitCoreModule
 import DriveKitCommonUI
+import DriveKitCoreModule
+import Foundation
 
 enum GraphItem {
     case score(DKScoreType)

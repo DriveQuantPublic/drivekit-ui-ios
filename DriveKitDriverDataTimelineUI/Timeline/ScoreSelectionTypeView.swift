@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  ScoreSelectionTypeView.swift
 //  DriveKitDriverDataTimelineUI
@@ -7,9 +6,9 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
-import UIKit
-import DriveKitCoreModule
 import DriveKitCommonUI
+import DriveKitCoreModule
+import UIKit
 
 class ScoreSelectionTypeView: UIControl {
     @IBOutlet private weak var imageView: UIImageView!

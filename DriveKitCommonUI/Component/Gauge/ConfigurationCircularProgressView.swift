@@ -7,7 +7,7 @@
 //  Copyright © 2019 DriveQuant. All rights reserved.
 //
 
-import UIKit
+import DriveKitCoreModule
 import UICircularProgressRing
 import DriveKitCoreModule
 

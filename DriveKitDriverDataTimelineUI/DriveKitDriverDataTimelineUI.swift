@@ -14,22 +14,6 @@ import UIKit
     @objc public static let shared = DriveKitDriverDataTimelineUI()
     static let calendar = Calendar(identifier: .gregorian)
 
-    private var internalScores: [DKScoreType] = [.safety, .ecoDriving, .distraction, .speeding]
-    public var scores: [DKScoreType] {
-        get {
-            self.internalScores.filter { score in
-                score.hasAccess()
-            }
-        }
-        set {
-            if newValue.isEmpty {
-                self.internalScores = [.safety]
-            } else {
-                self.internalScores = newValue
-            }
-        }
-    }
-
     public func initialize() {
         DriveKitNavigationController.shared.driverDataTimelineUI = self
     }

@@ -22,7 +22,6 @@
                         <constraint firstAttribute="height" constant="22" id="hK9-tv-X5n"/>
                     </constraints>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" image="dk_timeline_prev_arrow"/>
                     <connections>
                         <action selector="showPreviousDate" destination="iN0-l3-epB" eventType="touchUpInside" id="0Vb-c5-VoI"/>
                     </connections>
@@ -34,7 +33,6 @@
                         <constraint firstAttribute="width" constant="22" id="L9C-va-Mre"/>
                     </constraints>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" image="dk_timeline_next_arrow"/>
                     <connections>
                         <action selector="showNextDate" destination="iN0-l3-epB" eventType="touchUpInside" id="MAT-C4-TsC"/>
                     </connections>
@@ -70,8 +68,6 @@
         </view>
     </objects>
     <resources>
-        <image name="dk_timeline_next_arrow" width="22" height="22"/>
-        <image name="dk_timeline_prev_arrow" width="22" height="22"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

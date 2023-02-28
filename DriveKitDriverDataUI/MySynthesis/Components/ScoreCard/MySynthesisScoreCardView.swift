@@ -12,7 +12,7 @@ import UIKit
 class MySynthesisScoreCardView: UIView {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var currentScoreLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var evolutionDescriptionLabel: UILabel!
     @IBOutlet weak var scoreEvolutionTrendImageView: UIImageView!
     private var viewModel: MySynthesisScoreCardViewModel?
 
@@ -25,16 +25,29 @@ class MySynthesisScoreCardView: UIView {
         self.titleLabel.font = DKStyles.headLine2.style.applyTo(font: .primary)
         self.titleLabel.textColor = DKUIColors.primaryColor.color
         
-        self.currentScoreLabel.font = DKStyles.highlightNormal.withSizeDelta(12).applyTo(font: .primary)
+        let increasedFontSize: CGFloat = 12
+        self.currentScoreLabel.font = DKStyles.highlightNormal.withSizeDelta(increasedFontSize).applyTo(font: .primary)
         self.currentScoreLabel.textColor = DKUIColors.primaryColor.color
         
-        self.descriptionLabel.font = DKStyles.smallText.style.applyTo(font: .primary)
-        self.descriptionLabel.textColor = DKUIColors.complementaryFontColor.color
+        self.evolutionDescriptionLabel.font = DKStyles.smallText.style.applyTo(font: .primary)
+        self.evolutionDescriptionLabel.textColor = DKUIColors.complementaryFontColor.color
         
         self.refreshView()
     }
     
     func refreshView() {
+        guard let viewModel else {
+            return
+        }
+        self.titleLabel.text = viewModel.cardTitle
+        self.currentScoreLabel.text = viewModel.currentScoreText
+        self.currentScoreLabel.textColor = viewModel.currentScoreTextColor.color
+        self.evolutionDescriptionLabel.attributedText = viewModel.evolutionText
+        self.scoreEvolutionTrendImageView.image = viewModel.currentTrendScoreImage
+            .image?
+            .tintedImage(
+                withColor: viewModel.currentTrendScoreImageColor.color
+            )
     }
 
     func configure(viewModel: MySynthesisScoreCardViewModel) {
@@ -55,6 +68,9 @@ extension MySynthesisScoreCardView {
             preconditionFailure("Can't find bundle or nib for MySynthesisScoreCardViewModel")
         }
         
+        viewModel.scoreCardViewModelDidUpdate = { [unowned scoreCardView] in
+            scoreCardView.refreshView()
+        }
         scoreCardView.configure(viewModel: viewModel)
         containerView.embedSubview(scoreCardView)
         containerView.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius

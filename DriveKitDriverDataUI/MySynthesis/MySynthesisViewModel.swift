@@ -94,11 +94,25 @@ class MySynthesisViewModel {
             selectedPeriod: currentTimeline.period
         )
         let allDates = currentTimeline.allContext.map(\.date)
+        let selectedDateIndex = allDates.selectedIndex(for: selectedDate)
         self.dateSelectorViewModel.configure(
             dates: allDates,
             period: currentTimeline.period,
-            selectedIndex: allDates.selectedIndex(for: selectedDate)
+            selectedIndex: selectedDateIndex
         )
+        self.selectedDate = self.dateSelectorViewModel.selectedDate
+        if
+            let selectedDateIndex,
+            let scoreSynthesis = currentTimeline.driverScoreSynthesis(
+            for: scoreSelectorViewModel.selectedScore,
+            at: dateSelectorViewModel.selectedDate
+        ) {
+            self.scoreCardViewModel.configure(
+                with: scoreSynthesis,
+                period: periodSelectorViewModel.selectedPeriod,
+                hasNoScoredTripForSelectedPeriod: currentTimeline.allContext[selectedDateIndex].numberTripScored == 0
+            )
+        }
     }
     
     private func configureWithNoData() {

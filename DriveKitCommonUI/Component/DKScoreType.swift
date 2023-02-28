@@ -30,7 +30,7 @@ extension DKScoreType {
             return DKImages.speeding.image
         }
     }
-
+    
     public func stringValue() -> String {
         switch self {
         case .ecoDriving:

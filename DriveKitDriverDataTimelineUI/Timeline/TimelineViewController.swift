@@ -69,17 +69,17 @@ class TimelineViewController: DKUIViewController {
     }
 
     private func setupSelectors() {
-        ScoreSelectorView.createScoreSelectorView(
+        DKScoreSelectorView.createScoreSelectorView(
             configuredWith: viewModel.scoreSelectorViewModel,
             embededIn: scoreSelectorContainer
         )
         
-        PeriodSelectorView.createPeriodSelectorView(
+        DKPeriodSelectorView.createPeriodSelectorView(
             configuredWith: viewModel.periodSelectorViewModel,
             embededIn: periodSelectorContainer
         )
         
-        DateSelectorView.createDateSelectorView(
+        DKDateSelectorView.createDateSelectorView(
             configuredWith: viewModel.dateSelectorViewModel,
             embededIn: dateSelectorContainer
         )

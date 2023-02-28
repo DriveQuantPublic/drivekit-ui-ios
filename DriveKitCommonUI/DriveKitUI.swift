@@ -11,6 +11,7 @@ import UIKit
 
 @objc public class DriveKitUI: NSObject {
     @objc public static let shared = DriveKitUI()
+    public static let calendar = Calendar(identifier: .gregorian)
 
     @objc public private(set) var colors: DKColors!
     @objc public private(set) var fonts: DKFonts!

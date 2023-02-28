@@ -23,7 +23,6 @@
 		3F0F6B89257F8ACC00EE7AB3 /* TripListConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0F6B88257F8ACC00EE7AB3 /* TripListConfiguration.swift */; };
 		3F38C2692369BD60002E873A /* TripTipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F38C2672369BD5F002E873A /* TripTipViewController.swift */; };
 		3F38C26A2369BD60002E873A /* TripTipViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F38C2682369BD60002E873A /* TripTipViewController.xib */; };
-		3F38C26D2369CC10002E873A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3F38C26F2369CC10002E873A /* Localizable.strings */; };
 		3F3E72F5256F9415002B5E30 /* DKMapItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E72F4256F9415002B5E30 /* DKMapItem.swift */; };
 		3F3E72FC256F9B71002B5E30 /* DKTripDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3E72FB256F9B71002B5E30 /* DKTripDetailViewModel.swift */; };
 		3F50D6F52417945B001226F7 /* BluetoothViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F50D6F42417945B001226F7 /* BluetoothViewModel.swift */; };
@@ -188,7 +187,6 @@
 		6169470B2433AA4800C8A965 /* PermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6169470A2433AA4800C8A965 /* PermissionViewController.swift */; };
 		6169470D2433AAB500C8A965 /* ActivityPermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6169470C2433AAB500C8A965 /* ActivityPermissionViewController.swift */; };
 		6169470F2433AAE300C8A965 /* LocationPermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6169470E2433AAE300C8A965 /* LocationPermissionViewController.swift */; };
-		61765A76243E306D00358CCA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61765A78243E306D00358CCA /* InfoPlist.strings */; };
 		61D29B7424361CD70094CA5B /* DriveKitPermissionsUtilsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 616946D9243337D600C8A965 /* DriveKitPermissionsUtilsUI.framework */; };
 		61D29B7524361CD70094CA5B /* DriveKitPermissionsUtilsUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 616946D9243337D600C8A965 /* DriveKitPermissionsUtilsUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		61D29B7924362C720094CA5B /* DKReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D29B7824362C720094CA5B /* DKReachability.swift */; };
@@ -214,7 +212,6 @@
 		63454B982906B4B200A9B10F /* GraphItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63454B972906B4B200A9B10F /* GraphItem.swift */; };
 		63454B9A2906C76700A9B10F /* TimelineGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63454B992906C76700A9B10F /* TimelineGraphView.swift */; };
 		63454B9C2906C7A200A9B10F /* TimelineGraphView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63454B9B2906C7A200A9B10F /* TimelineGraphView.xib */; };
-		63454B9F2907DC8D00A9B10F /* TimelineDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63454B9E2907DC8D00A9B10F /* TimelineDateExtension.swift */; };
 		63454BA129081DD500A9B10F /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63454BA029081DD500A9B10F /* Graph.swift */; };
 		634C354426BAD53800C75098 /* DKAnalyticsEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634C354326BAD53800C75098 /* DKAnalyticsEvent.swift */; };
 		63508C6D278455370036A61E /* WorkingHoursSlotCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63508C6C278455370036A61E /* WorkingHoursSlotCellViewModel.swift */; };
@@ -602,28 +599,36 @@
 		A3D51F51241BA3AE006DACE2 /* VehiclesListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3D51F4D241BA3AE006DACE2 /* VehiclesListCell.xib */; };
 		AD2690683829D301D9573CEC /* Pods_DriveKitChallengeUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158BFF3EE484B6293C97E890 /* Pods_DriveKitChallengeUI.framework */; };
 		C2ECBA09D9742158769AE627 /* Pods_DriveKitPermissionsUtilsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3A98094797ED33BAF53826 /* Pods_DriveKitPermissionsUtilsUI.framework */; };
-		E32BC42A299D2A57006BE5F8 /* DateSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2A828F95F980084B53A /* DateSelectorViewModel.swift */; };
-		E32BC42B299D2A57006BE5F8 /* DateSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2A628F95F8C0084B53A /* DateSelectorView.swift */; };
-		E32BC42C299D2A57006BE5F8 /* DateSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67D6CD8F291013760055632B /* DateSelectorView.xib */; };
-		E32BC42D299D2A57006BE5F8 /* DateSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2AA28F95FAE0084B53A /* DateSelectorDelegate.swift */; };
+		E302B61229ADFC40004CFA0C /* Array+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F0212F29A3A90600664CD2 /* Array+Date.swift */; };
+		E302B61329ADFC40004CFA0C /* Date+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63454B9E2907DC8D00A9B10F /* Date+DK.swift */; };
+		E32BC42A299D2A57006BE5F8 /* DKDateSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2A828F95F980084B53A /* DKDateSelectorViewModel.swift */; };
+		E32BC42B299D2A57006BE5F8 /* DKDateSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2A628F95F8C0084B53A /* DKDateSelectorView.swift */; };
+		E32BC42C299D2A57006BE5F8 /* DKDateSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67D6CD8F291013760055632B /* DKDateSelectorView.xib */; };
+		E32BC42D299D2A57006BE5F8 /* DKDateSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2AA28F95FAE0084B53A /* DKDateSelectorDelegate.swift */; };
 		E32BC430299D2E48006BE5F8 /* DKUIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36085012948C37C0097A639 /* DKUIConstants.swift */; };
-		E32BC431299D34D7006BE5F8 /* PeriodSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2B828F960CA0084B53A /* PeriodSelectorViewModel.swift */; };
-		E32BC432299D34D7006BE5F8 /* PeriodSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2BA28F960E20084B53A /* PeriodSelectorDelegate.swift */; };
-		E32BC433299D34D7006BE5F8 /* PeriodSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639D184A29008919008293B8 /* PeriodSelectorView.xib */; };
-		E32BC434299D34D7006BE5F8 /* PeriodSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2B628F960BA0084B53A /* PeriodSelectorView.swift */; };
-		E32BC43D299F68B9006BE5F8 /* ScoreSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32BC43C299F68B9006BE5F8 /* ScoreSelectorView.swift */; };
+		E32BC431299D34D7006BE5F8 /* DKPeriodSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2B828F960CA0084B53A /* DKPeriodSelectorViewModel.swift */; };
+		E32BC432299D34D7006BE5F8 /* DKPeriodSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2BA28F960E20084B53A /* DKPeriodSelectorDelegate.swift */; };
+		E32BC433299D34D7006BE5F8 /* DKPeriodSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639D184A29008919008293B8 /* DKPeriodSelectorView.xib */; };
+		E32BC434299D34D7006BE5F8 /* DKPeriodSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2B628F960BA0084B53A /* DKPeriodSelectorView.swift */; };
+		E32BC438299E4049006BE5F8 /* MySynthesisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32BC436299E4049006BE5F8 /* MySynthesisViewController.swift */; };
+		E32BC439299E4049006BE5F8 /* MySynthesisViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E32BC437299E4049006BE5F8 /* MySynthesisViewController.xib */; };
+		E32BC43D299F68B9006BE5F8 /* DKScoreSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32BC43C299F68B9006BE5F8 /* DKScoreSelectorView.swift */; };
 		E32BC43E299F68C8006BE5F8 /* ScoreSelectionTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2DC28FDB0580084B53A /* ScoreSelectionTypeView.swift */; };
 		E32BC440299F68D3006BE5F8 /* ScoreSelectionTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F8B2DE28FDB0A20084B53A /* ScoreSelectionTypeView.xib */; };
 		E32BC442299F6A76006BE5F8 /* DKScoreType+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32BC441299F6A76006BE5F8 /* DKScoreType+Images.swift */; };
-		E32BC444299F6B1A006BE5F8 /* ScoreSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32BC443299F6B1A006BE5F8 /* ScoreSelectorViewModel.swift */; };
-		E32BC446299F6EAA006BE5F8 /* ScoreSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32BC445299F6EAA006BE5F8 /* ScoreSelectorDelegate.swift */; };
+		E32BC444299F6B1A006BE5F8 /* DKScoreSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32BC443299F6B1A006BE5F8 /* DKScoreSelectorViewModel.swift */; };
+		E32BC446299F6EAA006BE5F8 /* DKScoreSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32BC445299F6EAA006BE5F8 /* DKScoreSelectorDelegate.swift */; };
+		E32BC45729A3727E006BE5F8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E32BC44929A3727E006BE5F8 /* Localizable.strings */; };
+		E32BC45829A3727E006BE5F8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E32BC44B29A3727E006BE5F8 /* InfoPlist.strings */; };
+		E32BC45A29A377FD006BE5F8 /* MySynthesisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32BC45929A377FD006BE5F8 /* MySynthesisViewModel.swift */; };
+		E32BC45D29A38C7B006BE5F8 /* DKDriverTimelineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32BC45C29A38C7B006BE5F8 /* DKDriverTimelineExtension.swift */; };
 		E341FCA62951AF2B00FC5262 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341FCA52951AF2B00FC5262 /* DoubleExtension.swift */; };
 		E341FCA82951EE4900FC5262 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341FCA72951EE4900FC5262 /* ArrayExtension.swift */; };
 		E3559EB729479F8100AAB747 /* TimelineDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3559EB629479F8100AAB747 /* TimelineDetailViewController.xib */; };
 		E3559EBB2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3559EBA2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift */; };
 		E3559EBD294868CB00AAB747 /* DKTimelineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3559EBC294868CB00AAB747 /* DKTimelineExtension.swift */; };
 		E3B8309D294B1DCE00E31848 /* RoadContextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B8309C294B1DCE00E31848 /* RoadContextView.swift */; };
-		E3B830A1294CB4A700E31848 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B830A0294CB4A700E31848 /* Helpers.swift */; };
+		E3F0213329A3B88400664CD2 /* MySynthesisViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F0213229A3B88400664CD2 /* MySynthesisViewModelDelegate.swift */; };
 		FA5F8336F7F9D6E9CBACE91B /* Pods_DriveKitDriverAchievementUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36173251B2A47392720E8B05 /* Pods_DriveKitDriverAchievementUI.framework */; };
 		FE2C04BD97A78F4B22CD7008 /* Pods_DriveKitDriverDataUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55652B494DACA2423EDB5A8E /* Pods_DriveKitDriverDataUI.framework */; };
 /* End PBXBuildFile section */
@@ -794,11 +799,6 @@
 		3F38C26023696EE0002E873A /* TripInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripInfoView.swift; sourceTree = "<group>"; };
 		3F38C2672369BD5F002E873A /* TripTipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripTipViewController.swift; sourceTree = "<group>"; };
 		3F38C2682369BD60002E873A /* TripTipViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripTipViewController.xib; sourceTree = "<group>"; };
-		3F38C26E2369CC10002E873A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		3F38C2702369CC13002E873A /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		3F38C2712369CC14002E873A /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		3F38C2722369CC14002E873A /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
-		3F38C2732369CC15002E873A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3F3E72F4256F9415002B5E30 /* DKMapItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKMapItem.swift; sourceTree = "<group>"; };
 		3F3E72FB256F9B71002B5E30 /* DKTripDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripDetailViewModel.swift; sourceTree = "<group>"; };
 		3F3E73592570111C002B5E30 /* DKHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKHeader.swift; sourceTree = "<group>"; };
@@ -981,11 +981,6 @@
 		6169470A2433AA4800C8A965 /* PermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionViewController.swift; sourceTree = "<group>"; };
 		6169470C2433AAB500C8A965 /* ActivityPermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityPermissionViewController.swift; sourceTree = "<group>"; };
 		6169470E2433AAE300C8A965 /* LocationPermissionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionViewController.swift; sourceTree = "<group>"; };
-		61765A77243E306D00358CCA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		61765A79243E307200358CCA /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		61765A7A243E307200358CCA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		61765A7B243E307300358CCA /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		61765A7C243E307400358CCA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		61D29B7824362C720094CA5B /* DKReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKReachability.swift; sourceTree = "<group>"; };
 		63057419281B399800FFB782 /* NotificationSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewController.swift; sourceTree = "<group>"; };
 		6305741B281B39B900FFB782 /* NotificationSettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationSettingsViewController.xib; sourceTree = "<group>"; };
@@ -1009,7 +1004,7 @@
 		63454B972906B4B200A9B10F /* GraphItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphItem.swift; sourceTree = "<group>"; };
 		63454B992906C76700A9B10F /* TimelineGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineGraphView.swift; sourceTree = "<group>"; };
 		63454B9B2906C7A200A9B10F /* TimelineGraphView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineGraphView.xib; sourceTree = "<group>"; };
-		63454B9E2907DC8D00A9B10F /* TimelineDateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineDateExtension.swift; sourceTree = "<group>"; };
+		63454B9E2907DC8D00A9B10F /* Date+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DK.swift"; sourceTree = "<group>"; };
 		63454BA029081DD500A9B10F /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		634C354326BAD53800C75098 /* DKAnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKAnalyticsEvent.swift; sourceTree = "<group>"; };
 		63508C6C278455370036A61E /* WorkingHoursSlotCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingHoursSlotCellViewModel.swift; sourceTree = "<group>"; };
@@ -1099,7 +1094,7 @@
 		6391E1042607F64100A168D4 /* SynthesisCardInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesisCardInfoViewModel.swift; sourceTree = "<group>"; };
 		639346B4244897C1000F42D4 /* DKContactType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKContactType.swift; sourceTree = "<group>"; };
 		639346B624489DDA000F42D4 /* DiagnosisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosisViewController.swift; sourceTree = "<group>"; };
-		639D184A29008919008293B8 /* PeriodSelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PeriodSelectorView.xib; sourceTree = "<group>"; };
+		639D184A29008919008293B8 /* DKPeriodSelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DKPeriodSelectorView.xib; sourceTree = "<group>"; };
 		639F3D2024B5C8F10081DFC3 /* RankingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingStatus.swift; sourceTree = "<group>"; };
 		63A6DF632823F5920096F48E /* DriveKitVehicleUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveKitVehicleUtils.swift; sourceTree = "<group>"; };
 		63A6DF6528255EEB0096F48E /* Analytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analytics.swift; sourceTree = "<group>"; };
@@ -1121,7 +1116,6 @@
 		63C8F0AB272C949B006664A4 /* OdometerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdometerUtils.swift; sourceTree = "<group>"; };
 		63CDB12C273C7B9C00881976 /* OdometerInitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdometerInitVC.swift; sourceTree = "<group>"; };
 		63CDB130273C87FE00881976 /* OdometerInitVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OdometerInitVC.xib; sourceTree = "<group>"; };
-		63DD51BC28763BEA009D0D02 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		63DD51BD28763BEA009D0D02 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/CommonLocalizable.strings; sourceTree = "<group>"; };
 		63DD51BE28763BEA009D0D02 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/DriverDataLocalizables.strings; sourceTree = "<group>"; };
 		63DD51BF28763BEB009D0D02 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/DriverAchievementLocalizables.strings; sourceTree = "<group>"; };
@@ -1159,17 +1153,17 @@
 		63F8B28F28F958B90084B53A /* DriveKitDriverDataTimelineUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DriveKitDriverDataTimelineUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63F8B29128F958B90084B53A /* DriveKitDriverDataTimelineUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DriveKitDriverDataTimelineUI.h; sourceTree = "<group>"; };
 		63F8B29C28F95C2C0084B53A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		63F8B2A628F95F8C0084B53A /* DateSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectorView.swift; sourceTree = "<group>"; };
-		63F8B2A828F95F980084B53A /* DateSelectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectorViewModel.swift; sourceTree = "<group>"; };
-		63F8B2AA28F95FAE0084B53A /* DateSelectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectorDelegate.swift; sourceTree = "<group>"; };
+		63F8B2A628F95F8C0084B53A /* DKDateSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDateSelectorView.swift; sourceTree = "<group>"; };
+		63F8B2A828F95F980084B53A /* DKDateSelectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDateSelectorViewModel.swift; sourceTree = "<group>"; };
+		63F8B2AA28F95FAE0084B53A /* DKDateSelectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDateSelectorDelegate.swift; sourceTree = "<group>"; };
 		63F8B2AC28F960260084B53A /* GraphType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphType.swift; sourceTree = "<group>"; };
 		63F8B2AE28F960420084B53A /* BarGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarGraphView.swift; sourceTree = "<group>"; };
 		63F8B2B028F9605A0084B53A /* TimelineGraphViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineGraphViewModel.swift; sourceTree = "<group>"; };
 		63F8B2B228F960770084B53A /* GraphAxisConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphAxisConfig.swift; sourceTree = "<group>"; };
 		63F8B2B428F960900084B53A /* TimelineGraphDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineGraphDelegate.swift; sourceTree = "<group>"; };
-		63F8B2B628F960BA0084B53A /* PeriodSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodSelectorView.swift; sourceTree = "<group>"; };
-		63F8B2B828F960CA0084B53A /* PeriodSelectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodSelectorViewModel.swift; sourceTree = "<group>"; };
-		63F8B2BA28F960E20084B53A /* PeriodSelectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodSelectorDelegate.swift; sourceTree = "<group>"; };
+		63F8B2B628F960BA0084B53A /* DKPeriodSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKPeriodSelectorView.swift; sourceTree = "<group>"; };
+		63F8B2B828F960CA0084B53A /* DKPeriodSelectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKPeriodSelectorViewModel.swift; sourceTree = "<group>"; };
+		63F8B2BA28F960E20084B53A /* DKPeriodSelectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKPeriodSelectorDelegate.swift; sourceTree = "<group>"; };
 		63F8B2BE28F961440084B53A /* RoadContextDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadContextDataView.swift; sourceTree = "<group>"; };
 		63F8B2C028F961570084B53A /* RoadContextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadContextViewModel.swift; sourceTree = "<group>"; };
 		63F8B2C228F9617C0084B53A /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
@@ -1219,7 +1213,6 @@
 		67301DC32625C3BF006B0432 /* TripListVC+DKTripList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TripListVC+DKTripList.swift"; sourceTree = "<group>"; };
 		673D8CC528DCBB7C00D7CE3D /* DeleteAccountVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeleteAccountVC.xib; sourceTree = "<group>"; };
 		673D8CC628DCBB7C00D7CE3D /* DeleteAccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteAccountVC.swift; sourceTree = "<group>"; };
-		673D978A28C6052200774668 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6742577128B4D2EC00A61D1F /* DKVehicleImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKVehicleImages.swift; sourceTree = "<group>"; };
 		6744776A287ED13A0058D23B /* DKDriverDataImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDriverDataImages.swift; sourceTree = "<group>"; };
 		6744776C288594500058D23B /* DKChallengeImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKChallengeImages.swift; sourceTree = "<group>"; };
@@ -1314,7 +1307,7 @@
 		67D6CD8829090B750055632B /* RoadContextItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoadContextItemCell.xib; sourceTree = "<group>"; };
 		67D6CD8B290912640055632B /* EmptyRoadContextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyRoadContextView.swift; sourceTree = "<group>"; };
 		67D6CD8D290912780055632B /* EmptyRoadContextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyRoadContextView.xib; sourceTree = "<group>"; };
-		67D6CD8F291013760055632B /* DateSelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateSelectorView.xib; sourceTree = "<group>"; };
+		67D6CD8F291013760055632B /* DKDateSelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DKDateSelectorView.xib; sourceTree = "<group>"; };
 		67E807DB26579592003AFAA8 /* ChallengeRulesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeRulesViewModel.swift; sourceTree = "<group>"; };
 		67E807DD2657B855003AFAA8 /* NSAttributedString+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+DK.swift"; sourceTree = "<group>"; };
 		67E8D96827D6171200BD0343 /* CrashFeedbackStep1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashFeedbackStep1VC.swift; sourceTree = "<group>"; };
@@ -1441,10 +1434,26 @@
 		A3D51F4D241BA3AE006DACE2 /* VehiclesListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VehiclesListCell.xib; sourceTree = "<group>"; };
 		C6CF2F88D8CEC4FD0F65BD58 /* Pods-DriveKitChallengeUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitChallengeUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitChallengeUI/Pods-DriveKitChallengeUI.debug.xcconfig"; sourceTree = "<group>"; };
 		DCBF31C151237FEA8EDE3CF0 /* Pods-DriveKitDriverDataUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverDataUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverDataUI/Pods-DriveKitDriverDataUI.release.xcconfig"; sourceTree = "<group>"; };
-		E32BC43C299F68B9006BE5F8 /* ScoreSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreSelectorView.swift; sourceTree = "<group>"; };
+		E32BC436299E4049006BE5F8 /* MySynthesisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySynthesisViewController.swift; sourceTree = "<group>"; };
+		E32BC437299E4049006BE5F8 /* MySynthesisViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MySynthesisViewController.xib; sourceTree = "<group>"; };
+		E32BC43C299F68B9006BE5F8 /* DKScoreSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKScoreSelectorView.swift; sourceTree = "<group>"; };
 		E32BC441299F6A76006BE5F8 /* DKScoreType+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DKScoreType+Images.swift"; sourceTree = "<group>"; };
-		E32BC443299F6B1A006BE5F8 /* ScoreSelectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreSelectorViewModel.swift; sourceTree = "<group>"; };
-		E32BC445299F6EAA006BE5F8 /* ScoreSelectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreSelectorDelegate.swift; sourceTree = "<group>"; };
+		E32BC443299F6B1A006BE5F8 /* DKScoreSelectorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKScoreSelectorViewModel.swift; sourceTree = "<group>"; };
+		E32BC445299F6EAA006BE5F8 /* DKScoreSelectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKScoreSelectorDelegate.swift; sourceTree = "<group>"; };
+		E32BC44A29A3727E006BE5F8 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E32BC44C29A3727E006BE5F8 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E32BC44D29A3727E006BE5F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E32BC44E29A3727E006BE5F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E32BC44F29A3727E006BE5F8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E32BC45029A3727E006BE5F8 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E32BC45129A3727E006BE5F8 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E32BC45229A3727E006BE5F8 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E32BC45329A3727E006BE5F8 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E32BC45429A3727E006BE5F8 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E32BC45529A3727E006BE5F8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E32BC45629A3727E006BE5F8 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E32BC45929A377FD006BE5F8 /* MySynthesisViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySynthesisViewModel.swift; sourceTree = "<group>"; };
+		E32BC45C29A38C7B006BE5F8 /* DKDriverTimelineExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDriverTimelineExtension.swift; sourceTree = "<group>"; };
 		E341FCA52951AF2B00FC5262 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
 		E341FCA72951EE4900FC5262 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		E3559EB629479F8100AAB747 /* TimelineDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineDetailViewController.xib; sourceTree = "<group>"; };
@@ -1452,7 +1461,8 @@
 		E3559EBC294868CB00AAB747 /* DKTimelineExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTimelineExtension.swift; sourceTree = "<group>"; };
 		E36085012948C37C0097A639 /* DKUIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKUIConstants.swift; sourceTree = "<group>"; };
 		E3B8309C294B1DCE00E31848 /* RoadContextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadContextView.swift; sourceTree = "<group>"; };
-		E3B830A0294CB4A700E31848 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		E3F0212F29A3A90600664CD2 /* Array+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Date.swift"; sourceTree = "<group>"; };
+		E3F0213229A3B88400664CD2 /* MySynthesisViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySynthesisViewModelDelegate.swift; sourceTree = "<group>"; };
 		FA713DC763C119AEF200C7B2 /* Pods-DriveKitDriverDataTimelineUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverDataTimelineUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverDataTimelineUI/Pods-DriveKitDriverDataTimelineUI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1604,6 +1614,8 @@
 				3FF68E95240D58DC0071D74C /* UIView+DK.swift */,
 				3FF68E97240D59000071D74C /* UIImage+DK.swift */,
 				3FCE6338243DF87A00CAB828 /* UIButton+DK.swift */,
+				63454B9E2907DC8D00A9B10F /* Date+DK.swift */,
+				E3F0212F29A3A90600664CD2 /* Array+Date.swift */,
 				67301C90261F55B8006B0432 /* Array+DK.swift */,
 				67E807DD2657B855003AFAA8 /* NSAttributedString+DK.swift */,
 			);
@@ -2537,10 +2549,10 @@
 		63F8B2A028F95F040084B53A /* DateSelector */ = {
 			isa = PBXGroup;
 			children = (
-				63F8B2AA28F95FAE0084B53A /* DateSelectorDelegate.swift */,
-				63F8B2A628F95F8C0084B53A /* DateSelectorView.swift */,
-				63F8B2A828F95F980084B53A /* DateSelectorViewModel.swift */,
-				67D6CD8F291013760055632B /* DateSelectorView.xib */,
+				63F8B2AA28F95FAE0084B53A /* DKDateSelectorDelegate.swift */,
+				63F8B2A628F95F8C0084B53A /* DKDateSelectorView.swift */,
+				63F8B2A828F95F980084B53A /* DKDateSelectorViewModel.swift */,
+				67D6CD8F291013760055632B /* DKDateSelectorView.xib */,
 			);
 			path = DateSelector;
 			sourceTree = "<group>";
@@ -2572,10 +2584,10 @@
 		63F8B2A328F95F330084B53A /* PeriodSelector */ = {
 			isa = PBXGroup;
 			children = (
-				63F8B2BA28F960E20084B53A /* PeriodSelectorDelegate.swift */,
-				63F8B2B628F960BA0084B53A /* PeriodSelectorView.swift */,
-				639D184A29008919008293B8 /* PeriodSelectorView.xib */,
-				63F8B2B828F960CA0084B53A /* PeriodSelectorViewModel.swift */,
+				63F8B2BA28F960E20084B53A /* DKPeriodSelectorDelegate.swift */,
+				63F8B2B628F960BA0084B53A /* DKPeriodSelectorView.swift */,
+				639D184A29008919008293B8 /* DKPeriodSelectorView.xib */,
+				63F8B2B828F960CA0084B53A /* DKPeriodSelectorViewModel.swift */,
 			);
 			path = PeriodSelector;
 			sourceTree = "<group>";
@@ -3012,6 +3024,8 @@
 		A34238072361A1FA0001E15D /* DriveKitDriverDataUI */ = {
 			isa = PBXGroup;
 			children = (
+				E32BC45B29A38BF0006BE5F8 /* Helpers */,
+				E32BC435299E401B006BE5F8 /* MySynthesis */,
 				3F6B675D2580EC83008B3BA7 /* Declared Transportation Mode */,
 				3FF68E94240D4B900071D74C /* Extensions */,
 				3FF68E9A240E493F0071D74C /* Localizable */,
@@ -3271,6 +3285,7 @@
 		A3B7B382235F124F0065A332 /* DriveKitApp */ = {
 			isa = PBXGroup;
 			children = (
+				E32BC44829A3727E006BE5F8 /* Localizable */,
 				A3B7B383235F124F0065A332 /* AppDelegate.swift */,
 				67C055E627FF2D7200B7159D /* AppNavigationController.swift */,
 				63842D502817FEDB007F9256 /* DriveKitConfig.swift */,
@@ -3287,8 +3302,6 @@
 				A3B7B38F235F12510065A332 /* Assets.xcassets */,
 				A3B7B391235F12510065A332 /* LaunchScreen.storyboard */,
 				A3B7B394235F12510065A332 /* Info.plist */,
-				3F38C26F2369CC10002E873A /* Localizable.strings */,
-				61765A78243E306D00358CCA /* InfoPlist.strings */,
 				63E95A40282A39CE003DC276 /* DriveQuantSpecific.swift */,
 			);
 			path = DriveKitApp;
@@ -3371,26 +3384,52 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E32BC435299E401B006BE5F8 /* MySynthesis */ = {
+			isa = PBXGroup;
+			children = (
+				E32BC436299E4049006BE5F8 /* MySynthesisViewController.swift */,
+				E32BC437299E4049006BE5F8 /* MySynthesisViewController.xib */,
+				E32BC45929A377FD006BE5F8 /* MySynthesisViewModel.swift */,
+				E3F0213229A3B88400664CD2 /* MySynthesisViewModelDelegate.swift */,
+			);
+			path = MySynthesis;
+			sourceTree = "<group>";
+		};
 		E32BC43A299F687C006BE5F8 /* ScoreSelector */ = {
 			isa = PBXGroup;
 			children = (
-				E32BC43C299F68B9006BE5F8 /* ScoreSelectorView.swift */,
-				E32BC443299F6B1A006BE5F8 /* ScoreSelectorViewModel.swift */,
+				E32BC43C299F68B9006BE5F8 /* DKScoreSelectorView.swift */,
+				E32BC443299F6B1A006BE5F8 /* DKScoreSelectorViewModel.swift */,
 				63F8B2DC28FDB0580084B53A /* ScoreSelectionTypeView.swift */,
 				63F8B2DE28FDB0A20084B53A /* ScoreSelectionTypeView.xib */,
 				E32BC441299F6A76006BE5F8 /* DKScoreType+Images.swift */,
-				E32BC445299F6EAA006BE5F8 /* ScoreSelectorDelegate.swift */,
+				E32BC445299F6EAA006BE5F8 /* DKScoreSelectorDelegate.swift */,
 			);
 			path = ScoreSelector;
+			sourceTree = "<group>";
+		};
+		E32BC44829A3727E006BE5F8 /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				E32BC44929A3727E006BE5F8 /* Localizable.strings */,
+				E32BC44B29A3727E006BE5F8 /* InfoPlist.strings */,
+			);
+			path = Localizable;
+			sourceTree = "<group>";
+		};
+		E32BC45B29A38BF0006BE5F8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E32BC45C29A38C7B006BE5F8 /* DKDriverTimelineExtension.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		E3B830A2294CB54200E31848 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				63F8B2DA28FD5B250084B53A /* DKScoreTypeExtension.swift */,
-				63454B9E2907DC8D00A9B10F /* TimelineDateExtension.swift */,
 				E3559EBC294868CB00AAB747 /* DKTimelineExtension.swift */,
-				E3B830A0294CB4A700E31848 /* Helpers.swift */,
 				E341FCA52951AF2B00FC5262 /* DoubleExtension.swift */,
 				E341FCA72951EE4900FC5262 /* ArrayExtension.swift */,
 			);
@@ -3767,12 +3806,12 @@
 				63BE1EE026D2765F00CFEB8B /* LastTripsViewCell.xib in Resources */,
 				63FE778624FD1A9D00C068C3 /* AnalyticsTags.plist in Resources */,
 				3FED7FC62525B7B900D19E18 /* DKFilterTableViewCell.xib in Resources */,
-				E32BC42C299D2A57006BE5F8 /* DateSelectorView.xib in Resources */,
+				E32BC42C299D2A57006BE5F8 /* DKDateSelectorView.xib in Resources */,
 				67F2D3552630F06B00ACC69A /* RankingScoreSmall.xib in Resources */,
 				3FF68E8F240CF0460071D74C /* CircularProgressView.xib in Resources */,
 				67F2D3532630F06B00ACC69A /* RankingScoreBig.xib in Resources */,
 				67301CC1261FB0CD006B0432 /* NoScoreImageView.xib in Resources */,
-				E32BC433299D34D7006BE5F8 /* PeriodSelectorView.xib in Resources */,
+				E32BC433299D34D7006BE5F8 /* DKPeriodSelectorView.xib in Resources */,
 				3FF68E642407F56F0071D74C /* CommonLocalizable.strings in Resources */,
 				63B07CD224EFCA110060DF33 /* AnalyticsScreenToTagKey.plist in Resources */,
 			);
@@ -3932,6 +3971,7 @@
 				633E93DF261D0D1A009543C0 /* SynthesisCardInfoView.xib in Resources */,
 				A34238752361A2430001E15D /* EcoDrivingPageVC.xib in Resources */,
 				638AC03F261F903300602B52 /* SynthesisCardsView.xib in Resources */,
+				E32BC439299E4049006BE5F8 /* MySynthesisViewController.xib in Resources */,
 				A30F4F1B23D5DB18009A37C2 /* TripTipFeedbackVC.storyboard in Resources */,
 				A34238722361A2430001E15D /* ShortTripPageVC.xib in Resources */,
 				A34238832361A2440001E15D /* EcoDrivingPageView.xib in Resources */,
@@ -3958,13 +3998,13 @@
 				63E95A49282AADC7003DC276 /* InfoBannerView.xib in Resources */,
 				67C055C127FDF6CC00B7159D /* ApiKeyViewController.xib in Resources */,
 				63570E0628099D620082A446 /* DashboardViewController.xib in Resources */,
-				3F38C26D2369CC10002E873A /* Localizable.strings in Resources */,
 				A3B7B390235F12510065A332 /* Assets.xcassets in Resources */,
 				6765E72228135A5000FD13F8 /* TripSimulatorDetailViewController.xib in Resources */,
+				E32BC45829A3727E006BE5F8 /* InfoPlist.strings in Resources */,
 				A3B7B38B235F124F0065A332 /* Main.storyboard in Resources */,
+				E32BC45729A3727E006BE5F8 /* Localizable.strings in Resources */,
 				63F4C73F280E16A1006396B9 /* FeatureViewCell.xib in Resources */,
 				671087D228072FBE004FA464 /* UserInfoViewController.xib in Resources */,
-				61765A76243E306D00358CCA /* InfoPlist.strings in Resources */,
 				6305741C281B39B900FFB782 /* NotificationSettingsViewController.xib in Resources */,
 				67B5837628040B330065C2E7 /* UserIdViewController.xib in Resources */,
 				6765E713280EBAC400FD13F8 /* VehiclesViewController.xib in Resources */,
@@ -4374,7 +4414,7 @@
 			files = (
 				634C354426BAD53800C75098 /* DKAnalyticsEvent.swift in Sources */,
 				67301C91261F55B8006B0432 /* Array+DK.swift in Sources */,
-				E32BC431299D34D7006BE5F8 /* PeriodSelectorViewModel.swift in Sources */,
+				E32BC431299D34D7006BE5F8 /* DKPeriodSelectorViewModel.swift in Sources */,
 				3FA24FF62524B9BE000AB7D3 /* DKFilterView.swift in Sources */,
 				67F2D3BC26316D5800ACC69A /* DKDriverRankingViewModel.swift in Sources */,
 				67301C9D261FAEFF006B0432 /* TripListSeparator.swift in Sources */,
@@ -4383,6 +4423,7 @@
 				67301CC4261FB0CD006B0432 /* AlternativeTripImageView.swift in Sources */,
 				3F0740E72403BB9A005A8D07 /* DriveKitUI.swift in Sources */,
 				67301CCC2620D16D006B0432 /* DKHeader.swift in Sources */,
+				E302B61229ADFC40004CFA0C /* Array+Date.swift in Sources */,
 				67301DB026251921006B0432 /* HeaderDayView.swift in Sources */,
 				63BE1ED726CF97CA00CFEB8B /* LastTripsViewCell.swift in Sources */,
 				3FF68E86240A68D90071D74C /* DKDataFormatter.swift in Sources */,
@@ -4395,29 +4436,29 @@
 				63ECE8EB2667E0CD000F08D3 /* UserPseudoViewController.swift in Sources */,
 				3FF68E96240D58DC0071D74C /* UIView+DK.swift in Sources */,
 				6357AE84261135600000CA58 /* DKGaugeConfiguration.swift in Sources */,
-				E32BC42D299D2A57006BE5F8 /* DateSelectorDelegate.swift in Sources */,
+				E32BC42D299D2A57006BE5F8 /* DKDateSelectorDelegate.swift in Sources */,
 				616946E924338E3500C8A965 /* DriveKitPermissionsUtilsUIEntryPoint.swift in Sources */,
-				E32BC42A299D2A57006BE5F8 /* DateSelectorViewModel.swift in Sources */,
+				E32BC42A299D2A57006BE5F8 /* DKDateSelectorViewModel.swift in Sources */,
 				3FF68E7E240939040071D74C /* DriveKitDriverAchievementUIEntryPoint.swift in Sources */,
 				63BE1ED326CEF85200CFEB8B /* LastTripsViewModel.swift in Sources */,
 				3FF68E80240939BC0071D74C /* DriveKitDriverDataUIEntryPoint.swift in Sources */,
 				67301CC0261FB0CD006B0432 /* TripTableViewCell.swift in Sources */,
 				67F2D3542630F06B00ACC69A /* RankingScoreView.swift in Sources */,
-				E32BC434299D34D7006BE5F8 /* PeriodSelectorView.swift in Sources */,
+				E32BC434299D34D7006BE5F8 /* DKPeriodSelectorView.swift in Sources */,
 				3FA2500E2524BD0C000AB7D3 /* DKFilterViewModel.swift in Sources */,
 				3FF68E6E24081A5A0071D74C /* DKStyles.swift in Sources */,
 				3F0740F3240426C0005A8D07 /* UIColor+DK.swift in Sources */,
 				679DC8612636E3A5007B5623 /* RankingHeaderReusableView.swift in Sources */,
 				638E683A2919419300A5CC81 /* DriveKitDriverDataTimelineUIEntryPoint.swift in Sources */,
 				67301CBF261FB0CD006B0432 /* NoScoreImageView.swift in Sources */,
-				E32BC42B299D2A57006BE5F8 /* DateSelectorView.swift in Sources */,
+				E32BC42B299D2A57006BE5F8 /* DKDateSelectorView.swift in Sources */,
 				E32BC442299F6A76006BE5F8 /* DKScoreType+Images.swift in Sources */,
 				E32BC43E299F68C8006BE5F8 /* ScoreSelectionTypeView.swift in Sources */,
 				67F2D31B2630717300ACC69A /* DKDriverRanking.swift in Sources */,
 				63E75EC226DD23D7005A9FDB /* MoreTripsViewCell.swift in Sources */,
-				E32BC444299F6B1A006BE5F8 /* ScoreSelectorViewModel.swift in Sources */,
+				E32BC444299F6B1A006BE5F8 /* DKScoreSelectorViewModel.swift in Sources */,
 				67F2D3B42631600000ACC69A /* DKDriverRankingCollectionVC.swift in Sources */,
-				E32BC43D299F68B9006BE5F8 /* ScoreSelectorView.swift in Sources */,
+				E32BC43D299F68B9006BE5F8 /* DKScoreSelectorView.swift in Sources */,
 				63BF8EFA24531011006BEB3F /* DKContactType.swift in Sources */,
 				A34FC7362423CDDA000734AB /* DKTextField.swift in Sources */,
 				63ECE8ED26682058000F08D3 /* Bundle+DK.swift in Sources */,
@@ -4438,9 +4479,10 @@
 				3FF68E88240A727D0071D74C /* DKDatePattern.swift in Sources */,
 				67F2D3522630F06B00ACC69A /* RankingScoreSmall.swift in Sources */,
 				67F2D3682630F07E00ACC69A /* RankingCell.swift in Sources */,
-				E32BC446299F6EAA006BE5F8 /* ScoreSelectorDelegate.swift in Sources */,
+				E32BC446299F6EAA006BE5F8 /* DKScoreSelectorDelegate.swift in Sources */,
 				67C43D0C263ADD3300DBB09D /* DriveKitChallengeUIEntryPoint.swift in Sources */,
 				A322728C2429125700BF69E1 /* DKImagePicker.swift in Sources */,
+				E302B61329ADFC40004CFA0C /* Date+DK.swift in Sources */,
 				E32BC430299D2E48006BE5F8 /* DKUIConstants.swift in Sources */,
 				3F0740EC240400E0005A8D07 /* DKFonts.swift in Sources */,
 				67301C5C261EE900006B0432 /* DKTripsByDate.swift in Sources */,
@@ -4452,7 +4494,7 @@
 				3FF68E92240CF1300071D74C /* DKScoreType.swift in Sources */,
 				3FA2501B2524CE75000AB7D3 /* DKFilterPickerVC.swift in Sources */,
 				61D29B7924362C720094CA5B /* DKReachability.swift in Sources */,
-				E32BC432299D34D7006BE5F8 /* PeriodSelectorDelegate.swift in Sources */,
+				E32BC432299D34D7006BE5F8 /* DKPeriodSelectorDelegate.swift in Sources */,
 				3FF68E7024081F060071D74C /* DKAttributedStringBuilder.swift in Sources */,
 				3FE4B410242C9DC600564F19 /* DKContentMail.swift in Sources */,
 				67301C46261D121C006B0432 /* TripData.swift in Sources */,
@@ -4626,14 +4668,12 @@
 			files = (
 				63F8B2B528F960900084B53A /* TimelineGraphDelegate.swift in Sources */,
 				63454B8F29067C6000A9B10F /* GraphViewModel.swift in Sources */,
-				63454B9F2907DC8D00A9B10F /* TimelineDateExtension.swift in Sources */,
 				E3B8309D294B1DCE00E31848 /* RoadContextView.swift in Sources */,
 				63F8B2BF28F961440084B53A /* RoadContextDataView.swift in Sources */,
 				63F8B2C128F961570084B53A /* RoadContextViewModel.swift in Sources */,
 				63F8B2C528F961960084B53A /* TimelineViewModel.swift in Sources */,
 				674B3B2329196CE800C62895 /* GraphConstants.swift in Sources */,
 				63F8B2B128F9605A0084B53A /* TimelineGraphViewModel.swift in Sources */,
-				E3B830A1294CB4A700E31848 /* Helpers.swift in Sources */,
 				638E683C291A3D5400A5CC81 /* TimelineDetailViewController.swift in Sources */,
 				63F8B2AF28F960420084B53A /* BarGraphView.swift in Sources */,
 				63454B982906B4B200A9B10F /* GraphItem.swift in Sources */,
@@ -4722,6 +4762,7 @@
 				A34238812361A2440001E15D /* SafetyPageView.swift in Sources */,
 				638AC04D261F996D00602B52 /* SynthesisCardViewCell.swift in Sources */,
 				A342386D2361A2430001E15D /* TripDetailVC.swift in Sources */,
+				E32BC45A29A377FD006BE5F8 /* MySynthesisViewModel.swift in Sources */,
 				A317F82C23A137C700AD22A2 /* TripTipFeedbackVC.swift in Sources */,
 				A342387A2361A2440001E15D /* ResistantLayer.swift in Sources */,
 				3F3E72F5256F9415002B5E30 /* DKMapItem.swift in Sources */,
@@ -4729,6 +4770,7 @@
 				6391E0CB26072DD100A168D4 /* DKSynthesisCard.swift in Sources */,
 				6357AE69261120D20000CA58 /* SynthesisCardUtils.swift in Sources */,
 				A342387B2361A2440001E15D /* CalloutView.swift in Sources */,
+				E32BC438299E4049006BE5F8 /* MySynthesisViewController.swift in Sources */,
 				3F0F6B89257F8ACC00EE7AB3 /* TripListConfiguration.swift in Sources */,
 				A317F83123A1383B00AD22A2 /* TripTipFeedbackChoicesCell.swift in Sources */,
 				67CFE99F25F6425F004D0AE1 /* SpeedingPageVC.swift in Sources */,
@@ -4755,6 +4797,7 @@
 				A30F4F1823D5DA14009A37C2 /* SynthesisPageVC.swift in Sources */,
 				A342386A2361A2430001E15D /* MapItem.swift in Sources */,
 				3F3E72FC256F9B71002B5E30 /* DKTripDetailViewModel.swift in Sources */,
+				E32BC45D29A38C7B006BE5F8 /* DKDriverTimelineExtension.swift in Sources */,
 				638AC046261F970E00602B52 /* SynthesisCardsViewModel.swift in Sources */,
 				A34238862361A2440001E15D /* Extension+DK.swift in Sources */,
 				3F6B67572580DA62008B3BA7 /* AlternativeTripMapItem.swift in Sources */,
@@ -4764,6 +4807,7 @@
 				67301DBD2625C301006B0432 /* Trip+DKTripsListItem.swift in Sources */,
 				A342386C2361A2430001E15D /* MapViewController.swift in Sources */,
 				3FF68E8A240ACD620071D74C /* DriveKitDriverDataUI.swift in Sources */,
+				E3F0213329A3B88400664CD2 /* MySynthesisViewModelDelegate.swift in Sources */,
 				A34238732361A2430001E15D /* ShortTripPageVC.swift in Sources */,
 				A34238662361A2430001E15D /* EcoDrivingPageViewModel.swift in Sources */,
 				A34238852361A2440001E15D /* TripListViewModel.swift in Sources */,
@@ -4931,20 +4975,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3F38C26F2369CC10002E873A /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3F38C26E2369CC10002E873A /* en */,
-				3F38C2702369CC13002E873A /* fr */,
-				3F38C2712369CC14002E873A /* de */,
-				3F38C2722369CC14002E873A /* it */,
-				3F38C2732369CC15002E873A /* es */,
-				673D978A28C6052200774668 /* da */,
-			);
-			name = Localizable.strings;
-			path = Localizable;
-			sourceTree = "<group>";
-		};
 		3FB5644323F6B4F000F010E3 /* DriverAchievementLocalizables.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -4995,20 +5025,6 @@
 				63DD51C028763BEB009D0D02 /* da */,
 			);
 			name = PermissionsUtilsLocalizables.strings;
-			sourceTree = "<group>";
-		};
-		61765A78243E306D00358CCA /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				61765A77243E306D00358CCA /* en */,
-				61765A79243E307200358CCA /* fr */,
-				61765A7A243E307200358CCA /* de */,
-				61765A7B243E307300358CCA /* it */,
-				61765A7C243E307400358CCA /* es */,
-				63DD51BC28763BEA009D0D02 /* da */,
-			);
-			name = InfoPlist.strings;
-			path = Localizable;
 			sourceTree = "<group>";
 		};
 		63F8B2D228F9B27B0084B53A /* DriverDataTimelineLocalizable.strings */ = {
@@ -5077,6 +5093,32 @@
 				A3B7B392235F12510065A332 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E32BC44929A3727E006BE5F8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E32BC44A29A3727E006BE5F8 /* de */,
+				E32BC44D29A3727E006BE5F8 /* en */,
+				E32BC44F29A3727E006BE5F8 /* es */,
+				E32BC45129A3727E006BE5F8 /* da */,
+				E32BC45329A3727E006BE5F8 /* it */,
+				E32BC45529A3727E006BE5F8 /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		E32BC44B29A3727E006BE5F8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E32BC44C29A3727E006BE5F8 /* de */,
+				E32BC44E29A3727E006BE5F8 /* en */,
+				E32BC45029A3727E006BE5F8 /* es */,
+				E32BC45229A3727E006BE5F8 /* da */,
+				E32BC45429A3727E006BE5F8 /* it */,
+				E32BC45629A3727E006BE5F8 /* fr */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

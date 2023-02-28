@@ -18,6 +18,7 @@ class MySynthesisViewModel {
     let scoreSelectorViewModel: DKScoreSelectorViewModel
     let periodSelectorViewModel: DKPeriodSelectorViewModel
     let dateSelectorViewModel: DKDateSelectorViewModel
+    let horizontalGaugeViewModel = HorizontalGaugeViewModel()
     private var timelines: [DKPeriod: DKDriverTimeline]
     private var selectedDate: Date?
     private(set) var updating: Bool = false

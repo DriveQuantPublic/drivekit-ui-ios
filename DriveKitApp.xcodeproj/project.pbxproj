@@ -423,6 +423,9 @@
 		67462D8F2660CE2600016FAF /* ChallengeResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67462D8E2660CE2600016FAF /* ChallengeResultsViewModel.swift */; };
 		67462D912660CE4300016FAF /* ChallengeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67462D902660CE4300016FAF /* ChallengeDetailViewModel.swift */; };
 		674B3B2329196CE800C62895 /* GraphConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674B3B2229196CE800C62895 /* GraphConstants.swift */; };
+		6760191029ACE47900CA595C /* DKCustomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6760190F29ACE47800CA595C /* DKCustomBarView.swift */; };
+		6760191329ACF74A00CA595C /* HorizontalGaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6760191229ACF74A00CA595C /* HorizontalGaugeView.swift */; };
+		6760191529ACF91400CA595C /* HorizontalGaugeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6760191429ACF91400CA595C /* HorizontalGaugeViewModel.swift */; };
 		6765605228DC340F003B74CD /* DeleteAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765605128DC340F003B74CD /* DeleteAccountViewModel.swift */; };
 		6765E70C280EBA9F00FD13F8 /* PermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765E70A280EBA9F00FD13F8 /* PermissionsViewController.swift */; };
 		6765E70D280EBA9F00FD13F8 /* PermissionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6765E70B280EBA9F00FD13F8 /* PermissionsViewController.xib */; };
@@ -1228,6 +1231,9 @@
 		67462D8E2660CE2600016FAF /* ChallengeResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeResultsViewModel.swift; sourceTree = "<group>"; };
 		67462D902660CE4300016FAF /* ChallengeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDetailViewModel.swift; sourceTree = "<group>"; };
 		674B3B2229196CE800C62895 /* GraphConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphConstants.swift; sourceTree = "<group>"; };
+		6760190F29ACE47800CA595C /* DKCustomBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKCustomBarView.swift; sourceTree = "<group>"; };
+		6760191229ACF74A00CA595C /* HorizontalGaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalGaugeView.swift; sourceTree = "<group>"; };
+		6760191429ACF91400CA595C /* HorizontalGaugeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalGaugeViewModel.swift; sourceTree = "<group>"; };
 		6765605128DC340F003B74CD /* DeleteAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewModel.swift; sourceTree = "<group>"; };
 		6765E70A280EBA9F00FD13F8 /* PermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsViewController.swift; sourceTree = "<group>"; };
 		6765E70B280EBA9F00FD13F8 /* PermissionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PermissionsViewController.xib; sourceTree = "<group>"; };
@@ -1712,6 +1718,7 @@
 				A34FC7342423CDDA000734AB /* DKTextField.swift */,
 				A34FC7352423CDDA000734AB /* DKTextField.xib */,
 				3FAEE5612486362E00549391 /* CustomScrollView.swift */,
+				6760190F29ACE47800CA595C /* DKCustomBarView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -2706,6 +2713,15 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		6760191129ACF73400CA595C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6760191229ACF74A00CA595C /* HorizontalGaugeView.swift */,
+				6760191429ACF91400CA595C /* HorizontalGaugeViewModel.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		6765E71628103EEA00FD13F8 /* TripSimulator */ = {
 			isa = PBXGroup;
 			children = (
@@ -3387,6 +3403,7 @@
 		E32BC435299E401B006BE5F8 /* MySynthesis */ = {
 			isa = PBXGroup;
 			children = (
+				6760191129ACF73400CA595C /* Components */,
 				E32BC436299E4049006BE5F8 /* MySynthesisViewController.swift */,
 				E32BC437299E4049006BE5F8 /* MySynthesisViewController.xib */,
 				E32BC45929A377FD006BE5F8 /* MySynthesisViewModel.swift */,
@@ -4488,6 +4505,7 @@
 				67301C5C261EE900006B0432 /* DKTripsByDate.swift in Sources */,
 				3FCE6339243DF87A00CAB828 /* UIButton+DK.swift in Sources */,
 				3FF68E98240D59000071D74C /* UIImage+DK.swift in Sources */,
+				6760191029ACE47900CA595C /* DKCustomBarView.swift in Sources */,
 				67F2D3672630F07E00ACC69A /* RankingJumpCell.swift in Sources */,
 				3F7524CE2407A89100AC22CC /* DKCommonLocalizable.swift in Sources */,
 				3FF68E84240966120071D74C /* DKImages.swift in Sources */,
@@ -4776,6 +4794,7 @@
 				67CFE99F25F6425F004D0AE1 /* SpeedingPageVC.swift in Sources */,
 				A34238702361A2430001E15D /* DistractionPageVC.swift in Sources */,
 				A342386B2361A2430001E15D /* TripEvent.swift in Sources */,
+				6760191329ACF74A00CA595C /* HorizontalGaugeView.swift in Sources */,
 				3F6B67692580ECE3008B3BA7 /* TransportationModeIcon.swift in Sources */,
 				3F38C2692369BD60002E873A /* TripTipViewController.swift in Sources */,
 				638AC0832620A32500602B52 /* DriverDataSynthesisCardsUI.swift in Sources */,
@@ -4788,6 +4807,7 @@
 				A34238772361A2440001E15D /* EcoDrivingPageVC.swift in Sources */,
 				A30F4F1523D5DA08009A37C2 /* SynthesisPageViewModel.swift in Sources */,
 				A34238642361A2430001E15D /* SafetyPageViewModel.swift in Sources */,
+				6760191529ACF91400CA595C /* HorizontalGaugeViewModel.swift in Sources */,
 				A34238742361A2430001E15D /* HistoryPageVC.swift in Sources */,
 				A342387D2361A2440001E15D /* EcoDrivingPageView.swift in Sources */,
 				A34238652361A2430001E15D /* ShortTripPageViewModel.swift in Sources */,

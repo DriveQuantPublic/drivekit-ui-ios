@@ -59,6 +59,7 @@ class MySynthesisViewController: DKUIViewController {
         } else {
             hideRefreshControl()
         }
+        setupHorizontalGauge()
     }
     
     @objc private func refresh(_ sender: Any) {
@@ -71,6 +72,13 @@ class MySynthesisViewController: DKUIViewController {
     
     private func hideRefreshControl() {
         self.scrollView.refreshControl?.endRefreshing()
+    }
+
+    private func setupHorizontalGauge() {
+        HorizontalGaugeView.createHorizontalGaugeView(
+            configuredWith: viewModel.horizontalGaugeViewModel,
+            embededIn: communityViewContainer
+        )
     }
 }
     

@@ -17,7 +17,6 @@ Pod::Spec.new do |s|
   s.resource = ['DriveKitDriverDataTimelineUI/Localizable/*', 'DriveKitDriverDataTimelineUI/**/*.xib', 'DriveKitDriverDataTimelineUI/**/*.storyboard']
 
   s.dependency 'DriveKitCommonUI', s.version.to_s
-  s.dependency 'DriveKitDriverDataUI', s.version.to_s
   s.dependency 'DriveKitDriverData', '1.31-beta1'
   s.dependency 'ChartsForDK'
 

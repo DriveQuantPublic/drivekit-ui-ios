@@ -599,6 +599,8 @@
 		A3D51F51241BA3AE006DACE2 /* VehiclesListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3D51F4D241BA3AE006DACE2 /* VehiclesListCell.xib */; };
 		AD2690683829D301D9573CEC /* Pods_DriveKitChallengeUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158BFF3EE484B6293C97E890 /* Pods_DriveKitChallengeUI.framework */; };
 		C2ECBA09D9742158769AE627 /* Pods_DriveKitPermissionsUtilsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3A98094797ED33BAF53826 /* Pods_DriveKitPermissionsUtilsUI.framework */; };
+		E302B61229ADFC40004CFA0C /* Array+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F0212F29A3A90600664CD2 /* Array+Date.swift */; };
+		E302B61329ADFC40004CFA0C /* Date+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63454B9E2907DC8D00A9B10F /* Date+DK.swift */; };
 		E32BC42A299D2A57006BE5F8 /* DKDateSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2A828F95F980084B53A /* DKDateSelectorViewModel.swift */; };
 		E32BC42B299D2A57006BE5F8 /* DKDateSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2A628F95F8C0084B53A /* DKDateSelectorView.swift */; };
 		E32BC42C299D2A57006BE5F8 /* DKDateSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67D6CD8F291013760055632B /* DKDateSelectorView.xib */; };
@@ -626,8 +628,6 @@
 		E3559EBB2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3559EBA2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift */; };
 		E3559EBD294868CB00AAB747 /* DKTimelineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3559EBC294868CB00AAB747 /* DKTimelineExtension.swift */; };
 		E3B8309D294B1DCE00E31848 /* RoadContextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B8309C294B1DCE00E31848 /* RoadContextView.swift */; };
-		E3F0213029A3A90600664CD2 /* Array+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F0212F29A3A90600664CD2 /* Array+Date.swift */; };
-		E3F0213129A3B74800664CD2 /* TimelineDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63454B9E2907DC8D00A9B10F /* TimelineDateExtension.swift */; };
 		E3F0213329A3B88400664CD2 /* MySynthesisViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F0213229A3B88400664CD2 /* MySynthesisViewModelDelegate.swift */; };
 		FA5F8336F7F9D6E9CBACE91B /* Pods_DriveKitDriverAchievementUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36173251B2A47392720E8B05 /* Pods_DriveKitDriverAchievementUI.framework */; };
 		FE2C04BD97A78F4B22CD7008 /* Pods_DriveKitDriverDataUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55652B494DACA2423EDB5A8E /* Pods_DriveKitDriverDataUI.framework */; };
@@ -710,13 +710,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 3F0740D92403BB65005A8D07;
 			remoteInfo = DriveKitCommonUI;
-		};
-		6716612529A7D47B0003F7AB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A3B7B378235F124F0065A332 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A34238052361A1FA0001E15D;
-			remoteInfo = DriveKitDriverDataUI;
 		};
 		67813094276BB2A100701CF1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1011,7 +1004,7 @@
 		63454B972906B4B200A9B10F /* GraphItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphItem.swift; sourceTree = "<group>"; };
 		63454B992906C76700A9B10F /* TimelineGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineGraphView.swift; sourceTree = "<group>"; };
 		63454B9B2906C7A200A9B10F /* TimelineGraphView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineGraphView.xib; sourceTree = "<group>"; };
-		63454B9E2907DC8D00A9B10F /* TimelineDateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineDateExtension.swift; sourceTree = "<group>"; };
+		63454B9E2907DC8D00A9B10F /* Date+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DK.swift"; sourceTree = "<group>"; };
 		63454BA029081DD500A9B10F /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		634C354326BAD53800C75098 /* DKAnalyticsEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKAnalyticsEvent.swift; sourceTree = "<group>"; };
 		63508C6C278455370036A61E /* WorkingHoursSlotCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingHoursSlotCellViewModel.swift; sourceTree = "<group>"; };
@@ -1621,6 +1614,8 @@
 				3FF68E95240D58DC0071D74C /* UIView+DK.swift */,
 				3FF68E97240D59000071D74C /* UIImage+DK.swift */,
 				3FCE6338243DF87A00CAB828 /* UIButton+DK.swift */,
+				63454B9E2907DC8D00A9B10F /* Date+DK.swift */,
+				E3F0212F29A3A90600664CD2 /* Array+Date.swift */,
 				67301C90261F55B8006B0432 /* Array+DK.swift */,
 				67E807DD2657B855003AFAA8 /* NSAttributedString+DK.swift */,
 			);
@@ -3426,8 +3421,6 @@
 			isa = PBXGroup;
 			children = (
 				E32BC45C29A38C7B006BE5F8 /* DKDriverTimelineExtension.swift */,
-				63454B9E2907DC8D00A9B10F /* TimelineDateExtension.swift */,
-				E3F0212F29A3A90600664CD2 /* Array+Date.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -3610,7 +3603,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				6716612629A7D47B0003F7AB /* PBXTargetDependency */,
 				63F8B29B28F959BA0084B53A /* PBXTargetDependency */,
 			);
 			name = DriveKitDriverDataTimelineUI;
@@ -4431,6 +4423,7 @@
 				67301CC4261FB0CD006B0432 /* AlternativeTripImageView.swift in Sources */,
 				3F0740E72403BB9A005A8D07 /* DriveKitUI.swift in Sources */,
 				67301CCC2620D16D006B0432 /* DKHeader.swift in Sources */,
+				E302B61229ADFC40004CFA0C /* Array+Date.swift in Sources */,
 				67301DB026251921006B0432 /* HeaderDayView.swift in Sources */,
 				63BE1ED726CF97CA00CFEB8B /* LastTripsViewCell.swift in Sources */,
 				3FF68E86240A68D90071D74C /* DKDataFormatter.swift in Sources */,
@@ -4489,6 +4482,7 @@
 				E32BC446299F6EAA006BE5F8 /* DKScoreSelectorDelegate.swift in Sources */,
 				67C43D0C263ADD3300DBB09D /* DriveKitChallengeUIEntryPoint.swift in Sources */,
 				A322728C2429125700BF69E1 /* DKImagePicker.swift in Sources */,
+				E302B61329ADFC40004CFA0C /* Date+DK.swift in Sources */,
 				E32BC430299D2E48006BE5F8 /* DKUIConstants.swift in Sources */,
 				3F0740EC240400E0005A8D07 /* DKFonts.swift in Sources */,
 				67301C5C261EE900006B0432 /* DKTripsByDate.swift in Sources */,
@@ -4762,7 +4756,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3F0213129A3B74800664CD2 /* TimelineDateExtension.swift in Sources */,
 				A317F82923A137B600AD22A2 /* TripTipFeedbackViewModel.swift in Sources */,
 				A34238822361A2440001E15D /* DistractionPageView.swift in Sources */,
 				3F6B67502580D4A2008B3BA7 /* AlternativeTripViewModel.swift in Sources */,
@@ -4780,7 +4773,6 @@
 				E32BC438299E4049006BE5F8 /* MySynthesisViewController.swift in Sources */,
 				3F0F6B89257F8ACC00EE7AB3 /* TripListConfiguration.swift in Sources */,
 				A317F83123A1383B00AD22A2 /* TripTipFeedbackChoicesCell.swift in Sources */,
-				E3F0213029A3A90600664CD2 /* Array+Date.swift in Sources */,
 				67CFE99F25F6425F004D0AE1 /* SpeedingPageVC.swift in Sources */,
 				A34238702361A2430001E15D /* DistractionPageVC.swift in Sources */,
 				A342386B2361A2430001E15D /* TripEvent.swift in Sources */,
@@ -4954,11 +4946,6 @@
 			isa = PBXTargetDependency;
 			target = 3F0740D92403BB65005A8D07 /* DriveKitCommonUI */;
 			targetProxy = 63F8B29A28F959BA0084B53A /* PBXContainerItemProxy */;
-		};
-		6716612629A7D47B0003F7AB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A34238052361A1FA0001E15D /* DriveKitDriverDataUI */;
-			targetProxy = 6716612529A7D47B0003F7AB /* PBXContainerItemProxy */;
 		};
 		67813095276BB2A100701CF1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

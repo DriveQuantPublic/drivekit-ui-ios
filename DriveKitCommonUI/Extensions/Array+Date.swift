@@ -1,6 +1,6 @@
 //
 //  Array+Date.swift
-//  DriveKitDriverDataUI
+//  DriveKitCommonUI
 //
 //  Created by Frédéric Ruaudel on 20/02/2023.
 //  Copyright © 2023 DriveQuant. All rights reserved.

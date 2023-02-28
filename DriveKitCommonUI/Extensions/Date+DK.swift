@@ -1,12 +1,11 @@
 //
-//  TimelineDateExtension.swift
-//  DriveKitDriverDataTimelineUI
+//  Date+DK.swift
+//  DriveKitCommonUI
 //
 //  Created by David Bauduin on 25/10/2022.
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
-import DriveKitCommonUI
 import Foundation
 
 extension Date {

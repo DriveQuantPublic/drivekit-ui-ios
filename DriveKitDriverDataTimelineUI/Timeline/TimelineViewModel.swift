@@ -10,7 +10,6 @@ import DriveKitCommonUI
 import DriveKitCoreModule
 import DriveKitDBTripAccessModule
 import DriveKitDriverDataModule
-import DriveKitDriverDataUI
 import Foundation
 
 class TimelineViewModel {

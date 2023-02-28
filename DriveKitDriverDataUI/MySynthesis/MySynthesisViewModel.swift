@@ -18,6 +18,7 @@ class MySynthesisViewModel {
     let scoreSelectorViewModel: DKScoreSelectorViewModel
     let periodSelectorViewModel: DKPeriodSelectorViewModel
     let dateSelectorViewModel: DKDateSelectorViewModel
+    let scoreCardViewModel: MySynthesisScoreCardViewModel
     private var timelines: [DKPeriod: DKDriverTimeline]
     private var selectedDate: Date?
     private(set) var updating: Bool = false
@@ -30,6 +31,7 @@ class MySynthesisViewModel {
         self.scoreSelectorViewModel = DKScoreSelectorViewModel()
         self.periodSelectorViewModel = DKPeriodSelectorViewModel()
         self.dateSelectorViewModel = DKDateSelectorViewModel()
+        self.scoreCardViewModel = MySynthesisScoreCardViewModel()
         self.timelines = [:]
         self.selectedDate = nil
 

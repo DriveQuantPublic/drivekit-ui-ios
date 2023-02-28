@@ -601,6 +601,9 @@
 		C2ECBA09D9742158769AE627 /* Pods_DriveKitPermissionsUtilsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3A98094797ED33BAF53826 /* Pods_DriveKitPermissionsUtilsUI.framework */; };
 		E302B61229ADFC40004CFA0C /* Array+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F0212F29A3A90600664CD2 /* Array+Date.swift */; };
 		E302B61329ADFC40004CFA0C /* Date+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63454B9E2907DC8D00A9B10F /* Date+DK.swift */; };
+		E302B61729AE0DC1004CFA0C /* MySynthesisScoreCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E302B61629AE0DC1004CFA0C /* MySynthesisScoreCardView.swift */; };
+		E302B61929AE0DD6004CFA0C /* MySynthesisScoreCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E302B61829AE0DD6004CFA0C /* MySynthesisScoreCardView.xib */; };
+		E302B61B29AE0E7A004CFA0C /* MySynthesisScoreCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E302B61A29AE0E7A004CFA0C /* MySynthesisScoreCardViewModel.swift */; };
 		E32BC42A299D2A57006BE5F8 /* DKDateSelectorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2A828F95F980084B53A /* DKDateSelectorViewModel.swift */; };
 		E32BC42B299D2A57006BE5F8 /* DKDateSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F8B2A628F95F8C0084B53A /* DKDateSelectorView.swift */; };
 		E32BC42C299D2A57006BE5F8 /* DKDateSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67D6CD8F291013760055632B /* DKDateSelectorView.xib */; };
@@ -1434,6 +1437,9 @@
 		A3D51F4D241BA3AE006DACE2 /* VehiclesListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VehiclesListCell.xib; sourceTree = "<group>"; };
 		C6CF2F88D8CEC4FD0F65BD58 /* Pods-DriveKitChallengeUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitChallengeUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitChallengeUI/Pods-DriveKitChallengeUI.debug.xcconfig"; sourceTree = "<group>"; };
 		DCBF31C151237FEA8EDE3CF0 /* Pods-DriveKitDriverDataUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverDataUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverDataUI/Pods-DriveKitDriverDataUI.release.xcconfig"; sourceTree = "<group>"; };
+		E302B61629AE0DC1004CFA0C /* MySynthesisScoreCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySynthesisScoreCardView.swift; sourceTree = "<group>"; };
+		E302B61829AE0DD6004CFA0C /* MySynthesisScoreCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MySynthesisScoreCardView.xib; sourceTree = "<group>"; };
+		E302B61A29AE0E7A004CFA0C /* MySynthesisScoreCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySynthesisScoreCardViewModel.swift; sourceTree = "<group>"; };
 		E32BC436299E4049006BE5F8 /* MySynthesisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySynthesisViewController.swift; sourceTree = "<group>"; };
 		E32BC437299E4049006BE5F8 /* MySynthesisViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MySynthesisViewController.xib; sourceTree = "<group>"; };
 		E32BC43C299F68B9006BE5F8 /* DKScoreSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKScoreSelectorView.swift; sourceTree = "<group>"; };
@@ -3384,9 +3390,28 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E302B61429AE0D87004CFA0C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E302B61529AE0D90004CFA0C /* ScoreCard */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		E302B61529AE0D90004CFA0C /* ScoreCard */ = {
+			isa = PBXGroup;
+			children = (
+				E302B61629AE0DC1004CFA0C /* MySynthesisScoreCardView.swift */,
+				E302B61829AE0DD6004CFA0C /* MySynthesisScoreCardView.xib */,
+				E302B61A29AE0E7A004CFA0C /* MySynthesisScoreCardViewModel.swift */,
+			);
+			path = ScoreCard;
+			sourceTree = "<group>";
+		};
 		E32BC435299E401B006BE5F8 /* MySynthesis */ = {
 			isa = PBXGroup;
 			children = (
+				E302B61429AE0D87004CFA0C /* Components */,
 				E32BC436299E4049006BE5F8 /* MySynthesisViewController.swift */,
 				E32BC437299E4049006BE5F8 /* MySynthesisViewController.xib */,
 				E32BC45929A377FD006BE5F8 /* MySynthesisViewModel.swift */,
@@ -3979,6 +4004,7 @@
 				67CFEA0025FA16EC004D0AE1 /* SpeedingPageItemView.xib in Resources */,
 				A34238712361A2430001E15D /* DistractionPageVC.xib in Resources */,
 				A342387C2361A2440001E15D /* CalloutView.xib in Resources */,
+				E302B61929AE0DD6004CFA0C /* MySynthesisScoreCardView.xib in Resources */,
 				A34238A92361B0DE0001E15D /* TripListVC.xib in Resources */,
 				A34238802361A2440001E15D /* DistractionPageView.xib in Resources */,
 				A342387E2361A2440001E15D /* HistoryPageView.xib in Resources */,
@@ -4776,6 +4802,7 @@
 				67CFE99F25F6425F004D0AE1 /* SpeedingPageVC.swift in Sources */,
 				A34238702361A2430001E15D /* DistractionPageVC.swift in Sources */,
 				A342386B2361A2430001E15D /* TripEvent.swift in Sources */,
+				E302B61729AE0DC1004CFA0C /* MySynthesisScoreCardView.swift in Sources */,
 				3F6B67692580ECE3008B3BA7 /* TransportationModeIcon.swift in Sources */,
 				3F38C2692369BD60002E873A /* TripTipViewController.swift in Sources */,
 				638AC0832620A32500602B52 /* DriverDataSynthesisCardsUI.swift in Sources */,
@@ -4821,6 +4848,7 @@
 				A34238632361A2430001E15D /* TripDetailViewModel.swift in Sources */,
 				67CFE9F925FA1385004D0AE1 /* SpeedingPageItemView.swift in Sources */,
 				67301DC42625C3BF006B0432 /* TripListVC+DKTripList.swift in Sources */,
+				E302B61B29AE0E7A004CFA0C /* MySynthesisScoreCardViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

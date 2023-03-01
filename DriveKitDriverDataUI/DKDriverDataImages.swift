@@ -49,7 +49,10 @@ public enum DKDriverDataImages: String {
          transportationPassenger = "dk_transportation_passenger",
          placeholderNoTrips = "dk_placeholder_no_trip",
          noVehicleTrips = "dk_no_vehicle_trips",
-         filter = "dk_filter"
+         filter = "dk_filter",
+         trendPositive = "dk_driver_data_trend_positive",
+         trendNegative = "dk_driver_data_trend_negative",
+         trendSteady = "dk_driver_data_trend_steady"
     
     public var image: UIImage? {
         if let image = UIImage(named: self.rawValue, in: .main, compatibleWith: nil) {

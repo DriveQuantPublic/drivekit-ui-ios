@@ -88,7 +88,7 @@ public class MySynthesisScoreCardViewModel {
             )
     }
     
-    public var currentTrendScoreImage: DKImages {
+    public var currentTrendScoreImage: DKDriverDataImages {
         switch scoreSynthesis?.evolutionTrend {
             case .up:
                 return .trendPositive

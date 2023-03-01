@@ -51,10 +51,7 @@ public enum DKImages: String {
          rank3 = "dk_common_rank_3",
          emptyData = "dk_common_empty_data",
          arrowBackThick = "dk_common_arrow_back_thick",
-         arrowForwardThick = "dk_common_arrow_forward_thick",
-         trendPositive = "dk_driver_data_trend_positive",
-         trendNegative = "dk_driver_data_trend_negative",
-         trendSteady = "dk_driver_data_trend_steady"
+         arrowForwardThick = "dk_common_arrow_forward_thick"
 
     public var image: UIImage? {
         let renderingMode: UIImage.RenderingMode

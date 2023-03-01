@@ -52,68 +52,27 @@ public class MySynthesisScoreCardViewModel {
         return .primaryColor
     }
     
-    public var evolutionText: NSAttributedString {
-        guard
-            let period
-        else {
-            return "".dkAttributedString().build()
+    public var evolutionText: NSAttributedString? {
+        guard let localisationKeyPrefix = localisationKeyPrefixForEvolutionText else {
+            return nil
         }
         
-        guard scoreSynthesis?.scoreValue != nil else {
-            if hasNoScoredTripForSelectedPeriod {
-                return "dk_driverdata_mysynthesis_not_enough_data".dkDriverDataLocalized()
-                    .dkAttributedString()
-                    .font(dkFont: .primary, style: .smallText)
-                    .color(.complementaryFontColor)
-                    .build()
-            }
-            
-            let text: String
-            switch period {
-                case .week:
-                    text = "dk_driverdata_mysynthesis_no_driving_week".dkDriverDataLocalized()
-                case .month:
-                    text = "dk_driverdata_mysynthesis_no_driving_month".dkDriverDataLocalized()
-                case .year:
-                    text = "dk_driverdata_mysynthesis_no_driving_year".dkDriverDataLocalized()
-            }
-            return text.dkAttributedString()
-                .font(dkFont: .primary, style: .smallText)
-                .color(.complementaryFontColor)
-                .build()
-        }
-
         guard
-            let previousValue = scoreSynthesis?.previousScoreValue
+            let previousValue = scoreSynthesis?.previousScoreValue,
+            scoreSynthesis?.scoreValue != nil
         else {
-            let text: String
-            switch period {
-                case .week:
-                    text = "dk_driverdata_mysynthesis_no_trip_prev_week".dkDriverDataLocalized()
-                case .month:
-                    text = "dk_driverdata_mysynthesis_no_trip_prev_month".dkDriverDataLocalized()
-                case .year:
-                    text = "dk_driverdata_mysynthesis_no_trip_prev_year".dkDriverDataLocalized()
-            }
-            return text.dkAttributedString()
+            return localisationKeyPrefix.dkDriverDataLocalized()
+                .dkAttributedString()
                 .font(dkFont: .primary, style: .smallText)
                 .color(.complementaryFontColor)
                 .build()
         }
-
-        let prefix: String
-        switch period {
-            case .week:
-                prefix = "dk_driverdata_mysynthesis_previous_week".dkDriverDataLocalized()
-            case .month:
-                prefix = "dk_driverdata_mysynthesis_previous_month".dkDriverDataLocalized()
-            case .year:
-                prefix = "dk_driverdata_mysynthesis_previous_year".dkDriverDataLocalized()
-        }
+        
         return "%@ %@".dkAttributedString()
             .color(.complementaryFontColor)
             .buildWithArgs(
-                prefix.dkAttributedString()
+                localisationKeyPrefix.dkDriverDataLocalized()
+                    .dkAttributedString()
                     .font(
                         dkFont: .primary,
                         style: .smallText
@@ -156,6 +115,43 @@ public class MySynthesisScoreCardViewModel {
         scoreValue.formatDouble(places: 1)
             + " "
             + DKCommonLocalizable.unitScore.text()
+    }
+    
+    private var localisationKeySuffixForPeriod: String {
+        switch period {
+            case .week:
+                return "week"
+            case .month:
+                return "month"
+            case .year:
+                return "year"
+            case .none:
+                return ""
+        }
+    }
+    
+    private var localisationKeyPrefixForEvolutionText: String? {
+        guard let scoreSynthesis else { return nil }
+        let hasPreviousScore = (scoreSynthesis.previousScoreValue != nil)
+        let hasCurrentScore = (scoreSynthesis.scoreValue != nil)
+        let hasOnlyShortTrips = hasNoScoredTripForSelectedPeriod
+        
+        // No current score + only short trips = safety or ecodriving with no score while speeding and distraction have one
+        // current score + only short trips = speeding and distraction with a score while safety or ecodriving have not
+        // no current score + no trips at all = impossible
+        switch (hasPreviousScore, hasCurrentScore, hasOnlyShortTrips) {
+            case (false, false, _):
+                return "dk_driverdata_mysynthesis_no_driving_" + localisationKeySuffixForPeriod
+            case (false, true, _):
+                return "dk_driverdata_mysynthesis_no_trip_prev_" + localisationKeySuffixForPeriod
+            case (true, true, _):
+                return "dk_driverdata_mysynthesis_previous_" + localisationKeySuffixForPeriod
+            case (_, false, true):
+                return "dk_driverdata_mysynthesis_not_enough_data"
+            case (true, false, false):
+                assertionFailure("We can't have previous score but no current score and no trips at all")
+                return nil
+        }
     }
     
     public func configure(

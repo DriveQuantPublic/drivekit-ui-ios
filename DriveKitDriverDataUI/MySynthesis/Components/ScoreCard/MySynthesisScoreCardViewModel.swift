@@ -94,7 +94,7 @@ public class MySynthesisScoreCardViewModel {
                 return .trendPositive
             case .down:
                 return .trendNegative
-            case .same,
+            case .stable,
                 .none:
                 return .trendSteady
         }
@@ -104,7 +104,7 @@ public class MySynthesisScoreCardViewModel {
         switch scoreSynthesis?.evolutionTrend {
             case .up,
                 .down,
-                .same:
+                .stable:
                 return .primaryColor
             case .none:
                 return .complementaryFontColor

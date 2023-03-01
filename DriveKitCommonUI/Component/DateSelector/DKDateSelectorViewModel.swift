@@ -192,36 +192,27 @@ extension DKDateSelectorViewModel {
         var newSelectedDate = selectedDate
         
         switch (currentPeriodDates.period, nextPeriodDates.period) {
+            case (.year, .month),
+                (.year, .week):
+                compareDate = selectedDate.endOfYear
             case (.month, .week),
-                (.year, .week),
-                (.year, .month):
-                compareDate = selectedDate
-            case (.week, .month):
-                compareDate = DriveKitUI.calendar.date(
-                    from: DriveKitUI.calendar.dateComponents(
-                        [.year, .month],
-                        from: selectedDate
-                    )
-                )
-            case (.week, .year),
                 (.month, .year):
-                compareDate = DriveKitUI.calendar.date(
-                    from: DriveKitUI.calendar.dateComponents(
-                        [.year],
-                        from: selectedDate
-                    )
-                )
+                compareDate = selectedDate.endOfMonth
+            case (.week, .month),
+                (.week, .year):
+                compareDate = selectedDate.endOfWeek
             case (.week, .week),
                 (.month, .month),
                 (.year, .year):
                 compareDate = nil
         }
         
-        let dates = nextPeriodDates.dates
-        
         if let compareDate {
-            let newDate = dates.first { date in
-                date >= compareDate
+            let dates: [Date] = nextPeriodDates.dates
+            
+            let newDate = dates.last { date in
+                let compareResult = date.calendar.compare(date, to: compareDate, toGranularity: .day)
+                return compareResult == .orderedAscending || compareResult == .orderedSame
             }
             if let newDate {
                 newSelectedDate = newDate

@@ -57,6 +57,7 @@ class MySynthesisViewModel {
                 }
             }
         }
+        updateData()
     }
     
     func updateData() {

@@ -14,6 +14,7 @@ import Foundation
 
 public class MySynthesisScoreCardViewModel {
     private var period: DKPeriod?
+    private var selectedDate: Date?
     private var scoreSynthesis: DKScoreSynthesis?
     private var hasNoScoredTripForSelectedPeriod: Bool = false
     var scoreCardViewModelDidUpdate: (() -> Void)?
@@ -68,10 +69,16 @@ public class MySynthesisScoreCardViewModel {
                 .build()
         }
         
+        var evolutionTextPrefix = localisationKeyPrefix.dkDriverDataLocalized()
+        if period == .year, let selectedDate {
+            let previousYear = DriveKitUI.calendar.component(.year, from: selectedDate) - 1
+            evolutionTextPrefix = String(format: evolutionTextPrefix, String(previousYear))
+        }
+        
         return "%@ %@".dkAttributedString()
             .color(.complementaryFontColor)
             .buildWithArgs(
-                localisationKeyPrefix.dkDriverDataLocalized()
+                evolutionTextPrefix
                     .dkAttributedString()
                     .font(
                         dkFont: .primary,
@@ -157,10 +164,12 @@ public class MySynthesisScoreCardViewModel {
     public func configure(
         with scoreSynthesis: DKScoreSynthesis,
         period: DKPeriod,
+        selectedDate: Date,
         hasNoScoredTripForSelectedPeriod: Bool
     ) {
         self.scoreSynthesis = scoreSynthesis
         self.period = period
+        self.selectedDate = selectedDate
         self.hasNoScoredTripForSelectedPeriod = hasNoScoredTripForSelectedPeriod
         self.scoreCardViewModelDidUpdate?()
     }

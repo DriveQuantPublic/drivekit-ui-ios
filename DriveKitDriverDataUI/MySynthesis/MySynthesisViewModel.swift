@@ -104,6 +104,7 @@ class MySynthesisViewModel {
         self.selectedDate = self.dateSelectorViewModel.selectedDate
         if
             let selectedDateIndex,
+            let selectedDate,
             let scoreSynthesis = currentTimeline.driverScoreSynthesis(
             for: scoreSelectorViewModel.selectedScore,
             at: dateSelectorViewModel.selectedDate
@@ -111,6 +112,7 @@ class MySynthesisViewModel {
             self.scoreCardViewModel.configure(
                 with: scoreSynthesis,
                 period: periodSelectorViewModel.selectedPeriod,
+                selectedDate: selectedDate,
                 hasNoScoredTripForSelectedPeriod: currentTimeline.allContext[selectedDateIndex].numberTripScored == 0
             )
         }

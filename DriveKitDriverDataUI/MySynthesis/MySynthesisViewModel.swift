@@ -18,7 +18,7 @@ class MySynthesisViewModel {
     let scoreSelectorViewModel: DKScoreSelectorViewModel
     let periodSelectorViewModel: DKPeriodSelectorViewModel
     let dateSelectorViewModel: DKDateSelectorViewModel
-    let horizontalGaugeViewModel = HorizontalGaugeViewModel()
+    let horizontalGaugeViewModel: HorizontalGaugeViewModel
     private var timelines: [DKPeriod: DKDriverTimeline]
     private var selectedDate: Date?
     private(set) var updating: Bool = false
@@ -31,6 +31,7 @@ class MySynthesisViewModel {
         self.scoreSelectorViewModel = DKScoreSelectorViewModel()
         self.periodSelectorViewModel = DKPeriodSelectorViewModel()
         self.dateSelectorViewModel = DKDateSelectorViewModel()
+        self.horizontalGaugeViewModel = HorizontalGaugeViewModel()
         self.timelines = [:]
         self.selectedDate = nil
 
@@ -98,6 +99,7 @@ class MySynthesisViewModel {
             period: currentTimeline.period,
             selectedIndex: allDates.selectedIndex(for: selectedDate)
         )
+        self.horizontalGaugeViewModel.configure(scoreType: self.scoreSelectorViewModel.selectedScore, mean: 7.3, min: 4.9, max: 10, score: 7.6)
     }
     
     private func configureWithNoData() {

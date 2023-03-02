@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="IxA-v9-owG" customClass="HorizontalGaugeView" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="120"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ZJ-v5-Q29" customClass="HorizontalGaugeBarView" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+                    <rect key="frame" x="10" y="45" width="368" height="12"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="12" id="02i-mS-ULs"/>
+                    </constraints>
+                </view>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pez-BC-YIo">
+                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="HzW-s8-bOn"/>
+                        <constraint firstAttribute="width" constant="20" id="gU9-vx-VJ1"/>
+                    </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qhD-ls-OHT">
+                    <rect key="frame" x="4" y="45" width="12" height="12"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="12" id="C6w-g0-jp7"/>
+                        <constraint firstAttribute="width" constant="12" id="xwA-5a-0Iz"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="CVT-RX-56N"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="6ZJ-v5-Q29" firstAttribute="top" secondItem="IxA-v9-owG" secondAttribute="top" constant="45" id="1kg-2Y-sJq"/>
+                <constraint firstItem="qhD-ls-OHT" firstAttribute="centerX" secondItem="6ZJ-v5-Q29" secondAttribute="leading" id="2Cx-i3-Ump"/>
+                <constraint firstItem="qhD-ls-OHT" firstAttribute="centerY" secondItem="6ZJ-v5-Q29" secondAttribute="centerY" id="3S1-7C-S10"/>
+                <constraint firstItem="pez-BC-YIo" firstAttribute="centerX" secondItem="6ZJ-v5-Q29" secondAttribute="leading" id="J5z-Ct-sGY"/>
+                <constraint firstItem="6ZJ-v5-Q29" firstAttribute="leading" secondItem="IxA-v9-owG" secondAttribute="leading" constant="10" id="Slq-B9-B5V"/>
+                <constraint firstAttribute="trailing" secondItem="6ZJ-v5-Q29" secondAttribute="trailing" constant="15" id="XfY-94-7Hp"/>
+                <constraint firstItem="pez-BC-YIo" firstAttribute="top" secondItem="IxA-v9-owG" secondAttribute="top" id="j4p-Mb-XZV"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="circleCursorImageView" destination="qhD-ls-OHT" id="5dd-H7-tns"/>
+                <outlet property="circleCursorLayoutConstraint" destination="2Cx-i3-Ump" id="g2V-nB-exo"/>
+                <outlet property="horizontalGaugeBarView" destination="6ZJ-v5-Q29" id="Wdw-Yp-6tS"/>
+                <outlet property="triangleCursorImageView" destination="pez-BC-YIo" id="zDe-og-bf1"/>
+                <outlet property="triangleCursorLayoutConstraint" destination="J5z-Ct-sGY" id="qsz-jq-6GA"/>
+            </connections>
+            <point key="canvasLocation" x="66" y="-12"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

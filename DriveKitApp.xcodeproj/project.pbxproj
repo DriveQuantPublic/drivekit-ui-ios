@@ -505,6 +505,7 @@
 		67E8D96B27D6171200BD0343 /* CrashFeedbackStep1VC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67E8D96927D6171200BD0343 /* CrashFeedbackStep1VC.xib */; };
 		67E8D96F27D617AB00BD0343 /* CrashFeedbackStep1ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E8D96E27D617AB00BD0343 /* CrashFeedbackStep1ViewModel.swift */; };
 		67E8D97127D6529A00BD0343 /* DriveKitTripAnalysis.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67E8D97027D6529A00BD0343 /* DriveKitTripAnalysis.xcassets */; };
+		67F1988329B084D80060EF24 /* HorizontalGaugeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F1988229B084D80060EF24 /* HorizontalGaugeView.xib */; };
 		67F2D31B2630717300ACC69A /* DKDriverRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D31A2630717300ACC69A /* DKDriverRanking.swift */; };
 		67F2D3512630F06B00ACC69A /* RankingScoreBig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D3472630F06A00ACC69A /* RankingScoreBig.swift */; };
 		67F2D3522630F06B00ACC69A /* RankingScoreSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D3482630F06A00ACC69A /* RankingScoreSmall.swift */; };
@@ -1320,6 +1321,7 @@
 		67E8D96927D6171200BD0343 /* CrashFeedbackStep1VC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CrashFeedbackStep1VC.xib; sourceTree = "<group>"; };
 		67E8D96E27D617AB00BD0343 /* CrashFeedbackStep1ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashFeedbackStep1ViewModel.swift; sourceTree = "<group>"; };
 		67E8D97027D6529A00BD0343 /* DriveKitTripAnalysis.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DriveKitTripAnalysis.xcassets; sourceTree = "<group>"; };
+		67F1988229B084D80060EF24 /* HorizontalGaugeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HorizontalGaugeView.xib; sourceTree = "<group>"; };
 		67F2D31A2630717300ACC69A /* DKDriverRanking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDriverRanking.swift; sourceTree = "<group>"; };
 		67F2D3472630F06A00ACC69A /* RankingScoreBig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingScoreBig.swift; sourceTree = "<group>"; };
 		67F2D3482630F06A00ACC69A /* RankingScoreSmall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingScoreSmall.swift; sourceTree = "<group>"; };
@@ -2718,6 +2720,7 @@
 			children = (
 				6760191229ACF74A00CA595C /* HorizontalGaugeView.swift */,
 				6760191429ACF91400CA595C /* HorizontalGaugeViewModel.swift */,
+				67F1988229B084D80060EF24 /* HorizontalGaugeView.xib */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -3996,6 +3999,7 @@
 				67CFEA0025FA16EC004D0AE1 /* SpeedingPageItemView.xib in Resources */,
 				A34238712361A2430001E15D /* DistractionPageVC.xib in Resources */,
 				A342387C2361A2440001E15D /* CalloutView.xib in Resources */,
+				67F1988329B084D80060EF24 /* HorizontalGaugeView.xib in Resources */,
 				A34238A92361B0DE0001E15D /* TripListVC.xib in Resources */,
 				A34238802361A2440001E15D /* DistractionPageView.xib in Resources */,
 				A342387E2361A2440001E15D /* HistoryPageView.xib in Resources */,

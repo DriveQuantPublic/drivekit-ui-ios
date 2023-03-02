@@ -16,7 +16,7 @@ public class MySynthesisScoreCardViewModel {
     private var period: DKPeriod?
     private var selectedDate: Date?
     private var scoreSynthesis: DKScoreSynthesis?
-    private var hasNoScoredTripForSelectedPeriod: Bool = false
+    private var hasNoScoredTripForPreviousPeriod: Bool = false
     var scoreCardViewModelDidUpdate: (() -> Void)?
     
     public init() {}
@@ -141,21 +141,20 @@ public class MySynthesisScoreCardViewModel {
         guard let scoreSynthesis else { return nil }
         let hasPreviousScore = (scoreSynthesis.previousScoreValue != nil)
         let hasCurrentScore = (scoreSynthesis.scoreValue != nil)
-        let hasOnlyShortTrips = hasNoScoredTripForSelectedPeriod
+        let hasOnlyShortTripsForPreviousPeriod = hasNoScoredTripForPreviousPeriod
         
         // No current score + only short trips = safety or ecodriving with no score while speeding and distraction have one
         // current score + only short trips = speeding and distraction with a score while safety or ecodriving have not
         // no current score + no trips at all = impossible
-        switch (hasPreviousScore, hasCurrentScore, hasOnlyShortTrips) {
-            case (false, false, _):
-                return "dk_driverdata_mysynthesis_no_driving_" + localisationKeySuffixForPeriod
-            case (false, true, _):
+        switch (hasPreviousScore, hasOnlyShortTripsForPreviousPeriod, hasCurrentScore) {
+            case (false, _, false),
+                (true, true, true):
+                return "dk_driverdata_mysynthesis_no_trip_at_all"
+            case (false, _, true):
                 return "dk_driverdata_mysynthesis_no_trip_prev_" + localisationKeySuffixForPeriod
-            case (true, true, _):
+            case (true, _, true):
                 return "dk_driverdata_mysynthesis_previous_" + localisationKeySuffixForPeriod
-            case (_, false, true):
-                return "dk_driverdata_mysynthesis_not_enough_data"
-            case (true, false, false):
+            case (true, _, false):
                 assertionFailure("We can't have previous score but no current score and no trips at all")
                 return nil
         }
@@ -165,12 +164,12 @@ public class MySynthesisScoreCardViewModel {
         with scoreSynthesis: DKScoreSynthesis,
         period: DKPeriod,
         selectedDate: Date,
-        hasNoScoredTripForSelectedPeriod: Bool
+        hasNoScoredTripForPreviousPeriod: Bool
     ) {
         self.scoreSynthesis = scoreSynthesis
         self.period = period
         self.selectedDate = selectedDate
-        self.hasNoScoredTripForSelectedPeriod = hasNoScoredTripForSelectedPeriod
+        self.hasNoScoredTripForPreviousPeriod = hasNoScoredTripForPreviousPeriod
         self.scoreCardViewModelDidUpdate?()
     }
 }

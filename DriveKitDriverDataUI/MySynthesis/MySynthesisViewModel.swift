@@ -109,11 +109,12 @@ class MySynthesisViewModel {
             for: scoreSelectorViewModel.selectedScore,
             at: dateSelectorViewModel.selectedDate
         ) {
+            let numberTripScoredInPreviousPeriod = currentTimeline.allContext[safe: selectedDateIndex - 1]?.numberTripScored ?? 0
             self.scoreCardViewModel.configure(
                 with: scoreSynthesis,
                 period: periodSelectorViewModel.selectedPeriod,
                 selectedDate: selectedDate,
-                hasNoScoredTripForSelectedPeriod: currentTimeline.allContext[selectedDateIndex].numberTripScored == 0
+                hasNoScoredTripForPreviousPeriod: numberTripScoredInPreviousPeriod == 0
             )
         }
     }

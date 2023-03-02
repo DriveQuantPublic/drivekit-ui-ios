@@ -47,11 +47,7 @@ public class MySynthesisScoreCardViewModel {
     }
     
     public var currentScoreTextColor: DKUIColors {
-        guard scoreSynthesis?.scoreValue != nil else {
-            return .complementaryFontColor
-        }
-        
-        return .primaryColor
+        hasCurrentScore ? .primaryColor : .complementaryFontColor
     }
     
     public var evolutionText: NSAttributedString? {
@@ -61,7 +57,7 @@ public class MySynthesisScoreCardViewModel {
         
         guard
             let previousValue = scoreSynthesis?.previousScoreValue,
-            scoreSynthesis?.scoreValue != nil ||
+            hasCurrentScore ||
             hasOnlyShortTripsForCurrentPeriod
         else {
             return localisationKeyPrefix.dkDriverDataLocalized()
@@ -120,10 +116,29 @@ public class MySynthesisScoreCardViewModel {
         }
     }
     
-    private func scoreOnTenText(for scoreValue: Double) -> String {
-        scoreValue.formatDouble(places: 1)
-            + " "
-            + DKCommonLocalizable.unitScore.text()
+    public func configure(
+        with scoreSynthesis: DKScoreSynthesis,
+        period: DKPeriod,
+        selectedDate: Date,
+        hasOnlyShortTripsForPreviousPeriod: Bool,
+        hasOnlyShortTripsForCurrentPeriod: Bool
+    ) {
+        self.scoreSynthesis = scoreSynthesis
+        self.period = period
+        self.selectedDate = selectedDate
+        self.hasOnlyShortTripsForPreviousPeriod = hasOnlyShortTripsForPreviousPeriod
+        self.hasOnlyShortTripsForCurrentPeriod = hasOnlyShortTripsForCurrentPeriod
+        self.scoreCardViewModelDidUpdate?()
+    }
+    
+    // MARK: - Private Helpers
+    
+    private var hasCurrentScore: Bool {
+        self.scoreSynthesis?.scoreValue != nil
+    }
+    
+    private var hasPreviousScore: Bool {
+        self.scoreSynthesis?.previousScoreValue != nil
     }
     
     private var localisationKeySuffixForPeriod: String {
@@ -140,14 +155,9 @@ public class MySynthesisScoreCardViewModel {
     }
     
     private var localisationKeyPrefixForEvolutionText: String? {
-        guard let scoreSynthesis else { return nil }
-        
         enum TripKind {
             case noTrip, onlyShortTrips, scoredTrips
         }
-        
-        let hasPreviousScore = (scoreSynthesis.previousScoreValue != nil)
-        let hasCurrentScore = (scoreSynthesis.scoreValue != nil)
         
         let previousPeriod: TripKind = hasPreviousScore
             ? .scoredTrips
@@ -181,18 +191,9 @@ public class MySynthesisScoreCardViewModel {
         }
     }
     
-    public func configure(
-        with scoreSynthesis: DKScoreSynthesis,
-        period: DKPeriod,
-        selectedDate: Date,
-        hasOnlyShortTripsForPreviousPeriod: Bool,
-        hasOnlyShortTripsForCurrentPeriod: Bool
-    ) {
-        self.scoreSynthesis = scoreSynthesis
-        self.period = period
-        self.selectedDate = selectedDate
-        self.hasOnlyShortTripsForPreviousPeriod = hasOnlyShortTripsForPreviousPeriod
-        self.hasOnlyShortTripsForCurrentPeriod = hasOnlyShortTripsForCurrentPeriod
-        self.scoreCardViewModelDidUpdate?()
+    private func scoreOnTenText(for scoreValue: Double) -> String {
+        scoreValue.formatDouble(places: 1)
+        + " "
+        + DKCommonLocalizable.unitScore.text()
     }
 }

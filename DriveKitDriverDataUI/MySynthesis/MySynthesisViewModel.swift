@@ -154,8 +154,8 @@ class MySynthesisViewModel {
     private func updateStateAfterSwitching(from oldPeriod: DKPeriod, to selectedPeriod: DKPeriod) {
         self.selectedDate = DKDateSelectorViewModel.newSelectedDate(
             from: self.dateSelectorViewModel.selectedDate,
-            in: self.timelines[oldPeriod]?.periodDates ?? .init(period: oldPeriod),
-            switchingTo: self.timelines[selectedPeriod]?.periodDates ?? .init(period: selectedPeriod)
+            in: oldPeriod,
+            switchingAmongst: self.timelines[selectedPeriod]?.allDates ?? []
         )
         update()
     }

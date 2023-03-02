@@ -11,8 +11,8 @@ import DriveKitDBTripAccessModule
 import Foundation
 
 public extension DKDriverTimeline {
-    var periodDates: DKDateSelectorViewModel.PeriodDates {
-        .init(dates: self.allContext.map(\.date), period: self.period)
+    var allDates: [Date] {
+        self.allContext.map(\.date)
     }
 }
 

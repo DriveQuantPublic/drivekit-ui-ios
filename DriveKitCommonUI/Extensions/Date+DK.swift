@@ -67,22 +67,19 @@ extension Date {
     
     public var endOfYear: Date? {
         let currentYear = calendar.component(.year, from: self)
-        guard
-            let startOfNextYear = calendar.nextDate(
-                after: self,
-                matching: .init(
-                    calendar: calendar,
-                    timeZone: .current,
-                    year: currentYear + 1,
-                    month: 1,
-                    day: 1
-                ),
-                matchingPolicy: .nextTime
-            )
-        else {
-            return nil
-        }
-        return calendar.date(byAdding: .day, value: -1, to: startOfNextYear)
+        let december = 12
+        let lastDayOfDecember = 31
+        return calendar.nextDate(
+            after: self,
+            matching: .init(
+                calendar: calendar,
+                timeZone: .current,
+                year: currentYear,
+                month: december,
+                day: lastDayOfDecember
+            ),
+            matchingPolicy: .nextTime
+        )
     }
     
     public func beginning(relativeTo component: Calendar.Component) -> Date? {

@@ -185,30 +185,23 @@ extension DKDateSelectorViewModel {
     
     public static func newSelectedDate(
         from selectedDate: Date,
-        in currentPeriodDates: PeriodDates,
-        switchingTo nextPeriodDates: PeriodDates
+        in currentPeriod: DKPeriod,
+        switchingAmongst nextPeriodDates: [Date]
     ) -> Date {
         let compareDate: Date?
         var newSelectedDate = selectedDate
         
-        switch (currentPeriodDates.period, nextPeriodDates.period) {
-            case (.year, .month),
-                (.year, .week):
+        switch currentPeriod {
+            case .year:
                 compareDate = selectedDate.endOfYear
-            case (.month, .week),
-                (.month, .year):
+            case .month:
                 compareDate = selectedDate.endOfMonth
-            case (.week, .month),
-                (.week, .year):
+            case .week:
                 compareDate = selectedDate.endOfWeek
-            case (.week, .week),
-                (.month, .month),
-                (.year, .year):
-                compareDate = nil
         }
         
         if let compareDate {
-            let dates: [Date] = nextPeriodDates.dates
+            let dates: [Date] = nextPeriodDates
             
             let newDate = dates.last { date in
                 let compareResult = date.calendar.compare(date, to: compareDate, toGranularity: .day)

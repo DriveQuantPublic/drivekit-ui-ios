@@ -17,22 +17,47 @@ class HorizontalGaugeView: UIView {
     @IBOutlet private weak var  circleCursorLayoutConstraint: NSLayoutConstraint!
     @IBOutlet private weak var  triangleCursorImageView: UIImageView!
     @IBOutlet private weak var  triangleCursorLayoutConstraint: NSLayoutConstraint!
-
+    @IBOutlet private weak var  minScoreImageView: UIImageView!
+    @IBOutlet private weak var  minScoreLabel: UILabel!
+    @IBOutlet private weak var  minScoreLayoutConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var  meanScoreImageView: UIImageView!
+    @IBOutlet private weak var  meanScoreLabel: UILabel!
+    @IBOutlet private weak var  meanScoreLayoutConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var  maxScoreImageView: UIImageView!
+    @IBOutlet private weak var  maxScoreLabel: UILabel!
+    @IBOutlet private weak var  maxScoreLayoutConstraint: NSLayoutConstraint!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         self.triangleCursorImageView.image = HorizontalGaugeConstants.triangleIcon()
-        self.circleCursorImageView.image = HorizontalGaugeConstants.filledCircleIcon()
+        self.circleCursorImageView.image = HorizontalGaugeConstants.filledCircleIcon(diameter: 12.4)
+        self.minScoreImageView.image = HorizontalGaugeConstants.circleIcon()
+        self.maxScoreImageView.image = HorizontalGaugeConstants.circleIcon()
+        self.meanScoreImageView.image = HorizontalGaugeConstants.circleIcon()
     }
 
     func configure(viewModel: HorizontalGaugeViewModel) {
         self.viewModel = viewModel
         self.horizontalGaugeBarView.configure(viewModel: viewModel)
-        self.circleCursorLayoutConstraint.constant = viewModel.scoreOffsetPercent * self.horizontalGaugeBarView.bounds.size.width
-        self.triangleCursorLayoutConstraint.constant = viewModel.scoreOffsetPercent * self.horizontalGaugeBarView.bounds.size.width
-
+        updateUI()
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        updateUI()
+    }
+
+    func updateUI() {
+        self.circleCursorLayoutConstraint.constant = viewModel.scoreOffsetPercent * self.horizontalGaugeBarView.bounds.size.width
+        self.triangleCursorLayoutConstraint.constant = viewModel.scoreOffsetPercent * self.horizontalGaugeBarView.bounds.size.width
+        self.minScoreLayoutConstraint.constant = viewModel.minOffsetPercent * self.horizontalGaugeBarView.bounds.size.width
+        self.maxScoreLayoutConstraint.constant = viewModel.maxOffsetPercent * self.horizontalGaugeBarView.bounds.size.width
+        self.meanScoreLayoutConstraint.constant = viewModel.meanOffsetPercent * self.horizontalGaugeBarView.bounds.size.width
+
+        self.minScoreLabel.text = String(self.viewModel.min)
+        self.maxScoreLabel.text = String(self.viewModel.max)
+        self.meanScoreLabel.text = String(self.viewModel.mean)
+    }
 }
 
 extension HorizontalGaugeView {

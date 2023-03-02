@@ -12,9 +12,9 @@ import DriveKitCommonUI
 
 class HorizontalGaugeViewModel {
     private var scoreType: DKScoreType = .safety
-    private var mean: Double = 0
-    private var min: Double = 0
-    private var max: Double = 0
+    private(set) var mean: Double = 0
+    private(set) var min: Double = 0
+    private(set) var max: Double = 0
     private var score: Double = 0
 
     func configure(scoreType: DKScoreType, mean: Double, min: Double, max: Double, score: Double) {

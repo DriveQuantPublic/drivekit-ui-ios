@@ -110,7 +110,7 @@ class MySynthesisViewModel {
             at: dateSelectorViewModel.selectedDate
         ) {
             let previousPeriodContext = currentTimeline.allContext[safe: selectedDateIndex - 1]
-            let currentPeriodContext = currentTimeline.allContext[safe: selectedDateIndex ]
+            let currentPeriodContext = currentTimeline.allContext[safe: selectedDateIndex]
             self.scoreCardViewModel.configure(
                 with: scoreSynthesis,
                 period: periodSelectorViewModel.selectedPeriod,

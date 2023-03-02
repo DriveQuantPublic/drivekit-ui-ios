@@ -43,7 +43,7 @@ public class MySynthesisScoreCardViewModel {
             + DKCommonLocalizable.unitScore.text()
         }
         
-        return scoreOnTenText(for: scoreValue)
+        return scoreOutOfTenText(for: scoreValue)
     }
     
     public var currentScoreTextColor: DKUIColors {
@@ -83,7 +83,7 @@ public class MySynthesisScoreCardViewModel {
                         style: .smallText
                     )
                     .build(),
-                scoreOnTenText(for: previousValue)
+                scoreOutOfTenText(for: previousValue)
                     .dkAttributedString()
                     .font(
                         dkFont: .primary,
@@ -191,7 +191,7 @@ public class MySynthesisScoreCardViewModel {
         }
     }
     
-    private func scoreOnTenText(for scoreValue: Double) -> String {
+    private func scoreOutOfTenText(for scoreValue: Double) -> String {
         scoreValue.formatDouble(places: 1)
         + " "
         + DKCommonLocalizable.unitScore.text()

@@ -14,7 +14,7 @@ import Foundation
 
 public class MySynthesisScoreCardViewModel {
     private var period: DKPeriod?
-    private var selectedDate: Date?
+    private var previousPeriodDate: Date?
     private var scoreSynthesis: DKScoreSynthesis?
     private var hasOnlyShortTripsForCurrentPeriod: Bool = false
     private var hasOnlyShortTripsForPreviousPeriod: Bool = false
@@ -68,8 +68,8 @@ public class MySynthesisScoreCardViewModel {
         }
         
         var evolutionTextPrefix = localisationKeyPrefix.dkDriverDataLocalized()
-        if period == .year, let selectedDate {
-            let previousYear = DriveKitUI.calendar.component(.year, from: selectedDate) - 1
+        if period == .year, let previousPeriodDate {
+            let previousYear = DriveKitUI.calendar.component(.year, from: previousPeriodDate)
             evolutionTextPrefix = String(format: evolutionTextPrefix, String(previousYear))
         }
         
@@ -119,13 +119,13 @@ public class MySynthesisScoreCardViewModel {
     public func configure(
         with scoreSynthesis: DKScoreSynthesis,
         period: DKPeriod,
-        selectedDate: Date,
+        previousPeriodDate: Date?,
         hasOnlyShortTripsForPreviousPeriod: Bool,
         hasOnlyShortTripsForCurrentPeriod: Bool
     ) {
         self.scoreSynthesis = scoreSynthesis
         self.period = period
-        self.selectedDate = selectedDate
+        self.previousPeriodDate = previousPeriodDate
         self.hasOnlyShortTripsForPreviousPeriod = hasOnlyShortTripsForPreviousPeriod
         self.hasOnlyShortTripsForCurrentPeriod = hasOnlyShortTripsForCurrentPeriod
         self.scoreCardViewModelDidUpdate?()

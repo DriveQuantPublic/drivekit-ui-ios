@@ -109,12 +109,14 @@ class MySynthesisViewModel {
             for: scoreSelectorViewModel.selectedScore,
             at: dateSelectorViewModel.selectedDate
         ) {
-            let numberTripScoredInPreviousPeriod = currentTimeline.allContext[safe: selectedDateIndex - 1]?.numberTripScored ?? 0
+            let previousPeriodContext = currentTimeline.allContext[safe: selectedDateIndex - 1]
+            let currentPeriodContext = currentTimeline.allContext[safe: selectedDateIndex ]
             self.scoreCardViewModel.configure(
                 with: scoreSynthesis,
                 period: periodSelectorViewModel.selectedPeriod,
                 selectedDate: selectedDate,
-                hasNoScoredTripForPreviousPeriod: numberTripScoredInPreviousPeriod == 0
+                hasOnlyShortTripsForPreviousPeriod: previousPeriodContext?.hasOnlyShortTrips ?? false,
+                hasOnlyShortTripsForCurrentPeriod: currentPeriodContext?.hasOnlyShortTrips ?? false
             )
         }
     }
@@ -137,7 +139,16 @@ class MySynthesisViewModel {
                 period: self.periodSelectorViewModel.selectedPeriod,
                 selectedIndex: 0
             )
+            
+            self.scoreCardViewModel.configure(
+                with: .init(scoreType: self.scoreSelectorViewModel.selectedScore),
+                period: periodSelectorViewModel.selectedPeriod,
+                selectedDate: startDate,
+                hasOnlyShortTripsForPreviousPeriod: false,
+                hasOnlyShortTripsForCurrentPeriod: false
+            )
         }
+        
     }
     
     private func updateStateAfterSwitching(from oldPeriod: DKPeriod, to selectedPeriod: DKPeriod) {

@@ -37,7 +37,7 @@ public enum DKScoreTypeLevel: CaseIterable {
         }
     }
     
-    public func scoreLevels(for scoreType: DKScoreType) -> any RangeExpression<Double> {
+    public func scoreLevels(for scoreType: DKScoreType) -> any BoundedRangeExpression<Double> {
         let steps = scoreType.getSteps()
         // swiftlint:disable no_magic_numbers
         switch self {
@@ -58,23 +58,12 @@ public enum DKScoreTypeLevel: CaseIterable {
         }
         // swiftlint:enable no_magic_numbers
     }
-    
-    public var localizedName: String {
-        switch self {
-            case .veryBad:
-                return "dk_driverdata_mysynthesis_score_title_excellent"
-            case .bad:
-                return "dk_driverdata_mysynthesis_score_title_bad"
-            case .notGood:
-                return "dk_driverdata_mysynthesis_score_title_low"
-            case .medium:
-                return "dk_driverdata_mysynthesis_score_title_average"
-            case .great:
-                return "dk_driverdata_mysynthesis_score_title_good"
-            case .veryGood:
-                return "dk_driverdata_mysynthesis_score_title_very_good"
-            case .excellent:
-                return "dk_driverdata_mysynthesis_score_title_excellent"
-        }
-    }
 }
+
+public protocol BoundedRangeExpression<Bound>: RangeExpression {
+    var lowerBound: Bound { get }
+    var upperBound: Bound { get }
+}
+
+extension Range: BoundedRangeExpression {}
+extension ClosedRange: BoundedRangeExpression {}

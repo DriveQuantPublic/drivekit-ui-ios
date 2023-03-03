@@ -52,6 +52,11 @@ class MySynthesisViewController: DKUIViewController {
             embededIn: dateSelectorContainer
         )
         
+        MySynthesisScoreCardView.createScoreCardView(
+            configuredWith: self.viewModel.scoreCardViewModel,
+            embededIn: scoreViewContainer
+        )
+        
         showDetailButton.isHidden = viewModel.shouldHideDetailButton
         
         if self.viewModel.updating {

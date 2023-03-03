@@ -125,8 +125,8 @@ extension TimelineDetailViewModel: DKPeriodSelectorDelegate {
             self.selectedPeriod = newPeriod
             self.selectedDate = DKDateSelectorViewModel.newSelectedDate(
                 from: selectedDate,
-                in: getTimelineSource(for: oldPeriod).periodDates,
-                switchingTo: getTimelineSource(for: newPeriod).periodDates
+                in: oldPeriod,
+                switchingAmongst: getTimelineSource(for: newPeriod).allContext.date
             )
             updateViewModels()
             self.delegate?.didUpdate(selectedPeriod: selectedPeriod)

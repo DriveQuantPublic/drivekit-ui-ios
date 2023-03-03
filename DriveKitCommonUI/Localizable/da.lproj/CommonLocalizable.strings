@@ -5,7 +5,7 @@
 "dk_common_app_diag_nearby_link"="Tillad synlighed for enheder tæt på";
 "dk_common_back"="Tilbage";
 "dk_common_cancel"="Annuller";
-"dk_common_close"="Luk OR Ok";
+"dk_common_close"="Luk";
 "dk_common_confirm"="Bekræft";
 "dk_common_consumption"="Forbrug";
 "dk_common_day_plural"="dage";
@@ -24,11 +24,11 @@
 "dk_common_ecodriving_accel_low"="Acceleration er for lav";
 "dk_common_ecodriving_accel_strong"="Kraftig acceleration";
 "dk_common_ecodriving_accel_weak"="Svag acceleration";
-"dk_common_ecodriving_decel_good"="God deceleration";
-"dk_common_ecodriving_decel_high"="Deceleration er for høj";
-"dk_common_ecodriving_decel_low"="Deceleration er for lav";
-"dk_common_ecodriving_decel_strong"="Stærk deceleration";
-"dk_common_ecodriving_decel_weak"="Svag deceleration";
+"dk_common_ecodriving_decel_good"="God nedbremsning";
+"dk_common_ecodriving_decel_high"="Nedbremsning er for høj";
+"dk_common_ecodriving_decel_low"="Nedbremsning er for lav";
+"dk_common_ecodriving_decel_strong"="Stærk nedbremsning";
+"dk_common_ecodriving_decel_weak"="Svag nedbremsning";
 "dk_common_ecodriving_speed_bad_maintain"="Meget svingende hastighed";
 "dk_common_ecodriving_speed_good_maintain"="God jævn fart";
 "dk_common_ecodriving_speed_weak_maintain"="Uregelmæssig hastighed";
@@ -41,7 +41,8 @@
 "dk_common_mass"="Masse";
 "dk_common_mean_speed"="Gennemsnitshastighed";
 "dk_common_no"="Nej";
-"dk_common_no_pseudo_set"="For at dele din placering med de andre deltagere inviterer vi dig til at vælge et brugernavn. Uden et brugernavn vises du som anonym.";
+"dk_common_no_pseudo_set"="For at dele din ranglisteplacering med de andre deltagere kan du vælge et brugernavn. Uden et brugernavn vises du som anonym.";
+"dk_common_no_trip"="Ingen rejse";
 "dk_common_ok"="Ok";
 "dk_common_period_selector_month"="Måned";
 "dk_common_period_selector_week"="Uge";

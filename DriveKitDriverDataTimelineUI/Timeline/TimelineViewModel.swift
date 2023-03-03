@@ -208,8 +208,8 @@ class TimelineViewModel {
         if let selectedDate = self.selectedDate {
             self.selectedDate = DKDateSelectorViewModel.newSelectedDate(
                 from: selectedDate,
-                in: getTimelineSource(for: oldPeriod)?.periodDates ?? .init(period: oldPeriod),
-                switchingTo: getTimelineSource(for: selectedPeriod)?.periodDates ?? .init(period: selectedPeriod)
+                in: oldPeriod,
+                switchingAmongst: getTimelineSource(for: selectedPeriod)?.allContext.date ?? []
             )
         }
         update()

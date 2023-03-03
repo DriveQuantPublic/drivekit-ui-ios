@@ -26,6 +26,23 @@ class HorizontalGaugeView: UIView {
     @IBOutlet private weak var  maxScoreImageView: UIImageView!
     @IBOutlet private weak var  maxScoreLabel: UILabel!
     @IBOutlet private weak var  maxScoreLayoutConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var  step1Label: UILabel!
+    @IBOutlet private weak var  step1LayoutConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var  step2Label: UILabel!
+    @IBOutlet private weak var  step2LayoutConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var  step3Label: UILabel!
+    @IBOutlet private weak var  step3LayoutConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var  step4Label: UILabel!
+    @IBOutlet private weak var  step4LayoutConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var  step5Label: UILabel!
+    @IBOutlet private weak var  step5LayoutConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var  step6Label: UILabel!
+    @IBOutlet private weak var  step6LayoutConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var  step7Label: UILabel!
+    @IBOutlet private weak var  step7LayoutConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var  step8Label: UILabel!
+    @IBOutlet private weak var  step8LayoutConstraint: NSLayoutConstraint!
+
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -53,10 +70,26 @@ class HorizontalGaugeView: UIView {
         self.minScoreLayoutConstraint.constant = viewModel.minOffsetPercent * self.horizontalGaugeBarView.bounds.size.width
         self.maxScoreLayoutConstraint.constant = viewModel.maxOffsetPercent * self.horizontalGaugeBarView.bounds.size.width
         self.meanScoreLayoutConstraint.constant = viewModel.meanOffsetPercent * self.horizontalGaugeBarView.bounds.size.width
+        self.step1LayoutConstraint.constant = viewModel.offsetForStep(0) * self.horizontalGaugeBarView.bounds.size.width
+        self.step2LayoutConstraint.constant = viewModel.offsetForStep(1) * self.horizontalGaugeBarView.bounds.size.width
+        self.step3LayoutConstraint.constant = viewModel.offsetForStep(2) * self.horizontalGaugeBarView.bounds.size.width
+        self.step4LayoutConstraint.constant = viewModel.offsetForStep(3) * self.horizontalGaugeBarView.bounds.size.width
+        self.step5LayoutConstraint.constant = viewModel.offsetForStep(4) * self.horizontalGaugeBarView.bounds.size.width
+        self.step6LayoutConstraint.constant = viewModel.offsetForStep(5) * self.horizontalGaugeBarView.bounds.size.width
+        self.step7LayoutConstraint.constant = viewModel.offsetForStep(6) * self.horizontalGaugeBarView.bounds.size.width
+        self.step8LayoutConstraint.constant = viewModel.offsetForStep(7) * self.horizontalGaugeBarView.bounds.size.width
 
-        self.minScoreLabel.text = String(self.viewModel.min)
-        self.maxScoreLabel.text = String(self.viewModel.max)
-        self.meanScoreLabel.text = String(self.viewModel.mean)
+        self.minScoreLabel.text = self.viewModel.min.formatDouble(places: 1)
+        self.maxScoreLabel.text = self.viewModel.max.formatDouble(places: 1)
+        self.meanScoreLabel.text = self.viewModel.mean.formatDouble(places: 1)
+        self.step1Label.text = self.viewModel.scoreForStep(0).formatDouble(places: 1)
+        self.step2Label.text = self.viewModel.scoreForStep(1).formatDouble(places: 1)
+        self.step3Label.text = self.viewModel.scoreForStep(2).formatDouble(places: 1)
+        self.step4Label.text = self.viewModel.scoreForStep(3).formatDouble(places: 1)
+        self.step5Label.text = self.viewModel.scoreForStep(4).formatDouble(places: 1)
+        self.step6Label.text = self.viewModel.scoreForStep(5).formatDouble(places: 1)
+        self.step7Label.text = self.viewModel.scoreForStep(6).formatDouble(places: 1)
+        self.step8Label.text = self.viewModel.scoreForStep(7).formatDouble(places: 1)
     }
 }
 

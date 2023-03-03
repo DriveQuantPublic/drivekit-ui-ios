@@ -70,4 +70,18 @@ class HorizontalGaugeViewModel {
     var maxOffsetPercent: Double {
         offsetForScore(max)
     }
+
+    func offsetForStep(_ index: Int) -> Double {
+        let stepScore = scoreForStep(index)
+        return offsetForScore(stepScore)
+    }
+
+    func scoreForStep(_ index: Int) -> Double {
+        let steps = self.scoreType.getSteps()
+
+        guard steps.count > index else {
+            return 0
+        }
+        return steps[index]
+    }
 }

@@ -19,6 +19,7 @@ class MySynthesisViewModel {
     let periodSelectorViewModel: DKPeriodSelectorViewModel
     let dateSelectorViewModel: DKDateSelectorViewModel
     let horizontalGaugeViewModel: HorizontalGaugeViewModel
+    let scoreCardViewModel: MySynthesisScoreCardViewModel
     private var timelines: [DKPeriod: DKDriverTimeline]
     private var selectedDate: Date?
     private(set) var updating: Bool = false
@@ -32,6 +33,7 @@ class MySynthesisViewModel {
         self.periodSelectorViewModel = DKPeriodSelectorViewModel()
         self.dateSelectorViewModel = DKDateSelectorViewModel()
         self.horizontalGaugeViewModel = HorizontalGaugeViewModel()
+        self.scoreCardViewModel = MySynthesisScoreCardViewModel()
         self.timelines = [:]
         self.selectedDate = nil
 
@@ -57,6 +59,7 @@ class MySynthesisViewModel {
                 }
             }
         }
+        updateData()
     }
     
     func updateData() {
@@ -94,12 +97,31 @@ class MySynthesisViewModel {
             selectedPeriod: currentTimeline.period
         )
         let allDates = currentTimeline.allContext.map(\.date)
+        let selectedDateIndex = allDates.selectedIndex(for: selectedDate)
         self.dateSelectorViewModel.configure(
             dates: allDates,
             period: currentTimeline.period,
-            selectedIndex: allDates.selectedIndex(for: selectedDate)
+            selectedIndex: selectedDateIndex
         )
         self.horizontalGaugeViewModel.configure(scoreType: self.scoreSelectorViewModel.selectedScore, mean: 7.3, min: 4.9, max: 10, score: 7.6)
+
+        self.selectedDate = self.dateSelectorViewModel.selectedDate
+        if
+            let selectedDateIndex,
+            let scoreSynthesis = currentTimeline.driverScoreSynthesis(
+            for: scoreSelectorViewModel.selectedScore,
+            at: dateSelectorViewModel.selectedDate
+        ) {
+            let previousPeriodContext = currentTimeline.allContext[safe: selectedDateIndex - 1]
+            let currentPeriodContext = currentTimeline.allContext[safe: selectedDateIndex]
+            self.scoreCardViewModel.configure(
+                with: scoreSynthesis,
+                period: periodSelectorViewModel.selectedPeriod,
+                previousPeriodDate: previousPeriodContext?.date,
+                hasOnlyShortTripsForPreviousPeriod: previousPeriodContext?.hasOnlyShortTrips ?? false,
+                hasOnlyShortTripsForCurrentPeriod: currentPeriodContext?.hasOnlyShortTrips ?? false
+            )
+        }
     }
     
     private func configureWithNoData() {
@@ -120,14 +142,23 @@ class MySynthesisViewModel {
                 period: self.periodSelectorViewModel.selectedPeriod,
                 selectedIndex: 0
             )
+            
+            self.scoreCardViewModel.configure(
+                with: .init(scoreType: self.scoreSelectorViewModel.selectedScore),
+                period: periodSelectorViewModel.selectedPeriod,
+                previousPeriodDate: nil,
+                hasOnlyShortTripsForPreviousPeriod: false,
+                hasOnlyShortTripsForCurrentPeriod: false
+            )
         }
+        
     }
     
     private func updateStateAfterSwitching(from oldPeriod: DKPeriod, to selectedPeriod: DKPeriod) {
         self.selectedDate = DKDateSelectorViewModel.newSelectedDate(
             from: self.dateSelectorViewModel.selectedDate,
-            in: self.timelines[oldPeriod]?.periodDates ?? .init(period: oldPeriod),
-            switchingTo: self.timelines[selectedPeriod]?.periodDates ?? .init(period: selectedPeriod)
+            in: oldPeriod,
+            switchingAmongst: self.timelines[selectedPeriod]?.allDates ?? []
         )
         update()
     }

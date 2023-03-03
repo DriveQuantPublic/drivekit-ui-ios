@@ -43,7 +43,6 @@ class HorizontalGaugeView: UIView {
     @IBOutlet private weak var  step8Label: UILabel!
     @IBOutlet private weak var  step8LayoutConstraint: NSLayoutConstraint!
 
-
     override func awakeFromNib() {
         super.awakeFromNib()
         self.triangleCursorImageView.image = HorizontalGaugeConstants.triangleIcon()

@@ -185,43 +185,27 @@ extension DKDateSelectorViewModel {
     
     public static func newSelectedDate(
         from selectedDate: Date,
-        in currentPeriodDates: PeriodDates,
-        switchingTo nextPeriodDates: PeriodDates
+        in currentPeriod: DKPeriod,
+        switchingAmongst nextPeriodDates: [Date]
     ) -> Date {
         let compareDate: Date?
         var newSelectedDate = selectedDate
         
-        switch (currentPeriodDates.period, nextPeriodDates.period) {
-            case (.month, .week),
-                (.year, .week),
-                (.year, .month):
-                compareDate = selectedDate
-            case (.week, .month):
-                compareDate = DriveKitUI.calendar.date(
-                    from: DriveKitUI.calendar.dateComponents(
-                        [.year, .month],
-                        from: selectedDate
-                    )
-                )
-            case (.week, .year),
-                (.month, .year):
-                compareDate = DriveKitUI.calendar.date(
-                    from: DriveKitUI.calendar.dateComponents(
-                        [.year],
-                        from: selectedDate
-                    )
-                )
-            case (.week, .week),
-                (.month, .month),
-                (.year, .year):
-                compareDate = nil
+        switch currentPeriod {
+            case .year:
+                compareDate = selectedDate.endOfYear
+            case .month:
+                compareDate = selectedDate.endOfMonth
+            case .week:
+                compareDate = selectedDate.endOfWeek
         }
         
-        let dates = nextPeriodDates.dates
-        
         if let compareDate {
-            let newDate = dates.first { date in
-                date >= compareDate
+            let dates: [Date] = nextPeriodDates
+            
+            let newDate = dates.last { date in
+                let compareResult = date.calendar.compare(date, to: compareDate, toGranularity: .day)
+                return compareResult == .orderedAscending || compareResult == .orderedSame
             }
             if let newDate {
                 newSelectedDate = newDate

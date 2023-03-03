@@ -12,42 +12,28 @@ import Foundation
 
 public class ScoreLevelLegendViewModel {
     public var scoreType: DKScoreType?
-    public var scoreLevels: [DKScoreTypeLevel] = DKScoreTypeLevel.allCases
+    public var scoreLevelRowViewModels: [ScoreLevelLegendRowViewModel]?
     
     public init() {}
     
-    public func scoreLevelColor(for scoreLevel: DKScoreTypeLevel) -> UIColor {
-        scoreLevel.color
+    public var legendTitle: String? {
+        guard let scoreType else { return nil }
+        return "dk_driverdata_\(scoreType.localizedScoreTypeKeySuffix)_score".dkDriverDataLocalized()
     }
     
-    public func scoreLevelDescription(
-        for scoreLevel: DKScoreTypeLevel
-    ) -> NSAttributedString? {
+    public var legendDescription: String? {
         guard let scoreType else { return nil }
-        return "%@ %@".dkAttributedString()
-            .buildWithArgs(
-                scoreLevel.localizedTitle(for: scoreType)
-                    .dkAttributedString()
-                    .font(
-                        dkFont: .primary,
-                        style: .headLine2
-                    )
-                    .color(.primaryColor)
-                    .build(),
-                scoreLevel.localizedDescription(for: scoreType)
-                    .dkAttributedString()
-                    .font(
-                        dkFont: .primary,
-                        style: .smallText
-                    )
-                    .color(.complementaryFontColor)
-                    .build()
-            )
+        return "dk_driverdata_mysynthesis_\(scoreType.localizedScoreTypeKeySuffix)_score_info".dkDriverDataLocalized()
     }
     
     public func configure(
         with scoreType: DKScoreType
     ) {
         self.scoreType = scoreType
+        scoreLevelRowViewModels = DKScoreTypeLevel.allCases.reversed().map { scoreTypeLevel in
+            let viewModel = ScoreLevelLegendRowViewModel()
+            viewModel.configure(with: scoreType, scoreTypeLevel: scoreTypeLevel)
+            return viewModel
+        }
     }
 }

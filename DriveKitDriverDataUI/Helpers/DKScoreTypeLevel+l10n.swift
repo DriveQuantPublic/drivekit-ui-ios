@@ -35,7 +35,7 @@ extension DKScoreTypeLevel {
     private var localizedScoreLevelKeySuffix: String {
         switch self {
             case .veryBad:
-                return "excellent"
+                return "very_bad"
             case .bad:
                 return "bad"
             case .notGood:

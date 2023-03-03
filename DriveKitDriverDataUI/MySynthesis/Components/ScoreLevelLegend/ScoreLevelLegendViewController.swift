@@ -10,6 +10,10 @@ import DriveKitCommonUI
 import UIKit
 
 public class ScoreLevelLegendViewController: UIViewController {
+    @IBOutlet private weak var legendTitleLabel: UILabel!
+    @IBOutlet private weak var legendDescriptionLabel: UILabel!
+    @IBOutlet private weak var legendStackView: UIStackView!
+
     private var viewModel: ScoreLevelLegendViewModel!
     
     public init(viewModel: ScoreLevelLegendViewModel) {
@@ -32,6 +36,23 @@ public class ScoreLevelLegendViewController: UIViewController {
             target: self,
             action: #selector(closeButtonTapped)
         )
+        
+        legendTitleLabel.text = viewModel.legendTitle
+        legendTitleLabel.font = DKStyles.headLine2.style.applyTo(font: .primary)
+        legendTitleLabel.textColor = DKUIColors.primaryColor.color
+        
+        legendDescriptionLabel.text = viewModel.legendDescription
+        legendDescriptionLabel.font = DKStyles.smallText.style.applyTo(font: .primary)
+        legendDescriptionLabel.textColor = DKUIColors.mainFontColor.color
+        
+        viewModel.scoreLevelRowViewModels?.forEach { [weak self] viewModel in
+            guard let self else { return }
+            ScoreLevelLegendRowView.createScoreLevelLegendRowView(
+                configuredWith: viewModel,
+                embededIn: self.legendStackView
+            )
+        }
+        
         closeButton.tintColor = DKUIColors.secondaryColor.color
         self.navigationItem.rightBarButtonItem = closeButton
     }

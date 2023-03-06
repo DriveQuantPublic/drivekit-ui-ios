@@ -19,6 +19,7 @@ class MySynthesisViewModel {
     let periodSelectorViewModel: DKPeriodSelectorViewModel
     let dateSelectorViewModel: DKDateSelectorViewModel
     let scoreCardViewModel: MySynthesisScoreCardViewModel
+    let communityCardViewModel: MySynthesisCommunityCardViewModel
     private var timelines: [DKPeriod: DKDriverTimeline]
     private var selectedDate: Date?
     private(set) var updating: Bool = false
@@ -32,6 +33,7 @@ class MySynthesisViewModel {
         self.periodSelectorViewModel = DKPeriodSelectorViewModel()
         self.dateSelectorViewModel = DKDateSelectorViewModel()
         self.scoreCardViewModel = MySynthesisScoreCardViewModel()
+        self.communityCardViewModel = MySynthesisCommunityCardViewModel()
         self.timelines = [:]
         self.selectedDate = nil
 
@@ -118,6 +120,8 @@ class MySynthesisViewModel {
                 hasOnlyShortTripsForCurrentPeriod: currentPeriodContext?.hasOnlyShortTrips ?? false
             )
         }
+        
+        #warning("TODO: configure communityCardViewModel")
     }
     
     private func configureWithNoData() {
@@ -148,6 +152,7 @@ class MySynthesisViewModel {
             )
         }
         
+        #warning("TODO: configure communityCardViewModel when no data available")
     }
     
     private func updateStateAfterSwitching(from oldPeriod: DKPeriod, to selectedPeriod: DKPeriod) {

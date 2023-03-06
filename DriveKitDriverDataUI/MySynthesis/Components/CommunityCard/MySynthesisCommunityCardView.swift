@@ -13,6 +13,8 @@ class MySynthesisCommunityCardView: UIStackView {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var communityGaugeContainerView: UIView!
     @IBOutlet weak var communityStatsStackView: UIStackView!
+    @IBOutlet weak var userCommunityStatsItemView: CommunityStatsItemView?
+    @IBOutlet weak var userStatsItemView: CommunityStatsItemView?
     private var viewModel: MySynthesisCommunityCardViewModel?
     
     override func awakeFromNib() {
@@ -22,6 +24,9 @@ class MySynthesisCommunityCardView: UIStackView {
     
     func setupView() {
         titleLabel.font = DKStyles.headLine2.style.applyTo(font: .primary)
+        #warning("TODO: embed horizontal gauge inside communityGaugeContainerView")
+        userCommunityStatsItemView = .createCommunityStatsItemView(embededIn: communityStatsStackView)
+        userStatsItemView = .createCommunityStatsItemView(embededIn: communityStatsStackView)
         self.refreshView()
     }
     
@@ -32,6 +37,9 @@ class MySynthesisCommunityCardView: UIStackView {
         
         titleLabel.text = viewModel.title
         titleLabel.textColor = viewModel.titleColor.color
+        #warning("TODO: configure horizontal gauge")
+        userCommunityStatsItemView?.configure(viewModel: viewModel.userCommunityStatsItemViewModel)
+        userStatsItemView?.configure(viewModel: viewModel.userStatsItemViewModel)
     }
     
     func configure(viewModel: MySynthesisCommunityCardViewModel) {

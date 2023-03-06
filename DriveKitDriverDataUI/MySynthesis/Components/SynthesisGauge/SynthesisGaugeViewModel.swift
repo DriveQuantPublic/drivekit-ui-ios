@@ -1,5 +1,5 @@
 //
-//  HorizontalGaugeViewModel.swift
+//  SynthesisGaugeViewModel.swift
 //  DriveKitDriverDataUI
 //
 //  Created by Amine Gahbiche on 27/02/2023.
@@ -10,7 +10,7 @@ import Foundation
 import DriveKitCoreModule
 import DriveKitCommonUI
 
-class HorizontalGaugeViewModel {
+class SynthesisGaugeViewModel {
     private var scoreType: DKScoreType = .safety
     private(set) var mean: Double = 0
     private(set) var min: Double = 0

@@ -18,7 +18,7 @@ class MySynthesisViewModel {
     let scoreSelectorViewModel: DKScoreSelectorViewModel
     let periodSelectorViewModel: DKPeriodSelectorViewModel
     let dateSelectorViewModel: DKDateSelectorViewModel
-    let horizontalGaugeViewModel: HorizontalGaugeViewModel
+    let synthesisGaugeViewModel: SynthesisGaugeViewModel
     let scoreCardViewModel: MySynthesisScoreCardViewModel
     private var timelines: [DKPeriod: DKDriverTimeline]
     private var selectedDate: Date?
@@ -32,7 +32,7 @@ class MySynthesisViewModel {
         self.scoreSelectorViewModel = DKScoreSelectorViewModel()
         self.periodSelectorViewModel = DKPeriodSelectorViewModel()
         self.dateSelectorViewModel = DKDateSelectorViewModel()
-        self.horizontalGaugeViewModel = HorizontalGaugeViewModel()
+        self.synthesisGaugeViewModel = SynthesisGaugeViewModel()
         self.scoreCardViewModel = MySynthesisScoreCardViewModel()
         self.timelines = [:]
         self.selectedDate = nil
@@ -103,7 +103,6 @@ class MySynthesisViewModel {
             period: currentTimeline.period,
             selectedIndex: selectedDateIndex
         )
-        self.horizontalGaugeViewModel.configure(scoreType: self.scoreSelectorViewModel.selectedScore, mean: 7.3, min: 4.9, max: 10, score: 7.6)
 
         self.selectedDate = self.dateSelectorViewModel.selectedDate
         if
@@ -121,6 +120,11 @@ class MySynthesisViewModel {
                 hasOnlyShortTripsForPreviousPeriod: previousPeriodContext?.hasOnlyShortTrips ?? false,
                 hasOnlyShortTripsForCurrentPeriod: currentPeriodContext?.hasOnlyShortTrips ?? false
             )
+
+            if let scoreValue = scoreSynthesis.scoreValue {
+                self.synthesisGaugeViewModel.configure(scoreType: self.scoreSelectorViewModel.selectedScore, mean: 7.3, min: 4.9, max: 10, score: scoreValue)
+            } // TODO: add else with empty data case
+
         }
     }
     

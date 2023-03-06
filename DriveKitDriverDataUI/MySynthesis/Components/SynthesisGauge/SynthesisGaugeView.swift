@@ -1,6 +1,6 @@
 // swiftlint:disable no_magic_numbers
 //
-//  HorizontalGaugeView.swift
+//  SynthesisGaugeView.swift
 //  DriveKitDriverDataUI
 //
 //  Created by Amine Gahbiche on 27/02/2023.
@@ -10,9 +10,9 @@
 import UIKit
 import DriveKitCommonUI
 
-class HorizontalGaugeView: UIView {
-    private var viewModel: HorizontalGaugeViewModel!
-    @IBOutlet private weak var  horizontalGaugeBarView: HorizontalGaugeBarView!
+class SynthesisGaugeView: UIView {
+    private var viewModel: SynthesisGaugeViewModel!
+    @IBOutlet private weak var  synthesisGaugeBarView: SynthesisGaugeBarView!
     @IBOutlet private weak var  circleCursorImageView: UIImageView!
     @IBOutlet private weak var  circleCursorLayoutConstraint: NSLayoutConstraint!
     @IBOutlet private weak var  triangleCursorImageView: UIImageView!
@@ -45,16 +45,16 @@ class HorizontalGaugeView: UIView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.triangleCursorImageView.image = HorizontalGaugeConstants.triangleIcon()
-        self.circleCursorImageView.image = HorizontalGaugeConstants.filledCircleIcon(diameter: 12.4)
-        self.minScoreImageView.image = HorizontalGaugeConstants.circleIcon()
-        self.maxScoreImageView.image = HorizontalGaugeConstants.circleIcon()
-        self.meanScoreImageView.image = HorizontalGaugeConstants.circleIcon()
+        self.triangleCursorImageView.image = SynthesisGaugeConstants.triangleIcon()
+        self.circleCursorImageView.image = SynthesisGaugeConstants.filledCircleIcon(diameter: 12.4)
+        self.minScoreImageView.image = SynthesisGaugeConstants.circleIcon()
+        self.maxScoreImageView.image = SynthesisGaugeConstants.circleIcon()
+        self.meanScoreImageView.image = SynthesisGaugeConstants.circleIcon()
     }
 
-    func configure(viewModel: HorizontalGaugeViewModel) {
+    func configure(viewModel: SynthesisGaugeViewModel) {
         self.viewModel = viewModel
-        self.horizontalGaugeBarView.configure(viewModel: viewModel)
+        self.synthesisGaugeBarView.configure(viewModel: viewModel)
         updateUI()
     }
 
@@ -64,19 +64,19 @@ class HorizontalGaugeView: UIView {
     }
 
     func updateUI() {
-        self.circleCursorLayoutConstraint.constant = viewModel.scoreOffsetPercent * self.horizontalGaugeBarView.bounds.size.width
-        self.triangleCursorLayoutConstraint.constant = viewModel.scoreOffsetPercent * self.horizontalGaugeBarView.bounds.size.width
-        self.minScoreLayoutConstraint.constant = viewModel.minOffsetPercent * self.horizontalGaugeBarView.bounds.size.width
-        self.maxScoreLayoutConstraint.constant = viewModel.maxOffsetPercent * self.horizontalGaugeBarView.bounds.size.width
-        self.meanScoreLayoutConstraint.constant = viewModel.meanOffsetPercent * self.horizontalGaugeBarView.bounds.size.width
-        self.step1LayoutConstraint.constant = viewModel.offsetForStep(0) * self.horizontalGaugeBarView.bounds.size.width
-        self.step2LayoutConstraint.constant = viewModel.offsetForStep(1) * self.horizontalGaugeBarView.bounds.size.width
-        self.step3LayoutConstraint.constant = viewModel.offsetForStep(2) * self.horizontalGaugeBarView.bounds.size.width
-        self.step4LayoutConstraint.constant = viewModel.offsetForStep(3) * self.horizontalGaugeBarView.bounds.size.width
-        self.step5LayoutConstraint.constant = viewModel.offsetForStep(4) * self.horizontalGaugeBarView.bounds.size.width
-        self.step6LayoutConstraint.constant = viewModel.offsetForStep(5) * self.horizontalGaugeBarView.bounds.size.width
-        self.step7LayoutConstraint.constant = viewModel.offsetForStep(6) * self.horizontalGaugeBarView.bounds.size.width
-        self.step8LayoutConstraint.constant = viewModel.offsetForStep(7) * self.horizontalGaugeBarView.bounds.size.width
+        self.circleCursorLayoutConstraint.constant = viewModel.scoreOffsetPercent * self.synthesisGaugeBarView.bounds.size.width
+        self.triangleCursorLayoutConstraint.constant = viewModel.scoreOffsetPercent * self.synthesisGaugeBarView.bounds.size.width
+        self.minScoreLayoutConstraint.constant = viewModel.minOffsetPercent * self.synthesisGaugeBarView.bounds.size.width
+        self.maxScoreLayoutConstraint.constant = viewModel.maxOffsetPercent * self.synthesisGaugeBarView.bounds.size.width
+        self.meanScoreLayoutConstraint.constant = viewModel.meanOffsetPercent * self.synthesisGaugeBarView.bounds.size.width
+        self.step1LayoutConstraint.constant = viewModel.offsetForStep(0) * self.synthesisGaugeBarView.bounds.size.width
+        self.step2LayoutConstraint.constant = viewModel.offsetForStep(1) * self.synthesisGaugeBarView.bounds.size.width
+        self.step3LayoutConstraint.constant = viewModel.offsetForStep(2) * self.synthesisGaugeBarView.bounds.size.width
+        self.step4LayoutConstraint.constant = viewModel.offsetForStep(3) * self.synthesisGaugeBarView.bounds.size.width
+        self.step5LayoutConstraint.constant = viewModel.offsetForStep(4) * self.synthesisGaugeBarView.bounds.size.width
+        self.step6LayoutConstraint.constant = viewModel.offsetForStep(5) * self.synthesisGaugeBarView.bounds.size.width
+        self.step7LayoutConstraint.constant = viewModel.offsetForStep(6) * self.synthesisGaugeBarView.bounds.size.width
+        self.step8LayoutConstraint.constant = viewModel.offsetForStep(7) * self.synthesisGaugeBarView.bounds.size.width
 
         self.minScoreLabel.text = self.viewModel.min.formatDouble(places: 1)
         self.maxScoreLabel.text = self.viewModel.max.formatDouble(places: 1)
@@ -92,40 +92,40 @@ class HorizontalGaugeView: UIView {
     }
 }
 
-extension HorizontalGaugeView {
-    static func createHorizontalGaugeView(
-        configuredWith viewModel: HorizontalGaugeViewModel,
+extension SynthesisGaugeView {
+    static func createSynthesisGaugeView(
+        configuredWith viewModel: SynthesisGaugeViewModel,
         embededIn containerView: UIView
     ) {
-        guard let horizontalGaugeView = Bundle.driverDataUIBundle?.loadNibNamed(
-            "HorizontalGaugeView",
+        guard let synthesisGaugeView = Bundle.driverDataUIBundle?.loadNibNamed(
+            "SynthesisGaugeView",
             owner: nil
-        )?.first as? HorizontalGaugeView else {
-            preconditionFailure("Can't find bundle or nib for HorizontalGaugeView")
+        )?.first as? SynthesisGaugeView else {
+            preconditionFailure("Can't find bundle or nib for SynthesisGaugeView")
         }
 
         containerView.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
         containerView.clipsToBounds = true
-        containerView.embedSubview(horizontalGaugeView)
-        horizontalGaugeView.configure(viewModel: viewModel)
+        containerView.embedSubview(synthesisGaugeView)
+        synthesisGaugeView.configure(viewModel: viewModel)
     }
 }
 
-class HorizontalGaugeBarView: DKCustomBarView {
-    private var viewModel: HorizontalGaugeViewModel?
+class SynthesisGaugeBarView: DKCustomBarView {
+    private var viewModel: SynthesisGaugeViewModel?
 
     override func draw(_ rect: CGRect) {
         let barViewItems: [DKCustomBarViewItem] = self.viewModel?.getBarItemsToDraw() ?? []
         draw(items: barViewItems, rect: self.bounds, radius: self.bounds.size.height / 2)
     }
 
-    func configure(viewModel: HorizontalGaugeViewModel) {
+    func configure(viewModel: SynthesisGaugeViewModel) {
         self.viewModel = viewModel
         self.setNeedsDisplay()
     }
 }
 
-enum HorizontalGaugeConstants {
+enum SynthesisGaugeConstants {
     static let defaultCircleColor = UIColor(hex: 0x036A82)
     
     static func circleIcon(diameter: CGFloat = 12, insideColor: UIColor = .white) -> UIImage? {

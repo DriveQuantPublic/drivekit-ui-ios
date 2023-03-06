@@ -16,11 +16,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="IxA-v9-owG" customClass="HorizontalGaugeView" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="IxA-v9-owG" customClass="SynthesisGaugeView" customModule="DriveKitDriverDataUI" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="393" height="120"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ZJ-v5-Q29" customClass="HorizontalGaugeBarView" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ZJ-v5-Q29" customClass="SynthesisGaugeBarView" customModule="DriveKitDriverDataUI" customModuleProvider="target">
                     <rect key="frame" x="10" y="45" width="368" height="12"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
@@ -288,7 +288,6 @@
             <connections>
                 <outlet property="circleCursorImageView" destination="qhD-ls-OHT" id="5dd-H7-tns"/>
                 <outlet property="circleCursorLayoutConstraint" destination="2Cx-i3-Ump" id="g2V-nB-exo"/>
-                <outlet property="horizontalGaugeBarView" destination="6ZJ-v5-Q29" id="Wdw-Yp-6tS"/>
                 <outlet property="maxScoreImageView" destination="b1m-ii-0bF" id="avf-Sx-R6Z"/>
                 <outlet property="maxScoreLabel" destination="MiR-yj-ZPe" id="b0l-TH-8rl"/>
                 <outlet property="maxScoreLayoutConstraint" destination="rbq-Co-iDY" id="bG7-gW-QWJ"/>
@@ -314,6 +313,7 @@
                 <outlet property="step7LayoutConstraint" destination="qf3-pe-xUH" id="hv4-Hz-DdJ"/>
                 <outlet property="step8Label" destination="ewy-vn-rA3" id="ntE-c2-6fo"/>
                 <outlet property="step8LayoutConstraint" destination="Ex9-Il-et6" id="ndK-Jz-Rdt"/>
+                <outlet property="synthesisGaugeBarView" destination="6ZJ-v5-Q29" id="Wdw-Yp-6tS"/>
                 <outlet property="triangleCursorImageView" destination="pez-BC-YIo" id="zDe-og-bf1"/>
                 <outlet property="triangleCursorLayoutConstraint" destination="J5z-Ct-sGY" id="qsz-jq-6GA"/>
             </connections>

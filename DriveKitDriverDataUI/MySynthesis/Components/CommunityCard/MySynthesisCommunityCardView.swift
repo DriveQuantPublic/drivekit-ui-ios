@@ -21,7 +21,7 @@ class MySynthesisCommunityCardView: UIStackView {
     }
     
     func setupView() {
-        
+        titleLabel.font = DKStyles.headLine2.style.applyTo(font: .primary)
         self.refreshView()
     }
     
@@ -29,6 +29,9 @@ class MySynthesisCommunityCardView: UIStackView {
         guard let viewModel else {
             return
         }
+        
+        titleLabel.text = viewModel.title
+        titleLabel.textColor = viewModel.titleColor.color
     }
     
     func configure(viewModel: MySynthesisCommunityCardViewModel) {

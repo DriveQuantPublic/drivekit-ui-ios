@@ -84,4 +84,14 @@ class SynthesisGaugeViewModel {
         }
         return steps[index]
     }
+
+    func offsetForButton(gaugeWidth: Double, itemWidth: Double, margin: Double) -> Double {
+        var offset = offsetForScore(score, gaugeWidth: gaugeWidth)
+        if offset < itemWidth / 2 - margin {
+            offset = itemWidth / 2 - margin
+        } else if offset > gaugeWidth + margin - itemWidth / 2 {
+            offset = gaugeWidth + margin - itemWidth / 2
+        }
+        return offset
+    }
 }

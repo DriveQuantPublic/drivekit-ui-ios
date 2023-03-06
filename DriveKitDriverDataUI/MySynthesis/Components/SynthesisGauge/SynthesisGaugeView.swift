@@ -13,6 +13,8 @@ import DriveKitCommonUI
 class SynthesisGaugeView: UIView {
     private var viewModel: SynthesisGaugeViewModel!
     @IBOutlet private weak var  synthesisGaugeBarView: SynthesisGaugeBarView!
+    @IBOutlet private weak var  levelButton: UIButton!
+    @IBOutlet private weak var  levelButtonLayoutConstraint: NSLayoutConstraint!
     @IBOutlet private weak var  circleCursorImageView: UIImageView!
     @IBOutlet private weak var  circleCursorLayoutConstraint: NSLayoutConstraint!
     @IBOutlet private weak var  triangleCursorImageView: UIImageView!
@@ -46,7 +48,7 @@ class SynthesisGaugeView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.triangleCursorImageView.image = SynthesisGaugeConstants.triangleIcon()
-        self.circleCursorImageView.image = SynthesisGaugeConstants.filledCircleIcon(diameter: 12.4)
+        self.circleCursorImageView.image = SynthesisGaugeConstants.filledCircleIcon(diameter: 14)
         self.minScoreImageView.image = SynthesisGaugeConstants.circleIcon()
         self.maxScoreImageView.image = SynthesisGaugeConstants.circleIcon()
         self.meanScoreImageView.image = SynthesisGaugeConstants.circleIcon()
@@ -77,7 +79,11 @@ class SynthesisGaugeView: UIView {
         self.step6LayoutConstraint.constant = viewModel.offsetForStep(5) * self.synthesisGaugeBarView.bounds.size.width
         self.step7LayoutConstraint.constant = viewModel.offsetForStep(6) * self.synthesisGaugeBarView.bounds.size.width
         self.step8LayoutConstraint.constant = viewModel.offsetForStep(7) * self.synthesisGaugeBarView.bounds.size.width
-
+        self.levelButtonLayoutConstraint.constant = viewModel.offsetForButton(
+            gaugeWidth: self.synthesisGaugeBarView.bounds.size.width,
+            itemWidth: self.levelButton.frame.size.width,
+            margin: 5)
+        
         self.minScoreLabel.text = self.viewModel.min.formatDouble(places: 1)
         self.maxScoreLabel.text = self.viewModel.max.formatDouble(places: 1)
         self.meanScoreLabel.text = self.viewModel.mean.formatDouble(places: 1)
@@ -89,6 +95,19 @@ class SynthesisGaugeView: UIView {
         self.step6Label.text = self.viewModel.scoreForStep(5).formatDouble(places: 1)
         self.step7Label.text = self.viewModel.scoreForStep(6).formatDouble(places: 1)
         self.step8Label.text = self.viewModel.scoreForStep(7).formatDouble(places: 1)
+        hideOverlappingLabels()
+    }
+
+    private func hideOverlappingLabels() {
+        let allowedLabelsDistance: Double = 15
+        self.step2Label.isHidden = self.step2LayoutConstraint.constant - self.step1LayoutConstraint.constant < allowedLabelsDistance
+        self.step3Label.isHidden = !self.step2Label.isHidden && self.step3LayoutConstraint.constant - self.step2LayoutConstraint.constant < allowedLabelsDistance
+        self.step4Label.isHidden = !self.step3Label.isHidden && self.step4LayoutConstraint.constant - self.step3LayoutConstraint.constant < allowedLabelsDistance
+        self.step5Label.isHidden = !self.step4Label.isHidden && self.step5LayoutConstraint.constant - self.step4LayoutConstraint.constant < allowedLabelsDistance
+        self.step6Label.isHidden = !self.step5Label.isHidden && self.step6LayoutConstraint.constant - self.step5LayoutConstraint.constant < allowedLabelsDistance
+        self.step7Label.isHidden = !self.step6Label.isHidden && self.step7LayoutConstraint.constant - self.step6LayoutConstraint.constant < allowedLabelsDistance
+        self.step8Label.isHidden = !self.step7Label.isHidden && self.step8LayoutConstraint.constant - self.step7LayoutConstraint.constant < allowedLabelsDistance
+
     }
 }
 

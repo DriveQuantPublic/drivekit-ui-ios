@@ -9,7 +9,10 @@
 import DriveKitCommonUI
 import UIKit
 
-class MySynthesisCommunityCardView: UIView {
+class MySynthesisCommunityCardView: UIStackView {
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var communityGaugeContainerView: UIView!
+    @IBOutlet weak var communityStatsStackView: UIStackView!
     private var viewModel: MySynthesisCommunityCardViewModel?
     
     override func awakeFromNib() {

@@ -110,12 +110,12 @@ public class MySynthesisCommunityCardViewModel {
         if userPositionFromLowerScores > bestThanCommunityThreshold {
             return String(
                 format: "dk_driverdata_mysynthesis_you_are_best".dkDriverDataLocalized(),
-                "\(userPositionFromLowerScores)"
+                Double(userPositionFromLowerScores).formatPercentage()
             )
         } else if userPositionFromLowerScores < worstThanCommunityThreshold {
             return String(
                 format: "dk_driverdata_mysynthesis_you_are_lower".dkDriverDataLocalized(),
-                "\(userPositionFromHigherScores)"
+                Double(userPositionFromHigherScores).formatPercentage()
             )
         } else {
             return "dk_driverdata_mysynthesis_you_are_average".dkDriverDataLocalized()

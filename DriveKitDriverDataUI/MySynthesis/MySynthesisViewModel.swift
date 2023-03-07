@@ -189,7 +189,11 @@ class MySynthesisViewModel {
             from: self.dateSelectorViewModel.selectedDate,
             in: oldPeriod,
             switchingAmongst: self.timelines[selectedPeriod]?.allDates ?? []
-        )
+        ) { period, date in
+            self.timelines[period]?.allContext[date: date]?.hasValue(
+                for: scoreSelectorViewModel.selectedScore
+            ) ?? false
+        }
         update()
     }
 }

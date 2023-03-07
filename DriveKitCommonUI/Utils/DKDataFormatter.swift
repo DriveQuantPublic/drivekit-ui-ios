@@ -71,7 +71,7 @@ public extension Double {
         if self < minDistanceToRemoveFractions {
             formattedDistance = self.format(maximumFractionDigits: 1)
         } else {
-            formattedDistance = String(Int(self.rounded()))
+            formattedDistance = Int(self.rounded()).formatWithThousandSeparator()
         }
         formattingTypes.append(.value(formattedDistance))
         if appendUnit {
@@ -474,6 +474,15 @@ public enum DurationUnit {
 public extension Int {
     func roundUp(step: Double) -> Double {
         return (Double(self) / step).rounded(.up) * step
+    }
+    
+    func formatWithThousandSeparator() -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.usesGroupingSeparator = true
+//        numberFormatter.groupingSeparator = " "
+        let formattedNumber = numberFormatter.string(from: NSNumber(value: self)) ?? String(self)
+        return formattedNumber
     }
 }
 

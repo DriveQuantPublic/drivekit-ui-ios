@@ -18,7 +18,7 @@ public struct CommunityStatsItemViewModel {
     
     public var tripCountText: String {
         guard let tripCount else { return "" }
-        var text = "\(tripCount) "
+        var text = tripCount.formatWithThousandSeparator() + String.nonBreakableSpace
         if tripCount > 1 {
             text += DKCommonLocalizable.tripPlural.text()
         } else {
@@ -34,6 +34,8 @@ public struct CommunityStatsItemViewModel {
     
     public var driverCountText: String {
         guard let driverCount else { return "" }
-        return "\(driverCount) " + "dk_driverdata_mysynthesis_drivers".dkDriverDataLocalized()
+        return driverCount.formatWithThousandSeparator()
+            + String.nonBreakableSpace
+            + "dk_driverdata_mysynthesis_drivers".dkDriverDataLocalized()
     }
 }

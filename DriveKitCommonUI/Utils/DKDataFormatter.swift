@@ -168,6 +168,7 @@ public extension Double {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         numberFormatter.roundingMode = .halfUp
+        numberFormatter.usesGroupingSeparator = true
         numberFormatter.minimumFractionDigits = minimumFractionDigits
         numberFormatter.maximumFractionDigits = maximumFractionDigits
         let formattedNumber = numberFormatter.string(from: NSNumber(value: self)) ?? {
@@ -480,7 +481,6 @@ public extension Int {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         numberFormatter.usesGroupingSeparator = true
-//        numberFormatter.groupingSeparator = " "
         let formattedNumber = numberFormatter.string(from: NSNumber(value: self)) ?? String(self)
         return formattedNumber
     }

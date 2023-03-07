@@ -33,7 +33,12 @@ public class MySynthesisCommunityCardViewModel {
     }
     
     public var titleColor: DKUIColors {
-        return .primaryColor
+        switch tripKind {
+            case .noTrip, .onlyShortTrips:
+                return .complementaryFontColor
+            case .scoredTrips:
+                return .primaryColor
+        }
     }
         
     public func configure(
@@ -48,6 +53,7 @@ public class MySynthesisCommunityCardViewModel {
         self.userTripCount = userTripCount
         self.userDistanceCount = userDistanceCount
         self.communityStatistics = communityStatistics
+        communityCardViewModelDidUpdate?()
     }
     
     public var userCommunityStatsItemViewModel: CommunityStatsItemViewModel {
@@ -64,7 +70,7 @@ public class MySynthesisCommunityCardViewModel {
     public var userStatsItemViewModel: CommunityStatsItemViewModel {
         #warning("Fix color")
         return .init(
-            legendColor: .primaryColor,
+            legendColor: .backgroundView,
             legendTitle: "dk_driverdata_mysynthesis_me".dkDriverDataLocalized(),
             tripCount: userTripCount,
             distanceCount: userDistanceCount
@@ -96,20 +102,20 @@ public class MySynthesisCommunityCardViewModel {
             return "-"
         }
         
-        let bestThanCommunityThreshold = 55.0
-        let worstThanCommunityThreshold = 45.0
+        let bestThanCommunityThreshold = 55
+        let worstThanCommunityThreshold = 45
         let userPositionFromLowerScores = scoreStatistics.percentOfCommunity(withScoreLowerThan: currentScore)
         let userPositionFromHigherScores = scoreStatistics.percentOfCommunity(withScoreGreaterThan: currentScore)
         
         if userPositionFromLowerScores > bestThanCommunityThreshold {
             return String(
                 format: "dk_driverdata_mysynthesis_you_are_best".dkDriverDataLocalized(),
-                userPositionFromLowerScores
+                "\(userPositionFromLowerScores)"
             )
         } else if userPositionFromLowerScores < worstThanCommunityThreshold {
             return String(
                 format: "dk_driverdata_mysynthesis_you_are_lower".dkDriverDataLocalized(),
-                userPositionFromHigherScores
+                "\(userPositionFromHigherScores)"
             )
         } else {
             return "dk_driverdata_mysynthesis_you_are_average".dkDriverDataLocalized()

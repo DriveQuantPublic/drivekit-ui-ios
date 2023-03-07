@@ -14,7 +14,7 @@
         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Okg-1f-ceY" customClass="MySynthesisCommunityCardView" customModule="DriveKitDriverDataUI" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="355" height="350"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhQ-Zt-D5F" userLabel="Title Label">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhQ-Zt-D5F" userLabel="Title Label">
                     <rect key="frame" x="16" y="71" width="323" height="20.333333333333329"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
@@ -28,7 +28,7 @@
                         <constraint firstAttribute="height" constant="144" placeholder="YES" id="np5-3u-cRQ"/>
                     </constraints>
                 </view>
-                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VJx-x4-n4b" userLabel="Community Stats Stack View">
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="VJx-x4-n4b" userLabel="Community Stats Stack View">
                     <rect key="frame" x="16" y="285.33333333333331" width="323" height="52.666666666666686"/>
                     <viewLayoutGuide key="safeArea" id="r2z-xK-N9d"/>
                 </stackView>

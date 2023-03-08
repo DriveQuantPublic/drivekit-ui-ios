@@ -18,12 +18,12 @@ public class ScoreLevelLegendViewModel {
     
     public var legendTitle: String? {
         guard let scoreType else { return nil }
-        return "dk_driverdata_\(scoreType.localizedScoreTypeKeySuffix)_score".dkDriverDataLocalized()
+        return "dk_driverdata_\(scoreType.scoreTypeKeySuffix)_score".dkDriverDataLocalized()
     }
     
     public var legendDescription: String? {
         guard let scoreType else { return nil }
-        return "dk_driverdata_mysynthesis_\(scoreType.localizedScoreTypeKeySuffix)_score_info".dkDriverDataLocalized()
+        return "dk_driverdata_mysynthesis_\(scoreType.scoreTypeKeySuffix)_score_info".dkDriverDataLocalized()
     }
     
     public func configure(

@@ -21,18 +21,26 @@ extension DKScoreTypeLevel {
     }
     
     public func localizedDescription(for scoreType: DKScoreType) -> String {
-        localizedDescriptionKey(for: scoreType).dkDriverDataLocalized()
+        descriptionKey(for: scoreType).dkDriverDataLocalized()
     }
-    
+
+    func localizedShortDescription() -> String {
+        shortDescriptionKey().dkDriverDataLocalized()
+    }
+
     private var localizedTitleKey: String {
-        "dk_driverdata_mysynthesis_score_title_" + self.localizedScoreLevelKeySuffix
+        "dk_driverdata_mysynthesis_score_title_" + self.scoreLevelKeySuffix
     }
     
-    private func localizedDescriptionKey(for scoreType: DKScoreType) -> String {
-        "dk_driverdata_mysynthesis_\(scoreType.localizedScoreTypeKeySuffix)_level_\(self.localizedScoreLevelKeySuffix)"
+    private func descriptionKey(for scoreType: DKScoreType) -> String {
+        "dk_driverdata_mysynthesis_\(scoreType.scoreTypeKeySuffix)_level_\(self.scoreLevelKeySuffix)"
     }
-    
-    private var localizedScoreLevelKeySuffix: String {
+
+    private func shortDescriptionKey() -> String {
+        "dk_driverdata_mysynthesis_\(self.scoreLevelKeySuffix)_score"
+    }
+
+    private var scoreLevelKeySuffix: String {
         switch self {
             case .veryBad:
                 return "very_bad"
@@ -53,7 +61,7 @@ extension DKScoreTypeLevel {
 }
 
 extension DKScoreType {
-    var localizedScoreTypeKeySuffix: String {
+    var scoreTypeKeySuffix: String {
         switch self {
             case .safety:
                 return "safety"

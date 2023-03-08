@@ -28,7 +28,9 @@ class MySynthesisGaugeViewModel {
         self.min = min
         self.max = max
         self.score = score
-        self.buttonTitle = "test" //TODO: use function to return value from
+        if let score {
+            self.buttonTitle = DKScoreTypeLevel.getLevel(for: score, scoreType: scoreType).localizedShortDescription()
+        }
     }
 
     func getBarItemsToDraw() -> [DKCustomBarViewItem] {

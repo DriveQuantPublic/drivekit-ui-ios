@@ -58,6 +58,29 @@ public enum DKScoreTypeLevel: CaseIterable {
         }
         // swiftlint:enable no_magic_numbers
     }
+
+    public static func getLevel(for score: Double, scoreType: DKScoreType) -> DKScoreTypeLevel {
+        let steps = scoreType.getSteps()
+        let expectedLevelsCount = 8
+        guard steps.count == expectedLevelsCount else {
+            return .veryBad
+        }
+        if score < steps[1] {
+            return .veryBad
+        } else if score < steps[2] {
+            return .bad
+        } else if score < steps[3] {
+            return .notGood
+        } else if score < steps[4] {
+            return .medium
+        } else if score < steps[5] {
+            return .great
+        } else if score < steps[6] {
+            return .veryGood
+        } else {
+            return .excellent
+        }
+    }
 }
 
 public protocol BoundedRangeExpression<Bound>: RangeExpression {

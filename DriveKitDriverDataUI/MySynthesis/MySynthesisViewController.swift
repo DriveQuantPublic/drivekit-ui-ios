@@ -58,6 +58,7 @@ class MySynthesisViewController: DKUIViewController {
         )
         
         showDetailButton.isHidden = viewModel.shouldHideDetailButton
+        showDetailButton.addTarget(self, action: #selector(showDetailButtonTapped), for: .touchUpInside)
         
         if self.viewModel.updating {
             showRefreshControl()
@@ -65,6 +66,16 @@ class MySynthesisViewController: DKUIViewController {
             hideRefreshControl()
         }
         setupSynthesisGauge()
+    }
+    
+    @objc private func showDetailButtonTapped() {
+        #warning("Temporarily display score level legend screen from here")
+        let viewModel = ScoreLevelLegendViewModel()
+        viewModel.configure(with: self.viewModel.scoreSelectorViewModel.selectedScore)
+        ScoreLevelLegendViewController.createScoreLevelLegendViewController(
+            configuredWith: viewModel,
+            presentedBy: self
+        )
     }
     
     @objc private func refresh(_ sender: Any) {

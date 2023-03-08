@@ -122,7 +122,7 @@ class MySynthesisViewModel {
             )
 
             if let scoreValue = scoreSynthesis.scoreValue {
-                self.synthesisGaugeViewModel.configure(scoreType: self.scoreSelectorViewModel.selectedScore, mean: 7.3, min: 4.9, max: 10, score: scoreValue)
+                self.synthesisGaugeViewModel.configure(scoreType: self.scoreSelectorViewModel.selectedScore, mean: 7.3, min: 4.9, max: 10, score: scoreValue, buttonTitle: "dk_driverdata_mysynthesis_low_score".dkDriverDataLocalized())
             } // TODO: add else with empty data case
 
         }

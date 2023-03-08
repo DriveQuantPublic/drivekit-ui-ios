@@ -21,12 +21,15 @@ class SynthesisGaugeView: UIView {
     @IBOutlet private weak var  triangleCursorLayoutConstraint: NSLayoutConstraint!
     @IBOutlet private weak var  minScoreImageView: UIImageView!
     @IBOutlet private weak var  minScoreLabel: UILabel!
+    @IBOutlet private weak var  minTitleLabel: UILabel!
     @IBOutlet private weak var  minScoreLayoutConstraint: NSLayoutConstraint!
     @IBOutlet private weak var  meanScoreImageView: UIImageView!
     @IBOutlet private weak var  meanScoreLabel: UILabel!
+    @IBOutlet private weak var  meanTitleLabel: UILabel!
     @IBOutlet private weak var  meanScoreLayoutConstraint: NSLayoutConstraint!
     @IBOutlet private weak var  maxScoreImageView: UIImageView!
     @IBOutlet private weak var  maxScoreLabel: UILabel!
+    @IBOutlet private weak var  maxTitleLabel: UILabel!
     @IBOutlet private weak var  maxScoreLayoutConstraint: NSLayoutConstraint!
     @IBOutlet private weak var  step1Label: UILabel!
     @IBOutlet private weak var  step1LayoutConstraint: NSLayoutConstraint!
@@ -52,6 +55,21 @@ class SynthesisGaugeView: UIView {
         self.minScoreImageView.image = SynthesisGaugeConstants.circleIcon()
         self.maxScoreImageView.image = SynthesisGaugeConstants.circleIcon()
         self.meanScoreImageView.image = SynthesisGaugeConstants.circleIcon()
+        for label in [minTitleLabel, maxTitleLabel, meanTitleLabel,
+                      minScoreLabel, maxScoreLabel, meanScoreLabel,
+                      step1Label, step2Label, step3Label,
+                      step4Label, step5Label, step6Label,
+                      step7Label, step8Label] {
+            label?.textColor = SynthesisGaugeConstants.defaultCircleColor
+            levelButton.setImage(
+                DKImages.info.image?
+                    .resizeImage(20, opaque: false).withRenderingMode(.alwaysTemplate)
+                    .tintedImage(withColor: DKUIColors.secondaryColor.color), for: .normal)
+
+        }
+        minTitleLabel.text = "dk_driverdata_mysynthesis_minimum".dkDriverDataLocalized()
+        maxTitleLabel.text = "dk_driverdata_mysynthesis_maximum".dkDriverDataLocalized()
+        meanTitleLabel.text = "dk_driverdata_mysynthesis_average".dkDriverDataLocalized()
     }
 
     func configure(viewModel: SynthesisGaugeViewModel) {
@@ -68,6 +86,21 @@ class SynthesisGaugeView: UIView {
     func updateUI() {
         self.circleCursorLayoutConstraint.constant = viewModel.scoreOffsetPercent * self.synthesisGaugeBarView.bounds.size.width
         self.triangleCursorLayoutConstraint.constant = viewModel.scoreOffsetPercent * self.synthesisGaugeBarView.bounds.size.width
+        self.levelButtonLayoutConstraint.constant = viewModel.offsetForButton(
+            gaugeWidth: self.synthesisGaugeBarView.bounds.size.width,
+            itemWidth: self.levelButton.frame.size.width,
+            margin: 5)
+        setupLablelsPositionsAndValues()
+        hideOverlappingLabels()
+        self.levelButton.configure(
+            text: self.viewModel.buttonTitle.dkDriverDataLocalized(),
+            style: .rounded(color: SynthesisGaugeConstants.defaultCircleColor,
+                            radius: 5,
+                            borderWidth: 1,
+                            style: DKStyles.roundedButton.withSizeDelta(-10)))
+    }
+
+    private func setupLablelsPositionsAndValues() {
         self.minScoreLayoutConstraint.constant = viewModel.minOffsetPercent * self.synthesisGaugeBarView.bounds.size.width
         self.maxScoreLayoutConstraint.constant = viewModel.maxOffsetPercent * self.synthesisGaugeBarView.bounds.size.width
         self.meanScoreLayoutConstraint.constant = viewModel.meanOffsetPercent * self.synthesisGaugeBarView.bounds.size.width
@@ -79,11 +112,7 @@ class SynthesisGaugeView: UIView {
         self.step6LayoutConstraint.constant = viewModel.offsetForStep(5) * self.synthesisGaugeBarView.bounds.size.width
         self.step7LayoutConstraint.constant = viewModel.offsetForStep(6) * self.synthesisGaugeBarView.bounds.size.width
         self.step8LayoutConstraint.constant = viewModel.offsetForStep(7) * self.synthesisGaugeBarView.bounds.size.width
-        self.levelButtonLayoutConstraint.constant = viewModel.offsetForButton(
-            gaugeWidth: self.synthesisGaugeBarView.bounds.size.width,
-            itemWidth: self.levelButton.frame.size.width,
-            margin: 5)
-        
+
         self.minScoreLabel.text = self.viewModel.min.formatDouble(places: 1)
         self.maxScoreLabel.text = self.viewModel.max.formatDouble(places: 1)
         self.meanScoreLabel.text = self.viewModel.mean.formatDouble(places: 1)
@@ -95,9 +124,7 @@ class SynthesisGaugeView: UIView {
         self.step6Label.text = self.viewModel.scoreForStep(5).formatDouble(places: 1)
         self.step7Label.text = self.viewModel.scoreForStep(6).formatDouble(places: 1)
         self.step8Label.text = self.viewModel.scoreForStep(7).formatDouble(places: 1)
-        hideOverlappingLabels()
     }
-
     private func hideOverlappingLabels() {
         let allowedLabelsDistance: Double = 15
         self.step2Label.isHidden = self.step2LayoutConstraint.constant - self.step1LayoutConstraint.constant < allowedLabelsDistance

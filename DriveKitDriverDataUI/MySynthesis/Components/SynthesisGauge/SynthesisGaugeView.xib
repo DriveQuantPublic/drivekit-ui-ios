@@ -246,11 +246,14 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pck-fv-hyL">
-                    <rect key="frame" x="-47.333333333333336" y="3" width="114.66666666666669" height="27"/>
+                    <rect key="frame" x="-28.333333333333332" y="3" width="76.666666666666671" height="27"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="27" id="LvM-af-oB9"/>
                     </constraints>
-                    <buttonConfiguration key="configuration" style="plain" title="LevelButton"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="0.0"/>
+                    <buttonConfiguration key="configuration" style="plain" title="LevelButton">
+                        <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
+                    </buttonConfiguration>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="CVT-RX-56N"/>
@@ -302,12 +305,15 @@
                 <outlet property="maxScoreImageView" destination="b1m-ii-0bF" id="avf-Sx-R6Z"/>
                 <outlet property="maxScoreLabel" destination="MiR-yj-ZPe" id="b0l-TH-8rl"/>
                 <outlet property="maxScoreLayoutConstraint" destination="rbq-Co-iDY" id="bG7-gW-QWJ"/>
+                <outlet property="maxTitleLabel" destination="mjj-ND-cWE" id="MRk-8F-PFT"/>
                 <outlet property="meanScoreImageView" destination="Pb8-hY-rfL" id="Jwi-cn-OmM"/>
                 <outlet property="meanScoreLabel" destination="QCb-lL-vfv" id="7FY-Vt-Lw5"/>
                 <outlet property="meanScoreLayoutConstraint" destination="TBZ-K9-TgA" id="QUH-YC-hg7"/>
+                <outlet property="meanTitleLabel" destination="iy2-qO-CYm" id="4HB-ab-Ct7"/>
                 <outlet property="minScoreImageView" destination="40g-C4-yYL" id="jGm-uz-dud"/>
                 <outlet property="minScoreLabel" destination="F4k-vq-tgm" id="vQf-e8-K4N"/>
                 <outlet property="minScoreLayoutConstraint" destination="D5L-ul-4b1" id="QNO-Rh-WvJ"/>
+                <outlet property="minTitleLabel" destination="mqp-8m-xw6" id="S3a-lZ-QHe"/>
                 <outlet property="step1Label" destination="vb1-ik-BgJ" id="ijA-So-FB6"/>
                 <outlet property="step1LayoutConstraint" destination="92s-gj-Rqz" id="Jur-Ka-Qlf"/>
                 <outlet property="step2Label" destination="r7e-lA-733" id="fr9-WI-QOe"/>

@@ -16,13 +16,16 @@ class SynthesisGaugeViewModel {
     private(set) var min: Double = 0
     private(set) var max: Double = 0
     private var score: Double = 0
+    private(set) var buttonTitle: String = ""
 
-    func configure(scoreType: DKScoreType, mean: Double, min: Double, max: Double, score: Double) {
+    // TODO: remove buttonTitle from parameters
+    func configure(scoreType: DKScoreType, mean: Double, min: Double, max: Double, score: Double, buttonTitle: String) {
         self.scoreType = scoreType
         self.mean = mean
         self.min = min
         self.max = max
         self.score = score
+        self.buttonTitle = buttonTitle
     }
 
     func getBarItemsToDraw() -> [DKCustomBarViewItem] {
@@ -87,11 +90,13 @@ class SynthesisGaugeViewModel {
 
     func offsetForButton(gaugeWidth: Double, itemWidth: Double, margin: Double) -> Double {
         var offset = offsetForScore(score, gaugeWidth: gaugeWidth)
+        // swiftlint:disable no_magic_numbers
         if offset < itemWidth / 2 - margin {
             offset = itemWidth / 2 - margin
         } else if offset > gaugeWidth + margin - itemWidth / 2 {
             offset = gaugeWidth + margin - itemWidth / 2
         }
+        // swiftlint:enable no_magic_numbers
         return offset
     }
 }

@@ -27,8 +27,8 @@
 "dk_driverdata_distance_travelled"="%@ travelled";
 "dk_driverdata_distraction_score"="Distraction score";
 "dk_driverdata_distraction_score_info"="The distraction score (phone use while driving) measures the driver\'s interactions with the smartphone while driving. This includes both the number of times the phone is unlocked and the duration of phone calls during the trip. Using the phone can distract the driver\'s attention and significantly increases the risk of car accident. Calls made with the hands-free kit of your vehicle are allowed and will not lower your score.";
-"dk_driverdata_eco_score"="Eco-driving score";
-"dk_driverdata_eco_score_info"="The eco-driving score ranges from 0 and 10, and is calculated by comparing the actual energy consumed during the trip with the energy that would have been consumed using the optimal speed profile. The best eco-driving score corresponds to the highest driving efficiency.";
+"dk_driverdata_ecodriving_score"="Eco-driving score";
+"dk_driverdata_ecodriving_score_info"="The eco-driving score ranges from 0 and 10, and is calculated by comparing the actual energy consumed during the trip with the energy that would have been consumed using the optimal speed profile. The best eco-driving score corresponds to the highest driving efficiency.";
 "dk_driverdata_end_authorized_call"="End of authorized call";
 "dk_driverdata_end_authorized_call_info_content"="The application has detected the end of an authorized call, this means that it has been made to your hands-free car kit. This action does not penalize your phone usage score, as it is legally permitted. However, it remains a distraction while driving, for your safety and that of other road users, it is strongly recommended that you wait until your vehicle is parked to make a call.";
 "dk_driverdata_end_event"="End of trip";
@@ -76,9 +76,6 @@
 "dk_driverdata_mysynthesis_minimum"="min.";
 "dk_driverdata_mysynthesis_my_community"="My community";
 "dk_driverdata_mysynthesis_no_driving"="You did not drive during this period";
-"dk_driverdata_mysynthesis_no_driving_month"="You did not drive this month";
-"dk_driverdata_mysynthesis_no_driving_week"="You did not drive this week";
-"dk_driverdata_mysynthesis_no_driving_year"="You did not drive this year";
 "dk_driverdata_mysynthesis_no_trip_at_all"="";
 "dk_driverdata_mysynthesis_no_trip_prev_month"="You did not drive the previous month";
 "dk_driverdata_mysynthesis_no_trip_prev_week"="You did not drive the previous week";

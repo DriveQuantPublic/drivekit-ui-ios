@@ -1,5 +1,5 @@
 //
-//  SynthesisGaugeViewModel.swift
+//  MySynthesisGaugeViewModel.swift
 //  DriveKitDriverDataUI
 //
 //  Created by Amine Gahbiche on 27/02/2023.
@@ -10,22 +10,25 @@ import Foundation
 import DriveKitCoreModule
 import DriveKitCommonUI
 
-class SynthesisGaugeViewModel {
+class MySynthesisGaugeViewModel {
     private var scoreType: DKScoreType = .safety
     private(set) var mean: Double = 0
     private(set) var min: Double = 0
     private(set) var max: Double = 0
-    private var score: Double = 0
+    private var score: Double?
     private(set) var buttonTitle: String = ""
 
-    // TODO: remove buttonTitle from parameters
-    func configure(scoreType: DKScoreType, mean: Double, min: Double, max: Double, score: Double, buttonTitle: String) {
+    var hasScore: Bool {
+        return score != nil
+    }
+
+    func configure(scoreType: DKScoreType, mean: Double, min: Double, max: Double, score: Double?) {
         self.scoreType = scoreType
         self.mean = mean
         self.min = min
         self.max = max
         self.score = score
-        self.buttonTitle = buttonTitle
+        self.buttonTitle = "test" //TODO: use function to return value from
     }
 
     func getBarItemsToDraw() -> [DKCustomBarViewItem] {
@@ -63,7 +66,7 @@ class SynthesisGaugeViewModel {
     }
 
     var scoreOffsetPercent: Double {
-        offsetForScore(score)
+        offsetForScore(score ?? 0)
     }
 
     var minOffsetPercent: Double {
@@ -89,7 +92,7 @@ class SynthesisGaugeViewModel {
     }
 
     func offsetForButton(gaugeWidth: Double, itemWidth: Double, margin: Double) -> Double {
-        var offset = offsetForScore(score, gaugeWidth: gaugeWidth)
+        var offset = offsetForScore(score ?? 0, gaugeWidth: gaugeWidth)
         // swiftlint:disable no_magic_numbers
         if offset < itemWidth / 2 - margin {
             offset = itemWidth / 2 - margin

@@ -80,7 +80,7 @@ class MySynthesisViewController: DKUIViewController {
     }
 
     private func setupSynthesisGauge() {
-        SynthesisGaugeView.createSynthesisGaugeView(
+        MySynthesisGaugeView.createSynthesisGaugeView(
             configuredWith: viewModel.synthesisGaugeViewModel,
             embededIn: communityViewContainer
         )

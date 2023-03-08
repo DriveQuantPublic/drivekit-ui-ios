@@ -22,7 +22,7 @@ public extension UIButton {
 }
 
 public enum DKButtonStyle {
-    case full, empty, rounded(color: UIColor, radius: Double = 8, borderWidth: Double = 2, style: DKStyle = DKStyles.roundedButton.style)
+    case full, empty, rounded(color: UIColor, radius: Double = 8, borderWidth: Double = 2, style: DKStyle = DKStyles.roundedButton.style, textColor: UIColor? = nil)
 
     func configureText(text: String, button: UIButton) {
         switch self {
@@ -30,8 +30,8 @@ public enum DKButtonStyle {
             button.setAttributedTitle(text.dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).uppercased().build(), for: .normal)
         case .empty:
             button.setAttributedTitle(text.dkAttributedString().font(dkFont: .primary, style: .button).color(.secondaryColor).uppercased().build(), for: .normal)
-        case let .rounded(color, _,  _, style):
-            button.setAttributedTitle(text.dkAttributedString().font(dkFont: .primary, style: style).color(color).build(), for: .normal)
+        case let .rounded(color, _,  _, style, textColor):
+            button.setAttributedTitle(text.dkAttributedString().font(dkFont: .primary, style: style).color(textColor ?? color).build(), for: .normal)
         }
     }
 
@@ -48,7 +48,7 @@ public enum DKButtonStyle {
             button.setBackgroundImage(UIImage(color: DKUIColors.secondaryColor.color.withAlphaComponent(0.5)), for: .disabled)
         case .empty:
             break
-        case let .rounded(color, radius, borderWidth, _):
+        case let .rounded(color, radius, borderWidth, _, _):
             button.layer.cornerRadius = radius
             button.layer.masksToBounds = true
             button.layer.borderColor = color.cgColor

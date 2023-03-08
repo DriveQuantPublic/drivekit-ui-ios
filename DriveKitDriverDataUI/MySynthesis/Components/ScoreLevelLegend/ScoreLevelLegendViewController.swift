@@ -31,7 +31,7 @@ public class ScoreLevelLegendViewController: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         let closeButton = UIBarButtonItem(
-            title: DKCommonLocalizable.close.text(),
+            title: DKCommonLocalizable.close.text().uppercased(),
             style: .done,
             target: self,
             action: #selector(closeButtonTapped)

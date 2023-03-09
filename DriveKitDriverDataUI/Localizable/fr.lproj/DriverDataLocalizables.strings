@@ -27,8 +27,8 @@
 "dk_driverdata_distance_travelled"="%@ parcourus";
 "dk_driverdata_distraction_score"="Score de distraction";
 "dk_driverdata_distraction_score_info"="Le score de distraction (utilisation du téléphone au volant) mesure les interactions du conducteur avec son smartphone pendant la conduite. Cela comprend à la fois le nombre de déverrouillages du téléphone la durée de communication téléphonique durant le trajet. L\'utilisation du téléphone est susceptible de perturber l\'attention du conducteur et augmente sensiblement le risque d\'accident. Les appels réalisés avec le kit main libre de votre véhicule sont autorisés et ils ne feront pas baisser votre score.";
-"dk_driverdata_eco_score"="Score d\'éco-conduite";
-"dk_driverdata_eco_score_info"="Le score d\'éco-conduite mesure l\'écart entre l\'énergie consommée et l\'énergie minimale atteignable sur un trajet. Une note de 8 sur 10 indique qu\'une économie d\'énergie de 20% est atteignable.";
+"dk_driverdata_ecodriving_score"="Score d\'éco-conduite";
+"dk_driverdata_ecodriving_score_info"="Le score d\'éco-conduite mesure l\'écart entre l\'énergie consommée et l\'énergie minimale atteignable sur un trajet. Une note de 8 sur 10 indique qu\'une économie d\'énergie de 20% est atteignable.";
 "dk_driverdata_end_authorized_call"="Fin d\'appel autorisé";
 "dk_driverdata_end_authorized_call_info_content"="L\'application a détecté la fin d\'un appel autorisé, cela signifie qu\'il a été effectué à avec votre kit main-libre. Cette action ne pénalise pas votre score d\'utilisation du téléphone, car elle est légalement autorisée. Cependant, cela reste une distraction lorsque vous conduisez, pour votre sécurité et celle des autres utilisateurs de la route, il est fortement conseillé d\'attendre que votre véhicule soit stationné pour passer un appel.";
 "dk_driverdata_end_event"="Fin du trajet";
@@ -76,9 +76,6 @@
 "dk_driverdata_mysynthesis_minimum"="min";
 "dk_driverdata_mysynthesis_my_community"="Ma communauté";
 "dk_driverdata_mysynthesis_no_driving"="Vous n\’avez pas conduit durant cette période";
-"dk_driverdata_mysynthesis_no_driving_month"="Vous n\'avez pas conduit ce mois-ci";
-"dk_driverdata_mysynthesis_no_driving_week"="Vous n\'avez pas conduit cette semaine";
-"dk_driverdata_mysynthesis_no_driving_year"="Vous n\'avez pas conduit cette année";
 "dk_driverdata_mysynthesis_no_trip_at_all"="";
 "dk_driverdata_mysynthesis_no_trip_prev_month"="Vous n\'avez pas conduit le mois précédent";
 "dk_driverdata_mysynthesis_no_trip_prev_week"="Vous n\'avez pas conduit la semaine précédente";

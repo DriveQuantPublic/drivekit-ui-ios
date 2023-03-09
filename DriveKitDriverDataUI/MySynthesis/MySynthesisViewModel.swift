@@ -26,7 +26,8 @@ class MySynthesisViewModel {
     private(set) var updating: Bool = false
     
     var shouldHideDetailButton: Bool {
-        return true
+        #warning("Temporarily set it to false to display score legend")
+        return false
     }
     
     init() {

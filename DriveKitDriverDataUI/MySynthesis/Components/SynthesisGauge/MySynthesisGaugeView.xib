@@ -254,6 +254,9 @@
                     <buttonConfiguration key="configuration" style="plain" image="dk_common_info" imagePlacement="trailing" title="LevelButton" imagePadding="3">
                         <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="showScoresLegend" destination="IxA-v9-owG" eventType="touchUpInside" id="L3H-Jh-R97"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="CVT-RX-56N"/>

@@ -47,7 +47,7 @@ class MySynthesisGaugeView: UIView {
     @IBOutlet private weak var  step7LayoutConstraint: NSLayoutConstraint!
     @IBOutlet private weak var  step8Label: UILabel!
     @IBOutlet private weak var  step8LayoutConstraint: NSLayoutConstraint!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.triangleCursorImageView.image = MySynthesisGaugeConstants.triangleIcon()
@@ -70,25 +70,25 @@ class MySynthesisGaugeView: UIView {
         maxTitleLabel.text = "dk_driverdata_mysynthesis_maximum".dkDriverDataLocalized()
         meanTitleLabel.text = "dk_driverdata_mysynthesis_average".dkDriverDataLocalized()
     }
-
+    
     func configure(viewModel: MySynthesisGaugeViewModel) {
         self.viewModel = viewModel
         self.synthesisGaugeBarView.configure(viewModel: viewModel)
         updateUI()
     }
-
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         updateUI()
     }
-
+    
     func updateUI() {
         setupLevelsButton()
         setupCursor()
         setupLablelsPositionsAndValues()
         hideOverlappingLabels()
     }
-
+    
     private func setupLevelsButton() {
         if viewModel.hasScore {
             self.levelButtonLayoutConstraint.constant = viewModel.offsetForButton(
@@ -112,6 +112,7 @@ class MySynthesisGaugeView: UIView {
                                 textColor: DKUIColors.complementaryFontColor.color))
         }
     }
+    
     private func setupCursor() {
         self.circleCursorLayoutConstraint.constant = viewModel.scoreOffsetPercent * self.synthesisGaugeBarView.bounds.size.width
         self.triangleCursorLayoutConstraint.constant = viewModel.scoreOffsetPercent * self.synthesisGaugeBarView.bounds.size.width
@@ -119,7 +120,7 @@ class MySynthesisGaugeView: UIView {
         self.circleCursorImageView.isHidden = shouldHideScore
         self.triangleCursorImageView.isHidden = shouldHideScore
     }
-
+    
     private func setupLablelsPositionsAndValues() {
         self.minScoreLayoutConstraint.constant = viewModel.minOffsetPercent * self.synthesisGaugeBarView.bounds.size.width
         self.maxScoreLayoutConstraint.constant = viewModel.maxOffsetPercent * self.synthesisGaugeBarView.bounds.size.width
@@ -132,7 +133,7 @@ class MySynthesisGaugeView: UIView {
         self.step6LayoutConstraint.constant = viewModel.offsetForStep(5) * self.synthesisGaugeBarView.bounds.size.width
         self.step7LayoutConstraint.constant = viewModel.offsetForStep(6) * self.synthesisGaugeBarView.bounds.size.width
         self.step8LayoutConstraint.constant = viewModel.offsetForStep(7) * self.synthesisGaugeBarView.bounds.size.width
-
+        
         self.minScoreLabel.text = self.viewModel.min.formatDouble(places: 1)
         self.maxScoreLabel.text = self.viewModel.max.formatDouble(places: 1)
         self.meanScoreLabel.text = self.viewModel.mean.formatDouble(places: 1)
@@ -145,6 +146,7 @@ class MySynthesisGaugeView: UIView {
         self.step7Label.text = self.viewModel.scoreForStep(6).formatDouble(places: 1)
         self.step8Label.text = self.viewModel.scoreForStep(7).formatDouble(places: 1)
     }
+    
     private func hideOverlappingLabels() {
         let allowedLabelsDistance: Double = 15
         self.step2Label.isHidden = self.step2LayoutConstraint.constant - self.step1LayoutConstraint.constant < allowedLabelsDistance
@@ -154,7 +156,18 @@ class MySynthesisGaugeView: UIView {
         self.step6Label.isHidden = !self.step5Label.isHidden && self.step6LayoutConstraint.constant - self.step5LayoutConstraint.constant < allowedLabelsDistance
         self.step7Label.isHidden = !self.step6Label.isHidden && self.step7LayoutConstraint.constant - self.step6LayoutConstraint.constant < allowedLabelsDistance
         self.step8Label.isHidden = !self.step7Label.isHidden && self.step8LayoutConstraint.constant - self.step7LayoutConstraint.constant < allowedLabelsDistance
-
+    }
+    
+    @IBAction private func showScoresLegend() {
+        guard let visibleViewController = UIApplication.shared.visibleViewController else {
+            return
+        }
+        let viewModel = ScoreLevelLegendViewModel()
+        viewModel.configure(with: self.viewModel.scoreType)
+        ScoreLevelLegendViewController.createScoreLevelLegendViewController(
+            configuredWith: viewModel,
+            presentedBy: visibleViewController
+        )
     }
 }
 

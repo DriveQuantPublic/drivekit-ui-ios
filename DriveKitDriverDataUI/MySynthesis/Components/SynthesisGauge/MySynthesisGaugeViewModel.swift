@@ -11,7 +11,7 @@ import DriveKitCoreModule
 import DriveKitCommonUI
 
 class MySynthesisGaugeViewModel {
-    private var scoreType: DKScoreType = .safety
+    private(set) var scoreType: DKScoreType = .safety
     private(set) var mean: Double = 0
     private(set) var min: Double = 0
     private(set) var max: Double = 0

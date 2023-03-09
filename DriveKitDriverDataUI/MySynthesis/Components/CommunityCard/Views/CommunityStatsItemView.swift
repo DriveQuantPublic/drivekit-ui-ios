@@ -33,10 +33,6 @@ class CommunityStatsItemView: UIStackView {
         circleView.clipsToBounds = true
         legendLabel.textColor = DKUIColors.mainFontColor.color
         legendLabel.font = DKStyles.smallText.style.applyTo(font: .primary)
-        [tripCountLabel, distanceCountLabel, driverCountLabel].forEach { view in
-            view.textColor = DKUIColors.complementaryFontColor.color
-            view.font = DKStyles.normalText.style.applyTo(font: .primary)
-        }
         self.refreshView()
     }
     
@@ -47,9 +43,9 @@ class CommunityStatsItemView: UIStackView {
         
         circleView.backgroundColor = viewModel.legendColor.color
         legendLabel.text = viewModel.legendTitle
-        tripCountLabel.text = viewModel.tripCountText
-        distanceCountLabel.text = viewModel.distanceCountText
-        driverCountLabel.text = viewModel.driverCountText
+        tripCountLabel.attributedText = viewModel.tripCountText
+        distanceCountLabel.attributedText = viewModel.distanceCountText
+        driverCountLabel.attributedText = viewModel.driverCountText
     }
     
     func configure(viewModel: CommunityStatsItemViewModel) {

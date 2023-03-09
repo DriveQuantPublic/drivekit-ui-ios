@@ -16,26 +16,75 @@ public struct CommunityStatsItemViewModel {
     public var distanceCount: Double?
     public var driverCount: Int?
     
-    public var tripCountText: String {
-        guard let tripCount else { return "" }
-        var text = tripCount.formatWithThousandSeparator() + String.nonBreakableSpace
+    public var tripCountText: NSAttributedString? {
+        guard let tripCount else { return nil }
+        let text = (tripCount.formatWithThousandSeparator() + String.nonBreakableSpace)
+            .dkAttributedString()
+            .color(.complementaryFontColor)
+            .font(dkFont: .primary, style: .normalText)
+            .build()
+        let unitText: String
         if tripCount > 1 {
-            text += DKCommonLocalizable.tripPlural.text()
+            unitText = DKCommonLocalizable.tripPlural.text()
         } else {
-            text += DKCommonLocalizable.tripSingular.text()
+            unitText = DKCommonLocalizable.tripSingular.text()
         }
         
-        return text
+        return "%@%@".dkAttributedString()
+            .buildWithArgs(
+                text,
+                unitText.dkAttributedString()
+                    .color(.complementaryFontColor)
+                    .font(dkFont: .primary, style: .smallText)
+                    .build()
+            )
     }
     
-    public var distanceCountText: String {
-        distanceCount?.formatKilometerDistance() ?? ""
+    public var distanceCountText: NSAttributedString? {
+        let format = distanceCount?.getKilometerDistanceFormat()
+        let other = format?.filter({
+            guard case .unit = $0 else { return true }
+            return false
+        })
+        let unit = format?.filter({
+            guard case .unit = $0 else { return false }
+            return true
+        })
+        
+        guard
+            let text = other?.toString()
+                .dkAttributedString()
+                .color(.complementaryFontColor)
+                .font(dkFont: .primary, style: .normalText)
+                .build(),
+            let unitText = unit?.toString()
+                .dkAttributedString()
+                .color(.complementaryFontColor)
+                .font(dkFont: .primary, style: .smallText)
+                .build()
+        else {
+            assertionFailure("Can't convert \(String(describing: distanceCount)) into an attributed string formatted in km")
+            return nil
+        }
+        
+        return "%@%@".dkAttributedString()
+            .buildWithArgs(text, unitText)
     }
     
-    public var driverCountText: String {
-        guard let driverCount else { return "" }
-        return driverCount.formatWithThousandSeparator()
-            + String.nonBreakableSpace
-            + "dk_driverdata_mysynthesis_drivers".dkDriverDataLocalized()
+    public var driverCountText: NSAttributedString? {
+        guard let driverCount else { return nil }
+        let text = (driverCount.formatWithThousandSeparator() + String.nonBreakableSpace)
+            .dkAttributedString()
+            .color(.complementaryFontColor)
+            .font(dkFont: .primary, style: .normalText)
+            .build()
+        let unitText = "dk_driverdata_mysynthesis_drivers".dkDriverDataLocalized()
+            .dkAttributedString()
+            .color(.complementaryFontColor)
+            .font(dkFont: .primary, style: .smallText)
+            .build()
+        
+        return "%@%@".dkAttributedString()
+            .buildWithArgs(text, unitText)
     }
 }

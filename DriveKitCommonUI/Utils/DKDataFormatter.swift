@@ -25,7 +25,7 @@ public enum FormatType {
 }
 
 extension Array where Element == FormatType {
-    func toString() -> String {
+    public func toString() -> String {
         reduce(into: "") { (result, formatType) in
             result.append(formatType.string)
         }

@@ -35,16 +35,12 @@ class MySynthesisGaugeViewModel {
 
     func getBarItemsToDraw() -> [DKRoundedBarViewItem] {
         var barViewItems: [DKRoundedBarViewItem] = []
-        let steps = self.scoreType.getSteps()
-
-        guard !steps.isEmpty else {
-            return barViewItems
-        }
-        let max = steps.last!
-        let min = steps.first!
-        for i in 0..<steps.count - 1 {
-            let percent = (steps[i + 1] - steps[i]) / (max - min)
-            let color = DKScoreTypeLevel.getLevel(for: steps[i], scoreType: self.scoreType).color
+        let max = DKScoreTypeLevel.excellent.scoreLevels(for: scoreType).upperBound
+        let min = DKScoreTypeLevel.veryBad.scoreLevels(for: scoreType).lowerBound
+        for scoreLevel in DKScoreTypeLevel.allCases {
+            let levelRange = scoreLevel.scoreLevels(for: scoreType)
+            let percent = (levelRange.upperBound - levelRange.lowerBound) / (max - min)
+            let color = scoreLevel.color
             barViewItems.append(DKRoundedBarViewItem(percent: percent, color: color))
         }
         return barViewItems

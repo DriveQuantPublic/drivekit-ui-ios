@@ -34,9 +34,10 @@ class RoadContextDataView: UIView {
             self.titleLabel.text = viewModel.title
             self.roadContextBarView.configure(viewModel: viewModel)
         }
+        let inHalf = 0.5
         self.collectionViewHeightConstraint.constant =
          RoadContextDataView.collectionViewCellHeight *
-        CGFloat(Int(ceil(Double(viewModel?.getActiveContextNumber() ?? 1) / 2.0)))         // swiftlint:disable:this no_magic_numbers
+        CGFloat(Int(ceil(Double(viewModel?.getActiveContextNumber() ?? 1) * inHalf)))
         self.itemsCollectionView.reloadData()
     }
 
@@ -65,8 +66,8 @@ extension RoadContextDataView: UICollectionViewDataSource {
 }
 extension RoadContextDataView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        // swiftlint:disable:next no_magic_numbers
-        return CGSize(width: collectionView.bounds.width / 2, height: RoadContextDataView.collectionViewCellHeight)
+        let inHalf = 0.5
+        return CGSize(width: collectionView.bounds.width * inHalf, height: RoadContextDataView.collectionViewCellHeight)
     }
 }
 extension RoadContextDataView: RoadContextViewModelDelegate {

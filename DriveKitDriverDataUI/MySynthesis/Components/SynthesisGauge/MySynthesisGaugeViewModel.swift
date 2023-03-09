@@ -33,8 +33,8 @@ class MySynthesisGaugeViewModel {
         }
     }
 
-    func getBarItemsToDraw() -> [DKCustomBarViewItem] {
-        var barViewItems: [DKCustomBarViewItem] = []
+    func getBarItemsToDraw() -> [DKRoundedBarViewItem] {
+        var barViewItems: [DKRoundedBarViewItem] = []
         let steps = self.scoreType.getSteps()
 
         guard !steps.isEmpty else {
@@ -45,7 +45,7 @@ class MySynthesisGaugeViewModel {
         for i in 0..<steps.count - 1 {
             let percent = (steps[i + 1] - steps[i]) / (max - min)
             let color = ConfigurationCircularProgressView.getScoreColor(value: steps[i + 1], steps: steps)
-            barViewItems.append(DKCustomBarViewItem(percent: percent, color: color))
+            barViewItems.append(DKRoundedBarViewItem(percent: percent, color: color))
         }
         return barViewItems
     }

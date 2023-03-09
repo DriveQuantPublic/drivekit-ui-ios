@@ -195,12 +195,12 @@ extension MySynthesisGaugeView {
     }
 }
 
-class SynthesisGaugeBarView: DKCustomBarView {
+class SynthesisGaugeBarView: DKRoundedBarView {
     private var viewModel: MySynthesisGaugeViewModel?
 
     override func draw(_ rect: CGRect) {
-        let barViewItems: [DKCustomBarViewItem] = self.viewModel?.getBarItemsToDraw() ?? []
-        draw(items: barViewItems, rect: self.bounds, radius: self.bounds.size.height / 2)
+        let barViewItems: [DKRoundedBarViewItem] = self.viewModel?.getBarItemsToDraw() ?? []
+        draw(items: barViewItems, rect: self.bounds, cornerRadius: self.bounds.size.height / 2)
     }
 
     func configure(viewModel: MySynthesisGaugeViewModel) {

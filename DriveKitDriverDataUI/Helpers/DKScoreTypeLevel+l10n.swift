@@ -14,7 +14,7 @@ extension DKScoreTypeLevel {
     public func localizedTitle(for scoreType: DKScoreType) -> String {
         let scoreLevelRange = self.scoreLevels(for: scoreType)
         return String(
-            format: localizedTitleKey.dkDriverDataLocalized(),
+            format: titleKey.dkDriverDataLocalized(),
             scoreLevelRange.lowerBound.formatDouble(places: 1),
             scoreLevelRange.upperBound.formatDouble(places: 1)
         )
@@ -28,7 +28,7 @@ extension DKScoreTypeLevel {
         shortDescriptionKey().dkDriverDataLocalized()
     }
 
-    private var localizedTitleKey: String {
+    private var titleKey: String {
         "dk_driverdata_mysynthesis_score_title_" + self.scoreLevelKeySuffix
     }
     

@@ -1,6 +1,6 @@
 // swiftlint:disable no_magic_numbers
 //
-//  DKCustomBarView.swift
+//  DKRoundedBarView.swift
 //  DriveKitCommonUI
 //
 //  Created by Amine Gahbiche on 27/02/2023.
@@ -9,22 +9,22 @@
 
 import UIKit
 
-open class DKCustomBarView: UIView {
+open class DKRoundedBarView: UIView {
 
-    public func draw(items: [DKCustomBarViewItem], rect: CGRect, radius: Double = 8, margin: Double = 0) {
+    public func draw(items: [DKRoundedBarViewItem], rect: CGRect, cornerRadius: Double = 8, margin: Double = 0) {
         var drawnPercent: Double = 0
         for i in 0..<items.count {
             let roundedStart: Bool = (i == 0)
             let roundedEnd: Bool = (i == items.count - 1)
             let startX = rect.origin.x + drawnPercent * (rect.width - 2 * margin) + margin
             let itemRect = CGRect(x: startX, y: rect.origin.y + margin, width: (rect.width - 2 * margin) * items[i].percent, height: rect.height - 2 * margin)
-            self.drawPartView(itemRect, color: items[i].color.cgColor, roundedStart: roundedStart, roundedEnd: roundedEnd, radius: radius, margin: margin)
+            self.drawPartView(itemRect, color: items[i].color.cgColor, roundedStart: roundedStart, roundedEnd: roundedEnd, radius: cornerRadius, margin: margin)
             drawnPercent += items[i].percent
         }
 
         let maskLayer = CAShapeLayer()
         let path = CGMutablePath()
-        path.addPath(UIBezierPath(roundedRect: rect, cornerRadius: radius).cgPath)
+        path.addPath(UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius).cgPath)
         maskLayer.path = path
         self.layer.mask = maskLayer
     }
@@ -61,7 +61,7 @@ open class DKCustomBarView: UIView {
     }
 }
 
-public class DKCustomBarViewItem {
+public class DKRoundedBarViewItem {
     let percent: CGFloat
     let color: UIColor
 

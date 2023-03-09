@@ -75,16 +75,16 @@ extension RoadContextDataView: RoadContextViewModelDelegate {
     }
 }
 
-class RoadContextBarView: DKCustomBarView {
+class RoadContextBarView: DKRoundedBarView {
     private var viewModel: RoadContextViewModel?
 
     override func draw(_ rect: CGRect) {
         guard let itemsToDraw = viewModel?.itemsToDraw, !itemsToDraw.isEmpty else {
             return
         }
-        var barViewItems: [DKCustomBarViewItem] = []
+        var barViewItems: [DKRoundedBarViewItem] = []
         for item in itemsToDraw {
-            barViewItems.append(DKCustomBarViewItem(percent: item.percent, color: RoadContextViewModel.getRoadContextColor(item.context)))
+            barViewItems.append(DKRoundedBarViewItem(percent: item.percent, color: RoadContextViewModel.getRoadContextColor(item.context)))
         }
         draw(items: barViewItems, rect: rect)
     }

@@ -85,7 +85,7 @@ class MySynthesisGaugeView: UIView {
     func updateUI() {
         setupLevelsButton()
         setupCursor()
-        setupLablelsPositionsAndValues()
+        setupLabelsPositionsAndValues()
         hideOverlappingLabels()
     }
     
@@ -96,7 +96,7 @@ class MySynthesisGaugeView: UIView {
                 itemWidth: self.levelButton.frame.size.width,
                 margin: 5)
             self.levelButton.configure(
-                text: self.viewModel.buttonTitle.dkDriverDataLocalized(),
+                text: self.viewModel.buttonTitle,
                 style: .rounded(color: DKUIColors.primaryColor.color,
                                 radius: 5,
                                 borderWidth: 1,
@@ -126,21 +126,21 @@ class MySynthesisGaugeView: UIView {
         self.triangleCursorImageView.isHidden = shouldHideScore
     }
     
-    private func setupLablelsPositionsAndValues() {
+    private func setupLabelsPositionsAndValues() {
         guard let viewModel else {
             return
         }
         self.minScoreLayoutConstraint.constant = viewModel.minOffsetPercent * self.synthesisGaugeBarView.bounds.size.width
         self.maxScoreLayoutConstraint.constant = viewModel.maxOffsetPercent * self.synthesisGaugeBarView.bounds.size.width
         self.meanScoreLayoutConstraint.constant = viewModel.meanOffsetPercent * self.synthesisGaugeBarView.bounds.size.width
-        self.step1LayoutConstraint.constant = viewModel.offsetForStep(0) * self.synthesisGaugeBarView.bounds.size.width
-        self.step2LayoutConstraint.constant = viewModel.offsetForStep(1) * self.synthesisGaugeBarView.bounds.size.width
-        self.step3LayoutConstraint.constant = viewModel.offsetForStep(2) * self.synthesisGaugeBarView.bounds.size.width
-        self.step4LayoutConstraint.constant = viewModel.offsetForStep(3) * self.synthesisGaugeBarView.bounds.size.width
-        self.step5LayoutConstraint.constant = viewModel.offsetForStep(4) * self.synthesisGaugeBarView.bounds.size.width
-        self.step6LayoutConstraint.constant = viewModel.offsetForStep(5) * self.synthesisGaugeBarView.bounds.size.width
-        self.step7LayoutConstraint.constant = viewModel.offsetForStep(6) * self.synthesisGaugeBarView.bounds.size.width
-        self.step8LayoutConstraint.constant = viewModel.offsetForStep(7) * self.synthesisGaugeBarView.bounds.size.width
+        self.step1LayoutConstraint.constant = viewModel.offsetPercent(forStep: 0) * self.synthesisGaugeBarView.bounds.size.width
+        self.step2LayoutConstraint.constant = viewModel.offsetPercent(forStep: 1) * self.synthesisGaugeBarView.bounds.size.width
+        self.step3LayoutConstraint.constant = viewModel.offsetPercent(forStep: 2) * self.synthesisGaugeBarView.bounds.size.width
+        self.step4LayoutConstraint.constant = viewModel.offsetPercent(forStep: 3) * self.synthesisGaugeBarView.bounds.size.width
+        self.step5LayoutConstraint.constant = viewModel.offsetPercent(forStep: 4) * self.synthesisGaugeBarView.bounds.size.width
+        self.step6LayoutConstraint.constant = viewModel.offsetPercent(forStep: 5) * self.synthesisGaugeBarView.bounds.size.width
+        self.step7LayoutConstraint.constant = viewModel.offsetPercent(forStep: 6) * self.synthesisGaugeBarView.bounds.size.width
+        self.step8LayoutConstraint.constant = viewModel.offsetPercent(forStep: 7) * self.synthesisGaugeBarView.bounds.size.width
         
         self.minScoreLabel.text = self.viewModel.min.formatDouble(places: 1)
         self.maxScoreLabel.text = self.viewModel.max.formatDouble(places: 1)

@@ -50,7 +50,7 @@ class MySynthesisGaugeViewModel {
         return barViewItems
     }
 
-    func offsetForScore(_ score: Double, gaugeWidth: Double = 1) -> Double {
+    func offsetPercent(forScore  score: Double, gaugeWidth: Double = 1) -> Double {
         let steps = self.scoreType.getSteps()
 
         guard !steps.isEmpty else {
@@ -64,24 +64,24 @@ class MySynthesisGaugeViewModel {
     }
 
     var meanOffsetPercent: Double {
-        offsetForScore(mean)
+        offsetPercent(forScore : mean)
     }
 
     var scoreOffsetPercent: Double {
-        offsetForScore(score ?? 0)
+        offsetPercent(forScore : score ?? 0)
     }
 
     var minOffsetPercent: Double {
-        offsetForScore(min)
+        offsetPercent(forScore : min)
     }
 
     var maxOffsetPercent: Double {
-        offsetForScore(max)
+        offsetPercent(forScore : max)
     }
 
-    func offsetForStep(_ index: Int) -> Double {
+    func offsetPercent(forStep index: Int) -> Double {
         let stepScore = scoreForStep(index)
-        return offsetForScore(stepScore)
+        return offsetPercent(forScore : stepScore)
     }
 
     func scoreForStep(_ index: Int) -> Double {
@@ -94,7 +94,7 @@ class MySynthesisGaugeViewModel {
     }
 
     func offsetForButton(gaugeWidth: Double, itemWidth: Double, margin: Double) -> Double {
-        var offset = offsetForScore(score ?? 0, gaugeWidth: gaugeWidth)
+        var offset = offsetPercent(forScore : score ?? 0, gaugeWidth: gaugeWidth)
         // swiftlint:disable no_magic_numbers
         if offset < itemWidth / 2 - margin {
             offset = itemWidth / 2 - margin

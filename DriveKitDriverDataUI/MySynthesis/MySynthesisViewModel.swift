@@ -18,7 +18,6 @@ class MySynthesisViewModel {
     let scoreSelectorViewModel: DKScoreSelectorViewModel
     let periodSelectorViewModel: DKPeriodSelectorViewModel
     let dateSelectorViewModel: DKDateSelectorViewModel
-    let synthesisGaugeViewModel: MySynthesisGaugeViewModel
     let scoreCardViewModel: MySynthesisScoreCardViewModel
     let communityCardViewModel: MySynthesisCommunityCardViewModel
     private var timelines: [DKPeriod: DKDriverTimeline]
@@ -35,7 +34,6 @@ class MySynthesisViewModel {
         self.scoreSelectorViewModel = DKScoreSelectorViewModel()
         self.periodSelectorViewModel = DKPeriodSelectorViewModel()
         self.dateSelectorViewModel = DKDateSelectorViewModel()
-        self.synthesisGaugeViewModel = MySynthesisGaugeViewModel()
         self.scoreCardViewModel = MySynthesisScoreCardViewModel()
         self.communityCardViewModel = MySynthesisCommunityCardViewModel()
         self.timelines = [:]
@@ -140,8 +138,6 @@ class MySynthesisViewModel {
                 hasOnlyShortTripsForPreviousPeriod: previousPeriodContext?.hasOnlyShortTrips ?? false,
                 hasOnlyShortTripsForCurrentPeriod: currentPeriodContext?.hasOnlyShortTrips ?? false
             )
-            // TODO: move the following line
-            self.synthesisGaugeViewModel.configure(scoreType: self.scoreSelectorViewModel.selectedScore, mean: 7.3, min: 4.9, max: 10, score: scoreSynthesis.scoreValue)
             
             self.communityCardViewModel.configure(
                 with: scoreSynthesis,

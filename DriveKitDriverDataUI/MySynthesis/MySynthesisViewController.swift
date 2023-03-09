@@ -95,13 +95,6 @@ class MySynthesisViewController: DKUIViewController {
     private func hideRefreshControl() {
         self.scrollView.refreshControl?.endRefreshing()
     }
-
-    private func setupSynthesisGauge() {
-        MySynthesisGaugeView.createSynthesisGaugeView(
-            configuredWith: viewModel.synthesisGaugeViewModel,
-            embededIn: communityViewContainer
-        )
-    }
 }
     
 extension MySynthesisViewController: MySynthesisViewModelDelegate {

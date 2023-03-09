@@ -17,6 +17,8 @@ public class MySynthesisCommunityCardViewModel {
     private var userTripCount: Int?
     private var userDistanceCount: Double?
     private var communityStatistics: DKCommunityStatistics?
+    private(set) var synthesisGaugeViewModel: MySynthesisGaugeViewModel = MySynthesisGaugeViewModel()
+
     var communityCardViewModelDidUpdate: (() -> Void)?
     
     public init() {}
@@ -53,6 +55,14 @@ public class MySynthesisCommunityCardViewModel {
         self.userTripCount = userTripCount
         self.userDistanceCount = userDistanceCount
         self.communityStatistics = communityStatistics
+        if let scoreStatistics = communityStatistics.scoreStatistics(for: scoreSynthesis.scoreType) {
+            self.synthesisGaugeViewModel.configure(
+                scoreType: scoreSynthesis.scoreType,
+                mean: scoreStatistics.mean,
+                min: scoreStatistics.min,
+                max: scoreStatistics.max,
+                score: scoreSynthesis.scoreValue)
+        }
         communityCardViewModelDidUpdate?()
     }
     

@@ -90,7 +90,7 @@ class MySynthesisGaugeView: UIView {
     }
     
     private func setupLevelsButton() {
-        if viewModel.hasScore {
+        if let viewModel, viewModel.hasScore {
             self.levelButtonLayoutConstraint.constant = viewModel.offsetForButton(
                 gaugeWidth: self.synthesisGaugeBarView.bounds.size.width,
                 itemWidth: self.levelButton.frame.size.width,
@@ -114,6 +114,11 @@ class MySynthesisGaugeView: UIView {
     }
     
     private func setupCursor() {
+        guard let viewModel else {
+            self.circleCursorImageView.isHidden = true
+            self.triangleCursorImageView.isHidden = true
+            return
+        }
         self.circleCursorLayoutConstraint.constant = viewModel.scoreOffsetPercent * self.synthesisGaugeBarView.bounds.size.width
         self.triangleCursorLayoutConstraint.constant = viewModel.scoreOffsetPercent * self.synthesisGaugeBarView.bounds.size.width
         let shouldHideScore = !viewModel.hasScore
@@ -122,6 +127,9 @@ class MySynthesisGaugeView: UIView {
     }
     
     private func setupLablelsPositionsAndValues() {
+        guard let viewModel else {
+            return
+        }
         self.minScoreLayoutConstraint.constant = viewModel.minOffsetPercent * self.synthesisGaugeBarView.bounds.size.width
         self.maxScoreLayoutConstraint.constant = viewModel.maxOffsetPercent * self.synthesisGaugeBarView.bounds.size.width
         self.meanScoreLayoutConstraint.constant = viewModel.meanOffsetPercent * self.synthesisGaugeBarView.bounds.size.width
@@ -172,10 +180,7 @@ class MySynthesisGaugeView: UIView {
 }
 
 extension MySynthesisGaugeView {
-    static func createSynthesisGaugeView(
-        configuredWith viewModel: MySynthesisGaugeViewModel,
-        embededIn containerView: UIView
-    ) {
+    static func createSynthesisGaugeView(embededIn containerView: UIView) -> MySynthesisGaugeView {
         guard let synthesisGaugeView = Bundle.driverDataUIBundle?.loadNibNamed(
             "MySynthesisGaugeView",
             owner: nil
@@ -186,7 +191,7 @@ extension MySynthesisGaugeView {
         containerView.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
         containerView.clipsToBounds = true
         containerView.embedSubview(synthesisGaugeView)
-        synthesisGaugeView.configure(viewModel: viewModel)
+        return synthesisGaugeView
     }
 }
 

@@ -70,18 +70,9 @@ class MySynthesisViewController: DKUIViewController {
         } else {
             hideRefreshControl()
         }
-        // TODO: move this into community card
-        // setupSynthesisGauge()
     }
     
     @objc private func showDetailButtonTapped() {
-        #warning("Temporarily display score level legend screen from here")
-        let viewModel = ScoreLevelLegendViewModel()
-        viewModel.configure(with: self.viewModel.scoreSelectorViewModel.selectedScore)
-        ScoreLevelLegendViewController.createScoreLevelLegendViewController(
-            configuredWith: viewModel,
-            presentedBy: self
-        )
     }
     
     @objc private func refresh(_ sender: Any) {

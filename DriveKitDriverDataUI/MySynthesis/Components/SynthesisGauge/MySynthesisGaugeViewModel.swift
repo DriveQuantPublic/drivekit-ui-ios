@@ -44,7 +44,7 @@ class MySynthesisGaugeViewModel {
         let min = steps.first!
         for i in 0..<steps.count - 1 {
             let percent = (steps[i + 1] - steps[i]) / (max - min)
-            let color = ConfigurationCircularProgressView.getScoreColor(value: steps[i + 1], steps: steps)
+            let color = DKScoreTypeLevel.getLevel(for: steps[i], scoreType: self.scoreType).color
             barViewItems.append(DKRoundedBarViewItem(percent: percent, color: color))
         }
         return barViewItems

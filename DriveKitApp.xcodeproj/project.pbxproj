@@ -643,6 +643,12 @@
 		E3559EB729479F8100AAB747 /* TimelineDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3559EB629479F8100AAB747 /* TimelineDetailViewController.xib */; };
 		E3559EBB2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3559EBA2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift */; };
 		E3559EBD294868CB00AAB747 /* DKTimelineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3559EBC294868CB00AAB747 /* DKTimelineExtension.swift */; };
+		E3830FD929B5F3A5001A9B25 /* MySynthesisCommunityCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3830FD829B5F3A5001A9B25 /* MySynthesisCommunityCardView.xib */; };
+		E3830FDB29B5F3B2001A9B25 /* MySynthesisCommunityCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3830FDA29B5F3B2001A9B25 /* MySynthesisCommunityCardView.swift */; };
+		E3830FDD29B5F3BA001A9B25 /* MySynthesisCommunityCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3830FDC29B5F3BA001A9B25 /* MySynthesisCommunityCardViewModel.swift */; };
+		E3830FE029B5FE3C001A9B25 /* CommunityStatsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3830FDF29B5FE3C001A9B25 /* CommunityStatsItemView.swift */; };
+		E3830FE229B5FE48001A9B25 /* CommunityStatsItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3830FE129B5FE48001A9B25 /* CommunityStatsItemView.xib */; };
+		E3830FE429B62F6A001A9B25 /* CommunityStatsItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3830FE329B62F6A001A9B25 /* CommunityStatsItemViewModel.swift */; };
 		E3830FD629B24702001A9B25 /* ScoreLevelLegendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3830FD529B24702001A9B25 /* ScoreLevelLegendViewController.xib */; };
 		E3B8309D294B1DCE00E31848 /* RoadContextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B8309C294B1DCE00E31848 /* RoadContextView.swift */; };
 		E3F0213329A3B88400664CD2 /* MySynthesisViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F0213229A3B88400664CD2 /* MySynthesisViewModelDelegate.swift */; };
@@ -1493,6 +1499,12 @@
 		E3559EBA2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineDetailViewModelDelegate.swift; sourceTree = "<group>"; };
 		E3559EBC294868CB00AAB747 /* DKTimelineExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTimelineExtension.swift; sourceTree = "<group>"; };
 		E36085012948C37C0097A639 /* DKUIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKUIConstants.swift; sourceTree = "<group>"; };
+		E3830FD829B5F3A5001A9B25 /* MySynthesisCommunityCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MySynthesisCommunityCardView.xib; sourceTree = "<group>"; };
+		E3830FDA29B5F3B2001A9B25 /* MySynthesisCommunityCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySynthesisCommunityCardView.swift; sourceTree = "<group>"; };
+		E3830FDC29B5F3BA001A9B25 /* MySynthesisCommunityCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySynthesisCommunityCardViewModel.swift; sourceTree = "<group>"; };
+		E3830FDF29B5FE3C001A9B25 /* CommunityStatsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityStatsItemView.swift; sourceTree = "<group>"; };
+		E3830FE129B5FE48001A9B25 /* CommunityStatsItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityStatsItemView.xib; sourceTree = "<group>"; };
+		E3830FE329B62F6A001A9B25 /* CommunityStatsItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityStatsItemViewModel.swift; sourceTree = "<group>"; };
 		E3830FD529B24702001A9B25 /* ScoreLevelLegendViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoreLevelLegendViewController.xib; sourceTree = "<group>"; };
 		E3B8309C294B1DCE00E31848 /* RoadContextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadContextView.swift; sourceTree = "<group>"; };
 		E3F0212F29A3A90600664CD2 /* Array+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Date.swift"; sourceTree = "<group>"; };
@@ -3445,6 +3457,7 @@
 			isa = PBXGroup;
 			children = (
 				67F1988629B268ED0060EF24 /* SynthesisGauge */,
+				E3830FD729B5F36F001A9B25 /* CommunityCard */,
 				E302B61529AE0D90004CFA0C /* ScoreCard */,
 				E302B62129B1E63F004CFA0C /* ScoreLevelLegend */,
 			);
@@ -3523,6 +3536,27 @@
 				E302B62A29B2081E004CFA0C /* DKScoreTypeLevel+l10n.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E3830FD729B5F36F001A9B25 /* CommunityCard */ = {
+			isa = PBXGroup;
+			children = (
+				E3830FDE29B5FE0D001A9B25 /* Views */,
+				E3830FD829B5F3A5001A9B25 /* MySynthesisCommunityCardView.xib */,
+				E3830FDA29B5F3B2001A9B25 /* MySynthesisCommunityCardView.swift */,
+				E3830FDC29B5F3BA001A9B25 /* MySynthesisCommunityCardViewModel.swift */,
+			);
+			path = CommunityCard;
+			sourceTree = "<group>";
+		};
+		E3830FDE29B5FE0D001A9B25 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E3830FDF29B5FE3C001A9B25 /* CommunityStatsItemView.swift */,
+				E3830FE129B5FE48001A9B25 /* CommunityStatsItemView.xib */,
+				E3830FE329B62F6A001A9B25 /* CommunityStatsItemViewModel.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		E3B830A2294CB54200E31848 /* Helpers */ = {
@@ -4080,11 +4114,13 @@
 				E3830FD629B24702001A9B25 /* ScoreLevelLegendViewController.xib in Resources */,
 				67CFEA0025FA16EC004D0AE1 /* SpeedingPageItemView.xib in Resources */,
 				A34238712361A2430001E15D /* DistractionPageVC.xib in Resources */,
+				E3830FE229B5FE48001A9B25 /* CommunityStatsItemView.xib in Resources */,
 				A342387C2361A2440001E15D /* CalloutView.xib in Resources */,
 				E302B61929AE0DD6004CFA0C /* MySynthesisScoreCardView.xib in Resources */,
 				A34238A92361B0DE0001E15D /* TripListVC.xib in Resources */,
 				A34238802361A2440001E15D /* DistractionPageView.xib in Resources */,
 				A342387E2361A2440001E15D /* HistoryPageView.xib in Resources */,
+				E3830FD929B5F3A5001A9B25 /* MySynthesisCommunityCardView.xib in Resources */,
 				3F6B67492580D268008B3BA7 /* AlternativeTripDetailInfoVC.xib in Resources */,
 				A34238842361A2440001E15D /* SafetyPageView.xib in Resources */,
 			);
@@ -4893,15 +4929,18 @@
 				6391E0F92607F57000A168D4 /* SynthesisCardViewModel.swift in Sources */,
 				E302B63129B23315004CFA0C /* ScoreLevelLegendRowView.swift in Sources */,
 				3F6B67622580ECD4008B3BA7 /* TransportationModeVC.swift in Sources */,
+				E3830FE029B5FE3C001A9B25 /* CommunityStatsItemView.swift in Sources */,
 				633E93D8261D0CA4009543C0 /* SynthesisCardInfoView.swift in Sources */,
 				67F7786B2679EEB500CAAC52 /* DKTripInfo.swift in Sources */,
 				6391E0DE2607836900A168D4 /* SynthesisCardView.swift in Sources */,
 				A34238772361A2440001E15D /* EcoDrivingPageVC.swift in Sources */,
+				E3830FDB29B5F3B2001A9B25 /* MySynthesisCommunityCardView.swift in Sources */,
 				A30F4F1523D5DA08009A37C2 /* SynthesisPageViewModel.swift in Sources */,
 				A34238642361A2430001E15D /* SafetyPageViewModel.swift in Sources */,
 				A34238742361A2430001E15D /* HistoryPageVC.swift in Sources */,
 				A342387D2361A2440001E15D /* EcoDrivingPageView.swift in Sources */,
 				A34238652361A2430001E15D /* ShortTripPageViewModel.swift in Sources */,
+				E3830FDD29B5F3BA001A9B25 /* MySynthesisCommunityCardViewModel.swift in Sources */,
 				6391E0D726072E6600A168D4 /* DKSynthesisCardInfo.swift in Sources */,
 				638AC038261F8FFB00602B52 /* SynthesisCardsView.swift in Sources */,
 				A34238672361A2430001E15D /* HistoryPageViewModel.swift in Sources */,
@@ -4917,6 +4956,7 @@
 				3F6B67482580D268008B3BA7 /* AlternativeTripDetailInfoVC.swift in Sources */,
 				A342387F2361A2440001E15D /* HistoryPageView.swift in Sources */,
 				67301DBD2625C301006B0432 /* Trip+DKTripsListItem.swift in Sources */,
+				E3830FE429B62F6A001A9B25 /* CommunityStatsItemViewModel.swift in Sources */,
 				A342386C2361A2430001E15D /* MapViewController.swift in Sources */,
 				3FF68E8A240ACD620071D74C /* DriveKitDriverDataUI.swift in Sources */,
 				E3F0213329A3B88400664CD2 /* MySynthesisViewModelDelegate.swift in Sources */,

@@ -57,6 +57,11 @@ class MySynthesisViewController: DKUIViewController {
             embededIn: scoreViewContainer
         )
         
+        MySynthesisCommunityCardView.createCommunityCardView(
+            configuredWith: viewModel.communityCardViewModel,
+            embededIn: communityViewContainer
+        )
+        
         showDetailButton.isHidden = viewModel.shouldHideDetailButton
         showDetailButton.addTarget(self, action: #selector(showDetailButtonTapped), for: .touchUpInside)
         
@@ -65,7 +70,8 @@ class MySynthesisViewController: DKUIViewController {
         } else {
             hideRefreshControl()
         }
-        setupSynthesisGauge()
+        // TODO: move this into community card
+        // setupSynthesisGauge()
     }
     
     @objc private func showDetailButtonTapped() {

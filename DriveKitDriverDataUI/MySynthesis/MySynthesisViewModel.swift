@@ -20,7 +20,9 @@ class MySynthesisViewModel {
     let dateSelectorViewModel: DKDateSelectorViewModel
     let synthesisGaugeViewModel: MySynthesisGaugeViewModel
     let scoreCardViewModel: MySynthesisScoreCardViewModel
+    let communityCardViewModel: MySynthesisCommunityCardViewModel
     private var timelines: [DKPeriod: DKDriverTimeline]
+    private var communityStatistics: DKCommunityStatistics?
     private var selectedDate: Date?
     private(set) var updating: Bool = false
     
@@ -35,6 +37,7 @@ class MySynthesisViewModel {
         self.dateSelectorViewModel = DKDateSelectorViewModel()
         self.synthesisGaugeViewModel = MySynthesisGaugeViewModel()
         self.scoreCardViewModel = MySynthesisScoreCardViewModel()
+        self.communityCardViewModel = MySynthesisCommunityCardViewModel()
         self.timelines = [:]
         self.selectedDate = nil
 
@@ -51,13 +54,21 @@ class MySynthesisViewModel {
             periods: self.configuredPeriods,
             type: .cache
         ) { [weak self] status, timelines in
-            if let self {
-                if status == .cacheDataOnly, let timelines {
-                    self.timelines = timelines.reduce(into: [:]) { resultSoFar, timeline in
-                        resultSoFar[timeline.period] = timeline
-                    }
-                    self.update()
+            guard let self else { return }
+            if status == .cacheDataOnly, let timelines {
+                self.timelines = timelines.reduce(into: [:]) { resultSoFar, timeline in
+                    resultSoFar[timeline.period] = timeline
                 }
+            }
+            
+            DriveKitDriverData.shared.getCommunityStatistics(
+                type: .cache
+            ) { [weak self] status, statistics in
+                guard let self else { return }
+                if status == .cacheDataOnly, let statistics {
+                    self.communityStatistics = statistics
+                }
+                self.update()
             }
         }
         updateData()
@@ -70,12 +81,20 @@ class MySynthesisViewModel {
             periods: configuredPeriods,
             type: .defaultSync
         ) { [weak self] status, timelines in
-            if let self {
-                if status != .noTimelineYet, let timelines {
-                    self.timelines = timelines.reduce(into: [:]) { resultSoFar, timeline in
-                        resultSoFar[timeline.period] = timeline
-                    }
-                    self.update(resettingSelectedDate: true)
+            guard let self else { return }
+            if status != .noTimelineYet, let timelines {
+                self.timelines = timelines.reduce(into: [:]) { resultSoFar, timeline in
+                    resultSoFar[timeline.period] = timeline
+                }
+                self.update(resettingSelectedDate: true)
+            }
+            
+            DriveKitDriverData.shared.getCommunityStatistics(
+                type: .defaultSync
+            ) { [weak self] status, statistics in
+                guard let self else { return }
+                if status == .success, let statistics {
+                    self.communityStatistics = statistics
                 }
                 self.updating = false
                 self.delegate?.didUpdateData()
@@ -121,8 +140,16 @@ class MySynthesisViewModel {
                 hasOnlyShortTripsForPreviousPeriod: previousPeriodContext?.hasOnlyShortTrips ?? false,
                 hasOnlyShortTripsForCurrentPeriod: currentPeriodContext?.hasOnlyShortTrips ?? false
             )
-
+            // TODO: move the following line
             self.synthesisGaugeViewModel.configure(scoreType: self.scoreSelectorViewModel.selectedScore, mean: 7.3, min: 4.9, max: 10, score: scoreSynthesis.scoreValue)
+            
+            self.communityCardViewModel.configure(
+                with: scoreSynthesis,
+                hasOnlyShortTripsForCurrentPeriod: currentPeriodContext?.hasOnlyShortTrips ?? false,
+                userTripCount: currentPeriodContext?.numberTripScored ?? 0,
+                userDistanceCount: currentPeriodContext?.distance ?? 0,
+                communityStatistics: communityStatistics ?? .default
+            )
         }
     }
     
@@ -153,7 +180,14 @@ class MySynthesisViewModel {
                 hasOnlyShortTripsForCurrentPeriod: false
             )
         }
-        
+
+        self.communityCardViewModel.configure(
+            with: .init(scoreType: self.scoreSelectorViewModel.selectedScore),
+            hasOnlyShortTripsForCurrentPeriod: false,
+            userTripCount: 0,
+            userDistanceCount: 0,
+            communityStatistics: communityStatistics ?? .default
+        )
     }
     
     private func updateStateAfterSwitching(from oldPeriod: DKPeriod, to selectedPeriod: DKPeriod) {
@@ -161,7 +195,11 @@ class MySynthesisViewModel {
             from: self.dateSelectorViewModel.selectedDate,
             in: oldPeriod,
             switchingAmongst: self.timelines[selectedPeriod]?.allDates ?? []
-        )
+        ) { period, date in
+            self.timelines[period]?.allContext[date: date]?.hasValue(
+                for: scoreSelectorViewModel.selectedScore
+            ) ?? false
+        }
         update()
     }
 }

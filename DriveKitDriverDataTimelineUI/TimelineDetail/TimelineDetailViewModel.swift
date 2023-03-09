@@ -127,7 +127,19 @@ extension TimelineDetailViewModel: DKPeriodSelectorDelegate {
                 from: selectedDate,
                 in: oldPeriod,
                 switchingAmongst: getTimelineSource(for: newPeriod).allContext.date
-            )
+            ) { period, date in
+                let timeline = getTimelineSource(for: period)
+                guard
+                    let selectedDateIndex = timeline.allContext.date.firstIndex(of: date)
+                else {
+                    return false
+                }
+                
+                return timeline.hasValidTripScored(
+                    for: selectedScore,
+                    at: selectedDateIndex
+                )
+            }
             updateViewModels()
             self.delegate?.didUpdate(selectedPeriod: selectedPeriod)
         }

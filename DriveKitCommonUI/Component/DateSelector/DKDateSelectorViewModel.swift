@@ -170,23 +170,11 @@ public class DKDateSelectorViewModel {
 }
 
 extension DKDateSelectorViewModel {
-    public struct PeriodDates {
-        public var dates: [Date]
-        public var period: DKPeriod
-        
-        public init(
-            dates: [Date] = [],
-            period: DKPeriod
-        ) {
-            self.dates = dates
-            self.period = period
-        }
-    }
-    
     public static func newSelectedDate(
         from selectedDate: Date,
         in currentPeriod: DKPeriod,
-        switchingAmongst nextPeriodDates: [Date]
+        switchingAmongst nextPeriodDates: [Date],
+        isValidDate: (DKPeriod, Date) -> Bool
     ) -> Date {
         let compareDate: Date?
         var newSelectedDate = selectedDate
@@ -205,7 +193,8 @@ extension DKDateSelectorViewModel {
             
             let newDate = dates.last { date in
                 let compareResult = date.calendar.compare(date, to: compareDate, toGranularity: .day)
-                return compareResult == .orderedAscending || compareResult == .orderedSame
+                return (compareResult == .orderedAscending || compareResult == .orderedSame)
+                    && isValidDate(currentPeriod, date)
             }
             if let newDate {
                 newSelectedDate = newDate

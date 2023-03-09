@@ -57,6 +57,11 @@ class MySynthesisViewController: DKUIViewController {
             embededIn: scoreViewContainer
         )
         
+        MySynthesisCommunityCardView.createCommunityCardView(
+            configuredWith: viewModel.communityCardViewModel,
+            embededIn: communityViewContainer
+        )
+        
         showDetailButton.isHidden = viewModel.shouldHideDetailButton
         showDetailButton.addTarget(self, action: #selector(showDetailButtonTapped), for: .touchUpInside)
         

@@ -210,7 +210,19 @@ class TimelineViewModel {
                 from: selectedDate,
                 in: oldPeriod,
                 switchingAmongst: getTimelineSource(for: selectedPeriod)?.allContext.date ?? []
-            )
+            ) { period, date in
+                guard
+                    let timeline = getTimelineSource(for: period),
+                    let selectedDateIndex = timeline.allContext.date.firstIndex(of: date)
+                else {
+                    return false
+                }
+                
+                return timeline.hasValidTripScored(
+                    for: scoreSelectorViewModel.selectedScore,
+                    at: selectedDateIndex
+                )
+            }
         }
         update()
     }

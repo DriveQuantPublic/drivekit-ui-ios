@@ -13,11 +13,11 @@ open class DKRoundedBarView: UIView {
 
     public func draw(items: [DKRoundedBarViewItem], rect: CGRect, cornerRadius: Double = 8, margin: Double = 0) {
         var drawnPercent: Double = 0
-        for i in 0..<items.count {
+        for item in items {
             let startX = rect.origin.x + drawnPercent * (rect.width - 2 * margin) + margin
-            let itemRect = CGRect(x: startX, y: rect.origin.y + margin, width: (rect.width - 2 * margin) * items[i].percent, height: rect.height - 2 * margin)
-            self.drawPartView(itemRect, color: items[i].color.cgColor, margin: margin)
-            drawnPercent += items[i].percent
+            let itemRect = CGRect(x: startX, y: rect.origin.y + margin, width: (rect.width - 2 * margin) * item.percent, height: rect.height - 2 * margin)
+            self.drawPartView(itemRect, color: item.color.cgColor)
+            drawnPercent += item.percent
         }
 
         let maskLayer = CAShapeLayer()
@@ -27,15 +27,8 @@ open class DKRoundedBarView: UIView {
         self.layer.mask = maskLayer
     }
 
-    private func drawPartView(_ rect: CGRect, color: CGColor, margin: Double = 0) {
-        let bezierPath = UIBezierPath()
-        let startPoint = rect.origin
-        let endPoint = CGPoint(x: rect.origin.x + rect.width, y: rect.origin.y + rect.height)
-        bezierPath.move(to: startPoint)
-        bezierPath.addLine(to: CGPoint(x: endPoint.x, y: startPoint.y))
-        bezierPath.addLine(to: CGPoint(x: endPoint.x, y: endPoint.y))
-        bezierPath.addLine(to: CGPoint(x: startPoint.x, y: endPoint.y))
-        bezierPath.addLine(to: CGPoint(x: startPoint.x, y: startPoint.y))
+    private func drawPartView(_ rect: CGRect, color: CGColor) {
+        let bezierPath = UIBezierPath(rect: rect)
         UIGraphicsGetCurrentContext()?.setFillColor(color)
         bezierPath.fill()
     }

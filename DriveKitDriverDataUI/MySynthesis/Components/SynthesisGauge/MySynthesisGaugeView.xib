@@ -129,23 +129,23 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iBv-Ag-Ebv">
-                    <rect key="frame" x="0.0" y="101" width="20" height="45"/>
+                    <rect key="frame" x="-5" y="101" width="30" height="45"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="40g-C4-yYL">
-                            <rect key="frame" x="4" y="16.666666666666671" width="12" height="12"/>
+                            <rect key="frame" x="9" y="16.666666666666671" width="12" height="12"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="12" id="05O-wI-UI6"/>
                                 <constraint firstAttribute="height" constant="12" id="kul-IO-hsq"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4k-vq-tgm">
-                            <rect key="frame" x="0.0" y="0.0" width="20" height="16.666666666666668"/>
+                            <rect key="frame" x="0.0" y="0.0" width="30" height="16.666666666666668"/>
                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mqp-8m-xw6">
-                            <rect key="frame" x="0.0" y="28.666666666666657" width="20" height="16.333333333333329"/>
+                            <rect key="frame" x="0.0" y="28.666666666666657" width="30" height="16.333333333333329"/>
                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -164,7 +164,7 @@
                         <constraint firstItem="mqp-8m-xw6" firstAttribute="leading" secondItem="iBv-Ag-Ebv" secondAttribute="leading" id="aBa-uf-yD6"/>
                         <constraint firstItem="F4k-vq-tgm" firstAttribute="leading" secondItem="iBv-Ag-Ebv" secondAttribute="leading" id="ac6-Fj-XMB"/>
                         <constraint firstItem="40g-C4-yYL" firstAttribute="top" secondItem="F4k-vq-tgm" secondAttribute="bottom" id="gNI-YN-XOC"/>
-                        <constraint firstAttribute="width" constant="20" id="xe0-8v-w8F"/>
+                        <constraint firstAttribute="width" constant="30" id="xe0-8v-w8F"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1sW-Jw-LtM">
@@ -207,23 +207,23 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J6g-Ip-TlO">
-                    <rect key="frame" x="200" y="101" width="20" height="45"/>
+                    <rect key="frame" x="195" y="101" width="30" height="45"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b1m-ii-0bF">
-                            <rect key="frame" x="4" y="16.666666666666671" width="12" height="12"/>
+                            <rect key="frame" x="9" y="16.666666666666671" width="12" height="12"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="12" id="aIj-OQ-1Ez"/>
                                 <constraint firstAttribute="height" constant="12" id="g3c-XM-vaC"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MiR-yj-ZPe">
-                            <rect key="frame" x="0.0" y="0.0" width="20" height="16.666666666666668"/>
+                            <rect key="frame" x="0.0" y="0.0" width="30" height="16.666666666666668"/>
                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="max" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mjj-ND-cWE">
-                            <rect key="frame" x="0.0" y="28.666666666666657" width="20" height="16.333333333333329"/>
+                            <rect key="frame" x="0.0" y="28.666666666666657" width="30" height="16.333333333333329"/>
                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -235,7 +235,7 @@
                         <constraint firstItem="MiR-yj-ZPe" firstAttribute="leading" secondItem="J6g-Ip-TlO" secondAttribute="leading" id="CBc-nX-pWh"/>
                         <constraint firstItem="b1m-ii-0bF" firstAttribute="top" secondItem="MiR-yj-ZPe" secondAttribute="bottom" id="CTh-a3-sNR"/>
                         <constraint firstItem="b1m-ii-0bF" firstAttribute="centerY" secondItem="J6g-Ip-TlO" secondAttribute="centerY" id="Gtw-4l-1Zf"/>
-                        <constraint firstAttribute="width" constant="20" id="Mvr-G0-4U3"/>
+                        <constraint firstAttribute="width" constant="30" id="Mvr-G0-4U3"/>
                         <constraint firstItem="mjj-ND-cWE" firstAttribute="top" secondItem="b1m-ii-0bF" secondAttribute="bottom" id="Tmo-02-pZ8"/>
                         <constraint firstItem="b1m-ii-0bF" firstAttribute="centerX" secondItem="J6g-Ip-TlO" secondAttribute="centerX" id="Z6j-8i-eqm"/>
                         <constraint firstAttribute="trailing" secondItem="MiR-yj-ZPe" secondAttribute="trailing" id="cQQ-1l-P2l"/>
@@ -246,7 +246,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pck-fv-hyL" customClass="SynthesisLevelButton" customModule="DriveKitDriverDataUI" customModuleProvider="target">
-                    <rect key="frame" x="-58.333333333333336" y="3" width="136.66666666666663" height="27"/>
+                    <rect key="frame" x="-58.333333333333336" y="3" width="136.66666666666666" height="27"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="27" id="LvM-af-oB9"/>
                     </constraints>

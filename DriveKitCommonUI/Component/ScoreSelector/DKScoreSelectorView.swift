@@ -10,6 +10,7 @@ import DriveKitCoreModule
 import UIKit
 
 public class DKScoreSelectorView: UIStackView {
+    private let selectorViewHeight = 64.0
     public private(set) var viewModel: DKScoreSelectorViewModel
     private var scoreSelectionButtons: [DKScoreType: ScoreSelectionTypeView] = [:]
 
@@ -43,6 +44,10 @@ public class DKScoreSelectorView: UIStackView {
             )
             self.addArrangedSubview(scoreSelectionButton)
         }
+        self.isHidden = viewModel.shouldHideScoreSelectorView
+        self.heightAnchor.constraint(
+            equalToConstant: viewModel.shouldHideScoreSelectorView ? 0 : selectorViewHeight
+        ).isActive = true
     }
     
     @objc func onScoreSelectionTypeViewSelected(_ sender: ScoreSelectionTypeView) {
@@ -63,7 +68,6 @@ extension DKScoreSelectorView {
         embededIn containerView: UIView
     ) {
         let scoreSelector = DKScoreSelectorView(viewModel: viewModel)
-        scoreSelector.isHidden = viewModel.shouldHideScoreSelectorView
         containerView.embedSubview(scoreSelector)
     }
 }

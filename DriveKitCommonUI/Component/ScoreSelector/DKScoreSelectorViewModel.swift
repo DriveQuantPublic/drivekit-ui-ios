@@ -21,6 +21,7 @@ public class DKScoreSelectorViewModel {
         }
         set {
             self.internalScores = newValue
+            self.selectedScore = self.internalScores.first ?? .safety
         }
     }
     public private(set) var selectedScore: DKScoreType = .safety

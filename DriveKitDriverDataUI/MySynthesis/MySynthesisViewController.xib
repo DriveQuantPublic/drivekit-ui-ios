@@ -32,7 +32,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yUu-rM-5eU" userLabel="Score selector">
                             <rect key="frame" x="0.0" y="0.0" width="393" height="64"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="64" id="M3A-oN-zMv"/>
+                                <constraint firstAttribute="height" constant="64" placeholder="YES" id="M3A-oN-zMv"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nYH-LR-AQm" userLabel="Period selector">

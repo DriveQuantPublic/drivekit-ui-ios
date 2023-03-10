@@ -245,13 +245,14 @@
                         <constraint firstItem="MiR-yj-ZPe" firstAttribute="top" secondItem="J6g-Ip-TlO" secondAttribute="top" id="ydv-zc-2yr"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pck-fv-hyL">
-                    <rect key="frame" x="-60" y="3" width="140" height="27"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pck-fv-hyL" customClass="SynthesisLevelButton" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+                    <rect key="frame" x="-58.333333333333336" y="3" width="136.66666666666663" height="27"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="27" id="LvM-af-oB9"/>
                     </constraints>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="0.0"/>
-                    <buttonConfiguration key="configuration" style="plain" image="dk_common_info" imagePlacement="trailing" title="LevelButton" imagePadding="3">
+                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
+                    <state key="normal" title="LevelButton" image="dk_common_info"/>
+                    <buttonConfiguration key="configuration" style="plain" image="dk_common_info" title="LevelButton">
                         <fontDescription key="titleFontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                     </buttonConfiguration>
                     <connections>

@@ -62,10 +62,6 @@ class MySynthesisGaugeView: UIView {
                       step7Label, step8Label] {
             label?.textColor = DKUIColors.primaryColor.color
         }
-        levelButton.setImage(
-            DKImages.info.image?
-                .resizeImage(20, opaque: false).withRenderingMode(.alwaysTemplate)
-                .tintedImage(withColor: DKUIColors.secondaryColor.color), for: .normal)
         minTitleLabel.text = "dk_driverdata_mysynthesis_minimum".dkDriverDataLocalized()
         maxTitleLabel.text = "dk_driverdata_mysynthesis_maximum".dkDriverDataLocalized()
         meanTitleLabel.text = "dk_driverdata_mysynthesis_average".dkDriverDataLocalized()
@@ -203,5 +199,62 @@ class SynthesisGaugeBarView: DKRoundedBarView {
     func configure(viewModel: MySynthesisGaugeViewModel) {
         self.viewModel = viewModel
         self.setNeedsDisplay()
+    }
+}
+
+class SynthesisLevelButton: UIButton {
+    let verticalPadding: CGFloat = 5
+    let horizontalEdgePadding: CGFloat = 8
+    let horizontalSpacePadding: CGFloat = 3
+    let imageWidth: CGFloat = 15
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.setImage(
+            DKImages.info.image?
+                .resizeImage(15, opaque: false).withRenderingMode(.alwaysTemplate)
+                .tintedImage(withColor: DKUIColors.secondaryColor.color), for: .normal)
+        self.setImage(
+            DKImages.info.image?
+                .resizeImage(15, opaque: false).withRenderingMode(.alwaysTemplate)
+                .tintedImage(withColor: DKUIColors.secondaryColor.color), for: .highlighted)
+        if #available(iOS 15.0, *) {
+            self.configuration?.imagePadding = horizontalSpacePadding
+            self.configuration?.imagePlacement = .trailing
+        }
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        guard imageView != nil else {
+            return
+        }
+        if #unavailable(iOS 15.0) {
+            imageEdgeInsets = UIEdgeInsets(
+                top: verticalPadding,
+                left: (bounds.width - horizontalEdgePadding - imageWidth),
+                bottom: verticalPadding,
+                right: horizontalEdgePadding
+            )
+            titleEdgeInsets = UIEdgeInsets(
+                top: verticalPadding,
+                left: horizontalEdgePadding - imageWidth,
+                bottom: verticalPadding,
+                right: horizontalEdgePadding + imageWidth + horizontalSpacePadding )
+            invalidateIntrinsicContentSize()
+        }
+
+    }
+
+    override var intrinsicContentSize: CGSize {
+        if #unavailable(iOS 15.0) {
+            let labelSize = titleLabel?.sizeThatFits(CGSize(width: frame.size.width, height: CGFloat.greatestFiniteMagnitude)) ?? .zero
+            let desiredButtonSize = CGSize(
+                width: labelSize.width + titleEdgeInsets.left + titleEdgeInsets.right + imageWidth + horizontalSpacePadding,
+                height: labelSize.height + titleEdgeInsets.top + titleEdgeInsets.bottom
+            )
+            return desiredButtonSize
+        } else {
+            return super.intrinsicContentSize
+        }
     }
 }

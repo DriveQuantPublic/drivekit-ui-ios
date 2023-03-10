@@ -112,8 +112,8 @@
 "dk_driverdata_mysynthesis_very_bad_score"="Din score er meget dårlig";
 "dk_driverdata_mysynthesis_very_good_score"="Din score er meget god";
 "dk_driverdata_mysynthesis_you_are_average"="Du befinder dig i den gennemsnitlige";
-"dk_driverdata_mysynthesis_you_are_best"="Du er bedre end %@% af brugerne";
-"dk_driverdata_mysynthesis_you_are_lower"="%@% af brugerne er bedre end dig";
+"dk_driverdata_mysynthesis_you_are_best"="Du er bedre end %@ af brugerne";
+"dk_driverdata_mysynthesis_you_are_lower"="%@ af brugerne er bedre end dig";
 "dk_driverdata_night"="Natkørsel";
 "dk_driverdata_no_call_congrats"="Tillykke!";
 "dk_driverdata_no_call_content"="Ingen opkald";

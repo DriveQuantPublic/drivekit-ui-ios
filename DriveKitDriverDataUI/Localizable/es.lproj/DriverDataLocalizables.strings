@@ -112,8 +112,8 @@
 "dk_driverdata_mysynthesis_very_bad_score"="Su puntuación es muy mala";
 "dk_driverdata_mysynthesis_very_good_score"="Su puntuación es muy buena";
 "dk_driverdata_mysynthesis_you_are_average"="Usted se encuentra en la media";
-"dk_driverdata_mysynthesis_you_are_best"="Eres mejor que el %@% de los usuarios";
-"dk_driverdata_mysynthesis_you_are_lower"="%@% de los usuarios son mejores que tú";
+"dk_driverdata_mysynthesis_you_are_best"="Eres mejor que el %@ de los usuarios";
+"dk_driverdata_mysynthesis_you_are_lower"="%@ de los usuarios son mejores que tú";
 "dk_driverdata_night"="Excursión nocturna";
 "dk_driverdata_no_call_congrats"="¡Felicitación!";
 "dk_driverdata_no_call_content"="Sin llamadas";

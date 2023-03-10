@@ -49,7 +49,7 @@
 "dk_driverdata_mysynthesis_bad_score"="Your score is bad";
 "dk_driverdata_mysynthesis_can_not_be_evaluated"="You can not be evaluated";
 "dk_driverdata_mysynthesis_distraction_level_average"="Your score is in the average range but you can do much better! Stop touching your phone while driving to stay as focused as possible on what\'s happening on the road 👀.";
-"dk_driverdata_mysynthesis_distraction_level_bad"="Savez-vous que l\'utilisation du téléphone au volant accroit votre risque d\'accident ? Soyez prudent et restez concentré sur la conduite !";
+"dk_driverdata_mysynthesis_distraction_level_bad"="Did you know that using a phone while driving increases your risk of an accident? Be careful and stay focused on driving!";
 "dk_driverdata_mysynthesis_distraction_level_excellent"="Nice job you never use your phone while driving. You are an outstanding driver 🏆 !";
 "dk_driverdata_mysynthesis_distraction_level_good"="You rarely use your phone while driving, but you could drive without it completely. Come on, just a little more effort 💪";
 "dk_driverdata_mysynthesis_distraction_level_low"="Your score is under the average. The good news is that you have a nice progression margin, take advantage of it!";
@@ -112,8 +112,8 @@
 "dk_driverdata_mysynthesis_very_bad_score"="Your score is very bad";
 "dk_driverdata_mysynthesis_very_good_score"="Your score is very good";
 "dk_driverdata_mysynthesis_you_are_average"="You are in the average";
-"dk_driverdata_mysynthesis_you_are_best"="You are better than %@% of users";
-"dk_driverdata_mysynthesis_you_are_lower"="%@% of users are better than you";
+"dk_driverdata_mysynthesis_you_are_best"="You are better than %@ of users";
+"dk_driverdata_mysynthesis_you_are_lower"="%@ of users are better than you";
 "dk_driverdata_night"="Night trip";
 "dk_driverdata_no_call_congrats"="Congratulations!";
 "dk_driverdata_no_call_content"="No calls";

@@ -57,7 +57,7 @@
 "dk_driverdata_mysynthesis_distraction_level_very_good"="Votre score est très bon, continuez ainsi et vous rejoindrez les conducteurs qui ne manipulent jamais leur téléphone au volant !";
 "dk_driverdata_mysynthesis_distraction_score"="Mon score de distraction";
 "dk_driverdata_mysynthesis_distraction_score_info"="Le score de distraction varie entre 0 et 10. Votre score définit votre niveau qui est représenté sur une échelle de couleurs.";
-"dk_driverdata_mysynthesis_drivers"="Conducteurs";
+"dk_driverdata_mysynthesis_drivers"="conducteurs";
 "dk_driverdata_mysynthesis_ecodriving_level_average"="Votre score est dans la moyenne mais vous pouvez progresser ! Mettez en pratique les conseils reçus à la fin de vos trajets pour réduire votre consommation.";
 "dk_driverdata_mysynthesis_ecodriving_level_bad"="Votre score est inférieur à la moyenne des utilisateurs et vous avez tendance a sur-consommer. Essayez l\'éco-conduite pour économiser du carburant.";
 "dk_driverdata_mysynthesis_ecodriving_level_excellent"="Bravo, vous êtes au top de l\'éco-conduite! La planète vous dit merci 🌎";
@@ -112,8 +112,8 @@
 "dk_driverdata_mysynthesis_very_bad_score"="Votre score est très mauvais";
 "dk_driverdata_mysynthesis_very_good_score"="Votre score est très bon";
 "dk_driverdata_mysynthesis_you_are_average"="Vous êtes dans la moyenne";
-"dk_driverdata_mysynthesis_you_are_best"="Vous êtes meilleurs que %@% des utilisateurs";
-"dk_driverdata_mysynthesis_you_are_lower"="%@% des utilisateurs sont meilleurs que vous";
+"dk_driverdata_mysynthesis_you_are_best"="Vous êtes meilleur que %@ des utilisateurs";
+"dk_driverdata_mysynthesis_you_are_lower"="%@ des utilisateurs sont meilleurs que vous";
 "dk_driverdata_night"="Trajet de nuit";
 "dk_driverdata_no_call_congrats"="Félicitations !";
 "dk_driverdata_no_call_content"="Aucun appel";

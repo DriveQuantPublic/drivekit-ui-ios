@@ -113,8 +113,8 @@ State guidando in modo sicuro, ma potete migliorare. Basta un po\' di impegno in
 "dk_driverdata_mysynthesis_very_bad_score"="Il vostro punteggio è molto negativo";
 "dk_driverdata_mysynthesis_very_good_score"="Il vostro punteggio è molto buono";
 "dk_driverdata_mysynthesis_you_are_average"="Siete nella media";
-"dk_driverdata_mysynthesis_you_are_best"="Siete migliori dell\'%@% degli utenti";
-"dk_driverdata_mysynthesis_you_are_lower"="L\'%@% degli utenti è migliore di te";
+"dk_driverdata_mysynthesis_you_are_best"="Siete migliori dell\'%@ degli utenti";
+"dk_driverdata_mysynthesis_you_are_lower"="L\'%@ degli utenti è migliore di te";
 "dk_driverdata_night"="Viaggio notturno";
 "dk_driverdata_no_call_congrats"="Congratulazione!";
 "dk_driverdata_no_call_content"="Nessuna chiamata";

@@ -187,9 +187,6 @@ extension MySynthesisGaugeView {
         )?.first as? MySynthesisGaugeView else {
             preconditionFailure("Can't find bundle or nib for MySynthesisGaugeView")
         }
-
-        containerView.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
-        containerView.clipsToBounds = true
         containerView.embedSubview(synthesisGaugeView)
         return synthesisGaugeView
     }

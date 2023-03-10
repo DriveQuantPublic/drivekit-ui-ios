@@ -60,26 +60,18 @@ public enum DKScoreTypeLevel: CaseIterable {
     }
 
     public static func getLevel(for score: Double, scoreType: DKScoreType) -> DKScoreTypeLevel {
-        let steps = scoreType.getSteps()
-        let expectedLevelsCount = 8
-        guard steps.count == expectedLevelsCount else {
-            return .veryBad
+        guard
+            let level = Self.allCases.filter({
+                $0.scoreLevels(for: scoreType).contains(score)
+            }).first
+        else {
+            if score < Self.veryBad.scoreLevels(for: scoreType).lowerBound {
+                return .veryBad
+            } else {
+                return .excellent
+            }
         }
-        if score < steps[1] {
-            return .veryBad
-        } else if score < steps[2] {
-            return .bad
-        } else if score < steps[3] {
-            return .notGood
-        } else if score < steps[4] {
-            return .medium
-        } else if score < steps[5] {
-            return .great
-        } else if score < steps[6] {
-            return .veryGood
-        } else {
-            return .excellent
-        }
+        return level
     }
 }
 

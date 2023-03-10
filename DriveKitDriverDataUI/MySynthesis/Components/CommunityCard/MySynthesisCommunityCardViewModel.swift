@@ -67,9 +67,8 @@ public class MySynthesisCommunityCardViewModel {
     }
     
     public var userCommunityStatsItemViewModel: CommunityStatsItemViewModel {
-        #warning("Fix color")
         return .init(
-            legendColor: .backgroundView,
+            legendColor: .white,
             legendTitle: "dk_driverdata_mysynthesis_my_community".dkDriverDataLocalized(),
             tripCount: communityStatistics?.tripNumber,
             distanceCount: communityStatistics?.distance,
@@ -78,9 +77,8 @@ public class MySynthesisCommunityCardViewModel {
     }
     
     public var userStatsItemViewModel: CommunityStatsItemViewModel {
-        #warning("Fix color")
         return .init(
-            legendColor: .primaryColor,
+            legendColor: MySynthesisConstants.defaultColor,
             legendTitle: "dk_driverdata_mysynthesis_me".dkDriverDataLocalized(),
             tripCount: userTripCount,
             distanceCount: userDistanceCount

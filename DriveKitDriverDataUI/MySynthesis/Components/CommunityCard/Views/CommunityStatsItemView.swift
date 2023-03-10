@@ -10,7 +10,7 @@ import DriveKitCommonUI
 import UIKit
 
 class CommunityStatsItemView: UIStackView {
-    @IBOutlet weak var circleView: UIView!
+    @IBOutlet weak var circleView: UIImageView!
     @IBOutlet weak var legendLabel: UILabel!
     @IBOutlet weak var tripCountLabel: UILabel!
     @IBOutlet weak var distanceCountLabel: UILabel!
@@ -24,13 +24,7 @@ class CommunityStatsItemView: UIStackView {
     }
     
     func setupView() {
-        let borderWidth: CGFloat = 2
-        let half = 2.0
-        circleView.layer.borderWidth = borderWidth
-        #warning("Fix color")
-        circleView.layer.borderColor = DKUIColors.primaryColor.color.cgColor
-        circleView.layer.cornerRadius = circleView.bounds.height / half
-        circleView.clipsToBounds = true
+        circleView.backgroundColor = .clear
         legendLabel.textColor = DKUIColors.mainFontColor.color
         legendLabel.font = DKStyles.smallText.style.applyTo(font: .primary)
         self.refreshView()
@@ -41,7 +35,10 @@ class CommunityStatsItemView: UIStackView {
             return
         }
         
-        circleView.backgroundColor = viewModel.legendColor.color
+        circleView.image = MySynthesisConstants.circleIcon(
+            diameter: circleView.bounds.height,
+            insideColor: viewModel.legendColor
+        )
         legendLabel.text = viewModel.legendTitle
         tripCountLabel.attributedText = viewModel.tripCountText
         distanceCountLabel.attributedText = viewModel.distanceCountText

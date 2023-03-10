@@ -35,8 +35,9 @@ class MySynthesisGaugeViewModel {
 
     func getBarItemsToDraw() -> [DKRoundedBarViewItem] {
         var barViewItems: [DKRoundedBarViewItem] = []
-        let max = DKScoreTypeLevel.excellent.scoreLevels(for: scoreType).upperBound
-        let min = DKScoreTypeLevel.veryBad.scoreLevels(for: scoreType).lowerBound
+        let fullScoreLevelRange = DKScoreTypeLevel.fullScoreLevelRange(for: scoreType)
+        let max = fullScoreLevelRange.upperBound
+        let min = fullScoreLevelRange.lowerBound
         for scoreLevel in DKScoreTypeLevel.allCases {
             let levelRange = scoreLevel.scoreLevels(for: scoreType)
             let percent = (levelRange.upperBound - levelRange.lowerBound) / (max - min)
@@ -47,13 +48,9 @@ class MySynthesisGaugeViewModel {
     }
 
     func offsetPercent(forScore  score: Double, gaugeWidth: Double = 1) -> Double {
-        let steps = self.scoreType.getSteps()
-
-        guard !steps.isEmpty else {
-            return 0
-        }
-        let max = steps.last!
-        let min = steps.first!
+        let fullScoreLevelRange = DKScoreTypeLevel.fullScoreLevelRange(for: scoreType)
+        let max = fullScoreLevelRange.upperBound
+        let min = fullScoreLevelRange.lowerBound
 
         let offset = gaugeWidth * (score - min) / (max - min)
         return offset
@@ -99,5 +96,13 @@ class MySynthesisGaugeViewModel {
         }
         // swiftlint:enable no_magic_numbers
         return offset
+    }
+}
+
+extension DKScoreTypeLevel {
+    public static func fullScoreLevelRange(for scoreType: DKScoreType) -> ClosedRange<Double> {
+        let max = DKScoreTypeLevel.excellent.scoreLevels(for: scoreType).upperBound
+        let min = DKScoreTypeLevel.veryBad.scoreLevels(for: scoreType).lowerBound
+        return min...max
     }
 }

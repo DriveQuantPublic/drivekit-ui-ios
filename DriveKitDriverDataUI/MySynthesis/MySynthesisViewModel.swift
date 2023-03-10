@@ -123,13 +123,16 @@ class MySynthesisViewModel {
 
         self.selectedDate = self.dateSelectorViewModel.selectedDate
         if
-            let selectedDateIndex,
+            let selectedDate,
             let scoreSynthesis = currentTimeline.driverScoreSynthesis(
-            for: scoreSelectorViewModel.selectedScore,
-            at: dateSelectorViewModel.selectedDate
+                for: scoreSelectorViewModel.selectedScore,
+                at: dateSelectorViewModel.selectedDate
         ) {
-            let previousPeriodContext = currentTimeline.allContext[safe: selectedDateIndex - 1]
-            let currentPeriodContext = currentTimeline.allContext[safe: selectedDateIndex]
+            let previousPeriodContext = currentTimeline.allContext.previousValidItem(
+                from: selectedDate,
+                scoreType: scoreSynthesis.scoreType
+            )
+            let currentPeriodContext = currentTimeline.allContext[date: selectedDate]
             self.scoreCardViewModel.configure(
                 with: scoreSynthesis,
                 period: periodSelectorViewModel.selectedPeriod,
@@ -189,7 +192,8 @@ class MySynthesisViewModel {
         self.selectedDate = DKDateSelectorViewModel.newSelectedDate(
             from: self.dateSelectorViewModel.selectedDate,
             in: oldPeriod,
-            switchingAmongst: self.timelines[selectedPeriod]?.allDates ?? []
+            switchingAmongst: self.timelines[selectedPeriod]?.allDates ?? [],
+            in: selectedPeriod
         ) { period, date in
             self.timelines[period]?.allContext[date: date]?.hasValue(
                 for: scoreSelectorViewModel.selectedScore

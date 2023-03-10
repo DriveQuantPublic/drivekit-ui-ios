@@ -126,7 +126,8 @@ extension TimelineDetailViewModel: DKPeriodSelectorDelegate {
             self.selectedDate = DKDateSelectorViewModel.newSelectedDate(
                 from: selectedDate,
                 in: oldPeriod,
-                switchingAmongst: getTimelineSource(for: newPeriod).allContext.date
+                switchingAmongst: getTimelineSource(for: newPeriod).allContext.date,
+                in: selectedPeriod
             ) { period, date in
                 let timeline = getTimelineSource(for: period)
                 guard

@@ -37,7 +37,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z75-HZ-iax" userLabel="Score selector">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="64"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="64" id="gdB-z9-hyc"/>
+                                                <constraint firstAttribute="height" constant="64" placeholder="YES" id="gdB-z9-hyc"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="so8-sZ-4wK" userLabel="Period selector">

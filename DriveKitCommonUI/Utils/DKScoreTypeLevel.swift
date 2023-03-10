@@ -58,6 +58,21 @@ public enum DKScoreTypeLevel: CaseIterable {
         }
         // swiftlint:enable no_magic_numbers
     }
+
+    public static func getLevel(for score: Double, scoreType: DKScoreType) -> DKScoreTypeLevel {
+        guard
+            let level = Self.allCases.filter({
+                $0.scoreLevels(for: scoreType).contains(score)
+            }).first
+        else {
+            if score < Self.veryBad.scoreLevels(for: scoreType).lowerBound {
+                return .veryBad
+            } else {
+                return .excellent
+            }
+        }
+        return level
+    }
 }
 
 public protocol BoundedRangeExpression<Bound>: RangeExpression {

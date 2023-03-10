@@ -13,6 +13,12 @@ import UIKit
 @objc public class DriveKitDriverDataTimelineUI: NSObject {
     @objc public static let shared = DriveKitDriverDataTimelineUI()
 
+    @available(*, deprecated, message: "You should use DriveKitUI.shared.scores now")
+    public var scores: [DKScoreType] {
+        set { DriveKitUI.shared.scores = newValue }
+        get { DriveKitUI.shared.scores }
+    }
+    
     public func initialize() {
         DriveKitNavigationController.shared.driverDataTimelineUI = self
     }
@@ -21,6 +27,7 @@ import UIKit
 extension DriveKitDriverDataTimelineUI: DriveKitDriverDataTimelineUIEntryPoint {
     public func getTimelineViewController() -> UIViewController {
         let viewModel = TimelineViewModel()
+        viewModel.scoreSelectorViewModel.scores = DriveKitUI.shared.scores
         return TimelineViewController(viewModel: viewModel)
     }
 }

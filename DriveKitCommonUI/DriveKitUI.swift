@@ -7,6 +7,7 @@
 //  Copyright © 2020 DriveQuant. All rights reserved.
 //
 
+import DriveKitCoreModule
 import UIKit
 
 @objc public class DriveKitUI: NSObject {
@@ -19,6 +20,22 @@ import UIKit
     @objc public private(set) var analytics: DKAnalytics?
     private var tagKeyFromScreen: [String: String]
     private var tagFromKey: [String: String]
+    
+    private var internalScores: [DKScoreType] = [.safety, .ecoDriving, .distraction, .speeding]
+    public var scores: [DKScoreType] {
+        set {
+            if newValue.isEmpty {
+                self.internalScores = [.safety]
+            } else {
+                self.internalScores = newValue
+            }
+        }
+        get {
+            self.internalScores.filter { score in
+                score.hasAccess()
+            }
+        }
+    }
 
     private override init() {
         var tagKeyFromScreen = [String: String]()

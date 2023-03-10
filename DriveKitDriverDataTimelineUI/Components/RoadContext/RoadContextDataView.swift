@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  RoadContextDataView.swift
 //  DriveKitDriverDataTimelineUI
@@ -35,9 +34,10 @@ class RoadContextDataView: UIView {
             self.titleLabel.text = viewModel.title
             self.roadContextBarView.configure(viewModel: viewModel)
         }
+        let inHalf = 0.5
         self.collectionViewHeightConstraint.constant =
          RoadContextDataView.collectionViewCellHeight *
-        CGFloat(Int(ceil(Double(viewModel?.getActiveContextNumber() ?? 1) / 2.0)))
+        CGFloat(Int(ceil(Double(viewModel?.getActiveContextNumber() ?? 1) * inHalf)))
         self.itemsCollectionView.reloadData()
     }
 
@@ -66,7 +66,8 @@ extension RoadContextDataView: UICollectionViewDataSource {
 }
 extension RoadContextDataView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width / 2, height: RoadContextDataView.collectionViewCellHeight)
+        let inHalf = 0.5
+        return CGSize(width: collectionView.bounds.width * inHalf, height: RoadContextDataView.collectionViewCellHeight)
     }
 }
 extension RoadContextDataView: RoadContextViewModelDelegate {
@@ -75,61 +76,18 @@ extension RoadContextDataView: RoadContextViewModelDelegate {
     }
 }
 
-class RoadContextBarView: UIView {
-    static private let radius: Double = 8
-    static private let margin: Double = 0
+class RoadContextBarView: DKRoundedBarView {
     private var viewModel: RoadContextViewModel?
 
     override func draw(_ rect: CGRect) {
-        guard let itemsToDraw = viewModel?.itemsToDraw, itemsToDraw.count > 0 else {
+        guard let itemsToDraw = viewModel?.itemsToDraw, !itemsToDraw.isEmpty else {
             return
         }
-        var drawnPercent: Double = 0
-        for i in 0..<itemsToDraw.count {
-            let roundedStart: Bool = (i == 0)
-            let roundedEnd: Bool = (i == itemsToDraw.count - 1)
-            let startX = drawnPercent * (rect.width - 2 * RoadContextBarView.margin) + RoadContextBarView.margin
-            let itemRect = CGRect(x: startX, y: RoadContextBarView.margin, width: (rect.width - 2 * RoadContextBarView.margin) * itemsToDraw[i].percent, height: rect.height - 2 * RoadContextBarView.margin)
-            self.drawPartView(itemRect, color: RoadContextViewModel.getRoadContextColor(itemsToDraw[i].context).cgColor, roundedStart: roundedStart, roundedEnd: roundedEnd)
-            drawnPercent = drawnPercent + itemsToDraw[i].percent
+        var barViewItems: [DKRoundedBarViewItem] = []
+        for item in itemsToDraw {
+            barViewItems.append(DKRoundedBarViewItem(percent: item.percent, color: RoadContextViewModel.getRoadContextColor(item.context)))
         }
-
-        let maskLayer = CAShapeLayer()
-        let path = CGMutablePath()
-        path.addPath(UIBezierPath(roundedRect: rect, cornerRadius: RoadContextBarView.radius).cgPath)
-        maskLayer.path = path
-        self.layer.mask = maskLayer
-    }
-
-    private func drawPartView(_ rect: CGRect, color: CGColor, roundedStart: Bool = false, roundedEnd: Bool = false) {
-        let bezierPath = UIBezierPath()
-        let startPoint = rect.origin
-        let endPoint = CGPoint(x: rect.origin.x + rect.width, y: rect.origin.y + rect.height)
-        if roundedStart {
-            bezierPath.addArc(withCenter: CGPoint(x: startPoint.x + RoadContextBarView.radius, y: startPoint.y + RoadContextBarView.radius), radius: RoadContextBarView.radius, startAngle: .pi, endAngle: .pi * 3 / 2, clockwise: true)
-        } else {
-            bezierPath.move(to: startPoint)
-        }
-        if roundedEnd {
-            bezierPath.addLine(to: CGPoint(x: endPoint.x - RoadContextBarView.radius, y: startPoint.y))
-            bezierPath.addArc(withCenter: CGPoint(x: endPoint.x - RoadContextBarView.radius, y: startPoint.y + RoadContextBarView.radius), radius: RoadContextBarView.radius, startAngle: .pi * 3 / 2, endAngle: .pi * 2, clockwise: true)
-            bezierPath.addLine(to: CGPoint(x: endPoint.x, y: endPoint.y - RoadContextBarView.radius))
-            bezierPath.addArc(withCenter: CGPoint(x: endPoint.x - RoadContextBarView.radius, y: endPoint.y - RoadContextBarView.radius), radius: RoadContextBarView.radius, startAngle: 0, endAngle: .pi / 2, clockwise: true)
-        } else {
-            bezierPath.addLine(to: CGPoint(x: endPoint.x, y: startPoint.y))
-            bezierPath.addLine(to: CGPoint(x: endPoint.x, y: endPoint.y))
-        }
-        if roundedStart {
-            bezierPath.addLine(to: CGPoint(x: startPoint.x + RoadContextBarView.radius, y: endPoint.y))
-            bezierPath.addLine(to: CGPoint(x: startPoint.x + RoadContextBarView.radius, y: endPoint.y))
-            bezierPath.addArc(withCenter: CGPoint(x: startPoint.x + RoadContextBarView.radius, y: endPoint.y - RoadContextBarView.radius), radius: RoadContextBarView.radius, startAngle: .pi / 2, endAngle: .pi, clockwise: true)
-            bezierPath.addLine(to: CGPoint(x: startPoint.x, y: startPoint.y - RoadContextBarView.radius))
-        } else {
-            bezierPath.addLine(to: CGPoint(x: startPoint.x, y: endPoint.y))
-            bezierPath.addLine(to: CGPoint(x: startPoint.x, y: startPoint.y))
-        }
-        UIGraphicsGetCurrentContext()?.setFillColor(color)
-        bezierPath.fill()
+        draw(items: barViewItems, rect: rect)
     }
 
     func configure(viewModel: RoadContextViewModel) {

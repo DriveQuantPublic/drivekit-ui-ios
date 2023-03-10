@@ -129,6 +129,7 @@ extension DriveKitDriverDataUI: DriveKitDriverDataUIEntryPoint {
     
     public func getMySynthesisViewController() -> UIViewController {
         let viewModel = MySynthesisViewModel()
+        viewModel.scoreSelectorViewModel.scores = DriveKitUI.shared.scores
         return MySynthesisViewController(viewModel: viewModel)
     }
 }

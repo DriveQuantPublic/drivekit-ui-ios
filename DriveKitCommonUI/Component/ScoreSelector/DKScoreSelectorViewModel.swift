@@ -14,8 +14,14 @@ public class DKScoreSelectorViewModel {
     public weak var delegate: DKScoreSelectorDelegate?
     private var internalScores: [DKScoreType] = [.safety, .ecoDriving, .distraction, .speeding]
     public var scores: [DKScoreType] {
-        self.internalScores.filter { score in
-            score.hasAccess()
+        get {
+            self.internalScores.filter { score in
+                score.hasAccess()
+            }
+        }
+        set {
+            self.internalScores = newValue
+            self.selectedScore = self.internalScores.first ?? .safety
         }
     }
     public private(set) var selectedScore: DKScoreType = .safety

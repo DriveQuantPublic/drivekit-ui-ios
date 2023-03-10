@@ -14,17 +14,22 @@
         <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GKu-dl-Gyh" customClass="CommunityStatsItemView" customModule="DriveKitDriverDataUI" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="160" height="90"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rTA-NH-XCS" userLabel="Circle View">
-                    <rect key="frame" x="0.0" y="0.0" width="12" height="12"/>
-                    <viewLayoutGuide key="safeArea" id="3z0-Yp-opS"/>
-                    <color key="backgroundColor" systemColor="systemBlueColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="12" id="LZP-gn-y2P"/>
-                        <constraint firstAttribute="width" constant="12" id="bAe-Bb-AWw"/>
-                    </constraints>
-                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="M7c-UM-oo7" userLabel="Circle Padding View">
+                    <rect key="frame" x="0.0" y="0.0" width="13" height="15"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Ka-rO-YTT" userLabel="Circle View">
+                            <rect key="frame" x="0.0" y="1" width="14" height="14"/>
+                            <color key="backgroundColor" systemColor="systemBlueColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="14" id="PJM-oO-WrA"/>
+                                <constraint firstAttribute="width" constant="14" id="cfo-Mp-Hhm"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <edgeInsets key="layoutMargins" top="1" left="0.0" bottom="0.0" right="-1"/>
+                </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="X8D-C9-UAh" userLabel="Legend Stack View">
-                    <rect key="frame" x="20" y="0.0" width="140" height="90"/>
+                    <rect key="frame" x="21" y="0.0" width="139" height="90"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Tq-WV-Vas" userLabel="Legend Label">
                             <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="6"/>
@@ -62,7 +67,7 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="F1D-GG-ToA"/>
             <connections>
-                <outlet property="circleView" destination="rTA-NH-XCS" id="PLS-lE-N6k"/>
+                <outlet property="circleView" destination="6Ka-rO-YTT" id="Kxf-kh-dLn"/>
                 <outlet property="distanceCountLabel" destination="pEu-uT-hNu" id="ezN-hn-R1W"/>
                 <outlet property="driverCountLabel" destination="Prn-l5-HJa" id="GxY-Gp-zOY"/>
                 <outlet property="legendLabel" destination="1Tq-WV-Vas" id="jof-yq-buU"/>

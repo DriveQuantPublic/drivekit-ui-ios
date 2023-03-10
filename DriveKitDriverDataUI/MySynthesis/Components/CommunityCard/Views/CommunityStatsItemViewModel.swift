@@ -8,9 +8,10 @@
 
 import DriveKitCommonUI
 import Foundation
+import UIKit
 
 public struct CommunityStatsItemViewModel {
-    public var legendColor: DKUIColors
+    public var legendColor: UIColor
     public var legendTitle: String
     public var tripCount: Int?
     public var distanceCount: Double?

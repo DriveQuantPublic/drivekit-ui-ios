@@ -1,6 +1,6 @@
 // swiftlint:disable no_magic_numbers
 //
-//  MySynthesisGaugeConstants.swift
+//  MySynthesisConstants.swift
 //  DriveKitDriverDataUI
 //
 //  Created by Amine Gahbiche on 08/03/2023.
@@ -9,7 +9,7 @@
 
 import UIKit
 
-enum MySynthesisGaugeConstants {
+enum MySynthesisConstants {
     static let defaultColor = UIColor(hex: 0x036A82)
     
     static func circleIcon(diameter: CGFloat = 12, insideColor: UIColor = .white) -> UIImage? {

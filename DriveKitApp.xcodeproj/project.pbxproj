@@ -506,7 +506,7 @@
 		67F1988A29B268ED0060EF24 /* MySynthesisGaugeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F1988729B268ED0060EF24 /* MySynthesisGaugeViewModel.swift */; };
 		67F1988B29B268ED0060EF24 /* MySynthesisGaugeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F1988829B268ED0060EF24 /* MySynthesisGaugeView.xib */; };
 		67F1988C29B268ED0060EF24 /* MySynthesisGaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F1988929B268ED0060EF24 /* MySynthesisGaugeView.swift */; };
-		67F1988E29B8E0EE0060EF24 /* MySynthesisGaugeConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F1988D29B8E0EE0060EF24 /* MySynthesisGaugeConstants.swift */; };
+		67F1988E29B8E0EE0060EF24 /* MySynthesisConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F1988D29B8E0EE0060EF24 /* MySynthesisConstants.swift */; };
 		67F1989029B94E690060EF24 /* UIApplication+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F1988F29B94E690060EF24 /* UIApplication+DK.swift */; };
 		67F2D31B2630717300ACC69A /* DKDriverRanking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D31A2630717300ACC69A /* DKDriverRanking.swift */; };
 		67F2D3512630F06B00ACC69A /* RankingScoreBig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D3472630F06A00ACC69A /* RankingScoreBig.swift */; };
@@ -1341,7 +1341,7 @@
 		67F1988729B268ED0060EF24 /* MySynthesisGaugeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySynthesisGaugeViewModel.swift; sourceTree = "<group>"; };
 		67F1988829B268ED0060EF24 /* MySynthesisGaugeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MySynthesisGaugeView.xib; sourceTree = "<group>"; };
 		67F1988929B268ED0060EF24 /* MySynthesisGaugeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySynthesisGaugeView.swift; sourceTree = "<group>"; };
-		67F1988D29B8E0EE0060EF24 /* MySynthesisGaugeConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySynthesisGaugeConstants.swift; sourceTree = "<group>"; };
+		67F1988D29B8E0EE0060EF24 /* MySynthesisConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySynthesisConstants.swift; sourceTree = "<group>"; };
 		67F1988F29B94E690060EF24 /* UIApplication+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+DK.swift"; sourceTree = "<group>"; };
 		67F2D31A2630717300ACC69A /* DKDriverRanking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDriverRanking.swift; sourceTree = "<group>"; };
 		67F2D3472630F06A00ACC69A /* RankingScoreBig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingScoreBig.swift; sourceTree = "<group>"; };
@@ -3016,7 +3016,7 @@
 				67F1988729B268ED0060EF24 /* MySynthesisGaugeViewModel.swift */,
 				67F1988829B268ED0060EF24 /* MySynthesisGaugeView.xib */,
 				67F1988929B268ED0060EF24 /* MySynthesisGaugeView.swift */,
-				67F1988D29B8E0EE0060EF24 /* MySynthesisGaugeConstants.swift */,
+				67F1988D29B8E0EE0060EF24 /* MySynthesisConstants.swift */,
 			);
 			path = SynthesisGauge;
 			sourceTree = "<group>";
@@ -4904,7 +4904,7 @@
 				A34238812361A2440001E15D /* SafetyPageView.swift in Sources */,
 				638AC04D261F996D00602B52 /* SynthesisCardViewCell.swift in Sources */,
 				A342386D2361A2430001E15D /* TripDetailVC.swift in Sources */,
-				67F1988E29B8E0EE0060EF24 /* MySynthesisGaugeConstants.swift in Sources */,
+				67F1988E29B8E0EE0060EF24 /* MySynthesisConstants.swift in Sources */,
 				E32BC45A29A377FD006BE5F8 /* MySynthesisViewModel.swift in Sources */,
 				E302B62429B1E66E004CFA0C /* ScoreLevelLegendViewController.swift in Sources */,
 				A317F82C23A137C700AD22A2 /* TripTipFeedbackVC.swift in Sources */,

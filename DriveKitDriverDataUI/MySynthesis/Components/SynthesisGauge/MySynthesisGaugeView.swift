@@ -50,11 +50,11 @@ class MySynthesisGaugeView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.triangleCursorImageView.image = MySynthesisGaugeConstants.triangleIcon()
-        self.circleCursorImageView.image = MySynthesisGaugeConstants.filledCircleIcon(diameter: 14)
-        self.minScoreImageView.image = MySynthesisGaugeConstants.circleIcon()
-        self.maxScoreImageView.image = MySynthesisGaugeConstants.circleIcon()
-        self.meanScoreImageView.image = MySynthesisGaugeConstants.circleIcon()
+        self.triangleCursorImageView.image = MySynthesisConstants.triangleIcon()
+        self.circleCursorImageView.image = MySynthesisConstants.filledCircleIcon(diameter: 14)
+        self.minScoreImageView.image = MySynthesisConstants.circleIcon()
+        self.maxScoreImageView.image = MySynthesisConstants.circleIcon()
+        self.meanScoreImageView.image = MySynthesisConstants.circleIcon()
         for label in [minTitleLabel, maxTitleLabel, meanTitleLabel,
                       minScoreLabel, maxScoreLabel, meanScoreLabel,
                       step1Label, step2Label, step3Label,

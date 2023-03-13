@@ -94,6 +94,7 @@ class MySynthesisViewModel {
                     self.communityStatistics = statistics
                 }
                 self.updating = false
+                self.update(resettingSelectedDate: false)
                 self.delegate?.didUpdateData()
             }
         }

@@ -51,7 +51,7 @@ class MySynthesisGaugeView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.triangleCursorImageView.image = MySynthesisConstants.triangleIcon()
-        self.circleCursorImageView.image = MySynthesisConstants.filledCircleIcon(diameter: 14)
+        self.circleCursorImageView.image = MySynthesisConstants.filledCircleIcon(diameter: 18)
         self.minScoreImageView.image = MySynthesisConstants.circleIcon()
         self.maxScoreImageView.image = MySynthesisConstants.circleIcon()
         self.meanScoreImageView.image = MySynthesisConstants.circleIcon()

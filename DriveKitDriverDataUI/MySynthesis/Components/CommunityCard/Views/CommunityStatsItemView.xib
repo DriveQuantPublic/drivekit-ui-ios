@@ -15,21 +15,21 @@
             <rect key="frame" x="0.0" y="0.0" width="160" height="90"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="M7c-UM-oo7" userLabel="Circle Padding View">
-                    <rect key="frame" x="0.0" y="0.0" width="13" height="15"/>
+                    <rect key="frame" x="0.0" y="0.0" width="17" height="19"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Ka-rO-YTT" userLabel="Circle View">
-                            <rect key="frame" x="0.0" y="1" width="14" height="14"/>
+                            <rect key="frame" x="0.0" y="1" width="18" height="18"/>
                             <color key="backgroundColor" systemColor="systemBlueColor"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="14" id="PJM-oO-WrA"/>
-                                <constraint firstAttribute="width" constant="14" id="cfo-Mp-Hhm"/>
+                                <constraint firstAttribute="height" constant="18" id="PJM-oO-WrA"/>
+                                <constraint firstAttribute="width" constant="18" id="cfo-Mp-Hhm"/>
                             </constraints>
                         </imageView>
                     </subviews>
                     <edgeInsets key="layoutMargins" top="1" left="0.0" bottom="0.0" right="-1"/>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="X8D-C9-UAh" userLabel="Legend Stack View">
-                    <rect key="frame" x="21" y="0.0" width="139" height="90"/>
+                    <rect key="frame" x="25" y="0.0" width="135" height="90"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Tq-WV-Vas" userLabel="Legend Label">
                             <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="6"/>

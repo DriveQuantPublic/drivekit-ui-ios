@@ -19,6 +19,13 @@ public struct CommunityStatsItemViewModel {
     
     public var tripCountText: NSAttributedString? {
         guard let tripCount else { return nil }
+        guard tripCount > 0 else {
+            return DKCommonLocalizable.noTrips.text()
+                .dkAttributedString()
+                .color(.complementaryFontColor)
+                .font(dkFont: .primary, style: .smallText)
+                .build()
+        }
         let text = (tripCount.formatWithThousandSeparator() + String.nonBreakableSpace)
             .dkAttributedString()
             .color(.complementaryFontColor)

@@ -356,12 +356,14 @@ class TimelineGraphViewModel: GraphViewModel {
     private func dateComponent(for period: DKPeriod) -> Calendar.Component {
         let dateComponent: Calendar.Component
         switch period {
-        case .week:
-            dateComponent = .weekOfYear
-        case .month:
-            dateComponent = .month
-        @unknown default:
-            fatalError("Unknown value: \(period)")
+            case .week:
+                dateComponent = .weekOfYear
+            case .month:
+                dateComponent = .month
+            case .year:
+                fallthrough
+            @unknown default:
+                fatalError("Unknown value: \(period)")
         }
         return dateComponent
     }
@@ -369,12 +371,14 @@ class TimelineGraphViewModel: GraphViewModel {
     private func dateFormatPattern(for period: DKPeriod) -> DKDatePattern {
         let dateFormat: DKDatePattern
         switch period {
-        case .week:
-            dateFormat = DKDatePattern.dayMonth
-        case .month:
-            dateFormat = DKDatePattern.monthAbbreviation
-        @unknown default:
-            fatalError("Unknown value: \(period)")
+            case .week:
+                dateFormat = DKDatePattern.dayMonth
+            case .month:
+                dateFormat = DKDatePattern.monthAbbreviation
+            case .year:
+                fallthrough
+            @unknown default:
+                fatalError("Unknown value: \(period)")
         }
         return dateFormat
     }

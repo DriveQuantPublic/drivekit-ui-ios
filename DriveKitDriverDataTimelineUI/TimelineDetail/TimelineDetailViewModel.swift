@@ -112,6 +112,8 @@ class TimelineDetailViewModel {
                 timelineSource = self.weekTimeline
             case .month:
                 timelineSource = self.monthTimeline
+            case .year:
+                fallthrough
             @unknown default:
                 preconditionFailure("period \(self.selectedPeriod) is not implemented yet")
         }

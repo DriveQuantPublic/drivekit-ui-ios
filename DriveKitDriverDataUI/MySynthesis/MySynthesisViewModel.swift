@@ -114,7 +114,18 @@ class MySynthesisViewModel {
             displayedPeriods: .init(configuredPeriods),
             selectedPeriod: currentTimeline.period
         )
-        let allDates = currentTimeline.allContext.map(\.date)
+
+        let allDates = currentTimeline.allContext.filter { item in
+            switch self.scoreSelectorViewModel.selectedScore {
+                case .safety:
+                    return item.safety != nil
+                case .ecoDriving:
+                    return item.ecoDriving != nil
+                case .distraction, .speeding:
+                    return true
+            }
+        }.map(\.date)
+
         let selectedDateIndex = allDates.selectedIndex(for: selectedDate)
         self.dateSelectorViewModel.configure(
             dates: allDates,

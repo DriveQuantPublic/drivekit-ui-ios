@@ -85,7 +85,7 @@ class MySynthesisGaugeView: UIView {
         setupCursor()
         setupLabelsPositionsAndValues()
         hideOverlappingLabels()
-        adjustMedianLablelPosition()
+        adjustMedianLabelPosition()
     }
     
     private func setupLevelsButton() {
@@ -165,7 +165,7 @@ class MySynthesisGaugeView: UIView {
         self.step8Label.isHidden = !self.step7Label.isHidden && self.step8LayoutConstraint.constant - self.step7LayoutConstraint.constant < allowedLabelsDistance
     }
 
-    private func adjustMedianLablelPosition() {
+    private func adjustMedianLabelPosition() {
         let allowedLabelsDistance: Double = 30
         let constraintValueWhenOverlapping: Double = -10
 

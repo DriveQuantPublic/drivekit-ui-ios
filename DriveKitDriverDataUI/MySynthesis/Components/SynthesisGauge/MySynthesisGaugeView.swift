@@ -27,6 +27,8 @@ class MySynthesisGaugeView: UIView {
     @IBOutlet private weak var  medianScoreLabel: UILabel!
     @IBOutlet private weak var  medianTitleLabel: UILabel!
     @IBOutlet private weak var  medianScoreLayoutConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var  medianTitleLayoutConstraint: NSLayoutConstraint!
+
     @IBOutlet private weak var  maxScoreImageView: UIImageView!
     @IBOutlet private weak var  maxScoreLabel: UILabel!
     @IBOutlet private weak var  maxTitleLabel: UILabel!
@@ -83,6 +85,7 @@ class MySynthesisGaugeView: UIView {
         setupCursor()
         setupLabelsPositionsAndValues()
         hideOverlappingLabels()
+        adjustMedianLablelPosition()
     }
     
     private func setupLevelsButton() {
@@ -160,6 +163,17 @@ class MySynthesisGaugeView: UIView {
         self.step6Label.isHidden = !self.step5Label.isHidden && self.step6LayoutConstraint.constant - self.step5LayoutConstraint.constant < allowedLabelsDistance
         self.step7Label.isHidden = !self.step6Label.isHidden && self.step7LayoutConstraint.constant - self.step6LayoutConstraint.constant < allowedLabelsDistance
         self.step8Label.isHidden = !self.step7Label.isHidden && self.step8LayoutConstraint.constant - self.step7LayoutConstraint.constant < allowedLabelsDistance
+    }
+
+    private func adjustMedianLablelPosition() {
+        let allowedLabelsDistance: Double = 30
+        let constraintValueWhenOverlapping: Double = -10
+
+        if self.maxScoreLayoutConstraint.constant - self.medianScoreLayoutConstraint.constant < allowedLabelsDistance {
+            self.medianTitleLayoutConstraint.constant = constraintValueWhenOverlapping
+        } else {
+            self.medianTitleLayoutConstraint.constant = 0
+        }
     }
     
     @IBAction private func showScoresLegend() {

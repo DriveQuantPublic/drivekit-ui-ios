@@ -66,13 +66,14 @@
 "dk_driverdata_mysynthesis_ecodriving_level_very_bad"="The energy saving potential is very high. We recommend that you apply the eco-driving tips sent at the end of your trips. You will be able to progress quickly.";
 "dk_driverdata_mysynthesis_ecodriving_level_very_good"="Your score is very good, keep it up to reach the top!";
 "dk_driverdata_mysynthesis_ecodriving_score"="My eco-driving score";
-"dk_driverdata_mysynthesis_ecodriving_score_info"="The eco-driving score ranges from 5 to 10. Your score defines your level which is represented on a colour scale.";
+"dk_driverdata_mysynthesis_ecodriving_score_info"="The eco-driving score ranges from 4 to 10. Your score defines your level which is represented on a colour scale.";
 "dk_driverdata_mysynthesis_excellent_score"="Your score is excellent";
 "dk_driverdata_mysynthesis_good_score"="Your score is good";
 "dk_driverdata_mysynthesis_low_score"="Your score is low";
 "dk_driverdata_mysynthesis_main_title"="My synthesis";
 "dk_driverdata_mysynthesis_maximum"="max.";
 "dk_driverdata_mysynthesis_me"="Me";
+"dk_driverdata_mysynthesis_median"="median";
 "dk_driverdata_mysynthesis_minimum"="min.";
 "dk_driverdata_mysynthesis_my_community"="My community";
 "dk_driverdata_mysynthesis_no_driving"="You did not drive during this period";

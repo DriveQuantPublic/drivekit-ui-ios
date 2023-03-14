@@ -59,6 +59,7 @@ public class MySynthesisCommunityCardViewModel {
             self.synthesisGaugeViewModel.configure(
                 scoreType: scoreSynthesis.scoreType,
                 mean: scoreStatistics.mean,
+                median: scoreStatistics.median,
                 min: scoreStatistics.min,
                 max: scoreStatistics.max,
                 score: scoreSynthesis.scoreValue)
@@ -128,5 +129,16 @@ public class MySynthesisCommunityCardViewModel {
         } else {
             return "dk_driverdata_mysynthesis_you_are_average".dkDriverDataLocalized()
         }
+    }
+}
+
+extension DKScoreStatistics {
+    var median: Double {
+        guard !self.percentiles.isEmpty else {
+            return 0
+        }
+        // swiftlint:disable:next no_magic_numbers
+        let middleIndex = percentiles.count / 2
+        return self.percentiles[middleIndex]
     }
 }

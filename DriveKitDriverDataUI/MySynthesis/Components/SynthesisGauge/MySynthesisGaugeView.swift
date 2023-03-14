@@ -23,10 +23,12 @@ class MySynthesisGaugeView: UIView {
     @IBOutlet private weak var  minScoreLabel: UILabel!
     @IBOutlet private weak var  minTitleLabel: UILabel!
     @IBOutlet private weak var  minScoreLayoutConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var  meanScoreImageView: UIImageView!
-    @IBOutlet private weak var  meanScoreLabel: UILabel!
-    @IBOutlet private weak var  meanTitleLabel: UILabel!
-    @IBOutlet private weak var  meanScoreLayoutConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var  medianScoreImageView: UIImageView!
+    @IBOutlet private weak var  medianScoreLabel: UILabel!
+    @IBOutlet private weak var  medianTitleLabel: UILabel!
+    @IBOutlet private weak var  medianScoreLayoutConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var  medianTitleLayoutConstraint: NSLayoutConstraint!
+
     @IBOutlet private weak var  maxScoreImageView: UIImageView!
     @IBOutlet private weak var  maxScoreLabel: UILabel!
     @IBOutlet private weak var  maxTitleLabel: UILabel!
@@ -54,9 +56,9 @@ class MySynthesisGaugeView: UIView {
         self.circleCursorImageView.image = MySynthesisConstants.filledCircleIcon(diameter: 18)
         self.minScoreImageView.image = MySynthesisConstants.circleIcon()
         self.maxScoreImageView.image = MySynthesisConstants.circleIcon()
-        self.meanScoreImageView.image = MySynthesisConstants.circleIcon()
-        for label in [minTitleLabel, maxTitleLabel, meanTitleLabel,
-                      minScoreLabel, maxScoreLabel, meanScoreLabel,
+        self.medianScoreImageView.image = MySynthesisConstants.circleIcon()
+        for label in [minTitleLabel, maxTitleLabel, medianTitleLabel,
+                      minScoreLabel, maxScoreLabel, medianScoreLabel,
                       step1Label, step2Label, step3Label,
                       step4Label, step5Label, step6Label,
                       step7Label, step8Label] {
@@ -64,7 +66,7 @@ class MySynthesisGaugeView: UIView {
         }
         minTitleLabel.text = "dk_driverdata_mysynthesis_minimum".dkDriverDataLocalized()
         maxTitleLabel.text = "dk_driverdata_mysynthesis_maximum".dkDriverDataLocalized()
-        meanTitleLabel.text = "dk_driverdata_mysynthesis_average".dkDriverDataLocalized()
+        medianTitleLabel.text = "dk_driverdata_mysynthesis_median".dkDriverDataLocalized()
     }
     
     func configure(viewModel: MySynthesisGaugeViewModel) {
@@ -83,6 +85,7 @@ class MySynthesisGaugeView: UIView {
         setupCursor()
         setupLabelsPositionsAndValues()
         hideOverlappingLabels()
+        adjustMedianLabelPosition()
     }
     
     private func setupLevelsButton() {
@@ -128,7 +131,7 @@ class MySynthesisGaugeView: UIView {
         }
         self.minScoreLayoutConstraint.constant = viewModel.minOffsetPercent * self.synthesisGaugeBarView.bounds.size.width
         self.maxScoreLayoutConstraint.constant = viewModel.maxOffsetPercent * self.synthesisGaugeBarView.bounds.size.width
-        self.meanScoreLayoutConstraint.constant = viewModel.meanOffsetPercent * self.synthesisGaugeBarView.bounds.size.width
+        self.medianScoreLayoutConstraint.constant = viewModel.medianOffsetPercent * self.synthesisGaugeBarView.bounds.size.width
         self.step1LayoutConstraint.constant = viewModel.offsetPercent(forStep: 0) * self.synthesisGaugeBarView.bounds.size.width
         self.step2LayoutConstraint.constant = viewModel.offsetPercent(forStep: 1) * self.synthesisGaugeBarView.bounds.size.width
         self.step3LayoutConstraint.constant = viewModel.offsetPercent(forStep: 2) * self.synthesisGaugeBarView.bounds.size.width
@@ -140,7 +143,7 @@ class MySynthesisGaugeView: UIView {
         
         self.minScoreLabel.text = self.viewModel.min.formatDouble(places: 1)
         self.maxScoreLabel.text = self.viewModel.max.formatDouble(places: 1)
-        self.meanScoreLabel.text = self.viewModel.mean.formatDouble(places: 1)
+        self.medianScoreLabel.text = self.viewModel.median.formatDouble(places: 1)
         self.step1Label.text = self.viewModel.scoreForStep(0).formatDouble(places: 1)
         self.step2Label.text = self.viewModel.scoreForStep(1).formatDouble(places: 1)
         self.step3Label.text = self.viewModel.scoreForStep(2).formatDouble(places: 1)
@@ -160,6 +163,17 @@ class MySynthesisGaugeView: UIView {
         self.step6Label.isHidden = !self.step5Label.isHidden && self.step6LayoutConstraint.constant - self.step5LayoutConstraint.constant < allowedLabelsDistance
         self.step7Label.isHidden = !self.step6Label.isHidden && self.step7LayoutConstraint.constant - self.step6LayoutConstraint.constant < allowedLabelsDistance
         self.step8Label.isHidden = !self.step7Label.isHidden && self.step8LayoutConstraint.constant - self.step7LayoutConstraint.constant < allowedLabelsDistance
+    }
+
+    private func adjustMedianLabelPosition() {
+        let allowedLabelsDistance: Double = 30
+        let constraintValueWhenOverlapping: Double = -10
+
+        if self.maxScoreLayoutConstraint.constant - self.medianScoreLayoutConstraint.constant < allowedLabelsDistance {
+            self.medianTitleLayoutConstraint.constant = constraintValueWhenOverlapping
+        } else {
+            self.medianTitleLayoutConstraint.constant = 0
+        }
     }
     
     @IBAction private func showScoresLegend() {

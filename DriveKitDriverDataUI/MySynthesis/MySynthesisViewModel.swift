@@ -156,7 +156,7 @@ class MySynthesisViewModel {
             self.communityCardViewModel.configure(
                 with: scoreSynthesis,
                 hasOnlyShortTripsForCurrentPeriod: currentPeriodContext?.hasOnlyShortTrips ?? false,
-                userTripCount: currentPeriodContext?.numberTripScored ?? 0,
+                userTripCount: currentPeriodContext?.numberTripTotal ?? 0,
                 userDistanceCount: currentPeriodContext?.distance ?? 0,
                 communityStatistics: communityStatistics ?? .default
             )

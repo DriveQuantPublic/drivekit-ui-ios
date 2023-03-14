@@ -28,7 +28,12 @@ public class MySynthesisCommunityCardViewModel {
             case .noTrip:
                 return "dk_driverdata_mysynthesis_no_driving".dkDriverDataLocalized()
             case .onlyShortTrips:
-                return "dk_driverdata_mysynthesis_not_enough_data".dkDriverDataLocalized()
+                switch scoreSynthesis?.scoreType {
+                    case .safety, .ecoDriving, .none:
+                        return "dk_driverdata_mysynthesis_not_enough_data".dkDriverDataLocalized()
+                    case .distraction, .speeding:
+                        return userCommunityRelatedPositionDescription
+                }
             case .scoredTrips:
                 return userCommunityRelatedPositionDescription
         }
@@ -36,8 +41,16 @@ public class MySynthesisCommunityCardViewModel {
     
     public var titleColor: DKUIColors {
         switch tripKind {
-            case .noTrip, .onlyShortTrips:
+            case .noTrip:
                 return .complementaryFontColor
+            case .onlyShortTrips:
+                switch scoreSynthesis?.scoreType {
+                    case .safety, .ecoDriving, .none:
+                        return .complementaryFontColor
+                    case .distraction, .speeding:
+                        return .primaryColor
+                }
+
             case .scoredTrips:
                 return .primaryColor
         }

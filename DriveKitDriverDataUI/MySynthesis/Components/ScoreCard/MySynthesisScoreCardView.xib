@@ -12,8 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="MySynthesisScoreCardView" customModule="DriveKitDriverDataUI" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="360" height="128"/>
+        <view contentMode="scaleToFill" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB" customClass="MySynthesisScoreCardView" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="360" height="148"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="r0k-yB-V8J">

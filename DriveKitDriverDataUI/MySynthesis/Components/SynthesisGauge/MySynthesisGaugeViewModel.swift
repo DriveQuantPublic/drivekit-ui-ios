@@ -23,6 +23,7 @@ class MySynthesisGaugeViewModel {
         return score != nil
     }
 
+    // swiftlint:disable:next function_parameter_count
     func configure(scoreType: DKScoreType, mean: Double, median: Double, min: Double, max: Double, score: Double?) {
         self.scoreType = scoreType
         self.mean = mean

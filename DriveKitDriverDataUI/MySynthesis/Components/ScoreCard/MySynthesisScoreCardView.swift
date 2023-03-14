@@ -23,7 +23,7 @@ class MySynthesisScoreCardView: UIView {
     
     func setupView() {
         self.titleLabel.font = DKStyles.headLine2.style.applyTo(font: .primary)
-        self.titleLabel.textColor = DKUIColors.primaryColor.color
+        self.titleLabel.textColor = DKUIColors.mainFontColor.color
         
         let increasedFontSize: CGFloat = 12
         self.currentScoreLabel.font = DKStyles.highlightNormal.withSizeDelta(increasedFontSize).applyTo(font: .secondary)

@@ -48,11 +48,10 @@ public class MySynthesisCommunityCardViewModel {
                     case .safety, .ecoDriving, .none:
                         return .complementaryFontColor
                     case .distraction, .speeding:
-                        return .primaryColor
+                        return .mainFontColor
                 }
-
             case .scoredTrips:
-                return .primaryColor
+                return .mainFontColor
         }
     }
         

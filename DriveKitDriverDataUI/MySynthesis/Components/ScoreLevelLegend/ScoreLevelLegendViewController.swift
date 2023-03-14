@@ -39,7 +39,7 @@ public class ScoreLevelLegendViewController: UIViewController {
         
         legendTitleLabel.text = viewModel.legendTitle
         legendTitleLabel.font = DKStyles.headLine2.style.applyTo(font: .primary)
-        legendTitleLabel.textColor = DKUIColors.primaryColor.color
+        legendTitleLabel.textColor = DKUIColors.mainFontColor.color
         
         legendDescriptionLabel.text = viewModel.legendDescription
         legendDescriptionLabel.font = DKStyles.smallText.style.applyTo(font: .primary)

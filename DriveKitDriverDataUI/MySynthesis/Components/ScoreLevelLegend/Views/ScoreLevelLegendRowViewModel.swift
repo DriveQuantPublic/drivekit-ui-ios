@@ -31,7 +31,7 @@ public class ScoreLevelLegendRowViewModel {
                         dkFont: .primary,
                         style: .headLine2
                     )
-                    .color(.primaryColor)
+                    .color(.mainFontColor)
                     .build(),
                 scoreTypeLevel.localizedDescription(for: scoreType)
                     .dkAttributedString()

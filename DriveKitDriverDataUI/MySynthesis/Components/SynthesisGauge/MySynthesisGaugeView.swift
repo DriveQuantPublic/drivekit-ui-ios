@@ -62,7 +62,7 @@ class MySynthesisGaugeView: UIView {
                       step1Label, step2Label, step3Label,
                       step4Label, step5Label, step6Label,
                       step7Label, step8Label] {
-            label?.textColor = DKUIColors.primaryColor.color
+            label?.textColor = DKUIColors.mainFontColor.color
         }
         minTitleLabel.text = "dk_driverdata_mysynthesis_minimum".dkDriverDataLocalized()
         maxTitleLabel.text = "dk_driverdata_mysynthesis_maximum".dkDriverDataLocalized()
@@ -96,15 +96,16 @@ class MySynthesisGaugeView: UIView {
                 margin: 5)
             self.levelButton.configure(
                 text: self.viewModel.buttonTitle,
-                style: .rounded(color: DKUIColors.primaryColor.color,
+                style: .rounded(color: MySynthesisConstants.defaultColor,
                                 radius: 5,
                                 borderWidth: 1,
-                                style: DKStyles.roundedButton.withSizeDelta(-10)))
+                                style: DKStyles.roundedButton.withSizeDelta(-10),
+                                textColor: DKUIColors.primaryColor.color))
         } else {
             self.levelButtonLayoutConstraint.constant = self.synthesisGaugeBarView.bounds.size.width / 2
             self.levelButton.configure(
                 text: "dk_driverdata_mysynthesis_can_not_be_evaluated".dkDriverDataLocalized(),
-                style: .rounded(color: DKUIColors.primaryColor.color,
+                style: .rounded(color: MySynthesisConstants.defaultColor,
                                 radius: 5,
                                 borderWidth: 1,
                                 style: DKStyles.roundedButton.withSizeDelta(-10),

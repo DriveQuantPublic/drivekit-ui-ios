@@ -145,7 +145,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mqp-8m-xw6">
-                            <rect key="frame" x="0.0" y="31.666666666666654" width="30" height="13.333333333333332"/>
+                            <rect key="frame" x="0.0" y="31.666666666666654" width="30" height="13.333333333333339"/>
                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -168,23 +168,23 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1sW-Jw-LtM">
-                    <rect key="frame" x="95" y="102" width="30" height="45"/>
+                    <rect key="frame" x="87.666666666666671" y="102" width="45.000000000000014" height="45"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pb8-hY-rfL">
-                            <rect key="frame" x="6" y="13.666666666666671" width="18" height="18"/>
+                            <rect key="frame" x="13.333333333333329" y="13.666666666666671" width="18" height="18"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="18" id="7JC-Ae-Hgz"/>
                                 <constraint firstAttribute="height" constant="18" id="f2p-dI-d7N"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCb-lL-vfv">
-                            <rect key="frame" x="0.0" y="0.0" width="30" height="13.666666666666666"/>
+                            <rect key="frame" x="0.0" y="0.0" width="45" height="13.666666666666666"/>
                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mean" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iy2-qO-CYm">
-                            <rect key="frame" x="0.0" y="31.666666666666654" width="30" height="13.333333333333339"/>
+                            <rect key="frame" x="0.0" y="31.666666666666654" width="45" height="13.333333333333339"/>
                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -199,7 +199,7 @@
                         <constraint firstItem="Pb8-hY-rfL" firstAttribute="centerX" secondItem="1sW-Jw-LtM" secondAttribute="centerX" id="Mix-CM-TS3"/>
                         <constraint firstItem="iy2-qO-CYm" firstAttribute="top" secondItem="Pb8-hY-rfL" secondAttribute="bottom" id="ZMF-bG-mec"/>
                         <constraint firstItem="iy2-qO-CYm" firstAttribute="leading" secondItem="1sW-Jw-LtM" secondAttribute="leading" id="ccI-QZ-eY0"/>
-                        <constraint firstAttribute="width" constant="30" id="dUQ-d6-chJ"/>
+                        <constraint firstAttribute="width" constant="45" id="dUQ-d6-chJ"/>
                         <constraint firstAttribute="height" constant="45" id="jv8-id-7ty"/>
                         <constraint firstItem="Pb8-hY-rfL" firstAttribute="top" secondItem="QCb-lL-vfv" secondAttribute="bottom" id="lzA-7q-e5f"/>
                         <constraint firstItem="QCb-lL-vfv" firstAttribute="leading" secondItem="1sW-Jw-LtM" secondAttribute="leading" id="mnW-2a-xhz"/>
@@ -310,10 +310,10 @@
                 <outlet property="maxScoreLabel" destination="MiR-yj-ZPe" id="b0l-TH-8rl"/>
                 <outlet property="maxScoreLayoutConstraint" destination="rbq-Co-iDY" id="bG7-gW-QWJ"/>
                 <outlet property="maxTitleLabel" destination="mjj-ND-cWE" id="MRk-8F-PFT"/>
-                <outlet property="meanScoreImageView" destination="Pb8-hY-rfL" id="Jwi-cn-OmM"/>
-                <outlet property="meanScoreLabel" destination="QCb-lL-vfv" id="7FY-Vt-Lw5"/>
-                <outlet property="meanScoreLayoutConstraint" destination="TBZ-K9-TgA" id="QUH-YC-hg7"/>
-                <outlet property="meanTitleLabel" destination="iy2-qO-CYm" id="4HB-ab-Ct7"/>
+                <outlet property="medianScoreImageView" destination="Pb8-hY-rfL" id="Jwi-cn-OmM"/>
+                <outlet property="medianScoreLabel" destination="QCb-lL-vfv" id="7FY-Vt-Lw5"/>
+                <outlet property="medianScoreLayoutConstraint" destination="TBZ-K9-TgA" id="QUH-YC-hg7"/>
+                <outlet property="medianTitleLabel" destination="iy2-qO-CYm" id="4HB-ab-Ct7"/>
                 <outlet property="minScoreImageView" destination="40g-C4-yYL" id="jGm-uz-dud"/>
                 <outlet property="minScoreLabel" destination="F4k-vq-tgm" id="vQf-e8-K4N"/>
                 <outlet property="minScoreLayoutConstraint" destination="D5L-ul-4b1" id="QNO-Rh-WvJ"/>

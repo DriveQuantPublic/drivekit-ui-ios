@@ -66,13 +66,14 @@
 "dk_driverdata_mysynthesis_ecodriving_level_very_bad"="Das Energiesparpotenzial ist sehr groß. Wir empfehlen Ihnen, die Eco-Drive-Tipps, die Ihnen am Ende Ihrer Fahrten zugeschickt werden, in die Praxis umzusetzen. So können Sie schnell Fortschritte machen.";
 "dk_driverdata_mysynthesis_ecodriving_level_very_good"="Ihr Ergebnis ist sehr gut, bleiben Sie dran, um die Spitze zu erreichen!";
 "dk_driverdata_mysynthesis_ecodriving_score"="Meine Punktzahl für umweltbewusstes Fahren";
-"dk_driverdata_mysynthesis_ecodriving_score_info"="Die Punktzahl für umweltbewusstes Fahren variiert zwischen 5 und 10. Ihre Punktzahl bestimmt Ihre Stufe, die auf einer Farbskala dargestellt wird.";
+"dk_driverdata_mysynthesis_ecodriving_score_info"="Die Punktzahl für umweltbewusstes Fahren variiert zwischen 4 und 10. Ihre Punktzahl bestimmt Ihre Stufe, die auf einer Farbskala dargestellt wird.";
 "dk_driverdata_mysynthesis_excellent_score"="Ihre Punktzahl ist ausgezeichnet";
 "dk_driverdata_mysynthesis_good_score"="Ihre Punktzahl ist gut";
 "dk_driverdata_mysynthesis_low_score"="Ihre Punktzahl ist niedrig";
 "dk_driverdata_mysynthesis_main_title"="Meine Zusammenfassung";
 "dk_driverdata_mysynthesis_maximum"="max.";
 "dk_driverdata_mysynthesis_me"="Ich";
+"dk_driverdata_mysynthesis_median"="Median";
 "dk_driverdata_mysynthesis_minimum"="Min.";
 "dk_driverdata_mysynthesis_my_community"="Meine Gemeinschaft";
 "dk_driverdata_mysynthesis_no_driving"="You did not drive during this period";

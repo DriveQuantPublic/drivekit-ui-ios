@@ -146,11 +146,11 @@ public class MySynthesisCommunityCardViewModel {
 
 extension DKScoreStatistics {
     var median: Double {
-        guard !self.percentiles.isEmpty else {
+        // swiftlint:disable:next no_magic_numbers
+        guard !self.percentiles.isEmpty, self.percentiles.count > 9 else {
             return 0
         }
         // swiftlint:disable:next no_magic_numbers
-        let middleIndex = percentiles.count / 2
-        return self.percentiles[middleIndex]
+        return self.percentiles[9]
     }
 }

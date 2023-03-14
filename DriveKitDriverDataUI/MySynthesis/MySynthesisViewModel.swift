@@ -116,6 +116,9 @@ class MySynthesisViewModel {
         )
 
         let allDates = currentTimeline.allContext.filter { item in
+            if let selectedDate, item.date == selectedDate {
+                return true
+            }
             switch self.scoreSelectorViewModel.selectedScore {
                 case .safety:
                     return item.safety != nil

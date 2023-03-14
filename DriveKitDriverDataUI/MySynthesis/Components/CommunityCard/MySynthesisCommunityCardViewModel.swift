@@ -106,11 +106,11 @@ public class MySynthesisCommunityCardViewModel {
     private var tripKind: TripKind {
         guard let userTripCount else { return .noTrip }
         
-        return userTripCount > 0
-            ? .scoredTrips
+        return userTripCount == 0
+            ? .noTrip
             : hasOnlyShortTripsForCurrentPeriod
                 ? .onlyShortTrips
-                : .noTrip
+                : .scoredTrips
     }
     
     private var userCommunityRelatedPositionDescription: String {

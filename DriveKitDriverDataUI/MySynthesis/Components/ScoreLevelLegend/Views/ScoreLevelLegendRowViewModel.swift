@@ -29,7 +29,7 @@ public class ScoreLevelLegendRowViewModel {
                     .dkAttributedString()
                     .font(
                         dkFont: .primary,
-                        style: .headLine2
+                        style: .normalText
                     )
                     .color(.mainFontColor)
                     .build(),

@@ -115,7 +115,7 @@ class MySynthesisViewModel {
             selectedPeriod: currentTimeline.period
         )
 
-        var allDates = currentTimeline.allContext.filter { item in
+        let allDates = currentTimeline.allContext.filter { item in
             if let selectedDate, item.date == selectedDate {
                 return true
             }

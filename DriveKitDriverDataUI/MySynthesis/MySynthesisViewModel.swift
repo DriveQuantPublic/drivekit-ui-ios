@@ -115,7 +115,7 @@ class MySynthesisViewModel {
             selectedPeriod: currentTimeline.period
         )
 
-        let allDates = currentTimeline.allContext.filter { item in
+        var allDates = currentTimeline.allContext.filter { item in
             if let selectedDate, item.date == selectedDate {
                 return true
             }
@@ -128,6 +128,11 @@ class MySynthesisViewModel {
                     return true
             }
         }.map(\.date)
+        
+        if allDates.isEmpty {
+            configureWithNoData()
+            return
+        }
 
         let selectedDateIndex = allDates.selectedIndex(for: selectedDate)
         self.dateSelectorViewModel.configure(

@@ -28,8 +28,12 @@ class MySynthesisGaugeViewModel {
         self.scoreType = scoreType
         self.mean = mean
         self.median = median
-        self.min = min
-        self.max = max
+        let fullScoreLevelRange = DKScoreTypeLevel.fullScoreLevelRange(for: scoreType)
+        let maxBound = fullScoreLevelRange.upperBound
+        let minBound = fullScoreLevelRange.lowerBound
+
+        self.min = Swift.max(min, minBound)
+        self.max = Swift.min(max, maxBound)
         self.score = score
         if let score {
             self.buttonTitle = DKScoreTypeLevel.getLevel(for: score, scoreType: scoreType).localizedShortDescription()

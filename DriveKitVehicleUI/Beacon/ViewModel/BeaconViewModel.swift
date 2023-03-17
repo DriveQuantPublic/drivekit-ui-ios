@@ -223,9 +223,11 @@ public class BeaconViewModel {
         if vehicle.beacon == nil {
             DriveKitVehicle.shared.addBeacon(vehicleId: vehicle.vehicleId, beacon: beacon, completionHandler: completion)
         } else {
-            DriveKitVehicle.shared.removeBeacon(vehicleId: vehicle.vehicleId, completionHandler: { _ in
-                DriveKitVehicle.shared.addBeacon(vehicleId: vehicle.vehicleId, beacon: beacon, completionHandler: completion)
-            })
+            DriveKitVehicle.shared.changeBeacon(
+                vehicleId: vehicle.vehicleId,
+                oldVehicleId: vehicle.vehicleId,
+                beacon: beacon,
+                completionHandler: completion)
         }
     }
     

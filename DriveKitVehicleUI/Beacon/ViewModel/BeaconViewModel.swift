@@ -239,7 +239,7 @@ public class BeaconViewModel {
         }
     }
     
-    func addBeaconToVehicle(toReplacePrevious isReplacingBeacon: Bool = false, completion: @escaping (DKVehicleBeaconStatus) -> Void) {
+    func addBeaconToVehicle(toReplacePrevious isReplacingBeacon: Bool = false, oldVehicleId: String? = nil, completion: @escaping (DKVehicleBeaconStatus) -> Void) {
         let logThenComplete: (DKVehicleBeaconStatus) -> Void = {
             if isReplacingBeacon == false {
                 DriveKitLog.shared.infoLog(
@@ -253,12 +253,12 @@ public class BeaconViewModel {
             logThenComplete(.error)
             return
         }
-        if vehicle.beacon == nil {
+        if vehicle.beacon == nil && oldVehicleId == nil {
             DriveKitVehicle.shared.addBeacon(vehicleId: vehicle.vehicleId, beacon: beacon, completionHandler: logThenComplete)
         } else {
             DriveKitVehicle.shared.changeBeacon(
                 vehicleId: vehicle.vehicleId,
-                oldVehicleId: vehicle.vehicleId,
+                oldVehicleId: oldVehicleId ?? vehicle.vehicleId,
                 beacon: beacon,
                 completionHandler: logThenComplete
             )
@@ -280,9 +280,7 @@ public class BeaconViewModel {
         if vehiclePaired?.beacon == nil {
             addBeaconToVehicle(toReplacePrevious: true, completion: logThenComplete)
         } else {
-            DriveKitVehicle.shared.removeBeacon(vehicleId: pairedVehicle.vehicleId, completionHandler: { _ in
-                self.addBeaconToVehicle(toReplacePrevious: true, completion: logThenComplete)
-            })
+            self.addBeaconToVehicle(toReplacePrevious: true, oldVehicleId: pairedVehicle.vehicleId, completion: logThenComplete)
         }
     }
 }

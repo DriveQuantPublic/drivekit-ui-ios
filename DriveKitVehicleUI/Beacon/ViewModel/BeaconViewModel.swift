@@ -188,23 +188,24 @@ public class BeaconViewModel {
                     }
                 }
             }
-            switch self.scanType {
-            case .pairing:
-                if let vehicle = self.vehicle {
-                    completion(vehicle.vehicleId == self.vehiclePaired?.vehicleId ?? "")
+            
+            let logAndComplete: (Bool) -> Void = { isSameVehicle in
+                if isSameVehicle {
+                    DriveKitLog.shared.infoLog(
+                        tag: DriveKitVehicleUI.tag,
+                        message: "Beacon scanner: beacon is already paired to this vehicle"
+                    )
                 }
+                completion(isSameVehicle)
+            }
+            
+            switch self.scanType {
             case .diagnostic:
-                completion(self.vehiclePaired != nil)
-            case .verify:
+                logAndComplete(self.vehiclePaired != nil)
+            case .pairing,
+                 .verify:
                 if let vehicle = self.vehicle {
-                    let isSameVehicle = vehicle.vehicleId == self.vehiclePaired?.vehicleId ?? ""
-                    if isSameVehicle {
-                        DriveKitLog.shared.infoLog(
-                            tag: DriveKitVehicleUI.tag,
-                            message: "Beacon scanner: beacon is already paired to this vehicle"
-                        )
-                    }
-                    completion(isSameVehicle)
+                    logAndComplete(vehicle.vehicleId == self.vehiclePaired?.vehicleId ?? "")
                 }
             }
         })

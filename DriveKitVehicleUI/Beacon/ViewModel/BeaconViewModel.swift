@@ -244,7 +244,7 @@ public class BeaconViewModel {
             if isReplacingBeacon == false {
                 DriveKitLog.shared.infoLog(
                     tag: DriveKitVehicleUI.tag,
-                    message: "Beacon scanner - Add beacon status: \($0)"
+                    message: "Beacon scanner - Add beacon status: \($0.name)"
                 )
             }
             completion($0)
@@ -269,7 +269,7 @@ public class BeaconViewModel {
         let logThenComplete: (DKVehicleBeaconStatus) -> Void = {
             DriveKitLog.shared.infoLog(
                 tag: DriveKitVehicleUI.tag,
-                message: "Beacon scanner - Change beacon status: \($0)"
+                message: "Beacon scanner - Change beacon status: \($0.name)"
             )
             completion($0)
         }
@@ -294,4 +294,19 @@ protocol ScanStateDelegate: AnyObject {
 
 public enum DKBeaconScanType: String {
     case pairing, diagnostic, verify
+}
+
+extension DKVehicleBeaconStatus {
+    var name: String {
+        switch self {
+        case .success:
+            return "Success"
+        case .error:
+            return "Error"
+        case .unknownVehicle:
+            return "Unknown vehicle"
+        case .unavailableBeacon:
+            return "Unavailable beacon"
+        }
+    }
 }

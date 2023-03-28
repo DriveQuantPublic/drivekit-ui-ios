@@ -1,6 +1,6 @@
 "dk_challenge_acceleration_score"="Accelerationsscore";
 "dk_challenge_active"="Aktiv";
-"dk_challenge_adherence_score"="Vejgrebs indikator-score";
+"dk_challenge_adherence_score"="Hårde sving-score";
 "dk_challenge_braking_score"="Bremsescore";
 "dk_challenge_competitors_distance"="Samlet afstand for udfordringen %@";
 "dk_challenge_competitors_duration"="Deltagerne kørte %@";
@@ -12,7 +12,7 @@
 "dk_challenge_driver_duration"="Du kørte %@";
 "dk_challenge_driver_trips"="Du har udført %@";
 "dk_challenge_driving_time"="Køretid";
-"dk_challenge_eco_driving_score"="Eco-driving score";
+"dk_challenge_eco_driving_score"="Øko-kørselsscore";
 "dk_challenge_failed_to_join"="Kan ikke deltage i udfordringen, sørg for, at du er tilsluttet internettet eller prøv igen senere.";
 "dk_challenge_failed_to_sync_challenges"="Kunne ikke synkronisere udfordringsdata, prøv igen senere.";
 "dk_challenge_finished"="Færdig";

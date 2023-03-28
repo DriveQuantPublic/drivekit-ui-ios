@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable cyclomatic_complexity
 //
 //  FeatureType.swift
 //  DriveKitApp
@@ -13,6 +13,7 @@ enum FeatureType {
     case all
     case driverData_trips
     case driverData_timeline
+    case driverData_my_synthesis
     case permissionsUtils_onboarding
     case permissionsUtils_diagnosis
     case vehicle_list
@@ -40,6 +41,8 @@ enum FeatureType {
                 imageName = "feature_icon_driverData_trips"
             case .driverData_timeline:
                 imageName = "feature_icon_driverdata_timeline"
+            case .driverData_my_synthesis:
+                imageName = "feature_icon_driverData_my_synthesis"
             case .permissionsUtils_diagnosis, .permissionsUtils_onboarding:
                 imageName = "feature_icon_permissionsUtils"
             case .tripAnalysis_workingHours:
@@ -71,6 +74,8 @@ enum FeatureType {
                 title = "feature_trip_list_title"
             case .driverData_timeline:
                 title = "feature_timeline_title"
+            case .driverData_my_synthesis:
+                title = "feature_synthesis_title"
             case .permissionsUtils_diagnosis:
                 title = "feature_permission_utils_title"
             case .permissionsUtils_onboarding:
@@ -102,6 +107,8 @@ enum FeatureType {
                 description = "feature_trip_list_description"
             case .driverData_timeline:
                 description = "feature_timeline_description"
+            case .driverData_my_synthesis:
+                description = "feature_synthesis_description"
             case .permissionsUtils_diagnosis:
                 description = "feature_permission_utils_description"
             case .permissionsUtils_onboarding:
@@ -133,6 +140,8 @@ enum FeatureType {
                 docKey = "drivekit_doc_ios_driver_data"
             case .driverData_timeline:
                 docKey = "drivekit_doc_ios_timeline"
+            case .driverData_my_synthesis:
+                docKey = "drivekit_doc_ios_synthesis"
             case .permissionsUtils_diagnosis:
                 docKey = "drivekit_doc_ios_diag"
             case .permissionsUtils_onboarding:
@@ -151,7 +160,18 @@ enum FeatureType {
         switch self {
             case .all:
                 return "button_see_features".keyLocalized()
-            case .challenge_list, .driverAchievement_badges, .driverAchievement_ranking, .driverAchievement_streaks, .driverData_trips, .driverData_timeline, .permissionsUtils_diagnosis, .permissionsUtils_onboarding, .tripAnalysis_workingHours, .vehicle_list, .vehicle_odometer:
+            case .challenge_list,
+                .driverAchievement_badges,
+                .driverAchievement_ranking,
+                .driverAchievement_streaks,
+                .driverData_trips,
+                .driverData_timeline,
+                .driverData_my_synthesis,
+                .permissionsUtils_diagnosis,
+                .permissionsUtils_onboarding,
+                .tripAnalysis_workingHours,
+                .vehicle_list,
+                .vehicle_odometer:
                 return "button_see_feature".keyLocalized()
         }
     }

@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  DriveKitDriverDataTimelineUI.swift
 //  DriveKitDriverDataTimelineUI
@@ -7,29 +6,19 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
-import UIKit
 import DriveKitCommonUI
+import DriveKitCoreModule
+import UIKit
 
 @objc public class DriveKitDriverDataTimelineUI: NSObject {
     @objc public static let shared = DriveKitDriverDataTimelineUI()
-    static let calendar = Calendar(identifier: .gregorian)
 
-    private var internalScores: [DKScoreType] = [.safety, .ecoDriving, .distraction, .speeding]
+    @available(*, deprecated, message: "You should use DriveKitUI.shared.scores now")
     public var scores: [DKScoreType] {
-        set {
-            if newValue.isEmpty {
-                self.internalScores = [.safety]
-            } else {
-                self.internalScores = newValue
-            }
-        }
-        get {
-            self.internalScores.filter { score in
-                score.hasAccess()
-            }
-        }
+        get { DriveKitUI.shared.scores }
+        set { DriveKitUI.shared.scores = newValue }
     }
-
+    
     public func initialize() {
         DriveKitNavigationController.shared.driverDataTimelineUI = self
     }
@@ -38,6 +27,7 @@ import DriveKitCommonUI
 extension DriveKitDriverDataTimelineUI: DriveKitDriverDataTimelineUIEntryPoint {
     public func getTimelineViewController() -> UIViewController {
         let viewModel = TimelineViewModel()
+        viewModel.scoreSelectorViewModel.scores = DriveKitUI.shared.scores
         return TimelineViewController(viewModel: viewModel)
     }
 }

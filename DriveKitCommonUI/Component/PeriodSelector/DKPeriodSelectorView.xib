@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iN0-l3-epB" customClass="DKPeriodSelectorView" customModule="DriveKitCommonUI" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="90"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="WZN-JC-38d">
+                    <rect key="frame" x="25" y="25" width="340" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w51-nG-EOl">
+                            <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="95b-kF-Xfu"/>
+                                <constraint firstAttribute="height" constant="40" id="QiZ-j0-LzB"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="ZTH-s9-EjW"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="didSelectButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="tDY-ue-Spk"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uza-f3-EjE">
+                            <rect key="frame" x="120" y="0.0" width="100" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="PwI-RW-mOT"/>
+                                <constraint firstAttribute="height" constant="40" id="RWe-yu-YLd"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="didSelectButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="yJC-uH-OIB"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Fl-gj-toz" userLabel="Year Button">
+                            <rect key="frame" x="240" y="0.0" width="100" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="NLL-Ct-CJe"/>
+                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="P9V-LP-io1"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="didSelectButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="AFA-i1-jan"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="WZN-JC-38d" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="IYY-BZ-NMz"/>
+                <constraint firstItem="WZN-JC-38d" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="evR-vF-5Z0"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="monthButton" destination="uza-f3-EjE" id="Y3J-uI-ZqC"/>
+                <outlet property="weekButton" destination="w51-nG-EOl" id="pKJ-qw-AHv"/>
+                <outlet property="yearButton" destination="9Fl-gj-toz" id="9GZ-RX-Gwo"/>
+            </connections>
+            <point key="canvasLocation" x="140" y="-268.00947867298578"/>
+        </view>
+    </objects>
+</document>

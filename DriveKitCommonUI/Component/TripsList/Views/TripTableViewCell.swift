@@ -7,6 +7,7 @@
 //  Copyright © 2019 DriveQuant. All rights reserved.
 //
 
+import DriveKitCoreModule
 import UIKit
 
 final class TripTableViewCell: UITableViewCell, Nibable {
@@ -32,8 +33,18 @@ final class TripTableViewCell: UITableViewCell, Nibable {
     }
     
     private func configureLabels(trip: DKTripListItem) {
-        self.departureHourLabel.attributedText = trip.getStartDate()?.format(pattern: .hourMinuteLetter).dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.complementaryFontColor).build()
-        self.arrivalHourLabel.attributedText = trip.getEndDate().format(pattern: .hourMinuteLetter).dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.complementaryFontColor).build()
+        self.departureHourLabel.attributedText = trip.getStartDate()?
+            .format(pattern: .hourMinuteLetter)
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .driverDataText)
+            .color(.complementaryFontColor)
+            .build()
+        self.arrivalHourLabel.attributedText = trip.getEndDate()
+            .format(pattern: .hourMinuteLetter)
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .driverDataText)
+            .color(.complementaryFontColor)
+            .build()
 
         self.departureCityLabel.attributedText = trip.computedDepartureInfo.dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
         self.arrivalCityLabel.attributedText = trip.computedArrivalInfo.dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()

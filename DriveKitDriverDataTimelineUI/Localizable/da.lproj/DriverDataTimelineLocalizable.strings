@@ -9,7 +9,6 @@
 "dk_timeline_deceleration_score"="Score for forsinkelse: %@";
 "dk_timeline_distraction_score"="Distraktionsscore: %@";
 "dk_timeline_eco_score"="Øko-kørselsscore: %@";
-"dk_timeline_from_date"="fra";
 "dk_timeline_fuel_savings"="Opnåelige brændstofbesparelser: %@";
 "dk_timeline_info_accel_score"="Accelerationsscoren varierer mellem -5 og 5. Hvis resultatet er -5, er accelerationen for lav. Hvis scoren er 5, er accelerationen for høj. En score på 0 angiver, at accelerationen er ideel til miljøvenlig kørsel.";
 "dk_timeline_info_decel_score"="Opbremsningsscoren varierer mellem -5 og 5. Hvis resultatet er -5, er decelerationen for langsom. Hvis scoren er 5, er den for brat. En score på nul angiver, at decelerationen er ideel til miljøvenlig kørsel.";
@@ -18,13 +17,11 @@
 "dk_timeline_nb_unlocks"="Antal udslip / 100 km: %@";
 "dk_timeline_overspeeding_distance"="Fartoverskridelse ift. afstand: %@";
 "dk_timeline_overspeeding_duration"="Fartoverskridelse ift. varighed: %@";
-"dk_timeline_per_month"="Måned";
-"dk_timeline_per_week"="Uge";
-"dk_timeline_road_context_city"="Ekstra urban";
+"dk_timeline_road_context_city"="By";
 "dk_timeline_road_context_description_empty_data"="Foretag en første tur for at se dine første grafer blive vist.";
 "dk_timeline_road_context_description_no_data_ecodriving"="Rejserne på de valgte datoer er for korte til at få en score for miljøvenlig kørsel";
 "dk_timeline_road_context_description_no_data_safety"="Ruterne for de valgte datoer er for korte til at få en sikkerhedsscore";
-"dk_timeline_road_context_expressways"="Motorvej";
+"dk_timeline_road_context_expressways"="motorvej";
 "dk_timeline_road_context_heavy_urban_traffic"="Tæt bymiljø";
 "dk_timeline_road_context_no_context_description"="Der er ikke tilstrækkelige data for denne periode til at beregne fordelingen af vejsammenhænge.";
 "dk_timeline_road_context_suburban"="tæt bytrafik";
@@ -34,5 +31,4 @@
 "dk_timeline_safety_score"="Sikkerhedsscore: %@";
 "dk_timeline_speeding_score"="Fartgrænsescore: %@";
 "dk_timeline_title"="Tidslinje";
-"dk_timeline_to_date"="til";
 "dk_timeline_trips_forbidden_calls"="Rejser uden opkald: %@";

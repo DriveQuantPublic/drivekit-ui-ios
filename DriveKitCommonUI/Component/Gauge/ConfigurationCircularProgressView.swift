@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  ConfigurationCircularProgressView.swift
 //  drivekit-test-app
@@ -7,7 +7,7 @@
 //  Copyright © 2019 DriveQuant. All rights reserved.
 //
 
-import UIKit
+import DriveKitCoreModule
 import UICircularProgressRing
 
 public enum CircularProgressViewSize {
@@ -54,7 +54,19 @@ public class ConfigurationCircularProgressView {
     let ringColor: UIColor
     let valueFormatter: UICircularRingValueFormatter
 
-    public init(style: UICircularRingStyle?, maxValue: Double, value: Double, steps: [Double], image: UIImage? = nil, ringWidth: Int?, startAngle: Float = 0, endAngle: Float = 360, fontColor: UIColor?, fontSize: Int?, indicator: String?, floatingPoint: Bool = true, decimalPlaces: Int = 1) {
+    public init(style: UICircularRingStyle?,
+                maxValue: Double,
+                value: Double,
+                steps: [Double],
+                image: UIImage? = nil,
+                ringWidth: Int?,
+                startAngle: Float = 0,
+                endAngle: Float = 360,
+                fontColor: UIColor?,
+                fontSize: Int?,
+                indicator: String?,
+                floatingPoint: Bool = true,
+                decimalPlaces: Int = 1) {
         self.style = style ?? .ontop
         self.maxValue = maxValue
         self.value = value
@@ -119,20 +131,20 @@ public class ConfigurationCircularProgressView {
     }
 
     public static func getScoreColor(value: Double, steps: [Double]) -> UIColor {
-        guard steps.count >= 6 else {
+        guard steps.count >= 7 else {
             return UIColor.black
         }
-        if value <= steps[0] {
+        if value <= steps[1] {
             return UIColor.dkVeryBad
-        } else if value <= steps[1] {
-            return UIColor.dkBad
         } else if value <= steps[2] {
-            return UIColor.dkBadMean
+            return UIColor.dkBad
         } else if value <= steps[3] {
-            return UIColor.dkMean
+            return UIColor.dkBadMean
         } else if value <= steps[4] {
-            return UIColor.dkGoodMean
+            return UIColor.dkMean
         } else if value <= steps[5] {
+            return UIColor.dkGoodMean
+        } else if value <= steps[6] {
             return UIColor.dkGood
         }
         return UIColor.dkExcellent

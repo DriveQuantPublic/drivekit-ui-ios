@@ -7,9 +7,10 @@
 //  Copyright © 2021 DriveQuant. All rights reserved.
 //
 
-import Foundation
-import DriveKitDBTripAccessModule
 import DriveKitCommonUI
+import DriveKitCoreModule
+import DriveKitDBTripAccessModule
+import Foundation
 
 class SpeedingPageViewModel {
     let scoreType: DKScoreType = .speeding
@@ -65,7 +66,10 @@ class SpeedingPageViewModel {
     }
 
     func getDurationPercentage() -> String {
-        if let speedingDuration = trip.speedingStatistics?.speedingDuration, let fullDuration = trip.speedingStatistics?.duration, speedingDuration > 0, fullDuration > speedingDuration {
+        if let speedingDuration = trip.speedingStatistics?.speedingDuration,
+           let fullDuration = trip.speedingStatistics?.duration,
+           speedingDuration > 0,
+           fullDuration > speedingDuration {
             var percentage: Double = Double(speedingDuration) / Double(fullDuration) * 100
             if percentage > 0.5 {
                 percentage.round(.up)
@@ -77,7 +81,10 @@ class SpeedingPageViewModel {
     }
 
     func getDistancePercentage() -> String {
-        if let speedingDistance = trip.speedingStatistics?.speedingDistance, let fullDistance = trip.speedingStatistics?.distance, speedingDistance > 0, fullDistance > speedingDistance {
+        if let speedingDistance = trip.speedingStatistics?.speedingDistance,
+            let fullDistance = trip.speedingStatistics?.distance,
+            speedingDistance > 0,
+            fullDistance > speedingDistance {
             var percentage: Double = Double(speedingDistance) / Double(fullDistance) * 100
             if percentage > 0.5 {
                 percentage.round(.up)

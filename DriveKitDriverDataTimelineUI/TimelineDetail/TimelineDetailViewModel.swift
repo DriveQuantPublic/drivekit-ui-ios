@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  TimelineScoreDetailViewModel.swift
 //  DriveKitDriverDataTimelineUI
@@ -7,19 +6,21 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
-import Foundation
 import DriveKitCommonUI
+import DriveKitCoreModule
 import DriveKitDBTripAccessModule
+import Foundation
 
 class TimelineDetailViewModel {
+    let configuredPeriods: [DKPeriod] = [.week, .month]
     weak var delegate: TimelineDetailViewModelDelegate?
     private let selectedScore: DKScoreType
-    private var selectedPeriod: DKTimelinePeriod
+    private var selectedPeriod: DKPeriod
     private var selectedDate: Date
-    private let weekTimeline: DKTimeline
-    private let monthTimeline: DKTimeline
-    let periodSelectorViewModel: PeriodSelectorViewModel
-    let dateSelectorViewModel: DateSelectorViewModel
+    private let weekTimeline: DKRawTimeline
+    private let monthTimeline: DKRawTimeline
+    let periodSelectorViewModel: DKPeriodSelectorViewModel
+    let dateSelectorViewModel: DKDateSelectorViewModel
     let roadContextViewModel: RoadContextViewModel
     private(set) var timelineGraphViewModelByScoreItem: [TimelineScoreItemType: TimelineGraphViewModel]
     
@@ -29,20 +30,24 @@ class TimelineDetailViewModel {
     
     init(
         selectedScore: DKScoreType,
-        selectedPeriod: DKTimelinePeriod,
+        selectedPeriod: DKPeriod,
         selectedDate: Date,
-        weekTimeline: DKTimeline,
-        monthTimeline: DKTimeline
+        weekTimeline: DKRawTimeline,
+        monthTimeline: DKRawTimeline
     ) {
         self.selectedScore = selectedScore
         self.selectedPeriod = selectedPeriod
         self.selectedDate = selectedDate
         self.weekTimeline = weekTimeline
         self.monthTimeline = monthTimeline
-        self.periodSelectorViewModel = PeriodSelectorViewModel()
-        self.dateSelectorViewModel = DateSelectorViewModel()
+        self.periodSelectorViewModel = DKPeriodSelectorViewModel()
+        self.dateSelectorViewModel = DKDateSelectorViewModel()
         self.roadContextViewModel = RoadContextViewModel()
         self.timelineGraphViewModelByScoreItem = [:]
+        self.periodSelectorViewModel.configure(
+            displayedPeriods: .init(configuredPeriods),
+            selectedPeriod: selectedPeriod
+        )
         self.updateViewModels()
     }
     
@@ -53,7 +58,7 @@ class TimelineDetailViewModel {
     private func updateViewModels() {
         let selectedTimeline = getTimelineSource()
         let sourceDates = selectedTimeline.allContext.date
-        let cleanedTimeline: DKTimeline
+        let cleanedTimeline: DKRawTimeline
         var selectedDateIndex = sourceDates.firstIndex(of: selectedDate)
         cleanedTimeline = selectedTimeline.cleaned(
             forScore: self.selectedScore,
@@ -66,9 +71,6 @@ class TimelineDetailViewModel {
         
         // Update view models.
         if let selectedDateIndex {
-            self.periodSelectorViewModel.configure(
-                selectedPeriod: selectedPeriod
-            )
             self.periodSelectorViewModel.delegate = self
 
             self.dateSelectorViewModel.configure(
@@ -99,13 +101,19 @@ class TimelineDetailViewModel {
         }
     }
     
-    private func getTimelineSource() -> DKTimeline {
-        let timelineSource: DKTimeline
-        switch self.selectedPeriod {
+    private func getTimelineSource() -> DKRawTimeline {
+        getTimelineSource(for: selectedPeriod)
+    }
+    
+    private func getTimelineSource(for period: DKPeriod) -> DKRawTimeline {
+        let timelineSource: DKRawTimeline
+        switch period {
             case .week:
                 timelineSource = self.weekTimeline
             case .month:
                 timelineSource = self.monthTimeline
+            case .year:
+                fallthrough
             @unknown default:
                 preconditionFailure("period \(self.selectedPeriod) is not implemented yet")
         }
@@ -113,23 +121,35 @@ class TimelineDetailViewModel {
     }
 }
 
-extension TimelineDetailViewModel: PeriodSelectorDelegate {
-    func periodSelectorDidSelectPeriod(_ period: DKTimelinePeriod) {
-        if self.selectedPeriod != period {
-            self.selectedPeriod = period
-            self.selectedDate = Helpers.newSelectedDate(
+extension TimelineDetailViewModel: DKPeriodSelectorDelegate {
+    func periodSelectorDidSwitch(from oldPeriod: DKPeriod, to newPeriod: DKPeriod) {
+        if self.selectedPeriod != newPeriod {
+            self.selectedPeriod = newPeriod
+            self.selectedDate = DKDateSelectorViewModel.newSelectedDate(
                 from: selectedDate,
-                switchingTo: period,
-                weekTimeline: weekTimeline,
-                monthTimeline: monthTimeline
-            )
+                in: oldPeriod,
+                switchingAmongst: getTimelineSource(for: newPeriod).allContext.date,
+                in: selectedPeriod
+            ) { period, date in
+                let timeline = getTimelineSource(for: period)
+                guard
+                    let selectedDateIndex = timeline.allContext.date.firstIndex(of: date)
+                else {
+                    return false
+                }
+                
+                return timeline.hasValidTripScored(
+                    for: selectedScore,
+                    at: selectedDateIndex
+                )
+            }
             updateViewModels()
             self.delegate?.didUpdate(selectedPeriod: selectedPeriod)
         }
     }
 }
 
-extension TimelineDetailViewModel: DateSelectorDelegate {
+extension TimelineDetailViewModel: DKDateSelectorDelegate {
     func dateSelectorDidSelectDate(_ date: Date) {
         selectedDate = date
         updateViewModels()

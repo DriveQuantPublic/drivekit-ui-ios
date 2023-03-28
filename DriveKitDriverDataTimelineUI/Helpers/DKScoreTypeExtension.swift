@@ -12,32 +12,6 @@ import DriveKitCommonUI
 import DriveKitCoreModule
 
 extension DKScoreType {
-    public func timelineScoreSelectorImage() -> UIImage? {
-        switch self {
-            case .ecoDriving:
-                return DKImages.ecoDrivingFlat.image
-            case .safety:
-                return DKImages.safetyFlat.image
-            case .distraction:
-                return DKImages.distractionFlat.image
-            case .speeding:
-                return DKImages.speedingFlat.image
-        }
-    }
-
-    func hasAccess() -> Bool {
-        switch self {
-            case .distraction:
-                return DriveKitAccess.shared.hasAccess(.phoneDistraction)
-            case .ecoDriving:
-                return DriveKitAccess.shared.hasAccess(.ecoDriving)
-            case .safety:
-                return DriveKitAccess.shared.hasAccess(.safety)
-            case .speeding:
-                return DriveKitAccess.shared.hasAccess(.speeding)
-        }
-    }
-    
     var associatedScoreItemTypes: [TimelineScoreItemType] {
         switch self {
         case .safety:
@@ -66,6 +40,8 @@ extension DKScoreType {
                 .speeding_duration,
                 .speeding_distance
             ]
+        @unknown default:
+            return []
         }
     }
 }

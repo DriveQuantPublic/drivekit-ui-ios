@@ -34,9 +34,9 @@ class AlternativeTripViewModel {
                 case 2:
                     return "dk_driverdata_weather_cloud".dkDriverDataLocalized()
                 case 3:
-                    return "dk_driverdata_weather_rain".dkDriverDataLocalized()
-                case 4:
                     return "dk_driverdata_weather_fog".dkDriverDataLocalized()
+                case 4:
+                    return "dk_driverdata_weather_rain".dkDriverDataLocalized()
                 case 5:
                     return "dk_driverdata_weather_snow".dkDriverDataLocalized()
                 case 6:

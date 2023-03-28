@@ -25,7 +25,7 @@ public enum FormatType {
 }
 
 extension Array where Element == FormatType {
-    func toString() -> String {
+    public func toString() -> String {
         reduce(into: "") { (result, formatType) in
             result.append(formatType.string)
         }
@@ -71,7 +71,7 @@ public extension Double {
         if self < minDistanceToRemoveFractions {
             formattedDistance = self.format(maximumFractionDigits: 1)
         } else {
-            formattedDistance = String(Int(self.rounded()))
+            formattedDistance = Int(self.rounded()).formatWithThousandSeparator()
         }
         formattingTypes.append(.value(formattedDistance))
         if appendUnit {
@@ -168,6 +168,7 @@ public extension Double {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         numberFormatter.roundingMode = .halfUp
+        numberFormatter.usesGroupingSeparator = true
         numberFormatter.minimumFractionDigits = minimumFractionDigits
         numberFormatter.maximumFractionDigits = maximumFractionDigits
         let formattedNumber = numberFormatter.string(from: NSNumber(value: self)) ?? {
@@ -381,7 +382,6 @@ public extension Double {
     func getPercentageFormat() -> [FormatType] {
         let formattingTypes: [FormatType] = [
             .value(self.format(maximumFractionDigits: 1)),
-            .separator(),
             .unit("%")
         ]
         return formattingTypes
@@ -474,6 +474,14 @@ public enum DurationUnit {
 public extension Int {
     func roundUp(step: Double) -> Double {
         return (Double(self) / step).rounded(.up) * step
+    }
+    
+    func formatWithThousandSeparator() -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.usesGroupingSeparator = true
+        let formattedNumber = numberFormatter.string(from: NSNumber(value: self)) ?? String(self)
+        return formattedNumber
     }
 }
 

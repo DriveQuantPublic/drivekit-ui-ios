@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  DKTimelineExtension.swift
 //  DriveKitDriverDataTimelineUI
@@ -7,29 +6,18 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
-import Foundation
 import DriveKitCommonUI
+import DriveKitCoreModule
 import DriveKitDBTripAccessModule
+import Foundation
 
-extension DKTimeline {
+extension DKRawTimeline {
     
     var hasData: Bool {
         self.allContext.numberTripTotal.isEmpty == false
     }
     
-    func selectedIndex(for selectedDate: Date?) -> Int? {
-        let dates = self.allContext.date
-        let selectedDateIndex: Int?
-        if let date = selectedDate {
-            selectedDateIndex = dates.firstIndex(of: date)
-        } else if !dates.isEmpty {
-            selectedDateIndex = dates.count - 1
-        } else {
-            selectedDateIndex = nil
-        }
-        return selectedDateIndex
-    }
-    
+    // swiftlint:disable function_body_length
     /// Clean timeline to remove, if needed, values where there are only unscored trips.
     func cleaned(
         forScore score: DKScoreType,
@@ -98,7 +86,7 @@ extension DKTimeline {
             }
         }
 
-        var roadContexts: [DKTimeline.RoadContextItem] = []
+        var roadContexts: [DKRawTimeline.RoadContextItem] = []
         for roadContext in self.roadContexts {
             var date: [Date] = []
             var numberTripTotal: [Int] = []
@@ -136,7 +124,7 @@ extension DKTimeline {
                     roadContext.efficiencySpeedMaintain.appendIfNotEmpty(valueAtIndex: index, into: &efficiencySpeedMaintain)
                 }
             }
-            let newRoadContext = DKTimeline.RoadContextItem(
+            let newRoadContext = DKRawTimeline.RoadContextItem(
                 type: roadContext.type,
                 date: date,
                 numberTripTotal: numberTripTotal,
@@ -158,7 +146,7 @@ extension DKTimeline {
             roadContexts.append(newRoadContext)
         }
 
-        let allContext: DKTimeline.AllContextItem = DKTimeline.AllContextItem(
+        let allContext: DKRawTimeline.AllContextItem = DKRawTimeline.AllContextItem(
             date: date,
             numberTripTotal: numberTripTotal,
             numberTripScored: numberTripScored,
@@ -187,9 +175,10 @@ extension DKTimeline {
             efficiencyAcceleration: efficiencyAcceleration,
             efficiencySpeedMaintain: efficiencySpeedMaintain
         )
-        let cleanedTimeline = DKTimeline(period: self.period, allContext: allContext, roadContexts: roadContexts)
+        let cleanedTimeline = DKRawTimeline(period: self.period, allContext: allContext, roadContexts: roadContexts)
         return cleanedTimeline
     }
+    // swiftlint:enable function_body_length
     
     /// Compute distance by road contexts from the timeline
     func distanceByRoadContext(

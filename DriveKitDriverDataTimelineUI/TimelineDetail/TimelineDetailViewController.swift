@@ -38,14 +38,14 @@ class TimelineDetailViewController: DKUIViewController {
     }
     
     private func setupPeriodSelector() {
-        PeriodSelectorView.createPeriodSelectorView(
+        DKPeriodSelectorView.createPeriodSelectorView(
             configuredWith: viewModel.periodSelectorViewModel,
             embededIn: periodSelectorContainerView
         )
     }
     
     private func setupDateSelector() {
-        DateSelectorView.createDateSelectorView(
+        DKDateSelectorView.createDateSelectorView(
             configuredWith: viewModel.dateSelectorViewModel,
             embededIn: dateSelectorContainerView
         )

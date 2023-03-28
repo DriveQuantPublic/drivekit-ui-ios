@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GKu-dl-Gyh" customClass="CommunityStatsItemView" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="160" height="103.33"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="M7c-UM-oo7" userLabel="Circle Padding View">
+                    <rect key="frame" x="0.0" y="0.0" width="17" height="19.33"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Ka-rO-YTT" userLabel="Circle View">
+                            <rect key="frame" x="0.0" y="1" width="18" height="18"/>
+                            <color key="backgroundColor" systemColor="systemBlueColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="18" id="PJM-oO-WrA"/>
+                                <constraint firstAttribute="width" constant="18" id="cfo-Mp-Hhm"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <edgeInsets key="layoutMargins" top="1" left="0.0" bottom="0.0" right="-1"/>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="X8D-C9-UAh" userLabel="Legend Stack View">
+                    <rect key="frame" x="25" y="0.0" width="135" height="103.33"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Tq-WV-Vas" userLabel="Legend Label">
+                            <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="19"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="19.33" id="8vv-LG-Nh0"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="OlA-et-hbP" userLabel="Stats Stack View">
+                            <rect key="frame" x="0.0" y="28" width="41.333333333333336" height="75"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nju-57-aQR" userLabel="Trip Count Label">
+                                    <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="20.333333333333332"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEu-uT-hNu" userLabel="Distance Count Label">
+                                    <rect key="frame" x="0.0" y="27.333333333333336" width="41.333333333333336" height="20.333333333333336"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Prn-l5-HJa" userLabel="Driver Cound Label">
+                                    <rect key="frame" x="0.0" y="54.666666666666679" width="41.333333333333336" height="20.333333333333336"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <viewLayoutGuide key="safeArea" id="cWY-AX-mVV"/>
+                        </stackView>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="MiQ-E5-J4q"/>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="cRn-yA-9kx"/>
+            <connections>
+                <outlet property="circleView" destination="6Ka-rO-YTT" id="Kxf-kh-dLn"/>
+                <outlet property="distanceCountLabel" destination="pEu-uT-hNu" id="ezN-hn-R1W"/>
+                <outlet property="driverCountLabel" destination="Prn-l5-HJa" id="GxY-Gp-zOY"/>
+                <outlet property="legendLabel" destination="1Tq-WV-Vas" id="jof-yq-buU"/>
+                <outlet property="tripCountLabel" destination="Nju-57-aQR" id="QIs-Kx-7MB"/>
+            </connections>
+            <point key="canvasLocation" x="-679" y="-157"/>
+        </stackView>
+    </objects>
+    <resources>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

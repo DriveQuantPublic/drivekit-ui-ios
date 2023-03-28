@@ -13,7 +13,7 @@
                 <outlet property="dateSelectorContainer" destination="8R3-Dt-1oH" id="uF1-1r-vsm"/>
                 <outlet property="periodSelectorContainer" destination="so8-sZ-4wK" id="4Kf-Gm-xNK"/>
                 <outlet property="roadContextContainer" destination="Jgi-Y1-Rg8" id="PTb-Xw-Tpe"/>
-                <outlet property="scoreSelectorView" destination="zQN-BG-tEM" id="xNg-g8-f1M"/>
+                <outlet property="scoreSelectorContainer" destination="Z75-HZ-iax" id="9xU-pq-0Hb"/>
                 <outlet property="scrollView" destination="la9-Yj-V8Q" id="Kr9-wP-J6D"/>
                 <outlet property="showTimelineDetailButton" destination="yLR-Ok-Rvv" id="A64-cR-pFz"/>
                 <outlet property="timelineGraphViewContainer" destination="IsM-Ga-xtp" id="5TE-TP-U0O"/>
@@ -34,12 +34,12 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3BH-gf-u8z">
                                     <rect key="frame" x="0.0" y="8" width="390" height="140"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="zQN-BG-tEM">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z75-HZ-iax" userLabel="Score selector">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="64"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="64" id="OIm-Ib-cUH"/>
+                                                <constraint firstAttribute="height" constant="64" placeholder="YES" id="gdB-z9-hyc"/>
                                             </constraints>
-                                        </stackView>
+                                        </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="so8-sZ-4wK" userLabel="Period selector">
                                             <rect key="frame" x="0.0" y="64" width="390" height="76"/>
                                             <constraints>

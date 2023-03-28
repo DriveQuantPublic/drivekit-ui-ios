@@ -7,9 +7,10 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
-import Foundation
-import DriveKitDBTripAccessModule
 import DriveKitCommonUI
+import DriveKitCoreModule
+import DriveKitDBTripAccessModule
+import Foundation
 
 class TimelineGraphViewModel: GraphViewModel {
     weak var delegate: TimelineGraphDelegate?
@@ -27,7 +28,7 @@ class TimelineGraphViewModel: GraphViewModel {
     private var indexOfLastPointInTimeline: Int?
     private static let graphPointNumber: Int = 8
     
-    func configure(timeline: DKTimeline, timelineSelectedIndex: Int, graphItem: GraphItem, period: DKTimelinePeriod) {
+    func configure(timeline: DKRawTimeline, timelineSelectedIndex: Int, graphItem: GraphItem, period: DKPeriod) {
         let sourceDates = timeline.allContext.date
         let dates: [Date] = sourceDates.map { date in
             date.dateByRemovingTime() ?? date
@@ -56,14 +57,36 @@ class TimelineGraphViewModel: GraphViewModel {
                     if let value = getValue(atIndex: xLabelDateIndex, for: graphItem, in: timeline) {
                         point = (x: Double(i), y: value, data: PointData(date: sourceDates[xLabelDateIndex], interpolatedPoint: false))
                     } else if shouldInterpolate {
-                        point = interpolateSelectableDateWithoutValue(fromDateIndex: xLabelDateIndex, graphItem: graphItem, timeline: timeline, dates: dates, dateComponent: dateComponent, pointX: Double(i), sourceDates: sourceDates)
+                        point = interpolateSelectableDateWithoutValue(
+                            fromDateIndex: xLabelDateIndex,
+                            graphItem: graphItem,
+                            timeline: timeline,
+                            dates: dates,
+                            dateComponent: dateComponent,
+                            pointX: Double(i),
+                            sourceDates: sourceDates
+                        )
                     }
                 } else if shouldInterpolate {
                     if let graphStartDate {
                         if i == 0 {
-                            point = interpolateStartOfGraph(from: graphStartDate, dateComponent: dateComponent, dates: dates, graphItem: graphItem, timeline: timeline, xLabelDate: xLabelDate)
+                            point = interpolateStartOfGraph(
+                                from: graphStartDate,
+                                dateComponent: dateComponent,
+                                dates: dates,
+                                graphItem: graphItem,
+                                timeline: timeline,
+                                xLabelDate: xLabelDate
+                            )
                         } else if i == graphPointNumber - 1 {
-                            point = interpolateEndOfGraph(from: graphStartDate, dateComponent: dateComponent, dates: dates, graphItem: graphItem, timeline: timeline, xLabelDate: xLabelDate)
+                            point = interpolateEndOfGraph(
+                                from: graphStartDate,
+                                dateComponent: dateComponent,
+                                dates: dates,
+                                graphItem: graphItem,
+                                timeline: timeline,
+                                xLabelDate: xLabelDate
+                            )
                         }
                     }
                 }
@@ -71,10 +94,23 @@ class TimelineGraphViewModel: GraphViewModel {
             graphPoints.append(point)
             computeIndexOfFirstAndLastPointInTimeline(from: graphPoints)
         }
-        configure(graphItem: graphItem, graphPointNumber: graphPointNumber, graphPoints: graphPoints, graphDates: graphDates, selectedIndex: selectedIndexInGraph, graphDescription: graphItem.getGraphDescription(fromValue: getValue(atIndex: timelineSelectedIndex, for: graphItem, in: timeline)))
+        configure(
+            graphItem: graphItem,
+            graphPointNumber: graphPointNumber,
+            graphPoints: graphPoints,
+            graphDates: graphDates,
+            selectedIndex: selectedIndexInGraph,
+            graphDescription: graphItem.getGraphDescription(
+                fromValue: getValue(
+                    atIndex: timelineSelectedIndex,
+                    for: graphItem,
+                    in: timeline
+                )
+            )
+        )
     }
     
-    func showEmptyGraph(graphItem: GraphItem, period: DKTimelinePeriod) {
+    func showEmptyGraph(graphItem: GraphItem, period: DKPeriod) {
         let dateComponent = dateComponent(for: period)
         let graphPointNumber = Self.graphPointNumber
         let now = Date()
@@ -106,7 +142,14 @@ class TimelineGraphViewModel: GraphViewModel {
         }
     }
     
-    private func configure(graphItem: GraphItem, graphPointNumber: Int, graphPoints: [GraphPoint?], graphDates: [String], selectedIndex: Int?, graphDescription: String) {
+    private func configure(
+        graphItem: GraphItem,
+        graphPointNumber: Int,
+        graphPoints: [GraphPoint?],
+        graphDates: [String],
+        selectedIndex: Int?,
+        graphDescription: String
+    ) {
         self.type = graphItem.graphType
         self.points = graphPoints
         self.selectedIndex = selectedIndex
@@ -119,7 +162,7 @@ class TimelineGraphViewModel: GraphViewModel {
         self.graphViewModelDidUpdate?()
     }
     
-    private func graphLabelsFrom(startDate: Date?, dateComponent: Calendar.Component, period: DKTimelinePeriod, graphPointNumber: Int) -> [String] {
+    private func graphLabelsFrom(startDate: Date?, dateComponent: Calendar.Component, period: DKPeriod, graphPointNumber: Int) -> [String] {
         var graphDates: [String] = []
         for i in 0..<graphPointNumber {
             let date: Date? = startDate?.date(byAdding: i, calendarUnit: dateComponent)
@@ -160,7 +203,14 @@ class TimelineGraphViewModel: GraphViewModel {
         return nextValidIndex
     }
     
-    private func interpolateStartOfGraph(from graphStartDate: Date, dateComponent: Calendar.Component, dates: [Date], graphItem: GraphItem, timeline: DKTimeline, xLabelDate: Date) -> GraphPoint? {
+    private func interpolateStartOfGraph(
+        from graphStartDate: Date,
+        dateComponent: Calendar.Component,
+        dates: [Date],
+        graphItem: GraphItem,
+        timeline: DKRawTimeline,
+        xLabelDate: Date
+    ) -> GraphPoint? {
         // Find next valid index
         var point: GraphPoint?
         var nextValidIndex: Int?
@@ -186,7 +236,15 @@ class TimelineGraphViewModel: GraphViewModel {
                 previousValidIndex -= 1
             }
             if previousValidIndex >= 0 {
-                if let interpolatedValue = interpolateValueFrom(date: xLabelDate, previousValidIndex: previousValidIndex, nextValidIndex: nextValidIndex, dates: dates, dateComponent: dateComponent, graphItem: graphItem, timeline: timeline) {
+                if let interpolatedValue = interpolateValueFrom(
+                    date: xLabelDate,
+                    previousValidIndex: previousValidIndex,
+                    nextValidIndex: nextValidIndex,
+                    dates: dates,
+                    dateComponent: dateComponent,
+                    graphItem: graphItem,
+                    timeline: timeline
+                ) {
                     point = (x: Double(0), y: interpolatedValue, data: nil)
                 }
             }
@@ -194,7 +252,14 @@ class TimelineGraphViewModel: GraphViewModel {
         return point
     }
     
-    private func interpolateEndOfGraph(from graphStartDate: Date, dateComponent: Calendar.Component, dates: [Date], graphItem: GraphItem, timeline: DKTimeline, xLabelDate: Date) -> GraphPoint? {
+    private func interpolateEndOfGraph(
+        from graphStartDate: Date,
+        dateComponent: Calendar.Component,
+        dates: [Date],
+        graphItem: GraphItem,
+        timeline: DKRawTimeline,
+        xLabelDate: Date
+    ) -> GraphPoint? {
         // Find previous valid index
         var point: GraphPoint?
         var previousValidIndex: Int?
@@ -221,7 +286,15 @@ class TimelineGraphViewModel: GraphViewModel {
                 nextValidIndex += 1
             }
             if nextValidIndex < max {
-                if let interpolatedValue = interpolateValueFrom(date: xLabelDate, previousValidIndex: previousValidIndex, nextValidIndex: nextValidIndex, dates: dates, dateComponent: dateComponent, graphItem: graphItem, timeline: timeline) {
+                if let interpolatedValue = interpolateValueFrom(
+                    date: xLabelDate,
+                    previousValidIndex: previousValidIndex,
+                    nextValidIndex: nextValidIndex,
+                    dates: dates,
+                    dateComponent: dateComponent,
+                    graphItem: graphItem,
+                    timeline: timeline
+                ) {
                     point = (x: Double(Self.graphPointNumber - 1), y: interpolatedValue, data: nil)
                 }
             }
@@ -229,7 +302,15 @@ class TimelineGraphViewModel: GraphViewModel {
         return point
     }
     
-    private func interpolateSelectableDateWithoutValue(fromDateIndex dateIndex: Int, graphItem: GraphItem, timeline: DKTimeline, dates: [Date], dateComponent: Calendar.Component, pointX: Double, sourceDates: [Date]) -> GraphPoint? {
+    private func interpolateSelectableDateWithoutValue(
+        fromDateIndex dateIndex: Int,
+        graphItem: GraphItem,
+        timeline: DKRawTimeline,
+        dates: [Date],
+        dateComponent: Calendar.Component,
+        pointX: Double,
+        sourceDates: [Date]
+    ) -> GraphPoint? {
         let point: GraphPoint?
         if dates.count == 1 {
             point = (x: pointX, y: 0, data: nil)
@@ -272,33 +353,37 @@ class TimelineGraphViewModel: GraphViewModel {
         }
     }
     
-    private func dateComponent(for period: DKTimelinePeriod) -> Calendar.Component {
+    private func dateComponent(for period: DKPeriod) -> Calendar.Component {
         let dateComponent: Calendar.Component
         switch period {
-        case .week:
-            dateComponent = .weekOfYear
-        case .month:
-            dateComponent = .month
-        @unknown default:
-            fatalError("Unknown value: \(period)")
+            case .week:
+                dateComponent = .weekOfYear
+            case .month:
+                dateComponent = .month
+            case .year:
+                fallthrough
+            @unknown default:
+                fatalError("Unknown value: \(period)")
         }
         return dateComponent
     }
     
-    private func dateFormatPattern(for period: DKTimelinePeriod) -> DKDatePattern {
+    private func dateFormatPattern(for period: DKPeriod) -> DKDatePattern {
         let dateFormat: DKDatePattern
         switch period {
-        case .week:
-            dateFormat = DKDatePattern.dayMonth
-        case .month:
-            dateFormat = DKDatePattern.monthAbbreviation
-        @unknown default:
-            fatalError("Unknown value: \(period)")
+            case .week:
+                dateFormat = DKDatePattern.dayMonth
+            case .month:
+                dateFormat = DKDatePattern.monthAbbreviation
+            case .year:
+                fallthrough
+            @unknown default:
+                fatalError("Unknown value: \(period)")
         }
         return dateFormat
     }
     
-    private func getValue(atIndex index: Int, for graphItem: GraphItem, in timeline: DKTimeline) -> Double? {
+    private func getValue(atIndex index: Int, for graphItem: GraphItem, in timeline: DKRawTimeline) -> Double? {
         let totalDuration = timeline.allContext.duration[safe: index].map(Double.init) ?? 0
         let totalDistance = timeline.allContext.distance[safe: index] ?? 0
         
@@ -323,6 +408,8 @@ class TimelineGraphViewModel: GraphViewModel {
                 }
             case .speeding:
                 return timeline.allContext.speeding[safe: index]
+            @unknown default:
+                return nil
             }
         case .scoreItem(let scoreItemType):
             switch scoreItemType {
@@ -399,7 +486,15 @@ class TimelineGraphViewModel: GraphViewModel {
         }
     }
     
-    private func interpolateValueFrom(date: Date, previousValidIndex: Int, nextValidIndex: Int, dates: [Date], dateComponent: Calendar.Component, graphItem: GraphItem, timeline: DKTimeline) -> Double? {
+    private func interpolateValueFrom(
+        date: Date,
+        previousValidIndex: Int,
+        nextValidIndex: Int,
+        dates: [Date],
+        dateComponent: Calendar.Component,
+        graphItem: GraphItem,
+        timeline: DKRawTimeline
+    ) -> Double? {
         let previousValidDate: Date = dates[previousValidIndex]
         let nextValidDate: Date = dates[nextValidIndex]
         let diffBetweenPreviousAndNext = previousValidDate.diffWith(date: nextValidDate, countingIn: dateComponent)

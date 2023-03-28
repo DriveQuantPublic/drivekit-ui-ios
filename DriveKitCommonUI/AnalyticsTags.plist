@@ -74,5 +74,7 @@
 	<string>drivekit-timeline</string>
 	<key>dk_tag_timeline_score_detail</key>
 	<string>drivekit-timeline-score-detail</string>
+	<key>dk_tag_my_synthesis</key>
+	<string>drivekit-my-synthesis</string>
 </dict>
 </plist>

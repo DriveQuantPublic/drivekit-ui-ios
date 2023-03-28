@@ -126,6 +126,8 @@ class MySynthesisViewModel {
                     return item.ecoDriving != nil
                 case .distraction, .speeding:
                     return true
+                @unknown default:
+                    return false
             }
         }.map(\.date)
         

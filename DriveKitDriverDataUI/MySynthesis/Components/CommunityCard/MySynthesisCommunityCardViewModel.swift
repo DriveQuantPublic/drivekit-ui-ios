@@ -33,6 +33,8 @@ public class MySynthesisCommunityCardViewModel {
                         return "dk_driverdata_mysynthesis_not_enough_data".dkDriverDataLocalized()
                     case .distraction, .speeding:
                         return userCommunityRelatedPositionDescription
+                    case .some:
+                        return ""
                 }
             case .scoredTrips:
                 return userCommunityRelatedPositionDescription
@@ -49,6 +51,8 @@ public class MySynthesisCommunityCardViewModel {
                         return .complementaryFontColor
                     case .distraction, .speeding:
                         return .mainFontColor
+                    case .some:
+                        return .complementaryFontColor
                 }
             case .scoredTrips:
                 return .mainFontColor

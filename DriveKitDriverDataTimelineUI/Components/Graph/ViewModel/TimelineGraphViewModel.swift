@@ -408,6 +408,8 @@ class TimelineGraphViewModel: GraphViewModel {
                 }
             case .speeding:
                 return timeline.allContext.speeding[safe: index]
+            @unknown default:
+                return nil
             }
         case .scoreItem(let scoreItemType):
             switch scoreItemType {

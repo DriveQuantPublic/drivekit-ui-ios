@@ -113,6 +113,8 @@ public class BeaconViewModel {
                     self.update(battery: batteryLevel, distance: estimatedDistance, rssi: rssi, txPower: txPower)
                 case .error:
                     self.update(battery: nil, distance: nil, rssi: nil, txPower: nil)
+                @unknown default:
+                    self.update(battery: nil, distance: nil, rssi: nil, txPower: nil)
             }
         }
     }
@@ -307,6 +309,8 @@ extension DKVehicleBeaconStatus {
             return "Unknown vehicle"
         case .unavailableBeacon:
             return "Unavailable beacon"
+        @unknown default:
+            return "Error"
         }
     }
 }

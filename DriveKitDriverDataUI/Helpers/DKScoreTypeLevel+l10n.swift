@@ -71,6 +71,8 @@ extension DKScoreType {
                 return "distraction"
             case .speeding:
                 return "speeding"
+            @unknown default:
+                return ""
         }
     }
 }

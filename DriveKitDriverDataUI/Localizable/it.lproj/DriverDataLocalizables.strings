@@ -66,13 +66,14 @@
 "dk_driverdata_mysynthesis_ecodriving_level_very_bad"="Il potenziale di risparmio energetico è molto elevato. Vi consigliamo di mettere in pratica i consigli di guida ecologica che vi vengono inviati alla fine dei vostri viaggi. Sarete in grado di fare rapidi progressi.";
 "dk_driverdata_mysynthesis_ecodriving_level_very_good"="Il tuo punteggio è molto buono, continua così per raggiungere il top!";
 "dk_driverdata_mysynthesis_ecodriving_score"="Il mio punteggio di guida ecologica";
-"dk_driverdata_mysynthesis_ecodriving_score_info"="Il punteggio di guida ecologica varia da 5 a 10. Il vostro punteggio definisce il vostro livello, rappresentato da una scala di colori.";
+"dk_driverdata_mysynthesis_ecodriving_score_info"="Il punteggio di guida ecologica varia da 4 a 10. Il vostro punteggio definisce il vostro livello, rappresentato da una scala di colori.";
 "dk_driverdata_mysynthesis_excellent_score"="Il vostro punteggio è eccellente";
 "dk_driverdata_mysynthesis_good_score"="Il vostro punteggio è buono";
 "dk_driverdata_mysynthesis_low_score"="Il vostro punteggio è scarso";
 "dk_driverdata_mysynthesis_main_title"="Il mio riassunto";
 "dk_driverdata_mysynthesis_maximum"="mass.";
 "dk_driverdata_mysynthesis_me"="Me";
+"dk_driverdata_mysynthesis_median"="mediano";
 "dk_driverdata_mysynthesis_minimum"="min.";
 "dk_driverdata_mysynthesis_my_community"="La mia comunità";
 "dk_driverdata_mysynthesis_no_driving"="Non avete guidato durante questo periodo";
@@ -113,8 +114,8 @@ State guidando in modo sicuro, ma potete migliorare. Basta un po\' di impegno in
 "dk_driverdata_mysynthesis_very_bad_score"="Il vostro punteggio è molto negativo";
 "dk_driverdata_mysynthesis_very_good_score"="Il vostro punteggio è molto buono";
 "dk_driverdata_mysynthesis_you_are_average"="Siete nella media";
-"dk_driverdata_mysynthesis_you_are_best"="Siete migliori dell\'%@% degli utenti";
-"dk_driverdata_mysynthesis_you_are_lower"="L\'%@% degli utenti è migliore di te";
+"dk_driverdata_mysynthesis_you_are_best"="Siete migliori dell\'%@ degli utenti";
+"dk_driverdata_mysynthesis_you_are_lower"="L\'%@ degli utenti è migliore di te";
 "dk_driverdata_night"="Viaggio notturno";
 "dk_driverdata_no_call_congrats"="Congratulazione!";
 "dk_driverdata_no_call_content"="Nessuna chiamata";

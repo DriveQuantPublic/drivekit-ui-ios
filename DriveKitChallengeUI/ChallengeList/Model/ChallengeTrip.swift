@@ -107,6 +107,8 @@ struct ChallengeTrip: DKTripListItem {
                  .idle,
                  .other:
                 return true
+            @unknown default:
+                return false
         }
     }
 

@@ -15,6 +15,7 @@ class MySynthesisGaugeViewModel {
     private(set) var mean: Double = 0
     private(set) var min: Double = 0
     private(set) var max: Double = 0
+    private(set) var median: Double = 0
     private var score: Double?
     private(set) var buttonTitle: String = ""
 
@@ -22,9 +23,11 @@ class MySynthesisGaugeViewModel {
         return score != nil
     }
 
-    func configure(scoreType: DKScoreType, mean: Double, min: Double, max: Double, score: Double?) {
+    // swiftlint:disable:next function_parameter_count
+    func configure(scoreType: DKScoreType, mean: Double, median: Double, min: Double, max: Double, score: Double?) {
         self.scoreType = scoreType
         self.mean = mean
+        self.median = median
         self.min = min
         self.max = max
         self.score = score
@@ -58,6 +61,10 @@ class MySynthesisGaugeViewModel {
 
     var meanOffsetPercent: Double {
         offsetPercent(forScore: mean)
+    }
+
+    var medianOffsetPercent: Double {
+        offsetPercent(forScore: median)
     }
 
     var scoreOffsetPercent: Double {

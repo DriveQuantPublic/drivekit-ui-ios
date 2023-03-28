@@ -40,6 +40,8 @@ extension DKScoreType {
                 .speeding_duration,
                 .speeding_distance
             ]
+        @unknown default:
+            return []
         }
     }
 }

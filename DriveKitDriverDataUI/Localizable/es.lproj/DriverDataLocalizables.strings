@@ -66,13 +66,14 @@
 "dk_driverdata_mysynthesis_ecodriving_level_very_bad"="El potencial de ahorro energético es muy elevado. Te recomendamos que pongas en práctica los consejos de conducción ecológica que te enviamos al final de tus viajes. Podrá progresar rápidamente.";
 "dk_driverdata_mysynthesis_ecodriving_level_very_good"="Tu puntuación es muy buena, ¡sigue así para llegar a lo más alto!";
 "dk_driverdata_mysynthesis_ecodriving_score"="Mi puntuación en ecoconducción";
-"dk_driverdata_mysynthesis_ecodriving_score_info"="La puntuación de la conducción ecológica varía entre 5 y 10. Tu puntuación define tu nivel, que se representa en una escala de colores.";
+"dk_driverdata_mysynthesis_ecodriving_score_info"="La puntuación de la conducción ecológica varía entre 4 y 10. Tu puntuación define tu nivel, que se representa en una escala de colores.";
 "dk_driverdata_mysynthesis_excellent_score"="Su puntuación es excelente";
 "dk_driverdata_mysynthesis_good_score"="Su puntuación es buena";
 "dk_driverdata_mysynthesis_low_score"="Su puntuación es baja";
 "dk_driverdata_mysynthesis_main_title"="Mi resumen";
 "dk_driverdata_mysynthesis_maximum"="máx.";
 "dk_driverdata_mysynthesis_me"="Yo";
+"dk_driverdata_mysynthesis_median"="mediana";
 "dk_driverdata_mysynthesis_minimum"="mín.";
 "dk_driverdata_mysynthesis_my_community"="Mi comunidad";
 "dk_driverdata_mysynthesis_no_driving"="No condujo durante este periodo";
@@ -112,8 +113,8 @@
 "dk_driverdata_mysynthesis_very_bad_score"="Su puntuación es muy mala";
 "dk_driverdata_mysynthesis_very_good_score"="Su puntuación es muy buena";
 "dk_driverdata_mysynthesis_you_are_average"="Usted se encuentra en la media";
-"dk_driverdata_mysynthesis_you_are_best"="Eres mejor que el %@% de los usuarios";
-"dk_driverdata_mysynthesis_you_are_lower"="%@% de los usuarios son mejores que tú";
+"dk_driverdata_mysynthesis_you_are_best"="Eres mejor que el %@ de los usuarios";
+"dk_driverdata_mysynthesis_you_are_lower"="%@ de los usuarios son mejores que tú";
 "dk_driverdata_night"="Excursión nocturna";
 "dk_driverdata_no_call_congrats"="¡Felicitación!";
 "dk_driverdata_no_call_content"="Sin llamadas";

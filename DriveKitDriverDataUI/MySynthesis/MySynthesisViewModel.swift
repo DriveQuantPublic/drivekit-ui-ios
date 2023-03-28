@@ -94,6 +94,7 @@ class MySynthesisViewModel {
                     self.communityStatistics = statistics
                 }
                 self.updating = false
+                self.update(resettingSelectedDate: false)
                 self.delegate?.didUpdateData()
             }
         }
@@ -113,7 +114,28 @@ class MySynthesisViewModel {
             displayedPeriods: .init(configuredPeriods),
             selectedPeriod: currentTimeline.period
         )
-        let allDates = currentTimeline.allContext.map(\.date)
+
+        let allDates = currentTimeline.allContext.filter { item in
+            if let selectedDate, item.date == selectedDate {
+                return true
+            }
+            switch self.scoreSelectorViewModel.selectedScore {
+                case .safety:
+                    return item.safety != nil
+                case .ecoDriving:
+                    return item.ecoDriving != nil
+                case .distraction, .speeding:
+                    return true
+                @unknown default:
+                    return false
+            }
+        }.map(\.date)
+        
+        if allDates.isEmpty {
+            configureWithNoData()
+            return
+        }
+
         let selectedDateIndex = allDates.selectedIndex(for: selectedDate)
         self.dateSelectorViewModel.configure(
             dates: allDates,
@@ -144,7 +166,7 @@ class MySynthesisViewModel {
             self.communityCardViewModel.configure(
                 with: scoreSynthesis,
                 hasOnlyShortTripsForCurrentPeriod: currentPeriodContext?.hasOnlyShortTrips ?? false,
-                userTripCount: currentPeriodContext?.numberTripScored ?? 0,
+                userTripCount: currentPeriodContext?.numberTripTotal ?? 0,
                 userDistanceCount: currentPeriodContext?.distance ?? 0,
                 communityStatistics: communityStatistics ?? .default
             )

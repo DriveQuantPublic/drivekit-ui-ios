@@ -323,7 +323,7 @@ extension NotificationManager: TripListener {
                 sendCancelNotification(.noBluetoothDevice)
             case .noGPSData:
                 sendCancelNotification(.noGpsPoint)
-            case .user, .noSpeed, .missingConfiguration, .reset, .beaconNoSpeed:
+            case .user, .noSpeed, .missingConfiguration, .reset, .beaconNoSpeed, .bluetoothDeviceNoSpeed:
                 NotificationManager.removeNotification(.tripStarted(canPostpone: DriveKitConfig.isAutoStartPostponable))
             @unknown default:
                 break
@@ -379,6 +379,8 @@ extension TransportationMode {
                 return false
             case .train, .bus, .boat, .bike, .skiing, .idle:
                 return true
+            @unknown default:
+                return false
         }
     }
 }

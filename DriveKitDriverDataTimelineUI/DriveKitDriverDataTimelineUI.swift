@@ -15,8 +15,8 @@ import UIKit
 
     @available(*, deprecated, message: "You should use DriveKitUI.shared.scores now")
     public var scores: [DKScoreType] {
-        set { DriveKitUI.shared.scores = newValue }
         get { DriveKitUI.shared.scores }
+        set { DriveKitUI.shared.scores = newValue }
     }
     
     public func initialize() {

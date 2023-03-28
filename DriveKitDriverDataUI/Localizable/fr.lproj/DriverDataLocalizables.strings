@@ -57,7 +57,7 @@
 "dk_driverdata_mysynthesis_distraction_level_very_good"="Votre score est très bon, continuez ainsi et vous rejoindrez les conducteurs qui ne manipulent jamais leur téléphone au volant !";
 "dk_driverdata_mysynthesis_distraction_score"="Mon score de distraction";
 "dk_driverdata_mysynthesis_distraction_score_info"="Le score de distraction varie entre 0 et 10. Votre score définit votre niveau qui est représenté sur une échelle de couleurs.";
-"dk_driverdata_mysynthesis_drivers"="Conducteurs";
+"dk_driverdata_mysynthesis_drivers"="conducteurs";
 "dk_driverdata_mysynthesis_ecodriving_level_average"="Votre score est dans la moyenne mais vous pouvez progresser ! Mettez en pratique les conseils reçus à la fin de vos trajets pour réduire votre consommation.";
 "dk_driverdata_mysynthesis_ecodriving_level_bad"="Votre score est inférieur à la moyenne des utilisateurs et vous avez tendance a sur-consommer. Essayez l\'éco-conduite pour économiser du carburant.";
 "dk_driverdata_mysynthesis_ecodriving_level_excellent"="Bravo, vous êtes au top de l\'éco-conduite! La planète vous dit merci 🌎";
@@ -66,13 +66,14 @@
 "dk_driverdata_mysynthesis_ecodriving_level_very_bad"="Le potentiel d\'économie d\'énergie est très important. Nous vous recommandons de mettre en pratique les conseils d\'eco-conduite envoyés à la fin de vos trajets. Vous pourrez progresser rapidement.";
 "dk_driverdata_mysynthesis_ecodriving_level_very_good"="Votre score est très bon, continuez ainsi pour atteindre le haut du panier !";
 "dk_driverdata_mysynthesis_ecodriving_score"="Mon score d\'éco-conduite";
-"dk_driverdata_mysynthesis_ecodriving_score_info"="Le score d’éco-conduite varie entre 5 et 10. Votre score définit votre niveau qui est représenté sur une échelle de couleurs.";
+"dk_driverdata_mysynthesis_ecodriving_score_info"="Le score d’éco-conduite varie entre 4 et 10. Votre score définit votre niveau qui est représenté sur une échelle de couleurs.";
 "dk_driverdata_mysynthesis_excellent_score"="Votre score est excellent";
 "dk_driverdata_mysynthesis_good_score"="Votre score est bon";
 "dk_driverdata_mysynthesis_low_score"="Votre score est faible";
 "dk_driverdata_mysynthesis_main_title"="Ma synthèse";
 "dk_driverdata_mysynthesis_maximum"="max";
 "dk_driverdata_mysynthesis_me"="Moi";
+"dk_driverdata_mysynthesis_median"="médiane";
 "dk_driverdata_mysynthesis_minimum"="min";
 "dk_driverdata_mysynthesis_my_community"="Ma communauté";
 "dk_driverdata_mysynthesis_no_driving"="Vous n\’avez pas conduit durant cette période";
@@ -112,8 +113,8 @@
 "dk_driverdata_mysynthesis_very_bad_score"="Votre score est très mauvais";
 "dk_driverdata_mysynthesis_very_good_score"="Votre score est très bon";
 "dk_driverdata_mysynthesis_you_are_average"="Vous êtes dans la moyenne";
-"dk_driverdata_mysynthesis_you_are_best"="Vous êtes meilleurs que %@% des utilisateurs";
-"dk_driverdata_mysynthesis_you_are_lower"="%@% des utilisateurs sont meilleurs que vous";
+"dk_driverdata_mysynthesis_you_are_best"="Vous êtes meilleur que %@ des utilisateurs";
+"dk_driverdata_mysynthesis_you_are_lower"="%@ des utilisateurs sont meilleurs que vous";
 "dk_driverdata_night"="Trajet de nuit";
 "dk_driverdata_no_call_congrats"="Félicitations !";
 "dk_driverdata_no_call_content"="Aucun appel";

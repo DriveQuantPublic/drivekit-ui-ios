@@ -66,13 +66,14 @@
 "dk_driverdata_mysynthesis_ecodriving_level_very_bad"="Potentialet for energibesparelser er meget stort. Vi anbefaler, at du anvender de råd om miljøvenlig kørsel, som du får tilsendt ved afslutningen af din rejse. Du vil være i stand til at gøre hurtige fremskridt.";
 "dk_driverdata_mysynthesis_ecodriving_level_very_good"="Din score er meget god, bliv ved med at nå toppen!";
 "dk_driverdata_mysynthesis_ecodriving_score"="Min score for miljøvenlig kørsel";
-"dk_driverdata_mysynthesis_ecodriving_score_info"="Scoren for miljøvenlig kørsel varierer mellem 5 og 10. Din score definerer dit niveau, som er repræsenteret på en farveskala.";
+"dk_driverdata_mysynthesis_ecodriving_score_info"="Scoren for miljøvenlig kørsel varierer mellem 4 og 10. Din score definerer dit niveau, som er repræsenteret på en farveskala.";
 "dk_driverdata_mysynthesis_excellent_score"="Din score er fremragende";
 "dk_driverdata_mysynthesis_good_score"="Din score er god";
 "dk_driverdata_mysynthesis_low_score"="Din score er dårlig";
 "dk_driverdata_mysynthesis_main_title"="Mit resumé";
 "dk_driverdata_mysynthesis_maximum"="maks.";
 "dk_driverdata_mysynthesis_me"="Mig";
+"dk_driverdata_mysynthesis_median"="median";
 "dk_driverdata_mysynthesis_minimum"="min.";
 "dk_driverdata_mysynthesis_my_community"="Mit fællesskab";
 "dk_driverdata_mysynthesis_no_driving"="Du har ikke kørt bil i denne periode";
@@ -112,8 +113,8 @@
 "dk_driverdata_mysynthesis_very_bad_score"="Din score er meget dårlig";
 "dk_driverdata_mysynthesis_very_good_score"="Din score er meget god";
 "dk_driverdata_mysynthesis_you_are_average"="Du befinder dig i den gennemsnitlige";
-"dk_driverdata_mysynthesis_you_are_best"="Du er bedre end %@% af brugerne";
-"dk_driverdata_mysynthesis_you_are_lower"="%@% af brugerne er bedre end dig";
+"dk_driverdata_mysynthesis_you_are_best"="Du er bedre end %@ af brugerne";
+"dk_driverdata_mysynthesis_you_are_lower"="%@ af brugerne er bedre end dig";
 "dk_driverdata_night"="Natkørsel";
 "dk_driverdata_no_call_congrats"="Tillykke!";
 "dk_driverdata_no_call_content"="Ingen opkald";

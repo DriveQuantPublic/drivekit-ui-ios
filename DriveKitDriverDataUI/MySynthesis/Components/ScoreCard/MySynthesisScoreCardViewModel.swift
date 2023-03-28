@@ -32,7 +32,8 @@ public class MySynthesisScoreCardViewModel {
                 return "dk_driverdata_mysynthesis_distraction_score".dkDriverDataLocalized()
             case .speeding:
                 return "dk_driverdata_mysynthesis_speeding_score".dkDriverDataLocalized()
-            case .none:
+            case .none,
+                 .some:
                 return "-"
         }
     }
@@ -100,7 +101,8 @@ public class MySynthesisScoreCardViewModel {
             case .down:
                 return .trendNegative
             case .stable,
-                .none:
+                .none,
+                .some:
                 return .trendSteady
         }
     }
@@ -111,7 +113,8 @@ public class MySynthesisScoreCardViewModel {
                 .down,
                 .stable:
                 return .primaryColor
-            case .none:
+            case .none,
+                 .some:
                 return .complementaryFontColor
         }
     }
@@ -149,7 +152,8 @@ public class MySynthesisScoreCardViewModel {
                 return "month"
             case .year:
                 return "year"
-            case .none:
+            case .none,
+                 .some:
                 return ""
         }
     }

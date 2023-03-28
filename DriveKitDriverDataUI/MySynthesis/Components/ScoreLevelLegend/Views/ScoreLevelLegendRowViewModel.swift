@@ -8,7 +8,7 @@
 
 import DriveKitCommonUI
 import DriveKitCoreModule
-import Foundation
+import UIKit
 
 public class ScoreLevelLegendRowViewModel {
     public var scoreType: DKScoreType?
@@ -29,9 +29,9 @@ public class ScoreLevelLegendRowViewModel {
                     .dkAttributedString()
                     .font(
                         dkFont: .primary,
-                        style: .headLine2
+                        style: .normalText
                     )
-                    .color(.primaryColor)
+                    .color(.mainFontColor)
                     .build(),
                 scoreTypeLevel.localizedDescription(for: scoreType)
                     .dkAttributedString()

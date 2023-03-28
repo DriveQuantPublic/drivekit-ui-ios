@@ -128,6 +128,8 @@ class RoadContextViewModel {
                     roadContextType = .noDataSafety
                 case .ecoDriving:
                     roadContextType = .noDataEcodriving
+                @unknown default:
+                    roadContextType = .noData(totalDistanceForAllContexts: totalDistanceForAllContexts)
                 }
             } else {
                 roadContextType = .data(

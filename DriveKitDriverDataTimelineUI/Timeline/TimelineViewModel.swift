@@ -78,6 +78,8 @@ class TimelineViewModel {
                                 self.monthTimeline = timeline
                             case .week:
                                 self.weekTimeline = timeline
+                            case .year:
+                                fallthrough
                             @unknown default:
                                 break
                         }
@@ -104,6 +106,8 @@ class TimelineViewModel {
                                 self.monthTimeline = timeline
                             case .week:
                                 self.weekTimeline = timeline
+                            case .year:
+                                fallthrough
                             @unknown default:
                                 break
                         }
@@ -163,6 +167,8 @@ class TimelineViewModel {
                 startDate = Date().beginning(relativeTo: .weekOfMonth)
             case .month:
                 startDate = Date().beginning(relativeTo: .month)
+            case .year:
+                fallthrough
             @unknown default:
                 startDate = nil
         }
@@ -195,6 +201,8 @@ class TimelineViewModel {
                 timelineSource = self.weekTimeline
             case .month:
                 timelineSource = self.monthTimeline
+            case .year:
+                fallthrough
             @unknown default:
                 timelineSource = nil
         }

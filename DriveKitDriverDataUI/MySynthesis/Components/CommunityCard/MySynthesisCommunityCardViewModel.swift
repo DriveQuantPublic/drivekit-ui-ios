@@ -28,7 +28,14 @@ public class MySynthesisCommunityCardViewModel {
             case .noTrip:
                 return "dk_driverdata_mysynthesis_no_driving".dkDriverDataLocalized()
             case .onlyShortTrips:
-                return "dk_driverdata_mysynthesis_not_enough_data".dkDriverDataLocalized()
+                switch scoreSynthesis?.scoreType {
+                    case .safety, .ecoDriving, .none:
+                        return "dk_driverdata_mysynthesis_not_enough_data".dkDriverDataLocalized()
+                    case .distraction, .speeding:
+                        return userCommunityRelatedPositionDescription
+                    case .some:
+                        return ""
+                }
             case .scoredTrips:
                 return userCommunityRelatedPositionDescription
         }
@@ -36,10 +43,19 @@ public class MySynthesisCommunityCardViewModel {
     
     public var titleColor: DKUIColors {
         switch tripKind {
-            case .noTrip, .onlyShortTrips:
+            case .noTrip:
                 return .complementaryFontColor
+            case .onlyShortTrips:
+                switch scoreSynthesis?.scoreType {
+                    case .safety, .ecoDriving, .none:
+                        return .complementaryFontColor
+                    case .distraction, .speeding:
+                        return .mainFontColor
+                    case .some:
+                        return .complementaryFontColor
+                }
             case .scoredTrips:
-                return .primaryColor
+                return .mainFontColor
         }
     }
         
@@ -59,6 +75,7 @@ public class MySynthesisCommunityCardViewModel {
             self.synthesisGaugeViewModel.configure(
                 scoreType: scoreSynthesis.scoreType,
                 mean: scoreStatistics.mean,
+                median: scoreStatistics.median,
                 min: scoreStatistics.min,
                 max: scoreStatistics.max,
                 score: scoreSynthesis.scoreValue)
@@ -93,11 +110,11 @@ public class MySynthesisCommunityCardViewModel {
     private var tripKind: TripKind {
         guard let userTripCount else { return .noTrip }
         
-        return userTripCount > 0
-            ? .scoredTrips
+        return userTripCount == 0
+            ? .noTrip
             : hasOnlyShortTripsForCurrentPeriod
                 ? .onlyShortTrips
-                : .noTrip
+                : .scoredTrips
     }
     
     private var userCommunityRelatedPositionDescription: String {
@@ -128,5 +145,16 @@ public class MySynthesisCommunityCardViewModel {
         } else {
             return "dk_driverdata_mysynthesis_you_are_average".dkDriverDataLocalized()
         }
+    }
+}
+
+extension DKScoreStatistics {
+    var median: Double {
+        // swiftlint:disable:next no_magic_numbers
+        guard !self.percentiles.isEmpty, self.percentiles.count > 9 else {
+            return 0
+        }
+        // swiftlint:disable:next no_magic_numbers
+        return self.percentiles[9]
     }
 }

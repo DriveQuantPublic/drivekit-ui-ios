@@ -71,6 +71,8 @@ extension GraphItem {
                             key = "dk_timeline_safety_score"
                         case .speeding:
                             key = "dk_timeline_speeding_score"
+                        @unknown default:
+                            key = ""
                     }
                 case let .scoreItem(type):
                     switch type {
@@ -120,6 +122,8 @@ extension GraphItem {
                         case .safety:
                             return 3
                         case .speeding:
+                            return 0
+                        @unknown default:
                             return 0
                     }
                 case let .scoreItem(type):
@@ -186,6 +190,8 @@ extension GraphItem {
                         case .safety:
                             return 10
                         case .speeding:
+                            return 10
+                        @unknown default:
                             return 10
                     }
                 case let .scoreItem(type):

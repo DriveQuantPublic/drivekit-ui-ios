@@ -382,7 +382,6 @@ public extension Double {
     func getPercentageFormat() -> [FormatType] {
         let formattingTypes: [FormatType] = [
             .value(self.format(maximumFractionDigits: 1)),
-            .separator(),
             .unit("%")
         ]
         return formattingTypes

@@ -187,6 +187,8 @@ extension DKDateSelectorViewModel {
                 compareDate = selectedDate.endOfMonth
             case .week:
                 compareDate = selectedDate.endOfWeek
+            @unknown default:
+                compareDate = nil
         }
         
         if let compareDate {

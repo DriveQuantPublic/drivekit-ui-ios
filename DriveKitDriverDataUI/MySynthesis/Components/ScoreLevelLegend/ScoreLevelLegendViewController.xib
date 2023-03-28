@@ -22,43 +22,59 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Vx8-Gb-CMb">
-                    <rect key="frame" x="20" y="59" width="335" height="588"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Psn-Qv-DfS">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="Wpo-Vp-57Y" userLabel="Header Stack View">
-                            <rect key="frame" x="0.0" y="0.0" width="335" height="51.666666666666664"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Vx8-Gb-CMb">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="658.66666666666663"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpr-Kp-afb" userLabel="Legend Title Label">
-                                    <rect key="frame" x="0.0" y="0.0" width="335" height="20.333333333333332"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SPE-PZ-PQy" userLabel="Legend Description Label">
-                                    <rect key="frame" x="0.0" y="31.333333333333329" width="335" height="20.333333333333329"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="Wpo-Vp-57Y" userLabel="Header Stack View">
+                                    <rect key="frame" x="20" y="67" width="335" height="51.666666666666657"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpr-Kp-afb" userLabel="Legend Title Label">
+                                            <rect key="frame" x="0.0" y="0.0" width="335" height="20.333333333333332"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SPE-PZ-PQy" userLabel="Legend Description Label">
+                                            <rect key="frame" x="0.0" y="31.333333333333329" width="335" height="20.333333333333329"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <viewLayoutGuide key="safeArea" id="bEv-Zp-Da4"/>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="S5k-H8-L9c" userLabel="Legend Stack View">
+                                    <rect key="frame" x="20" y="138.66666666666663" width="335" height="500"/>
+                                    <viewLayoutGuide key="safeArea" id="CwC-RU-MNv"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="500" placeholder="YES" id="0oK-oz-aM4"/>
+                                    </constraints>
+                                </stackView>
                             </subviews>
-                            <viewLayoutGuide key="safeArea" id="bEv-Zp-Da4"/>
-                        </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="S5k-H8-L9c" userLabel="Legend Stack View">
-                            <rect key="frame" x="0.0" y="71.666666666666686" width="335" height="516.33333333333326"/>
-                            <viewLayoutGuide key="safeArea" id="CwC-RU-MNv"/>
+                            <viewLayoutGuide key="safeArea" id="YjA-4q-a6d"/>
+                            <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="20" bottom="20" trailing="20"/>
                         </stackView>
                     </subviews>
-                    <viewLayoutGuide key="safeArea" id="YjA-4q-a6d"/>
-                </stackView>
+                    <constraints>
+                        <constraint firstItem="Vx8-Gb-CMb" firstAttribute="bottom" secondItem="Dql-TX-lX4" secondAttribute="bottom" id="2s4-7X-9C5"/>
+                        <constraint firstItem="Vx8-Gb-CMb" firstAttribute="width" secondItem="l0e-E7-vdw" secondAttribute="width" id="6n5-eP-OHS"/>
+                        <constraint firstItem="Vx8-Gb-CMb" firstAttribute="top" secondItem="Dql-TX-lX4" secondAttribute="top" id="JGL-UL-ayd"/>
+                        <constraint firstItem="Vx8-Gb-CMb" firstAttribute="trailing" secondItem="Dql-TX-lX4" secondAttribute="trailing" id="dJw-v3-z5X"/>
+                        <constraint firstItem="Vx8-Gb-CMb" firstAttribute="leading" secondItem="Dql-TX-lX4" secondAttribute="leading" id="s4V-T9-6rV"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="Dql-TX-lX4"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="l0e-E7-vdw"/>
+                </scrollView>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="leading" secondItem="Vx8-Gb-CMb" secondAttribute="leading" constant="-20" id="2pQ-Qr-d71"/>
-                <constraint firstItem="Vx8-Gb-CMb" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="-20" id="Nk3-tc-Ula"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Vx8-Gb-CMb" secondAttribute="bottom" constant="20" placeholder="YES" id="XcM-ZI-iHB"/>
-                <constraint firstItem="Vx8-Gb-CMb" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="c6b-Cm-QiV"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Vx8-Gb-CMb" secondAttribute="bottom" constant="20" id="yGP-of-dOq"/>
+                <constraint firstAttribute="bottom" secondItem="Psn-Qv-DfS" secondAttribute="bottom" id="G9x-ux-Ygr"/>
+                <constraint firstAttribute="trailing" secondItem="Psn-Qv-DfS" secondAttribute="trailing" id="bVU-3v-MJS"/>
+                <constraint firstItem="Psn-Qv-DfS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ou3-vR-MHb"/>
+                <constraint firstItem="Psn-Qv-DfS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="uQe-Us-Q1M"/>
             </constraints>
             <point key="canvasLocation" x="-572" y="-25"/>
         </view>

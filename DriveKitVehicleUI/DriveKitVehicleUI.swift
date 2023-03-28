@@ -15,6 +15,7 @@ import DriveKitVehicleModule
 
 public class DriveKitVehicleUI {
     public static let shared = DriveKitVehicleUI()
+    static let tag: String = "DriveKit VehiculeUI"
 
     public private(set) var vehicleTypes: [DKVehicleType] = DKVehicleType.allCases
     public private(set) var brands: [DKVehicleBrand] = DKVehicleBrand.allCases

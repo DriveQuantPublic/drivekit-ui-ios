@@ -57,7 +57,7 @@
 "dk_driverdata_mysynthesis_distraction_level_very_good"="Ihre Punktzahl ist sehr gut, machen Sie weiter so und Sie werden zu den Fahrern gehören, die ihr Handy am Steuer nie bedienen!";
 "dk_driverdata_mysynthesis_distraction_score"="Meine Punktzahl für Ablenkung";
 "dk_driverdata_mysynthesis_distraction_score_info"="Die Punktzahl für Ablenkung schwankt zwischen 0 und 10. Ihre Punktzahl bestimmt Ihre Stufe, die auf einer Farbskala dargestellt wird.";
-"dk_driverdata_mysynthesis_drivers"="Fahrer";
+"dk_driverdata_mysynthesis_drivers"="fahrer";
 "dk_driverdata_mysynthesis_ecodriving_level_average"="Ihre Punktzahl liegt im Durchschnitt, aber Sie können sich verbessern! Setzen Sie die Tipps, die Sie am Ende Ihrer Fahrten erhalten haben, in die Praxis um, um Ihren Verbrauch zu senken.";
 "dk_driverdata_mysynthesis_ecodriving_level_bad"="Ihre Punktzahl liegt unter dem Durchschnitt der Nutzer und Sie neigen dazu, zu viel zu verbrauchen. Versuchen Sie es mit Eco-Drive, um Kraftstoff zu sparen.";
 "dk_driverdata_mysynthesis_ecodriving_level_excellent"="Bravo, Sie sind der Beste in Sachen umweltbewusstes Fahren! Der Planet dankt es Ihnen 🌎.";
@@ -66,13 +66,14 @@
 "dk_driverdata_mysynthesis_ecodriving_level_very_bad"="Das Energiesparpotenzial ist sehr groß. Wir empfehlen Ihnen, die Eco-Drive-Tipps, die Ihnen am Ende Ihrer Fahrten zugeschickt werden, in die Praxis umzusetzen. So können Sie schnell Fortschritte machen.";
 "dk_driverdata_mysynthesis_ecodriving_level_very_good"="Ihr Ergebnis ist sehr gut, bleiben Sie dran, um die Spitze zu erreichen!";
 "dk_driverdata_mysynthesis_ecodriving_score"="Meine Punktzahl für umweltbewusstes Fahren";
-"dk_driverdata_mysynthesis_ecodriving_score_info"="Die Punktzahl für umweltbewusstes Fahren variiert zwischen 5 und 10. Ihre Punktzahl bestimmt Ihre Stufe, die auf einer Farbskala dargestellt wird.";
+"dk_driverdata_mysynthesis_ecodriving_score_info"="Die Punktzahl für umweltbewusstes Fahren variiert zwischen 4 und 10. Ihre Punktzahl bestimmt Ihre Stufe, die auf einer Farbskala dargestellt wird.";
 "dk_driverdata_mysynthesis_excellent_score"="Ihre Punktzahl ist ausgezeichnet";
 "dk_driverdata_mysynthesis_good_score"="Ihre Punktzahl ist gut";
 "dk_driverdata_mysynthesis_low_score"="Ihre Punktzahl ist niedrig";
 "dk_driverdata_mysynthesis_main_title"="Meine Zusammenfassung";
 "dk_driverdata_mysynthesis_maximum"="max.";
 "dk_driverdata_mysynthesis_me"="Ich";
+"dk_driverdata_mysynthesis_median"="Median";
 "dk_driverdata_mysynthesis_minimum"="Min.";
 "dk_driverdata_mysynthesis_my_community"="Meine Gemeinschaft";
 "dk_driverdata_mysynthesis_no_driving"="You did not drive during this period";
@@ -112,8 +113,8 @@
 "dk_driverdata_mysynthesis_very_bad_score"="Ihre Punktzahl ist sehr schlecht";
 "dk_driverdata_mysynthesis_very_good_score"="Ihre Punktzahl ist sehr gut";
 "dk_driverdata_mysynthesis_you_are_average"="Sie befinden sich im Durchschnitt";
-"dk_driverdata_mysynthesis_you_are_best"="Sie sind besser als %@% der Nutzer";
-"dk_driverdata_mysynthesis_you_are_lower"="%@% der Nutzer sind besser als Sie";
+"dk_driverdata_mysynthesis_you_are_best"="Sie sind besser als %@ der Nutzer";
+"dk_driverdata_mysynthesis_you_are_lower"="%@ der Nutzer sind besser als Sie";
 "dk_driverdata_night"="Fahrt in der Nacht";
 "dk_driverdata_no_call_congrats"="Glückwunsch!";
 "dk_driverdata_no_call_content"="Keine Anrufe";

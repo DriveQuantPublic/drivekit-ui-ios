@@ -12,11 +12,11 @@ import UIKit
 enum MySynthesisConstants {
     static let defaultColor = UIColor(hex: 0x036A82)
     
-    static func circleIcon(diameter: CGFloat = 12, insideColor: UIColor = .white) -> UIImage? {
+    static func circleIcon(diameter: CGFloat = 18, insideColor: UIColor = .white) -> UIImage? {
         return UIImage.circleIcon(diameter: diameter, borderColor: self.defaultColor, insideColor: insideColor)
     }
     
-    static func filledCircleIcon(diameter: CGFloat = 12) -> UIImage? {
+    static func filledCircleIcon(diameter: CGFloat = 18) -> UIImage? {
         circleIcon(diameter: diameter, insideColor: self.defaultColor)
     }
 

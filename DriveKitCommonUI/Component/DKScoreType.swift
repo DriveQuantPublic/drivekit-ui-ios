@@ -28,6 +28,8 @@ extension DKScoreType {
             return DKImages.distraction.image
         case .speeding:
             return DKImages.speeding.image
+        @unknown default:
+            return nil
         }
     }
     
@@ -41,6 +43,8 @@ extension DKScoreType {
             return DKCommonLocalizable.distraction.text()
         case .speeding:
             return DKCommonLocalizable.speed.text()
+        @unknown default:
+            return ""
         }
     }
 
@@ -54,6 +58,8 @@ extension DKScoreType {
             return trip.isScored(tripData: .distraction)
         case .speeding:
             return trip.isScored(tripData: .speeding)
+        @unknown default:
+            return false
         }
     }
         
@@ -67,6 +73,8 @@ extension DKScoreType {
             return trip.getScore(tripData: .distraction) ?? 0
         case .speeding:
             return trip.getScore(tripData: .speeding) ?? 0
+        @unknown default:
+            return 0
         }
     }
 }

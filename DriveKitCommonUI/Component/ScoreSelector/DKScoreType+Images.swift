@@ -20,6 +20,8 @@ extension DKScoreType {
                 return DKImages.distractionFlat.image
             case .speeding:
                 return DKImages.speedingFlat.image
+            @unknown default:
+                return nil
         }
     }
 }

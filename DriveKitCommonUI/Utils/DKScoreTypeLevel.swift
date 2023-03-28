@@ -7,7 +7,7 @@
 //
 
 import DriveKitCoreModule
-import Foundation
+import UIKit
 
 public enum DKScoreTypeLevel: CaseIterable {
     case veryBad

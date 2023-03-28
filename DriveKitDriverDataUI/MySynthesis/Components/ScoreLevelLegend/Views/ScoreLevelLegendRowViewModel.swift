@@ -8,7 +8,7 @@
 
 import DriveKitCommonUI
 import DriveKitCoreModule
-import Foundation
+import UIKit
 
 public class ScoreLevelLegendRowViewModel {
     public var scoreType: DKScoreType?

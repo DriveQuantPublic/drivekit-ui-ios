@@ -7,7 +7,7 @@
 //
 
 import DriveKitCoreModule
-import Foundation
+import UIKit
 
 extension DKScoreType {
     public func scoreSelectorImage() -> UIImage? {

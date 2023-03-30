@@ -53,6 +53,13 @@ extension DKRawTimeline {
         var efficiencyBrake: [Double] = []
         var efficiencyAcceleration: [Double] = []
         var efficiencySpeedMaintain: [Double] = []
+        var tripCategory: [[Int]] = []
+        var tripCategoryDistance: [[Double]] = []
+        var weather: [[Int]] = []
+        var weatherDistance: [[Double]] = []
+        var dayDistance: [Double] = []
+        var weekDayDistance: [Double] = []
+        
         let maxItems = self.allContext.date.count
         for index in 0..<maxItems {
             if let currentDate = self.allContext.date[safe: index], canInsertAtIndex(index) {
@@ -83,6 +90,12 @@ extension DKRawTimeline {
                 self.allContext.efficiencyBrake.appendIfNotEmpty(valueAtIndex: index, into: &efficiencyBrake)
                 self.allContext.efficiencyAcceleration.appendIfNotEmpty(valueAtIndex: index, into: &efficiencyAcceleration)
                 self.allContext.efficiencySpeedMaintain.appendIfNotEmpty(valueAtIndex: index, into: &efficiencySpeedMaintain)
+                self.allContext.tripCategory.appendIfNotEmpty(valueAtIndex: index, into: &tripCategory)
+                self.allContext.tripCategoryDistance.appendIfNotEmpty(valueAtIndex: index, into: &tripCategoryDistance)
+                self.allContext.weather.appendIfNotEmpty(valueAtIndex: index, into: &weather)
+                self.allContext.weatherDistance.appendIfNotEmpty(valueAtIndex: index, into: &weatherDistance)
+                self.allContext.dayDistance.appendIfNotEmpty(valueAtIndex: index, into: &dayDistance)
+                self.allContext.weekDayDistance.appendIfNotEmpty(valueAtIndex: index, into: &weekDayDistance)
             }
         }
 
@@ -104,6 +117,7 @@ extension DKRawTimeline {
             var efficiencyAcceleration: [Double] = []
             var efficiencyBrake: [Double] = []
             var efficiencySpeedMaintain: [Double] = []
+
             for index in 0..<maxItems {
                 if let currentDate = roadContext.date[safe: index], canInsertAtIndex(index) {
                     date.append(currentDate)
@@ -173,7 +187,13 @@ extension DKRawTimeline {
             speedingDistance: speedingDistance,
             efficiencyBrake: efficiencyBrake,
             efficiencyAcceleration: efficiencyAcceleration,
-            efficiencySpeedMaintain: efficiencySpeedMaintain
+            efficiencySpeedMaintain: efficiencySpeedMaintain,
+            tripCategory: tripCategory,
+            tripCategoryDistance: tripCategoryDistance,
+            weather: weather,
+            weatherDistance: weatherDistance,
+            dayDistance: dayDistance,
+            weekDayDistance: weekDayDistance
         )
         let cleanedTimeline = DKRawTimeline(period: self.period, allContext: allContext, roadContexts: roadContexts)
         return cleanedTimeline

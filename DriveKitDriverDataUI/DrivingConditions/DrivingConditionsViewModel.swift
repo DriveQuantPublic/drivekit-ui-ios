@@ -99,15 +99,6 @@ class DrivingConditionsViewModel {
         )
         
         self.selectedDate = self.dateSelectorViewModel.selectedDate
-        if
-            let selectedDate,
-            let previousPeriodContext = currentTimeline.allContext.previousValidItem(
-                from: selectedDate
-            ),
-            let currentPeriodContext = currentTimeline.allContext[date: selectedDate] {
-                
-            #warning("is it still useful?")
-        }
     }
     
     private func configureWithNoData() {

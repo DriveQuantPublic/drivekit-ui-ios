@@ -132,6 +132,11 @@ extension DriveKitDriverDataUI: DriveKitDriverDataUIEntryPoint {
         viewModel.scoreSelectorViewModel.scores = DriveKitUI.shared.scores
         return MySynthesisViewController(viewModel: viewModel)
     }
+    
+    public func getDrivingConditionsViewController() -> UIViewController {
+        let viewModel = DrivingConditionsViewModel()
+        return DrivingConditionsViewController(viewModel: viewModel)
+    }
 }
 
 extension UIColor {

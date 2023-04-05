@@ -84,13 +84,7 @@ class DrivingConditionsViewModel {
             selectedPeriod: currentTimeline.period
         )
         
-        let allDates = currentTimeline.allContext.filter { item in
-            #warning("To be checked")
-            if let selectedDate, item.date == selectedDate {
-                return true
-            }
-            return false
-        }.map(\.date)
+        let allDates = currentTimeline.allContext.map(\.date)
         
         if allDates.isEmpty {
             configureWithNoData()

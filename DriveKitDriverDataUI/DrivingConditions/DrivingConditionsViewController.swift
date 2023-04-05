@@ -36,6 +36,15 @@ class DrivingConditionsViewController: DKUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        DKPeriodSelectorView.createPeriodSelectorView(
+            configuredWith: self.viewModel.periodSelectorViewModel,
+            embededIn: periodSelectorContainer
+        )
+        DKDateSelectorView.createDateSelectorView(
+            configuredWith: self.viewModel.dateSelectorViewModel,
+            embededIn: dateSelectorContainer
+        )
 
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh(_ :)), for: .valueChanged)
@@ -55,6 +64,12 @@ class DrivingConditionsViewController: DKUIViewController {
         
         pagingControl.numberOfPages = ContextKind.allCases.count
         pagingControl.currentPage = 0
+        
+        if self.viewModel.updating {
+            showRefreshControl()
+        } else {
+            hideRefreshControl()
+        }
     }
     
     @objc private func refresh(_ sender: Any) {

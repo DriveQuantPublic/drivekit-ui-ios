@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DrivingConditionsViewController" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+            <connections>
+                <outlet property="contextPagingContainer" destination="vno-hC-RNm" id="Ean-AS-IKs"/>
+                <outlet property="dateSelectorContainer" destination="QZv-Nc-3Pd" id="bJi-2d-24Q"/>
+                <outlet property="drivingConditionSummaryContainer" destination="xpa-AX-kUu" id="Cs9-Hx-dY9"/>
+                <outlet property="pagingControl" destination="z4P-r6-mQf" id="0dd-BL-pic"/>
+                <outlet property="periodSelectorContainer" destination="0qE-rp-bVq" id="yjf-md-5g8"/>
+                <outlet property="scrollView" destination="Pwc-MT-8XB" id="RZK-FP-JJj"/>
+                <outlet property="view" destination="hkb-BJ-qKL" id="aJh-CU-3EU"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="hkb-BJ-qKL">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="K58-Ph-12C">
+                    <rect key="frame" x="0.0" y="67" width="393" height="76"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0qE-rp-bVq" userLabel="Period selector">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="76"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="76" id="9DK-W9-0xB"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QZv-Nc-3Pd" userLabel="Date selector">
+                    <rect key="frame" x="8" y="143" width="377" height="38"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="38" id="sws-Lr-dyg"/>
+                    </constraints>
+                </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pwc-MT-8XB">
+                    <rect key="frame" x="0.0" y="201" width="393" height="617"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="klr-93-qyQ" userLabel="ContentView">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="617"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xpa-AX-kUu" userLabel="DrivingConditionsSummaryContainer">
+                                    <rect key="frame" x="8" y="0.0" width="377" height="85"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="85" placeholder="YES" id="Dh9-G9-6WZ"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vno-hC-RNm" userLabel="ContextPagingContainer">
+                                    <rect key="frame" x="8" y="105" width="377" height="238"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="238" id="4Aj-F7-0kc"/>
+                                        <constraint firstAttribute="height" constant="238" id="hZJ-40-NJw"/>
+                                    </constraints>
+                                </view>
+                                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="z4P-r6-mQf">
+                                    <rect key="frame" x="20" y="343" width="353" height="34"/>
+                                </pageControl>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="vno-hC-RNm" firstAttribute="top" secondItem="xpa-AX-kUu" secondAttribute="bottom" constant="20" id="FRj-Lw-0YU"/>
+                                <constraint firstItem="z4P-r6-mQf" firstAttribute="leading" secondItem="klr-93-qyQ" secondAttribute="leading" constant="20" id="HIL-lt-6Ol"/>
+                                <constraint firstItem="xpa-AX-kUu" firstAttribute="top" secondItem="klr-93-qyQ" secondAttribute="top" id="MNh-D3-j6o"/>
+                                <constraint firstAttribute="trailing" secondItem="z4P-r6-mQf" secondAttribute="trailing" constant="20" id="OYT-jM-LLU"/>
+                                <constraint firstItem="xpa-AX-kUu" firstAttribute="leading" secondItem="klr-93-qyQ" secondAttribute="leading" constant="8" id="PiI-2r-0gX"/>
+                                <constraint firstAttribute="trailing" secondItem="xpa-AX-kUu" secondAttribute="trailing" constant="8" id="V9f-lL-4HT"/>
+                                <constraint firstAttribute="bottom" secondItem="z4P-r6-mQf" secondAttribute="bottom" constant="240" id="l5b-eM-k3m"/>
+                                <constraint firstAttribute="trailing" secondItem="vno-hC-RNm" secondAttribute="trailing" constant="8" id="mTD-et-KRD"/>
+                                <constraint firstItem="z4P-r6-mQf" firstAttribute="top" secondItem="vno-hC-RNm" secondAttribute="bottom" id="pUY-1j-ZFg"/>
+                                <constraint firstItem="vno-hC-RNm" firstAttribute="leading" secondItem="klr-93-qyQ" secondAttribute="leading" constant="8" id="xaD-3H-Qah"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="yqi-2U-bvz" firstAttribute="top" secondItem="klr-93-qyQ" secondAttribute="top" id="9nn-ZN-nWH"/>
+                        <constraint firstItem="klr-93-qyQ" firstAttribute="height" relation="greaterThanOrEqual" secondItem="Pwc-MT-8XB" secondAttribute="height" id="AwE-62-9K8"/>
+                        <constraint firstItem="klr-93-qyQ" firstAttribute="trailing" secondItem="yqi-2U-bvz" secondAttribute="trailing" id="Cet-Nj-0zZ"/>
+                        <constraint firstItem="klr-93-qyQ" firstAttribute="bottom" secondItem="yqi-2U-bvz" secondAttribute="bottom" id="ML6-aH-Rug"/>
+                        <constraint firstItem="klr-93-qyQ" firstAttribute="width" secondItem="2dj-b3-S1d" secondAttribute="width" id="oD3-la-R5s"/>
+                        <constraint firstItem="yqi-2U-bvz" firstAttribute="leading" secondItem="klr-93-qyQ" secondAttribute="leading" id="wUy-Jr-LV4"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="yqi-2U-bvz"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="2dj-b3-S1d"/>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="e52-rx-EdS"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="K58-Ph-12C" firstAttribute="leading" secondItem="e52-rx-EdS" secondAttribute="leading" id="43y-oy-a5E"/>
+                <constraint firstItem="e52-rx-EdS" firstAttribute="trailing" secondItem="QZv-Nc-3Pd" secondAttribute="trailing" constant="8" id="4BD-zy-YJ1"/>
+                <constraint firstItem="Pwc-MT-8XB" firstAttribute="bottom" secondItem="e52-rx-EdS" secondAttribute="bottom" id="Gql-ZG-k9x"/>
+                <constraint firstItem="e52-rx-EdS" firstAttribute="trailing" secondItem="K58-Ph-12C" secondAttribute="trailing" id="VLX-lU-5RK"/>
+                <constraint firstItem="Pwc-MT-8XB" firstAttribute="leading" secondItem="e52-rx-EdS" secondAttribute="leading" id="cCq-6R-BfR"/>
+                <constraint firstItem="e52-rx-EdS" firstAttribute="trailing" secondItem="Pwc-MT-8XB" secondAttribute="trailing" id="lS3-n5-qkm"/>
+                <constraint firstItem="QZv-Nc-3Pd" firstAttribute="leading" secondItem="e52-rx-EdS" secondAttribute="leading" constant="8" id="ljp-4l-ThZ"/>
+                <constraint firstItem="Pwc-MT-8XB" firstAttribute="top" secondItem="QZv-Nc-3Pd" secondAttribute="bottom" constant="20" id="r87-fG-044"/>
+                <constraint firstItem="QZv-Nc-3Pd" firstAttribute="top" secondItem="K58-Ph-12C" secondAttribute="bottom" id="tvr-mS-PVp"/>
+                <constraint firstItem="K58-Ph-12C" firstAttribute="top" secondItem="e52-rx-EdS" secondAttribute="top" constant="8" id="zEa-1m-yg2"/>
+            </constraints>
+            <point key="canvasLocation" x="6" y="21"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

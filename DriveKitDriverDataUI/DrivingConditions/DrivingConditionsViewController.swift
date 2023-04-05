@@ -17,11 +17,12 @@ class DrivingConditionsViewController: DKUIViewController {
     @IBOutlet private weak var contextPagingContainer: UIView!
     @IBOutlet private weak var pagingControl: UIPageControl!
     private var contextPagingViewController: UIPageViewController!
+    private var contextViewControllers: [ContextKind: DrivingConditionsContextViewController] = [:]
     
     private let viewModel: DrivingConditionsViewModel
     
-    enum ContextKind: Int, CaseIterable {
-        case tripDistance = 0, week, road, weather, dayNight
+    var allContexts: [ContextKind] {
+        ContextKind.allCases
     }
     
     init(viewModel: DrivingConditionsViewModel) {
@@ -55,6 +56,7 @@ class DrivingConditionsViewController: DKUIViewController {
             navigationOrientation: .horizontal
         )
         contextPagingViewController.dataSource = self
+        contextPagingViewController.delegate = self
         
         self.addChild(contextPagingViewController)
         contextPagingContainer.embedSubview(contextPagingViewController.view)
@@ -62,14 +64,54 @@ class DrivingConditionsViewController: DKUIViewController {
         contextPagingContainer.clipsToBounds = true
         contextPagingViewController.didMove(toParent: self)
         
-        pagingControl.numberOfPages = ContextKind.allCases.count
+        pagingControl.numberOfPages = allContexts.count
         pagingControl.currentPage = 0
+        pagingControl.pageIndicatorTintColor = .dkPageIndicatorTintColor
+        pagingControl.currentPageIndicatorTintColor = DKUIColors.primaryColor.color
+        
+        pagingControl.addTarget(
+            self,
+            action: #selector(didTapPagingControl(_:)),
+            for: .valueChanged
+        )
+        
+        let firstContextVC = DrivingConditionsContextViewController(context: allContexts[0])
+        contextViewControllers[allContexts[0]] = firstContextVC
+        contextPagingViewController.setViewControllers(
+            [firstContextVC],
+            direction: .forward,
+            animated: false
+        )
         
         if self.viewModel.updating {
             showRefreshControl()
         } else {
             hideRefreshControl()
         }
+    }
+    
+    @objc private func didTapPagingControl(_ sender: Any) {
+        guard
+            let selectedContext = ContextKind(rawValue: self.pagingControl.currentPage),
+            let contextController = self.contextController(for: selectedContext)
+        else {
+            assertionFailure("We should always have a page that match an existing context")
+            return
+        }
+        
+        var direction = UIPageViewController.NavigationDirection.forward
+        if let currentContextController = self.contextPagingViewController.viewControllers?.first,
+           let previousContext = self.context(from: currentContextController) {
+               direction = previousContext.rawValue < selectedContext.rawValue
+                ? .forward
+                : .reverse
+           }
+        
+        self.contextPagingViewController.setViewControllers(
+            [contextController],
+            direction: direction,
+            animated: true
+        )
     }
     
     @objc private func refresh(_ sender: Any) {
@@ -82,6 +124,29 @@ class DrivingConditionsViewController: DKUIViewController {
     
     private func hideRefreshControl() {
         self.scrollView.refreshControl?.endRefreshing()
+    }
+    
+    func contextController(for context: ContextKind?) -> DrivingConditionsContextViewController? {
+        guard let context else {
+            return nil
+        }
+        
+        guard let contextVC = contextViewControllers[context] else {
+            let newContextVC = DrivingConditionsContextViewController(context: context)
+            contextViewControllers[context] = newContextVC
+            return newContextVC
+        }
+        
+        return contextVC
+    }
+    
+    func context(from contextController: UIViewController) -> ContextKind? {
+        guard let contextController = contextController as? DrivingConditionsContextViewController else {
+            assertionFailure("We should only have DrivingConditionsContextViewController here")
+            return nil
+        }
+        
+        return contextController.context
     }
 }
 
@@ -100,15 +165,32 @@ extension DrivingConditionsViewController: UIPageViewControllerDataSource {
         _ pageViewController: UIPageViewController,
         viewControllerBefore viewController: UIViewController
     ) -> UIViewController? {
-        #warning("Setup context VCs")
-        return nil
+        self.context(from: viewController).flatMap { currentContext in
+            return self.contextController(for: currentContext.previous)
+        }
     }
     
     func pageViewController(
         _ pageViewController: UIPageViewController,
         viewControllerAfter viewController: UIViewController
     ) -> UIViewController? {
-        #warning("Setup context VCs")
-        return nil
+        self.context(from: viewController).flatMap { currentContext in
+            return self.contextController(for: currentContext.next)
+        }
+    }
+}
+
+extension DrivingConditionsViewController: UIPageViewControllerDelegate {
+    func pageViewController(
+        _ pageViewController: UIPageViewController,
+        didFinishAnimating finished: Bool,
+        previousViewControllers: [UIViewController],
+        transitionCompleted completed: Bool
+    ) {
+        if completed,
+            let currentVC = pageViewController.viewControllers?.first,
+            let currentPage = self.context(from: currentVC)?.rawValue {
+            self.pagingControl.currentPage = currentPage
+        }
     }
 }

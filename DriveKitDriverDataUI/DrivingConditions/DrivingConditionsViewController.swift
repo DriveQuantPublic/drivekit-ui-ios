@@ -21,10 +21,6 @@ class DrivingConditionsViewController: DKUIViewController {
     
     private let viewModel: DrivingConditionsViewModel
     
-    var allContexts: [ContextKind] {
-        ContextKind.allCases
-    }
-    
     init(viewModel: DrivingConditionsViewModel) {
         self.viewModel = viewModel
         super.init(nibName: String(describing: DrivingConditionsViewController.self), bundle: .driverDataUIBundle)
@@ -37,6 +33,8 @@ class DrivingConditionsViewController: DKUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "dk_driverdata_drivingconditions_title".dkDriverDataLocalized()
         
         DKPeriodSelectorView.createPeriodSelectorView(
             configuredWith: self.viewModel.periodSelectorViewModel,
@@ -64,7 +62,7 @@ class DrivingConditionsViewController: DKUIViewController {
         contextPagingContainer.clipsToBounds = true
         contextPagingViewController.didMove(toParent: self)
         
-        pagingControl.numberOfPages = allContexts.count
+        pagingControl.numberOfPages = ContextKind.allCases.count
         pagingControl.currentPage = 0
         pagingControl.pageIndicatorTintColor = .dkPageIndicatorTintColor
         pagingControl.currentPageIndicatorTintColor = DKUIColors.primaryColor.color
@@ -75,8 +73,8 @@ class DrivingConditionsViewController: DKUIViewController {
             for: .valueChanged
         )
         
-        let firstContextVC = DrivingConditionsContextViewController(context: allContexts[0])
-        contextViewControllers[allContexts[0]] = firstContextVC
+        let firstContextVC = DrivingConditionsContextViewController(context: ContextKind.tripDistance)
+        contextViewControllers[ContextKind.tripDistance] = firstContextVC
         contextPagingViewController.setViewControllers(
             [firstContextVC],
             direction: .forward,

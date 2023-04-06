@@ -27,12 +27,6 @@ class DrivingConditionsContextViewController: DKUIViewController {
         self.view.embedSubview(self.contextView(for: context))
         self.view.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
         self.view.clipsToBounds = true
-        
-        if #available(iOS 13.0, *) {
-            self.view.backgroundColor = .systemBackground
-        } else {
-            self.view.backgroundColor = .white
-        }
     }
 
     private func contextView(for context: ContextKind) -> UIView {

@@ -45,7 +45,7 @@ public class DKContextCardView: UIView, UICollectionViewDataSource, UICollection
         let inHalf = 0.5
         self.collectionViewHeightConstraint.constant =
          self.collectionViewCellHeight *
-        CGFloat(Int(ceil(Double(viewModel?.getActiveContextNumber() ?? 1) * inHalf)))
+        CGFloat(Int(ceil(Double(viewModel?.getItems().count ?? 1) * inHalf)))
         self.itemsCollectionView.reloadData()
     }
 
@@ -57,15 +57,15 @@ public class DKContextCardView: UIView, UICollectionViewDataSource, UICollection
     // MARK: UICollectionViewDataSource protocol implementation
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let viewModel = viewModel else { return 0 }
-        return viewModel.getActiveContextNumber()
+        return viewModel.getItems().count
     }
 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "ContextItemCell", for: indexPath)
         if let itemCell = cell as? ContextItemCell,
-           let items = viewModel?.getItemsToDraw(),
+           let items = viewModel?.getItems(),
            items.count > indexPath.row {
-            let context = items[indexPath.row].context
+            let context = items[indexPath.row]
             itemCell.update(title: context.getTitle(), color: context.getColor())
         }
         return cell
@@ -82,12 +82,12 @@ class ContextBarView: DKRoundedBarView {
     private var viewModel: DKContextCard?
 
     override func draw(_ rect: CGRect) {
-        guard let itemsToDraw = viewModel?.getItemsToDraw(), !itemsToDraw.isEmpty else {
+        guard let itemsToDraw = viewModel?.getItems(), !itemsToDraw.isEmpty else {
             return
         }
         var barViewItems: [DKRoundedBarViewItem] = []
         for item in itemsToDraw {
-            barViewItems.append(DKRoundedBarViewItem(percent: item.percent, color: item.context.getColor()))
+            barViewItems.append(DKRoundedBarViewItem(percent: item.getPercent(), color: item.getColor()))
         }
         draw(items: barViewItems, rect: rect)
     }

@@ -20,4 +20,5 @@ public protocol DKContextCard {
 public protocol DKContextItem {
     func getColor() -> UIColor
     func getTitle() -> String
+    func getSubtitle() -> String?
 }

@@ -8,9 +8,8 @@
 //
 
 import UIKit
-import DriveKitCommonUI
 
-class RoadContextItemCell: UICollectionViewCell {
+class ContextItemCell: UICollectionViewCell {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var circleView: UIView!
 

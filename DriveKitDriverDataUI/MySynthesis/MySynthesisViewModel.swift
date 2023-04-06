@@ -72,7 +72,7 @@ class MySynthesisViewModel {
         updateData()
     }
     
-    var drivingConditionViewModel: DrivingConditionsViewModel {
+    var drivingConditionsViewModel: DrivingConditionsViewModel {
         let viewModel = DrivingConditionsViewModel(
             selectedPeriod: periodSelectorViewModel.selectedPeriod,
             selectedDate: selectedDate

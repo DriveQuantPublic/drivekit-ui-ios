@@ -31,7 +31,7 @@ class RoadContextDataView: UIView {
 
     func refreshView() {
         if let viewModel = viewModel {
-            self.titleLabel.text = viewModel.title
+            self.titleLabel.text = viewModel.getTitle()
             self.roadContextBarView.configure(viewModel: viewModel)
         }
         let inHalf = 0.5
@@ -59,7 +59,7 @@ extension RoadContextDataView: UICollectionViewDataSource {
            let items = viewModel?.itemsToDraw,
            items.count > indexPath.row {
             let context = items[indexPath.row].context
-            itemCell.update(title: RoadContextViewModel.getRoadContextTitle(context), color: RoadContextViewModel.getRoadContextColor(context))
+            itemCell.update(title: context.getTitle(), color: context.getColor())
         }
         return cell
     }
@@ -85,7 +85,7 @@ class RoadContextBarView: DKRoundedBarView {
         }
         var barViewItems: [DKRoundedBarViewItem] = []
         for item in itemsToDraw {
-            barViewItems.append(DKRoundedBarViewItem(percent: item.percent, color: RoadContextViewModel.getRoadContextColor(item.context)))
+            barViewItems.append(DKRoundedBarViewItem(percent: item.percent, color: item.context.getColor()))
         }
         draw(items: barViewItems, rect: rect)
     }

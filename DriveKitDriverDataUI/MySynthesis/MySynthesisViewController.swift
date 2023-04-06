@@ -76,7 +76,7 @@ class MySynthesisViewController: DKUIViewController {
         #warning("Display DrivingConditionVC via the MySynthesis detail button")
         if let driverDataUI = DriveKitNavigationController.shared.driverDataUI {
             self.navigationController?.pushViewController(
-                driverDataUI.getDrivingConditionsViewController(),
+                DrivingConditionsViewController(viewModel: viewModel.drivingConditionViewModel),
                 animated: true
             )
         }

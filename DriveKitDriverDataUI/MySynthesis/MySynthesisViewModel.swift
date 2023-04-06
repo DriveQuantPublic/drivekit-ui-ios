@@ -72,6 +72,15 @@ class MySynthesisViewModel {
         updateData()
     }
     
+    var drivingConditionViewModel: DrivingConditionsViewModel {
+        let viewModel = DrivingConditionsViewModel(
+            selectedPeriod: periodSelectorViewModel.selectedPeriod,
+            selectedDate: selectedDate
+        )
+        viewModel.parentDelegate = self
+        return viewModel
+    }
+    
     func updateData() {
         self.updating = true
         self.delegate?.willUpdateData()
@@ -241,6 +250,21 @@ extension MySynthesisViewModel: DKPeriodSelectorDelegate {
 extension MySynthesisViewModel: DKDateSelectorDelegate {
     func dateSelectorDidSelectDate(_ date: Date) {
         selectedDate = date
+        update()
+    }
+}
+
+extension MySynthesisViewModel: DrivingConditionsViewModelParentDelegate {
+    func didUpdate(selectedDate: Date) {
+        self.selectedDate = selectedDate
+        update()
+    }
+    
+    func didUpdate(selectedPeriod: DKPeriod) {
+        self.periodSelectorViewModel.configure(
+            displayedPeriods: self.periodSelectorViewModel.displayedPeriods,
+            selectedPeriod: selectedPeriod
+        )
         update()
     }
 }

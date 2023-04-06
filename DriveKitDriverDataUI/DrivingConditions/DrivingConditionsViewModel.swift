@@ -22,6 +22,7 @@ class DrivingConditionsViewModel {
     ]
     let configuredPeriods: [DKPeriod] = [.week, .month, .year]
     weak var delegate: DrivingConditionsViewModelDelegate?
+    weak var parentDelegate: DrivingConditionsViewModelParentDelegate?
     let periodSelectorViewModel: DKPeriodSelectorViewModel
     let dateSelectorViewModel: DKDateSelectorViewModel
     private(set) var configuredContexts: [DKContextKind]
@@ -29,11 +30,15 @@ class DrivingConditionsViewModel {
     private var selectedDate: Date?
     private(set) var updating: Bool = false
     
-    init(configuredContexts: [DKContextKind] = []) {
+    init(
+        configuredContexts: [DKContextKind] = [],
+        selectedPeriod: DKPeriod? = nil,
+        selectedDate: Date? = nil
+    ) {
         self.periodSelectorViewModel = DKPeriodSelectorViewModel()
         self.dateSelectorViewModel = DKDateSelectorViewModel()
         self.timelines = [:]
-        self.selectedDate = nil
+        self.selectedDate = selectedDate
         self.configuredContexts = configuredContexts.isEmpty ? self.defaultContexts : configuredContexts
         
         self.periodSelectorViewModel.delegate = self
@@ -41,7 +46,7 @@ class DrivingConditionsViewModel {
         
         self.periodSelectorViewModel.configure(
             displayedPeriods: .init(configuredPeriods),
-            selectedPeriod: .year
+            selectedPeriod: selectedPeriod ?? .year
         )
         
         DriveKitDriverData.shared.getDriverTimelines(
@@ -56,7 +61,15 @@ class DrivingConditionsViewModel {
                 self.update()
             }
         }
-        updateData()
+        
+        if selectedPeriod == nil && selectedDate == nil {
+            // if selectedPeriod and selectedDate are not nil
+            // it means that we come from another screen like
+            // MySynthesis which has already fetched live data and we
+            // don't want to reset the date and period that comes
+            // after such a refresh
+            updateData()
+        }
     }
     
     var shouldDisplayPagingController: Bool {
@@ -111,6 +124,7 @@ class DrivingConditionsViewModel {
                 self.updating = false
                 self.update(resettingSelectedDate: true)
                 self.delegate?.didUpdateData()
+                self.parentDelegate?.didUpdate(selectedDate: dateSelectorViewModel.selectedDate)
             }
         }
     }
@@ -177,6 +191,7 @@ class DrivingConditionsViewModel {
             in: selectedPeriod
         ) { _, _ in true }
         update()
+        parentDelegate?.didUpdate(selectedPeriod: selectedPeriod)
     }
 }
 
@@ -190,5 +205,6 @@ extension DrivingConditionsViewModel: DKDateSelectorDelegate {
     func dateSelectorDidSelectDate(_ date: Date) {
         selectedDate = date
         update()
+        parentDelegate?.didUpdate(selectedDate: date)
     }
 }

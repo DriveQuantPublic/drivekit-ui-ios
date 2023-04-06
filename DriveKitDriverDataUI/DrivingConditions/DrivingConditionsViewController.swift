@@ -7,6 +7,7 @@
 //
 
 import DriveKitCommonUI
+import DriveKitCoreModule
 import UIKit
 
 class DrivingConditionsViewController: DKUIViewController {

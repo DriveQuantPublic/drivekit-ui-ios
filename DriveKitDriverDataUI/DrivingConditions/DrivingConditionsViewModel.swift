@@ -13,19 +13,28 @@ import DriveKitDriverDataModule
 import Foundation
 
 class DrivingConditionsViewModel {
+    private let defaultContexts: [DKContextKind] = [
+        .tripDistance,
+        .week,
+        .road,
+        .weather,
+        .dayNight
+    ]
     let configuredPeriods: [DKPeriod] = [.week, .month, .year]
     weak var delegate: DrivingConditionsViewModelDelegate?
     let periodSelectorViewModel: DKPeriodSelectorViewModel
     let dateSelectorViewModel: DKDateSelectorViewModel
+    private(set) var configuredContexts: [DKContextKind]
     private var timelines: [DKPeriod: DKDriverTimeline]
     private var selectedDate: Date?
     private(set) var updating: Bool = false
     
-    init() {
+    init(configuredContexts: [DKContextKind] = []) {
         self.periodSelectorViewModel = DKPeriodSelectorViewModel()
         self.dateSelectorViewModel = DKDateSelectorViewModel()
         self.timelines = [:]
         self.selectedDate = nil
+        self.configuredContexts = configuredContexts.isEmpty ? self.defaultContexts : configuredContexts
         
         self.periodSelectorViewModel.delegate = self
         self.dateSelectorViewModel.delegate = self
@@ -48,6 +57,43 @@ class DrivingConditionsViewModel {
             }
         }
         updateData()
+    }
+    
+    var shouldDisplayPagingController: Bool {
+        configuredContexts.count > 1
+    }
+    
+    var firstContext: DKContextKind {
+        configuredContexts[0]
+    }
+    
+    var numberOfContexts: Int {
+        configuredContexts.count
+    }
+    
+    func position(of context: DKContextKind) -> Int? {
+        configuredContexts.firstIndex(of: context)
+    }
+    
+    func context(at position: Int) -> DKContextKind? {
+        guard configuredContexts.indexRange.contains(position) else {
+            assertionFailure("We should not ask a context out of bounds")
+            return nil
+        }
+        
+        return configuredContexts[position]
+    }
+    
+    func context(before context: DKContextKind) -> DKContextKind? {
+        configuredContexts.firstIndex(of: context).flatMap {
+            $0 > configuredContexts.startIndex ? configuredContexts[$0 - 1] : nil
+        }
+    }
+    
+    func context(after context: DKContextKind) -> DKContextKind? {
+        configuredContexts.firstIndex(of: context).flatMap {
+            $0 >= (configuredContexts.endIndex - 1) ? nil : configuredContexts[$0 + 1]
+        }
     }
     
     func updateData() {

@@ -10,9 +10,9 @@ import DriveKitCommonUI
 import UIKit
 
 class DrivingConditionsContextViewController: DKUIViewController {
-    var context: ContextKind
+    var context: DKContextKind
     
-    init(context: ContextKind) {
+    init(context: DKContextKind) {
         self.context = context
         super.init(nibName: nil, bundle: nil)
     }
@@ -25,14 +25,13 @@ class DrivingConditionsContextViewController: DKUIViewController {
         super.viewDidLoad()
 
         self.view.embedSubview(self.contextView(for: context))
-        self.view.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
-        self.view.clipsToBounds = true
+        self.view.backgroundColor = .white
     }
 
-    private func contextView(for context: ContextKind) -> UIView {
+    private func contextView(for context: DKContextKind) -> UIView {
         #warning("Setup each context kind view")
         let label = UILabel()
-        label.text = "Context \(context.rawValue)"
+        label.text = "Context \(context)"
         return label
     }
 }

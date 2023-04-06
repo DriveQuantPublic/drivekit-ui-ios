@@ -648,7 +648,7 @@
 		E382079D29DD7CFC00CB85D6 /* DrivingConditionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E382079C29DD7CFC00CB85D6 /* DrivingConditionsViewModel.swift */; };
 		E382079F29DD7D7100CB85D6 /* DrivingConditionsViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E382079E29DD7D7100CB85D6 /* DrivingConditionsViewModelDelegate.swift */; };
 		E38207A229DDB13D00CB85D6 /* DrivingConditionsContextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38207A129DDB13D00CB85D6 /* DrivingConditionsContextViewController.swift */; };
-		E38207A429DDBDD900CB85D6 /* ContextKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38207A329DDBDD900CB85D6 /* ContextKind.swift */; };
+		E38207A429DDBDD900CB85D6 /* DKContextKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38207A329DDBDD900CB85D6 /* DKContextKind.swift */; };
 		E3830FD629B24702001A9B25 /* ScoreLevelLegendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3830FD529B24702001A9B25 /* ScoreLevelLegendViewController.xib */; };
 		E3830FD929B5F3A5001A9B25 /* MySynthesisCommunityCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3830FD829B5F3A5001A9B25 /* MySynthesisCommunityCardView.xib */; };
 		E3830FDB29B5F3B2001A9B25 /* MySynthesisCommunityCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3830FDA29B5F3B2001A9B25 /* MySynthesisCommunityCardView.swift */; };
@@ -1510,7 +1510,7 @@
 		E382079C29DD7CFC00CB85D6 /* DrivingConditionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingConditionsViewModel.swift; sourceTree = "<group>"; };
 		E382079E29DD7D7100CB85D6 /* DrivingConditionsViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingConditionsViewModelDelegate.swift; sourceTree = "<group>"; };
 		E38207A129DDB13D00CB85D6 /* DrivingConditionsContextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingConditionsContextViewController.swift; sourceTree = "<group>"; };
-		E38207A329DDBDD900CB85D6 /* ContextKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextKind.swift; sourceTree = "<group>"; };
+		E38207A329DDBDD900CB85D6 /* DKContextKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKContextKind.swift; sourceTree = "<group>"; };
 		E3830FD529B24702001A9B25 /* ScoreLevelLegendViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoreLevelLegendViewController.xib; sourceTree = "<group>"; };
 		E3830FD829B5F3A5001A9B25 /* MySynthesisCommunityCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MySynthesisCommunityCardView.xib; sourceTree = "<group>"; };
 		E3830FDA29B5F3B2001A9B25 /* MySynthesisCommunityCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySynthesisCommunityCardView.swift; sourceTree = "<group>"; };
@@ -3567,7 +3567,7 @@
 			isa = PBXGroup;
 			children = (
 				E38207A129DDB13D00CB85D6 /* DrivingConditionsContextViewController.swift */,
-				E38207A329DDBDD900CB85D6 /* ContextKind.swift */,
+				E38207A329DDBDD900CB85D6 /* DKContextKind.swift */,
 			);
 			path = DrivingConditionsContexts;
 			sourceTree = "<group>";
@@ -4948,7 +4948,7 @@
 				E382079A29DD7CC800CB85D6 /* DrivingConditionsViewController.swift in Sources */,
 				A34238912361A2440001E15D /* TripListVC.swift in Sources */,
 				6391E0CB26072DD100A168D4 /* DKSynthesisCard.swift in Sources */,
-				E38207A429DDBDD900CB85D6 /* ContextKind.swift in Sources */,
+				E38207A429DDBDD900CB85D6 /* DKContextKind.swift in Sources */,
 				6357AE69261120D20000CA58 /* SynthesisCardUtils.swift in Sources */,
 				A342387B2361A2440001E15D /* CalloutView.swift in Sources */,
 				E32BC438299E4049006BE5F8 /* MySynthesisViewController.swift in Sources */,

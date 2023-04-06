@@ -17,7 +17,7 @@ class DrivingConditionsViewController: DKUIViewController {
     @IBOutlet private weak var contextPagingContainer: UIView!
     @IBOutlet private weak var pagingControl: UIPageControl!
     private var contextPagingViewController: UIPageViewController!
-    private var contextViewControllers: [ContextKind: DrivingConditionsContextViewController] = [:]
+    private var contextViewControllers: [DKContextKind: DrivingConditionsContextViewController] = [:]
     
     private let viewModel: DrivingConditionsViewModel
     
@@ -49,6 +49,21 @@ class DrivingConditionsViewController: DKUIViewController {
         refreshControl.addTarget(self, action: #selector(refresh(_ :)), for: .valueChanged)
         self.scrollView.refreshControl = refreshControl
         
+        if viewModel.shouldDisplayPagingController {
+            self.configurePagingContexts()
+        } else {
+            self.embedContextViewController(contextController(for: viewModel.firstContext))
+            self.pagingControl.isHidden = true
+        }
+        
+        if self.viewModel.updating {
+            showRefreshControl()
+        } else {
+            hideRefreshControl()
+        }
+    }
+    
+    private func configurePagingContexts() {
         contextPagingViewController = UIPageViewController(
             transitionStyle: .scroll,
             navigationOrientation: .horizontal
@@ -56,13 +71,9 @@ class DrivingConditionsViewController: DKUIViewController {
         contextPagingViewController.dataSource = self
         contextPagingViewController.delegate = self
         
-        self.addChild(contextPagingViewController)
-        contextPagingContainer.embedSubview(contextPagingViewController.view)
-        contextPagingContainer.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
-        contextPagingContainer.clipsToBounds = true
-        contextPagingViewController.didMove(toParent: self)
+        self.embedContextViewController(contextPagingViewController)
         
-        pagingControl.numberOfPages = ContextKind.allCases.count
+        pagingControl.numberOfPages = viewModel.numberOfContexts
         pagingControl.currentPage = 0
         pagingControl.pageIndicatorTintColor = .dkPageIndicatorTintColor
         pagingControl.currentPageIndicatorTintColor = DKUIColors.primaryColor.color
@@ -73,34 +84,41 @@ class DrivingConditionsViewController: DKUIViewController {
             for: .valueChanged
         )
         
-        let firstContextVC = DrivingConditionsContextViewController(context: ContextKind.tripDistance)
-        contextViewControllers[ContextKind.tripDistance] = firstContextVC
         contextPagingViewController.setViewControllers(
-            [firstContextVC],
+            [contextController(for: viewModel.firstContext)],
             direction: .forward,
             animated: false
         )
-        
-        if self.viewModel.updating {
-            showRefreshControl()
-        } else {
-            hideRefreshControl()
-        }
+    }
+    
+    private func embedContextViewController(_ contextViewController: UIViewController) {
+        self.addChild(contextViewController)
+        contextPagingContainer.embedSubview(contextViewController.view)
+        contextPagingContainer.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
+        contextPagingContainer.clipsToBounds = true
+        contextViewController.didMove(toParent: self)
     }
     
     @objc private func didTapPagingControl(_ sender: Any) {
         guard
-            let selectedContext = ContextKind(rawValue: self.pagingControl.currentPage),
-            let contextController = self.contextController(for: selectedContext)
+            let selectedContext = viewModel.context(
+                at: self.pagingControl.currentPage
+            )
         else {
             assertionFailure("We should always have a page that match an existing context")
             return
         }
         
+        let contextController = self.contextController(for: selectedContext)
+        
         var direction = UIPageViewController.NavigationDirection.forward
         if let currentContextController = self.contextPagingViewController.viewControllers?.first,
            let previousContext = self.context(from: currentContextController) {
-               direction = previousContext.rawValue < selectedContext.rawValue
+                direction = (
+                    viewModel.position(of: previousContext) ?? -1
+                    <
+                    viewModel.position(of: selectedContext) ?? -1
+                )
                 ? .forward
                 : .reverse
            }
@@ -124,11 +142,7 @@ class DrivingConditionsViewController: DKUIViewController {
         self.scrollView.refreshControl?.endRefreshing()
     }
     
-    func contextController(for context: ContextKind?) -> DrivingConditionsContextViewController? {
-        guard let context else {
-            return nil
-        }
-        
+    func contextController(for context: DKContextKind) -> DrivingConditionsContextViewController {
         guard let contextVC = contextViewControllers[context] else {
             let newContextVC = DrivingConditionsContextViewController(context: context)
             contextViewControllers[context] = newContextVC
@@ -138,7 +152,7 @@ class DrivingConditionsViewController: DKUIViewController {
         return contextVC
     }
     
-    func context(from contextController: UIViewController) -> ContextKind? {
+    func context(from contextController: UIViewController) -> DKContextKind? {
         guard let contextController = contextController as? DrivingConditionsContextViewController else {
             assertionFailure("We should only have DrivingConditionsContextViewController here")
             return nil
@@ -164,7 +178,7 @@ extension DrivingConditionsViewController: UIPageViewControllerDataSource {
         viewControllerBefore viewController: UIViewController
     ) -> UIViewController? {
         self.context(from: viewController).flatMap { currentContext in
-            return self.contextController(for: currentContext.previous)
+            return viewModel.context(before: currentContext).flatMap(self.contextController(for:))
         }
     }
     
@@ -173,7 +187,7 @@ extension DrivingConditionsViewController: UIPageViewControllerDataSource {
         viewControllerAfter viewController: UIViewController
     ) -> UIViewController? {
         self.context(from: viewController).flatMap { currentContext in
-            return self.contextController(for: currentContext.next)
+            return viewModel.context(after: currentContext).flatMap(self.contextController(for:))
         }
     }
 }
@@ -187,8 +201,8 @@ extension DrivingConditionsViewController: UIPageViewControllerDelegate {
     ) {
         if completed,
             let currentVC = pageViewController.viewControllers?.first,
-            let currentPage = self.context(from: currentVC)?.rawValue {
-            self.pagingControl.currentPage = currentPage
+            let currentContext = self.context(from: currentVC) {
+            self.pagingControl.currentPage = viewModel.position(of: currentContext) ?? 0
         }
     }
 }

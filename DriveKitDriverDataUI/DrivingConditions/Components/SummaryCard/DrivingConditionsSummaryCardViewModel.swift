@@ -11,7 +11,7 @@ import DriveKitCommonUI
 class DrivingConditionsSummaryCardViewModel {
     private var tripCount: Int = 0
     private var totalDistance: Double = 0.0
-    var tripDistanceCardViewModelDidUpdate: (() -> Void)?
+    var summaryCardViewModelDidUpdate: (() -> Void)?
     
     init() {}
     
@@ -21,7 +21,7 @@ class DrivingConditionsSummaryCardViewModel {
     ) {
         self.tripCount = tripCount
         self.totalDistance = totalDistance
-        tripDistanceCardViewModelDidUpdate?()
+        summaryCardViewModelDidUpdate?()
     }
     
     var tripCountText: NSAttributedString {

@@ -72,7 +72,7 @@ class DrivingConditionsViewController: DKUIViewController {
         contextPagingViewController.dataSource = self
         contextPagingViewController.delegate = self
         
-        DrivingConditionsSummaryCardView.createTripDistanceCardView(
+        DrivingConditionsSummaryCardView.createSummaryCardView(
             configuredWith: viewModel.drivingConditionsSummaryViewModel,
             embededIn: self.drivingConditionsSummaryContainer
         )

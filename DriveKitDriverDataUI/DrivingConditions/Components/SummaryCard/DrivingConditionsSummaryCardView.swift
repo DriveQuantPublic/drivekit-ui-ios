@@ -43,22 +43,22 @@ class DrivingConditionsSummaryCardView: UIView {
 }
 
 extension DrivingConditionsSummaryCardView {
-    public static func createTripDistanceCardView(
+    public static func createSummaryCardView(
         configuredWith viewModel: DrivingConditionsSummaryCardViewModel,
         embededIn containerView: UIView
     ) {
-        guard let tripDistanceCardView = Bundle.driverDataUIBundle?.loadNibNamed(
+        guard let summaryCardView = Bundle.driverDataUIBundle?.loadNibNamed(
             "DrivingConditionsSummaryCardView",
             owner: nil
         )?.first as? DrivingConditionsSummaryCardView else {
             preconditionFailure("Can't find bundle or nib for DrivingConditionsSummaryCardView")
         }
         
-        viewModel.tripDistanceCardViewModelDidUpdate = { [unowned tripDistanceCardView] in
-            tripDistanceCardView.refreshView()
+        viewModel.summaryCardViewModelDidUpdate = { [unowned summaryCardView] in
+            summaryCardView.refreshView()
         }
-        tripDistanceCardView.configure(viewModel: viewModel)
-        containerView.embedSubview(tripDistanceCardView)
+        summaryCardView.configure(viewModel: viewModel)
+        containerView.embedSubview(summaryCardView)
         containerView.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
         containerView.clipsToBounds = true
     }

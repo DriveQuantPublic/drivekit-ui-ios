@@ -6,16 +6,52 @@
 //  Copyright © 2023 DriveQuant. All rights reserved.
 //
 
+import DriveKitCommonUI
 import UIKit
 
 class TripDistanceCardView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    private var viewModel: TripDistanceCardViewModel?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setupView()
     }
-    */
+    
+    func setupView() {
+        
+        self.refreshView()
+    }
+    
+    func refreshView() {
+        guard let viewModel else {
+            return
+        }
+    }
+    
+    func configure(viewModel: TripDistanceCardViewModel) {
+        self.viewModel = viewModel
+        self.refreshView()
+    }
+}
 
+extension TripDistanceCardView {
+    public static func createTripDistanceCardView(
+        configuredWith viewModel: TripDistanceCardViewModel,
+        embededIn containerView: UIView
+    ) {
+        guard let tripDistanceCardView = Bundle.driverDataUIBundle?.loadNibNamed(
+            "TripDistanceCardView",
+            owner: nil
+        )?.first as? TripDistanceCardView else {
+            preconditionFailure("Can't find bundle or nib for TripDistanceCardView")
+        }
+        
+        viewModel.tripDistanceCardViewModelDidUpdate = { [unowned tripDistanceCardView] in
+            tripDistanceCardView.refreshView()
+        }
+        tripDistanceCardView.configure(viewModel: viewModel)
+        containerView.embedSubview(tripDistanceCardView)
+        containerView.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
+        containerView.clipsToBounds = true
+    }
 }

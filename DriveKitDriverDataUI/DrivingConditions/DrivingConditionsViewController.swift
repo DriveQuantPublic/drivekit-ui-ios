@@ -14,7 +14,7 @@ class DrivingConditionsViewController: DKUIViewController {
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var periodSelectorContainer: UIView!
     @IBOutlet private weak var dateSelectorContainer: UIView!
-    @IBOutlet private weak var drivingConditionSummaryContainer: UIView!
+    @IBOutlet private weak var drivingConditionsSummaryContainer: UIView!
     @IBOutlet private weak var contextPagingContainer: UIView!
     @IBOutlet private weak var pagingControl: UIPageControl!
     private var contextPagingViewController: UIPageViewController!
@@ -71,6 +71,12 @@ class DrivingConditionsViewController: DKUIViewController {
         )
         contextPagingViewController.dataSource = self
         contextPagingViewController.delegate = self
+        
+        DrivingConditionsSummaryCardView.createTripDistanceCardView(
+            configuredWith: viewModel.drivingConditionsSummaryViewModel,
+            embededIn: self.drivingConditionsSummaryContainer
+        )
+ 
         
         self.embedContextViewController(contextPagingViewController)
         

@@ -645,9 +645,9 @@
 		E3559EBD294868CB00AAB747 /* DKTimelineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3559EBC294868CB00AAB747 /* DKTimelineExtension.swift */; };
 		E37BF23529E01C34001B597D /* DrivingConditionsContextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37BF22F29E01C33001B597D /* DrivingConditionsContextViewController.swift */; };
 		E37BF23629E01C34001B597D /* DKContextKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37BF23029E01C33001B597D /* DKContextKind.swift */; };
-		E37BF23729E01C34001B597D /* TripDistanceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37BF23229E01C33001B597D /* TripDistanceCardView.swift */; };
-		E37BF23829E01C34001B597D /* TripDistanceCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37BF23329E01C33001B597D /* TripDistanceCardViewModel.swift */; };
-		E37BF23929E01C34001B597D /* TripDistanceCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E37BF23429E01C33001B597D /* TripDistanceCardView.xib */; };
+		E37BF23729E01C34001B597D /* DrivingConditionsSummaryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37BF23229E01C33001B597D /* DrivingConditionsSummaryCardView.swift */; };
+		E37BF23829E01C34001B597D /* DrivingConditionsSummaryCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37BF23329E01C33001B597D /* DrivingConditionsSummaryCardViewModel.swift */; };
+		E37BF23929E01C34001B597D /* DrivingConditionsSummaryCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E37BF23429E01C33001B597D /* DrivingConditionsSummaryCardView.xib */; };
 		E382079A29DD7CC800CB85D6 /* DrivingConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E382079829DD7CC800CB85D6 /* DrivingConditionsViewController.swift */; };
 		E382079B29DD7CC800CB85D6 /* DrivingConditionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E382079929DD7CC800CB85D6 /* DrivingConditionsViewController.xib */; };
 		E382079D29DD7CFC00CB85D6 /* DrivingConditionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E382079C29DD7CFC00CB85D6 /* DrivingConditionsViewModel.swift */; };
@@ -1510,9 +1510,9 @@
 		E36085012948C37C0097A639 /* DKUIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKUIConstants.swift; sourceTree = "<group>"; };
 		E37BF22F29E01C33001B597D /* DrivingConditionsContextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrivingConditionsContextViewController.swift; sourceTree = "<group>"; };
 		E37BF23029E01C33001B597D /* DKContextKind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKContextKind.swift; sourceTree = "<group>"; };
-		E37BF23229E01C33001B597D /* TripDistanceCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDistanceCardView.swift; sourceTree = "<group>"; };
-		E37BF23329E01C33001B597D /* TripDistanceCardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDistanceCardViewModel.swift; sourceTree = "<group>"; };
-		E37BF23429E01C33001B597D /* TripDistanceCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripDistanceCardView.xib; sourceTree = "<group>"; };
+		E37BF23229E01C33001B597D /* DrivingConditionsSummaryCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrivingConditionsSummaryCardView.swift; sourceTree = "<group>"; };
+		E37BF23329E01C33001B597D /* DrivingConditionsSummaryCardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrivingConditionsSummaryCardViewModel.swift; sourceTree = "<group>"; };
+		E37BF23429E01C33001B597D /* DrivingConditionsSummaryCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrivingConditionsSummaryCardView.xib; sourceTree = "<group>"; };
 		E382079829DD7CC800CB85D6 /* DrivingConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingConditionsViewController.swift; sourceTree = "<group>"; };
 		E382079929DD7CC800CB85D6 /* DrivingConditionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrivingConditionsViewController.xib; sourceTree = "<group>"; };
 		E382079C29DD7CFC00CB85D6 /* DrivingConditionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingConditionsViewModel.swift; sourceTree = "<group>"; };
@@ -3561,7 +3561,7 @@
 			isa = PBXGroup;
 			children = (
 				E37BF22E29E01C33001B597D /* DrivingConditionsContext */,
-				E37BF23129E01C33001B597D /* TripDistanceCard */,
+				E37BF23129E01C33001B597D /* SummaryCard */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -3575,14 +3575,14 @@
 			path = DrivingConditionsContext;
 			sourceTree = "<group>";
 		};
-		E37BF23129E01C33001B597D /* TripDistanceCard */ = {
+		E37BF23129E01C33001B597D /* SummaryCard */ = {
 			isa = PBXGroup;
 			children = (
-				E37BF23229E01C33001B597D /* TripDistanceCardView.swift */,
-				E37BF23329E01C33001B597D /* TripDistanceCardViewModel.swift */,
-				E37BF23429E01C33001B597D /* TripDistanceCardView.xib */,
+				E37BF23229E01C33001B597D /* DrivingConditionsSummaryCardView.swift */,
+				E37BF23329E01C33001B597D /* DrivingConditionsSummaryCardViewModel.swift */,
+				E37BF23429E01C33001B597D /* DrivingConditionsSummaryCardView.xib */,
 			);
-			path = TripDistanceCard;
+			path = SummaryCard;
 			sourceTree = "<group>";
 		};
 		E382079729DD7C9400CB85D6 /* DrivingConditions */ = {
@@ -4165,7 +4165,7 @@
 				A34238752361A2430001E15D /* EcoDrivingPageVC.xib in Resources */,
 				638AC03F261F903300602B52 /* SynthesisCardsView.xib in Resources */,
 				E32BC439299E4049006BE5F8 /* MySynthesisViewController.xib in Resources */,
-				E37BF23929E01C34001B597D /* TripDistanceCardView.xib in Resources */,
+				E37BF23929E01C34001B597D /* DrivingConditionsSummaryCardView.xib in Resources */,
 				A30F4F1B23D5DB18009A37C2 /* TripTipFeedbackVC.storyboard in Resources */,
 				E302B63329B23328004CFA0C /* ScoreLevelLegendRowView.xib in Resources */,
 				A34238722361A2430001E15D /* ShortTripPageVC.xib in Resources */,
@@ -5023,11 +5023,11 @@
 				E3830FE429B62F6A001A9B25 /* CommunityStatsItemViewModel.swift in Sources */,
 				A342386C2361A2430001E15D /* MapViewController.swift in Sources */,
 				3FF68E8A240ACD620071D74C /* DriveKitDriverDataUI.swift in Sources */,
-				E37BF23729E01C34001B597D /* TripDistanceCardView.swift in Sources */,
+				E37BF23729E01C34001B597D /* DrivingConditionsSummaryCardView.swift in Sources */,
 				E3F0213329A3B88400664CD2 /* MySynthesisViewModelDelegate.swift in Sources */,
 				E302B62B29B2081E004CFA0C /* DKScoreTypeLevel+l10n.swift in Sources */,
 				A34238732361A2430001E15D /* ShortTripPageVC.swift in Sources */,
-				E37BF23829E01C34001B597D /* TripDistanceCardViewModel.swift in Sources */,
+				E37BF23829E01C34001B597D /* DrivingConditionsSummaryCardViewModel.swift in Sources */,
 				A34238662361A2430001E15D /* EcoDrivingPageViewModel.swift in Sources */,
 				A34238852361A2440001E15D /* TripListViewModel.swift in Sources */,
 				A34238622361A2430001E15D /* CalloutViewModel.swift in Sources */,

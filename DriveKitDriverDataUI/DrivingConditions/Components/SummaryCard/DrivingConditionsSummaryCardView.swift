@@ -1,5 +1,5 @@
 //
-//  TripDistanceCardView.swift
+//  DrivingConditionsSummaryCardView.swift
 //  DriveKitDriverDataUI
 //
 //  Created by Frédéric Ruaudel on 07/04/2023.
@@ -9,8 +9,8 @@
 import DriveKitCommonUI
 import UIKit
 
-class TripDistanceCardView: UIView {
-    private var viewModel: TripDistanceCardViewModel?
+class DrivingConditionsSummaryCardView: UIView {
+    private var viewModel: DrivingConditionsSummaryCardViewModel?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,22 +28,22 @@ class TripDistanceCardView: UIView {
         }
     }
     
-    func configure(viewModel: TripDistanceCardViewModel) {
+    func configure(viewModel: DrivingConditionsSummaryCardViewModel) {
         self.viewModel = viewModel
         self.refreshView()
     }
 }
 
-extension TripDistanceCardView {
+extension DrivingConditionsSummaryCardView {
     public static func createTripDistanceCardView(
-        configuredWith viewModel: TripDistanceCardViewModel,
+        configuredWith viewModel: DrivingConditionsSummaryCardViewModel,
         embededIn containerView: UIView
     ) {
         guard let tripDistanceCardView = Bundle.driverDataUIBundle?.loadNibNamed(
-            "TripDistanceCardView",
+            "DrivingConditionsSummaryCardView",
             owner: nil
-        )?.first as? TripDistanceCardView else {
-            preconditionFailure("Can't find bundle or nib for TripDistanceCardView")
+        )?.first as? DrivingConditionsSummaryCardView else {
+            preconditionFailure("Can't find bundle or nib for DrivingConditionsSummaryCardView")
         }
         
         viewModel.tripDistanceCardViewModelDidUpdate = { [unowned tripDistanceCardView] in

@@ -1,5 +1,5 @@
 //
-//  TripDistanceCardViewModel.swift
+//  DrivingConditionsSummaryCardViewModel.swift
 //  DriveKitDriverDataUI
 //
 //  Created by Frédéric Ruaudel on 07/04/2023.
@@ -8,7 +8,7 @@
 
 import DriveKitCommonUI
 
-class TripDistanceCardViewModel {
+class DrivingConditionsSummaryCardViewModel {
     private var tripCount: Int = 0
     private var totalDistance: Double = 0.0
     var tripDistanceCardViewModelDidUpdate: (() -> Void)?

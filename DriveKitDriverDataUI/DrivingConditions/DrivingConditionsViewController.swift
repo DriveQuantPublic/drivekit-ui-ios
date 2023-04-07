@@ -77,7 +77,7 @@ class DrivingConditionsViewController: DKUIViewController {
         pagingControl.numberOfPages = viewModel.numberOfContexts
         pagingControl.currentPage = 0
         pagingControl.pageIndicatorTintColor = .dkPageIndicatorTintColor
-        pagingControl.currentPageIndicatorTintColor = DKUIColors.primaryColor.color
+        pagingControl.currentPageIndicatorTintColor = DKUIColors.secondaryColor.color
         
         pagingControl.addTarget(
             self,

@@ -208,3 +208,7 @@
 "dk_driverdata_weather_rain"="Temps pluvieux";
 "dk_driverdata_weather_snow"="Temps neigeux";
 "dk_driverdata_weather_sun"="Temps clair";
+
+"dk_driverdata_drivingconditions_title" = "Conditions de conduite";
+"dk_driverdata_drivingconditions_distance_plural" = "km parcourus";
+"dk_driverdata_drivingconditions_distance_singular" = "km parcouru";

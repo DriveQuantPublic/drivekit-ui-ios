@@ -28,7 +28,7 @@ class DrivingConditionsSummaryCardViewModel {
         tripCount.formatWithThousandSeparator()
             .dkAttributedString()
             .color(.primaryColor)
-            .font(dkFont: .primary, style: .highlightSmall)
+            .font(dkFont: .primary, style: .highlightNormal)
             .build()
     }
     
@@ -42,25 +42,29 @@ class DrivingConditionsSummaryCardViewModel {
         
         return unitText
             .dkAttributedString()
-            .color(.secondaryColor)
-            .font(dkFont: .primary, style: .normalText)
+            .color(.complementaryFontColor)
+            .font(dkFont: .primary, style: .smallText)
             .build()
     }
     
     var totalDistanceText: NSAttributedString {
-        totalDistance.formatMeterDistanceInKm(appendingUnit: false)
+        totalDistance.formatKilometerDistance(appendingUnit: false)
             .dkAttributedString()
             .color(.primaryColor)
-            .font(dkFont: .primary, style: .highlightSmall)
+            .font(dkFont: .secondary, style: .highlightNormal)
             .build()
     }
     
     var totalDistanceUnitText: NSAttributedString {
-        #warning("Fix localisation with the correct key ")
-        return DKCommonLocalizable.unitKilometer.text()
+        return (
+            totalDistance == 1
+            ? "dk_driverdata_drivingconditions_distance_singular"
+            : "dk_driverdata_drivingconditions_distance_plural"
+        )
+            .dkDriverDataLocalized()
             .dkAttributedString()
-            .color(.secondaryColor)
-            .font(dkFont: .primary, style: .normalText)
+            .color(.complementaryFontColor)
+            .font(dkFont: .primary, style: .smallText)
             .build()
     }
 }

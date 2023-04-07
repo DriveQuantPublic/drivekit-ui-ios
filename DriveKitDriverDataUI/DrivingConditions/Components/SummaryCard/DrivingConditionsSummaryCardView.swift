@@ -10,6 +10,10 @@ import DriveKitCommonUI
 import UIKit
 
 class DrivingConditionsSummaryCardView: UIView {
+    @IBOutlet weak var tripCountLabel: UILabel!
+    @IBOutlet weak var tripCountUnitLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var distanceUnitLabel: UILabel!
     private var viewModel: DrivingConditionsSummaryCardViewModel?
     
     override func awakeFromNib() {
@@ -18,7 +22,6 @@ class DrivingConditionsSummaryCardView: UIView {
     }
     
     func setupView() {
-        
         self.refreshView()
     }
     
@@ -26,6 +29,11 @@ class DrivingConditionsSummaryCardView: UIView {
         guard let viewModel else {
             return
         }
+        
+        tripCountLabel.attributedText = viewModel.tripCountText
+        tripCountUnitLabel.attributedText = viewModel.tripCountUnitText
+        distanceLabel.attributedText = viewModel.totalDistanceText
+        distanceUnitLabel.attributedText = viewModel.totalDistanceUnitText
     }
     
     func configure(viewModel: DrivingConditionsSummaryCardViewModel) {

@@ -9,7 +9,7 @@
 import UIKit
 
 public class DKContextCardView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    let collectionViewCellHeight: CGFloat = 26.0
+    var collectionViewCellHeight: CGFloat = 26.0
     @IBOutlet private weak var contextBarView: ContextBarView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var itemsCollectionView: UICollectionView!
@@ -41,6 +41,13 @@ public class DKContextCardView: UIView, UICollectionViewDataSource, UICollection
         if let viewModel = viewModel {
             self.titleLabel.text = viewModel.getTitle()
             self.contextBarView.configure(viewModel: viewModel)
+            var expectedCellHeight = 26.0
+            let twoLinesCellHeight = 42.0
+            for item in viewModel.getItems() where item.getSubtitle() != nil {
+                expectedCellHeight = twoLinesCellHeight
+                break
+            }
+            collectionViewCellHeight = expectedCellHeight
         }
         let inHalf = 0.5
         self.collectionViewHeightConstraint.constant =
@@ -66,7 +73,7 @@ public class DKContextCardView: UIView, UICollectionViewDataSource, UICollection
            let items = viewModel?.getItems(),
            items.count > indexPath.row {
             let context = items[indexPath.row]
-            itemCell.update(title: context.getTitle(), color: context.getColor())
+            itemCell.update(title: context.getTitle(), subtitle: context.getSubtitle(), color: context.getColor())
         }
         return cell
     }
@@ -87,7 +94,9 @@ class ContextBarView: DKRoundedBarView {
         }
         var barViewItems: [DKRoundedBarViewItem] = []
         for item in itemsToDraw {
-            barViewItems.append(DKRoundedBarViewItem(percent: item.getPercent(), color: item.getColor()))
+            if let percent = viewModel?.getContextPercent(item) {
+                barViewItems.append(DKRoundedBarViewItem(percent: percent, color: item.getColor()))
+            }
         }
         draw(items: barViewItems, rect: rect)
     }

@@ -12,11 +12,11 @@ public protocol DKContextCard {
     func getItems() -> [any DKContextItem]
     func getTitle() -> String
     func getEmptyDataDescription() -> String
+    func getContextPercent(_ context: some DKContextItem) -> Double
 }
 
 public protocol DKContextItem {
     func getColor() -> UIColor
-    func getPercent() -> Double
     func getTitle() -> String
     func getSubtitle() -> String?
 }

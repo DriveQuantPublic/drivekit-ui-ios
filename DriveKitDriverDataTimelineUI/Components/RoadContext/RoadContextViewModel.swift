@@ -108,19 +108,19 @@ class RoadContextViewModel {
 
     private func updateItems() {
         var result: [TimelineRoadContext] = []
-        for context: TimelineRoadContext in [.heavyUrbanTraffic(), .city(), .suburban(), .expressways()] {
+        for context: TimelineRoadContext in [.heavyUrbanTraffic, .city, .suburban, .expressways] {
             
             let contextPercent = self.getContextPercent(context)
-            if contextPercent > 0,
-                let timelineRoadContext = TimelineRoadContext(roadContext: context.getRoadContext(), percent: contextPercent) {
-                result.append(timelineRoadContext)
+            if contextPercent > 0 {
+                result.append(context)
             }
         }
         self.items = result
     }
 
-    private func getContextPercent(_ context: TimelineRoadContext) -> Double {
-        guard let contextDistance = roadContextType.distanceByContext[context] else {
+    func getContextPercent(_ context: some DKContextItem) -> Double {
+        guard let roadContext = context as? TimelineRoadContext,
+                let contextDistance = roadContextType.distanceByContext[roadContext] else {
             return 0
         }
         return contextDistance / totalDistanceForDisplayedContexts
@@ -176,54 +176,29 @@ protocol RoadContextViewModelDelegate: AnyObject {
 }
 
 enum TimelineRoadContext: Codable, Hashable {
-    case heavyUrbanTraffic(percent: Double = 0)
-    case city(percent: Double = 0)
-    case suburban(percent: Double = 0)
-    case expressways(percent: Double = 0)
+    case heavyUrbanTraffic
+    case city
+    case suburban
+    case expressways
 
-    init?(roadContext: DKRoadContext, percent: Double = 0) {
+    init?(roadContext: DKRoadContext) {
         switch roadContext {
         case .heavyUrbanTraffic:
-            self = .heavyUrbanTraffic(percent: percent)
+            self = .heavyUrbanTraffic
         case .city:
-            self = .city(percent: percent)
+            self = .city
         case .suburban:
-            self = .suburban(percent: percent)
+            self = .suburban
         case .expressways:
-            self = .expressways(percent: percent)
+            self = .expressways
         default:
             return nil
-        }
-    }
-    func getRoadContext() -> DKRoadContext {
-        switch self {
-            case .heavyUrbanTraffic(_):
-                return .heavyUrbanTraffic
-            case .city(_):
-                return .city
-            case .suburban(_):
-                return .suburban
-            case .expressways(_):
-                return .expressways
         }
     }
 }
 
 
 extension TimelineRoadContext: DKContextItem {
-    func getPercent() -> Double {
-        switch self {
-            case .heavyUrbanTraffic(let percent):
-                return percent
-            case .city(let percent):
-                return percent
-            case .suburban(let percent):
-                return percent
-            case .expressways(let percent):
-                return percent
-        }
-    }
-    
     private static let heavyUrbanTrafficColor = UIColor(hex: 0x036A82).tinted(usingHueOf: DKUIColors.primaryColor.color)
     private static let suburbanColor = UIColor(hex: 0x699DAD).tinted(usingHueOf: DKUIColors.primaryColor.color)
     private static let cityColor = UIColor(hex: 0x3B8497).tinted(usingHueOf: DKUIColors.primaryColor.color)

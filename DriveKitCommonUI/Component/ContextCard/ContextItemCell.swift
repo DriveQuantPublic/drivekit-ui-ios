@@ -15,12 +15,20 @@ class ContextItemCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.titleLabel.font = DKStyles.smallText.style.applyTo(font: .primary)
-        self.titleLabel.textColor = DKUIColors.complementaryFontColor.color
     }
 
-    func update(title: String, color: UIColor) {
-        self.titleLabel.text = title
+    func update(title: String, subtitle: String? = nil, color: UIColor) {
         self.circleView.backgroundColor = color
+        self.titleLabel.attributedText = getTitleAttributedString(title: title, subtitle: subtitle)
+    }
+
+    private func getTitleAttributedString(title: String, subtitle: String? = nil) -> NSMutableAttributedString {
+        if let subtitle = subtitle {
+            let subtitleString = subtitle.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+            let titleString = title.appending("\n").dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).buildWithArgs(subtitleString)
+            return titleString
+        } else {
+            return title.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+        }
     }
 }

@@ -34,4 +34,9 @@ extension Array {
             otherArray.append(self[index])
         }
     }
+    
+    /// Return the range of the array's valid indexes
+    public var indexRange: Range<Self.Index> {
+        self.startIndex..<self.endIndex
+    }
 }

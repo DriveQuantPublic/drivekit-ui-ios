@@ -88,6 +88,7 @@ import UIKit
     }
     
     static let dkGaugeGray = UIColor(hex: 0xE0E0E0)
+    static let dkPageIndicatorTintColor = UIColor(hex: 0x9E9E9E)
     
     static let dkVeryBad = UIColor(hex: 0xff6e57)
     static let dkBad = UIColor(hex: 0xffa057)

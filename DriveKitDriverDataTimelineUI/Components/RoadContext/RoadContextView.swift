@@ -41,12 +41,12 @@ class RoadContextView: UIView {
     
     private func updateUI() {
         self.removeSubviews()
-        if self.viewModel.hasData() {
+        if self.viewModel.hasData {
             self.roadContextDataView.configure(viewModel: self.viewModel)
             self.embedSubview(roadContextDataView)
         } else {
             emptyRoadContextView.configure(
-                withTitle: viewModel.getTitle(),
+                withTitle: viewModel.title,
                 description: viewModel.getEmptyDataDescription()
             )
             self.embedSubview(emptyRoadContextView)

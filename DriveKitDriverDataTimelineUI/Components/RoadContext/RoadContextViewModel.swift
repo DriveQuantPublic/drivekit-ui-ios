@@ -56,7 +56,11 @@ class RoadContextViewModel {
     private var totalDistanceForDisplayedContexts: Double = 0
     weak var delegate: RoadContextViewModelDelegate?
 
-    private var items: [TimelineRoadContext] = []
+    var hasData: Bool {
+        roadContextType.hasData
+    }
+
+    private var roadContextItems: [TimelineRoadContext] = []
 
     func configure(
         with selectedScore: DKScoreType,
@@ -115,7 +119,7 @@ class RoadContextViewModel {
                 result.append(context)
             }
         }
-        self.items = result
+        self.roadContextItems = result
     }
 
     func getContextPercent(_ context: some DKContextItem) -> Double {
@@ -124,18 +128,14 @@ class RoadContextViewModel {
             return 0
         }
         return contextDistance / totalDistanceForDisplayedContexts
-    }
-    
-    func hasData() -> Bool {
-        return roadContextType.hasData
-    }
+    }    
 }
 extension RoadContextViewModel: DKContextCard {
-    func getItems() -> [DKContextItem] {
-        return items
+    var items: [DriveKitCommonUI.DKContextItem] {
+        return roadContextItems
     }
     
-    func getTitle() -> String {
+    var title: String {
         switch self.roadContextType {
             case let .data(_, totalDistanceForAllContexts),
             let .noData(totalDistanceForAllContexts):
@@ -197,14 +197,13 @@ enum TimelineRoadContext: Codable, Hashable {
     }
 }
 
-
 extension TimelineRoadContext: DKContextItem {
     private static let heavyUrbanTrafficColor = UIColor(hex: 0x036A82).tinted(usingHueOf: DKUIColors.primaryColor.color)
     private static let suburbanColor = UIColor(hex: 0x699DAD).tinted(usingHueOf: DKUIColors.primaryColor.color)
     private static let cityColor = UIColor(hex: 0x3B8497).tinted(usingHueOf: DKUIColors.primaryColor.color)
     private static let expresswaysColor = UIColor(hex: 0x8FB7C2).tinted(usingHueOf: DKUIColors.primaryColor.color)
 
-    func getColor() -> UIColor {
+    var color: UIColor {
         switch self {
         case .suburban:
             return TimelineRoadContext.suburbanColor
@@ -216,8 +215,8 @@ extension TimelineRoadContext: DKContextItem {
             return TimelineRoadContext.cityColor
         }
     }
-    
-    func getTitle() -> String {
+
+    var title: String {
         switch self {
         case .suburban:
             return "dk_timeline_road_context_suburban".dkDriverDataTimelineLocalized()
@@ -230,8 +229,7 @@ extension TimelineRoadContext: DKContextItem {
         }
     }
 
-    func getSubtitle() -> String? {
-        return nil
+    var subtitle: String? {
+            return nil
     }
-    
 }

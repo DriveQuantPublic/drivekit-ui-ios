@@ -9,14 +9,13 @@
 import UIKit
 
 public protocol DKContextCard {
-    func getItems() -> [any DKContextItem]
-    func getTitle() -> String
-    func getEmptyDataDescription() -> String
+    var items: [any DKContextItem] { get }
+    var title: String { get }
     func getContextPercent(_ context: some DKContextItem) -> Double
 }
 
 public protocol DKContextItem {
-    func getColor() -> UIColor
-    func getTitle() -> String
-    func getSubtitle() -> String?
+    var color: UIColor { get }
+    var title: String { get }
+    var subtitle: String? { get }
 }

@@ -10,6 +10,7 @@ import UIKit
 
 public class DKContextCardView: UIView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     var collectionViewCellHeight: CGFloat = 26.0
+    let numberOfColumns = 2.0
     @IBOutlet private weak var contextBarView: ContextBarView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var itemsCollectionView: UICollectionView!
@@ -50,7 +51,6 @@ public class DKContextCardView: UIView, UICollectionViewDataSource, UICollection
             }
             collectionViewCellHeight = expectedCellHeight
         }
-        let numberOfColumns = 2.0
         self.collectionViewHeightConstraint.constant =
          self.collectionViewCellHeight *
         CGFloat(Int(ceil(Double(viewModel?.items.count ?? 1) / numberOfColumns)))
@@ -81,7 +81,6 @@ public class DKContextCardView: UIView, UICollectionViewDataSource, UICollection
 
     // MARK: UICollectionViewDelegateFlowLayout protocol implementation
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let numberOfColumns = 2.0
         return CGSize(width: collectionView.bounds.width / numberOfColumns, height: self.collectionViewCellHeight)
     }
 }

@@ -50,10 +50,20 @@ class DrivingConditionsViewController: DKUIViewController {
         refreshControl.addTarget(self, action: #selector(refresh(_ :)), for: .valueChanged)
         self.scrollView.refreshControl = refreshControl
         
-        if viewModel.shouldDisplayPagingController {
-            self.configurePagingContexts()
+        DrivingConditionsSummaryCardView.createSummaryCardView(
+            configuredWith: viewModel.drivingConditionsSummaryViewModel,
+            embededIn: self.drivingConditionsSummaryContainer
+        )
+        
+        if viewModel.hasData {
+            if viewModel.shouldDisplayPagingController {
+                self.configurePagingContexts()
+            } else {
+                self.embedContextViewController(contextController(for: viewModel.firstContext))
+                self.pagingControl.isHidden = true
+            }
         } else {
-            self.embedContextViewController(contextController(for: viewModel.firstContext))
+            self.contextPagingContainer.isHidden = true
             self.pagingControl.isHidden = true
         }
         
@@ -71,12 +81,6 @@ class DrivingConditionsViewController: DKUIViewController {
         )
         contextPagingViewController.dataSource = self
         contextPagingViewController.delegate = self
-        
-        DrivingConditionsSummaryCardView.createSummaryCardView(
-            configuredWith: viewModel.drivingConditionsSummaryViewModel,
-            embededIn: self.drivingConditionsSummaryContainer
-        )
- 
         
         self.embedContextViewController(contextPagingViewController)
         

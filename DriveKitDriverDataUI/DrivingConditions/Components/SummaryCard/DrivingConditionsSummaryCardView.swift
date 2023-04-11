@@ -10,35 +10,53 @@ import DriveKitCommonUI
 import UIKit
 
 class DrivingConditionsSummaryCardView: UIView {
-    @IBOutlet weak var tripCountLabel: UILabel!
-    @IBOutlet weak var tripCountUnitLabel: UILabel!
-    @IBOutlet weak var distanceLabel: UILabel!
-    @IBOutlet weak var distanceUnitLabel: UILabel!
-    private var viewModel: DrivingConditionsSummaryCardViewModel?
+    private var viewModel: DrivingConditionsSummaryCardViewModel!
+    private var summaryCardDataView: DrivingConditionsSummaryCardDataView!
+    private var emptySummaryCardView: NoDataDrivingConditionsSummaryCardView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        setupView()
-    }
-    
-    func setupView() {
-        self.refreshView()
-    }
-    
-    func refreshView() {
-        guard let viewModel else {
-            return
+    override init(frame: CGRect) {
+        guard let summaryCardDataView = Bundle.driverDataUIBundle?.loadNibNamed(
+            "DrivingConditionsSummaryCardDataView",
+            owner: nil,
+            options: nil
+        )?.first as? DrivingConditionsSummaryCardDataView else {
+            preconditionFailure("Can't find bundle or nib for DrivingConditionsSummaryCardDataView")
         }
+        self.summaryCardDataView = summaryCardDataView
         
-        tripCountLabel.attributedText = viewModel.tripCountText
-        tripCountUnitLabel.attributedText = viewModel.tripCountUnitText
-        distanceLabel.attributedText = viewModel.totalDistanceText
-        distanceUnitLabel.attributedText = viewModel.totalDistanceUnitText
+        guard let emptySummaryCardView = Bundle.driverDataUIBundle?.loadNibNamed(
+            "NoDataDrivingConditionsSummaryCardView",
+            owner: nil,
+            options: nil
+        )?.first as? NoDataDrivingConditionsSummaryCardView else {
+            preconditionFailure("Can't find bundle or nib for NoDataDrivingConditionsSummaryCardView")
+        }
+        self.emptySummaryCardView = emptySummaryCardView
+        
+        super.init(frame: frame)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func configure(viewModel: DrivingConditionsSummaryCardViewModel) {
         self.viewModel = viewModel
-        self.refreshView()
+        self.updateUI()
+    }
+
+    private func updateUI() {
+        self.removeSubviews()
+        if self.viewModel.hasNoData {
+            emptySummaryCardView.configure(
+                withTitle: viewModel.noDataTitleText,
+                description: viewModel.noDataDescriptionText
+            )
+            self.embedSubview(emptySummaryCardView)
+        } else {
+            self.summaryCardDataView.configure(viewModel: self.viewModel)
+            self.embedSubview(summaryCardDataView)
+        }
     }
 }
 
@@ -47,15 +65,10 @@ extension DrivingConditionsSummaryCardView {
         configuredWith viewModel: DrivingConditionsSummaryCardViewModel,
         embededIn containerView: UIView
     ) {
-        guard let summaryCardView = Bundle.driverDataUIBundle?.loadNibNamed(
-            "DrivingConditionsSummaryCardView",
-            owner: nil
-        )?.first as? DrivingConditionsSummaryCardView else {
-            preconditionFailure("Can't find bundle or nib for DrivingConditionsSummaryCardView")
-        }
+        let summaryCardView = DrivingConditionsSummaryCardView()
         
         viewModel.summaryCardViewModelDidUpdate = { [unowned summaryCardView] in
-            summaryCardView.refreshView()
+            summaryCardView.updateUI()
         }
         summaryCardView.configure(viewModel: viewModel)
         containerView.embedSubview(summaryCardView)

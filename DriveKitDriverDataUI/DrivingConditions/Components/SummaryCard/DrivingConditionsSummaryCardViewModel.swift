@@ -9,30 +9,52 @@
 import DriveKitCommonUI
 
 class DrivingConditionsSummaryCardViewModel {
+    public var hasNoData: Bool = true
     private var tripCount: Int = 0
     private var totalDistance: Double = 0.0
     var summaryCardViewModelDidUpdate: (() -> Void)?
     
     init() {}
     
+    func configureWithNoData() {
+        self.hasNoData = true
+        summaryCardViewModelDidUpdate?()
+    }
+    
     func configure(
         tripCount: Int,
         totalDistance: Double
     ) {
+        self.hasNoData = false
         self.tripCount = tripCount
         self.totalDistance = totalDistance
         summaryCardViewModelDidUpdate?()
     }
     
-    var tripCountText: NSAttributedString {
-        tripCount.formatWithThousandSeparator()
+    var noDataTitleText: String? {
+        guard hasNoData else { return nil }
+        
+        return DKCommonLocalizable.noDataYet.text()
+    }
+    
+    var noDataDescriptionText: String? {
+        guard hasNoData else { return nil }
+        
+        return "dk_driverdata_drivingconditions_empty_data".dkDriverDataLocalized()
+    }
+    
+    var tripCountText: NSAttributedString? {
+        if hasNoData { return nil }
+        return tripCount.formatWithThousandSeparator()
             .dkAttributedString()
             .color(.primaryColor)
             .font(dkFont: .primary, style: .highlightNormal)
             .build()
     }
     
-    var tripCountUnitText: NSAttributedString {
+    var tripCountUnitText: NSAttributedString? {
+        if hasNoData { return nil }
+        
         let unitText: String
         if tripCount > 1 {
             unitText = DKCommonLocalizable.tripPlural.text()
@@ -47,15 +69,17 @@ class DrivingConditionsSummaryCardViewModel {
             .build()
     }
     
-    var totalDistanceText: NSAttributedString {
-        totalDistance.formatKilometerDistance(appendingUnit: false)
+    var totalDistanceText: NSAttributedString? {
+        if hasNoData { return nil }
+        return totalDistance.formatKilometerDistance(appendingUnit: false)
             .dkAttributedString()
             .color(.primaryColor)
             .font(dkFont: .secondary, style: .highlightNormal)
             .build()
     }
     
-    var totalDistanceUnitText: NSAttributedString {
+    var totalDistanceUnitText: NSAttributedString? {
+        if hasNoData { return nil }
         return (
             totalDistance == 1
             ? "dk_driverdata_drivingconditions_distance_singular"

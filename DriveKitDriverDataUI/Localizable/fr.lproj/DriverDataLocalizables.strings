@@ -212,3 +212,4 @@
 "dk_driverdata_drivingconditions_title" = "Conditions de conduite";
 "dk_driverdata_drivingconditions_distance_plural" = "km parcourus";
 "dk_driverdata_drivingconditions_distance_singular" = "km parcouru";
+"dk_driverdata_drivingconditions_empty_data" = "Conduisez avec l'application et enregistrez vos trajets pour visualiser et obtenir une synthèse de vos conditions de conduite.";

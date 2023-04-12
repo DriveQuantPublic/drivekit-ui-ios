@@ -17,15 +17,14 @@ class DrivingConditionsSummaryCardViewModel {
     init() {}
     
     func configureWithNoData() {
-        self.hasNoData = true
-        summaryCardViewModelDidUpdate?()
+        self.configure()
     }
     
     func configure(
-        tripCount: Int,
-        totalDistance: Double
+        tripCount: Int = 0,
+        totalDistance: Double = 0
     ) {
-        self.hasNoData = false
+        self.hasNoData = tripCount <= 0 && totalDistance <= 0
         self.tripCount = tripCount
         self.totalDistance = totalDistance
         summaryCardViewModelDidUpdate?()
@@ -48,7 +47,7 @@ class DrivingConditionsSummaryCardViewModel {
         return tripCount.formatWithThousandSeparator()
             .dkAttributedString()
             .color(.primaryColor)
-            .font(dkFont: .primary, style: .highlightNormal)
+            .font(dkFont: .secondary, style: .highlightNormal)
             .build()
     }
     
@@ -81,7 +80,7 @@ class DrivingConditionsSummaryCardViewModel {
     var totalDistanceUnitText: NSAttributedString? {
         if hasNoData { return nil }
         return (
-            totalDistance == 1
+            totalDistance <= 1
             ? "dk_driverdata_drivingconditions_distance_singular"
             : "dk_driverdata_drivingconditions_distance_plural"
         )

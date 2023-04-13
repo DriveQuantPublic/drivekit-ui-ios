@@ -14,7 +14,7 @@ class DrivingConditionsViewController: DKUIViewController {
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var periodSelectorContainer: UIView!
     @IBOutlet private weak var dateSelectorContainer: UIView!
-    @IBOutlet private weak var drivingConditionSummaryContainer: UIView!
+    @IBOutlet private weak var drivingConditionsSummaryContainer: UIView!
     @IBOutlet private weak var contextPagingContainer: UIView!
     @IBOutlet private weak var pagingControl: UIPageControl!
     private var contextPagingViewController: UIPageViewController!
@@ -50,10 +50,20 @@ class DrivingConditionsViewController: DKUIViewController {
         refreshControl.addTarget(self, action: #selector(refresh(_ :)), for: .valueChanged)
         self.scrollView.refreshControl = refreshControl
         
-        if viewModel.shouldDisplayPagingController {
-            self.configurePagingContexts()
+        DrivingConditionsSummaryCardView.createSummaryCardView(
+            configuredWith: viewModel.drivingConditionsSummaryViewModel,
+            embededIn: self.drivingConditionsSummaryContainer
+        )
+        
+        if viewModel.hasData {
+            if viewModel.shouldDisplayPagingController {
+                self.configurePagingContexts()
+            } else {
+                self.embedContextViewController(contextController(for: viewModel.firstContext))
+                self.pagingControl.isHidden = true
+            }
         } else {
-            self.embedContextViewController(contextController(for: viewModel.firstContext))
+            self.contextPagingContainer.isHidden = true
             self.pagingControl.isHidden = true
         }
         
@@ -77,7 +87,7 @@ class DrivingConditionsViewController: DKUIViewController {
         pagingControl.numberOfPages = viewModel.numberOfContexts
         pagingControl.currentPage = 0
         pagingControl.pageIndicatorTintColor = .dkPageIndicatorTintColor
-        pagingControl.currentPageIndicatorTintColor = DKUIColors.primaryColor.color
+        pagingControl.currentPageIndicatorTintColor = DKUIColors.secondaryColor.color
         
         pagingControl.addTarget(
             self,

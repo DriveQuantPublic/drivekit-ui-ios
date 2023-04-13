@@ -25,10 +25,12 @@ class DrivingConditionsViewModel {
     weak var parentDelegate: DrivingConditionsViewModelParentDelegate?
     let periodSelectorViewModel: DKPeriodSelectorViewModel
     let dateSelectorViewModel: DKDateSelectorViewModel
+    let drivingConditionsSummaryViewModel: DrivingConditionsSummaryCardViewModel
     private(set) var configuredContexts: [DKContextKind]
     private var timelines: [DKPeriod: DKDriverTimeline]
     private var selectedDate: Date?
     private(set) var updating: Bool = false
+    private(set) var hasData: Bool = false
     
     init(
         configuredContexts: [DKContextKind] = [],
@@ -37,6 +39,7 @@ class DrivingConditionsViewModel {
     ) {
         self.periodSelectorViewModel = DKPeriodSelectorViewModel()
         self.dateSelectorViewModel = DKDateSelectorViewModel()
+        self.drivingConditionsSummaryViewModel = DrivingConditionsSummaryCardViewModel()
         self.timelines = [:]
         self.selectedDate = selectedDate
         self.configuredContexts = configuredContexts.isEmpty ? self.defaultContexts : configuredContexts
@@ -159,6 +162,14 @@ class DrivingConditionsViewModel {
         )
         
         self.selectedDate = self.dateSelectorViewModel.selectedDate
+        if let currentContext = currentTimeline.allContext[date: self.dateSelectorViewModel.selectedDate] {
+            self.drivingConditionsSummaryViewModel.configure(
+                tripCount: currentContext.numberTripTotal,
+                totalDistance: currentContext.distance
+            )
+        }
+        
+        self.hasData = true
     }
     
     private func configureWithNoData() {
@@ -181,6 +192,9 @@ class DrivingConditionsViewModel {
             )
             
         }
+        
+        self.drivingConditionsSummaryViewModel.configureWithNoData()
+        self.hasData = false
     }
     
     private func updateStateAfterSwitching(from oldPeriod: DKPeriod, to selectedPeriod: DKPeriod) {

@@ -13,7 +13,7 @@
             <connections>
                 <outlet property="contextPagingContainer" destination="vno-hC-RNm" id="Ean-AS-IKs"/>
                 <outlet property="dateSelectorContainer" destination="QZv-Nc-3Pd" id="bJi-2d-24Q"/>
-                <outlet property="drivingConditionSummaryContainer" destination="xpa-AX-kUu" id="Cs9-Hx-dY9"/>
+                <outlet property="drivingConditionsSummaryContainer" destination="xpa-AX-kUu" id="Cs9-Hx-dY9"/>
                 <outlet property="pagingControl" destination="z4P-r6-mQf" id="0dd-BL-pic"/>
                 <outlet property="periodSelectorContainer" destination="0qE-rp-bVq" id="yjf-md-5g8"/>
                 <outlet property="scrollView" destination="Pwc-MT-8XB" id="RZK-FP-JJj"/>
@@ -53,7 +53,8 @@
                                     <rect key="frame" x="8" y="0.0" width="377" height="85"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="85" placeholder="YES" id="Dh9-G9-6WZ"/>
+                                        <constraint firstAttribute="height" priority="800" constant="85" id="Dh9-G9-6WZ"/>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="85" id="d4G-Ho-Vau"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vno-hC-RNm" userLabel="ContextPagingContainer">

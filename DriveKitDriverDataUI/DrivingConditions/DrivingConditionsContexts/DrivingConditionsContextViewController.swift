@@ -11,9 +11,14 @@ import UIKit
 
 class DrivingConditionsContextViewController: DKUIViewController {
     var context: DKContextKind
+    private var cardView: DKContextCardView
+    private var contextViewModel: DKContextCard
     
-    init(context: DKContextKind) {
+    init(context: DKContextKind, contextViewModel: DKContextCard) {
         self.context = context
+        self.contextViewModel = contextViewModel
+        self.cardView = DKContextCardView.createView()
+
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -23,15 +28,8 @@ class DrivingConditionsContextViewController: DKUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.view.embedSubview(self.contextView(for: context))
+        self.cardView.configure(viewModel: self.contextViewModel)
+        self.view.embedSubview(self.cardView)
         self.view.backgroundColor = .white
-    }
-
-    private func contextView(for context: DKContextKind) -> UIView {
-        #warning("Setup each context kind view")
-        let label = UILabel()
-        label.text = "Context \(context)"
-        return label
     }
 }

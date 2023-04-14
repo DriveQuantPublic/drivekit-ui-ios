@@ -29,6 +29,7 @@ class DrivingConditionsViewModel {
     private var timelines: [DKPeriod: DKDriverTimeline]
     private var selectedDate: Date?
     private(set) var updating: Bool = false
+    private var contextViewModels: [DKContextKind: DKContextCard] = [:]
     
     init(
         configuredContexts: [DKContextKind] = [],
@@ -159,6 +160,12 @@ class DrivingConditionsViewModel {
         )
         
         self.selectedDate = self.dateSelectorViewModel.selectedDate
+
+        if let currentContext = currentTimeline.allContext[date: self.dateSelectorViewModel.selectedDate], let drivingConditions = currentContext.drivingConditions {
+            let dayNightViewModel = DayNightContextViewModel()
+            dayNightViewModel.configure(with: drivingConditions)
+            self.contextViewModels[.dayNight] = dayNightViewModel
+        }
     }
     
     private func configureWithNoData() {
@@ -192,6 +199,11 @@ class DrivingConditionsViewModel {
         ) { _, _ in true }
         update()
         parentDelegate?.didUpdate(selectedPeriod: selectedPeriod)
+    }
+
+    func getContextViewModel(for kind: DKContextKind) -> DKContextCard? {
+        // TODO: to be implemented
+        return self.contextViewModels[.dayNight]
     }
 }
 

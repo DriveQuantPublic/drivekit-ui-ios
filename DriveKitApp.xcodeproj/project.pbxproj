@@ -382,6 +382,7 @@
 		6708ED7329DEFED2005652A3 /* ContextItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D6CD8729090B750055632B /* ContextItemCell.swift */; };
 		6708ED7429DF0216005652A3 /* DKContextCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67D6CD852908276F0055632B /* DKContextCardView.xib */; };
 		6708ED7529DF021E005652A3 /* ContextItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67D6CD8829090B750055632B /* ContextItemCell.xib */; };
+		6708ED7829E5B8AD005652A3 /* DayNightContextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED7729E5B8AD005652A3 /* DayNightContextViewModel.swift */; };
 		671087D128072FBE004FA464 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671087CF28072FBE004FA464 /* UserInfoViewController.swift */; };
 		671087D228072FBE004FA464 /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 671087D028072FBE004FA464 /* UserInfoViewController.xib */; };
 		671087D428072FDE004FA464 /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671087D328072FDE004FA464 /* UserInfoViewModel.swift */; };
@@ -1225,6 +1226,7 @@
 		6704DDE2266A17B200DAF326 /* ChallengeTripsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeTripsVC.xib; sourceTree = "<group>"; };
 		6708ED6F29DEF759005652A3 /* DKContextCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKContextCard.swift; sourceTree = "<group>"; };
 		6708ED7129DEFAE9005652A3 /* DKContextCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKContextCardView.swift; sourceTree = "<group>"; };
+		6708ED7729E5B8AD005652A3 /* DayNightContextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayNightContextViewModel.swift; sourceTree = "<group>"; };
 		671087CF28072FBE004FA464 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		671087D028072FBE004FA464 /* UserInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
 		671087D328072FDE004FA464 /* UserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
@@ -2739,6 +2741,14 @@
 			path = ContextCard;
 			sourceTree = "<group>";
 		};
+		6708ED7629E5B80B005652A3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				6708ED7729E5B8AD005652A3 /* DayNightContextViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		67301C3C261D1030006B0432 /* TripsList */ = {
 			isa = PBXGroup;
 			children = (
@@ -3577,6 +3587,7 @@
 		E38207A029DDB11600CB85D6 /* DrivingConditionsContexts */ = {
 			isa = PBXGroup;
 			children = (
+				6708ED7629E5B80B005652A3 /* ViewModels */,
 				E38207A129DDB13D00CB85D6 /* DrivingConditionsContextViewController.swift */,
 				E38207A329DDBDD900CB85D6 /* DKContextKind.swift */,
 			);
@@ -5010,6 +5021,7 @@
 				E3830FE429B62F6A001A9B25 /* CommunityStatsItemViewModel.swift in Sources */,
 				A342386C2361A2430001E15D /* MapViewController.swift in Sources */,
 				3FF68E8A240ACD620071D74C /* DriveKitDriverDataUI.swift in Sources */,
+				6708ED7829E5B8AD005652A3 /* DayNightContextViewModel.swift in Sources */,
 				E3F0213329A3B88400664CD2 /* MySynthesisViewModelDelegate.swift in Sources */,
 				E302B62B29B2081E004CFA0C /* DKScoreTypeLevel+l10n.swift in Sources */,
 				A34238732361A2430001E15D /* ShortTripPageVC.swift in Sources */,

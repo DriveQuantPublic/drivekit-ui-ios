@@ -144,8 +144,10 @@ class DrivingConditionsViewController: DKUIViewController {
     }
     
     func contextController(for context: DKContextKind) -> DrivingConditionsContextViewController {
-        guard let contextVC = contextViewControllers[context] else {
-            let newContextVC = DrivingConditionsContextViewController(context: context)
+        guard let contextVC = contextViewControllers[context]
+        else {
+            let contextViewModel = viewModel.getContextViewModel(for: context)!
+            let newContextVC = DrivingConditionsContextViewController(context: context, contextViewModel: contextViewModel)
             contextViewControllers[context] = newContextVC
             return newContextVC
         }

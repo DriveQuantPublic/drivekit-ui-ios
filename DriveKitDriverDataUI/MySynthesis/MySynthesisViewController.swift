@@ -74,12 +74,10 @@ class MySynthesisViewController: DKUIViewController {
     
     @objc private func showDetailButtonTapped() {
         #warning("Display DrivingConditionVC via the MySynthesis detail button")
-        if let driverDataUI = DriveKitNavigationController.shared.driverDataUI {
-            self.navigationController?.pushViewController(
-                DrivingConditionsViewController(viewModel: viewModel.drivingConditionsViewModel),
-                animated: true
-            )
-        }
+        self.navigationController?.pushViewController(
+            DrivingConditionsViewController(viewModel: viewModel.drivingConditionsViewModel),
+            animated: true
+        )
     }
     
     @objc private func refresh(_ sender: Any) {

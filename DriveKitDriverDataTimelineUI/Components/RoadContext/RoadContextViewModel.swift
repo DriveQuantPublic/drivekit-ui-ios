@@ -169,6 +169,9 @@ extension RoadContextViewModel: DKContextCard {
                 return "dk_timeline_road_context_description_no_data_ecodriving".dkDriverDataTimelineLocalized()
         }
     }
+    func contextCard(_ updateCompletionHandler: (() -> Void)?) {
+        // not needed
+    }
 }
 
 protocol RoadContextViewModelDelegate: AnyObject {

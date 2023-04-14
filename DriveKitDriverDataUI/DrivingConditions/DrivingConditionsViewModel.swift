@@ -14,10 +14,10 @@ import Foundation
 
 class DrivingConditionsViewModel {
     private let defaultContexts: [DKContextKind] = [
-        .tripDistance,
-        .week,
-        .road,
-        .weather,
+//        .tripDistance,
+//        .week,
+//        .road,
+//        .weather,
         .dayNight
     ]
     let configuredPeriods: [DKPeriod] = [.week, .month, .year]
@@ -169,14 +169,22 @@ class DrivingConditionsViewModel {
                 totalDistance: currentContext.distance
             )
             if let drivingConditions = currentContext.drivingConditions {
-                let dayNightViewModel = DayNightContextViewModel()
-                dayNightViewModel.configure(with: drivingConditions)
-                self.contextViewModels[.dayNight] = dayNightViewModel
+                self.configureContextCards(drivingConditions: drivingConditions)
             }
-
         }
         
         self.hasData = true
+    }
+
+    private func configureContextCards(drivingConditions: DKDriverTimeline.DKDrivingConditions) {
+        let dayNightViewModel: DayNightContextViewModel
+        if let viewModel = self.contextViewModels[.dayNight] as? DayNightContextViewModel {
+            dayNightViewModel = viewModel
+        } else {
+            dayNightViewModel = DayNightContextViewModel()
+            self.contextViewModels[.dayNight] = dayNightViewModel
+        }
+        dayNightViewModel.configure(with: drivingConditions)
     }
     
     private func configureWithNoData() {
@@ -216,8 +224,7 @@ class DrivingConditionsViewModel {
     }
 
     func getContextViewModel(for kind: DKContextKind) -> DKContextCard? {
-        // TODO: to be implemented
-        return self.contextViewModels[.dayNight]
+        return self.contextViewModels[kind]
     }
 }
 

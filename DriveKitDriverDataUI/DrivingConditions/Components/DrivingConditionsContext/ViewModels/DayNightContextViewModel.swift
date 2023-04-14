@@ -13,7 +13,8 @@ import DriveKitDBTripAccessModule
 class DayNightContextViewModel {
     var drivingConditions: DKDriverTimeline.DKDrivingConditions?
     private var contextItems: [DayNightContextItem] = []
-    
+    var viewModelDidUpdate: (() -> Void)?
+
     func configure(with drivingConditions: DKDriverTimeline.DKDrivingConditions) {
         var tempItems: [DayNightContextItem] = []
         if drivingConditions.dayDistance > 0 {
@@ -23,6 +24,7 @@ class DayNightContextViewModel {
             tempItems.append(.night(distance: drivingConditions.nightDistance))
         }
         self.contextItems = tempItems
+        self.viewModelDidUpdate?()
     }
 }
 
@@ -32,8 +34,27 @@ extension DayNightContextViewModel: DKContextCard {
     }
     
     var title: String {
-        // TODO: to be implemented
-        return ""
+        let nightItem = contextItems.first { item in
+            switch item {
+                case .day:
+                    return false
+                case .night:
+                    return true
+            }
+        }
+        guard let nightItem = nightItem else {
+            return "dk_driverdata_drivingconditions_main_day".dkDriverDataLocalized()
+        }
+        let nightPercent = self.getContextPercent(nightItem)
+        let minPercent = 0.45
+        let maxPercent = 0.55
+        if nightPercent < minPercent {
+            return "dk_driverdata_drivingconditions_main_day".dkDriverDataLocalized()
+        } else if nightPercent > maxPercent {
+            return "dk_driverdata_drivingconditions_main_night".dkDriverDataLocalized()
+        } else {
+            return "dk_driverdata_drivingconditions_all_day".dkDriverDataLocalized()
+        }
     }
     
     func getContextPercent(_ context: some DriveKitCommonUI.DKContextItem) -> Double {
@@ -44,6 +65,10 @@ extension DayNightContextViewModel: DKContextCard {
             $0 + $1.distance
         }
         return contextItem.distance / totalDistance
+    }
+
+    func contextCard(_ updateCompletionHandler: (() -> Void)?) {
+        self.viewModelDidUpdate = updateCompletionHandler
     }
 }
 

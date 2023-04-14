@@ -18,8 +18,10 @@ class DrivingConditionsContextViewController: DKUIViewController {
         self.context = context
         self.contextViewModel = contextViewModel
         self.cardView = DKContextCardView.createView()
-
         super.init(nibName: nil, bundle: nil)
+        self.contextViewModel.contextCard { [weak self] in
+            self?.cardView.refreshView()
+        }
     }
     
     required init?(coder: NSCoder) {

@@ -39,7 +39,7 @@ public class DKContextCardView: UIView, UICollectionViewDataSource, UICollection
         self.refreshView()
     }
 
-    func refreshView() {
+    public func refreshView() {
         if let viewModel = viewModel {
             self.titleLabel.text = viewModel.title
             self.contextBarView.configure(viewModel: viewModel)

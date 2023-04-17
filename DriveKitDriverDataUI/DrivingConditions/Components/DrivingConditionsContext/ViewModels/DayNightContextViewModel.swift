@@ -11,7 +11,6 @@ import DriveKitCommonUI
 import DriveKitDBTripAccessModule
 
 class DayNightContextViewModel {
-    var drivingConditions: DKDriverTimeline.DKDrivingConditions?
     private var contextItems: [DayNightContextItem] = []
     var viewModelDidUpdate: (() -> Void)?
 

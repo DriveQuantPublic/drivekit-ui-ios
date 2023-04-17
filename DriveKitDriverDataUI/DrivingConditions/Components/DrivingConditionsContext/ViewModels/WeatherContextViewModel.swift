@@ -11,7 +11,6 @@ import DriveKitCommonUI
 import DriveKitDBTripAccessModule
 
 class WeatherContextViewModel {
-    var drivingConditions: DKDriverTimeline.DKDrivingConditions?
     private var contextItems: [WeatherContextItem] = []
     var viewModelDidUpdate: (() -> Void)?
 
@@ -48,11 +47,9 @@ extension WeatherContextViewModel: DKContextCard {
     var title: String {
         var maxDistance: Double = 0
         var mainItem: WeatherContextItem? = self.contextItems.first
-        for item in self.contextItems {
-            if item.distance >= maxDistance {
-                maxDistance = item.distance
-                mainItem = item
-            }
+        for item in self.contextItems where item.distance >= maxDistance {
+            maxDistance = item.distance
+            mainItem = item
         }
         guard let mainItem else {
             return ""

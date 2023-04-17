@@ -11,7 +11,6 @@ import DriveKitCommonUI
 import DriveKitDBTripAccessModule
 
 class WeekContextViewModel {
-    var drivingConditions: DKDriverTimeline.DKDrivingConditions?
     private var contextItems: [WeekContextItem] = []
     var viewModelDidUpdate: (() -> Void)?
 

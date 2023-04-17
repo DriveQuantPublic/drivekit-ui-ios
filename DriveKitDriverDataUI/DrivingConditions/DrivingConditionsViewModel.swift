@@ -16,7 +16,7 @@ class DrivingConditionsViewModel {
     private let defaultContexts: [DKContextKind] = [
         .tripDistance,
         .week,
-//        .road,
+        .road,
         .weather,
         .dayNight
     ]
@@ -33,7 +33,8 @@ class DrivingConditionsViewModel {
     private var contextViewModels: [DKContextKind: DKContextCard] = [:]
     private(set) var hasData: Bool = false
     private var drivingConditions: DKDriverTimeline.DKDrivingConditions?
-    
+    private var distanceByRoadContext: [DKRoadContext: Double] = [:]
+
     init(
         configuredContexts: [DKContextKind] = [],
         selectedPeriod: DKPeriod? = nil,
@@ -169,18 +170,18 @@ class DrivingConditionsViewModel {
                 tripCount: currentContext.numberTripTotal,
                 totalDistance: currentContext.distance
             )
-            
-            // TODO: create dict with roadContext:distance  + send it as parameter
+            let distanceByRoadContext = currentTimeline.distanceByRoadContext(for: self.dateSelectorViewModel.selectedDate)
+            self.distanceByRoadContext = distanceByRoadContext
             if let drivingConditions = currentContext.drivingConditions {
                 self.drivingConditions = drivingConditions
-                self.configureContextCards(drivingConditions: drivingConditions)
+                self.configureContextCards(drivingConditions: drivingConditions, distanceByRoadContext: distanceByRoadContext)
             }
         }
-        
         self.hasData = true
     }
 
-    private func configureContextCards(drivingConditions: DKDriverTimeline.DKDrivingConditions) {
+    private func configureContextCards(drivingConditions: DKDriverTimeline.DKDrivingConditions,
+                                       distanceByRoadContext: [DKRoadContext: Double]) {
         if let weekViewModel = self.contextViewModels[.week] as? WeekContextViewModel {
             weekViewModel.configure(with: drivingConditions)
         }
@@ -192,6 +193,9 @@ class DrivingConditionsViewModel {
         }
         if let weatherViewModel = self.contextViewModels[.weather] as? WeatherContextViewModel {
             weatherViewModel.configure(with: drivingConditions)
+        }
+        if let roadViewModel = self.contextViewModels[.road] as? ConditionsRoadContextViewModel {
+            roadViewModel.configure(with: distanceByRoadContext)
         }
     }
     
@@ -213,7 +217,6 @@ class DrivingConditionsViewModel {
                 period: self.periodSelectorViewModel.selectedPeriod,
                 selectedIndex: 0
             )
-            
         }
         
         self.drivingConditionsSummaryViewModel.configureWithNoData()
@@ -255,8 +258,14 @@ class DrivingConditionsViewModel {
                 }
                 weekViewModel.configure(with: drivingConditions)
             case .road:
-                //
-                break
+                let roadViewModel: ConditionsRoadContextViewModel
+                if let viewModel = self.contextViewModels[.road] as? ConditionsRoadContextViewModel {
+                    roadViewModel = viewModel
+                } else {
+                    roadViewModel = ConditionsRoadContextViewModel()
+                    self.contextViewModels[.road] = roadViewModel
+                }
+                roadViewModel.configure(with: distanceByRoadContext)
             case .weather:
                 let weatherViewModel: WeatherContextViewModel
                 if let viewModel = self.contextViewModels[.weather] as? WeatherContextViewModel {
@@ -291,5 +300,17 @@ extension DrivingConditionsViewModel: DKDateSelectorDelegate {
         selectedDate = date
         update()
         parentDelegate?.didUpdate(selectedDate: date)
+    }
+}
+
+extension DKDriverTimeline {
+    func distanceByRoadContext(for selectedDate: Date) -> [DKRoadContext: Double] {
+        var distanceByRoadContext: [DKRoadContext: Double] = [:]
+        for roadContext in self.roadContexts {
+            let type = roadContext.key
+            let distance = roadContext.value[date: selectedDate]?.distance
+            distanceByRoadContext[type] = distance
+        }
+        return distanceByRoadContext
     }
 }

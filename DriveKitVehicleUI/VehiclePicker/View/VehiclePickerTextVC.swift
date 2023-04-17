@@ -35,9 +35,43 @@ class VehiclePickerTextVC: VehiclePickerStepView {
         if let category = self.viewModel.vehicleCategory {
             textImageView.image = category.categoryImage()
             textDescriptionLabel.attributedText = category.categoryDescription().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
-            textConfirmButton.configure(text: DKCommonLocalizable.validate.text(), style: .full)
-            textContinueButton.configure(text: "dk_vehicle_category_display_brands".dkVehicleLocalized(), style: .empty)
-            textContinueButton.titleLabel?.textAlignment = .center
+            textConfirmButton.configure(
+                attributedText: "%@\n\n%@"
+                    .dkAttributedString()
+                    .font(dkFont: .primary, style: .smallText)
+                    .buildWithArgs(
+                        "dk_vehicle_detail_category_button_title".dkVehicleLocalized()
+                            .dkAttributedString()
+                            .font(dkFont: .primary, style: .headLine1)
+                            .color(DKUIColors.secondaryColor.color)
+                            .build(),
+                        "dk_vehicle_detail_category_button_description".dkVehicleLocalized()
+                            .dkAttributedString()
+                            .font(dkFont: .primary, style: .smallText)
+                            .color(DKUIColors.complementaryFontColor.color)
+                            .build()
+                    ),
+                style: .multilineBordered
+            )
+
+            textContinueButton.configure(
+                attributedText: "%@\n\n%@"
+                    .dkAttributedString()
+                    .font(dkFont: .primary, style: .smallText)
+                    .buildWithArgs(
+                        "dk_vehicle_quick_category_button_title".dkVehicleLocalized()
+                            .dkAttributedString()
+                            .font(dkFont: .primary, style: .headLine1)
+                            .color(DKUIColors.secondaryColor.color)
+                            .build(),
+                        "dk_vehicle_quick_category_button_description".dkVehicleLocalized()
+                            .dkAttributedString()
+                            .font(dkFont: .primary, style: .smallText)
+                            .color(DKUIColors.complementaryFontColor.color)
+                            .build()
+                    ),
+                style: .multilineBordered
+            )
             if DriveKitVehicleUI.shared.categoryConfigType == .liteConfigOnly {
                 textContinueButton.isHidden = true
             }

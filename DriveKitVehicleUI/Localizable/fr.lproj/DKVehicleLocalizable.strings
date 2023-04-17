@@ -200,3 +200,7 @@
 "dk_vehicle_version_description"="Version du véhicule ?";
 "dk_vehicle_year_description"="Année de mise en circulation ?";
 "dk_version"="Version";
+"dk_vehicle_detail_category_button_title" = "Trouver mon véhicule";
+"dk_vehicle_detail_category_button_description" = "Vous connnaissez la marque, le modèle et les caractéristiques de votre véhicule";
+"dk_vehicle_quick_category_button_title" = "Je n’ai pas le temps";
+"dk_vehicle_quick_category_button_description" = "Si vous ne connaissez pas les caractéristiques de votre véhicule, il sera configuré automatiquement.";

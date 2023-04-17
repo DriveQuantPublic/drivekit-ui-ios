@@ -76,11 +76,6 @@ enum DayNightContextItem {
     case day(distance: Double)
     case night(distance: Double)
 
-    // swiftlint:disable no_magic_numbers
-    private static let dayColor = UIColor(hex: 0x036A82).tinted(usingHueOf: DKUIColors.primaryColor.color)
-    private static let nightColor = UIColor(hex: 0x699DAD).tinted(usingHueOf: DKUIColors.primaryColor.color)
-    // swiftlint:enable no_magic_numbers
-
     var distance: Double {
         switch self {
             case .day(let distance):
@@ -95,9 +90,9 @@ extension DayNightContextItem: DKContextItem {
     var color: UIColor {
         switch self {
             case .day:
-                return DayNightContextItem.dayColor
+                return DKContextCardColor.level1.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
             case .night:
-                return DayNightContextItem.nightColor
+                return DKContextCardColor.level3.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
         }
     }
     

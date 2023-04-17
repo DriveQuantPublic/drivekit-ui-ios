@@ -17,7 +17,7 @@ class DrivingConditionsViewModel {
         .tripDistance,
         .week,
 //        .road,
-//        .weather,
+        .weather,
         .dayNight
     ]
     let configuredPeriods: [DKPeriod] = [.week, .month, .year]
@@ -190,6 +190,9 @@ class DrivingConditionsViewModel {
         if let tripDistanceViewModel = self.contextViewModels[.tripDistance] as? TripDistanceContextViewModel {
             tripDistanceViewModel.configure(with: drivingConditions)
         }
+        if let weatherViewModel = self.contextViewModels[.weather] as? WeatherContextViewModel {
+            weatherViewModel.configure(with: drivingConditions)
+        }
     }
     
     private func configureWithNoData() {
@@ -255,8 +258,14 @@ class DrivingConditionsViewModel {
                 //
                 break
             case .weather:
-                //
-                break
+                let weatherViewModel: WeatherContextViewModel
+                if let viewModel = self.contextViewModels[.weather] as? WeatherContextViewModel {
+                    weatherViewModel = viewModel
+                } else {
+                    weatherViewModel = WeatherContextViewModel()
+                    self.contextViewModels[.weather] = weatherViewModel
+                }
+                weatherViewModel.configure(with: drivingConditions)
             case .dayNight:
                 let dayNightViewModel: DayNightContextViewModel
                 if let viewModel = self.contextViewModels[.dayNight] as? DayNightContextViewModel {

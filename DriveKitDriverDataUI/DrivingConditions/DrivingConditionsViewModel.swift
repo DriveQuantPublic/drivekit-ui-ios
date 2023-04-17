@@ -15,7 +15,7 @@ import Foundation
 class DrivingConditionsViewModel {
     private let defaultContexts: [DKContextKind] = [
 //        .tripDistance,
-//        .week,
+        .week,
 //        .road,
 //        .weather,
         .dayNight
@@ -185,6 +185,15 @@ class DrivingConditionsViewModel {
             self.contextViewModels[.dayNight] = dayNightViewModel
         }
         dayNightViewModel.configure(with: drivingConditions)
+
+        let weekViewModel: WeekContextViewModel
+        if let viewModel = self.contextViewModels[.week] as? WeekContextViewModel {
+            weekViewModel = viewModel
+        } else {
+            weekViewModel = WeekContextViewModel()
+            self.contextViewModels[.week] = weekViewModel
+        }
+        weekViewModel.configure(with: drivingConditions)
     }
     
     private func configureWithNoData() {

@@ -383,6 +383,10 @@
 		6708ED7429DF0216005652A3 /* DKContextCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67D6CD852908276F0055632B /* DKContextCardView.xib */; };
 		6708ED7529DF021E005652A3 /* ContextItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67D6CD8829090B750055632B /* ContextItemCell.xib */; };
 		6708ED7B29E98FB4005652A3 /* DayNightContextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED7A29E98FB4005652A3 /* DayNightContextViewModel.swift */; };
+		6708ED7D29E9BFC1005652A3 /* WeekContextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED7C29E9BFC1005652A3 /* WeekContextViewModel.swift */; };
+		6708ED7F29E9BFD2005652A3 /* TripDistanceContextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED7E29E9BFD2005652A3 /* TripDistanceContextViewModel.swift */; };
+		6708ED8129E9C000005652A3 /* WeatherContextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED8029E9C000005652A3 /* WeatherContextViewModel.swift */; };
+		6708ED8329E9C048005652A3 /* ConditionsRoadContextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED8229E9C048005652A3 /* ConditionsRoadContextViewModel.swift */; };
 		671087D128072FBE004FA464 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671087CF28072FBE004FA464 /* UserInfoViewController.swift */; };
 		671087D228072FBE004FA464 /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 671087D028072FBE004FA464 /* UserInfoViewController.xib */; };
 		671087D428072FDE004FA464 /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671087D328072FDE004FA464 /* UserInfoViewModel.swift */; };
@@ -1233,6 +1237,10 @@
 		6708ED6F29DEF759005652A3 /* DKContextCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKContextCard.swift; sourceTree = "<group>"; };
 		6708ED7129DEFAE9005652A3 /* DKContextCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKContextCardView.swift; sourceTree = "<group>"; };
 		6708ED7A29E98FB4005652A3 /* DayNightContextViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayNightContextViewModel.swift; sourceTree = "<group>"; };
+		6708ED7C29E9BFC1005652A3 /* WeekContextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekContextViewModel.swift; sourceTree = "<group>"; };
+		6708ED7E29E9BFD2005652A3 /* TripDistanceContextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDistanceContextViewModel.swift; sourceTree = "<group>"; };
+		6708ED8029E9C000005652A3 /* WeatherContextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherContextViewModel.swift; sourceTree = "<group>"; };
+		6708ED8229E9C048005652A3 /* ConditionsRoadContextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionsRoadContextViewModel.swift; sourceTree = "<group>"; };
 		671087CF28072FBE004FA464 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		671087D028072FBE004FA464 /* UserInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
 		671087D328072FDE004FA464 /* UserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
@@ -2757,6 +2765,10 @@
 			isa = PBXGroup;
 			children = (
 				6708ED7A29E98FB4005652A3 /* DayNightContextViewModel.swift */,
+				6708ED7C29E9BFC1005652A3 /* WeekContextViewModel.swift */,
+				6708ED7E29E9BFD2005652A3 /* TripDistanceContextViewModel.swift */,
+				6708ED8029E9C000005652A3 /* WeatherContextViewModel.swift */,
+				6708ED8229E9C048005652A3 /* ConditionsRoadContextViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -5037,6 +5049,7 @@
 				67F1988A29B268ED0060EF24 /* MySynthesisGaugeViewModel.swift in Sources */,
 				638AC0832620A32500602B52 /* DriverDataSynthesisCardsUI.swift in Sources */,
 				67CFE9A725F645EA004D0AE1 /* SpeedingPageViewModel.swift in Sources */,
+				6708ED8129E9C000005652A3 /* WeatherContextViewModel.swift in Sources */,
 				6391E0F92607F57000A168D4 /* SynthesisCardViewModel.swift in Sources */,
 				6708ED7B29E98FB4005652A3 /* DayNightContextViewModel.swift in Sources */,
 				E382079D29DD7CFC00CB85D6 /* DrivingConditionsViewModel.swift in Sources */,
@@ -5060,6 +5073,7 @@
 				638AC038261F8FFB00602B52 /* SynthesisCardsView.swift in Sources */,
 				A34238672361A2430001E15D /* HistoryPageViewModel.swift in Sources */,
 				A30F4F1823D5DA14009A37C2 /* SynthesisPageVC.swift in Sources */,
+				6708ED8329E9C048005652A3 /* ConditionsRoadContextViewModel.swift in Sources */,
 				A342386A2361A2430001E15D /* MapItem.swift in Sources */,
 				3F3E72FC256F9B71002B5E30 /* DKTripDetailViewModel.swift in Sources */,
 				E32BC45D29A38C7B006BE5F8 /* DKDriverTimelineExtension.swift in Sources */,
@@ -5094,8 +5108,10 @@
 				E302B62729B1E67E004CFA0C /* ScoreLevelLegendViewModel.swift in Sources */,
 				A34238682361A2430001E15D /* DistractionPageViewModel.swift in Sources */,
 				A34238632361A2430001E15D /* TripDetailViewModel.swift in Sources */,
+				6708ED7F29E9BFD2005652A3 /* TripDistanceContextViewModel.swift in Sources */,
 				67CFE9F925FA1385004D0AE1 /* SpeedingPageItemView.swift in Sources */,
 				67301DC42625C3BF006B0432 /* TripListVC+DKTripList.swift in Sources */,
+				6708ED7D29E9BFC1005652A3 /* WeekContextViewModel.swift in Sources */,
 				E302B61B29AE0E7A004CFA0C /* MySynthesisScoreCardViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

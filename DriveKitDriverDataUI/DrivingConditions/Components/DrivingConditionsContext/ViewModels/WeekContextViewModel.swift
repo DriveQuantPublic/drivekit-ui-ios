@@ -18,10 +18,10 @@ class WeekContextViewModel {
     func configure(with drivingConditions: DKDriverTimeline.DKDrivingConditions) {
         var tempItems: [WeekContextItem] = []
         if drivingConditions.weekdaysDistance > 0 {
-            tempItems.append(.weekdays(distance: drivingConditions.dayDistance))
+            tempItems.append(.weekdays(distance: drivingConditions.weekdaysDistance))
         }
         if drivingConditions.weekendDistance > 0 {
-            tempItems.append(.weekend(distance: drivingConditions.nightDistance))
+            tempItems.append(.weekend(distance: drivingConditions.weekendDistance))
         }
         self.contextItems = tempItems
         self.viewModelDidUpdate?()
@@ -37,9 +37,9 @@ extension WeekContextViewModel: DKContextCard {
         let weekdaysItem = contextItems.first { item in
             switch item {
                 case .weekdays:
-                    return false
-                case .weekend:
                     return true
+                case .weekend:
+                    return false
             }
         }
         guard let weekdaysItem = weekdaysItem else {
@@ -76,11 +76,6 @@ enum WeekContextItem {
     case weekdays(distance: Double)
     case weekend(distance: Double)
 
-    // swiftlint:disable no_magic_numbers
-    private static let dayColor = UIColor(hex: 0x036A82).tinted(usingHueOf: DKUIColors.primaryColor.color)
-    private static let nightColor = UIColor(hex: 0x699DAD).tinted(usingHueOf: DKUIColors.primaryColor.color)
-    // swiftlint:enable no_magic_numbers
-
     var distance: Double {
         switch self {
             case .weekdays(let distance):
@@ -95,9 +90,9 @@ extension WeekContextItem: DKContextItem {
     var color: UIColor {
         switch self {
             case .weekdays:
-                return WeekContextItem.dayColor
+                return DKContextCardColor.level1.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
             case .weekend:
-                return WeekContextItem.nightColor
+                return DKContextCardColor.level3.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
         }
     }
     

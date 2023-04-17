@@ -387,6 +387,7 @@
 		6708ED7F29E9BFD2005652A3 /* TripDistanceContextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED7E29E9BFD2005652A3 /* TripDistanceContextViewModel.swift */; };
 		6708ED8129E9C000005652A3 /* WeatherContextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED8029E9C000005652A3 /* WeatherContextViewModel.swift */; };
 		6708ED8329E9C048005652A3 /* ConditionsRoadContextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED8229E9C048005652A3 /* ConditionsRoadContextViewModel.swift */; };
+		6708ED8529ED5364005652A3 /* DKContextCardColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED8429ED5364005652A3 /* DKContextCardColor.swift */; };
 		671087D128072FBE004FA464 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671087CF28072FBE004FA464 /* UserInfoViewController.swift */; };
 		671087D228072FBE004FA464 /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 671087D028072FBE004FA464 /* UserInfoViewController.xib */; };
 		671087D428072FDE004FA464 /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671087D328072FDE004FA464 /* UserInfoViewModel.swift */; };
@@ -1241,6 +1242,7 @@
 		6708ED7E29E9BFD2005652A3 /* TripDistanceContextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDistanceContextViewModel.swift; sourceTree = "<group>"; };
 		6708ED8029E9C000005652A3 /* WeatherContextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherContextViewModel.swift; sourceTree = "<group>"; };
 		6708ED8229E9C048005652A3 /* ConditionsRoadContextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionsRoadContextViewModel.swift; sourceTree = "<group>"; };
+		6708ED8429ED5364005652A3 /* DKContextCardColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKContextCardColor.swift; sourceTree = "<group>"; };
 		671087CF28072FBE004FA464 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		671087D028072FBE004FA464 /* UserInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
 		671087D328072FDE004FA464 /* UserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
@@ -2757,6 +2759,7 @@
 				67D6CD852908276F0055632B /* DKContextCardView.xib */,
 				67D6CD8729090B750055632B /* ContextItemCell.swift */,
 				67D6CD8829090B750055632B /* ContextItemCell.xib */,
+				6708ED8429ED5364005652A3 /* DKContextCardColor.swift */,
 			);
 			path = ContextCard;
 			sourceTree = "<group>";
@@ -4751,6 +4754,7 @@
 				3F0740EC240400E0005A8D07 /* DKFonts.swift in Sources */,
 				67301C5C261EE900006B0432 /* DKTripsByDate.swift in Sources */,
 				3FCE6339243DF87A00CAB828 /* UIButton+DK.swift in Sources */,
+				6708ED8529ED5364005652A3 /* DKContextCardColor.swift in Sources */,
 				3FF68E98240D59000071D74C /* UIImage+DK.swift in Sources */,
 				6760191029ACE47900CA595C /* DKRoundedBarView.swift in Sources */,
 				67F2D3672630F07E00ACC69A /* RankingJumpCell.swift in Sources */,

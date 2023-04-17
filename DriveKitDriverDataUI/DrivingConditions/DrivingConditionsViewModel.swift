@@ -14,7 +14,7 @@ import Foundation
 
 class DrivingConditionsViewModel {
     private let defaultContexts: [DKContextKind] = [
-//        .tripDistance,
+        .tripDistance,
         .week,
 //        .road,
 //        .weather,
@@ -32,6 +32,7 @@ class DrivingConditionsViewModel {
     private(set) var updating: Bool = false
     private var contextViewModels: [DKContextKind: DKContextCard] = [:]
     private(set) var hasData: Bool = false
+    private var drivingConditions: DKDriverTimeline.DKDrivingConditions?
     
     init(
         configuredContexts: [DKContextKind] = [],
@@ -168,7 +169,10 @@ class DrivingConditionsViewModel {
                 tripCount: currentContext.numberTripTotal,
                 totalDistance: currentContext.distance
             )
+            
+            // TODO: create dict with roadContext:distance  + send it as parameter
             if let drivingConditions = currentContext.drivingConditions {
+                self.drivingConditions = drivingConditions
                 self.configureContextCards(drivingConditions: drivingConditions)
             }
         }
@@ -177,23 +181,15 @@ class DrivingConditionsViewModel {
     }
 
     private func configureContextCards(drivingConditions: DKDriverTimeline.DKDrivingConditions) {
-        let dayNightViewModel: DayNightContextViewModel
-        if let viewModel = self.contextViewModels[.dayNight] as? DayNightContextViewModel {
-            dayNightViewModel = viewModel
-        } else {
-            dayNightViewModel = DayNightContextViewModel()
-            self.contextViewModels[.dayNight] = dayNightViewModel
+        if let weekViewModel = self.contextViewModels[.week] as? WeekContextViewModel {
+            weekViewModel.configure(with: drivingConditions)
         }
-        dayNightViewModel.configure(with: drivingConditions)
-
-        let weekViewModel: WeekContextViewModel
-        if let viewModel = self.contextViewModels[.week] as? WeekContextViewModel {
-            weekViewModel = viewModel
-        } else {
-            weekViewModel = WeekContextViewModel()
-            self.contextViewModels[.week] = weekViewModel
+        if let dayNightViewModel = self.contextViewModels[.dayNight] as? DayNightContextViewModel {
+            dayNightViewModel.configure(with: drivingConditions)
         }
-        weekViewModel.configure(with: drivingConditions)
+        if let tripDistanceViewModel = self.contextViewModels[.tripDistance] as? TripDistanceContextViewModel {
+            tripDistanceViewModel.configure(with: drivingConditions)
+        }
     }
     
     private func configureWithNoData() {
@@ -233,6 +229,44 @@ class DrivingConditionsViewModel {
     }
 
     func getContextViewModel(for kind: DKContextKind) -> DKContextCard? {
+        guard let drivingConditions else {
+            return nil
+        }
+        switch kind {
+            case .tripDistance:
+                let tripDistanceViewModel: TripDistanceContextViewModel
+                if let viewModel = self.contextViewModels[.tripDistance] as? TripDistanceContextViewModel {
+                    tripDistanceViewModel = viewModel
+                } else {
+                    tripDistanceViewModel = TripDistanceContextViewModel()
+                    self.contextViewModels[.tripDistance] = tripDistanceViewModel
+                }
+                tripDistanceViewModel.configure(with: drivingConditions)
+            case .week:
+                let weekViewModel: WeekContextViewModel
+                if let viewModel = self.contextViewModels[.week] as? WeekContextViewModel {
+                    weekViewModel = viewModel
+                } else {
+                    weekViewModel = WeekContextViewModel()
+                    self.contextViewModels[.week] = weekViewModel
+                }
+                weekViewModel.configure(with: drivingConditions)
+            case .road:
+                //
+                break
+            case .weather:
+                //
+                break
+            case .dayNight:
+                let dayNightViewModel: DayNightContextViewModel
+                if let viewModel = self.contextViewModels[.dayNight] as? DayNightContextViewModel {
+                    dayNightViewModel = viewModel
+                } else {
+                    dayNightViewModel = DayNightContextViewModel()
+                    self.contextViewModels[.dayNight] = dayNightViewModel
+                }
+                dayNightViewModel.configure(with: drivingConditions)
+        }
         return self.contextViewModels[kind]
     }
 }

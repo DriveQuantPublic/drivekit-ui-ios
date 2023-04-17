@@ -98,9 +98,9 @@ extension WeekContextItem: DKContextItem {
     var title: String {
         switch self {
             case .weekdays:
-                return "dk_driverdata_weekdays".dkDriverDataLocalized()
+                return "dk_driverdata_drivingconditions_weekdays".dkDriverDataLocalized()
             case .weekend:
-                return "dk_driverdata_weekend".dkDriverDataLocalized()
+                return "dk_driverdata_drivingconditions_weekend".dkDriverDataLocalized()
         }
     }
     

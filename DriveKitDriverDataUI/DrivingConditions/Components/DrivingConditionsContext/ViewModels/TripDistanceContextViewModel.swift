@@ -12,7 +12,7 @@ import DriveKitDBTripAccessModule
 
 class TripDistanceContextViewModel {
     private var contextItems: [TripDistanceContextItem] = []
-    var viewModelDidUpdate: (() -> Void)?
+    private var viewModelDidUpdate: (() -> Void)?
 
     func configure(with drivingConditions: DKDriverTimeline.DKDrivingConditions) {
         var tempItems: [TripDistanceContextItem] = []
@@ -36,7 +36,7 @@ class TripDistanceContextViewModel {
     }
 }
 
-extension TripDistanceContextViewModel: DKContextCard {
+extension TripDistanceContextViewModel: DrivingConditionsContextCard {
     var items: [DriveKitCommonUI.DKContextItem] {
         return self.contextItems
     }
@@ -146,3 +146,4 @@ extension TripDistanceContextItem: DKContextItem {
         self.distance.formatKilometerDistance()
     }
 }
+

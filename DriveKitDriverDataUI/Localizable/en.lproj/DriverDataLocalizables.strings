@@ -27,7 +27,7 @@
 "dk_driverdata_distance_travelled"="%@ travelled";
 "dk_driverdata_distraction_score"="Distraction score";
 "dk_driverdata_distraction_score_info"="The distraction score (phone use while driving) measures the driver\'s interactions with the smartphone while driving. This includes both the number of times the phone is unlocked and the duration of phone calls during the trip. Using the phone can distract the driver\'s attention and significantly increases the risk of car accident. Calls made with the hands-free kit of your vehicle are allowed and will not lower your score.";
-"dk_driverdata_drivingconditions_all_day"="Vous conduisez autant le jour que la nuit";
+"dk_driverdata_drivingconditions_all_day"="You drive as much during the day as at night";
 "dk_driverdata_drivingconditions_all_week"="You drive as much on weekdays as on weekends";
 "dk_driverdata_drivingconditions_cloud"="Cloudy";
 "dk_driverdata_drivingconditions_day"="Day";
@@ -43,7 +43,7 @@
 "dk_driverdata_drivingconditions_main_day"="You mostly drive during the day";
 "dk_driverdata_drivingconditions_main_expressways"="You drive mostly on highways";
 "dk_driverdata_drivingconditions_main_fog"="You drive mostly on foggy days";
-"dk_driverdata_drivingconditions_main_ice"="Most of you drive on an icy road";
+"dk_driverdata_drivingconditions_main_ice"="You drive mostly on icy roads";
 "dk_driverdata_drivingconditions_main_interval_distance"="Most of your trips are between %d and %d kilometers";
 "dk_driverdata_drivingconditions_main_long_trips"="You mainly make long trips";
 "dk_driverdata_drivingconditions_main_night"="You often drive at night";

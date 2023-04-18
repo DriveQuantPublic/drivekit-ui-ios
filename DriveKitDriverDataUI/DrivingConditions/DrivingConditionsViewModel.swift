@@ -235,57 +235,47 @@ class DrivingConditionsViewModel {
     }
 
     func getContextViewModel(for kind: DKContextKind) -> DKContextCard? {
+        let viewModel: DrivingConditionsContextCard
+        switch kind {
+            case .road:
+                let roadViewModel = self.contextViewModel(for: kind) {
+                    ConditionsRoadContextViewModel()
+                }
+                roadViewModel.configure(with: distanceByRoadContext)
+                return self.contextViewModels[.road]
+            case .tripDistance:
+                viewModel = self.contextViewModel(for: kind) {
+                    TripDistanceContextViewModel()
+                }
+            case .week:
+                viewModel = self.contextViewModel(for: kind) {
+                    WeekContextViewModel()
+                }
+            case .weather:
+                viewModel = self.contextViewModel(for: kind) {
+                    WeatherContextViewModel()
+                }
+            case .dayNight:
+                viewModel = self.contextViewModel(for: kind) {
+                    DayNightContextViewModel()
+                }
+        }
         guard let drivingConditions else {
             return nil
         }
-        switch kind {
-            case .tripDistance:
-                let tripDistanceViewModel: TripDistanceContextViewModel
-                if let viewModel = self.contextViewModels[.tripDistance] as? TripDistanceContextViewModel {
-                    tripDistanceViewModel = viewModel
-                } else {
-                    tripDistanceViewModel = TripDistanceContextViewModel()
-                    self.contextViewModels[.tripDistance] = tripDistanceViewModel
-                }
-                tripDistanceViewModel.configure(with: drivingConditions)
-            case .week:
-                let weekViewModel: WeekContextViewModel
-                if let viewModel = self.contextViewModels[.week] as? WeekContextViewModel {
-                    weekViewModel = viewModel
-                } else {
-                    weekViewModel = WeekContextViewModel()
-                    self.contextViewModels[.week] = weekViewModel
-                }
-                weekViewModel.configure(with: drivingConditions)
-            case .road:
-                let roadViewModel: ConditionsRoadContextViewModel
-                if let viewModel = self.contextViewModels[.road] as? ConditionsRoadContextViewModel {
-                    roadViewModel = viewModel
-                } else {
-                    roadViewModel = ConditionsRoadContextViewModel()
-                    self.contextViewModels[.road] = roadViewModel
-                }
-                roadViewModel.configure(with: distanceByRoadContext)
-            case .weather:
-                let weatherViewModel: WeatherContextViewModel
-                if let viewModel = self.contextViewModels[.weather] as? WeatherContextViewModel {
-                    weatherViewModel = viewModel
-                } else {
-                    weatherViewModel = WeatherContextViewModel()
-                    self.contextViewModels[.weather] = weatherViewModel
-                }
-                weatherViewModel.configure(with: drivingConditions)
-            case .dayNight:
-                let dayNightViewModel: DayNightContextViewModel
-                if let viewModel = self.contextViewModels[.dayNight] as? DayNightContextViewModel {
-                    dayNightViewModel = viewModel
-                } else {
-                    dayNightViewModel = DayNightContextViewModel()
-                    self.contextViewModels[.dayNight] = dayNightViewModel
-                }
-                dayNightViewModel.configure(with: drivingConditions)
-        }
+        viewModel.configure(with: drivingConditions)
         return self.contextViewModels[kind]
+    }
+    
+    private func contextViewModel<T: DKContextCard>(for contextKind: DKContextKind, _ createVM: () -> T) -> T {
+        let contextViewModel: T
+        if let viewModel = self.contextViewModels[contextKind] as? T {
+            contextViewModel = viewModel
+        } else {
+            contextViewModel = createVM()
+            self.contextViewModels[contextKind] = contextViewModel
+        }
+        return contextViewModel
     }
 }
 

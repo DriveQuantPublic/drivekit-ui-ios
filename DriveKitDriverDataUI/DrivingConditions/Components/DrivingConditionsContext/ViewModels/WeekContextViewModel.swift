@@ -12,7 +12,7 @@ import DriveKitDBTripAccessModule
 
 class WeekContextViewModel {
     private var contextItems: [WeekContextItem] = []
-    var viewModelDidUpdate: (() -> Void)?
+    private var viewModelDidUpdate: (() -> Void)?
 
     func configure(with drivingConditions: DKDriverTimeline.DKDrivingConditions) {
         var tempItems: [WeekContextItem] = []
@@ -27,7 +27,7 @@ class WeekContextViewModel {
     }
 }
 
-extension WeekContextViewModel: DKContextCard {
+extension WeekContextViewModel: DrivingConditionsContextCard {
     var items: [DriveKitCommonUI.DKContextItem] {
         return self.contextItems
     }

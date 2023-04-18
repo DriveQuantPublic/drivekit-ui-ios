@@ -388,6 +388,7 @@
 		6708ED8129E9C000005652A3 /* WeatherContextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED8029E9C000005652A3 /* WeatherContextViewModel.swift */; };
 		6708ED8329E9C048005652A3 /* ConditionsRoadContextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED8229E9C048005652A3 /* ConditionsRoadContextViewModel.swift */; };
 		6708ED8529ED5364005652A3 /* DKContextCardColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED8429ED5364005652A3 /* DKContextCardColor.swift */; };
+		6708ED8729EEE43A005652A3 /* DrivingConditionsContextCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED8629EEE43A005652A3 /* DrivingConditionsContextCard.swift */; };
 		671087D128072FBE004FA464 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671087CF28072FBE004FA464 /* UserInfoViewController.swift */; };
 		671087D228072FBE004FA464 /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 671087D028072FBE004FA464 /* UserInfoViewController.xib */; };
 		671087D428072FDE004FA464 /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671087D328072FDE004FA464 /* UserInfoViewModel.swift */; };
@@ -1243,6 +1244,7 @@
 		6708ED8029E9C000005652A3 /* WeatherContextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherContextViewModel.swift; sourceTree = "<group>"; };
 		6708ED8229E9C048005652A3 /* ConditionsRoadContextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionsRoadContextViewModel.swift; sourceTree = "<group>"; };
 		6708ED8429ED5364005652A3 /* DKContextCardColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKContextCardColor.swift; sourceTree = "<group>"; };
+		6708ED8629EEE43A005652A3 /* DrivingConditionsContextCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingConditionsContextCard.swift; sourceTree = "<group>"; };
 		671087CF28072FBE004FA464 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		671087D028072FBE004FA464 /* UserInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
 		671087D328072FDE004FA464 /* UserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
@@ -3632,6 +3634,7 @@
 				6708ED7929E98FB4005652A3 /* ViewModels */,
 				E37BF22F29E01C33001B597D /* DrivingConditionsContextViewController.swift */,
 				E37BF23029E01C33001B597D /* DKContextKind.swift */,
+				6708ED8629EEE43A005652A3 /* DrivingConditionsContextCard.swift */,
 			);
 			path = DrivingConditionsContext;
 			sourceTree = "<group>";
@@ -5093,6 +5096,7 @@
 				A342386C2361A2430001E15D /* MapViewController.swift in Sources */,
 				3FF68E8A240ACD620071D74C /* DriveKitDriverDataUI.swift in Sources */,
 				E37BF23729E01C34001B597D /* DrivingConditionsSummaryCardView.swift in Sources */,
+				6708ED8729EEE43A005652A3 /* DrivingConditionsContextCard.swift in Sources */,
 				E3F0213329A3B88400664CD2 /* MySynthesisViewModelDelegate.swift in Sources */,
 				E302B62B29B2081E004CFA0C /* DKScoreTypeLevel+l10n.swift in Sources */,
 				A34238732361A2430001E15D /* ShortTripPageVC.swift in Sources */,

@@ -12,7 +12,7 @@ import DriveKitDBTripAccessModule
 
 class WeatherContextViewModel {
     private var contextItems: [WeatherContextItem] = []
-    var viewModelDidUpdate: (() -> Void)?
+    private var viewModelDidUpdate: (() -> Void)?
 
     func configure(with drivingConditions: DKDriverTimeline.DKDrivingConditions) {
         var tempItems: [WeatherContextItem] = []
@@ -39,7 +39,7 @@ class WeatherContextViewModel {
     }
 }
 
-extension WeatherContextViewModel: DKContextCard {
+extension WeatherContextViewModel: DrivingConditionsContextCard {
     var items: [DriveKitCommonUI.DKContextItem] {
         return self.contextItems
     }

@@ -12,7 +12,7 @@ import DriveKitDBTripAccessModule
 
 class ConditionsRoadContextViewModel {
     private var contextItems: [ConditionsRoadContextItem] = []
-    var viewModelDidUpdate: (() -> Void)?
+    private var viewModelDidUpdate: (() -> Void)?
 
     func configure(with distanceByRoadContext: [DKRoadContext: Double]) {
         var tempItems: [ConditionsRoadContextItem] = []
@@ -44,9 +44,8 @@ extension ConditionsRoadContextViewModel: DKContextCard {
         var suburbanDistance: Double = 0
         for item in contextItems {
             switch item {
-                case .heavyUrbanTraffic(let distance):
-                    cityDistance += distance
-                case .city(let distance):
+                case .heavyUrbanTraffic(let distance),
+                     .city(let distance):
                     cityDistance += distance
                 case .suburban(let distance):
                     suburbanDistance += distance

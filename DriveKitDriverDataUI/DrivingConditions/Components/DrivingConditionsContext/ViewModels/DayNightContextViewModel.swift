@@ -12,7 +12,7 @@ import DriveKitDBTripAccessModule
 
 class DayNightContextViewModel {
     private var contextItems: [DayNightContextItem] = []
-    var viewModelDidUpdate: (() -> Void)?
+    private var viewModelDidUpdate: (() -> Void)?
 
     func configure(with drivingConditions: DKDriverTimeline.DKDrivingConditions) {
         var tempItems: [DayNightContextItem] = []
@@ -27,7 +27,7 @@ class DayNightContextViewModel {
     }
 }
 
-extension DayNightContextViewModel: DKContextCard {
+extension DayNightContextViewModel: DrivingConditionsContextCard {
     var items: [DriveKitCommonUI.DKContextItem] {
         return self.contextItems
     }

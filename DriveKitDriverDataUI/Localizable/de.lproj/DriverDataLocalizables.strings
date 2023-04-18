@@ -43,7 +43,7 @@
 "dk_driverdata_drivingconditions_main_day"="Sie fahren vor allem tagsüber";
 "dk_driverdata_drivingconditions_main_expressways"="Sie fahren hauptsächlich auf Schnellstraßen";
 "dk_driverdata_drivingconditions_main_fog"="Sie fahren überwiegend bei nebligem Wetter";
-"dk_driverdata_drivingconditions_main_ice"="Sie fahren überwiegend auf eisigen Straßen";
+"dk_driverdata_drivingconditions_main_ice"="Sie fahren überwiegend auf vereisten Straßen";
 "dk_driverdata_drivingconditions_main_interval_distance"="Sie legen überwiegend Fahrten von %d bis %d Kilometer zurück";
 "dk_driverdata_drivingconditions_main_long_trips"="Sie legen vor allem lange Strecken zurück";
 "dk_driverdata_drivingconditions_main_night"="Sie fahren oft nachts";

@@ -16,23 +16,23 @@ class WeatherContextViewModel {
 
     func configure(with drivingConditions: DKDriverTimeline.DKDrivingConditions) {
         var tempItems: [WeatherContextItem] = []
-        if let distance = drivingConditions.distanceByWeatherType[.rain], distance > 0 {
-            tempItems.append(.rain(distance: distance))
+        if let distance = drivingConditions.distanceByWeatherType[.sun], distance > 0 {
+            tempItems.append(.sun(distance: distance))
+        }
+        if let distance = drivingConditions.distanceByWeatherType[.cloud], distance > 0 {
+            tempItems.append(.cloud(distance: distance))
         }
         if let distance = drivingConditions.distanceByWeatherType[.fog], distance > 0 {
             tempItems.append(.fog(distance: distance))
+        }
+        if let distance = drivingConditions.distanceByWeatherType[.rain], distance > 0 {
+            tempItems.append(.rain(distance: distance))
         }
         if let distance = drivingConditions.distanceByWeatherType[.snow], distance > 0 {
             tempItems.append(.snow(distance: distance))
         }
         if let distance = drivingConditions.distanceByWeatherType[.hail], distance > 0 {
             tempItems.append(.hail(distance: distance))
-        }
-        if let distance = drivingConditions.distanceByWeatherType[.sun], distance > 0 {
-            tempItems.append(.sun(distance: distance))
-        }
-        if let distance = drivingConditions.distanceByWeatherType[.cloud], distance > 0 {
-            tempItems.append(.cloud(distance: distance))
         }
         self.contextItems = tempItems
         self.viewModelDidUpdate?()
@@ -114,17 +114,17 @@ enum WeatherContextItem {
 extension WeatherContextItem: DKContextItem {
     var color: UIColor {
         switch self {
-            case .rain:
-                return DKContextCardColor.level1.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
-            case .fog:
-                return DKContextCardColor.level2.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
-            case .snow:
-                return DKContextCardColor.level3.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
-            case .hail:
-                return DKContextCardColor.level4.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
             case .sun:
-                return DKContextCardColor.level5.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
+                return DKContextCardColor.level1.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
             case .cloud:
+                return DKContextCardColor.level2.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
+            case .fog:
+                return DKContextCardColor.level3.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
+            case .rain:
+                return DKContextCardColor.level4.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
+            case .snow:
+                return DKContextCardColor.level5.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
+            case .hail:
                 return DKContextCardColor.level6.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
         }
     }

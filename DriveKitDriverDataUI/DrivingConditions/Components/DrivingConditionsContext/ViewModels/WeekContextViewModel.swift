@@ -91,7 +91,7 @@ extension WeekContextItem: DKContextItem {
             case .weekdays:
                 return DKContextCardColor.level1.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
             case .weekend:
-                return DKContextCardColor.level3.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
+                return DKContextCardColor.level2.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
         }
     }
     

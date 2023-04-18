@@ -115,13 +115,13 @@ extension ConditionsRoadContextItem: DKContextItem {
     var title: String {
         switch self {
             case .suburban:
-                return DKCommonLocalizable.contextExternal.text()
+                return DKCommonLocalizable.contextExternal.text().firstCapitalized
             case .expressways:
-                return DKCommonLocalizable.contextFastlane.text()
+                return DKCommonLocalizable.contextFastlane.text().firstCapitalized
             case .heavyUrbanTraffic:
-                return DKCommonLocalizable.contextCityDense.text()
+                return DKCommonLocalizable.contextCityDense.text().firstCapitalized
             case .city:
-                return DKCommonLocalizable.contextCity.text()
+                return DKCommonLocalizable.contextCity.text().firstCapitalized
         }
     }
     
@@ -137,4 +137,8 @@ extension ConditionsRoadContextItem: DKContextItem {
                 return distance.formatKilometerDistance()
         }
     }
+}
+
+extension StringProtocol {
+    var firstCapitalized: String { prefix(1).capitalized + dropFirst() }
 }

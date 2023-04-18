@@ -91,16 +91,16 @@ extension DayNightContextItem: DKContextItem {
             case .day:
                 return DKContextCardColor.level1.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
             case .night:
-                return DKContextCardColor.level3.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
+                return DKContextCardColor.level2.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
         }
     }
     
     var title: String {
         switch self {
             case .day:
-                return "dk_driverdata_day".dkDriverDataLocalized()
+                return "dk_driverdata_drivingconditions_day".dkDriverDataLocalized()
             case .night:
-                return "dk_driverdata_night".dkDriverDataLocalized()
+                return "dk_driverdata_drivingconditions_night".dkDriverDataLocalized()
         }
     }
     

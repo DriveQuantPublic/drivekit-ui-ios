@@ -228,7 +228,7 @@ extension TimelineRoadContext: DKContextItem {
         case .heavyUrbanTraffic:
             return "dk_timeline_road_context_heavy_urban_traffic".dkDriverDataTimelineLocalized()
         case .city:
-            return "dk_common_driving_context_city".dkDriverDataTimelineLocalized()
+            return "dk_timeline_road_context_city".dkDriverDataTimelineLocalized()
         }
     }
 

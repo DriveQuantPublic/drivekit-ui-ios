@@ -222,13 +222,13 @@ extension TimelineRoadContext: DKContextItem {
     var title: String {
         switch self {
         case .suburban:
-            return DKCommonLocalizable.contextExternal.text()
+            return "dk_timeline_road_context_suburban".dkDriverDataTimelineLocalized()
         case .expressways:
-            return DKCommonLocalizable.contextFastlane.text()
+            return "dk_timeline_road_context_expressways".dkDriverDataTimelineLocalized()
         case .heavyUrbanTraffic:
-            return DKCommonLocalizable.contextCityDense.text()
+            return "dk_timeline_road_context_heavy_urban_traffic".dkDriverDataTimelineLocalized()
         case .city:
-            return DKCommonLocalizable.contextCity.text()
+            return "dk_common_driving_context_city".dkDriverDataTimelineLocalized()
         }
     }
 

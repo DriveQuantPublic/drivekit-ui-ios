@@ -66,8 +66,8 @@ extension WeekContextViewModel: DKContextCard {
         return contextItem.distance / totalDistance
     }
 
-    func contextCard(_ updateCompletionHandler: (() -> Void)?) {
-        self.viewModelDidUpdate = updateCompletionHandler
+    func contextCardDidUpdate(_ completionHandler: (() -> Void)?) {
+        self.viewModelDidUpdate = completionHandler
     }
 }
 
@@ -104,11 +104,6 @@ extension WeekContextItem: DKContextItem {
     }
     
     var subtitle: String? {
-        switch self {
-            case .weekdays(let distance):
-                return distance.formatKilometerDistance()
-            case .weekend(let distance):
-                return distance.formatKilometerDistance()
-        }
+        self.distance.formatKilometerDistance()
     }
 }

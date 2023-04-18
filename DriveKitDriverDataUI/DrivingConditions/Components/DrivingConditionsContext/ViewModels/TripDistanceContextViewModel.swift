@@ -81,8 +81,8 @@ extension TripDistanceContextViewModel: DKContextCard {
         return contextItem.distance / totalDistance
     }
 
-    func contextCard(_ updateCompletionHandler: (() -> Void)?) {
-        self.viewModelDidUpdate = updateCompletionHandler
+    func contextCardDidUpdate(_ completionHandler: (() -> Void)?) {
+        self.viewModelDidUpdate = completionHandler
     }
 }
 
@@ -143,17 +143,6 @@ extension TripDistanceContextItem: DKContextItem {
     }
     
     var subtitle: String? {
-        switch self {
-            case .lessThan2Km(let distance):
-                return distance.formatKilometerDistance()
-            case .from2To10Km(let distance):
-                return distance.formatKilometerDistance()
-            case .from10To50Km(let distance):
-                return distance.formatKilometerDistance()
-            case .from50To100Km(let distance):
-                return distance.formatKilometerDistance()
-            case .moreThan100Km(let distance):
-                return distance.formatKilometerDistance()
-        }
+        self.distance.formatKilometerDistance()
     }
 }

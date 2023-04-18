@@ -73,8 +73,8 @@ extension ConditionsRoadContextViewModel: DKContextCard {
         return contextItem.distance / totalDistance
     }
 
-    func contextCard(_ updateCompletionHandler: (() -> Void)?) {
-        self.viewModelDidUpdate = updateCompletionHandler
+    func contextCardDidUpdate(_ completionHandler: (() -> Void)?) {
+        self.viewModelDidUpdate = completionHandler
     }
 }
 
@@ -123,16 +123,7 @@ extension ConditionsRoadContextItem: DKContextItem {
     }
     
     var subtitle: String? {
-        switch self {
-            case .heavyUrbanTraffic(let distance):
-                return distance.formatKilometerDistance()
-            case .city(let distance):
-                return distance.formatKilometerDistance()
-            case .suburban(let distance):
-                return distance.formatKilometerDistance()
-            case .expressways(let distance):
-                return distance.formatKilometerDistance()
-        }
+        self.distance.formatKilometerDistance()
     }
 }
 

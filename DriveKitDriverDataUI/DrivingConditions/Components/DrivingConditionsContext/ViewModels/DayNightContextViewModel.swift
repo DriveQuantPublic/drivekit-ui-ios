@@ -66,8 +66,8 @@ extension DayNightContextViewModel: DKContextCard {
         return contextItem.distance / totalDistance
     }
 
-    func contextCard(_ updateCompletionHandler: (() -> Void)?) {
-        self.viewModelDidUpdate = updateCompletionHandler
+    func contextCardDidUpdate(_ completionHandler: (() -> Void)?) {
+        self.viewModelDidUpdate = completionHandler
     }
 }
 
@@ -104,11 +104,6 @@ extension DayNightContextItem: DKContextItem {
     }
     
     var subtitle: String? {
-        switch self {
-            case .day(let distance):
-                return distance.formatKilometerDistance()
-            case .night(let distance):
-                return distance.formatKilometerDistance()
-        }
+        self.distance.formatKilometerDistance()
     }
 }

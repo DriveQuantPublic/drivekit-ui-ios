@@ -63,6 +63,8 @@ class MySynthesisViewController: DKUIViewController {
         )
         
         showDetailButton.isHidden = viewModel.shouldHideDetailButton
+        showDetailButton.configure(text: "dk_driverdata_drivingconditions_show".dkDriverDataLocalized(), style: .empty)
+
         showDetailButton.addTarget(self, action: #selector(showDetailButtonTapped), for: .touchUpInside)
         
         if self.viewModel.updating {

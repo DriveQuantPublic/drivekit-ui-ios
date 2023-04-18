@@ -80,8 +80,8 @@ extension WeatherContextViewModel: DKContextCard {
         return contextItem.distance / totalDistance
     }
 
-    func contextCard(_ updateCompletionHandler: (() -> Void)?) {
-        self.viewModelDidUpdate = updateCompletionHandler
+    func contextCardDidUpdate(_ completionHandler: (() -> Void)?) {
+        self.viewModelDidUpdate = completionHandler
     }
 }
 
@@ -142,19 +142,6 @@ extension WeatherContextItem: DKContextItem {
     }
     
     var subtitle: String? {
-        switch self {
-            case .sun(let distance):
-                return distance.formatKilometerDistance()
-            case .cloud(let distance):
-                return distance.formatKilometerDistance()
-            case .fog(let distance):
-                return distance.formatKilometerDistance()
-            case .rain(let distance):
-                return distance.formatKilometerDistance()
-            case .snow(let distance):
-                return distance.formatKilometerDistance()
-            case .hail(let distance):
-                return distance.formatKilometerDistance()
-        }
+        self.distance.formatKilometerDistance()
     }
 }

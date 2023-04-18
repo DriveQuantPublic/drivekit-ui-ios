@@ -61,30 +61,6 @@ extension ConditionsRoadContextViewModel: DKContextCard {
         } else {
             return "dk_driverdata_drivingconditions_main_expressways".dkDriverDataLocalized()
         }
-//        var maxDistance: Double = 0
-//        var mainItem: ConditionsRoadContextItem? = self.contextItems.first
-//        for item in self.contextItems where item.distance >= maxDistance {
-//            maxDistance = item.distance
-//            mainItem = item
-//        }
-//        guard let mainItem else {
-//            return ""
-//        }
-//        switch mainItem {
-//            case .sun:
-//                return "dk_driverdata_drivingconditions_main_sun".dkDriverDataLocalized()
-//            case .cloud:
-//                return "dk_driverdata_drivingconditions_main_cloud".dkDriverDataLocalized()
-//            case .fog:
-//                return "dk_driverdata_drivingconditions_main_fog".dkDriverDataLocalized()
-//            case .rain:
-//                return "dk_driverdata_drivingconditions_main_rain".dkDriverDataLocalized()
-//            case .snow:
-//                return "dk_driverdata_drivingconditions_main_snow".dkDriverDataLocalized()
-//            case .hail:
-//                return "dk_driverdata_drivingconditions_main_ice".dkDriverDataLocalized()
-//        }
-        return ""
     }
     
     func getContextPercent(_ context: some DriveKitCommonUI.DKContextItem) -> Double {
@@ -138,14 +114,14 @@ extension ConditionsRoadContextItem: DKContextItem {
     
     var title: String {
         switch self {
-            case .heavyUrbanTraffic:
-                return "dk_driverdata_drivingconditions_sun".dkDriverDataLocalized()
-            case .city:
-                return "dk_driverdata_drivingconditions_cloud".dkDriverDataLocalized()
             case .suburban:
-                return "dk_driverdata_drivingconditions_fog".dkDriverDataLocalized()
+                return DKCommonLocalizable.contextExternal.text()
             case .expressways:
-                return "dk_driverdata_drivingconditions_rain".dkDriverDataLocalized()
+                return DKCommonLocalizable.contextFastlane.text()
+            case .heavyUrbanTraffic:
+                return DKCommonLocalizable.contextCityDense.text()
+            case .city:
+                return DKCommonLocalizable.contextCity.text()
         }
     }
     

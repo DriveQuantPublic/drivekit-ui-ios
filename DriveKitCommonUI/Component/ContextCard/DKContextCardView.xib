@@ -12,27 +12,27 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DKContextCardView" customModule="DriveKitCommonUI">
-            <rect key="frame" x="0.0" y="0.0" width="390" height="200"/>
+            <rect key="frame" x="0.0" y="0.0" width="390" height="188"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mc-ZW-Pmc">
-                    <rect key="frame" x="15" y="56" width="360" height="11"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mc-ZW-Pmc">
+                    <rect key="frame" x="15" y="56" width="360" height="34"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="11" id="iI3-1S-KGY"/>
+                        <constraint firstAttribute="height" constant="34" id="iI3-1S-KGY"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUU-C1-i6r" customClass="ContextBarView" customModule="DriveKitCommonUI" customModuleProvider="target">
-                    <rect key="frame" x="14" y="72" width="362" height="30"/>
+                    <rect key="frame" x="14" y="95" width="362" height="30"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="MCm-7J-mb1"/>
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="vS5-x0-O60">
-                    <rect key="frame" x="14" y="103" width="362" height="52"/>
+                    <rect key="frame" x="14" y="126" width="362" height="52"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -53,10 +53,10 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="TUU-C1-i6r" secondAttribute="bottom" constant="64" id="4mG-X7-RvW"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1mc-ZW-Pmc" secondAttribute="trailing" constant="15" id="8zE-Nh-scE"/>
                 <constraint firstItem="vS5-x0-O60" firstAttribute="top" secondItem="TUU-C1-i6r" secondAttribute="bottom" constant="1" id="Isa-nz-pMH"/>
                 <constraint firstItem="TUU-C1-i6r" firstAttribute="top" secondItem="1mc-ZW-Pmc" secondAttribute="bottom" constant="5" id="SyR-tm-qqV"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="vS5-x0-O60" secondAttribute="bottom" constant="-24" id="cYA-GF-hDb"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vS5-x0-O60" secondAttribute="trailing" constant="14" id="d6P-kl-HZJ"/>
                 <constraint firstItem="1mc-ZW-Pmc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="kQR-vG-3tl"/>
                 <constraint firstItem="TUU-C1-i6r" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="14" id="oFn-Gz-ys7"/>

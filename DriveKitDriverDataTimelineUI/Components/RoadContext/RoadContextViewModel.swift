@@ -146,7 +146,7 @@ extension RoadContextViewModel: DKContextCard {
                 )
             )
             case .emptyData:
-                return "dk_timeline_road_context_title_empty_data".dkDriverDataTimelineLocalized()
+                return DKCommonLocalizable.noDataYet.text()
             case .noDataSafety:
                 return "dk_timeline_road_context_title_no_data".dkDriverDataTimelineLocalized()
             case .noDataEcodriving:

@@ -106,3 +106,10 @@ class ContextBarView: DKRoundedBarView {
         self.setNeedsDisplay()
     }
 }
+
+class TopAlignedLabel: UILabel {
+      override func drawText(in rect: CGRect) {
+        let textRect = super.textRect(forBounds: bounds, limitedToNumberOfLines: numberOfLines)
+        super.drawText(in: textRect)
+      }
+}

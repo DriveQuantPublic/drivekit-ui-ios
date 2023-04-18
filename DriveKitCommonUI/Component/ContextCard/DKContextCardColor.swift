@@ -12,7 +12,7 @@ import UIKit
 public enum DKContextCardColor {
     case level1, level2, level3, level4, level5, level6
 
-    public func getColor() -> UIColor {
+    public var color: UIColor {
         switch self {
             case .level1:
                 return UIColor(hex: 0x036A82)

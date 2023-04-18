@@ -12,7 +12,7 @@ public protocol DKContextCard {
     var items: [any DKContextItem] { get }
     var title: String { get }
     func getContextPercent(_ context: some DKContextItem) -> Double
-    func contextCard(_ updateCompletionHandler: (() -> Void)?)
+    func contextCard(_ didUpdate: (() -> Void)?)
 }
 
 public protocol DKContextItem {

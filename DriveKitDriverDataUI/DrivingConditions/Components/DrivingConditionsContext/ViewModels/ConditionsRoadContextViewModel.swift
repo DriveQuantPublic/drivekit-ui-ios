@@ -86,13 +86,10 @@ enum ConditionsRoadContextItem {
 
     var distance: Double {
         switch self {
-            case .heavyUrbanTraffic(let distance):
-                return distance
-            case .city(let distance):
-                return distance
-            case .suburban(let distance):
-                return distance
-            case .expressways(let distance):
+            case .heavyUrbanTraffic(let distance),
+                 .city(let distance),
+                 .suburban(let distance),
+                 .expressways(let distance):
                 return distance
         }
     }
@@ -102,13 +99,13 @@ extension ConditionsRoadContextItem: DKContextItem {
     var color: UIColor {
         switch self {
             case .heavyUrbanTraffic:
-                return DKContextCardColor.level1.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
+                return DKContextCardColor.level1.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
             case .city:
-                return DKContextCardColor.level2.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
+                return DKContextCardColor.level2.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
             case .suburban:
-                return DKContextCardColor.level3.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
+                return DKContextCardColor.level3.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
             case .expressways:
-                return DKContextCardColor.level4.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
+                return DKContextCardColor.level4.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
         }
     }
     

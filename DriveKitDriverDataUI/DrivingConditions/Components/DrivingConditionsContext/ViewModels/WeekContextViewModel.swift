@@ -77,9 +77,8 @@ enum WeekContextItem {
 
     var distance: Double {
         switch self {
-            case .weekdays(let distance):
-                return distance
-            case .weekend(let distance):
+            case .weekdays(let distance),
+                 .weekend(let distance):
                 return distance
         }
     }
@@ -89,9 +88,9 @@ extension WeekContextItem: DKContextItem {
     var color: UIColor {
         switch self {
             case .weekdays:
-                return DKContextCardColor.level1.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
+                return DKContextCardColor.level1.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
             case .weekend:
-                return DKContextCardColor.level2.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
+                return DKContextCardColor.level2.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
         }
     }
     

@@ -95,17 +95,12 @@ enum WeatherContextItem {
 
     var distance: Double {
         switch self {
-            case .sun(let distance):
-                return distance
-            case .cloud(let distance):
-                return distance
-            case .fog(let distance):
-                return distance
-            case .rain(let distance):
-                return distance
-            case .snow(let distance):
-                return distance
-            case .hail(let distance):
+            case .sun(let distance),
+                 .cloud(let distance),
+                 .fog(let distance),
+                 .rain(let distance),
+                 .snow(let distance),
+                 .hail(let distance):
                 return distance
         }
     }
@@ -115,17 +110,17 @@ extension WeatherContextItem: DKContextItem {
     var color: UIColor {
         switch self {
             case .sun:
-                return DKContextCardColor.level1.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
+                return DKContextCardColor.level1.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
             case .cloud:
-                return DKContextCardColor.level2.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
+                return DKContextCardColor.level2.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
             case .fog:
-                return DKContextCardColor.level3.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
+                return DKContextCardColor.level3.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
             case .rain:
-                return DKContextCardColor.level4.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
+                return DKContextCardColor.level4.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
             case .snow:
-                return DKContextCardColor.level5.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
+                return DKContextCardColor.level5.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
             case .hail:
-                return DKContextCardColor.level6.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
+                return DKContextCardColor.level6.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
         }
     }
     

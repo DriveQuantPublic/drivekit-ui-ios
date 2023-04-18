@@ -77,9 +77,8 @@ enum DayNightContextItem {
 
     var distance: Double {
         switch self {
-            case .day(let distance):
-                return distance
-            case .night(let distance):
+            case .day(let distance),
+                 .night(let distance):
                 return distance
         }
     }
@@ -89,9 +88,9 @@ extension DayNightContextItem: DKContextItem {
     var color: UIColor {
         switch self {
             case .day:
-                return DKContextCardColor.level1.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
+                return DKContextCardColor.level1.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
             case .night:
-                return DKContextCardColor.level2.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
+                return DKContextCardColor.level2.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
         }
     }
     

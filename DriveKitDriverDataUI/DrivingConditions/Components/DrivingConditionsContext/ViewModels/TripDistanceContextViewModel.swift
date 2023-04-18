@@ -95,15 +95,11 @@ enum TripDistanceContextItem {
 
     var distance: Double {
         switch self {
-            case .lessThan2Km(let distance):
-                return distance
-            case .from2To10Km(let distance):
-                return distance
-            case .from10To50Km(let distance):
-                return distance
-            case .from50To100Km(let distance):
-                return distance
-            case .moreThan100Km(let distance):
+            case .lessThan2Km(let distance),
+                 .from2To10Km(let distance),
+                 .from10To50Km(let distance),
+                 .from50To100Km(let distance),
+                 .moreThan100Km(let distance):
                 return distance
         }
     }
@@ -113,15 +109,15 @@ extension TripDistanceContextItem: DKContextItem {
     var color: UIColor {
         switch self {
             case .lessThan2Km:
-                return DKContextCardColor.level1.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
+                return DKContextCardColor.level1.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
             case .from2To10Km:
-                return DKContextCardColor.level2.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
+                return DKContextCardColor.level2.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
             case .from10To50Km:
-                return DKContextCardColor.level3.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
+                return DKContextCardColor.level3.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
             case .from50To100Km:
-                return DKContextCardColor.level4.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
+                return DKContextCardColor.level4.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
             case .moreThan100Km:
-                return DKContextCardColor.level5.getColor().tinted(usingHueOf: DKUIColors.primaryColor.color)
+                return DKContextCardColor.level5.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
         }
     }
     

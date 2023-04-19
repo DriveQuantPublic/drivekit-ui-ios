@@ -41,7 +41,7 @@ class DashboardViewController: UIViewController {
         self.lastTripsViewContainer.addShadow()
         addAllFeatureView()
         updateStartStopButton()
-        self.simulateTripButton.configure(text: "simulate_trip".keyLocalized(), style: .full)
+        self.simulateTripButton.configure(title: "simulate_trip".keyLocalized(), style: .full)
         configureNavBar()
         updateBanners()
     }
@@ -154,7 +154,7 @@ class DashboardViewController: UIViewController {
 
 extension DashboardViewController: DashboardViewModelDelegate {
     func updateStartStopButton() {
-        self.startStopTripButton.configure(text: self.viewModel.getStartStopTripButtonTitle().keyLocalized(), style: .full)
+        self.startStopTripButton.configure(title: self.viewModel.getStartStopTripButtonTitle().keyLocalized(), style: .full)
     }
 
     func bannersDidUpdate() {

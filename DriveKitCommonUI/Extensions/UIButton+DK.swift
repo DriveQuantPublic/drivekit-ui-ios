@@ -11,16 +11,11 @@ import UIKit
 
 public extension UIButton {
     
-    func configure(text: String, style: DKButtonStyle) {
+    func configure(title: String, subtitle: String? = nil, style: DKButtonStyle) {
         style.configureButton(button: self)
-        style.configureText(text: text, button: self)
+        style.configureText(title: title, subtitle: subtitle, button: self)
     }
     
-    func configure(attributedText: NSAttributedString, style: DKButtonStyle) {
-        style.configureButton(button: self)
-        style.configureAttributedText(attributedText, button: self)
-    }
-
     func configure(style: DKButtonStyle) {
         style.configureButton(button: self)
     }
@@ -36,11 +31,11 @@ public enum DKButtonStyle {
         textColor: UIColor? = nil
     )
 
-    func configureText(text: String, button: UIButton) {
+    func configureText(title: String, subtitle: String? = nil, button: UIButton) {
         let attributedText: NSAttributedString
         switch self {
         case .full:
-            attributedText = text.dkAttributedString()
+            attributedText = title.dkAttributedString()
                 .font(
                     dkFont: .primary,
                     style: .button
@@ -50,8 +45,8 @@ public enum DKButtonStyle {
                 )
                 .uppercased()
                 .build()
-        case .empty, .multilineBordered:
-            attributedText = text.dkAttributedString()
+        case .empty:
+            attributedText = title.dkAttributedString()
                 .font(
                     dkFont: .primary,
                     style: .button
@@ -61,8 +56,38 @@ public enum DKButtonStyle {
                 )
                 .uppercased()
                 .build()
+        case .multilineBordered:
+            let titleAttributedText = title.dkAttributedString()
+                .font(
+                    dkFont: .primary,
+                    style: .headLine1
+                )
+                .color(
+                    .secondaryColor
+                )
+                .uppercased()
+                .build()
+            guard let subtitle else {
+                attributedText = titleAttributedText
+                break
+            }
+            let subtitleAttributedText = subtitle.dkAttributedString()
+                .font(
+                    dkFont: .primary,
+                    style: .smallText
+                )
+                .color(.complementaryFontColor)
+                .build()
+            
+            attributedText = "%@\n\n%@"
+                .dkAttributedString()
+                .font(dkFont: .primary, style: .smallText)
+                .buildWithArgs(
+                    titleAttributedText,
+                    subtitleAttributedText
+                )
         case let .rounded(color, _,  _, style, textColor):
-            attributedText = text.dkAttributedString()
+            attributedText = title.dkAttributedString()
                 .font(
                     dkFont: .primary,
                     style: style

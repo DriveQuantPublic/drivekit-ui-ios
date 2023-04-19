@@ -39,7 +39,7 @@ class BeaconInputIdVC: DKUIViewController {
     
     private func configureView() {
         titleLabel.attributedText = "dk_vehicle_beacon_setup_code_title".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.mainFontColor).build()
-        button.configure(text: DKCommonLocalizable.validate.text(), style: .full)
+        button.configure(title: DKCommonLocalizable.validate.text(), style: .full)
     }
     
     private func configureTextField() {

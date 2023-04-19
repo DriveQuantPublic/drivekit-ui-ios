@@ -95,7 +95,7 @@ class MySynthesisGaugeView: UIView {
                 itemWidth: self.levelButton.frame.size.width,
                 margin: 5)
             self.levelButton.configure(
-                text: self.viewModel.buttonTitle,
+                title: self.viewModel.buttonTitle,
                 style: .rounded(color: MySynthesisConstants.defaultColor,
                                 radius: 5,
                                 borderWidth: 1,
@@ -104,7 +104,7 @@ class MySynthesisGaugeView: UIView {
         } else {
             self.levelButtonLayoutConstraint.constant = self.synthesisGaugeBarView.bounds.size.width / 2
             self.levelButton.configure(
-                text: "dk_driverdata_mysynthesis_can_not_be_evaluated".dkDriverDataLocalized(),
+                title: "dk_driverdata_mysynthesis_can_not_be_evaluated".dkDriverDataLocalized(),
                 style: .rounded(color: MySynthesisConstants.defaultColor,
                                 radius: 5,
                                 borderWidth: 1,

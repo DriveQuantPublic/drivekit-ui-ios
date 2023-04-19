@@ -36,9 +36,9 @@ class CrashFeedbackStep2VC: CrashFeedbackBaseVC {
 
     func setupView() {
         navigationItem.hidesBackButton = true
-        self.noCrashButton.configure(text: "dk_crash_detection_feedback_step2_option_no_crash".dkTripAnalysisLocalized(), style: .rounded(color: greenColor))
-        self.minorCrashButton.configure(text: "dk_crash_detection_feedback_step2_option_minor_accident".dkTripAnalysisLocalized(), style: .rounded(color: yellowColor))
-        self.criticalCrashButton.configure(text: "dk_crash_detection_feedback_step2option_critical_accident".dkTripAnalysisLocalized(), style: .rounded(color: redColor))
+        self.noCrashButton.configure(title: "dk_crash_detection_feedback_step2_option_no_crash".dkTripAnalysisLocalized(), style: .rounded(color: greenColor))
+        self.minorCrashButton.configure(title: "dk_crash_detection_feedback_step2_option_minor_accident".dkTripAnalysisLocalized(), style: .rounded(color: yellowColor))
+        self.criticalCrashButton.configure(title: "dk_crash_detection_feedback_step2option_critical_accident".dkTripAnalysisLocalized(), style: .rounded(color: redColor))
         messageLabel.attributedText = viewModel.getMessageAttributedText()
     }
 

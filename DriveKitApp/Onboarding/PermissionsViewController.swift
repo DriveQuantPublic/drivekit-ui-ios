@@ -25,7 +25,7 @@ class PermissionsViewController: UIViewController {
     func setupView() {
         self.title = "permissions_intro_header".keyLocalized()
         self.navigationItem.hidesBackButton = true
-        permissionsButton.configure(text: "permissions_intro_button".keyLocalized(), style: .full)
+        permissionsButton.configure(title: "permissions_intro_button".keyLocalized(), style: .full)
         topLabel.attributedText = viewModel.getTitleAttributedText()
         descriptionLabel.attributedText = viewModel.getDescriptionAttibutedText()
         topLabel.isUserInteractionEnabled = true

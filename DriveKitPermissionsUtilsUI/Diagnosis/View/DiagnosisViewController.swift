@@ -94,7 +94,7 @@ extension DiagnosisViewController: DiagnosisView {
         if let contactViewModel = self.viewModel.contactViewModel {
             self.contactTitle.attributedText = contactViewModel.title.dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.mainFontColor).build()
             self.contactDescription.attributedText = contactViewModel.description.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
-            self.contactButton.configure(text: contactViewModel.buttonTitle, style: .full)
+            self.contactButton.configure(title: contactViewModel.buttonTitle, style: .full)
             self.contactContainer.isHidden = false
         } else {
             self.contactContainer.isHidden = true

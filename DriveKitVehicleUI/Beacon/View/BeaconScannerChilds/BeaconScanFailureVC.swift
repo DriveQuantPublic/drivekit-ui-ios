@@ -35,8 +35,8 @@ class BeaconScanFailureVC: UIViewController {
     }
     
     private func configureButton() {
-        backButton.configure(text: DKCommonLocalizable.cancel.text(), style: .full)
-        cancelButton.configure(text: DKCommonLocalizable.finish.text(), style: .empty)
+        backButton.configure(title: DKCommonLocalizable.cancel.text(), style: .full)
+        cancelButton.configure(title: DKCommonLocalizable.finish.text(), style: .empty)
 
         retryImageView.image = DKVehicleImages.beaconRetry.image
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(tapDetected))

@@ -36,40 +36,14 @@ class VehiclePickerTextVC: VehiclePickerStepView {
             textImageView.image = category.categoryImage()
             textDescriptionLabel.attributedText = category.categoryDescription().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
             textConfirmButton.configure(
-                attributedText: "%@\n\n%@"
-                    .dkAttributedString()
-                    .font(dkFont: .primary, style: .smallText)
-                    .buildWithArgs(
-                        "dk_vehicle_detail_category_button_title".dkVehicleLocalized()
-                            .dkAttributedString()
-                            .font(dkFont: .primary, style: .headLine1)
-                            .color(DKUIColors.secondaryColor.color)
-                            .build(),
-                        "dk_vehicle_detail_category_button_description".dkVehicleLocalized()
-                            .dkAttributedString()
-                            .font(dkFont: .primary, style: .smallText)
-                            .color(DKUIColors.complementaryFontColor.color)
-                            .build()
-                    ),
+                title: "dk_vehicle_detail_category_button_title".dkVehicleLocalized(),
+                subtitle: "dk_vehicle_detail_category_button_description".dkVehicleLocalized(),
                 style: .multilineBordered
             )
 
             textContinueButton.configure(
-                attributedText: "%@\n\n%@"
-                    .dkAttributedString()
-                    .font(dkFont: .primary, style: .smallText)
-                    .buildWithArgs(
-                        "dk_vehicle_quick_category_button_title".dkVehicleLocalized()
-                            .dkAttributedString()
-                            .font(dkFont: .primary, style: .headLine1)
-                            .color(DKUIColors.secondaryColor.color)
-                            .build(),
-                        "dk_vehicle_quick_category_button_description".dkVehicleLocalized()
-                            .dkAttributedString()
-                            .font(dkFont: .primary, style: .smallText)
-                            .color(DKUIColors.complementaryFontColor.color)
-                            .build()
-                    ),
+                title: "dk_vehicle_quick_category_button_title".dkVehicleLocalized(),
+                subtitle: "dk_vehicle_quick_category_button_description".dkVehicleLocalized(),
                 style: .multilineBordered
             )
             if DriveKitVehicleUI.shared.categoryConfigType == .liteConfigOnly {

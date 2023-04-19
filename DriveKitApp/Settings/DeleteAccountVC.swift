@@ -25,7 +25,7 @@ class DeleteAccountVC: UIViewController {
 
     func setupView() {
         self.deleteButton.setAttributedTitle("button_delete_account".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .button).color(.criticalColor).uppercased().build(), for: .normal)
-        self.cancelButton.configure(text: DKCommonLocalizable.cancel.text(), style: .full)
+        self.cancelButton.configure(title: DKCommonLocalizable.cancel.text(), style: .full)
         mainLabel.text = "account_deletion_content_1".keyLocalized()
         mainLabel.font = DKStyle(size: 14, traits: .traitBold).applyTo(font: .primary)
         mainLabel.textColor = DKUIColors.mainFontColor.color

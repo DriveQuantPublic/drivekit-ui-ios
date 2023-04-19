@@ -26,7 +26,7 @@ class UserIdViewController: UIViewController {
     func setupView() {
         self.title = "authentication_header".keyLocalized()
         self.navigationItem.hidesBackButton = true
-        sendButton.configure(text: "button_validation".keyLocalized(), style: .full)
+        sendButton.configure(title: "button_validation".keyLocalized(), style: .full)
         topLabel.attributedText = viewModel.getTitleAttributedText()
         descriptionLabel.attributedText = viewModel.getDescriptionAttibutedText()
         textField.placeholder = "authentication_unique_identifier".keyLocalized()

@@ -11,5 +11,4 @@ import Foundation
 protocol MySynthesisViewModelDelegate: AnyObject {
     func willUpdateData()
     func didUpdateData()
-    func didUpdateDetailButtonDisplay()
 }

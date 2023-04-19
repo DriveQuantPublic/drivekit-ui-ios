@@ -16,7 +16,7 @@ class MySynthesisViewController: DKUIViewController {
     @IBOutlet private weak var dateSelectorContainer: UIView!
     @IBOutlet private weak var scoreViewContainer: UIView!
     @IBOutlet private weak var communityViewContainer: UIView!
-    @IBOutlet weak var showDetailButton: UIButton!
+    @IBOutlet weak var drivingConditionsButton: UIButton!
     
     private let viewModel: MySynthesisViewModel
     
@@ -61,9 +61,10 @@ class MySynthesisViewController: DKUIViewController {
             configuredWith: viewModel.communityCardViewModel,
             embededIn: communityViewContainer
         )
-        
-        showDetailButton.isHidden = viewModel.shouldHideDetailButton
-        showDetailButton.addTarget(self, action: #selector(showDetailButtonTapped), for: .touchUpInside)
+
+        drivingConditionsButton.configure(text: "dk_driverdata_drivingconditions_show".dkDriverDataLocalized(), style: .empty)
+
+        drivingConditionsButton.addTarget(self, action: #selector(drivingConditionsButtonTapped), for: .touchUpInside)
         
         if self.viewModel.updating {
             showRefreshControl()
@@ -72,8 +73,7 @@ class MySynthesisViewController: DKUIViewController {
         }
     }
     
-    @objc private func showDetailButtonTapped() {
-        #warning("Display DrivingConditionVC via the MySynthesis detail button")
+    @objc private func drivingConditionsButtonTapped() {
         self.navigationController?.pushViewController(
             DrivingConditionsViewController(viewModel: viewModel.drivingConditionsViewModel),
             animated: true
@@ -100,9 +100,5 @@ extension MySynthesisViewController: MySynthesisViewModelDelegate {
     
     func didUpdateData() {
         hideRefreshControl()
-    }
-    
-    func didUpdateDetailButtonDisplay() {
-        self.showDetailButton.isHidden = viewModel.shouldHideDetailButton
     }
 }

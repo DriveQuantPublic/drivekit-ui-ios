@@ -26,6 +26,7 @@ public class DriveKitDriverDataUI: AccessRightListener {
     private(set) var customHeaders: DKHeader?
     private(set) var customTripInfo: DKTripInfo?
     public var alternativeTripsDepthInDays: Int?
+    private(set) var contextKinds: [DKContextKind] = [.tripDistance, .week, .road, .weather, .dayNight]
 
     public static let shared = DriveKitDriverDataUI()
     
@@ -46,7 +47,11 @@ public class DriveKitDriverDataUI: AccessRightListener {
     public func configureTripData(_ tripData: TripData) {
         self.tripData = tripData
     }
-    
+
+    public func configureContextKinds(_ contextKinds: [DKContextKind]) {
+        self.contextKinds = contextKinds
+    }
+
     public func configureHeaderDay(headerDay: HeaderDay) {
         self.headerDay = headerDay
     }
@@ -134,7 +139,7 @@ extension DriveKitDriverDataUI: DriveKitDriverDataUIEntryPoint {
     }
     
     public func getDrivingConditionsViewController() -> UIViewController {
-        let viewModel = DrivingConditionsViewModel()
+        let viewModel = DrivingConditionsViewModel(configuredContexts: self.contextKinds)
         return DrivingConditionsViewController(viewModel: viewModel)
     }
 }

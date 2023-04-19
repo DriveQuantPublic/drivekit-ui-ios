@@ -39,7 +39,7 @@ public class DKContextCardView: UIView, UICollectionViewDataSource, UICollection
         self.refreshView()
     }
 
-    func refreshView() {
+    public func refreshView() {
         if let viewModel = viewModel {
             self.titleLabel.text = viewModel.title
             self.contextBarView.configure(viewModel: viewModel)
@@ -105,4 +105,11 @@ class ContextBarView: DKRoundedBarView {
         self.viewModel = viewModel
         self.setNeedsDisplay()
     }
+}
+
+class TopAlignedLabel: UILabel {
+      override func drawText(in rect: CGRect) {
+        let textRect = super.textRect(forBounds: bounds, limitedToNumberOfLines: numberOfLines)
+        super.drawText(in: textRect)
+      }
 }

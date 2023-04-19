@@ -25,11 +25,6 @@ class MySynthesisViewModel {
     private var selectedDate: Date?
     private(set) var updating: Bool = false
     
-    var shouldHideDetailButton: Bool {
-        #warning("Flip it to true if needed when DrivingConditionsVC is setup in its final place")
-        return false
-    }
-    
     init() {
         self.scoreSelectorViewModel = DKScoreSelectorViewModel()
         self.periodSelectorViewModel = DKPeriodSelectorViewModel()

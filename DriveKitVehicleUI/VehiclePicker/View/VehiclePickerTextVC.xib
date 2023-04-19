@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VehiclePickerTextVC" customModule="DriveKitVehicleUI" customModuleProvider="target">
             <connections>
+                <outlet property="confirmButtonHeightConstraint" destination="JzH-Hm-srK" id="iCm-Lb-q8H"/>
                 <outlet property="textConfirmButton" destination="aAL-ui-VkG" id="eSQ-Ln-NBL"/>
                 <outlet property="textContinueButton" destination="7Cz-fs-Xgx" id="66B-Nw-Pyf"/>
                 <outlet property="textDescriptionLabel" destination="EA2-2r-yKq" id="Osi-j8-HoG"/>
@@ -52,9 +53,6 @@ Vous êtes définitivement accro aux trails.
                                         <constraint firstAttribute="height" constant="96" id="JzH-Hm-srK"/>
                                     </constraints>
                                     <state key="normal" title="Button"/>
-                                    <connections>
-                                        <action selector="didContinueText:" destination="-1" eventType="touchUpInside" id="Idi-jQ-3uS"/>
-                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="7Cz-fs-Xgx">
                                     <rect key="frame" x="16" y="573" width="382" height="96"/>

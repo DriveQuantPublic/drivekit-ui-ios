@@ -146,4 +146,3 @@ extension TripDistanceContextItem: DKContextItem {
         self.distance.formatKilometerDistance()
     }
 }
-

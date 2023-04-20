@@ -32,7 +32,7 @@ class ErrorBluetoothVC: DKUIViewController {
     func setup() {
         errorText.attributedText = "dk_vehicle_bluetooth_not_found".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         
-        cancelButton.configure(text: DKCommonLocalizable.cancel.text(), style: .full)
+        cancelButton.configure(title: DKCommonLocalizable.cancel.text(), style: .full)
         settingsButton.setAttributedTitle("dk_vehicle_open_bluetooth_settings".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 15, traits: nil)).color(.secondaryColor).uppercased().build(), for: .normal)
     }
 

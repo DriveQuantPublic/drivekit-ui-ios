@@ -43,7 +43,7 @@ class ActivityPermissionViewController: PermissionViewController {
 
         self.descriptionLabel.attributedText = "dk_perm_utils_permissions_phone_settings_activity_text".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
 
-        self.actionButton.configure(text: "dk_perm_utils_permissions_activity_button_ios".dkPermissionsUtilsLocalized(), style: .full)
+        self.actionButton.configure(title: "dk_perm_utils_permissions_activity_button_ios".dkPermissionsUtilsLocalized(), style: .full)
     }
 
 }

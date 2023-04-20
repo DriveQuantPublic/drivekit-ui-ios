@@ -103,7 +103,6 @@
 "dk_vehicle_category_car_sport_title"="Sport car";
 "dk_vehicle_category_car_suv_description"="This category corresponds to crossover vehicles or off-road vehicles with all-wheel drive (4x4) and whose length varies on average from 4.10 to 5.20 m.";
 "dk_vehicle_category_car_suv_title"="4x4, SUV, Crossover";
-"dk_vehicle_category_display_brands"="Continue to select the brand and model of your vehicle";
 "dk_vehicle_category_truck_selection_title"="What kind of truck do you drive?";
 "dk_vehicle_category_truck_straight"="Straight truck";
 "dk_vehicle_category_truck_straight_2_axles"="Two-axle straight truck";
@@ -120,6 +119,8 @@
 "dk_vehicle_delete"="Delete";
 "dk_vehicle_delete_confirm"="Do you confirm the suppression of the vehicle %@? Mileage monitoring and maintenance data will be definitively deleted.";
 "dk_vehicle_detail_back_edit_alert"="The vehicle data has been modified. Would you like to save them?";
+"dk_vehicle_detail_category_button_description"="You know the brand, model and characteristics of your vehicle";
+"dk_vehicle_detail_category_button_title"="Find my vehicle";
 "dk_vehicle_detection_mode_title"="Auto start:";
 "dk_vehicle_engine_description"="Engine type ?";
 "dk_vehicle_engine_diesel"="Diesel";
@@ -183,10 +184,13 @@
 "dk_vehicle_ptac_truck_and_trailer_alert_max"="This value may not exceed 44 tonnes";
 "dk_vehicle_ptac_truck_and_trailer_alert_min"="This value must be greater than the curb weight";
 "dk_vehicle_ptac_truck_and_trailer_info"="Depending on the type of trailer or the configuration of your vehicle, you can adjust the gross vehicle weight rating of the truck and trailer combination.";
+"dk_vehicle_quick_category_button_description"="If you don\'t know the characteristics of your vehicle, it will be setup automatically.";
+"dk_vehicle_quick_category_button_title"="I don\'t have time";
 "dk_vehicle_rename"="Rename";
 "dk_vehicle_rename_description"="Choose a name to identify your vehicle";
 "dk_vehicle_rename_title"="Rename this vehicle";
 "dk_vehicle_replace"="Replace";
+"dk_vehicle_replace_button"="Replace the vehicle";
 "dk_vehicle_replace_button"="Replace the vehicle";
 "dk_vehicle_select_bluetooth_description"="Select a Bluetooth device to start the trip recording. \n \n As soon as the phone connects to this device, the application starts analyzing your trip. \n \n You can only select one device for this vehicle.";
 "dk_vehicle_show"="Show";

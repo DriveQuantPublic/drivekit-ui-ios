@@ -31,7 +31,7 @@ class BeaconScannerSuccessVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         descriptionLabel.attributedText = step.description(viewModel: self.viewModel)
-        confirmButton.configure(text: step.confirmButtonText, style: .full)
+        confirmButton.configure(title: step.confirmButtonText, style: .full)
 
     }
     

@@ -49,7 +49,7 @@ class LocationPermissionViewController: PermissionViewController {
     private func updateView() {
         self.titleLabel.attributedText = "dk_perm_utils_permissions_location_title".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
 
-        self.actionButton.configure(text: "dk_perm_utils_permissions_location_button_ios".dkPermissionsUtilsLocalized(), style: .full)
+        self.actionButton.configure(title: "dk_perm_utils_permissions_location_button_ios".dkPermissionsUtilsLocalized(), style: .full)
 
         if #available(iOS 14.0, *) {
             updateViewIOS14()

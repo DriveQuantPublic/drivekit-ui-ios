@@ -25,7 +25,7 @@ class VehiclesViewController: UIViewController {
     func setupView() {
         self.title = "vehicle_intro_header".keyLocalized()
         self.navigationItem.hidesBackButton = true
-        addVehicleButton.configure(text: "vehicle_intro_button".keyLocalized(), style: .full)
+        addVehicleButton.configure(title: "vehicle_intro_button".keyLocalized(), style: .full)
         topLabel.attributedText = viewModel.getTitleAttributedText()
         descriptionLabel.attributedText = viewModel.getDescriptionAttibutedText()
         topLabel.isUserInteractionEnabled = true

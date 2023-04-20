@@ -23,8 +23,8 @@ final class OdometerVehicleDetailButtonsCell: UITableViewCell, Nibable {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.updateButton.configure(text: "dk_vehicle_odometer_history_update".dkVehicleLocalized(), style: .full)
-        self.referenceLink.configure(text: "dk_vehicle_odometer_histories_link".dkVehicleLocalized(), style: .empty)
+        self.updateButton.configure(title: "dk_vehicle_odometer_history_update".dkVehicleLocalized(), style: .full)
+        self.referenceLink.configure(title: "dk_vehicle_odometer_histories_link".dkVehicleLocalized(), style: .empty)
     }
 
     @IBAction private func selectUpdate(_ sender: Any) {

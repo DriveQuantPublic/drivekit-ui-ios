@@ -40,7 +40,7 @@ class SelectBluetoothVC: DKUIViewController {
     
     func setup() {
         contentLabel.attributedText = "dk_vehicle_select_bluetooth_description".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
-        confirmButton.configure(text: DKCommonLocalizable.confirm.text(), style: .full)
+        confirmButton.configure(title: DKCommonLocalizable.confirm.text(), style: .full)
         confirmButton.isEnabled = false
     }
     

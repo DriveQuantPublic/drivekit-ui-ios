@@ -31,7 +31,7 @@ class BeaconScannerNotConfiguredVC: UIViewController {
     }
     
     private func configureButton() {
-        cancelButton.configure(text: DKCommonLocalizable.cancel.text(), style: .full)
+        cancelButton.configure(title: DKCommonLocalizable.cancel.text(), style: .full)
     }
     
     @IBAction func startClicked(_ sender: Any) {

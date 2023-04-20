@@ -103,7 +103,6 @@
 "dk_vehicle_category_car_sport_title"="Sportwagen";
 "dk_vehicle_category_car_suv_description"="Diese Kategorie entspricht Crossover-Fahrzeugen oder Geländefahrzeugen mit Allradantrieb (4x4), deren Länge im Durchschnitt von 4,10 bis 5,20 m variiert.";
 "dk_vehicle_category_car_suv_title"="4x4, SUV, Crossover";
-"dk_vehicle_category_display_brands"="Fahren Sie fort, die Marke und das Modell Ihres Fahrzeugs auszuwählen";
 "dk_vehicle_category_truck_selection_title"="Was für einen Lkw fahren Sie?";
 "dk_vehicle_category_truck_straight"="Lkw-Fahrer";
 "dk_vehicle_category_truck_straight_2_axles"="Zweiachsiger gerader Lkw";
@@ -120,6 +119,8 @@
 "dk_vehicle_delete"="Löschen";
 "dk_vehicle_delete_confirm"="Bestätigen Sie die Entfernung des Fahrzeugs %@? Laufleistungstracking und Wartungsdaten gehen dauerhaft verloren.";
 "dk_vehicle_detail_back_edit_alert"="Die Fahrzeugdaten wurden geändert. Möchtest du sie speichern?";
+"dk_vehicle_detail_category_button_description"="Sie kennen die Marke, das Modell und die Eigenschaften Ihres Fahrzeugs";
+"dk_vehicle_detail_category_button_title"="Mein Fahrzeug finden";
 "dk_vehicle_detection_mode_title"="Automatischer Start:";
 "dk_vehicle_engine_description"="Motortyp?";
 "dk_vehicle_engine_diesel"="Diesel";
@@ -183,10 +184,13 @@
 "dk_vehicle_ptac_truck_and_trailer_alert_max"="Dieser Wert darf 44 Tonnen nicht überschreiten";
 "dk_vehicle_ptac_truck_and_trailer_alert_min"="Dieser Wert muss größer als das Leergewicht sein";
 "dk_vehicle_ptac_truck_and_trailer_info"="Abhängig von der Art des Anhängers oder der Konfiguration Ihres Fahrzeugs können Sie das zulässige Gesamtgewicht der Kombination aus Lkw und Anhänger anpassen.";
+"dk_vehicle_quick_category_button_description"="Wenn Sie die Merkmale Ihres Fahrzeugs nicht kennen, wird es automatisch eingerichtet.";
+"dk_vehicle_quick_category_button_title"="Ich habe keine Zeit";
 "dk_vehicle_rename"="Umbenennen";
 "dk_vehicle_rename_description"="Wählen Sie einen Namen, um Ihr Fahrzeug zu identifizieren.";
 "dk_vehicle_rename_title"="Benennen Sie dieses Fahrzeug um";
 "dk_vehicle_replace"="Ersetzen";
+"dk_vehicle_replace_button"="Das Fahrzeug ersetzen";
 "dk_vehicle_replace_button"="Das Fahrzeug ersetzen";
 "dk_vehicle_select_bluetooth_description"="Wählen Sie ein Bluetooth-Gerät aus, um die Tourenaufzeichnung zu starten. \n \n Sobald sich das Telefon mit diesem Gerät verbindet, beginnt die Anwendung mit der Analyse Ihrer Reise. \n \n Sie können für dieses Fahrzeug nur ein Gerät auswählen.";
 "dk_vehicle_show"="Anzeigen";

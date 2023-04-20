@@ -41,6 +41,7 @@
 "dk_common_mass"="Masse";
 "dk_common_mean_speed"="Gennemsnitshastighed";
 "dk_common_no"="Nej";
+"dk_common_no_data_yet"="Du har endnu ikke nogen data";
 "dk_common_no_pseudo_set"="For at dele din ranglisteplacering med de andre deltagere kan du vælge et brugernavn. Uden et brugernavn vises du som anonym.";
 "dk_common_no_trip"="Ingen rejse";
 "dk_common_ok"="Ok";

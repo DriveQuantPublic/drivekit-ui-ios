@@ -62,7 +62,7 @@ class MySynthesisViewController: DKUIViewController {
             embededIn: communityViewContainer
         )
 
-        drivingConditionsButton.configure(text: "dk_driverdata_drivingconditions_show".dkDriverDataLocalized(), style: .empty)
+        drivingConditionsButton.configure(title: "dk_driverdata_drivingconditions_show".dkDriverDataLocalized(), style: .empty)
 
         drivingConditionsButton.addTarget(self, action: #selector(drivingConditionsButtonTapped), for: .touchUpInside)
         

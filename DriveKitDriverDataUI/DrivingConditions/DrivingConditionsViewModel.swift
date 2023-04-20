@@ -130,7 +130,7 @@ class DrivingConditionsViewModel {
                 self.updating = false
                 self.update(resettingSelectedDate: true)
                 self.delegate?.didUpdateData()
-                self.parentDelegate?.didUpdate(selectedDate: dateSelectorViewModel.selectedDate)
+                self.parentDelegate?.didUpdate(selectedDate: self.dateSelectorViewModel.selectedDate)
             }
         }
     }

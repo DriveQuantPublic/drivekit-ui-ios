@@ -202,6 +202,10 @@ extension DKDiagnosisHelper {
         guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
         UIApplication.shared.open(settingsUrl)
     }
+    
+    public func openUrl(_ url: URL) {
+        UIApplication.shared.open(url)
+    }
 }
 
 // MARK: - Objective-C extension

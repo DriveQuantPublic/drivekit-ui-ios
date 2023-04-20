@@ -78,16 +78,10 @@ extension DiagnosisViewController: DiagnosisView {
     }
 
     func updateBatteryOptimizationUI() {
-        self.batteryOptimizationTitle.attributedText = self.viewModel.batteryOptimizationViewModel.title.dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.mainFontColor).build()
-        self.batteryOptimizationDescription.attributedText = self.viewModel.batteryOptimizationViewModel.description.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
-        if let action = self.viewModel.batteryOptimizationViewModel.action {
-            self.batteryOptimizationButton.attributedText = action.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.secondaryColor).build()
-            self.batteryOptimizationTouch.isEnabled = true
-            self.batteryOptimizationButton.isHidden = false
-        } else {
-            self.batteryOptimizationTouch.isEnabled = false
-            self.batteryOptimizationButton.isHidden = true
-        }
+        self.batteryOptimizationTitle.attributedText = self.viewModel.batteryOptimizationViewModel.title
+        self.batteryOptimizationDescription.attributedText = self.viewModel.batteryOptimizationViewModel.description
+        self.batteryOptimizationTouch.isEnabled = true
+        self.batteryOptimizationButton.isHidden = false
     }
 
     func updateContactUI() {

@@ -118,3 +118,7 @@
 "dk_perm_utils_permissions_text_button_nearby_devices_settings"="Ouvrir les réglages";
 "dk_perm_utils_permissions_text_button_notifications_settings"="Ouvrir les réglages";
 "dk_perm_utils_permissions_text_button_skip"="Passer et ne plus demander";
+"dk_perm_utils_energy_saver_title" = "Comment désactiver l’économie d’énergie ?";
+"dk_perm_utils_energy_saver_iOS_main" = "Si l\’application n\’enregistre pas vos trajets, nous vous invitons à vérifier les réglages de votre iPhone et à désactiver l’économiseur d\’énergie en suivant le guide accessible via %@.";
+"dk_perm_utils_energy_saver_iOS_link_text" = "ce lien";
+"dk_perm_utils_brand_apple" = "https://info.drivequant.com/fr/configurer-mon-telephone/apple";

@@ -152,7 +152,6 @@ class DiagnosisViewModel: NSObject {
         updateSensorsState()
 
         // Battery optimization.
-        self.batteryOptimizationViewModel.update()
         self.view?.updateBatteryOptimizationUI()
 
         // Contact & Logging.

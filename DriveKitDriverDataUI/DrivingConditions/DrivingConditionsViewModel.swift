@@ -165,18 +165,24 @@ class DrivingConditionsViewModel {
         )
         
         self.selectedDate = self.dateSelectorViewModel.selectedDate
-        if let currentContext = currentTimeline.allContext[date: self.dateSelectorViewModel.selectedDate] {
-            self.drivingConditionsSummaryViewModel.configure(
-                tripCount: currentContext.numberTripTotal,
-                totalDistance: currentContext.distance
-            )
-            let distanceByRoadContext = currentTimeline.distanceByRoadContext(for: self.dateSelectorViewModel.selectedDate)
-            self.distanceByRoadContext = distanceByRoadContext
-            if let drivingConditions = currentContext.drivingConditions {
-                self.drivingConditions = drivingConditions
-                self.configureContextCards(drivingConditions: drivingConditions, distanceByRoadContext: distanceByRoadContext)
-            }
+        guard
+            let currentContext = currentTimeline.allContext[date: self.dateSelectorViewModel.selectedDate],
+            let drivingConditions = currentContext.drivingConditions
+        else {
+            configureWithNoData()
+            return
         }
+        
+        self.drivingConditionsSummaryViewModel.configure(
+            tripCount: currentContext.numberTripTotal,
+            totalDistance: currentContext.distance
+        )
+        
+        let distanceByRoadContext = currentTimeline.distanceByRoadContext(for: self.dateSelectorViewModel.selectedDate)
+        self.distanceByRoadContext = distanceByRoadContext
+        
+        self.drivingConditions = drivingConditions
+        self.configureContextCards(drivingConditions: drivingConditions, distanceByRoadContext: distanceByRoadContext)
         self.hasData = true
     }
 

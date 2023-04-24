@@ -14,7 +14,7 @@ extension DrivingConditionsContextCard {
     func configureAsWeatherContext(
         with drivingConditions: DKDriverTimeline.DKDrivingConditions
     ) {
-        let allWeather = [DKWeather.sun, .cloud, .fog, .rain, .snow, .hail]
+        let allWeather = [DKWeather.sun, .cloud, .fog, .rain, .snow, .ice]
         totalDistance = drivingConditions.distanceByWeatherType.reduce(into: 0.0, { totalDistanceSoFar, item in
             totalDistanceSoFar += item.value
         })
@@ -53,7 +53,7 @@ extension DKWeather {
             return "dk_driverdata_drivingconditions_main_rain".dkDriverDataLocalized()
         case .snow:
             return "dk_driverdata_drivingconditions_main_snow".dkDriverDataLocalized()
-        case .hail:
+        case .ice:
             return "dk_driverdata_drivingconditions_main_ice".dkDriverDataLocalized()
         case .unknown:
             assertionFailure("Unknown weather not managed yet")
@@ -73,7 +73,7 @@ extension DKWeather {
             return "dk_driverdata_drivingconditions_rain".dkDriverDataLocalized()
         case .snow:
             return "dk_driverdata_drivingconditions_snow".dkDriverDataLocalized()
-        case .hail:
+        case .ice:
             return "dk_driverdata_drivingconditions_ice".dkDriverDataLocalized()
         case .unknown:
             assertionFailure("Unknown weather not managed yet")

@@ -9,7 +9,7 @@
 
 import UIKit
 
-public enum DKContextCardColor {
+public enum DKContextCardColor: CaseIterable {
     case level1, level2, level3, level4, level5, level6
 
     public var color: UIColor {

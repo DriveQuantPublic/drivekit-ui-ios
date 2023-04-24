@@ -381,11 +381,11 @@
 		6708ED7329DEFED2005652A3 /* ContextItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D6CD8729090B750055632B /* ContextItemCell.swift */; };
 		6708ED7429DF0216005652A3 /* DKContextCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67D6CD852908276F0055632B /* DKContextCardView.xib */; };
 		6708ED7529DF021E005652A3 /* ContextItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67D6CD8829090B750055632B /* ContextItemCell.xib */; };
-		6708ED7B29E98FB4005652A3 /* DayNightContextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED7A29E98FB4005652A3 /* DayNightContextViewModel.swift */; };
-		6708ED7D29E9BFC1005652A3 /* WeekContextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED7C29E9BFC1005652A3 /* WeekContextViewModel.swift */; };
-		6708ED7F29E9BFD2005652A3 /* TripDistanceContextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED7E29E9BFD2005652A3 /* TripDistanceContextViewModel.swift */; };
-		6708ED8129E9C000005652A3 /* WeatherContextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED8029E9C000005652A3 /* WeatherContextViewModel.swift */; };
-		6708ED8329E9C048005652A3 /* ConditionsRoadContextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED8229E9C048005652A3 /* ConditionsRoadContextViewModel.swift */; };
+		6708ED7B29E98FB4005652A3 /* DrivingConditionsContextCard+DayNight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED7A29E98FB4005652A3 /* DrivingConditionsContextCard+DayNight.swift */; };
+		6708ED7D29E9BFC1005652A3 /* DrivingConditionsContextCard+Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED7C29E9BFC1005652A3 /* DrivingConditionsContextCard+Week.swift */; };
+		6708ED7F29E9BFD2005652A3 /* DrivingConditionsContextCard+TripDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED7E29E9BFD2005652A3 /* DrivingConditionsContextCard+TripDistance.swift */; };
+		6708ED8129E9C000005652A3 /* DrivingConditionsContextCard+Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED8029E9C000005652A3 /* DrivingConditionsContextCard+Weather.swift */; };
+		6708ED8329E9C048005652A3 /* DrivingConditionsContextCard+RoadContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED8229E9C048005652A3 /* DrivingConditionsContextCard+RoadContext.swift */; };
 		6708ED8529ED5364005652A3 /* DKContextCardColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED8429ED5364005652A3 /* DKContextCardColor.swift */; };
 		6708ED8729EEE43A005652A3 /* DrivingConditionsContextCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED8629EEE43A005652A3 /* DrivingConditionsContextCard.swift */; };
 		671087D128072FBE004FA464 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671087CF28072FBE004FA464 /* UserInfoViewController.swift */; };
@@ -671,6 +671,7 @@
 		E3830FE429B62F6A001A9B25 /* CommunityStatsItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3830FE329B62F6A001A9B25 /* CommunityStatsItemViewModel.swift */; };
 		E3AC3CC329ED85BB0010FC95 /* VehiclePickerTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68F48241642D50071D74C /* VehiclePickerTextVC.swift */; };
 		E3B8309D294B1DCE00E31848 /* RoadContextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B8309C294B1DCE00E31848 /* RoadContextView.swift */; };
+		E3CDCFF729F68AA700ADAFD0 /* DrivingConditionsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CDCFF629F68AA700ADAFD0 /* DrivingConditionsConstants.swift */; };
 		E3F0213329A3B88400664CD2 /* MySynthesisViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F0213229A3B88400664CD2 /* MySynthesisViewModelDelegate.swift */; };
 		FA5F8336F7F9D6E9CBACE91B /* Pods_DriveKitDriverAchievementUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36173251B2A47392720E8B05 /* Pods_DriveKitDriverAchievementUI.framework */; };
 		FE2C04BD97A78F4B22CD7008 /* Pods_DriveKitDriverDataUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55652B494DACA2423EDB5A8E /* Pods_DriveKitDriverDataUI.framework */; };
@@ -1238,11 +1239,11 @@
 		6704DDE2266A17B200DAF326 /* ChallengeTripsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeTripsVC.xib; sourceTree = "<group>"; };
 		6708ED6F29DEF759005652A3 /* DKContextCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKContextCard.swift; sourceTree = "<group>"; };
 		6708ED7129DEFAE9005652A3 /* DKContextCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKContextCardView.swift; sourceTree = "<group>"; };
-		6708ED7A29E98FB4005652A3 /* DayNightContextViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayNightContextViewModel.swift; sourceTree = "<group>"; };
-		6708ED7C29E9BFC1005652A3 /* WeekContextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekContextViewModel.swift; sourceTree = "<group>"; };
-		6708ED7E29E9BFD2005652A3 /* TripDistanceContextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDistanceContextViewModel.swift; sourceTree = "<group>"; };
-		6708ED8029E9C000005652A3 /* WeatherContextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherContextViewModel.swift; sourceTree = "<group>"; };
-		6708ED8229E9C048005652A3 /* ConditionsRoadContextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionsRoadContextViewModel.swift; sourceTree = "<group>"; };
+		6708ED7A29E98FB4005652A3 /* DrivingConditionsContextCard+DayNight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DrivingConditionsContextCard+DayNight.swift"; sourceTree = "<group>"; };
+		6708ED7C29E9BFC1005652A3 /* DrivingConditionsContextCard+Week.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DrivingConditionsContextCard+Week.swift"; sourceTree = "<group>"; };
+		6708ED7E29E9BFD2005652A3 /* DrivingConditionsContextCard+TripDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DrivingConditionsContextCard+TripDistance.swift"; sourceTree = "<group>"; };
+		6708ED8029E9C000005652A3 /* DrivingConditionsContextCard+Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DrivingConditionsContextCard+Weather.swift"; sourceTree = "<group>"; };
+		6708ED8229E9C048005652A3 /* DrivingConditionsContextCard+RoadContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DrivingConditionsContextCard+RoadContext.swift"; sourceTree = "<group>"; };
 		6708ED8429ED5364005652A3 /* DKContextCardColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKContextCardColor.swift; sourceTree = "<group>"; };
 		6708ED8629EEE43A005652A3 /* DrivingConditionsContextCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingConditionsContextCard.swift; sourceTree = "<group>"; };
 		671087CF28072FBE004FA464 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
@@ -1547,6 +1548,7 @@
 		E3830FE129B5FE48001A9B25 /* CommunityStatsItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityStatsItemView.xib; sourceTree = "<group>"; };
 		E3830FE329B62F6A001A9B25 /* CommunityStatsItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityStatsItemViewModel.swift; sourceTree = "<group>"; };
 		E3B8309C294B1DCE00E31848 /* RoadContextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadContextView.swift; sourceTree = "<group>"; };
+		E3CDCFF629F68AA700ADAFD0 /* DrivingConditionsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingConditionsConstants.swift; sourceTree = "<group>"; };
 		E3F0212F29A3A90600664CD2 /* Array+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Date.swift"; sourceTree = "<group>"; };
 		E3F0213229A3B88400664CD2 /* MySynthesisViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySynthesisViewModelDelegate.swift; sourceTree = "<group>"; };
 		FA713DC763C119AEF200C7B2 /* Pods-DriveKitDriverDataTimelineUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverDataTimelineUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverDataTimelineUI/Pods-DriveKitDriverDataTimelineUI.debug.xcconfig"; sourceTree = "<group>"; };
@@ -2769,11 +2771,12 @@
 		6708ED7929E98FB4005652A3 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				6708ED7A29E98FB4005652A3 /* DayNightContextViewModel.swift */,
-				6708ED7C29E9BFC1005652A3 /* WeekContextViewModel.swift */,
-				6708ED7E29E9BFD2005652A3 /* TripDistanceContextViewModel.swift */,
-				6708ED8029E9C000005652A3 /* WeatherContextViewModel.swift */,
-				6708ED8229E9C048005652A3 /* ConditionsRoadContextViewModel.swift */,
+				6708ED8629EEE43A005652A3 /* DrivingConditionsContextCard.swift */,
+				6708ED7A29E98FB4005652A3 /* DrivingConditionsContextCard+DayNight.swift */,
+				6708ED7C29E9BFC1005652A3 /* DrivingConditionsContextCard+Week.swift */,
+				6708ED7E29E9BFD2005652A3 /* DrivingConditionsContextCard+TripDistance.swift */,
+				6708ED8029E9C000005652A3 /* DrivingConditionsContextCard+Weather.swift */,
+				6708ED8229E9C048005652A3 /* DrivingConditionsContextCard+RoadContext.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -3634,7 +3637,6 @@
 				6708ED7929E98FB4005652A3 /* ViewModels */,
 				E37BF22F29E01C33001B597D /* DrivingConditionsContextViewController.swift */,
 				E37BF23029E01C33001B597D /* DKContextKind.swift */,
-				6708ED8629EEE43A005652A3 /* DrivingConditionsContextCard.swift */,
 			);
 			path = DrivingConditionsContext;
 			sourceTree = "<group>";
@@ -3658,6 +3660,7 @@
 				E382079929DD7CC800CB85D6 /* DrivingConditionsViewController.xib */,
 				E382079C29DD7CFC00CB85D6 /* DrivingConditionsViewModel.swift */,
 				E382079E29DD7D7100CB85D6 /* DrivingConditionsViewModelDelegate.swift */,
+				E3CDCFF629F68AA700ADAFD0 /* DrivingConditionsConstants.swift */,
 			);
 			path = DrivingConditions;
 			sourceTree = "<group>";
@@ -5056,9 +5059,9 @@
 				67F1988A29B268ED0060EF24 /* MySynthesisGaugeViewModel.swift in Sources */,
 				638AC0832620A32500602B52 /* DriverDataSynthesisCardsUI.swift in Sources */,
 				67CFE9A725F645EA004D0AE1 /* SpeedingPageViewModel.swift in Sources */,
-				6708ED8129E9C000005652A3 /* WeatherContextViewModel.swift in Sources */,
+				6708ED8129E9C000005652A3 /* DrivingConditionsContextCard+Weather.swift in Sources */,
 				6391E0F92607F57000A168D4 /* SynthesisCardViewModel.swift in Sources */,
-				6708ED7B29E98FB4005652A3 /* DayNightContextViewModel.swift in Sources */,
+				6708ED7B29E98FB4005652A3 /* DrivingConditionsContextCard+DayNight.swift in Sources */,
 				E382079D29DD7CFC00CB85D6 /* DrivingConditionsViewModel.swift in Sources */,
 				E302B63129B23315004CFA0C /* ScoreLevelLegendRowView.swift in Sources */,
 				3F6B67622580ECD4008B3BA7 /* TransportationModeVC.swift in Sources */,
@@ -5080,7 +5083,7 @@
 				638AC038261F8FFB00602B52 /* SynthesisCardsView.swift in Sources */,
 				A34238672361A2430001E15D /* HistoryPageViewModel.swift in Sources */,
 				A30F4F1823D5DA14009A37C2 /* SynthesisPageVC.swift in Sources */,
-				6708ED8329E9C048005652A3 /* ConditionsRoadContextViewModel.swift in Sources */,
+				6708ED8329E9C048005652A3 /* DrivingConditionsContextCard+RoadContext.swift in Sources */,
 				A342386A2361A2430001E15D /* MapItem.swift in Sources */,
 				3F3E72FC256F9B71002B5E30 /* DKTripDetailViewModel.swift in Sources */,
 				E32BC45D29A38C7B006BE5F8 /* DKDriverTimelineExtension.swift in Sources */,
@@ -5116,11 +5119,12 @@
 				E302B62729B1E67E004CFA0C /* ScoreLevelLegendViewModel.swift in Sources */,
 				A34238682361A2430001E15D /* DistractionPageViewModel.swift in Sources */,
 				A34238632361A2430001E15D /* TripDetailViewModel.swift in Sources */,
-				6708ED7F29E9BFD2005652A3 /* TripDistanceContextViewModel.swift in Sources */,
+				6708ED7F29E9BFD2005652A3 /* DrivingConditionsContextCard+TripDistance.swift in Sources */,
 				67CFE9F925FA1385004D0AE1 /* SpeedingPageItemView.swift in Sources */,
 				67301DC42625C3BF006B0432 /* TripListVC+DKTripList.swift in Sources */,
-				6708ED7D29E9BFC1005652A3 /* WeekContextViewModel.swift in Sources */,
+				6708ED7D29E9BFC1005652A3 /* DrivingConditionsContextCard+Week.swift in Sources */,
 				E302B61B29AE0E7A004CFA0C /* MySynthesisScoreCardViewModel.swift in Sources */,
+				E3CDCFF729F68AA700ADAFD0 /* DrivingConditionsConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

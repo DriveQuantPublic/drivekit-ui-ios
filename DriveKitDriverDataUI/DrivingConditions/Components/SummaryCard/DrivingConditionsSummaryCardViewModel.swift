@@ -70,7 +70,10 @@ class DrivingConditionsSummaryCardViewModel {
     
     var totalDistanceText: NSAttributedString? {
         if hasNoData { return nil }
-        return totalDistance.formatKilometerDistance(appendingUnit: false)
+        return totalDistance.formatKilometerDistance(
+            appendingUnit: false,
+            minDistanceToRemoveFractions: DrivingConditionsConstants.minDistanceToRemoveFractions(forTotalDistance: totalDistance)
+        )
             .dkAttributedString()
             .color(.primaryColor)
             .font(dkFont: .secondary, style: .highlightNormal)

@@ -182,27 +182,12 @@ class DrivingConditionsViewModel {
         self.distanceByRoadContext = distanceByRoadContext
         
         self.drivingConditions = drivingConditions
-        self.configureContextCards(drivingConditions: drivingConditions, distanceByRoadContext: distanceByRoadContext)
+        for contextKind in configuredContexts {
+            if let viewModel = self.contextViewModels[contextKind] as? DrivingConditionsContextCard {
+                self.configureContextViewModel(viewModel, of: contextKind)
+            }
+        }
         self.hasData = true
-    }
-
-    private func configureContextCards(drivingConditions: DKDriverTimeline.DKDrivingConditions,
-                                       distanceByRoadContext: [DKRoadContext: Double]) {
-        if let weekViewModel = self.contextViewModels[.week] as? WeekContextViewModel {
-            weekViewModel.configure(with: drivingConditions)
-        }
-        if let dayNightViewModel = self.contextViewModels[.dayNight] as? DayNightContextViewModel {
-            dayNightViewModel.configure(with: drivingConditions)
-        }
-        if let tripDistanceViewModel = self.contextViewModels[.tripDistance] as? TripDistanceContextViewModel {
-            tripDistanceViewModel.configure(with: drivingConditions)
-        }
-        if let weatherViewModel = self.contextViewModels[.weather] as? WeatherContextViewModel {
-            weatherViewModel.configure(with: drivingConditions)
-        }
-        if let roadViewModel = self.contextViewModels[.road] as? ConditionsRoadContextViewModel {
-            roadViewModel.configure(with: distanceByRoadContext)
-        }
     }
     
     private func configureWithNoData() {
@@ -241,36 +226,42 @@ class DrivingConditionsViewModel {
     }
 
     func getContextViewModel(for kind: DKContextKind) -> DKContextCard? {
-        let viewModel: DrivingConditionsContextCard
-        switch kind {
-            case .road:
-                let roadViewModel = self.contextViewModel(for: kind) {
-                    ConditionsRoadContextViewModel()
-                }
-                roadViewModel.configure(with: distanceByRoadContext)
-                return self.contextViewModels[.road]
-            case .tripDistance:
-                viewModel = self.contextViewModel(for: kind) {
-                    TripDistanceContextViewModel()
-                }
-            case .week:
-                viewModel = self.contextViewModel(for: kind) {
-                    WeekContextViewModel()
-                }
-            case .weather:
-                viewModel = self.contextViewModel(for: kind) {
-                    WeatherContextViewModel()
-                }
-            case .dayNight:
-                viewModel = self.contextViewModel(for: kind) {
-                    DayNightContextViewModel()
-                }
-        }
-        guard let drivingConditions else {
+        if kind != .road && drivingConditions == nil {
             return nil
         }
-        viewModel.configure(with: drivingConditions)
-        return self.contextViewModels[kind]
+        
+        let viewModel = self.contextViewModel(for: kind) {
+            DrivingConditionsContextCard()
+        }
+        
+        self.configureContextViewModel(viewModel, of: kind)
+        
+        return viewModel
+    }
+     
+    private func configureContextViewModel(_ contextViewModel: DrivingConditionsContextCard, of kind: DKContextKind) {
+        if kind == .road {
+            contextViewModel.configureAsRoadContext(with: distanceByRoadContext)
+            return
+        }
+        
+        guard let drivingConditions else {
+            return
+        }
+        
+        switch kind {
+            case .tripDistance:
+                contextViewModel.configureAsTripDistanceContext(with: drivingConditions)
+            case .week:
+                contextViewModel.configureAsWeekContext(with: drivingConditions)
+            case .weather:
+                contextViewModel.configureAsWeatherContext(with: drivingConditions)
+            case .dayNight:
+                contextViewModel.configureAsDayNightContext(with: drivingConditions)
+            case .road:
+                preconditionFailure("Should be managed before unwrapping drivingContitions")
+        }
+        
     }
     
     private func contextViewModel<T: DKContextCard>(for contextKind: DKContextKind, _ createVM: () -> T) -> T {

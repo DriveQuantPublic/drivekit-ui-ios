@@ -13,9 +13,9 @@
 "dk_common_delete"="Löschen";
 "dk_common_distance"="Entfernung";
 "dk_common_distraction"="Ablenkung";
-"dk_common_driving_context_city"="Stadtverkehr";
+"dk_common_driving_context_city"="Städtisch";
 "dk_common_driving_context_city_dense"="dichtem Stadtverkehr";
-"dk_common_driving_context_external"="außerstädtischer Umgebung";
+"dk_common_driving_context_external"="Extra städtlig";
 "dk_common_driving_context_fastlane"="Autobahnen";
 "dk_common_duration"="Dauer";
 "dk_common_ecodriving"="Eco-Driving";

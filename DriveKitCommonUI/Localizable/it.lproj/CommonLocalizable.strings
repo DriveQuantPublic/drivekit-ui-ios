@@ -13,10 +13,10 @@
 "dk_common_delete"="Cancellare";
 "dk_common_distance"="Distanza";
 "dk_common_distraction"="Distrazione";
-"dk_common_driving_context_city"="traffico urbano";
-"dk_common_driving_context_city_dense"="traffico urbano intenso";
-"dk_common_driving_context_external"="ambiente extraurbano";
-"dk_common_driving_context_fastlane"="Strade a scorrimento veloce";
+"dk_common_driving_context_city"="urbano";
+"dk_common_driving_context_city_dense"="urbano denso";
+"dk_common_driving_context_external"="extra urbano";
+"dk_common_driving_context_fastlane"="corsie veloci";
 "dk_common_duration"="Durata";
 "dk_common_ecodriving"="Guida ecologica";
 "dk_common_ecodriving_accel_good"="Buona accelerazione";

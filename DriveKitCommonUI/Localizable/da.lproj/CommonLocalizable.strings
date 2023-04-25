@@ -13,10 +13,10 @@
 "dk_common_delete"="Slet";
 "dk_common_distance"="Afstand";
 "dk_common_distraction"="Distraktion";
-"dk_common_driving_context_city"="Bytrafik";
-"dk_common_driving_context_city_dense"="Tæt bytrafik";
-"dk_common_driving_context_external"="Meget tæt bymiljø";
-"dk_common_driving_context_fastlane"="Motorvej";
+"dk_common_driving_context_city"="by";
+"dk_common_driving_context_city_dense"="tæt bymiljø";
+"dk_common_driving_context_external"="tæt bytrafik";
+"dk_common_driving_context_fastlane"="motorvej";
 "dk_common_duration"="Varighed";
 "dk_common_ecodriving"="Øko-kørsel";
 "dk_common_ecodriving_accel_good"="God acceleration";

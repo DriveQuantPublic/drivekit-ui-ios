@@ -63,7 +63,7 @@
             <constraints>
                 <constraint firstAttribute="top" secondItem="IwE-S9-ifF" secondAttribute="top" id="7g8-mt-KYX"/>
                 <constraint firstAttribute="trailing" secondItem="IwE-S9-ifF" secondAttribute="trailing" id="9s0-uD-yMJ"/>
-                <constraint firstAttribute="bottom" secondItem="IwE-S9-ifF" secondAttribute="bottom" id="Kwn-nY-n6C"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="IwE-S9-ifF" secondAttribute="bottom" id="Kwn-nY-n6C"/>
                 <constraint firstAttribute="leading" secondItem="IwE-S9-ifF" secondAttribute="leading" id="vTA-uO-hye"/>
             </constraints>
             <connections>

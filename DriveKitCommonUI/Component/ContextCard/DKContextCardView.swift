@@ -44,8 +44,22 @@ public class DKContextCardView: UIView, UICollectionViewDataSource, UICollection
             self.contextBarView.configure(viewModel: viewModel)
             var expectedCellHeight = 26.0
             let twoLinesCellHeight = 42.0
+            let threeLinesCellHeight = 63.0
+            let font = DKStyles.normalText.style.applyTo(font: .primary)
+            let fontAttributes = [NSAttributedString.Key.font: font]
+            
+            var hasTwoLineTitle = false
+            for item in viewModel.items {
+                let size = (item.title as NSString).size(withAttributes: fontAttributes)
+                let half = 0.5
+                if size.width >= self.bounds.width * half {
+                    hasTwoLineTitle = true
+                    expectedCellHeight = twoLinesCellHeight
+                }
+            }
+            
             for item in viewModel.items where item.subtitle != nil {
-                expectedCellHeight = twoLinesCellHeight
+                expectedCellHeight = hasTwoLineTitle ? threeLinesCellHeight : twoLinesCellHeight
                 break
             }
             collectionViewCellHeight = expectedCellHeight

@@ -61,6 +61,7 @@
 "dk_driverdata_drivingconditions_snow"="Temps neigeux";
 "dk_driverdata_drivingconditions_sun"="Temps clair";
 "dk_driverdata_drivingconditions_title"="Conditions de conduite";
+"dk_driverdata_drivingconditions_title_empty_data"="Vous n\'avez pas enregistré de trajet";
 "dk_driverdata_drivingconditions_weekdays"="Semaine";
 "dk_driverdata_drivingconditions_weekend"="Week-end";
 "dk_driverdata_ecodriving_score"="Score d\'éco-conduite";

@@ -61,6 +61,7 @@
 "dk_driverdata_drivingconditions_snow"="Snowy";
 "dk_driverdata_drivingconditions_sun"="Sunny";
 "dk_driverdata_drivingconditions_title"="Driving conditions";
+"dk_driverdata_drivingconditions_title_empty_data"="You have not recorded any trips";
 "dk_driverdata_drivingconditions_weekdays"="Week";
 "dk_driverdata_drivingconditions_weekend"="Weekend";
 "dk_driverdata_ecodriving_score"="Eco-driving score";

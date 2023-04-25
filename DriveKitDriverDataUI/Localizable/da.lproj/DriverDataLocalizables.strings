@@ -61,6 +61,7 @@
 "dk_driverdata_drivingconditions_snow"="Sne";
 "dk_driverdata_drivingconditions_sun"="Sun";
 "dk_driverdata_drivingconditions_title"="Kørselsforhold";
+"dk_driverdata_drivingconditions_title_empty_data"="Du har ikke registreret en rejse";
 "dk_driverdata_drivingconditions_weekdays"="Uge";
 "dk_driverdata_drivingconditions_weekend"="Weekend";
 "dk_driverdata_ecodriving_score"="Øko-kørselsscore";

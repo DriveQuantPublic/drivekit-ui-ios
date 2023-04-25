@@ -61,6 +61,7 @@
 "dk_driverdata_drivingconditions_snow"="Schnee";
 "dk_driverdata_drivingconditions_sun"="Sonne";
 "dk_driverdata_drivingconditions_title"="Bedingungen für das Fahren";
+"dk_driverdata_drivingconditions_title_empty_data"="Sie haben keine Fahrt aufgezeichnet";
 "dk_driverdata_drivingconditions_weekdays"="Woche";
 "dk_driverdata_drivingconditions_weekend"="Weekend";
 "dk_driverdata_ecodriving_score"="Bewertung für umweltfreundliches Fahren";

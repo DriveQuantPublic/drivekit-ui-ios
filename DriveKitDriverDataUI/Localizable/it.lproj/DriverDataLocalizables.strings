@@ -61,6 +61,7 @@
 "dk_driverdata_drivingconditions_snow"="Neve";
 "dk_driverdata_drivingconditions_sun"="Il sole";
 "dk_driverdata_drivingconditions_title"="Condizioni di guida";
+"dk_driverdata_drivingconditions_title_empty_data"="Non avete registrato un viaggio";
 "dk_driverdata_drivingconditions_weekdays"="Settimana";
 "dk_driverdata_drivingconditions_weekend"="Weekend";
 "dk_driverdata_ecodriving_score"="Punteggio di guida ecologica";

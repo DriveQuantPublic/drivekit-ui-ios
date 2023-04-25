@@ -6,9 +6,9 @@
 //  Copyright © 2023 DriveQuant. All rights reserved.
 //
 
-import UIKit
 import DriveKitCommonUI
 import DriveKitDBTripAccessModule
+import UIKit
 
 extension DrivingConditionsContextCard {
     func configureAsTripDistanceContext(
@@ -16,22 +16,23 @@ extension DrivingConditionsContextCard {
     ) {
         let allCategories = [DKDrivingCategory.lessThan2Km, .from2To10Km, .from10To50Km, .from50To100Km, .moreThan100Km]
         
-        totalDistance = drivingConditions.distanceByCategory.reduce(into: 0.0, { totalDistanceSoFar, item in
-            totalDistanceSoFar += item.value
+        totalItemsValue = drivingConditions.tripCountByCategory.reduce(into: 0.0, { totalTripCountSoFar, item in
+            totalTripCountSoFar += Double(item.value)
         })
         
         let tempItems: [DKDrivingCategory: DrivingConditionsContextItem] = allCategories.enumerated().reduce(into: [:]) { contextItemsSoFar, categoryItem in
-            if let distance = drivingConditions.distanceByCategory[categoryItem.element], distance > 0 {
+            if let tripCount = drivingConditions.tripCountByCategory[categoryItem.element], tripCount > 0 {
                 contextItemsSoFar[categoryItem.element] = .init(
                     title: categoryItem.element.itemTitle,
-                    distance: distance,
-                    totalDistance: totalDistance,
-                    baseColor: DKContextCardColor.allCases[categoryItem.offset]
+                    itemValue: Double(tripCount),
+                    totalItemsValue: totalItemsValue,
+                    baseColor: DKContextCardColor.allCases[categoryItem.offset],
+                    unitKind: .trip
                 )
             }
         }
         
-        self.title = self.titleForItemWithMaxDistance(
+        self.title = self.titleForItemWithMaxValue(
             amongst: tempItems,
             titleForKey: { $0.mainTitle }
         )

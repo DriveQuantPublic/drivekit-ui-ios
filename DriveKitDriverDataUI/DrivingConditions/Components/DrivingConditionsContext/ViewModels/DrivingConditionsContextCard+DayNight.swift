@@ -6,9 +6,9 @@
 //  Copyright © 2023 DriveQuant. All rights reserved.
 //
 
-import UIKit
 import DriveKitCommonUI
 import DriveKitDBTripAccessModule
+import UIKit
 
 extension DrivingConditionsContextCard {
     func configureAsDayNightContext(
@@ -16,20 +16,20 @@ extension DrivingConditionsContextCard {
     ) {
         var dayItem: DrivingConditionsContextItem?
         var nightItem: DrivingConditionsContextItem?
-        totalDistance = drivingConditions.dayDistance + drivingConditions.nightDistance
+        totalItemsValue = drivingConditions.dayDistance + drivingConditions.nightDistance
         if drivingConditions.dayDistance > 0 {
             dayItem = DrivingConditionsContextItem(
                 title: "dk_driverdata_drivingconditions_day".dkDriverDataLocalized(),
-                distance: drivingConditions.dayDistance,
-                totalDistance: totalDistance,
+                itemValue: drivingConditions.dayDistance,
+                totalItemsValue: totalItemsValue,
                 baseColor: .level1
             )
         }
         if drivingConditions.nightDistance > 0 {
             nightItem = DrivingConditionsContextItem(
                 title: "dk_driverdata_drivingconditions_night".dkDriverDataLocalized(),
-                distance: drivingConditions.nightDistance,
-                totalDistance: totalDistance,
+                itemValue: drivingConditions.nightDistance,
+                totalItemsValue: totalItemsValue,
                 baseColor: .level2
             )
         }

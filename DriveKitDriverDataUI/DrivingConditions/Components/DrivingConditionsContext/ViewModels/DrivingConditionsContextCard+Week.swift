@@ -6,9 +6,9 @@
 //  Copyright © 2023 DriveQuant. All rights reserved.
 //
 
-import UIKit
 import DriveKitCommonUI
 import DriveKitDBTripAccessModule
+import UIKit
 
 extension DrivingConditionsContextCard {
     func configureAsWeekContext(
@@ -16,20 +16,20 @@ extension DrivingConditionsContextCard {
     ) {
         var weekdaysItem: DrivingConditionsContextItem?
         var weekendItem: DrivingConditionsContextItem?
-        totalDistance = drivingConditions.weekdaysDistance + drivingConditions.weekendDistance
+        totalItemsValue = drivingConditions.weekdaysDistance + drivingConditions.weekendDistance
         if drivingConditions.weekdaysDistance > 0 {
             weekdaysItem = DrivingConditionsContextItem(
                 title: "dk_driverdata_drivingconditions_weekdays".dkDriverDataLocalized(),
-                distance: drivingConditions.weekdaysDistance,
-                totalDistance: totalDistance,
+                itemValue: drivingConditions.weekdaysDistance,
+                totalItemsValue: totalItemsValue,
                 baseColor: .level1
             )
         }
         if drivingConditions.weekendDistance > 0 {
             weekendItem = DrivingConditionsContextItem(
                 title: "dk_driverdata_drivingconditions_weekend".dkDriverDataLocalized(),
-                distance: drivingConditions.weekendDistance,
-                totalDistance: totalDistance,
+                itemValue: drivingConditions.weekendDistance,
+                totalItemsValue: totalItemsValue,
                 baseColor: .level2
             )
         }

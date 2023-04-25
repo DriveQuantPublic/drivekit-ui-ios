@@ -6,9 +6,9 @@
 //  Copyright © 2023 DriveQuant. All rights reserved.
 //
 
-import UIKit
 import DriveKitCommonUI
 import DriveKitDBTripAccessModule
+import UIKit
 
 extension DrivingConditionsContextCard {
     func configureAsRoadContext(
@@ -16,7 +16,7 @@ extension DrivingConditionsContextCard {
     ) {
         let allRoadContext = [DKRoadContext.heavyUrbanTraffic, .city, .suburban, .expressways]
         
-        totalDistance = distanceByRoadContext.reduce(into: 0.0, { totalDistanceSoFar, item in
+        totalItemsValue = distanceByRoadContext.reduce(into: 0.0, { totalDistanceSoFar, item in
             totalDistanceSoFar += item.value
         })
         
@@ -24,8 +24,8 @@ extension DrivingConditionsContextCard {
             if let distance = distanceByRoadContext[roadItem.element], distance > 0 {
                 contextItemsSoFar[roadItem.element] = .init(
                     title: roadItem.element.itemTitle,
-                    distance: distance,
-                    totalDistance: totalDistance,
+                    itemValue: distance,
+                    totalItemsValue: totalItemsValue,
                     baseColor: DKContextCardColor.allCases[roadItem.offset]
                 )
             }
@@ -40,7 +40,7 @@ extension DrivingConditionsContextCard {
         var expressWayDistance: Double = 0
         var suburbanDistance: Double = 0
         for item in items {
-            let distance = item.value.distance
+            let distance = item.value.itemValue
             switch item.key {
             case .heavyUrbanTraffic,
                  .city:

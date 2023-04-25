@@ -6,16 +6,16 @@
 //  Copyright © 2023 DriveQuant. All rights reserved.
 //
 
-import UIKit
 import DriveKitCommonUI
 import DriveKitDBTripAccessModule
+import UIKit
 
 extension DrivingConditionsContextCard {
     func configureAsWeatherContext(
         with drivingConditions: DKDriverTimeline.DKDrivingConditions
     ) {
         let allWeather = [DKWeather.sun, .cloud, .fog, .rain, .snow, .ice]
-        totalDistance = drivingConditions.distanceByWeatherType.reduce(into: 0.0, { totalDistanceSoFar, item in
+        totalItemsValue = drivingConditions.distanceByWeatherType.reduce(into: 0.0, { totalDistanceSoFar, item in
             totalDistanceSoFar += item.value
         })
         
@@ -23,14 +23,14 @@ extension DrivingConditionsContextCard {
             if let distance = drivingConditions.distanceByWeatherType[weatherItem.element], distance > 0 {
                 contextItemsSoFar[weatherItem.element] = .init(
                     title: weatherItem.element.itemTitle,
-                    distance: distance,
-                    totalDistance: totalDistance,
+                    itemValue: distance,
+                    totalItemsValue: totalItemsValue,
                     baseColor: DKContextCardColor.allCases[weatherItem.offset]
                 )
             }
         }
         
-        self.title = self.titleForItemWithMaxDistance(
+        self.title = self.titleForItemWithMaxValue(
             amongst: tempItems,
             titleForKey: { $0.mainTitle }
         )

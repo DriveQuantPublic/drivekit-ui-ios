@@ -6,21 +6,26 @@
 //  Copyright © 2023 DriveQuant. All rights reserved.
 //
 
-import Foundation
 import DriveKitCommonUI
 import DriveKitDBTripAccessModule
+import Foundation
+
+enum UnitKind {
+    case trip
+    case kilometer
+}
 
 class DrivingConditionsContextCard {
     var contextItems: [DrivingConditionsContextItem]
     var viewModelDidUpdate: (() -> Void)?
     var title: String
-    var totalDistance: Double
+    var totalItemsValue: Double
     
     init() {
         self.contextItems = []
         self.viewModelDidUpdate = nil
         self.title = ""
-        self.totalDistance = 0
+        self.totalItemsValue = 0
     }
 }
 
@@ -33,7 +38,7 @@ extension DrivingConditionsContextCard: DKContextCard {
         guard let contextItem = context as? DrivingConditionsContextItem else {
             return 0
         }
-        return contextItem.distance / totalDistance
+        return contextItem.itemValue / totalItemsValue
     }
     
     func contextCardDidUpdate(_ completionHandler: (() -> Void)?) {
@@ -61,13 +66,13 @@ extension DrivingConditionsContextCard: DKContextCard {
         }
     }
     
-    func titleForItemWithMaxDistance<Key: Hashable>(amongst items: [Key: DrivingConditionsContextItem], titleForKey: (Key) -> String) -> String {
+    func titleForItemWithMaxValue<Key: Hashable>(amongst items: [Key: DrivingConditionsContextItem], titleForKey: (Key) -> String) -> String {
         let (_, key) = items.reduce(
-            into: (maxDistance: 0.0, key: Key?.none)
-        ) { maxDistanceAndKeySoFar, dictItem in
-            if dictItem.value.distance >= maxDistanceAndKeySoFar.maxDistance {
-                maxDistanceAndKeySoFar.maxDistance = dictItem.value.distance
-                maxDistanceAndKeySoFar.key = dictItem.key
+            into: (maxValue: 0.0, key: Key?.none)
+        ) { maxValueAndKeySoFar, dictItem in
+            if dictItem.value.itemValue >= maxValueAndKeySoFar.maxValue {
+                maxValueAndKeySoFar.maxValue = dictItem.value.itemValue
+                maxValueAndKeySoFar.key = dictItem.key
             }
         }
         
@@ -77,17 +82,30 @@ extension DrivingConditionsContextCard: DKContextCard {
 
 struct DrivingConditionsContextItem: DKContextItem {
     var title: String
-    var distance: Double
-    var totalDistance: Double
+    var itemValue: Double
+    var totalItemsValue: Double
     var baseColor: DKContextCardColor
+    var unitKind: UnitKind = .kilometer
 
     var color: UIColor {
         baseColor.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
     }
     
     var subtitle: String? {
-        self.distance.formatKilometerDistance(
-            minDistanceToRemoveFractions: DrivingConditionsConstants.minDistanceToRemoveFractions(forTotalDistance: totalDistance)
-        )
+        
+        switch unitKind {
+        case .trip:
+            let unitText: String
+            if itemValue > 1 {
+                unitText = DKCommonLocalizable.tripPlural.text()
+            } else {
+                unitText = DKCommonLocalizable.tripSingular.text()
+            }
+            return Int(self.itemValue).formatWithThousandSeparator() + " " + unitText
+        case .kilometer:
+            return self.itemValue.formatKilometerDistance(
+                minDistanceToRemoveFractions: DrivingConditionsConstants.minDistanceToRemoveFractions(forTotalDistance: totalItemsValue)
+            )
+        }
     }
 }

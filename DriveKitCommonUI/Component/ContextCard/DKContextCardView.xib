@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,30 +14,23 @@
             <rect key="frame" x="0.0" y="0.0" width="390" height="210"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mc-ZW-Pmc" customClass="TopAlignedLabel" customModule="DriveKitCommonUI" customModuleProvider="target">
-                    <rect key="frame" x="15" y="62" width="360" height="32"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="32" id="iI3-1S-KGY"/>
-                    </constraints>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mc-ZW-Pmc" customClass="TopAlignedLabel" customModule="DriveKitCommonUI" customModuleProvider="target">
+                    <rect key="frame" x="15" y="62.000000000000007" width="360" height="20.333333333333336"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TUU-C1-i6r" customClass="ContextBarView" customModule="DriveKitCommonUI" customModuleProvider="target">
-                    <rect key="frame" x="14" y="103" width="362" height="30"/>
+                <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="TUU-C1-i6r" customClass="ContextBarView" customModule="DriveKitCommonUI" customModuleProvider="target">
+                    <rect key="frame" x="14" y="91.333333333333329" width="362" height="30"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="MCm-7J-mb1"/>
                     </constraints>
                 </view>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="vS5-x0-O60">
-                    <rect key="frame" x="14" y="148" width="362" height="52"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" verticalCompressionResistancePriority="1000" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="vS5-x0-O60">
+                    <rect key="frame" x="14" y="136.33333333333334" width="362" height="24.666666666666657"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="52" id="MWz-G4-lNK"/>
-                    </constraints>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="HIR-2z-q0h">
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="0.0" id="HIR-2z-q0h">
                         <size key="itemSize" width="146" height="26"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -51,12 +43,12 @@
                 </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1mc-ZW-Pmc" secondAttribute="trailing" constant="15" id="8zE-Nh-scE"/>
                 <constraint firstItem="vS5-x0-O60" firstAttribute="top" secondItem="TUU-C1-i6r" secondAttribute="bottom" constant="15" id="Isa-nz-pMH"/>
                 <constraint firstItem="TUU-C1-i6r" firstAttribute="top" secondItem="1mc-ZW-Pmc" secondAttribute="bottom" constant="9" id="SyR-tm-qqV"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="vS5-x0-O60" secondAttribute="bottom" constant="-24" id="cYA-GF-hDb"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="vS5-x0-O60" secondAttribute="bottom" constant="15" id="cYA-GF-hDb"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vS5-x0-O60" secondAttribute="trailing" constant="14" id="d6P-kl-HZJ"/>
                 <constraint firstItem="1mc-ZW-Pmc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="kQR-vG-3tl"/>
                 <constraint firstItem="TUU-C1-i6r" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="14" id="oFn-Gz-ys7"/>
@@ -66,7 +58,6 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="collectionViewHeightConstraint" destination="MWz-G4-lNK" id="Sh6-Rq-W0w"/>
                 <outlet property="contextBarView" destination="TUU-C1-i6r" id="RCe-O2-B1m"/>
                 <outlet property="itemsCollectionView" destination="vS5-x0-O60" id="iVx-k4-nDu"/>
                 <outlet property="titleLabel" destination="1mc-ZW-Pmc" id="CJr-NK-Vib"/>
@@ -74,9 +65,4 @@
             <point key="canvasLocation" x="27.69230769230769" y="17.772511848341232"/>
         </view>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

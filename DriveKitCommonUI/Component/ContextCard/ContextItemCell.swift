@@ -11,6 +11,7 @@ import UIKit
 
 class ContextItemCell: UICollectionViewCell {
     @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var subtitleLabel: UILabel!
     @IBOutlet private weak var circleView: UIView!
 
     override func awakeFromNib() {
@@ -18,19 +19,19 @@ class ContextItemCell: UICollectionViewCell {
     }
 
     func update(with context: DKContextItem) {
-        self.circleView.backgroundColor = context.color
-        self.titleLabel.attributedText = context.titleAttributedString
-    }
-}
+        self.titleLabel.font = DKStyles.normalText.style.applyTo(font: .primary)
 
-extension DKContextItem {
-    var titleAttributedString: NSMutableAttributedString {
-        if let subtitle = subtitle {
-            let subtitleString = subtitle.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
-            let titleString = title.appending("\n").dkAttributedString().font(dkFont: .primary, style: .smallText).color(.primaryColor).buildWithArgs(subtitleString)
-            return titleString
+        if let subTitle = context.subtitle {
+            self.titleLabel.textColor = DKUIColors.primaryColor.color
+            self.subtitleLabel.font = DKStyles.normalText.style.applyTo(font: .primary)
+            self.subtitleLabel.textColor = DKUIColors.complementaryFontColor.color
+            self.subtitleLabel.text = subTitle
         } else {
-            return title.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+            self.titleLabel.textColor = DKUIColors.complementaryFontColor.color
+            self.subtitleLabel?.removeFromSuperview()
         }
+        
+        self.circleView.backgroundColor = context.color
+        self.titleLabel.text = context.title
     }
 }

@@ -14,7 +14,6 @@ public class DKContextCardView: UIView, UICollectionViewDataSource, UICollection
     @IBOutlet private weak var contextBarView: ContextBarView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var itemsCollectionView: UICollectionView!
-    @IBOutlet private weak var collectionViewHeightConstraint: NSLayoutConstraint!
     private var viewModel: DKContextCard?
 
     public static func createView() -> DKContextCardView {
@@ -33,7 +32,7 @@ public class DKContextCardView: UIView, UICollectionViewDataSource, UICollection
     }
 
     func setupView() {
-        self.titleLabel.font = DKStyles.smallText.style.applyTo(font: .primary)
+        self.titleLabel.font = DKStyles.headLine2.style.applyTo(font: .primary)
         self.titleLabel.textColor = DKUIColors.mainFontColor.color
         self.itemsCollectionView.register(UINib(nibName: "ContextItemCell", bundle: .driveKitCommonUIBundle), forCellWithReuseIdentifier: "ContextItemCell")
         self.refreshView()
@@ -51,9 +50,6 @@ public class DKContextCardView: UIView, UICollectionViewDataSource, UICollection
             }
             collectionViewCellHeight = expectedCellHeight
         }
-        self.collectionViewHeightConstraint.constant =
-         self.collectionViewCellHeight *
-        CGFloat(Int(ceil(Double(viewModel?.items.count ?? 1) / numberOfColumns)))
         self.itemsCollectionView.reloadData()
     }
 

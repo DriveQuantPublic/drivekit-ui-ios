@@ -47,7 +47,7 @@
                     <rect key="frame" x="0.0" y="201" width="393" height="617"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="klr-93-qyQ" userLabel="ContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="617"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="646"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xpa-AX-kUu" userLabel="DrivingConditionsSummaryContainer">
                                     <rect key="frame" x="8" y="0.0" width="377" height="85"/>
@@ -57,16 +57,15 @@
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="85" id="d4G-Ho-Vau"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vno-hC-RNm" userLabel="ContextPagingContainer">
-                                    <rect key="frame" x="8" y="105" width="377" height="238"/>
+                                <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="vno-hC-RNm" userLabel="ContextPagingContainer">
+                                    <rect key="frame" x="8" y="105" width="377" height="270"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="238" id="4Aj-F7-0kc"/>
-                                        <constraint firstAttribute="height" constant="238" id="hZJ-40-NJw"/>
+                                        <constraint firstAttribute="height" constant="270" id="hZJ-40-NJw"/>
                                     </constraints>
                                 </view>
                                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="z4P-r6-mQf">
-                                    <rect key="frame" x="20" y="348" width="353" height="29"/>
+                                    <rect key="frame" x="20" y="380" width="353" height="26"/>
                                 </pageControl>
                             </subviews>
                             <constraints>

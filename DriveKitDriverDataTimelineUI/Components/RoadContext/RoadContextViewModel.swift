@@ -201,10 +201,10 @@ enum TimelineRoadContext: Codable, Hashable {
 }
 
 extension TimelineRoadContext: DKContextItem {
-    private static let heavyUrbanTrafficColor = UIColor(hex: 0x036A82).tinted(usingHueOf: DKUIColors.primaryColor.color)
-    private static let suburbanColor = UIColor(hex: 0x699DAD).tinted(usingHueOf: DKUIColors.primaryColor.color)
-    private static let cityColor = UIColor(hex: 0x3B8497).tinted(usingHueOf: DKUIColors.primaryColor.color)
-    private static let expresswaysColor = UIColor(hex: 0x8FB7C2).tinted(usingHueOf: DKUIColors.primaryColor.color)
+    private static let heavyUrbanTrafficColor = DKContextCardColor.level1.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
+    private static let suburbanColor = DKContextCardColor.level2.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
+    private static let cityColor = DKContextCardColor.level3.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
+    private static let expresswaysColor = DKContextCardColor.level4.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
 
     var color: UIColor {
         switch self {
@@ -233,6 +233,6 @@ extension TimelineRoadContext: DKContextItem {
     }
 
     var subtitle: String? {
-            return nil
+        return nil
     }
 }

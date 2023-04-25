@@ -52,7 +52,8 @@ public class DKContextCardView: UIView, UICollectionViewDataSource, UICollection
             for item in viewModel.items {
                 let size = (item.title as NSString).size(withAttributes: fontAttributes)
                 let half = 0.5
-                if size.width >= self.bounds.width * half {
+                let marginAndDots = 130.0
+                if size.width >= (self.bounds.width - marginAndDots) * half {
                     hasTwoLineTitle = true
                     expectedCellHeight = twoLinesCellHeight
                 }

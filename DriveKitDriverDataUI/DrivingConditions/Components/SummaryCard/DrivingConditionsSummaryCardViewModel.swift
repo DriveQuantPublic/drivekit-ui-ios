@@ -64,7 +64,7 @@ class DrivingConditionsSummaryCardViewModel {
         return unitText
             .dkAttributedString()
             .color(.complementaryFontColor)
-            .font(dkFont: .primary, style: .smallText)
+            .font(dkFont: .primary, style: .normalText)
             .build()
     }
     
@@ -90,7 +90,7 @@ class DrivingConditionsSummaryCardViewModel {
             .dkDriverDataLocalized()
             .dkAttributedString()
             .color(.complementaryFontColor)
-            .font(dkFont: .primary, style: .smallText)
+            .font(dkFont: .primary, style: .normalText)
             .build()
     }
 }

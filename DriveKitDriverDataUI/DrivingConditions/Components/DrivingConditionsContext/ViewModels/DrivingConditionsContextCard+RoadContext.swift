@@ -12,16 +12,24 @@ import UIKit
 
 extension DrivingConditionsContextCard {
     func configureAsRoadContext(
-        with distanceByRoadContext: [DKRoadContext: Double]
+        with distanceByRoadContext: [DKRoadContext: Double],
+        realTotalDistance: Double
     ) {
         let allRoadContext = [DKRoadContext.heavyUrbanTraffic, .city, .suburban, .expressways]
         
-        totalItemsValue = distanceByRoadContext.reduce(into: 0.0, { totalDistanceSoFar, item in
-            totalDistanceSoFar += item.value
+        totalItemsValue = realTotalDistance
+        
+        let trafficJamDistance = realTotalDistance - distanceByRoadContext.reduce(into: 0.0, { totalDistanceForOtherContextsSoFar, item in
+            totalDistanceForOtherContextsSoFar += item.value
         })
         
         let tempItems: [DKRoadContext: DrivingConditionsContextItem] = allRoadContext.enumerated().reduce(into: [:]) { contextItemsSoFar, roadItem in
-            if let distance = distanceByRoadContext[roadItem.element], distance > 0 {
+            var distance = distanceByRoadContext[roadItem.element] ?? 0.0
+            if roadItem.element == .heavyUrbanTraffic {
+                distance += trafficJamDistance
+            }
+            
+            if distance > 0 {
                 contextItemsSoFar[roadItem.element] = .init(
                     title: roadItem.element.itemTitle,
                     itemValue: distance,

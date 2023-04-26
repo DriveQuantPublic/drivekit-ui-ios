@@ -34,6 +34,7 @@ class DrivingConditionsViewModel {
     private(set) var hasData: Bool = false
     private var drivingConditions: DKDriverTimeline.DKDrivingConditions?
     private var distanceByRoadContext: [DKRoadContext: Double] = [:]
+    private var totalDistance: Double = 0.0
 
     init(
         configuredContexts: [DKContextKind] = [],
@@ -173,6 +174,7 @@ class DrivingConditionsViewModel {
             return
         }
         
+        totalDistance = currentContext.distance
         self.drivingConditionsSummaryViewModel.configure(
             tripCount: currentContext.numberTripTotal,
             totalDistance: currentContext.distance
@@ -210,6 +212,9 @@ class DrivingConditionsViewModel {
             )
         }
         
+        self.totalDistance = 0.0
+        self.distanceByRoadContext = [:]
+        self.drivingConditions = nil
         self.drivingConditionsSummaryViewModel.configureWithNoData()
         self.hasData = false
     }
@@ -241,7 +246,10 @@ class DrivingConditionsViewModel {
      
     private func configureContextViewModel(_ contextViewModel: DrivingConditionsContextCard, of kind: DKContextKind) {
         if kind == .road {
-            contextViewModel.configureAsRoadContext(with: distanceByRoadContext)
+            contextViewModel.configureAsRoadContext(
+                with: distanceByRoadContext,
+                realTotalDistance: totalDistance
+            )
             return
         }
         

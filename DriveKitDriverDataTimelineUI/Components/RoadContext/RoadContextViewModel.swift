@@ -202,8 +202,8 @@ enum TimelineRoadContext: Codable, Hashable {
 
 extension TimelineRoadContext: DKContextItem {
     private static let heavyUrbanTrafficColor = DKContextCardColor.level1.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
-    private static let suburbanColor = DKContextCardColor.level2.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
-    private static let cityColor = DKContextCardColor.level3.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
+    private static let cityColor = DKContextCardColor.level2.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
+    private static let suburbanColor = DKContextCardColor.level3.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
     private static let expresswaysColor = DKContextCardColor.level4.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
 
     var color: UIColor {

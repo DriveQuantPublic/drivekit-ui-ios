@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  DiagnosisViewController.swift
 //  DriveKitPermissionsUtilsUI
@@ -78,23 +77,21 @@ extension DiagnosisViewController: DiagnosisView {
     }
 
     func updateBatteryOptimizationUI() {
-        self.batteryOptimizationTitle.attributedText = self.viewModel.batteryOptimizationViewModel.title.dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.mainFontColor).build()
-        self.batteryOptimizationDescription.attributedText = self.viewModel.batteryOptimizationViewModel.description.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
-        if let action = self.viewModel.batteryOptimizationViewModel.action {
-            self.batteryOptimizationButton.attributedText = action.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.secondaryColor).build()
-            self.batteryOptimizationTouch.isEnabled = true
-            self.batteryOptimizationButton.isHidden = false
-        } else {
-            self.batteryOptimizationTouch.isEnabled = false
-            self.batteryOptimizationButton.isHidden = true
-        }
+        self.batteryOptimizationTitle.attributedText = self.viewModel.batteryOptimizationViewModel.title
+        self.batteryOptimizationDescription.attributedText = self.viewModel.batteryOptimizationViewModel.description
+        self.batteryOptimizationTouch.isEnabled = true
+        self.batteryOptimizationButton.isHidden = false
     }
 
     func updateContactUI() {
         if let contactViewModel = self.viewModel.contactViewModel {
             self.contactTitle.attributedText = contactViewModel.title.dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.mainFontColor).build()
-            self.contactDescription.attributedText = contactViewModel.description.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
-            self.contactButton.configure(text: contactViewModel.buttonTitle, style: .full)
+            self.contactDescription.attributedText = contactViewModel.description
+                .dkAttributedString()
+                .font(dkFont: .primary, style: .smallText)
+                .color(.complementaryFontColor)
+                .build()
+            self.contactButton.configure(title: contactViewModel.buttonTitle, style: .full)
             self.contactContainer.isHidden = false
         } else {
             self.contactContainer.isHidden = true

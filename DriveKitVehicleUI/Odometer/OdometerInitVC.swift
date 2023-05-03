@@ -44,7 +44,7 @@ class OdometerInitVC: DKUIViewController {
         let cancelButton = UIBarButtonItem(title: DKCommonLocalizable.cancel.text(), style: .plain, target: self, action: #selector(self.cancelSelector))
         cancelButton.tintColor = DKUIColors.navBarElementColor.color
         navigationItem.rightBarButtonItem = cancelButton
-        validateButton.configure(text: DKCommonLocalizable.validate.text(), style: .full)
+        validateButton.configure(title: DKCommonLocalizable.validate.text(), style: .full)
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)

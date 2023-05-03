@@ -12,18 +12,11 @@ import UIKit
 
 class RoadContextView: UIView {
     private var viewModel: RoadContextViewModel!
-    private var roadContextDataView: RoadContextDataView!
+    private var roadContextDataView: DKContextCardView!
     private var emptyRoadContextView: EmptyRoadContextView!
     
     override init(frame: CGRect) {
-        guard let roadContextDataView = Bundle.driverDataTimelineUIBundle?.loadNibNamed(
-            "RoadContextDataView",
-            owner: nil,
-            options: nil
-        )?.first as? RoadContextDataView else {
-            preconditionFailure("Can't find bundle or nib for RoadContextDataView")
-        }
-        self.roadContextDataView = roadContextDataView
+        self.roadContextDataView = DKContextCardView.createView()
         
         guard let emptyRoadContextView = Bundle.driverDataTimelineUIBundle?.loadNibNamed(
             "EmptyRoadContextView",
@@ -54,7 +47,7 @@ class RoadContextView: UIView {
         } else {
             emptyRoadContextView.configure(
                 withTitle: viewModel.title,
-                description: viewModel.emptyDataDescription
+                description: viewModel.getEmptyDataDescription()
             )
             self.embedSubview(emptyRoadContextView)
         }

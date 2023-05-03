@@ -40,8 +40,8 @@ class CrashFeedbackStep1VC: CrashFeedbackBaseVC {
     }
 
     func setupView() {
-        self.noCrashButton.configure(text: "dk_crash_detection_feedback_step1_option_no_crash".dkTripAnalysisLocalized(), style: .rounded(color: greenColor))
-        self.criticalCrashButton.configure(text: "dk_crash_detection_feedback_step1_option_critical_accident".dkTripAnalysisLocalized(), style: .rounded(color: redColor))
+        self.noCrashButton.configure(title: "dk_crash_detection_feedback_step1_option_no_crash".dkTripAnalysisLocalized(), style: .rounded(color: greenColor))
+        self.criticalCrashButton.configure(title: "dk_crash_detection_feedback_step1_option_critical_accident".dkTripAnalysisLocalized(), style: .rounded(color: redColor))
         initProgressRing(threshold: 60, progress: 60)
         setupShadowRing()
         insideCircleView.layer.masksToBounds = true

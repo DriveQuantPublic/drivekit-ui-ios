@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VehiclePickerTextVC" customModule="DriveKitVehicleUI" customModuleProvider="target">
             <connections>
+                <outlet property="confirmButtonHeightConstraint" destination="JzH-Hm-srK" id="iCm-Lb-q8H"/>
                 <outlet property="textConfirmButton" destination="aAL-ui-VkG" id="eSQ-Ln-NBL"/>
                 <outlet property="textContinueButton" destination="7Cz-fs-Xgx" id="66B-Nw-Pyf"/>
                 <outlet property="textDescriptionLabel" destination="EA2-2r-yKq" id="Osi-j8-HoG"/>
@@ -26,7 +27,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9aF-wB-hd6" userLabel="Content View">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="585"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="689"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ixQ-dX-CKH">
                                     <rect key="frame" x="82" y="16" width="250" height="250"/>
@@ -46,33 +47,30 @@ Vous êtes définitivement accro aux trails.
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAL-ui-VkG">
-                                    <rect key="frame" x="16" y="452" width="382" height="44"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="aAL-ui-VkG">
+                                    <rect key="frame" x="16" y="452" width="382" height="96"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="44" id="JzH-Hm-srK"/>
+                                        <constraint firstAttribute="height" constant="96" id="JzH-Hm-srK"/>
                                     </constraints>
                                     <state key="normal" title="Button"/>
-                                    <connections>
-                                        <action selector="didConfirmText:" destination="-1" eventType="touchUpInside" id="uOJ-fe-RTs"/>
-                                    </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="7Cz-fs-Xgx">
-                                    <rect key="frame" x="30" y="521" width="354" height="44"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="7Cz-fs-Xgx">
+                                    <rect key="frame" x="16" y="573" width="382" height="96"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="44" id="7OD-vq-Z7k"/>
+                                        <constraint firstAttribute="height" constant="96" id="7OD-vq-Z7k"/>
                                     </constraints>
                                     <state key="normal" title="Button"/>
                                     <connections>
-                                        <action selector="didContinueText:" destination="-1" eventType="touchUpInside" id="rJh-kG-k17"/>
+                                        <action selector="didConfirmText:" destination="-1" eventType="touchUpInside" id="GIM-B1-WtL"/>
                                     </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="7Cz-fs-Xgx" firstAttribute="leading" secondItem="9aF-wB-hd6" secondAttribute="leading" constant="30" id="551-kS-wjO"/>
+                                <constraint firstItem="7Cz-fs-Xgx" firstAttribute="leading" secondItem="9aF-wB-hd6" secondAttribute="leading" constant="16" id="551-kS-wjO"/>
                                 <constraint firstItem="aAL-ui-VkG" firstAttribute="top" secondItem="EA2-2r-yKq" secondAttribute="bottom" constant="32" id="5y9-qN-f4t"/>
                                 <constraint firstAttribute="trailing" secondItem="EA2-2r-yKq" secondAttribute="trailing" constant="16" id="J4d-RG-sJd"/>
-                                <constraint firstAttribute="trailing" secondItem="7Cz-fs-Xgx" secondAttribute="trailing" constant="30" id="JSc-8j-gfr"/>
+                                <constraint firstAttribute="trailing" secondItem="7Cz-fs-Xgx" secondAttribute="trailing" constant="16" id="JSc-8j-gfr"/>
                                 <constraint firstItem="aAL-ui-VkG" firstAttribute="leading" secondItem="9aF-wB-hd6" secondAttribute="leading" constant="16" id="NRX-fr-7af"/>
                                 <constraint firstItem="EA2-2r-yKq" firstAttribute="leading" secondItem="9aF-wB-hd6" secondAttribute="leading" constant="16" id="Rw0-jG-c8e"/>
                                 <constraint firstAttribute="bottom" secondItem="7Cz-fs-Xgx" secondAttribute="bottom" constant="20" symbolic="YES" id="UWL-It-rf7"/>
@@ -93,6 +91,7 @@ Vous êtes définitivement accro aux trails.
                     </constraints>
                 </scrollView>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="gJq-dS-0Xq"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="UMZ-95-ZDn" firstAttribute="leading" secondItem="gJq-dS-0Xq" secondAttribute="leading" id="GY1-62-tgS"/>
@@ -102,7 +101,6 @@ Vous êtes définitivement accro aux trails.
                 <constraint firstItem="UMZ-95-ZDn" firstAttribute="trailing" secondItem="gJq-dS-0Xq" secondAttribute="trailing" id="dvU-LF-5tp"/>
                 <constraint firstAttribute="width" secondItem="9aF-wB-hd6" secondAttribute="width" id="eaU-ad-Bx4"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="gJq-dS-0Xq"/>
             <point key="canvasLocation" x="134.78260869565219" y="119.86607142857142"/>
         </view>
     </objects>

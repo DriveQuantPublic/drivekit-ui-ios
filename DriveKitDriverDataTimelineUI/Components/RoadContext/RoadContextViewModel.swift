@@ -54,54 +54,14 @@ enum RoadContextType {
 class RoadContextViewModel {
     private var roadContextType: RoadContextType = .emptyData
     private var totalDistanceForDisplayedContexts: Double = 0
-    private static let backgroundColor = UIColor(hex: 0xFAFAFA)
-    private static let heavyUrbanTrafficColor = UIColor(hex: 0x036A82).tinted(usingHueOf: DKUIColors.primaryColor.color)
-    private static let suburbanColor = UIColor(hex: 0x699DAD).tinted(usingHueOf: DKUIColors.primaryColor.color)
-    private static let cityColor = UIColor(hex: 0x3B8497).tinted(usingHueOf: DKUIColors.primaryColor.color)
-    private static let expresswaysColor = UIColor(hex: 0x8FB7C2).tinted(usingHueOf: DKUIColors.primaryColor.color)
     weak var delegate: RoadContextViewModelDelegate?
 
     var hasData: Bool {
         roadContextType.hasData
     }
-    
-    var itemsToDraw: [(context: TimelineRoadContext, percent: Double)] = []
 
-    var title: String {
-        switch self.roadContextType {
-            case let .data(_, totalDistanceForAllContexts),
-            let .noData(totalDistanceForAllContexts):
-            return String(
-                format: "dk_timeline_road_context_title".dkDriverDataTimelineLocalized(),
-                totalDistanceForAllContexts.formatKilometerDistance(
-                    minDistanceToRemoveFractions: 10
-                )
-            )
-            case .emptyData:
-                return "dk_timeline_road_context_title_empty_data".dkDriverDataTimelineLocalized()
-            case .noDataSafety:
-                return "dk_timeline_road_context_title_no_data".dkDriverDataTimelineLocalized()
-            case .noDataEcodriving:
-                return "dk_timeline_road_context_title_no_data".dkDriverDataTimelineLocalized()
-        }
-    }
-    
-    var emptyDataDescription: String {
-        switch roadContextType {
-            case .data:
-                assertionFailure("We should not display emptyDataDescription when we have data")
-                return ""
-            case .emptyData:
-                return "dk_timeline_road_context_description_empty_data".dkDriverDataTimelineLocalized()
-            case .noData:
-                return "dk_timeline_road_context_no_context_description".dkDriverDataTimelineLocalized()
-            case .noDataSafety:
-                return "dk_timeline_road_context_description_no_data_safety".dkDriverDataTimelineLocalized()
-            case .noDataEcodriving:
-                return "dk_timeline_road_context_description_no_data_ecodriving".dkDriverDataTimelineLocalized()
-        }
-    }
-    
+    private var roadContextItems: [TimelineRoadContext] = []
+
     func configure(
         with selectedScore: DKScoreType,
         timeline: DKRawTimeline?,
@@ -146,60 +106,71 @@ class RoadContextViewModel {
         ) { distance, element in
             distance += element.value
         }
-        self.updateItemsToDraw()
+        self.updateItems()
         self.delegate?.roadContextViewModelDidUpdate()
     }
 
-    private func updateItemsToDraw() {
-        var result: [(context: TimelineRoadContext, percent: Double)] = []
+    private func updateItems() {
+        var result: [TimelineRoadContext] = []
         for context: TimelineRoadContext in [.heavyUrbanTraffic, .city, .suburban, .expressways] {
-            let contextPercent = getPercent(context: context)
+            
+            let contextPercent = self.getContextPercent(context)
             if contextPercent > 0 {
-                result.append((context, contextPercent))
+                result.append(context)
             }
         }
-        self.itemsToDraw = result
-    }
-    
-    func getActiveContextNumber() -> Int {
-        var total: Int = 0
-        for (_, dist) in roadContextType.distanceByContext where dist > 0 {
-            total += 1
-        }
-        return total
+        self.roadContextItems = result
     }
 
-    func getPercent(context: TimelineRoadContext) -> Double {
-        guard let contextDistance = roadContextType.distanceByContext[context] else {
+    func getContextPercent(_ context: some DKContextItem) -> Double {
+        guard let roadContext = context as? TimelineRoadContext,
+                let contextDistance = roadContextType.distanceByContext[roadContext] else {
             return 0
         }
         return contextDistance / totalDistanceForDisplayedContexts
+    }    
+}
+extension RoadContextViewModel: DKContextCard {
+    var items: [DriveKitCommonUI.DKContextItem] {
+        return roadContextItems
     }
-
-    static func getRoadContextColor(_ context: TimelineRoadContext) -> UIColor {
-        switch context {
-        case .suburban:
-            return RoadContextViewModel.suburbanColor
-        case .expressways:
-            return RoadContextViewModel.expresswaysColor
-        case .heavyUrbanTraffic:
-            return RoadContextViewModel.heavyUrbanTrafficColor
-        case .city:
-            return RoadContextViewModel.cityColor
+    
+    var title: String {
+        switch self.roadContextType {
+            case let .data(_, totalDistanceForAllContexts),
+            let .noData(totalDistanceForAllContexts):
+            return String(
+                format: "dk_timeline_road_context_title".dkDriverDataTimelineLocalized(),
+                totalDistanceForAllContexts.formatKilometerDistance(
+                    minDistanceToRemoveFractions: 10
+                )
+            )
+            case .emptyData:
+                return DKCommonLocalizable.noDataYet.text()
+            case .noDataSafety:
+                return "dk_timeline_road_context_title_no_data".dkDriverDataTimelineLocalized()
+            case .noDataEcodriving:
+                return "dk_timeline_road_context_title_no_data".dkDriverDataTimelineLocalized()
         }
     }
-
-    static func getRoadContextTitle(_ context: TimelineRoadContext) -> String {
-        switch context {
-        case .suburban:
-            return "dk_timeline_road_context_suburban".dkDriverDataTimelineLocalized()
-        case .expressways:
-            return "dk_timeline_road_context_expressways".dkDriverDataTimelineLocalized()
-        case .heavyUrbanTraffic:
-            return "dk_timeline_road_context_heavy_urban_traffic".dkDriverDataTimelineLocalized()
-        case .city:
-            return "dk_timeline_road_context_city".dkDriverDataTimelineLocalized()
+    
+    func getEmptyDataDescription() -> String {
+        switch roadContextType {
+            case .data:
+                assertionFailure("We should not display emptyDataDescription when we have data")
+                return ""
+            case .emptyData:
+                return "dk_timeline_road_context_description_empty_data".dkDriverDataTimelineLocalized()
+            case .noData:
+                return "dk_timeline_road_context_no_context_description".dkDriverDataTimelineLocalized()
+            case .noDataSafety:
+                return "dk_timeline_road_context_description_no_data_safety".dkDriverDataTimelineLocalized()
+            case .noDataEcodriving:
+                return "dk_timeline_road_context_description_no_data_ecodriving".dkDriverDataTimelineLocalized()
         }
+    }
+    func contextCardDidUpdate(_ completionHandler: (() -> Void)?) {
+        // not needed
     }
 }
 
@@ -207,7 +178,7 @@ protocol RoadContextViewModelDelegate: AnyObject {
     func roadContextViewModelDidUpdate()
 }
 
-enum TimelineRoadContext: Int, Codable {
+enum TimelineRoadContext: Codable, Hashable {
     case heavyUrbanTraffic
     case city
     case suburban
@@ -226,5 +197,42 @@ enum TimelineRoadContext: Int, Codable {
         default:
             return nil
         }
+    }
+}
+
+extension TimelineRoadContext: DKContextItem {
+    private static let heavyUrbanTrafficColor = DKContextCardColor.level1.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
+    private static let cityColor = DKContextCardColor.level2.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
+    private static let suburbanColor = DKContextCardColor.level3.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
+    private static let expresswaysColor = DKContextCardColor.level4.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
+
+    var color: UIColor {
+        switch self {
+        case .suburban:
+            return TimelineRoadContext.suburbanColor
+        case .expressways:
+            return TimelineRoadContext.expresswaysColor
+        case .heavyUrbanTraffic:
+            return TimelineRoadContext.heavyUrbanTrafficColor
+        case .city:
+            return TimelineRoadContext.cityColor
+        }
+    }
+
+    var title: String {
+        switch self {
+        case .suburban:
+            return "dk_timeline_road_context_suburban".dkDriverDataTimelineLocalized()
+        case .expressways:
+            return "dk_timeline_road_context_expressways".dkDriverDataTimelineLocalized()
+        case .heavyUrbanTraffic:
+            return "dk_timeline_road_context_heavy_urban_traffic".dkDriverDataTimelineLocalized()
+        case .city:
+            return "dk_timeline_road_context_city".dkDriverDataTimelineLocalized()
+        }
+    }
+
+    var subtitle: String? {
+        return nil
     }
 }

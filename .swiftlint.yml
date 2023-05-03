@@ -2,6 +2,7 @@ disabled_rules: # rule identifiers to exclude from running
   - trailing_whitespace
   - implicit_getter
   - switch_case_alignment
+  - blanket_disable_command
 opt_in_rules: # some rules are only opt-in
   - anyobject_protocol
   - closure_end_indentation

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,11 +12,11 @@
             <connections>
                 <outlet property="communityViewContainer" destination="UhZ-CC-Ejn" id="Qsy-A0-HaH"/>
                 <outlet property="dateSelectorContainer" destination="pL9-Qc-07Y" id="MMO-Ud-EMN"/>
+                <outlet property="drivingConditionsButton" destination="VdD-2S-fMh" id="paC-fK-eJl"/>
                 <outlet property="periodSelectorContainer" destination="nYH-LR-AQm" id="yXU-8s-Mk1"/>
                 <outlet property="scoreSelectorContainer" destination="yUu-rM-5eU" id="w9k-eb-Scx"/>
                 <outlet property="scoreViewContainer" destination="9yM-rr-Xai" id="SrI-u3-lFV"/>
                 <outlet property="scrollView" destination="alR-kl-p1Q" id="H6O-qP-2V3"/>
-                <outlet property="showDetailButton" destination="VdD-2S-fMh" id="paC-fK-eJl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -50,7 +49,7 @@
                         <constraint firstAttribute="height" constant="38" id="aAx-IF-Q9i"/>
                     </constraints>
                 </view>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="alR-kl-p1Q">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alR-kl-p1Q">
                     <rect key="frame" x="0.0" y="265" width="393" height="553"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YXg-z3-FCb" userLabel="ContentView">

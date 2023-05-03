@@ -44,7 +44,7 @@ class AlternativeTripDetailInfoVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.changeTransportationModeButton.configure(text: "dk_driverdata_change_transportation_mode".dkDriverDataLocalized(), style: .full)
+        self.changeTransportationModeButton.configure(title: "dk_driverdata_change_transportation_mode".dkDriverDataLocalized(), style: .full)
         
         self.detectedTransportationModeTitle.attributedText = "dk_driverdata_detected_transportation_mode".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
         self.declaredTransportationModeTitle.attributedText = "dk_driverdata_declared_transportation_mode".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()

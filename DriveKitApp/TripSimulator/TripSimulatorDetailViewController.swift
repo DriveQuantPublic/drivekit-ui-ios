@@ -78,7 +78,7 @@ class TripSimulatorDetailViewController: UIViewController {
         self.velocityTitleLabel.textColor = complementaryFontColor
         self.autoStopTitleLabel.textColor = complementaryFontColor
         self.updateViewContent()
-        stopButton.configure(text: "trip_simulator_stop_button".keyLocalized(), style: .full)
+        stopButton.configure(title: "trip_simulator_stop_button".keyLocalized(), style: .full)
         configureBackButton()
         self.velocityGraphView.setupChart()
     }
@@ -96,9 +96,9 @@ class TripSimulatorDetailViewController: UIViewController {
             self.autoStopValueLabel.isHidden = true
         }
         if viewModel.isSimulating {
-            stopButton.configure(text: "trip_simulator_stop_button".keyLocalized(), style: .full)
+            stopButton.configure(title: "trip_simulator_stop_button".keyLocalized(), style: .full)
         } else {
-            stopButton.configure(text: "trip_simulator_restart_button".keyLocalized(), style: .full)
+            stopButton.configure(title: "trip_simulator_restart_button".keyLocalized(), style: .full)
         }
     }
 

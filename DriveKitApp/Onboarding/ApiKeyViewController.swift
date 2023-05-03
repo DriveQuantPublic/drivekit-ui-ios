@@ -36,11 +36,11 @@ class ApiKeyViewController: UIViewController {
         topLabel.font = DKStyles.headLine1.style.applyTo(font: .primary)
         self.title = "welcome_header".keyLocalized()
         if viewModel.shouldDisplayErrorText() {
-            bottomButton.configure(text: "button_see_documentation".keyLocalized(), style: .full)
+            bottomButton.configure(title: "button_see_documentation".keyLocalized(), style: .full)
             topLabel.text = viewModel.getApiKeyErrorTitle()
             descriptionLabel.attributedText = viewModel.getApiKeyErrorAttibutedText()
         } else {
-            bottomButton.configure(text: "welcome_ok_button".keyLocalized(), style: .full)
+            bottomButton.configure(title: "welcome_ok_button".keyLocalized(), style: .full)
             topLabel.text = "welcome_ok_title".keyLocalized()
             descriptionLabel.attributedText = viewModel.getContentAttibutedText()
         }

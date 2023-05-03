@@ -31,7 +31,7 @@ final public class DKFilterPickerVC: DKUIViewController {
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.cancelButton.configure(text: DKCommonLocalizable.cancel.text(), style: .full)
+        self.cancelButton.configure(title: DKCommonLocalizable.cancel.text(), style: .full)
     }
     
     @IBAction func cancelAction(_ sender: Any) {

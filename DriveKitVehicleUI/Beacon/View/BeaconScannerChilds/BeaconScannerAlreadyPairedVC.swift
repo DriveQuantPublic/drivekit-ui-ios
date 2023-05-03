@@ -34,8 +34,8 @@ class BeaconScannerAlreadyPairedVC: UIViewController {
     }
     
     private func configureButton() {
-        cancelButton.configure(text: DKCommonLocalizable.cancel.text(), style: .full)
-        confirmButton.configure(text: DKCommonLocalizable.confirm.text(), style: .full)
+        cancelButton.configure(title: DKCommonLocalizable.cancel.text(), style: .full)
+        confirmButton.configure(title: DKCommonLocalizable.confirm.text(), style: .full)
     }
     
     private func configureDescription() {

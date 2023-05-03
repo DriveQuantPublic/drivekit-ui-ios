@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  BatteryOptimizationViewModel.swift
 //  DriveKitPermissionsUtilsUI
@@ -7,32 +6,39 @@
 //  Copyright © 2020 DriveQuant. All rights reserved.
 //
 
-import Foundation
 import DriveKitCoreModule
+import Foundation
 
 class BatteryOptimizationViewModel {
-    let title: String
-    var description: String = ""
-    var action: String?
-
-    init() {
-        self.title = "dk_perm_utils_app_diag_battery_title".dkPermissionsUtilsLocalized()
-        update()
+    var title: NSAttributedString {
+        "dk_perm_utils_energy_saver_title".dkPermissionsUtilsLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .headLine1)
+            .color(.mainFontColor)
+            .build()
+    }
+    
+    var description: NSAttributedString {
+        "dk_perm_utils_energy_saver_iOS_main".dkPermissionsUtilsLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .smallText)
+            .color(.complementaryFontColor)
+            .buildWithArgs(
+                "dk_perm_utils_energy_saver_iOS_link_text".dkPermissionsUtilsLocalized()
+                    .dkAttributedString()
+                    .font(dkFont: .primary, style: .smallText)
+                    .color(.secondaryColor)
+                    .build()
+            )
+    }
+    var action: String {
+        "dk_perm_utils_brand_apple".dkPermissionsUtilsLocalized()
     }
 
-    func update() {
-        if DKDiagnosisHelper.shared.isLowPowerModeEnabled() {
-            self.description = "dk_perm_utils_app_diag_battery_text_ios_enabled".dkPermissionsUtilsLocalized()
-            self.action = "dk_perm_utils_app_diag_battery_link_ios".dkPermissionsUtilsLocalized()
-        } else {
-            self.description = "dk_perm_utils_app_diag_battery_text_ios_disabled".dkPermissionsUtilsLocalized()
-            self.action = nil
-        }
-    }
+    init() {}
 
     func performAction() {
-        if self.action != nil {
-            DKDiagnosisHelper.shared.openSettings()
-        }
+        guard let url = URL(string: self.action) else { return }
+        DKDiagnosisHelper.shared.openUrl(url)
     }
 }

@@ -40,7 +40,7 @@ class OdometerHistoriesVC: DKUIViewController {
     private func configure() {
         self.view.backgroundColor = .white
         self.title = "dk_vehicle_odometer_histories_title".dkVehicleLocalized()
-        self.addButton.configure(text: "dk_vehicle_odometer_add_history".dkVehicleLocalized(), style: .full)
+        self.addButton.configure(title: "dk_vehicle_odometer_add_history".dkVehicleLocalized(), style: .full)
         self.tableView.separatorStyle = .none
         self.tableView.register(OdometerHistoriesCell.nib, forCellReuseIdentifier: "OdometerHistoriesCell")
         self.tableView.rowHeight = UITableView.automaticDimension

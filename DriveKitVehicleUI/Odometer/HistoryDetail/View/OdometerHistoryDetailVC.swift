@@ -46,9 +46,9 @@ class OdometerHistoryDetailVC: DKUIViewController {
         self.deleteView.isHidden = !self.viewModel.canDelete()
 
         self.panelTitle.attributedText = "dk_vehicle_odometer_odometer_history_detail_title".dkVehicleLocalized().uppercased().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.secondaryColor).build()
-        self.validateButton.configure(text: DKCommonLocalizable.validate.text(), style: .full)
-        self.cancelButton.configure(text: DKCommonLocalizable.cancel.text(), style: .empty)
-        self.deleteButton.configure(text: DKCommonLocalizable.delete.text(), style: .empty)
+        self.validateButton.configure(title: DKCommonLocalizable.validate.text(), style: .full)
+        self.cancelButton.configure(title: DKCommonLocalizable.cancel.text(), style: .empty)
+        self.deleteButton.configure(title: DKCommonLocalizable.delete.text(), style: .empty)
 
         self.title = self.viewModel.getTitle()
         self.tableView.separatorStyle = .none

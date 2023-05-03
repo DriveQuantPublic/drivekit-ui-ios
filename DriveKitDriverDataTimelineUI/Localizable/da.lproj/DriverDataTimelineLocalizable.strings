@@ -26,7 +26,6 @@
 "dk_timeline_road_context_no_context_description"="Der er ikke tilstrækkelige data for denne periode til at beregne fordelingen af vejsammenhænge.";
 "dk_timeline_road_context_suburban"="tæt bytrafik";
 "dk_timeline_road_context_title"="Vejforhold (%@)";
-"dk_timeline_road_context_title_empty_data"="Du har endnu ikke nogen data";
 "dk_timeline_road_context_title_no_data"="Ingen data til visning";
 "dk_timeline_safety_score"="Sikkerhedsscore: %@";
 "dk_timeline_speeding_score"="Fartgrænsescore: %@";

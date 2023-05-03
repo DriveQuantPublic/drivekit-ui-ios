@@ -13,10 +13,10 @@
 "dk_common_delete"="Delete";
 "dk_common_distance"="Distance";
 "dk_common_distraction"="Distraction";
-"dk_common_driving_context_city"="urban traffic";
-"dk_common_driving_context_city_dense"="dense urban traffic";
-"dk_common_driving_context_external"="Extra-urban environment";
-"dk_common_driving_context_fastlane"="Espressways";
+"dk_common_driving_context_city"="city";
+"dk_common_driving_context_city_dense"="heavy urban traffic";
+"dk_common_driving_context_external"="suburban";
+"dk_common_driving_context_fastlane"="expressways";
 "dk_common_duration"="Duration";
 "dk_common_ecodriving"="Eco-driving";
 "dk_common_ecodriving_accel_good"="Good acceleration";
@@ -41,6 +41,7 @@
 "dk_common_mass"="Mass";
 "dk_common_mean_speed"="Average speed";
 "dk_common_no"="No";
+"dk_common_no_data_yet"="You don\'t have any data yet";
 "dk_common_no_pseudo_set"="To share your ranking with the other participants, we invite you to choose a pseudo. Without a pseudo you will appear as anonymous.";
 "dk_common_no_trip"="No trip";
 "dk_common_ok"="OK";

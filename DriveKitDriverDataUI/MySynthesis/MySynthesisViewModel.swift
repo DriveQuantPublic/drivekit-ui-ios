@@ -25,10 +25,6 @@ class MySynthesisViewModel {
     private var selectedDate: Date?
     private(set) var updating: Bool = false
     
-    var shouldHideDetailButton: Bool {
-        return true
-    }
-    
     init() {
         self.scoreSelectorViewModel = DKScoreSelectorViewModel()
         self.periodSelectorViewModel = DKPeriodSelectorViewModel()
@@ -69,6 +65,15 @@ class MySynthesisViewModel {
             }
         }
         updateData()
+    }
+    
+    var drivingConditionsViewModel: DrivingConditionsViewModel {
+        let viewModel = DrivingConditionsViewModel(
+            selectedPeriod: periodSelectorViewModel.selectedPeriod,
+            selectedDate: selectedDate
+        )
+        viewModel.parentDelegate = self
+        return viewModel
     }
     
     func updateData() {
@@ -240,6 +245,21 @@ extension MySynthesisViewModel: DKPeriodSelectorDelegate {
 extension MySynthesisViewModel: DKDateSelectorDelegate {
     func dateSelectorDidSelectDate(_ date: Date) {
         selectedDate = date
+        update()
+    }
+}
+
+extension MySynthesisViewModel: DrivingConditionsViewModelParentDelegate {
+    func didUpdate(selectedDate: Date) {
+        self.selectedDate = selectedDate
+        update()
+    }
+    
+    func didUpdate(selectedPeriod: DKPeriod) {
+        self.periodSelectorViewModel.configure(
+            displayedPeriods: self.periodSelectorViewModel.displayedPeriods,
+            selectedPeriod: selectedPeriod
+        )
         update()
     }
 }

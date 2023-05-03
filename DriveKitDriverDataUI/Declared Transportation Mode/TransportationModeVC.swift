@@ -102,7 +102,7 @@ class TransportationModeVC: DKUIViewController {
         self.driverButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(driverButtonDidTouch)))
         self.passengerButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(passengerButtonDidTouch)))
 
-        self.validateButton.configure(text: DKCommonLocalizable.validate.text(), style: .full)
+        self.validateButton.configure(title: DKCommonLocalizable.validate.text(), style: .full)
 
         updateState()
     }

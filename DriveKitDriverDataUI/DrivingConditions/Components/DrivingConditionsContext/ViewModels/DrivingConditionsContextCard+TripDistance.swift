@@ -55,7 +55,7 @@ extension DKDrivingCategory {
             return 50
         case .moreThan100Km:
             return 100
-        case @unknown:
+        @unknown default:
             assertionFailure("Driving category \(self) not managed yet")
             return 0
         }
@@ -72,7 +72,7 @@ extension DKDrivingCategory {
             return 100
         case .moreThan100Km:
             return 1_000_000
-        case @unknown:
+        @unknown default:
             assertionFailure("Driving category \(self) not managed yet")
             return 1
         }
@@ -91,7 +91,7 @@ extension DKDrivingCategory {
                 return String(format: "dk_driverdata_drivingconditions_interval_distance".dkDriverDataLocalized(), minDistance, maxDistance)
             case .moreThan100Km:
                 return "dk_driverdata_drivingconditions_long_trips".dkDriverDataLocalized()
-        case @unknown:
+        @unknown default:
             assertionFailure("Driving category \(self) not managed yet")
             return ""
         }
@@ -109,7 +109,7 @@ extension DKDrivingCategory {
             return String(format: "dk_driverdata_drivingconditions_main_interval_distance".dkDriverDataLocalized(), minDistance, maxDistance)
         case .moreThan100Km:
             return "dk_driverdata_drivingconditions_main_long_trips".dkDriverDataLocalized()
-        case @unknown:
+        @unknown default:
             assertionFailure("Driving category \(self) not managed yet")
             return ""
         }

@@ -59,9 +59,8 @@ extension DrivingConditionsContextCard {
                 expressWayDistance += distance
             case .trafficJam:
                 break
-            case @unknown:
+            @unknown default:
                 assertionFailure("Road context \(self) not managed yet")
-                break
             }
         }
         if cityDistance >= suburbanDistance && cityDistance >= expressWayDistance {
@@ -89,7 +88,7 @@ extension DKRoadContext {
         case .trafficJam:
             assertionFailure("Traffic jam not managed yet")
             return ""
-        case @unknown:
+        @unknown default:
             assertionFailure("Road context \(self) not managed yet")
             return ""
         }

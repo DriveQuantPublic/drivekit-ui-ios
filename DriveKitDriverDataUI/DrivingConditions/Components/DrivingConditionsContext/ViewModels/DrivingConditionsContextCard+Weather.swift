@@ -58,7 +58,7 @@ extension DKWeather {
         case .unknown:
             assertionFailure("Unknown weather not managed yet")
             return ""
-        case @unknown:
+        @unknown default:
             assertionFailure("Weather \(self) not managed yet")
             return ""
         }
@@ -81,7 +81,7 @@ extension DKWeather {
         case .unknown:
             assertionFailure("Unknown weather not managed yet")
             return ""
-        case @unknown:
+        @unknown default:
             assertionFailure("Weather \(self) not managed yet")
             return ""
         }

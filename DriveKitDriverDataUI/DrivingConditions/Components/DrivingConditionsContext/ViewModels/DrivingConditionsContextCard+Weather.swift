@@ -58,6 +58,9 @@ extension DKWeather {
         case .unknown:
             assertionFailure("Unknown weather not managed yet")
             return ""
+        case @unknown:
+            assertionFailure("Weather \(self) not managed yet")
+            return ""
         }
     }
     
@@ -77,6 +80,9 @@ extension DKWeather {
             return "dk_driverdata_drivingconditions_ice".dkDriverDataLocalized()
         case .unknown:
             assertionFailure("Unknown weather not managed yet")
+            return ""
+        case @unknown:
+            assertionFailure("Weather \(self) not managed yet")
             return ""
         }
     }

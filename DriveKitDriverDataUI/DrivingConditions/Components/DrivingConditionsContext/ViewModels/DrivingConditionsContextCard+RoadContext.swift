@@ -59,6 +59,9 @@ extension DrivingConditionsContextCard {
                 expressWayDistance += distance
             case .trafficJam:
                 break
+            case @unknown:
+                assertionFailure("Road context \(self) not managed yet")
+                break
             }
         }
         if cityDistance >= suburbanDistance && cityDistance >= expressWayDistance {
@@ -85,6 +88,9 @@ extension DKRoadContext {
             return DKCommonLocalizable.contextCity.text().firstCapitalized
         case .trafficJam:
             assertionFailure("Traffic jam not managed yet")
+            return ""
+        case @unknown:
+            assertionFailure("Road context \(self) not managed yet")
             return ""
         }
     }

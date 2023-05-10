@@ -55,6 +55,9 @@ extension DKDrivingCategory {
             return 50
         case .moreThan100Km:
             return 100
+        @unknown default:
+            assertionFailure("Driving category \(self) not managed yet")
+            return 0
         }
     }
     var maxDistance: Int {
@@ -69,6 +72,9 @@ extension DKDrivingCategory {
             return 100
         case .moreThan100Km:
             return 1_000_000
+        @unknown default:
+            assertionFailure("Driving category \(self) not managed yet")
+            return 1
         }
     }
     // swiftlint:enable no_magic_numbers
@@ -85,6 +91,9 @@ extension DKDrivingCategory {
                 return String(format: "dk_driverdata_drivingconditions_interval_distance".dkDriverDataLocalized(), minDistance, maxDistance)
             case .moreThan100Km:
                 return "dk_driverdata_drivingconditions_long_trips".dkDriverDataLocalized()
+        @unknown default:
+            assertionFailure("Driving category \(self) not managed yet")
+            return ""
         }
     }
     
@@ -100,6 +109,9 @@ extension DKDrivingCategory {
             return String(format: "dk_driverdata_drivingconditions_main_interval_distance".dkDriverDataLocalized(), minDistance, maxDistance)
         case .moreThan100Km:
             return "dk_driverdata_drivingconditions_main_long_trips".dkDriverDataLocalized()
+        @unknown default:
+            assertionFailure("Driving category \(self) not managed yet")
+            return ""
         }
     }
 }

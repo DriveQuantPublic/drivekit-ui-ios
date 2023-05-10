@@ -9,6 +9,7 @@
 import DriveKitCommonUI
 import DriveKitDBTripAccessModule
 import Foundation
+import UIKit
 
 enum UnitKind {
     case trip

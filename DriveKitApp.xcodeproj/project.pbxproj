@@ -669,6 +669,7 @@
 		E3830FE029B5FE3C001A9B25 /* CommunityStatsItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3830FDF29B5FE3C001A9B25 /* CommunityStatsItemView.swift */; };
 		E3830FE229B5FE48001A9B25 /* CommunityStatsItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3830FE129B5FE48001A9B25 /* CommunityStatsItemView.xib */; };
 		E3830FE429B62F6A001A9B25 /* CommunityStatsItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3830FE329B62F6A001A9B25 /* CommunityStatsItemViewModel.swift */; };
+		E38318072A0D36B100992C0D /* DKTripRecordingButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38318062A0D36B100992C0D /* DKTripRecordingButtonViewModel.swift */; };
 		E3AC3CC329ED85BB0010FC95 /* VehiclePickerTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68F48241642D50071D74C /* VehiclePickerTextVC.swift */; };
 		E3B8309D294B1DCE00E31848 /* RoadContextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B8309C294B1DCE00E31848 /* RoadContextView.swift */; };
 		E3CDCFF729F68AA700ADAFD0 /* DrivingConditionsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CDCFF629F68AA700ADAFD0 /* DrivingConditionsConstants.swift */; };
@@ -1547,6 +1548,7 @@
 		E3830FDF29B5FE3C001A9B25 /* CommunityStatsItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityStatsItemView.swift; sourceTree = "<group>"; };
 		E3830FE129B5FE48001A9B25 /* CommunityStatsItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityStatsItemView.xib; sourceTree = "<group>"; };
 		E3830FE329B62F6A001A9B25 /* CommunityStatsItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityStatsItemViewModel.swift; sourceTree = "<group>"; };
+		E38318062A0D36B100992C0D /* DKTripRecordingButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripRecordingButtonViewModel.swift; sourceTree = "<group>"; };
 		E3B8309C294B1DCE00E31848 /* RoadContextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadContextView.swift; sourceTree = "<group>"; };
 		E3CDCFF629F68AA700ADAFD0 /* DrivingConditionsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingConditionsConstants.swift; sourceTree = "<group>"; };
 		E3F0212F29A3A90600664CD2 /* Array+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Date.swift"; sourceTree = "<group>"; };
@@ -2851,6 +2853,7 @@
 		67813091276BB2A100701CF1 /* DriveKitTripAnalysisUI */ = {
 			isa = PBXGroup;
 			children = (
+				E38318052A0D2F9200992C0D /* TripRecordingWidget */,
 				678130B0276C042100701CF1 /* Localizable */,
 				67E8D96527D6126300BD0343 /* CrashFeedback */,
 				678130A6276BF72900701CF1 /* WorkingHours */,
@@ -3684,6 +3687,14 @@
 				E3830FE329B62F6A001A9B25 /* CommunityStatsItemViewModel.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		E38318052A0D2F9200992C0D /* TripRecordingWidget */ = {
+			isa = PBXGroup;
+			children = (
+				E38318062A0D36B100992C0D /* DKTripRecordingButtonViewModel.swift */,
+			);
+			path = TripRecordingWidget;
 			sourceTree = "<group>";
 		};
 		E3B830A2294CB54200E31848 /* Helpers */ = {
@@ -4977,6 +4988,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E38318072A0D36B100992C0D /* DKTripRecordingButtonViewModel.swift in Sources */,
 				67E8D96F27D617AB00BD0343 /* CrashFeedbackStep1ViewModel.swift in Sources */,
 				678130AB276BF77700701CF1 /* WorkingHoursViewController.swift in Sources */,
 				6728DF8027D8F62500CC6CC9 /* CrashFeedbackBaseVC.swift in Sources */,

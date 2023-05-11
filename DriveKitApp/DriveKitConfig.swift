@@ -54,7 +54,7 @@ class DriveKitConfig {
         DriveKit.shared.initialize()
 
         // TripAnalysis initialization:
-        DriveKitTripAnalysis.shared.initialize(tripListener: TripListenerManager.shared, appLaunchOptions: launchOptions)
+        DriveKitTripAnalysis.shared.initialize(tripListener: nil, appLaunchOptions: launchOptions)
 
         // Initialize DriverData:
         DriveKitDriverData.shared.initialize()

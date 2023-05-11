@@ -14,27 +14,25 @@ import CoreLocation
 
 class TripListenerManager {
     static let shared: TripListenerManager = TripListenerManager()
-    private var tripListeners: WeakArray<TripListener> = WeakArray()
-    private var sdkStateChangeListeners: WeakArray<SdkStateChangeListener> = WeakArray()
 
     private init() {
 
     }
 
     func addTripListener(_ tripListener: TripListener) {
-        self.tripListeners.append(tripListener)
+        DriveKitTripAnalysis.shared.addTripListener(tripListener)
     }
 
     func removeTripListener(_ tripListener: TripListener) {
-        self.tripListeners.remove(tripListener)
+        DriveKitTripAnalysis.shared.removeTripListener(tripListener)
     }
 
     func addSdkStateChangeListener(_ sdkStateChangeListener: SdkStateChangeListener) {
-        self.sdkStateChangeListeners.append(sdkStateChangeListener)
+        addTripListener(SdkStateChangeListenerProxy(sdkStateChangeListener))
     }
 
     func removeSdkStateChangeListener(_ sdkStateChangeListener: SdkStateChangeListener) {
-        self.sdkStateChangeListeners.remove(sdkStateChangeListener)
+        removeTripListener(SdkStateChangeListenerProxy(sdkStateChangeListener))
     }
 }
 
@@ -42,73 +40,38 @@ class TripListenerManager {
     func sdkStateChanged(state: State)
 }
 
-extension TripListenerManager: TripListener {
-    func tripStarted(startMode: StartMode) {
-        for tripListener in self.tripListeners {
-            tripListener?.tripStarted(startMode: startMode)
-        }
+class SdkStateChangeListenerProxy: TripListener {
+    var sdkStateChangeListener: SdkStateChangeListener
+    
+    init(_ sdkStateChangeListener: SdkStateChangeListener) {
+        self.sdkStateChangeListener = sdkStateChangeListener
     }
-
-    func tripPoint(tripPoint: TripPoint) {
-        for tripListener in self.tripListeners {
-            tripListener?.tripPoint(tripPoint: tripPoint)
-        }
-    }
-
-    func tripFinished(post: PostGeneric, response: PostGenericResponse) {
-        for tripListener in self.tripListeners {
-            tripListener?.tripFinished(post: post, response: response)
-        }
-    }
-
-    func tripCancelled(cancelTrip: CancelTrip) {
-        for tripListener in self.tripListeners {
-            tripListener?.tripCancelled(cancelTrip: cancelTrip)
-        }
-    }
-
-    func tripSavedForRepost() {
-        for tripListener in self.tripListeners {
-            tripListener?.tripSavedForRepost()
-        }
-    }
-
-    func beaconDetected() {
-        for tripListener in self.tripListeners {
-            tripListener?.beaconDetected()
-        }
-    }
-
-    func significantLocationChangeDetected(location: CLLocation) {
-        for tripListener in self.tripListeners {
-            tripListener?.significantLocationChangeDetected(location: location)
-        }
-    }
-
+    
     func sdkStateChanged(state: State) {
-        for tripListener in self.tripListeners {
-            tripListener?.sdkStateChanged(state: state)
-        }
-        for sdkStateChangeListener in self.sdkStateChangeListeners {
-            sdkStateChangeListener?.sdkStateChanged(state: state)
-        }
+        self.sdkStateChangeListener.sdkStateChanged(state: state)
     }
+    
+    func tripStarted(startMode: StartMode) {}
 
-    func potentialTripStart(startMode: StartMode) {
-        for tripListener in self.tripListeners {
-            tripListener?.potentialTripStart(startMode: startMode)
-        }
-    }
+    func tripPoint(tripPoint: TripPoint) {}
 
-    func crashDetected(crashInfo: DKCrashInfo) {
-        for tripListener in self.tripListeners {
-            tripListener?.crashDetected(crashInfo: crashInfo)
-        }
-    }
+    func tripFinished(post: PostGeneric, response: PostGenericResponse) {}
 
-    func crashFeedbackSent(crashInfo: DKCrashInfo, feedbackType: DKCrashFeedbackType, severity: DKCrashFeedbackSeverity) {
-        for tripListener in self.tripListeners {
-            tripListener?.crashFeedbackSent(crashInfo: crashInfo, feedbackType: feedbackType, severity: severity)
-        }
-    }
+    func tripCancelled(cancelTrip: CancelTrip) {}
+
+    func tripSavedForRepost() {}
+
+    func beaconDetected() {}
+
+    func significantLocationChangeDetected(location: CLLocation) {}
+
+    func potentialTripStart(startMode: StartMode) {}
+
+    func crashDetected(crashInfo: DKCrashInfo) {}
+
+    func crashFeedbackSent(
+        crashInfo: DKCrashInfo,
+        feedbackType: DKCrashFeedbackType,
+        severity: DKCrashFeedbackSeverity
+    ) {}
 }

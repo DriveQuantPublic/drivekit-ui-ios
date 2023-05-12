@@ -112,12 +112,19 @@ public class DKTripRecordingButtonViewModel {
     }
     
     public var image: UIImage {
-        #warning("TODO: setup real image refs")
         switch state {
         case .stopped:
-            return UIImage()
+            return UIImage(
+                named: "dk_trip_analysis_play",
+                in: .tripAnalysisUIBundle,
+                compatibleWith: nil
+            )!
         case .recording:
-            return UIImage()
+            return UIImage(
+                named: "dk_trip_analysis_stop",
+                in: .tripAnalysisUIBundle,
+                compatibleWith: nil
+            )!
         }
     }
 }

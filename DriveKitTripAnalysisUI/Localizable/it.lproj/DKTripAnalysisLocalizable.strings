@@ -9,6 +9,17 @@
 "dk_crash_detection_feedback_step2_option_no_crash"="Niente, va tutto bene";
 "dk_crash_detection_feedback_step2_title"="Ci rassicura sapere che stai bene.";
 "dk_crash_detection_feedback_step2option_critical_accident"="Richiesta di assistenza";
+"dk_tripwidget_confirm_canceltrip_subtitle"="Il viaggio verrà annullato e non registrato";
+"dk_tripwidget_confirm_canceltrip_title"="Non sto guidando";
+"dk_tripwidget_confirm_continuetrip_subtitle"="Il vostro viaggio non è finito e continuerà";
+"dk_tripwidget_confirm_continuetrip_title"="Continua";
+"dk_tripwidget_confirm_endtrip_subtitle"="Il vostro viaggio sarà analizzato e salvato";
+"dk_tripwidget_confirm_endtrip_title"="Ho completato il mio viaggio";
+"dk_tripwidget_disable_autostart_title"="Disattivare temporaneamente la registrazione automatica dei viaggi?";
+"dk_tripwidget_record_subtitle_distance"="Distanza:";
+"dk_tripwidget_record_subtitle_duration"="Durata:";
+"dk_tripwidget_record_title"="Viaggio in corso da %@";
+"dk_tripwidget_start_title"="Registrare un viaggio";
 "dk_working_hours_back_save_alert"="L\'orario di lavoro è stato cambiato. Volete salvarli?";
 "dk_working_hours_enable_desc"="Questa funzione permette di configurare i tempi di attivazione della modalità automatica e di etichettare i percorsi.";
 "dk_working_hours_enable_title"="Abilita l\'orario di lavoro";

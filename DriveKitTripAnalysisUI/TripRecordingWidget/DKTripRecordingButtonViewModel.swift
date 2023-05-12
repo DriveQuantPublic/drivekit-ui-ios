@@ -59,6 +59,15 @@ public class DKTripRecordingButtonViewModel {
         }
     }
     
+    public var hasSubtitles: Bool {
+        switch state {
+        case .stopped:
+            return false
+        case .recording:
+            return true
+        }
+    }
+    
     public var distanceSubtitle: NSAttributedString? {
         switch state {
         case .stopped:
@@ -111,7 +120,7 @@ public class DKTripRecordingButtonViewModel {
         }
     }
     
-    public var image: UIImage {
+    public var iconImage: UIImage {
         switch state {
         case .stopped:
             return UIImage(

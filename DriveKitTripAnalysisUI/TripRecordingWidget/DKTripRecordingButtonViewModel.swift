@@ -28,7 +28,13 @@ public class DKTripRecordingButtonViewModel {
     var state: RecordingState = .stopped
     public var viewModelDidUpdate: (() -> Void)?
     
-    public init() {}
+    public init() {
+        DriveKitTripAnalysis.shared.addTripListener(self)
+    }
+    
+    deinit {
+        DriveKitTripAnalysis.shared.removeTripListener(self)
+    }
     
     public var title: NSAttributedString {
         switch state {

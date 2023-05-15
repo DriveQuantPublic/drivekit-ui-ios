@@ -654,6 +654,8 @@
 		E3559EBB2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3559EBA2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift */; };
 		E3559EBD294868CB00AAB747 /* DKTimelineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3559EBC294868CB00AAB747 /* DKTimelineExtension.swift */; };
 		E3759DBC2A126AF70010F989 /* DKTripStopConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3759DBB2A126AF70010F989 /* DKTripStopConfirmationViewModel.swift */; };
+		E3759DBF2A12767A0010F989 /* DKTripStopConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3759DBD2A12767A0010F989 /* DKTripStopConfirmationViewController.swift */; };
+		E3759DC02A12767A0010F989 /* DKTripStopConfirmationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3759DBE2A12767A0010F989 /* DKTripStopConfirmationViewController.xib */; };
 		E37BF23529E01C34001B597D /* DrivingConditionsContextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37BF22F29E01C33001B597D /* DrivingConditionsContextViewController.swift */; };
 		E37BF23629E01C34001B597D /* DKContextKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37BF23029E01C33001B597D /* DKContextKind.swift */; };
 		E37BF23729E01C34001B597D /* DrivingConditionsSummaryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37BF23229E01C33001B597D /* DrivingConditionsSummaryCardView.swift */; };
@@ -1537,6 +1539,8 @@
 		E3559EBC294868CB00AAB747 /* DKTimelineExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTimelineExtension.swift; sourceTree = "<group>"; };
 		E36085012948C37C0097A639 /* DKUIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKUIConstants.swift; sourceTree = "<group>"; };
 		E3759DBB2A126AF70010F989 /* DKTripStopConfirmationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripStopConfirmationViewModel.swift; sourceTree = "<group>"; };
+		E3759DBD2A12767A0010F989 /* DKTripStopConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripStopConfirmationViewController.swift; sourceTree = "<group>"; };
+		E3759DBE2A12767A0010F989 /* DKTripStopConfirmationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DKTripStopConfirmationViewController.xib; sourceTree = "<group>"; };
 		E37BF22F29E01C33001B597D /* DrivingConditionsContextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrivingConditionsContextViewController.swift; sourceTree = "<group>"; };
 		E37BF23029E01C33001B597D /* DKContextKind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKContextKind.swift; sourceTree = "<group>"; };
 		E37BF23229E01C33001B597D /* DrivingConditionsSummaryCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrivingConditionsSummaryCardView.swift; sourceTree = "<group>"; };
@@ -3648,6 +3652,8 @@
 			isa = PBXGroup;
 			children = (
 				E3759DBB2A126AF70010F989 /* DKTripStopConfirmationViewModel.swift */,
+				E3759DBD2A12767A0010F989 /* DKTripStopConfirmationViewController.swift */,
+				E3759DBE2A12767A0010F989 /* DKTripStopConfirmationViewController.xib */,
 			);
 			path = DKTripStopConfirmationDialog;
 			sourceTree = "<group>";
@@ -4224,6 +4230,7 @@
 				63508C7127847A270036A61E /* WorkingHoursSlotTypeViewSelector.xib in Resources */,
 				E39584672A0E882600024029 /* DKTripRecordingButtonContentView.xib in Resources */,
 				67E8D97127D6529A00BD0343 /* DriveKitTripAnalysis.xcassets in Resources */,
+				E3759DC02A12767A0010F989 /* DKTripStopConfirmationViewController.xib in Resources */,
 				67E8D96B27D6171200BD0343 /* CrashFeedbackStep1VC.xib in Resources */,
 				63913D9E277F534000EABBC7 /* WorkingHoursDayCell.xib in Resources */,
 				678130AC276BF77700701CF1 /* WorkingHoursViewController.xib in Resources */,
@@ -5024,6 +5031,7 @@
 				6728DF7B27D8E62D00CC6CC9 /* CrashFeedbackStep2VC.swift in Sources */,
 				E39584652A0E880600024029 /* DKTripRecordingButton.swift in Sources */,
 				6728DF7E27D8E66500CC6CC9 /* CrashFeedbackStep2ViewModel.swift in Sources */,
+				E3759DBF2A12767A0010F989 /* DKTripStopConfirmationViewController.swift in Sources */,
 				63508C6D278455370036A61E /* WorkingHoursSlotCellViewModel.swift in Sources */,
 				63913D9A277E7C0F00EABBC7 /* WorkingHoursSlotCell.swift in Sources */,
 				67E8D96A27D6171200BD0343 /* CrashFeedbackStep1VC.swift in Sources */,

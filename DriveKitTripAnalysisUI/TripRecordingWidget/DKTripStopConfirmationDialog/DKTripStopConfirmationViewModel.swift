@@ -12,9 +12,6 @@ import DriveKitTripAnalysisModule
 import Foundation
 
 public class DKTripStopConfirmationViewModel {
-    
-    public var viewModelDidUpdate: (() -> Void)?
-    
     public init() { }
     
     public var endTripTitle: String {

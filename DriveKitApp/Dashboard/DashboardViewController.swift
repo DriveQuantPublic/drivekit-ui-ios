@@ -159,7 +159,7 @@ class DashboardViewController: UIViewController {
 extension DashboardViewController: DashboardViewModelDelegate {
     func updateStartStopButton() {
         let viewModel = DKTripRecordingButtonViewModel()
-        self.startStopTripButton.configure(viewModel: viewModel)
+        self.startStopTripButton.configure(viewModel: viewModel, presentingVC: self)
     }
 
     func bannersDidUpdate() {

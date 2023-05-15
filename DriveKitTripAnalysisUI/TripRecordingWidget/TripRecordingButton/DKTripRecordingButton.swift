@@ -12,6 +12,7 @@ import UIKit
 public class DKTripRecordingButton: UIButton {
     private var contentView: DKTripRecordingButtonContentView
     private var viewModel: DKTripRecordingButtonViewModel?
+    private weak var presentingVC: UIViewController?
     
     override init(frame: CGRect) {
         guard
@@ -33,12 +34,23 @@ public class DKTripRecordingButton: UIButton {
     }
     
     @objc func didTapButton() {
-        self.viewModel?.buttonTapped()
+        guard let viewModel else { return }
+        viewModel.buttonTapped()
+        if viewModel.shouldShowTripStopConfirmationDialog {
+            let confirmationDialogViewModel = DKTripStopConfirmationViewModel()
+            let confirmationDialog = DKTripStopConfirmationViewController(
+                viewModel: confirmationDialogViewModel
+            )
+            confirmationDialog.modalPresentationStyle = .popover
+            confirmationDialog.popoverPresentationController?.sourceView = self
+            self.presentingVC?.present(confirmationDialog, animated: true)
+        }
     }
     
-    public func configure(viewModel: DKTripRecordingButtonViewModel) {
+    public func configure(viewModel: DKTripRecordingButtonViewModel, presentingVC: UIViewController) {
         self.contentView.configure(viewModel: viewModel)
         self.viewModel = viewModel
+        self.presentingVC = presentingVC
         self.updateUI()
     }
     

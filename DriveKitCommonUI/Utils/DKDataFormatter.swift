@@ -182,6 +182,31 @@ public extension Double {
         return truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%.0f", self) : String(self)
     }
 
+    func getSecondDurationColonsFormat() -> [FormatType] {
+        var nbMinute = 0
+        var nbHour = 0
+        var nbSecond = 0
+        
+        nbMinute = Int(self) / 60
+        if nbMinute > 59 {
+            nbHour = nbMinute / 60
+            nbMinute = nbMinute - (nbHour * 60)
+        }
+        nbSecond = Int(self) - (nbMinute * 60) - (nbHour * 60 * 60)
+            
+        let hourString = String(format: "%02d", nbHour)
+        let minuteString = String(format: "%02d", nbMinute)
+        let secondString = String(format: "%02d", nbSecond)
+        
+        return [
+            .value(hourString),
+            .unit(":"),
+            .value(minuteString),
+            .unit(":"),
+            .value(secondString)
+        ]
+    }
+    
     func getSecondDurationFormat(maxUnit: DurationUnit = .day) -> [FormatType] {
         let formattingTypes: [FormatType]
         var nbMinute = 0
@@ -253,6 +278,10 @@ public extension Double {
 
     func formatSecondDuration(maxUnit: DurationUnit = .day) -> String {
         return getSecondDurationFormat(maxUnit: maxUnit).toString()
+    }
+    
+    func formatSecondDurationWithColons() -> String {
+        return getSecondDurationColonsFormat().toString()
     }
 
     func getCO2MassFormat(shouldUseNaturalUnit: Bool) -> [FormatType] {

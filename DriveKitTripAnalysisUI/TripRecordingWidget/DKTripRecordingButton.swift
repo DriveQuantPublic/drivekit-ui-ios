@@ -10,8 +10,8 @@ import DriveKitCommonUI
 import UIKit
 
 public class DKTripRecordingButton: UIButton {
-    private let buttonHeight: CGFloat = 60.0
     private var contentView: DKTripRecordingButtonContentView
+    private var viewModel: DKTripRecordingButtonViewModel?
     
     override init(frame: CGRect) {
         guard
@@ -25,14 +25,20 @@ public class DKTripRecordingButton: UIButton {
         }
         self.contentView = contentView
         super.init(frame: frame)
+        self.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
         fatalError("\(Self.self).init(coder:) is not implemented")
     }
     
+    @objc func didTapButton() {
+        self.viewModel?.buttonTapped()
+    }
+    
     public func configure(viewModel: DKTripRecordingButtonViewModel) {
         self.contentView.configure(viewModel: viewModel)
+        self.viewModel = viewModel
         self.updateUI()
     }
     
@@ -40,8 +46,6 @@ public class DKTripRecordingButton: UIButton {
         self.setTitle("", for: .normal)
         self.removeSubviews()
         self.embedSubview(contentView)
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.heightAnchor.constraint(equalToConstant: buttonHeight).isActive = true
         self.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
         self.clipsToBounds = true
         self.setBackgroundImage(UIImage(color: DKUIColors.secondaryColor.color), for: .normal)

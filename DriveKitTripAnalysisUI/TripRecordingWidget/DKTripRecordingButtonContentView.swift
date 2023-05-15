@@ -16,7 +16,7 @@ class DKTripRecordingButtonContentView: UIView {
     @IBOutlet private weak var iconContainer: UIView!
     @IBOutlet private weak var iconImageView: UIImageView!
     @IBOutlet private weak var allLabelsContainer: UIStackView!
-    @IBOutlet private weak var subTitleLabelsContainer: UIStackView!
+    @IBOutlet private var subTitleLabelsContainer: UIStackView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var distanceSubtitleLabel: UILabel!
     @IBOutlet private weak var durationSubtitleLabel: UILabel!
@@ -60,6 +60,9 @@ class DKTripRecordingButtonContentView: UIView {
     
     func configure(viewModel: DKTripRecordingButtonViewModel) {
         self.viewModel = viewModel
+        self.viewModel?.viewModelDidUpdate = {
+            self.refreshView()
+        }
         self.refreshView()
     }
 

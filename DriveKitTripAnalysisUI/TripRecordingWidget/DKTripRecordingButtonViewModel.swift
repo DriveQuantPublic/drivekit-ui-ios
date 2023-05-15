@@ -136,6 +136,18 @@ public class DKTripRecordingButtonViewModel {
             )!
         }
     }
+    
+    public func buttonTapped() {
+        switch state {
+        case .stopped:
+            state = .recording(startingDate: Date(), distance: 0, duration: 0)
+            DriveKitTripAnalysis.shared.startTrip()
+        case .recording:
+            #warning("implement confirmation popup")
+            break
+        }
+        self.viewModelDidUpdate?()
+    }
 }
 
 extension DKTripRecordingButtonViewModel: TripListener {

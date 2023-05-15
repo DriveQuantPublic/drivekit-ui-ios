@@ -10,6 +10,10 @@
 "dk_common_consumption"="Consommation";
 "dk_common_day_plural"="jours";
 "dk_common_day_singular"="jour";
+"dk_common_hour_plural"="heures";
+"dk_common_hour_singular"="heure";
+"dk_common_minute_plural"="minutes";
+"dk_common_minute_singular"="minute";
 "dk_common_delete"="Supprimer";
 "dk_common_distance"="Distance";
 "dk_common_distraction"="Distraction";

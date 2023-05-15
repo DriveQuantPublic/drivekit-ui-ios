@@ -36,10 +36,14 @@
 "dk_common_error_empty_field"="Il campo non può rimanere vuoto";
 "dk_common_error_message"="Si è verificato un errore durante la richiesta, riprova più tardi";
 "dk_common_finish"="Finitura";
+"dk_common_hour_plural"="ore";
+"dk_common_hour_singular"="ora";
 "dk_common_later"="più tardi";
 "dk_common_loading"="Caricamento in corso. Ti preghiamo di attendere...";
 "dk_common_mass"="Massa";
 "dk_common_mean_speed"="Velocità media";
+"dk_common_minute_plural"="minuti";
+"dk_common_minute_singular"="minuto";
 "dk_common_no"="No";
 "dk_common_no_data_yet"="Non si dispone ancora di dati";
 "dk_common_no_pseudo_set"="Per condividere la tua classifica con gli altri partecipanti, ti invitiamo a scegliere uno pseudo. Senza uno pseudo apparirai come anonimo.";

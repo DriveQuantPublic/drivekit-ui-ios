@@ -7,17 +7,19 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
-import UIKit
 import DriveKitCommonUI
 import DriveKitPermissionsUtilsUI
+import DriveKitTripAnalysisUI
+import UIKit
 
 class DashboardViewController: UIViewController {
     @IBOutlet private weak var bannersContainer: UIStackView!
     @IBOutlet private weak var synthesisCardViewContainer: UIView!
     @IBOutlet private weak var lastTripsViewContainer: UIView!
     @IBOutlet private weak var featureListViewContainer: UIView!
-    @IBOutlet private weak var startStopTripButton: UIButton!
+    @IBOutlet private weak var buttonsContainer: UIStackView!
     @IBOutlet private weak var simulateTripButton: UIButton!
+    private var startStopTripButton: DKTripRecordingButton!
     private var synthesisCardView: UIView?
     private var lastTripsView: UIView?
     private var viewModel: DashboardViewModel = DashboardViewModel()
@@ -40,6 +42,8 @@ class DashboardViewController: UIViewController {
         self.synthesisCardViewContainer.addShadow()
         self.lastTripsViewContainer.addShadow()
         addAllFeatureView()
+        self.startStopTripButton = .init(type: .system)
+        self.buttonsContainer.insertArrangedSubview(startStopTripButton, at: 0)
         updateStartStopButton()
         self.simulateTripButton.configure(title: "simulate_trip".keyLocalized(), style: .full)
         configureNavBar()
@@ -154,7 +158,11 @@ class DashboardViewController: UIViewController {
 
 extension DashboardViewController: DashboardViewModelDelegate {
     func updateStartStopButton() {
-        self.startStopTripButton.configure(title: self.viewModel.getStartStopTripButtonTitle().keyLocalized(), style: .full)
+        let viewModel = DKTripRecordingButtonViewModel()
+        viewModel.viewModelDidUpdate = {
+            print("update button")
+        }
+        self.startStopTripButton.configure(viewModel: viewModel)
     }
 
     func bannersDidUpdate() {

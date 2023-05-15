@@ -3631,6 +3631,17 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		E3759DB92A126AB20010F989 /* TripRecordingButton */ = {
+			isa = PBXGroup;
+			children = (
+				E38318062A0D36B100992C0D /* DKTripRecordingButtonViewModel.swift */,
+				E39584642A0E880600024029 /* DKTripRecordingButton.swift */,
+				E39584682A0E8B2500024029 /* DKTripRecordingButtonContentView.swift */,
+				E39584662A0E882600024029 /* DKTripRecordingButtonContentView.xib */,
+			);
+			path = TripRecordingButton;
+			sourceTree = "<group>";
+		};
 		E37BF22D29E01C33001B597D /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -3698,10 +3709,7 @@
 		E38318052A0D2F9200992C0D /* TripRecordingWidget */ = {
 			isa = PBXGroup;
 			children = (
-				E38318062A0D36B100992C0D /* DKTripRecordingButtonViewModel.swift */,
-				E39584642A0E880600024029 /* DKTripRecordingButton.swift */,
-				E39584682A0E8B2500024029 /* DKTripRecordingButtonContentView.swift */,
-				E39584662A0E882600024029 /* DKTripRecordingButtonContentView.xib */,
+				E3759DB92A126AB20010F989 /* TripRecordingButton */,
 			);
 			path = TripRecordingWidget;
 			sourceTree = "<group>";

@@ -101,7 +101,7 @@ public class DKTripRecordingButtonViewModel {
         case .stopped:
             return nil
         case let .recording(_, _, duration):
-            let durationValueText = duration.formatSecondDuration(maxUnit: .hour)
+            let durationValueText = duration.formatSecondDurationWithColons()
                 .dkAttributedString()
                 .font(dkFont: .primary, style: .normalText)
                 .color(.white)

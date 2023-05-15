@@ -12,6 +12,7 @@ import UIKit
 class DKTripRecordingButtonContentView: UIView {
     let iconContainerCornerRadius: CGFloat = 5.0
     let iconContainerBorderWidth: CGFloat = 1.5
+    let darkerBorderColorValue: Int = 0x5DB089
     @IBOutlet private weak var iconContainer: UIView!
     @IBOutlet private weak var iconImageView: UIImageView!
     @IBOutlet private weak var allLabelsContainer: UIStackView!
@@ -29,9 +30,14 @@ class DKTripRecordingButtonContentView: UIView {
     func setupView() {
         iconContainer.layer.cornerRadius = iconContainerCornerRadius
         iconContainer.layer.borderWidth = iconContainerBorderWidth
-        iconContainer.layer.borderColor = UIColor(hex: 0x5DB089).cgColor
+        iconContainer.layer.borderColor = UIColor(
+            hex: darkerBorderColorValue
+        ).tinted(
+            usingHueOf: DKUIColors.secondaryColor.color
+        ).cgColor
         iconContainer.clipsToBounds = true
         iconContainer.backgroundColor = .white
+        self.backgroundColor = .clear
         self.isUserInteractionEnabled = false
         self.refreshView()
     }

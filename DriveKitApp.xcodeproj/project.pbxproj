@@ -670,6 +670,9 @@
 		E3830FE229B5FE48001A9B25 /* CommunityStatsItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3830FE129B5FE48001A9B25 /* CommunityStatsItemView.xib */; };
 		E3830FE429B62F6A001A9B25 /* CommunityStatsItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3830FE329B62F6A001A9B25 /* CommunityStatsItemViewModel.swift */; };
 		E38318072A0D36B100992C0D /* DKTripRecordingButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38318062A0D36B100992C0D /* DKTripRecordingButtonViewModel.swift */; };
+		E39584652A0E880600024029 /* DKTripRecordingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39584642A0E880600024029 /* DKTripRecordingButton.swift */; };
+		E39584672A0E882600024029 /* DKTripRecordingButtonContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E39584662A0E882600024029 /* DKTripRecordingButtonContentView.xib */; };
+		E39584692A0E8B2500024029 /* DKTripRecordingButtonContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39584682A0E8B2500024029 /* DKTripRecordingButtonContentView.swift */; };
 		E3AC3CC329ED85BB0010FC95 /* VehiclePickerTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68F48241642D50071D74C /* VehiclePickerTextVC.swift */; };
 		E3B8309D294B1DCE00E31848 /* RoadContextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B8309C294B1DCE00E31848 /* RoadContextView.swift */; };
 		E3CDCFF729F68AA700ADAFD0 /* DrivingConditionsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CDCFF629F68AA700ADAFD0 /* DrivingConditionsConstants.swift */; };
@@ -1549,6 +1552,9 @@
 		E3830FE129B5FE48001A9B25 /* CommunityStatsItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityStatsItemView.xib; sourceTree = "<group>"; };
 		E3830FE329B62F6A001A9B25 /* CommunityStatsItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityStatsItemViewModel.swift; sourceTree = "<group>"; };
 		E38318062A0D36B100992C0D /* DKTripRecordingButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripRecordingButtonViewModel.swift; sourceTree = "<group>"; };
+		E39584642A0E880600024029 /* DKTripRecordingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripRecordingButton.swift; sourceTree = "<group>"; };
+		E39584662A0E882600024029 /* DKTripRecordingButtonContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DKTripRecordingButtonContentView.xib; sourceTree = "<group>"; };
+		E39584682A0E8B2500024029 /* DKTripRecordingButtonContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripRecordingButtonContentView.swift; sourceTree = "<group>"; };
 		E3B8309C294B1DCE00E31848 /* RoadContextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadContextView.swift; sourceTree = "<group>"; };
 		E3CDCFF629F68AA700ADAFD0 /* DrivingConditionsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingConditionsConstants.swift; sourceTree = "<group>"; };
 		E3F0212F29A3A90600664CD2 /* Array+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Date.swift"; sourceTree = "<group>"; };
@@ -3693,6 +3699,9 @@
 			isa = PBXGroup;
 			children = (
 				E38318062A0D36B100992C0D /* DKTripRecordingButtonViewModel.swift */,
+				E39584642A0E880600024029 /* DKTripRecordingButton.swift */,
+				E39584682A0E8B2500024029 /* DKTripRecordingButtonContentView.swift */,
+				E39584662A0E882600024029 /* DKTripRecordingButtonContentView.xib */,
 			);
 			path = TripRecordingWidget;
 			sourceTree = "<group>";
@@ -4194,6 +4203,7 @@
 			files = (
 				63913D98277E769600EABBC7 /* WorkingHoursSlotCell.xib in Resources */,
 				63508C7127847A270036A61E /* WorkingHoursSlotTypeViewSelector.xib in Resources */,
+				E39584672A0E882600024029 /* DKTripRecordingButtonContentView.xib in Resources */,
 				67E8D97127D6529A00BD0343 /* DriveKitTripAnalysis.xcassets in Resources */,
 				67E8D96B27D6171200BD0343 /* CrashFeedbackStep1VC.xib in Resources */,
 				63913D9E277F534000EABBC7 /* WorkingHoursDayCell.xib in Resources */,
@@ -4993,6 +5003,7 @@
 				678130AB276BF77700701CF1 /* WorkingHoursViewController.swift in Sources */,
 				6728DF8027D8F62500CC6CC9 /* CrashFeedbackBaseVC.swift in Sources */,
 				6728DF7B27D8E62D00CC6CC9 /* CrashFeedbackStep2VC.swift in Sources */,
+				E39584652A0E880600024029 /* DKTripRecordingButton.swift in Sources */,
 				6728DF7E27D8E66500CC6CC9 /* CrashFeedbackStep2ViewModel.swift in Sources */,
 				63508C6D278455370036A61E /* WorkingHoursSlotCellViewModel.swift in Sources */,
 				63913D9A277E7C0F00EABBC7 /* WorkingHoursSlotCell.swift in Sources */,
@@ -5001,6 +5012,7 @@
 				63913DA2277F601900EABBC7 /* WorkingHoursDayCellViewModel.swift in Sources */,
 				678130A3276BF59300701CF1 /* DriveKitTripAnalysisUI.swift in Sources */,
 				678130AF276BFDFB00701CF1 /* WorkingHoursViewModel.swift in Sources */,
+				E39584692A0E8B2500024029 /* DKTripRecordingButtonContentView.swift in Sources */,
 				63508C6F27847A020036A61E /* WorkingHoursSlotTypeViewSelector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

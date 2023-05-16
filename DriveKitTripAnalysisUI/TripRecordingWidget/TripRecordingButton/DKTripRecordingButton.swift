@@ -41,8 +41,7 @@ public class DKTripRecordingButton: UIButton {
             let confirmationDialog = DKTripStopConfirmationViewController(
                 viewModel: confirmationDialogViewModel
             )
-            confirmationDialog.modalPresentationStyle = .popover
-            confirmationDialog.popoverPresentationController?.sourceView = self
+            confirmationDialog.modalPresentationStyle = .overCurrentContext
             self.presentingVC?.present(confirmationDialog, animated: true)
         }
     }

@@ -10,6 +10,8 @@ import DriveKitCommonUI
 import UIKit
 
 class DKTripStopConfirmationViewController: UIViewController {
+    static let overlayAnimationDuration: CGFloat = 0.1
+    static let overlayOpacityLevel: CGFloat = 0.5
     @IBOutlet private weak var endTripButton: UIButton!
     @IBOutlet private weak var continueTripButton: UIButton!
     @IBOutlet private weak var cancelTripButton: UIButton!
@@ -34,6 +36,21 @@ class DKTripStopConfirmationViewController: UIViewController {
         continueTripButton.addTarget(self, action: #selector(didTapContinueTripButton), for: .touchUpInside)
         cancelTripButton.addTarget(self, action: #selector(didTapCancelTripButton), for: .touchUpInside)
         updateUI()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        UIView.animate(withDuration: animated ? Self.overlayAnimationDuration : 0.0) {
+            self.view.backgroundColor = .black.withAlphaComponent(Self.overlayOpacityLevel)
+        }
+    }
+    
+    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        UIView.animate(withDuration: flag ? Self.overlayAnimationDuration : 0.0) {
+            self.view.backgroundColor = .clear
+        } completion: { _ in
+            super.dismiss(animated: flag, completion: completion)
+        }
     }
     
     public func configure(with viewModel: DKTripStopConfirmationViewModel) {

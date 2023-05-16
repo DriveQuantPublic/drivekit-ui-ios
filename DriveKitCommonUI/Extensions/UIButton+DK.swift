@@ -79,7 +79,7 @@ public enum DKButtonStyle {
                 .color(.complementaryFontColor)
                 .build()
             
-            attributedText = "%@\n\n%@"
+            attributedText = "%@\n%@"
                 .dkAttributedString()
                 .font(dkFont: .primary, style: .smallText)
                 .buildWithArgs(

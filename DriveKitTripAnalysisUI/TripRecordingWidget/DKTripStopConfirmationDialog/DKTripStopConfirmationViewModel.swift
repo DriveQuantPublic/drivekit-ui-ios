@@ -59,7 +59,6 @@ public class DKTripStopConfirmationViewModel {
     }
     
     public func disableRecordingConfirmationOptionSelected(duration: Int) {
-        DriveKitTripAnalysis.shared.cancelTrip()
         DriveKitTripAnalysis.shared.temporaryDeactivateSDK(minutes: duration)
     }
 }

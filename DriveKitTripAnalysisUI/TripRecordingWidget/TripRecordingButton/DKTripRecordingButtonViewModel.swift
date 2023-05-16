@@ -152,32 +152,30 @@ public class DKTripRecordingButtonViewModel {
 }
 
 extension DKTripRecordingButtonViewModel: TripListener {
-    public func tripStarted(startMode: DriveKitTripAnalysisModule.StartMode) {
-        state = .recording(
-            startingDate: Date(),
-            distance: 0,
-            duration: 0
-        )
-        self.viewModelDidUpdate?()
-    }
+    public func tripStarted(startMode: DriveKitTripAnalysisModule.StartMode) {}
     
     public func tripPoint(tripPoint: DriveKitTripAnalysisModule.TripPoint) {
-        state = .recording(
-            startingDate: state.startingDate ?? Date(),
-            distance: tripPoint.distance,
-            duration: tripPoint.duration
-        )
-        self.viewModelDidUpdate?()
+        DispatchQueue.dispatchOnMainThread { [weak self] in
+            guard let self else { return }
+            self.state = .recording(
+                startingDate: state.startingDate ?? Date(
+                    timeIntervalSinceNow: -tripPoint.duration
+                ),
+                distance: tripPoint.distance,
+                duration: tripPoint.duration
+            )
+            self.viewModelDidUpdate?()
+        }
     }
     
-    public func tripFinished(post: DriveKitTripAnalysisModule.PostGeneric, response: DriveKitTripAnalysisModule.PostGenericResponse) {
-        state = .stopped
-        self.viewModelDidUpdate?()
-    }
+    public func tripFinished(post: DriveKitTripAnalysisModule.PostGeneric, response: DriveKitTripAnalysisModule.PostGenericResponse) { }
     
     public func tripCancelled(cancelTrip: DriveKitTripAnalysisModule.CancelTrip) {
-        state = .stopped
-        self.viewModelDidUpdate?()
+        DispatchQueue.dispatchOnMainThread { [weak self] in
+            guard let self else { return }
+            self.state = .stopped
+            self.viewModelDidUpdate?()
+        }
     }
     
     public func tripSavedForRepost() {}
@@ -186,7 +184,28 @@ extension DKTripRecordingButtonViewModel: TripListener {
     
     public func significantLocationChangeDetected(location: CLLocation) {}
     
-    public func sdkStateChanged(state: DriveKitTripAnalysisModule.State) {}
+    public func sdkStateChanged(state: DriveKitTripAnalysisModule.State) {
+        DispatchQueue.dispatchOnMainThread { [weak self] in
+            guard let self else { return }
+            switch state {
+            case .inactive:
+                self.state = .stopped
+            case .starting:
+                self.state = .recording(
+                    startingDate: self.state.startingDate ?? Date(),
+                    distance: 0,
+                    duration: 0
+                )
+            case .sending:
+                self.state = .stopped
+            case .running, .stopping:
+                break
+            @unknown default:
+                break
+            }
+            self.viewModelDidUpdate?()
+        }
+    }
     
     public func potentialTripStart(startMode: DriveKitTripAnalysisModule.StartMode) {}
     

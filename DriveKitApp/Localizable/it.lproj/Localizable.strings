@@ -17,7 +17,6 @@
 "button_see_features"="VEDERE LE CARATTERISTICHE";
 "button_stop"="Stop";
 "button_validation"="VALIDO";
-"cancel_trip"="Annulla il viaggio";
 "client_error"="Si è verificato un errore, si prega di riprovare più tardi.";
 "dashboard_header"="Dashboard";
 "delete_account_header"="Eliminazione dell\'account";
@@ -160,8 +159,6 @@
 "see_settings"="Vedere le impostazioni";
 "server_error"="Errore del server, si prega di riprovare più tardi";
 "simulate_trip"="Simulare un viaggio";
-"start_trip"="Inizia un viaggio";
-"stop_trip"="Interrompi il viaggio";
 "sync_challenge_loading_message"="Recupero delle sfide...";
 "sync_trips_loading_message"="Recupero di rotte esistenti...";
 "sync_user_info_loading_message"="Recuperare le informazioni dell\'utente...";

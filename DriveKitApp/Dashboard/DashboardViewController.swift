@@ -42,9 +42,8 @@ class DashboardViewController: UIViewController {
         self.synthesisCardViewContainer.addShadow()
         self.lastTripsViewContainer.addShadow()
         addAllFeatureView()
-        self.startStopTripButton = .init(type: .system)
-        self.buttonsContainer.insertArrangedSubview(startStopTripButton, at: 0)
-        updateStartStopButton()
+        self.setupStartStopButton()
+
         self.simulateTripButton.configure(title: "simulate_trip".keyLocalized(), style: .full)
         configureNavBar()
         updateBanners()
@@ -63,13 +62,16 @@ class DashboardViewController: UIViewController {
         self.navigationController?.pushViewController(FeaturesViewController(), animated: true)
     }
 
-    @IBAction private func startStopTrip() {
-        self.viewModel.startStopTrip()
-    }
-
     @IBAction private func simulateTrip() {
         let simulationVC = TripSimulatorViewController(nibName: String(describing: TripSimulatorViewController.self), bundle: nil)
         self.navigationController?.pushViewController(simulationVC, animated: true)
+    }
+    
+    private func setupStartStopButton() {
+        self.startStopTripButton = .init(type: .system)
+        self.buttonsContainer.insertArrangedSubview(startStopTripButton, at: 0)
+        let viewModel = DKTripRecordingButtonViewModel()
+        self.startStopTripButton.configure(viewModel: viewModel, presentingVC: self)
     }
 
     private func addAllFeatureView() {
@@ -157,11 +159,6 @@ class DashboardViewController: UIViewController {
 }
 
 extension DashboardViewController: DashboardViewModelDelegate {
-    func updateStartStopButton() {
-        let viewModel = DKTripRecordingButtonViewModel()
-        self.startStopTripButton.configure(viewModel: viewModel, presentingVC: self)
-    }
-
     func bannersDidUpdate() {
         updateBanners()
     }

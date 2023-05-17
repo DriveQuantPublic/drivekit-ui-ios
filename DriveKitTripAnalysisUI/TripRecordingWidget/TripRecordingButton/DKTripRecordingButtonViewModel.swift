@@ -75,7 +75,7 @@ public class DKTripRecordingButtonViewModel {
             return nil
         case let .recording(_, distance, _):
             let never = 1_000_000.0
-            let distanceValueText = distance.formatKilometerDistance(
+            let distanceValueText = distance.formatMeterDistanceInKm(
                 appendingUnit: true,
                 minDistanceToRemoveFractions: never
             )

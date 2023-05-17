@@ -33,12 +33,26 @@ extension Array where Element == FormatType {
 }
 
 public extension Double {
-    func getMeterDistanceInKmFormat(appendingUnit appendUnit: Bool = true) -> [FormatType] {
-        return (self / 1_000.0).getKilometerDistanceFormat(appendingUnit: appendUnit)
+    static let defaultMinDistanceToRemoveFractions = 100.0
+    
+    func getMeterDistanceInKmFormat(
+        appendingUnit appendUnit: Bool = true,
+        minDistanceToRemoveFractions: Double = defaultMinDistanceToRemoveFractions
+    ) -> [FormatType] {
+        return (self / 1_000.0).getKilometerDistanceFormat(
+            appendingUnit: appendUnit,
+            minDistanceToRemoveFractions: minDistanceToRemoveFractions
+        )
     }
 
-    func formatMeterDistanceInKm(appendingUnit appendUnit: Bool = true) -> String {
-        return getMeterDistanceInKmFormat(appendingUnit: appendUnit).toString()
+    func formatMeterDistanceInKm(
+        appendingUnit appendUnit: Bool = true,
+        minDistanceToRemoveFractions: Double = defaultMinDistanceToRemoveFractions
+    ) -> String {
+        return getMeterDistanceInKmFormat(
+            appendingUnit: appendUnit,
+            minDistanceToRemoveFractions: minDistanceToRemoveFractions).toString(
+        )
     }
 
     func getMeterDistanceFormat() -> [FormatType] {
@@ -65,7 +79,10 @@ public extension Double {
         return getMeterDistanceFormat().toString()
     }
 
-    func getKilometerDistanceFormat(appendingUnit appendUnit: Bool = true, minDistanceToRemoveFractions: Double = 100) -> [FormatType] {
+    func getKilometerDistanceFormat(
+        appendingUnit appendUnit: Bool = true,
+        minDistanceToRemoveFractions: Double = defaultMinDistanceToRemoveFractions
+    ) -> [FormatType] {
         var formattingTypes: [FormatType] = []
         let formattedDistance: String
         if self < minDistanceToRemoveFractions {
@@ -81,7 +98,10 @@ public extension Double {
         return formattingTypes
     }
 
-    func formatKilometerDistance(appendingUnit appendUnit: Bool = true, minDistanceToRemoveFractions: Double = 100) -> String {
+    func formatKilometerDistance(
+        appendingUnit appendUnit: Bool = true,
+        minDistanceToRemoveFractions: Double = defaultMinDistanceToRemoveFractions
+    ) -> String {
         getKilometerDistanceFormat(appendingUnit: appendUnit, minDistanceToRemoveFractions: minDistanceToRemoveFractions).toString()
     }
 

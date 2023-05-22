@@ -35,14 +35,10 @@ public class DKTripRecordingButton: UIButton {
     
     @objc func didTapButton() {
         guard let viewModel else { return }
-        viewModel.buttonTapped()
-        if viewModel.shouldShowTripStopConfirmationDialog {
-            let confirmationDialogViewModel = DKTripStopConfirmationViewModel()
-            let confirmationDialog = DKTripStopConfirmationViewController(
-                viewModel: confirmationDialogViewModel
-            )
-            confirmationDialog.modalPresentationStyle = .overCurrentContext
-            self.presentingVC?.present(confirmationDialog, animated: true)
+        viewModel.buttonTapped { shouldShowTripStopConfirmationDialog in
+            if shouldShowTripStopConfirmationDialog {
+                showConfirmationDialog()
+            }
         }
     }
     
@@ -51,6 +47,18 @@ public class DKTripRecordingButton: UIButton {
         self.viewModel = viewModel
         self.presentingVC = presentingVC
         self.updateUI()
+    }
+    
+    public func showConfirmationDialog() {
+        guard let viewModel else { return }
+        if viewModel.canShowTripStopConfirmationDialog {
+            let confirmationDialogViewModel = DKTripStopConfirmationViewModel()
+            let confirmationDialog = DKTripStopConfirmationViewController(
+                viewModel: confirmationDialogViewModel
+            )
+            confirmationDialog.modalPresentationStyle = .overCurrentContext
+            self.presentingVC?.present(confirmationDialog, animated: true)
+        }
     }
     
     private func updateUI() {

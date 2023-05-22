@@ -67,6 +67,10 @@ class DashboardViewController: UIViewController {
         self.navigationController?.pushViewController(simulationVC, animated: true)
     }
     
+    func showTripStopConfirmationDialog() {
+        self.startStopTripButton.showConfirmationDialog()
+    }
+    
     private func setupStartStopButton() {
         self.startStopTripButton = .init(type: .system)
         self.buttonsContainer.insertArrangedSubview(startStopTripButton, at: 0)

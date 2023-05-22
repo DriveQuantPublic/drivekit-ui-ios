@@ -26,7 +26,10 @@ public class DKTripRecordingButtonViewModel {
     }
     
     var state: RecordingState = .stopped
-    public private(set) var shouldShowTripStopConfirmationDialog: Bool = false
+    public var canShowTripStopConfirmationDialog: Bool {
+        guard case .recording = state else { return false }
+        return true
+    }
     public var viewModelDidUpdate: (() -> Void)?
     
     public init() {
@@ -138,16 +141,18 @@ public class DKTripRecordingButtonViewModel {
         }
     }
     
-    public func buttonTapped() {
+    public func buttonTapped(completion: (Bool) -> Void) {
+        var shouldShowConfirmationDialog: Bool
         switch state {
         case .stopped:
-            shouldShowTripStopConfirmationDialog = false
             state = .recording(startingDate: Date(), distance: 0, duration: 0)
             DriveKitTripAnalysis.shared.startTrip()
+            shouldShowConfirmationDialog = false
         case .recording:
-            shouldShowTripStopConfirmationDialog = true
+            shouldShowConfirmationDialog = true
         }
         self.viewModelDidUpdate?()
+        completion(shouldShowConfirmationDialog)
     }
 }
 

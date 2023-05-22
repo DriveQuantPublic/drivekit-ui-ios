@@ -81,7 +81,15 @@ class NotificationManager: NSObject {
     }
 
     private static func configureNotifications() {
-        let actionList: [NotificationAction.TripAnalysis] = [.postpone(.fifteenMinutes), .postpone(.thirtyMinutes), .postpone(.oneHour), .postpone(.twoHours), .analyze]
+        let actionList: [
+            NotificationAction.TripAnalysis] = [
+                .postpone(.tenMinutes),
+                .postpone(.thirtyMinutes),
+                .postpone(.oneHour),
+                .postpone(.twoHours),
+                .postpone(.fourHours),
+                .analyze
+            ]
         let notificationActions = actionList.map {
             UNNotificationAction(identifier: $0.identifier,
                                  title: $0.title,
@@ -116,14 +124,16 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
             case UNNotificationDefaultActionIdentifier: // User did tap a notification action.
                 let content = response.notification.request.content
                 userDidTapNotification(content: content, completionHandler: completionHandler)
-            case NotificationAction.TripAnalysis.postpone(.fifteenMinutes).identifier:
-                deactivateTripAnalysis(during: .fifteenMinutes, completionHandler: completionHandler)
+            case NotificationAction.TripAnalysis.postpone(.tenMinutes).identifier:
+                deactivateTripAnalysis(during: .tenMinutes, completionHandler: completionHandler)
             case NotificationAction.TripAnalysis.postpone(.thirtyMinutes).identifier:
                 deactivateTripAnalysis(during: .thirtyMinutes, completionHandler: completionHandler)
             case NotificationAction.TripAnalysis.postpone(.oneHour).identifier:
                 deactivateTripAnalysis(during: .oneHour, completionHandler: completionHandler)
             case NotificationAction.TripAnalysis.postpone(.twoHours).identifier:
                 deactivateTripAnalysis(during: .twoHours, completionHandler: completionHandler)
+            case NotificationAction.TripAnalysis.postpone(.fourHours).identifier:
+                deactivateTripAnalysis(during: .fourHours, completionHandler: completionHandler)
             case NotificationAction.TripAnalysis.analyze.identifier:
                 completionHandler()
             default:
@@ -144,6 +154,7 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
         let categoryIdentifier = content.categoryIdentifier
         switch categoryIdentifier {
             case NotificationCategory.TripAnalysis.start.identifier:
+                showDashboardWithTripRecordingButton()
                 break
             case NotificationCategory.TripAnalysis.end.identifier:
                 if let itineraryId = content.userInfo["itineraryId"] as? String {
@@ -160,7 +171,19 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
         DriveKitTripAnalysis.shared.temporaryDeactivateSDK(minutes: duration.rawValue)
         completionHandler()
     }
-
+    
+    func showDashboardWithTripRecordingButton() {
+        if let appDelegate = UIApplication.shared.delegate,
+           let appNavigationController = appDelegate.window??.rootViewController as? AppNavigationController {
+            appNavigationController.popToRootViewController(animated: true)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                if let dashboardVC = appNavigationController.viewControllers.first as? DashboardViewController {
+                    dashboardVC.showTripStopConfirmationDialog()
+                }
+            }
+        }
+    }
+    
     func showTrip(with identifier: String, hasAdvices: Bool) {
         if let appDelegate = UIApplication.shared.delegate, let rootViewController = appDelegate.window??.rootViewController, let trip = DriveKitDBTripAccess.shared.find(itinId: identifier) {
             let transportationMode: TransportationMode = TransportationMode(rawValue: Int(trip.transportationMode)) ?? .unknown

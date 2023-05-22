@@ -10,8 +10,9 @@
 import Foundation
 
 enum TripAnalysisPostponeDuration: Int {
-    case fifteenMinutes = 15
+    case tenMinutes = 10
     case thirtyMinutes = 30
     case oneHour = 60
     case twoHours = 120
+    case fourHours = 240
 }

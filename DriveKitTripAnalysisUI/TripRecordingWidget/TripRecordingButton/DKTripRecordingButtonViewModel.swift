@@ -23,14 +23,36 @@ public class DKTripRecordingButtonViewModel {
                 return startingDate
             }
         }
+        
+        var duration: Double? {
+            switch self {
+            case .stopped:
+                return nil
+            case let .recording(_, _, duration):
+                return duration
+            }
+        }
     }
     
-    var state: RecordingState = .stopped
+    var state: RecordingState = .stopped {
+        didSet {
+            switch (oldValue, state) {
+            case (.recording, .stopped):
+                stopTimer()
+            case (.stopped, .recording):
+                startTimer()
+            default:
+                break
+            }
+            self.viewModelDidUpdate?()
+        }
+    }
     public var canShowTripStopConfirmationDialog: Bool {
         guard case .recording = state else { return false }
         return true
     }
     public var viewModelDidUpdate: (() -> Void)?
+    private var timerCancelId: Timer?
     
     public init() {
         DriveKitTripAnalysis.shared.addTripListener(self)
@@ -78,7 +100,7 @@ public class DKTripRecordingButtonViewModel {
             return nil
         case let .recording(_, distance, _):
             let never = 1_000_000.0
-            let distanceValueText = distance.formatMeterDistanceInKm(
+            return distance.formatMeterDistanceInKm(
                 appendingUnit: true,
                 minDistanceToRemoveFractions: never
             )
@@ -86,17 +108,6 @@ public class DKTripRecordingButtonViewModel {
                 .font(dkFont: .primary, style: .normalText)
                 .color(.white)
                 .build()
-            let distanceText = "dk_tripwidget_record_subtitle_distance"
-                .dkTripAnalysisLocalized()
-                .dkAttributedString()
-                .font(dkFont: .primary, style: .normalText)
-                .color(.white)
-                .build()
-            
-            return "%@ %@".dkAttributedString()
-                .font(dkFont: .primary, style: .normalText)
-                .color(.white)
-                .buildWithArgs(distanceText, distanceValueText)
         }
     }
     
@@ -105,22 +116,11 @@ public class DKTripRecordingButtonViewModel {
         case .stopped:
             return nil
         case let .recording(_, _, duration):
-            let durationValueText = duration.formatSecondDurationWithColons()
+            return duration.formatSecondDurationWithColons()
                 .dkAttributedString()
                 .font(dkFont: .primary, style: .normalText)
                 .color(.white)
                 .build()
-            let durationText = "dk_tripwidget_record_subtitle_duration"
-                .dkTripAnalysisLocalized()
-                .dkAttributedString()
-                .font(dkFont: .primary, style: .normalText)
-                .color(.white)
-                .build()
-            
-            return "%@ %@".dkAttributedString()
-                .font(dkFont: .primary, style: .normalText)
-                .color(.white)
-                .buildWithArgs(durationText, durationValueText)
         }
     }
     
@@ -151,8 +151,29 @@ public class DKTripRecordingButtonViewModel {
         case .recording:
             shouldShowConfirmationDialog = true
         }
-        self.viewModelDidUpdate?()
         completion(shouldShowConfirmationDialog)
+    }
+    
+    private func startTimer() {
+        guard self.timerCancelId == nil else { return }
+        self.timerCancelId = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { [weak self] _ in
+            guard let self else { return }
+            guard case let .recording(startingDate, distance, duration) = self.state else {
+                assertionFailure("We should not have a timer tick outside of recording state")
+                return
+            }
+
+            self.state = .recording(
+                startingDate: startingDate,
+                distance: distance,
+                duration: duration + 1
+            )
+        })
+    }
+    
+    private func stopTimer() {
+        self.timerCancelId?.invalidate()
+        self.timerCancelId = nil
     }
 }
 
@@ -167,9 +188,8 @@ extension DKTripRecordingButtonViewModel: TripListener {
                     timeIntervalSinceNow: -tripPoint.duration
                 ),
                 distance: tripPoint.distance,
-                duration: tripPoint.duration
+                duration: state.duration ?? tripPoint.duration
             )
-            self.viewModelDidUpdate?()
         }
     }
     
@@ -179,7 +199,6 @@ extension DKTripRecordingButtonViewModel: TripListener {
         DispatchQueue.dispatchOnMainThread { [weak self] in
             guard let self else { return }
             self.state = .stopped
-            self.viewModelDidUpdate?()
         }
     }
     
@@ -208,7 +227,6 @@ extension DKTripRecordingButtonViewModel: TripListener {
             @unknown default:
                 break
             }
-            self.viewModelDidUpdate?()
         }
     }
     

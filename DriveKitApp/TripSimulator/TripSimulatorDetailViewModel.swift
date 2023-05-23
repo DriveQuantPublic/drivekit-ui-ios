@@ -29,11 +29,11 @@ class TripSimulatorDetailViewModel {
     init(simulatedItem: TripSimulatorItem) {
         self.simulatedItem = simulatedItem
         self.startSimulation()
-        TripListenerManager.shared.addTripListener(self)
+        DriveKitTripAnalysis.shared.addTripListener(self)
     }
 
     deinit {
-        TripListenerManager.shared.removeTripListener(self)
+        DriveKitTripAnalysis.shared.removeTripListener(self)
     }
 
     func stopSimulation() {

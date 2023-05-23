@@ -105,12 +105,12 @@ class NotificationManager: NSObject {
 
     private func configure() {
         DriveKit.shared.registerNotificationDelegate(self)
-        TripListenerManager.shared.addTripListener(self)
+        DriveKitTripAnalysis.shared.addTripListener(self)
     }
 
     private func reset() {
         DriveKit.shared.unregisterNotificationDelegate(self)
-        TripListenerManager.shared.removeTripListener(self)
+        DriveKitTripAnalysis.shared.removeTripListener(self)
     }
 }
 

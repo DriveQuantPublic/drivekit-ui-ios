@@ -220,7 +220,6 @@
 		635616F824B4CD6D0047EAD8 /* RankingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635616F724B4CD6D0047EAD8 /* RankingType.swift */; };
 		635616FA24B4CDB30047EAD8 /* RankingSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635616F924B4CDB30047EAD8 /* RankingSelector.swift */; };
 		63570DFA280995DA0082A446 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63570DF9280995D90082A446 /* DashboardViewController.swift */; };
-		63570DFC280996160082A446 /* TripListenerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63570DFB280996160082A446 /* TripListenerManager.swift */; };
 		63570DFE280997600082A446 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63570DFD280997600082A446 /* DashboardViewModel.swift */; };
 		63570E00280997790082A446 /* DashboardViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63570DFF280997790082A446 /* DashboardViewModelDelegate.swift */; };
 		63570E02280997C80082A446 /* FeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63570E01280997C80082A446 /* FeatureView.swift */; };
@@ -1065,7 +1064,6 @@
 		635616F724B4CD6D0047EAD8 /* RankingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingType.swift; sourceTree = "<group>"; };
 		635616F924B4CDB30047EAD8 /* RankingSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingSelector.swift; sourceTree = "<group>"; };
 		63570DF9280995D90082A446 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
-		63570DFB280996160082A446 /* TripListenerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripListenerManager.swift; sourceTree = "<group>"; };
 		63570DFD280997600082A446 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		63570DFF280997790082A446 /* DashboardViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModelDelegate.swift; sourceTree = "<group>"; };
 		63570E01280997C80082A446 /* FeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureView.swift; sourceTree = "<group>"; };
@@ -2933,7 +2931,6 @@
 			isa = PBXGroup;
 			children = (
 				67B58383280481570065C2E7 /* SynchroServicesManager.swift */,
-				63570DFB280996160082A446 /* TripListenerManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -5239,7 +5236,6 @@
 				63570E082809AEC90082A446 /* UIView+DK.swift in Sources */,
 				6765E72128135A5000FD13F8 /* TripSimulatorDetailViewController.swift in Sources */,
 				63E95A47282AACC1003DC276 /* InfoBannerType.swift in Sources */,
-				63570DFC280996160082A446 /* TripListenerManager.swift in Sources */,
 				63842D4F2817D3FC007F9256 /* NotificationChannel.swift in Sources */,
 				63057420281B3F6200FFB782 /* NotificationSettingsConfigurationCell.swift in Sources */,
 			);

@@ -53,7 +53,7 @@ public class DKTripRecordingButtonViewModel {
     }
     public var viewModelDidUpdate: (() -> Void)?
     public private(set) var tripRecordingUserMode: DKTripRecordingUserMode
-    private var timerCancelId: Timer?
+    private var timer: Timer?
     
     public init(
         tripRecordingUserMode: DKTripRecordingUserMode
@@ -64,6 +64,7 @@ public class DKTripRecordingButtonViewModel {
     
     deinit {
         DriveKitTripAnalysis.shared.removeTripListener(self)
+        stopTimer()
     }
     
     public var isHidden: Bool {
@@ -172,8 +173,8 @@ public class DKTripRecordingButtonViewModel {
     }
     
     private func startTimer() {
-        guard self.timerCancelId == nil else { return }
-        self.timerCancelId = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { [weak self] _ in
+        guard self.timer == nil else { return }
+        self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { [weak self] _ in
             guard let self else { return }
             guard case let .recording(startingDate, distance, duration) = self.state else {
                 assertionFailure("We should not have a timer tick outside of recording state")
@@ -189,8 +190,8 @@ public class DKTripRecordingButtonViewModel {
     }
     
     private func stopTimer() {
-        self.timerCancelId?.invalidate()
-        self.timerCancelId = nil
+        self.timer?.invalidate()
+        self.timer = nil
     }
 }
 

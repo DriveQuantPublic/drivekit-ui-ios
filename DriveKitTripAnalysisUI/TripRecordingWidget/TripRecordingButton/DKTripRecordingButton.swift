@@ -45,12 +45,16 @@ public class DKTripRecordingButton: UIButton {
     public func configure(viewModel: DKTripRecordingButtonViewModel, presentingVC: UIViewController) {
         self.contentView.configure(viewModel: viewModel)
         self.viewModel = viewModel
+        self.viewModel?.viewModelDidUpdate = { [weak self] in
+            guard let self else { return }
+            self.updateUI()
+        }
         self.presentingVC = presentingVC
-        self.updateUI()
+        self.setupUI()
     }
     
     public func showConfirmationDialog() {
-        guard let viewModel else { return }
+        guard let viewModel, viewModel.isHidden == false else { return }
         if viewModel.canShowTripStopConfirmationDialog {
             let confirmationDialogViewModel = DKTripStopConfirmationViewModel()
             let confirmationDialog = DKTripStopConfirmationViewController(
@@ -61,12 +65,19 @@ public class DKTripRecordingButton: UIButton {
         }
     }
     
-    private func updateUI() {
+    private func setupUI() {
         self.setTitle("", for: .normal)
         self.removeSubviews()
         self.embedSubview(contentView)
         self.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
         self.clipsToBounds = true
         self.setBackgroundImage(UIImage(color: DKUIColors.secondaryColor.color), for: .normal)
+        self.updateUI()
+    }
+    
+    private func updateUI() {
+        guard let viewModel else { return }
+        self.isHidden = viewModel.isHidden
+        self.contentView.updateUI()
     }
 }

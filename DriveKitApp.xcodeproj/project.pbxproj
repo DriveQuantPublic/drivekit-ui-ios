@@ -649,6 +649,7 @@
 		E32BC45A29A377FD006BE5F8 /* MySynthesisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32BC45929A377FD006BE5F8 /* MySynthesisViewModel.swift */; };
 		E32BC45D29A38C7B006BE5F8 /* DKDriverTimelineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E32BC45C29A38C7B006BE5F8 /* DKDriverTimelineExtension.swift */; };
 		E341FCA62951AF2B00FC5262 /* DoubleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E341FCA52951AF2B00FC5262 /* DoubleExtension.swift */; };
+		E34302972A1CE65700F5C765 /* DKTripRecordingUserMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34302962A1CE65700F5C765 /* DKTripRecordingUserMode.swift */; };
 		E3559EB729479F8100AAB747 /* TimelineDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3559EB629479F8100AAB747 /* TimelineDetailViewController.xib */; };
 		E3559EBB2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3559EBA2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift */; };
 		E3559EBD294868CB00AAB747 /* DKTimelineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3559EBC294868CB00AAB747 /* DKTimelineExtension.swift */; };
@@ -1532,6 +1533,7 @@
 		E32BC45929A377FD006BE5F8 /* MySynthesisViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySynthesisViewModel.swift; sourceTree = "<group>"; };
 		E32BC45C29A38C7B006BE5F8 /* DKDriverTimelineExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDriverTimelineExtension.swift; sourceTree = "<group>"; };
 		E341FCA52951AF2B00FC5262 /* DoubleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtension.swift; sourceTree = "<group>"; };
+		E34302962A1CE65700F5C765 /* DKTripRecordingUserMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripRecordingUserMode.swift; sourceTree = "<group>"; };
 		E3559EB629479F8100AAB747 /* TimelineDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineDetailViewController.xib; sourceTree = "<group>"; };
 		E3559EBA2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineDetailViewModelDelegate.swift; sourceTree = "<group>"; };
 		E3559EBC294868CB00AAB747 /* DKTimelineExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTimelineExtension.swift; sourceTree = "<group>"; };
@@ -3641,6 +3643,7 @@
 				E39584642A0E880600024029 /* DKTripRecordingButton.swift */,
 				E39584682A0E8B2500024029 /* DKTripRecordingButtonContentView.swift */,
 				E39584662A0E882600024029 /* DKTripRecordingButtonContentView.xib */,
+				E34302962A1CE65700F5C765 /* DKTripRecordingUserMode.swift */,
 			);
 			path = TripRecordingButton;
 			sourceTree = "<group>";
@@ -5029,6 +5032,7 @@
 				E39584652A0E880600024029 /* DKTripRecordingButton.swift in Sources */,
 				6728DF7E27D8E66500CC6CC9 /* CrashFeedbackStep2ViewModel.swift in Sources */,
 				E3759DBF2A12767A0010F989 /* DKTripStopConfirmationViewController.swift in Sources */,
+				E34302972A1CE65700F5C765 /* DKTripRecordingUserMode.swift in Sources */,
 				63508C6D278455370036A61E /* WorkingHoursSlotCellViewModel.swift in Sources */,
 				63913D9A277E7C0F00EABBC7 /* WorkingHoursSlotCell.swift in Sources */,
 				67E8D96A27D6171200BD0343 /* CrashFeedbackStep1VC.swift in Sources */,

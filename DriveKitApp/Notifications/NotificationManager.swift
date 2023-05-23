@@ -8,13 +8,14 @@
 //
 
 import UIKit
-import UserNotifications
 import CoreLocation
 import DriveKitCommonUI
 import DriveKitCoreModule
 import DriveKitDBTripAccessModule
 import DriveKitDriverDataUI
 import DriveKitTripAnalysisModule
+import DriveKitTripAnalysisUI
+import UserNotifications
 
 class NotificationManager: NSObject {
     private static let shared = NotificationManager()
@@ -81,8 +82,11 @@ class NotificationManager: NSObject {
     }
 
     private static func configureNotifications() {
-        let actionList: [
-            NotificationAction.TripAnalysis] = [
+        var actionList: [
+            NotificationAction.TripAnalysis] = []
+        
+        if DriveKitTripAnalysisUI.shared.isUserAllowedToCancelTrip {
+            actionList = [
                 .postpone(.tenMinutes),
                 .postpone(.thirtyMinutes),
                 .postpone(.oneHour),
@@ -90,6 +94,7 @@ class NotificationManager: NSObject {
                 .postpone(.fourHours),
                 .analyze
             ]
+        }
         let notificationActions = actionList.map {
             UNNotificationAction(identifier: $0.identifier,
                                  title: $0.title,
@@ -154,8 +159,9 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
         let categoryIdentifier = content.categoryIdentifier
         switch categoryIdentifier {
             case NotificationCategory.TripAnalysis.start.identifier:
-                showDashboardWithTripRecordingButton()
-                break
+                if DriveKitTripAnalysisUI.shared.isUserAllowedToCancelTrip {
+                    showDashboardWithTripRecordingButton()
+                }
             case NotificationCategory.TripAnalysis.end.identifier:
                 if let itineraryId = content.userInfo["itineraryId"] as? String {
                     let hasAdvices = content.userInfo["hasAdvices"] as? Bool ?? false
@@ -226,11 +232,17 @@ extension NotificationManager: TripListener {
                 break
             case .tripEnded, .tripAnalysisError:
                 NotificationManager.removeNotifications([
-                    .tripStarted(canPostpone: DriveKitConfig.isAutoStartPostponable),
+                    .tripStarted(
+                        canPostpone: DriveKitTripAnalysisUI.shared.isUserAllowedToCancelTrip
+                    ),
                     .tripAnalysisError(.noNetwork)
                 ])
             case .tripCancelled, .tripTooShort:
-                NotificationManager.removeNotification(.tripStarted(canPostpone: DriveKitConfig.isAutoStartPostponable))
+                NotificationManager.removeNotification(
+                    .tripStarted(
+                        canPostpone: DriveKitTripAnalysisUI.shared.isUserAllowedToCancelTrip
+                    )
+                )
         }
     }
 
@@ -243,7 +255,7 @@ extension NotificationManager: TripListener {
     }
 
     func tripStarted(startMode: StartMode) {
-        sendNotification(.tripStarted(canPostpone: DriveKitConfig.isAutoStartPostponable))
+        sendNotification(.tripStarted(canPostpone: DriveKitTripAnalysisUI.shared.isUserAllowedToCancelTrip))
     }
 
     func tripFinished(post: PostGeneric, response: PostGenericResponse) {
@@ -347,7 +359,7 @@ extension NotificationManager: TripListener {
             case .noGPSData:
                 sendCancelNotification(.noGpsPoint)
             case .user, .noSpeed, .missingConfiguration, .reset, .beaconNoSpeed, .bluetoothDeviceNoSpeed:
-                NotificationManager.removeNotification(.tripStarted(canPostpone: DriveKitConfig.isAutoStartPostponable))
+                NotificationManager.removeNotification(.tripStarted(canPostpone: DriveKitTripAnalysisUI.shared.isUserAllowedToCancelTrip))
             @unknown default:
                 break
         }

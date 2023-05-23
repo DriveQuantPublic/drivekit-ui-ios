@@ -72,10 +72,8 @@ class DashboardViewController: UIViewController {
     }
     
     private func setupStartStopButton() {
-        self.startStopTripButton = .init(type: .system)
+        self.startStopTripButton = DriveKitTripAnalysisUI.shared.getTripRecordingButton(presentedIn: self)
         self.buttonsContainer.insertArrangedSubview(startStopTripButton, at: 0)
-        let viewModel = DKTripRecordingButtonViewModel()
-        self.startStopTripButton.configure(viewModel: viewModel, presentingVC: self)
     }
 
     private func addAllFeatureView() {

@@ -39,10 +39,10 @@ class DKTripRecordingButtonContentView: UIView {
         iconContainer.backgroundColor = .white
         self.backgroundColor = .clear
         self.isUserInteractionEnabled = false
-        self.refreshView()
+        self.updateUI()
     }
     
-    func refreshView() {
+    func updateUI() {
         guard let viewModel else {
             return
         }
@@ -60,10 +60,7 @@ class DKTripRecordingButtonContentView: UIView {
     
     func configure(viewModel: DKTripRecordingButtonViewModel) {
         self.viewModel = viewModel
-        self.viewModel?.viewModelDidUpdate = {
-            self.refreshView()
-        }
-        self.refreshView()
+        self.updateUI()
     }
 
 }

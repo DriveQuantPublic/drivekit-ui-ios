@@ -52,14 +52,31 @@ public class DKTripRecordingButtonViewModel {
         return true
     }
     public var viewModelDidUpdate: (() -> Void)?
+    public private(set) var tripRecordingUserMode: DKTripRecordingUserMode
     private var timerCancelId: Timer?
     
-    public init() {
+    public init(
+        tripRecordingUserMode: DKTripRecordingUserMode
+    ) {
+        self.tripRecordingUserMode = tripRecordingUserMode
         DriveKitTripAnalysis.shared.addTripListener(self)
     }
     
     deinit {
         DriveKitTripAnalysis.shared.removeTripListener(self)
+    }
+    
+    public var isHidden: Bool {
+        switch (tripRecordingUserMode, state) {
+        case (.startStop, _):
+            return false
+        case (.stopOnly, .stopped):
+            return true
+        case (.stopOnly, .recording):
+            return false
+        case (.none, _):
+            return true
+        }
     }
     
     public var title: NSAttributedString {

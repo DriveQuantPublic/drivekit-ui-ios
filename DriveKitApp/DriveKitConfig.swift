@@ -30,7 +30,6 @@ class DriveKitConfig {
     // ===============================
     private static let apiKey = ""
 
-    static let isAutoStartPostponable = true
     private static let tripData: TripData = .safety
     private static let enableAlternativeTrips = true
     private static let enableTripAnalysisCrashDetection = true
@@ -129,6 +128,8 @@ class DriveKitConfig {
     private static func configureTripAnalysis() {
         DriveKitTripAnalysis.shared.activateAutoStart(enable: isTripAnalysisAutoStartEnabled())
         DriveKitTripAnalysis.shared.activateCrashDetection(DriveKitConfig.enableTripAnalysisCrashDetection)
+        
+        DriveKitTripAnalysisUI.shared.tripRecordingUserMode = .startStop
 
         // You must call this method if you use DriveKit Vehicle component:
         DriveKitTripAnalysis.shared.setVehiclesConfigTakeover(vehiclesConfigTakeOver: true)

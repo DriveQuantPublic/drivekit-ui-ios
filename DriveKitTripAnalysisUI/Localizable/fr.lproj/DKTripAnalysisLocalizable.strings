@@ -16,9 +16,7 @@
 "dk_tripwidget_confirm_endtrip_subtitle"="Votre trajet sera analysé et enregistré";
 "dk_tripwidget_confirm_endtrip_title"="J\'ai terminé mon trajet";
 "dk_tripwidget_disable_autostart_title"="Désactiver temporairement l’enregistrement automatique de vos trajets ?";
-"dk_tripwidget_record_subtitle_distance"="Distance :";
-"dk_tripwidget_record_subtitle_duration"="Durée :";
-"dk_tripwidget_record_title"="Trajet en cours depuis %@";
+"dk_tripwidget_record_title"="Trajet commencé à %@";
 "dk_tripwidget_start_title"="Enregistrer un trajet";
 "dk_working_hours_back_save_alert"="Les horaires de travail ont été modifiés. Souhaitez-vous les sauvegarder ?";
 "dk_working_hours_enable_desc"="Cette fonction permet de configurer les horaires d\'activation du mode automatique et de labelliser les trajets.";

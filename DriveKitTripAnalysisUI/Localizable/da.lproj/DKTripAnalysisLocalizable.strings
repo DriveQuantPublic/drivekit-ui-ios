@@ -16,9 +16,7 @@
 "dk_tripwidget_confirm_endtrip_subtitle"="Din rejse vil blive analyseret og gemt";
 "dk_tripwidget_confirm_endtrip_title"="Jeg har afsluttet min rejse";
 "dk_tripwidget_disable_autostart_title"="Deaktivere den automatiske optagelse af dine ture midlertidigt?";
-"dk_tripwidget_record_subtitle_distance"="Afstand:";
-"dk_tripwidget_record_subtitle_duration"="Varighed:";
-"dk_tripwidget_record_title"="Rejsen har kørt siden %@";
+"dk_tripwidget_record_title"="Rejsen startede på %@";
 "dk_tripwidget_start_title"="Optag en rejse";
 "dk_working_hours_back_save_alert"="Arbejdstiden er ændret. Vil du gemme dem?";
 "dk_working_hours_enable_desc"="Denne funktion konfigurerer de automatiske rejseoptagelsesperioder og analyserer turerne.";

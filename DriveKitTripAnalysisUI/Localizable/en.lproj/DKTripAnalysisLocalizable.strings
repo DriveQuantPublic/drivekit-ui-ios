@@ -16,9 +16,7 @@
 "dk_tripwidget_confirm_endtrip_subtitle"="Your trip will be analyzed and saved";
 "dk_tripwidget_confirm_endtrip_title"="I\'ve completed my trip";
 "dk_tripwidget_disable_autostart_title"="Temporarily disable automatic recording of your trips?";
-"dk_tripwidget_record_subtitle_distance"="Distance:";
-"dk_tripwidget_record_subtitle_duration"="Duration:";
-"dk_tripwidget_record_title"="Trip running since %@";
+"dk_tripwidget_record_title"="Trip started at %@";
 "dk_tripwidget_start_title"="Record a trip";
 "dk_working_hours_back_save_alert"="The working hours have been changed. Would you like to save them?";
 "dk_working_hours_enable_desc"="This feature configures the automatic trip recording periods and labels the trips.";

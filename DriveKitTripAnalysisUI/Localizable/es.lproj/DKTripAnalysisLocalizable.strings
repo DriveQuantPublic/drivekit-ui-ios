@@ -16,9 +16,7 @@
 "dk_tripwidget_confirm_endtrip_subtitle"="Tu viaje será analizado y guardado";
 "dk_tripwidget_confirm_endtrip_title"="He completado mi viaje";
 "dk_tripwidget_disable_autostart_title"="¿Desactivar temporalmente la grabación automática de tus viajes?";
-"dk_tripwidget_record_subtitle_distance"="Distancia:";
-"dk_tripwidget_record_subtitle_duration"="Duración:";
-"dk_tripwidget_record_title"="Viaje en curso desde %@";
+"dk_tripwidget_record_title"="Viaje comenzó en %@";
 "dk_tripwidget_start_title"="Registrar un viaje";
 "dk_working_hours_back_save_alert"="El horario de trabajo ha sido modificado. ¿Quiere guardarlos?";
 "dk_working_hours_enable_desc"="Esta función permite configurar los tiempos de activación del modo automático y etiquetar los viajes.";

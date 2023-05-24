@@ -16,9 +16,7 @@
 "dk_tripwidget_confirm_endtrip_subtitle"="Ihre Reise wird ausgewertet und gespeichert";
 "dk_tripwidget_confirm_endtrip_title"="Ich habe meine Reise beendet";
 "dk_tripwidget_disable_autostart_title"="Die automatische Aufzeichnung Ihrer Fahrten vorübergehend deaktivieren?";
-"dk_tripwidget_record_subtitle_distance"="Distanz:";
-"dk_tripwidget_record_subtitle_duration"="Dauer:";
-"dk_tripwidget_record_title"="Reise läuft seit %@";
+"dk_tripwidget_record_title"="Fahrt begann um %@";
 "dk_tripwidget_start_title"="Eine Reise aufzeichnen";
 "dk_working_hours_back_save_alert"="Die Arbeitszeiten sind geändert worden. Möchten Sie sie speichern?";
 "dk_working_hours_enable_desc"="Mit dieser Funktion können Sie die Zeiten für die Aktivierung des automatischen Modus einstellen und Fahrten mit einem Label versehen.";

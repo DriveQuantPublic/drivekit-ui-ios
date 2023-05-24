@@ -53,7 +53,7 @@ class DKTripStopConfirmationViewController: UIViewController {
         }
     }
     
-    public func configure(with viewModel: DKTripStopConfirmationViewModel) {
+    func configure(with viewModel: DKTripStopConfirmationViewModel) {
         self.viewModel = viewModel
         updateUI()
     }
@@ -77,7 +77,7 @@ class DKTripStopConfirmationViewController: UIViewController {
     }
     
     @objc func didTapEndTripButton() {
-        viewModel.endTripButtonTapped()
+        viewModel.endTrip()
         self.dismiss(animated: true)
     }
     
@@ -98,7 +98,7 @@ class DKTripStopConfirmationViewController: UIViewController {
                 style: .default
             ) { [weak self] _ in
                 guard let viewModel = self?.viewModel else { return }
-                viewModel.disableRecordingConfirmationOptionSelected(duration: duration)
+                viewModel.disableRecording(forDuration: duration)
                 self?.dismiss(animated: true)
             }
             

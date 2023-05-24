@@ -12,38 +12,38 @@ import DriveKitTripAnalysisModule
 import Foundation
 
 public class DKTripStopConfirmationViewModel {
-    public init() { }
+    init() { }
     
-    public var endTripTitle: String {
+    var endTripTitle: String {
         "dk_tripwidget_confirm_endtrip_title".dkTripAnalysisLocalized()
     }
     
-    public var endTripSubtitle: String {
+    var endTripSubtitle: String {
         "dk_tripwidget_confirm_endtrip_subtitle".dkTripAnalysisLocalized()
     }
     
-    public var continueTripTitle: String {
+    var continueTripTitle: String {
         "dk_tripwidget_confirm_continuetrip_title".dkTripAnalysisLocalized()
     }
     
-    public var continueTripSubtitle: String {
+    var continueTripSubtitle: String {
         "dk_tripwidget_confirm_continuetrip_subtitle".dkTripAnalysisLocalized()
     }
     
-    public var cancelTripTitle: String {
+    var cancelTripTitle: String {
         "dk_tripwidget_confirm_canceltrip_title".dkTripAnalysisLocalized()
     }
     
-    public var cancelTripSubtitle: String {
+    var cancelTripSubtitle: String {
         "dk_tripwidget_confirm_canceltrip_subtitle".dkTripAnalysisLocalized()
     }
     
-    public var disableRecordingConfirmationTitle: String {
+    var disableRecordingConfirmationTitle: String {
         "dk_tripwidget_disable_autostart_title".dkTripAnalysisLocalized()
     }
     
     // swiftlint:disable no_magic_numbers
-    public var disableRecordingConfirmationTitlesAndDurations: [(String, Int)] {
+    var disableRecordingConfirmationTitlesAndDurations: [(String, Int)] {
         [
             (String(format: "10 %@", DKCommonLocalizable.minutePlural.text()), 10),
             (String(format: "30 %@", DKCommonLocalizable.minutePlural.text()), 30),
@@ -54,11 +54,11 @@ public class DKTripStopConfirmationViewModel {
     }
     // swiftlint:enable no_magic_numbers
 
-    public func endTripButtonTapped() {
+    func endTrip() {
         DriveKitTripAnalysis.shared.stopTrip()
     }
     
-    public func disableRecordingConfirmationOptionSelected(duration: Int) {
+    func disableRecording(forDuration duration: Int) {
         DriveKitTripAnalysis.shared.temporaryDeactivateSDK(minutes: duration)
     }
 }

@@ -35,14 +35,14 @@ public class DKTripRecordingButton: UIButton {
     
     @objc func didTapButton() {
         guard let viewModel else { return }
-        viewModel.buttonTapped { shouldShowTripStopConfirmationDialog in
+        viewModel.toggleRecordingState { shouldShowTripStopConfirmationDialog in
             if shouldShowTripStopConfirmationDialog {
                 showConfirmationDialog()
             }
         }
     }
     
-    public func configure(viewModel: DKTripRecordingButtonViewModel, presentingVC: UIViewController) {
+    func configure(viewModel: DKTripRecordingButtonViewModel, presentingVC: UIViewController) {
         self.contentView.configure(viewModel: viewModel)
         self.viewModel = viewModel
         self.viewModel?.viewModelDidUpdate = { [weak self] in

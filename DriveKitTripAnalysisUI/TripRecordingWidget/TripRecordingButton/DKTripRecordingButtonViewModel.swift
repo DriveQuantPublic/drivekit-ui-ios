@@ -10,7 +10,7 @@ import CoreLocation
 import DriveKitTripAnalysisModule
 import Foundation
 
-public class DKTripRecordingButtonViewModel {
+class DKTripRecordingButtonViewModel {
     enum RecordingState {
         case stopped
         case recording(startingDate: Date, distance: Double, duration: Double)
@@ -47,15 +47,15 @@ public class DKTripRecordingButtonViewModel {
             self.viewModelDidUpdate?()
         }
     }
-    public var canShowTripStopConfirmationDialog: Bool {
+    var canShowTripStopConfirmationDialog: Bool {
         guard case .recording = state else { return false }
         return true
     }
-    public var viewModelDidUpdate: (() -> Void)?
-    public private(set) var tripRecordingUserMode: DKTripRecordingUserMode
+    var viewModelDidUpdate: (() -> Void)?
+    private(set) var tripRecordingUserMode: DKTripRecordingUserMode
     private var timer: Timer?
     
-    public init(
+    init(
         tripRecordingUserMode: DKTripRecordingUserMode
     ) {
         self.tripRecordingUserMode = tripRecordingUserMode
@@ -67,7 +67,7 @@ public class DKTripRecordingButtonViewModel {
         stopTimer()
     }
     
-    public var isHidden: Bool {
+    var isHidden: Bool {
         switch (tripRecordingUserMode, state) {
         case (.startStop, _):
             return false
@@ -80,7 +80,7 @@ public class DKTripRecordingButtonViewModel {
         }
     }
     
-    public var title: NSAttributedString {
+    var title: NSAttributedString {
         switch state {
         case .stopped:
             return "dk_tripwidget_start_title".dkTripAnalysisLocalized()
@@ -103,7 +103,7 @@ public class DKTripRecordingButtonViewModel {
         }
     }
     
-    public var hasSubtitles: Bool {
+    var hasSubtitles: Bool {
         switch state {
         case .stopped:
             return false
@@ -112,7 +112,7 @@ public class DKTripRecordingButtonViewModel {
         }
     }
     
-    public var distanceSubtitle: NSAttributedString? {
+    var distanceSubtitle: NSAttributedString? {
         switch state {
         case .stopped:
             return nil
@@ -129,7 +129,7 @@ public class DKTripRecordingButtonViewModel {
         }
     }
     
-    public var durationSubtitle: NSAttributedString? {
+    var durationSubtitle: NSAttributedString? {
         switch state {
         case .stopped:
             return nil
@@ -142,7 +142,7 @@ public class DKTripRecordingButtonViewModel {
         }
     }
     
-    public var iconImage: UIImage {
+    var iconImage: UIImage {
         switch state {
         case .stopped:
             return UIImage(
@@ -159,7 +159,7 @@ public class DKTripRecordingButtonViewModel {
         }
     }
     
-    public func buttonTapped(completion: (Bool) -> Void) {
+    func toggleRecordingState(completion: (Bool) -> Void) {
         var shouldShowConfirmationDialog: Bool
         switch state {
         case .stopped:
@@ -196,9 +196,9 @@ public class DKTripRecordingButtonViewModel {
 }
 
 extension DKTripRecordingButtonViewModel: TripListener {
-    public func tripStarted(startMode: DriveKitTripAnalysisModule.StartMode) {}
+    func tripStarted(startMode: DriveKitTripAnalysisModule.StartMode) {}
     
-    public func tripPoint(tripPoint: DriveKitTripAnalysisModule.TripPoint) {
+    func tripPoint(tripPoint: DriveKitTripAnalysisModule.TripPoint) {
         DispatchQueue.dispatchOnMainThread { [weak self] in
             guard let self else { return }
             self.state = .recording(
@@ -211,22 +211,22 @@ extension DKTripRecordingButtonViewModel: TripListener {
         }
     }
     
-    public func tripFinished(post: DriveKitTripAnalysisModule.PostGeneric, response: DriveKitTripAnalysisModule.PostGenericResponse) { }
+    func tripFinished(post: DriveKitTripAnalysisModule.PostGeneric, response: DriveKitTripAnalysisModule.PostGenericResponse) { }
     
-    public func tripCancelled(cancelTrip: DriveKitTripAnalysisModule.CancelTrip) {
+    func tripCancelled(cancelTrip: DriveKitTripAnalysisModule.CancelTrip) {
         DispatchQueue.dispatchOnMainThread { [weak self] in
             guard let self else { return }
             self.state = .stopped
         }
     }
     
-    public func tripSavedForRepost() {}
+    func tripSavedForRepost() {}
     
-    public func beaconDetected() {}
+    func beaconDetected() {}
     
-    public func significantLocationChangeDetected(location: CLLocation) {}
+    func significantLocationChangeDetected(location: CLLocation) {}
     
-    public func sdkStateChanged(state: DriveKitTripAnalysisModule.State) {
+    func sdkStateChanged(state: DriveKitTripAnalysisModule.State) {
         DispatchQueue.dispatchOnMainThread { [weak self] in
             guard let self else { return }
             switch state {
@@ -248,11 +248,11 @@ extension DKTripRecordingButtonViewModel: TripListener {
         }
     }
     
-    public func potentialTripStart(startMode: DriveKitTripAnalysisModule.StartMode) {}
+    func potentialTripStart(startMode: DriveKitTripAnalysisModule.StartMode) {}
     
-    public func crashDetected(crashInfo: DriveKitTripAnalysisModule.DKCrashInfo) {}
+    func crashDetected(crashInfo: DriveKitTripAnalysisModule.DKCrashInfo) {}
     
-    public func crashFeedbackSent(
+    func crashFeedbackSent(
         crashInfo: DriveKitTripAnalysisModule.DKCrashInfo,
         feedbackType: DriveKitTripAnalysisModule.DKCrashFeedbackType,
         severity: DriveKitTripAnalysisModule.DKCrashFeedbackSeverity

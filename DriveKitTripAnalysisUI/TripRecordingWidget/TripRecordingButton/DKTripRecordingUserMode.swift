@@ -9,5 +9,5 @@
 import Foundation
 
 public enum DKTripRecordingUserMode {
-    case startStop, stopOnly, none
+    case startStop, startOnly, stopOnly, none
 }

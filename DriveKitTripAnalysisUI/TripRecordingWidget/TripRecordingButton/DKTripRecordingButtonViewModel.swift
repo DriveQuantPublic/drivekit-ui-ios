@@ -71,12 +71,29 @@ class DKTripRecordingButtonViewModel {
         switch (tripRecordingUserMode, state) {
         case (.startStop, _):
             return false
+        case (.startOnly, _):
+            return false
         case (.stopOnly, .stopped):
             return true
         case (.stopOnly, .recording):
             return false
         case (.none, _):
             return true
+        }
+    }
+    
+    var isEnabled: Bool {
+        switch (tripRecordingUserMode, state) {
+        case (.startStop, _):
+            return true
+        case (.startOnly, .stopped):
+            return true
+        case (.startOnly, .recording):
+            return false
+        case (.stopOnly, _):
+            return true
+        case (.none, _):
+            return false
         }
     }
     
@@ -143,20 +160,20 @@ class DKTripRecordingButtonViewModel {
     }
     
     var iconImage: UIImage {
-        switch state {
-        case .stopped:
-            return UIImage(
-                named: "dk_trip_analysis_play",
-                in: .tripAnalysisUIBundle,
-                compatibleWith: nil
-            )!
-        case .recording:
-            return UIImage(
-                named: "dk_trip_analysis_stop",
-                in: .tripAnalysisUIBundle,
-                compatibleWith: nil
-            )!
+        let iconName: String
+        switch (tripRecordingUserMode, state) {
+        case (_, .stopped):
+            iconName = "dk_trip_analysis_play"
+        case (.startOnly, .recording):
+            iconName = "dk_trip_analysis_record"
+        case (_, .recording):
+            iconName = "dk_trip_analysis_stop"
         }
+        return UIImage(
+            named: iconName,
+            in: .tripAnalysisUIBundle,
+            compatibleWith: nil
+        )!
     }
     
     func toggleRecordingState() -> Bool {

@@ -23,7 +23,7 @@ import DriveKitTripAnalysisModule
         switch tripRecordingUserMode {
         case .startStop, .stopOnly:
             return true
-        case .none:
+        case .startOnly, .none:
             return false
         }
     }

@@ -77,6 +77,7 @@ public class DKTripRecordingButton: UIButton {
     private func updateUI() {
         guard let viewModel else { return }
         self.isHidden = viewModel.isHidden
+        self.isEnabled = viewModel.isEnabled
         self.contentView.updateUI()
     }
 }

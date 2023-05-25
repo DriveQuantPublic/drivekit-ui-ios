@@ -181,6 +181,7 @@ class DKTripRecordingButtonViewModel {
         switch state {
         case .stopped:
             state = .recording(startingDate: Date(), distance: 0, duration: 0)
+            DriveKitTripAnalysis.shared.cancelTemporaryDeactivation()
             DriveKitTripAnalysis.shared.startTrip()
             shouldShowConfirmationDialog = false
         case .recording:

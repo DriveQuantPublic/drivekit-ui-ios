@@ -195,7 +195,7 @@ class DKTripRecordingButtonViewModel {
         guard self.timer == nil else { return }
         self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { [weak self] _ in
             guard let self else { return }
-            guard case let .recording(startingDate, distance, duration) = self.state else {
+            guard case let .recording(startingDate, distance, _) = self.state else {
                 assertionFailure("We should not have a timer tick outside of recording state")
                 return
             }
@@ -203,7 +203,7 @@ class DKTripRecordingButtonViewModel {
             self.state = .recording(
                 startingDate: startingDate,
                 distance: distance,
-                duration: duration + 1
+                duration: -startingDate.timeIntervalSinceNow
             )
         })
     }

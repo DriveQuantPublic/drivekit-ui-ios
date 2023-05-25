@@ -159,7 +159,7 @@ class DKTripRecordingButtonViewModel {
         }
     }
     
-    func toggleRecordingState(completion: (Bool) -> Void) {
+    func toggleRecordingState() -> Bool {
         var shouldShowConfirmationDialog: Bool
         switch state {
         case .stopped:
@@ -169,7 +169,8 @@ class DKTripRecordingButtonViewModel {
         case .recording:
             shouldShowConfirmationDialog = true
         }
-        completion(shouldShowConfirmationDialog)
+        
+        return shouldShowConfirmationDialog
     }
     
     private func startTimer() {

@@ -35,10 +35,9 @@ public class DKTripRecordingButton: UIButton {
     
     @objc func didTapButton() {
         guard let viewModel else { return }
-        viewModel.toggleRecordingState { shouldShowTripStopConfirmationDialog in
-            if shouldShowTripStopConfirmationDialog {
-                showConfirmationDialog()
-            }
+        let shouldShowTripStopConfirmationDialog = viewModel.toggleRecordingState()
+        if shouldShowTripStopConfirmationDialog {
+            showConfirmationDialog()
         }
     }
     

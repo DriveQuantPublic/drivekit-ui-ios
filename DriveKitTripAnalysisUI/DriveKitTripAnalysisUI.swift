@@ -19,6 +19,14 @@ import DriveKitTripAnalysisModule
     @objc public static let shared = DriveKitTripAnalysisUI()
     @objc public var defaultWorkingHours: DKWorkingHours = DriveKitTripAnalysisUI.getDefaultWorkingHours()
     public var tripRecordingUserMode: DKTripRecordingUserMode = .startStop
+    public var isUserAllowedToStartTripManually: Bool {
+        switch tripRecordingUserMode {
+        case .startStop, .startOnly:
+            return true
+        case .stopOnly, .none:
+            return false
+        }
+    }
     public var isUserAllowedToCancelTrip: Bool {
         switch tripRecordingUserMode {
         case .startStop, .stopOnly:

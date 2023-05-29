@@ -13,7 +13,7 @@ import Foundation
 class DKTripRecordingButtonViewModel {
     enum RecordingState {
         case stopped
-        case recording(startingDate: Date, distance: Double, duration: Double)
+        case recording(startingDate: Date, distance: Double?, duration: Double)
         
         var startingDate: Date? {
             switch self {
@@ -59,6 +59,15 @@ class DKTripRecordingButtonViewModel {
         tripRecordingUserMode: DKTripRecordingUserMode
     ) {
         self.tripRecordingUserMode = tripRecordingUserMode
+        if DriveKitTripAnalysis.shared.isTripRunning() {
+            if let lastTripPoint = DriveKitTripAnalysis.shared.getLastTripPoint() {
+                self.updateState(with: lastTripPoint)
+            } else if let startingDate = DriveKitTripAnalysis.shared.getCurrentTripStartDate() {
+                self.updateState(
+                    with: startingDate
+                )
+            }
+        }
         DriveKitTripAnalysis.shared.addTripListener(self)
     }
     
@@ -135,10 +144,10 @@ class DKTripRecordingButtonViewModel {
             return nil
         case let .recording(_, distance, _):
             let never = 1_000_000.0
-            return distance.formatMeterDistanceInKm(
+            return (distance?.formatMeterDistanceInKm(
                 appendingUnit: true,
                 minDistanceToRemoveFractions: never
-            )
+            ) ?? "-")
                 .dkAttributedString()
                 .font(dkFont: .primary, style: .normalText)
                 .color(.white)
@@ -180,7 +189,7 @@ class DKTripRecordingButtonViewModel {
         var shouldShowConfirmationDialog: Bool
         switch state {
         case .stopped:
-            state = .recording(startingDate: Date(), distance: 0, duration: 0)
+            self.updateState(with: Date())
             DriveKitTripAnalysis.shared.cancelTemporaryDeactivation()
             DriveKitTripAnalysis.shared.startTrip()
             shouldShowConfirmationDialog = false
@@ -200,10 +209,9 @@ class DKTripRecordingButtonViewModel {
                 return
             }
 
-            self.state = .recording(
-                startingDate: startingDate,
-                distance: distance,
-                duration: -startingDate.timeIntervalSinceNow
+            self.updateState(
+                with: startingDate,
+                distance: distance
             )
         })
     }
@@ -211,6 +219,24 @@ class DKTripRecordingButtonViewModel {
     private func stopTimer() {
         self.timer?.invalidate()
         self.timer = nil
+    }
+    
+    private func updateState(with tripPoint: TripPoint) {
+        self.state = .recording(
+            startingDate: state.startingDate ?? Date(
+                timeIntervalSinceNow: -tripPoint.duration
+            ),
+            distance: tripPoint.distance,
+            duration: state.duration ?? tripPoint.duration
+        )
+    }
+    
+    private func updateState(with startingDate: Date, distance: Double? = nil) {
+        self.state = .recording(
+            startingDate: startingDate,
+            distance: distance,
+            duration: -startingDate.timeIntervalSinceNow
+        )
     }
 }
 
@@ -220,13 +246,7 @@ extension DKTripRecordingButtonViewModel: TripListener {
     func tripPoint(tripPoint: DriveKitTripAnalysisModule.TripPoint) {
         DispatchQueue.dispatchOnMainThread { [weak self] in
             guard let self else { return }
-            self.state = .recording(
-                startingDate: state.startingDate ?? Date(
-                    timeIntervalSinceNow: -tripPoint.duration
-                ),
-                distance: tripPoint.distance,
-                duration: state.duration ?? tripPoint.duration
-            )
+            self.updateState(with: tripPoint)
         }
     }
     
@@ -252,11 +272,7 @@ extension DKTripRecordingButtonViewModel: TripListener {
             case .inactive:
                 self.state = .stopped
             case .starting:
-                self.state = .recording(
-                    startingDate: self.state.startingDate ?? Date(),
-                    distance: 0,
-                    duration: 0
-                )
+                self.updateState(with: self.state.startingDate ?? Date())
             case .sending:
                 self.state = .stopped
             case .running, .stopping:

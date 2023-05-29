@@ -68,6 +68,10 @@ public class DKTripRecordingButton: UIButton {
         self.setTitle("", for: .normal)
         self.removeSubviews()
         self.embedSubview(contentView)
+        let minimumHeigthToAvoidSubtitleTruncating = 63.0
+        self.contentView.heightAnchor.constraint(
+            equalToConstant: minimumHeigthToAvoidSubtitleTruncating
+        ).isActive = true
         self.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
         self.clipsToBounds = true
         self.setBackgroundImage(UIImage(color: DKUIColors.secondaryColor.color), for: .normal)

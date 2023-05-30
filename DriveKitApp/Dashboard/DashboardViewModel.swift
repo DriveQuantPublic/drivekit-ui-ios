@@ -17,22 +17,9 @@ class DashboardViewModel {
     weak var delegate: DashboardViewModelDelegate?
 
     init() {
-        TripListenerManager.shared.addSdkStateChangeListener(self)
         updateBanners()
         NotificationCenter.default.addObserver(self, selector: #selector(updateBanners), name: UIApplication.willEnterForegroundNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateBanners), name: .sensorStateChangedNotification, object: nil)
-    }
-
-    deinit {
-        TripListenerManager.shared.removeSdkStateChangeListener(self)
-    }
-
-    func getStartStopTripButtonTitle() -> String {
-        if DriveKitTripAnalysis.shared.isTripRunning() {
-            return "stop_trip".keyLocalized()
-        } else {
-            return "start_trip".keyLocalized()
-        }
     }
 
     func getSynthesisCardsView() -> UIView {
@@ -41,14 +28,6 @@ class DashboardViewModel {
 
     func getLastTripsView(parentViewController: UIViewController) -> UIView {
         return DriveKitDriverDataUI.shared.getLastTripsView(parentViewController: parentViewController)
-    }
-
-    func startStopTrip() {
-        if DriveKitTripAnalysis.shared.isTripRunning() {
-            DriveKitTripAnalysis.shared.stopTrip()
-        } else {
-            DriveKitTripAnalysis.shared.startTrip()
-        }
     }
 
     @objc func updateBanners() {
@@ -60,13 +39,5 @@ class DashboardViewModel {
         }
         self.bannerViewModels = newBannerViewModels
         self.delegate?.bannersDidUpdate()
-    }
-}
-
-extension DashboardViewModel: SdkStateChangeListener {
-    func sdkStateChanged(state: State) {
-        DispatchQueue.dispatchOnMainThread {
-            self.delegate?.updateStartStopButton()
-        }
     }
 }

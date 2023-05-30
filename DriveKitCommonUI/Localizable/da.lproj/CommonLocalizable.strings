@@ -36,10 +36,14 @@
 "dk_common_error_empty_field"="Dette felt kan ikke være tomt";
 "dk_common_error_message"="Der opstod en fejl under anmodningen, bedes du prøve igen senere.";
 "dk_common_finish"="Afslut";
+"dk_common_hour_plural"="timer";
+"dk_common_hour_singular"="timer";
 "dk_common_later"="Senere";
 "dk_common_loading"="Indlæser. Vent venligst...";
 "dk_common_mass"="Masse";
 "dk_common_mean_speed"="Gennemsnitshastighed";
+"dk_common_minute_plural"="minutter";
+"dk_common_minute_singular"="minutter";
 "dk_common_no"="Nej";
 "dk_common_no_data_yet"="Du har endnu ikke nogen data";
 "dk_common_no_pseudo_set"="For at dele din ranglisteplacering med de andre deltagere kan du vælge et brugernavn. Uden et brugernavn vises du som anonym.";

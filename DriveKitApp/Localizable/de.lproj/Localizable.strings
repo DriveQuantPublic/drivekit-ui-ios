@@ -17,7 +17,6 @@
 "button_see_features"="SIEHE FUNKTIONEN";
 "button_stop"="Stopp";
 "button_validation"="GULTIG";
-"cancel_trip"="Stornierung der Reise";
 "client_error"="Es ist ein Fehler aufgetreten. Bitte versuchen Sie es zu einem späteren Zeitpunkt noch einmal.";
 "dashboard_header"="Dashboard";
 "delete_account_header"="Löschung des Kontos";
@@ -161,8 +160,6 @@ Um Ihnen bei der Implementierung eines.\n\nTBerechtigungspfads zu helfen, haben 
 "see_settings"="Siehe die Einstellungen";
 "server_error"="Serverfehler, bitte versuchen Sie es später noch einmal";
 "simulate_trip"="Eine Fahrt simulieren";
-"start_trip"="Fahrt beginnen";
-"stop_trip"="Fahrt abbrechen";
 "sync_challenge_loading_message"="Herausforderungen abrufen...";
 "sync_trips_loading_message"="Abrufen bestehender Fahrten...";
 "sync_user_info_loading_message"="Abrufen von Benutzerinformationen...";

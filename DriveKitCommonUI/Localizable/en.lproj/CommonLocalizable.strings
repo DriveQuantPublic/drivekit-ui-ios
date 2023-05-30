@@ -36,10 +36,14 @@
 "dk_common_error_empty_field"="This field cannot be blank";
 "dk_common_error_message"="An error occurred during the request, please retry later.";
 "dk_common_finish"="Finish";
+"dk_common_hour_plural"="hours";
+"dk_common_hour_singular"="hour";
 "dk_common_later"="Later";
 "dk_common_loading"="Loading. Please wait...";
 "dk_common_mass"="Mass";
 "dk_common_mean_speed"="Average speed";
+"dk_common_minute_plural"="minutes";
+"dk_common_minute_singular"="minute";
 "dk_common_no"="No";
 "dk_common_no_data_yet"="You don\'t have any data yet";
 "dk_common_no_pseudo_set"="To share your ranking with the other participants, we invite you to choose a pseudo. Without a pseudo you will appear as anonymous.";

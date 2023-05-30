@@ -13,7 +13,7 @@ import Foundation
 class DKTripRecordingButtonViewModel {
     enum RecordingState {
         case stopped
-        case recording(startingDate: Date, distance: Double?, duration: Double)
+        case recording(startingDate: Date, distance: Double, duration: Double)
         
         var startingDate: Date? {
             switch self {
@@ -152,10 +152,10 @@ class DKTripRecordingButtonViewModel {
             return nil
         case let .recording(_, distance, _):
             let never = 1_000_000.0
-            return (distance?.formatMeterDistanceInKm(
+            return distance.formatMeterDistanceInKm(
                 appendingUnit: true,
                 minDistanceToRemoveFractions: never
-            ) ?? "-")
+            )
                 .dkAttributedString()
                 .font(dkFont: .primary, style: .normalText)
                 .color(.white)
@@ -239,7 +239,7 @@ class DKTripRecordingButtonViewModel {
         )
     }
     
-    private func updateState(with startingDate: Date, distance: Double? = nil) {
+    private func updateState(with startingDate: Date, distance: Double = 0) {
         self.state = .recording(
             startingDate: startingDate,
             distance: distance,

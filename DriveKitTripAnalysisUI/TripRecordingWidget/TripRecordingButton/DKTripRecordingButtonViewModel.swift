@@ -48,8 +48,16 @@ class DKTripRecordingButtonViewModel {
         }
     }
     var canShowTripStopConfirmationDialog: Bool {
-        guard case .recording = state else { return false }
-        return true
+        switch (tripRecordingUserMode, state) {
+        case (.startStop, .recording),
+             (.stopOnly, .recording):
+            return true
+        case (.startStop, _),
+             (.startOnly, _),
+             (.stopOnly, _),
+             (.none, _):
+            return false
+        }
     }
     var viewModelDidUpdate: (() -> Void)?
     private(set) var tripRecordingUserMode: DKTripRecordingUserMode

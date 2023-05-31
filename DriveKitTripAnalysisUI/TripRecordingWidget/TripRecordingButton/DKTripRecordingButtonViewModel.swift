@@ -63,11 +63,16 @@ class DKTripRecordingButtonViewModel {
     private(set) var tripRecordingUserMode: DKTripRecordingUserMode
     private var timer: Timer?
     
+    static var isTripConfirmed: Bool {
+        DriveKitTripAnalysis.shared.getCurrentStartMode() == .manual ||
+        [.running, .stopping].contains(DriveKitTripAnalysis.shared.getRecorderState())
+    }
+    
     init(
         tripRecordingUserMode: DKTripRecordingUserMode
     ) {
         self.tripRecordingUserMode = tripRecordingUserMode
-        if DriveKitTripAnalysis.shared.isTripRunning() {
+        if Self.isTripConfirmed {
             if let lastTripPoint = DriveKitTripAnalysis.shared.getLastTripPoint() {
                 self.updateState(with: lastTripPoint)
             } else if let startingDate = DriveKitTripAnalysis.shared.getCurrentTripStartDate() {
@@ -280,11 +285,14 @@ extension DKTripRecordingButtonViewModel: TripListener {
             case .inactive:
                 self.state = .stopped
             case .starting:
-                self.updateState(with: self.state.startingDate ?? Date())
+                // We don't update the button in this state
+                // because it can be a false positive (ghost trip,
+                // geozone exit by foot, etc.)
+                break
             case .sending:
                 self.state = .stopped
             case .running, .stopping:
-                break
+                self.updateState(with: self.state.startingDate ?? Date())
             @unknown default:
                 break
             }

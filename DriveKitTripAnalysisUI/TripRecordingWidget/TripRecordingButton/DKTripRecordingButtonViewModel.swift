@@ -24,6 +24,15 @@ class DKTripRecordingButtonViewModel {
             }
         }
         
+        var distance: Double? {
+            switch self {
+            case .stopped:
+                return nil
+            case let .recording(_, distance, _):
+                return distance
+            }
+        }
+        
         var duration: Double? {
             switch self {
             case .stopped:
@@ -292,7 +301,10 @@ extension DKTripRecordingButtonViewModel: TripListener {
             case .sending:
                 self.state = .stopped
             case .running, .stopping:
-                self.updateState(with: self.state.startingDate ?? Date())
+                self.updateState(
+                    with: self.state.startingDate ?? Date(),
+                    distance: self.state.distance ?? 0.0
+                )
             @unknown default:
                 break
             }

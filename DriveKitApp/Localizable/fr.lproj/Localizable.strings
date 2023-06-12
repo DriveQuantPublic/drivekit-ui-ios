@@ -17,7 +17,6 @@
 "button_see_features"="VOIR LES FONCTIONNALITÉS";
 "button_stop"="Arrêter";
 "button_validation"="VALIDER";
-"cancel_trip"="Annuler le trajet";
 "client_error"="Une erreur est survenue, veuillez réessayer ultérieurement.";
 "dashboard_header"="Tableau de bord";
 "delete_account_header"="Suppression de compte";
@@ -160,8 +159,6 @@
 "see_settings"="Voir les réglages";
 "server_error"="Erreur serveur, veuillez réssayez plus tard";
 "simulate_trip"="Simuler un trajet";
-"start_trip"="Démarrer un trajet";
-"stop_trip"="Stopper le trajet";
 "sync_challenge_loading_message"="Récupération des challenges…";
 "sync_trips_loading_message"="Récupération des trajets…";
 "sync_user_info_loading_message"="Récupération des informations utilisateur…";

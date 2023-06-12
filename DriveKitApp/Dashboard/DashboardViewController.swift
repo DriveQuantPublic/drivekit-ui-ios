@@ -7,17 +7,19 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
-import UIKit
 import DriveKitCommonUI
 import DriveKitPermissionsUtilsUI
+import DriveKitTripAnalysisUI
+import UIKit
 
 class DashboardViewController: UIViewController {
     @IBOutlet private weak var bannersContainer: UIStackView!
     @IBOutlet private weak var synthesisCardViewContainer: UIView!
     @IBOutlet private weak var lastTripsViewContainer: UIView!
     @IBOutlet private weak var featureListViewContainer: UIView!
-    @IBOutlet private weak var startStopTripButton: UIButton!
+    @IBOutlet private weak var buttonsContainer: UIStackView!
     @IBOutlet private weak var simulateTripButton: UIButton!
+    private var startStopTripButton: DKTripRecordingButton!
     private var synthesisCardView: UIView?
     private var lastTripsView: UIView?
     private var viewModel: DashboardViewModel = DashboardViewModel()
@@ -40,7 +42,8 @@ class DashboardViewController: UIViewController {
         self.synthesisCardViewContainer.addShadow()
         self.lastTripsViewContainer.addShadow()
         addAllFeatureView()
-        updateStartStopButton()
+        self.setupStartStopButton()
+
         self.simulateTripButton.configure(title: "simulate_trip".keyLocalized(), style: .full)
         configureNavBar()
         updateBanners()
@@ -59,13 +62,18 @@ class DashboardViewController: UIViewController {
         self.navigationController?.pushViewController(FeaturesViewController(), animated: true)
     }
 
-    @IBAction private func startStopTrip() {
-        self.viewModel.startStopTrip()
-    }
-
     @IBAction private func simulateTrip() {
         let simulationVC = TripSimulatorViewController(nibName: String(describing: TripSimulatorViewController.self), bundle: nil)
         self.navigationController?.pushViewController(simulationVC, animated: true)
+    }
+    
+    func showTripStopConfirmationDialog() {
+        self.startStopTripButton.showConfirmationDialog()
+    }
+    
+    private func setupStartStopButton() {
+        self.startStopTripButton = DriveKitTripAnalysisUI.shared.getTripRecordingButton(presentedIn: self)
+        self.buttonsContainer.insertArrangedSubview(startStopTripButton, at: 0)
     }
 
     private func addAllFeatureView() {
@@ -153,10 +161,6 @@ class DashboardViewController: UIViewController {
 }
 
 extension DashboardViewController: DashboardViewModelDelegate {
-    func updateStartStopButton() {
-        self.startStopTripButton.configure(title: self.viewModel.getStartStopTripButtonTitle().keyLocalized(), style: .full)
-    }
-
     func bannersDidUpdate() {
         updateBanners()
     }

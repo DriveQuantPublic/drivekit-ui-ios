@@ -18,6 +18,23 @@ import DriveKitTripAnalysisModule
     private(set) var roadsideAssistanceNumber: String?
     @objc public static let shared = DriveKitTripAnalysisUI()
     @objc public var defaultWorkingHours: DKWorkingHours = DriveKitTripAnalysisUI.getDefaultWorkingHours()
+    public var tripRecordingUserMode: DKTripRecordingUserMode = .startStop
+    public var isUserAllowedToStartTripManually: Bool {
+        switch tripRecordingUserMode {
+        case .startStop, .startOnly:
+            return true
+        case .stopOnly, .none:
+            return false
+        }
+    }
+    public var isUserAllowedToCancelTrip: Bool {
+        switch tripRecordingUserMode {
+        case .startStop, .stopOnly:
+            return true
+        case .startOnly, .none:
+            return false
+        }
+    }
 
     @objc public func initialize() {
         DriveKitNavigationController.shared.tripAnalysisUI = self
@@ -51,6 +68,18 @@ import DriveKitTripAnalysisModule
     @objc public func enableCrashFeedback(roadsideAssistanceNumber: String, config: DKCrashFeedbackConfig) {
         self.roadsideAssistanceNumber = roadsideAssistanceNumber
         DriveKitTripAnalysis.shared.enableCrashFeedback(config: config)
+    }
+    
+    public func getTripRecordingButton(
+        presentedIn presentingVC: UIViewController
+    ) -> DKTripRecordingButton {
+        let viewModel = DKTripRecordingButtonViewModel(tripRecordingUserMode: self.tripRecordingUserMode)
+        let button = DKTripRecordingButton(type: .system)
+        button.configure(
+            viewModel: viewModel,
+            presentingVC: presentingVC
+        )
+        return button
     }
 
     func getCrashFeedbackViewController(crashInfo: DKCrashInfo) -> UIViewController {

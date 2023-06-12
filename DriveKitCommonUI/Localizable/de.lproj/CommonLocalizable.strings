@@ -36,10 +36,14 @@
 "dk_common_error_empty_field"="Dieses Feld darf nicht leer bleiben.";
 "dk_common_error_message"="Bei der Anfrage ist ein Fehler aufgetreten. Versuchen Sie es später erneut.";
 "dk_common_finish"="Ende";
+"dk_common_hour_plural"="Stunden";
+"dk_common_hour_singular"="Stunden";
 "dk_common_later"="später";
 "dk_common_loading"="Lädt. Bitte warten...";
 "dk_common_mass"="Gewicht";
 "dk_common_mean_speed"="Mittlere Velocity";
+"dk_common_minute_plural"="Minuten";
+"dk_common_minute_singular"="Minuten";
 "dk_common_no"="Nein";
 "dk_common_no_data_yet"="Sie haben noch keine Daten";
 "dk_common_no_pseudo_set"="Um Ihr Ranking mit den anderen Teilnehmern zu teilen, laden wir Sie ein, ein Pseudo zu wählen. Ohne ein Pseudo erscheinen Sie als anonym.";

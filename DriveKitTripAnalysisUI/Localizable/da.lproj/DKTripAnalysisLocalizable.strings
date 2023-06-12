@@ -9,6 +9,15 @@
 "dk_crash_detection_feedback_step2_option_no_crash"="Intet, alt er fint";
 "dk_crash_detection_feedback_step2_title"="Vi er beroliget med at vide, at du har det godt.";
 "dk_crash_detection_feedback_step2option_critical_accident"="Kontakthjælp";
+"dk_tripwidget_confirm_canceltrip_subtitle"="Din rejse vil blive aflyst og ikke registreret";
+"dk_tripwidget_confirm_canceltrip_title"="Jeg kører ikke";
+"dk_tripwidget_confirm_continuetrip_subtitle"="Din rejse er ikke slut og vil fortsætte";
+"dk_tripwidget_confirm_continuetrip_title"="Fortsæt";
+"dk_tripwidget_confirm_endtrip_subtitle"="Din rejse vil blive analyseret og gemt";
+"dk_tripwidget_confirm_endtrip_title"="Jeg har afsluttet min rejse";
+"dk_tripwidget_disable_autostart_title"="Deaktivere den automatiske optagelse af dine ture midlertidigt?";
+"dk_tripwidget_record_title"="Rejsen startede på %@";
+"dk_tripwidget_start_title"="Optag en rejse";
 "dk_working_hours_back_save_alert"="Arbejdstiden er ændret. Vil du gemme dem?";
 "dk_working_hours_enable_desc"="Denne funktion konfigurerer de automatiske rejseoptagelsesperioder og analyserer turerne.";
 "dk_working_hours_enable_title"="Aktivér arbejdstid";

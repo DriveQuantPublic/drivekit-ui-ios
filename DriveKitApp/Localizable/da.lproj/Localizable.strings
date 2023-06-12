@@ -17,7 +17,6 @@
 "button_see_features"="SEE THE FEATURES";
 "button_stop"="Stop";
 "button_validation"="VALIDATE";
-"cancel_trip"="Cancel the trip";
 "client_error"="An error has occurred, please try again later.";
 "dashboard_header"="Dashboard";
 "delete_account_header"="Account Deletion";
@@ -160,8 +159,6 @@
 "see_settings"="Go to the settings";
 "server_error"="Server error, please try later";
 "simulate_trip"="Simulate a trip";
-"start_trip"="Start a trip";
-"stop_trip"="Stop the trip";
 "sync_challenge_loading_message"="Retrieving challenges...";
 "sync_trips_loading_message"="Retrieving the existing trips...";
 "sync_user_info_loading_message"="Retrieving user information...";

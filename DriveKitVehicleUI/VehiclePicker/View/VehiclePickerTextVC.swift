@@ -45,7 +45,7 @@ class VehiclePickerTextVC: VehiclePickerStepView {
                 textContinueButton.isHidden = true
             } else {
                 textConfirmButton.configure(
-                    title: "dk_vehicle_detail_category_button_title".dkVehicleLocalized(),
+                    title: "dk_vehicle_detail_category_button_title".dkVehicleLocalized() + "\n",
                     subtitle: "dk_vehicle_detail_category_button_description".dkVehicleLocalized(),
                     style: .multilineBordered
                 )
@@ -53,7 +53,7 @@ class VehiclePickerTextVC: VehiclePickerStepView {
                 textConfirmButton.addTarget(self, action: #selector(didContinueText), for: .touchUpInside)
                 
                 textContinueButton.configure(
-                    title: "dk_vehicle_quick_category_button_title".dkVehicleLocalized(),
+                    title: "dk_vehicle_quick_category_button_title".dkVehicleLocalized() + "\n",
                     subtitle: "dk_vehicle_quick_category_button_description".dkVehicleLocalized(),
                     style: .multilineBordered
                 )

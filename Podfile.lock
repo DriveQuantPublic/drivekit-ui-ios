@@ -52,10 +52,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - SwiftLint
-    - UICircularProgressRing
-    - WARangeSlider
-  https://gitlab.com/drivequant/drivekit/drivekit-specs.git:
     - ChartsForDK
     - DriveKitBeaconUtils
     - DriveKitChallenge
@@ -70,26 +66,29 @@ SPEC REPOS:
     - DriveKitTripAnalysis
     - DriveKitTripSimulator
     - DriveKitVehicle
+    - SwiftLint
+    - UICircularProgressRing
+    - WARangeSlider
 
 SPEC CHECKSUMS:
-  ChartsForDK: 7af22eca6a8969a39c8ffc1211a88cde4b3222ec
-  DriveKitBeaconUtils: 297bbbd8733ffaa2888beec28b68fc48dc8b2540
-  DriveKitChallenge: 81e5947827b2984809cf46d01d59599c6afcfe68
-  DriveKitCore: 99df5288a61c909ad2eaa953877538b954a9fc7d
-  DriveKitDBAchievementAccess: 7c2ab3cf3d96ec35966289cbbc7150f7fd184f1a
-  DriveKitDBChallengeAccess: b6a5f3f4c7494fdcbad4b4af08193b4e9175e49f
-  DriveKitDBTripAccess: 000d248ead9cd7bfb58636eb1c39fb586a5d0a8a
-  DriveKitDBVehicleAccess: 76c376925bc3386bc775ae29b520868bb0c8f4ea
-  DriveKitDriverAchievement: 1f2f23ac30d111e9a05c1faf4fbf7537bcc8519c
-  DriveKitDriverData: 09ff6decb3af9e1270d6c4d45c7e1a244b077b42
-  DriveKitNetworking: 9d10b67424608fe04193d1ee2a148da883141f0f
-  DriveKitTripAnalysis: aa18c92475951f0c95092414e7a39599e1ae6b5a
-  DriveKitTripSimulator: e4f97ded5c943ad770e70fe71c27d09a0f42bd1c
-  DriveKitVehicle: 8b9ceec5107b7110588c50cf3d787c948ce0da50
+  ChartsForDK: 2718d34595cbef2be1aee663478170f4846682b8
+  DriveKitBeaconUtils: 6d6d85b8fb2049666d46e471779efb8aaea00513
+  DriveKitChallenge: 33077b04ec84972f8690ecde0ffd53ab4217b5f1
+  DriveKitCore: e700374eafb417dababed803c64d3615c33deafe
+  DriveKitDBAchievementAccess: 7d978420077b9495d1071a619237ba23fa596e64
+  DriveKitDBChallengeAccess: a9cdfce15797c58ec3c422f824187c7c2000879e
+  DriveKitDBTripAccess: 95a80b28847147d3d6eb0bd39bbcdea1bbc91c64
+  DriveKitDBVehicleAccess: b367afdea0e6e3d91d5d3a7ce44071d14e0a4cd3
+  DriveKitDriverAchievement: 3486496ae79962111d3288018f22d1ff6bd59db9
+  DriveKitDriverData: de5a4ef9bbafdc07f31c7d43895d691890be0ad5
+  DriveKitNetworking: 811d0d059a40ecc8755f308da69fd38133b30e0f
+  DriveKitTripAnalysis: 8dd9eb73cae3f35c5af64692666c15dc2caedbd5
+  DriveKitTripSimulator: 56c12b2e8bf20aa5964d91537775731bd7e52806
+  DriveKitVehicle: 47bb4ed99a3b5bc9a9839ef0480d48b67d894537
   SwiftLint: 1ac76dac888ca05cb0cf24d0c85887ec1209961d
   UICircularProgressRing: e6852e8f88e296cbbbe2720cccb55241acda6708
   WARangeSlider: 54b3e0853b8d16c444fd539005901aecee86837d
 
-PODFILE CHECKSUM: b996d39326b04821f0987242887e5db59c87e9db
+PODFILE CHECKSUM: d0529b4c5a805ff8cfaa014d065a4bcc5e99c45d
 
 COCOAPODS: 1.11.3

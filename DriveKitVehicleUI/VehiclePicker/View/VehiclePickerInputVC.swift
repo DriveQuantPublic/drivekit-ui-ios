@@ -83,6 +83,9 @@ class VehiclePickerInputVC: VehiclePickerStepView {
                 case .vehicleIdAlreadyUsed:
                     // Error only for custom vehicle creation.
                     break
+                case .onlyOneGpsVehicleAllowed:
+                    // Error when a GPS vehicle is already created
+                    break
                 @unknown default:
                     break
                 }

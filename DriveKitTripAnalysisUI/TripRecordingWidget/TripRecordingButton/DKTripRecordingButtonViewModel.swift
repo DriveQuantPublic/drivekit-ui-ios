@@ -9,6 +9,7 @@
 import CoreLocation
 import DriveKitTripAnalysisModule
 import Foundation
+import UIKit
 
 class DKTripRecordingButtonViewModel {
     enum RecordingState {

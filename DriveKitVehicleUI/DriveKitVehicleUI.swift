@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  DriveKitVehiclUI.swift
 //  DriveKitVehicleUI
@@ -46,6 +45,8 @@ public class DriveKitVehicleUI {
     public func configureVehicleTypes(types: [DKVehicleType]) {
         if !types.isEmpty {
             self.vehicleTypes = types
+        } else {
+            self.vehicleTypes = [.car]
         }
     }
 
@@ -84,13 +85,23 @@ public class DriveKitVehicleUI {
     }
 
     public func configureMaxVehicles(max: Int?) {
-        if let max = max, max >= 0 {
-            self.maxVehicles = max
+        if max != self.maxVehicles {
+            if let max = max, max >= 0 {
+                self.maxVehicles = max
+            } else {
+                self.maxVehicles = nil
+            }
+            self.configureDetectionModes(detectionModes: self.detectionModes)
         }
     }
 
     public func configureDetectionModes(detectionModes: [DKDetectionMode]) {
-        if !detectionModes.isEmpty {
+        let uniqueDetectionModes: Set<DKDetectionMode> = Set(detectionModes)
+        if detectionModes.isEmpty {
+            self.detectionModes = [.disabled]
+        } else if uniqueDetectionModes.count == 1, detectionModes.contains(.gps), maxVehicles != 1 {
+            self.detectionModes = [.gps, .disabled]
+        } else {
             self.detectionModes = detectionModes
         }
     }

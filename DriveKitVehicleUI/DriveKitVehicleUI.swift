@@ -31,6 +31,7 @@ public class DriveKitVehicleUI {
 
     public private(set) var vehicleActions: [DKVehicleActionItem] = DKVehicleAction.allCases
     public private(set) var detectionModes: [DKDetectionMode] = [.disabled, .gps, .beacon, .bluetooth]
+    private var userDetectionModes: [DKDetectionMode]?
     var customFields = [DKVehicleGroupField: [DKVehicleField]]()
 
     var beaconDiagnosticEmail: DKContentMail?
@@ -91,11 +92,14 @@ public class DriveKitVehicleUI {
             } else {
                 self.maxVehicles = nil
             }
-            self.configureDetectionModes(detectionModes: self.detectionModes)
+            if let userDetectionModes = self.userDetectionModes {
+                self.configureDetectionModes(detectionModes: userDetectionModes)
+            }
         }
     }
 
     public func configureDetectionModes(detectionModes: [DKDetectionMode]) {
+        self.userDetectionModes = detectionModes
         let uniqueDetectionModes: Set<DKDetectionMode> = Set(detectionModes)
         if detectionModes.isEmpty {
             self.detectionModes = [.disabled]

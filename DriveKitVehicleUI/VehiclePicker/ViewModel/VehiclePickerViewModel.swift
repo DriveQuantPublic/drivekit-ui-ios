@@ -483,6 +483,10 @@ class VehiclePickerViewModel {
             let previousBluetooth = previousVehicle.bluetooth
 
             let completionHandler: (DKVehicleManagerStatus, DKVehicle?) -> Void = { status, vehicle in
+                guard status == .success else {
+                    completion(.error, nil)
+                    return
+                }
                 DriveKitVehicle.shared.deleteVehicle(vehicleId: previousVehicle.vehicleId, completionHandler: { deleteStatus in
                     if deleteStatus == .success {
                         if previousBeacon != nil {
@@ -500,6 +504,8 @@ class VehiclePickerViewModel {
                         } else {
                             completion(status, vehicle?.vehicleId)
                         }
+                    } else {
+                        completion(.error, vehicle?.vehicleId)
                     }
                 })
             }

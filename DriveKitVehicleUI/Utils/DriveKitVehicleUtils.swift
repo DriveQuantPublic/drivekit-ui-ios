@@ -26,7 +26,7 @@ public class DriveKitVehicleUtils {
             if vehiclesGPS.isEmpty {
                 return .gps
             } else {
-                return detectionModes.first { $0 != .gps } ?? .disabled
+                return detectionModes[0]
             }
         } else {
             return detectionModes[0]

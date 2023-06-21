@@ -1,3 +1,4 @@
+// swiftlint:disable all
 //
 //  DriveKitVehiclUI.swift
 //  DriveKitVehicleUI
@@ -31,7 +32,6 @@ public class DriveKitVehicleUI {
 
     public private(set) var vehicleActions: [DKVehicleActionItem] = DKVehicleAction.allCases
     public private(set) var detectionModes: [DKDetectionMode] = [.disabled, .gps, .beacon, .bluetooth]
-    private var userDetectionModes: [DKDetectionMode]?
     var customFields = [DKVehicleGroupField: [DKVehicleField]]()
 
     var beaconDiagnosticEmail: DKContentMail?
@@ -46,8 +46,6 @@ public class DriveKitVehicleUI {
     public func configureVehicleTypes(types: [DKVehicleType]) {
         if !types.isEmpty {
             self.vehicleTypes = types
-        } else {
-            self.vehicleTypes = [.car]
         }
     }
 
@@ -86,26 +84,13 @@ public class DriveKitVehicleUI {
     }
 
     public func configureMaxVehicles(max: Int?) {
-        if max != self.maxVehicles {
-            if let max = max, max >= 0 {
-                self.maxVehicles = max
-            } else {
-                self.maxVehicles = nil
-            }
-            if let userDetectionModes = self.userDetectionModes {
-                self.configureDetectionModes(detectionModes: userDetectionModes)
-            }
+        if let max = max, max >= 0 {
+            self.maxVehicles = max
         }
     }
 
     public func configureDetectionModes(detectionModes: [DKDetectionMode]) {
-        self.userDetectionModes = detectionModes
-        let uniqueDetectionModes: Set<DKDetectionMode> = Set(detectionModes)
-        if detectionModes.isEmpty {
-            self.detectionModes = [.disabled]
-        } else if uniqueDetectionModes.count == 1, detectionModes.contains(.gps), maxVehicles != 1 {
-            self.detectionModes = [.gps, .disabled]
-        } else {
+        if !detectionModes.isEmpty {
             self.detectionModes = detectionModes
         }
     }

@@ -9,7 +9,7 @@
 import DriveKitCommonUI
 import UIKit
 
-class DrivingConditionsContextViewController: DKUIViewController, DKUIPageViewModel {    
+class DrivingConditionsContextViewController: DKUIViewController, DKUIPageViewModel {
     var pageId: DKContextKind
     private var cardView: DKContextCardView
     internal var viewModel: DKContextCard

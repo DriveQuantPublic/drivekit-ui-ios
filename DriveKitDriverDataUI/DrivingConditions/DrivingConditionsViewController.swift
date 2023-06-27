@@ -55,6 +55,10 @@ class DrivingConditionsViewController: DKUIViewController {
         )
         
         if viewModel.hasData {
+            self.contextPagingViewController = .init(
+                pagingControl: self.pagingControl,
+                viewModel: viewModel
+            )
             if viewModel.shouldDisplayPagingController {
                 self.configurePagingContexts()
             } else {

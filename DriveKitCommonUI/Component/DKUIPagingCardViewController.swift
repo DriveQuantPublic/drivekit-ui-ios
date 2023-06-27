@@ -11,13 +11,52 @@ import UIKit
 public protocol DKUIPagingCardViewModel {
     associatedtype PageId: Hashable
     associatedtype PageViewModel
+    // You need to define only these two requirement
+    var allPageIds: [PageId] { get }
+    func pageViewModel(for pageId: PageId) -> PageViewModel?
+    
+    // Those are derived from allPageIds
     var numberOfPages: Int { get }
     var firstPageId: PageId { get }
     func position(of pageId: PageId) -> Int?
     func pageId(at position: Int) -> PageId?
-    func pageId(before context: PageId) -> PageId?
-    func pageId(after context: PageId) -> PageId?
-    func pageViewModel(for kind: PageId) -> PageViewModel?
+    func pageId(before pageId: PageId) -> PageId?
+    func pageId(after pageId: PageId) -> PageId?
+}
+
+extension DKUIPagingCardViewModel {
+    public var firstPageId: PageId {
+        allPageIds[0]
+    }
+    
+    public var numberOfPages: Int {
+        allPageIds.count
+    }
+    
+    public func position(of pageId: PageId) -> Int? {
+        allPageIds.firstIndex(of: pageId)
+    }
+    
+    public func pageId(at position: Int) -> PageId? {
+        guard allPageIds.indexRange.contains(position) else {
+            assertionFailure("We should not ask a pageId out of bounds (ask index \(position) in \(allPageIds)")
+            return nil
+        }
+        
+        return allPageIds[position]
+    }
+    
+    public func pageId(before pageId: PageId) -> PageId? {
+        allPageIds.firstIndex(of: pageId).flatMap {
+            $0 > allPageIds.startIndex ? allPageIds[$0 - 1] : nil
+        }
+    }
+    
+    public func pageId(after pageId: PageId) -> PageId? {
+        allPageIds.firstIndex(of: pageId).flatMap {
+            $0 >= (allPageIds.endIndex - 1) ? nil : allPageIds[$0 + 1]
+        }
+    }
 }
 
 public protocol DKUIPageViewModel {

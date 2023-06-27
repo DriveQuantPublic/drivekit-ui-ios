@@ -264,37 +264,8 @@ extension DKDriverTimeline {
 }
 
 extension DrivingConditionsViewModel: DKUIPagingCardViewModel {
-    var firstPageId: DKContextKind {
-        configuredContexts[0]
-    }
-    
-    var numberOfPages: Int {
-        configuredContexts.count
-    }
-    
-    func position(of pageId: DKContextKind) -> Int? {
-        configuredContexts.firstIndex(of: pageId)
-    }
-    
-    func pageId(at position: Int) -> DKContextKind? {
-        guard configuredContexts.indexRange.contains(position) else {
-            assertionFailure("We should not ask a context out of bounds")
-            return nil
-        }
-        
-        return configuredContexts[position]
-    }
-    
-    func pageId(before context: DKContextKind) -> DKContextKind? {
-        configuredContexts.firstIndex(of: context).flatMap {
-            $0 > configuredContexts.startIndex ? configuredContexts[$0 - 1] : nil
-        }
-    }
-    
-    func pageId(after context: DKContextKind) -> DKContextKind? {
-        configuredContexts.firstIndex(of: context).flatMap {
-            $0 >= (configuredContexts.endIndex - 1) ? nil : configuredContexts[$0 + 1]
-        }
+    var allPageIds: [DKContextKind] {
+        configuredContexts
     }
     
     func pageViewModel(for pageId: DKContextKind) -> DKContextCard? {

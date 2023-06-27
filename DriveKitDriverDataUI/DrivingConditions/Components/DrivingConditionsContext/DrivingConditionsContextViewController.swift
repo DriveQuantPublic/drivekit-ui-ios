@@ -9,17 +9,20 @@
 import DriveKitCommonUI
 import UIKit
 
-class DrivingConditionsContextViewController: DKUIViewController {
-    var context: DKContextKind
-    private var cardView: DKContextCardView
-    private var contextViewModel: DKContextCard
+class DrivingConditionsContextViewController: DKUIViewController, PageViewModeled {
+    typealias PageId = DKContextKind
+    typealias ViewModel = DKContextCard
     
-    init(context: DKContextKind, contextViewModel: DKContextCard) {
-        self.context = context
-        self.contextViewModel = contextViewModel
+    var pageId: DKContextKind
+    private var cardView: DKContextCardView
+    internal var viewModel: DKContextCard
+    
+    required init(pageId: DKContextKind, pageViewModel: DKContextCard) {
+        self.pageId = pageId
+        self.viewModel = pageViewModel
         self.cardView = DKContextCardView.createView()
         super.init(nibName: nil, bundle: nil)
-        self.contextViewModel.contextCardDidUpdate { [weak self] in
+        self.viewModel.contextCardDidUpdate { [weak self] in
             self?.cardView.refreshView()
         }
     }
@@ -30,7 +33,7 @@ class DrivingConditionsContextViewController: DKUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.cardView.configure(viewModel: self.contextViewModel)
+        self.cardView.configure(viewModel: self.viewModel)
         self.view.embedSubview(self.cardView)
         self.view.backgroundColor = .white
     }

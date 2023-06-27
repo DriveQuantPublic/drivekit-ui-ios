@@ -653,6 +653,7 @@
 		E3559EB729479F8100AAB747 /* TimelineDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3559EB629479F8100AAB747 /* TimelineDetailViewController.xib */; };
 		E3559EBB2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3559EBA2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift */; };
 		E3559EBD294868CB00AAB747 /* DKTimelineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3559EBC294868CB00AAB747 /* DKTimelineExtension.swift */; };
+		E366C3A22A4B0B9F008BA9DD /* DKUIPagingCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E366C3A12A4B0B9F008BA9DD /* DKUIPagingCardViewController.swift */; };
 		E3759DBC2A126AF70010F989 /* DKTripStopConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3759DBB2A126AF70010F989 /* DKTripStopConfirmationViewModel.swift */; };
 		E3759DBF2A12767A0010F989 /* DKTripStopConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3759DBD2A12767A0010F989 /* DKTripStopConfirmationViewController.swift */; };
 		E3759DC02A12767A0010F989 /* DKTripStopConfirmationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3759DBE2A12767A0010F989 /* DKTripStopConfirmationViewController.xib */; };
@@ -1538,6 +1539,7 @@
 		E3559EBA2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineDetailViewModelDelegate.swift; sourceTree = "<group>"; };
 		E3559EBC294868CB00AAB747 /* DKTimelineExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTimelineExtension.swift; sourceTree = "<group>"; };
 		E36085012948C37C0097A639 /* DKUIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKUIConstants.swift; sourceTree = "<group>"; };
+		E366C3A12A4B0B9F008BA9DD /* DKUIPagingCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKUIPagingCardViewController.swift; sourceTree = "<group>"; };
 		E3759DBB2A126AF70010F989 /* DKTripStopConfirmationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripStopConfirmationViewModel.swift; sourceTree = "<group>"; };
 		E3759DBD2A12767A0010F989 /* DKTripStopConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripStopConfirmationViewController.swift; sourceTree = "<group>"; };
 		E3759DBE2A12767A0010F989 /* DKTripStopConfirmationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DKTripStopConfirmationViewController.xib; sourceTree = "<group>"; };
@@ -1819,6 +1821,7 @@
 				A34FC7352423CDDA000734AB /* DKTextField.xib */,
 				3FAEE5612486362E00549391 /* CustomScrollView.swift */,
 				6760190F29ACE47800CA595C /* DKRoundedBarView.swift */,
+				E366C3A12A4B0B9F008BA9DD /* DKUIPagingCardViewController.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -4809,6 +4812,7 @@
 				3FCE6339243DF87A00CAB828 /* UIButton+DK.swift in Sources */,
 				6708ED8529ED5364005652A3 /* DKContextCardColor.swift in Sources */,
 				3FF68E98240D59000071D74C /* UIImage+DK.swift in Sources */,
+				E366C3A22A4B0B9F008BA9DD /* DKUIPagingCardViewController.swift in Sources */,
 				6760191029ACE47900CA595C /* DKRoundedBarView.swift in Sources */,
 				67F2D3672630F07E00ACC69A /* RankingJumpCell.swift in Sources */,
 				3F7524CE2407A89100AC22CC /* DKCommonLocalizable.swift in Sources */,

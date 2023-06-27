@@ -20,7 +20,7 @@ public protocol DKUIPagingCardViewModel {
     func pageViewModel(for kind: PageId) -> PageViewModel?
 }
 
-public protocol PageViewModeled {
+public protocol DKUIPageViewModel {
     associatedtype PageId: Hashable
     associatedtype ViewModel
     var viewModel: ViewModel { get set }
@@ -34,7 +34,7 @@ public class DKUIPagingCardViewController<
     ViewModel: DKUIPagingCardViewModel
 >: UIPageViewController where
 ViewModel.PageId == PageId,
-ViewController: PageViewModeled,
+ViewController: DKUIPageViewModel,
 ViewController.PageId == PageId,
 ViewController.ViewModel == ViewModel.PageViewModel {
     private weak var pagingControl: UIPageControl!

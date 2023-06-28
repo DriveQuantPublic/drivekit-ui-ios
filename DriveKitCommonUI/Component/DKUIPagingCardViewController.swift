@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol DKUIPagingCardViewModel {
+public protocol DKUIPagingViewModel {
     associatedtype PageId: Hashable
     associatedtype PageViewModel
     // You need to define only these two requirement
@@ -24,7 +24,7 @@ public protocol DKUIPagingCardViewModel {
     func pageId(after pageId: PageId) -> PageId?
 }
 
-extension DKUIPagingCardViewModel {
+extension DKUIPagingViewModel {
     public var firstPageId: PageId {
         allPageIds[0]
     }
@@ -69,19 +69,19 @@ public protocol DKUIPageViewModel {
 
 public class DKUIPagingCardViewController<
     PageId: Hashable,
-    ViewController: UIViewController,
-    ViewModel: DKUIPagingCardViewModel
+    PageViewController: UIViewController,
+    PagingViewModel: DKUIPagingViewModel
 >: UIPageViewController where
-ViewModel.PageId == PageId,
-ViewController: DKUIPageViewModel,
-ViewController.PageId == PageId,
-ViewController.ViewModel == ViewModel.PageViewModel {
+PagingViewModel.PageId == PageId,
+PageViewController: DKUIPageViewModel,
+PageViewController.PageId == PageId,
+PageViewController.ViewModel == PagingViewModel.PageViewModel {
     private weak var pagingControl: UIPageControl!
-    private var pageViewControllers: [PageId: ViewController] = [:]
-    public var viewModel: ViewModel
+    private var pageViewControllers: [PageId: PageViewController] = [:]
+    public var viewModel: PagingViewModel
     private var coordinator: Coordinator
     
-    public init(pagingControl: UIPageControl, viewModel: ViewModel) {
+    public init(pagingControl: UIPageControl, viewModel: PagingViewModel) {
         self.viewModel = viewModel
         self.pagingControl = pagingControl
         self.coordinator = Coordinator()
@@ -164,11 +164,11 @@ ViewController.ViewModel == ViewModel.PageViewModel {
         )
     }
     
-    public func pageController(for pageId: PageId) -> ViewController {
+    public func pageController(for pageId: PageId) -> PageViewController {
         guard let pageVC = pageViewControllers[pageId]
         else {
             let pageViewModel = viewModel.pageViewModel(for: pageId)!
-            let newPageVC = ViewController.init(pageId: pageId, pageViewModel: pageViewModel)
+            let newPageVC = PageViewController.init(pageId: pageId, pageViewModel: pageViewModel)
             pageViewControllers[pageId] = newPageVC
             return newPageVC
         }
@@ -177,7 +177,7 @@ ViewController.ViewModel == ViewModel.PageViewModel {
     }
     
     public func pageId(from pageController: UIViewController) -> PageId? {
-        guard let pageController = pageController as? ViewController else {
+        guard let pageController = pageController as? PageViewController else {
             assertionFailure("We should only have DrivingConditionsContextViewController here")
             return nil
         }

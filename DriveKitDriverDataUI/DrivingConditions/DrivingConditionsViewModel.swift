@@ -263,7 +263,7 @@ extension DKDriverTimeline {
     }
 }
 
-extension DrivingConditionsViewModel: DKUIPagingCardViewModel {
+extension DrivingConditionsViewModel: DKUIPagingViewModel {
     var allPageIds: [DKContextKind] {
         configuredContexts
     }

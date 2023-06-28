@@ -9,7 +9,7 @@
 import DriveKitCommonUI
 import Foundation
 
-class DriverProfileFeaturePagingViewModel: DKUIPagingCardViewModel {
+class DriverProfileFeaturePagingViewModel: DKUIPagingViewModel {
     var allPageIds: [DriverProfileFeature] {
         DriverProfileFeature.allCases
     }

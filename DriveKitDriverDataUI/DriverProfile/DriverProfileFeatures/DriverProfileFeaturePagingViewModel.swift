@@ -15,6 +15,6 @@ class DriverProfileFeaturePagingViewModel: DKUIPagingViewModel {
     }
     
     func pageViewModel(for pageId: DriverProfileFeature) -> DriverProfileFeatureViewModel? {
-        nil
+        .init(driverProfileFeature: pageId)
     }
 }

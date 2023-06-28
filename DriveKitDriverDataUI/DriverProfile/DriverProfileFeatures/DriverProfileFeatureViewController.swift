@@ -10,6 +10,8 @@ import DriveKitCommonUI
 import UIKit
 
 class DriverProfileFeatureViewController: UIViewController, DKUIPageViewModel {
+    @IBOutlet private weak var placeholderLabel: UILabel!
+    
     var viewModel: DriverProfileFeatureViewModel
     var pageId: DriverProfileFeature
     
@@ -25,5 +27,9 @@ class DriverProfileFeatureViewController: UIViewController, DKUIPageViewModel {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        placeholderLabel.text = "\(pageId)"
+    }
 }
-

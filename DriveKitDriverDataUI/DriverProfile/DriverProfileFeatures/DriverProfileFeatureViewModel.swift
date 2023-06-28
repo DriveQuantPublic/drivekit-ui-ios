@@ -10,5 +10,9 @@ import DriveKitCommonUI
 import Foundation
 
 class DriverProfileFeatureViewModel {
-    
+    var driverProfileFeature: DriverProfileFeature
+
+    init(driverProfileFeature: DriverProfileFeature) {
+        self.driverProfileFeature = driverProfileFeature
+    }
 }

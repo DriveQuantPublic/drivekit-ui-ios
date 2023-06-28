@@ -11,6 +11,8 @@ import DriveKitCoreModule
 import UIKit
 
 class DriverDistanceEstimationViewController: UIViewController, DKUIPageViewModel {
+    @IBOutlet private weak var placeholderLabel: UILabel!
+    
     var viewModel: DriverDistanceEstimationViewModel
     var pageId: DKPeriod
     
@@ -25,5 +27,10 @@ class DriverDistanceEstimationViewController: UIViewController, DKUIPageViewMode
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        placeholderLabel.text = "\(pageId)"
     }
 }

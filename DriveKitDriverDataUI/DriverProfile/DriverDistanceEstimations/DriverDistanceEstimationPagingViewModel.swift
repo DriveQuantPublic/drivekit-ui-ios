@@ -16,6 +16,6 @@ class DriverDistanceEstimationPagingViewModel: DKUIPagingViewModel {
     }
     
     func pageViewModel(for pageId: DKPeriod) -> DriverDistanceEstimationViewModel? {
-        nil
+        .init(period: pageId)
     }
 }

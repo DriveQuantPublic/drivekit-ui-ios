@@ -655,7 +655,6 @@
 		E3559EBD294868CB00AAB747 /* DKTimelineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3559EBC294868CB00AAB747 /* DKTimelineExtension.swift */; };
 		E366C3A22A4B0B9F008BA9DD /* DKUIPagingCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E366C3A12A4B0B9F008BA9DD /* DKUIPagingCardViewController.swift */; };
 		E366C3AC2A4B2423008BA9DD /* DriverProfileFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = E366C3AA2A4B1B8D008BA9DD /* DriverProfileFeature.swift */; };
-		E366C3AD2A4B2423008BA9DD /* DriverProfileFeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E366C3A82A4B1A57008BA9DD /* DriverProfileFeatureViewController.swift */; };
 		E366C3AE2A4B2423008BA9DD /* DriverProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E363159A2A49C77400EFDB63 /* DriverProfileViewModel.swift */; };
 		E366C3AF2A4B2423008BA9DD /* DriverProfileViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E363159C2A49C83000EFDB63 /* DriverProfileViewModelDelegate.swift */; };
 		E366C3B02A4B2423008BA9DD /* DriverProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E366C39E2A4ACDFB008BA9DD /* DriverProfileViewController.xib */; };
@@ -685,6 +684,8 @@
 		E39584652A0E880600024029 /* DKTripRecordingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39584642A0E880600024029 /* DKTripRecordingButton.swift */; };
 		E39584672A0E882600024029 /* DKTripRecordingButtonContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E39584662A0E882600024029 /* DKTripRecordingButtonContentView.xib */; };
 		E39584692A0E8B2500024029 /* DKTripRecordingButtonContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39584682A0E8B2500024029 /* DKTripRecordingButtonContentView.swift */; };
+		E39F06442A4C26D90000A3FD /* DriverProfileFeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39F06422A4C26D90000A3FD /* DriverProfileFeatureViewController.swift */; };
+		E39F06452A4C26D90000A3FD /* DriverProfileFeatureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E39F06432A4C26D90000A3FD /* DriverProfileFeatureViewController.xib */; };
 		E3AC3CC329ED85BB0010FC95 /* VehiclePickerTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68F48241642D50071D74C /* VehiclePickerTextVC.swift */; };
 		E3B8309D294B1DCE00E31848 /* RoadContextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B8309C294B1DCE00E31848 /* RoadContextView.swift */; };
 		E3CDCFF729F68AA700ADAFD0 /* DrivingConditionsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CDCFF629F68AA700ADAFD0 /* DrivingConditionsConstants.swift */; };
@@ -1553,7 +1554,6 @@
 		E366C39E2A4ACDFB008BA9DD /* DriverProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverProfileViewController.xib; sourceTree = "<group>"; };
 		E366C3A12A4B0B9F008BA9DD /* DKUIPagingCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKUIPagingCardViewController.swift; sourceTree = "<group>"; };
 		E366C3A62A4B1A2F008BA9DD /* DriverProfileFeaturePagingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverProfileFeaturePagingViewModel.swift; sourceTree = "<group>"; };
-		E366C3A82A4B1A57008BA9DD /* DriverProfileFeatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverProfileFeatureViewController.swift; sourceTree = "<group>"; };
 		E366C3AA2A4B1B8D008BA9DD /* DriverProfileFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverProfileFeature.swift; sourceTree = "<group>"; };
 		E366C3B32A4B268C008BA9DD /* DriverProfileFeatureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverProfileFeatureViewModel.swift; sourceTree = "<group>"; };
 		E3759DBB2A126AF70010F989 /* DKTripStopConfirmationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripStopConfirmationViewModel.swift; sourceTree = "<group>"; };
@@ -1579,6 +1579,8 @@
 		E39584642A0E880600024029 /* DKTripRecordingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripRecordingButton.swift; sourceTree = "<group>"; };
 		E39584662A0E882600024029 /* DKTripRecordingButtonContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DKTripRecordingButtonContentView.xib; sourceTree = "<group>"; };
 		E39584682A0E8B2500024029 /* DKTripRecordingButtonContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripRecordingButtonContentView.swift; sourceTree = "<group>"; };
+		E39F06422A4C26D90000A3FD /* DriverProfileFeatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverProfileFeatureViewController.swift; sourceTree = "<group>"; };
+		E39F06432A4C26D90000A3FD /* DriverProfileFeatureViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverProfileFeatureViewController.xib; sourceTree = "<group>"; };
 		E3B8309C294B1DCE00E31848 /* RoadContextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadContextView.swift; sourceTree = "<group>"; };
 		E3CDCFF629F68AA700ADAFD0 /* DrivingConditionsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingConditionsConstants.swift; sourceTree = "<group>"; };
 		E3F0212F29A3A90600664CD2 /* Array+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Date.swift"; sourceTree = "<group>"; };
@@ -3674,7 +3676,8 @@
 				E366C3A62A4B1A2F008BA9DD /* DriverProfileFeaturePagingViewModel.swift */,
 				E366C3AA2A4B1B8D008BA9DD /* DriverProfileFeature.swift */,
 				E366C3B32A4B268C008BA9DD /* DriverProfileFeatureViewModel.swift */,
-				E366C3A82A4B1A57008BA9DD /* DriverProfileFeatureViewController.swift */,
+				E39F06422A4C26D90000A3FD /* DriverProfileFeatureViewController.swift */,
+				E39F06432A4C26D90000A3FD /* DriverProfileFeatureViewController.xib */,
 			);
 			path = DriverProfileFeatures;
 			sourceTree = "<group>";
@@ -4326,6 +4329,7 @@
 				E32BC439299E4049006BE5F8 /* MySynthesisViewController.xib in Resources */,
 				E37BF23929E01C34001B597D /* DrivingConditionsSummaryCardDataView.xib in Resources */,
 				A30F4F1B23D5DB18009A37C2 /* TripTipFeedbackVC.storyboard in Resources */,
+				E39F06452A4C26D90000A3FD /* DriverProfileFeatureViewController.xib in Resources */,
 				E302B63329B23328004CFA0C /* ScoreLevelLegendRowView.xib in Resources */,
 				A34238722361A2430001E15D /* ShortTripPageVC.xib in Resources */,
 				A34238832361A2440001E15D /* EcoDrivingPageView.xib in Resources */,
@@ -5163,7 +5167,6 @@
 				E366C3AC2A4B2423008BA9DD /* DriverProfileFeature.swift in Sources */,
 				6391E0F92607F57000A168D4 /* SynthesisCardViewModel.swift in Sources */,
 				6708ED7B29E98FB4005652A3 /* DrivingConditionsContextCard+DayNight.swift in Sources */,
-				E366C3AD2A4B2423008BA9DD /* DriverProfileFeatureViewController.swift in Sources */,
 				E382079D29DD7CFC00CB85D6 /* DrivingConditionsViewModel.swift in Sources */,
 				E302B63129B23315004CFA0C /* ScoreLevelLegendRowView.swift in Sources */,
 				3F6B67622580ECD4008B3BA7 /* TransportationModeVC.swift in Sources */,
@@ -5230,6 +5233,7 @@
 				6708ED7D29E9BFC1005652A3 /* DrivingConditionsContextCard+Week.swift in Sources */,
 				E302B61B29AE0E7A004CFA0C /* MySynthesisScoreCardViewModel.swift in Sources */,
 				E3CDCFF729F68AA700ADAFD0 /* DrivingConditionsConstants.swift in Sources */,
+				E39F06442A4C26D90000A3FD /* DriverProfileFeatureViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

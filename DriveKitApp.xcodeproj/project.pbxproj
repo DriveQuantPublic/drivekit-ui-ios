@@ -690,6 +690,10 @@
 		E39F06412A4C26A60000A3FD /* DriverDistanceEstimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E39F063F2A4C26A60000A3FD /* DriverDistanceEstimationViewController.xib */; };
 		E39F06442A4C26D90000A3FD /* DriverProfileFeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39F06422A4C26D90000A3FD /* DriverProfileFeatureViewController.swift */; };
 		E39F06452A4C26D90000A3FD /* DriverProfileFeatureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E39F06432A4C26D90000A3FD /* DriverProfileFeatureViewController.xib */; };
+		E39F06482A4C29CA0000A3FD /* DriverCommonTripPagingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39F06472A4C29CA0000A3FD /* DriverCommonTripPagingViewModel.swift */; };
+		E39F064A2A4C29D60000A3FD /* DriverCommonTripViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39F06492A4C29D60000A3FD /* DriverCommonTripViewModel.swift */; };
+		E39F064D2A4C29E40000A3FD /* DriverCommonTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39F064B2A4C29E40000A3FD /* DriverCommonTripViewController.swift */; };
+		E39F064E2A4C29E40000A3FD /* DriverCommonTripViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E39F064C2A4C29E40000A3FD /* DriverCommonTripViewController.xib */; };
 		E3AC3CC329ED85BB0010FC95 /* VehiclePickerTextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF68F48241642D50071D74C /* VehiclePickerTextVC.swift */; };
 		E3B8309D294B1DCE00E31848 /* RoadContextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B8309C294B1DCE00E31848 /* RoadContextView.swift */; };
 		E3CDCFF729F68AA700ADAFD0 /* DrivingConditionsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CDCFF629F68AA700ADAFD0 /* DrivingConditionsConstants.swift */; };
@@ -1589,6 +1593,10 @@
 		E39F063F2A4C26A60000A3FD /* DriverDistanceEstimationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverDistanceEstimationViewController.xib; sourceTree = "<group>"; };
 		E39F06422A4C26D90000A3FD /* DriverProfileFeatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverProfileFeatureViewController.swift; sourceTree = "<group>"; };
 		E39F06432A4C26D90000A3FD /* DriverProfileFeatureViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverProfileFeatureViewController.xib; sourceTree = "<group>"; };
+		E39F06472A4C29CA0000A3FD /* DriverCommonTripPagingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverCommonTripPagingViewModel.swift; sourceTree = "<group>"; };
+		E39F06492A4C29D60000A3FD /* DriverCommonTripViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverCommonTripViewModel.swift; sourceTree = "<group>"; };
+		E39F064B2A4C29E40000A3FD /* DriverCommonTripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverCommonTripViewController.swift; sourceTree = "<group>"; };
+		E39F064C2A4C29E40000A3FD /* DriverCommonTripViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverCommonTripViewController.xib; sourceTree = "<group>"; };
 		E3B8309C294B1DCE00E31848 /* RoadContextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadContextView.swift; sourceTree = "<group>"; };
 		E3CDCFF629F68AA700ADAFD0 /* DrivingConditionsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingConditionsConstants.swift; sourceTree = "<group>"; };
 		E3F0212F29A3A90600664CD2 /* Array+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Date.swift"; sourceTree = "<group>"; };
@@ -3671,6 +3679,7 @@
 			children = (
 				E366C3A52A4B1A17008BA9DD /* DriverProfileFeatures */,
 				E39F06392A4C24F60000A3FD /* DriverDistanceEstimations */,
+				E39F06462A4C29A00000A3FD /* DriverCommonTrips */,
 				E363159A2A49C77400EFDB63 /* DriverProfileViewModel.swift */,
 				E363159C2A49C83000EFDB63 /* DriverProfileViewModelDelegate.swift */,
 				E366C39D2A4ACDFB008BA9DD /* DriverProfileViewController.swift */,
@@ -3795,6 +3804,17 @@
 				E39F063F2A4C26A60000A3FD /* DriverDistanceEstimationViewController.xib */,
 			);
 			path = DriverDistanceEstimations;
+			sourceTree = "<group>";
+		};
+		E39F06462A4C29A00000A3FD /* DriverCommonTrips */ = {
+			isa = PBXGroup;
+			children = (
+				E39F06472A4C29CA0000A3FD /* DriverCommonTripPagingViewModel.swift */,
+				E39F06492A4C29D60000A3FD /* DriverCommonTripViewModel.swift */,
+				E39F064B2A4C29E40000A3FD /* DriverCommonTripViewController.swift */,
+				E39F064C2A4C29E40000A3FD /* DriverCommonTripViewController.xib */,
+			);
+			path = DriverCommonTrips;
 			sourceTree = "<group>";
 		};
 		E3B830A2294CB54200E31848 /* Helpers */ = {
@@ -4336,6 +4356,7 @@
 				A342386E2361A2430001E15D /* TripDetailVC.xib in Resources */,
 				A317F83023A1383B00AD22A2 /* TripTipFeedbackChoicesCell.xib in Resources */,
 				67F1988B29B268ED0060EF24 /* MySynthesisGaugeView.xib in Resources */,
+				E39F064E2A4C29E40000A3FD /* DriverCommonTripViewController.xib in Resources */,
 				A34238782361A2440001E15D /* SafetyPageVC.xib in Resources */,
 				E328C6E729E0731900ECD6B4 /* NoDataDrivingConditionsSummaryCardView.xib in Resources */,
 				67CFE9A025F6425F004D0AE1 /* SpeedingPageVC.xib in Resources */,
@@ -5159,6 +5180,7 @@
 				A34238812361A2440001E15D /* SafetyPageView.swift in Sources */,
 				638AC04D261F996D00602B52 /* SynthesisCardViewCell.swift in Sources */,
 				A342386D2361A2430001E15D /* TripDetailVC.swift in Sources */,
+				E39F064A2A4C29D60000A3FD /* DriverCommonTripViewModel.swift in Sources */,
 				67F1988E29B8E0EE0060EF24 /* MySynthesisConstants.swift in Sources */,
 				E32BC45A29A377FD006BE5F8 /* MySynthesisViewModel.swift in Sources */,
 				E302B62429B1E66E004CFA0C /* ScoreLevelLegendViewController.swift in Sources */,
@@ -5179,8 +5201,10 @@
 				A342386B2361A2430001E15D /* TripEvent.swift in Sources */,
 				E302B61729AE0DC1004CFA0C /* MySynthesisScoreCardView.swift in Sources */,
 				3F6B67692580ECE3008B3BA7 /* TransportationModeIcon.swift in Sources */,
+				E39F06482A4C29CA0000A3FD /* DriverCommonTripPagingViewModel.swift in Sources */,
 				3F38C2692369BD60002E873A /* TripTipViewController.swift in Sources */,
 				67F1988A29B268ED0060EF24 /* MySynthesisGaugeViewModel.swift in Sources */,
+				E39F064D2A4C29E40000A3FD /* DriverCommonTripViewController.swift in Sources */,
 				E366C3B42A4B268C008BA9DD /* DriverProfileFeatureViewModel.swift in Sources */,
 				638AC0832620A32500602B52 /* DriverDataSynthesisCardsUI.swift in Sources */,
 				67CFE9A725F645EA004D0AE1 /* SpeedingPageViewModel.swift in Sources */,

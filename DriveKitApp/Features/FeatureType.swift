@@ -14,6 +14,7 @@ enum FeatureType {
     case driverData_trips
     case driverData_timeline
     case driverData_my_synthesis
+    case driverData_driver_profile
     case permissionsUtils_onboarding
     case permissionsUtils_diagnosis
     case vehicle_list
@@ -43,6 +44,9 @@ enum FeatureType {
                 imageName = "feature_icon_driverdata_timeline"
             case .driverData_my_synthesis:
                 imageName = "feature_icon_driverData_my_synthesis"
+            case .driverData_driver_profile:
+                #warning("Setup the correct image")
+                imageName = "feature_icon_driverData_driver_profile"
             case .permissionsUtils_diagnosis, .permissionsUtils_onboarding:
                 imageName = "feature_icon_permissionsUtils"
             case .tripAnalysis_workingHours:
@@ -76,6 +80,9 @@ enum FeatureType {
                 title = "feature_timeline_title"
             case .driverData_my_synthesis:
                 title = "feature_synthesis_title"
+            case .driverData_driver_profile:
+                #warning("Setup the correct title")
+                title = "Profil conducteur"
             case .permissionsUtils_diagnosis:
                 title = "feature_permission_utils_title"
             case .permissionsUtils_onboarding:
@@ -109,6 +116,9 @@ enum FeatureType {
                 description = "feature_timeline_description"
             case .driverData_my_synthesis:
                 description = "feature_synthesis_description"
+            case .driverData_driver_profile:
+                #warning("Setup the correct description")
+                description = "Lorem ipsum blabla"
             case .permissionsUtils_diagnosis:
                 description = "feature_permission_utils_description"
             case .permissionsUtils_onboarding:
@@ -142,6 +152,9 @@ enum FeatureType {
                 docKey = "drivekit_doc_ios_timeline"
             case .driverData_my_synthesis:
                 docKey = "drivekit_doc_ios_synthesis"
+            case .driverData_driver_profile:
+                #warning("Setup the correct info url")
+                docKey = "drivekit_doc_ios_driver_profile"
             case .permissionsUtils_diagnosis:
                 docKey = "drivekit_doc_ios_diag"
             case .permissionsUtils_onboarding:
@@ -167,6 +180,7 @@ enum FeatureType {
                 .driverData_trips,
                 .driverData_timeline,
                 .driverData_my_synthesis,
+                .driverData_driver_profile,
                 .permissionsUtils_diagnosis,
                 .permissionsUtils_onboarding,
                 .tripAnalysis_workingHours,

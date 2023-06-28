@@ -11,7 +11,7 @@ import DriveKitCoreModule
 import DriveKitDBTripAccessModule
 import UIKit
 
-class DriverProfileViewController: UIViewController {
+class DriverProfileViewController: DKUIViewController {
     @IBOutlet private weak var drivingConditionsButton: UIButton!
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var driverProfileFeaturePagingContainer: UIView!
@@ -81,6 +81,7 @@ class DriverProfileViewController: UIViewController {
             pagingControl: self.driverProfileFeaturePagingControl,
             viewModel: viewModel.driverProfileFeaturePagingViewModel
         )
+        self.driverProfileFeaturePagingViewController.configure()
         self.embedPagingViewController(
             driverProfileFeaturePagingViewController,
             in: driverProfileFeaturePagingContainer
@@ -92,6 +93,7 @@ class DriverProfileViewController: UIViewController {
             pagingControl: self.driverDistanceEstimationPagingControl,
             viewModel: viewModel.driverDistanceEstimationPagingViewModel
         )
+        self.driverDistanceEstimationPagingViewController.configure()
         self.embedPagingViewController(
             driverDistanceEstimationPagingViewController,
             in: driverDistanceEstimationPagingContainer
@@ -105,7 +107,9 @@ class DriverProfileViewController: UIViewController {
             viewModel: commonTripViewModel
         )
         var displayedVC: UIViewController = self.driverCommonTripPagingViewController
-        if commonTripViewModel.allPageIds.count == 1 {
+        if commonTripViewModel.allPageIds.count > 1 {
+            self.driverCommonTripPagingViewController.configure()
+        } else {
             displayedVC = self.driverCommonTripPagingViewController.pageController(
                 for: commonTripViewModel.firstPageId
             )

@@ -178,7 +178,7 @@ PageViewController.ViewModel == PagingViewModel.PageViewModel {
     
     public func pageId(from pageController: UIViewController) -> PageId? {
         guard let pageController = pageController as? PageViewController else {
-            assertionFailure("We should only have DrivingConditionsContextViewController here")
+            assertionFailure("We should only have \(PageViewController.self) here")
             return nil
         }
         

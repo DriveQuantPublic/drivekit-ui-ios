@@ -19,7 +19,7 @@ class DriverCommonTripViewController: UIViewController, DKUIPageViewModel {
     required init(pageId: DKCommonTripType, pageViewModel: DriverCommonTripViewModel) {
         self.viewModel = pageViewModel
         self.pageId = pageId
-        super.init(nibName: nil, bundle: nil)
+        super.init(nibName: String(describing: Self.self), bundle: .driverDataUIBundle)
     }
     
     required init?(coder: NSCoder) {

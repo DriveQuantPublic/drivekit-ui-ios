@@ -12,6 +12,7 @@ import DriveKitDBTripAccessModule
 import UIKit
 
 class DriverProfileViewController: UIViewController {
+    @IBOutlet private weak var drivingConditionsButton: UIButton!
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var driverProfileFeaturePagingContainer: UIView!
     @IBOutlet private weak var driverProfileFeaturePagingControl: UIPageControl!
@@ -62,6 +63,17 @@ class DriverProfileViewController: UIViewController {
         } else {
             hideRefreshControl()
         }
+        
+        drivingConditionsButton.configure(title: "dk_driverdata_drivingconditions_show".dkDriverDataLocalized(), style: .empty)
+        
+        drivingConditionsButton.addTarget(self, action: #selector(drivingConditionsButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func drivingConditionsButtonTapped() {
+        self.navigationController?.pushViewController(
+            DrivingConditionsViewController(viewModel: viewModel.drivingConditionsViewModel),
+            animated: true
+        )
     }
     
     private func configureDriverFeaturePagingContexts() {

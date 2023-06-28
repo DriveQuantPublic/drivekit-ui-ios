@@ -17,6 +17,8 @@
                 <outlet property="driverDistanceEstimationPagingControl" destination="MNY-xA-IbB" id="wG4-rx-f1i"/>
                 <outlet property="driverProfileFeaturePagingContainer" destination="BgF-nh-ocs" id="sY1-nn-mPY"/>
                 <outlet property="driverProfileFeaturePagingControl" destination="ZCj-t4-Mft" id="Wj2-Ga-EMA"/>
+                <outlet property="drivingConditionsButton" destination="eoK-8w-e2I" id="UNy-rv-Oi3"/>
+                <outlet property="scrollView" destination="ljY-Ge-B8E" id="nvY-0G-Cji"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -101,14 +103,22 @@
                     <viewLayoutGuide key="contentLayoutGuide" id="s51-BT-lYu"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="8X4-m8-GZT"/>
                 </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoK-8w-e2I">
+                    <rect key="frame" x="16" y="783.66666666666663" width="361" height="34.333333333333371"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="ljY-Ge-B8E" secondAttribute="top" id="9F6-2q-clD"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eoK-8w-e2I" secondAttribute="trailing" constant="16" id="DQK-Bw-ZR5"/>
                 <constraint firstItem="ljY-Ge-B8E" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="MPx-oS-wRL"/>
+                <constraint firstItem="eoK-8w-e2I" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="aCi-u9-4p8"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="eoK-8w-e2I" secondAttribute="bottom" id="l9N-UB-VNu"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ljY-Ge-B8E" secondAttribute="trailing" id="vyk-f7-uPU"/>
-                <constraint firstItem="ljY-Ge-B8E" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="yCF-qo-c20"/>
+                <constraint firstItem="ljY-Ge-B8E" firstAttribute="bottom" secondItem="eoK-8w-e2I" secondAttribute="bottom" id="ylV-n2-yPU"/>
             </constraints>
             <point key="canvasLocation" x="-102" y="20"/>
         </view>

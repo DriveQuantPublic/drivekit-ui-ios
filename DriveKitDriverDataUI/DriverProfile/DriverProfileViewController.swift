@@ -7,6 +7,8 @@
 //
 
 import DriveKitCommonUI
+import DriveKitCoreModule
+import DriveKitDBTripAccessModule
 import UIKit
 
 class DriverProfileViewController: UIViewController {
@@ -17,6 +19,18 @@ class DriverProfileViewController: UIViewController {
         DriverProfileFeature,
         DriverProfileFeatureViewController,
         DriverProfileFeaturePagingViewModel>!
+    @IBOutlet private weak var driverDistanceEstimationPagingContainer: UIView!
+    @IBOutlet private weak var driverDistanceEstimationPagingControl: UIPageControl!
+    private var driverDistanceEstimationPagingViewController: DKUIPagingCardViewController<
+        DKPeriod,
+        DriverDistanceEstimationViewController,
+        DriverDistanceEstimationPagingViewModel>!
+    @IBOutlet private weak var driverCommonTripPagingContainer: UIView!
+    @IBOutlet private weak var driverCommonTripPagingControl: UIPageControl!
+    private var driverCommonTripPagingViewController: DKUIPagingCardViewController<
+        DKCommonTripType,
+        DriverCommonTripViewController,
+        DriverCommonTripPagingViewModel>!
     
     private let viewModel: DriverProfileViewModel
     
@@ -40,6 +54,8 @@ class DriverProfileViewController: UIViewController {
         self.scrollView.refreshControl = refreshControl
         
         self.configureDriverFeaturePagingContexts()
+        self.configureDistanceEstimationPagingContexts()
+        self.configureCommonTripPagingContexts()
         
         if self.viewModel.updating {
             showRefreshControl()
@@ -56,6 +72,36 @@ class DriverProfileViewController: UIViewController {
         self.embedPagingViewController(
             driverProfileFeaturePagingViewController,
             in: driverProfileFeaturePagingContainer
+        )
+    }
+    
+    private func configureDistanceEstimationPagingContexts() {
+        self.driverDistanceEstimationPagingViewController = .init(
+            pagingControl: self.driverDistanceEstimationPagingControl,
+            viewModel: viewModel.driverDistanceEstimationPagingViewModel
+        )
+        self.embedPagingViewController(
+            driverDistanceEstimationPagingViewController,
+            in: driverDistanceEstimationPagingContainer
+        )
+    }
+    
+    private func configureCommonTripPagingContexts() {
+        let commonTripViewModel = viewModel.driverCommonTripPagingViewModel
+        self.driverCommonTripPagingViewController = .init(
+            pagingControl: self.driverCommonTripPagingControl,
+            viewModel: commonTripViewModel
+        )
+        var displayedVC: UIViewController = self.driverCommonTripPagingViewController
+        if commonTripViewModel.allPageIds.count == 1 {
+            displayedVC = self.driverCommonTripPagingViewController.pageController(
+                for: commonTripViewModel.firstPageId
+            )
+            self.driverCommonTripPagingControl.isHidden = true
+        }
+        self.embedPagingViewController(
+            displayedVC,
+            in: driverCommonTripPagingContainer
         )
     }
     

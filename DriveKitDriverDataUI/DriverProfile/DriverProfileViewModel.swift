@@ -18,14 +18,15 @@ class DriverProfileViewModel {
     private var currentDrivenDistances: [DKPeriod: Double]
     private var driverProfile: DKDriverProfile?
     var driverProfileFeaturePagingViewModel: DriverProfileFeaturePagingViewModel
-    #warning("TODO: Add each sub-VM")
+    var driverDistanceEstimationPagingViewModel: DriverDistanceEstimationPagingViewModel
+    var driverCommonTripPagingViewModel: DriverCommonTripPagingViewModel
     private(set) var updating: Bool = false
     
     init() {
         self.currentDrivenDistances = [:]
         self.driverProfileFeaturePagingViewModel = .init()
-        
-        #warning("TODO: configure each sub-VM initial state")
+        self.driverDistanceEstimationPagingViewModel = .init()
+        self.driverCommonTripPagingViewModel = .init()
         
         DriveKitDriverData.shared.getDriverTimelines(
             periods: self.configuredPeriods,

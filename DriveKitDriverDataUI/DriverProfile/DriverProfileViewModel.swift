@@ -28,27 +28,28 @@ class DriverProfileViewModel {
         self.driverDistanceEstimationPagingViewModel = .init()
         self.driverCommonTripPagingViewModel = .init()
         
-        DriveKitDriverData.shared.getDriverTimelines(
-            periods: self.configuredPeriods,
+        DriveKitDriverData.shared.getDriverProfile(
             type: .cache
-        ) { [weak self] status, timelines in
+        ) { [weak self] status, driverProfile in
             guard let self else { return }
-            if status == .cacheDataOnly, let timelines {
-                self.currentDrivenDistances = timelines.reduce(into: [:]) { resultSoFar, timeline in
-                    resultSoFar[timeline.period] = timeline.allContext.last?.distance ?? 0.0
+            if status == .success, let driverProfile {
+                self.driverProfile = driverProfile
+                
+                DriveKitDriverData.shared.getDriverTimelines(
+                    periods: self.configuredPeriods,
+                    type: .cache
+                ) { [weak self] status, timelines in
+                    guard let self else { return }
+                    if status == .cacheDataOnly, let timelines {
+                        self.currentDrivenDistances = timelines.reduce(into: [:]) { resultSoFar, timeline in
+                            resultSoFar[timeline.period] = timeline.allContext.last?.distance ?? 0.0
+                        }
+                    }
+                    self.update()
                 }
-            }
-            
-            DriveKitDriverData.shared.getDriverProfile(
-                type: .cache
-            ) { [weak self] status, driverProfile in
-                guard let self else { return }
-                if status == .success, let driverProfile {
-                    self.driverProfile = driverProfile
-                }
-                self.update()
             }
         }
+
         updateData()
     }
     
@@ -60,28 +61,28 @@ class DriverProfileViewModel {
     func updateData() {
         self.updating = true
         self.delegate?.willUpdateData()
-        DriveKitDriverData.shared.getDriverTimelines(
-            periods: configuredPeriods,
+        DriveKitDriverData.shared.getDriverProfile(
             type: .defaultSync
-        ) { [weak self] status, timelines in
+        ) { [weak self] status, driverProfile in
             guard let self else { return }
-            if status != .noTimelineYet, let timelines {
-                self.currentDrivenDistances = timelines.reduce(into: [:]) { resultSoFar, timeline in
-                    resultSoFar[timeline.period] = timeline.allContext.last?.distance ?? 0.0
+            if status == .success, let driverProfile {
+                self.driverProfile = driverProfile
+                
+                DriveKitDriverData.shared.getDriverTimelines(
+                    periods: configuredPeriods,
+                    type: .defaultSync
+                ) { [weak self] status, timelines in
+                    guard let self else { return }
+                    if status != .noTimelineYet, let timelines {
+                        self.currentDrivenDistances = timelines.reduce(into: [:]) { resultSoFar, timeline in
+                            resultSoFar[timeline.period] = timeline.allContext.last?.distance ?? 0.0
+                        }
+                    }
+                    
+                    self.updating = false
+                    self.update()
+                    self.delegate?.didUpdateData()
                 }
-                self.update()
-            }
-            
-            DriveKitDriverData.shared.getDriverProfile(
-                type: .defaultSync
-            ) { [weak self] status, driverProfile in
-                guard let self else { return }
-                if status == .success, let driverProfile {
-                    self.driverProfile = driverProfile
-                }
-                self.updating = false
-                self.update()
-                self.delegate?.didUpdateData()
             }
         }
     }

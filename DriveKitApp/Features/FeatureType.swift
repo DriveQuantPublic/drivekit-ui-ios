@@ -45,7 +45,6 @@ enum FeatureType {
             case .driverData_my_synthesis:
                 imageName = "feature_icon_driverData_my_synthesis"
             case .driverData_driver_profile:
-                #warning("Setup the correct image")
                 imageName = "feature_icon_driverData_driver_profile"
             case .permissionsUtils_diagnosis, .permissionsUtils_onboarding:
                 imageName = "feature_icon_permissionsUtils"
@@ -55,7 +54,7 @@ enum FeatureType {
                 imageName = "feature_icon_vehicle"
         }
         if let imageName = imageName {
-            return UIImage(named: imageName)
+            return UIImage(named: imageName)?.tintedImage(withColor: .gray)
         } else {
             return nil
         }
@@ -81,8 +80,7 @@ enum FeatureType {
             case .driverData_my_synthesis:
                 title = "feature_synthesis_title"
             case .driverData_driver_profile:
-                #warning("Setup the correct title")
-                title = "Profil conducteur"
+                title = "feature_profile_title"
             case .permissionsUtils_diagnosis:
                 title = "feature_permission_utils_title"
             case .permissionsUtils_onboarding:
@@ -117,8 +115,7 @@ enum FeatureType {
             case .driverData_my_synthesis:
                 description = "feature_synthesis_description"
             case .driverData_driver_profile:
-                #warning("Setup the correct description")
-                description = "Lorem ipsum blabla"
+                description = "feature_profile_description"
             case .permissionsUtils_diagnosis:
                 description = "feature_permission_utils_description"
             case .permissionsUtils_onboarding:
@@ -153,8 +150,7 @@ enum FeatureType {
             case .driverData_my_synthesis:
                 docKey = "drivekit_doc_ios_synthesis"
             case .driverData_driver_profile:
-                #warning("Setup the correct info url")
-                docKey = "drivekit_doc_ios_driver_profile"
+                docKey = "drivekit_doc_ios_profile"
             case .permissionsUtils_diagnosis:
                 docKey = "drivekit_doc_ios_diag"
             case .permissionsUtils_onboarding:

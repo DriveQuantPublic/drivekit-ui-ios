@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "feature_icon_driverData_my_synthesis.png",
+      "filename" : "dk_menu_profile.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "feature_icon_driverData_my_synthesis@2x.png",
+      "filename" : "dk_menu_profile@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "feature_icon_driverData_my_synthesis@3x.png",
+      "filename" : "dk_menu_profile@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
@@ -19,5 +19,8 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "template-rendering-intent" : "template"
   }
 }

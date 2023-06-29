@@ -11,8 +11,19 @@ import Foundation
 
 class DriverDistanceEstimationViewModel {
     var period: DKPeriod
+    var viewModelDidUpdate: (() -> Void)?
 
     init(period: DKPeriod) {
         self.period = period
+    }
+    
+    func configure() {
+        #warning("TODO: implement view model update")
+        self.viewModelDidUpdate?()
+    }
+    
+    func configureWithNoData() {
+        #warning("TODO: implement view model update")
+        self.viewModelDidUpdate?()
     }
 }

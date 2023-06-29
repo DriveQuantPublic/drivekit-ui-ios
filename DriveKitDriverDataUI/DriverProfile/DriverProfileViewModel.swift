@@ -94,9 +94,15 @@ class DriverProfileViewModel {
         }
         
         #warning("TODO: configure each sub-VM for data state")
+        driverProfileFeaturePagingViewModel.configure()
+        driverDistanceEstimationPagingViewModel.configure()
+        driverCommonTripPagingViewModel.configure()
     }
     
     private func configureWithNoData() {
         #warning("TODO: configure each sub-VM for empty state")
+        driverProfileFeaturePagingViewModel.configureWithNoData()
+        driverDistanceEstimationPagingViewModel.configureWithNoData()
+        driverCommonTripPagingViewModel.configureWithNoData()
     }
 }

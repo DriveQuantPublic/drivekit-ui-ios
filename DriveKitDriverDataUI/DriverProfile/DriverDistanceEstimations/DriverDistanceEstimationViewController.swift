@@ -23,6 +23,9 @@ class DriverDistanceEstimationViewController: UIViewController, DKUIPageViewMode
             nibName: String(describing: Self.self),
             bundle: .driverDataUIBundle
         )
+        self.viewModel.viewModelDidUpdate = { [weak self] in
+            self?.refreshView()
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -32,5 +35,9 @@ class DriverDistanceEstimationViewController: UIViewController, DKUIPageViewMode
     override func viewDidLoad() {
         super.viewDidLoad()
         placeholderLabel.text = "\(pageId)"
+    }
+    
+    private func refreshView() {
+        #warning("TODO: refresh view when viewModel updates")
     }
 }

@@ -11,11 +11,31 @@ import DriveKitDBTripAccessModule
 import Foundation
 
 class DriverCommonTripPagingViewModel: DKUIPagingViewModel {
+    private var pageViewModels: [DKCommonTripType: DriverCommonTripViewModel] = [:]
+    
     var allPageIds: [DKCommonTripType] {
         [.mostFrequent]
     }
     
     func pageViewModel(for pageId: DKCommonTripType) -> DriverCommonTripViewModel? {
-        .init(commonTripType: pageId)
+        guard let pageViewModel = pageViewModels[pageId] else {
+            let viewModel = DriverCommonTripViewModel(commonTripType: pageId)
+            pageViewModels[pageId] = viewModel
+            return viewModel
+        }
+        
+        return pageViewModel
+    }
+    
+    func configure() {
+        for pageViewModel in pageViewModels.values {
+            pageViewModel.configure()
+        }
+    }
+    
+    func configureWithNoData() {
+        for pageViewModel in pageViewModels.values {
+            pageViewModel.configureWithNoData()
+        }
     }
 }

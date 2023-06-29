@@ -10,11 +10,31 @@ import DriveKitCommonUI
 import Foundation
 
 class DriverProfileFeaturePagingViewModel: DKUIPagingViewModel {
+    private var pageViewModels: [DriverProfileFeature: DriverProfileFeatureViewModel] = [:]
+    
     var allPageIds: [DriverProfileFeature] {
         DriverProfileFeature.allCases
     }
     
     func pageViewModel(for pageId: DriverProfileFeature) -> DriverProfileFeatureViewModel? {
-        .init(driverProfileFeature: pageId)
+        guard let pageViewModel = pageViewModels[pageId] else {
+            let viewModel = DriverProfileFeatureViewModel(driverProfileFeature: pageId)
+            pageViewModels[pageId] = viewModel
+            return viewModel
+        }
+        
+        return pageViewModel
+    }
+    
+    func configure() {
+        for pageViewModel in pageViewModels.values {
+            pageViewModel.configure()
+        }
+    }
+    
+    func configureWithNoData() {
+        for pageViewModel in pageViewModels.values {
+            pageViewModel.configureWithNoData()
+        }
     }
 }

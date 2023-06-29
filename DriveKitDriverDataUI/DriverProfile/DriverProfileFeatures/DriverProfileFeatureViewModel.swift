@@ -7,12 +7,26 @@
 //
 
 import DriveKitCommonUI
+import DriveKitDBTripAccessModule
 import Foundation
 
 class DriverProfileFeatureViewModel {
     var driverProfileFeature: DriverProfileFeature
+    var viewModelDidUpdate: (() -> Void)?
 
-    init(driverProfileFeature: DriverProfileFeature) {
+    init(
+        driverProfileFeature: DriverProfileFeature
+    ) {
         self.driverProfileFeature = driverProfileFeature
+    }
+    
+    func configure() {
+        #warning("TODO: implement view model update")
+        self.viewModelDidUpdate?()
+    }
+    
+    func configureWithNoData() {
+        #warning("TODO: implement view model update")
+        self.viewModelDidUpdate?()
     }
 }

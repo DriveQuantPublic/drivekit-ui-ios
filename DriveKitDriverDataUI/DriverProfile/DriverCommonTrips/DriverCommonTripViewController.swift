@@ -20,6 +20,9 @@ class DriverCommonTripViewController: UIViewController, DKUIPageViewModel {
         self.viewModel = pageViewModel
         self.pageId = pageId
         super.init(nibName: String(describing: Self.self), bundle: .driverDataUIBundle)
+        self.viewModel.viewModelDidUpdate = { [weak self] in
+            self?.refreshView()
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -29,5 +32,9 @@ class DriverCommonTripViewController: UIViewController, DKUIPageViewModel {
     override func viewDidLoad() {
         super.viewDidLoad()
         placeholderLabel.text = "\(pageId)"
+    }
+    
+    private func refreshView() {
+        #warning("TODO: refresh view when viewModel updates")
     }
 }

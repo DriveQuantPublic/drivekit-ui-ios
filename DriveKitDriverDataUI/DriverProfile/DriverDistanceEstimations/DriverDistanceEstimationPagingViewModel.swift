@@ -11,11 +11,31 @@ import DriveKitCoreModule
 import Foundation
 
 class DriverDistanceEstimationPagingViewModel: DKUIPagingViewModel {
+    private var pageViewModels: [DKPeriod: DriverDistanceEstimationViewModel] = [:]
+    
     var allPageIds: [DKPeriod] {
         [.year, .month, .week]
     }
     
     func pageViewModel(for pageId: DKPeriod) -> DriverDistanceEstimationViewModel? {
-        .init(period: pageId)
+        guard let pageViewModel = pageViewModels[pageId] else {
+            let viewModel = DriverDistanceEstimationViewModel(period: pageId)
+            pageViewModels[pageId] = viewModel
+            return viewModel
+        }
+        
+        return pageViewModel
+    }
+    
+    func configure() {
+        for pageViewModel in pageViewModels.values {
+            pageViewModel.configure()
+        }
+    }
+    
+    func configureWithNoData() {
+        for pageViewModel in pageViewModels.values {
+            pageViewModel.configureWithNoData()
+        }
     }
 }

@@ -165,14 +165,14 @@ PageViewController.ViewModel == PagingViewModel.PageViewModel {
     }
     
     public func pageController(for pageId: PageId) -> PageViewController {
-        guard let pageVC = pageViewControllers[pageId]
+        let pageViewModel = viewModel.pageViewModel(for: pageId)!
+        guard var pageVC = pageViewControllers[pageId]
         else {
-            let pageViewModel = viewModel.pageViewModel(for: pageId)!
             let newPageVC = PageViewController.init(pageId: pageId, pageViewModel: pageViewModel)
             pageViewControllers[pageId] = newPageVC
             return newPageVC
         }
-        
+        pageVC
         return pageVC
     }
     

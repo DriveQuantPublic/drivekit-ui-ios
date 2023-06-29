@@ -11,8 +11,19 @@ import Foundation
 
 class DriverCommonTripViewModel {
     var commonTripType: DKCommonTripType
+    var viewModelDidUpdate: (() -> Void)?
 
     init(commonTripType: DKCommonTripType) {
         self.commonTripType = commonTripType
+    }
+    
+    func configure() {
+        #warning("TODO: implement view model update")
+        self.viewModelDidUpdate?()
+    }
+    
+    func configureWithNoData() {
+        #warning("TODO: implement view model update")
+        self.viewModelDidUpdate?()
     }
 }

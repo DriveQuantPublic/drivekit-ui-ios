@@ -44,10 +44,6 @@ class DriverProfileFeatureViewController: UIViewController, DKUIPageViewModel {
     private func refreshView() {
         self.titleLabel.text = viewModel.title
         self.descriptionTextLabel.text = viewModel.descriptionText
-        self.iconImageView.image = UIImage(
-            named: viewModel.iconName,
-            in: .driverDataUIBundle,
-            compatibleWith: self.traitCollection
-        )
+        self.iconImageView.image = viewModel.iconName.image
     }
 }

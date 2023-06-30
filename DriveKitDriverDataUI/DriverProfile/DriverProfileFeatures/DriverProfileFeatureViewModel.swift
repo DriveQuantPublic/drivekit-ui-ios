@@ -45,9 +45,9 @@ class DriverProfileFeatureViewModel {
         return driverProfileFeature.descriptionText(for: driverProfile)
     }
     
-    var iconName: String {
+    var iconName: DKDriverDataImages {
         guard driverProfile != nil else {
-            return "dk_profile_empty"
+            return .driverProfileEmpty
         }
         return driverProfileFeature.iconName
     }

@@ -51,18 +51,18 @@ extension DriverProfileFeature {
         }
     }
     
-    var iconName: String {
+    var iconName: DKDriverDataImages {
         switch self {
         case .distance:
-            return "dk_profile_distance".dkDriverDataLocalized()
+            return .driverProfileDistance
         case .activity:
-            return "dk_profile_activity".dkDriverDataLocalized()
+            return .driverProfileActivity
         case .regularity:
-            return "dk_profile_regularity".dkDriverDataLocalized()
+            return .driverProfileRegularity
         case .mainRoadContext:
-            return "dk_profile_context".dkDriverDataLocalized()
+            return .driverProfileContext
         case .mobility:
-            return "dk_profile_mobility".dkDriverDataLocalized()
+            return .driverProfileMobility
         }
     }
 }

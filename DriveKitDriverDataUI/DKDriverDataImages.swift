@@ -52,7 +52,13 @@ public enum DKDriverDataImages: String {
          filter = "dk_filter",
          trendPositive = "dk_driver_data_trend_positive",
          trendNegative = "dk_driver_data_trend_negative",
-         trendSteady = "dk_driver_data_trend_steady"
+         trendSteady = "dk_driver_data_trend_steady",
+         driverProfileMobility = "dk_profile_mobility",
+         driverProfileContext = "dk_profile_context",
+         driverProfileRegularity = "dk_profile_regularity",
+         driverProfileActivity = "dk_profile_activity",
+         driverProfileDistance = "dk_profile_distance",
+         driverProfileEmpty = "dk_profile_empty"
     
     public var image: UIImage? {
         if let image = UIImage(named: self.rawValue, in: .main, compatibleWith: nil) {

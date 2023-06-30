@@ -172,7 +172,7 @@ PageViewController.ViewModel == PagingViewModel.PageViewModel {
             pageViewControllers[pageId] = newPageVC
             return newPageVC
         }
-        pageVC
+        pageVC.viewModel = pageViewModel
         return pageVC
     }
     

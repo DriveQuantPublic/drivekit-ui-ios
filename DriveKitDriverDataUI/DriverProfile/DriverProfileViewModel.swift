@@ -83,6 +83,10 @@ class DriverProfileViewModel {
                     self.update()
                     self.delegate?.didUpdateData()
                 }
+            } else {
+                self.updating = false
+                self.update()
+                self.delegate?.didUpdateData()
             }
         }
     }
@@ -94,7 +98,7 @@ class DriverProfileViewModel {
         }
         
         #warning("TODO: configure each sub-VM for data state")
-        driverProfileFeaturePagingViewModel.configure()
+        driverProfileFeaturePagingViewModel.configure(with: driverProfile)
         driverDistanceEstimationPagingViewModel.configure()
         driverCommonTripPagingViewModel.configure()
     }

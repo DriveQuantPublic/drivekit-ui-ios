@@ -17,6 +17,11 @@ class DriverDistanceEstimationPagingViewModel: DKUIPagingViewModel {
         [.year, .month, .week]
     }
     
+    var hasData: Bool {
+        #warning("TODO: implement correct behavior")
+        return true
+    }
+    
     func pageViewModel(for pageId: DKPeriod) -> DriverDistanceEstimationViewModel? {
         guard let pageViewModel = pageViewModels[pageId] else {
             let viewModel = DriverDistanceEstimationViewModel(period: pageId)

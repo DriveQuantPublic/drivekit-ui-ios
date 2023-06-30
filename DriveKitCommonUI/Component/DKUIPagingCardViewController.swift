@@ -13,6 +13,7 @@ public protocol DKUIPagingViewModel {
     associatedtype PageViewModel
     // You need to define only these two requirement
     var allPageIds: [PageId] { get }
+    var hasData: Bool { get }
     func pageViewModel(for pageId: PageId) -> PageViewModel?
     
     // Those are derived from allPageIds
@@ -81,7 +82,7 @@ PageViewController.ViewModel == PagingViewModel.PageViewModel {
     public var viewModel: PagingViewModel
     private var coordinator: Coordinator
     
-    public init(pagingControl: UIPageControl, viewModel: PagingViewModel) {
+    public required init(pagingControl: UIPageControl, viewModel: PagingViewModel) {
         self.viewModel = viewModel
         self.pagingControl = pagingControl
         self.coordinator = Coordinator()
@@ -126,11 +127,13 @@ PageViewController.ViewModel == PagingViewModel.PageViewModel {
             for: .valueChanged
         )
         
-        self.setViewControllers(
-            [pageController(for: viewModel.firstPageId)],
-            direction: .forward,
-            animated: false
-        )
+        if let firstPageController = pageController(for: viewModel.firstPageId) {
+            self.setViewControllers(
+                [firstPageController],
+                direction: .forward,
+                animated: false
+            )
+        }
     }
     
     @objc private func didTapPagingControl(_ sender: Any) {
@@ -143,7 +146,9 @@ PageViewController.ViewModel == PagingViewModel.PageViewModel {
             return
         }
         
-        let pageController = self.pageController(for: selectedPageId)
+        guard let pageController = self.pageController(for: selectedPageId) else {
+            return
+        }
         
         var direction = UIPageViewController.NavigationDirection.forward
         if let currentPageController = self.viewControllers?.first,
@@ -164,8 +169,10 @@ PageViewController.ViewModel == PagingViewModel.PageViewModel {
         )
     }
     
-    public func pageController(for pageId: PageId) -> PageViewController {
-        let pageViewModel = viewModel.pageViewModel(for: pageId)!
+    public func pageController(for pageId: PageId) -> PageViewController? {
+        guard let pageViewModel = viewModel.pageViewModel(for: pageId) else {
+            return nil
+        }
         guard var pageVC = pageViewControllers[pageId]
         else {
             let newPageVC = PageViewController.init(pageId: pageId, pageViewModel: pageViewModel)
@@ -228,5 +235,40 @@ extension Coordinator: UIPageViewControllerDelegate {
         if completed {
             self.didCompleteTransition?()
         }
+    }
+}
+
+extension DKUIPagingCardViewController {
+    public static func createPagingViewController(
+        configuredWith pagingViewModel: PagingViewModel,
+        pagingControl: UIPageControl,
+        embededIn pagingContainer: UIView,
+        of parentViewController: UIViewController
+    ) -> Self {
+        let pagingViewController = Self.init(
+            pagingControl: pagingControl,
+            viewModel: pagingViewModel
+        )
+        var displayedViewController: UIViewController = pagingViewController
+        if pagingViewModel.allPageIds.count > 1 && pagingViewModel.hasData {
+            pagingViewController.configure()
+            pagingControl.isHidden = false
+        } else if let firstPageController = pagingViewController.pageController(
+            for: pagingViewModel.firstPageId
+        ) {
+            displayedViewController = firstPageController
+            pagingControl.isHidden = true
+        } else {
+            pagingContainer.isHidden = true
+            pagingControl.isHidden = true
+        }
+
+        parentViewController.addChild(displayedViewController)
+        pagingContainer.embedSubview(displayedViewController.view)
+        pagingContainer.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
+        pagingContainer.clipsToBounds = true
+        displayedViewController.didMove(toParent: parentViewController)
+        
+        return pagingViewController
     }
 }

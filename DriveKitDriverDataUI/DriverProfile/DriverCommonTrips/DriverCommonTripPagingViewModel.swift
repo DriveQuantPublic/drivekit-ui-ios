@@ -17,6 +17,11 @@ class DriverCommonTripPagingViewModel: DKUIPagingViewModel {
         [.mostFrequent]
     }
     
+    var hasData: Bool {
+        #warning("TODO: implement correct behavior")
+        return true
+    }
+    
     func pageViewModel(for pageId: DKCommonTripType) -> DriverCommonTripViewModel? {
         guard let pageViewModel = pageViewModels[pageId] else {
             let viewModel = DriverCommonTripViewModel(commonTripType: pageId)

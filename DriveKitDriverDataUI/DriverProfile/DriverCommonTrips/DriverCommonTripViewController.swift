@@ -11,7 +11,10 @@ import DriveKitDBTripAccessModule
 import UIKit
 
 class DriverCommonTripViewController: UIViewController, DKUIPageViewModel {
-    @IBOutlet private weak var placeholderLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var distanceLabel: UILabel!
+    @IBOutlet private weak var durationLabel: UILabel!
+    @IBOutlet private weak var conditionsLabel: UILabel!
 
     var viewModel: DriverCommonTripViewModel
     var pageId: DKCommonTripType
@@ -31,10 +34,14 @@ class DriverCommonTripViewController: UIViewController, DKUIPageViewModel {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        placeholderLabel.text = "\(pageId)"
+        titleLabel.text = "dk_driverdata_usual_trip_card_title".dkDriverDataLocalized()
+        titleLabel.font = DKStyles.headLine2.style.applyTo(font: .primary)
+        conditionsLabel.font = DKStyles.normalText.style.applyTo(font: .primary)
     }
     
     private func refreshView() {
-        #warning("TODO: refresh view when viewModel updates")
+        distanceLabel.attributedText = viewModel.distanceText
+        durationLabel.attributedText = viewModel.durationText
+        conditionsLabel.text = viewModel.conditionsText
     }
 }

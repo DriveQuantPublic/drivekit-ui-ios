@@ -100,7 +100,7 @@ class DriverProfileViewModel {
         driverProfileFeaturePagingViewModel.configure(with: driverProfile)
         #warning("TODO: configure each sub-VM for data state")
         driverDistanceEstimationPagingViewModel.configure()
-        driverCommonTripPagingViewModel.configure()
+        driverCommonTripPagingViewModel.configure(with: driverProfile.commonTripByType)
     }
     
     private func configureWithNoData() {

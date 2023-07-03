@@ -31,7 +31,7 @@ extension DKMobilityProfile {
         guard let percentile90th else { return "" }
         return String(
             format: "dk_driverdata_profile_mobility_text".dkDriverDataLocalized(),
-            "\(percentile90th)"
+            percentile90th.formatWithThousandSeparator()
         )
     }
     

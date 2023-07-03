@@ -24,8 +24,8 @@ extension DKRegularityProfile {
         case .regular:
             return String(
                 format: "dk_driverdata_profile_regularity_regular_text".dkDriverDataLocalized(),
-                "\(tripCount)",
-                "\(distance)"
+                tripCount.formatWithThousandSeparator(),
+                distance.formatWithThousandSeparator()
             )
         case .intermittent:
             return "dk_driverdata_profile_regularity_intermittent_text".dkDriverDataLocalized()

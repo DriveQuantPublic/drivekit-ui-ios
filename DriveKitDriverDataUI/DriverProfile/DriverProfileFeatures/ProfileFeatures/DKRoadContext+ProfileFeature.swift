@@ -41,7 +41,7 @@ extension DKRoadContext {
         }
         return String(
             format: localizedFormatStringKey.dkDriverDataLocalized(),
-            "\(distancePercentage)"
+            distancePercentage.formatPercentage(appendingUnit: false, fractionDigits: 0)
         )
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 import DriveKitDBTripAccessModule
 
 enum DriverProfileFeature: CaseIterable {
-    case distance, activity, regularity, mainRoadContext, mobility
+    case distance, mobility, activity, regularity, mainRoadContext
 }
 
 extension DriverProfileFeature {

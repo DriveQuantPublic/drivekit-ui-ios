@@ -37,8 +37,8 @@ extension DriverProfileFeature {
             return driverProfile.activity.descriptionText(forActiveWeeksPercentage: driverProfile.statistics.activeWeekPercentage)
         case .regularity:
             return driverProfile.regularity.descriptionText(
-                withTripCount: driverProfile.statistics.tripsNumber,
-                distance: driverProfile.statistics.totalDistance
+                withTripCount: driverProfile.weekRegularity.tripNumberMean,
+                distance: driverProfile.weekRegularity.distanceMean
             )
         case .mainRoadContext:
             return driverProfile.mainRoadContext.descriptionText(

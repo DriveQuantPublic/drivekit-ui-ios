@@ -34,7 +34,7 @@ class DriverDistanceEstimationViewController: UIViewController, DKUIPageViewMode
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        placeholderLabel.text = "\(pageId)"
+        placeholderLabel.text = "\(pageId) \(viewModel.estimation) \(viewModel.realDistance)"
     }
     
     private func refreshView() {

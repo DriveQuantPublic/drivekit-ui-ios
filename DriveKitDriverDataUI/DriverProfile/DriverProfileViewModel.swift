@@ -98,8 +98,8 @@ class DriverProfileViewModel {
         }
         
         driverProfileFeaturePagingViewModel.configure(with: driverProfile)
+        driverDistanceEstimationPagingViewModel.configure(with: driverProfile, and: currentDrivenDistances)
         #warning("TODO: configure each sub-VM for data state")
-        driverDistanceEstimationPagingViewModel.configure()
         driverCommonTripPagingViewModel.configure()
     }
     

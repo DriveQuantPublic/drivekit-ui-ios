@@ -6,20 +6,22 @@
 //  Copyright © 2023 DriveQuant. All rights reserved.
 //
 
+import Foundation
 import DriveKitCommonUI
 import DriveKitCoreModule
-import Foundation
+import DriveKitDBTripAccessModule
 
 class DriverDistanceEstimationPagingViewModel: DKUIPagingViewModel {
     private var pageViewModels: [DKPeriod: DriverDistanceEstimationViewModel] = [:]
-    
+    private var driverProfile: DKDriverProfile?
+    private var currentDrivenDistances: [DKPeriod: Double] = [:]
+
     var allPageIds: [DKPeriod] {
         [.year, .month, .week]
     }
     
     var hasData: Bool {
-        #warning("TODO: implement correct behavior")
-        return true
+        return driverProfile != nil && !currentDrivenDistances.isEmpty
     }
     
     func pageViewModel(for pageId: DKPeriod) -> DriverDistanceEstimationViewModel? {
@@ -32,9 +34,11 @@ class DriverDistanceEstimationPagingViewModel: DKUIPagingViewModel {
         return pageViewModel
     }
     
-    func configure() {
+    func configure(with driverProfile: DKDriverProfile, and currentDrivenDistances: [DKPeriod: Double]) {
+        self.driverProfile = driverProfile
+        self.currentDrivenDistances = currentDrivenDistances
         for pageViewModel in pageViewModels.values {
-            pageViewModel.configure()
+            pageViewModel.configure(with: driverProfile.distanceEstimation, and: currentDrivenDistances)
         }
     }
     

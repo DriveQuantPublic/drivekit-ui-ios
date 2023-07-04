@@ -6,19 +6,30 @@
 //  Copyright © 2023 DriveQuant. All rights reserved.
 //
 
-import DriveKitCoreModule
 import Foundation
+import DriveKitCoreModule
+import DriveKitDBTripAccessModule
 
 class DriverDistanceEstimationViewModel {
-    var period: DKPeriod
+    private(set) var period: DKPeriod
     var viewModelDidUpdate: (() -> Void)?
+    private(set) var estimation: Int = 0
+    private(set) var realDistance: Int = 0
 
     init(period: DKPeriod) {
         self.period = period
     }
     
-    func configure() {
-        #warning("TODO: implement view model update")
+    func configure(with distanceEstimation: DKDriverDistanceEstimation, and currentDrivenDistances: [DKPeriod: Double]) {
+        self.realDistance = Int(currentDrivenDistances[period] ?? 0)
+        switch period {
+            case .week:
+                self.estimation = distanceEstimation.weekDistance
+            case .month:
+                self.estimation = distanceEstimation.monthDistance
+            case .year:
+                self.estimation = distanceEstimation.yearDistance
+        }
         self.viewModelDidUpdate?()
     }
     

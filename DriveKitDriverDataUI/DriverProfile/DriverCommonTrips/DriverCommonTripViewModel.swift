@@ -42,35 +42,49 @@ class DriverCommonTripViewModel {
     
     var distanceText: NSAttributedString {
         formattedText(
-            for: Double(self.commonTrip?.distanceMean ?? defaultDistanceMeanForNoDataState)
-                .formatKilometerDistance(
-                    appendingUnit: false,
+            of: Double(self.commonTrip?.distanceMean ?? defaultDistanceMeanForNoDataState)
+                .getKilometerDistanceFormat(
+                    appendingUnit: true,
                     minDistanceToRemoveFractions: 0
-                ),
-            unit: DKCommonLocalizable.unitKilometer.text()
+                )
         )
     }
     
     var durationText: NSAttributedString {
-        formattedText(
-            for: Double(self.commonTrip?.durationMean ?? defaultDurationMeanForNoDataState)
-                .formatDouble(fractionDigits: 0),
-            unit: DKCommonLocalizable.unitMinute.text()
+        let secondsInMinute = 60
+        return formattedText(
+            of: Double(
+                (self.commonTrip?.durationMean ?? defaultDurationMeanForNoDataState) * secondsInMinute
+            )
+                .getSecondDurationFormat(maxUnit: .hour)
         )
     }
     
-    private func formattedText(for valueText: String, unit unitText: String) -> NSAttributedString {
+    private func formattedText(of format: [FormatType]) -> NSMutableAttributedString {
         let valueColor = self.hasData ? DKUIColors.primaryColor : .complementaryFontColor
         let unitColor = self.hasData ? DKUIColors.mainFontColor : .complementaryFontColor
-        return valueText.dkAttributedString()
-            .font(dkFont: .primary, style: .highlightNormal)
-            .color(valueColor)
-            .buildWithArgs(
-                (String.nonBreakableSpace + unitText).dkAttributedString()
+        
+        let formatString = format.reduce(into: "") { acc, _ in
+            acc += "%@"
+        }
+        let attributedStrings = format.map {
+            switch $0 {
+            case let .value(text):
+                return text.dkAttributedString()
+                    .font(dkFont: .primary, style: .highlightNormal)
+                    .color(valueColor)
+                    .build()
+            case let .unit(text),
+                 let .separator(text):
+                return text.dkAttributedString()
                     .font(dkFont: .primary, style: .normalText)
                     .color(unitColor)
                     .build()
-            )
+            }
+        }
+        
+        return formatString.dkAttributedString()
+            .buildWithArgs(attributedStrings)
     }
     
     var conditionsText: String {

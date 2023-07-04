@@ -138,6 +138,11 @@ extension DriveKitDriverDataUI: DriveKitDriverDataUIEntryPoint {
         return MySynthesisViewController(viewModel: viewModel)
     }
     
+    public func getDriverProfileViewController() -> UIViewController {
+        let viewModel = DriverProfileViewModel()
+        return DriverProfileViewController(viewModel: viewModel)
+    }
+    
     public func getDrivingConditionsViewController() -> UIViewController {
         let viewModel = DrivingConditionsViewModel(configuredContexts: self.contextKinds)
         return DrivingConditionsViewController(viewModel: viewModel)

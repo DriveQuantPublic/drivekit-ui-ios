@@ -7,9 +7,10 @@
 //  Copyright © 2021 DriveQuant. All rights reserved.
 //
 
-import Foundation
-import DriveKitTripAnalysisModule
 import AVFoundation
+import DriveKitCoreModule
+import DriveKitTripAnalysisModule
+import Foundation
 
 class WorkingHoursViewModel {
     private(set) var sections: [WorkingHoursSection] = []

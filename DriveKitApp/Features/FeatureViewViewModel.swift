@@ -90,6 +90,12 @@ class FeatureViewViewModel {
                 } else {
                     viewController = nil
                 }
+            case .driverData_driver_profile:
+                if let driverDataUI = DriveKitNavigationController.shared.driverDataUI {
+                    viewController = driverDataUI.getDriverProfileViewController()
+                } else {
+                    viewController = nil
+                }
             case .permissionsUtils_diagnosis:
                 viewController = DriveKitPermissionsUtilsUI.shared.getDiagnosisViewController()
             case .permissionsUtils_onboarding:

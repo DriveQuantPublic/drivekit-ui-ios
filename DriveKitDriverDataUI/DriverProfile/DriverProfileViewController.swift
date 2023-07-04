@@ -16,22 +16,25 @@ class DriverProfileViewController: DKUIViewController {
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var driverProfileFeaturePagingContainer: UIView!
     @IBOutlet private weak var driverProfileFeaturePagingControl: UIPageControl!
-    private var driverProfileFeaturePagingViewController: DKUIPagingCardViewController<
+    typealias DriverProfileFeaturePagingViewController = DKUIPagingCardViewController<
         DriverProfileFeature,
         DriverProfileFeatureViewController,
-        DriverProfileFeaturePagingViewModel>!
+        DriverProfileFeaturePagingViewModel>
+    private var driverProfileFeaturePagingViewController: DriverProfileFeaturePagingViewController!
     @IBOutlet private weak var driverDistanceEstimationPagingContainer: UIView!
     @IBOutlet private weak var driverDistanceEstimationPagingControl: UIPageControl!
-    private var driverDistanceEstimationPagingViewController: DKUIPagingCardViewController<
+    typealias DriverDistanceEstimationPagingViewController = DKUIPagingCardViewController<
         DKPeriod,
         DriverDistanceEstimationViewController,
-        DriverDistanceEstimationPagingViewModel>!
+        DriverDistanceEstimationPagingViewModel>
+    private var driverDistanceEstimationPagingViewController: DriverDistanceEstimationPagingViewController!
     @IBOutlet private weak var driverCommonTripPagingContainer: UIView!
     @IBOutlet private weak var driverCommonTripPagingControl: UIPageControl!
-    private var driverCommonTripPagingViewController: DKUIPagingCardViewController<
+    typealias DriverCommonTripPagingViewController = DKUIPagingCardViewController<
         DKCommonTripType,
         DriverCommonTripViewController,
-        DriverCommonTripPagingViewModel>!
+        DriverCommonTripPagingViewModel>
+    private var driverCommonTripPagingViewController: DriverCommonTripPagingViewController!
     
     private let viewModel: DriverProfileViewModel
     
@@ -48,7 +51,7 @@ class DriverProfileViewController: DKUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "dk_driverdata_drivingconditions_title".dkDriverDataLocalized()
+        self.title = "dk_driverdata_profile_title".dkDriverDataLocalized()
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh(_ :)), for: .valueChanged)
@@ -77,59 +80,33 @@ class DriverProfileViewController: DKUIViewController {
     }
     
     private func configureDriverFeaturePagingContexts() {
-        self.driverProfileFeaturePagingViewController = .init(
+        self.driverProfileFeaturePagingContainer.removeSubviews()
+        self.driverProfileFeaturePagingViewController = DriverProfileFeaturePagingViewController.createPagingViewController(
+            configuredWith: viewModel.driverProfileFeaturePagingViewModel,
             pagingControl: self.driverProfileFeaturePagingControl,
-            viewModel: viewModel.driverProfileFeaturePagingViewModel
-        )
-        self.driverProfileFeaturePagingViewController.configure()
-        self.embedPagingViewController(
-            driverProfileFeaturePagingViewController,
-            in: driverProfileFeaturePagingContainer
+            embededIn: driverProfileFeaturePagingContainer,
+            of: self
         )
     }
     
     private func configureDistanceEstimationPagingContexts() {
-        self.driverDistanceEstimationPagingViewController = .init(
+        self.driverDistanceEstimationPagingContainer.removeSubviews()
+        self.driverDistanceEstimationPagingViewController = DriverDistanceEstimationPagingViewController.createPagingViewController(
+            configuredWith: viewModel.driverDistanceEstimationPagingViewModel,
             pagingControl: self.driverDistanceEstimationPagingControl,
-            viewModel: viewModel.driverDistanceEstimationPagingViewModel
-        )
-        self.driverDistanceEstimationPagingViewController.configure()
-        self.embedPagingViewController(
-            driverDistanceEstimationPagingViewController,
-            in: driverDistanceEstimationPagingContainer
+            embededIn: driverDistanceEstimationPagingContainer,
+            of: self
         )
     }
     
     private func configureCommonTripPagingContexts() {
-        let commonTripViewModel = viewModel.driverCommonTripPagingViewModel
-        self.driverCommonTripPagingViewController = .init(
+        self.driverCommonTripPagingContainer.removeSubviews()
+        self.driverCommonTripPagingViewController = DriverCommonTripPagingViewController.createPagingViewController(
+            configuredWith: viewModel.driverCommonTripPagingViewModel,
             pagingControl: self.driverCommonTripPagingControl,
-            viewModel: commonTripViewModel
+            embededIn: driverCommonTripPagingContainer,
+            of: self
         )
-        var displayedVC: UIViewController = self.driverCommonTripPagingViewController
-        if commonTripViewModel.allPageIds.count > 1 {
-            self.driverCommonTripPagingViewController.configure()
-        } else {
-            displayedVC = self.driverCommonTripPagingViewController.pageController(
-                for: commonTripViewModel.firstPageId
-            )
-            self.driverCommonTripPagingControl.isHidden = true
-        }
-        self.embedPagingViewController(
-            displayedVC,
-            in: driverCommonTripPagingContainer
-        )
-    }
-    
-    private func embedPagingViewController(
-        _ pagingViewController: UIViewController,
-        in pagingContainer: UIView
-    ) {
-        self.addChild(pagingViewController)
-        pagingContainer.embedSubview(pagingViewController.view)
-        pagingContainer.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
-        pagingContainer.clipsToBounds = true
-        pagingViewController.didMove(toParent: self)
     }
     
     @objc private func refresh(_ sender: Any) {
@@ -153,5 +130,8 @@ extension DriverProfileViewController: DriverProfileViewModelDelegate {
     
     func didUpdateData() {
         hideRefreshControl()
+        configureDriverFeaturePagingContexts()
+        configureDistanceEstimationPagingContexts()
+        configureCommonTripPagingContexts()
     }
 }

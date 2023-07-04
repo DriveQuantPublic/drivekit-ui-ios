@@ -95,11 +95,12 @@ class DrivingConditionsViewModel {
                 self.timelines = timelines.reduce(into: [:]) { resultSoFar, timeline in
                     resultSoFar[timeline.period] = timeline
                 }
-                self.updating = false
-                self.update(resettingSelectedDate: true)
-                self.delegate?.didUpdateData()
-                self.parentDelegate?.didUpdate(selectedDate: self.dateSelectorViewModel.selectedDate)
             }
+            
+            self.updating = false
+            self.update(resettingSelectedDate: true)
+            self.delegate?.didUpdateData()
+            self.parentDelegate?.didUpdate(selectedDate: self.dateSelectorViewModel.selectedDate)
         }
     }
     
@@ -266,6 +267,10 @@ extension DKDriverTimeline {
 extension DrivingConditionsViewModel: DKUIPagingViewModel {
     var allPageIds: [DKContextKind] {
         configuredContexts
+    }
+    
+    var hasNoData: Bool {
+        return hasData == false
     }
     
     func pageViewModel(for pageId: DKContextKind) -> DKContextCard? {

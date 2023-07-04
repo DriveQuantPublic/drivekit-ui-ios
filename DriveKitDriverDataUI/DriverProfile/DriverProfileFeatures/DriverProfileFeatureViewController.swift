@@ -10,7 +10,9 @@ import DriveKitCommonUI
 import UIKit
 
 class DriverProfileFeatureViewController: UIViewController, DKUIPageViewModel {
-    @IBOutlet private weak var placeholderLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var descriptionTextLabel: UILabel!
+    @IBOutlet private weak var iconImageView: UIImageView!
     
     var viewModel: DriverProfileFeatureViewModel
     var pageId: DriverProfileFeature
@@ -33,10 +35,15 @@ class DriverProfileFeatureViewController: UIViewController, DKUIPageViewModel {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        placeholderLabel.text = "\(pageId)"
+        self.titleLabel.font = DKStyles.headLine2.style.applyTo(font: .primary)
+        self.descriptionTextLabel.font = DKStyles.smallText.style.applyTo(font: .primary)
+        self.descriptionTextLabel.textColor = DKUIColors.complementaryFontColor.color
+        refreshView()
     }
     
     private func refreshView() {
-        #warning("TODO: refresh view when viewModel updates")
+        self.titleLabel.text = viewModel.title
+        self.descriptionTextLabel.text = viewModel.descriptionText
+        self.iconImageView.image = viewModel.iconName.image
     }
 }

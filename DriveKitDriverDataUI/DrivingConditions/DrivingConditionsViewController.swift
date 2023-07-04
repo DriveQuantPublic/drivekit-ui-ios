@@ -17,7 +17,8 @@ class DrivingConditionsViewController: DKUIViewController {
     @IBOutlet private weak var drivingConditionsSummaryContainer: UIView!
     @IBOutlet private weak var contextPagingContainer: UIView!
     @IBOutlet private weak var pagingControl: UIPageControl!
-    private var contextPagingViewController: DKUIPagingCardViewController<DKContextKind, DrivingConditionsContextViewController, DrivingConditionsViewModel>!
+    typealias ContextPagingViewController = DKUIPagingCardViewController<DKContextKind, DrivingConditionsContextViewController, DrivingConditionsViewModel>
+    private var contextPagingViewController: ContextPagingViewController!
     
     private let viewModel: DrivingConditionsViewModel
     
@@ -54,36 +55,18 @@ class DrivingConditionsViewController: DKUIViewController {
             embededIn: self.drivingConditionsSummaryContainer
         )
         
-        if viewModel.hasData {
-            self.contextPagingViewController = .init(
-                pagingControl: self.pagingControl,
-                viewModel: viewModel
-            )
-            if viewModel.shouldDisplayPagingController {
-                self.configurePagingContexts()
-            } else {
-                self.embedContextViewController(
-                    contextPagingViewController.pageController(
-                        for: viewModel.firstPageId
-                    )
-                )
-                self.pagingControl.isHidden = true
-            }
-        } else {
-            self.contextPagingContainer.isHidden = true
-            self.pagingControl.isHidden = true
-        }
+        self.contextPagingViewController = ContextPagingViewController.createPagingViewController(
+            configuredWith: viewModel,
+            pagingControl: self.pagingControl,
+            embededIn: contextPagingContainer,
+            of: self
+        )
         
         if self.viewModel.updating {
             showRefreshControl()
         } else {
             hideRefreshControl()
         }
-    }
-    
-    private func configurePagingContexts() {
-        self.embedContextViewController(contextPagingViewController)
-        contextPagingViewController.configure()
     }
     
     private func embedContextViewController(_ contextViewController: UIViewController) {

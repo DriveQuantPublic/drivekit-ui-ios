@@ -20,6 +20,13 @@ class FeatureViewViewModel {
     init(type: FeatureType) {
         self.type = type
     }
+    
+    var hasAccess: Bool {
+        guard type == .driverData_driver_profile else {
+            return true
+        }
+        return DriveKitAccess.shared.hasAccess(.driverProfile)
+    }
 
     func getIcon() -> UIImage? {
         return self.type.getIcon()

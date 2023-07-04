@@ -83,6 +83,10 @@ class DriverProfileViewModel {
                     self.update()
                     self.delegate?.didUpdateData()
                 }
+            } else {
+                self.updating = false
+                self.update()
+                self.delegate?.didUpdateData()
             }
         }
     }
@@ -93,14 +97,13 @@ class DriverProfileViewModel {
             return
         }
         
+        driverProfileFeaturePagingViewModel.configure(with: driverProfile)
         #warning("TODO: configure each sub-VM for data state")
-        driverProfileFeaturePagingViewModel.configure()
         driverDistanceEstimationPagingViewModel.configure()
         driverCommonTripPagingViewModel.configure()
     }
     
     private func configureWithNoData() {
-        #warning("TODO: configure each sub-VM for empty state")
         driverProfileFeaturePagingViewModel.configureWithNoData()
         driverDistanceEstimationPagingViewModel.configureWithNoData()
         driverCommonTripPagingViewModel.configureWithNoData()

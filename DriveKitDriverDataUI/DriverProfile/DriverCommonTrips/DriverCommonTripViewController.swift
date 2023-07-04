@@ -37,11 +37,13 @@ class DriverCommonTripViewController: UIViewController, DKUIPageViewModel {
         titleLabel.text = "dk_driverdata_usual_trip_card_title".dkDriverDataLocalized()
         titleLabel.font = DKStyles.headLine2.style.applyTo(font: .primary)
         conditionsLabel.font = DKStyles.normalText.style.applyTo(font: .primary)
+        refreshView()
     }
     
     private func refreshView() {
         distanceLabel.attributedText = viewModel.distanceText
         durationLabel.attributedText = viewModel.durationText
         conditionsLabel.text = viewModel.conditionsText
+        conditionsLabel.textColor = viewModel.conditionsTextColor.color
     }
 }

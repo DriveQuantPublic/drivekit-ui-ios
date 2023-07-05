@@ -76,4 +76,11 @@ class DriverDistanceEstimationViewController: UIViewController, DKUIPageViewMode
             self.realDistanceBarView.backgroundColor = DKUIColors.neutralColor.color
         }
     }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if viewModel.hasData {
+            self.estimationPaddingConstraint.constant = viewModel.estimationPaddingPercent * self.referenceView.frame.width
+            self.realDistancePaddingConstraint.constant = viewModel.realDistancePaddingPercent * self.referenceView.frame.width
+        }
+    }
 }

@@ -11,8 +11,16 @@ import DriveKitCoreModule
 import UIKit
 
 class DriverDistanceEstimationViewController: UIViewController, DKUIPageViewModel {
-    @IBOutlet private weak var placeholderLabel: UILabel!
-    
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var estimationLabel: UILabel!
+    @IBOutlet private weak var realDistanceLabel: UILabel!
+    @IBOutlet private weak var estimationBarView: DKRoundedBarView!
+    @IBOutlet private weak var realDistanceBarView: DKRoundedBarView!
+    @IBOutlet private weak var estimationLegendLabel: UILabel!
+    @IBOutlet private weak var realDistanceLegendLabel: UILabel!
+    @IBOutlet private weak var estimationLegendCircle: UIView!
+    @IBOutlet private weak var realDistanceLegendCircle: UIView!
+
     var viewModel: DriverDistanceEstimationViewModel
     var pageId: DKPeriod
     
@@ -34,10 +42,30 @@ class DriverDistanceEstimationViewController: UIViewController, DKUIPageViewMode
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        placeholderLabel.text = "\(pageId) \(viewModel.estimation) \(viewModel.realDistance)"
+        self.titleLabel.text = viewModel.title
+        self.titleLabel.textColor = DKUIColors.mainFontColor.color
+        self.estimationLegendLabel.text = viewModel.estimationLegendText
+        self.realDistanceLegendLabel.text = viewModel.realDistanceLegendText
+        self.estimationLegendLabel.textColor = DKUIColors.complementaryFontColor.color
+        self.realDistanceLegendLabel.textColor = DKUIColors.complementaryFontColor.color
+        self.refreshView()
     }
     
     private func refreshView() {
-        #warning("TODO: refresh view when viewModel updates")
+        if viewModel.hasData {
+            self.estimationLabel.text = viewModel.estimation.formatWithThousandSeparator()
+            self.realDistanceLabel.text = viewModel.realDistance.formatWithThousandSeparator()
+            self.estimationLegendCircle.backgroundColor = DKUIColors.primaryColor.color
+            self.realDistanceLegendCircle.backgroundColor = DKUIColors.secondaryColor.color
+            self.estimationBarView.backgroundColor = DKUIColors.primaryColor.color
+            self.realDistanceBarView.backgroundColor = DKUIColors.secondaryColor.color
+        } else {
+            self.estimationLabel.text = ""
+            self.realDistanceLabel.text = ""
+            self.estimationLegendCircle.backgroundColor = DKUIColors.neutralColor.color
+            self.realDistanceLegendCircle.backgroundColor = DKUIColors.neutralColor.color
+            self.estimationBarView.backgroundColor = DKUIColors.neutralColor.color
+            self.realDistanceBarView.backgroundColor = DKUIColors.neutralColor.color
+        }
     }
 }

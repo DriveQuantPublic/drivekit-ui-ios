@@ -15,6 +15,7 @@ class DriverDistanceEstimationViewModel {
     var viewModelDidUpdate: (() -> Void)?
     private(set) var estimation: Int = 0
     private(set) var realDistance: Int = 0
+    private(set) var hasData: Bool = false
 
     init(period: DKPeriod) {
         self.period = period
@@ -30,11 +31,38 @@ class DriverDistanceEstimationViewModel {
             case .year:
                 self.estimation = distanceEstimation.yearDistance
         }
+        self.hasData = true
         self.viewModelDidUpdate?()
     }
     
     func configureWithNoData() {
-        #warning("TODO: implement view model update")
+        self.hasData = false
         self.viewModelDidUpdate?()
+    }
+
+    var title: String {
+        switch period {
+            case .week:
+                return "dk_driverdata_distance_card_title_week".dkDriverDataLocalized()
+            case .month:
+                return "dk_driverdata_distance_card_title_month".dkDriverDataLocalized()
+            case .year:
+                return "dk_driverdata_distance_card_title_year".dkDriverDataLocalized()
+        }
+    }
+
+    var estimationLegendText: String {
+        return "dk_driverdata_distance_card_estimation".dkDriverDataLocalized()
+    }
+
+    var realDistanceLegendText: String {
+        switch period {
+            case .week:
+                return "dk_driverdata_distance_card_current_week".dkDriverDataLocalized()
+            case .month:
+                return "dk_driverdata_distance_card_current_month".dkDriverDataLocalized()
+            case .year:
+                return "dk_driverdata_distance_card_current_year".dkDriverDataLocalized()
+        }
     }
 }

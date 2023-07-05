@@ -14,12 +14,16 @@ class DriverDistanceEstimationViewController: UIViewController, DKUIPageViewMode
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var estimationLabel: UILabel!
     @IBOutlet private weak var realDistanceLabel: UILabel!
-    @IBOutlet private weak var estimationBarView: DKRoundedBarView!
-    @IBOutlet private weak var realDistanceBarView: DKRoundedBarView!
+    @IBOutlet private weak var estimationBarView: UIView!
+    @IBOutlet private weak var realDistanceBarView: UIView!
     @IBOutlet private weak var estimationLegendLabel: UILabel!
     @IBOutlet private weak var realDistanceLegendLabel: UILabel!
     @IBOutlet private weak var estimationLegendCircle: UIView!
     @IBOutlet private weak var realDistanceLegendCircle: UIView!
+    @IBOutlet private weak var referenceView: UIView!
+
+    @IBOutlet private weak var realDistancePaddingConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var estimationPaddingConstraint: NSLayoutConstraint!
 
     var viewModel: DriverDistanceEstimationViewModel
     var pageId: DKPeriod
@@ -59,6 +63,8 @@ class DriverDistanceEstimationViewController: UIViewController, DKUIPageViewMode
             self.realDistanceLegendCircle.backgroundColor = DKUIColors.secondaryColor.color
             self.estimationBarView.backgroundColor = DKUIColors.primaryColor.color
             self.realDistanceBarView.backgroundColor = DKUIColors.secondaryColor.color
+            self.estimationPaddingConstraint.constant = viewModel.estimationPaddingPercent * self.referenceView.frame.width
+            self.realDistancePaddingConstraint.constant = viewModel.realDistancePaddingPercent * self.referenceView.frame.width
         } else {
             self.estimationLabel.text = ""
             self.realDistanceLabel.text = ""

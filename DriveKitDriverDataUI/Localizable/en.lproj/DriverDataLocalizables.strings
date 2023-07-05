@@ -68,7 +68,6 @@
 "dk_driverdata_drivingconditions_snow"="Snowy";
 "dk_driverdata_drivingconditions_sun"="Sunny";
 "dk_driverdata_drivingconditions_title"="Driving conditions";
-"dk_driverdata_profile_title"="My Profile";
 "dk_driverdata_drivingconditions_title_empty_data"="You have not recorded any trips";
 "dk_driverdata_drivingconditions_weekdays"="Week";
 "dk_driverdata_drivingconditions_weekend"="Weekend";
@@ -174,8 +173,8 @@
 "dk_driverdata_profile_activity_always_text"="Since you have been using the app, you have used your car every week.";
 "dk_driverdata_profile_activity_high_title"="You drive often";
 "dk_driverdata_profile_activity_low_title"="You don\'t drive much";
-"dk_driverdata_profile_activity_main_plural_text"="Since you have been using the app, you have used your car about %$1s weeks out of %$2s.";
-"dk_driverdata_profile_activity_main_singular_text"="Since you have been using the app, you have used your car about %$1s week out of %$2s.";
+"dk_driverdata_profile_activity_main_plural_text"="Since you have been using the app, you have used your car about %@ weeks out of %@.";
+"dk_driverdata_profile_activity_main_singular_text"="Since you have been using the app, you have used your car about %@ week out of %@.";
 "dk_driverdata_profile_activity_medium_title"="You drive regularly";
 "dk_driverdata_profile_activity_often_text"="Since you have been using the app, you have used your car almost every week.";
 "dk_driverdata_profile_activity_very_low_text"="Since using the app, you drive less than one week every two months.";
@@ -212,6 +211,7 @@
 "dk_driverdata_profile_roadcontext_suburban_title"="You mainly drive in extra-urban areas";
 "dk_driverdata_profile_roadcontext_traffic_jam_text"="%@ %% of the distance you drive is in traffic jams.";
 "dk_driverdata_profile_roadcontext_traffic_jam_title"="You often drive in traffic jams";
+"dk_driverdata_profile_title"="My driver profile";
 "dk_driverdata_safety_accel"="Harsh accelerations";
 "dk_driverdata_safety_adherence"="Adherence limits";
 "dk_driverdata_safety_decel"="Hard brakings";

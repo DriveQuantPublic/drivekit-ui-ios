@@ -199,7 +199,7 @@
 "dk_driverdata_profile_mobility_wide"="Tu zona de movilidad es grande";
 "dk_driverdata_profile_regularity_intermittent_text"="Sus hábitos de conducción cambian de una semana a otra. Rara vez recorres la misma distancia y el número de trayectos semanales fluctúa.";
 "dk_driverdata_profile_regularity_intermittent_title"="Tus hábitos de conducción son irregulares";
-"dk_driverdata_profile_regularity_regular_text"="Eres un conductor habitual y tus semanas son similares. De media haces %$1$s viajes y recorres %$2$s km.";
+"dk_driverdata_profile_regularity_regular_text"="Eres un conductor habitual y tus semanas son similares. De media haces %@ viajes y recorres %@ km.";
 "dk_driverdata_profile_regularity_regular_title"="Sus hábitos de conducción son regulares";
 "dk_driverdata_profile_roadcontext_city_text"="El %@ %% de la distancia que recorres es en ciudad con tráfico bastante fluido.";
 "dk_driverdata_profile_roadcontext_city_title"="Conduces principalmente por ciudad";
@@ -211,6 +211,7 @@
 "dk_driverdata_profile_roadcontext_suburban_title"="Conduce sobre todo en zonas no urbanas";
 "dk_driverdata_profile_roadcontext_traffic_jam_text"="%@ %% de la distancia que recorres es en atascos.";
 "dk_driverdata_profile_roadcontext_traffic_jam_title"="A menudo conduces en atascos";
+"dk_driverdata_profile_title"="Mi perfil de conductor";
 "dk_driverdata_safety_accel"="Aceleraciones bruscas";
 "dk_driverdata_safety_adherence"="Límites de adherencia";
 "dk_driverdata_safety_decel"="Frenadas fuertes";

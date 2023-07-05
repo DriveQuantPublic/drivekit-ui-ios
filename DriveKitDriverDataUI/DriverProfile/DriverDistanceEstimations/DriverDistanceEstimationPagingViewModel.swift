@@ -19,11 +19,11 @@ class DriverDistanceEstimationPagingViewModel: DKUIPagingViewModel {
     var allPageIds: [DKPeriod] {
         [.year, .month, .week]
     }
-    
+
     var hasData: Bool {
         return driverProfile != nil && !currentDrivenDistances.isEmpty
     }
-    
+
     func pageViewModel(for pageId: DKPeriod) -> DriverDistanceEstimationViewModel? {
         guard let pageViewModel = pageViewModels[pageId] else {
             let viewModel = DriverDistanceEstimationViewModel(period: pageId)
@@ -33,7 +33,7 @@ class DriverDistanceEstimationPagingViewModel: DKUIPagingViewModel {
         
         return pageViewModel
     }
-    
+
     func configure(with driverProfile: DKDriverProfile, and currentDrivenDistances: [DKPeriod: Double]) {
         self.driverProfile = driverProfile
         self.currentDrivenDistances = currentDrivenDistances
@@ -41,7 +41,7 @@ class DriverDistanceEstimationPagingViewModel: DKUIPagingViewModel {
             pageViewModel.configure(with: driverProfile.distanceEstimation, and: currentDrivenDistances)
         }
     }
-    
+
     func configureWithNoData() {
         for pageViewModel in pageViewModels.values {
             pageViewModel.configureWithNoData()

@@ -52,6 +52,8 @@ class DriverDistanceEstimationViewController: UIViewController, DKUIPageViewMode
         self.realDistanceLegendLabel.text = viewModel.realDistanceLegendText
         self.estimationLegendLabel.textColor = DKUIColors.complementaryFontColor.color
         self.realDistanceLegendLabel.textColor = DKUIColors.complementaryFontColor.color
+        self.estimationLabel.textColor = DKUIColors.complementaryFontColor.color
+        self.realDistanceLabel.textColor = DKUIColors.complementaryFontColor.color
         self.refreshView()
     }
     

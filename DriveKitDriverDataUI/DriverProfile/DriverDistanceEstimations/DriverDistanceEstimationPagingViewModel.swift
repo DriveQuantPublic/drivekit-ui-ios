@@ -27,6 +27,11 @@ class DriverDistanceEstimationPagingViewModel: DKUIPagingViewModel {
     func pageViewModel(for pageId: DKPeriod) -> DriverDistanceEstimationViewModel? {
         guard let pageViewModel = pageViewModels[pageId] else {
             let viewModel = DriverDistanceEstimationViewModel(period: pageId)
+            if let driverProfile {
+                viewModel.configure(with: driverProfile.distanceEstimation, and: self.currentDrivenDistances)
+            } else {
+                viewModel.configureWithNoData()
+            }
             pageViewModels[pageId] = viewModel
             return viewModel
         }

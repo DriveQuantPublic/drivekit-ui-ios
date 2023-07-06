@@ -22,7 +22,7 @@ class DriverDistanceEstimationViewModel {
     }
 
     func configure(with distanceEstimation: DKDriverDistanceEstimation, and currentDrivenDistances: [DKPeriod: Double]) {
-        self.realDistance = Int(currentDrivenDistances[period] ?? 0)
+        self.realDistance = Int(currentDrivenDistances[period]?.rounded() ?? 0)
         switch period {
             case .week:
                 self.estimation = distanceEstimation.weekDistance

@@ -47,13 +47,18 @@ class DriverDistanceEstimationViewController: UIViewController, DKUIPageViewMode
     override func viewDidLoad() {
         super.viewDidLoad()
         self.titleLabel.text = viewModel.title
+        self.titleLabel.font = DKStyles.headLine2.style.applyTo(font: .primary)
         self.titleLabel.textColor = DKUIColors.mainFontColor.color
         self.estimationLegendLabel.text = viewModel.estimationLegendText
         self.realDistanceLegendLabel.text = viewModel.realDistanceLegendText
+        self.estimationLegendLabel.font = DKStyles.smallText.style.applyTo(font: .primary)
+        self.realDistanceLegendLabel.font = DKStyles.smallText.style.applyTo(font: .primary)
         self.estimationLegendLabel.textColor = DKUIColors.complementaryFontColor.color
         self.realDistanceLegendLabel.textColor = DKUIColors.complementaryFontColor.color
         self.estimationLabel.textColor = DKUIColors.complementaryFontColor.color
         self.realDistanceLabel.textColor = DKUIColors.complementaryFontColor.color
+        self.estimationLabel.font = DKStyles.smallText.style.applyTo(font: .primary)
+        self.realDistanceLabel.font = DKStyles.smallText.style.applyTo(font: .primary)
         self.refreshView()
     }
     

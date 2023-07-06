@@ -69,7 +69,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g9J-8v-jeQ" userLabel="Estimation Bar View">
-                    <rect key="frame" x="0.0" y="42.666666666666664" width="298" height="15"/>
+                    <rect key="frame" x="0.0" y="42.666666666666664" width="313" height="15"/>
                     <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="15" id="04R-O3-B1Z"/>
@@ -94,7 +94,7 @@
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LOV-SY-GqJ" userLabel="vertical line">
                     <rect key="frame" x="20" y="35" width="1" height="60"/>
-                    <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.61960784313725492" green="0.61960784313725492" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="1" id="Ykw-3U-FRT"/>
                     </constraints>
@@ -173,10 +173,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ar5-hK-gj4" userLabel="estimation padding">
-                    <rect key="frame" x="298" y="42.666666666666664" width="15" height="15"/>
+                    <rect key="frame" x="313" y="42.666666666666664" width="0.0" height="15"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="15" id="FZ3-AU-dyo"/>
+                        <constraint firstAttribute="width" id="FZ3-AU-dyo"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AO1-nH-lx3" userLabel="real distance padding">

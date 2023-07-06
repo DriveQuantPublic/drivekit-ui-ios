@@ -12,14 +12,14 @@ import Foundation
 
 class DriverCommonTripPagingViewModel: DKUIPagingViewModel {
     private var pageViewModels: [DKCommonTripType: DriverCommonTripViewModel] = [:]
-    var commonTripByType: [DKCommonTripType: DKCommonTrip]?
+    private var commonTripByType: [DKCommonTripType: DKCommonTrip]?
     
     var allPageIds: [DKCommonTripType] {
         [.mostFrequent]
     }
     
     var hasData: Bool {
-        guard let pageCount =  self.commonTripByType?.count else {
+        guard let pageCount = self.commonTripByType?.count else {
             return false
         }
         

@@ -11,11 +11,11 @@ import DriveKitDBTripAccessModule
 import Foundation
 
 class DriverCommonTripViewModel {
-    let defaultDistanceMeanForNoDataState = 36
-    let defaultDurationMeanForNoDataState = 34
-    let defaultContextForNoDataState = DKRoadContext.suburban
-    var commonTripType: DKCommonTripType
-    var commonTrip: DKCommonTrip?
+    private let defaultDistanceMeanForNoDataState = 36
+    private let defaultDurationMeanForNoDataState = 34
+    private let defaultContextForNoDataState = DKRoadContext.suburban
+    private(set) var commonTripType: DKCommonTripType
+    private var commonTrip: DKCommonTrip?
     var viewModelDidUpdate: (() -> Void)?
 
     init(commonTripType: DKCommonTripType) {

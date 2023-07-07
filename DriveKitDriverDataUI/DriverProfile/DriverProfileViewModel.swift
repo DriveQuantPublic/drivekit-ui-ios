@@ -42,7 +42,7 @@ class DriverProfileViewModel {
                     guard let self else { return }
                     if status == .cacheDataOnly, let timelines {
                         self.currentDrivenDistances = timelines.reduce(into: [:]) { resultSoFar, timeline in
-                            resultSoFar[timeline.period] = timeline.allContext.last?.distance ?? 0.0
+                            resultSoFar[timeline.period] = self.getDistance(for: timeline.allContext.last, period: timeline.period)
                         }
                     }
                     self.update()
@@ -79,7 +79,7 @@ class DriverProfileViewModel {
                     guard let self else { return }
                     if status != .noTimelineYet, let timelines {
                         self.currentDrivenDistances = timelines.reduce(into: [:]) { resultSoFar, timeline in
-                            resultSoFar[timeline.period] = timeline.allContext.last?.distance ?? 0.0
+                            resultSoFar[timeline.period] = self.getDistance(for: timeline.allContext.last, period: timeline.period)
                         }
                     }
                     
@@ -102,8 +102,7 @@ class DriverProfileViewModel {
         }
         
         driverProfileFeaturePagingViewModel.configure(with: driverProfile)
-        #warning("TODO: configure each sub-VM for data state")
-        driverDistanceEstimationPagingViewModel.configure()
+        driverDistanceEstimationPagingViewModel.configure(with: driverProfile, and: currentDrivenDistances)
         driverCommonTripPagingViewModel.configure(with: driverProfile.commonTripByType)
     }
     
@@ -111,5 +110,24 @@ class DriverProfileViewModel {
         driverProfileFeaturePagingViewModel.configureWithNoData()
         driverDistanceEstimationPagingViewModel.configureWithNoData()
         driverCommonTripPagingViewModel.configureWithNoData()
+    }
+
+    private func getDistance(for timeline: DKDriverTimeline.DKAllContextItem?, period: DKPeriod) -> Double {
+        guard let timeline = timeline else {
+            return 0
+        }
+        let periodDate: Date
+        switch period {
+            case .week:
+                periodDate = Date().startOfWeek ?? Date()
+            case .month:
+                periodDate = Date().beginning(relativeTo: .month) ?? Date()
+            case .year:
+                periodDate = Date().beginning(relativeTo: .year) ?? Date()
+        }
+        if let date = timeline.date.dateByRemovingTime(), date == periodDate {
+            return timeline.distance
+        }
+        return 0
     }
 }

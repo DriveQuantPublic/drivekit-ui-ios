@@ -73,7 +73,7 @@ class DriverProfileViewModel {
                 self.driverProfile = driverProfile
                 
                 DriveKitDriverData.shared.getDriverTimelines(
-                    periods: configuredPeriods,
+                    periods: self.configuredPeriods,
                     type: .defaultSync
                 ) { [weak self] status, timelines in
                     guard let self else { return }

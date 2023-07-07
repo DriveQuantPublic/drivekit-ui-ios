@@ -54,7 +54,7 @@ class DriverProfileViewModel {
     }
     
     var shouldHideDrivingConditions: Bool {
-        self.driverProfile == nil || self.currentDrivenDistances.isEmpty
+        false
     }
     
     var drivingConditionsViewModel: DrivingConditionsViewModel {

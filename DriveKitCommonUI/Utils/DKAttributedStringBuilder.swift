@@ -46,7 +46,11 @@ public class DKAttributedStringBuilder {
         return NSMutableAttributedString(string: text, attributes: attributes)
     }
     
-    public func buildWithArgs(_ args: NSMutableAttributedString... ) -> NSMutableAttributedString {
+    public func buildWithArgs(_ args: NSMutableAttributedString...) -> NSMutableAttributedString {
+        self.buildWithArgs(args)
+    }
+    
+    public func buildWithArgs(_ args: [NSMutableAttributedString]) -> NSMutableAttributedString {
         let stringsPart = self.text.components(separatedBy: "%@")
         let attributedString = NSMutableAttributedString(string: stringsPart[0], attributes: attributes)
         for i in 0...stringsPart.count {

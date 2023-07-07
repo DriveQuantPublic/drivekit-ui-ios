@@ -133,5 +133,6 @@ extension DriverProfileViewController: DriverProfileViewModelDelegate {
         configureDriverFeaturePagingContexts()
         configureDistanceEstimationPagingContexts()
         configureCommonTripPagingContexts()
+        self.drivingConditionsButton.isHidden = viewModel.shouldHideDrivingConditions
     }
 }

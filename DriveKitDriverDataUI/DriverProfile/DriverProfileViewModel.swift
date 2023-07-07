@@ -53,6 +53,10 @@ class DriverProfileViewModel {
         updateData()
     }
     
+    var shouldHideDrivingConditions: Bool {
+        false
+    }
+    
     var drivingConditionsViewModel: DrivingConditionsViewModel {
         let viewModel = DrivingConditionsViewModel()
         return viewModel
@@ -99,8 +103,7 @@ class DriverProfileViewModel {
         
         driverProfileFeaturePagingViewModel.configure(with: driverProfile)
         driverDistanceEstimationPagingViewModel.configure(with: driverProfile, and: currentDrivenDistances)
-        #warning("TODO: configure each sub-VM for data state")
-        driverCommonTripPagingViewModel.configure()
+        driverCommonTripPagingViewModel.configure(with: driverProfile.commonTripByType)
     }
     
     private func configureWithNoData() {

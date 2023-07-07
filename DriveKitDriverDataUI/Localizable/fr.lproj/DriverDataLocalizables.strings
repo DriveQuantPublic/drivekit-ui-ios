@@ -68,7 +68,6 @@
 "dk_driverdata_drivingconditions_snow"="Temps neigeux";
 "dk_driverdata_drivingconditions_sun"="Temps clair";
 "dk_driverdata_drivingconditions_title"="Conditions de conduite";
-"dk_driverdata_profile_title" = "Mon Profil";
 "dk_driverdata_drivingconditions_title_empty_data"="Vous n\'avez pas enregistré de trajet";
 "dk_driverdata_drivingconditions_weekdays"="Semaine";
 "dk_driverdata_drivingconditions_weekend"="Week-end";
@@ -212,6 +211,7 @@
 "dk_driverdata_profile_roadcontext_suburban_title"="Vous conduisez majoritairement en zone extra-urbaine";
 "dk_driverdata_profile_roadcontext_traffic_jam_text"="%@ %% de la distance parcourue lors de vos déplacements est dans des embouteillages.";
 "dk_driverdata_profile_roadcontext_traffic_jam_title"="Vous conduisez souvent dans les bouchons";
+"dk_driverdata_profile_title"="Mon profil conducteur";
 "dk_driverdata_safety_accel"="Accélérations fortes";
 "dk_driverdata_safety_adherence"="Limites d\'adhérence";
 "dk_driverdata_safety_decel"="Freinages forts";

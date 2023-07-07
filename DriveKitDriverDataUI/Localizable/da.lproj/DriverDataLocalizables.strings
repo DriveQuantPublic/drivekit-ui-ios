@@ -173,8 +173,8 @@
 "dk_driverdata_profile_activity_always_text"="Siden du begyndte at bruge appen, har du brugt din bil hver uge.";
 "dk_driverdata_profile_activity_high_title"="Du kører ofte";
 "dk_driverdata_profile_activity_low_title"="Du kører ikke meget";
-"dk_driverdata_profile_activity_main_plural_text"="Siden du brugte appen, har du brugt din bil ca. %$1s ud af %$2s om ugen.";
-"dk_driverdata_profile_activity_main_singular_text"="Siden du brugte appen, har du brugt din bil ca. %$1s ud af %$2s om ugen.";
+"dk_driverdata_profile_activity_main_plural_text"="Siden du brugte appen, har du brugt din bil ca. %@ ud af %@ om ugen.";
+"dk_driverdata_profile_activity_main_singular_text"="Siden du brugte appen, har du brugt din bil ca. %@ ud af %@ om ugen.";
 "dk_driverdata_profile_activity_medium_title"="Du kører regelmæssigt";
 "dk_driverdata_profile_activity_often_text"="Siden du begyndte at bruge appen, har du brugt din bil næsten hver uge.";
 "dk_driverdata_profile_activity_very_low_text"="Siden du brugte appen, har du kørt mindre end en uge hver anden måned.";
@@ -199,7 +199,7 @@
 "dk_driverdata_profile_mobility_wide"="Din mobilitetszone er bred";
 "dk_driverdata_profile_regularity_intermittent_text"="Dine kørevaner ændrer sig fra uge til uge. Du kører sjældent den samme distance, og antallet af ugentlige ture svinger.";
 "dk_driverdata_profile_regularity_intermittent_title"="Dine kørevaner er uregelmæssige";
-"dk_driverdata_profile_regularity_regular_text"="Du er en regelmæssig bilist, og dine uger ligner hinanden. I gennemsnit kører du %$1$s ture og tilbagelægger %$2$s km.";
+"dk_driverdata_profile_regularity_regular_text"="Du er en regelmæssig bilist, og dine uger ligner hinanden. I gennemsnit kører du %@ ture og tilbagelægger %@ km.";
 "dk_driverdata_profile_regularity_regular_title"="Dine kørevaner er regelmæssige";
 "dk_driverdata_profile_roadcontext_city_text"="%@ %% af den distance, du kører, er i byen i forholdsvis flydende trafik.";
 "dk_driverdata_profile_roadcontext_city_title"="Du kører primært i byen";
@@ -211,6 +211,7 @@
 "dk_driverdata_profile_roadcontext_suburban_title"="Du kører mest i områder uden for byerne";
 "dk_driverdata_profile_roadcontext_traffic_jam_text"="%@ %% af den distance, du tilbagelægger, er i trafikpropper.";
 "dk_driverdata_profile_roadcontext_traffic_jam_title"="Du kører ofte i trafikpropper";
+"dk_driverdata_profile_title"="Min chaufførprofil";
 "dk_driverdata_safety_accel"="Hårde accelerationer";
 "dk_driverdata_safety_adherence"="Hårde sving";
 "dk_driverdata_safety_decel"="Hårde opbremsning";

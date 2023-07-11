@@ -9,5 +9,5 @@
 import Foundation
 
 @objc public enum DKAnalyticsEvent: Int {
-    case tripOpen
+    case tripOpen, vehicleAddStep
 }

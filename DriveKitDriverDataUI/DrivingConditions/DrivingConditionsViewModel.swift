@@ -83,39 +83,6 @@ class DrivingConditionsViewModel {
         configuredContexts.count > 1
     }
     
-    var firstContext: DKContextKind {
-        configuredContexts[0]
-    }
-    
-    var numberOfContexts: Int {
-        configuredContexts.count
-    }
-    
-    func position(of context: DKContextKind) -> Int? {
-        configuredContexts.firstIndex(of: context)
-    }
-    
-    func context(at position: Int) -> DKContextKind? {
-        guard configuredContexts.indexRange.contains(position) else {
-            assertionFailure("We should not ask a context out of bounds")
-            return nil
-        }
-        
-        return configuredContexts[position]
-    }
-    
-    func context(before context: DKContextKind) -> DKContextKind? {
-        configuredContexts.firstIndex(of: context).flatMap {
-            $0 > configuredContexts.startIndex ? configuredContexts[$0 - 1] : nil
-        }
-    }
-    
-    func context(after context: DKContextKind) -> DKContextKind? {
-        configuredContexts.firstIndex(of: context).flatMap {
-            $0 >= (configuredContexts.endIndex - 1) ? nil : configuredContexts[$0 + 1]
-        }
-    }
-    
     func updateData() {
         self.updating = true
         self.delegate?.willUpdateData()
@@ -128,11 +95,12 @@ class DrivingConditionsViewModel {
                 self.timelines = timelines.reduce(into: [:]) { resultSoFar, timeline in
                     resultSoFar[timeline.period] = timeline
                 }
-                self.updating = false
-                self.update(resettingSelectedDate: true)
-                self.delegate?.didUpdateData()
-                self.parentDelegate?.didUpdate(selectedDate: self.dateSelectorViewModel.selectedDate)
             }
+            
+            self.updating = false
+            self.update(resettingSelectedDate: true)
+            self.delegate?.didUpdateData()
+            self.parentDelegate?.didUpdate(selectedDate: self.dateSelectorViewModel.selectedDate)
         }
     }
     
@@ -230,20 +198,6 @@ class DrivingConditionsViewModel {
         parentDelegate?.didUpdate(selectedPeriod: selectedPeriod)
     }
 
-    func getContextViewModel(for kind: DKContextKind) -> DKContextCard? {
-        if kind != .road && drivingConditions == nil {
-            return nil
-        }
-        
-        let viewModel = self.contextViewModel(for: kind) {
-            DrivingConditionsContextCard()
-        }
-        
-        self.configureContextViewModel(viewModel, of: kind)
-        
-        return viewModel
-    }
-     
     private func configureContextViewModel(_ contextViewModel: DrivingConditionsContextCard, of kind: DKContextKind) {
         if kind == .road {
             contextViewModel.configureAsRoadContext(
@@ -307,5 +261,29 @@ extension DKDriverTimeline {
             distanceByRoadContext[type] = distance
         }
         return distanceByRoadContext
+    }
+}
+
+extension DrivingConditionsViewModel: DKUIPagingViewModel {
+    var allPageIds: [DKContextKind] {
+        configuredContexts
+    }
+    
+    var hasNoData: Bool {
+        return hasData == false
+    }
+    
+    func pageViewModel(for pageId: DKContextKind) -> DKContextCard? {
+        if pageId != .road && drivingConditions == nil {
+            return nil
+        }
+        
+        let viewModel = self.contextViewModel(for: pageId) {
+            DrivingConditionsContextCard()
+        }
+        
+        self.configureContextViewModel(viewModel, of: pageId)
+        
+        return viewModel
     }
 }

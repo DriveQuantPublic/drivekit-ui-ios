@@ -26,7 +26,7 @@ open class DKDefaultFonts: DKFonts {
 }
 
 public enum DKUIFonts {
-    case primary, secondary
+    case primary, secondary, roboto
 
     public var name: String {
         switch self {
@@ -34,6 +34,8 @@ public enum DKUIFonts {
             return DriveKitUI.shared.fonts.primaryFont()
         case .secondary:
             return DriveKitUI.shared.fonts.secondaryFont()
+        case .roboto:
+            return "Roboto"
         }
     }
 

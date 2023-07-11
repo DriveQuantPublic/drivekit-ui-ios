@@ -172,7 +172,7 @@ class DKTripRecordingButtonViewModel {
                 minDistanceToRemoveFractions: never
             )
                 .dkAttributedString()
-                .font(dkFont: .primary, style: .normalText)
+                .font(dkFont: .roboto, style: .normalText)
                 .color(.white)
                 .build()
         }
@@ -185,7 +185,7 @@ class DKTripRecordingButtonViewModel {
         case let .recording(_, _, duration):
             return duration.formatSecondDurationWithColons()
                 .dkAttributedString()
-                .font(dkFont: .primary, style: .normalText)
+                .font(dkFont: .roboto, style: .normalText)
                 .color(.white)
                 .build()
         }

@@ -7,6 +7,7 @@
 //  Copyright © 2022 DriveQuant. All rights reserved.
 //
 
+import DriveKitCoreModule
 import Foundation
 
 class FeaturesViewModel {
@@ -14,6 +15,7 @@ class FeaturesViewModel {
         FeatureViewViewModel(type: .driverData_trips),
         FeatureViewViewModel(type: .driverData_timeline),
         FeatureViewViewModel(type: .driverData_my_synthesis),
+        FeatureViewViewModel(type: .driverData_driver_profile),
         FeatureViewViewModel(type: .permissionsUtils_onboarding),
         FeatureViewViewModel(type: .permissionsUtils_diagnosis),
         FeatureViewViewModel(type: .vehicle_list),
@@ -23,5 +25,5 @@ class FeaturesViewModel {
         FeatureViewViewModel(type: .driverAchievement_badges),
         FeatureViewViewModel(type: .driverAchievement_streaks),
         FeatureViewViewModel(type: .tripAnalysis_workingHours)
-    ]
+    ].filter { $0.hasAccess }
 }

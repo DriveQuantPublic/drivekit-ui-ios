@@ -7,8 +7,9 @@
 //  Copyright © 2021 DriveQuant. All rights reserved.
 //
 
-import Foundation
+import DriveKitCoreModule
 import DriveKitTripAnalysisModule
+import Foundation
 
 class WorkingHoursDayCellViewModel {
     typealias Input = (String, Int, Int)

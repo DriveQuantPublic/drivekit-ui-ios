@@ -17,8 +17,8 @@ class DrivingConditionsViewController: DKUIViewController {
     @IBOutlet private weak var drivingConditionsSummaryContainer: UIView!
     @IBOutlet private weak var contextPagingContainer: UIView!
     @IBOutlet private weak var pagingControl: UIPageControl!
-    private var contextPagingViewController: UIPageViewController!
-    private var contextViewControllers: [DKContextKind: DrivingConditionsContextViewController] = [:]
+    typealias ContextPagingViewController = DKUIPagingCardViewController<DKContextKind, DrivingConditionsContextViewController, DrivingConditionsViewModel>
+    private var contextPagingViewController: ContextPagingViewController!
     
     private let viewModel: DrivingConditionsViewModel
     
@@ -55,17 +55,12 @@ class DrivingConditionsViewController: DKUIViewController {
             embededIn: self.drivingConditionsSummaryContainer
         )
         
-        if viewModel.hasData {
-            if viewModel.shouldDisplayPagingController {
-                self.configurePagingContexts()
-            } else {
-                self.embedContextViewController(contextController(for: viewModel.firstContext))
-                self.pagingControl.isHidden = true
-            }
-        } else {
-            self.contextPagingContainer.isHidden = true
-            self.pagingControl.isHidden = true
-        }
+        self.contextPagingViewController = ContextPagingViewController.createPagingViewController(
+            configuredWith: viewModel,
+            pagingControl: self.pagingControl,
+            embededIn: contextPagingContainer,
+            of: self
+        )
         
         if self.viewModel.updating {
             showRefreshControl()
@@ -74,71 +69,12 @@ class DrivingConditionsViewController: DKUIViewController {
         }
     }
     
-    private func configurePagingContexts() {
-        contextPagingViewController = UIPageViewController(
-            transitionStyle: .scroll,
-            navigationOrientation: .horizontal
-        )
-        contextPagingViewController.dataSource = self
-        contextPagingViewController.delegate = self
-        
-        self.embedContextViewController(contextPagingViewController)
-        
-        pagingControl.numberOfPages = viewModel.numberOfContexts
-        pagingControl.currentPage = 0
-        pagingControl.pageIndicatorTintColor = .dkPageIndicatorTintColor
-        pagingControl.currentPageIndicatorTintColor = DKUIColors.secondaryColor.color
-        
-        pagingControl.addTarget(
-            self,
-            action: #selector(didTapPagingControl(_:)),
-            for: .valueChanged
-        )
-        
-        contextPagingViewController.setViewControllers(
-            [contextController(for: viewModel.firstContext)],
-            direction: .forward,
-            animated: false
-        )
-    }
-    
     private func embedContextViewController(_ contextViewController: UIViewController) {
         self.addChild(contextViewController)
         contextPagingContainer.embedSubview(contextViewController.view)
         contextPagingContainer.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
         contextPagingContainer.clipsToBounds = true
         contextViewController.didMove(toParent: self)
-    }
-    
-    @objc private func didTapPagingControl(_ sender: Any) {
-        guard
-            let selectedContext = viewModel.context(
-                at: self.pagingControl.currentPage
-            )
-        else {
-            assertionFailure("We should always have a page that match an existing context")
-            return
-        }
-        
-        let contextController = self.contextController(for: selectedContext)
-        
-        var direction = UIPageViewController.NavigationDirection.forward
-        if let currentContextController = self.contextPagingViewController.viewControllers?.first,
-           let previousContext = self.context(from: currentContextController) {
-                direction = (
-                    viewModel.position(of: previousContext) ?? -1
-                    <
-                    viewModel.position(of: selectedContext) ?? -1
-                )
-                ? .forward
-                : .reverse
-           }
-        
-        self.contextPagingViewController.setViewControllers(
-            [contextController],
-            direction: direction,
-            animated: true
-        )
     }
     
     @objc private func refresh(_ sender: Any) {
@@ -152,27 +88,6 @@ class DrivingConditionsViewController: DKUIViewController {
     private func hideRefreshControl() {
         self.scrollView.refreshControl?.endRefreshing()
     }
-    
-    func contextController(for context: DKContextKind) -> DrivingConditionsContextViewController {
-        guard let contextVC = contextViewControllers[context]
-        else {
-            let contextViewModel = viewModel.getContextViewModel(for: context)!
-            let newContextVC = DrivingConditionsContextViewController(context: context, contextViewModel: contextViewModel)
-            contextViewControllers[context] = newContextVC
-            return newContextVC
-        }
-        
-        return contextVC
-    }
-    
-    func context(from contextController: UIViewController) -> DKContextKind? {
-        guard let contextController = contextController as? DrivingConditionsContextViewController else {
-            assertionFailure("We should only have DrivingConditionsContextViewController here")
-            return nil
-        }
-        
-        return contextController.context
-    }
 }
 
 extension DrivingConditionsViewController: DrivingConditionsViewModelDelegate {
@@ -182,40 +97,5 @@ extension DrivingConditionsViewController: DrivingConditionsViewModelDelegate {
     
     func didUpdateData() {
         hideRefreshControl()
-    }
-}
-
-extension DrivingConditionsViewController: UIPageViewControllerDataSource {
-    func pageViewController(
-        _ pageViewController: UIPageViewController,
-        viewControllerBefore viewController: UIViewController
-    ) -> UIViewController? {
-        self.context(from: viewController).flatMap { currentContext in
-            return viewModel.context(before: currentContext).flatMap(self.contextController(for:))
-        }
-    }
-    
-    func pageViewController(
-        _ pageViewController: UIPageViewController,
-        viewControllerAfter viewController: UIViewController
-    ) -> UIViewController? {
-        self.context(from: viewController).flatMap { currentContext in
-            return viewModel.context(after: currentContext).flatMap(self.contextController(for:))
-        }
-    }
-}
-
-extension DrivingConditionsViewController: UIPageViewControllerDelegate {
-    func pageViewController(
-        _ pageViewController: UIPageViewController,
-        didFinishAnimating finished: Bool,
-        previousViewControllers: [UIViewController],
-        transitionCompleted completed: Bool
-    ) {
-        if completed,
-            let currentVC = pageViewController.viewControllers?.first,
-            let currentContext = self.context(from: currentVC) {
-            self.pagingControl.currentPage = viewModel.position(of: currentContext) ?? 0
-        }
     }
 }

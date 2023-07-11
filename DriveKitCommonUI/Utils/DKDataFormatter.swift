@@ -428,16 +428,27 @@ public extension Double {
         return key.text()
     }
 
-    func getPercentageFormat() -> [FormatType] {
-        let formattingTypes: [FormatType] = [
-            .value(self.format(maximumFractionDigits: 1)),
-            .unit("%")
+    func getPercentageFormat(
+        appendingUnit appendUnit: Bool = true,
+        fractionDigits: Int = 1
+    ) -> [FormatType] {
+        var formattingTypes: [FormatType] = [
+            .value(self.format(maximumFractionDigits: fractionDigits)),
         ]
+        if appendUnit {
+            formattingTypes.append(.unit("%"))
+        }
         return formattingTypes
     }
 
-    func formatPercentage() -> String {
-        return getPercentageFormat().toString()
+    func formatPercentage(
+        appendingUnit appendUnit: Bool = true,
+        fractionDigits: Int = 1
+    ) -> String {
+        return getPercentageFormat(
+            appendingUnit: appendUnit,
+            fractionDigits: 0
+        ).toString()
     }
 
     func formatDouble(places: Int) -> String {

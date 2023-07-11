@@ -17,6 +17,7 @@
 "button_see_features"="VER LAS CARACTERÍSTICAS";
 "button_stop"="Stop";
 "button_validation"="VALIDO";
+"cancel_trip"="Cancelar el viaje";
 "client_error"="Se ha producido un error, inténtelo de nuevo más tarde.";
 "dashboard_header"="Panel de instrumentos";
 "delete_account_header"="Eliminación de la cuenta";
@@ -28,6 +29,7 @@
 "drivekit_doc_android_odometer"="https://docs.drivequant.com/vehicle/user-interface/android/main-configurations#vehicle-mileage-tracking-and-editing";
 "drivekit_doc_android_permissions_management"="https://docs.drivequant.com/permissions-utils/permission-utils/android/main-configuration#permission-management";
 "drivekit_doc_android_permissions_utils"="https://docs.drivequant.com/permissions-utils/permission-utils/android/main-configuration#permission-management";
+"drivekit_doc_android_profile"="https://docs.drivequant.com/driver-data/user-interface/android/driver-profile";
 "drivekit_doc_android_ranking"="https://docs.drivequant.com/driver-achievement/user-interface/android#select-ranking-themes";
 "drivekit_doc_android_streaks"="https://docs.drivequant.com/driver-achievement/user-interface/android#select-streak-themes";
 "drivekit_doc_android_synthesis"="https://docs.drivequant.com/driver-data-synthesis-ui/android/get-started";
@@ -45,6 +47,7 @@
 "drivekit_doc_ios_odometer"="https://docs.drivequant.com/vehicle/user-interface/ios/main-configurations#vehicle-mileage-tracking-and-editing";
 "drivekit_doc_ios_permissions_management"="https://docs.drivequant.com/permissions-utils/permission-utils/ios/main-configurations#permission-management";
 "drivekit_doc_ios_permissions_utils"="https://docs.drivequant.com/permissions-utils/permission-utils/ios/main-configurations#permission-management";
+"drivekit_doc_ios_profile"="https://docs.drivequant.com/driver-data/user-interface/ios/driver-profile";
 "drivekit_doc_ios_ranking"="https://docs.drivequant.com/driver-achievement/user-interface/ios#select-ranking-themes";
 "drivekit_doc_ios_streaks"="https://docs.drivequant.com/driver-achievement/user-interface/ios#select-streak-themes";
 "drivekit_doc_ios_synthesis"="https://docs.drivequant.com/driver-data-synthesis-ui/ios/get-started";
@@ -65,6 +68,8 @@
 "feature_permission_utils_onboarding_description"="El componente Permissions Utils contiene pantallas que muestran las solicitudes de permiso necesarias para el funcionamiento en modo automático y el análisis de datos. Le invitamos a utilizar este componente o a replicarlo en su aplicación.";
 "feature_permission_utils_onboarding_title"="Permissions Utils | Colección de Permisos";
 "feature_permission_utils_title"="Permissions Utils | Diagnóstico de aplicaciones";
+"feature_profile_description"="El componente Driver Data presenta el perfil del conductor calculado a partir de su historial. El perfil del conductor se compone de varias facetas que reflejan los hábitos de conducción: distancia recorrida anualmente, radio de movilidad, nivel de actividad, regularidad y condiciones imperantes en la carretera.";
+"feature_profile_title"="Driver Data | Perfil del conductor";
 "feature_ranking_description"="El componente Driver Achievements muestra las clasificaciones por periodo y puntuación. El conductor puede ver su posición y comparar su conducción con la de su comunidad.";
 "feature_ranking_title"="Driver Achievement | Clasificaciones";
 "feature_streaks_description"="Las combinaciones recompensan a los conductores que consiguen completar varios viajes consecutivos con puntuaciones altas. Para instalar esta función en su aplicación, consulte la documentación del componente Driver Achievement.";

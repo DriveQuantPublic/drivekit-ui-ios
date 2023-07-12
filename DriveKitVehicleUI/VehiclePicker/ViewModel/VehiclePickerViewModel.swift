@@ -412,7 +412,9 @@ class VehiclePickerViewModel {
     }
 
     func showStep() {
-        self.vehicleNavigationDelegate?.showStep(viewController: getViewController())
+        DispatchQueue.dispatchOnMainThread {
+            self.vehicleNavigationDelegate?.showStep(viewController: self.getViewController())
+        }
     }
 
     func getDefaultName() -> String {

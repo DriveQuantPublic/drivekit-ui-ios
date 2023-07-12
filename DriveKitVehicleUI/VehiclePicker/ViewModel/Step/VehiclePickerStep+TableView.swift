@@ -9,6 +9,7 @@
 
 import Foundation
 import DriveKitVehicleModule
+import DriveKitCommonUI
 
 extension VehiclePickerStep: VehiclePickerTableViewDelegate {
 
@@ -55,6 +56,12 @@ extension VehiclePickerStep: VehiclePickerTableViewDelegate {
     }
 
     func onTableViewItemSelected(pos: Int, viewModel: VehiclePickerViewModel) {
+        if let analytics = DriveKitUI.shared.analytics {
+            analytics.trackEvent(.vehicleAddStep, parameters: [
+                DKAnalyticsEventKey.vehicleAddStep.rawValue: "\(self.description() ?? ""), selectedIndex: \(pos), totalCount: \(self.getTableViewItems(viewModel: viewModel).count)"
+            ])
+        }
+
         switch self {
         case .type:
             viewModel.vehicleType = DriveKitVehicleUI.shared.vehicleTypes[pos]

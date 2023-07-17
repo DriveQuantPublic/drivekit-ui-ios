@@ -9,6 +9,7 @@
 
 import Foundation
 import DriveKitVehicleModule
+import DriveKitCommonUI
 
 extension VehiclePickerStep: VehiclePickerCollectionViewDelegate {
     func getCollectionViewItems(viewModel: VehiclePickerViewModel) -> [VehiclePickerCollectionViewItem] {
@@ -65,6 +66,12 @@ extension VehiclePickerStep: VehiclePickerCollectionViewDelegate {
     }
 
     func onCollectionViewItemSelected(pos: Int, viewModel: VehiclePickerViewModel, completion: (StepStatus) -> Void) {
+        if let analytics = DriveKitUI.shared.analytics {
+            analytics.trackEvent(.vehicleAddStep, parameters: [
+                DKAnalyticsEventKey.vehicleAddStep.rawValue: "\((self == .brandsFull) ? "brands" : "category" ), selectedIndex: \(pos)"
+            ])
+        }
+
         switch self {
         case .category:
             let items = DriveKitVehiclePicker.shared.getCategories(vehicleType: viewModel.vehicleType!)

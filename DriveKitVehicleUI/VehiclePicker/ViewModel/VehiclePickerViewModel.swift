@@ -412,7 +412,9 @@ class VehiclePickerViewModel {
     }
 
     func showStep() {
-        self.vehicleNavigationDelegate?.showStep(viewController: getViewController())
+        DispatchQueue.dispatchOnMainThread {
+            self.vehicleNavigationDelegate?.showStep(viewController: self.getViewController())
+        }
     }
 
     func getDefaultName() -> String {
@@ -483,6 +485,10 @@ class VehiclePickerViewModel {
             let previousBluetooth = previousVehicle.bluetooth
 
             let completionHandler: (DKVehicleManagerStatus, DKVehicle?) -> Void = { status, vehicle in
+                guard status == .success else {
+                    completion(.error, nil)
+                    return
+                }
                 DriveKitVehicle.shared.deleteVehicle(vehicleId: previousVehicle.vehicleId, completionHandler: { deleteStatus in
                     if deleteStatus == .success {
                         if previousBeacon != nil {
@@ -500,6 +506,8 @@ class VehiclePickerViewModel {
                         } else {
                             completion(status, vehicle?.vehicleId)
                         }
+                    } else {
+                        completion(.error, vehicle?.vehicleId)
                     }
                 })
             }

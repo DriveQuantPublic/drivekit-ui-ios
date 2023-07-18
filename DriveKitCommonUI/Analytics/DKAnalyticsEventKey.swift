@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  DKAnalyticsEventKey.swift
 //  DriveKitCommonUI
@@ -10,5 +9,5 @@
 import Foundation
 
 public enum DKAnalyticsEventKey: String {
-    case itinId
+    case itinId, vehicleAddStep
 }

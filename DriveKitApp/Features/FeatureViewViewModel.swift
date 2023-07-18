@@ -20,6 +20,13 @@ class FeatureViewViewModel {
     init(type: FeatureType) {
         self.type = type
     }
+    
+    var hasAccess: Bool {
+        guard type == .driverData_driver_profile else {
+            return true
+        }
+        return DriveKitAccess.shared.hasAccess(.driverProfile)
+    }
 
     func getIcon() -> UIImage? {
         return self.type.getIcon()
@@ -87,6 +94,12 @@ class FeatureViewViewModel {
             case .driverData_my_synthesis:
                 if let driverDataUI = DriveKitNavigationController.shared.driverDataUI {
                     viewController = driverDataUI.getMySynthesisViewController()
+                } else {
+                    viewController = nil
+                }
+            case .driverData_driver_profile:
+                if let driverDataUI = DriveKitNavigationController.shared.driverDataUI {
+                    viewController = driverDataUI.getDriverProfileViewController()
                 } else {
                     viewController = nil
                 }

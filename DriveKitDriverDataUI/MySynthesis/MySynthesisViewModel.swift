@@ -67,15 +67,6 @@ class MySynthesisViewModel {
         updateData()
     }
     
-    var drivingConditionsViewModel: DrivingConditionsViewModel {
-        let viewModel = DrivingConditionsViewModel(
-            selectedPeriod: periodSelectorViewModel.selectedPeriod,
-            selectedDate: selectedDate
-        )
-        viewModel.parentDelegate = self
-        return viewModel
-    }
-    
     func updateData() {
         self.updating = true
         self.delegate?.willUpdateData()

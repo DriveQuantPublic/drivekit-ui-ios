@@ -290,10 +290,9 @@ extension ChallengeDetailViewModel: DKDriverRanking {
     }
 
     func getDriverGlobalRankAttributedText() -> NSAttributedString {
-        if challengeDetail.userIndex > 0, challengeDetail.userIndex <= ranks.count {
-            let driverRank = ranks[challengeDetail.userIndex - 1]
-            let driverRankString = driverRank.positionString.dkAttributedString().font(dkFont: .primary, style: .highlightBig).color(.secondaryColor).build()
-            let rankString = driverRank.rankString.dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
+        if challengeDetail.userIndex > 0, challengeDetail.userIndex <= challengeDetail.nbDriverRanked {
+            let driverRankString = String(challengeDetail.userIndex).dkAttributedString().font(dkFont: .primary, style: .highlightBig).color(.secondaryColor).build()
+            let rankString = " / \(challengeDetail.nbDriverRanked)".dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
             return "%@%@".dkAttributedString().buildWithArgs(driverRankString, rankString)
         } else {
             let driverRankString = "-".dkAttributedString().font(dkFont: .primary, style: .highlightBig).color(.secondaryColor).build()

@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>dk_tag_driver_profile</key>
+	<string>drivekit-driver-profile</string>
 	<key>dk_tag_trips_list</key>
 	<string>drivekit-trips-list</string>
 	<key>dk_tag_trips_detail</key>

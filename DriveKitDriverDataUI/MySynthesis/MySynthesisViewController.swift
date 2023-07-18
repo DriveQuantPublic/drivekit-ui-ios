@@ -16,7 +16,7 @@ class MySynthesisViewController: DKUIViewController {
     @IBOutlet private weak var dateSelectorContainer: UIView!
     @IBOutlet private weak var scoreViewContainer: UIView!
     @IBOutlet private weak var communityViewContainer: UIView!
-    @IBOutlet weak var drivingConditionsButton: UIButton!
+    @IBOutlet weak var moreDetailsButton: UIButton!
     
     private let viewModel: MySynthesisViewModel
     
@@ -62,22 +62,13 @@ class MySynthesisViewController: DKUIViewController {
             embededIn: communityViewContainer
         )
 
-        drivingConditionsButton.configure(title: "dk_driverdata_drivingconditions_show".dkDriverDataLocalized(), style: .empty)
+        moreDetailsButton.isHidden = true
 
-        drivingConditionsButton.addTarget(self, action: #selector(drivingConditionsButtonTapped), for: .touchUpInside)
-        
         if self.viewModel.updating {
             showRefreshControl()
         } else {
             hideRefreshControl()
         }
-    }
-    
-    @objc private func drivingConditionsButtonTapped() {
-        self.navigationController?.pushViewController(
-            DrivingConditionsViewController(viewModel: viewModel.drivingConditionsViewModel),
-            animated: true
-        )
     }
     
     @objc private func refresh(_ sender: Any) {

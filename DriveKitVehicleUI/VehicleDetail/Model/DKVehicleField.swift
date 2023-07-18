@@ -162,7 +162,7 @@ enum GeneralField: DKVehicleField, CaseIterable {
                 switch status {
                 case .success:
                     completion(true)
-                case .unknownVehicle, .error, .invalidCharacteristics, .vehicleIdAlreadyUsed:
+                case .unknownVehicle, .error, .invalidCharacteristics, .vehicleIdAlreadyUsed, .onlyOneGpsVehicleAllowed:
                     completion(false)
                 @unknown default:
                     completion(false)

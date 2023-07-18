@@ -64,12 +64,14 @@ class DriverDistanceEstimationViewController: UIViewController, DKUIPageViewMode
     
     private func refreshView() {
         if viewModel.hasData {
+            let estimationColor = DKContextCardColor.level1.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
+            let realDistanceColor = DKContextCardColor.level5.color.tinted(usingHueOf: DKUIColors.primaryColor.color)
             self.estimationLabel.text = viewModel.estimation.formatWithThousandSeparator()
             self.realDistanceLabel.text = viewModel.realDistance.formatWithThousandSeparator()
-            self.estimationLegendCircle.backgroundColor = DKUIColors.primaryColor.color
-            self.realDistanceLegendCircle.backgroundColor = DKUIColors.secondaryColor.color
-            self.estimationBarView.backgroundColor = DKUIColors.primaryColor.color
-            self.realDistanceBarView.backgroundColor = DKUIColors.secondaryColor.color
+            self.estimationLegendCircle.backgroundColor = estimationColor
+            self.realDistanceLegendCircle.backgroundColor = realDistanceColor
+            self.estimationBarView.backgroundColor = estimationColor
+            self.realDistanceBarView.backgroundColor = realDistanceColor
             self.estimationPaddingConstraint.constant = viewModel.estimationPaddingPercent * self.referenceView.frame.width
             self.realDistancePaddingConstraint.constant = viewModel.realDistancePaddingPercent * self.referenceView.frame.width
         } else {

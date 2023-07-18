@@ -22,6 +22,8 @@ extension DKRoadContext {
             return "dk_driverdata_profile_roadcontext_suburban_title".dkDriverDataLocalized()
         case .expressways:
             return "dk_driverdata_profile_roadcontext_expressways_title".dkDriverDataLocalized()
+        @unknown default:
+            return "dk_driverdata_profile_roadcontext_expressways_title".dkDriverDataLocalized()
         }
     }
     
@@ -37,6 +39,8 @@ extension DKRoadContext {
         case .suburban:
             localizedFormatStringKey = "dk_driverdata_profile_roadcontext_suburban_text"
         case .expressways:
+            localizedFormatStringKey = "dk_driverdata_profile_roadcontext_expressways_text"
+        @unknown default:
             localizedFormatStringKey = "dk_driverdata_profile_roadcontext_expressways_text"
         }
         return String(

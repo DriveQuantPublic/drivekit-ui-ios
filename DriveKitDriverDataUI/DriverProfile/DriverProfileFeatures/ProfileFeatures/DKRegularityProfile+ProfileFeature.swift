@@ -16,6 +16,8 @@ extension DKRegularityProfile {
             return "dk_driverdata_profile_regularity_regular_title".dkDriverDataLocalized()
         case .intermittent:
             return "dk_driverdata_profile_regularity_intermittent_title".dkDriverDataLocalized()
+        @unknown default:
+            return ""
         }
     }
     
@@ -29,6 +31,8 @@ extension DKRegularityProfile {
             )
         case .intermittent:
             return "dk_driverdata_profile_regularity_intermittent_text".dkDriverDataLocalized()
+        @unknown default:
+            return ""
         }
     }
 }

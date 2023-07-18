@@ -19,6 +19,8 @@ extension DKActivityProfile {
             return "dk_driverdata_profile_activity_medium_title".dkDriverDataLocalized()
         case .high:
             return "dk_driverdata_profile_activity_high_title".dkDriverDataLocalized()
+        @unknown default:
+            return ""
         }
     }
     

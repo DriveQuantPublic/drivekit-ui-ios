@@ -22,6 +22,8 @@ extension DKDistanceProfile {
             return "dk_driverdata_profile_distance_long_title".dkDriverDataLocalized()
         case .veryLong:
             return "dk_driverdata_profile_distance_very_long_title".dkDriverDataLocalized()
+        @unknown default:
+            return ""
         }
     }
     
@@ -37,6 +39,8 @@ extension DKDistanceProfile {
             return "dk_driverdata_profile_distance_long_text".dkDriverDataLocalized()
         case .veryLong:
             return "dk_driverdata_profile_distance_very_long_text".dkDriverDataLocalized()
+        @unknown default:
+            return ""
         }
     }
 }

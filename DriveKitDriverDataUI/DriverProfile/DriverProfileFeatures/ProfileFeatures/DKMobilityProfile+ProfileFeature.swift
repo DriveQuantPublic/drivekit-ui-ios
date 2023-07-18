@@ -24,6 +24,8 @@ extension DKMobilityProfile {
             return "dk_driverdata_profile_mobility_wide".dkDriverDataLocalized()
         case .vast:
             return "dk_driverdata_profile_mobility_vast".dkDriverDataLocalized()
+        @unknown default:
+            return ""
         }
     }
     

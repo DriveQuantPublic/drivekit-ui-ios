@@ -124,6 +124,8 @@ class DriverProfileViewModel {
                 periodDate = Date().beginning(relativeTo: .month) ?? Date()
             case .year:
                 periodDate = Date().beginning(relativeTo: .year) ?? Date()
+            @unknown default:
+                periodDate = Date()
         }
         if let date = timeline.date.dateByRemovingTime(), date == periodDate {
             return timeline.distance

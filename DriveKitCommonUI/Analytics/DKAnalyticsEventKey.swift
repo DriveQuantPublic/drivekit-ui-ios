@@ -11,4 +11,5 @@ import Foundation
 
 public enum DKAnalyticsEventKey: String {
     case itinId
+    case errorMessage
 }

@@ -57,66 +57,84 @@ class MapViewController: DKUIViewController {
     
     func traceRoute(mapItem: DKMapItem?, mapTraceType: DKMapTraceType = .unlockScreen) {
         adviceButton.isHidden = true
-        if let route = viewModel.route {
-            if let route = self.viewModel.route {
-                if self.polyLine == nil {
-                    self.polyLine = MKPolyline.init(coordinates: self.getPolyline(longitude: route.longitude!, latitude: route.latitude!), count: route.numberOfCoordinates)
-                    self.mapView.addOverlay(self.polyLine!, level: MKOverlayLevel.aboveRoads)
-                }
-            }
-            var removeDistractionPolylines = true
-            var removePhoneCallPolylines = true
-            if let mapItem = mapItem, self.viewModel.configurableMapItems.contains(MapItem.distraction) && (mapItem.shouldShowPhoneDistractionArea() || mapItem.shouldShowDistractionArea()) {
-                switch mapTraceType {
-                    case .phoneCall:
-                        if mapItem.shouldShowPhoneDistractionArea() {
-                            self.computePhoneCallPolylines()
-                            self.drawPhoneCalls(route: route)
-                            removePhoneCallPolylines = false
-                        }
-                    case .unlockScreen:
-                        if mapItem.shouldShowDistractionArea() {
-                            self.computeDistractionPolylines()
-                            self.drawDistraction(route: route)
-                            removeDistractionPolylines = false
-                        }
-                }
-            }
-            if removePhoneCallPolylines {
-                if let phoneCallPolylines = self.phoneCallPolylines {
-                    for phoneCallPolyline in phoneCallPolylines {
-                        self.mapView.removeOverlay(phoneCallPolyline)
-                    }
-                }
-                if let authorizedPhoneCallPolylines = self.authorizedPhoneCallPolylines {
-                    for authorizedPhoneCallPolyline in authorizedPhoneCallPolylines {
-                        self.mapView.removeOverlay(authorizedPhoneCallPolyline)
-                    }
-                }
-            }
-            if removeDistractionPolylines {
-                if let distractionPolyLines = self.distractionPolyLines {
-                    for distractionPolyline in distractionPolyLines {
-                        self.mapView.removeOverlay(distractionPolyline)
-                    }
-                }
-            }
-
-            if let mapItem = mapItem, mapItem.shouldShowSpeedingArea(), self.viewModel.configurableMapItems.contains(MapItem.speeding) {
-                self.computeSpeedingPolylines()
-                self.drawSpeeding(route: route)
+        guard let route = viewModel.route else { return }
+        
+        if self.polyLine == nil {
+            if let longitudes = route.longitude,
+               let latitudes = route.latitude,
+               longitudes.count == latitudes.count {
+                self.polyLine = MKPolyline.init(
+                    coordinates: self.getPolyline(
+                        longitude: longitudes,
+                        latitude: latitudes
+                    ),
+                    count: route.numberOfCoordinates
+                )
+                self.mapView.addOverlay(
+                    self.polyLine!,
+                    level: MKOverlayLevel.aboveRoads
+                )
             } else {
-                if let speedingPolylines = self.speedingPolylines {
-                    for speedingPolyline in speedingPolylines {
-                        self.mapView.removeOverlay(speedingPolyline)
-                    }
+                DriveKitUI.shared.analytics?.logNonFatalError(
+                    "Route's longitude, latitude and/or screenStatus is nil (Route: \(route))",
+                    parameters: [
+                        DKAnalyticsEventKey.itinId.rawValue: route.itinId ?? "nil"
+                    ]
+                )
+            }
+        }
+        var removeDistractionPolylines = true
+        var removePhoneCallPolylines = true
+        if let mapItem = mapItem, self.viewModel.configurableMapItems.contains(MapItem.distraction) && (mapItem.shouldShowPhoneDistractionArea() || mapItem.shouldShowDistractionArea()) {
+            switch mapTraceType {
+            case .phoneCall:
+                if mapItem.shouldShowPhoneDistractionArea() {
+                    self.computePhoneCallPolylines()
+                    self.drawPhoneCalls(route: route)
+                    removePhoneCallPolylines = false
+                }
+            case .unlockScreen:
+                if mapItem.shouldShowDistractionArea() {
+                    self.computeDistractionPolylines()
+                    self.drawDistraction(route: route)
+                    removeDistractionPolylines = false
                 }
             }
-
-            self.drawStartEndMarker(route: route)
-            self.drawMarker(mapItem: mapItem, route: route, mapTraceType: mapTraceType)
-            self.fitPath()
         }
+        if removePhoneCallPolylines {
+            if let phoneCallPolylines = self.phoneCallPolylines {
+                for phoneCallPolyline in phoneCallPolylines {
+                    self.mapView.removeOverlay(phoneCallPolyline)
+                }
+            }
+            if let authorizedPhoneCallPolylines = self.authorizedPhoneCallPolylines {
+                for authorizedPhoneCallPolyline in authorizedPhoneCallPolylines {
+                    self.mapView.removeOverlay(authorizedPhoneCallPolyline)
+                }
+            }
+        }
+        if removeDistractionPolylines {
+            if let distractionPolyLines = self.distractionPolyLines {
+                for distractionPolyline in distractionPolyLines {
+                    self.mapView.removeOverlay(distractionPolyline)
+                }
+            }
+        }
+        
+        if let mapItem = mapItem, mapItem.shouldShowSpeedingArea(), self.viewModel.configurableMapItems.contains(MapItem.speeding) {
+            self.computeSpeedingPolylines()
+            self.drawSpeeding(route: route)
+        } else {
+            if let speedingPolylines = self.speedingPolylines {
+                for speedingPolyline in speedingPolylines {
+                    self.mapView.removeOverlay(speedingPolyline)
+                }
+            }
+        }
+        
+        self.drawStartEndMarker(route: route)
+        self.drawMarker(mapItem: mapItem, route: route, mapTraceType: mapTraceType)
+        self.fitPath()
     }
     
     private func getPolyline(longitude: [Double], latitude: [Double]) -> [CLLocationCoordinate2D] {
@@ -128,12 +146,27 @@ class MapViewController: DKUIViewController {
     }
     
     private func getDistractionPolyline(route: Route) -> [[CLLocationCoordinate2D]] {
+        guard
+            let longitudes = route.longitude,
+            let latitudes = route.latitude,
+            let screenStatuses = route.screenStatus,
+            longitudes.count == latitudes.count
+        else {
+            DriveKitUI.shared.analytics?.logNonFatalError(
+                "Route's longitude, latitude and/or screenStatus is nil (Route: \(route))",
+                parameters: [
+                    DKAnalyticsEventKey.itinId.rawValue: route.itinId ?? "nil"
+                ]
+            )
+            return []
+        }
         var distractionPolylines: [[CLLocationCoordinate2D]] = []
-        let routePolyline = self.getPolyline(longitude: route.longitude!, latitude: route.latitude!)
-        if let indexes = route.screenLockedIndex, indexes.count > 1 {
-            let upperBound = route.longitude!.count - 1
+
+        let routePolyline = self.getPolyline(longitude: longitudes, latitude: latitudes)
+        if let indexes = route.screenLockedIndex, indexes.count > 1, indexes.count == screenStatuses.count {
+            let upperBound = longitudes.count - 1
             for i in 1..<indexes.count {
-                if route.screenStatus![i - 1] == 1 {
+                if screenStatuses[i - 1] == 1 {
                     let minValue = min(indexes[i - 1], indexes[i])
                     let maxValue = max(indexes[i - 1], indexes[i])
                     if minValue >= 0 && maxValue >= 0 && minValue <= upperBound && maxValue <= upperBound {
@@ -147,9 +180,22 @@ class MapViewController: DKUIViewController {
     }
 
     private func getPhoneCallPolylines(route: Route) -> ([[CLLocationCoordinate2D]], [[CLLocationCoordinate2D]]) {
+        guard
+            let longitudes = route.longitude,
+            let latitudes = route.latitude,
+            longitudes.count == latitudes.count
+        else {
+            DriveKitUI.shared.analytics?.logNonFatalError(
+                "Route's longitude, latitude and/or screenStatus is nil (Route: \(route))",
+                parameters: [
+                    DKAnalyticsEventKey.itinId.rawValue: route.itinId ?? "nil"
+                ]
+            )
+            return ([], [])
+        }
         var phoneCallPolylines: [[CLLocationCoordinate2D]] = []
         var authorizedPhoneCallPolylines: [[CLLocationCoordinate2D]] = []
-        let routePolyline = self.getPolyline(longitude: route.longitude!, latitude: route.latitude!)
+        let routePolyline = self.getPolyline(longitude: longitudes, latitude: latitudes)
         if let indexes = route.callIndex {
             for i in stride(from: 1, to: indexes.count, by: 2) {
                 if let call = self.viewModel.getCallFromIndex(i) {
@@ -168,8 +214,21 @@ class MapViewController: DKUIViewController {
     }
 
     private func getSpeedingPolylines(route: Route) -> [[CLLocationCoordinate2D]] {
+        guard
+            let longitudes = route.longitude,
+            let latitudes = route.latitude,
+            longitudes.count == latitudes.count
+        else {
+            DriveKitUI.shared.analytics?.logNonFatalError(
+                "Route's longitude, latitude and/or screenStatus is nil (Route: \(route))",
+                parameters: [
+                    DKAnalyticsEventKey.itinId.rawValue: route.itinId ?? "nil"
+                ]
+            )
+            return []
+        }
         var speedingPolylines: [[CLLocationCoordinate2D]] = []
-        let routePolyline = self.getPolyline(longitude: route.longitude!, latitude: route.latitude!)
+        let routePolyline = self.getPolyline(longitude: longitudes, latitude: latitudes)
         if let indexes = route.speedingIndex, indexes.count > 1 {
             for i in 1..<indexes.count {
                 if i % 2 == 1 {
@@ -377,16 +436,16 @@ class MapViewController: DKUIViewController {
     }
     
     private func drawStartEndMarker(route: Route) {
-        if startAnnotation == nil {
+        if let startLocation = route.startLocation, startAnnotation == nil {
             let start = MKPointAnnotation()
-            start.coordinate = route.startLocation
+            start.coordinate = startLocation
             self.mapView.addAnnotation(start)
             startAnnotation = start
         }
         
-        if endAnnotation == nil {
+        if let endLocation = route.endLocation, endAnnotation == nil {
             let end = MKPointAnnotation()
-            end.coordinate = route.endLocation
+            end.coordinate = endLocation
             self.mapView.addAnnotation(end)
             self.endAnnotation = end
         }

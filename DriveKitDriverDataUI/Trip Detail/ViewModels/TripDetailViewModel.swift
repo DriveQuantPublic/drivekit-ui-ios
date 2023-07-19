@@ -217,19 +217,39 @@ class TripDetailViewModel: DKTripDetailViewModel {
     }
 
     private func addStartEvent(trip: Trip) {
-        if let route = self.route {
-            let startEvent = TripEvent(type: .start, date: trip.tripStartDate, position: route.startLocation, value: 0)
-            self.events.append(startEvent)
-            self.startEvent = startEvent
+        guard
+            let route = self.route,
+            let startLocation = route.startLocation
+        else {
+            return
         }
+        
+        let startEvent = TripEvent(
+            type: .start,
+            date: trip.tripStartDate,
+            position: startLocation,
+            value: 0
+        )
+        self.events.append(startEvent)
+        self.startEvent = startEvent
     }
 
     private func addEndEvent(trip: Trip) {
-        if let route = self.route {
-            let endEvent = TripEvent(type: .end, date: trip.tripEndDate, position: route.endLocation, value: 0)
-            self.events.append(endEvent)
-            self.endEvent = endEvent
+        guard
+            let route = self.route,
+            let endLocation = route.endLocation
+        else {
+            return
         }
+        
+        let endEvent = TripEvent(
+            type: .end,
+            date: trip.tripEndDate,
+            position: endLocation,
+            value: 0
+        )
+        self.events.append(endEvent)
+        self.endEvent = endEvent
     }
 
     public func setSelectedEvent(position: Int?) {

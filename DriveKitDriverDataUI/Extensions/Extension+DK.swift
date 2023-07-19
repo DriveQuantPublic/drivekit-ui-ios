@@ -64,11 +64,11 @@ extension Array where Element: Trip {
 }
 
 extension Route {
-    var startLocation: CLLocationCoordinate2D {
+    var startLocation: CLLocationCoordinate2D? {
         return coordinate(at: 0)
     }
     
-    var endLocation: CLLocationCoordinate2D {
+    var endLocation: CLLocationCoordinate2D? {
         return coordinate(at: lastIndex)
     }
     
@@ -80,8 +80,22 @@ extension Route {
         return longitude?.count ?? 0
     }
     
-    func coordinate(at index: Int) -> CLLocationCoordinate2D {
-        return CLLocationCoordinate2DMake(latitude![index], longitude![index])
+    func coordinate(at index: Int) -> CLLocationCoordinate2D? {
+        guard
+            let longitude,
+            let latitude,
+            longitude.indexRange.contains(index),
+            latitude.indexRange.contains(index)
+        else {
+            DriveKitUI.shared.analytics?.logNonFatalError(
+                "Route's longitude and/or latitude is nil or index \(index) out of bounds (Route: \(self))",
+                parameters: [
+                    DKAnalyticsEventKey.itinId.rawValue: itinId ?? "nil"
+                ]
+            )
+            return nil
+        }
+        return CLLocationCoordinate2DMake(latitude[index], longitude[index])
     }
 }
 

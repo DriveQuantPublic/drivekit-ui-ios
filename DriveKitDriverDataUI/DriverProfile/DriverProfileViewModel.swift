@@ -73,7 +73,7 @@ class DriverProfileViewModel {
                 self.driverProfile = driverProfile
                 
                 DriveKitDriverData.shared.getDriverTimelines(
-                    periods: configuredPeriods,
+                    periods: self.configuredPeriods,
                     type: .defaultSync
                 ) { [weak self] status, timelines in
                     guard let self else { return }
@@ -124,6 +124,8 @@ class DriverProfileViewModel {
                 periodDate = Date().beginning(relativeTo: .month) ?? Date()
             case .year:
                 periodDate = Date().beginning(relativeTo: .year) ?? Date()
+            @unknown default:
+                periodDate = Date()
         }
         if let date = timeline.date.dateByRemovingTime(), date == periodDate {
             return timeline.distance

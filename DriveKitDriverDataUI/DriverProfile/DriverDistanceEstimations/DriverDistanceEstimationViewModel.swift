@@ -30,6 +30,8 @@ class DriverDistanceEstimationViewModel {
                 self.estimation = distanceEstimation.monthDistance
             case .year:
                 self.estimation = distanceEstimation.yearDistance
+            @unknown default:
+                self.estimation = distanceEstimation.yearDistance
         }
         self.hasData = true
         self.viewModelDidUpdate?()
@@ -48,6 +50,8 @@ class DriverDistanceEstimationViewModel {
                 return "dk_driverdata_distance_card_title_month".dkDriverDataLocalized()
             case .year:
                 return "dk_driverdata_distance_card_title_year".dkDriverDataLocalized()
+            @unknown default:
+                return ""
         }
     }
 
@@ -63,6 +67,8 @@ class DriverDistanceEstimationViewModel {
                 return "dk_driverdata_distance_card_current_month".dkDriverDataLocalized()
             case .year:
                 return "dk_driverdata_distance_card_current_year".dkDriverDataLocalized()
+            @unknown default:
+                return ""
         }
     }
 

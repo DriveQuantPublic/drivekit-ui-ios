@@ -27,6 +27,8 @@ extension DKRoadContext {
         case .expressways:
             return "dk_driverdata_usual_trip_card_context_expressways"
                 .dkDriverDataLocalized()
+        @unknown default:
+            return ""
         }
     }
 }

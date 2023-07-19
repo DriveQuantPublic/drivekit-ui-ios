@@ -51,9 +51,10 @@ extension VehiclePickerTableViewVC: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let value: String = viewModel.getTableViewItems()[indexPath.row].text()
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "VehiclePickerTableViewCell", for: indexPath) as! VehiclePickerTableViewCell
-        cell.configure(text: value)
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "VehiclePickerTableViewCell", for: indexPath)
+        if let vehiclePickerCell = cell as? VehiclePickerTableViewCell, let value = viewModel.getTableViewItems()[safe: indexPath.row]?.text() {
+            vehiclePickerCell.configure(text: value)
+        }
         return cell
     }
 

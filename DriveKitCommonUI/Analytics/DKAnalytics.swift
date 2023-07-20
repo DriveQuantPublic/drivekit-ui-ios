@@ -24,7 +24,7 @@ extension DKAnalytics {
         var allParameters: [String: Any] = parameters
         allParameters[DKAnalyticsEventKey.errorMessage.rawValue] = "Non fatal error: \(message) in \(function) at \(file):\(line)"
         self.trackEvent(
-            .nonFatalErrors,
+            .nonFatalError,
             parameters: allParameters
         )
     }

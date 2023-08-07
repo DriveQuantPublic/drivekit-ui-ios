@@ -9,5 +9,5 @@
 import Foundation
 
 public enum DKAnalyticsEventKey: String {
-    case itinId, vehicleAddStep
+    case itinId, vehicleAddStep, errorMessage
 }

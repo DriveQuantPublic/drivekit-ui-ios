@@ -12,3 +12,20 @@ import UIKit
     func trackScreen(_ screen: String, viewController: UIViewController)
     func trackEvent(_ event: DKAnalyticsEvent, parameters: [String: Any]?)
 }
+
+extension DKAnalytics {
+    public func logNonFatalError(
+        _ message: String,
+        parameters: [String: Any] = [:],
+        _ function: StaticString = #function,
+        _ file: StaticString = #fileID,
+        _ line: Int = #line
+    ) {
+        var allParameters: [String: Any] = parameters
+        allParameters[DKAnalyticsEventKey.errorMessage.rawValue] = "Non fatal error: \(message) in \(function) at \(file):\(line)"
+        self.trackEvent(
+            .nonFatalError,
+            parameters: allParameters
+        )
+    }
+}

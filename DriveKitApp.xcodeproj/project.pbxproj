@@ -365,6 +365,14 @@
 		63FF6B4F244994B50006992E /* DiagnosisViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63FF6B4E244994B50006992E /* DiagnosisViewController.xib */; };
 		63FF6B532449E7CF0006992E /* SensorStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63FF6B522449E7CF0006992E /* SensorStateView.xib */; };
 		63FF6B552449EC2B0006992E /* SensorStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FF6B542449EC2B0006992E /* SensorStateView.swift */; };
+		6702A3D52A94E7C900BAAAB1 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 6702A3D42A94E7C900BAAAB1 /* PrivacyInfo.xcprivacy */; };
+		6702A3D72A94EAE800BAAAB1 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 6702A3D62A94EAE800BAAAB1 /* PrivacyInfo.xcprivacy */; };
+		6702A3D92A94EB7100BAAAB1 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 6702A3D82A94EB7100BAAAB1 /* PrivacyInfo.xcprivacy */; };
+		6702A3DB2A94EB9900BAAAB1 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 6702A3DA2A94EB9900BAAAB1 /* PrivacyInfo.xcprivacy */; };
+		6702A3DD2A94EC0000BAAAB1 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 6702A3DC2A94EC0000BAAAB1 /* PrivacyInfo.xcprivacy */; };
+		6702A3DF2A94EC3100BAAAB1 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 6702A3DE2A94EC3100BAAAB1 /* PrivacyInfo.xcprivacy */; };
+		6702A3E12A94EC5F00BAAAB1 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 6702A3E02A94EC5F00BAAAB1 /* PrivacyInfo.xcprivacy */; };
+		6702A3E32A94EC9000BAAAB1 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 6702A3E22A94EC9000BAAAB1 /* PrivacyInfo.xcprivacy */; };
 		6704DDD2266148B500DAF326 /* ChallengeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6704DDD1266148B500DAF326 /* ChallengeType.swift */; };
 		6704DDD42664B55900DAF326 /* ChallengeTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6704DDD32664B55900DAF326 /* ChallengeTrip.swift */; };
 		6704DDD62664F6AC00DAF326 /* ChallengeDriverRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6704DDD52664F6AC00DAF326 /* ChallengeDriverRank.swift */; };
@@ -1257,6 +1265,14 @@
 		63FF6B4E244994B50006992E /* DiagnosisViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiagnosisViewController.xib; sourceTree = "<group>"; };
 		63FF6B522449E7CF0006992E /* SensorStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SensorStateView.xib; sourceTree = "<group>"; };
 		63FF6B542449EC2B0006992E /* SensorStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorStateView.swift; sourceTree = "<group>"; };
+		6702A3D42A94E7C900BAAAB1 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		6702A3D62A94EAE800BAAAB1 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		6702A3D82A94EB7100BAAAB1 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		6702A3DA2A94EB9900BAAAB1 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		6702A3DC2A94EC0000BAAAB1 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		6702A3DE2A94EC3100BAAAB1 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		6702A3E02A94EC5F00BAAAB1 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		6702A3E22A94EC9000BAAAB1 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		6704DDD1266148B500DAF326 /* ChallengeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeType.swift; sourceTree = "<group>"; };
 		6704DDD32664B55900DAF326 /* ChallengeTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeTrip.swift; sourceTree = "<group>"; };
 		6704DDD52664F6AC00DAF326 /* ChallengeDriverRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDriverRank.swift; sourceTree = "<group>"; };
@@ -1735,6 +1751,7 @@
 				3F0740E62403BB9A005A8D07 /* DriveKitUI.swift */,
 				63FE778524FD1A9D00C068C3 /* AnalyticsTags.plist */,
 				63B07CD124EFCA110060DF33 /* AnalyticsScreenToTagKey.plist */,
+				6702A3D42A94E7C900BAAAB1 /* PrivacyInfo.xcprivacy */,
 			);
 			path = DriveKitCommonUI;
 			sourceTree = "<group>";
@@ -1982,6 +1999,7 @@
 				3FA3C4552416A96400BD4E14 /* DKCategoryConfigType.swift */,
 				3FF68F3E24154ADB0071D74C /* DriveKitVehicle.xcassets */,
 				6742577128B4D2EC00A61D1F /* DKVehicleImages.swift */,
+				6702A3DE2A94EC3100BAAAB1 /* PrivacyInfo.xcprivacy */,
 			);
 			path = DriveKitVehicleUI;
 			sourceTree = "<group>";
@@ -2095,6 +2113,7 @@
 				3FFAD1FD23EDBCD500D1A16C /* Info.plist */,
 				5CFCF8B0246D43F3002F9152 /* DriverAchievement.xcassets */,
 				6744776E2885A7590058D23B /* DKDriverAchievementImages.swift */,
+				6702A3DA2A94EB9900BAAAB1 /* PrivacyInfo.xcprivacy */,
 			);
 			path = DriveKitDriverAchievementUI;
 			sourceTree = "<group>";
@@ -2253,6 +2272,7 @@
 				616946E524333C6900C8A965 /* DriveKitPermissionsUtilsUI.swift */,
 				616946DB243337D600C8A965 /* DriveKitPermissionsUtilsUI.h */,
 				616946DC243337D600C8A965 /* Info.plist */,
+				6702A3DC2A94EC0000BAAAB1 /* PrivacyInfo.xcprivacy */,
 			);
 			path = DriveKitPermissionsUtilsUI;
 			sourceTree = "<group>";
@@ -2683,6 +2703,7 @@
 				E3B830A2294CB54200E31848 /* Helpers */,
 				63F8B29C28F95C2C0084B53A /* Info.plist */,
 				63F8B29128F958B90084B53A /* DriveKitDriverDataTimelineUI.h */,
+				6702A3D82A94EB7100BAAAB1 /* PrivacyInfo.xcprivacy */,
 			);
 			path = DriveKitDriverDataTimelineUI;
 			sourceTree = "<group>";
@@ -2922,6 +2943,7 @@
 				63E2FB2C278C1AB200733B51 /* Info.plist */,
 				678130A2276BF59300701CF1 /* DriveKitTripAnalysisUI.swift */,
 				67E8D97027D6529A00BD0343 /* DriveKitTripAnalysis.xcassets */,
+				6702A3E22A94EC9000BAAAB1 /* PrivacyInfo.xcprivacy */,
 			);
 			path = DriveKitTripAnalysisUI;
 			sourceTree = "<group>";
@@ -3019,6 +3041,7 @@
 				67C43D09263A98B600DBB09D /* DriveKitChallengeUI.swift */,
 				67C43D10263AE0C100DBB09D /* DriveKitChallenge.xcassets */,
 				6744776C288594500058D23B /* DKChallengeImages.swift */,
+				6702A3E02A94EC5F00BAAAB1 /* PrivacyInfo.xcprivacy */,
 			);
 			path = DriveKitChallengeUI;
 			sourceTree = "<group>";
@@ -3236,6 +3259,7 @@
 				3FF68E89240ACD620071D74C /* DriveKitDriverDataUI.swift */,
 				A34238612361A2430001E15D /* DriverData.xcassets */,
 				6744776A287ED13A0058D23B /* DKDriverDataImages.swift */,
+				6702A3D62A94EAE800BAAAB1 /* PrivacyInfo.xcprivacy */,
 			);
 			path = DriveKitDriverDataUI;
 			sourceTree = "<group>";
@@ -4208,6 +4232,7 @@
 				67F2D3692630F07E00ACC69A /* RankingCell.xib in Resources */,
 				3F0740EF2404263D005A8D07 /* Roboto-Regular.ttf in Resources */,
 				6708ED7429DF0216005652A3 /* DKContextCardView.xib in Resources */,
+				6702A3D52A94E7C900BAAAB1 /* PrivacyInfo.xcprivacy in Resources */,
 				3FA250022524B9F5000AB7D3 /* DKFilterView.xib in Resources */,
 				67301DB126251921006B0432 /* HeaderDayView.xib in Resources */,
 				67F2D3662630F07E00ACC69A /* RankingJumpCell.xib in Resources */,
@@ -4243,6 +4268,7 @@
 				3FE6A44F242136D900E24C1C /* BeaconDetailVC.xib in Resources */,
 				3FF68F2E241532EB0071D74C /* VehiclePickerCollectionViewVC.xib in Resources */,
 				3FF68F272415198D0071D74C /* VehiclePickerTableViewCell.xib in Resources */,
+				6702A3DF2A94EC3100BAAAB1 /* PrivacyInfo.xcprivacy in Resources */,
 				3FF68F052414FD870071D74C /* DKVehicleLocalizable.strings in Resources */,
 				3F50D70124179467001226F7 /* SuccessBluetoothVC.xib in Resources */,
 				A3D51F51241BA3AE006DACE2 /* VehiclesListCell.xib in Resources */,
@@ -4294,6 +4320,7 @@
 				67F2D37A2631556000ACC69A /* RankingSelectorTypeView.xib in Resources */,
 				3FB5643523F5AA2900F010E3 /* StreakTableViewCell.xib in Resources */,
 				5C180D70246B05BC001E95FA /* BadgeLevelView.xib in Resources */,
+				6702A3DB2A94EB9900BAAAB1 /* PrivacyInfo.xcprivacy in Resources */,
 				5CFCF8B1246D43F3002F9152 /* DriverAchievement.xcassets in Resources */,
 				5CA1D481246E97B9001DDC34 /* BadgeLevelDetailViewController.xib in Resources */,
 				5CE33817246C27C8007E5790 /* BadgesViewController.xib in Resources */,
@@ -4318,6 +4345,7 @@
 				61199C68243B9C5F00F73F37 /* PermissionsUtils.xcassets in Resources */,
 				63FF6B4F244994B50006992E /* DiagnosisViewController.xib in Resources */,
 				63F44E8C244DF16800C7F5CC /* SeparatorView.xib in Resources */,
+				6702A3DD2A94EC0000BAAAB1 /* PrivacyInfo.xcprivacy in Resources */,
 				6105390B2434B75200C00CAF /* LocationPermissionViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4326,6 +4354,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6702A3D92A94EB7100BAAAB1 /* PrivacyInfo.xcprivacy in Resources */,
 				63F8B2D028F9B27B0084B53A /* DriverDataTimelineLocalizable.strings in Resources */,
 				63454B9C2906C7A200A9B10F /* TimelineGraphView.xib in Resources */,
 				67D6CD8E290912780055632B /* EmptyRoadContextView.xib in Resources */,
@@ -4344,6 +4373,7 @@
 				67E8D97127D6529A00BD0343 /* DriveKitTripAnalysis.xcassets in Resources */,
 				E3759DC02A12767A0010F989 /* DKTripStopConfirmationViewController.xib in Resources */,
 				67E8D96B27D6171200BD0343 /* CrashFeedbackStep1VC.xib in Resources */,
+				6702A3E32A94EC9000BAAAB1 /* PrivacyInfo.xcprivacy in Resources */,
 				63913D9E277F534000EABBC7 /* WorkingHoursDayCell.xib in Resources */,
 				678130AC276BF77700701CF1 /* WorkingHoursViewController.xib in Resources */,
 				63913D9C277F512700EABBC7 /* WorkingHoursSeparatorCell.xib in Resources */,
@@ -4364,6 +4394,7 @@
 				6704DDE02668710000DAF326 /* ChallengeResultOverviewCell.xib in Resources */,
 				6704DDE4266A17B200DAF326 /* ChallengeTripsVC.xib in Resources */,
 				67C43D1E263AE79F00DBB09D /* ChallengeListVC.xib in Resources */,
+				6702A3E12A94EC5F00BAAAB1 /* PrivacyInfo.xcprivacy in Resources */,
 				67462D8D2660CE0400016FAF /* ChallengeResultsVC.xib in Resources */,
 				67C43D12263AE23600DBB09D /* DKChallengeLocalizable.strings in Resources */,
 				67A2E17D26559F0B005F26AE /* ChallengeRulesVC.xib in Resources */,
@@ -4391,6 +4422,7 @@
 				A34238A02361A2730001E15D /* DriverDataLocalizables.strings in Resources */,
 				A34238792361A2440001E15D /* HistoryPageVC.xib in Resources */,
 				A30F4F1923D5DA14009A37C2 /* SynthesisPageVC.xib in Resources */,
+				6702A3D72A94EAE800BAAAB1 /* PrivacyInfo.xcprivacy in Resources */,
 				633E93DF261D0D1A009543C0 /* SynthesisCardInfoView.xib in Resources */,
 				A34238752361A2430001E15D /* EcoDrivingPageVC.xib in Resources */,
 				638AC03F261F903300602B52 /* SynthesisCardsView.xib in Resources */,

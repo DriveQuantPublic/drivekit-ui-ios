@@ -482,7 +482,7 @@ class VehiclePickerViewModel {
         if let vehicleType = self.vehicleType, let characteristics = vehicleCharacteristics {
             let completionHandler: (DKVehicleManagerStatus, DKVehicle?) -> Void = { status, vehicle in
                 guard status == .success else {
-                    completion(.error, nil)
+                    completion(status, nil)
                     return
                 }
                 

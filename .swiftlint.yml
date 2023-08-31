@@ -4,7 +4,6 @@ disabled_rules: # rule identifiers to exclude from running
   - switch_case_alignment
   - blanket_disable_command
 opt_in_rules: # some rules are only opt-in
-  - anyobject_protocol
   - closure_end_indentation
   - collection_alignment
   - convenience_type
@@ -24,7 +23,6 @@ opt_in_rules: # some rules are only opt-in
   - reduce_into
   - sorted_first_last
   - toggle_bool
-  - unused_capture_list
   - vertical_parameter_alignment_on_call
   - weak_delegate
   # Find all the available rules by running:

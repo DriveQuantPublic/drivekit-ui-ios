@@ -456,7 +456,16 @@ class VehiclePickerViewModel {
     func addVehicle(completion: @escaping (DKVehicleManagerStatus, String?) -> Void) {
         if let characteristics = self.vehicleCharacteristics {
             if let previousVehicle = self.previousVehicle {
-                replaceVehicle(previousVehicle: previousVehicle, completion: completion)
+                replaceVehicle(previousVehicle: previousVehicle, completion: { status, vehicleId in
+                    let vehicleManagerStatus: DKVehicleManagerStatus
+                    switch status {
+                        case .success:
+                            vehicleManagerStatus = .success
+                        case .invalidVehicle, .error:
+                            vehicleManagerStatus = .error
+                    }
+                    completion(vehicleManagerStatus, vehicleId)
+                })
             } else if let vehicleType = self.vehicleType {
                 switch vehicleType {
                     case .car:
@@ -478,9 +487,9 @@ class VehiclePickerViewModel {
         }
     }
 
-    func replaceVehicle(previousVehicle: DKVehicle, completion: @escaping (DKVehicleManagerStatus, String?) -> Void) {
+    func replaceVehicle(previousVehicle: DKVehicle, completion: @escaping (DKVehicleReplaceStatus, String?) -> Void) {
         if let vehicleType = self.vehicleType, let characteristics = vehicleCharacteristics {
-            let completionHandler: (DKVehicleManagerStatus, DKVehicle?) -> Void = { status, vehicle in
+            let completionHandler: (DKVehicleReplaceStatus, DKVehicle?) -> Void = { status, vehicle in
                 guard status == .success else {
                     completion(status, nil)
                     return

@@ -463,6 +463,8 @@ class VehiclePickerViewModel {
                             vehicleManagerStatus = .success
                         case .invalidVehicle, .error:
                             vehicleManagerStatus = .error
+                        @unknown default:
+                            vehicleManagerStatus = .error
                     }
                     completion(vehicleManagerStatus, vehicleId)
                 })

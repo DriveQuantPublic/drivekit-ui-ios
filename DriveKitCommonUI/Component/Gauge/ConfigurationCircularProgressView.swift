@@ -8,7 +8,7 @@
 //
 
 import DriveKitCoreModule
-import UICircularProgressRing
+import UICircularProgressRingForDK
 
 public enum CircularProgressViewSize {
     case small, medium, large

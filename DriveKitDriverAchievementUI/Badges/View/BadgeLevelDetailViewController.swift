@@ -11,7 +11,7 @@ import Foundation
 import DriveKitCommonUI
 import DriveKitDBAchievementAccessModule
 import DriveKitDriverAchievementModule
-import UICircularProgressRing
+import UICircularProgressRingForDK
 
 public class BadgeLevelDetailViewController: DKUIViewController {
     let viewModel: BadgeLevelViewModel

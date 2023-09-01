@@ -10,7 +10,7 @@
 import Foundation
 import DriveKitCommonUI
 import DriveKitDBAchievementAccessModule
-import UICircularProgressRing
+import UICircularProgressRingForDK
 
 final class BadgeLevelView: UIView, Nibable {
     @IBOutlet weak var progressRing: UICircularProgressRing!

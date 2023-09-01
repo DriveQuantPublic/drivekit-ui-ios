@@ -14,7 +14,7 @@ def swiftlint
 end
 
 target 'DriveKitApp' do
-  pod 'ChartsForDK'
+  pod 'ChartsForDK', '3.6.1'
   pod 'DriveKitTripSimulator', '1.35-beta1'
   swiftlint
 end
@@ -28,7 +28,7 @@ end
 
 target 'DriveKitDriverDataTimelineUI' do
   pod 'DriveKitDriverData', '1.35-beta1'
-  pod 'ChartsForDK'
+  pod 'ChartsForDK', '3.6.1'
   swiftlint
 end
 

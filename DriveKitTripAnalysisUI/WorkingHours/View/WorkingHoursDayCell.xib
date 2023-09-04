@@ -23,7 +23,7 @@
                             <action selector="switchDidUpdate" destination="KGk-i7-Jjw" eventType="valueChanged" id="wHy-Cy-lAF"/>
                         </connections>
                     </switch>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q0x-AX-fa1" customClass="RangeSlider" customModule="WARangeSlider">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q0x-AX-fa1" customClass="RangeSlider" customModule="WARangeSliderForDK">
                         <rect key="frame" x="89" y="23.5" width="199" height="28.5"/>
                         <viewLayoutGuide key="safeArea" id="wuh-Uf-4e4"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

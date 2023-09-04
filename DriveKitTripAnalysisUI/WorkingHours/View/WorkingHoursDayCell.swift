@@ -8,7 +8,7 @@
 //
 
 import UIKit
-import WARangeSlider
+import WARangeSliderForDK
 import DriveKitCommonUI
 
 class WorkingHoursDayCell: UITableViewCell {

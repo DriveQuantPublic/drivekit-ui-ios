@@ -1,7 +1,7 @@
 PODS:
-  - ChartsForDK (3.6.0):
-    - ChartsForDK/Core (= 3.6.0)
-  - ChartsForDK/Core (3.6.0)
+  - ChartsForDK (3.6.1):
+    - ChartsForDK/Core (= 3.6.1)
+  - ChartsForDK/Core (3.6.1)
   - DriveKitBeaconUtils (1.35-beta1):
     - DriveKitCore (= 1.35-beta1)
   - DriveKitChallenge (1.35-beta1):
@@ -35,10 +35,10 @@ PODS:
     - DriveKitDBVehicleAccess (= 1.35-beta1)
   - SwiftLint (0.52.4)
   - UICircularProgressRingForDK (6.5.1)
-  - WARangeSlider (1.1.1)
+  - WARangeSliderForDK (1.1.2)
 
 DEPENDENCIES:
-  - ChartsForDK
+  - ChartsForDK (= 3.6.1)
   - DriveKitChallenge (= 1.35-beta1)
   - DriveKitCore (= 1.35-beta1)
   - DriveKitDriverAchievement (= 1.35-beta1)
@@ -48,14 +48,13 @@ DEPENDENCIES:
   - DriveKitVehicle (= 1.35-beta1)
   - SwiftLint
   - UICircularProgressRingForDK (= 6.5.1)
-  - WARangeSlider
+  - WARangeSliderForDK
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - ChartsForDK
     - SwiftLint
-    - WARangeSlider
   https://gitlab.com/drivequant/drivekit/drivekit-specs.git:
+    - ChartsForDK
     - DriveKitBeaconUtils
     - DriveKitChallenge
     - DriveKitCore
@@ -70,9 +69,10 @@ SPEC REPOS:
     - DriveKitTripSimulator
     - DriveKitVehicle
     - UICircularProgressRingForDK
+    - WARangeSliderForDK
 
 SPEC CHECKSUMS:
-  ChartsForDK: 2718d34595cbef2be1aee663478170f4846682b8
+  ChartsForDK: 7cc086c740de7b2533a483e5d44f333362b57815
   DriveKitBeaconUtils: cd77c47b6ba72305de3d9408535da667cfea9065
   DriveKitChallenge: 87cd5d45e10175d798014073871ddf264266525d
   DriveKitCore: d646a66388d88862e0df27cd3d4636a7ee64b304
@@ -88,8 +88,8 @@ SPEC CHECKSUMS:
   DriveKitVehicle: 64d6e46f57aa8f9ed8c519677ea808ef207e5fca
   SwiftLint: 1cc5cd61ba9bacb2194e340aeb47a2a37fda00b3
   UICircularProgressRingForDK: 062e5b2b9e9320c168f73560e43abdeaa30dc557
-  WARangeSlider: 54b3e0853b8d16c444fd539005901aecee86837d
+  WARangeSliderForDK: 9ffa496dab34abea072e55ab671830da65e3198e
 
-PODFILE CHECKSUM: 6ec32e39a23f35f95ff390db418c8bec167d5e09
+PODFILE CHECKSUM: dcc0cc8338413b5dc07454e569846bc89d2c3a7d
 
 COCOAPODS: 1.12.1

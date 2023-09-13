@@ -35,7 +35,7 @@ PODS:
     - DriveKitDBVehicleAccess (= 1.35-beta1)
   - SwiftLint (0.52.4)
   - UICircularProgressRingForDK (6.5.1)
-  - WARangeSliderForDK (1.1.2)
+  - WARangeSlider (1.2.0)
 
 DEPENDENCIES:
   - ChartsForDK (= 3.6.1)
@@ -48,11 +48,13 @@ DEPENDENCIES:
   - DriveKitVehicle (= 1.35-beta1)
   - SwiftLint
   - UICircularProgressRingForDK (= 6.5.1)
-  - WARangeSliderForDK
+  - WARangeSlider
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - SwiftLint
+    - UICircularProgressRingForDK
+    - WARangeSlider
   https://gitlab.com/drivequant/drivekit/drivekit-specs.git:
     - ChartsForDK
     - DriveKitBeaconUtils
@@ -68,8 +70,6 @@ SPEC REPOS:
     - DriveKitTripAnalysis
     - DriveKitTripSimulator
     - DriveKitVehicle
-    - UICircularProgressRingForDK
-    - WARangeSliderForDK
 
 SPEC CHECKSUMS:
   ChartsForDK: 7cc086c740de7b2533a483e5d44f333362b57815
@@ -87,9 +87,9 @@ SPEC CHECKSUMS:
   DriveKitTripSimulator: ed4f66e3caa5c651951e88045818441f56d5984f
   DriveKitVehicle: 64d6e46f57aa8f9ed8c519677ea808ef207e5fca
   SwiftLint: 1cc5cd61ba9bacb2194e340aeb47a2a37fda00b3
-  UICircularProgressRingForDK: 062e5b2b9e9320c168f73560e43abdeaa30dc557
-  WARangeSliderForDK: 9ffa496dab34abea072e55ab671830da65e3198e
+  UICircularProgressRingForDK: 22117d74f7c930acfcb5d31d8156720d6cd241ec
+  WARangeSlider: 03f195d4dc5419e6b0d9043cc94fdf418dfe804d
 
-PODFILE CHECKSUM: dcc0cc8338413b5dc07454e569846bc89d2c3a7d
+PODFILE CHECKSUM: 82e76b5bef0933049926ba2346068c66affb713f
 
 COCOAPODS: 1.12.1

@@ -63,7 +63,7 @@ end
 target 'DriveKitTripAnalysisUI' do
   pod 'DriveKitTripAnalysis', '1.35-beta1'
 
-  pod 'WARangeSliderForDK'
+  pod 'WARangeSlider'
   circular_progress_ring
   swiftlint
 end

@@ -8,7 +8,7 @@
 "dk_beacon_paired_title"="Tilføj en fyr";
 "dk_beacon_rssi"="RSSI (DBM)";
 "dk_beacon_tx"="TX (dBm)";
-"dk_beacon_uuid"="Uuid";
+"dk_beacon_uuid"="UUID";
 "dk_beacon_vehicle_unknown"="Ukendt køretøj";
 "dk_beacon_vehicule_linked"="Tilknyttet køretøj";
 "dk_beacon_verify"="Inspicer";
@@ -69,7 +69,7 @@
 "dk_vehicle_beacon_setup_successlink_message"="Tillykke!\n\nBeacon %@ er nu forbundet med køretøjet %@";
 "dk_vehicle_beacon_start_scan"="Placer din fyr i nærheden af ​​din telefon, og tryk på skærmen";
 "dk_vehicle_beacon_verify_wrong_vehicle"="Det detekterede fyr er ikke forbundet med dette køretøj.";
-"dk_vehicle_beacon_wait_scan"="Vent cirka 10 sekunder ...";
+"dk_vehicle_beacon_wait_scan"="Vent cirka 10 sekunder...";
 "dk_vehicle_begin"="Begynde";
 "dk_vehicle_bluetooth_already_paired"="Bluetooth %@ enhed er allerede forbundet til et andet køretøj. Du skal først fjerne enheden, før du parrer den med %@.";
 "dk_vehicle_bluetooth_combination_view_title"="Link en Bluetooth-enhed";
@@ -190,7 +190,6 @@
 "dk_vehicle_rename_description"="Vælg et navn for at identificere dit køretøj";
 "dk_vehicle_rename_title"="Omdøb dette køretøj";
 "dk_vehicle_replace"="Erstat";
-"dk_vehicle_replace_button"="Udskift køretøjet";
 "dk_vehicle_replace_button"="Udskift køretøjet";
 "dk_vehicle_select_bluetooth_description"="Vælg en Bluetooth-enhed for at starte turoptagelsen.\n\nSå snart telefonen opretter forbindelse til denne enhed, begynder applikationen at analysere din rejse.\n\nDu kan kun vælge én enhed til dette køretøj.";
 "dk_vehicle_show"="Vis";

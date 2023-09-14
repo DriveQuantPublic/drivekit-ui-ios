@@ -191,7 +191,6 @@
 "dk_vehicle_rename_title"="Rename this vehicle";
 "dk_vehicle_replace"="Replace";
 "dk_vehicle_replace_button"="Replace the vehicle";
-"dk_vehicle_replace_button"="Replace the vehicle";
 "dk_vehicle_select_bluetooth_description"="Select a Bluetooth device to start the trip recording. \n \n As soon as the phone connects to this device, the application starts analyzing your trip. \n \n You can only select one device for this vehicle.";
 "dk_vehicle_show"="Show";
 "dk_vehicle_type_car_title"="Light and commercial vehicles of less than 3.5 t";

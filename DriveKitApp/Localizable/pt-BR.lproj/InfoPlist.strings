@@ -1,0 +1,8 @@
+"NSLocationAlwaysUsageDescription"="O aplicativo precisa conhecer sua localização para analisar suas viagens, fornecer pontuações de direção e ativar o uso do modo de início automático.";
+"NSLocationWhenInUseUsageDescription"="Para detectar e analisar automaticamente suas viagens, o aplicativo precisa de acesso à sua posição o tempo todo.";
+"NSLocationAlwaysAndWhenInUseUsageDescription"="Para ativar a detecção automática de viagem e a análise de direção sem precisar manipular o telefone, selecione a opção \"sempre permita\". Estrada boa...";
+"NSBluetoothAlwaysUsageDescription"="O aplicativo precisa usar o Bluetooth para recuperar o nível da bateria do dispositivo.";
+"NSBluetoothPeripheralUsageDescription"="O aplicativo precisa usar o Bluetooth para recuperar o nível da bateria do dispositivo.";
+"NSMotionUsageDescription"="Este aplicativo precisa usar dados de movimento para detectar o modo de transporte.";
+"NSCameraUsageDescription"="Este aplicativo precisa acessar a câmera.";
+"NSPhotoLibraryUsageDescription"="O aplicativo precisa acessar sua galeria de fotos.";

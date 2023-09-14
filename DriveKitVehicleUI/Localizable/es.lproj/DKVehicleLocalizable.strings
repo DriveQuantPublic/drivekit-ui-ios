@@ -191,7 +191,6 @@
 "dk_vehicle_rename_title"="Renombrar este vehículo";
 "dk_vehicle_replace"="Reemplazar";
 "dk_vehicle_replace_button"="Sustituir el vehículo";
-"dk_vehicle_replace_button"="Sustituir el vehículo";
 "dk_vehicle_select_bluetooth_description"="Seleccione un dispositivo Bluetooth para iniciar la grabación del viaje. \n \n En cuanto el teléfono se conecte a este dispositivo, la aplicación comenzará a analizar su viaje. \n \n Sólo puede seleccionar un dispositivo para este vehículo.";
 "dk_vehicle_show"="Mostrar";
 "dk_vehicle_type_car_title"="Vehículos ligeros y comerciales de menos de 3,5 t";

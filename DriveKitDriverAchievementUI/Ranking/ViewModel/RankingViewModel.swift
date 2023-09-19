@@ -272,8 +272,10 @@ class RankingViewModel {
     }
 
     private func formatScore(_ score: Double) -> String {
-        if score >= 10 {
+        if score.round(places: 2) >= 10 {
             return "10"
+        } else if score.round(places: 2) == score.round(places: 0) {
+            return score.formatDouble(places: 0)
         } else {
             return score.formatDouble(fractionDigits: 2)
         }

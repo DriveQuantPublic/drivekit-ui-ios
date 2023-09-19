@@ -9,7 +9,7 @@
 
 import UIKit
 import DriveKitCommonUI
-import UICircularProgressRing
+import UICircularProgressRingForDK
 
 final class SynthesisCardView: UIView, Nibable {
     @IBOutlet private weak var title: UILabel!

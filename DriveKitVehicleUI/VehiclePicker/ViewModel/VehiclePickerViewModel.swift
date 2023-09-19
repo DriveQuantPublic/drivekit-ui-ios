@@ -456,7 +456,18 @@ class VehiclePickerViewModel {
     func addVehicle(completion: @escaping (DKVehicleManagerStatus, String?) -> Void) {
         if let characteristics = self.vehicleCharacteristics {
             if let previousVehicle = self.previousVehicle {
-                replaceVehicle(previousVehicle: previousVehicle, completion: completion)
+                replaceVehicle(previousVehicle: previousVehicle, completion: { status, vehicleId in
+                    let vehicleManagerStatus: DKVehicleManagerStatus
+                    switch status {
+                        case .success:
+                            vehicleManagerStatus = .success
+                        case .invalidVehicle, .error:
+                            vehicleManagerStatus = .error
+                        @unknown default:
+                            vehicleManagerStatus = .error
+                    }
+                    completion(vehicleManagerStatus, vehicleId)
+                })
             } else if let vehicleType = self.vehicleType {
                 switch vehicleType {
                     case .car:
@@ -478,48 +489,36 @@ class VehiclePickerViewModel {
         }
     }
 
-    func replaceVehicle(previousVehicle: DKVehicle, completion: @escaping (DKVehicleManagerStatus, String?) -> Void) {
+    func replaceVehicle(previousVehicle: DKVehicle, completion: @escaping (DKVehicleReplaceStatus, String?) -> Void) {
         if let vehicleType = self.vehicleType, let characteristics = vehicleCharacteristics {
-            let detectionMode = previousVehicle.detectionMode ?? .disabled
-            let previousBeacon = previousVehicle.beacon
-            let previousBluetooth = previousVehicle.bluetooth
-
-            let completionHandler: (DKVehicleManagerStatus, DKVehicle?) -> Void = { status, vehicle in
+            let completionHandler: (DKVehicleReplaceStatus, DKVehicle?) -> Void = { status, vehicle in
                 guard status == .success else {
-                    completion(.error, nil)
+                    completion(status, nil)
                     return
                 }
-                DriveKitVehicle.shared.deleteVehicle(vehicleId: previousVehicle.vehicleId, completionHandler: { deleteStatus in
-                    if deleteStatus == .success {
-                        if previousBeacon != nil {
-                            DriveKitVehicle.shared.addBeacon(vehicleId: vehicle?.vehicleId ?? "", beacon: previousBeacon!, completionHandler: { beaconStatus in
-                                if beaconStatus == .success {
-                                    completion(status, vehicle?.vehicleId)
-                                }
-                            })
-                        } else if previousBluetooth != nil {
-                            DriveKitVehicle.shared.addBluetooth(vehicleId: vehicle?.vehicleId ?? "", bluetooth: previousBluetooth!, completionHandler: { bluetoothSuccess in
-                                if bluetoothSuccess == .success {
-                                    completion(status, vehicle?.vehicleId)
-                                }
-                            })
-                        } else {
-                            completion(status, vehicle?.vehicleId)
-                        }
-                    } else {
-                        completion(.error, vehicle?.vehicleId)
-                    }
-                })
+                
+                completion(status, vehicle?.vehicleId)
             }
 
             switch vehicleType {
                 case .car:
                     if let carCharacteristics = characteristics as? DKCarVehicleCharacteristics {
-                        DriveKitVehicle.shared.createCarVehicle(characteristics: carCharacteristics, name: self.vehicleName, liteConfig: self.liteConfig, detectionMode: detectionMode, completionHandler: completionHandler)
+                        DriveKitVehicle.shared.replaceWithCarVehicle(
+                            oldVehicleId: previousVehicle.vehicleId,
+                            characteristics: carCharacteristics,
+                            name: self.vehicleName,
+                            liteConfig: self.liteConfig,
+                            completionHandler: completionHandler
+                        )
                     }
                 case .truck:
                     if let truckCharacteristics = characteristics as? DKTruckVehicleCharacteristics {
-                        DriveKitVehicle.shared.createTruckVehicle(characteristics: truckCharacteristics, name: self.vehicleName, detectionMode: self.detectionMode, completionHandler: completionHandler)
+                        DriveKitVehicle.shared.replaceWithTruckVehicle(
+                            oldVehicleId: previousVehicle.vehicleId,
+                            characteristics: truckCharacteristics,
+                            name: self.vehicleName,
+                            completionHandler: completionHandler
+                        )
                     }
                 @unknown default:
                     completion(.error, nil)

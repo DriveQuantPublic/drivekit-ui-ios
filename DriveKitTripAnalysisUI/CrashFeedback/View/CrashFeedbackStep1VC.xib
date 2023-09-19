@@ -56,14 +56,14 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LpJ-JY-B7X">
                             <rect key="frame" x="75" y="40" width="264" height="264"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7RU-sq-cmq" customClass="UICircularProgressRing" customModule="UICircularProgressRing">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7RU-sq-cmq" customClass="UICircularProgressRing" customModule="UICircularProgressRingForDK">
                                     <rect key="frame" x="0.0" y="0.0" width="264" height="264"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="7RU-sq-cmq" secondAttribute="height" multiplier="1:1" id="wx3-hj-364"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qlg-y1-dhV" customClass="UICircularProgressRing" customModule="UICircularProgressRing">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qlg-y1-dhV" customClass="UICircularProgressRing" customModule="UICircularProgressRingForDK">
                                     <rect key="frame" x="0.0" y="0.0" width="264" height="264"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>

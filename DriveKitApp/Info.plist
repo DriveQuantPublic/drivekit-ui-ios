@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>com.drivequant.diagnosis.app.refresh</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -33,7 +37,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>This application needs to access the camera</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>To enable automatic trip detection and driving analysis without having to manipulate your phone, select the option \&quot;Always allow\&quot;. Good road...</string>
+	<string>To enable automatic trip detection and driving analysis without having to manipulate your phone, select the option \"Always allow\". Good road...</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>The application needs to know your location to analyze your trips, to provide driving scores and to enable use the automatic start mode.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
@@ -45,6 +49,7 @@
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>bluetooth-central</string>
+		<string>fetch</string>
 		<string>location</string>
 	</array>
 	<key>UIFileSharingEnabled</key>

@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.resource = ['DriveKitVehicleUI/DriveKitVehicle.xcassets', 'DriveKitVehicleUI/Localizable/*', 'DriveKitVehicleUI/**/*.xib', 'DriveKitVehicleUI/PrivacyInfo.xcprivacy']
 
   s.dependency 'DriveKitCommonUI', s.version.to_s
-  s.dependency 'DriveKitVehicle', '1.36-beta1'
+  s.dependency 'DriveKitVehicle', '1.36-beta2'
   s.dependency 'DriveKitTripAnalysis', '1.36-beta2'
 
   s.pod_target_xcconfig = {

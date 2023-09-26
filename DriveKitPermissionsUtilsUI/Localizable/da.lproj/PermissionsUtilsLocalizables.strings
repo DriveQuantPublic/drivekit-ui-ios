@@ -16,7 +16,7 @@
 "dk_perm_utils_app_diag_bluetooth_title"="Bluetooth-sensor";
 "dk_perm_utils_app_diag_email_account"="Bruger:";
 "dk_perm_utils_app_diag_email_activity"="Adgang til fysisk aktivitet:";
-"dk_perm_utils_app_diag_email_app"="Ansøgning:";
+"dk_perm_utils_app_diag_email_app"="App:";
 "dk_perm_utils_app_diag_email_app_version"="Version af applikationen:";
 "dk_perm_utils_app_diag_email_auto_reset"="Fastholder tilladelser:";
 "dk_perm_utils_app_diag_email_battery"="Optimering af batteriet:";
@@ -30,7 +30,7 @@
 "dk_perm_utils_app_diag_email_lastname"="Navn:";
 "dk_perm_utils_app_diag_email_location"="Tilladelse til at få adgang til din lokation:";
 "dk_perm_utils_app_diag_email_location_accuracy"="Præcis lokation:";
-"dk_perm_utils_app_diag_email_location_sensor"="Placering (GPS)";
+"dk_perm_utils_app_diag_email_location_sensor"="Placering (GPS):";
 "dk_perm_utils_app_diag_email_model"="Telefonmodel:";
 "dk_perm_utils_app_diag_email_nearby_title"="Tilladelse til at finde enheder i nærheden:";
 "dk_perm_utils_app_diag_email_network"="Mobilnetværk:";
@@ -40,13 +40,13 @@
 "dk_perm_utils_app_diag_email_phone"="Telefonnummer :";
 "dk_perm_utils_app_diag_email_societaire"="Medlemsnr.";
 "dk_perm_utils_app_diag_help_request_button"="Kontakt support";
-"dk_perm_utils_app_diag_help_request_text"="Hvis appen stadig ikke fungerer efter at have fulgt anbefalingerne ovenfor, kan du kontakte os via e -mail. Vi vender hurtigst muligt tilbage, og e-mailen vil indeholde alle de nødvendige oplysninger til at fejlfinde på ​​dit problem.";
+"dk_perm_utils_app_diag_help_request_text"="Hvis appen stadig ikke fungerer efter at have fulgt anbefalingerne ovenfor, kan du kontakte os via e-mail. Vi vender hurtigst muligt tilbage, og e-mailen vil indeholde alle de nødvendige oplysninger til at fejlfinde på ​​dit problem.";
 "dk_perm_utils_app_diag_help_request_title"="Registrerer appen ikke dine ture?";
 "dk_perm_utils_app_diag_learn_more"="Lær mere";
 "dk_perm_utils_app_diag_loc_sensor_ko"="Placeringssensoren er deaktiveret på din telefon. Appen fungerer ikke, hvis den ikke kan få adgang til disse oplysninger.";
 "dk_perm_utils_app_diag_loc_sensor_link"="Aktiver placeringssensor.";
 "dk_perm_utils_app_diag_loc_sensor_ok"="Placeringssensoren er aktiveret. Det måler køretøjets hastighed og retning. Hvis den er deaktiveret, vil applikationen ikke fungere.";
-"dk_perm_utils_app_diag_loc_sensor_title"="Lokation";
+"dk_perm_utils_app_diag_loc_sensor_title"="Adgang til placering";
 "dk_perm_utils_app_diag_location_full_ko_ios14"="Du skal give appen adgang til den nøjagtige placering af telefonen, så den kan analysere dine ture. Aktivér \"Præcis placering\" i indstillingerne \"Placering\".";
 "dk_perm_utils_app_diag_location_full_link"="Brug præcis lokation";
 "dk_perm_utils_app_diag_location_ko_android"="For at registrere og analysere dine ture skal appen have adgang til telefonens placering.";
@@ -55,7 +55,7 @@
 "dk_perm_utils_app_diag_location_ko_ios13"="Du skal give appen adgang til telefonens placering, så den kan registrere og analysere dine ture. I telefonindstillingerne er fire indstillinger tilgængelige: (1) aldrig, (2) spørg næste gang, (3) mens du bruger appen og (4) altid. Du skal vælge mulighed (4) for, at appen kan registrere dine ture.";
 "dk_perm_utils_app_diag_location_link"="Tillad adgang til placering";
 "dk_perm_utils_app_diag_location_ok"="Appen bruger lokation af ​​din telefon til at registrere og analysere dine ture. Det kan ikke fungere, hvis du ikke lader appen få adgang til placeringen.";
-"dk_perm_utils_app_diag_location_title"="Lokation";
+"dk_perm_utils_app_diag_location_title"="Placering";
 "dk_perm_utils_app_diag_nearby_title"="Enheder i nærheden";
 "dk_perm_utils_app_diag_network_ko"="Mobildata er ikke aktiveret. Din køretur bliver stadig registreret, men kan først vises, når der igen er oprettet forbindelse til et netværk.";
 "dk_perm_utils_app_diag_network_link"="Aktivér mobildata";

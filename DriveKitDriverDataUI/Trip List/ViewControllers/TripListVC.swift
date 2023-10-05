@@ -13,10 +13,11 @@ import DriveKitCoreModule
 import DriveKitDBTripAccessModule
 
 public class TripListVC: DKUIViewController {
-    @IBOutlet weak var tripsStackView: UIStackView!
-    weak var tripsTableView: UITableView?
-    @IBOutlet weak var filterViewContainer: UIView!
-    @IBOutlet weak var synthesis: UILabel!
+    @IBOutlet private weak var tripsContainer: UIView!
+    private weak var tripsTableView: UITableView?
+    @IBOutlet private weak var filterViewContainer: UIView!
+    @IBOutlet private weak var synthesis: UILabel!
+    @IBOutlet private weak var noTripLabelContainer: UIView!
     @IBOutlet private weak var noTripLabel: UILabel!
 
     private let filterView = DKFilterView.viewFromNib
@@ -44,8 +45,11 @@ public class TripListVC: DKUIViewController {
         self.addChild(tripsListTableVC)
         if let tripsTableView = tripsListTableVC.tableView {
             self.tripsTableView = tripsTableView
-            self.tripsStackView.addArrangedSubview(tripsTableView)
+            self.tripsContainer.embedSubview(tripsTableView)
         }
+
+        self.noTripLabelContainer.layer.cornerRadius = 12
+        self.noTripLabelContainer.backgroundColor = DKUIColors.primaryColor.color.withAlphaComponent(0.4)
 
         self.updating = true
         self.showLoader()
@@ -104,13 +108,13 @@ public class TripListVC: DKUIViewController {
 
         if self.viewModel.filteredTrips.isEmpty {
             if self.viewModel.hasTrips() {
-                self.noTripLabel.text = "dk_driverdata_no_trip_placeholder".dkDriverDataLocalized()
+                self.noTripLabel.attributedText = "dk_driverdata_no_trip_placeholder".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
             } else {
-                self.noTripLabel.text = "dk_driverdata_no_trips_recorded".dkDriverDataLocalized()
+                self.noTripLabel.attributedText = "dk_driverdata_no_trips_recorded".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
             }
-            self.noTripLabel.isHidden = false
+            self.noTripLabelContainer.isHidden = false
         } else {
-            self.noTripLabel.isHidden = true
+            self.noTripLabelContainer.isHidden = true
         }
         self.configureFilter()
     }

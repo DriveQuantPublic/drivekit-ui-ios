@@ -128,6 +128,7 @@
 "dk_vehicle_engine_electric"="Elektrisk";
 "dk_vehicle_engine_gasoline"="Benzin";
 "dk_vehicle_engine_gasoline_hybrid"="Benzin-elektrisk hybrid";
+"dk_vehicle_engine_gasoline_hybrid_plug_in"="Genopladelig Benzin-elektrisk hybrid";
 "dk_vehicle_error_message"="Der opstod en fejl under anmodningen, prøv igen senere";
 "dk_vehicle_failed_to_paired_beacon"="Beacon kunne ikke være forbundet med køretøjet, prøv igen senere.";
 "dk_vehicle_failed_to_paired_bluetooth"="Bluetoothforbindelsen til køretøjet mislykkedes, prøv igen senere.";

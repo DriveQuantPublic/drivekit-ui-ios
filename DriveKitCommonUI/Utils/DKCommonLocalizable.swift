@@ -97,6 +97,7 @@ public enum DKCommonLocalizable: String {
     periodSelectorMonth = "dk_common_period_selector_month",
     periodSelectorYear = "dk_common_period_selector_year",
     noTrips = "dk_common_no_trip",
+    noTripsYet = "dk_common_no_trips_yet",
     noDataYet = "dk_common_no_data_yet"
 
     public func text() -> String {

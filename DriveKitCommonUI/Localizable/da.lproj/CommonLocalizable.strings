@@ -48,6 +48,7 @@
 "dk_common_no_data_yet"="Du har endnu ikke nogen data";
 "dk_common_no_pseudo_set"="For at dele din ranglisteplacering med de andre deltagere kan du vælge et brugernavn. Uden et brugernavn vises du som anonym.";
 "dk_common_no_trip"="Ingen rejse";
+"dk_common_no_trips_yet"="Appen har endnu ikke analyseret dine ture.";
 "dk_common_ok"="Ok";
 "dk_common_period_selector_month"="Måned";
 "dk_common_period_selector_week"="Uge";

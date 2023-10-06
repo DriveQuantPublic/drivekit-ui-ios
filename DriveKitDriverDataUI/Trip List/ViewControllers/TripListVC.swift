@@ -48,8 +48,8 @@ public class TripListVC: DKUIViewController {
             self.tripsContainer.embedSubview(tripsTableView)
         }
 
-        self.noTripLabelContainer.layer.cornerRadius = 12
-        self.noTripLabelContainer.backgroundColor = DKUIColors.primaryColor.color.withAlphaComponent(0.4)
+        self.noTripLabelContainer.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
+        self.noTripLabelContainer.backgroundColor = DKUIColors.neutralColor.color
 
         self.updating = true
         self.showLoader()

@@ -87,7 +87,13 @@ extension LastTripsView: UICollectionViewDataSource {
                         cell = UICollectionViewCell()
                     }
                 case .showAllTrips:
-                    cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoreTripsViewCell", for: indexPath) as? MoreTripsViewCell ?? UICollectionViewCell()
+                    if let moreTripCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MoreTripsViewCell", for: indexPath) as? MoreTripsViewCell {
+                        moreTripCell.hasMoreTrips = !viewModel.trips.isEmpty
+                        cell = moreTripCell
+                    } else {
+                        cell = UICollectionViewCell()
+                    }
+
             }
             return cell
         } else {

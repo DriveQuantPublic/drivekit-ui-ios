@@ -2648,7 +2648,6 @@
 		63BE1EC826CEAFDA00CFEB8B /* LastTripsWidget */ = {
 			isa = PBXGroup;
 			children = (
-				63BE1ECF26CEF80B00CFEB8B /* Model */,
 				63BE1ECD26CEF7FD00CFEB8B /* ViewModel */,
 				63BE1ECE26CEF80500CFEB8B /* View */,
 				63BE1ECB26CEF7B500CFEB8B /* DKLastTripsUI.swift */,
@@ -2675,13 +2674,6 @@
 				63E75EBF26DD2347005A9FDB /* MoreTripsViewCell.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		63BE1ECF26CEF80B00CFEB8B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		63BE1EDB26D000A000CFEB8B /* LastTripsWidget */ = {

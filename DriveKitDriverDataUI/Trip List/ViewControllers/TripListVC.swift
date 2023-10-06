@@ -13,14 +13,12 @@ import DriveKitCoreModule
 import DriveKitDBTripAccessModule
 
 public class TripListVC: DKUIViewController {
-    @IBOutlet weak var tripsStackView: UIStackView!
-    weak var tripsTableView: UITableView?
-    @IBOutlet var noTripsView: UIView!
-    @IBOutlet var noTripsImage: UIImageView!
-    @IBOutlet var noTripsLabel: UILabel!
-    @IBOutlet weak var filterViewContainer: UIView!
-    @IBOutlet weak var synthesis: UILabel!
-    @IBOutlet weak var tripsViewPlaceholder: UIView!
+    @IBOutlet private weak var tripsContainer: UIView!
+    private weak var tripsTableView: UITableView?
+    @IBOutlet private weak var filterViewContainer: UIView!
+    @IBOutlet private weak var synthesis: UILabel!
+    @IBOutlet private weak var noTripLabelContainer: UIView!
+    @IBOutlet private weak var noTripLabel: UILabel!
 
     private let filterView = DKFilterView.viewFromNib
     
@@ -47,8 +45,11 @@ public class TripListVC: DKUIViewController {
         self.addChild(tripsListTableVC)
         if let tripsTableView = tripsListTableVC.tableView {
             self.tripsTableView = tripsTableView
-            self.tripsStackView.addArrangedSubview(tripsTableView)
+            self.tripsContainer.embedSubview(tripsTableView)
         }
+
+        self.noTripLabelContainer.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
+        self.noTripLabelContainer.backgroundColor = DKUIColors.neutralColor.color
 
         self.updating = true
         self.showLoader()
@@ -98,28 +99,22 @@ public class TripListVC: DKUIViewController {
             }))
             self.present(alert, animated: true, completion: nil)
         }
-        
-        if self.viewModel.filteredTrips.count > 0 {
-            self.noTripsView.isHidden = true
-            self.tripsTableView?.isHidden = false
-            self.tripsViewPlaceholder?.isHidden = true
-            self.tripsTableView?.reloadData()
-            if let refreshControl = self.tripsTableView?.refreshControl, refreshControl.isRefreshing {
-                refreshControl.endRefreshing()
-            }
-            self.configureSynthesis()
-        } else {
-            self.noTripsView.isHidden = false
-            self.tripsTableView?.isHidden = true
-            self.tripsViewPlaceholder?.isHidden = false
+
+        self.tripsTableView?.reloadData()
+        if let refreshControl = self.tripsTableView?.refreshControl, refreshControl.isRefreshing {
+            refreshControl.endRefreshing()
+        }
+        self.configureSynthesis()
+
+        if self.viewModel.filteredTrips.isEmpty {
             if self.viewModel.hasTrips() {
-                self.noTripsImage.image = DKDriverDataImages.noVehicleTrips.image?.withAlignmentRectInsets(UIEdgeInsets(top: -50, left: -50, bottom: -50, right: -50))
-                self.noTripsLabel.text = "dk_driverdata_no_trip_placeholder".dkDriverDataLocalized()
+                self.noTripLabel.attributedText = "dk_driverdata_no_trip_placeholder".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
             } else {
-                self.noTripsImage.image = DKDriverDataImages.placeholderNoTrips.image
-                self.noTripsLabel.text = "dk_driverdata_no_trips_recorded".dkDriverDataLocalized()
+                self.noTripLabel.attributedText = "dk_driverdata_no_trips_recorded".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
             }
-            self.synthesis.isHidden = true
+            self.noTripLabelContainer.isHidden = false
+        } else {
+            self.noTripLabelContainer.isHidden = true
         }
         self.configureFilter()
     }

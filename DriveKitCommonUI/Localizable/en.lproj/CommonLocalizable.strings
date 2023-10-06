@@ -48,6 +48,7 @@
 "dk_common_no_data_yet"="You don\'t have any data yet";
 "dk_common_no_pseudo_set"="To share your ranking with the other participants, we invite you to choose a pseudo. Without a pseudo you will appear as anonymous.";
 "dk_common_no_trip"="No trip";
+"dk_common_no_trips_yet"="The app has not yet analyzed your trips.";
 "dk_common_ok"="OK";
 "dk_common_period_selector_month"="Month";
 "dk_common_period_selector_week"="Week";

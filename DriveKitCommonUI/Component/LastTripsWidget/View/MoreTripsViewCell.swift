@@ -12,11 +12,26 @@ import UIKit
 final class MoreTripsViewCell: UICollectionViewCell, Nibable {
 
     @IBOutlet private weak var label: UILabel!
+    var hasMoreTrips: Bool = true {
+        didSet {
+            updateLabel()
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        self.label.attributedText = DKCommonLocalizable.seeMoreTrips.text().dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.complementaryFontColor).build()
+        updateLabel()
+    }
+
+    private func updateLabel() {
+        let textKey: DKCommonLocalizable
+        if self.hasMoreTrips {
+            textKey = DKCommonLocalizable.seeMoreTrips
+        } else {
+            textKey = DKCommonLocalizable.noTripsYet
+        }
+        self.label.attributedText = textKey.text().dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.complementaryFontColor).build()
     }
 
 }

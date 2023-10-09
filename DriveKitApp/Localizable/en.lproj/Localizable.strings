@@ -127,7 +127,7 @@
 "notif_trip_no_network_title"="The analysis of the trip is postponed";
 "notif_trip_postpone"="Stop the trip recording if you\'re not driving";
 "notif_trip_save_for_repost"="The trip could not be analyzed because the internet connection is too slow. It will be analyzed later.";
-"notif_trip_skiing_detected"="Your journey was made on skis";
+"notif_trip_skiing_detected"="Your trip was made on skis";
 "notif_trip_skiing_detected_not_displayed"="Your trip is not scored because it was made by ski";
 "notif_trip_started"="A trip is recording";
 "notif_trip_started_title"="Start of trip";
@@ -225,7 +225,7 @@
 "vehicle_intro_title"="Vehicle configuration";
 "welcome_header"="DriveKit starting";
 "welcome_invalid_key_title"="Your API key is not valid";
-"welcome_ko_description"="To use this demo application, it is essential to configure a valid API key. \n\nFor more information on configuring the key, follow the instructions in our documentation.\n\nIf you do not have an API key, contact us at contact@drivequant.com.";
+"welcome_ko_description"="To use this demo application, it is essential to configure a valid API key.\n\nFor more information on configuring the key, follow the instructions in our documentation.\n\nIf you do not have an API key, contact us at contact@drivequant.com.";
 "welcome_ko_title"="Your API key is not configured";
 "welcome_ok_button"="NEXT STEP";
 "welcome_ok_description"="Congratulations, you have built the DriveKit demo application 🎉\n\nThis application shows you how the DriveKit components work and guides you to install them in your application.\n\nYour API key is:\n\n%@\n\nUnder no circumstances it shouldn\'t be shared or used in multiple applications.";

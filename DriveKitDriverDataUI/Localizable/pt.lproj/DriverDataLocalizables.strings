@@ -18,7 +18,7 @@
 "dk_driverdata_beginning_unauthorized_call_info_content"="O aplicativo detectou o início de uma chamada não autorizada. Isso significa que a ligação não foi feita com um kit de mãos livres. Lidar com o telefone enquanto dirige é muito perigoso. Lembre -se de se proteger, seus passageiros e outros usuários da estrada. Se você precisar fazer uma ligação, seu veículo deve estar estacionado em um espaço de estacionamento com o motor desligado.";
 "dk_driverdata_calling_time"="Chamada de tempo =";
 "dk_driverdata_change_transportation_mode"="Mudar?";
-"dk_driverdata_confirm_delete_trip"="Excluir a viagem? \n\n deletion é definitiva e a viagem não será mais visível.";
+"dk_driverdata_confirm_delete_trip"="Excluir a viagem?\n\ndeletion é definitiva e a viagem não será mais visível.";
 "dk_driverdata_day"="Viagem do dia";
 "dk_driverdata_declared_transportation_mode"="Modo declarado:";
 "dk_driverdata_default_filter_item"="Todas as minhas viagens";

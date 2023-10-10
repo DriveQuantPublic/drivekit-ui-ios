@@ -26,11 +26,7 @@ class VehiclePickerViewModel {
     let previousVehicle: DKVehicle?
 
     var currentStep: VehiclePickerStep = .type
-    var previousSteps: [VehiclePickerStep] = [] {
-        didSet {
-            print("### \(previousSteps.count)")
-        }
-    }
+    var previousSteps: [VehiclePickerStep] = []
 
     var vehicleType: DKVehicleType?
     var truckType: DKTruckType?

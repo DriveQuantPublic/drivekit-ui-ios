@@ -132,8 +132,7 @@
 "dk_driverdata_mysynthesis_safety_level_average"="Il vostro punteggio è nella media, ma potete fare molto meglio! Per migliorare il vostro punteggio, controllate i consigli di guida che appaiono nei dettagli dei vostri viaggi.";
 "dk_driverdata_mysynthesis_safety_level_bad"="Il vostro stile di guida è troppo dinamico e rischioso. Guidate un po\' più dolcemente per contribuire a rendere le strade più sicure.";
 "dk_driverdata_mysynthesis_safety_level_excellent"="Bravo, il tuo stile di guida è esemplare 🏆 !";
-"dk_driverdata_mysynthesis_safety_level_good"="
-State guidando in modo sicuro, ma potete migliorare. Basta un po\' di impegno in più 💪";
+"dk_driverdata_mysynthesis_safety_level_good"="State guidando in modo sicuro, ma potete migliorare. Basta un po\' di impegno in più 💪";
 "dk_driverdata_mysynthesis_safety_level_low"="Il vostro punteggio è inferiore alla media. La buona notizia è che avete un ampio margine di miglioramento, quindi approfittatene!";
 "dk_driverdata_mysynthesis_safety_level_very_bad"="La vostra guida è troppo rischiosa. Sappiate che la maggior parte degli incidenti stradali è causata da una guida rischiosa. Cercate di adottare uno stile di guida più rilassato.";
 "dk_driverdata_mysynthesis_safety_level_very_good"="La vostra guida è molto sicura e siete vicini alla perfezione.";
@@ -168,11 +167,10 @@ State guidando in modo sicuro, ma potete migliorare. Basta un po\' di impegno in
 "dk_driverdata_no_speeding_events"="Nessun superamento";
 "dk_driverdata_no_speeding_title_congratulations"="👍 Bravo e grazie per la tua prudenza!";
 "dk_driverdata_no_trip_placeholder"="Non hai ancora fatto nessun viaggio con questo veicolo.";
-"dk_driverdata_no_trips_recorded"="Non hai ancora viaggiato.";
+"dk_driverdata_no_trips_recorded"="L\'applicazione non ha ancora analizzato i vostri viaggi.\n\nPer misurare il proprio stile di guida e ricevere suggerimenti e consigli su come migliorare, verificare che l\'applicazione sia configurata correttamente ed effettuare un viaggio.\n\nQuando è attivata la modalità automatica, l\'applicazione rileva e analizza i vostri movimenti anche quando non è aperta.";
 "dk_driverdata_phone_call_plur"="%@ telefonate";
 "dk_driverdata_phone_call_sing"="%@ telefonata";
-"dk_driverdata_profile_activity_always_text"="
-Da quando si usa l\'app, si usa l\'auto ogni settimana.";
+"dk_driverdata_profile_activity_always_text"="Da quando si usa l\'app, si usa l\'auto ogni settimana.";
 "dk_driverdata_profile_activity_high_title"="Si guida spesso";
 "dk_driverdata_profile_activity_low_title"="Non guidate molto";
 "dk_driverdata_profile_activity_main_plural_text"="Da quando si usa l\'app, si usa l\'auto circa %@ settimana su %@.";

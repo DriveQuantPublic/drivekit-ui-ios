@@ -18,7 +18,7 @@
 "dk_driverdata_beginning_unauthorized_call_info_content"="O aplicativo detectou o início de uma chamada não autorizada. Isso significa que a ligação não foi feita com um kit de mãos livres. Lidar com o telefone enquanto dirige é muito perigoso. Lembre -se de se proteger, seus passageiros e outros usuários da estrada. Se você precisar fazer uma ligação, seu veículo deve estar estacionado em um espaço de estacionamento com o motor desligado.";
 "dk_driverdata_calling_time"="Chamada de tempo =";
 "dk_driverdata_change_transportation_mode"="Mudar?";
-"dk_driverdata_confirm_delete_trip"="Excluir a viagem? \n\n deletion é definitiva e a viagem não será mais visível.";
+"dk_driverdata_confirm_delete_trip"="Excluir a viagem?\n\ndeletion é definitiva e a viagem não será mais visível.";
 "dk_driverdata_day"="Viagem do dia";
 "dk_driverdata_declared_transportation_mode"="Modo declarado:";
 "dk_driverdata_default_filter_item"="Todas as minhas viagens";
@@ -167,7 +167,7 @@
 "dk_driverdata_no_speeding_events"="Sem excedentes";
 "dk_driverdata_no_speeding_title_congratulations"="👍 Bravo e obrigado por sua cautela!";
 "dk_driverdata_no_trip_placeholder"="Você ainda não fez nenhuma viagem com este veículo.";
-"dk_driverdata_no_trips_recorded"="Faça sua primeira viagem para preencher esta lista";
+"dk_driverdata_no_trips_recorded"="Faça sua primeira viagem para preencher esta listaA aplicação ainda não analisou as suas viagens.\n\nPara medir o seu estilo de condução e receber dicas e conselhos sobre como melhorar, verifique se a aplicação está corretamente configurada e faça uma viagem.\n\nQuando o modo automático está ativado, a aplicação detecta e analisa os seus movimentos mesmo quando não está aberta.";
 "dk_driverdata_phone_call_plur"="%@ liga";
 "dk_driverdata_phone_call_sing"="%@ telefonema";
 "dk_driverdata_profile_activity_always_text"="Desde que você usa o aplicativo, você usou seu carro toda semana.";

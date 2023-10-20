@@ -26,7 +26,7 @@
 "dk_perm_utils_app_diag_email_comment"="Comente :";
 "dk_perm_utils_app_diag_email_email"="E-mail :";
 "dk_perm_utils_app_diag_email_firstname"="Primeiro nome :";
-"dk_perm_utils_app_diag_email_intro"="Olá, \n\nEstou tendo dificuldade com o aplicativo %@ e quero ser chamado de volta. \n\n";
+"dk_perm_utils_app_diag_email_intro"="Olá,\n\nEstou tendo dificuldade com o aplicativo %@ e quero ser chamado de volta.\n\n";
 "dk_perm_utils_app_diag_email_lastname"="Nome :";
 "dk_perm_utils_app_diag_email_location"="Autorização para acessar o local:";
 "dk_perm_utils_app_diag_email_location_accuracy"="Localização precisa:";

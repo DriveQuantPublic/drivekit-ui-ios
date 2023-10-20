@@ -26,7 +26,7 @@
 "dk_perm_utils_app_diag_email_comment"="Motivo (comentarios):";
 "dk_perm_utils_app_diag_email_email"="Correo electrónico :";
 "dk_perm_utils_app_diag_email_firstname"="Apellidos :";
-"dk_perm_utils_app_diag_email_intro"="Hola, \n\n Tengo problemas con la solicitud de %@ y quiero que me contacten de nuevo. \n\n";
+"dk_perm_utils_app_diag_email_intro"="Hola,\n\nTengo problemas con la solicitud de %@ y quiero que me contacten de nuevo.\n\n";
 "dk_perm_utils_app_diag_email_lastname"="Nombre :";
 "dk_perm_utils_app_diag_email_location"="Autorización para acceder a la ubicación:";
 "dk_perm_utils_app_diag_email_location_accuracy"="Ubicación exacta :";

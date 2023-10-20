@@ -225,7 +225,7 @@
 "vehicle_intro_title"="Køretøjets konfiguration";
 "welcome_header"="DriveKit starter";
 "welcome_invalid_key_title"="Din API-nøgle er ikke gyldig";
-"welcome_ko_description"="For at bruge denne demoapplikation er det vigtigt at konfigurere en gyldig API-nøgle. \n\nFølg instruktionerne i vores dokumentation for at få flere oplysninger om, hvordan du konfigurerer nøglen.\n\nHvis du ikke har en API-nøgle, kan du kontakte os på contact@drivequant.com.";
+"welcome_ko_description"="For at bruge denne demoapplikation er det vigtigt at konfigurere en gyldig API-nøgle.\n\nFølg instruktionerne i vores dokumentation for at få flere oplysninger om, hvordan du konfigurerer nøglen.\n\nHvis du ikke har en API-nøgle, kan du kontakte os på contact@drivequant.com.";
 "welcome_ko_title"="Din API-nøgle er ikke konfigureret";
 "welcome_ok_button"="NÆSTE TRIN";
 "welcome_ok_description"="Tillykke, du har bygget DriveKit-demoapplikationen 🎉\n\nDenne applikation viser dig, hvordan DriveKit-komponenterne fungerer, og guider dig til at installere dem i din applikation.\n\nDin API-nøgle er:\n\n%@\n\nDen må under ingen omstændigheder deles eller bruges i flere applikationer.";

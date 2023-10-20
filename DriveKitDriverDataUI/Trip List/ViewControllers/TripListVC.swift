@@ -120,7 +120,7 @@ public class TripListVC: DKUIViewController {
     }
     
     private func configureFilter() {
-        if self.viewModel.showFilter(), let items = viewModel.getTripFilterItem(), items.count > 1, self.viewModel.hasTrips() {
+        if self.viewModel.showFilter(), let items = viewModel.getTripFilterItem(), items.count > 1 {
             self.filterViewContainer.isHidden = false
             if filterView.superview == nil {
                 self.filterViewModel = DKFilterViewModel(items: items, currentItem: items[0], showPicker: true, delegate: self)

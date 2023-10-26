@@ -10,7 +10,6 @@
 import UIKit
 import DriveKitCommonUI
 import DriveKitDBAchievementAccessModule
-import UICircularProgressRingForDK
 
 class BadgeTableViewCell: UITableViewCell {
     @IBOutlet weak var levelsStackView: UIStackView!

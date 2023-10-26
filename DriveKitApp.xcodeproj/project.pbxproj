@@ -426,10 +426,7 @@
 		673A162C2AEA57FC0099A3F2 /* UICircularRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673A16222AEA57FC0099A3F2 /* UICircularRing.swift */; };
 		673A162D2AEA57FC0099A3F2 /* UICircularRingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673A16232AEA57FC0099A3F2 /* UICircularRingLayer.swift */; };
 		673A162F2AEA57FC0099A3F2 /* UICircularRingStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673A16252AEA57FC0099A3F2 /* UICircularRingStyle.swift */; };
-		673A16302AEA57FC0099A3F2 /* UICircularTimerRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673A16262AEA57FC0099A3F2 /* UICircularTimerRing.swift */; };
 		673A16312AEA57FC0099A3F2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673A16272AEA57FC0099A3F2 /* Extensions.swift */; };
-		673A16322AEA57FC0099A3F2 /* UICircularProgressRing.h in Headers */ = {isa = PBXBuildFile; fileRef = 673A16282AEA57FC0099A3F2 /* UICircularProgressRing.h */; };
-		673A16332AEA57FC0099A3F2 /* UICircularProgressRingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673A16292AEA57FC0099A3F2 /* UICircularProgressRingDelegate.swift */; };
 		673A16342AEA57FC0099A3F2 /* UICircularProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673A162A2AEA57FC0099A3F2 /* UICircularProgressRing.swift */; };
 		673A16352AEA57FC0099A3F2 /* UICircularRingValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673A162B2AEA57FC0099A3F2 /* UICircularRingValueFormatter.swift */; };
 		673D8CC728DCBB7C00D7CE3D /* DeleteAccountVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 673D8CC528DCBB7C00D7CE3D /* DeleteAccountVC.xib */; };
@@ -1331,10 +1328,7 @@
 		673A16222AEA57FC0099A3F2 /* UICircularRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICircularRing.swift; sourceTree = "<group>"; };
 		673A16232AEA57FC0099A3F2 /* UICircularRingLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICircularRingLayer.swift; sourceTree = "<group>"; };
 		673A16252AEA57FC0099A3F2 /* UICircularRingStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICircularRingStyle.swift; sourceTree = "<group>"; };
-		673A16262AEA57FC0099A3F2 /* UICircularTimerRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICircularTimerRing.swift; sourceTree = "<group>"; };
 		673A16272AEA57FC0099A3F2 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		673A16282AEA57FC0099A3F2 /* UICircularProgressRing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICircularProgressRing.h; sourceTree = "<group>"; };
-		673A16292AEA57FC0099A3F2 /* UICircularProgressRingDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICircularProgressRingDelegate.swift; sourceTree = "<group>"; };
 		673A162A2AEA57FC0099A3F2 /* UICircularProgressRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICircularProgressRing.swift; sourceTree = "<group>"; };
 		673A162B2AEA57FC0099A3F2 /* UICircularRingValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICircularRingValueFormatter.swift; sourceTree = "<group>"; };
 		673D8CC528DCBB7C00D7CE3D /* DeleteAccountVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeleteAccountVC.xib; sourceTree = "<group>"; };
@@ -2932,10 +2926,7 @@
 				673A16222AEA57FC0099A3F2 /* UICircularRing.swift */,
 				673A16232AEA57FC0099A3F2 /* UICircularRingLayer.swift */,
 				673A16252AEA57FC0099A3F2 /* UICircularRingStyle.swift */,
-				673A16262AEA57FC0099A3F2 /* UICircularTimerRing.swift */,
 				673A16272AEA57FC0099A3F2 /* Extensions.swift */,
-				673A16282AEA57FC0099A3F2 /* UICircularProgressRing.h */,
-				673A16292AEA57FC0099A3F2 /* UICircularProgressRingDelegate.swift */,
 				673A162A2AEA57FC0099A3F2 /* UICircularProgressRing.swift */,
 				673A162B2AEA57FC0099A3F2 /* UICircularRingValueFormatter.swift */,
 			);
@@ -3921,7 +3912,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				673A16322AEA57FC0099A3F2 /* UICircularProgressRing.h in Headers */,
 				3F0740DE2403BB65005A8D07 /* DriveKitCommonUI.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4971,7 +4961,6 @@
 				63ECE8ED26682058000F08D3 /* Bundle+DK.swift in Sources */,
 				3F03A4DF242C9983000924A0 /* DriveKitVehicleUIEntryPoint.swift in Sources */,
 				673A16312AEA57FC0099A3F2 /* Extensions.swift in Sources */,
-				673A16302AEA57FC0099A3F2 /* UICircularTimerRing.swift in Sources */,
 				673A16342AEA57FC0099A3F2 /* UICircularProgressRing.swift in Sources */,
 				678130A5276BF65600701CF1 /* DriveKitTripAnalysisUIEntryPoint.swift in Sources */,
 				67F2D36A2630F07E00ACC69A /* CircleView.swift in Sources */,
@@ -5007,7 +4996,6 @@
 				6760191029ACE47900CA595C /* DKRoundedBarView.swift in Sources */,
 				67F2D3672630F07E00ACC69A /* RankingJumpCell.swift in Sources */,
 				3F7524CE2407A89100AC22CC /* DKCommonLocalizable.swift in Sources */,
-				673A16332AEA57FC0099A3F2 /* UICircularProgressRingDelegate.swift in Sources */,
 				3FF68E84240966120071D74C /* DKImages.swift in Sources */,
 				3FF68E92240CF1300071D74C /* DKScoreType.swift in Sources */,
 				3FA2501B2524CE75000AB7D3 /* DKFilterPickerVC.swift in Sources */,

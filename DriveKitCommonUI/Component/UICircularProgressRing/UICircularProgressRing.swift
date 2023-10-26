@@ -29,21 +29,6 @@ final public class UICircularProgressRing: UICircularRing {
     // MARK: Members
 
     /**
-     The delegate for the UICircularRing
-
-     ## Important ##
-     When progress is done updating via UICircularRing.setValue(_:), the
-     finishedUpdatingProgressFor(_ ring: UICircularRing) will be called.
-
-     The ring will be passed to the delegate in order to keep track of
-     multiple ring updates if needed.
-
-     ## Author
-     Luis Padron
-     */
-    public weak var delegate: UICircularProgressRingDelegate?
-
-    /**
      The value property for the progress ring.
 
      ## Important ##
@@ -194,7 +179,6 @@ final public class UICircularProgressRing: UICircularRing {
 
         // call super class helper function to begin animating layer
         startAnimation(duration: duration) {
-            self.delegate?.didFinishProgress(for: self)
             self.completion?()
         }
 
@@ -215,7 +199,6 @@ final public class UICircularProgressRing: UICircularRing {
     public func pauseProgress() {
         // call super class helper to stop layer animation
         pauseAnimation()
-        delegate?.didPauseProgress(for: self)
     }
 
     /**
@@ -229,11 +212,8 @@ final public class UICircularProgressRing: UICircularRing {
     public func continueProgress() {
         // call super class helper to continue layer animation
         continueAnimation {
-            self.delegate?.didFinishProgress(for: self)
             self.completion?()
         }
-
-        delegate?.didContinueProgress(for: self)
     }
 
     /**
@@ -264,11 +244,9 @@ final public class UICircularProgressRing: UICircularRing {
 
     override func didUpdateValue(newValue: CGFloat) {
         super.didUpdateValue(newValue: newValue)
-        delegate?.didUpdateProgressValue(for: self, to: newValue)
     }
 
     override func willDisplayLabel(label: UILabel) {
         super.willDisplayLabel(label: label)
-        delegate?.willDisplayLabel(for: self, label)
     }
 }

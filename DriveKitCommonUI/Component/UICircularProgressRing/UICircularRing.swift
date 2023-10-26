@@ -30,7 +30,7 @@ import UIKit
 
  # UICircularRing
 
- This is the base class of `UICircularProgressRing` and `UICircularTimerRing`.
+ This is the base class of `UICircularProgressRing`.
  You should not instantiate this class, instead use one of the concrete classes provided
  or subclass and make your own.
 

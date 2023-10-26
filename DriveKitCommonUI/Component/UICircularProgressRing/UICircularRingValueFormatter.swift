@@ -22,52 +22,6 @@ public protocol UICircularRingValueFormatter {
     func string(for value: Any) -> String?
 }
 
-// MARK: UICircularTimerRingFormatter
-
-/**
- UICircularTimerRingFormatter
-
- The formatter used in UICircularTimerRing class, formats
- the ring value into a time string.
- */
-public struct UICircularTimerRingFormatter: UICircularRingValueFormatter {
-    // MARK: Members
-
-    /// defines the units allowed to be used when converting string, by default `[.minute, .second]`
-    public var units: NSCalendar.Unit {
-        didSet { formatter.allowedUnits = units }
-    }
-
-    /// the style of the formatted string, by default `.short`
-    public var style: DateComponentsFormatter.UnitsStyle {
-        didSet { formatter.unitsStyle = style }
-    }
-
-    /// formatter which formats the time string of the ring label
-    private var formatter: DateComponentsFormatter {
-        let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = units
-        formatter.unitsStyle = style
-        return formatter
-    }
-
-    // MARK: Init
-
-    public init(units: NSCalendar.Unit = [.minute, .second],
-                style: DateComponentsFormatter.UnitsStyle = .short) {
-        self.units = units
-        self.style = style
-    }
-
-    // MARK: API
-
-    /// formats the value of the ring using the date components formatter with given units/style
-    public func string(for value: Any) -> String? {
-        guard let value = value as? CGFloat else { return nil }
-        return formatter.string(from: value.interval)
-    }
-}
-
 // MARK: UICircularProgressRingFormatter
 
 /**

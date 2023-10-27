@@ -7,11 +7,10 @@
 //  Copyright © 2020 DriveQuant. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import DriveKitCommonUI
 import DriveKitDBAchievementAccessModule
 import DriveKitDriverAchievementModule
-import UICircularProgressRingForDK
 
 public class BadgeLevelDetailViewController: DKUIViewController {
     let viewModel: BadgeLevelViewModel

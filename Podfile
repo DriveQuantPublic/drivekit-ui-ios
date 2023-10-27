@@ -5,10 +5,6 @@ use_frameworks!
 #source 'https://gitlab.com/drivequant/drivekit/drivekit-specs.git'
 source 'https://github.com/CocoaPods/Specs.git'
 
-def circular_progress_ring
-  pod 'UICircularProgressRingForDK', '6.5.1'
-end
-
 def swiftlint
   pod 'SwiftLint'
 end
@@ -22,7 +18,6 @@ end
 
 target 'DriveKitDriverDataUI' do
   pod 'DriveKitDriverData', '1.37.0'
-  circular_progress_ring
   swiftlint
 end
 
@@ -34,13 +29,11 @@ end
 
 target 'DriveKitDriverAchievementUI' do
   pod 'DriveKitDriverAchievement', '1.37.0'
-  circular_progress_ring
   swiftlint
 end
 
 target 'DriveKitCommonUI' do
   pod 'DriveKitCore', '1.37.0'
-  circular_progress_ring
   swiftlint
 end
 
@@ -64,7 +57,6 @@ target 'DriveKitTripAnalysisUI' do
   pod 'DriveKitTripAnalysis', '1.37.0'
 
   pod 'WARangeSlider'
-  circular_progress_ring
   swiftlint
 end
 

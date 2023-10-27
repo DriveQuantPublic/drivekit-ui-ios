@@ -9,7 +9,6 @@
 
 import UIKit
 import DriveKitCommonUI
-import UICircularProgressRingForDK
 import DriveKitTripAnalysisModule
 
 class CrashFeedbackStep1VC: CrashFeedbackBaseVC {

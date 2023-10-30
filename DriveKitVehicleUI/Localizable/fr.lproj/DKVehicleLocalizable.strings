@@ -124,11 +124,11 @@
 "dk_vehicle_detection_mode_title"="Démarrage auto :";
 "dk_vehicle_engine_description"="Motorisation ?";
 "dk_vehicle_engine_diesel"="Diesel";
-"dk_vehicle_engine_diesel_hybrid"="Hybride Diesel Electrique";
+"dk_vehicle_engine_diesel_hybrid"="Hybride Diesel";
 "dk_vehicle_engine_electric"="Electrique";
 "dk_vehicle_engine_gasoline"="Essence";
-"dk_vehicle_engine_gasoline_hybrid"="Hybride Essence Electrique";
-"dk_vehicle_engine_gasoline_hybrid_plug_in"="Hybride Essence Rechargeable";
+"dk_vehicle_engine_gasoline_hybrid"="Hybride Essence";
+"dk_vehicle_engine_gasoline_hybrid_plug_in"="Hybride Essence Electrique Rechargeable";
 "dk_vehicle_error_message"="Une erreur est survenue, veuillez réessayer ultérieurement.";
 "dk_vehicle_failed_to_paired_beacon"="Le beacon n\'a pas pu être associé au véhicule, veuillez réessayer ultérieurement.";
 "dk_vehicle_failed_to_paired_bluetooth"="L\'association du bluetooth au véhicule a échoué, veuillez réessayer ultérieurement.";

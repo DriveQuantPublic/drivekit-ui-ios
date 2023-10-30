@@ -127,7 +127,7 @@
 "dk_vehicle_engine_diesel_hybrid"="Ibrido diesel-elettrico";
 "dk_vehicle_engine_electric"="Elettrico";
 "dk_vehicle_engine_gasoline"="Benzina";
-"dk_vehicle_engine_gasoline_hybrid"="Ibrido benzina-elettrico";
+"dk_vehicle_engine_gasoline_hybrid"="Benzina ibrida";
 "dk_vehicle_engine_gasoline_hybrid_plug_in"="Benzina ibrida ricaricabile";
 "dk_vehicle_error_message"="Si è verificato un errore durante la richiesta, riprova più tardi";
 "dk_vehicle_failed_to_paired_beacon"="Il beacon non può essere associato al veicolo, si prega di riprovare più tardi.";

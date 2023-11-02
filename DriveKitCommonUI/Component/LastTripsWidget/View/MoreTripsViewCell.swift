@@ -31,7 +31,7 @@ final class MoreTripsViewCell: UICollectionViewCell, Nibable {
         } else {
             textKey = DKCommonLocalizable.noTripsYet
         }
-        self.label.attributedText = textKey.text().dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
+        self.label.attributedText = textKey.text().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
     }
 
 }

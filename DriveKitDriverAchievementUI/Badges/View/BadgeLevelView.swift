@@ -7,10 +7,9 @@
 //  Copyright © 2020 DriveQuant. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import DriveKitCommonUI
 import DriveKitDBAchievementAccessModule
-import UICircularProgressRingForDK
 
 final class BadgeLevelView: UIView, Nibable {
     @IBOutlet weak var progressRing: UICircularProgressRing!

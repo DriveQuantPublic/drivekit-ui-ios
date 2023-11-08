@@ -69,7 +69,7 @@
 "dk_vehicle_beacon_setup_successlink_message"="Parabéns!\n\nO dispositivo %@ agora está associado ao veículo %@";
 "dk_vehicle_beacon_start_scan"="Coloque seu farol perto do telefone e toque na tela";
 "dk_vehicle_beacon_verify_wrong_vehicle"="O farol detectado não está associado a este veículo.";
-"dk_vehicle_beacon_wait_scan"="Espere cerca de 10 segundos...";
+"dk_vehicle_beacon_wait_scan"="Espere cerca de 10 segundos ...";
 "dk_vehicle_begin"="Começar";
 "dk_vehicle_bluetooth_already_paired"="O dispositivo Bluetooth %@ já está conectado a outro veículo. Você deve primeiro destacar o dispositivo antes de combiná -lo com %@.";
 "dk_vehicle_bluetooth_combination_view_title"="Vincular um dispositivo Bluetooth";
@@ -127,7 +127,7 @@
 "dk_vehicle_engine_diesel_hybrid"="Híbrido diesel-elétrico";
 "dk_vehicle_engine_electric"="Elétrico";
 "dk_vehicle_engine_gasoline"="Gasolina";
-"dk_vehicle_engine_gasoline_hybrid"="Híbrido a gasolina-elétrico";
+"dk_vehicle_engine_gasoline_hybrid"="Gasolina híbrida";
 "dk_vehicle_engine_gasoline_hybrid_plug_in"="Gasolina híbrida recarregável";
 "dk_vehicle_error_message"="Ocorreu um erro durante a solicitação, tente novamente posteriormente";
 "dk_vehicle_failed_to_paired_beacon"="O dispositivo não pôde estar associado ao veículo, tente novamente mais tarde.";

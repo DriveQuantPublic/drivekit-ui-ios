@@ -30,7 +30,7 @@
 "dk_common_ecodriving_decel_strong"="Forte desaceleração";
 "dk_common_ecodriving_decel_weak"="Desaceleração fraca";
 "dk_common_ecodriving_speed_bad_maintain"="Velocidade muito flutuante";
-"dk_common_ecodriving_speed_good_maintain"="Boa velocidade manter";
+"dk_common_ecodriving_speed_good_maintain"="Velocidade regular";
 "dk_common_ecodriving_speed_weak_maintain"="Velocidade irregular";
 "dk_common_edit"="Editar";
 "dk_common_error_empty_field"="Este campo não pode estar vazio";
@@ -66,7 +66,7 @@
 "dk_common_select_image_gallery"="Selecione uma foto existente";
 "dk_common_send_mail_error"="Seu dispositivo não está configurado para enviar e-mail";
 "dk_common_settings"="Configurações";
-"dk_common_speed"="Acelerar";
+"dk_common_speed"="Velocidade";
 "dk_common_speed_limit"="Limite de velocidade";
 "dk_common_take_picture"="Tirar uma foto";
 "dk_common_trip_plural"="viagens";

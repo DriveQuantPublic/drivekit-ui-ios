@@ -8,7 +8,6 @@
 //
 
 import UIKit
-import UICircularProgressRingForDK
 
 public final class CircularProgressView: UIView, Nibable {
     @IBOutlet var progressRing: UICircularProgressRing!

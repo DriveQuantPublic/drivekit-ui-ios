@@ -127,7 +127,7 @@
 "dk_vehicle_engine_diesel_hybrid"="Dieselhybrid";
 "dk_vehicle_engine_electric"="Elektromotor";
 "dk_vehicle_engine_gasoline"="Ottomotor";
-"dk_vehicle_engine_gasoline_hybrid"="Benzin-Elektro-Hybrid";
+"dk_vehicle_engine_gasoline_hybrid"="Hybrid Benzin";
 "dk_vehicle_engine_gasoline_hybrid_plug_in"="Plug-in-Hybrid Benzin";
 "dk_vehicle_error_message"="Bei der Anfrage ist ein Fehler aufgetreten. Versuchen Sie es später erneut.";
 "dk_vehicle_failed_to_paired_beacon"="Die Beacon konnte nicht mit dem Fahrzeug in Verbindung gebracht werden, bitte versuchen Sie es später noch einmal.";

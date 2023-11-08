@@ -14,7 +14,7 @@
 "dk_tripwidget_confirm_continuetrip_subtitle"="Votre trajet n\'est pas terminé et il va se poursuivre";
 "dk_tripwidget_confirm_continuetrip_title"="Continuer";
 "dk_tripwidget_confirm_endtrip_subtitle"="Votre trajet sera analysé et enregistré";
-"dk_tripwidget_confirm_endtrip_title"="J\'ai terminé mon trajet";
+"dk_tripwidget_confirm_endtrip_title"="J\’ai terminé mon trajet";
 "dk_tripwidget_disable_autostart_title"="Désactiver temporairement l’enregistrement automatique de vos trajets ?";
 "dk_tripwidget_record_title"="Trajet commencé à %@";
 "dk_tripwidget_start_title"="Enregistrer un trajet";

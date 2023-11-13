@@ -369,34 +369,6 @@ extension NotificationManager: TripListener {
         sendErrorNotification(.noNetwork)
     }
 
-    func tripPoint(tripPoint: TripPoint) {
-        // Nothing to do
-    }
-
-    func beaconDetected() {
-        // Nothing to do.
-    }
-
-    func significantLocationChangeDetected(location: CLLocation) {
-        // Nothing to do.
-    }
-
-    func sdkStateChanged(state: State) {
-        // Nothing to do.
-    }
-
-    func potentialTripStart(startMode: StartMode) {
-        // Nothing to do.
-    }
-
-    func crashDetected(crashInfo: DKCrashInfo) {
-        // Nothing to do.
-    }
-
-    func crashFeedbackSent(crashInfo: DKCrashInfo, feedbackType: DKCrashFeedbackType, severity: DKCrashFeedbackSeverity) {
-        // Nothing to do.
-    }
-
     private enum PostGenericResponseError: Int {
         case unknown = -1
         case noError = 0

@@ -165,6 +165,9 @@ import DriveKitCommonUI
         return updated
     }
 
+    public func getDeviceConfigurationEventNotification() -> DKDiagnosisNotificationInfo? {
+        return DKDeviceConfigurationEventNotificationManager.shared.getNotificationInfo()
+    }
 }
 
 public extension Notification.Name {

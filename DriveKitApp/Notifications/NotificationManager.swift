@@ -16,6 +16,7 @@ import DriveKitDriverDataUI
 import DriveKitTripAnalysisModule
 import DriveKitTripAnalysisUI
 import UserNotifications
+import DriveKitPermissionsUtilsUI
 
 class NotificationManager: NSObject {
     private static let shared = NotificationManager()
@@ -111,11 +112,27 @@ class NotificationManager: NSObject {
     private func configure() {
         DriveKit.shared.registerNotificationDelegate(self)
         DriveKitTripAnalysis.shared.addTripListener(self)
+        DriveKit.shared.addDeviceConfigurationDelegate(self)
     }
 
     private func reset() {
         DriveKit.shared.unregisterNotificationDelegate(self)
         DriveKitTripAnalysis.shared.removeTripListener(self)
+        DriveKit.shared.removeDeviceConfigurationDelegate(self)
+    }
+
+    private static func updateDeviceConfigurationNotification() {
+        let notificationInfo: DKDiagnosisNotificationInfo?
+        if DriveKitConfig.isTripAnalysisAutoStartEnabled() {
+            notificationInfo = DriveKitPermissionsUtilsUI.shared.getDeviceConfigurationEventNotification()
+        } else {
+            notificationInfo = nil
+        }
+        if let notificationInfo = notificationInfo {
+            self.sendNotification(.criticalDeviceConfiguration(notificationInfo))
+        } else {
+            self.removeNotification(.criticalDeviceConfiguration(.none))
+        }
     }
 }
 
@@ -243,6 +260,9 @@ extension NotificationManager: TripListener {
                         canPostpone: DriveKitTripAnalysisUI.shared.isUserAllowedToCancelTrip
                     )
                 )
+            case .criticalDeviceConfiguration(_):
+                // Nothing to remove.
+                break
         }
     }
 
@@ -376,6 +396,12 @@ extension NotificationManager: TripListener {
         case noBeaconDetected = 29
         case invalidBeaconDetected = 30
         case duplicateTrip = 31
+    }
+}
+
+extension NotificationManager: DKDeviceConfigurationDelegate {
+    func deviceConfigurationDidChange(event: DKDeviceConfigurationEvent) {
+        NotificationManager.updateDeviceConfigurationNotification()
     }
 }
 

@@ -78,7 +78,7 @@ enum NotificationType {
             case .tripTooShort:
                 categoryIdentifier = NotificationCategory.TripAnalysis.end.identifier
             case .criticalDeviceConfiguration:
-                categoryIdentifier = nil
+                categoryIdentifier = NotificationCategory.deviceConfiguration
         }
         return categoryIdentifier
     }
@@ -109,7 +109,7 @@ enum NotificationType {
             case .tripCancelled:
                 return .tripCancelled
             case .criticalDeviceConfiguration:
-                return .deviceConfig
+                return .deviceConfiguration
         }
     }
 

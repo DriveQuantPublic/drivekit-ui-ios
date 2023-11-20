@@ -37,8 +37,8 @@ private extension NotificationChannel {
                 return "notif.tripCancelled"
             case .tripEnded:
                 return "notif.tripEnded"
-            case .deviceConfig:
-                return "notif.deviceConfig"
+            case .deviceConfiguration:
+                return "notif.deviceConfiguration"
         }
     }
 }

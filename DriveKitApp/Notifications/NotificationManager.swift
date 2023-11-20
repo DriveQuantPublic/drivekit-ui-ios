@@ -184,6 +184,8 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
                     let hasAdvices = content.userInfo["hasAdvices"] as? Bool ?? false
                     showTrip(with: itineraryId, hasAdvices: hasAdvices)
                 }
+            case NotificationCategory.deviceConfiguration:
+                showDiagnosis()
             default:
                 break
         }
@@ -216,6 +218,16 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
             let navigationController = UINavigationController(rootViewController: detailVC)
             navigationController.configure()
             rootViewController.present(navigationController, animated: true)
+        }
+    }
+
+    func showDiagnosis() {
+        if let appDelegate = UIApplication.shared.delegate,
+           let appNavigationController = appDelegate.window??.rootViewController as? AppNavigationController {
+            let diagnosisViewController = DriveKitPermissionsUtilsUI.shared.getDiagnosisViewController()
+            let navigationController = UINavigationController(rootViewController: diagnosisViewController)
+            navigationController.configure()
+            appNavigationController.present(navigationController, animated: true)
         }
     }
 }

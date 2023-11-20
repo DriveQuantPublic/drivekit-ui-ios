@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  ChallengeResultsVC.swift
 //  DriveKitChallengeUI
@@ -62,7 +62,10 @@ extension ChallengeResultsVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 1 {
-            if let cell: ChallengeResultOverviewCell = tableView.dequeueReusableCell(withIdentifier: "ChallengeResultOverviewCellIdentifier", for: indexPath) as? ChallengeResultOverviewCell, let viewModel = viewModel {
+            if let cell: ChallengeResultOverviewCell = tableView.dequeueReusableCell(
+                withIdentifier: "ChallengeResultOverviewCellIdentifier",
+                for: indexPath
+            ) as? ChallengeResultOverviewCell, let viewModel = viewModel {
                 cell.clipsToBounds = false
                 cell.selectionStyle = .none
                 cell.configureCell(viewModel: viewModel)

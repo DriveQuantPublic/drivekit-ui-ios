@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  ChallengeItemViewModel.swift
 //  DriveKitChallengeUI
@@ -40,13 +40,16 @@ struct ChallengeItemViewModel {
     static func formatStartAndEndDates(startDate: Date,
                                        endDate: Date,
                                        tintColor: UIColor,
-                              alignment: NSTextAlignment = NSTextAlignment.left) -> NSMutableAttributedString {
+                                       alignment: NSTextAlignment = NSTextAlignment.left) -> NSMutableAttributedString {
 
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = alignment
 
-        return NSMutableAttributedString(string: "\(startDate.format(pattern: .standardDate)) - \(endDate.format(pattern: .standardDate))",
-                                         attributes: [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 14),
-                         NSAttributedString.Key.foregroundColor: tintColor, NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        return NSMutableAttributedString(
+            string: "\(startDate.format(pattern: .standardDate)) - \(endDate.format(pattern: .standardDate))",
+            attributes: [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 14),
+                         NSAttributedString.Key.foregroundColor: tintColor,
+                         NSAttributedString.Key.paragraphStyle: paragraphStyle]
+        )
     }
 }

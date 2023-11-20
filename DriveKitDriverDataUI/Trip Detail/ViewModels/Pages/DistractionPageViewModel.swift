@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  DistractionPageViewModel.swift
 //  drivekit-test-app

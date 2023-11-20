@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  BeaconDetailViewModel.swift
 //  DriveKitVehicleUI
@@ -19,7 +19,14 @@ class BeaconDetailViewModel {
         if let vehicleName = vehicle?.computeName().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build() {
             data.append(["dk_beacon_vehicule_linked": vehicleName])
         } else {
-            data.append(["dk_beacon_vehicule_linked": "dk_beacon_vehicle_unknown".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()])
+            data.append([
+                "dk_beacon_vehicule_linked": "dk_beacon_vehicle_unknown"
+                    .dkVehicleLocalized()
+                    .dkAttributedString()
+                    .font(dkFont: .primary, style: .normalText)
+                    .color(.complementaryFontColor)
+                    .build()
+            ])
         }
         let idx = beacon.proximityUUID.uuidString.index(beacon.proximityUUID.uuidString.startIndex, offsetBy: 7)
         let uuid = String(beacon.proximityUUID.uuidString.lowercased()[...idx]) + "..."
@@ -39,7 +46,13 @@ class BeaconDetailViewModel {
         data.append(["dk_vehicle_beacon_major": "\(beacon.major)".dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()])
         data.append(["dk_vehicle_beacon_minor": "\(beacon.minor)".dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()])
         data.append(["dk_beacon_battery": batteryLevel.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()])
-        data.append(["dk_beacon_distance": "\((distance ?? beacon.accuracy).formatMeterDistance())".dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()])
+        data.append([
+            "dk_beacon_distance": "\((distance ?? beacon.accuracy).formatMeterDistance())"
+                .dkAttributedString()
+                .font(dkFont: .primary, style: .highlightSmall)
+                .color(.primaryColor)
+                .build()
+        ])
         data.append(["dk_beacon_rssi": "\(rssiValue) dBm".dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()])
         data.append(["dk_beacon_tx": txPowerString.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()])
     }

@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  CrashFeedbackStep2ViewModel.swift
 //  DriveKitTripAnalysisUI
@@ -13,10 +13,6 @@ import DriveKitCommonUI
 
 struct CrashFeedbackStep2ViewModel {
     var crashInfo: DKCrashInfo
-
-    init(crashInfo: DKCrashInfo) {
-        self.crashInfo = crashInfo
-    }
 
     func sendNoCrash() {
         DriveKitTripAnalysis.shared.sendCrashFeedback(
@@ -42,10 +38,20 @@ struct CrashFeedbackStep2ViewModel {
     func getMessageAttributedText() -> NSAttributedString {
         let titleParagraphStyle = NSMutableParagraphStyle()
         titleParagraphStyle.lineHeightMultiple = 0.85
-        let titleString = "dk_crash_detection_feedback_step2_title".dkTripAnalysisLocalized().dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 25, traits: nil)).color(DKUIColors.mainFontColor.color).build()
+        let titleString = "dk_crash_detection_feedback_step2_title"
+            .dkTripAnalysisLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: DKStyle(size: 25, traits: nil))
+            .color(DKUIColors.mainFontColor.color)
+            .build()
         titleString.addAttributes([NSAttributedString.Key.paragraphStyle: titleParagraphStyle], range: NSRange(location: 0, length: titleString.length))
 
-        let descriptionString = "dk_crash_detection_feedback_step2_description".dkTripAnalysisLocalized().dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 25, traits: nil)).color(DKUIColors.mainFontColor.color).build()
+        let descriptionString = "dk_crash_detection_feedback_step2_description"
+            .dkTripAnalysisLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: DKStyle(size: 25, traits: nil))
+            .color(DKUIColors.mainFontColor.color)
+            .build()
         return "%@\n\n%@".dkAttributedString().buildWithArgs(titleString, descriptionString)
     }
 

@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  ChallengeParticipationViewModel.swift
 //  DriveKitChallengeUI
@@ -36,10 +36,20 @@ public class ChallengeParticipationViewModel {
     func getTitleAttributedString() -> NSAttributedString {
         let alignment = NSMutableParagraphStyle()
         alignment.alignment = .center
-        let titleAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 20).with(.traitBold), NSAttributedString.Key.foregroundColor: DKUIColors.mainFontColor.color, NSAttributedString.Key.paragraphStyle: alignment]
+        let titleAttributes = [
+            NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 20).with(.traitBold),
+            NSAttributedString.Key.foregroundColor: DKUIColors.mainFontColor.color,
+            NSAttributedString.Key.paragraphStyle: alignment
+        ]
         let titleString = challenge.title
         var titleAttributedString = NSMutableAttributedString(string: titleString, attributes: titleAttributes)
-        titleAttributedString = "%@\n\n\n%@".dkAttributedString().buildWithArgs(titleAttributedString, ChallengeItemViewModel.formatStartAndEndDates(startDate: challenge.startDate, endDate: challenge.endDate, tintColor: DKUIColors.complementaryFontColor.color, alignment: .center))
+        titleAttributedString = "%@\n\n\n%@".dkAttributedString().buildWithArgs(titleAttributedString, ChallengeItemViewModel
+            .formatStartAndEndDates(
+                startDate: challenge.startDate,
+                endDate: challenge.endDate,
+                tintColor: DKUIColors.complementaryFontColor.color,
+                alignment: .center
+            ))
         return titleAttributedString
     }
 
@@ -47,7 +57,7 @@ public class ChallengeParticipationViewModel {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
         let attributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 16),
-                NSAttributedString.Key.paragraphStyle: paragraphStyle]
+                          NSAttributedString.Key.paragraphStyle: paragraphStyle]
         return NSAttributedString(string: challenge.challengeDescription, attributes: attributes)
     }
 
@@ -56,7 +66,7 @@ public class ChallengeParticipationViewModel {
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.alignment = .center
             let attributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 16),
-                    NSAttributedString.Key.paragraphStyle: paragraphStyle]
+                              NSAttributedString.Key.paragraphStyle: paragraphStyle]
             return NSAttributedString(string: conditionsDescription, attributes: attributes)
         } else {
             return nil
@@ -67,8 +77,8 @@ public class ChallengeParticipationViewModel {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
         let attributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 20).with(.traitBold),
-                NSAttributedString.Key.foregroundColor: UIColor.white,
-                NSAttributedString.Key.paragraphStyle: paragraphStyle]
+                          NSAttributedString.Key.foregroundColor: UIColor.white,
+                          NSAttributedString.Key.paragraphStyle: paragraphStyle]
         return NSAttributedString(string: "dk_challenge_registered_confirmation".dkChallengeLocalized(), attributes: attributes)
     }
 
@@ -76,8 +86,8 @@ public class ChallengeParticipationViewModel {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
         let attributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 16),
-                NSAttributedString.Key.foregroundColor: UIColor.white,
-                NSAttributedString.Key.paragraphStyle: paragraphStyle]
+                          NSAttributedString.Key.foregroundColor: UIColor.white,
+                          NSAttributedString.Key.paragraphStyle: paragraphStyle]
         return NSAttributedString(string: "dk_challenge_unranked_conditions_info".dkChallengeLocalized(), attributes: attributes)
     }
     func getCountDownAttributedString() -> NSAttributedString {
@@ -86,8 +96,8 @@ public class ChallengeParticipationViewModel {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
         let attributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 16),
-                NSAttributedString.Key.foregroundColor: UIColor.white,
-                NSAttributedString.Key.paragraphStyle: paragraphStyle]
+                          NSAttributedString.Key.foregroundColor: UIColor.white,
+                          NSAttributedString.Key.paragraphStyle: paragraphStyle]
         let challengeStartString: String = "dk_challenge_start".dkChallengeLocalized() + "\n"
         attString.append(NSAttributedString(string: challengeStartString, attributes: attributes))
         let text = getTimeAttributedString()
@@ -179,7 +189,12 @@ public class ChallengeParticipationViewModel {
         }
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
-        countdownAttributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.paragraphStyle: paragraphStyle], range: NSRange(location: 0, length: countdownAttributedString.length))
+        countdownAttributedString.addAttributes(
+            [NSAttributedString.Key.foregroundColor: UIColor.white,
+             NSAttributedString.Key.paragraphStyle: paragraphStyle],
+            range: NSRange(location: 0,
+                           length: countdownAttributedString.length)
+        )
         return countdownAttributedString
     }
 

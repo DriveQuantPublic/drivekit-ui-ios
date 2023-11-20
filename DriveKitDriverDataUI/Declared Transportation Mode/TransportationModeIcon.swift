@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  TransportationModeIcon.swift
 //  IFPClient
@@ -41,7 +41,10 @@ class TransportationModeIcon: UIImageView {
             let size = self.bounds.size
             let delta = CGFloat(3)
             let selectionViewSize = min(size.width, size.height) - delta
-            self.selectionView.frame = CGRect(x: (size.width - selectionViewSize) / 2, y: (size.height - selectionViewSize) / 2, width: selectionViewSize, height: selectionViewSize)
+            self.selectionView.frame = CGRect(x: (size.width - selectionViewSize) / 2, 
+                                              y: (size.height - selectionViewSize) / 2,
+                                              width: selectionViewSize,
+                                              height: selectionViewSize)
             self.selectionView.layer.cornerRadius = selectionViewSize / 2
         }
     }

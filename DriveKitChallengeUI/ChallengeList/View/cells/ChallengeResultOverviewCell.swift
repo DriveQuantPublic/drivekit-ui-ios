@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers function_parameter_count
 //
 //  ChallengeResultOverviewCell.swift
 //  DriveKitChallengeUI
@@ -25,7 +25,10 @@ final class ChallengeResultOverviewCell: UITableViewCell, Nibable {
     var titleAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 20).with(.traitBold), NSAttributedString.Key.foregroundColor: DKUIColors.mainFontColor.color]
     var majorAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 48).with(.traitBold), NSAttributedString.Key.foregroundColor: DKUIColors.primaryColor.color]
     var valueAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 20).with(.traitBold), NSAttributedString.Key.foregroundColor: DKUIColors.mainFontColor.color]
-    var indiceAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 16).with(.traitBold), NSAttributedString.Key.foregroundColor: DKUIColors.complementaryFontColor.color]
+    var indiceAttributes = [
+        NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 16).with(.traitBold),
+        NSAttributedString.Key.foregroundColor: DKUIColors.complementaryFontColor.color
+    ]
 
     var indiceValue: String = DKCommonLocalizable.unitKilometer.text().uppercased()
 
@@ -113,16 +116,37 @@ final class ChallengeResultOverviewCell: UITableViewCell, Nibable {
                                  minString: viewModel.minScore.format(maximumFractionDigits: 2, minimumFractionDigits: 0))
         case .distance:
             configureChallenge(value: viewModel.driverScore.formatKilometerDistance(appendingUnit: false, minDistanceToRemoveFractions: 10))
-            configureProgressBar(maxValue: viewModel.maxScore, minValue: viewModel.minScore, score: viewModel.driverScore, value: viewModel.driverScore.formatKilometerDistance(appendingUnit: false, minDistanceToRemoveFractions: 10), maxString: viewModel.maxScore.formatKilometerDistance(appendingUnit: false, minDistanceToRemoveFractions: 10), minString: viewModel.minScore.formatKilometerDistance(appendingUnit: false, minDistanceToRemoveFractions: 10))
+            configureProgressBar(
+                maxValue: viewModel.maxScore,
+                minValue: viewModel.minScore,
+                score: viewModel.driverScore,
+                value: viewModel.driverScore.formatKilometerDistance(appendingUnit: false, minDistanceToRemoveFractions: 10),
+                maxString: viewModel.maxScore.formatKilometerDistance(appendingUnit: false, minDistanceToRemoveFractions: 10),
+                minString: viewModel.minScore.formatKilometerDistance(appendingUnit: false, minDistanceToRemoveFractions: 10)
+            )
         case .duration:
             let duration = viewModel.driverScore * 3_600
             let maxDuration = viewModel.maxScore * 3_600
             let minDuration = viewModel.minScore * 3_600
             configureChallenge(value: duration.ceilSecondDuration(ifGreaterThan: 600).formatSecondDuration(maxUnit: .hour))
-            configureProgressBar(maxValue: maxDuration, minValue: minDuration, score: duration, value: duration.ceilSecondDuration(ifGreaterThan: 600).formatSecondDuration(maxUnit: .hour), maxString: maxDuration.ceilSecondDuration(ifGreaterThan: 600).formatSecondDuration(maxUnit: .hour), minString: minDuration.ceilSecondDuration(ifGreaterThan: 600).formatSecondDuration(maxUnit: .hour) )
+            configureProgressBar(
+                maxValue: maxDuration,
+                minValue: minDuration,
+                score: duration,
+                value: duration.ceilSecondDuration(ifGreaterThan: 600).formatSecondDuration(maxUnit: .hour),
+                maxString: maxDuration.ceilSecondDuration(ifGreaterThan: 600).formatSecondDuration(maxUnit: .hour),
+                minString: minDuration.ceilSecondDuration(ifGreaterThan: 600).formatSecondDuration(maxUnit: .hour)
+            )
         case .nbTrips:
             configureChallenge(value: viewModel.driverScore.stringWithoutZeroFraction)
-            configureProgressBar(maxValue: viewModel.maxScore, minValue: viewModel.minScore, score: Double(viewModel.numberTrip), value: viewModel.driverScore.stringWithoutZeroFraction, maxString: viewModel.maxScore.stringWithoutZeroFraction, minString: viewModel.minScore.stringWithoutZeroFraction)
+            configureProgressBar(
+                maxValue: viewModel.maxScore,
+                minValue: viewModel.minScore,
+                score: Double(viewModel.numberTrip),
+                value: viewModel.driverScore.stringWithoutZeroFraction,
+                maxString: viewModel.maxScore.stringWithoutZeroFraction,
+                minString: viewModel.minScore.stringWithoutZeroFraction
+            )
         }
     }
 }

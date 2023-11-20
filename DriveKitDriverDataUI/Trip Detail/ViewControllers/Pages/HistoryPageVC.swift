@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  HistoryPageVC.swift
 //  drivekit-test-app

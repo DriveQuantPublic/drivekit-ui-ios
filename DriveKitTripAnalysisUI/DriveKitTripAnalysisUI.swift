@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  DriveKitTripAnalysisUI.swift
 //  DriveKitTripAnalysisUI
@@ -99,8 +99,8 @@ extension DriveKitTripAnalysisUI: DriveKitTripAnalysisUIEntryPoint {
 
 extension DriveKitTripAnalysisUI: UNUserNotificationCenterDelegate {
     public func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                didReceive response: UNNotificationResponse,
-                                withCompletionHandler completionHandler: @escaping () -> Void) {
+                                       didReceive response: UNNotificationResponse,
+                                       withCompletionHandler completionHandler: @escaping () -> Void) {
         switch response.actionIdentifier {
         case UNNotificationDismissActionIdentifier: // User did dismiss a notification
             completionHandler()
@@ -113,7 +113,11 @@ extension DriveKitTripAnalysisUI: UNUserNotificationCenterDelegate {
         }
     }
 
-    public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    public func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        willPresent notification: UNNotification,
+        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
+    ) {
         let isForeground = UIApplication.shared.applicationState == .active
         if isForeground {
             let content = notification.request.content

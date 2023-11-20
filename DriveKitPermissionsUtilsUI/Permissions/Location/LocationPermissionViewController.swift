@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  LocationPermissionViewController.swift
 //  DriveKitPermissionsUtilsUI
@@ -47,7 +46,12 @@ class LocationPermissionViewController: PermissionViewController {
     }
 
     private func updateView() {
-        self.titleLabel.attributedText = "dk_perm_utils_permissions_location_title".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
+        self.titleLabel.attributedText = "dk_perm_utils_permissions_location_title"
+            .dkPermissionsUtilsLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .highlightNormal)
+            .color(.mainFontColor)
+            .build()
 
         self.actionButton.configure(title: "dk_perm_utils_permissions_location_button_ios".dkPermissionsUtilsLocalized(), style: .full)
 
@@ -63,29 +67,64 @@ class LocationPermissionViewController: PermissionViewController {
     private func updateViewIOS14() {
         updateViewIOS13()
 
-        self.descriptionLabel.attributedText = "dk_perm_utils_permissions_location_ios14_ko".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        self.descriptionLabel.attributedText = "dk_perm_utils_permissions_location_ios14_ko"
+            .dkPermissionsUtilsLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .normalText)
+            .color(.mainFontColor)
+            .build()
 
         self.settingsContainer4.isHidden = false
-        self.settingsDescription4.attributedText = "dk_perm_utils_permissions_phone_settings_location_step4".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        self.settingsDescription4.attributedText = "dk_perm_utils_permissions_phone_settings_location_step4"
+            .dkPermissionsUtilsLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .normalText)
+            .color(.mainFontColor)
+            .build()
     }
 
     private func updateViewIOS13() {
-        self.descriptionLabel.attributedText = "dk_perm_utils_permissions_location_ios13_ko".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        self.descriptionLabel.attributedText = "dk_perm_utils_permissions_location_ios13_ko"
+            .dkPermissionsUtilsLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .normalText)
+            .color(.mainFontColor)
+            .build()
 
         self.settingsContainer1.isHidden = false
-        self.settingsDescription1.attributedText = "dk_perm_utils_permissions_phone_settings_location_step1".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        self.settingsDescription1.attributedText = "dk_perm_utils_permissions_phone_settings_location_step1"
+            .dkPermissionsUtilsLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .normalText)
+            .color(.mainFontColor)
+            .build()
 
         self.settingsContainer2.isHidden = false
-        self.settingsDescription2.attributedText = "dk_perm_utils_permissions_phone_settings_location_step2".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        self.settingsDescription2.attributedText = "dk_perm_utils_permissions_phone_settings_location_step2"
+            .dkPermissionsUtilsLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .normalText)
+            .color(.mainFontColor)
+            .build()
 
         self.settingsContainer3.isHidden = false
-        self.settingsDescription3.attributedText = "dk_perm_utils_permissions_phone_settings_location_step3".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        self.settingsDescription3.attributedText = "dk_perm_utils_permissions_phone_settings_location_step3"
+            .dkPermissionsUtilsLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .normalText)
+            .color(.mainFontColor)
+            .build()
 
         self.settingsContainer4.isHidden = true
     }
 
     private func updateViewPreIOS13() {
-        self.descriptionLabel.attributedText = "dk_perm_utils_permissions_location_pre_ios13_ko".dkPermissionsUtilsLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        self.descriptionLabel.attributedText = "dk_perm_utils_permissions_location_pre_ios13_ko"
+            .dkPermissionsUtilsLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .normalText)
+            .color(.mainFontColor)
+            .build()
 
         self.settingsContainer1.isHidden = true
         self.settingsContainer2.isHidden = true

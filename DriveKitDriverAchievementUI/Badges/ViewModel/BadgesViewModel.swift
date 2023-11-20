@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  BadgesViewModel.swift
 //  DriveKitDriverAchievementUI

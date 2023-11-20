@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  OdometerHistoriesCell.swift
 //  DriveKitVehicleUI
@@ -23,8 +22,18 @@ final class OdometerHistoriesCell: UITableViewCell, Nibable {
     }
 
     func update(odometerHistoriesCellViewModel: OdometerHistoriesCellViewModel) {
-        self.referenceLabel.attributedText = odometerHistoriesCellViewModel.getDistance().dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
-        self.referenceDate.attributedText = odometerHistoriesCellViewModel.getDate().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+        self.referenceLabel.attributedText = odometerHistoriesCellViewModel
+            .getDistance()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .highlightNormal)
+            .color(.mainFontColor)
+            .build()
+        self.referenceDate.attributedText = odometerHistoriesCellViewModel
+            .getDate()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .smallText)
+            .color(.complementaryFontColor)
+            .build()
     }
 
     private func configure() {

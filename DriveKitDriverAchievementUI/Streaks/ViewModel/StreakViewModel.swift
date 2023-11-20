@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  StreakViewModel.swift
 //  DriveKitDriverAchievementUI
@@ -151,7 +151,10 @@ struct StreakData {
     }
     
     func getBestDates() -> String {
-        return String(format: "dk_achievements_streaks_since_to".dkAchievementLocalized(), streak.best.startDate.format(pattern: .standardDate), streak.best.endDate.format(pattern: .standardDate))
+        return String(
+            format: "dk_achievements_streaks_since_to".dkAchievementLocalized(),
+            streak.best.startDate.format(pattern: .standardDate),
+            streak.best.endDate.format(pattern: .standardDate))
     }
 }
 

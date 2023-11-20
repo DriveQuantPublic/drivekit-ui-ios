@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  DKDetectionMode+UI.swift
 //  DriveKitVehicleUI
@@ -78,7 +77,13 @@ extension DKDetectionMode {
     }
     
     private func gpsAlertConfrimation(vehicle: DKVehicle, previousVehicle: DKVehicle, completion: @escaping () -> Void) -> UIAlertController {
-        let message = String(format: "dk_vehicle_gps_already_exists_confirm".dkVehicleLocalized(), DKDetectionMode.gps.title, vehicle.computeName(), previousVehicle.computeName(), DKDetectionMode.disabled.title)
+        let message = String(
+            format: "dk_vehicle_gps_already_exists_confirm".dkVehicleLocalized(), 
+            DKDetectionMode.gps.title,
+            vehicle.computeName(),
+            previousVehicle.computeName(),
+            DKDetectionMode.disabled.title
+        )
         let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
         let yesAction = UIAlertAction(title: DKCommonLocalizable.confirm.text(), style: .default, handler: { _ in
             completion()

@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  SettingsViewController.swift
 //  DriveKitApp
@@ -68,9 +68,35 @@ class SettingsViewController: UIViewController {
     
     private func setupView() {
         self.title = "parameters_header".keyLocalized()
-        self.notificationsButton.setAttributedTitle("see_settings".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.secondaryColor).uppercased().build(), for: .normal)
-        self.deletionButton.setAttributedTitle("button_delete_account".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.criticalColor).uppercased().build(), for: .normal)
-        self.logoutButton.setAttributedTitle("button_logout".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .button).color(.criticalColor).uppercased().build(), for: .normal)
+        self.notificationsButton.setAttributedTitle(
+            "see_settings"
+                .keyLocalized()
+                .dkAttributedString()
+                .font(dkFont: .primary, style: .smallText)
+                .color(.secondaryColor)
+                .uppercased()
+                .build(),
+            for: .normal
+        )
+        self.deletionButton.setAttributedTitle(
+            "button_delete_account"
+                .keyLocalized()
+                .dkAttributedString()
+                .font(dkFont: .primary, style: .smallText)
+                .color(.criticalColor)
+                .uppercased()
+                .build(),
+            for: .normal
+        )
+        self.logoutButton.setAttributedTitle(
+            "button_logout"
+                .keyLocalized()
+                .dkAttributedString()
+                .font(dkFont: .primary, style: .button)
+                .color(.criticalColor)
+                .uppercased()
+                .build(),
+            for: .normal)
         configureIcon(self.userAccountIcon)
         configureIcon(self.autoStartIcon)
         configureIcon(self.notificationsIcon)

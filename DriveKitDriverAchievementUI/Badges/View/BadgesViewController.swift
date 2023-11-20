@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  BadgesViewController.swift
 //  DriveKitDriverAchievementUI
@@ -51,7 +50,8 @@ public class BadgesViewController: DKUIViewController, UITableViewDelegate {
         }
         let nib = UINib(nibName: "BadgeTableViewCell", bundle: Bundle.driverAchievementUIBundle)
         self.tableView.register(nib, forCellReuseIdentifier: "BadgeTableViewCell")
-        NotificationCenter.default.addObserver(self, selector: #selector(goToBadgeLevelDetailView),
+        NotificationCenter.default.addObserver(self, 
+                                               selector: #selector(goToBadgeLevelDetailView),
                                                name: Notification.Name("goToDetailView"),
                                                object: nil)
         update()

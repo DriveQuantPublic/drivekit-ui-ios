@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  CenteredImageView.swift
 //  IFPClient

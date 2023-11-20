@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  SpeedingPageItemView.swift
 //  DriveKitDriverDataUI
@@ -39,7 +38,8 @@ final class SpeedingPageItemView: UIView, Nibable {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        self.eventValue.layer.cornerRadius = self.eventValue.bounds.size.height / 2
+        let half = 0.5
+        self.eventValue.layer.cornerRadius = self.eventValue.bounds.size.height * half
         updateTextIntrinsicContentSize()
     }
 

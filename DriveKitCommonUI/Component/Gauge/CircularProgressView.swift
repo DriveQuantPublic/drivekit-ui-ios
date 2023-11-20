@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  CircularProgressView.swift
 //  drivekit-test-app

@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  SpeedingPageVC.swift
 //  DriveKitDriverDataUI
@@ -54,12 +54,21 @@ class SpeedingPageVC: UIViewController {
         summaryContainer.addArrangedSubview(distanceView)
 
         let durationView = SpeedingPageItemView.viewFromNib
-        durationView.configure(title: viewModel.getDurationTitle(), description: viewModel.getDurationDescription(), value: viewModel.getDurationPercentage(), displayValue: viewModel.shouldDisplayDuration())
+        durationView.configure(
+            title: viewModel.getDurationTitle(),
+            description: viewModel.getDurationDescription(),
+            value: viewModel.getDurationPercentage(),
+            displayValue: viewModel.shouldDisplayDuration()
+        )
         summaryContainer.addArrangedSubview(durationView)
     }
     
     @IBAction func infoAction(_ sender: UIButton) {
-        let alert = UIAlertController(title: "dk_driverdata_speeding_score".dkDriverDataLocalized(), message: "dk_driverdata_speeding_score_info".dkDriverDataLocalized(), preferredStyle: .alert)
+        let alert = UIAlertController(
+            title: "dk_driverdata_speeding_score".dkDriverDataLocalized(),
+            message: "dk_driverdata_speeding_score_info".dkDriverDataLocalized(),
+            preferredStyle: .alert
+        )
         alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }

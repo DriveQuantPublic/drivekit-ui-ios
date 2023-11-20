@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable large_tuple
 //
 //  Graph.swift
 //  DriveKitDriverDataTimelineUI

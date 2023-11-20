@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  OdometerCellActionType.swift
 //  DriveKitVehicleUI

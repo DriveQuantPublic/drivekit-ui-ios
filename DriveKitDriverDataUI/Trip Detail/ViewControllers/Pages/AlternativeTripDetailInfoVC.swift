@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  AlternativeTripDetailInfoVC.swift
 //  IFPClient
@@ -46,12 +45,36 @@ class AlternativeTripDetailInfoVC: UIViewController {
         super.viewDidLoad()
         self.changeTransportationModeButton.configure(title: "dk_driverdata_change_transportation_mode".dkDriverDataLocalized(), style: .full)
         
-        self.detectedTransportationModeTitle.attributedText = "dk_driverdata_detected_transportation_mode".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
-        self.declaredTransportationModeTitle.attributedText = "dk_driverdata_declared_transportation_mode".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+        self.detectedTransportationModeTitle.attributedText = "dk_driverdata_detected_transportation_mode"
+            .dkDriverDataLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .smallText)
+            .color(.complementaryFontColor)
+            .build()
+        self.declaredTransportationModeTitle.attributedText = "dk_driverdata_declared_transportation_mode"
+            .dkDriverDataLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .smallText)
+            .color(.complementaryFontColor)
+            .build()
         
-        self.tripConditionTitle.attributedText = "dk_driverdata_synthesis_condition".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
-        self.tripWeatherTitle.attributedText = "dk_driverdata_synthesis_weather".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
-        self.tripAverageSpeedTitle.attributedText = "dk_driverdata_synthesis_mean_speed".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+        self.tripConditionTitle.attributedText = "dk_driverdata_synthesis_condition"
+            .dkDriverDataLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .smallText)
+            .color(.complementaryFontColor)
+            .build()
+        self.tripWeatherTitle.attributedText = "dk_driverdata_synthesis_weather"
+            .dkDriverDataLocalized().dkAttributedString()
+            .font(dkFont: .primary, style: .smallText)
+            .color(.complementaryFontColor)
+            .build()
+        self.tripAverageSpeedTitle.attributedText = "dk_driverdata_synthesis_mean_speed"
+            .dkDriverDataLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .smallText)
+            .color(.complementaryFontColor)
+            .build()
 
         let separatorColor = DKUIColors.neutralColor.color
         for separator in self.separators {
@@ -65,18 +88,46 @@ class AlternativeTripDetailInfoVC: UIViewController {
         let valueStyle = DKStyle(size: DKStyles.smallText.style.size, traits: UIFontDescriptor.SymbolicTraits.traitBold)
         let detectionModeStyle = DKStyle(size: DKStyles.smallText.style.size, traits: UIFontDescriptor.SymbolicTraits.traitBold)
         if let declaredMode = self.viewModel.declaredTransportationMode() {
-            self.detectedTransportationModeValue.attributedText = self.viewModel.detectedTransportationMode().getName().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+            self.detectedTransportationModeValue.attributedText = self
+                .viewModel
+                .detectedTransportationMode()
+                .getName()
+                .dkAttributedString()
+                .font(dkFont: .primary, style: .smallText)
+                .color(.complementaryFontColor)
+                .build()
             self.declaredTransportationModeContainer.isHidden = false
-            self.declaredTransportationModeValue.attributedText = declaredMode.getName().dkAttributedString().font(dkFont: .primary, style: detectionModeStyle).color(.primaryColor).build()
+            self.declaredTransportationModeValue.attributedText = declaredMode
+                .getName()
+                .dkAttributedString()
+                .font(dkFont: .primary, style: detectionModeStyle)
+                .color(.primaryColor)
+                .build()
             self.transportationModeImage.image = declaredMode.getImage()
-            self.messageLabel.attributedText = "dk_driverdata_alternative_transportation_thanks".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
+            self.messageLabel.attributedText = "dk_driverdata_alternative_transportation_thanks"
+                .dkDriverDataLocalized()
+                .dkAttributedString()
+                .font(dkFont: .primary, style: .smallText)
+                .color(.mainFontColor)
+                .build()
             self.declaredTransportationModeValue.textColor = DKUIColors.primaryColor.color
             
         } else {
-            self.detectedTransportationModeValue.attributedText = self.viewModel.detectedTransportationMode().getName().dkAttributedString().font(dkFont: .primary, style: detectionModeStyle).color(.primaryColor).build()
+            self.detectedTransportationModeValue.attributedText = self
+                .viewModel
+                .detectedTransportationMode()
+                .getName()
+                .dkAttributedString()
+                .font(dkFont: .primary, style: detectionModeStyle)
+                .color(.primaryColor).build()
             self.declaredTransportationModeContainer.isHidden = true
             self.transportationModeImage.image = nil
-            self.messageLabel.attributedText = "dk_driverdata_alternative_transportation_remark".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()
+            self.messageLabel.attributedText = "dk_driverdata_alternative_transportation_remark"
+                .dkDriverDataLocalized()
+                .dkAttributedString()
+                .font(dkFont: .primary, style: .smallText)
+                .color(.mainFontColor)
+                .build()
             self.detectedTransportationModeValue.textColor = DKUIColors.primaryColor.color
             self.transportationModeImage.image = self.viewModel.detectedTransportationMode().getImage()
         }

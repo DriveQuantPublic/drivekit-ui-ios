@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  UserPseudoViewController.swift
 //  DriveKitPermissionsUtilsUI
@@ -46,9 +46,17 @@ public class UserPseudoViewController: UIViewController {
         self.errorLabel.attributedText = DKCommonLocalizable.error.text().dkAttributedString().font(dkFont: .primary, style: .smallText).color(DKUIColors.warningColor).build()
 
         if let appName = Bundle.main.appName {
-            self.titleLabel.attributedText = appName.dkAttributedString().font(dkFont: .primary, style: .headLine1).color(DKUIColors.mainFontColor).build()
+            self.titleLabel.attributedText = appName
+                .dkAttributedString()
+                .font(dkFont: .primary, style: .headLine1)
+                .color(DKUIColors.mainFontColor)
+                .build()
         }
-        self.descriptionLabel.attributedText = DKCommonLocalizable.noPseudo.text().dkAttributedString().font(dkFont: .primary, style: .smallText).color(DKUIColors.mainFontColor).build()
+        self.descriptionLabel.attributedText = DKCommonLocalizable.noPseudo.text()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .smallText)
+            .color(DKUIColors.mainFontColor)
+            .build()
         self.validateButton.setAttributedTitle(DKCommonLocalizable.validate.text().dkAttributedString().font(dkFont: .primary, style: .highlightSmall).build(), for: .normal)
         self.cancelButton.setAttributedTitle(DKCommonLocalizable.later.text().dkAttributedString().font(dkFont: .primary, style: .normalText).build(), for: .normal)
 

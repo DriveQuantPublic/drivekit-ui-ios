@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  PermissionView.swift
 //  DriveKitPermissionsUtilsUI

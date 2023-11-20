@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  SynthesisPageVC.swift
 //  DriveKitDriverDataUI
@@ -65,31 +64,71 @@ class SynthesisPageVC: UIViewController {
     private func setup() {
         let valueStyle = DKStyle(size: DKStyles.smallText.style.size, traits: UIFontDescriptor.SymbolicTraits.traitBold)
 
-        vehicleTitle.attributedText = "dk_driverdata_synthesis_vehicle".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+        vehicleTitle.attributedText = "dk_driverdata_synthesis_vehicle"
+            .dkDriverDataLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .smallText)
+            .color(.complementaryFontColor)
+            .build()
         vehicleValue.attributedText = "-".dkAttributedString().font(dkFont: .primary, style: valueStyle).color(.secondaryColor).build()
 
         consumptionTitle.attributedText = viewModel.consumptionTitle.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
         consumptionValue.attributedText = viewModel.consumptionValue.dkAttributedString().font(dkFont: .primary, style: valueStyle).color(.primaryColor).build()
 
-        conditionTitle.attributedText = "dk_driverdata_synthesis_condition".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+        conditionTitle.attributedText = "dk_driverdata_synthesis_condition"
+            .dkDriverDataLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .smallText)
+            .color(.complementaryFontColor)
+            .build()
         conditionValue.attributedText = viewModel.conditionValue.dkAttributedString().font(dkFont: .primary, style: valueStyle).color(.primaryColor).build()
         
-        speedTitle.attributedText = "dk_driverdata_synthesis_mean_speed".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+        speedTitle.attributedText = "dk_driverdata_synthesis_mean_speed"
+            .dkDriverDataLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .smallText)
+            .color(.complementaryFontColor)
+            .build()
         speedValue.attributedText = viewModel.meanSpeedValue.dkAttributedString().font(dkFont: .primary, style: valueStyle).color(.primaryColor).build()
 
-        stopTimeTitle.attributedText = "dk_driverdata_synthesis_stop_time".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+        stopTimeTitle.attributedText = "dk_driverdata_synthesis_stop_time"
+            .dkDriverDataLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .smallText)
+            .color(.complementaryFontColor)
+            .build()
         stopTimeValue.attributedText = viewModel.stopTimeValue.dkAttributedString().font(dkFont: .primary, style: valueStyle).color(.primaryColor).build()
 
-        carbonTitle.attributedText = "dk_driverdata_synthesis_co2_emissions".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+        carbonTitle.attributedText = "dk_driverdata_synthesis_co2_emissions"
+            .dkDriverDataLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .smallText)
+            .color(.complementaryFontColor)
+            .build()
         carbonValue.attributedText = viewModel.co2EmissionValue.dkAttributedString().font(dkFont: .primary, style: valueStyle).color(.primaryColor).build()
         
-        weatherTitle.attributedText = "dk_driverdata_synthesis_weather".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+        weatherTitle.attributedText = "dk_driverdata_synthesis_weather"
+            .dkDriverDataLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .smallText)
+            .color(.complementaryFontColor)
+            .build()
         weatherValue.attributedText = viewModel.weatherValue.dkAttributedString().font(dkFont: .primary, style: valueStyle).color(.primaryColor).build()
 
-        carbonVolumeTitle.attributedText = "dk_driverdata_synthesis_co2_mass".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+        carbonVolumeTitle.attributedText = "dk_driverdata_synthesis_co2_mass"
+            .dkDriverDataLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .smallText)
+            .color(.complementaryFontColor)
+            .build()
         carbonVolumeValue.attributedText = viewModel.co2MassValue.dkAttributedString().font(dkFont: .primary, style: valueStyle).color(.primaryColor).build()
 
-        contextTitle.attributedText = "dk_driverdata_synthesis_road_context".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
+        contextTitle.attributedText = "dk_driverdata_synthesis_road_context"
+            .dkDriverDataLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .smallText)
+            .color(.complementaryFontColor)
+            .build()
         contextValue.attributedText = viewModel.contextValue.dkAttributedString().font(dkFont: .primary, style: valueStyle).color(.primaryColor).build()
 
         let separatorColor = DKUIColors.neutralColor.color

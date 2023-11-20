@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  TimelineGraphView.swift
 //  DriveKitDriverDataTimelineUI
@@ -74,7 +74,18 @@ class TimelineGraphView: UIView {
 
     private func updateTitle() {
         if let viewModel = self.viewModel {
-            self.titleView.attributedText = viewModel.title.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).buildWithArgs(viewModel.description.dkAttributedString().font(dkFont: .primary, style: DKStyle(size: DKStyles.headLine2.style.size, traits: .traitBold)).color(.primaryColor).build())
+            self.titleView.attributedText = viewModel
+                .title
+                .dkAttributedString()
+                .font(dkFont: .primary, style: .smallText)
+                .color(.mainFontColor)
+                .buildWithArgs(
+                    viewModel
+                        .description
+                        .dkAttributedString()
+                        .font(dkFont: .primary, style: DKStyle(size: DKStyles.headLine2.style.size, traits: .traitBold))
+                        .color(.primaryColor).build()
+                )
         } else {
             self.titleView.attributedText = nil
         }

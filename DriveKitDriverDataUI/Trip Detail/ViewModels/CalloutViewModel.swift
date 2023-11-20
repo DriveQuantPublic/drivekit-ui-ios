@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  CalloutViewModel.swift
 //  drivekit-test-app
@@ -45,8 +45,21 @@ struct TripEventCalloutViewModel {
             return NSAttributedString(string: "")
         case .pickUp, .hangUp:
             let attString = NSMutableAttributedString()
-            attString.append("\("dk_driverdata_calling_time".dkDriverDataLocalized()) ".dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build())
-            attString.append(event.value.ceilSecondDuration(ifGreaterThan: 600).formatSecondDuration().dkAttributedString().font(dkFont: .primary, style: .smallText).color(highColor).build())
+            attString.append(
+                "\("dk_driverdata_calling_time".dkDriverDataLocalized()) "
+                    .dkAttributedString()
+                    .font(dkFont: .primary, style: .smallText)
+                    .color(.mainFontColor).build()
+            )
+            attString.append(
+                event
+                    .value
+                    .ceilSecondDuration(ifGreaterThan: 600)
+                    .formatSecondDuration()
+                    .dkAttributedString()
+                    .font(dkFont: .primary, style: .smallText)
+                    .color(highColor).build()
+            )
             return attString
         default:
             return location.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.mainFontColor).build()

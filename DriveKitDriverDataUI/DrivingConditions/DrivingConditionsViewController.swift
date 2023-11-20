@@ -61,7 +61,10 @@ class DrivingConditionsViewController: DKUIViewController {
             embededIn: contextPagingContainer,
             of: self
         )
-        
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         if self.viewModel.updating {
             showRefreshControl()
         } else {

@@ -18,30 +18,30 @@ class DKDeviceConfigurationEventNotificationManager {
         let invalidNotifiableEvents = self.getInvalidNotifiableEvents()
         if invalidNotifiableEvents.count > 1 {
             return DKDiagnosisNotificationInfo(
-                title: "___".dkPermissionsUtilsLocalized(),
-                body: "___".dkPermissionsUtilsLocalized()
+                title: "dk_perm_utils_app_diag_title".dkPermissionsUtilsLocalized(),
+                body: "dk_perm_utils_notification_multiple_issues".dkPermissionsUtilsLocalized()
             )
         } else if let invalidType = invalidNotifiableEvents.first {
             switch invalidType {
                 case .locationPermission:
                     return DKDiagnosisNotificationInfo(
-                        title: "___".dkPermissionsUtilsLocalized(),
-                        body: "___".dkPermissionsUtilsLocalized()
+                        title: "dk_perm_utils_app_diag_title".dkPermissionsUtilsLocalized(),
+                        body: "dk_perm_utils_notification_location_permission".dkPermissionsUtilsLocalized()
                     )
                 case .bluetoothPermission:
                     return DKDiagnosisNotificationInfo(
-                        title: "___".dkPermissionsUtilsLocalized(),
-                        body: "___".dkPermissionsUtilsLocalized()
+                        title: "dk_perm_utils_app_diag_title".dkPermissionsUtilsLocalized(),
+                        body: "dk_perm_utils_notification_bluetooth_permission".dkPermissionsUtilsLocalized()
                     )
                 case .locationSensor:
                     return DKDiagnosisNotificationInfo(
-                        title: "___".dkPermissionsUtilsLocalized(),
-                        body: "___".dkPermissionsUtilsLocalized()
+                        title: "dk_perm_utils_app_diag_title".dkPermissionsUtilsLocalized(),
+                        body: "dk_perm_utils_notification_location_sensor".dkPermissionsUtilsLocalized()
                     )
                 case .bluetoothSensor:
                     return DKDiagnosisNotificationInfo(
-                        title: "___".dkPermissionsUtilsLocalized(),
-                        body: "___".dkPermissionsUtilsLocalized()
+                        title: "dk_perm_utils_app_diag_title".dkPermissionsUtilsLocalized(),
+                        body: "dk_perm_utils_notification_bluetooth_sensor".dkPermissionsUtilsLocalized()
                     )
                 case .lowPowerMode, .activityPermission, .notificationPermission:
                     return nil

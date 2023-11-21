@@ -172,20 +172,11 @@ class DriveKitConfig {
 
     private static func configurePermissionsUtilsUI() {
         DriveKitPermissionsUtilsUI.shared.initialize()
-        DriveKitPermissionsUtilsUI.shared.configureBluetooth(needed: DriveKitConfig.isBluetoothNeeded())
         DriveKitPermissionsUtilsUI.shared.configureContactType(DKContactType.email(ContentMail()))
     }
 
     private static func configureChallengeUI() {
         DriveKitChallengeUI.shared.initialize()
-    }
-
-    static func isBluetoothNeeded() -> Bool {
-        let vehicles = DriveKitVehicle.shared.vehiclesQuery().noFilter().query().execute()
-        let isBluetoothNeeded = vehicles.contains { vehicle -> Bool in
-            vehicle.detectionMode == .beacon || vehicle.detectionMode == .bluetooth
-        }
-        return isBluetoothNeeded
     }
 
     static func getApiKey() -> String {

@@ -60,7 +60,7 @@ class DKDeviceConfigurationEventNotificationManager {
         if !diagnosisHelper.isLocationValid() {
             results.append(.locationPermission)
         }
-        if let isBluetoothRequired = DriveKit.shared.modules.tripAnalysis?.isBluetoothRequired(), isBluetoothRequired {
+        if let bluetoothUsage = DriveKit.shared.modules.tripAnalysis?.bluetoothUsage, bluetoothUsage != .none {
             if !diagnosisHelper.isBluetoothValid() {
                 results.append(.bluetoothPermission)
             } else if !diagnosisHelper.isActivated(.bluetooth) {

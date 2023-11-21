@@ -13,7 +13,14 @@ import DriveKitCommonUI
 
 @objc public class DriveKitPermissionsUtilsUI: NSObject {
     @objc public static let shared = DriveKitPermissionsUtilsUI()
-    public private(set) var isBluetoothNeeded = false
+    
+    public var isBluetoothNeeded: Bool {
+        if let bluetoothUsage = DriveKit.shared.modules.tripAnalysis?.bluetoothUsage {
+            return bluetoothUsage != .none
+        }
+        return false
+    }
+    
     public private(set) var contactType = DKContactType.none
     private var stateByType = [StatusType: Bool]()
 
@@ -78,6 +85,7 @@ import DriveKitCommonUI
     }
 
     @objc public func getDiagnosisViewController() -> UIViewController {
+        updateState()
         return DiagnosisViewController()
     }
 
@@ -110,12 +118,8 @@ import DriveKitCommonUI
         return "\(titleKey.dkPermissionsUtilsLocalized()) \(isValid ? validValue : invalidValue)"
     }
 
-    @objc public func configureBluetooth(needed: Bool) {
-        if self.isBluetoothNeeded != needed {
-            self.isBluetoothNeeded = needed
-            updateState(bluetoothNeedChanged: true)
-        }
-    }
+    @available(*, deprecated, message: "This method is not used anymore.")
+    @objc public func configureBluetooth(needed: Bool) {}
 
     @available(*, deprecated, message: "Logs are now enabled by default. To disable logging, just call DriveKit.shared.disableLogging()")
     @objc public func configureDiagnosisLogs(show: Bool) { }
@@ -128,13 +132,13 @@ import DriveKitCommonUI
         updateState()
     }
 
-    private func updateState(bluetoothNeedChanged: Bool = false) {
+    private func updateState() {
         let diagnosisHelper = DKDiagnosisHelper.shared
         // Activity.
         let isActivityUpdated = updateInternalState(.activity, isValid: diagnosisHelper.isActivityValid())
         // Bluetooth.
         let isBluetoothUpdated: Bool
-        if bluetoothNeedChanged || self.isBluetoothNeeded {
+        if self.isBluetoothNeeded {
             isBluetoothUpdated = updateInternalState(.bluetooth, isValid: diagnosisHelper.isBluetoothValid())
         } else {
             isBluetoothUpdated = false

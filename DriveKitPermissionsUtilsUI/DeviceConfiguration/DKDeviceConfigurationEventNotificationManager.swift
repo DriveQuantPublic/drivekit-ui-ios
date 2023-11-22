@@ -9,12 +9,8 @@
 import Foundation
 import DriveKitCoreModule
 
-class DKDeviceConfigurationEventNotificationManager {
-    static let shared: DKDeviceConfigurationEventNotificationManager = .init()
- 
-    private init() {}
-
-    func getNotificationInfo() -> DKDiagnosisNotificationInfo? {
+enum DKDeviceConfigurationEventNotificationManager {
+    static func getNotificationInfo() -> DKDiagnosisNotificationInfo? {
         let invalidNotifiableEvents = self.getInvalidNotifiableEvents()
         if invalidNotifiableEvents.count > 1 {
             return DKDiagnosisNotificationInfo(
@@ -45,12 +41,14 @@ class DKDeviceConfigurationEventNotificationManager {
                     )
                 case .lowPowerMode, .activityPermission, .notificationPermission:
                     return nil
+                @unknown default:
+                    return nil
             }
         }
         return nil
     }
 
-    private func getInvalidNotifiableEvents() -> [DKDeviceConfigurationEventType] {
+    private static func getInvalidNotifiableEvents() -> [DKDeviceConfigurationEventType] {
 
         let diagnosisHelper = DKDiagnosisHelper.shared
         var results: [DKDeviceConfigurationEventType] = []
@@ -61,7 +59,7 @@ class DKDeviceConfigurationEventNotificationManager {
             results.append(.locationPermission)
         }
         if let bluetoothUsage = DriveKit.shared.modules.tripAnalysis?.bluetoothUsage, bluetoothUsage != .none {
-            if !diagnosisHelper.isBluetoothValid() {
+            if diagnosisHelper.getPermissionStatus(.bluetooth) != .valid {
                 results.append(.bluetoothPermission)
             } else if !diagnosisHelper.isActivated(.bluetooth) {
                 results.append(.bluetoothSensor)

@@ -93,7 +93,7 @@
 "dk_perm_utils_notification_app_battery_optimization"="L\'app n\'est pas autorisée à fonctionner en arrière-plan. Cela peut limiter l\'enregistrement de vos trajets.";
 "dk_perm_utils_notification_bluetooth_permission"="L\'enregistrement de vos trajets n\'est pas possible car l\'app ne peut pas accéder au capteur Bluetooth.";
 "dk_perm_utils_notification_bluetooth_sensor"="L\'enregistrement de vos trajets n\'est pas possible car le capteur Bluetooth est éteint.";
-"dk_perm_utils_notification_location_permission"="L\'enregistrement de vos trajets n\'est pas possible car l\'app ne peut pas acceder à la postion du téléphone.";
+"dk_perm_utils_notification_location_permission"="L\'enregistrement de vos trajets n\'est pas possible car l\'app ne peut pas accéder à la position du téléphone.";
 "dk_perm_utils_notification_location_sensor"="L\'enregistrement de vos trajets n\'est pas possible car le capteur de position est éteint.";
 "dk_perm_utils_notification_multiple_issues"="Plusieurs problèmes empêchent l\'enregistrement des trajets.";
 "dk_perm_utils_notification_nearby_devices_permission"="L\'enregistrement de vos trajets n\'est pas possible car l\'app ne peut pas accéder au capteur Bluetooth.";

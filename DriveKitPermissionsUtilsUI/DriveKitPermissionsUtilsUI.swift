@@ -170,7 +170,7 @@ import DriveKitCommonUI
     }
 
     public func getDeviceConfigurationEventNotification() -> DKDiagnosisNotificationInfo? {
-        return DKDeviceConfigurationEventNotificationManager.shared.getNotificationInfo()
+        return DKDeviceConfigurationEventNotificationManager.getNotificationInfo()
     }
 }
 

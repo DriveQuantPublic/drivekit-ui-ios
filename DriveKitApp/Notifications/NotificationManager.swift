@@ -119,6 +119,9 @@ class NotificationManager: NSObject {
         DriveKit.shared.unregisterNotificationDelegate(self)
         DriveKitTripAnalysis.shared.removeTripListener(self)
         DriveKit.shared.removeDeviceConfigurationDelegate(self)
+        NotificationManager.removeNotifications([
+            .criticalDeviceConfiguration(.none)
+        ])
     }
 
     private static func updateDeviceConfigurationNotification() {

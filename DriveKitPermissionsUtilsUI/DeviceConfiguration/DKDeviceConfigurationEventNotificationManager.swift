@@ -50,6 +50,10 @@ enum DKDeviceConfigurationEventNotificationManager {
 
     private static func getInvalidNotifiableEvents() -> [DKDeviceConfigurationEventType] {
 
+        guard DriveKit.shared.isUserConnected() else {
+            return []
+        }
+
         let diagnosisHelper = DKDiagnosisHelper.shared
         var results: [DKDeviceConfigurationEventType] = []
         if !diagnosisHelper.isActivated(.gps) {
@@ -58,7 +62,7 @@ enum DKDeviceConfigurationEventNotificationManager {
         if !diagnosisHelper.isLocationValid() {
             results.append(.locationPermission)
         }
-        if let bluetoothUsage = DriveKit.shared.modules.tripAnalysis?.bluetoothUsage, bluetoothUsage != .none {
+        if let bluetoothUsage = DriveKit.shared.modules.tripAnalysis?.bluetoothUsage, bluetoothUsage == .required {
             if diagnosisHelper.getPermissionStatus(.bluetooth) != .valid {
                 results.append(.bluetoothPermission)
             } else if !diagnosisHelper.isActivated(.bluetooth) {

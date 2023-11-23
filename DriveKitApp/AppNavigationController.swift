@@ -13,7 +13,17 @@ import DriveKitPermissionsUtilsUI
 import DriveKitVehicleModule
 
 class AppNavigationController: UINavigationController {
-    static var alreadyOnboarded: Bool = false
+    static let alreadyOnboardedKey = "DriveKitAp.alreadyOnboarded"
+    static var alreadyOnboarded: Bool {
+        get {
+            DriveKitCoreUserDefaults.getPrimitiveType(key: alreadyOnboardedKey) ?? false
+        }
+        set {
+            DriveKitCoreUserDefaults.setPrimitiveType(
+                key: alreadyOnboardedKey,
+                value: newValue)
+        }
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -63,7 +73,6 @@ class AppNavigationController: UINavigationController {
     }
 
     func goToDashboard() {
-        AppNavigationController.alreadyOnboarded = true
         self.setViewControllers([DashboardViewController()], animated: false)
     }
 }

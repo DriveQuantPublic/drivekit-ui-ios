@@ -51,6 +51,7 @@ class DashboardViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        AppNavigationController.alreadyOnboarded = true
 
         self.viewModel.updateBanners()
         updateSynthesisCardView()

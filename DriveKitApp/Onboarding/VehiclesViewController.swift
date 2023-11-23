@@ -49,7 +49,6 @@ class VehiclesViewController: UIViewController {
         _ = DKVehiclePickerNavigationController(parentView: parentVC, detectionMode: detectionMode, showCancel: false) { [weak self] in
             self?.viewModel.areVehiclesConfigured { configured in
                 if configured {
-                    AppNavigationController.alreadyOnboarded = true
                     self?.navigationController?.setViewControllers([DashboardViewController()], animated: true)
                 }
             }

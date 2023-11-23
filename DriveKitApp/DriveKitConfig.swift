@@ -115,6 +115,9 @@ class DriveKitConfig {
 
         // Reset trip notifications manager:
         NotificationManager.reset()
+
+        // Reset App related variables
+        AppNavigationController.alreadyOnboarded = false
     }
 
     private static func configureCore() {

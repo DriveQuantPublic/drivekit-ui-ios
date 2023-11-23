@@ -133,7 +133,6 @@ class NotificationManager: NSObject {
             .tripTooShort,
             .criticalDeviceConfiguration(.none)
         ])
-        AppNavigationController.alreadyOnboarded = false
     }
 
     private static func updateDeviceConfigurationNotification() {

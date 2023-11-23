@@ -51,8 +51,8 @@ class DashboardViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        AppNavigationController.alreadyOnboarded = true
 
-        DriveKitPermissionsUtilsUI.shared.configureBluetooth(needed: DriveKitConfig.isBluetoothNeeded())
         self.viewModel.updateBanners()
         updateSynthesisCardView()
         updateLastTripView()

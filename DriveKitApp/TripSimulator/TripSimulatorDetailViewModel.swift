@@ -171,9 +171,6 @@ extension TripSimulatorDetailViewModel: TripListener {
     func tripStarted(startMode: StartMode) {
     }
     
-    func tripPoint(tripPoint: TripPoint) {
-    }
-    
     func tripFinished(post: PostGeneric, response: PostGenericResponse) {
         tripSimulationDidEnd()
     }
@@ -185,26 +182,11 @@ extension TripSimulatorDetailViewModel: TripListener {
         tripSimulationDidEnd()
     }
     
-    func beaconDetected() {
-    }
-    
-    func significantLocationChangeDetected(location: CLLocation) {
-    }
-    
     func sdkStateChanged(state: State) {
         updateStoppingTime(state: state)
         updateNeeded()
     }
     
-    func potentialTripStart(startMode: StartMode) {
-    }
-    
-    func crashDetected(crashInfo: DKCrashInfo) {
-    }
-    
-    func crashFeedbackSent(crashInfo: DKCrashInfo, feedbackType: DKCrashFeedbackType, severity: DKCrashFeedbackSeverity) {
-    }
-
     private func tripSimulationDidEnd() {
         if currentDuration >= simulatedItem.getSimulationDuration() {
             stopSimulation()

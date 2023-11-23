@@ -395,6 +395,7 @@
 		6708ED8329E9C048005652A3 /* DrivingConditionsContextCard+RoadContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED8229E9C048005652A3 /* DrivingConditionsContextCard+RoadContext.swift */; };
 		6708ED8529ED5364005652A3 /* DKContextCardColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED8429ED5364005652A3 /* DKContextCardColor.swift */; };
 		6708ED8729EEE43A005652A3 /* DrivingConditionsContextCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED8629EEE43A005652A3 /* DrivingConditionsContextCard.swift */; };
+		670EFB0A2B060BB100F8895D /* DKDeviceConfigurationEventNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670EFB092B060BB100F8895D /* DKDeviceConfigurationEventNotificationManager.swift */; };
 		671087D128072FBE004FA464 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671087CF28072FBE004FA464 /* UserInfoViewController.swift */; };
 		671087D228072FBE004FA464 /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 671087D028072FBE004FA464 /* UserInfoViewController.xib */; };
 		671087D428072FDE004FA464 /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671087D328072FDE004FA464 /* UserInfoViewModel.swift */; };
@@ -1308,6 +1309,7 @@
 		6708ED8229E9C048005652A3 /* DrivingConditionsContextCard+RoadContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DrivingConditionsContextCard+RoadContext.swift"; sourceTree = "<group>"; };
 		6708ED8429ED5364005652A3 /* DKContextCardColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKContextCardColor.swift; sourceTree = "<group>"; };
 		6708ED8629EEE43A005652A3 /* DrivingConditionsContextCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingConditionsContextCard.swift; sourceTree = "<group>"; };
+		670EFB092B060BB100F8895D /* DKDeviceConfigurationEventNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDeviceConfigurationEventNotificationManager.swift; sourceTree = "<group>"; };
 		671087CF28072FBE004FA464 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		671087D028072FBE004FA464 /* UserInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
 		671087D328072FDE004FA464 /* UserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
@@ -2292,6 +2294,7 @@
 				6744778A2889C0FA0058D23B /* DKPermissionsUtilsImages.swift */,
 				616947012433A8C900C8A965 /* Diagnosis */,
 				616946F524339F0F00C8A965 /* Permissions */,
+				670EFB082B060B9F00F8895D /* DeviceConfiguration */,
 				616946E524333C6900C8A965 /* DriveKitPermissionsUtilsUI.swift */,
 				616946DB243337D600C8A965 /* DriveKitPermissionsUtilsUI.h */,
 				616946DC243337D600C8A965 /* Info.plist */,
@@ -2878,6 +2881,14 @@
 				6708ED8229E9C048005652A3 /* DrivingConditionsContextCard+RoadContext.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		670EFB082B060B9F00F8895D /* DeviceConfiguration */ = {
+			isa = PBXGroup;
+			children = (
+				670EFB092B060BB100F8895D /* DKDeviceConfigurationEventNotificationManager.swift */,
+			);
+			path = DeviceConfiguration;
 			sourceTree = "<group>";
 		};
 		67301C3C261D1030006B0432 /* TripsList */ = {
@@ -5145,6 +5156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63F44E8E244DF2A200C7F5CC /* SeparatorView.swift in Sources */,
+				670EFB0A2B060BB100F8895D /* DKDeviceConfigurationEventNotificationManager.swift in Sources */,
 				6378BBE2244D9C060040A114 /* DiagnosisViewModel.swift in Sources */,
 				63C3FD80244F28B000C2FEEC /* SensorInfoViewModel.swift in Sources */,
 				632EDDF124504BEE00110744 /* UIColor+PermissionsUtils.swift in Sources */,

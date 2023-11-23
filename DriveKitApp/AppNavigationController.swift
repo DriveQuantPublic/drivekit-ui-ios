@@ -13,7 +13,7 @@ import DriveKitPermissionsUtilsUI
 import DriveKitVehicleModule
 
 class AppNavigationController: UINavigationController {
-    static let alreadyOnboardedKey = "DriveKitAp.alreadyOnboarded"
+    static let alreadyOnboardedKey = "DriveKitApp.alreadyOnboarded"
     static var alreadyOnboarded: Bool {
         get {
             DriveKitCoreUserDefaults.getPrimitiveType(key: alreadyOnboardedKey) ?? false

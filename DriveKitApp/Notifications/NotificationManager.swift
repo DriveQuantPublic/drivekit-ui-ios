@@ -16,6 +16,7 @@ import DriveKitDriverDataUI
 import DriveKitTripAnalysisModule
 import DriveKitTripAnalysisUI
 import UserNotifications
+import DriveKitPermissionsUtilsUI
 
 class NotificationManager: NSObject {
     private static let shared = NotificationManager()
@@ -111,11 +112,43 @@ class NotificationManager: NSObject {
     private func configure() {
         DriveKit.shared.registerNotificationDelegate(self)
         DriveKitTripAnalysis.shared.addTripListener(self)
+        DriveKit.shared.addDeviceConfigurationDelegate(self)
     }
 
     private func reset() {
         DriveKit.shared.unregisterNotificationDelegate(self)
         DriveKitTripAnalysis.shared.removeTripListener(self)
+        DriveKit.shared.removeDeviceConfigurationDelegate(self)
+        NotificationManager.removeNotifications([
+            .tripStarted(
+                canPostpone: DriveKitTripAnalysisUI.shared.isUserAllowedToCancelTrip
+            ),
+            .tripAnalysisError(.noNetwork),
+            .tripAnalysisError(.noBeacon),
+            .tripAnalysisError(.duplicateTrip),
+            .tripAnalysisError(.noApiKey),
+            .tripEnded(message: "", transportationMode: .car, hasAdvices: false),
+            .tripEnded(message: "", transportationMode: .car, hasAdvices: true),
+            .tripCancelled(reason: .noGpsPoint),
+            .tripTooShort,
+            .criticalDeviceConfiguration(.none)
+        ])
+    }
+
+    private static func updateDeviceConfigurationNotification() {
+        let notificationInfo: DKDiagnosisNotificationInfo?
+        if DriveKit.shared.isUserConnected(), 
+            DriveKitConfig.isTripAnalysisAutoStartEnabled(),
+            AppNavigationController.alreadyOnboarded {
+            notificationInfo = DriveKitPermissionsUtilsUI.shared.getDeviceConfigurationEventNotification()
+        } else {
+            notificationInfo = nil
+        }
+        if let notificationInfo = notificationInfo {
+            self.sendNotification(.criticalDeviceConfiguration(notificationInfo))
+        } else {
+            self.removeNotification(.criticalDeviceConfiguration(.none))
+        }
     }
 }
 
@@ -167,6 +200,8 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
                     let hasAdvices = content.userInfo["hasAdvices"] as? Bool ?? false
                     showTrip(with: itineraryId, hasAdvices: hasAdvices)
                 }
+            case NotificationCategory.deviceConfiguration:
+                showDiagnosis()
             default:
                 break
         }
@@ -199,6 +234,16 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
             let navigationController = UINavigationController(rootViewController: detailVC)
             navigationController.configure()
             rootViewController.present(navigationController, animated: true)
+        }
+    }
+
+    func showDiagnosis() {
+        if let appDelegate = UIApplication.shared.delegate,
+           let appNavigationController = appDelegate.window??.rootViewController as? AppNavigationController {
+            let diagnosisViewController = DriveKitPermissionsUtilsUI.shared.getDiagnosisViewController()
+            let navigationController = UINavigationController(rootViewController: diagnosisViewController)
+            navigationController.configure()
+            appNavigationController.present(navigationController, animated: true)
         }
     }
 }
@@ -243,6 +288,9 @@ extension NotificationManager: TripListener {
                         canPostpone: DriveKitTripAnalysisUI.shared.isUserAllowedToCancelTrip
                     )
                 )
+            case .criticalDeviceConfiguration(_):
+                // Nothing to remove.
+                break
         }
     }
 
@@ -376,6 +424,12 @@ extension NotificationManager: TripListener {
         case noBeaconDetected = 29
         case invalidBeaconDetected = 30
         case duplicateTrip = 31
+    }
+}
+
+extension NotificationManager: DKDeviceConfigurationDelegate {
+    func deviceConfigurationDidChange(event: DKDeviceConfigurationEvent) {
+        NotificationManager.updateDeviceConfigurationNotification()
     }
 }
 

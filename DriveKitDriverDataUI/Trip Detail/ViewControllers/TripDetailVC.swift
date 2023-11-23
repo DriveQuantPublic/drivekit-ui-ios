@@ -356,8 +356,9 @@ extension TripDetailVC: TripDetailDelegate {
     
     func onEventSelected(event: TripEvent, position: Int) {
         mapViewController.zoomToEvent(event: event)
-        if let pos = viewModel.configurableMapItems.firstIndex(of: MapItem.interactiveMap) {
-            (self.swipableViewControllers[pos] as! HistoryPageVC).setToPosition(position: position)
+        if let pos = viewModel.configurableMapItems.firstIndex(of: MapItem.interactiveMap),
+           let historyPageVC = self.swipableViewControllers[pos] as? HistoryPageVC {
+            historyPageVC.setToPosition(position: position)
         }
     }
 

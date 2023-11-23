@@ -13,6 +13,8 @@ import DriveKitPermissionsUtilsUI
 import DriveKitVehicleModule
 
 class AppNavigationController: UINavigationController {
+    static var alreadyOnboarded: Bool = false
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupViewController()
@@ -61,6 +63,7 @@ class AppNavigationController: UINavigationController {
     }
 
     func goToDashboard() {
+        AppNavigationController.alreadyOnboarded = true
         self.setViewControllers([DashboardViewController()], animated: false)
     }
 }

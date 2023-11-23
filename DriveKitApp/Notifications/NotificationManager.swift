@@ -120,13 +120,26 @@ class NotificationManager: NSObject {
         DriveKitTripAnalysis.shared.removeTripListener(self)
         DriveKit.shared.removeDeviceConfigurationDelegate(self)
         NotificationManager.removeNotifications([
+            .tripStarted(
+                canPostpone: DriveKitTripAnalysisUI.shared.isUserAllowedToCancelTrip
+            ),
+            .tripAnalysisError(.noNetwork),
+            .tripAnalysisError(.noBeacon),
+            .tripAnalysisError(.duplicateTrip),
+            .tripAnalysisError(.noApiKey),
+            .tripEnded(message: "", transportationMode: .car, hasAdvices: false),
+            .tripEnded(message: "", transportationMode: .car, hasAdvices: true),
+            .tripCancelled(reason: .noGpsPoint),
+            .tripTooShort,
             .criticalDeviceConfiguration(.none)
         ])
     }
 
     private static func updateDeviceConfigurationNotification() {
         let notificationInfo: DKDiagnosisNotificationInfo?
-        if DriveKitConfig.isTripAnalysisAutoStartEnabled() {
+        if DriveKit.shared.isUserConnected(), 
+            DriveKitConfig.isTripAnalysisAutoStartEnabled(),
+            AppNavigationController.alreadyOnboarded {
             notificationInfo = DriveKitPermissionsUtilsUI.shared.getDeviceConfigurationEventNotification()
         } else {
             notificationInfo = nil

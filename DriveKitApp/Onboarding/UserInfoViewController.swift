@@ -111,6 +111,7 @@ class UserInfoViewController: UIViewController {
                     let vehiclesVC = VehiclesViewController(nibName: "VehiclesViewController", bundle: nil)
                     self?.navigationController?.pushViewController(vehiclesVC, animated: true)
                 } else {
+                    AppNavigationController.alreadyOnboarded = true
                     self?.navigationController?.setViewControllers([DashboardViewController()], animated: true)
                 }
             }

@@ -50,10 +50,6 @@ enum DKDeviceConfigurationEventNotificationManager {
 
     private static func getInvalidNotifiableEvents() -> [DKDeviceConfigurationEventType] {
 
-        guard DriveKit.shared.isUserConnected() else {
-            return []
-        }
-
         let diagnosisHelper = DKDiagnosisHelper.shared
         var results: [DKDeviceConfigurationEventType] = []
         if !diagnosisHelper.isActivated(.gps) {

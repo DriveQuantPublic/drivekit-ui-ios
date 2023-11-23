@@ -43,7 +43,6 @@ public class BadgesViewController: DKUIViewController, UITableViewDelegate {
         self.tableView.delegate = self
         self.tableView.addSubview(self.refreshControl)
         self.refreshControl.addTarget(self, action: #selector(update), for: .valueChanged)
-        self.refreshControl.beginRefreshing()
         self.tableView.setContentOffset(CGPoint(x: 0, y: -self.refreshControl.bounds.size.height), animated: true)
         if #available(iOS 15, *) {
             self.tableView.sectionHeaderTopPadding = 0
@@ -55,6 +54,15 @@ public class BadgesViewController: DKUIViewController, UITableViewDelegate {
                                                name: Notification.Name("goToDetailView"),
                                                object: nil)
         update()
+    }
+
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if self.viewModel.updating {
+            self.refreshControl.beginRefreshing()
+        } else {
+            self.refreshControl.endRefreshing()
+        }
     }
 
     @objc private func update() {

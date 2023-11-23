@@ -132,6 +132,9 @@ class ChallengeListVC: DKUIViewController {
 
 extension ChallengeListVC: ChallengeListDelegate {
     func challengesFetchStarted() {
+        guard let _ = self.viewIfLoaded?.window else {
+            return
+        }
         if let refreshControl = currentChallengesCollectionView?.refreshControl {
             refreshControl.beginRefreshing()
         }

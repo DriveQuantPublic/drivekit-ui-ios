@@ -15,16 +15,19 @@ import DriveKitCommonUI
 class BadgeViewModel {
     weak var delegate: BadgeDelegate?
     private var badges: [DKBadge] = []
-    
+    private(set) var updating: Bool = false
+
     init() {
         let badges = DriveKitDBAchievementAccess.shared.badgesQuery().noFilter().query().execute()
         self.badges = self.computeBadges(badges)
     }
     
     func updateBadges() {
+        self.updating = true
         DriveKitDriverAchievement.shared.getBadges { [weak self] _, badges, _ in
             DispatchQueue.main.async {
                 if let self = self {
+                    self.updating = false
                     self.badges = self.computeBadges(badges)
                     self.delegate?.badgesUpdated()
                 }

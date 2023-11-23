@@ -16,14 +16,17 @@ import DriveKitCommonUI
 class StreakViewModel {
     weak var delegate: StreakVMDelegate?
     var streakData: [StreakData] = []
-    
+    private(set) var updating: Bool = false
+
     init() {
         self.streakData = computeStreak(DriveKitDBAchievementAccess.shared.streakQuery().noFilter().query().execute())
     }
     
     func getStreakData() {
+        self.updating = true
         DriveKitDriverAchievement.shared.getStreaks { [weak self] status, streaks in
             if let self = self {
+                self.updating = false
                 self.streakData = self.computeStreak(streaks)
                 if self.streakData.isEmpty {
                     if let delegate = self.delegate {

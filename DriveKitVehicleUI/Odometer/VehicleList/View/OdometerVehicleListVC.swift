@@ -56,10 +56,16 @@ class OdometerVehicleListVC: DKUIViewController {
         self.synchronize()
     }
 
-    @objc private func synchronize() {
-        if let refreshControl = self.tableView?.refreshControl {
-            refreshControl.beginRefreshing()
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if self.viewModel.updating {
+            self.tableView?.refreshControl?.beginRefreshing()
+        } else {
+            self.tableView?.refreshControl?.endRefreshing()
         }
+    }
+
+    @objc private func synchronize() {
         self.viewModel.synchronize { [weak self] success in
             if let self = self {
                 if let refreshControl = self.tableView?.refreshControl, refreshControl.isRefreshing {

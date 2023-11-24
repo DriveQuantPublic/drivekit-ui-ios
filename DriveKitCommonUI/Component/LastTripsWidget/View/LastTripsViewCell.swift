@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  LastTripsViewCell.swift
 //  DriveKitCommonUI
@@ -47,6 +47,7 @@ final class LastTripsViewCell: UICollectionViewCell, Nibable {
     }
 
     override func prepareForReuse() {
+        super.prepareForReuse()
         tripInfoView?.removeFromSuperview()
         self.tripCell?.prepareForReuse()
     }

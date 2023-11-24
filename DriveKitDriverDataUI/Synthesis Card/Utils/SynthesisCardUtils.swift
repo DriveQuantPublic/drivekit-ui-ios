@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  SynthesisCardUtils.swift
 //  DriveKitDriverDataUI
@@ -12,6 +11,7 @@ import DriveKitCoreModule
 import DriveKitDBTripAccessModule
 import DriveKitDriverDataModule
 
+// swiftlint:disable:next convenience_type
 public struct SynthesisCardUtils {
 
     public static func getLastTrip(withTransportationModes transportationModes: [TransportationMode] = [.unknown, .car, .moto, .truck]) -> Trip? {
@@ -26,7 +26,8 @@ public struct SynthesisCardUtils {
 
     public static func getLastTrips(withTransportationModes transportationModes: [TransportationMode] = [.unknown, .car, .moto, .truck]) -> [Trip] {
         if let lastTrip = getLastTrip(withTransportationModes: transportationModes), let lastDate = lastTrip.endDate {
-            let oneWeekBeforeDate = lastDate.addingTimeInterval(-7 * 24 * 3_600) // 7 days.
+            let sevenDaysInSeconds: TimeInterval = 604_800// 7 * 24 * 3_600
+            let oneWeekBeforeDate = lastDate.addingTimeInterval(-sevenDaysInSeconds)
             let tripsQuery = getTripsQuery(forTransportationModes: transportationModes)
             let lastTrips = tripsQuery
                 .and()
@@ -89,18 +90,15 @@ public struct RoadConditionStats {
                 }
             }
             var roadConditionPercentages: [DKRoadCondition: Double] = [:]
-            for roadCondition in DKRoadCondition.allCases {
-                if roadCondition != .trafficJam {
-                    roadConditionPercentages[roadCondition] = Double(mainRoadConditionCount[roadCondition] ?? 0) / tripNumber * 100
-                }
-            }
+            for roadCondition in DKRoadCondition.allCases where roadCondition != .trafficJam {
+                let oneHundred: Double = 100
+                roadConditionPercentages[roadCondition] = Double(mainRoadConditionCount[roadCondition] ?? 0) / tripNumber * oneHundred
+        }
             self.roadConditionPercentages = roadConditionPercentages
         } else {
             var roadConditionPercentages: [DKRoadCondition: Double] = [:]
-            for roadCondition in DKRoadCondition.allCases {
-                if roadCondition != .trafficJam {
-                    roadConditionPercentages[roadCondition] = 0
-                }
+            for roadCondition in DKRoadCondition.allCases where roadCondition != .trafficJam {
+                roadConditionPercentages[roadCondition] = 0
             }
             self.roadConditionPercentages = roadConditionPercentages
         }

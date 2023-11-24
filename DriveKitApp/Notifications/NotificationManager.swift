@@ -101,10 +101,11 @@ class NotificationManager: NSObject {
                                  title: $0.title,
                                  options: [])
         }
-        let notificationCategory = UNNotificationCategory(identifier: NotificationCategory.TripAnalysis.start.identifier,
-                                              actions: notificationActions,
-                                              intentIdentifiers: [],
-                                              options: [])
+        let notificationCategory = UNNotificationCategory(
+            identifier: NotificationCategory.TripAnalysis.start.identifier,
+            actions: notificationActions,
+            intentIdentifiers: [],
+            options: [])
         let center = UNUserNotificationCenter.current()
         center.setNotificationCategories([notificationCategory])
     }
@@ -179,7 +180,10 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
         }
     }
 
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        willPresent notification: UNNotification,
+        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         // Used to display notifications while the app is in foreground.
         if #available(iOS 14, *) {
             completionHandler([.list, .banner])
@@ -226,7 +230,9 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
     }
     
     func showTrip(with identifier: String, hasAdvices: Bool) {
-        if let appDelegate = UIApplication.shared.delegate, let rootViewController = appDelegate.window??.rootViewController, let trip = DriveKitDBTripAccess.shared.find(itinId: identifier) {
+        if let appDelegate = UIApplication.shared.delegate, 
+            let rootViewController = appDelegate.window??.rootViewController,
+            let trip = DriveKitDBTripAccess.shared.find(itinId: identifier) {
             let transportationMode: TransportationMode = TransportationMode(rawValue: Int(trip.transportationMode)) ?? .unknown
             let isAlternative = transportationMode.isAlternative()
             let showAdvice = !isAlternative && hasAdvices
@@ -288,7 +294,7 @@ extension NotificationManager: TripListener {
                         canPostpone: DriveKitTripAnalysisUI.shared.isUserAllowedToCancelTrip
                     )
                 )
-            case .criticalDeviceConfiguration(_):
+            case .criticalDeviceConfiguration:
                 // Nothing to remove.
                 break
         }

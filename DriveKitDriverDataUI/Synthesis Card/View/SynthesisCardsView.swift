@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  SynthesisCardsView.swift
 //  DriveKitDriverDataUI
@@ -48,7 +47,12 @@ extension SynthesisCardsView: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cardViewCell: SynthesisCardViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "SynthesisCardViewCell", for: indexPath) as! SynthesisCardViewCell
+        guard let cardViewCell: SynthesisCardViewCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "SynthesisCardViewCell",
+            for: indexPath
+        ) as? SynthesisCardViewCell else {
+            return UICollectionViewCell()
+        }
         cardViewCell.viewModel = self.viewModel?.synthesisCardViewModels[indexPath.item]
         return cardViewCell
     }

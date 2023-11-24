@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  DashboardViewModel.swift
 //  DriveKitApp
@@ -32,10 +31,8 @@ class DashboardViewModel {
 
     @objc func updateBanners() {
         var newBannerViewModels: [InfoBannerViewModel] = []
-        for banner in InfoBannerType.allCases {
-            if banner.shouldDisplay {
-                newBannerViewModels.append(InfoBannerViewModel(type: banner))
-            }
+        for banner in InfoBannerType.allCases where banner.shouldDisplay {
+            newBannerViewModels.append(InfoBannerViewModel(type: banner))
         }
         self.bannerViewModels = newBannerViewModels
         self.delegate?.bannersDidUpdate()

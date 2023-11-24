@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  SynchroServicesManager.swift
 //  DriveKitApp
@@ -29,7 +28,7 @@ enum SyncStatus {
     case failed
 }
 
-class SynchroServicesManager {
+enum SynchroServicesManager {
 
     static func syncModule(_ service: DKService, completion: ((SyncStatus) -> Void)? = nil) {
         switch service {

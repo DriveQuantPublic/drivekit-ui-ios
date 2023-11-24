@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  TripSimulatorDetailViewModel.swift
 //  DriveKitApp
@@ -13,7 +12,7 @@ import DriveKitCoreModule
 import DriveKitTripAnalysisModule
 import DriveKitTripSimulatorModule
 
-protocol TripSimulatorDetailViewModelDelegate: NSObject {
+protocol TripSimulatorDetailViewModelDelegate: AnyObject {
     func updateNeeded(updatedValue: Double?, timestamp: Double?)
 }
 
@@ -118,9 +117,10 @@ class TripSimulatorDetailViewModel {
     }
 
     func formatDuration(duration: Double) -> String {
+        let secondsInMinute: Int = 60
         let durationInt = Int(duration)
-        let seconds: Int = durationInt % 60
-        let minutes: Int = (durationInt - seconds) / 60
+        let seconds: Int = durationInt % secondsInMinute
+        let minutes: Int = (durationInt - seconds) / secondsInMinute
         return String(format: "%02d:%02d", arguments: [minutes, seconds])
     }
 
@@ -153,7 +153,8 @@ class TripSimulatorDetailViewModel {
 extension TripSimulatorDetailViewModel: DKTripSimulatorDelegate {
     func locationSent(location: CLLocation, durationSinceStart: Double) {
         self.currentDuration = durationSinceStart + 1
-        let speedKmH = location.speed * 3_600 / 1_000
+        let conversionRatio: Double = 3.6 // 3_600 / 1_000
+        let speedKmH = location.speed * conversionRatio
         self.currentSpeed = speedKmH
 
         let state = DriveKitTripAnalysis.shared.getRecorderState()

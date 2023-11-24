@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  NotificationSettingsViewController.swift
 //  DriveKitApp
@@ -50,10 +50,17 @@ class NotificationSettingsViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationSettingsTextCell", for: indexPath) as! NotificationSettingsTextCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationSettingsTextCell", for: indexPath) as? NotificationSettingsTextCell else {
+                return UITableViewCell()
+            }
             return cell
         } else {
-            let configurationCell = tableView.dequeueReusableCell(withIdentifier: "NotificationSettingsConfigurationCell", for: indexPath) as! NotificationSettingsConfigurationCell
+            guard let configurationCell = tableView.dequeueReusableCell(
+                withIdentifier: "NotificationSettingsConfigurationCell",
+                for: indexPath
+            ) as? NotificationSettingsConfigurationCell else {
+                return UITableViewCell()
+            }
             configurationCell.updateWith(self.viewModel.viewModels[indexPath.row])
             return configurationCell
         }

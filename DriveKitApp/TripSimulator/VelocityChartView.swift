@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  VelocityChartView.swift
 //  DriveKitApp
@@ -76,7 +76,7 @@ class VelocityChartView: LineChartView {
     }
 
     func clean() {
-        while graphData.count > 0 {
+        while !graphData.isEmpty {
             let oldEntry = graphData.removeFirst()
             self.data?.removeEntry(oldEntry, dataSetIndex: 0)
         }

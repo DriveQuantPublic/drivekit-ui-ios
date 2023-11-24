@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  UserInfoViewModel.swift
 //  DriveKitApp
@@ -34,7 +33,13 @@ class UserInfoViewModel {
 
     func getTitleAttributedText() -> NSAttributedString {
         let iconString = "ⓘ".dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.secondaryColor).build()
-        let titleString = "user_info_title".keyLocalized().appending("  ").dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.mainFontColor).buildWithArgs(iconString)
+        let titleString = "user_info_title"
+            .keyLocalized()
+            .appending("  ")
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .headLine1)
+            .color(.mainFontColor)
+            .buildWithArgs(iconString)
         return titleString
     }
 
@@ -53,10 +58,10 @@ class UserInfoViewModel {
     func shouldDisplayPermissions() -> Bool {
         var missingPermissionsCount: Int = 0
         if DKDiagnosisHelper.shared.getPermissionStatus(.location) != .valid {
-            missingPermissionsCount = missingPermissionsCount + 1
+            missingPermissionsCount += 1
         }
         if DKDiagnosisHelper.shared.getPermissionStatus(.activity) != .valid {
-            missingPermissionsCount = missingPermissionsCount + 1
+            missingPermissionsCount += 1
         }
         return missingPermissionsCount > 0
     }
@@ -64,7 +69,7 @@ class UserInfoViewModel {
     func shouldDisplayVehicle(completion: @escaping (Bool) -> Void) {
         DriveKitVehicle.shared.getVehiclesOrderByNameAsc(type: .cache) { _, vehicles in
             DispatchQueue.dispatchOnMainThread {
-                completion(vehicles.count == 0)
+                completion(vehicles.isEmpty)
             }
         }
     }

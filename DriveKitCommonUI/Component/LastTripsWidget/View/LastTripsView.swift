@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  LastTripsView.swift
 //  DriveKitCommonUI
@@ -110,7 +109,7 @@ extension LastTripsView: UICollectionViewDataSource {
 
 extension LastTripsView: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        if let _ = touch.view as? TripInfoView { return true }
+        if (touch.view as? TripInfoView) != nil { return true }
         return false
     }
 }

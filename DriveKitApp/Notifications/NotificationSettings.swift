@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  NotificationSettings.swift
 //  DriveKitApp
@@ -10,7 +9,7 @@
 import Foundation
 import DriveKitCoreModule
 
-class NotificationSettings {
+enum NotificationSettings {
     static func enableChannel(_ channel: NotificationChannel) {
         UserDefaults.standard.set(true, forKey: channel.key)
     }

@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  UserInfoViewController.swift
 //  DriveKitApp
@@ -120,7 +119,8 @@ class UserInfoViewController: UIViewController {
 
 extension UserInfoViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        let targetY = textField.frame.origin.y - 60
+        let margin = 60.0
+        let targetY = textField.frame.origin.y - margin
         let targetFrame = CGRect(x: containerScrollView.frame.origin.x,
                                  y: targetY,
                                  width: containerScrollView.frame.width,

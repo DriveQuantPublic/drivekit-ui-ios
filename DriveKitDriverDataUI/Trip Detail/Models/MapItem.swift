@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  MapItem.swift
 //  drivekit-test-app
@@ -79,8 +78,8 @@ public enum MapItem: DKMapItem {
     }
     
     public func getAdvice(trip: Trip) -> TripAdvice? {
-        if let advices = trip.tripAdvices?.allObjects as! [TripAdvice]? {
-            if advices.count > 0 {
+        if let advices = trip.tripAdvices?.allObjects as? [TripAdvice] {
+            if !advices.isEmpty {
                 switch self {
                 case .safety:
                     return advices.filter({$0.theme == "SAFETY"}).first
@@ -160,30 +159,27 @@ public enum MapItem: DKMapItem {
     }
     
     public func canShowMapItem(trip: Trip) -> Bool {
+        let maxScore: Double = 10
         switch self {
             case .ecoDriving:
-                if let ecoDriving = trip.ecoDriving {
-                    if ecoDriving.score <= 10 {
-                        return true
-                    }
+                if let ecoDriving = trip.ecoDriving,
+                   ecoDriving.score <= maxScore {
+                    return true
                 }
             case .safety:
-                if let safety = trip.safety {
-                    if safety.safetyScore <= 10 {
-                        return true
-                    }
+                if let safety = trip.safety,
+                   safety.safetyScore <= maxScore {
+                    return true
                 }
             case .distraction:
-                if let distraction = trip.driverDistraction {
-                    if distraction.score <= 10 {
-                        return true
-                    }
+                if let distraction = trip.driverDistraction,
+                   distraction.score <= maxScore {
+                    return true
                 }
             case .speeding:
-                if let speedingStatistics = trip.speedingStatistics {
-                    if speedingStatistics.score <= 10 {
-                        return true
-                    }
+                if let speedingStatistics = trip.speedingStatistics,
+                   speedingStatistics.score <= maxScore {
+                    return true
                 }
             case .interactiveMap, .synthesis:
                 return true

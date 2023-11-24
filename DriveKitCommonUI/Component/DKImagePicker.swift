@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  DKImagePicker.swift
 //  DriveKitCommonUI
@@ -27,16 +27,13 @@ public class DKImagePickerManager: NSObject, UIImagePickerControllerDelegate, UI
         pickImageCallback = callback
         self.viewController = viewController
         
-        let cameraAction = UIAlertAction(title: DKCommonLocalizable.camera.text(), style: .default) {
-            _ in
+        let cameraAction = UIAlertAction(title: DKCommonLocalizable.camera.text(), style: .default) { _ in
             self.openCamera()
         }
-        let galleryAction = UIAlertAction(title: DKCommonLocalizable.gallery.text(), style: .default) {
-            _ in
+        let galleryAction = UIAlertAction(title: DKCommonLocalizable.gallery.text(), style: .default) { _ in
             self.openGallery()
         }
-        let cancelAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel) {
-            _ in
+        let cancelAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel) { _ in
         }
         
         // Add the actions
@@ -112,10 +109,8 @@ public class DKImagePickerManager: NSObject, UIImagePickerControllerDelegate, UI
         
         do {
             let files = try fileManager.contentsOfDirectory(atPath: "\(documentPath)")
-            for file in files {
-                if "\(documentPath)/\(file)" == filePath.path {
-                    try fileManager.removeItem(atPath: filePath.path)
-                }
+            for file in files where "\(documentPath)/\(file)" == filePath.path {
+                try fileManager.removeItem(atPath: filePath.path)
             }
         } catch {
             print("Could not add image from document directory: \(error)")

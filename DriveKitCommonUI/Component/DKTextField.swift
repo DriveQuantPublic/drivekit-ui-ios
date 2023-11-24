@@ -96,7 +96,7 @@ public final class DKTextField: UIView, Nibable {
     private func configureTitle() {
         if let title = self.title {
             if enable {
-                if placeholder == "" || textField.text != "" {
+                if placeholder.isEmpty || textField.text != "" {
                     titleTextField.isHidden = false
                     titleTextField.attributedText = title.dkAttributedString().font(dkFont: .primary, style: .normalText).color(DKUIColors.complementaryFontColor).build()
                 } else {

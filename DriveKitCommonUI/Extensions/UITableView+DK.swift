@@ -10,15 +10,17 @@ import UIKit
 
 extension UITableView {
     public func dequeue<T: UITableViewCell>(withIdentifier identifier: String, for indexPath: IndexPath) -> T {
-        guard let cell = self.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? T else {
-            fatalError("Invalid cell type")
+        let cell = self.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        guard let cell = cell as? T else {
+            fatalError("Invalid cell type. Expected: \(type(of: T())), found: \(type(of: cell))")
         }
         return cell
     }
 
     public func dequeue<T: UITableViewCell>(withIdentifier identifier: String) -> T {
-        guard let cell = self.dequeueReusableCell(withIdentifier: identifier) as? T else {
-            fatalError("Invalid cell type")
+        let cell = self.dequeueReusableCell(withIdentifier: identifier)
+        guard let cell = cell as? T else {
+            fatalError("Invalid cell type. Expected: \(type(of: T())), found: \(type(of: cell))")
         }
         return cell
     }
@@ -26,8 +28,9 @@ extension UITableView {
 
 extension UICollectionView {
     public func dequeue<T: UICollectionViewCell>(withReuseIdentifier identifier: String, for indexPath: IndexPath) -> T {
-        guard let cell = self.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? T else {
-            fatalError("Invalid cell type")
+        let cell = self.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
+        guard let cell = cell as? T else {
+            fatalError("Invalid cell type. Expected: \(type(of: T())), found: \(type(of: cell))")
         }
         return cell
     }

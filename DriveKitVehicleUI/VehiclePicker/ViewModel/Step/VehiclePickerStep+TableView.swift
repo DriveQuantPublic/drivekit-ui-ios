@@ -61,27 +61,27 @@ extension VehiclePickerStep: VehiclePickerTableViewDelegate {
         }
 
         switch self {
-        case .type:
-            viewModel.vehicleType = DriveKitVehicleUI.shared.vehicleTypes[pos]
-            viewModel.nextStep(self)
-        case .brandsFull:
-            viewModel.vehicleBrand = (self.getTableViewItems(viewModel: viewModel)[pos] as? DKVehicleBrand)
-            viewModel.nextStep(self)
-        case .engine:
-            viewModel.vehicleEngineIndex = (self.getTableViewItems(viewModel: viewModel)[pos] as? DKVehicleEngineIndex)
-            viewModel.nextStep(self)
-        case .models:
-            viewModel.vehicleModel = (self.getTableViewItems(viewModel: viewModel)[pos] as? String)
-            viewModel.nextStep(self)
-        case .years:
-            viewModel.vehicleYear = (self.getTableViewItems(viewModel: viewModel)[pos] as? String)
-            viewModel.nextStep(self)
-        case .versions:
-            viewModel.vehicleVersion = (self.getTableViewItems(viewModel: viewModel)[pos] as? DKVehicleVersion)
-            viewModel.nextStep(self)
-        default:
-            viewModel.vehicleDataDelegate?.onDataRetrieved(status: .noData)
-        }
+            case .type:
+                viewModel.vehicleType = DriveKitVehicleUI.shared.vehicleTypes[pos]
+                viewModel.nextStep(self)
+            case .brandsFull:
+                    viewModel.vehicleBrand = self.getTableViewItem(pos: pos, viewModel: viewModel)
+                viewModel.nextStep(self)
+            case .engine:
+                viewModel.vehicleEngineIndex = self.getTableViewItem(pos: pos, viewModel: viewModel)
+                viewModel.nextStep(self)
+            case .models:
+                viewModel.vehicleModel = self.getTableViewItem(pos: pos, viewModel: viewModel)
+                viewModel.nextStep(self)
+            case .years:
+                viewModel.vehicleYear = self.getTableViewItem(pos: pos, viewModel: viewModel)
+                viewModel.nextStep(self)
+            case .versions:
+                viewModel.vehicleVersion = self.getTableViewItem(pos: pos, viewModel: viewModel)
+                viewModel.nextStep(self)
+            default:
+                viewModel.vehicleDataDelegate?.onDataRetrieved(status: .noData)
+            }
     }
 
     func description() -> String? {
@@ -104,5 +104,12 @@ extension VehiclePickerStep: VehiclePickerTableViewDelegate {
             break
         }
         return nil
+    }
+
+    private func getTableViewItem<T: VehiclePickerTableViewItem>(pos: Int, viewModel: VehiclePickerViewModel) -> T {
+        guard let item = self.getTableViewItems(viewModel: viewModel)[pos] as? T else {
+            fatalError("failed to cast item of type \(T.self)")
+        }
+        return item
     }
 }

@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  OdometerInitVC.swift
 //  DriveKitVehicleUI
@@ -127,8 +127,11 @@ class OdometerInitVC: DKUIViewController {
     }
 
     @objc private func keyboardWillShow(notification: NSNotification) {
-        guard let userInfo = notification.userInfo else { return }
-        var keyboardFrame: CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        guard 
+            let userInfo = notification.userInfo,
+            let keyboardFrameBeginUserInfoKey = userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue
+        else { return }
+        var keyboardFrame: CGRect = keyboardFrameBeginUserInfoKey.cgRectValue
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
 
         var contentInset: UIEdgeInsets = self.scrollView.contentInset

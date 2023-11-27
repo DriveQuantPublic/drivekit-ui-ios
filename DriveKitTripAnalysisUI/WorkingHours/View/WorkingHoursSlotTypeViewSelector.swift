@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  WorkingHoursSlotTypeViewSelector.swift
 //  DriveKitTripAnalysisUI
@@ -23,6 +22,7 @@ class WorkingHoursSlotTypeViewSelector: UIViewController {
         self.selection = selection
         super.init(nibName: "WorkingHoursSlotTypeViewSelector", bundle: Bundle.tripAnalysisUIBundle)
         modalPresentationStyle = .popover
+        // swiftlint:disable:next no_magic_numbers
         preferredContentSize = CGSize(width: 200, height: 152)
         popoverPresentationController?.permittedArrowDirections = .up
         popoverPresentationController?.sourceView = sourceView
@@ -35,6 +35,7 @@ class WorkingHoursSlotTypeViewSelector: UIViewController {
     }
 
     override func viewDidLoad() {
+        super.viewDidLoad()
         setup(selection: self.selection)
     }
 

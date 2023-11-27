@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  BadgeTableViewCell.swift
 //  DriveKitDriverAchievementUI
@@ -24,8 +24,11 @@ class BadgeTableViewCell: UITableViewCell {
         configureLevelView(levelView: levelView, level: level)
     }
 
-    private func configureLevelView(levelView: BadgeLevelView, level: DKBadgeCharacteristics) {
-        levelView.configure(level: level)
+    private func configureLevelView(levelView: BadgeLevelView?, level: DKBadgeCharacteristics?) {
+        guard let level = level else {
+            return
+        }
+        levelView?.configure(level: level)
     }
 
     func configure(levels: [DKBadgeCharacteristics]) {
@@ -34,9 +37,9 @@ class BadgeTableViewCell: UITableViewCell {
             addLevelView(level: levels.filter {$0.level == .silver}.first!)
             addLevelView(level: levels.filter {$0.level == .gold}.first!)
         } else {
-            configureLevelView(levelView: levelsStackView.arrangedSubviews[0] as! BadgeLevelView, level: levels.filter {$0.level == .bronze}.first!)
-            configureLevelView(levelView: levelsStackView.arrangedSubviews[1] as! BadgeLevelView, level: levels.filter {$0.level == .silver}.first!)
-            configureLevelView(levelView: levelsStackView.arrangedSubviews[2] as! BadgeLevelView, level: levels.filter {$0.level == .gold}.first!)
+            configureLevelView(levelView: levelsStackView.arrangedSubviews[0] as? BadgeLevelView, level: levels.filter {$0.level == .bronze}.first)
+            configureLevelView(levelView: levelsStackView.arrangedSubviews[1] as? BadgeLevelView, level: levels.filter {$0.level == .silver}.first)
+            configureLevelView(levelView: levelsStackView.arrangedSubviews[2] as? BadgeLevelView, level: levels.filter {$0.level == .gold}.first)
         }
     }
 }

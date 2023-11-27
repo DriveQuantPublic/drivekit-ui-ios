@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  VehicleDetailViewModel.swift
 //  DriveKitVehicleUI
@@ -35,10 +34,8 @@ class VehicleDetailViewModel {
         self.vehicle = vehicle
         self.vehicleDisplayName = vehicleDisplayName
         let groups = DKVehicleGroupField.allCases
-        for groupField in groups {
-            if groupField.isDisplayable(vehicle: vehicle) {
-                groupFields.append(groupField)
-            }
+        for groupField in groups where groupField.isDisplayable(vehicle: vehicle) {
+            groupFields.append(groupField)
         }
 
         let vehicleGroupFieldsCell = Bundle.vehicleUIBundle?.loadNibNamed("VehicleGroupFieldsCell", owner: nil, options: nil)?.first as? VehicleGroupFieldsCell
@@ -83,7 +80,7 @@ class VehicleDetailViewModel {
     }
 
     func updateFields(completion: @escaping (Bool) -> Void) {
-        if updatedFields.count > 0 {
+        if !updatedFields.isEmpty {
             updateIsInProgress = true
             errorFields.removeAll()
             updateField(pos: 0, completion: completion)

@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  VehiclePickerStep+TableView.swift
 //  DriveKitVehicleUI
@@ -13,6 +12,7 @@ import DriveKitCommonUI
 
 extension VehiclePickerStep: VehiclePickerTableViewDelegate {
 
+    // swiftlint:disable:next cyclomatic_complexity
     func getTableViewItems(viewModel: VehiclePickerViewModel) -> [VehiclePickerTableViewItem] {
         switch self {
         case .type:
@@ -20,20 +20,18 @@ extension VehiclePickerStep: VehiclePickerTableViewDelegate {
         case .brandsFull:
             if let type = viewModel.vehicleType {
                 var brands: [VehiclePickerTableViewItem] = []
-                for brand in  DriveKitVehiclePicker.shared.getBrands(vehicleType: type) {
-                    if DriveKitVehicleUI.shared.brands.contains(brand) {
-                        brands.append(brand)
-                    }
+                for brand in  DriveKitVehiclePicker.shared.getBrands(vehicleType: type)
+                where DriveKitVehicleUI.shared.brands.contains(brand) {
+                    brands.append(brand)
                 }
                 return brands
             }
         case .engine:
             if let type = viewModel.vehicleType {
                 var engineIndexes: [DKVehicleEngineIndex] = []
-                for engineIndex in DriveKitVehicleUI.shared.vehicleEngineIndexes {
-                    if DriveKitVehiclePicker.shared.getEnginesIndex(vehicleType: type).contains(engineIndex) {
-                        engineIndexes.append(engineIndex)
-                    }
+                for engineIndex in DriveKitVehicleUI.shared.vehicleEngineIndexes 
+                where DriveKitVehiclePicker.shared.getEnginesIndex(vehicleType: type).contains(engineIndex) {
+                    engineIndexes.append(engineIndex)
                 }
                 return engineIndexes
             }
@@ -67,19 +65,19 @@ extension VehiclePickerStep: VehiclePickerTableViewDelegate {
             viewModel.vehicleType = DriveKitVehicleUI.shared.vehicleTypes[pos]
             viewModel.nextStep(self)
         case .brandsFull:
-            viewModel.vehicleBrand = (self.getTableViewItems(viewModel: viewModel)[pos] as! DKVehicleBrand)
+            viewModel.vehicleBrand = (self.getTableViewItems(viewModel: viewModel)[pos] as? DKVehicleBrand)
             viewModel.nextStep(self)
         case .engine:
-            viewModel.vehicleEngineIndex = (self.getTableViewItems(viewModel: viewModel)[pos] as! DKVehicleEngineIndex)
+            viewModel.vehicleEngineIndex = (self.getTableViewItems(viewModel: viewModel)[pos] as? DKVehicleEngineIndex)
             viewModel.nextStep(self)
         case .models:
-            viewModel.vehicleModel = (self.getTableViewItems(viewModel: viewModel)[pos] as! String)
+            viewModel.vehicleModel = (self.getTableViewItems(viewModel: viewModel)[pos] as? String)
             viewModel.nextStep(self)
         case .years:
-            viewModel.vehicleYear = (self.getTableViewItems(viewModel: viewModel)[pos] as! String)
+            viewModel.vehicleYear = (self.getTableViewItems(viewModel: viewModel)[pos] as? String)
             viewModel.nextStep(self)
         case .versions:
-            viewModel.vehicleVersion = (self.getTableViewItems(viewModel: viewModel)[pos] as! DKVehicleVersion)
+            viewModel.vehicleVersion = (self.getTableViewItems(viewModel: viewModel)[pos] as? DKVehicleVersion)
             viewModel.nextStep(self)
         default:
             viewModel.vehicleDataDelegate?.onDataRetrieved(status: .noData)

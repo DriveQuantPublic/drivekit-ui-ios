@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  DKVehicleBrand+UI.swift
 //  DriveKitVehicleUI
@@ -17,6 +16,7 @@ extension DKVehicleBrand: VehiclePickerCollectionViewItem {
         return self.name
     }
 
+    // swiftlint:disable:next cyclomatic_complexity
     func image() -> UIImage? {
         switch self {
         case .alpha_romeo:

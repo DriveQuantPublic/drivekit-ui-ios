@@ -14,12 +14,12 @@ import Foundation
 class WorkingHoursDayCellViewModel {
     typealias Input = (String, Int, Int)
 
-    private struct Constants {
+    private enum Constants {
         static let hours: Double = 24
         static let sliderStart: Double = 0
         static let sliderEnd: Double = 24
 
-        struct Wording {
+        enum Wording {
             static let weekdaySymbolByDay: [DKDay: String] = DateFormatter().weekdaySymbolByDay()
             static let hourFormatter = "h00"
             static let halfHourFormatter = "h30"

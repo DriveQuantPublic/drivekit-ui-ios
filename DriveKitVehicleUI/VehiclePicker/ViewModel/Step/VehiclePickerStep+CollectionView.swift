@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable cyclomatic_complexity
 //
 //  VehiclePickerStep+CollectionView.swift
 //  DriveKitVehicleUI
@@ -27,10 +27,9 @@ extension VehiclePickerStep: VehiclePickerCollectionViewDelegate {
                     }
                 }
                 var categories: [VehiclePickerCollectionViewItem] = []
-                for category in DriveKitVehiclePicker.shared.getCategories(vehicleType: type) {
-                    if filteredCategories.contains(category) {
-                        categories.append(category)
-                    }
+                for category in DriveKitVehiclePicker.shared.getCategories(vehicleType: type)
+                where filteredCategories.contains(category) {
+                    categories.append(category)
                 }
                 return categories
             }

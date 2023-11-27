@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers empty_count
 //
 //  ChallengeListVC.swift
 //  DriveKitChallengeUI
@@ -132,7 +132,7 @@ class ChallengeListVC: DKUIViewController {
 
 extension ChallengeListVC: ChallengeListDelegate {
     func challengesFetchStarted() {
-        guard let _ = self.viewIfLoaded?.window else {
+        guard self.viewIfLoaded?.window != nil else {
             return
         }
         if let refreshControl = currentChallengesCollectionView?.refreshControl {
@@ -221,7 +221,10 @@ extension ChallengeListVC: UICollectionViewDataSource {
             } else {
                 cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoChallengeCellIdentifier", for: indexPath)
                 if let noChallengeCell = cell as? NoChallengeCell {
-                    noChallengeCell.configure(viewModel: NoChallengeViewModel(text: "dk_challenge_no_finished_challenge".dkChallengeLocalized(), image: DKChallengeImages.finished.image))
+                    noChallengeCell.configure(viewModel: NoChallengeViewModel(
+                        text: "dk_challenge_no_finished_challenge".dkChallengeLocalized(),
+                        image: DKChallengeImages.finished.image
+                    ))
                 }
             }
         } else {

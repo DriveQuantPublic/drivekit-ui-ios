@@ -362,14 +362,14 @@ extension RankingViewModel: DKDriverRanking {
     }
 
     func getTitle() -> String {
-        guard rankingSelectors.count > 0 else {
+        guard !rankingSelectors.isEmpty else {
             return ""
         }
         return selectedRankingType?.name ?? DKCommonLocalizable.safety.text()
     }
 
     func getImage() -> UIImage? {
-        guard rankingSelectors.count > 0 else {
+        guard !rankingSelectors.isEmpty else {
             return nil
         }
         return selectedRankingType?.image ?? DKImages.safetyFlat.image

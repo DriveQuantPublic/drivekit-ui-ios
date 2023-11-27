@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  VehicleListViewModel.swift
 //  DriveKitVehicleUI
@@ -231,10 +230,8 @@ public class DKVehiclesListViewModel {
     }
 
     func replaceAvailable() -> Bool {
-        for action in DriveKitVehicleUI.shared.vehicleActions {
-            if action as? DKVehicleAction == .replace {
-                return true
-            }
+        for action in DriveKitVehicleUI.shared.vehicleActions where action as? DKVehicleAction == .replace {
+            return true
         }
         return false
     }

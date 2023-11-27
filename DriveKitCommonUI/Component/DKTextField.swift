@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  DKTextField.swift
 //  DriveKitCommonUI
@@ -96,6 +96,7 @@ public final class DKTextField: UIView, Nibable {
     private func configureTitle() {
         if let title = self.title {
             if enable {
+                // swiftlint:disable:next empty_string
                 if placeholder.isEmpty || textField.text != "" {
                     titleTextField.isHidden = false
                     titleTextField.attributedText = title.dkAttributedString().font(dkFont: .primary, style: .normalText).color(DKUIColors.complementaryFontColor).build()

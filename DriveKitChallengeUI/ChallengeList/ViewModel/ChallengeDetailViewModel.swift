@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers cyclomatic_complexity
 //
 //  ChallengeDetailViewModel.swift
 //  DriveKitChallengeUI
@@ -104,17 +104,19 @@ class ChallengeDetailViewModel {
                     totalScoreString = ""
                 }
                 if driverRanked.rank == challengeDetail.userIndex {
-                    return CurrentChallengeDriverRank(nbDrivers: challengeDetail.nbDriverRanked,
-                                               position: driverRanked.rank,
-                                               positionString: String(driverRanked.rank),
-                                               positionImageName: self.getImageName(fromPosition: driverRanked.rank),
-                                               rankString: " / \(challengeDetail.nbDriverRanked)",
-                                               name: name,
-                                               distance: driverRanked.distance,
-                                               distanceString: driverRanked.distance.formatKilometerDistance(appendingUnit: true, minDistanceToRemoveFractions: 10),
-                                               score: driverRanked.score,
-                                               scoreString: scoreString,
-                                               totalScoreString: totalScoreString)
+                    return CurrentChallengeDriverRank(
+                        nbDrivers: challengeDetail.nbDriverRanked,
+                        position: driverRanked.rank,
+                        positionString: String(driverRanked.rank),
+                        positionImageName: self.getImageName(fromPosition: driverRanked.rank),
+                        rankString: " / \(challengeDetail.nbDriverRanked)",
+                        name: name,
+                        distance: driverRanked.distance,
+                        distanceString: driverRanked.distance.formatKilometerDistance(appendingUnit: true, minDistanceToRemoveFractions: 10),
+                        score: driverRanked.score,
+                        scoreString: scoreString,
+                        totalScoreString: totalScoreString
+                    )
                 } else {
                     return ChallengeDriverRank(nbDrivers: challengeDetail.nbDriverRanked,
                                                position: driverRanked.rank,
@@ -183,13 +185,22 @@ class ChallengeDetailViewModel {
     func getTitleAttributedString() -> NSAttributedString {
         let alignment = NSMutableParagraphStyle()
         alignment.alignment = .center
-        let titleAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 20).with(.traitBold), NSAttributedString.Key.foregroundColor: DKUIColors.mainFontColor.color, NSAttributedString.Key.paragraphStyle: alignment]
+        let titleAttributes = [
+            NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 20).with(.traitBold),
+            NSAttributedString.Key.foregroundColor: DKUIColors.mainFontColor.color,
+            NSAttributedString.Key.paragraphStyle: alignment
+        ]
         let titleString = challenge.title
         return NSAttributedString(string: titleString, attributes: titleAttributes)
     }
 
     func getDateAttributedString() -> NSAttributedString {
-        return ChallengeItemViewModel.formatStartAndEndDates(startDate: challenge.startDate, endDate: challenge.endDate, tintColor: DKUIColors.complementaryFontColor.color, alignment: .center)
+        return ChallengeItemViewModel.formatStartAndEndDates(
+            startDate: challenge.startDate,
+            endDate: challenge.endDate,
+            tintColor: DKUIColors.complementaryFontColor.color,
+            alignment: .center
+        )
     }
 }
 

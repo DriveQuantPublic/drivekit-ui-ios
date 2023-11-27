@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  DiagnosisViewModel.swift
 //  DriveKitPermissionsUtilsUI
@@ -82,7 +81,8 @@ class DiagnosisViewModel: NSObject {
             if openSettingsImmediatly {
                 DKDiagnosisHelper.shared.openSettings()
             } else {
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.2, execute: {
+                let delay = 0.2
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay, execute: {
                     if self.isAppActive {
                         // No system alert has been presented. Open settings.
                         DKDiagnosisHelper.shared.openSettings()
@@ -108,7 +108,6 @@ class DiagnosisViewModel: NSObject {
                 openUrl(url)
             case let .email(contentMail):
                 sendMail(contentMail)
-                break
             case .none:
                 break
         }
@@ -209,10 +208,8 @@ class DiagnosisViewModel: NSObject {
 
     private func updateSensorsUI() {
         var numberOfInvalidStates = 0
-        for state in self.stateByType.values {
-            if state == false {
-                numberOfInvalidStates += 1
-            }
+        for state in self.stateByType.values where state == false {
+            numberOfInvalidStates += 1
         }
         self.globalStatusViewModel = GlobalStateViewModel(errorNumber: numberOfInvalidStates)
         self.view?.updateSensorsUI()

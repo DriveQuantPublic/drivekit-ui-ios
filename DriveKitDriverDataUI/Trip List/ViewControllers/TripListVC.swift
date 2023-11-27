@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  TripListVC.swift
 //  drivekit-test-app
@@ -57,6 +56,7 @@ public class TripListVC: DKUIViewController {
     }
 
     override public func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.viewModel.fetchTrips(withSynchronizationType: .cache)
         if self.viewModel.showFilter(), let items = self.viewModel.getTripFilterItem(), items.count > 1 {
             self.filterViewModel?.updateItems(items: items)
@@ -73,7 +73,8 @@ public class TripListVC: DKUIViewController {
     
     private func configureFilterButton() {
         if DriveKitDriverDataUI.shared.enableAlternativeTrips && self.viewModel.hasAlternativeTrips() {
-            let image = DKDriverDataImages.filter.image?.resizeImage(25, opaque: false).withRenderingMode(.alwaysTemplate)
+            let imageWidth: CGFloat = 25
+            let image = DKDriverDataImages.filter.image?.resizeImage(imageWidth, opaque: false).withRenderingMode(.alwaysTemplate)
             let filterButton = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(filterAction))
             filterButton.tintColor = DKUIColors.navBarElementColor.color
             self.navigationItem.rightBarButtonItem = filterButton
@@ -108,9 +109,19 @@ public class TripListVC: DKUIViewController {
 
         if self.viewModel.filteredTrips.isEmpty {
             if self.viewModel.hasTrips() {
-                self.noTripLabel.attributedText = "dk_driverdata_no_trip_placeholder".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+                self.noTripLabel.attributedText = "dk_driverdata_no_trip_placeholder"
+                    .dkDriverDataLocalized()
+                    .dkAttributedString()
+                    .font(dkFont: .primary, style: .normalText)
+                    .color(.mainFontColor)
+                    .build()
             } else {
-                self.noTripLabel.attributedText = "dk_driverdata_no_trips_recorded".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+                self.noTripLabel.attributedText = "dk_driverdata_no_trips_recorded"
+                    .dkDriverDataLocalized()
+                    .dkAttributedString()
+                    .font(dkFont: .primary, style: .normalText)
+                    .color(.mainFontColor)
+                    .build()
             }
             self.noTripLabelContainer.isHidden = false
         } else {
@@ -136,10 +147,25 @@ public class TripListVC: DKUIViewController {
         if self.viewModel.showFilter() {
             self.synthesis.isHidden = false
             let tripNumber = viewModel.tripNumber
-            let synthesisText = "%@ \(tripNumber > 1 ? DKCommonLocalizable.tripPlural.text() : DKCommonLocalizable.tripSingular.text()) - %@ \(DKCommonLocalizable.unitKilometer.text())"
-            let tripNumberValue = String(tripNumber).dkAttributedString().color(.primaryColor).font(dkFont: .primary, style: .highlightSmall).build()
-            let distanceValue = viewModel.tripsDistance.formatMeterDistanceInKm(appendingUnit: false).dkAttributedString().color(.primaryColor).font(dkFont: .primary, style: .highlightSmall).build()
-            self.synthesis.attributedText = synthesisText.dkAttributedString().color(.complementaryFontColor).font(dkFont: .primary, style: .driverDataText).buildWithArgs(tripNumberValue, distanceValue)
+            let synthesisText 
+            = "%@ \(tripNumber > 1 ? DKCommonLocalizable.tripPlural.text() : DKCommonLocalizable.tripSingular.text()) - %@ \(DKCommonLocalizable.unitKilometer.text())"
+            let tripNumberValue = String(tripNumber)
+                .dkAttributedString()
+                .color(.primaryColor)
+                .font(dkFont: .primary, style: .highlightSmall)
+                .build()
+            let distanceValue = viewModel
+                .tripsDistance
+                .formatMeterDistanceInKm(appendingUnit: false)
+                .dkAttributedString()
+                .color(.primaryColor)
+                .font(dkFont: .primary, style: .highlightSmall)
+                .build()
+            self.synthesis.attributedText = synthesisText
+                .dkAttributedString()
+                .color(.complementaryFontColor)
+                .font(dkFont: .primary, style: .driverDataText)
+                .buildWithArgs(tripNumberValue, distanceValue)
         } else {
             self.synthesis.isHidden = true
         }

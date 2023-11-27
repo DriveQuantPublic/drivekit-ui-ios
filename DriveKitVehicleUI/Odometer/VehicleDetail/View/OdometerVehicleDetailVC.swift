@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  OdometerVehicleDetailVC.swift
 //  DriveKitVehicleUI
@@ -75,20 +75,26 @@ extension OdometerVehicleDetailVC: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "OdometerVehicleCell", for: indexPath) as! OdometerVehicleCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "OdometerVehicleCell", for: indexPath) as? OdometerVehicleCell else {
+                return UITableViewCell()
+            }
             if let viewModel = self.viewModel.getOdometerVehicleCellViewModel() {
                 cell.configure(viewModel: viewModel, showPickerImage: false)
             }
             cell.selectionStyle = .none
             return cell
         } else if indexPath.section == 4 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "OdometerVehicleDetailButtonsCell", for: indexPath) as! OdometerVehicleDetailButtonsCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "OdometerVehicleDetailButtonsCell", for: indexPath) as? OdometerVehicleDetailButtonsCell else {
+                return UITableViewCell()
+            }
             cell.showReferenceLink(self.viewModel.showReferenceLink())
             cell.delegate = self
             return cell
         } else {
             let type = self.viewModel.cells[indexPath.section - 1]
-            let cell = tableView.dequeueReusableCell(withIdentifier: "OdometerCell", for: indexPath) as! OdometerCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "OdometerCell", for: indexPath) as? OdometerCell else {
+                return UITableViewCell()
+            }
             cell.configure(viewModel: self.viewModel.getOdometerCellViewModel(), type: type, actionType: .info)
             return cell
         }

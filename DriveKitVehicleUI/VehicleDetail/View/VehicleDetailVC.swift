@@ -114,18 +114,14 @@ extension VehicleDetailVC: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            guard let cell: VehicleDetailHeader = self.tableView.dequeueReusableCell(withIdentifier: "VehicleDetailHeader", for: indexPath) as? VehicleDetailHeader else {
-                return UITableViewCell()
-            }
+            let cell: VehicleDetailHeader = self.tableView.dequeue(withIdentifier: "VehicleDetailHeader", for: indexPath)
             cell.configure(vehicleName: self.viewModel.vehicleDisplayName, vehicleImage: viewModel.vehicle.getVehicleImage())
             cell.delegate = self
             cell.clipsToBounds = false
             cell.selectionStyle = .none
             return cell
         } else {
-            guard let cell: VehicleGroupFieldsCell = self.tableView.dequeueReusableCell(withIdentifier: "VehicleGroupFieldsCell", for: indexPath) as? VehicleGroupFieldsCell else {
-                return UITableViewCell()
-            }
+            let cell: VehicleGroupFieldsCell = self.tableView.dequeue(withIdentifier: "VehicleGroupFieldsCell", for: indexPath)
             cell.clipsToBounds = false
             cell.selectionStyle = .none
             let groupField = self.viewModel.groupFields[indexPath.section - 1]

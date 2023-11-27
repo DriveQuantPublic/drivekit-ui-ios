@@ -115,9 +115,7 @@ extension OdometerHistoryDetailVC: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "OdometerHistoryDetailCell", for: indexPath) as? OdometerHistoryDetailCell else {
-            return UITableViewCell()
-        }
+        let cell: OdometerHistoryDetailCell = tableView.dequeue(withIdentifier: "OdometerHistoryDetailCell", for: indexPath)
         let viewModel = self.viewModel.getOdometerHistoryDetailCellViewModel(at: indexPath.section)
         cell.configure(viewModel: viewModel)
         cell.delegate = self

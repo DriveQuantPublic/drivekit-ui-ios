@@ -67,21 +67,17 @@ extension VehiclePickerTruckTypeVC: UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let value = self.viewModel.getCollectionViewItems()[indexPath.row]
         if let image = value.image() {
-            guard let cell: VehiclePickerImageCollectionViewCell = collectionView.dequeueReusableCell(
+            let cell: VehiclePickerImageCollectionViewCell = collectionView.dequeue(
                 withReuseIdentifier: "VehiclePickerImageCollectionViewCell",
                 for: indexPath
-            ) as? VehiclePickerImageCollectionViewCell else {
-                return UICollectionViewCell()
-            }
+            )
             cell.configure(image: image, text: value.title(), showLabel: self.viewModel.showStepLabel())
             return cell
         } else {
-            guard let cell: VehiclePickerLabelCollectionViewCell = collectionView.dequeueReusableCell(
+            let cell: VehiclePickerLabelCollectionViewCell = collectionView.dequeue(
                 withReuseIdentifier: "VehiclePickerLabelCollectionViewCell",
                 for: indexPath
-            ) as? VehiclePickerLabelCollectionViewCell else {
-                return UICollectionViewCell()
-            }
+            )
             cell.configure(text: value.title())
             return cell
         }

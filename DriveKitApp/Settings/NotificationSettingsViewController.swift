@@ -50,17 +50,10 @@ class NotificationSettingsViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "NotificationSettingsTextCell", for: indexPath) as? NotificationSettingsTextCell else {
-                return UITableViewCell()
-            }
+            let cell: NotificationSettingsTextCell = tableView.dequeue(withIdentifier: "NotificationSettingsTextCell", for: indexPath)
             return cell
         } else {
-            guard let configurationCell = tableView.dequeueReusableCell(
-                withIdentifier: "NotificationSettingsConfigurationCell",
-                for: indexPath
-            ) as? NotificationSettingsConfigurationCell else {
-                return UITableViewCell()
-            }
+            let configurationCell: NotificationSettingsConfigurationCell = tableView.dequeue(withIdentifier: "NotificationSettingsConfigurationCell", for: indexPath)
             configurationCell.updateWith(self.viewModel.viewModels[indexPath.row])
             return configurationCell
         }

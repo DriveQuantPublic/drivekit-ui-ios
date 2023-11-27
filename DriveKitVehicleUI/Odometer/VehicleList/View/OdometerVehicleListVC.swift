@@ -114,17 +114,13 @@ extension OdometerVehicleListVC: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "OdometerVehicleCell", for: indexPath) as? OdometerVehicleCell else {
-                return UITableViewCell()
-            }
+            let cell: OdometerVehicleCell = tableView.dequeue(withIdentifier: "OdometerVehicleCell", for: indexPath)
             if let cellViewModel = self.viewModel.getOdometerVehicleCellViewModel() {
                 cell.configure(viewModel: cellViewModel, showPickerImage: true)
             }
             return cell
         } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "OdometerCell", for: indexPath) as? OdometerCell else {
-                return UITableViewCell()
-            }
+            let cell: OdometerCell = tableView.dequeue(withIdentifier: "OdometerCell", for: indexPath)
             cell.delegate = self
             cell.configure(viewModel: self.viewModel.getOdometerCellViewModel(), type: .odometer, actionType: .option)
             cell.selectionStyle = .none

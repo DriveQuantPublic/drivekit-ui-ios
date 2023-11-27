@@ -131,9 +131,7 @@ extension VehiclesListVC: UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = self.tableView.dequeueReusableCell(withIdentifier: "VehiclesListCell", for: indexPath) as? VehiclesListCell else {
-            return UITableViewCell()
-        }
+        let cell: VehiclesListCell = self.tableView.dequeue(withIdentifier: "VehiclesListCell", for: indexPath)
         cell.configure(viewModel: viewModel, pos: indexPath.row, parentView: self)
         return cell
     }

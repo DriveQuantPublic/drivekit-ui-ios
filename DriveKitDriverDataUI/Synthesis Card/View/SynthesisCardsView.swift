@@ -47,12 +47,10 @@ extension SynthesisCardsView: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cardViewCell: SynthesisCardViewCell = collectionView.dequeueReusableCell(
+        let cardViewCell: SynthesisCardViewCell = collectionView.dequeue(
             withReuseIdentifier: "SynthesisCardViewCell",
             for: indexPath
-        ) as? SynthesisCardViewCell else {
-            return UICollectionViewCell()
-        }
+        )
         cardViewCell.viewModel = self.viewModel?.synthesisCardViewModels[indexPath.item]
         return cardViewCell
     }

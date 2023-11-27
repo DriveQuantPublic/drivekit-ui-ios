@@ -37,9 +37,7 @@ class FeaturesViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let viewModel = self.viewModel.featureViewViewModels[indexPath.row]
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FeatureViewCell", for: indexPath) as? FeatureViewCell else {
-            return UITableViewCell()
-        }
+        let cell: FeatureViewCell = tableView.dequeue(withIdentifier: "FeatureViewCell", for: indexPath)
         cell.update(with: viewModel, parentViewController: self)
         return cell
     }

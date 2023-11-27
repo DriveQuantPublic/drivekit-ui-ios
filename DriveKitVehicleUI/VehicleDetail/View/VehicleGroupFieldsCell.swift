@@ -61,9 +61,7 @@ extension VehicleGroupFieldsCell: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: VehicleFieldCell = self.tableView.dequeueReusableCell(withIdentifier: "VehicleFieldCell", for: indexPath) as? VehicleFieldCell else {
-            return UITableViewCell()
-        }
+        let cell: VehicleFieldCell = self.tableView.dequeue(withIdentifier: "VehicleFieldCell", for: indexPath)
         if let viewModel = self.viewModel, let groupField = self.groupField {
             let field = viewModel.getField(groupField: groupField)[indexPath.row]
             cell.configure(vehicle: viewModel.vehicle, field: field, value: viewModel.getFieldValue(field: field), delegate: self, hasError: viewModel.hasError(field: field))

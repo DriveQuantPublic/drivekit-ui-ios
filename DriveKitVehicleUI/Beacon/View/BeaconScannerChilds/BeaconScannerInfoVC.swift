@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  BeaconScannerInfoVC.swift
 //  DriveKitVehicleUI
@@ -51,14 +51,27 @@ class BeaconScannerInfoVC: UIViewController {
             vehicleTitleLabel.attributedText = self.viewModel.vehicleName.dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.mainFontColor).build()
             startView.backgroundColor = DKUIColors.secondaryColor.color
         } else {
-            vehicleTitleLabel.attributedText = "dk_beacon_vehicle_unknown".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.mainFontColor).build()
+            vehicleTitleLabel.attributedText = "dk_beacon_vehicle_unknown"
+                .dkVehicleLocalized()
+                .dkAttributedString()
+                .font(dkFont: .primary, style: .headLine1)
+                .color(.mainFontColor)
+                .build()
             startView.backgroundColor = .darkGray
         }
         if let clBeacon = self.viewModel.clBeacon {
             let major = "\(clBeacon.major)".dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
-            majorLabel.attributedText = "\("dk_vehicle_beacon_major".dkVehicleLocalized()) %@".dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).buildWithArgs(major)
+            majorLabel.attributedText = "\("dk_vehicle_beacon_major".dkVehicleLocalized()) %@"
+                .dkAttributedString()
+                .font(dkFont: .primary, style: .normalText)
+                .color(.mainFontColor)
+                .buildWithArgs(major)
             let minor = "\(clBeacon.minor)".dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
-            minorLabel.attributedText = "\("dk_vehicle_beacon_minor".dkVehicleLocalized()) %@".dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).buildWithArgs(minor)
+            minorLabel.attributedText = "\("dk_vehicle_beacon_minor".dkVehicleLocalized()) %@"
+                .dkAttributedString()
+                .font(dkFont: .primary, style: .normalText)
+                .color(.mainFontColor)
+                .buildWithArgs(minor)
             
             if let distance = self.viewModel.beaconDistance {
                 distanceIndicatorView.configure(title: distance.formatMeterDistance(), image: DKVehicleImages.beaconDistance.image?.withRenderingMode(.alwaysTemplate))
@@ -92,7 +105,14 @@ class BeaconScannerInfoVC: UIViewController {
                 battery = "--"
             }
             let vehicle: DKVehicle? = valid ? self.viewModel.vehicle : nil
-            let beaconDetailViewModel = BeaconDetailViewModel(vehicle: vehicle, beacon: beacon, batteryLevel: battery, distance: self.viewModel.beaconDistance, rssi: self.viewModel.beaconRssi, txPower: self.viewModel.beaconTxPower)
+            let beaconDetailViewModel = BeaconDetailViewModel(
+                vehicle: vehicle,
+                beacon: beacon,
+                batteryLevel: battery,
+                distance: self.viewModel.beaconDistance,
+                rssi: self.viewModel.beaconRssi,
+                txPower: self.viewModel.beaconTxPower
+            )
             self.navigationController?.pushViewController(BeaconDetailVC(viewModel: beaconDetailViewModel), animated: true)
         }
         

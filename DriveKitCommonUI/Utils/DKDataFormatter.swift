@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers file_length
 //
 //  DKDataFormatter.swift
 //  DriveKitCommonUI
@@ -210,7 +210,7 @@ public extension Double {
         nbMinute = Int(self) / 60
         if nbMinute > 59 {
             nbHour = nbMinute / 60
-            nbMinute = nbMinute - (nbHour * 60)
+            nbMinute -= (nbHour * 60)
         }
         nbSecond = Int(self) - (nbMinute * 60) - (nbHour * 60 * 60)
             
@@ -242,10 +242,10 @@ public extension Double {
             nbMinute = Int((self / 60).rounded(.up))
             if nbMinute > 59 && maxUnit != .minute {
                 nbHour = nbMinute / 60
-                nbMinute = nbMinute - (nbHour * 60)
+                nbMinute -= (nbHour * 60)
                 if nbHour > 23 && maxUnit != .hour {
                     nbDay = nbHour / 24
-                    nbHour = nbHour - (24 * nbDay)
+                    nbHour -= (24 * nbDay)
                     if nbHour > 0 {
                         formattingTypes = [
                             .value(String(nbDay)),
@@ -433,7 +433,7 @@ public extension Double {
         fractionDigits: Int = 1
     ) -> [FormatType] {
         var formattingTypes: [FormatType] = [
-            .value(self.format(maximumFractionDigits: fractionDigits)),
+            .value(self.format(maximumFractionDigits: fractionDigits))
         ]
         if appendUnit {
             formattingTypes.append(.unit("%"))

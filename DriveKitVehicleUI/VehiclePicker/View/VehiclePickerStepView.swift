@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  VehiclePickerStepsDelegate.swift
 //  drivekit-test-app
@@ -32,15 +31,15 @@ class VehiclePickerStepView: DKUIViewController {
         if let step = self.viewModel.previousSteps.last {
             self.viewModel.currentStep = step
             self.viewModel.previousSteps.removeLast(1)
-            (self.navigationController as! DKVehiclePickerNavigationController).showPrevious()
+            (self.navigationController as? DKVehiclePickerNavigationController)?.showPrevious()
         } else {
             self.navigationController?.dismiss(animated: true, completion: nil)
-            (self.navigationController as! DKVehiclePickerNavigationController).completion?()
+            (self.navigationController as? DKVehiclePickerNavigationController)?.completion?()
         }
     }
 
     @objc func didDismissManually() {
         self.navigationController?.dismiss(animated: true, completion: nil)
-        (self.navigationController as! DKVehiclePickerNavigationController).completion?()
+        (self.navigationController as? DKVehiclePickerNavigationController)?.completion?()
     }
 }

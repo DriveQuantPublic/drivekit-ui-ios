@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable line_length
 //
 //  DriveKitDriverAchievementUI.swift
 //  DriveKitDriverAchievementUI

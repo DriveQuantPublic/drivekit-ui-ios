@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  OdometerVehicleListVC.swift
 //  DriveKitVehicleUI
@@ -53,13 +53,20 @@ class OdometerVehicleListVC: DKUIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.synchronize()
     }
 
-    @objc private func synchronize() {
-        if let refreshControl = self.tableView?.refreshControl {
-            refreshControl.beginRefreshing()
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if self.viewModel.updating {
+            self.tableView?.refreshControl?.beginRefreshing()
+        } else {
+            self.tableView?.refreshControl?.endRefreshing()
         }
+    }
+
+    @objc private func synchronize() {
         self.viewModel.synchronize { [weak self] success in
             if let self = self {
                 if let refreshControl = self.tableView?.refreshControl, refreshControl.isRefreshing {
@@ -107,13 +114,13 @@ extension OdometerVehicleListVC: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "OdometerVehicleCell", for: indexPath) as! OdometerVehicleCell
+            let cell: OdometerVehicleCell = tableView.dequeue(withIdentifier: "OdometerVehicleCell", for: indexPath)
             if let cellViewModel = self.viewModel.getOdometerVehicleCellViewModel() {
                 cell.configure(viewModel: cellViewModel, showPickerImage: true)
             }
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "OdometerCell", for: indexPath) as! OdometerCell
+            let cell: OdometerCell = tableView.dequeue(withIdentifier: "OdometerCell", for: indexPath)
             cell.delegate = self
             cell.configure(viewModel: self.viewModel.getOdometerCellViewModel(), type: .odometer, actionType: .option)
             cell.selectionStyle = .none

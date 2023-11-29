@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  BeaconDetailVC.swift
 //  DriveKitVehicleUI
@@ -72,7 +72,7 @@ extension BeaconDetailVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "BeaconDetailTableViewCell", for: indexPath) as! BeaconDetailTableViewCell
+        let cell: BeaconDetailTableViewCell = self.tableView.dequeue(withIdentifier: "BeaconDetailTableViewCell", for: indexPath)
         cell.configure(pos: indexPath.row, viewModel: self.viewModel)
         return cell
     }

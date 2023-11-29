@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  DistractionPageVC.swift
 //  drivekit-test-app
@@ -52,13 +52,23 @@ class DistractionPageVC: UIViewController {
         eventContainer.removeAllSubviews()
 
         let unlockView = DistractionPageView.viewFromNib
-        unlockView.configure(title: self.viewModel.getUnlockTitle(), description: self.viewModel.getUnlockDescription(), value: self.viewModel.getUnlockValue(), mapTrace: .unlockScreen)
+        unlockView.configure(
+            title: self.viewModel.getUnlockTitle(),
+            description: self.viewModel.getUnlockDescription(),
+            value: self.viewModel.getUnlockValue(),
+            mapTrace: .unlockScreen
+        )
         eventContainer.addArrangedSubview(unlockView)
         unlockView.button.addTarget(self, action: #selector(selectUnlocks), for: .touchUpInside)
         self.unlockView = unlockView
 
         let callsView = DistractionPageView.viewFromNib
-        callsView.configure(title: self.viewModel.getPhoneCallTitle(), description: self.viewModel.getPhoneCallDescription(), value: self.viewModel.getPhoneCallValue(), mapTrace: .phoneCall)
+        callsView.configure(
+            title: self.viewModel.getPhoneCallTitle(),
+            description: self.viewModel.getPhoneCallDescription(),
+            value: self.viewModel.getPhoneCallValue(),
+            mapTrace: .phoneCall
+        )
         eventContainer.addArrangedSubview(callsView)
         callsView.button.addTarget(self, action: #selector(selectCalls), for: .touchUpInside)
         self.callsView = callsView
@@ -89,7 +99,11 @@ class DistractionPageVC: UIViewController {
     }
 
     @IBAction func infoAction(_ sender: UIButton) {
-        let alert = UIAlertController(title: "dk_driverdata_distraction_score".dkDriverDataLocalized(), message: "dk_driverdata_distraction_score_info".dkDriverDataLocalized(), preferredStyle: .alert)
+        let alert = UIAlertController(
+            title: "dk_driverdata_distraction_score".dkDriverDataLocalized(),
+            message: "dk_driverdata_distraction_score_info".dkDriverDataLocalized(),
+            preferredStyle: .alert
+        )
         alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }

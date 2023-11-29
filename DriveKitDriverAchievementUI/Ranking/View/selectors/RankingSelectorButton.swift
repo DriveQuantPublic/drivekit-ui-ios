@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  RankingSelectorButton.swift
 //  DriveKitDriverAchievementUI
@@ -24,7 +23,8 @@ class RankingSelectorButton: UIButton {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.layer.cornerRadius = self.bounds.size.height / 2
+        let half = 0.5
+        self.layer.cornerRadius = self.bounds.size.height * half
     }
 
     func update(rankingSelector: RankingSelector) {

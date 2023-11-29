@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  ChallengeParticipationVC.swift
 //  DriveKitChallengeUI
@@ -203,7 +203,8 @@ extension ChallengeParticipationVC: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell: ChallengeConditionProgressTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ChallengeConditionProgressTableViewCellIdentifier") as? ChallengeConditionProgressTableViewCell {
+        if let cell: ChallengeConditionProgressTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ChallengeConditionProgressTableViewCellIdentifier") 
+            as? ChallengeConditionProgressTableViewCell {
             if let challengeProgressViewModel = self.viewModel?.getConditionViewModel(index: indexPath.row) {
                 cell.configure(viewModel: challengeProgressViewModel)
             }

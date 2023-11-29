@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  VehiclesListCell.swift
 //  DriveKitVehicleUI
@@ -51,7 +51,12 @@ class VehiclesListCell: UITableViewCell {
     }
     
     private func configureAutoStart() {
-        autoStartLabel.attributedText = "dk_vehicle_detection_mode_title".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 14, traits: .traitBold)).color(.mainFontColor).build()
+        autoStartLabel.attributedText = "dk_vehicle_detection_mode_title"
+            .dkVehicleLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: DKStyle(size: 14, traits: .traitBold))
+            .color(.mainFontColor)
+            .build()
         autoStartSelectView.backgroundColor = DKUIColors.neutralColor.color
         autoStartDelimiter.backgroundColor = DKUIColors.neutralColor.color
         autoStartSelectImage.image = DKImages.arrowDown.image
@@ -59,7 +64,12 @@ class VehiclesListCell: UITableViewCell {
         if DriveKitVehicleUI.shared.detectionModes.count <= 1 {
             autoStartView.isHidden = true
         }
-        autoStartSelection.attributedText = viewModel.detectionModeTitle(pos: pos).dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 13, traits: .traitBold)).color(.mainFontColor).build()
+        autoStartSelection.attributedText = viewModel
+            .detectionModeTitle(pos: pos)
+            .dkAttributedString()
+            .font(dkFont: .primary, style: DKStyle(size: 13, traits: .traitBold))
+            .color(.mainFontColor)
+            .build()
         descriptionLabel.attributedText = viewModel.detectionModeDescription(pos: pos)
         if let buttonText = viewModel.detectionModeConfigureButton(pos: pos) {
             configureButton.isHidden = false

@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  VehicleDetailVC.swift
 //  DriveKitVehicleUI
@@ -114,14 +114,14 @@ extension VehicleDetailVC: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell: VehicleDetailHeader = self.tableView.dequeueReusableCell(withIdentifier: "VehicleDetailHeader", for: indexPath) as! VehicleDetailHeader
+            let cell: VehicleDetailHeader = self.tableView.dequeue(withIdentifier: "VehicleDetailHeader", for: indexPath)
             cell.configure(vehicleName: self.viewModel.vehicleDisplayName, vehicleImage: viewModel.vehicle.getVehicleImage())
             cell.delegate = self
             cell.clipsToBounds = false
             cell.selectionStyle = .none
             return cell
         } else {
-            let cell: VehicleGroupFieldsCell = self.tableView.dequeueReusableCell(withIdentifier: "VehicleGroupFieldsCell", for: indexPath) as! VehicleGroupFieldsCell
+            let cell: VehicleGroupFieldsCell = self.tableView.dequeue(withIdentifier: "VehicleGroupFieldsCell", for: indexPath)
             cell.clipsToBounds = false
             cell.selectionStyle = .none
             let groupField = self.viewModel.groupFields[indexPath.section - 1]

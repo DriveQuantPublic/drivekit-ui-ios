@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  DeleteAccountVC.swift
 //  DriveKitApp
@@ -24,7 +24,16 @@ class DeleteAccountVC: UIViewController {
     }
 
     func setupView() {
-        self.deleteButton.setAttributedTitle("button_delete_account".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .button).color(.criticalColor).uppercased().build(), for: .normal)
+        self.deleteButton.setAttributedTitle(
+            "button_delete_account"
+                .keyLocalized()
+                .dkAttributedString()
+                .font(dkFont: .primary, style: .button)
+                .color(.criticalColor)
+                .uppercased()
+                .build(),
+            for: .normal
+        )
         self.cancelButton.configure(title: DKCommonLocalizable.cancel.text(), style: .full)
         mainLabel.text = "account_deletion_content_1".keyLocalized()
         mainLabel.font = DKStyle(size: 14, traits: .traitBold).applyTo(font: .primary)
@@ -54,7 +63,7 @@ class DeleteAccountVC: UIViewController {
                 } else {
                     let errorMessage: String = (status == .forbidden) ? "account_deletion_error_forbidden".keyLocalized() : DKCommonLocalizable.error.text()
                     let errorAlert = UIAlertController(title: nil,
-                                                  message: errorMessage,
+                                                       message: errorMessage,
                                                        preferredStyle: .alert)
                     let okAction = UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .default, handler: { _ in
                         self?.navigationController?.popViewController(animated: true)

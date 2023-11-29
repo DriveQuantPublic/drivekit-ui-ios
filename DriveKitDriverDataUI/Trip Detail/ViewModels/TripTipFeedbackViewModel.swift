@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  TripTipFeedbackViewModel.swift
 //  DriveKitDriverDataUI
@@ -55,9 +55,15 @@ class TripTipFeedbackViewModel {
             self.comment = "dk_driverdata_advice_agree".dkDriverDataLocalized()
         }
         
-        DriveKitDriverData.shared.sendTripAdviceFeedback(itinId: itinId, adviceId: adviceID, evaluation: evaluation, feedback: feedBack, comment: comment, completionHandler: { sucess in
-            completion(sucess)
-        })
+        DriveKitDriverData.shared.sendTripAdviceFeedback(
+            itinId: itinId,
+            adviceId: adviceID,
+            evaluation: evaluation,
+            feedback: feedBack,
+            comment: comment,
+            completionHandler: { sucess in
+                completion(sucess)
+            })
     }
 
     func clearSelectedChoice() {

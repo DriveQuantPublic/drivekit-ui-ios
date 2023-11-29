@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  VehicleGroupFields.swift
 //  DriveKitVehicleUI
@@ -14,7 +13,7 @@ public enum DKVehicleGroupField: CaseIterable {
     case general, engine, characteristics, beacon, bluetooth
 
     func isDisplayable(vehicle: DKVehicle) -> Bool {
-        return self.getFields(vehicle: vehicle).count > 0 ? true : false
+        return !self.getFields(vehicle: vehicle).isEmpty ? true : false
     }
 
     func getFields(vehicle: DKVehicle) -> [DKVehicleField] {
@@ -32,10 +31,8 @@ public enum DKVehicleGroupField: CaseIterable {
             case .bluetooth:
                 allFields = BluetoothField.allCases
         }
-        for field in allFields {
-            if field.isDisplayable(vehicle: vehicle) {
-                fields.append(field)
-            }
+        for field in allFields where field.isDisplayable(vehicle: vehicle) {
+            fields.append(field)
         }
 
         if let customFields = getCustomFields() {

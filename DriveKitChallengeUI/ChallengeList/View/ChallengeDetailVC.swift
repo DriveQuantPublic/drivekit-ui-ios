@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  ChallengeDetailVCViewController.swift
 //  DriveKitChallengeUI
@@ -208,7 +208,10 @@ extension ChallengeDetailVC: UIPageViewControllerDataSource {
 }
 
 extension ChallengeDetailVC: UIPageViewControllerDelegate {
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+    func pageViewController(_ pageViewController: UIPageViewController, 
+                            didFinishAnimating finished: Bool,
+                            previousViewControllers: [UIViewController],
+                            transitionCompleted completed: Bool) {
         guard let selectedVC = pageViewController.viewControllers?.first else {
             return
         }

@@ -98,16 +98,12 @@ class TripDetailViewModel: DKTripDetailViewModel {
                     self.tripSyncStatus = status
                     self.trip = trip
                     if !trip.unscored {
-                        for item in self.mapItems {
-                            if item.canShowMapItem(trip: trip) {
-                                self.configurableMapItems.append(item)
-                            }
+                        for item in self.mapItems where item.canShowMapItem(trip: trip) {
+                            self.configurableMapItems.append(item)
                         }
                     } else {
-                        for item in self.mapItems {
-                            if item.overrideShortTrip() {
-                                self.configurableMapItems.append(item)
-                            }
+                        for item in self.mapItems where item.overrideShortTrip() {
+                            self.configurableMapItems.append(item)
                         }
                     }
                     if !self.configurableMapItems.isEmpty {
@@ -136,11 +132,28 @@ class TripDetailViewModel: DKTripDetailViewModel {
                         let event = safetyEvent as! SafetyEvents
                         switch event.type {
                         case 1:
-                            events.append(TripEvent(type: .adherence, date: trip.tripStartDate.addingTimeInterval(event.time), position: CLLocationCoordinate2D(latitude: event.latitude, longitude: event.longitude), value: event.value, isHigh: event.value > 0.3))
+                            events.append(TripEvent(
+                                type: .adherence,
+                                date: trip.tripStartDate.addingTimeInterval(event.time),
+                                position: CLLocationCoordinate2D(latitude: event.latitude, longitude: event.longitude),
+                                value: event.value,
+                                isHigh: event.value > 0.3
+                            ))
                         case 2:
-                            events.append(TripEvent(type: .acceleration, date: trip.tripStartDate.addingTimeInterval(event.time), position: CLLocationCoordinate2D(latitude: event.latitude, longitude: event.longitude), value: event.value, isHigh: event.value > 2.5))
+                            events.append(TripEvent(
+                                type: .acceleration,
+                                date: trip.tripStartDate.addingTimeInterval(event.time),
+                                position: CLLocationCoordinate2D(latitude: event.latitude, longitude: event.longitude),
+                                value: event.value,
+                                isHigh: event.value > 2.5
+                            ))
                         case 3:
-                            events.append(TripEvent(type: .brake, date: trip.tripStartDate.addingTimeInterval(event.time), position: CLLocationCoordinate2D(latitude: event.latitude, longitude: event.longitude), value: event.value, isHigh: event.value < -2.4))
+                            events.append(TripEvent(
+                                type: .brake, date: trip.tripStartDate.addingTimeInterval(event.time),
+                                position: CLLocationCoordinate2D(latitude: event.latitude, longitude: event.longitude),
+                                value: event.value,
+                                isHigh: event.value < -2.4
+                            ))
                         default:
                             // Invalid event type
                             break
@@ -148,17 +161,28 @@ class TripDetailViewModel: DKTripDetailViewModel {
                     }
                 }
                 if let route = self.route, mapItems.contains(MapItem.distraction), let latitude = route.latitude, let longitude = route.longitude {
-                    if let screenLockedIndex = route.screenLockedIndex, let screenStatus = route.screenStatus, let screenLockedTime = route.screenLockedTime, screenLockedTime.count > 2 {
+                    if let screenLockedIndex = route.screenLockedIndex, 
+                        let screenStatus = route.screenStatus,
+                        let screenLockedTime = route.screenLockedTime, screenLockedTime.count > 2 {
                         for i in 1...screenLockedIndex.count - 2 {
                             let screenLockedIndexValue = screenLockedIndex[i]
                             let lastIndex = route.lastIndex
                             if screenLockedIndexValue != 0 && screenLockedIndexValue != lastIndex {
                                 let eventType: EventType = screenStatus[i] == 1 ? .unlock : .lock
-                                events.append(TripEvent(type: eventType, date: trip.tripStartDate.addingTimeInterval(Double(screenLockedTime[i])), position: CLLocationCoordinate2D(latitude: latitude[screenLockedIndexValue], longitude: longitude[screenLockedIndexValue]), value: 0))
+                                events.append(TripEvent(
+                                    type: eventType,
+                                    date: trip.tripStartDate.addingTimeInterval(Double(screenLockedTime[i])),
+                                    position: CLLocationCoordinate2D(latitude: latitude[screenLockedIndexValue], longitude: longitude[screenLockedIndexValue]),
+                                    value: 0
+                                ))
                             }
                         }
                     }
-                    if let callIndex = route.callIndex, let callTime = route.callTime, let calls = self.calls, callIndex.count == 2 * calls.count, callTime.count == 2 * calls.count {
+                    if let callIndex = route.callIndex, 
+                        let callTime = route.callTime,
+                        let calls = self.calls,
+                        callIndex.count == 2 * calls.count,
+                        callTime.count == 2 * calls.count {
                         for (index, phoneCall) in calls.enumerated() {
                             let startCallIndex = callIndex[2 * index]
                             let startCallTime = callTime[2 * index]
@@ -205,7 +229,12 @@ class TripDetailViewModel: DKTripDetailViewModel {
     }
 
     private func addCallEvent(type: EventType, phoneCall: Call, callTime: Int, trip: Trip, latitude: Double, longitude: Double) {
-        let event = TripEvent(type: type, date: trip.tripStartDate.addingTimeInterval(Double(callTime)), position: CLLocationCoordinate2D(latitude: latitude, longitude: longitude), value: Double(phoneCall.duration), isForbidden: phoneCall.isForbidden)
+        let event = TripEvent(
+            type: type, date: trip.tripStartDate.addingTimeInterval(Double(callTime)),
+            position: CLLocationCoordinate2D(latitude: latitude, longitude: longitude),
+            value: Double(phoneCall.duration),
+            isForbidden: phoneCall.isForbidden
+        )
         self.events.append(event)
     }
 

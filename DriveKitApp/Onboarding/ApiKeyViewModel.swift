@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  ApiKeyViewModel.swift
 //  DriveKitApp
@@ -33,7 +32,12 @@ struct ApiKeyViewModel {
     func getContentAttibutedText() -> NSAttributedString {
         let apiKey = self.getApiKey() ?? ""
         let apiKeyString = apiKey.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()
-        let contentString = "welcome_ok_description".keyLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).buildWithArgs(apiKeyString)
+        let contentString = "welcome_ok_description"
+            .keyLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .normalText)
+            .color(.complementaryFontColor)
+            .buildWithArgs(apiKeyString)
         return contentString
     }
 

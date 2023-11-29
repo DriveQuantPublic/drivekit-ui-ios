@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  WorkingHoursSlotCellViewModel.swift
 //  DriveKitTripAnalysisUI
@@ -39,5 +38,9 @@ class WorkingHoursSlotCellViewModel {
 }
 
 protocol WorkingHoursSlotCellViewModelDelegate: AnyObject {
-    func workingHoursSlotCellViewModel(_ workingHoursSlotCellViewModel: WorkingHoursSlotCellViewModel, didUpdateTimeSlotStatus timeSlotStatus: DKWorkingHoursTimeSlotStatus, forType type: SlotType)
+    func workingHoursSlotCellViewModel(
+        _ workingHoursSlotCellViewModel: WorkingHoursSlotCellViewModel,
+        didUpdateTimeSlotStatus timeSlotStatus: DKWorkingHoursTimeSlotStatus,
+        forType type: SlotType
+    )
 }

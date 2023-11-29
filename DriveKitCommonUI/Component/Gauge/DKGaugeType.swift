@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  DKGaugeType.swift
 //  DriveKitDriverDataUI

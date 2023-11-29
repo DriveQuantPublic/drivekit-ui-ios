@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  Trip+DKTripsListItem.swift
 //  DriveKitDriverDataUI
@@ -43,17 +42,18 @@ extension Trip: DKTripListItem {
     }
 
     public func isScored(tripData: TripData) -> Bool {
+        let maxScore: Double = 10
         switch tripData {
         case .safety, .ecoDriving:
             return !self.unscored
         case .distraction:
             if !self.unscored, let score = self.driverDistraction?.score {
-                return score <= 10
+                return score <= maxScore
             }
             return false
         case .speeding:
             if !self.unscored, let score = self.speedingStatistics?.score {
-                return score <= 10
+                return score <= maxScore
             }
             return false
         case .distance, .duration:
@@ -153,7 +153,7 @@ extension Trip: DKTripListItem {
             guard let tripAdvices: Set<TripAdvice> = self.tripAdvices as? Set<TripAdvice> else {
                 return false
             }
-            return tripAdvices.count > 0
+            return !tripAdvices.isEmpty
         }
     }
 }

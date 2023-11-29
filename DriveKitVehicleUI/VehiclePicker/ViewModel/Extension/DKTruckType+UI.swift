@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  DKTruckType+UI.swift
 //  DriveKitVehicleUI

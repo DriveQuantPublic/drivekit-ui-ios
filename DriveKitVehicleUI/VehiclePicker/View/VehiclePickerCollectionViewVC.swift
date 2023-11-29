@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  VehiclePickerCollectionViewVC.swift
 //  drivekit-test-app
@@ -9,7 +9,7 @@
 
 import UIKit
 
-private struct Constants {
+private enum Constants {
     static let insets = UIEdgeInsets.init(top: 8, left: 8, bottom: 8, right: 8)
     static let minimumInteritemSpacing: CGFloat = 8
     static let minimumLineSpacing: CGFloat = 8
@@ -31,8 +31,14 @@ class VehiclePickerCollectionViewVC: VehiclePickerStepView {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UINib(nibName: "VehiclePickerImageCollectionViewCell", bundle: .vehicleUIBundle), forCellWithReuseIdentifier: "VehiclePickerImageCollectionViewCell")
-        collectionView.register(UINib(nibName: "VehiclePickerLabelCollectionViewCell", bundle: .vehicleUIBundle), forCellWithReuseIdentifier: "VehiclePickerLabelCollectionViewCell")
+        collectionView.register(
+            UINib(nibName: "VehiclePickerImageCollectionViewCell", bundle: .vehicleUIBundle),
+            forCellWithReuseIdentifier: "VehiclePickerImageCollectionViewCell"
+        )
+        collectionView.register(
+            UINib(nibName: "VehiclePickerLabelCollectionViewCell", bundle: .vehicleUIBundle),
+            forCellWithReuseIdentifier: "VehiclePickerLabelCollectionViewCell"
+        )
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -54,11 +60,17 @@ extension VehiclePickerCollectionViewVC: UICollectionViewDelegate, UICollectionV
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let value = viewModel.getCollectionViewItems()[indexPath.row]
         if let image = value.image() {
-            let cell: VehiclePickerImageCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "VehiclePickerImageCollectionViewCell", for: indexPath) as! VehiclePickerImageCollectionViewCell
+            let cell: VehiclePickerImageCollectionViewCell = collectionView.dequeue(
+                withReuseIdentifier: "VehiclePickerImageCollectionViewCell",
+                for: indexPath
+            )
             cell.configure(image: image, text: value.title(), showLabel: viewModel.showStepLabel())
             return cell
         } else {
-            let cell: VehiclePickerLabelCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "VehiclePickerLabelCollectionViewCell", for: indexPath) as! VehiclePickerLabelCollectionViewCell
+            let cell: VehiclePickerLabelCollectionViewCell = collectionView.dequeue(
+                withReuseIdentifier: "VehiclePickerLabelCollectionViewCell",
+                for: indexPath
+            )
             cell.configure(text: value.title())
             return cell
         }

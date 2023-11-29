@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  OdometerCell.swift
 //  DriveKitVehicleUI
@@ -64,8 +64,18 @@ final class OdometerCell: UITableViewCell, Nibable {
     }
 
     private func configureContent(viewModel: OdometerCellViewModel, type: OdometerCellType) {
-        self.valueLabel.attributedText = viewModel.getDistance(type: type).dkAttributedString().color(.mainFontColor).font(dkFont: .primary, style: DKStyle(size: 34, traits: .traitBold)).build()
-        self.subtitleValue.attributedText = viewModel.getDescription(type: type).dkAttributedString().color(.complementaryFontColor).font(dkFont: .primary, style: .smallText).build()
+        self.valueLabel.attributedText = viewModel
+            .getDistance(type: type)
+            .dkAttributedString()
+            .color(.mainFontColor)
+            .font(dkFont: .primary, style: DKStyle(size: 34, traits: .traitBold))
+            .build()
+        self.subtitleValue.attributedText = viewModel
+            .getDescription(type: type)
+            .dkAttributedString()
+            .color(.complementaryFontColor)
+            .font(dkFont: .primary, style: .smallText)
+            .build()
     }
     
     @IBAction private func touchActionButton(_ sender: Any) {

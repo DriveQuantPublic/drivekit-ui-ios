@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  RankingHeaderReusableView.swift
 //  DriveKitCommonUI
@@ -19,8 +18,16 @@ class RankingHeaderReusableView: UICollectionReusableView {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.rankLabel.attributedText = DKCommonLocalizable.rank.text().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
-        self.driverLabel.attributedText = DKCommonLocalizable.rankingDriver.text().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
-        self.scoreLabel.attributedText = DKCommonLocalizable.rankingScore.text().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
+        self.driverLabel.attributedText = DKCommonLocalizable
+            .rankingDriver.text()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .normalText)
+            .color(.complementaryFontColor).build()
+        self.scoreLabel.attributedText = DKCommonLocalizable
+            .rankingScore.text()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .normalText)
+            .color(.complementaryFontColor).build()
         self.backgroundColor = DKDefaultColors.driveKitBackgroundColor
     }
 

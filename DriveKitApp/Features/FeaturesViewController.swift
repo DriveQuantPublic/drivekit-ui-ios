@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  FeaturesViewController.swift
 //  DriveKitApp
@@ -27,6 +26,7 @@ class FeaturesViewController: UITableViewController {
         self.view.backgroundColor = DKUIColors.backgroundView.color
         configureBackButton()
         self.tableView.register(FeatureViewCell.nib, forCellReuseIdentifier: "FeatureViewCell")
+        // swiftlint:disable:next no_magic_numbers
         self.tableView.estimatedRowHeight = 150
         self.tableView.rowHeight = UITableView.automaticDimension
     }
@@ -37,7 +37,7 @@ class FeaturesViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let viewModel = self.viewModel.featureViewViewModels[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FeatureViewCell", for: indexPath) as! FeatureViewCell
+        let cell: FeatureViewCell = tableView.dequeue(withIdentifier: "FeatureViewCell", for: indexPath)
         cell.update(with: viewModel, parentViewController: self)
         return cell
     }

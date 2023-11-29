@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  GraphConstants.swift
 //  DriveKitDriverDataTimelineUI
@@ -11,6 +10,7 @@ import UIKit
 import DriveKitCommonUI
 
 enum GraphConstants {
+    // swiftlint:disable:next no_magic_numbers
     static let defaultLineColor = UIColor(hex: 0x083B54)
     static let defaultSelectedColor = DKUIColors.secondaryColor.color
     

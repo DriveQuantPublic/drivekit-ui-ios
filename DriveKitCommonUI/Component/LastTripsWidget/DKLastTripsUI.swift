@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable convenience_type
 //
 //  DKLastTripsUI.swift
 //  DriveKitCommonUI

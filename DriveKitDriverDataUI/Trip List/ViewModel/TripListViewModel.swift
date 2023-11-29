@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  TripListViewModel.swift
 //  drivekit-test-app
@@ -36,30 +35,37 @@ class TripListViewModel {
     }
 
     func fetchTrips(withSynchronizationType synchronizationType: SynchronizationType = .defaultSync) {
-        DriveKitDriverData.shared.getTripsOrderByDateDesc(withTransportationModes: TripListConfiguration.motorized().transportationModes(), type: synchronizationType, completionHandler: { status, trips in
-            if DriveKitDriverDataUI.shared.enableAlternativeTrips {
-                var query = DriveKitDriverData.shared.tripsQuery().whereIn(field: "transportationMode", value: TripListConfiguration.alternative().transportationModes().map { transportationMode in transportationMode.rawValue })
-                if let limitDate = self.getAlternativeTripsLimitDate() {
-                    query = query.and().whereGreaterThanOrEqual(field: "endDate", value: limitDate)
-                }
-                let alternativeTrips = query.orderBy(field: "endDate", ascending: false).query().execute()
-                var allTrips: [Trip] = trips
-                allTrips.append(contentsOf: alternativeTrips)
-                DispatchQueue.main.async {
-                    self.status = status
-                    self.trips = self.sortTrips(trips: allTrips)
-                    self.filterTrips(config: self.listConfiguration)
-                    self.delegate?.onTripsAvailable()
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self.status = status
-                    self.trips = self.sortTrips(trips: trips)
-                    self.filterTrips(config: self.listConfiguration)
-                    self.delegate?.onTripsAvailable()
-                }
-            }
-        })
+        DriveKitDriverData.shared
+            .getTripsOrderByDateDesc(
+                withTransportationModes: TripListConfiguration.motorized().transportationModes(),
+                type: synchronizationType,
+                completionHandler: { status, trips in
+                    if DriveKitDriverDataUI.shared.enableAlternativeTrips {
+                        var query = DriveKitDriverData.shared.tripsQuery().whereIn(
+                            field: "transportationMode",
+                            value: TripListConfiguration.alternative().transportationModes().map { transportationMode in transportationMode.rawValue }
+                        )
+                        if let limitDate = self.getAlternativeTripsLimitDate() {
+                            query = query.and().whereGreaterThanOrEqual(field: "endDate", value: limitDate)
+                        }
+                        let alternativeTrips = query.orderBy(field: "endDate", ascending: false).query().execute()
+                        var allTrips: [Trip] = trips
+                        allTrips.append(contentsOf: alternativeTrips)
+                        DispatchQueue.main.async {
+                            self.status = status
+                            self.trips = self.sortTrips(trips: allTrips)
+                            self.filterTrips(config: self.listConfiguration)
+                            self.delegate?.onTripsAvailable()
+                        }
+                    } else {
+                        DispatchQueue.main.async {
+                            self.status = status
+                            self.trips = self.sortTrips(trips: trips)
+                            self.filterTrips(config: self.listConfiguration)
+                            self.delegate?.onTripsAvailable()
+                        }
+                    }
+                })
     }
 
     private func sortTrips(trips: [Trip]) -> [DKTripsByDate] {
@@ -119,13 +125,18 @@ class TripListViewModel {
             }
         }
         for alternativeTransportationMode in alternativeTransportationModes {
-            var query = DriveKitDBTripAccess.shared.tripsQuery().whereEqualTo(field: "declaredTransportationMode.transportationMode", value: Int32(alternativeTransportationMode.rawValue))
+            var query = DriveKitDBTripAccess.shared.tripsQuery().whereEqualTo(
+                field: "declaredTransportationMode.transportationMode",
+                value: Int32(alternativeTransportationMode.rawValue
+                            ))
             if let limitDate = limitDate {
                 query = query.and().whereGreaterThanOrEqual(field: "endDate", value: limitDate)
             }
             var numberOfTrips = query.query().execute().count
             if numberOfTrips == 0 {
-                var query = DriveKitDBTripAccess.shared.tripsQuery().whereNil(field: "declaredTransportationMode").and().whereEqualTo(field: "transportationMode", value: Int32(alternativeTransportationMode.rawValue))
+                var query = DriveKitDBTripAccess.shared.tripsQuery()
+                    .whereNil(field: "declaredTransportationMode").and()
+                    .whereEqualTo(field: "transportationMode", value: Int32(alternativeTransportationMode.rawValue))
                 if let limitDate = limitDate {
                     query = query.and().whereGreaterThanOrEqual(field: "endDate", value: limitDate)
                 }
@@ -180,7 +191,7 @@ class TripListViewModel {
         for tripsByDate in self.trips {
             if let trips = tripsByDate.trips as? [Trip] {
                 let dayFilteredTrips = trips.filter(isIncluded)
-                if dayFilteredTrips.count > 0 {
+                if !dayFilteredTrips.isEmpty {
                     self.filteredTrips.append(DKTripsByDate(date: tripsByDate.date, trips: dayFilteredTrips))
                 }
             }
@@ -188,24 +199,24 @@ class TripListViewModel {
     }
     
     func hasTrips() -> Bool {
-        return trips.count > 0
+        return !trips.isEmpty
     }
     
     func hasAlternativeTrips() -> Bool {
-        for tripsByDate in self.trips {
-            if tripsByDate.trips.first(where: { tripItem in
+        for tripsByDate in self.trips
+            where tripsByDate.trips.first(where: { tripItem in
                 tripItem.isAlternative()
             }) != nil {
                 return true
             }
-        }
         return false
     }
 
     private func getAlternativeTripsLimitDate() -> Date? {
         let limitDate: Date?
         if let alternativeTripsDepthInDays = DriveKitDriverDataUI.shared.alternativeTripsDepthInDays {
-            limitDate = Date().addingTimeInterval(Double(-alternativeTripsDepthInDays * 24 * 3_600))
+            let secondsInDay = 86_400 // 24 * 3_600
+            limitDate = Date().addingTimeInterval(Double(-alternativeTripsDepthInDays * secondsInDay))
         } else {
             limitDate = nil
         }

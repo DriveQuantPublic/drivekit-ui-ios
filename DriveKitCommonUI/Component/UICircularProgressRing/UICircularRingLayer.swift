@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  UICircularRingLayer.swift
 //  UICircularProgressRing
@@ -65,9 +65,14 @@ class UICircularRingLayer: CAShapeLayer {
     var propertyAnimationDuration: TimeInterval = 0.0
 
     /// the properties which are animatable
-    static let animatableProperties: [String] = ["innerRingWidth", "innerRingColor",
-                                                         "outerRingWidth", "outerRingColor",
-                                                         "fontColor", "innerRingSpacing"]
+    static let animatableProperties: [String] = [
+        "innerRingWidth",
+        "innerRingColor",
+        "outerRingWidth",
+        "outerRingColor",
+        "fontColor",
+        "innerRingSpacing"
+    ]
 
     // Returns whether or not a given property key is animatable
     static func isAnimatableProperty(_ key: String) -> Bool {

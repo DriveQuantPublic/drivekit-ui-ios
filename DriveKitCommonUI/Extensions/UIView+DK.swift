@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  UIView+DK.swift
 //  DriveKitCommonUI
@@ -42,7 +41,7 @@ public extension UIView {
 public extension UIStackView {
     func removeAllSubviews() {
         let subviews = self.arrangedSubviews
-        if subviews.count > 0 {
+        if !subviews.isEmpty {
             for view in subviews {
                 self.removeArrangedSubview(view)
                 view.removeFromSuperview()

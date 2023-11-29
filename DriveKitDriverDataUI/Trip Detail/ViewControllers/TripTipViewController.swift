@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  TripTipViewController.swift
 //  DriveKitDriverDataUI
@@ -73,7 +73,14 @@ class TripTipViewController: DKUIViewController {
     }
     
     func configureCloseButton() {
-        closeButton.setAttributedTitle(DKCommonLocalizable.ok.text().dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).uppercased().build(), for: .normal)
+        closeButton.setAttributedTitle(
+            DKCommonLocalizable.ok.text()
+                .dkAttributedString()
+                .font(dkFont: .primary, style: .button)
+                .color(.fontColorOnSecondaryColor)
+                .uppercased()
+                .build(),
+            for: .normal)
         closeButton.setTitleColor(.white, for: .normal)
         closeButton.backgroundColor = DKUIColors.secondaryColor.color
     }
@@ -104,7 +111,14 @@ class TripTipViewController: DKUIViewController {
     func configureYesButton() {
         yesImage.image = DKDriverDataImages.adviceAgree.image?.withRenderingMode(.alwaysTemplate)
         yesImage.tintColor = DKUIColors.primaryColor.color
-        yesLabel.attributedText = "dk_driverdata_advice_agree".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: getButtonStyle()).uppercased().color(.primaryColor).build()
+        yesLabel.attributedText = 
+        "dk_driverdata_advice_agree"
+            .dkDriverDataLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: getButtonStyle())
+            .uppercased()
+            .color(.primaryColor)
+            .build()
 
         yesButtonView.isUserInteractionEnabled = true
         let yesButtonGesture = UITapGestureRecognizer(target: self, action: #selector(tapOnYesButton(_:)))
@@ -136,7 +150,13 @@ class TripTipViewController: DKUIViewController {
     func configureNoButton() {
         noImage.image = DKDriverDataImages.adviceDisagree.image?.withRenderingMode(.alwaysTemplate)
         noImage.tintColor = DKUIColors.primaryColor.color
-        noLabel.attributedText = "dk_driverdata_advice_disagree".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: getButtonStyle()).uppercased().color(.primaryColor).build()
+        noLabel.attributedText = "dk_driverdata_advice_disagree"
+            .dkDriverDataLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: getButtonStyle())
+            .uppercased()
+            .color(.primaryColor)
+            .build()
 
         noButtonView.isUserInteractionEnabled = true
         let noButtonGesture = UITapGestureRecognizer(target: self, action: #selector(tapOnNoButton(_:)))
@@ -144,8 +164,15 @@ class TripTipViewController: DKUIViewController {
     }
 
     @objc func tapOnNoButton(_ sender: UITapGestureRecognizer) {
-        let feedbackViewModel = TripTipFeedbackViewModel(trip: self.trip, tripAdvice: self.advice)
-        if let feedbackVC = UIStoryboard.init(name: String(describing: TripTipFeedbackVC.self), bundle: Bundle.driverDataUIBundle).instantiateViewController(withIdentifier: String(describing: TripTipFeedbackVC.self)) as? TripTipFeedbackVC {
+        let feedbackViewModel = TripTipFeedbackViewModel(
+            trip: self.trip,
+            tripAdvice: self.advice
+        )
+        if let feedbackVC = UIStoryboard.init(
+            name: String(describing: TripTipFeedbackVC.self),
+            bundle: Bundle.driverDataUIBundle
+        ).instantiateViewController(
+            withIdentifier: String(describing: TripTipFeedbackVC.self)) as? TripTipFeedbackVC {
             feedbackVC.configure(viewModel: feedbackViewModel, tripDetailVC: self.tripDetailVC)
             self.navigationController?.pushViewController(feedbackVC, animated: true)
         }

@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  BeaconScannerProgressVC.swift
 //  DriveKitVehicleUI
@@ -32,12 +32,23 @@ class BeaconScannerProgressVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureProgressView()
-        progressViewTitleLabel.attributedText = "dk_vehicle_beacon_wait_scan".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        progressViewTitleLabel.attributedText = "dk_vehicle_beacon_wait_scan"
+            .dkVehicleLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .normalText)
+            .color(.mainFontColor)
+            .build()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(refreshProgress), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(
+            timeInterval: 0.01,
+            target: self,
+            selector: #selector(refreshProgress),
+            userInfo: nil,
+            repeats: true
+        )
         startBeaconScan()
     }
     
@@ -114,9 +125,14 @@ class BeaconScannerProgressVC: UIViewController {
                         self?.viewModel.hideLoader()
                         if self?.viewModel.vehiclePaired != nil {
                             if isSameVehicle {
-                                self?.showAlertMessage(title: "", message: "dk_vehicle_beacon_already_paired_to_vehicle".dkVehicleLocalized(), back: true, cancel: false, completion: {
-                                    self?.viewModel.scanValidationFinished()
-                                })
+                                self?.showAlertMessage(
+                                    title: "",
+                                    message: "dk_vehicle_beacon_already_paired_to_vehicle".dkVehicleLocalized(),
+                                    back: true,
+                                    cancel: false,
+                                    completion: {
+                                        self?.viewModel.scanValidationFinished()
+                                    })
                             } else {
                                 self?.viewModel.updateScanState(step: .beaconAlreadyPaired)
                             }

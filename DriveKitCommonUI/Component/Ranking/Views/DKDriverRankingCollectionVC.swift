@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  DKDriverRankingCollectionViewController.swift
 //  DriveKitCommonUI
@@ -33,8 +33,13 @@ public class DKDriverRankingCollectionVC: UICollectionViewController {
         // Register cell classes
         self.collectionView.backgroundColor = DKDefaultColors.driveKitBackgroundColor
         self.collectionView.register(UINib(nibName: "RankingCell", bundle: .driveKitCommonUIBundle), forCellWithReuseIdentifier: "RankingCell")
-        self.collectionView.register(UINib(nibName: "RankingJumpCell", bundle: .driveKitCommonUIBundle), forCellWithReuseIdentifier: "RankingJumpCell")
-        self.collectionView.register(UINib(nibName: "RankingHeaderReusableView", bundle: Bundle.driveKitCommonUIBundle), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "RankingHeaderReusableViewIdentifier")
+        self.collectionView.register(
+            UINib(nibName: "RankingJumpCell", bundle: .driveKitCommonUIBundle),
+            forCellWithReuseIdentifier: "RankingJumpCell")
+        self.collectionView.register(
+            UINib(nibName: "RankingHeaderReusableView", bundle: Bundle.driveKitCommonUIBundle),
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: "RankingHeaderReusableViewIdentifier")
 
     }
 
@@ -57,8 +62,14 @@ public class DKDriverRankingCollectionVC: UICollectionViewController {
         return cell
     }
 
-    public override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "RankingHeaderReusableViewIdentifier", for: indexPath)
+    public override func collectionView(_ collectionView: UICollectionView, 
+                                        viewForSupplementaryElementOfKind kind: String,
+                                        at indexPath: IndexPath) -> UICollectionReusableView {
+        let headerView = collectionView.dequeueReusableSupplementaryView(
+            ofKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: "RankingHeaderReusableViewIdentifier",
+            for: indexPath
+        )
         if kind == UICollectionView.elementKindSectionHeader, let ranking = self.viewModel?.ranking, let rankingHeaderView = headerView as? RankingHeaderReusableView {
             let rankingScoreView: RankingScoreView?
             if ranking.getHeaderDisplayType() == .compact {

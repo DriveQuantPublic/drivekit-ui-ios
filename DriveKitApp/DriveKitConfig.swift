@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  DriveKitConfig.swift
 //  DriveKitApp
@@ -24,7 +23,7 @@ import DriveKitTripAnalysisUI
 import DriveKitVehicleModule
 import DriveKitVehicleUI
 
-class DriveKitConfig {
+enum DriveKitConfig {
     // ===============================
     // ↓↓↓ ENTER YOUR API KEY HERE ↓↓↓
     // ===============================
@@ -161,7 +160,11 @@ class DriveKitConfig {
 
     private static func configureTripAnalysisUI() {
         DriveKitTripAnalysisUI.shared.initialize()
-        let crashFeedbackConfig = DKCrashFeedbackConfig(notification: DKCrashFeedbackNotification(title: "dk_crash_detection_feedback_notif_title".dkTripAnalysisLocalized(), message: "dk_crash_detection_feedback_notif_message".dkTripAnalysisLocalized(), crashAlert: .silence))
+        let crashFeedbackConfig = DKCrashFeedbackConfig(notification: DKCrashFeedbackNotification(
+            title: "dk_crash_detection_feedback_notif_title".dkTripAnalysisLocalized(),
+            message: "dk_crash_detection_feedback_notif_message".dkTripAnalysisLocalized(),
+            crashAlert: .silence
+        ))
         DriveKitTripAnalysisUI.shared.enableCrashFeedback(roadsideAssistanceNumber: "000000", config: crashFeedbackConfig)
     }
 
@@ -170,7 +173,8 @@ class DriveKitConfig {
         DriveKitDriverAchievementUI.shared.configureRankingTypes(DKRankingType.allCases)
         DriveKitDriverAchievementUI.shared.configureRankingSelector(DKRankingSelectorType.period(rankingPeriods: [.weekly, .monthly, .allTime]))
         DriveKitDriverAchievementUI.shared.configureBadgeCategories(badgeCategories: [.generic, .ecodriving, .safety, .phoneDistraction, .call])
-        DriveKitDriverAchievementUI.shared.configureRankingDepth(5)
+        let rankingDepth = 5
+        DriveKitDriverAchievementUI.shared.configureRankingDepth(rankingDepth)
     }
 
     private static func configurePermissionsUtilsUI() {

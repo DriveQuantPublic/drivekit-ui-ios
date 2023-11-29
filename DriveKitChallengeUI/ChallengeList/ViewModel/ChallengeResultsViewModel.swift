@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  ChallengeResultsViewModel.swift
 //  DriveKitChallengeUI
@@ -38,8 +38,14 @@ class ChallengeResultsViewModel {
     }
 
     func getHeaderCellAttributedString() -> NSAttributedString {
-        let titleAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 20).with(.traitBold), NSAttributedString.Key.foregroundColor: UIColor.black]
-        let titleMajorAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 44).with(.traitBold), NSAttributedString.Key.foregroundColor: DKUIColors.secondaryColor.color]
+        let titleAttributes = [
+            NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 20).with(.traitBold),
+            NSAttributedString.Key.foregroundColor: UIColor.black
+        ]
+        let titleMajorAttributes = [
+            NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 44).with(.traitBold),
+            NSAttributedString.Key.foregroundColor: DKUIColors.secondaryColor.color
+        ]
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
         paragraphStyle.lineHeightMultiple = 0.85
@@ -85,8 +91,14 @@ class ChallengeResultsViewModel {
     }
 
     func getStatAttributedString(challengeStatType: ChallengeStatType) -> NSAttributedString {
-        let titleAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 14), NSAttributedString.Key.foregroundColor: UIColor.black]
-        let majorAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 18).with(.traitBold), NSAttributedString.Key.foregroundColor: DKUIColors.primaryColor.color]
+        let titleAttributes = [
+            NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 14),
+            NSAttributedString.Key.foregroundColor: UIColor.black
+        ]
+        let majorAttributes = [
+            NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 18).with(.traitBold),
+            NSAttributedString.Key.foregroundColor: DKUIColors.primaryColor.color
+        ]
         switch challengeStatType {
         case .duration:
             let duration = challengeDetail.driverStats.duration * 3_600
@@ -115,8 +127,14 @@ class ChallengeResultsViewModel {
     }
 
     func getGlobalStatAttributedString(challengeStatType: ChallengeStatType) -> NSAttributedString {
-        let titleAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 12), NSAttributedString.Key.foregroundColor: DKUIColors.complementaryFontColor.color]
-        let majorAttributes = [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 14).with(.traitBold), NSAttributedString.Key.foregroundColor: DKUIColors.primaryColor.color]
+        let titleAttributes = [
+            NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 12),
+            NSAttributedString.Key.foregroundColor: DKUIColors.complementaryFontColor.color
+        ]
+        let majorAttributes = [
+            NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 14).with(.traitBold),
+            NSAttributedString.Key.foregroundColor: DKUIColors.primaryColor.color
+        ]
         switch challengeStatType {
         case .duration:
             let duration = challengeDetail.challengeStats.duration * 3_600

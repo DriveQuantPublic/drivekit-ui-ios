@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  WorkingHoursDayCellViewModel.swift
 //  DriveKitTripAnalysisUI
@@ -12,14 +12,15 @@ import DriveKitTripAnalysisModule
 import Foundation
 
 class WorkingHoursDayCellViewModel {
+    // swiftlint:disable:next large_tuple
     typealias Input = (String, Int, Int)
 
-    private struct Constants {
+    private enum Constants {
         static let hours: Double = 24
         static let sliderStart: Double = 0
         static let sliderEnd: Double = 24
 
-        struct Wording {
+        enum Wording {
             static let weekdaySymbolByDay: [DKDay: String] = DateFormatter().weekdaySymbolByDay()
             static let hourFormatter = "h00"
             static let halfHourFormatter = "h30"
@@ -122,9 +123,9 @@ extension WorkingHoursDayCellViewModel {
 
 extension Double {
     func round(nearest: Double) -> Double {
-        let n = 1 / nearest
-        let numberToRound = self * n
-        return numberToRound.rounded() / n
+        let coeff = 1 / nearest
+        let numberToRound = self * coeff
+        return numberToRound.rounded() / coeff
     }
 }
 

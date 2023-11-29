@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers cyclomatic_complexity
 //
 //  OdometerHistoryDetailViewModel.swift
 //  DriveKitVehicleUI
@@ -157,18 +157,38 @@ class OdometerHistoryDetailViewModel {
                                         completion()
                                     }
                                 } else if status == .error {
-                                    viewController.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_odometer_failed_to_sync".dkVehicleLocalized(), back: false, cancel: false)
+                                    viewController.showAlertMessage(
+                                        title: Bundle.main.appName ?? "",
+                                        message: "dk_vehicle_odometer_failed_to_sync".dkVehicleLocalized(),
+                                        back: false,
+                                        cancel: false
+                                    )
                                 } else if status == .vehicleNotFound {
-                                    viewController.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_not_found".dkVehicleLocalized(), back: false, cancel: false)
+                                    viewController.showAlertMessage(
+                                        title: Bundle.main.appName ?? "",
+                                        message: "dk_vehicle_not_found".dkVehicleLocalized(),
+                                        back: false,
+                                        cancel: false
+                                    )
                                 } else if status == .badDistance {
-                                    viewController.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_odometer_bad_distance".dkVehicleLocalized(), back: false, cancel: false)
+                                    viewController.showAlertMessage(
+                                        title: Bundle.main.appName ?? "",
+                                        message: "dk_vehicle_odometer_bad_distance".dkVehicleLocalized(),
+                                        back: false,
+                                        cancel: false
+                                    )
                                 }
                             }
                         }
                     }
                 }
             } else {
-                viewController.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_odometer_history_error_value".dkVehicleLocalized(), back: false, cancel: false)
+                viewController.showAlertMessage(
+                    title: Bundle.main.appName ?? "",
+                    message: "dk_vehicle_odometer_history_error_value".dkVehicleLocalized(),
+                    back: false,
+                    cancel: false
+                )
             }
         }
     }
@@ -180,7 +200,11 @@ class OdometerHistoryDetailViewModel {
                     viewController.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_odometer_history_error".dkVehicleLocalized(), back: false, cancel: false)
                 } else {
                     viewController.showLoader()
-                    DriveKitVehicle.shared.updateOdometerHistory(vehicleId: vehicle.vehicleId, historyId: String(history.historyId), distance: distance) { [weak viewController] status, _, _ in
+                    DriveKitVehicle.shared.updateOdometerHistory(
+                        vehicleId: vehicle.vehicleId,
+                        historyId: String(history.historyId),
+                        distance: distance
+                    ) { [weak viewController] status, _, _ in
                         DispatchQueue.dispatchOnMainThread {
                             if let viewController = viewController {
                                 viewController.hideLoader()
@@ -222,7 +246,12 @@ class OdometerHistoryDetailViewModel {
                     }
                 }
             } else {
-                viewController.showAlertMessage(title: Bundle.main.appName ?? "", message: "dk_vehicle_odometer_history_error_value".dkVehicleLocalized(), back: false, cancel: false)
+                viewController.showAlertMessage(
+                    title: Bundle.main.appName ?? "",
+                    message: "dk_vehicle_odometer_history_error_value".dkVehicleLocalized(),
+                    back: false,
+                    cancel: false
+                )
             }
         }
     }

@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  BadgesViewController.swift
 //  DriveKitDriverAchievementUI
@@ -44,17 +43,26 @@ public class BadgesViewController: DKUIViewController, UITableViewDelegate {
         self.tableView.delegate = self
         self.tableView.addSubview(self.refreshControl)
         self.refreshControl.addTarget(self, action: #selector(update), for: .valueChanged)
-        self.refreshControl.beginRefreshing()
         self.tableView.setContentOffset(CGPoint(x: 0, y: -self.refreshControl.bounds.size.height), animated: true)
         if #available(iOS 15, *) {
             self.tableView.sectionHeaderTopPadding = 0
         }
         let nib = UINib(nibName: "BadgeTableViewCell", bundle: Bundle.driverAchievementUIBundle)
         self.tableView.register(nib, forCellReuseIdentifier: "BadgeTableViewCell")
-        NotificationCenter.default.addObserver(self, selector: #selector(goToBadgeLevelDetailView),
+        NotificationCenter.default.addObserver(self, 
+                                               selector: #selector(goToBadgeLevelDetailView),
                                                name: Notification.Name("goToDetailView"),
                                                object: nil)
         update()
+    }
+
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if self.viewModel.updating {
+            self.refreshControl.beginRefreshing()
+        } else {
+            self.refreshControl.endRefreshing()
+        }
     }
 
     @objc private func update() {

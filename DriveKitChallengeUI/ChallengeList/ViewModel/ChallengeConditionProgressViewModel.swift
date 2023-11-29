@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  ChallengeConditionProgressViewModel.swift
 //  DriveKitChallengeUI
@@ -34,7 +34,13 @@ struct ChallengeConditionProgressViewModel {
         let progress = prefix + suffix
 
         let suffixRange = (progress as NSString).range(of: suffix)
-        let attributedString = NSMutableAttributedString(string: progress, attributes: [NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 16), NSAttributedString.Key.foregroundColor: UIColor.black])
+        let attributedString = NSMutableAttributedString(
+            string: progress,
+            attributes: [
+                NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 16),
+                NSAttributedString.Key.foregroundColor: UIColor.black
+            ]
+        )
 
         attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: DKUIColors.primaryColor.color, range: suffixRange)
         return attributedString

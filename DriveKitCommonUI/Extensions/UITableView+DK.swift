@@ -24,6 +24,15 @@ extension UITableView {
         }
         return cell
     }
+ 
+    public func dequeueHeaderFooterView<T: UIView>(withIdentifier identifier: String) -> T {
+        let headerFooter = self.dequeueReusableHeaderFooterView(withIdentifier: identifier)
+        guard let headerFooter = headerFooter as? T else {
+            fatalError("Invalid cell type. Expected: \(type(of: T())), found: \(type(of: headerFooter))")
+        }
+        return headerFooter
+    }
+
 }
 
 extension UICollectionView {

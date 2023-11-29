@@ -97,9 +97,7 @@ public class VehiclesListVC: DKUIViewController {
 extension VehiclesListVC: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if self.viewModel.vehiclesCount == 0 {
-            guard let headerView = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "VehicleListHeaderView" ) as? VehicleListHeaderView else {
-                return UIView()
-            }
+            let headerView: VehicleListHeaderView = self.tableView.dequeueHeaderFooterView(withIdentifier: "VehicleListHeaderView" )
             headerView.image.image = DKImages.warning.image
             headerView.image.tintColor = DKUIColors.warningColor.color
             headerView.title.attributedText = "dk_vehicle_list_empty".dkVehicleLocalized().dkAttributedString().primaryFontNormalTextMainFontColor()

@@ -10,6 +10,7 @@ import Foundation
 import DriveKitVehicleModule
 
 extension DKVehicleEngineIndex: VehiclePickerTableViewItem {
+    // swiftlint:disable:next cyclomatic_complexity
     func text() -> String {
         switch self {
         case .gasoline:
@@ -24,6 +25,18 @@ extension DKVehicleEngineIndex: VehiclePickerTableViewItem {
             return "dk_vehicle_engine_diesel_hybrid".dkVehicleLocalized()
         case .plugInGasolineHybrid:
             return "dk_vehicle_engine_gasoline_hybrid_plug_in".dkVehicleLocalized()
+        case .biofuel:
+            return "dk_vehicle_engine_biofuel".dkVehicleLocalized()
+        case .biFuelBioethanol:
+            return "dk_vehicle_engine_bi_fuel_bioethanol".dkVehicleLocalized()
+        case .biFuelNGV:
+            return "dk_vehicle_engine_bi_fuel_ngv".dkVehicleLocalized()
+        case .biFuelLPG:
+            return "dk_vehicle_engine_bi_fuel_lpg".dkVehicleLocalized()
+        case .notAvailable:
+            return "-"
+        case .hydrogen:
+            return "dk_vehicle_engine_hydrogen".dkVehicleLocalized()
         @unknown default:
             return ""
         }

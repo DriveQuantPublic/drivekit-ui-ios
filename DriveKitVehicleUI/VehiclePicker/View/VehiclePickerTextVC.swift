@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  VehiclePickerTextVC.swift
 //  drivekit-test-app

@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  BeaconFailureVC.swift
 //  DriveKitVehicleUI
@@ -31,7 +30,12 @@ class BeaconScanFailureVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureButton()
-        descriptionLabel.attributedText = "dk_vehicle_beacon_scan_retry".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        descriptionLabel.attributedText = "dk_vehicle_beacon_scan_retry"
+            .dkVehicleLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .normalText)
+            .color(.mainFontColor)
+            .build()
     }
     
     private func configureButton() {

@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  ChallengeTrip.swift
 //  DriveKitChallengeUI
@@ -14,10 +13,6 @@ import UIKit
 
 struct ChallengeTrip: DKTripListItem {
     let trip: Trip
-
-    init(trip: Trip) {
-        self.trip = trip
-    }
 
     public func getItinId() -> String {
         return trip.itinId ?? ""
@@ -48,17 +43,18 @@ struct ChallengeTrip: DKTripListItem {
     }
 
     public func isScored(tripData: TripData) -> Bool {
+        let maxScore: Double = 10
         switch tripData {
         case .safety, .ecoDriving:
             return !trip.unscored
         case .distraction:
             if !trip.unscored, let score = trip.driverDistraction?.score {
-                return score <= 10
+                return score <= maxScore
             }
             return false
         case .speeding:
             if !trip.unscored, let score = trip.speedingStatistics?.score {
-                return score <= 10
+                return score <= maxScore
             }
             return false
         case .distance, .duration:
@@ -157,6 +153,6 @@ struct ChallengeTrip: DKTripListItem {
         guard let tripAdvices: Set<TripAdvice> = trip.tripAdvices as? Set<TripAdvice> else {
             return false
         }
-        return tripAdvices.count > 0
+        return !tripAdvices.isEmpty
     }
 }

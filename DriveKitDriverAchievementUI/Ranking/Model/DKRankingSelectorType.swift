@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  DKRankingSelectorType.swift
 //  DriveKitDriverAchievementUI

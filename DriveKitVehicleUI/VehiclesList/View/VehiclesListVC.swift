@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  VehicleListVC.swift
 //  DriveKitVehicleUI
@@ -45,7 +45,10 @@ public class VehiclesListVC: DKUIViewController {
     func configure() {
         if (DriveKitVehicleUI.shared.canAddVehicle && !viewModel.maxVehiclesReached()) || viewModel.shouldReplaceVehicle() {
             addReplaceVehicleButton.backgroundColor = DKUIColors.secondaryColor.color
-            let addReplaceTitle = viewModel.getAddReplaceButtonTitle().uppercased().dkAttributedString().font(dkFont: .primary, style: .button).color(.fontColorOnSecondaryColor).build()
+            let addReplaceTitle = viewModel.getAddReplaceButtonTitle().uppercased().dkAttributedString().font(
+                dkFont: .primary,
+                style: .button
+            ).color(.fontColorOnSecondaryColor).build()
             addReplaceVehicleButton.setAttributedTitle(addReplaceTitle, for: .normal)
             addReplaceVehicleButton.isHidden = false
         } else {
@@ -55,9 +58,17 @@ public class VehiclesListVC: DKUIViewController {
 
     public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.refreshControl.beginRefreshing()
         self.tableView.setContentOffset(CGPoint(x: 0, y: -self.refreshControl.frame.size.height), animated: true)
         self.viewModel.fetchVehicles()
+    }
+
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if self.viewModel.updating {
+            self.refreshControl.beginRefreshing()
+        } else {
+            self.refreshControl.endRefreshing()
+        }
     }
 
     @IBAction func addOrReplaceVehicleAction(_ sender: Any) {
@@ -86,7 +97,7 @@ public class VehiclesListVC: DKUIViewController {
 extension VehiclesListVC: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if self.viewModel.vehiclesCount == 0 {
-            let headerView = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "VehicleListHeaderView" ) as! VehicleListHeaderView
+            let headerView: VehicleListHeaderView = self.tableView.dequeueHeaderFooterView(withIdentifier: "VehicleListHeaderView" )
             headerView.image.image = DKImages.warning.image
             headerView.image.tintColor = DKUIColors.warningColor.color
             headerView.title.attributedText = "dk_vehicle_list_empty".dkVehicleLocalized().dkAttributedString().primaryFontNormalTextMainFontColor()
@@ -118,7 +129,7 @@ extension VehiclesListVC: UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "VehiclesListCell", for: indexPath) as! VehiclesListCell
+        let cell: VehiclesListCell = self.tableView.dequeue(withIdentifier: "VehiclesListCell", for: indexPath)
         cell.configure(viewModel: viewModel, pos: indexPath.row, parentView: self)
         return cell
     }

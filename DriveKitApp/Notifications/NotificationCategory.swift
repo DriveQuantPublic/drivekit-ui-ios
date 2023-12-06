@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  NotificationCategory.swift
 //  DriveKitApp
@@ -13,6 +12,8 @@ import Foundation
  Used to distinguish between the different types of notifications and primarily to create actionable notifications with custom action buttons.
  */
 enum NotificationCategory {
+    static let deviceConfiguration: String = "deviceConfiguration"
+
     enum TripAnalysis {
         case start
         case end

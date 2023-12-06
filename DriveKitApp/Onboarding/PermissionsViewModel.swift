@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  PermissionsViewModel.swift
 //  DriveKitApp
@@ -19,14 +18,20 @@ struct PermissionsViewModel {
 
     func getTitleAttributedText() -> NSAttributedString {
         let iconString = "ⓘ".dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.secondaryColor).build()
-        let titleString = "permissions_intro_title".keyLocalized().appending("  ").dkAttributedString().font(dkFont: .primary, style: .headLine1).color(.mainFontColor).buildWithArgs(iconString)
+        let titleString = "permissions_intro_title"
+            .keyLocalized()
+            .appending("  ")
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .headLine1)
+            .color(.mainFontColor)
+            .buildWithArgs(iconString)
         return titleString
     }
 
     func shouldDisplayVehicle(completion: @escaping (Bool) -> Void) {
         DriveKitVehicle.shared.getVehiclesOrderByNameAsc(type: .cache) { _, vehicles in
             DispatchQueue.dispatchOnMainThread {
-                completion(vehicles.count == 0)
+                completion(vehicles.isEmpty)
             }
         }
     }

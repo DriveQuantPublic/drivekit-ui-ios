@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  CircleView.swift
 //  DriveKitDriverAchievementUI
@@ -15,7 +14,8 @@ class CircleView: UIView {
         super.layoutSubviews()
 
         let size = self.bounds.size
-        self.layer.cornerRadius = max(size.width, size.height) / 2
+        let half = 0.5
+        self.layer.cornerRadius = max(size.width, size.height) * half
     }
 
 }

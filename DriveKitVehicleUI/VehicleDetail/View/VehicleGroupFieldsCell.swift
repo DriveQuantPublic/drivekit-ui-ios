@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  VehicleFieldsCell.swift
 //  DriveKitVehicleUI
@@ -61,7 +61,7 @@ extension VehicleGroupFieldsCell: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: VehicleFieldCell = self.tableView.dequeueReusableCell(withIdentifier: "VehicleFieldCell", for: indexPath) as! VehicleFieldCell
+        let cell: VehicleFieldCell = self.tableView.dequeue(withIdentifier: "VehicleFieldCell", for: indexPath)
         if let viewModel = self.viewModel, let groupField = self.groupField {
             let field = viewModel.getField(groupField: groupField)[indexPath.row]
             cell.configure(vehicle: viewModel.vehicle, field: field, value: viewModel.getFieldValue(field: field), delegate: self, hasError: viewModel.hasError(field: field))
@@ -102,7 +102,11 @@ extension DKVehicleField {
 
     private func getCellHeightForText(_ text: String, width: CGFloat, style: DKStyles) -> CGFloat {
         let textAttributedString = text.dkAttributedString().font(dkFont: .primary, style: style).build()
-        let boundingRect = textAttributedString.boundingRect(with: CGSize(width: width, height: CGFloat.greatestFiniteMagnitude), options: [.usesLineFragmentOrigin, .usesFontLeading], context: nil)
+        let boundingRect = textAttributedString.boundingRect(
+            with: CGSize(width: width, height: CGFloat.greatestFiniteMagnitude),
+            options: [.usesLineFragmentOrigin, .usesFontLeading],
+            context: nil
+        )
         let textHeight = boundingRect.height
         return ceil(textHeight)
     }

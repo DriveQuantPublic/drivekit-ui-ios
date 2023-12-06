@@ -60,16 +60,19 @@ class DriverProfileViewController: DKUIViewController {
         self.configureDriverFeaturePagingContexts()
         self.configureDistanceEstimationPagingContexts()
         self.configureCommonTripPagingContexts()
+                
+        drivingConditionsButton.configure(title: "dk_driverdata_drivingconditions_show".dkDriverDataLocalized(), style: .empty)
         
+        drivingConditionsButton.addTarget(self, action: #selector(drivingConditionsButtonTapped), for: .touchUpInside)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         if self.viewModel.updating {
             showRefreshControl()
         } else {
             hideRefreshControl()
         }
-        
-        drivingConditionsButton.configure(title: "dk_driverdata_drivingconditions_show".dkDriverDataLocalized(), style: .empty)
-        
-        drivingConditionsButton.addTarget(self, action: #selector(drivingConditionsButtonTapped), for: .touchUpInside)
     }
     
     @objc private func drivingConditionsButtonTapped() {

@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  WorkingHoursViewModel.swift
 //  DriveKitTripAnalysisUI
@@ -160,7 +160,11 @@ class WorkingHoursViewModel {
 }
 
 extension WorkingHoursViewModel: WorkingHoursSlotCellViewModelDelegate {
-    func workingHoursSlotCellViewModel(_ workingHoursSlotCellViewModel: WorkingHoursSlotCellViewModel, didUpdateTimeSlotStatus timeSlotStatus: DKWorkingHoursTimeSlotStatus, forType type: SlotType) {
+    func workingHoursSlotCellViewModel(
+        _ workingHoursSlotCellViewModel: WorkingHoursSlotCellViewModel,
+        didUpdateTimeSlotStatus timeSlotStatus: DKWorkingHoursTimeSlotStatus,
+        forType type: SlotType
+    ) {
         switch type {
             case .inside:
                 self.workingHours.insideHours = timeSlotStatus

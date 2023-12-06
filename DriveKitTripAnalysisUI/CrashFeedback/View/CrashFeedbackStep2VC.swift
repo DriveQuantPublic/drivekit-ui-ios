@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  CrashFeedbackStep2VC.swift
 //  DriveKitTripAnalysisUI

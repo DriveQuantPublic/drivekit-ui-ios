@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers cyclomatic_complexity
 //
 //  GraphItem.swift
 //  DriveKitDriverDataTimelineUI

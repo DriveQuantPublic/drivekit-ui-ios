@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  VehicleDetailHeaderView.swift
 //  DriveKitVehicleUI
@@ -39,8 +39,10 @@ class VehicleListHeaderView: UITableViewHeaderFooterView {
             image.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
         
             title.heightAnchor.constraint(equalToConstant: 30),
-            title.leadingAnchor.constraint(equalTo: image.trailingAnchor,
-                   constant: 8),
+            title.leadingAnchor.constraint(
+                equalTo: image.trailingAnchor,
+                constant: 8
+            ),
             title.trailingAnchor.constraint(equalTo:
                    contentView.layoutMarginsGuide.trailingAnchor),
             title.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)

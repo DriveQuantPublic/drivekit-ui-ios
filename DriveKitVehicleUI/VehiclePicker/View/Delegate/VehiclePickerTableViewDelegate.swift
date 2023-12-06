@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  VehiclePickerTableViewDelegate.swift
 //  DriveKitVehicleUI
@@ -9,6 +8,7 @@
 
 import UIKit
 
+// swiftlint:disable:next class_delegate_protocol
 protocol VehiclePickerTableViewDelegate {
     func getTableViewItems(viewModel: VehiclePickerViewModel) -> [VehiclePickerTableViewItem]
     func onTableViewItemSelected(pos: Int, viewModel: VehiclePickerViewModel)

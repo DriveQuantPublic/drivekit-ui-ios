@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  UICircularRingStyle.swift
 //  UICircularProgressRing
@@ -211,10 +211,12 @@ public enum UICircularRingGradientPosition {
 public struct UICircularRingGradientOptions {
 
     /// a default styling option for the gradient style
-    public static let `default` = UICircularRingGradientOptions(startPosition: .topRight,
-                                                            endPosition: .bottomLeft,
-                                                            colors: [.red, .blue],
-                                                            colorLocations: [0, 1])
+    public static let `default` = UICircularRingGradientOptions(
+        startPosition: .topRight,
+        endPosition: .bottomLeft,
+        colors: [.red, .blue],
+        colorLocations: [0, 1]
+    )
 
     /// the start location for the gradient
     public let startPosition: UICircularRingGradientPosition

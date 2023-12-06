@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  LastTripsWidgetUtils.swift
 //  DriveKitCommonUI
@@ -12,7 +11,7 @@ import DriveKitCoreModule
 import DriveKitDBTripAccessModule
 import DriveKitDriverDataModule
 
-struct LastTripsWidgetUtils {
+enum LastTripsWidgetUtils {
 
     public static func getLastTrips(limit: Int) -> [Trip] {
         let transportationModes: [TransportationMode] = [.unknown, .car, .moto, .truck]

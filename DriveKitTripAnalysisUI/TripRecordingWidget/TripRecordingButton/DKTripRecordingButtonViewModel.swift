@@ -284,10 +284,6 @@ extension DKTripRecordingButtonViewModel: TripListener {
     
     func tripSavedForRepost() {}
     
-    func beaconDetected() {}
-    
-    func significantLocationChangeDetected(location: CLLocation) {}
-    
     func sdkStateChanged(state: DriveKitTripAnalysisModule.State) {
         DispatchQueue.dispatchOnMainThread { [weak self] in
             guard let self else { return }
@@ -311,14 +307,4 @@ extension DKTripRecordingButtonViewModel: TripListener {
             }
         }
     }
-    
-    func potentialTripStart(startMode: DriveKitTripAnalysisModule.StartMode) {}
-    
-    func crashDetected(crashInfo: DriveKitTripAnalysisModule.DKCrashInfo) {}
-    
-    func crashFeedbackSent(
-        crashInfo: DriveKitTripAnalysisModule.DKCrashInfo,
-        feedbackType: DriveKitTripAnalysisModule.DKCrashFeedbackType,
-        severity: DriveKitTripAnalysisModule.DKCrashFeedbackSeverity
-    ) {}
 }

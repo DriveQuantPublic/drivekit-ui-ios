@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  RoadContextItemCell.swift
 //  DriveKitDriverDataTimelineUI
@@ -13,10 +12,6 @@ class ContextItemCell: UICollectionViewCell {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var subtitleLabel: UILabel!
     @IBOutlet private weak var circleView: UIView!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
 
     func update(with context: DKContextItem) {
         self.titleLabel.font = DKStyles.normalText.style.applyTo(font: .primary)

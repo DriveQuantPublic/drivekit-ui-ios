@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  UIButton+DK.swift
 //  DriveKitCommonUI
@@ -86,7 +86,7 @@ public enum DKButtonStyle {
                     titleAttributedText,
                     subtitleAttributedText
                 )
-        case let .rounded(color, _,  _, style, textColor):
+        case let .rounded(color, _, _, style, textColor):
             attributedText = title.dkAttributedString()
                 .font(
                     dkFont: .primary,

@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  WorkingHoursViewController.swift
 //  DriveKitTripAnalysisUI
@@ -130,14 +130,14 @@ extension WorkingHoursViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch self.viewModel.sections[indexPath.row] {
             case let .slot(slotType):
-                let slotCell = tableView.dequeueReusableCell(withIdentifier: "WorkingHoursSlotCell", for: indexPath) as! WorkingHoursSlotCell
+                let slotCell: WorkingHoursSlotCell = tableView.dequeue(withIdentifier: "WorkingHoursSlotCell", for: indexPath)
                 let viewModel = self.viewModel.getSlotCellViewModel(type: slotType)
                 slotCell.configure(viewModel: viewModel, parentViewController: self)
                 return slotCell
             case .separator:
                 return tableView.dequeueReusableCell(withIdentifier: "WorkingHoursSeparatorCell", for: indexPath)
             case let .day(day):
-                let dayCell = tableView.dequeueReusableCell(withIdentifier: "WorkingHoursDayCell", for: indexPath) as! WorkingHoursDayCell
+                let dayCell: WorkingHoursDayCell = tableView.dequeue(withIdentifier: "WorkingHoursDayCell", for: indexPath) 
                 let viewModel = self.viewModel.getDayCellViewModel(day: day)
                 dayCell.configure(viewModel: viewModel)
                 return dayCell

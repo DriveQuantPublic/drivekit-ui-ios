@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  GraphViewBase.swift
 //  DriveKitDriverDataTimelineUI
@@ -72,7 +72,15 @@ class DKXAxisRenderer: XAxisRenderer {
         super.init(viewPortHandler: viewPortHandler, xAxis: xAxis, transformer: transformer)
     }
 
-    override func drawLabel(context: CGContext, formattedLabel: String, x: CGFloat, y: CGFloat, attributes: [NSAttributedString.Key: Any], constrainedToSize: CGSize, anchor: CGPoint, angleRadians: CGFloat) {
+    override func drawLabel(
+        context: CGContext,
+        formattedLabel: String,
+        x: CGFloat,
+        y: CGFloat,
+        attributes: [NSAttributedString.Key: Any],
+        constrainedToSize: CGSize, 
+        anchor: CGPoint,
+        angleRadians: CGFloat) {
         var textAttributes = attributes
         if let index = self.config.labels.titles?.firstIndex(of: formattedLabel), index == self.selectedIndex {
             let textSize = formattedLabel.boundingRect(with: constrainedToSize, options: .usesLineFragmentOrigin, attributes: attributes, context: nil).size
@@ -94,6 +102,15 @@ class DKXAxisRenderer: XAxisRenderer {
                 textAttributes[.foregroundColor] = UIColor.white
             }
         }
-        super.drawLabel(context: context, formattedLabel: formattedLabel, x: x, y: y, attributes: textAttributes, constrainedToSize: constrainedToSize, anchor: anchor, angleRadians: angleRadians)
+        super.drawLabel(
+            context: context,
+            formattedLabel: formattedLabel,
+            x: x,
+            y: y,
+            attributes: textAttributes,
+            constrainedToSize: constrainedToSize,
+            anchor: anchor,
+            angleRadians: angleRadians
+        )
     }
 }

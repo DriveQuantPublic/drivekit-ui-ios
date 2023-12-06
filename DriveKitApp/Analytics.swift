@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  Analytics.swift
 //  DriveKitApp
@@ -12,10 +11,10 @@ import DriveKitCommonUI
 
 class Analytics: DKAnalytics {
     func trackScreen(_ screen: String, viewController: UIViewController) {
-        // TODO: manage screen tracking here
+        // manage screen tracking here
     }
 
     func trackEvent(_ event: DKAnalyticsEvent, parameters: [String: Any]?) {
-        // TODO: manage event tracking here
+        // manage event tracking here
     }
 }

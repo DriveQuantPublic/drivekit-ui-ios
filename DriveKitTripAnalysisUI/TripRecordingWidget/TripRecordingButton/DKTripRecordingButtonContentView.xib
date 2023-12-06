@@ -31,7 +31,6 @@
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="s3T-9L-EOk" secondAttribute="height" id="1ag-hk-zpn"/>
                                 <constraint firstItem="gdE-1H-7A3" firstAttribute="centerX" secondItem="s3T-9L-EOk" secondAttribute="centerX" id="TYc-bo-HHq"/>
-                                <constraint firstAttribute="height" constant="36" id="ct5-wo-te9"/>
                                 <constraint firstItem="gdE-1H-7A3" firstAttribute="centerY" secondItem="s3T-9L-EOk" secondAttribute="centerY" id="ofk-lp-jze"/>
                             </constraints>
                         </view>

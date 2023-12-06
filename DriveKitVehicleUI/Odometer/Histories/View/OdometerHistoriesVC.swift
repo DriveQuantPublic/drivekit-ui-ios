@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  OdometerHistoriesVC.swift
 //  DriveKitVehicleUI
@@ -102,7 +102,7 @@ extension OdometerHistoriesVC: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "OdometerHistoriesCell", for: indexPath) as! OdometerHistoriesCell
+        let cell: OdometerHistoriesCell = tableView.dequeue(withIdentifier: "OdometerHistoriesCell", for: indexPath)
         if let viewModel = self.viewModel.getOdometerHistoriesCellViewModel(atIndex: indexPath.section) {
             cell.update(odometerHistoriesCellViewModel: viewModel)
         }

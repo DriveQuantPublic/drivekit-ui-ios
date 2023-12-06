@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  OdometerHistoryDetailVC.swift
 //  DriveKitVehicleUI
@@ -45,7 +45,13 @@ class OdometerHistoryDetailVC: DKUIViewController {
         self.view.backgroundColor = .white
         self.deleteView.isHidden = !self.viewModel.canDelete()
 
-        self.panelTitle.attributedText = "dk_vehicle_odometer_odometer_history_detail_title".dkVehicleLocalized().uppercased().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.secondaryColor).build()
+        self.panelTitle.attributedText = "dk_vehicle_odometer_odometer_history_detail_title"
+            .dkVehicleLocalized()
+            .uppercased()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .normalText)
+            .color(.secondaryColor)
+            .build()
         self.validateButton.configure(title: DKCommonLocalizable.validate.text(), style: .full)
         self.cancelButton.configure(title: DKCommonLocalizable.cancel.text(), style: .empty)
         self.deleteButton.configure(title: DKCommonLocalizable.delete.text(), style: .empty)
@@ -109,7 +115,7 @@ extension OdometerHistoryDetailVC: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "OdometerHistoryDetailCell", for: indexPath) as! OdometerHistoryDetailCell
+        let cell: OdometerHistoryDetailCell = tableView.dequeue(withIdentifier: "OdometerHistoryDetailCell", for: indexPath)
         let viewModel = self.viewModel.getOdometerHistoryDetailCellViewModel(at: indexPath.section)
         cell.configure(viewModel: viewModel)
         cell.delegate = self

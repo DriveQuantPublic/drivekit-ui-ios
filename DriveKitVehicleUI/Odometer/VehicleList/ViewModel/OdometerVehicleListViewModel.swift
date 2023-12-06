@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  OdometerVehicleListViewModel.swift
 //  DriveKitVehicleUI
@@ -17,6 +16,7 @@ class OdometerVehicleListViewModel {
     private var vehicle: DKVehicle?
     private var odometer: DKVehicleOdometer?
     private var odometerHistories: [DKVehicleOdometerHistory]?
+    private(set) var updating: Bool = false
 
     init(vehicleId: String?) {
         if let vehicleId = vehicleId, let vehicle = DriveKitVehicle.getVehicle(withId: vehicleId) {
@@ -30,7 +30,9 @@ class OdometerVehicleListViewModel {
 
     func synchronize(completion: @escaping (Bool) -> Void) {
         if let vehicle = self.vehicle {
+            self.updating = true
             DriveKitVehicle.shared.getOdometer(vehicleId: vehicle.vehicleId, type: .defaultSync) { [weak self] status, odometer, odometerHistories in
+                self?.updating = false
                 DispatchQueue.dispatchOnMainThread {
                     if status != .vehicleNotFound {
                         if let self = self {

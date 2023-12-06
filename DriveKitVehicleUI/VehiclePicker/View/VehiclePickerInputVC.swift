@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  VehiclePickerInputVC.swift
 //  drivekit-test-app
@@ -36,7 +36,12 @@ class VehiclePickerInputVC: VehiclePickerStepView {
     func setup() {
         self.topConstraint.constant = 20
         inputImageView.image = DKVehicleImages.vehicleNameChooser.image
-        inputTextLabel.attributedText = "dk_vehicle_name_chooser_description".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        inputTextLabel.attributedText = "dk_vehicle_name_chooser_description"
+            .dkVehicleLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .normalText)
+            .color(.mainFontColor)
+            .build()
         inputConfirmButton.configure(title: DKCommonLocalizable.validate.text(), style: .full)
         self.configureTextField(placeholder: "dk_vehicle_name".dkVehicleLocalized())
     }

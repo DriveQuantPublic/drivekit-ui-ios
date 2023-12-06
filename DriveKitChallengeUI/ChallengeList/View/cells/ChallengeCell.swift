@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  ChallengeCell.swift
 //  DriveKitChallengeUI
@@ -39,7 +39,11 @@ class ChallengeCell: UICollectionViewCell {
     }
 
     func configure(challenge: ChallengeItemViewModel) {
-        challengeDatesLabel.attributedText = ChallengeItemViewModel.formatStartAndEndDates(startDate: challenge.startDate, endDate: challenge.endDate, tintColor: DKUIColors.complementaryFontColor.color)
+        challengeDatesLabel.attributedText = ChallengeItemViewModel.formatStartAndEndDates(
+            startDate: challenge.startDate,
+            endDate: challenge.endDate,
+            tintColor: DKUIColors.complementaryFontColor.color
+        )
         challengeNameLabel.text = challenge.name
         challengeImageView.image = challenge.image
     }

@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  VehiclePickerTableViewVC.swift
 //  drivekit-test-app
@@ -82,7 +82,7 @@ extension VehiclePickerTableViewVC: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if let _ = viewModel.getStepDescription() {
+        if viewModel.getStepDescription() != nil {
             return 70
         } else {
             return 0

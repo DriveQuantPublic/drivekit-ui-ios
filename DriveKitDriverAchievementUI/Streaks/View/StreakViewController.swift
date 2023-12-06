@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  StreakVCViewController.swift
 //  DriveKitDriverAchievementUI
@@ -34,11 +33,19 @@ public class StreakViewController: DKUIViewController {
         self.tableView.delegate = self
         self.tableView.addSubview(self.refreshControl)
         self.refreshControl.addTarget(self, action: #selector(update), for: .valueChanged)
-        self.refreshControl.beginRefreshing()
         self.tableView.setContentOffset(CGPoint(x: 0, y: -self.refreshControl.bounds.size.height), animated: true)
         let nib = UINib(nibName: "StreakTableViewCell", bundle: Bundle.driverAchievementUIBundle)
         self.tableView.register(nib, forCellReuseIdentifier: "StreakTableViewCell")
         update()
+    }
+
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if self.viewModel.updating {
+            self.refreshControl.beginRefreshing()
+        } else {
+            self.refreshControl.endRefreshing()
+        }
     }
 
     @objc private func update() {

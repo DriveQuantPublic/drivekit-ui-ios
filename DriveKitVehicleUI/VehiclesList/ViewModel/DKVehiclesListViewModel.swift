@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  VehicleListViewModel.swift
 //  DriveKitVehicleUI
@@ -27,15 +26,18 @@ public protocol VehiclesListDelegate: AnyObject {
 public class DKVehiclesListViewModel {
     public private(set) var vehicles: [DKVehicle] = []
     public weak var delegate: VehiclesListDelegate?
+    private(set) var updating: Bool = false
 
     init() {
         self.vehicles = DriveKitDBVehicleAccess.shared.findVehiclesOrderByNameAsc().execute().sortByDisplayNames()
     }
     
     func fetchVehicles() {
+        self.updating = true
         DriveKitVehicle.shared.getVehiclesOrderByNameAsc { [weak self] _, vehicles in
             DispatchQueue.main.async {
                 if let self = self {
+                    self.updating = false
                     self.vehicles = vehicles.sortByDisplayNames()
                     self.delegate?.onVehiclesAvailable()
                 }
@@ -228,10 +230,8 @@ public class DKVehiclesListViewModel {
     }
 
     func replaceAvailable() -> Bool {
-        for action in DriveKitVehicleUI.shared.vehicleActions {
-            if action as? DKVehicleAction == .replace {
-                return true
-            }
+        for action in DriveKitVehicleUI.shared.vehicleActions where action as? DKVehicleAction == .replace {
+            return true
         }
         return false
     }

@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  ShortTripPageVC.swift
 //  drivekit-test-app
@@ -34,7 +34,12 @@ class ShortTripPageVC: UIViewController {
     }
 
     func configure() {
-        durationLabel.attributedText = Double(self.viewModel.trip.duration).formatSecondDuration().dkAttributedString().font(dkFont: .primary, style: .highlightBig).color(.primaryColor).build()
+        durationLabel.attributedText = Double(self.viewModel.trip.duration)
+            .formatSecondDuration()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .highlightBig)
+            .color(.primaryColor)
+            .build()
         
         timeSlotLabel.attributedText = self.viewModel.timeSlotLabelText.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.primaryColor).build()
         
@@ -44,7 +49,12 @@ class ShortTripPageVC: UIViewController {
         
         messageImage.image = DKImages.info.image
         messageImage.tintColor = DKUIColors.warningColor.color
-        messageLabel.attributedText = "dk_driverdata_trip_detail_no_score".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.white).build()
+        messageLabel.attributedText = "dk_driverdata_trip_detail_no_score"
+            .dkDriverDataLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .normalText)
+            .color(.white)
+            .build()
     }
 
 }

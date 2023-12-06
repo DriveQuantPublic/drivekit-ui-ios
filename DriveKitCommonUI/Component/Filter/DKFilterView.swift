@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  DKFilterView.swift
 //  DriveKitCommonUI
@@ -26,7 +25,8 @@ final public class DKFilterView: UIView, Nibable {
     public override func layoutSubviews() {
         super.layoutSubviews()
         if let imageView = self.image {
-            imageView.layer.cornerRadius = imageView.frame.height / 2
+            let half = 0.5
+            imageView.layer.cornerRadius = imageView.frame.height * half
         }
     }
 

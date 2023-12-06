@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  NotificationType.swift
 //  DriveKitApp
@@ -11,6 +10,7 @@ import Foundation
 import DriveKitDBTripAccessModule
 import DriveKitTripAnalysisModule
 import DriveKitDriverDataUI
+import DriveKitPermissionsUtilsUI
 
 enum NotificationType {
     case tripStarted(canPostpone: Bool)
@@ -18,6 +18,7 @@ enum NotificationType {
     case tripCancelled(reason: TripCancellationReason)
     case tripAnalysisError(TripAnalysisError)
     case tripTooShort
+    case criticalDeviceConfiguration(DKDiagnosisNotificationInfo)
 
     private static let tripEndedError = "300"
 
@@ -47,6 +48,8 @@ enum NotificationType {
                 }
             case .tripTooShort:
                 identifier = "202"
+            case .criticalDeviceConfiguration:
+                identifier = "500"
         }
         return identifier
     }
@@ -73,6 +76,8 @@ enum NotificationType {
                 categoryIdentifier = nil
             case .tripTooShort:
                 categoryIdentifier = NotificationCategory.TripAnalysis.end.identifier
+            case .criticalDeviceConfiguration:
+                categoryIdentifier = NotificationCategory.deviceConfiguration
         }
         return categoryIdentifier
     }
@@ -102,6 +107,8 @@ enum NotificationType {
                 }
             case .tripCancelled:
                 return .tripCancelled
+            case .criticalDeviceConfiguration:
+                return .deviceConfiguration
         }
     }
 
@@ -128,6 +135,8 @@ enum NotificationType {
                 }
             case .tripTooShort:
                 key = "notif_trip_too_short_title"
+            case .criticalDeviceConfiguration(let notificationInfo):
+                return notificationInfo.title
         }
         return key.keyLocalized()
     }
@@ -189,6 +198,8 @@ enum NotificationType {
                 }
             case .tripTooShort:
                 key = "notif_trip_too_short"
+            case .criticalDeviceConfiguration(let notificationInfo):
+                return notificationInfo.body
         }
         return key.keyLocalized()
     }

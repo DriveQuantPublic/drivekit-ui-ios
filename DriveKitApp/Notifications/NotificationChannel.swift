@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  NotificationChannel.swift
 //  DriveKitApp
@@ -13,12 +12,13 @@ enum NotificationChannel {
     case tripStarted
     case tripCancelled
     case tripEnded
+    case deviceConfiguration
 
     var isEnabled: Bool {
         return NotificationSettings.isChannelEnabled(self)
     }
 
-    var title: String {
+    var title: String? {
         let key: String
         switch self {
             case .tripStarted:
@@ -27,11 +27,13 @@ enum NotificationChannel {
                 key = "notification_trip_cancelled_title"
             case .tripEnded:
                 key = "notification_trip_finished_title"
+            case .deviceConfiguration:
+                return nil
         }
         return key.keyLocalized()
     }
 
-    func getDescription(enabled: Bool) -> String {
+    func getDescription(enabled: Bool) -> String? {
         let key: String
         switch self {
             case .tripStarted:
@@ -40,7 +42,18 @@ enum NotificationChannel {
                 key = "notification_trip_cancelled_description"
             case .tripEnded:
                 key = "notification_trip_finished_description"
+            case .deviceConfiguration:
+                return nil
         }
         return key.keyLocalized()
+    }
+
+    var isConfigurable: Bool {
+        switch self {
+            case .tripStarted, .tripCancelled, .tripEnded:
+                return true
+            case .deviceConfiguration:
+                return false
+        }
     }
 }

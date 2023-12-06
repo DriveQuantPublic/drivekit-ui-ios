@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  VehiclePickerCollectionViewDelegate.swift
 //  DriveKitVehicleUI
@@ -9,6 +8,7 @@
 
 import UIKit
 
+// swiftlint:disable:next class_delegate_protocol
 protocol VehiclePickerCollectionViewDelegate {
     func getCollectionViewItems(viewModel: VehiclePickerViewModel) -> [VehiclePickerCollectionViewItem]
     func onCollectionViewItemSelected(pos: Int, viewModel: VehiclePickerViewModel, completion: (StepStatus) -> Void)

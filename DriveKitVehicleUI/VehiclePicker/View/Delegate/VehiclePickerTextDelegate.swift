@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable class_delegate_protocol
 //
 //  VehiclePickerTextDelegate.swift
 //  DriveKitVehicleUI

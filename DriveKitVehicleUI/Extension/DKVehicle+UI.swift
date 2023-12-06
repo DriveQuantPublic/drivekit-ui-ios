@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers cyclomatic_complexity
 //
 //  DKVehicle+UI.swift
 //  DriveKitVehicleUI
@@ -15,7 +15,9 @@ import DriveKitCommonUI
 
 extension Array where Element: DKVehicle {
     func sortByDisplayNames() -> [DKVehicle] {
-        return self.sorted { $0.getDisplayName(position: $0.getPosition(vehiclesList: self)).lowercased() < $1.getDisplayName(position: $0.getPosition(vehiclesList: self)).lowercased() }
+        return self.sorted {
+            $0.getDisplayName(position: $0.getPosition(vehiclesList: self)).lowercased() < $1.getDisplayName(position: $0.getPosition(vehiclesList: self)).lowercased()
+        }
     }
 }
 
@@ -49,32 +51,30 @@ extension DKVehicle {
     func getLiteConfigCategoryName() -> String {
         let categories = DKVehicleCategory.allCases
         var categoryName = ""
-        for category in categories {
-            if category.liteConfigDqIndex == self.dqIndex ?? "" {
-                switch category {
-                case .micro:
-                    categoryName = "dk_vehicle_category_car_micro_title".dkVehicleLocalized()
-                case .compact:
-                    categoryName = "dk_vehicle_category_car_compact_title".dkVehicleLocalized()
-                case .sedan:
-                    categoryName = "dk_vehicle_category_car_sedan_title".dkVehicleLocalized()
-                case .suv:
-                    categoryName = "dk_vehicle_category_car_suv_title".dkVehicleLocalized()
-                case .minivan:
-                    categoryName = "dk_vehicle_category_car_minivan_title".dkVehicleLocalized()
-                case .commercial:
-                    categoryName = "dk_vehicle_category_car_commercial_title".dkVehicleLocalized()
-                case .luxury:
-                    categoryName = "dk_vehicle_category_car_luxury_title".dkVehicleLocalized()
-                case .sport:
-                    categoryName = "dk_vehicle_category_car_sport_title".dkVehicleLocalized()
-                case .twoAxlesStraightTruck, .threeAxlesStraightTruck, .fourAxlesStraightTruck, .twoAxlesTractor, .threeAxlesTractor, .fourAxlesTractor:
-                    categoryName = ""
-                @unknown default:
-                    categoryName = ""
-                }
+        for category in categories where category.liteConfigDqIndex == self.dqIndex ?? "" {
+            switch category {
+            case .micro:
+                categoryName = "dk_vehicle_category_car_micro_title".dkVehicleLocalized()
+            case .compact:
+                categoryName = "dk_vehicle_category_car_compact_title".dkVehicleLocalized()
+            case .sedan:
+                categoryName = "dk_vehicle_category_car_sedan_title".dkVehicleLocalized()
+            case .suv:
+                categoryName = "dk_vehicle_category_car_suv_title".dkVehicleLocalized()
+            case .minivan:
+                categoryName = "dk_vehicle_category_car_minivan_title".dkVehicleLocalized()
+            case .commercial:
+                categoryName = "dk_vehicle_category_car_commercial_title".dkVehicleLocalized()
+            case .luxury:
+                categoryName = "dk_vehicle_category_car_luxury_title".dkVehicleLocalized()
+            case .sport:
+                categoryName = "dk_vehicle_category_car_sport_title".dkVehicleLocalized()
+            case .twoAxlesStraightTruck, .threeAxlesStraightTruck, .fourAxlesStraightTruck, .twoAxlesTractor, .threeAxlesTractor, .fourAxlesTractor:
+                categoryName = ""
+            @unknown default:
+                categoryName = ""
             }
-        }
+    }
         return categoryName
     }
 
@@ -96,10 +96,8 @@ extension DKVehicle {
         }
         do {
             let files = try fileManager.contentsOfDirectory(atPath: "\(documentPath)")
-            for file in files {
-                if "\(documentPath)/\(file)" == filePath.path {
-                    image = UIImage(contentsOfFile: filePath.path)
-                }
+            for file in files where "\(documentPath)/\(file)" == filePath.path {
+                image = UIImage(contentsOfFile: filePath.path)
             }
         } catch {
             print("Could not add image from document directory: \(error)")
@@ -116,18 +114,38 @@ extension DKVehicle {
         case .beacon:
             if beacon != nil {
                 let beaconCode = String(beacon?.uniqueId ?? "").dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.complementaryFontColor).build()
-                let description = "dk_detection_mode_beacon_desc_configured".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).buildWithArgs(beaconCode)
+                let description = "dk_detection_mode_beacon_desc_configured"
+                    .dkVehicleLocalized()
+                    .dkAttributedString()
+                    .font(dkFont: .primary, style: .smallText)
+                    .color(.complementaryFontColor)
+                    .buildWithArgs(beaconCode)
                 return description
             } else {
-                return "dk_detection_mode_beacon_desc_not_configured".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 13, traits: .traitBold)).color(.criticalColor).build()
+                return "dk_detection_mode_beacon_desc_not_configured"
+                    .dkVehicleLocalized()
+                    .dkAttributedString()
+                    .font(dkFont: .primary, style: DKStyle(size: 13, traits: .traitBold))
+                    .color(.criticalColor)
+                    .build()
             }
         case .bluetooth:
             if bluetooth != nil {
                 let bluetoothName = String(bluetooth?.name ?? "").dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.complementaryFontColor).build()
-                let description = "dk_detection_mode_bluetooth_desc_configured".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).buildWithArgs(bluetoothName)
+                let description = "dk_detection_mode_bluetooth_desc_configured"
+                    .dkVehicleLocalized()
+                    .dkAttributedString()
+                    .font(dkFont: .primary, style: .smallText)
+                    .color(.complementaryFontColor)
+                    .buildWithArgs(bluetoothName)
                 return description
             } else {
-                return "dk_detection_mode_bluetooth_desc_not_configured".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: DKStyle(size: 13, traits: .traitBold)).color(.criticalColor).build()
+                return "dk_detection_mode_bluetooth_desc_not_configured"
+                    .dkVehicleLocalized()
+                    .dkAttributedString()
+                    .font(dkFont: .primary, style: DKStyle(size: 13, traits: .traitBold))
+                    .color(.criticalColor)
+                    .build()
             }
         case .none:
             return "".dkAttributedString().build()

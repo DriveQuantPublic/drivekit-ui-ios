@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  NotificationSettingsConfigurationCellViewModel.swift
 //  DriveKitApp
@@ -18,18 +17,24 @@ class NotificationSettingsConfigurationCellViewModel {
     }
 
     var title: String {
-        return self.channel.title
+        return self.channel.title ?? ""
     }
 
     var description: String {
-        return self.channel.getDescription(enabled: self.isEnabled)
+        return self.channel.getDescription(enabled: self.isEnabled) ?? ""
     }
 
     var isEnabled: Bool {
+        guard self.channel.isConfigurable else {
+            return true
+        }
         return NotificationSettings.isChannelEnabled(self.channel)
     }
 
     func enableChannel(_ enable: Bool) {
+        guard self.channel.isConfigurable else {
+            return
+        }
         if enable {
             NotificationSettings.enableChannel(self.channel)
         } else {

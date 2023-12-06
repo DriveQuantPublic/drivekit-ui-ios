@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  StreakViewModel.swift
 //  DriveKitDriverAchievementUI
@@ -16,14 +16,17 @@ import DriveKitCommonUI
 class StreakViewModel {
     weak var delegate: StreakVMDelegate?
     var streakData: [StreakData] = []
-    
+    private(set) var updating: Bool = false
+
     init() {
         self.streakData = computeStreak(DriveKitDBAchievementAccess.shared.streakQuery().noFilter().query().execute())
     }
     
     func getStreakData() {
+        self.updating = true
         DriveKitDriverAchievement.shared.getStreaks { [weak self] status, streaks in
             if let self = self {
+                self.updating = false
                 self.streakData = self.computeStreak(streaks)
                 if self.streakData.isEmpty {
                     if let delegate = self.delegate {
@@ -151,7 +154,10 @@ struct StreakData {
     }
     
     func getBestDates() -> String {
-        return String(format: "dk_achievements_streaks_since_to".dkAchievementLocalized(), streak.best.startDate.format(pattern: .standardDate), streak.best.endDate.format(pattern: .standardDate))
+        return String(
+            format: "dk_achievements_streaks_since_to".dkAchievementLocalized(),
+            streak.best.startDate.format(pattern: .standardDate),
+            streak.best.endDate.format(pattern: .standardDate))
     }
 }
 

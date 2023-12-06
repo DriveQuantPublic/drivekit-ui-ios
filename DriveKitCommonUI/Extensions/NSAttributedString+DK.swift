@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  NSAttributedString+DK.swift
 //  DriveKitCommonUI

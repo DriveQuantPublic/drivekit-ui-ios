@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  BadgeLevelDetailView.swift
 //  DriveKitDriverAchievementUI
@@ -43,19 +43,37 @@ public class BadgeLevelDetailViewController: DKUIViewController {
     @objc public func configure() {
         self.title = viewModel.title
         imageView.image = DKDriverAchievementImages.image(named: viewModel.iconKey)
-        goalTitleLabel.attributedText = "badge_detail_goal_title".dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()
+        goalTitleLabel.attributedText = "badge_detail_goal_title"
+            .dkAchievementLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .highlightSmall)
+            .color(.primaryColor)
+            .build()
         goalTitleSeparator.backgroundColor = DKUIColors.neutralColor.color
         goalDescriptionLabel.attributedText = viewModel.description.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
-        progressTitleLabel.attributedText = "badge_your_progress_title".dkAchievementLocalized().dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()
+        progressTitleLabel.attributedText = "badge_your_progress_title"
+            .dkAchievementLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .highlightSmall)
+            .color(.primaryColor)
+            .build()
         progressTitleSeparator.backgroundColor = DKUIColors.neutralColor.color
         if viewModel.tripsLeft > 0 {
             let tripsLeftAttrString = String(describing: viewModel.tripsLeft).dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
-            progressDescriptionLabel.attributedText = viewModel.progress.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).buildWithArgs(tripsLeftAttrString)
+            progressDescriptionLabel.attributedText = viewModel
+                .progress
+                .dkAttributedString()
+                .font(dkFont: .primary, style: .normalText)
+                .color(.complementaryFontColor)
+                .buildWithArgs(tripsLeftAttrString)
         } else {
             progressDescriptionLabel.attributedText = viewModel.congrats.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.complementaryFontColor).build()
         }
         initProgressRing()
-        closeButton.setAttributedTitle(DKCommonLocalizable.close.text().uppercased().dkAttributedString().font(dkFont: .primary, style: .button).color(.secondaryColor).build(), for: .normal)
+        closeButton.setAttributedTitle(
+            DKCommonLocalizable.close.text().uppercased().dkAttributedString().font(dkFont: .primary, style: .button).color(.secondaryColor).build(),
+            for: .normal
+        )
         closeButton.contentHorizontalAlignment = .right
     }
 

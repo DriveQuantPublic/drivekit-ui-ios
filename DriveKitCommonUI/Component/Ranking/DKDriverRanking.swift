@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  DKDriverRanking.swift
 //  DriveKitCommonUI

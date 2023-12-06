@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  SynthesisPageViewModel.swift
 //  DriveKitDriverDataUI
@@ -21,7 +21,7 @@ class SynthesisPageViewModel {
     }
 
     lazy var consumptionType: DKConsumptionType = {
-        if let _ = trip.energyEstimation {
+        if trip.energyEstimation != nil {
             return .electric
         } else {
             return .fuel
@@ -131,10 +131,8 @@ class SynthesisPageViewModel {
         if let contexts = trip.ecoDrivingContexts?.allObjects as? [EcoDrivingContext] {
             var mainContext: EcoDrivingContext = contexts[0]
             
-            for context in contexts {
-                if context.distance > mainContext.distance {
-                    mainContext = context
-                }
+            for context in contexts where context.distance > mainContext.distance {
+                mainContext = context
             }
             switch mainContext.contextId {
             case 0, 1:

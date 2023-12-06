@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  Event.swift
 //  drivekit-test-app
@@ -132,9 +132,11 @@ public class TripEvent {
         case .lock:
             return "dk_driverdata_screen_lock_text".dkDriverDataLocalized()
         case .pickUp:
-            return isForbidden ? "dk_driverdata_beginning_unauthorized_call_info_content".dkDriverDataLocalized() : "dk_driverdata_beginning_authorized_call_info_content".dkDriverDataLocalized()
+            return isForbidden ? "dk_driverdata_beginning_unauthorized_call_info_content".dkDriverDataLocalized() :
+                "dk_driverdata_beginning_authorized_call_info_content".dkDriverDataLocalized()
         case .hangUp:
-            return isForbidden ? "dk_driverdata_end_unauthorized_call_info_content".dkDriverDataLocalized() : "dk_driverdata_end_authorized_call_info_content".dkDriverDataLocalized()
+            return isForbidden ? "dk_driverdata_end_unauthorized_call_info_content".dkDriverDataLocalized() :
+                "dk_driverdata_end_authorized_call_info_content".dkDriverDataLocalized()
         }
     }
 }

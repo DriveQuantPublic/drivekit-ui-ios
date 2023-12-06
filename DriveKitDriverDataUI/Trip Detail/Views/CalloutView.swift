@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  CalloutView.swift
 //  drivekit-test-app

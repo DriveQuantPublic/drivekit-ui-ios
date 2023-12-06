@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  TripsListTableVC.swift
 //  DriveKitCommonUI
@@ -48,7 +48,9 @@ public class TripsListTableVC<TripsListItem: DKTripListItem>: UITableViewControl
     // MARK: - Table view delegate
     public override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
        let header = HeaderDayView.viewFromNib
-        if let headerDay = viewModel?.tripList?.getHeaderDay(), let tripsByDate = viewModel?.tripList?.getTripsList()[section], let tripsListItems: [TripsListItem] = tripsByDate.trips as? [TripsListItem] {
+        if let headerDay = viewModel?.tripList?.getHeaderDay(), 
+            let tripsByDate = viewModel?.tripList?.getTripsList()[section],
+            let tripsListItems: [TripsListItem] = tripsByDate.trips as? [TripsListItem] {
             header.configure(trips: tripsListItems, date: tripsByDate.date, headerDay: headerDay, dkHeader: viewModel?.tripList?.getCustomHeader())
         }
         return header

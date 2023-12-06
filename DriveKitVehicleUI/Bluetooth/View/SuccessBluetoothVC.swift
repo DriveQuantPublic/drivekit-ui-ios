@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  SuccessBluetoothVC.swift
 //  IFPClient
@@ -36,7 +36,12 @@ class SuccessBluetoothVC: DKUIViewController {
     }
     
     func setup() {
-        successTitle.attributedText = "dk_vehicle_bluetooth_congrats_title".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
+        successTitle.attributedText = "dk_vehicle_bluetooth_congrats_title"
+            .dkVehicleLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .highlightNormal)
+            .color(.mainFontColor)
+            .build()
         successButton.configure(title: DKCommonLocalizable.finish.text(), style: .full)
         successImage.image = DKVehicleImages.vehicleCongrats.image
         self.navigationItem.leftBarButtonItems = []
@@ -48,12 +53,22 @@ class SuccessBluetoothVC: DKUIViewController {
     func setupDesc() {
         let bluetoothName = self.viewModel.bluetoothName.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
         let vehicelName = self.viewModel.vehicleName.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
-        successDesc.attributedText = "dk_vehicle_bluetooth_congrats_desc".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).buildWithArgs(bluetoothName, vehicelName)
+        successDesc.attributedText = "dk_vehicle_bluetooth_congrats_desc"
+            .dkVehicleLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .normalText)
+            .color(.mainFontColor)
+            .buildWithArgs(bluetoothName, vehicelName)
     }
     
     func setupNotice() {
         let bluetoothName = self.viewModel.bluetoothName.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
-        successNotice.attributedText = "dk_vehicle_bluetooth_congrats_notice".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).buildWithArgs(bluetoothName)
+        successNotice.attributedText = "dk_vehicle_bluetooth_congrats_notice"
+            .dkVehicleLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .normalText)
+            .color(.mainFontColor)
+            .buildWithArgs(bluetoothName)
     }
     
     @IBAction func successAction(_ sender: Any) {

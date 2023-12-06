@@ -63,7 +63,10 @@ class MySynthesisViewController: DKUIViewController {
         )
 
         moreDetailsButton.isHidden = true
+    }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         if self.viewModel.updating {
             showRefreshControl()
         } else {

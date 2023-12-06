@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  OdometerHistoriesViewModel.swift
 //  DriveKitVehicleUI
@@ -35,7 +34,12 @@ class OdometerHistoriesViewModel {
         if let vehicle = self.vehicle {
             let history = getHistory(atIndex: index)
             let previousHistory = getHistory(atIndex: index + 1)
-            return OdometerHistoryDetailViewModel(vehicleId: vehicle.vehicleId, historyId: history?.historyId, previousHistoryId: previousHistory?.historyId, isEditable: index == 0)
+            return OdometerHistoryDetailViewModel(
+                vehicleId: vehicle.vehicleId, 
+                historyId: history?.historyId,
+                previousHistoryId: previousHistory?.historyId, 
+                isEditable: index == 0
+            )
         } else {
             return nil
         }

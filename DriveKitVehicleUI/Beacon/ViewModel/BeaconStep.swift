@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  BeaconStep.swift
 //  DriveKitVehicleUI
@@ -23,6 +22,7 @@ public enum BeaconStep: String {
     case wrongBeacon
     case beaconNotConfigured
 
+    // swiftlint:disable:next cyclomatic_complexity
     func title(viewModel: BeaconViewModel) -> NSAttributedString {
         var beaconCode = NSMutableAttributedString(string: "")
         if let beaconId = viewModel.beacon?.uniqueId {
@@ -39,20 +39,38 @@ public enum BeaconStep: String {
             return "dk_vehicle_beacon_setup_code_success_message".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         case .beaconNotFound:
             if viewModel.scanType == .pairing {
-                return "dk_vehicle_beacon_setup_code_not_matched".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).buildWithArgs(beaconCode)
+                return "dk_vehicle_beacon_setup_code_not_matched"
+                    .dkVehicleLocalized()
+                    .dkAttributedString()
+                    .font(dkFont: .primary, style: .normalText)
+                    .color(.mainFontColor)
+                    .buildWithArgs(beaconCode)
             } else {
                 return "dk_beacon_not_seen".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
             }
         case .beaconAlreadyPaired:
             return "dk_vehicle_beacon_already_paired".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         case .congrats:
-            return "dk_vehicle_beacon_setup_successlink_message".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).buildWithArgs(beaconCode, vehicleName)
+            return "dk_vehicle_beacon_setup_successlink_message"
+                    .dkVehicleLocalized().dkAttributedString()
+                    .font(dkFont: .primary, style: .normalText)
+                    .color(.mainFontColor)
+                    .buildWithArgs(beaconCode, vehicleName)
         case .verified:
-                return "dk_vehicle_beacon_setup_code_success_message".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+                return "dk_vehicle_beacon_setup_code_success_message"
+                    .dkVehicleLocalized()
+                    .dkAttributedString()
+                    .font(dkFont: .primary, style: .normalText)
+                    .color(.mainFontColor)
+                    .build()
         case .wrongBeacon:
                 return "dk_vehicle_beacon_verify_wrong_vehicle".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         case .beaconUnavailable:
-            return "dk_vehicle_beacon_setup_code_unavailable_id".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).buildWithArgs(beaconCode)
+            return "dk_vehicle_beacon_setup_code_unavailable_id"
+                    .dkVehicleLocalized().dkAttributedString()
+                    .font(dkFont: .primary, style: .normalText)
+                    .color(.mainFontColor)
+                    .buildWithArgs(beaconCode)
         case .beaconNotConfigured:
             return "dk_vehicle_beacon_diagnostic_alert".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         }
@@ -66,7 +84,11 @@ public enum BeaconStep: String {
                 beaconCode = beaconId.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
             }
             let vehicleName = viewModel.vehicleName.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.mainFontColor).build()
-            return "dk_vehicle_beacon_setup_code_success_recap".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).buildWithArgs(beaconCode, vehicleName)
+            return "dk_vehicle_beacon_setup_code_success_recap"
+                    .dkVehicleLocalized().dkAttributedString()
+                    .font(dkFont: .primary, style: .normalText)
+                    .color(.mainFontColor)
+                    .buildWithArgs(beaconCode, vehicleName)
         case .congrats:
             return "dk_vehicle_beacon_setup_store_notice".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
         default:

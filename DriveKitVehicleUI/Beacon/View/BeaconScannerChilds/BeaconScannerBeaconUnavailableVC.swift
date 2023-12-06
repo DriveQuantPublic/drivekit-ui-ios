@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  BeaconScannerUnavailableVC.swift
 //  DriveKitVehicleUI
@@ -39,7 +38,12 @@ class BeaconScannerBeaconUnavailableVC: UIViewController {
     }
     
     private func configureDescription() {
-        descriptionLabel.attributedText = "dk_vehicle_beacon_setup_code_retry_title".dkVehicleLocalized().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
+        descriptionLabel.attributedText = "dk_vehicle_beacon_setup_code_retry_title"
+            .dkVehicleLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .normalText)
+            .color(.mainFontColor)
+            .build()
     }
     
     @IBAction func retryClicked(_ sender: Any) {

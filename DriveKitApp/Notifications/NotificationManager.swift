@@ -16,6 +16,7 @@ import DriveKitDriverDataUI
 import DriveKitTripAnalysisModule
 import DriveKitTripAnalysisUI
 import UserNotifications
+import DriveKitPermissionsUtilsUI
 
 class NotificationManager: NSObject {
     private static let shared = NotificationManager()
@@ -100,10 +101,11 @@ class NotificationManager: NSObject {
                                  title: $0.title,
                                  options: [])
         }
-        let notificationCategory = UNNotificationCategory(identifier: NotificationCategory.TripAnalysis.start.identifier,
-                                              actions: notificationActions,
-                                              intentIdentifiers: [],
-                                              options: [])
+        let notificationCategory = UNNotificationCategory(
+            identifier: NotificationCategory.TripAnalysis.start.identifier,
+            actions: notificationActions,
+            intentIdentifiers: [],
+            options: [])
         let center = UNUserNotificationCenter.current()
         center.setNotificationCategories([notificationCategory])
     }
@@ -111,11 +113,43 @@ class NotificationManager: NSObject {
     private func configure() {
         DriveKit.shared.registerNotificationDelegate(self)
         DriveKitTripAnalysis.shared.addTripListener(self)
+        DriveKit.shared.addDeviceConfigurationDelegate(self)
     }
 
     private func reset() {
         DriveKit.shared.unregisterNotificationDelegate(self)
         DriveKitTripAnalysis.shared.removeTripListener(self)
+        DriveKit.shared.removeDeviceConfigurationDelegate(self)
+        NotificationManager.removeNotifications([
+            .tripStarted(
+                canPostpone: DriveKitTripAnalysisUI.shared.isUserAllowedToCancelTrip
+            ),
+            .tripAnalysisError(.noNetwork),
+            .tripAnalysisError(.noBeacon),
+            .tripAnalysisError(.duplicateTrip),
+            .tripAnalysisError(.noApiKey),
+            .tripEnded(message: "", transportationMode: .car, hasAdvices: false),
+            .tripEnded(message: "", transportationMode: .car, hasAdvices: true),
+            .tripCancelled(reason: .noGpsPoint),
+            .tripTooShort,
+            .criticalDeviceConfiguration(.none)
+        ])
+    }
+
+    private static func updateDeviceConfigurationNotification() {
+        let notificationInfo: DKDiagnosisNotificationInfo?
+        if DriveKit.shared.isUserConnected(), 
+            DriveKitConfig.isTripAnalysisAutoStartEnabled(),
+            AppNavigationController.alreadyOnboarded {
+            notificationInfo = DriveKitPermissionsUtilsUI.shared.getDeviceConfigurationEventNotification()
+        } else {
+            notificationInfo = nil
+        }
+        if let notificationInfo = notificationInfo {
+            self.sendNotification(.criticalDeviceConfiguration(notificationInfo))
+        } else {
+            self.removeNotification(.criticalDeviceConfiguration(.none))
+        }
     }
 }
 
@@ -146,7 +180,10 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
         }
     }
 
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        willPresent notification: UNNotification,
+        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         // Used to display notifications while the app is in foreground.
         if #available(iOS 14, *) {
             completionHandler([.list, .banner])
@@ -167,6 +204,8 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
                     let hasAdvices = content.userInfo["hasAdvices"] as? Bool ?? false
                     showTrip(with: itineraryId, hasAdvices: hasAdvices)
                 }
+            case NotificationCategory.deviceConfiguration:
+                showDiagnosis()
             default:
                 break
         }
@@ -191,7 +230,9 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
     }
     
     func showTrip(with identifier: String, hasAdvices: Bool) {
-        if let appDelegate = UIApplication.shared.delegate, let rootViewController = appDelegate.window??.rootViewController, let trip = DriveKitDBTripAccess.shared.find(itinId: identifier) {
+        if let appDelegate = UIApplication.shared.delegate, 
+            let rootViewController = appDelegate.window??.rootViewController,
+            let trip = DriveKitDBTripAccess.shared.find(itinId: identifier) {
             let transportationMode: TransportationMode = TransportationMode(rawValue: Int(trip.transportationMode)) ?? .unknown
             let isAlternative = transportationMode.isAlternative()
             let showAdvice = !isAlternative && hasAdvices
@@ -199,6 +240,16 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
             let navigationController = UINavigationController(rootViewController: detailVC)
             navigationController.configure()
             rootViewController.present(navigationController, animated: true)
+        }
+    }
+
+    func showDiagnosis() {
+        if let appDelegate = UIApplication.shared.delegate,
+           let appNavigationController = appDelegate.window??.rootViewController as? AppNavigationController {
+            let diagnosisViewController = DriveKitPermissionsUtilsUI.shared.getDiagnosisViewController()
+            let navigationController = UINavigationController(rootViewController: diagnosisViewController)
+            navigationController.configure()
+            appNavigationController.present(navigationController, animated: true)
         }
     }
 }
@@ -243,6 +294,9 @@ extension NotificationManager: TripListener {
                         canPostpone: DriveKitTripAnalysisUI.shared.isUserAllowedToCancelTrip
                     )
                 )
+            case .criticalDeviceConfiguration:
+                // Nothing to remove.
+                break
         }
     }
 
@@ -369,34 +423,6 @@ extension NotificationManager: TripListener {
         sendErrorNotification(.noNetwork)
     }
 
-    func tripPoint(tripPoint: TripPoint) {
-        // Nothing to do
-    }
-
-    func beaconDetected() {
-        // Nothing to do.
-    }
-
-    func significantLocationChangeDetected(location: CLLocation) {
-        // Nothing to do.
-    }
-
-    func sdkStateChanged(state: State) {
-        // Nothing to do.
-    }
-
-    func potentialTripStart(startMode: StartMode) {
-        // Nothing to do.
-    }
-
-    func crashDetected(crashInfo: DKCrashInfo) {
-        // Nothing to do.
-    }
-
-    func crashFeedbackSent(crashInfo: DKCrashInfo, feedbackType: DKCrashFeedbackType, severity: DKCrashFeedbackSeverity) {
-        // Nothing to do.
-    }
-
     private enum PostGenericResponseError: Int {
         case unknown = -1
         case noError = 0
@@ -404,6 +430,12 @@ extension NotificationManager: TripListener {
         case noBeaconDetected = 29
         case invalidBeaconDetected = 30
         case duplicateTrip = 31
+    }
+}
+
+extension NotificationManager: DKDeviceConfigurationDelegate {
+    func deviceConfigurationDidChange(event: DKDeviceConfigurationEvent) {
+        NotificationManager.updateDeviceConfigurationNotification()
     }
 }
 

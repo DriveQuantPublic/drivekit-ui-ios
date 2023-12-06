@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  SafetyPageVC.swift
 //  drivekit-test-app
@@ -61,7 +61,11 @@ class SafetyPageVC: UIViewController {
     }
 
     @IBAction func infoAction(_ sender: UIButton) {
-        let alert = UIAlertController(title: "dk_driverdata_safety_score".dkDriverDataLocalized(), message: "dk_driverdata_safety_score_info".dkDriverDataLocalized(), preferredStyle: .alert)
+        let alert = UIAlertController(
+            title: "dk_driverdata_safety_score".dkDriverDataLocalized(),
+            message: "dk_driverdata_safety_score_info".dkDriverDataLocalized(),
+            preferredStyle: .alert
+        )
         alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }

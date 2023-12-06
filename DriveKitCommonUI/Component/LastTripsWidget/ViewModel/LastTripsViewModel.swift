@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  LastTripsViewModel.swift
 //  DriveKitCommonUI
@@ -51,7 +50,9 @@ struct LastTripsViewModel {
     }
 
     private func didSelectTrip(_ trip: DKTripListItem, showAdvice: Bool = false) {
-        if self.parentViewController != nil, let tripDetail = DriveKitNavigationController.shared.driverDataUI?.getTripDetailViewController(itinId: trip.getItinId(), showAdvice: showAdvice, alternativeTransport: false) {
+        if self.parentViewController != nil, 
+            let tripDetail = DriveKitNavigationController.shared.driverDataUI?
+            .getTripDetailViewController(itinId: trip.getItinId(), showAdvice: showAdvice, alternativeTransport: false) {
             showViewController(tripDetail)
         } else {
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DKShowTripDetail"), object: nil, userInfo: ["itinId": trip.getItinId()])

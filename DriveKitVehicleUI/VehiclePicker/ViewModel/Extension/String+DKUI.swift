@@ -1,4 +1,3 @@
-// swiftlint:disable all
 //
 //  String+DKUI.swift
 //  DriveKitVehicleUI

@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable no_magic_numbers
 //
 //  FeatureView.swift
 //  DriveKitApp
@@ -36,7 +36,12 @@ final class FeatureView: UIView, Nibable {
             self.iconView.isHidden = true
         }
 
-        self.titleLabel.attributedText = viewModel.getTitle().dkAttributedString().font(dkFont: .primary, style: DKStyles.highlightSmall.withSizeDelta(-2)).color(.mainFontColor).build()
+        self.titleLabel.attributedText = viewModel
+            .getTitle()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: DKStyles.highlightSmall.withSizeDelta(-2))
+            .color(.mainFontColor)
+            .build()
         self.descriptionLabel.attributedText = viewModel.getDescription().dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
         self.actionButton.configure(title: viewModel.getActionButtonTitle().keyLocalized(), style: .empty)
 

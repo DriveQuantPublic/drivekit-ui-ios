@@ -30,7 +30,11 @@ extension VehiclePickerStep: VehiclePickerTableViewDelegate {
             if let type = viewModel.vehicleType {
                 var engineIndexes: [DKVehicleEngineIndex] = []
                 for engineIndex in DriveKitVehicleUI.shared.vehicleEngineIndexes 
-                where DriveKitVehiclePicker.shared.getEnginesIndex(vehicleType: type).contains(engineIndex) {
+                where DriveKitVehiclePicker
+                        .shared
+                        .getEnginesIndex(vehicleType: type)
+                        .contains(engineIndex)
+                && engineIndex.isSelectable {
                     engineIndexes.append(engineIndex)
                 }
                 return engineIndexes

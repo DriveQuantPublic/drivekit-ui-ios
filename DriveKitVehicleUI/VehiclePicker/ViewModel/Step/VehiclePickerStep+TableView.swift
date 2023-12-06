@@ -33,8 +33,7 @@ extension VehiclePickerStep: VehiclePickerTableViewDelegate {
                 where DriveKitVehiclePicker
                         .shared
                         .getEnginesIndex(vehicleType: type)
-                        .contains(engineIndex)
-                && engineIndex.isSelectable {
+                        .contains(engineIndex) {
                     engineIndexes.append(engineIndex)
                 }
                 return engineIndexes

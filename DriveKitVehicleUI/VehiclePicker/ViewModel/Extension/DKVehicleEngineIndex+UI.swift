@@ -41,16 +41,4 @@ extension DKVehicleEngineIndex: VehiclePickerTableViewItem {
             return ""
         }
     }
-
-    var isSelectable: Bool {
-        let allowedSelection: [DKVehicleEngineIndex] = [
-            .gasoline,
-            .diesel,
-            .electric,
-            .gasolineHybrid,
-            .dieselHybrid,
-            .plugInGasolineHybrid
-        ]
-        return allowedSelection.contains(self)
-    }
 }

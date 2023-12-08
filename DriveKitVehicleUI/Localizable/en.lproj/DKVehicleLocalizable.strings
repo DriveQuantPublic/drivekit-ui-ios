@@ -122,6 +122,10 @@
 "dk_vehicle_detail_category_button_description"="You know the brand, model and characteristics of your vehicle";
 "dk_vehicle_detail_category_button_title"="Find my vehicle";
 "dk_vehicle_detection_mode_title"="Auto start:";
+"dk_vehicle_engine_bi_fuel_bioethanol"="Dual-fuel gasoline bioethanol";
+"dk_vehicle_engine_bi_fuel_lpg"="Dual-fuel gasoline LPG";
+"dk_vehicle_engine_bi_fuel_ngv"="Dual-fuel gasoline NGV";
+"dk_vehicle_engine_biofuel"="Biofuel";
 "dk_vehicle_engine_description"="Engine type ?";
 "dk_vehicle_engine_diesel"="Diesel";
 "dk_vehicle_engine_diesel_hybrid"="Diesel hybrid";
@@ -129,6 +133,7 @@
 "dk_vehicle_engine_gasoline"="Gasoline";
 "dk_vehicle_engine_gasoline_hybrid"="Gasoline hybrid";
 "dk_vehicle_engine_gasoline_hybrid_plug_in"="Plug-in gasoline hybrid";
+"dk_vehicle_engine_hydrogen"="Hydrogen";
 "dk_vehicle_error_message"="An error occurred during the request, please retry later";
 "dk_vehicle_failed_to_paired_beacon"="The beacon could not be associated with the vehicle, please try again later.";
 "dk_vehicle_failed_to_paired_bluetooth"="The Bluetooth connection to the vehicle failed, please try again later.";
@@ -136,6 +141,7 @@
 "dk_vehicle_failed_to_sync"="Failed to retrieve vehicle data, please retry later";
 "dk_vehicle_field_name_error"="The name of your vehicle must not exceed 50 characters.";
 "dk_vehicle_gps_already_exists_confirm"="Do you want to set the detection mode %@ for the vehicle %@?\n\nThe vehicle detection mode %@ will be switched to %@.";
+"dk_vehicle_is_it_electric"="Is it an electric vehicle?";
 "dk_vehicle_list_empty"="Please add at least one vehicle";
 "dk_vehicle_model_description"="Vehicle model?";
 "dk_vehicle_my_vehicle"="My vehicle";

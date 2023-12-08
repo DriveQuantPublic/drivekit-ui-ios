@@ -122,6 +122,10 @@
 "dk_vehicle_detail_category_button_description"="Du kender dit køretøjs mærke, model og egenskaber";
 "dk_vehicle_detail_category_button_title"="Find min bil";
 "dk_vehicle_detection_mode_title"="Autostart";
+"dk_vehicle_engine_bi_fuel_bioethanol"="Dual-fuel benzin bioethanol";
+"dk_vehicle_engine_bi_fuel_lpg"="Dual-fuel benzin LPG";
+"dk_vehicle_engine_bi_fuel_ngv"="Dual-fuel benzin NGV";
+"dk_vehicle_engine_biofuel"="Biobrændsel";
 "dk_vehicle_engine_description"="Motortype?";
 "dk_vehicle_engine_diesel"="Diesel";
 "dk_vehicle_engine_diesel_hybrid"="Dieselelektrisk hybrid";
@@ -129,6 +133,7 @@
 "dk_vehicle_engine_gasoline"="Benzin";
 "dk_vehicle_engine_gasoline_hybrid"="Benzin-hybrid genopladelig";
 "dk_vehicle_engine_gasoline_hybrid_plug_in"="Genopladelig Benzin-elektrisk hybrid";
+"dk_vehicle_engine_hydrogen"="Brint";
 "dk_vehicle_error_message"="Der opstod en fejl under anmodningen, prøv igen senere";
 "dk_vehicle_failed_to_paired_beacon"="Beacon kunne ikke være forbundet med køretøjet, prøv igen senere.";
 "dk_vehicle_failed_to_paired_bluetooth"="Bluetoothforbindelsen til køretøjet mislykkedes, prøv igen senere.";
@@ -136,6 +141,7 @@
 "dk_vehicle_failed_to_sync"="Kunne ikke hente køretøjsdata, prøv igen senere";
 "dk_vehicle_field_name_error"="Navnet på dit køretøj må ikke overstige 50 tegn.";
 "dk_vehicle_gps_already_exists_confirm"="Vil du indstille detektionstilstand %@ for køretøjet %@?\n\nkøretøjets detektionstilstand %@ skiftes til %@.";
+"dk_vehicle_is_it_electric"="Er det et elektrisk køretøj?";
 "dk_vehicle_list_empty"="Tilføj mindst et køretøj";
 "dk_vehicle_model_description"="Køretøjsmodel?";
 "dk_vehicle_my_vehicle"="Mit køretøj";

@@ -122,6 +122,10 @@
 "dk_vehicle_detail_category_button_description"="Sie kennen die Marke, das Modell und die Eigenschaften Ihres Fahrzeugs";
 "dk_vehicle_detail_category_button_title"="Mein Fahrzeug finden";
 "dk_vehicle_detection_mode_title"="Automatischer Start:";
+"dk_vehicle_engine_bi_fuel_bioethanol"="Bi-Fuel-Benzin-Bioethanol";
+"dk_vehicle_engine_bi_fuel_lpg"="Zweistoffkraftstoff Benzin LPG";
+"dk_vehicle_engine_bi_fuel_ngv"="Zweistoffbetrieb Benzin NGV";
+"dk_vehicle_engine_biofuel"="Biokraftstoff";
 "dk_vehicle_engine_description"="Motortyp?";
 "dk_vehicle_engine_diesel"="Diesel";
 "dk_vehicle_engine_diesel_hybrid"="Dieselhybrid";
@@ -129,6 +133,7 @@
 "dk_vehicle_engine_gasoline"="Ottomotor";
 "dk_vehicle_engine_gasoline_hybrid"="Hybrid Benzin";
 "dk_vehicle_engine_gasoline_hybrid_plug_in"="Plug-in-Hybrid Benzin";
+"dk_vehicle_engine_hydrogen"="Wasserstoff";
 "dk_vehicle_error_message"="Bei der Anfrage ist ein Fehler aufgetreten. Versuchen Sie es später erneut.";
 "dk_vehicle_failed_to_paired_beacon"="Die Beacon konnte nicht mit dem Fahrzeug in Verbindung gebracht werden, bitte versuchen Sie es später noch einmal.";
 "dk_vehicle_failed_to_paired_bluetooth"="Die Bluetooth-Verbindung zum Fahrzeug ist fehlgeschlagen, bitte versuchen Sie es später noch einmal.";
@@ -136,6 +141,7 @@
 "dk_vehicle_failed_to_sync"="Die Fahrzeugdaten konnten nicht geladen werden. Versuchen Sie es später erneut.";
 "dk_vehicle_field_name_error"="Der Name Ihres Fahrzeugs darf nicht länger als 50 Zeichen sein.";
 "dk_vehicle_gps_already_exists_confirm"="Möchten Sie den Erkennungsmodus %@ für das Fahrzeug %@ einstellen?\n\nDer Fahrzeugerkennungsmodus %@ wird auf %@ umgeschaltet.";
+"dk_vehicle_is_it_electric"="Handelt es sich um ein Elektrofahrzeug?";
 "dk_vehicle_list_empty"="Bitte fügen Sie mindestens ein Fahrzeug hinzu.";
 "dk_vehicle_model_description"="Fahrzeugmodell";
 "dk_vehicle_my_vehicle"="Mein Fahrzeug";

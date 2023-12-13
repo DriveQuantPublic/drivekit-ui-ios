@@ -139,6 +139,6 @@ extension DKVehicleCategory: VehiclePickerTextDelegate {
     }
 
     func liteConfigId(isElectric: Bool) -> String? {
-        return isElectric ? self.liteConfigElectricDqIndex : self.liteConfigDqIndex
+        self.getLiteConfigDqIndex(isElectric: isElectric)
     }
 }

@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="confirmButton" destination="jWp-So-yxa" id="sXM-5A-0wG"/>
                 <outlet property="imageView" destination="eIN-BA-WFN" id="MmK-uH-HxB"/>
+                <outlet property="tableView" destination="QwL-zJ-xWc" id="Dnn-Du-w0H"/>
                 <outlet property="textLabel" destination="cOp-4A-wQT" id="5rv-2a-rfZ"/>
                 <outlet property="topConstraint" destination="WX3-Yh-6y0" id="6XU-iK-YGn"/>
                 <outlet property="view" destination="3yN-ez-rpe" id="g1I-eB-lWH"/>
@@ -49,7 +50,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jWp-So-yxa">
-                    <rect key="frame" x="16" y="421.33333333333331" width="361" height="50"/>
+                    <rect key="frame" x="16" y="461.33333333333331" width="361" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="E5f-VU-fJo"/>
                     </constraints>
@@ -59,10 +60,25 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Emd-5J-RtH">
-                    <rect key="frame" x="16" y="335.33333333333331" width="361" height="50"/>
+                    <rect key="frame" x="16" y="335.33333333333331" width="361" height="90"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="QwL-zJ-xWc">
+                            <rect key="frame" x="0.0" y="0.0" width="361" height="90"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="vj9-Y8-P9I"/>
+                                <outlet property="delegate" destination="-1" id="QCj-HS-PeE"/>
+                            </connections>
+                        </tableView>
+                    </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="pRa-hS-FPN"/>
+                        <constraint firstItem="QwL-zJ-xWc" firstAttribute="leading" secondItem="Emd-5J-RtH" secondAttribute="leading" id="909-vg-uFb"/>
+                        <constraint firstAttribute="bottom" secondItem="QwL-zJ-xWc" secondAttribute="bottom" id="EK6-OP-JNv"/>
+                        <constraint firstAttribute="trailing" secondItem="QwL-zJ-xWc" secondAttribute="trailing" id="ebM-qK-qMz"/>
+                        <constraint firstAttribute="height" constant="90" id="pRa-hS-FPN"/>
+                        <constraint firstItem="QwL-zJ-xWc" firstAttribute="top" secondItem="Emd-5J-RtH" secondAttribute="top" id="sHw-Qd-bLb"/>
                     </constraints>
                 </view>
             </subviews>

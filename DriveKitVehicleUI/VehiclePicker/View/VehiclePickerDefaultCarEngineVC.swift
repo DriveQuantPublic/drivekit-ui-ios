@@ -1,3 +1,4 @@
+// swiftlint:disable no_magic_numbers
 //
 //  VehiclePickerDefaultCarEngineVC.swift
 //  DriveKitVehicleUI
@@ -14,7 +15,11 @@ class VehiclePickerDefaultCarEngineVC: VehiclePickerStepView {
     @IBOutlet weak var textLabel: UILabel!
     
     @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+
     @IBOutlet private weak var topConstraint: NSLayoutConstraint!
+
+    var selectedRow: Int = 1
 
     init (viewModel: VehiclePickerViewModel) {
         super.init(nibName: String(describing: VehiclePickerDefaultCarEngineVC.self), bundle: .vehicleUIBundle)
@@ -25,13 +30,20 @@ class VehiclePickerDefaultCarEngineVC: VehiclePickerStepView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    //swiftlint:disable:next prohibited_super_call
+    override func loadView() {
+        super.loadView()
+        self.tableView.register(VehiclePickerDefaultCarEngineCell.self, forCellReuseIdentifier: VehiclePickerDefaultCarEngineCell.reuseIdentifier)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
     }
 
     func setup() {
-        self.topConstraint.constant = 20
+        let topMarginDistance: CGFloat = 20
+        self.topConstraint.constant = topMarginDistance
         imageView.image = DKVehicleImages.vehicleIsItElectric.image
         textLabel.attributedText = "dk_vehicle_is_it_electric"
             .dkVehicleLocalized()
@@ -43,9 +55,30 @@ class VehiclePickerDefaultCarEngineVC: VehiclePickerStepView {
     }
 
     @IBAction func didConfirmInput(_ sender: Any) {
-        
-        // TODO: set the selected value
-        self.viewModel.isElectric = false
+        self.viewModel.isElectric = (selectedRow == 0)
         self.viewModel.nextStep(.defaultCarEngine)
+    }
+}
+
+extension VehiclePickerDefaultCarEngineVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedRow = indexPath.row
+    }
+}
+
+extension VehiclePickerDefaultCarEngineVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: VehiclePickerDefaultCarEngineCell = tableView.dequeue(withIdentifier: VehiclePickerDefaultCarEngineCell.reuseIdentifier)
+        if indexPath.row == 0 {
+            cell.textLabel?.text = DKCommonLocalizable.yes.text()
+        } else if indexPath.row == 1 {
+            cell.textLabel?.text = DKCommonLocalizable.no.text()
+        }
+        cell.updateStyle(selected: selectedRow == indexPath.row)
+        return cell
     }
 }

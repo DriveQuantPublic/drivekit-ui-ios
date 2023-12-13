@@ -51,7 +51,7 @@ extension DKVehicle {
     func getLiteConfigCategoryName() -> String {
         let categories = DKVehicleCategory.allCases
         var categoryName = ""
-        for category in categories where category.liteConfigDqIndex == self.dqIndex ?? "" {
+        for category in categories where category.getLiteConfigDqIndex(isElectric: false) == self.dqIndex ?? "" {
             switch category {
             case .micro:
                 categoryName = "dk_vehicle_category_car_micro_title".dkVehicleLocalized()

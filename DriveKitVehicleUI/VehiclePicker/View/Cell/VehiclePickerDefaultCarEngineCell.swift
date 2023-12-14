@@ -23,7 +23,7 @@ class VehiclePickerDefaultCarEngineCell: UITableViewCell {
         super.init(coder: coder)
     }
     
-    func setupStyle() {
+    private func setupStyle() {
         self.selectionStyle = .none
         self.backgroundColor = .clear
         self.textLabel?.font = DKStyles.normalText.style.applyTo(font: .primary)

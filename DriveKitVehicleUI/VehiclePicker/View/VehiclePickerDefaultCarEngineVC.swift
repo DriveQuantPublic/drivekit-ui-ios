@@ -11,15 +11,15 @@ import UIKit
 import DriveKitCommonUI
 
 class VehiclePickerDefaultCarEngineVC: VehiclePickerStepView {
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var textLabel: UILabel!
     
-    @IBOutlet weak var confirmButton: UIButton!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var confirmButton: UIButton!
+    @IBOutlet private weak var tableView: UITableView!
 
     @IBOutlet private weak var topConstraint: NSLayoutConstraint!
 
-    var selectedRow: Int = 1
+    private var selectedRow: Int = 1
 
     init (viewModel: VehiclePickerViewModel) {
         super.init(nibName: String(describing: VehiclePickerDefaultCarEngineVC.self), bundle: .vehicleUIBundle)
@@ -41,7 +41,7 @@ class VehiclePickerDefaultCarEngineVC: VehiclePickerStepView {
         self.setup()
     }
 
-    func setup() {
+    private func setup() {
         let topMarginDistance: CGFloat = 20
         self.topConstraint.constant = topMarginDistance
         imageView.image = DKVehicleImages.vehicleIsItElectric.image

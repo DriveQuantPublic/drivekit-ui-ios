@@ -30,7 +30,7 @@ class VehiclePickerDefaultCarEngineVC: VehiclePickerStepView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    //swiftlint:disable:next prohibited_super_call
+    // swiftlint:disable:next prohibited_super_call
     override func loadView() {
         super.loadView()
         self.tableView.register(VehiclePickerDefaultCarEngineCell.self, forCellReuseIdentifier: VehiclePickerDefaultCarEngineCell.reuseIdentifier)
@@ -52,6 +52,7 @@ class VehiclePickerDefaultCarEngineVC: VehiclePickerStepView {
             .color(.mainFontColor)
             .build()
         confirmButton.configure(title: DKCommonLocalizable.validate.text(), style: .full)
+        self.title = "dk_motor".dkVehicleLocalized()
     }
 
     @IBAction func didConfirmInput(_ sender: Any) {
@@ -61,6 +62,11 @@ class VehiclePickerDefaultCarEngineVC: VehiclePickerStepView {
 }
 
 extension VehiclePickerDefaultCarEngineVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == selectedRow {
+            tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+        }
+    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedRow = indexPath.row
     }

@@ -26,6 +26,7 @@ class VehiclePickerDefaultCarEngineCell: UITableViewCell {
     func setupStyle() {
         self.selectionStyle = .none
         self.backgroundColor = .clear
+        self.textLabel?.font = DKStyles.normalText.style.applyTo(font: .primary)
     }
 
     func updateStyle(selected: Bool) {
@@ -40,10 +41,10 @@ class VehiclePickerDefaultCarEngineCell: UITableViewCell {
         } else {
             self.imageView?.image = UIImage.circleIcon(
                 diameter: 30.0,
-                borderColor: UIColor.black,
+                borderColor: DKUIColors.mainFontColor.color,
                 insideColor: UIColor.clear
             )
-            self.textLabel?.textColor = .black
+            self.textLabel?.textColor = DKUIColors.mainFontColor.color
         }
     }
 
@@ -56,8 +57,4 @@ class VehiclePickerDefaultCarEngineCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         updateStyle(selected: selected)
     }
-
-//    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
-//        updateStyle(selected: highlighted)
-//    }
 }

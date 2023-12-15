@@ -44,7 +44,8 @@ public enum DKVehicleImages: String {
          defaultCar = "dk_default_car",
          defaultTruck = "dk_default_truck",
          vehicleNameChooser = "dk_vehicle_name_chooser",
-         vehicleOdometer = "dk_vehicle_odometer"
+         vehicleOdometer = "dk_vehicle_odometer",
+         vehicleIsItElectric = "dk_vehicle_is_it_electric"
 
     public var image: UIImage? {
         if let image = UIImage(named: self.rawValue, in: .main, compatibleWith: nil) {

@@ -383,16 +383,18 @@ extension NotificationManager: TripListener {
                 var messagePart2: String?
                 switch DriveKitDriverDataUI.shared.tripData {
                     case .safety:
-                        let safetyScore = response.safety?.safetyScore ?? 11
-                        messagePart2 = "\("notif_trip_finished_safety".keyLocalized()) : \(safetyScore.formatDouble(places: 1))/10"
-                        
+                        if let safetyScore = response.safety?.safetyScore {
+                            messagePart2 = "\("notif_trip_finished_safety".keyLocalized()) : \(safetyScore.formatDouble(places: 1))/10"
+                        }
                     case .ecoDriving:
-                        let ecoDrivingScore = response.ecoDriving?.score ?? 11
-                        messagePart2 = "\("notif_trip_finished_efficiency".keyLocalized()) : \(ecoDrivingScore.formatDouble(places: 1))/10"
+                        if let ecoDrivingScore = response.ecoDriving?.score {
+                            messagePart2 = "\("notif_trip_finished_efficiency".keyLocalized()) : \(ecoDrivingScore.formatDouble(places: 1))/10"
+                        }
                     case .distraction:
-                        let distractionScore = response.driverDistraction?.score ?? 11
-                        messagePart2 = "\("notif_trip_finished_distraction".keyLocalized()) : \(distractionScore.formatDouble(places: 1))/10"
-                    case .speeding: 
+                        if let distractionScore = response.driverDistraction?.score {
+                            messagePart2 = "\("notif_trip_finished_distraction".keyLocalized()) : \(distractionScore.formatDouble(places: 1))/10"
+                        }
+                    case .speeding:
                         break
                     case .distance:
                         if let itineraryStatistics = response.itineraryStatistics {

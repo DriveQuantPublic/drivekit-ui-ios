@@ -119,7 +119,7 @@ enum NotificationType {
                     case .noGpsPoint:
                         key = "notif_trip_cancelled_no_gps_data_title"
                 }
-            case .tripAnalysisError(let tripAnalysisError):
+            case .tripAnalysisError:
                 return ""
             case .tripTooShort:
                 key = "notif_trip_too_short_title"
@@ -196,7 +196,7 @@ enum TripCancellationReason {
 }
 
 enum TripResponseErrorNotification {
-    case invalidRouteDefintiion
+    case invalidRouteDefinition
     case invalidSamplingPeriod
     case invalidCustomerId
     case maxDailyRequestNumberReached
@@ -217,10 +217,11 @@ enum TripResponseErrorNotification {
         switch tripResponseError {
             case .noAccountSet,
                  .noRouteObjectFound,
-                 .invalidRouteDefintiion,
                  .noVelocityData,
                  .noDateFound:
                 return nil
+            case .invalidRouteDefinition:
+                return .invalidRouteDefinition
             case .invalidSamplingPeriod:
                 return .invalidSamplingPeriod
             case .invalidCustomerId:
@@ -254,7 +255,7 @@ enum TripResponseErrorNotification {
 
     var localizedDescription: String {
         switch self {
-            case .invalidRouteDefintiion:
+            case .invalidRouteDefinition:
                 "dk_trip_service_insufficient_gps_data".dkTripAnalysisLocalized()
             case .invalidSamplingPeriod:
                 "dk_trip_service_invalid_sample_period".dkTripAnalysisLocalized()
@@ -289,7 +290,7 @@ enum TripResponseErrorNotification {
 
     var identifier: String {
         switch self {
-            case .invalidRouteDefintiion:
+            case .invalidRouteDefinition:
                 return "208"
             case .invalidSamplingPeriod:
                 return "209"

@@ -319,6 +319,9 @@ extension NotificationManager: TripListener {
         let responseStatus = DriveKitTripAnalysis.shared.getTripResponseStatus(response)
         switch responseStatus.status {
             case .tripValid:
+                responseStatus.info.forEach { info in
+                    DriveKitLog.shared.infoLog(tag: "App", message: "Trip response info: \(info.getComment())")
+                }
                 if responseStatus.hasSafetyAndEcoDrivingScore {
                     manageTripFinishedAndValid(response)
                 } else if let itinId = response.itinId {

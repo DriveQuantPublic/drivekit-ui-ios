@@ -298,22 +298,24 @@ enum TripResponseErrorNotification {
                 return "204"
             case .maxDailyRequestNumberReached:
                 return "210"
-            case .dataError, .invalidRouteVectors:
+            case .dataError:
                 return "211"
+            case .invalidRouteVectors:
+                return "212"
             case .duplicateTrip:
                 return "203"
             case .insufficientGpsData:
-                return "212"
-            case .userDisabled:
                 return "213"
-            case .invalidUser:
+            case .userDisabled:
                 return "214"
-            case .invalidGpsData:
+            case .invalidUser:
                 return "215"
-            case .invalidTrip:
+            case .invalidGpsData:
                 return "216"
-            case .accountLimitReached:
+            case .invalidTrip:
                 return "217"
+            case .accountLimitReached:
+                return "218"
             case .missingBeacon, .invalidBeacon:
                 return "252"
         }

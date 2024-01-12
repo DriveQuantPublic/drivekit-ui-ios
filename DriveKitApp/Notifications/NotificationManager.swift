@@ -329,6 +329,7 @@ extension NotificationManager: TripListener {
                 }
             case .tripError:
                 guard let error = responseStatus.error else { return }
+                DriveKitLog.shared.errorLog(tag: "App", message: "Trip response error: \(String(describing: error))")
                 sendErrorNotification(error)
         }
     }

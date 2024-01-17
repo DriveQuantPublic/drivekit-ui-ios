@@ -315,7 +315,6 @@ extension NotificationManager: TripListener {
     }
 
     func tripFinished(post: PostGeneric, response: PostGenericResponse) {
-        
         let responseStatus = DriveKitTripAnalysis.shared.getTripResponseStatus(response)
         switch responseStatus.status {
             case .tripValid:
@@ -331,6 +330,8 @@ extension NotificationManager: TripListener {
                 guard let error = responseStatus.error else { return }
                 DriveKitLog.shared.errorLog(tag: "App", message: "Trip response error: \(String(describing: error))")
                 sendErrorNotification(error)
+            @unknown default:
+                break
         }
     }
 

@@ -250,6 +250,8 @@ enum TripResponseErrorNotification {
                 return .invalidTrip
             case .accountLimitReached:
                 return .accountLimitReached
+            @unknown default:
+                return nil
         }
     }
 

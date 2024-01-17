@@ -81,8 +81,6 @@ extension DKVehicleCategory: VehiclePickerTextDelegate {
     func onLiteConfigSelected(viewModel: VehiclePickerViewModel) {
         viewModel.liteConfig = true
         viewModel.nextStep(.categoryDescription)
-        viewModel.vehicleCharacteristics = DKCarVehicleCharacteristics()
-        viewModel.vehicleCharacteristics?.dqIndex = self.liteConfigId() ?? ""
     }
 
     func onFullConfigSelected(viewModel: VehiclePickerViewModel) {
@@ -140,7 +138,7 @@ extension DKVehicleCategory: VehiclePickerTextDelegate {
         }
     }
 
-    func liteConfigId() -> String? {
-        return self.liteConfigDqIndex
+    func liteConfigId(isElectric: Bool) -> String? {
+        self.getLiteConfigDqIndex(isElectric: isElectric)
     }
 }

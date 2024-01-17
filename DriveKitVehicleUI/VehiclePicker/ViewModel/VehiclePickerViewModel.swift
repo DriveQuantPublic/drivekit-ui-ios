@@ -39,6 +39,7 @@ class VehiclePickerViewModel {
     var liteConfig: Bool = false
     var vehicleName: String?
     var vehicleCharacteristics: DKVehicleCharacteristics?
+    var isElectric: Bool = false
 
     var models: [String]?
     var years: [String]?
@@ -84,9 +85,12 @@ class VehiclePickerViewModel {
                     nextStepAfterYearsStep(appendPrevious: appendPrevious)
                 case .versions:
                     nextStepAfterVersionsStep(appendPrevious: appendPrevious)
+                case .defaultCarEngine:
+                    nextStepAfterDefaultEngineStep(appendPrevious: appendPrevious)
                 case .name:
                     // Last step. Nothing to do.
                     break
+
             }
         } else {
             // Determine the very first step.
@@ -152,7 +156,7 @@ class VehiclePickerViewModel {
     }
 
     private func nextStepAfterCategoryStep(appendPrevious: Bool) {
-        if let vehicleCategory = self.vehicleCategory, let vehicleType = self.vehicleType, vehicleType != .truck {
+        if self.vehicleCategory != nil, let vehicleType = self.vehicleType, vehicleType != .truck {
             let driveKitVehicleUI = DriveKitVehicleUI.shared
             let filteredCategories = driveKitVehicleUI.categories.filter({ category -> Bool in
                 switch vehicleType {
@@ -166,9 +170,7 @@ class VehiclePickerViewModel {
             })
             if filteredCategories.count == 1 && driveKitVehicleUI.categoryConfigType == .liteConfigOnly {
                 self.liteConfig = true
-                self.vehicleCharacteristics = DKCarVehicleCharacteristics()
-                self.vehicleCharacteristics?.dqIndex = vehicleCategory.liteConfigId() ?? ""
-                updateStep(.name, appendPrevious: appendPrevious)
+                updateStep(.defaultCarEngine, appendPrevious: appendPrevious)
             } else if driveKitVehicleUI.categoryConfigType != .brandsConfigOnly {
                 updateStep(.categoryDescription, appendPrevious: appendPrevious)
             } else {
@@ -191,7 +193,7 @@ class VehiclePickerViewModel {
 
     private func nextStepAfterCategoryDescriptionStep(appendPrevious: Bool) {
         if self.liteConfig {
-            updateStep(.name, appendPrevious: appendPrevious)
+            updateStep(.defaultCarEngine, appendPrevious: appendPrevious)
         } else {
             let filteredBrands = DriveKitVehicleUI.shared.brands.filter { !$0.isTruck }
             if filteredBrands.count > 1 {
@@ -413,6 +415,16 @@ class VehiclePickerViewModel {
         }
     }
 
+    private func nextStepAfterDefaultEngineStep(appendPrevious: Bool) {
+        if liteConfig, self.vehicleType == .car {
+            self.vehicleCharacteristics = DKCarVehicleCharacteristics()
+            self.vehicleCharacteristics?.dqIndex = vehicleCategory?.liteConfigId(isElectric: self.isElectric) ?? ""
+            updateStep(.name, appendPrevious: appendPrevious)
+        } else {
+            nextStepInternal(nil, appendPrevious: appendPrevious)
+        }
+    }
+    
     private func updateStep(_ step: VehiclePickerStep, appendPrevious: Bool) {
         if appendPrevious {
             previousSteps.append(self.currentStep)

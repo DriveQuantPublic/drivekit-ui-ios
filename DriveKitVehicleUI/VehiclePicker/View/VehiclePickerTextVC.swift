@@ -40,7 +40,7 @@ class VehiclePickerTextVC: VehiclePickerStepView {
             if DriveKitVehicleUI.shared.categoryConfigType == .liteConfigOnly {
                 textConfirmButton.configure(title: DKCommonLocalizable.validate.text(), style: .full)
                 confirmButtonHeightConstraint.constant = liteModeButtonHeight
-                textConfirmButton.addTarget(self, action: #selector(didConfirmText), for: .touchUpInside)
+                textConfirmButton.addTarget(self, action: #selector(liteConfigSelected), for: .touchUpInside)
                 textContinueButton.isHidden = true
             } else {
                 textConfirmButton.configure(
@@ -49,7 +49,7 @@ class VehiclePickerTextVC: VehiclePickerStepView {
                     style: .multilineBordered
                 )
                 confirmButtonHeightConstraint.constant = bothConfigModeButtonHeight
-                textConfirmButton.addTarget(self, action: #selector(didContinueText), for: .touchUpInside)
+                textConfirmButton.addTarget(self, action: #selector(fullConfigSelected), for: .touchUpInside)
                 
                 textContinueButton.configure(
                     title: "dk_vehicle_quick_category_button_title".dkVehicleLocalized() + "\n",
@@ -63,11 +63,11 @@ class VehiclePickerTextVC: VehiclePickerStepView {
         }
     }
 
-    @IBAction func didConfirmText(_ sender: Any) {
+    @IBAction func liteConfigSelected(_ sender: Any) {
         self.viewModel.vehicleCategory?.onLiteConfigSelected(viewModel: viewModel)
     }
     
-    @IBAction func didContinueText(_ sender: Any) {
+    @IBAction func fullConfigSelected(_ sender: Any) {
         self.viewModel.vehicleCategory?.onFullConfigSelected(viewModel: viewModel)
     }
     

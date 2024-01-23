@@ -11,17 +11,20 @@ import DriveKitCommonUI
 import UIKit
 
 public enum ChallengeListTab {
-    case current, past
+    case active, ranked, all
 }
 
 class ChallengeListVC: DKUIViewController {
     @IBOutlet private weak var headerContainer: UIView?
     @IBOutlet private weak var selectorHighlightView: UIView?
     @IBOutlet private weak var highlightConstraint: NSLayoutConstraint?
-    @IBOutlet private weak var currentTabButton: UIButton?
-    @IBOutlet private weak var pastTabButton: UIButton?
-    @IBOutlet private weak var currentChallengesCollectionView: UICollectionView?
-    @IBOutlet private weak var pastChallengesCollectionView: UICollectionView?
+    @IBOutlet private weak var activeTabButton: UIButton?
+    @IBOutlet private weak var rankedButton: UIButton?
+    @IBOutlet private weak var allButton: UIButton?
+    @IBOutlet private weak var dateSelectorContainer: UIView?
+    @IBOutlet private weak var activeChallengesCollectionView: UICollectionView?
+    @IBOutlet private weak var rankedChallengesCollectionView: UICollectionView?
+    @IBOutlet private weak var allChallengesCollectionView: UICollectionView?
     @IBOutlet private weak var parentScrollView: UIScrollView?
     private let viewModel: ChallengeListViewModel
     private let defaultColor = UIColor(red: 153, green: 153, blue: 153)
@@ -46,47 +49,69 @@ class ChallengeListVC: DKUIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if viewModel.selectedTab == .current {
-            DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_list_active", viewController: self)
-        } else if viewModel.selectedTab == .past {
-            DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_list_finished", viewController: self)
+        
+        switch viewModel.selectedTab {
+            case .active:
+                DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_list_active", viewController: self)
+            case .ranked:
+                DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_list_ranked", viewController: self)
+            case .all:
+                DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_list_all", viewController: self)
         }
     }
 
     func setupCollectionViews() {
-        self.currentChallengesCollectionView?.register(UINib(nibName: "NoChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "NoChallengeCellIdentifier")
-        self.currentChallengesCollectionView?.register(UINib(nibName: "ChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "ChallengeCellIdentifier")
-        self.pastChallengesCollectionView?.register(UINib(nibName: "NoChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "NoChallengeCellIdentifier")
-        self.pastChallengesCollectionView?.register(UINib(nibName: "ChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "ChallengeCellIdentifier")
+        self.activeChallengesCollectionView?.register(UINib(nibName: "NoChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "NoChallengeCellIdentifier")
+        self.activeChallengesCollectionView?.register(UINib(nibName: "ChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "ChallengeCellIdentifier")
+        self.rankedChallengesCollectionView?.register(UINib(nibName: "NoChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "NoChallengeCellIdentifier")
+        self.rankedChallengesCollectionView?.register(UINib(nibName: "ChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "ChallengeCellIdentifier")
+        self.allChallengesCollectionView?.register(UINib(nibName: "NoChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "NoChallengeCellIdentifier")
+        self.allChallengesCollectionView?.register(UINib(nibName: "ChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "ChallengeCellIdentifier")
         let defaultBackgroundColor = DKDefaultColors.driveKitBackgroundColor
-        self.currentChallengesCollectionView?.backgroundColor = defaultBackgroundColor
-        self.pastChallengesCollectionView?.backgroundColor = defaultBackgroundColor
-        
-        self.currentChallengesCollectionView?.refreshControl = UIRefreshControl()
-        self.currentChallengesCollectionView?.refreshControl?.addTarget(self, action: #selector(refreshChallenges(_ :)), for: .valueChanged)
-        self.pastChallengesCollectionView?.refreshControl = UIRefreshControl()
-        self.pastChallengesCollectionView?.refreshControl?.addTarget(self, action: #selector(refreshChallenges(_ :)), for: .valueChanged)
+        self.activeChallengesCollectionView?.backgroundColor = defaultBackgroundColor
+        self.rankedChallengesCollectionView?.backgroundColor = defaultBackgroundColor
+        self.allChallengesCollectionView?.backgroundColor = defaultBackgroundColor
+
+        self.activeChallengesCollectionView?.refreshControl = UIRefreshControl()
+        self.activeChallengesCollectionView?.refreshControl?.addTarget(self, action: #selector(refreshChallenges(_ :)), for: .valueChanged)
+        self.rankedChallengesCollectionView?.refreshControl = UIRefreshControl()
+        self.rankedChallengesCollectionView?.refreshControl?.addTarget(self, action: #selector(refreshChallenges(_ :)), for: .valueChanged)
+        self.allChallengesCollectionView?.refreshControl = UIRefreshControl()
+        self.allChallengesCollectionView?.refreshControl?.addTarget(self, action: #selector(refreshChallenges(_ :)), for: .valueChanged)
+
     }
 
     func setupHeaders() {
         let font = DKStyles.smallText.withSizeDelta(-2).applyTo(font: .primary)
-        self.currentTabButton?.titleLabel?.font = font
-        self.currentTabButton?.setTitle("dk_challenge_active".dkChallengeLocalized().uppercased(), for: .normal)
-        self.pastTabButton?.setTitle("dk_challenge_finished".dkChallengeLocalized().uppercased(), for: .normal)
-        self.pastTabButton?.titleLabel?.font = font
+        self.activeTabButton?.titleLabel?.font = font
+        self.activeTabButton?.setTitle("dk_challenge_active".dkChallengeLocalized().uppercased(), for: .normal)
+        self.rankedButton?.setTitle("dk_challenge_ranked".dkChallengeLocalized().uppercased(), for: .normal)
+        self.rankedButton?.titleLabel?.font = font
+        self.allButton?.setTitle("dk_challenge_all".dkChallengeLocalized().uppercased(), for: .normal)
+        self.allButton?.titleLabel?.font = font
         self.selectorHighlightView?.backgroundColor = DKUIColors.secondaryColor.color
         updateSelectedButton()
+        if let dateSelectorContainer = dateSelectorContainer {
+            DKDateSelectorView.createDateSelectorView(
+                configuredWith: self.viewModel.dateSelectorViewModel,
+                embededIn: dateSelectorContainer
+            )
+        }
     }
 
     func updateSelectedTab() {
         switch self.viewModel.selectedTab {
-        case .current:
-            if let currentChallengesCollectionView = self.currentChallengesCollectionView {
-                self.parentScrollView?.scrollRectToVisible(currentChallengesCollectionView.frame, animated: true)
+        case .active:
+            if let activeChallengesCollectionView = self.activeChallengesCollectionView {
+                self.parentScrollView?.scrollRectToVisible(activeChallengesCollectionView.frame, animated: true)
             }
-        case .past:
-            if let pastChallengesCollectionView = self.pastChallengesCollectionView {
-                self.parentScrollView?.scrollRectToVisible(pastChallengesCollectionView.frame, animated: true)
+        case .ranked:
+            if let rankedChallengesCollectionView = self.rankedChallengesCollectionView {
+                self.parentScrollView?.scrollRectToVisible(rankedChallengesCollectionView.frame, animated: true)
+            }
+        case .all:
+            if let allChallengesCollectionView = self.allChallengesCollectionView {
+                self.parentScrollView?.scrollRectToVisible(allChallengesCollectionView.frame, animated: true)
             }
         }
         updateSelectedButton()
@@ -94,28 +119,42 @@ class ChallengeListVC: DKUIViewController {
 
     func updateSelectedButton() {
         switch self.viewModel.selectedTab {
-        case .current:
-            pastTabButton?.setTitleColor(defaultColor, for: .normal)
-            currentTabButton?.setTitleColor(DKUIColors.secondaryColor.color, for: .normal)
-        case .past:
-            pastTabButton?.setTitleColor(DKUIColors.secondaryColor.color, for: .normal)
-            currentTabButton?.setTitleColor(defaultColor, for: .normal)
+        case .active:
+            rankedButton?.setTitleColor(defaultColor, for: .normal)
+            allButton?.setTitleColor(defaultColor, for: .normal)
+            activeTabButton?.setTitleColor(DKUIColors.secondaryColor.color, for: .normal)
+        case .ranked:
+            rankedButton?.setTitleColor(DKUIColors.secondaryColor.color, for: .normal)
+            activeTabButton?.setTitleColor(defaultColor, for: .normal)
+            allButton?.setTitleColor(defaultColor, for: .normal)
+        case .all:
+            allButton?.setTitleColor(DKUIColors.secondaryColor.color, for: .normal)
+            activeTabButton?.setTitleColor(defaultColor, for: .normal)
+            rankedButton?.setTitleColor(defaultColor, for: .normal)
         }
 
     }
-    @IBAction func selectCurrentTab() {
-        if viewModel.selectedTab != .current {
+    @IBAction func selectActiveTab() {
+        if viewModel.selectedTab != .active {
             DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_list_active", viewController: self)
         }
-        viewModel.updateSelectedTab(challengeTab: .current)
+        viewModel.updateSelectedTab(challengeTab: .active)
         updateSelectedTab()
     }
 
-    @IBAction func selectPastTab() {
-        if viewModel.selectedTab != .past {
-            DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_list_finished", viewController: self)
+    @IBAction func selectRankedTab() {
+        if viewModel.selectedTab != .ranked {
+            DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_list_ranked", viewController: self)
         }
-        viewModel.updateSelectedTab(challengeTab: .past)
+        viewModel.updateSelectedTab(challengeTab: .ranked)
+        updateSelectedTab()
+    }
+
+    @IBAction func selectAllTab() {
+        if viewModel.selectedTab != .all {
+            DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_list_all", viewController: self)
+        }
+        viewModel.updateSelectedTab(challengeTab: .all)
         updateSelectedTab()
     }
 
@@ -135,23 +174,31 @@ extension ChallengeListVC: ChallengeListDelegate {
         guard self.viewIfLoaded?.window != nil else {
             return
         }
-        if let refreshControl = currentChallengesCollectionView?.refreshControl {
+        if let refreshControl = activeChallengesCollectionView?.refreshControl {
             refreshControl.beginRefreshing()
         }
-        if let refreshControl = pastChallengesCollectionView?.refreshControl {
+        if let refreshControl = rankedChallengesCollectionView?.refreshControl {
             refreshControl.beginRefreshing()
         }
+        if let refreshControl = allChallengesCollectionView?.refreshControl {
+            refreshControl.beginRefreshing()
+        }
+
     }
 
     func onChallengesAvailable() {
-        if let refreshControl = currentChallengesCollectionView?.refreshControl, refreshControl.isRefreshing {
+        if let refreshControl = activeChallengesCollectionView?.refreshControl, refreshControl.isRefreshing {
             refreshControl.endRefreshing()
         }
-        if let refreshControl = pastChallengesCollectionView?.refreshControl, refreshControl.isRefreshing {
+        if let refreshControl = rankedChallengesCollectionView?.refreshControl, refreshControl.isRefreshing {
             refreshControl.endRefreshing()
         }
-        currentChallengesCollectionView?.reloadData()
-        pastChallengesCollectionView?.reloadData()
+        if let refreshControl = allChallengesCollectionView?.refreshControl, refreshControl.isRefreshing {
+            refreshControl.endRefreshing()
+        }
+        activeChallengesCollectionView?.reloadData()
+        rankedChallengesCollectionView?.reloadData()
+        allChallengesCollectionView?.reloadData()
     }
 
     func didReceiveErrorFromService() {
@@ -170,15 +217,20 @@ extension ChallengeListVC: ChallengeListDelegate {
 
 extension ChallengeListVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == currentChallengesCollectionView {
-            let count = self.viewModel.currentChallenges.count
+        if collectionView == activeChallengesCollectionView {
+            let count = self.viewModel.activeChallenges.count
             if indexPath.row < count {
-                self.viewModel.challengeViewModelSelected(challengeViewModel: self.viewModel.currentChallenges[indexPath.row])
+                self.viewModel.challengeViewModelSelected(challengeViewModel: self.viewModel.activeChallenges[indexPath.row])
             }
-        } else if collectionView == pastChallengesCollectionView {
-            let count = self.viewModel.pastChallenges.count
+        } else if collectionView == rankedChallengesCollectionView {
+            let count = self.viewModel.rankedChallenges.count
             if indexPath.row < count {
-                self.viewModel.challengeViewModelSelected(challengeViewModel: self.viewModel.pastChallenges[indexPath.row])
+                self.viewModel.challengeViewModelSelected(challengeViewModel: self.viewModel.rankedChallenges[indexPath.row])
+            }
+        } else if collectionView == allChallengesCollectionView {
+            let count = self.viewModel.allChallenges.count
+            if indexPath.row < count {
+                self.viewModel.challengeViewModelSelected(challengeViewModel: self.viewModel.allChallenges[indexPath.row])
             }
         }
     }
@@ -186,11 +238,14 @@ extension ChallengeListVC: UICollectionViewDelegate {
 
 extension ChallengeListVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == currentChallengesCollectionView {
-            let count = self.viewModel.currentChallenges.count
+        if collectionView == activeChallengesCollectionView {
+            let count = self.viewModel.activeChallenges.count
             return max(count, 1)
-        } else if collectionView == pastChallengesCollectionView {
-            let count = self.viewModel.pastChallenges.count
+        } else if collectionView == rankedChallengesCollectionView {
+            let count = self.viewModel.rankedChallenges.count
+            return max(count, 1)
+        } else if collectionView == allChallengesCollectionView {
+            let count = self.viewModel.allChallenges.count
             return max(count, 1)
         }
         return 0
@@ -198,12 +253,12 @@ extension ChallengeListVC: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: UICollectionViewCell
-        if collectionView == currentChallengesCollectionView {
-            let count = self.viewModel.currentChallenges.count
+        if collectionView == activeChallengesCollectionView {
+            let count = self.viewModel.activeChallenges.count
             if count > 0 {
                 cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChallengeCellIdentifier", for: indexPath)
                 if let challengeCell = cell as? ChallengeCell, indexPath.row < count {
-                    challengeCell.configure(challenge: self.viewModel.currentChallenges[indexPath.row])
+                    challengeCell.configure(challenge: self.viewModel.activeChallenges[indexPath.row])
                 }
             } else {
                 cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoChallengeCellIdentifier", for: indexPath)
@@ -211,12 +266,28 @@ extension ChallengeListVC: UICollectionViewDataSource {
                     noChallengeCell.configure(viewModel: NoChallengeViewModel(text: "dk_challenge_no_active_challenge".dkChallengeLocalized(), image: DKImages.emptyData.image))
                 }
             }
-        } else if collectionView == pastChallengesCollectionView {
-            let count = self.viewModel.pastChallenges.count
+        } else if collectionView == rankedChallengesCollectionView {
+            let count = self.viewModel.rankedChallenges.count
             if count > 0 {
                 cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChallengeCellIdentifier", for: indexPath)
                 if let challengeCell = cell as? ChallengeCell, indexPath.row < count {
-                    challengeCell.configure(challenge: self.viewModel.pastChallenges[indexPath.row])
+                    challengeCell.configure(challenge: self.viewModel.rankedChallenges[indexPath.row])
+                }
+            } else {
+                cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoChallengeCellIdentifier", for: indexPath)
+                if let noChallengeCell = cell as? NoChallengeCell {
+                    noChallengeCell.configure(viewModel: NoChallengeViewModel(
+                        text: "dk_challenge_no_finished_challenge".dkChallengeLocalized(),
+                        image: DKChallengeImages.finished.image
+                    ))
+                }
+            }
+        } else if collectionView == allChallengesCollectionView {
+            let count = self.viewModel.allChallenges.count
+            if count > 0 {
+                cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChallengeCellIdentifier", for: indexPath)
+                if let challengeCell = cell as? ChallengeCell, indexPath.row < count {
+                    challengeCell.configure(challenge: self.viewModel.allChallenges[indexPath.row])
                 }
             } else {
                 cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoChallengeCellIdentifier", for: indexPath)
@@ -237,17 +308,24 @@ extension ChallengeListVC: UICollectionViewDataSource {
 extension ChallengeListVC: UICollectionViewDelegateFlowLayout {
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height: CGFloat
-        if collectionView == currentChallengesCollectionView {
-            let count = self.viewModel.currentChallenges.count
+        if collectionView == activeChallengesCollectionView {
+            let count = self.viewModel.activeChallenges.count
             if indexPath.row < count {
-                height = self.viewModel.expectedCellHeight(challenge: self.viewModel.currentChallenges[indexPath.row], viewWdth: collectionView.frame.width)
+                height = self.viewModel.expectedCellHeight(challenge: self.viewModel.activeChallenges[indexPath.row], viewWdth: collectionView.frame.width)
             } else {
                 height = collectionView.bounds.height
             }
-        } else if collectionView == pastChallengesCollectionView {
-            let count = self.viewModel.pastChallenges.count
+        } else if collectionView == rankedChallengesCollectionView {
+            let count = self.viewModel.rankedChallenges.count
             if indexPath.row < count {
-                height = self.viewModel.expectedCellHeight(challenge: self.viewModel.pastChallenges[indexPath.row], viewWdth: collectionView.frame.width)
+                height = self.viewModel.expectedCellHeight(challenge: self.viewModel.rankedChallenges[indexPath.row], viewWdth: collectionView.frame.width)
+            } else {
+                height = collectionView.bounds.height
+            }
+        } else if collectionView == allChallengesCollectionView {
+            let count = self.viewModel.allChallenges.count
+            if indexPath.row < count {
+                height = self.viewModel.expectedCellHeight(challenge: self.viewModel.allChallenges[indexPath.row], viewWdth: collectionView.frame.width)
             } else {
                 height = collectionView.bounds.height
             }
@@ -262,18 +340,22 @@ extension ChallengeListVC: UICollectionViewDelegateFlowLayout {
 extension ChallengeListVC: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == parentScrollView {
-            self.highlightConstraint?.constant = scrollView.contentOffset.x / 2
+            self.highlightConstraint?.constant = scrollView.contentOffset.x / 3
         }
     }
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if scrollView == parentScrollView {
-            let isCurrentTab = Int(scrollView.contentOffset.x / (scrollView.frame.width / 2)) == 0
-            if isCurrentTab, viewModel.selectedTab != .current {
-                viewModel.updateSelectedTab(challengeTab: .current)
+            let isActiveTab = Int(scrollView.contentOffset.x / (scrollView.frame.width / 2)) < 1
+            let isAllTab = Int(scrollView.contentOffset.x / (scrollView.frame.width / 2)) > 3
+            if isActiveTab, viewModel.selectedTab != .active {
+                viewModel.updateSelectedTab(challengeTab: .active)
                 DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_list_active", viewController: self)
-            } else if !isCurrentTab, viewModel.selectedTab != .past {
-                viewModel.updateSelectedTab(challengeTab: .past)
-                DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_list_finished", viewController: self)
+            } else if !isActiveTab, !isAllTab, viewModel.selectedTab != .ranked {
+                viewModel.updateSelectedTab(challengeTab: .ranked)
+                DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_list_ranked", viewController: self)
+            } else if isAllTab, viewModel.selectedTab != .all {
+                viewModel.updateSelectedTab(challengeTab: .all)
+                DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_list_all", viewController: self)
             }
             updateSelectedButton()
         }

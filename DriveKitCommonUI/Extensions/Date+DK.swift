@@ -69,6 +69,8 @@ extension Date {
         let currentYear = calendar.component(.year, from: self)
         let december = 12
         let lastDayOfDecember = 31
+        let lastHour = 23
+        let lastMinuteSecond = 59
         return calendar.nextDate(
             after: self,
             matching: .init(
@@ -76,7 +78,10 @@ extension Date {
                 timeZone: .current,
                 year: currentYear,
                 month: december,
-                day: lastDayOfDecember
+                day: lastDayOfDecember,
+                hour: lastHour,
+                minute: lastMinuteSecond,
+                second: lastMinuteSecond
             ),
             matchingPolicy: .nextTime
         )

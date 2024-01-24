@@ -52,4 +52,54 @@ struct ChallengeItemViewModel {
                          NSAttributedString.Key.paragraphStyle: paragraphStyle]
         )
     }
+
+    var participationMessage: String {
+        let now = Date()
+        let minParticipantsNumberToDisplay: Int = 100
+        if now.timeIntervalSince(self.startDate) < 0 {
+            // challenge has not started yet
+            if self.registered {
+                if self.nbDriverRegistered >= minParticipantsNumberToDisplay {
+                    return String(format: "dk_challenge_list_registered_among".dkChallengeLocalized(), self.nbDriverRegistered)
+                } else {
+                    return "dk_challenge_list_registered".dkChallengeLocalized()
+                }
+            } else {
+                if self.nbDriverRegistered >= minParticipantsNumberToDisplay {
+                    return String(format: "dk_challenge_list_join_among".dkChallengeLocalized(), self.nbDriverRegistered)
+                } else {
+                    return "dk_challenge_list_join".dkChallengeLocalized()
+                }
+            }
+        } else if now.timeIntervalSince(self.endDate) < 0 {
+            // challenge has not ended yet (active)
+            if self.registered {
+                if self.conditionsFilled {
+                    return String(format: "dk_challenge_list_ranked".dkChallengeLocalized(), self.rank, self.nbDriverRegistered)
+                } else {
+                    if self.nbDriverRegistered >= minParticipantsNumberToDisplay {
+                        return String(format: "dk_challenge_list_registered_among".dkChallengeLocalized(), self.nbDriverRegistered)
+                    } else {
+                        return "dk_challenge_list_registered".dkChallengeLocalized()
+                    }
+                }
+            } else {
+                if self.nbDriverRegistered >= minParticipantsNumberToDisplay {
+                    return String(format: "dk_challenge_list_join_among".dkChallengeLocalized(), self.nbDriverRegistered)
+                } else {
+                    return "dk_challenge_list_join".dkChallengeLocalized()
+                }
+            }
+        } else {
+            if self.registered {
+                if conditionsFilled {
+                    return String(format: "dk_challenge_list_ranked".dkChallengeLocalized(), self.rank, self.nbDriverRegistered)
+                } else {
+                    return "dk_challenge_list_not_ranked".dkChallengeLocalized()
+                }
+            } else {
+                return "dk_challenge_list_not_registered".dkChallengeLocalized()
+            }
+        }
+    }
 }

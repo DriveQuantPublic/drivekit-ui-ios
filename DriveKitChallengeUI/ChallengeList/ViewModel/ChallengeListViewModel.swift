@@ -71,7 +71,7 @@ public class ChallengeListViewModel {
 
     func expectedCellHeight(challenge: ChallengeItemViewModel, viewWdth: CGFloat) -> CGFloat {
         let width = viewWdth - 124
-        let attributedText: NSAttributedString = NSAttributedString(string: challenge.name, attributes: [.font: DKUIFonts.primary.fonts(size: 22).with(.traitBold)])
+        let attributedText: NSAttributedString = NSAttributedString(string: challenge.name, attributes: [.font: DKStyles.headLine1.style.applyTo(font: .primary)])
         let expectedRect = attributedText.boundingRect(with: CGSize(width: width, height: 600), options: .usesLineFragmentOrigin, context: nil)
         return max(124.0, expectedRect.height + 83)
     }

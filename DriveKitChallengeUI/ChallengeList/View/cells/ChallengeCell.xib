@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,10 +23,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="100" height="150"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JOR-2p-TpJ">
-                                        <rect key="frame" x="10" y="35" width="80" height="80"/>
+                                        <rect key="frame" x="20" y="45" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="JOR-2p-TpJ" secondAttribute="height" multiplier="1:1" id="9sP-1b-soD"/>
-                                            <constraint firstAttribute="height" constant="80" id="Xci-VH-PVW"/>
+                                            <constraint firstAttribute="height" constant="60" id="Xci-VH-PVW"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
@@ -37,8 +37,8 @@
                                     <constraint firstAttribute="width" constant="100" id="tpH-Yw-20y"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="aD2-Dc-vxf">
-                                <rect key="frame" x="100" y="45" width="241" height="60"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aD2-Dc-vxf">
+                                <rect key="frame" x="100" y="14" width="241" height="122"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="750" verticalCompressionResistancePriority="749" text="Ceci est un nom de challenge tres tres long" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQC-TV-7rs">
                                         <rect key="frame" x="0.0" y="0.0" width="228.5" height="41"/>
@@ -47,7 +47,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HWN-Hs-cky">
-                                        <rect key="frame" x="0.0" y="45" width="223" height="15"/>
+                                        <rect key="frame" x="0.0" y="49" width="223" height="15"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tmr-RA-cCN">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="15"/>
@@ -76,6 +76,12 @@
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ER4-4W-lON">
+                                        <rect key="frame" x="0.0" y="72" width="50" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -103,6 +109,7 @@
                 <outlet property="challengeDatesLabel" destination="ZVD-Es-zJA" id="zOm-8y-qg1"/>
                 <outlet property="challengeImageView" destination="JOR-2p-TpJ" id="vax-AT-fb3"/>
                 <outlet property="challengeNameLabel" destination="vQC-TV-7rs" id="qMG-Y1-zeH"/>
+                <outlet property="participationLabel" destination="ER4-4W-lON" id="0jh-8a-Lhi"/>
                 <outlet property="whiteBackgroundView" destination="SJQ-aO-uad" id="glI-jz-DZx"/>
             </connections>
             <point key="canvasLocation" x="5" y="-47"/>

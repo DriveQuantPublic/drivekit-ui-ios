@@ -11,8 +11,4 @@ import DriveKitCommonUI
 
 struct NoChallengeViewModel {
     let text: String
-
-    init(text: String) {
-        self.text = text
-    }
 }

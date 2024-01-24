@@ -6,7 +6,7 @@
 //  Copyright © 2021 DriveQuant. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import DriveKitCommonUI
 
 enum ChallengeType {
@@ -70,6 +70,59 @@ enum ChallengeTheme {
             return "dk_challenge_speeding_score".dkChallengeLocalized()
         case .none:
             return ""
+        }
+    }
+}
+
+// TODO: move into internal modules
+// swiftlint:disable no_magic_numbers
+enum DKChallengeType {
+    case safety,
+         ecoDriving,
+         distraction,
+         speeding,
+         hardBraking,
+         hardAcceleration,
+         oldChallenge,
+         unknown
+        
+    static func from(themeCode: Int) -> DKChallengeType {
+        switch themeCode {
+            case 101...104:
+                return .ecoDriving
+            case 201...204:
+                return .safety
+            case 205...208:
+                return .hardBraking
+            case 209...212:
+                return .hardAcceleration
+            case 213...220:
+                return .safety
+            case 301...309:
+                return .oldChallenge
+            case 221:
+                return .distraction
+            case 401:
+                return .speeding
+            default:
+                return .unknown
+        }
+    }
+}
+
+extension DKChallengeType {
+    var icon: UIImage? {
+        switch self {
+            case .safety, .hardBraking, .hardAcceleration:
+                return DKImages.safetyFlat.image
+            case .ecoDriving:
+                return DKImages.ecoDrivingFlat.image
+            case .distraction:
+                return DKImages.distractionFlat.image
+            case .speeding:
+                return DKImages.speedingFlat.image
+            case .oldChallenge, .unknown:
+                return DKChallengeImages.general101Trophy.image
         }
     }
 }

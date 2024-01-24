@@ -12,20 +12,18 @@ import DriveKitCommonUI
 
 class NoChallengeCell: UICollectionViewCell {
 
-    @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var label: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        label.font = DKUIFonts.primary.fonts(size: 16).with(.traitBold)
-        imageView.image = DKImages.emptyData.image
+        self.label.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
+        self.label.layer.masksToBounds = true
+        self.label.backgroundColor = DKUIColors.neutralColor.color
+        self.label.font = DKStyles.normalText.style.applyTo(font: .primary)
+        self.label.textColor = DKUIColors.mainFontColor.color
     }
 
     func configure(viewModel: NoChallengeViewModel) {
-        label.text = viewModel.text
-        imageView.image = viewModel.image
-        contentView.backgroundColor = viewModel.backgroundColor
-        backgroundColor = viewModel.backgroundColor
-        label.textColor = viewModel.textColor
+        self.label.text = viewModel.text
     }
 }

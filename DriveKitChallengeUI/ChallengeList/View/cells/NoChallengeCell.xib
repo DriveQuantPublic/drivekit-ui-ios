@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,36 +17,28 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvl-Qf-M32">
-                        <rect key="frame" x="16" y="208" width="343" height="42"/>
+                        <rect key="frame" x="16" y="10.5" width="343" height="229"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="42" id="DSL-gW-9pL"/>
+                            <constraint firstAttribute="width" secondItem="bvl-Qf-M32" secondAttribute="height" multiplier="3:2" id="h05-d1-2OK"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yZT-Ys-rKC">
-                        <rect key="frame" x="104.5" y="42" width="166" height="166"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="yZT-Ys-rKC" secondAttribute="height" multiplier="1:1" id="OfY-IQ-SOc"/>
-                            <constraint firstAttribute="height" constant="166" id="Oo7-ii-8cA"/>
-                        </constraints>
-                    </imageView>
                 </subviews>
             </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="yZT-Ys-rKC" firstAttribute="centerY" secondItem="rp4-CA-rMW" secondAttribute="centerY" id="CO7-ya-tnO"/>
-                <constraint firstItem="yZT-Ys-rKC" firstAttribute="centerX" secondItem="rp4-CA-rMW" secondAttribute="centerX" id="FNA-lA-zLN"/>
-                <constraint firstItem="bvl-Qf-M32" firstAttribute="top" secondItem="yZT-Ys-rKC" secondAttribute="bottom" id="KsK-Wa-ZpO"/>
+                <constraint firstItem="bvl-Qf-M32" firstAttribute="centerY" secondItem="rp4-CA-rMW" secondAttribute="centerY" id="WFI-gU-nf0"/>
                 <constraint firstItem="bvl-Qf-M32" firstAttribute="leading" secondItem="rp4-CA-rMW" secondAttribute="leading" constant="16" id="X6g-2a-JwF"/>
                 <constraint firstAttribute="trailing" secondItem="bvl-Qf-M32" secondAttribute="trailing" constant="16" id="cF8-2t-qXp"/>
             </constraints>
             <size key="customSize" width="375" height="250"/>
             <connections>
-                <outlet property="imageView" destination="yZT-Ys-rKC" id="oUX-f9-CBQ"/>
                 <outlet property="label" destination="bvl-Qf-M32" id="a8I-Ux-OCG"/>
             </connections>
-            <point key="canvasLocation" x="53" y="-80"/>
+            <point key="canvasLocation" x="52.898550724637687" y="-80.357142857142847"/>
         </collectionViewCell>
     </objects>
 </document>

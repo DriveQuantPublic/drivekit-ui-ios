@@ -77,7 +77,7 @@ public class ChallengeListViewModel {
     }
 
     func challengeViewModelSelected(challengeViewModel: ChallengeItemViewModel) {
-        if challengeViewModel.finishedAndNotFilled {
+        if !challengeViewModel.registered {
             let alertTitle = Bundle.main.appName ?? ""
             let alert = UIAlertController(title: alertTitle, message: "dk_challenge_not_a_participant".dkChallengeLocalized(), preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
@@ -131,6 +131,27 @@ public class ChallengeListViewModel {
             dates.insert(thisYearDate)
         }
         return dates.sorted()
+    }
+
+    func noChallengeMessage(for tab: ChallengeListTab) -> String {
+        switch tab {
+            case .active:
+                return "dk_challenge_no_active_challenge".dkChallengeLocalized()
+            case .ranked:
+                let year = selectedYear ?? DriveKitUI.calendar.component(.year, from: Date())
+                let yearChallenges = challenges.filterBy(year: year)
+                if yearChallenges.isEmpty {
+                    return "dk_challenge_no_ranked_challenge_empty_list".dkChallengeLocalized()
+                } else if yearChallenges.filter({ $0.isRegistered }).isEmpty {
+                    return "dk_challenge_no_ranked_challenge_not_registered_yet".dkChallengeLocalized()
+                } else if yearChallenges.filter({ $0.conditionsFilled }).isEmpty {
+                    return "dk_challenge_no_ranked_challenge_not_ranked_yet".dkChallengeLocalized()
+                } else {
+                    return "dk_challenge_no_ranked_challenge_empty_list".dkChallengeLocalized()
+                }
+            case .all:
+                return "dk_challenge_no_finished_challenge".dkChallengeLocalized()
+        }
     }
 }
 

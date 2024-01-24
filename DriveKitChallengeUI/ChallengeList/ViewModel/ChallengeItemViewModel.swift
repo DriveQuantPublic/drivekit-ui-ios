@@ -18,23 +18,23 @@ struct ChallengeItemViewModel {
     let name: String
     let image: UIImage?
     let identifier: String
-    let finishedAndNotFilled: Bool
+    let conditionsFilled: Bool
+    let registered: Bool
+    let nbDriverRegistered: Int
+    let rank: Int
+    let theme: DKChallengeType
 
     init(challenge: DKChallenge) {
         identifier = challenge.id
         startDate = challenge.startDate
         endDate = challenge.endDate
         name = challenge.title
-        if let challengeImage = DKChallengeImages.imageForTheme(iconCode: challenge.iconCode).image {
-            image = challengeImage
-        } else {
-            image = DKChallengeImages.general101Trophy.image
-        }
-        if (challenge.isRegistered == false || challenge.conditionsFilled == false) && challenge.endDate.timeIntervalSinceNow < 0 {
-            finishedAndNotFilled = true
-        } else {
-            finishedAndNotFilled = false
-        }
+        self.theme = DKChallengeType.from(themeCode: challenge.themeCode)
+        self.image = self.theme.icon
+        self.registered = challenge.isRegistered
+        self.conditionsFilled = challenge.conditionsFilled
+        self.rank = challenge.rank
+        self.nbDriverRegistered = challenge.nbDriverRegistered
     }
 
     static func formatStartAndEndDates(startDate: Date,

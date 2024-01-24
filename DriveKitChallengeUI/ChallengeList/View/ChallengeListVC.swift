@@ -61,6 +61,7 @@ class ChallengeListVC: DKUIViewController {
     }
 
     func setupCollectionViews() {
+        self.parentScrollView?.isScrollEnabled = false
         self.activeChallengesCollectionView?.register(UINib(nibName: "NoChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "NoChallengeCellIdentifier")
         self.activeChallengesCollectionView?.register(UINib(nibName: "ChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "ChallengeCellIdentifier")
         self.rankedChallengesCollectionView?.register(UINib(nibName: "NoChallengeCell", bundle: .challengeUIBundle), forCellWithReuseIdentifier: "NoChallengeCellIdentifier")
@@ -103,15 +104,15 @@ class ChallengeListVC: DKUIViewController {
         switch self.viewModel.selectedTab {
         case .active:
             if let activeChallengesCollectionView = self.activeChallengesCollectionView {
-                self.parentScrollView?.scrollRectToVisible(activeChallengesCollectionView.frame, animated: true)
+                self.parentScrollView?.scrollRectToVisible(activeChallengesCollectionView.frame, animated: false)
             }
         case .ranked:
             if let rankedChallengesCollectionView = self.rankedChallengesCollectionView {
-                self.parentScrollView?.scrollRectToVisible(rankedChallengesCollectionView.frame, animated: true)
+                self.parentScrollView?.scrollRectToVisible(rankedChallengesCollectionView.frame, animated: false)
             }
         case .all:
             if let allChallengesCollectionView = self.allChallengesCollectionView {
-                self.parentScrollView?.scrollRectToVisible(allChallengesCollectionView.frame, animated: true)
+                self.parentScrollView?.scrollRectToVisible(allChallengesCollectionView.frame, animated: false)
             }
         }
         updateSelectedButton()
@@ -263,7 +264,7 @@ extension ChallengeListVC: UICollectionViewDataSource {
             } else {
                 cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoChallengeCellIdentifier", for: indexPath)
                 if let noChallengeCell = cell as? NoChallengeCell {
-                    noChallengeCell.configure(viewModel: NoChallengeViewModel(text: "dk_challenge_no_active_challenge".dkChallengeLocalized(), image: DKImages.emptyData.image))
+                    noChallengeCell.configure(viewModel: NoChallengeViewModel(text: viewModel.noChallengeMessage(for: .active)))
                 }
             }
         } else if collectionView == rankedChallengesCollectionView {
@@ -277,8 +278,7 @@ extension ChallengeListVC: UICollectionViewDataSource {
                 cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoChallengeCellIdentifier", for: indexPath)
                 if let noChallengeCell = cell as? NoChallengeCell {
                     noChallengeCell.configure(viewModel: NoChallengeViewModel(
-                        text: "dk_challenge_no_finished_challenge".dkChallengeLocalized(),
-                        image: DKChallengeImages.finished.image
+                        text: viewModel.noChallengeMessage(for: .ranked)
                     ))
                 }
             }
@@ -293,8 +293,7 @@ extension ChallengeListVC: UICollectionViewDataSource {
                 cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoChallengeCellIdentifier", for: indexPath)
                 if let noChallengeCell = cell as? NoChallengeCell {
                     noChallengeCell.configure(viewModel: NoChallengeViewModel(
-                        text: "dk_challenge_no_finished_challenge".dkChallengeLocalized(),
-                        image: DKChallengeImages.finished.image
+                        text: viewModel.noChallengeMessage(for: .all)
                     ))
                 }
             }

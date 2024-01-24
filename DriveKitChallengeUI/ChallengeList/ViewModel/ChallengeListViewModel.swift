@@ -38,7 +38,7 @@ public class ChallengeListViewModel {
         self.dateSelectorViewModel.delegate = self
         DriveKitChallenge.shared.getChallenges(type: .cache) { [weak self] _, challenges in
             if let self = self {
-                self.challenges = challenges.sortByDate()
+                self.challenges = challenges.filterDeprecated().sortByDate()
                 self.updateChallengeArrays()
             }
         }
@@ -50,7 +50,7 @@ public class ChallengeListViewModel {
         DriveKitChallenge.shared.getChallenges(type: syncType) { [weak self] _, challenges in
             DispatchQueue.main.async {
                 if let self = self {
-                    self.challenges = challenges.sortByDate()
+                    self.challenges = challenges.filterDeprecated().sortByDate()
                     self.updateChallengeArrays(for: self.selectedYear)
                     self.delegate?.onChallengesAvailable()
                 }

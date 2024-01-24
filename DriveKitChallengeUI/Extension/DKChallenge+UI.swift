@@ -11,6 +11,18 @@ import DriveKitCommonUI
 
 extension Array where Element: DKChallenge {
     
+    func filterDeprecated() -> [DKChallenge] {
+        return self.filter { challenge in
+            let type = DKChallengeType.from(themeCode: challenge.themeCode)
+            switch type {
+                case .safety, .ecoDriving, .distraction, .speeding, .hardBraking, .hardAcceleration:
+                    return true
+                case .deprecated, .unknown:
+                    return false
+            }
+        }
+    }
+
     func sortByDate() -> [DKChallenge] {
         return self.sorted(by: { ($0.startDate, $1.id) > ($1.startDate, $0.id) })
     }

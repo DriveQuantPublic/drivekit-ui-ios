@@ -76,14 +76,14 @@ enum ChallengeTheme {
 
 // TODO: move into internal modules
 // swiftlint:disable no_magic_numbers
-enum DKChallengeType {
+@objc public enum DKChallengeType: Int {
     case safety,
          ecoDriving,
          distraction,
          speeding,
          hardBraking,
          hardAcceleration,
-         oldChallenge,
+         deprecated,
          unknown
         
     static func from(themeCode: Int) -> DKChallengeType {
@@ -99,7 +99,7 @@ enum DKChallengeType {
             case 213...220:
                 return .safety
             case 301...309:
-                return .oldChallenge
+                return .deprecated
             case 221:
                 return .distraction
             case 401:
@@ -121,8 +121,8 @@ extension DKChallengeType {
                 return DKImages.distractionFlat.image
             case .speeding:
                 return DKImages.speedingFlat.image
-            case .oldChallenge, .unknown:
-                return DKChallengeImages.general101Trophy.image
+            case .deprecated, .unknown:
+                return nil
         }
     }
 }

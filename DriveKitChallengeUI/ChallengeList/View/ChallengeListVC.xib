@@ -15,6 +15,7 @@
                 <outlet property="activeTabButton" destination="E6z-ve-7Pl" id="2kG-RC-ySw"/>
                 <outlet property="allButton" destination="9GY-oT-O34" id="e29-rs-0Vy"/>
                 <outlet property="allChallengesCollectionView" destination="mda-gB-3hK" id="hSy-Bp-gXy"/>
+                <outlet property="collectionViewsContainer" destination="XLM-an-2fV" id="sMP-Jt-4go"/>
                 <outlet property="dateSelectorContainer" destination="96K-3k-OU3" id="Zd6-NJ-59U"/>
                 <outlet property="headerContainer" destination="EuP-L7-gEP" id="t6P-Mf-Oqx"/>
                 <outlet property="highlightConstraint" destination="fon-Zm-5nK" id="Q2l-L8-wBH"/>
@@ -105,17 +106,20 @@
                     <rect key="frame" x="0.0" y="45" width="414" height="759"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96K-3k-OU3">
-                            <rect key="frame" x="8" y="21" width="398" height="17"/>
+                            <rect key="frame" x="8" y="21" width="398" height="37"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="37" id="jku-eN-NsU"/>
+                            </constraints>
                         </view>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5C-gC-I0Y">
-                            <rect key="frame" x="0.0" y="59" width="414" height="700"/>
+                            <rect key="frame" x="0.0" y="79" width="414" height="680"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uLx-bW-Emf">
-                                    <rect key="frame" x="0.0" y="0.0" width="1242" height="700"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="1242" height="680"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Xs8-B7-6oT">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="702"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="682"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="KYX-Uj-Fm7">
                                                 <size key="itemSize" width="128" height="128"/>
@@ -129,7 +133,7 @@
                                             </connections>
                                         </collectionView>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="35G-Cb-I9C">
-                                            <rect key="frame" x="414" y="0.0" width="414" height="702"/>
+                                            <rect key="frame" x="414" y="0.0" width="414" height="682"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="NjU-0a-vs6">
                                                 <size key="itemSize" width="128" height="128"/>
@@ -143,7 +147,7 @@
                                             </connections>
                                         </collectionView>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="mda-gB-3hK">
-                                            <rect key="frame" x="828" y="0.0" width="414" height="702"/>
+                                            <rect key="frame" x="828" y="0.0" width="414" height="682"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="F4C-qy-b6u">
                                                 <size key="itemSize" width="128" height="128"/>
@@ -196,7 +200,7 @@
                         <constraint firstItem="U5C-gC-I0Y" firstAttribute="top" secondItem="96K-3k-OU3" secondAttribute="bottom" constant="21" id="l4R-5G-VHO"/>
                         <constraint firstAttribute="trailing" secondItem="96K-3k-OU3" secondAttribute="trailing" constant="8" id="sk4-zo-Niu"/>
                         <constraint firstItem="U5C-gC-I0Y" firstAttribute="leading" secondItem="XLM-an-2fV" secondAttribute="leading" id="w8U-fC-q8Y"/>
-                        <constraint firstItem="U5C-gC-I0Y" firstAttribute="top" secondItem="XLM-an-2fV" secondAttribute="top" constant="59" id="wUe-sn-7Yb"/>
+                        <constraint firstItem="U5C-gC-I0Y" firstAttribute="top" secondItem="XLM-an-2fV" secondAttribute="top" constant="79" id="wUe-sn-7Yb"/>
                     </constraints>
                 </view>
             </subviews>

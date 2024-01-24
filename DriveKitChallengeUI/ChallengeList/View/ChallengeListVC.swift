@@ -1,4 +1,4 @@
-// swiftlint:disable no_magic_numbers empty_count
+// swiftlint:disable no_magic_numbers
 //
 //  ChallengeListVC.swift
 //  DriveKitChallengeUI
@@ -22,6 +22,7 @@ class ChallengeListVC: DKUIViewController {
     @IBOutlet private weak var rankedButton: UIButton?
     @IBOutlet private weak var allButton: UIButton?
     @IBOutlet private weak var dateSelectorContainer: UIView?
+    @IBOutlet private weak var collectionViewsContainer: UIView?
     @IBOutlet private weak var activeChallengesCollectionView: UICollectionView?
     @IBOutlet private weak var rankedChallengesCollectionView: UICollectionView?
     @IBOutlet private weak var allChallengesCollectionView: UICollectionView?
@@ -72,6 +73,7 @@ class ChallengeListVC: DKUIViewController {
         self.activeChallengesCollectionView?.backgroundColor = defaultBackgroundColor
         self.rankedChallengesCollectionView?.backgroundColor = defaultBackgroundColor
         self.allChallengesCollectionView?.backgroundColor = defaultBackgroundColor
+        self.collectionViewsContainer?.backgroundColor = defaultBackgroundColor
 
         self.activeChallengesCollectionView?.refreshControl = UIRefreshControl()
         self.activeChallengesCollectionView?.refreshControl?.addTarget(self, action: #selector(refreshChallenges(_ :)), for: .valueChanged)
@@ -254,51 +256,34 @@ extension ChallengeListVC: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: UICollectionViewCell
+        let sourceChallenges: [ChallengeItemViewModel]
+        let cellTab: ChallengeListTab
         if collectionView == activeChallengesCollectionView {
-            let count = self.viewModel.activeChallenges.count
-            if count > 0 {
-                cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChallengeCellIdentifier", for: indexPath)
-                if let challengeCell = cell as? ChallengeCell, indexPath.row < count {
-                    challengeCell.configure(challenge: self.viewModel.activeChallenges[indexPath.row])
-                }
-            } else {
-                cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoChallengeCellIdentifier", for: indexPath)
-                if let noChallengeCell = cell as? NoChallengeCell {
-                    noChallengeCell.configure(viewModel: NoChallengeViewModel(text: viewModel.noChallengeMessage(for: .active)))
-                }
-            }
+            cellTab = .active
+            sourceChallenges = self.viewModel.activeChallenges
         } else if collectionView == rankedChallengesCollectionView {
-            let count = self.viewModel.rankedChallenges.count
-            if count > 0 {
-                cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChallengeCellIdentifier", for: indexPath)
-                if let challengeCell = cell as? ChallengeCell, indexPath.row < count {
-                    challengeCell.configure(challenge: self.viewModel.rankedChallenges[indexPath.row])
-                }
-            } else {
-                cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoChallengeCellIdentifier", for: indexPath)
-                if let noChallengeCell = cell as? NoChallengeCell {
-                    noChallengeCell.configure(viewModel: NoChallengeViewModel(
-                        text: viewModel.noChallengeMessage(for: .ranked)
-                    ))
-                }
-            }
+            cellTab = .ranked
+            sourceChallenges = self.viewModel.rankedChallenges
         } else if collectionView == allChallengesCollectionView {
-            let count = self.viewModel.allChallenges.count
-            if count > 0 {
-                cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChallengeCellIdentifier", for: indexPath)
-                if let challengeCell = cell as? ChallengeCell, indexPath.row < count {
-                    challengeCell.configure(challenge: self.viewModel.allChallenges[indexPath.row])
-                }
-            } else {
-                cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoChallengeCellIdentifier", for: indexPath)
-                if let noChallengeCell = cell as? NoChallengeCell {
-                    noChallengeCell.configure(viewModel: NoChallengeViewModel(
-                        text: viewModel.noChallengeMessage(for: .all)
-                    ))
-                }
+            cellTab = .all
+            sourceChallenges = self.viewModel.allChallenges
+        } else {
+            sourceChallenges = []
+            cellTab = .all
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoChallengeCellIdentifier", for: indexPath)
+            return cell
+        }
+
+        if sourceChallenges.isEmpty {
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoChallengeCellIdentifier", for: indexPath)
+            if let noChallengeCell = cell as? NoChallengeCell {
+                noChallengeCell.configure(viewModel: NoChallengeViewModel(text: viewModel.noChallengeMessage(for: cellTab)))
             }
         } else {
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NoChallengeCellIdentifier", for: indexPath)
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChallengeCellIdentifier", for: indexPath)
+            if let challengeCell = cell as? ChallengeCell, indexPath.row < sourceChallenges.count {
+                challengeCell.configure(challenge: sourceChallenges[indexPath.row])
+            }
         }
         return cell
     }

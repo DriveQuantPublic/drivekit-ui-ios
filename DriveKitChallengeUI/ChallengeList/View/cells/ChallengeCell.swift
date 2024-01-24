@@ -32,7 +32,7 @@ class ChallengeCell: UICollectionViewCell {
 
         challengeDatesLabel.textColor = DKUIColors.complementaryFontColor.color
         challengeDatesLabel.font = DKUIFonts.primary.fonts(size: 14)
-        challengeNameLabel.textColor = DKUIColors.mainFontColor.color
+        challengeNameLabel.textColor = DKUIColors.primaryColor.color
         challengeNameLabel.font = DKStyles.headLine1.style.applyTo(font: .primary)
         challengeDateImage.image = DKImages.calendar.image
         challengeDateImage.tintColor = DKUIColors.mainFontColor.color

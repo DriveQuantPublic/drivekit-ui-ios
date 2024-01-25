@@ -48,13 +48,14 @@ public enum DKImages: String {
          rank1 = "dk_common_rank_1",
          rank2 = "dk_common_rank_2",
          rank3 = "dk_common_rank_3",
+         emptyData = "dk_common_empty_data",
          arrowBackThick = "dk_common_arrow_back_thick",
          arrowForwardThick = "dk_common_arrow_forward_thick"
 
     public var image: UIImage? {
         let renderingMode: UIImage.RenderingMode
         switch self {
-            case .noScore, .rank1, .rank2, .rank3, .safetyFlat, .ecoDrivingFlat, .distractionFlat, .speedingFlat:
+            case .noScore, .rank1, .rank2, .rank3, .emptyData, .safetyFlat, .ecoDrivingFlat, .distractionFlat, .speedingFlat:
                 renderingMode = .automatic
             default:
                 renderingMode = .alwaysTemplate

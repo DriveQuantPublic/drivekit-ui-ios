@@ -22,15 +22,15 @@ struct ChallengeItemViewModel {
     let registered: Bool
     let nbDriverRegistered: Int
     let rank: Int
-    let theme: DKChallengeType
+    let type: DKChallengeType
 
     init(challenge: DKChallenge) {
         identifier = challenge.id
         startDate = challenge.startDate
         endDate = challenge.endDate
         name = challenge.title
-        self.theme = DKChallengeType.from(themeCode: challenge.themeCode)
-        self.image = self.theme.icon
+        self.type = challenge.type
+        self.image = self.type.icon
         self.registered = challenge.isRegistered
         self.conditionsFilled = challenge.conditionsFilled
         self.rank = challenge.rank

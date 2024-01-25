@@ -202,6 +202,9 @@ extension ChallengeListVC: ChallengeListDelegate {
         activeChallengesCollectionView?.reloadData()
         rankedChallengesCollectionView?.reloadData()
         allChallengesCollectionView?.reloadData()
+        activeChallengesCollectionView?.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
+        rankedChallengesCollectionView?.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
+        allChallengesCollectionView?.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
     }
 
     func didReceiveErrorFromService() {
@@ -325,23 +328,6 @@ extension ChallengeListVC: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == parentScrollView {
             self.highlightConstraint?.constant = scrollView.contentOffset.x / 3
-        }
-    }
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        if scrollView == parentScrollView {
-            let isActiveTab = Int(scrollView.contentOffset.x / (scrollView.frame.width / 2)) < 1
-            let isAllTab = Int(scrollView.contentOffset.x / (scrollView.frame.width / 2)) > 3
-            if isActiveTab, viewModel.selectedTab != .active {
-                viewModel.updateSelectedTab(challengeTab: .active)
-                DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_list_active", viewController: self)
-            } else if !isActiveTab, !isAllTab, viewModel.selectedTab != .ranked {
-                viewModel.updateSelectedTab(challengeTab: .ranked)
-                DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_list_ranked", viewController: self)
-            } else if isAllTab, viewModel.selectedTab != .all {
-                viewModel.updateSelectedTab(challengeTab: .all)
-                DriveKitUI.shared.trackScreen(tagKey: "dk_tag_challenge_list_all", viewController: self)
-            }
-            updateSelectedButton()
         }
     }
 }

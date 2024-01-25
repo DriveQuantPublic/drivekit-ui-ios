@@ -65,3 +65,9 @@ extension Array where Element: DKChallenge {
     }
 
 }
+
+extension DKChallenge {
+    var type: DKChallengeType {
+        DKChallengeType.from(themeCode: self.themeCode)
+    }
+}

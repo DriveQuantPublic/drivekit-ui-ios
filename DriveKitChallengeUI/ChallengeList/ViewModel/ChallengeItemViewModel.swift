@@ -29,7 +29,7 @@ struct ChallengeItemViewModel {
         startDate = challenge.startDate
         endDate = challenge.endDate
         name = challenge.title
-        self.type = challenge.type
+        self.type = challenge.challengeType
         self.image = self.type.icon
         self.registered = challenge.isRegistered
         self.conditionsFilled = challenge.conditionsFilled

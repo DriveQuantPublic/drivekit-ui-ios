@@ -8,6 +8,7 @@
 
 import UIKit
 import DriveKitCommonUI
+import DriveKitDBChallengeAccessModule
 
 enum ChallengeType {
     case distance
@@ -70,48 +71,6 @@ enum ChallengeTheme {
             return "dk_challenge_speeding_score".dkChallengeLocalized()
         case .none:
             return ""
-        }
-    }
-}
-
-// TODO: move into internal modules
-// swiftlint:disable no_magic_numbers
-@objc public enum DKChallengeType: Int {
-    case safety,
-         ecoDriving,
-         distraction,
-         speeding,
-         hardBraking,
-         hardAcceleration,
-         deprecated,
-         unknown
-        
-    static func from(themeCode: Int) -> DKChallengeType {
-        switch themeCode {
-            case 101:
-                return .ecoDriving
-            case 102...104:
-                return .deprecated
-            case 201:
-                return .safety
-            case 202...204:
-                return .deprecated
-            case 205:
-                return .hardBraking
-            case 206...208:
-                return .deprecated
-            case 209:
-                return .hardAcceleration
-            case 210...220:
-                return .deprecated
-            case 301...309:
-                return .deprecated
-            case 221:
-                return .distraction
-            case 401:
-                return .speeding
-            default:
-                return .unknown
         }
     }
 }

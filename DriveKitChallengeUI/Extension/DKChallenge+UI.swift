@@ -13,7 +13,7 @@ extension Array where Element: DKChallenge {
     
     func filterDeprecated() -> [DKChallenge] {
         return self.filter { challenge in
-            let type = DKChallengeType.from(themeCode: challenge.themeCode)
+            let type = challenge.challengeType
             switch type {
                 case .safety, .ecoDriving, .distraction, .speeding, .hardBraking, .hardAcceleration:
                     return true
@@ -62,12 +62,5 @@ extension Array where Element: DKChallenge {
     
     func rankedChallenges(year: Int) -> [DKChallenge] {
         return self.filterBy(tab: .ranked).filterBy(year: year).sortByDate()
-    }
-
-}
-
-extension DKChallenge {
-    var type: DKChallengeType {
-        DKChallengeType.from(themeCode: self.themeCode)
     }
 }

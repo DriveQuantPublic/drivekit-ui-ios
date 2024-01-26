@@ -15,13 +15,13 @@
 "dk_challenge_list_join_among"="Rejoins les %d participants 🏆";
 "dk_challenge_list_not_ranked"="Tu n\'as pas été classé";
 "dk_challenge_list_not_registered"="Tu n\'as pas participé 💔";
-"dk_challenge_list_ranked"="Ma position : %1$d / %2$d";
+"dk_challenge_list_ranked"="Ma position : %@";
 "dk_challenge_list_registered"="Tu es inscrit, bonne route 🚗";
 "dk_challenge_list_registered_among"="Tu fais partie des %d participants";
 "dk_challenge_menu"="Challenges";
 "dk_challenge_nb_trip"="Nombre de trajets";
 "dk_challenge_no_active_challenge"="Il n\'y a pas de challenge en cours.";
-"dk_challenge_no_finished_challenge"="Il n\'y a pas encore eu de challenge.";
+"dk_challenge_no_all_challenge"="Il n\'y a pas encore eu de challenge.";
 "dk_challenge_no_ranked_challenge_empty_list"="Il n\'y a pas encore eu de challenge.";
 "dk_challenge_no_ranked_challenge_not_ranked_yet"="Vous n\'avez pas encore participé à un challenge.";
 "dk_challenge_no_ranked_challenge_not_registered_yet"="Vous n\'avez pas encore participé à un challenge.";

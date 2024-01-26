@@ -15,13 +15,13 @@
 "dk_challenge_list_join_among"="Únete a los %d participantes 🏆";
 "dk_challenge_list_not_ranked"="No te han clasificado";
 "dk_challenge_list_not_registered"="No has participado 💔";
-"dk_challenge_list_ranked"="Mi clasificación : %1$d / %2$d";
+"dk_challenge_list_ranked"="Mi clasificación : %@";
 "dk_challenge_list_registered"="Ya estás registrado, disfruta de tu viaje 🚗.";
 "dk_challenge_list_registered_among"="Usted es uno de los %d participantes";
 "dk_challenge_menu"="Desafíos";
 "dk_challenge_nb_trip"="Número de viajes";
 "dk_challenge_no_active_challenge"="No hay retos actuales.";
-"dk_challenge_no_finished_challenge"="Aún no se ha producido ningún desafío.";
+"dk_challenge_no_all_challenge"="Aún no se ha producido ningún desafío.";
 "dk_challenge_no_ranked_challenge_empty_list"="Aún no se ha producido ningún desafío.";
 "dk_challenge_no_ranked_challenge_not_ranked_yet"="Aún no has participado en ningún reto.";
 "dk_challenge_no_ranked_challenge_not_registered_yet"="Aún no has participado en ningún reto.";

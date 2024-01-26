@@ -150,7 +150,7 @@ public class ChallengeListViewModel {
                     return "dk_challenge_no_ranked_challenge_empty_list".dkChallengeLocalized()
                 }
             case .all:
-                return "dk_challenge_no_finished_challenge".dkChallengeLocalized()
+                return "dk_challenge_no_all_challenge".dkChallengeLocalized()
         }
     }
 }

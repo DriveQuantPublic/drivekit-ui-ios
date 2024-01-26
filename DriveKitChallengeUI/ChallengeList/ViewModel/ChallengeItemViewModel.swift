@@ -63,6 +63,7 @@ struct ChallengeItemViewModel {
         let flatMessage: String
         var isRankingMessage: Bool = false
         var containsParticipants: Bool = false
+        let rankText = "\(self.rank) / \(self.nbDriverRegistered)"
         if now.timeIntervalSince(self.startDate) < 0 {
             // challenge has not started yet
             if self.registered {
@@ -84,7 +85,7 @@ struct ChallengeItemViewModel {
             // challenge has not ended yet (active)
             if self.registered {
                 if self.conditionsFilled {
-                    flatMessage = String(format: "dk_challenge_list_ranked".dkChallengeLocalized(), self.rank, self.nbDriverRegistered)
+                    flatMessage = String(format: "dk_challenge_list_ranked".dkChallengeLocalized(), rankText)
                     isRankingMessage = true
                 } else {
                     if self.nbDriverRegistered > minParticipantsNumberToDisplay {
@@ -105,7 +106,7 @@ struct ChallengeItemViewModel {
         } else {
             if self.registered {
                 if conditionsFilled {
-                    flatMessage = String(format: "dk_challenge_list_ranked".dkChallengeLocalized(), self.rank, self.nbDriverRegistered)
+                    flatMessage = String(format: "dk_challenge_list_ranked".dkChallengeLocalized(), rankText)
                     isRankingMessage = true
                 } else {
                     flatMessage = "dk_challenge_list_not_ranked".dkChallengeLocalized()
@@ -123,14 +124,9 @@ struct ChallengeItemViewModel {
         if isRankingMessage {
             participationAttributedString = flatMessage.dkAttributedString().font(dkFont: .primary, style: .normalText).color(DKUIColors.secondaryColor).build()
 
-            let rankRange = (flatMessage  as NSString).range(of: "\(self.rank)")
+            let rankRange = (flatMessage  as NSString).range(of: "\(rankText)")
             participationAttributedString.setAttributes(numbersAttributes, range: rankRange)
 
-            let participantsRange = (flatMessage  as NSString).range(
-                of: "\(self.nbDriverRegistered)",
-                range: NSRange(location: rankRange.lowerBound + 1, length: flatMessage.count - rankRange.upperBound)
-            )
-            participationAttributedString.setAttributes(numbersAttributes, range: participantsRange)
         } else if containsParticipants {
             participationAttributedString = flatMessage.dkAttributedString().font(dkFont: .primary, style: .normalText).color(DKUIColors.secondaryColor).build()
             let participantsRange = (flatMessage  as NSString).range(of: "\(self.nbDriverRegistered)")

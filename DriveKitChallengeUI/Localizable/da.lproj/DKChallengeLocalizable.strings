@@ -15,13 +15,13 @@
 "dk_challenge_list_join_among"="Slut dig til de %d deltagere 🏆";
 "dk_challenge_list_not_ranked"="Du er ikke blevet rangeret";
 "dk_challenge_list_not_registered"="Du har ikke deltaget 💔";
-"dk_challenge_list_ranked"="Min rangering : %1$d / %2$d";
+"dk_challenge_list_ranked"="Min rangering : %@";
 "dk_challenge_list_registered"="Du er registreret nu, nyd din rejse 🚗";
 "dk_challenge_list_registered_among"="Du er en af de %d deltagere";
 "dk_challenge_menu"="Udfordringer";
 "dk_challenge_nb_trip"="Antal ture";
 "dk_challenge_no_active_challenge"="Der er ingen aktuelle udfordringer.";
-"dk_challenge_no_finished_challenge"="Der har endnu ikke været nogen udfordring.";
+"dk_challenge_no_all_challenge"="Der har endnu ikke været nogen udfordring.";
 "dk_challenge_no_ranked_challenge_empty_list"="Der har endnu ikke været nogen udfordring.";
 "dk_challenge_no_ranked_challenge_not_ranked_yet"="Du har ikke deltaget i en udfordring endnu.";
 "dk_challenge_no_ranked_challenge_not_registered_yet"="Du har ikke deltaget i en udfordring endnu.";

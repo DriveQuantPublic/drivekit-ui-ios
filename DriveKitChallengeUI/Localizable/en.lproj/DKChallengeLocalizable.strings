@@ -15,13 +15,13 @@
 "dk_challenge_list_join_among"="Join the %d participants 🏆";
 "dk_challenge_list_not_ranked"="You haven\'t been ranked";
 "dk_challenge_list_not_registered"="You didn\'t participate 💔";
-"dk_challenge_list_ranked"="My ranking: %1$d / %2$d";
+"dk_challenge_list_ranked"="My ranking: %@";
 "dk_challenge_list_registered"="You\'re registered, enjoy the ride 🚗";
 "dk_challenge_list_registered_among"="You are one of the %d participants";
 "dk_challenge_menu"="Challenges";
 "dk_challenge_nb_trip"="Number of trips";
 "dk_challenge_no_active_challenge"="There is no challenge underway.";
-"dk_challenge_no_finished_challenge"="There has been no challenge yet.";
+"dk_challenge_no_all_challenge"="There has been no challenge yet.";
 "dk_challenge_no_ranked_challenge_empty_list"="There is no challenge yet.";
 "dk_challenge_no_ranked_challenge_not_ranked_yet"="You haven\'t participated in a challenge yet.";
 "dk_challenge_no_ranked_challenge_not_registered_yet"="You haven\'t participated in a challenge yet.";

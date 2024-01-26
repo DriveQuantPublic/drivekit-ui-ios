@@ -37,6 +37,10 @@ struct ChallengeItemViewModel {
         self.nbDriverRegistered = challenge.nbDriverRegistered
     }
 
+    var finishedAndNotFilled: Bool {
+        return (!self.registered || !self.conditionsFilled) && self.endDate.timeIntervalSinceNow < 0
+    }
+
     static func formatStartAndEndDates(startDate: Date,
                                        endDate: Date,
                                        tintColor: UIColor,

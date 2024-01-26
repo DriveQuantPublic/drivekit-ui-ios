@@ -109,7 +109,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="1242" height="680"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Xs8-B7-6oT">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="682"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="680"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="KYX-Uj-Fm7">
                                                 <size key="itemSize" width="128" height="128"/>
@@ -123,7 +123,7 @@
                                             </connections>
                                         </collectionView>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="35G-Cb-I9C">
-                                            <rect key="frame" x="414" y="0.0" width="414" height="682"/>
+                                            <rect key="frame" x="414" y="0.0" width="414" height="680"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="NjU-0a-vs6">
                                                 <size key="itemSize" width="128" height="128"/>
@@ -137,7 +137,7 @@
                                             </connections>
                                         </collectionView>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="mda-gB-3hK">
-                                            <rect key="frame" x="828" y="0.0" width="414" height="682"/>
+                                            <rect key="frame" x="828" y="0.0" width="414" height="680"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="F4C-qy-b6u">
                                                 <size key="itemSize" width="128" height="128"/>
@@ -159,10 +159,10 @@
                                         <constraint firstItem="35G-Cb-I9C" firstAttribute="top" secondItem="uLx-bW-Emf" secondAttribute="top" id="Tu3-Ic-gLC"/>
                                         <constraint firstItem="mda-gB-3hK" firstAttribute="width" secondItem="Xs8-B7-6oT" secondAttribute="width" id="U70-2e-NBM"/>
                                         <constraint firstItem="35G-Cb-I9C" firstAttribute="leading" secondItem="Xs8-B7-6oT" secondAttribute="trailing" id="avl-xs-8IX"/>
-                                        <constraint firstItem="Xs8-B7-6oT" firstAttribute="height" secondItem="uLx-bW-Emf" secondAttribute="height" multiplier="1.00278" id="ff4-J0-DYO"/>
+                                        <constraint firstItem="Xs8-B7-6oT" firstAttribute="height" secondItem="uLx-bW-Emf" secondAttribute="height" id="ff4-J0-DYO"/>
                                         <constraint firstItem="Xs8-B7-6oT" firstAttribute="top" secondItem="uLx-bW-Emf" secondAttribute="top" id="gZI-xk-Rqu"/>
-                                        <constraint firstItem="mda-gB-3hK" firstAttribute="height" secondItem="uLx-bW-Emf" secondAttribute="height" multiplier="1.00264" id="kUK-l1-A37"/>
-                                        <constraint firstItem="35G-Cb-I9C" firstAttribute="height" secondItem="uLx-bW-Emf" secondAttribute="height" multiplier="1.00278" id="oyh-jp-bMF"/>
+                                        <constraint firstItem="mda-gB-3hK" firstAttribute="height" secondItem="uLx-bW-Emf" secondAttribute="height" id="kUK-l1-A37"/>
+                                        <constraint firstItem="35G-Cb-I9C" firstAttribute="height" secondItem="uLx-bW-Emf" secondAttribute="height" id="oyh-jp-bMF"/>
                                     </constraints>
                                 </view>
                             </subviews>

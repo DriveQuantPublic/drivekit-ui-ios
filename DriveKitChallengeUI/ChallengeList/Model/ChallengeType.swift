@@ -88,16 +88,22 @@ enum ChallengeTheme {
         
     static func from(themeCode: Int) -> DKChallengeType {
         switch themeCode {
-            case 101...104:
+            case 101:
                 return .ecoDriving
-            case 201...204:
+            case 102...104:
+                return .deprecated
+            case 201:
                 return .safety
-            case 205...208:
+            case 202...204:
+                return .deprecated
+            case 205:
                 return .hardBraking
-            case 209...212:
+            case 206...208:
+                return .deprecated
+            case 209:
                 return .hardAcceleration
-            case 213...220:
-                return .safety
+            case 210...220:
+                return .deprecated
             case 301...309:
                 return .deprecated
             case 221:

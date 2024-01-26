@@ -20,10 +20,10 @@
                         <rect key="frame" x="8" y="8" width="349" height="150"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X6m-ye-n7b">
-                                <rect key="frame" x="0.0" y="0.0" width="100" height="150"/>
+                                <rect key="frame" x="0.0" y="0.0" width="80" height="150"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JOR-2p-TpJ">
-                                        <rect key="frame" x="20" y="45" width="60" height="60"/>
+                                        <rect key="frame" x="10" y="45" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="JOR-2p-TpJ" secondAttribute="height" multiplier="1:1" id="9sP-1b-soD"/>
                                             <constraint firstAttribute="height" constant="60" id="Xci-VH-PVW"/>
@@ -34,14 +34,14 @@
                                 <constraints>
                                     <constraint firstItem="JOR-2p-TpJ" firstAttribute="centerY" secondItem="X6m-ye-n7b" secondAttribute="centerY" id="64n-r9-ZNc"/>
                                     <constraint firstItem="JOR-2p-TpJ" firstAttribute="centerX" secondItem="X6m-ye-n7b" secondAttribute="centerX" id="TFI-v2-to2"/>
-                                    <constraint firstAttribute="width" constant="100" id="tpH-Yw-20y"/>
+                                    <constraint firstAttribute="width" constant="80" id="tpH-Yw-20y"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aD2-Dc-vxf">
-                                <rect key="frame" x="100" y="14" width="241" height="122"/>
+                                <rect key="frame" x="80" y="14" width="261" height="122"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="750" verticalCompressionResistancePriority="749" text="Ceci est un nom de challenge tres tres long" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQC-TV-7rs">
-                                        <rect key="frame" x="0.0" y="0.0" width="228.5" height="41"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="261" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -76,10 +76,9 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ER4-4W-lON">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ER4-4W-lON">
                                         <rect key="frame" x="0.0" y="72" width="50" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <attributedString key="attributedText"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>

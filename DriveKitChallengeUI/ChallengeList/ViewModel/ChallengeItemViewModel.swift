@@ -53,53 +53,87 @@ struct ChallengeItemViewModel {
         )
     }
 
-    var participationMessage: String {
+    var participationMessage: NSAttributedString {
         let now = Date()
         let minParticipantsNumberToDisplay: Int = 100
+        let flatMessage: String
+        var isRankingMessage: Bool = false
+        var containsParticipants: Bool = false
         if now.timeIntervalSince(self.startDate) < 0 {
             // challenge has not started yet
             if self.registered {
-                if self.nbDriverRegistered >= minParticipantsNumberToDisplay {
-                    return String(format: "dk_challenge_list_registered_among".dkChallengeLocalized(), self.nbDriverRegistered)
+                if self.nbDriverRegistered > minParticipantsNumberToDisplay {
+                    flatMessage = String(format: "dk_challenge_list_registered_among".dkChallengeLocalized(), self.nbDriverRegistered)
+                    containsParticipants = true
                 } else {
-                    return "dk_challenge_list_registered".dkChallengeLocalized()
+                    flatMessage = "dk_challenge_list_registered".dkChallengeLocalized()
                 }
             } else {
-                if self.nbDriverRegistered >= minParticipantsNumberToDisplay {
-                    return String(format: "dk_challenge_list_join_among".dkChallengeLocalized(), self.nbDriverRegistered)
+                if self.nbDriverRegistered > minParticipantsNumberToDisplay {
+                    flatMessage = String(format: "dk_challenge_list_join_among".dkChallengeLocalized(), self.nbDriverRegistered)
+                    containsParticipants = true
                 } else {
-                    return "dk_challenge_list_join".dkChallengeLocalized()
+                    flatMessage = "dk_challenge_list_join".dkChallengeLocalized()
                 }
             }
         } else if now.timeIntervalSince(self.endDate) < 0 {
             // challenge has not ended yet (active)
             if self.registered {
                 if self.conditionsFilled {
-                    return String(format: "dk_challenge_list_ranked".dkChallengeLocalized(), self.rank, self.nbDriverRegistered)
+                    flatMessage = String(format: "dk_challenge_list_ranked".dkChallengeLocalized(), self.rank, self.nbDriverRegistered)
+                    isRankingMessage = true
                 } else {
-                    if self.nbDriverRegistered >= minParticipantsNumberToDisplay {
-                        return String(format: "dk_challenge_list_registered_among".dkChallengeLocalized(), self.nbDriverRegistered)
+                    if self.nbDriverRegistered > minParticipantsNumberToDisplay {
+                        flatMessage = String(format: "dk_challenge_list_registered_among".dkChallengeLocalized(), self.nbDriverRegistered)
+                        containsParticipants = true
                     } else {
-                        return "dk_challenge_list_registered".dkChallengeLocalized()
+                        flatMessage = "dk_challenge_list_registered".dkChallengeLocalized()
                     }
                 }
             } else {
-                if self.nbDriverRegistered >= minParticipantsNumberToDisplay {
-                    return String(format: "dk_challenge_list_join_among".dkChallengeLocalized(), self.nbDriverRegistered)
+                if self.nbDriverRegistered > minParticipantsNumberToDisplay {
+                    flatMessage = String(format: "dk_challenge_list_join_among".dkChallengeLocalized(), self.nbDriverRegistered)
+                    containsParticipants = true
                 } else {
-                    return "dk_challenge_list_join".dkChallengeLocalized()
+                    flatMessage = "dk_challenge_list_join".dkChallengeLocalized()
                 }
             }
         } else {
             if self.registered {
                 if conditionsFilled {
-                    return String(format: "dk_challenge_list_ranked".dkChallengeLocalized(), self.rank, self.nbDriverRegistered)
+                    flatMessage = String(format: "dk_challenge_list_ranked".dkChallengeLocalized(), self.rank, self.nbDriverRegistered)
+                    isRankingMessage = true
                 } else {
-                    return "dk_challenge_list_not_ranked".dkChallengeLocalized()
+                    flatMessage = "dk_challenge_list_not_ranked".dkChallengeLocalized()
                 }
             } else {
-                return "dk_challenge_list_not_registered".dkChallengeLocalized()
+                flatMessage = "dk_challenge_list_not_registered".dkChallengeLocalized()
             }
         }
+        let numbersAttributes = [
+            NSAttributedString.Key.font: DKStyles.highlightSmall.style.applyTo(font: .primary),
+            NSAttributedString.Key.foregroundColor: DKUIColors.secondaryColor.color
+        ]
+
+        let participationAttributedString: NSMutableAttributedString
+        if isRankingMessage {
+            participationAttributedString = flatMessage.dkAttributedString().font(dkFont: .primary, style: .normalText).color(DKUIColors.secondaryColor).build()
+
+            let rankRange = (flatMessage  as NSString).range(of: "\(self.rank)")
+            participationAttributedString.setAttributes(numbersAttributes, range: rankRange)
+
+            let participantsRange = (flatMessage  as NSString).range(
+                of: "\(self.nbDriverRegistered)",
+                range: NSRange(location: rankRange.lowerBound + 1, length: flatMessage.count - rankRange.upperBound)
+            )
+            participationAttributedString.setAttributes(numbersAttributes, range: participantsRange)
+        } else if containsParticipants {
+            participationAttributedString = flatMessage.dkAttributedString().font(dkFont: .primary, style: .normalText).color(DKUIColors.secondaryColor).build()
+            let participantsRange = (flatMessage  as NSString).range(of: "\(self.nbDriverRegistered)")
+            participationAttributedString.setAttributes(numbersAttributes, range: participantsRange)
+        } else {
+            participationAttributedString = flatMessage.dkAttributedString().font(dkFont: .primary, style: .normalText).color(DKUIColors.secondaryColor).build()
+        }
+        return participationAttributedString
     }
 }

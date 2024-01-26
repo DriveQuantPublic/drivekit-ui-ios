@@ -85,7 +85,7 @@ class ChallengeListVC: DKUIViewController {
     }
 
     func setupHeaders() {
-        let font = DKStyles.smallText.withSizeDelta(-2).applyTo(font: .primary)
+        let font = DKStyles.smallText.style.applyTo(font: .primary)
         self.activeTabButton?.titleLabel?.font = font
         self.activeTabButton?.setTitle("dk_challenge_active".dkChallengeLocalized().uppercased(), for: .normal)
         self.rankedButton?.setTitle("dk_challenge_ranked".dkChallengeLocalized().uppercased(), for: .normal)

@@ -35,9 +35,7 @@ class ChallengeCell: UICollectionViewCell {
         challengeNameLabel.textColor = DKUIColors.primaryColor.color
         challengeNameLabel.font = DKStyles.headLine1.style.applyTo(font: .primary)
         challengeDateImage.image = DKImages.calendar.image
-        challengeDateImage.tintColor = DKUIColors.mainFontColor.color
-        participationLabel.font = DKStyles.smallText.style.applyTo(font: .primary)
-        participationLabel.textColor = DKUIColors.secondaryColor.color
+        challengeDateImage.tintColor = DKUIColors.complementaryFontColor.color
     }
 
     func configure(challenge: ChallengeItemViewModel) {
@@ -48,6 +46,6 @@ class ChallengeCell: UICollectionViewCell {
         )
         challengeNameLabel.text = challenge.name
         challengeImageView.image = challenge.image
-        participationLabel.text = challenge.participationMessage
+        participationLabel.attributedText = challenge.participationMessage
     }
 }

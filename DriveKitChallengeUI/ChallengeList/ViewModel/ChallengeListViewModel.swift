@@ -77,7 +77,7 @@ public class ChallengeListViewModel {
     }
 
     func challengeViewModelSelected(challengeViewModel: ChallengeItemViewModel) {
-        if !challengeViewModel.finishedAndNotFilled {
+        if challengeViewModel.finishedAndNotFilled {
             let alertTitle = Bundle.main.appName ?? ""
             let alert = UIAlertController(title: alertTitle, message: "dk_challenge_not_a_participant".dkChallengeLocalized(), preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))

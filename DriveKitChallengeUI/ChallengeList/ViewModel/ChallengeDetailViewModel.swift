@@ -1,4 +1,4 @@
-// swiftlint:disable no_magic_numbers cyclomatic_complexity
+// swiftlint:disable no_magic_numbers
 //
 //  ChallengeDetailViewModel.swift
 //  DriveKitChallengeUI

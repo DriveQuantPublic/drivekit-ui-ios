@@ -14,6 +14,7 @@ class ChallengeCell: UICollectionViewCell {
     @IBOutlet private var challengeImageView: UIImageView!
     @IBOutlet private var challengeDatesLabel: UILabel!
     @IBOutlet private var challengeNameLabel: UILabel!
+    @IBOutlet private var participationLabel: UILabel!
     @IBOutlet private weak var challengeDateImage: UIImageView!
     @IBOutlet private var whiteBackgroundView: UIView!
 
@@ -22,8 +23,8 @@ class ChallengeCell: UICollectionViewCell {
         setup()
     }
 
-    func setup() {
-        self.whiteBackgroundView?.layer.cornerRadius = 2.0
+    private func setup() {
+        self.whiteBackgroundView?.layer.cornerRadius = 8.0
         self.whiteBackgroundView?.layer.masksToBounds = false
         self.whiteBackgroundView?.layer.shadowOpacity = 0.5
         self.whiteBackgroundView?.layer.shadowColor = UIColor.black.cgColor
@@ -31,11 +32,10 @@ class ChallengeCell: UICollectionViewCell {
 
         challengeDatesLabel.textColor = DKUIColors.complementaryFontColor.color
         challengeDatesLabel.font = DKUIFonts.primary.fonts(size: 14)
-        challengeNameLabel.textColor = DKUIColors.mainFontColor.color
-        challengeNameLabel.font = DKUIFonts.primary.fonts(size: 22).with(.traitBold)
-        challengeImageView.image = UIImage(named: "101", in: Bundle.challengeUIBundle, compatibleWith: nil)
+        challengeNameLabel.textColor = DKUIColors.primaryColor.color
+        challengeNameLabel.font = DKStyles.headLine1.style.applyTo(font: .primary)
         challengeDateImage.image = DKImages.calendar.image
-        challengeDateImage.tintColor = DKUIColors.mainFontColor.color
+        challengeDateImage.tintColor = DKUIColors.complementaryFontColor.color
     }
 
     func configure(challenge: ChallengeItemViewModel) {
@@ -46,5 +46,6 @@ class ChallengeCell: UICollectionViewCell {
         )
         challengeNameLabel.text = challenge.name
         challengeImageView.image = challenge.image
+        participationLabel.attributedText = challenge.participationMessage
     }
 }

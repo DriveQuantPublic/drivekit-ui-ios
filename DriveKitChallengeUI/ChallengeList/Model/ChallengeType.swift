@@ -6,8 +6,9 @@
 //  Copyright © 2021 DriveQuant. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import DriveKitCommonUI
+import DriveKitDBChallengeAccessModule
 
 enum ChallengeType {
     case distance
@@ -70,6 +71,23 @@ enum ChallengeTheme {
             return "dk_challenge_speeding_score".dkChallengeLocalized()
         case .none:
             return ""
+        }
+    }
+}
+
+extension DKChallengeType {
+    var icon: UIImage? {
+        switch self {
+            case .safety, .hardBraking, .hardAcceleration:
+                return DKImages.safetyFlat.image
+            case .ecoDriving:
+                return DKImages.ecoDrivingFlat.image
+            case .distraction:
+                return DKImages.distractionFlat.image
+            case .speeding:
+                return DKImages.speedingFlat.image
+            case .deprecated, .unknown:
+                return nil
         }
     }
 }

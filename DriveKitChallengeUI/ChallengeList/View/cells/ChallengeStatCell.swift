@@ -11,22 +11,19 @@ import UIKit
 import DriveKitCommonUI
 
 final class ChallengeStatCell: UITableViewCell, Nibable {
-    @IBOutlet weak var statImage: UIImageView?
-    @IBOutlet weak var driverStatLabel: UILabel?
-    @IBOutlet weak var globalStatLabel: UILabel?
+    @IBOutlet weak var statsLabel: UILabel?
+    @IBOutlet weak var descriptionLabel: UILabel?
     @IBOutlet weak var containerView: CardView?
 
     override func awakeFromNib() {
         super.awakeFromNib()
         clipsToBounds = false
-        layer.cornerRadius = 5
+        layer.cornerRadius = 8
         self.backgroundColor = DKDefaultColors.driveKitBackgroundColor
     }
     
     func configure(viewModel: ChallengeResultsViewModel, type: ChallengeStatType) {
-        self.statImage?.image = type.image?.withRenderingMode(.alwaysTemplate)
-        self.statImage?.tintColor = UIColor.black
-        self.driverStatLabel?.attributedText = viewModel.getStatAttributedString(challengeStatType: type)
-        self.globalStatLabel?.attributedText = viewModel.getGlobalStatAttributedString(challengeStatType: type)
+        self.statsLabel?.attributedText = viewModel.getStatAttributedString(challengeStatType: type)
+        self.descriptionLabel?.attributedText = viewModel.getStatDescriptionAttributedString(challengeStatType: type)
     }
 }

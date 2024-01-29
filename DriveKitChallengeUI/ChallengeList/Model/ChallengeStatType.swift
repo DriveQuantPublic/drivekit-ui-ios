@@ -11,16 +11,5 @@ import DriveKitDBChallengeAccessModule
 import DriveKitCommonUI
 
 enum ChallengeStatType {
-    case duration, distance, nbTrips
-    
-    var image: UIImage? {
-        switch self {
-        case .duration:
-            return DKImages.clock.image
-        case .distance:
-            return DKImages.road.image
-        case .nbTrips:
-            return DKImages.trip.image
-        }
-    }
+    case distanceTrips, totalDistance, rankedRegistered
 }

@@ -38,7 +38,7 @@
 "dk_challenge_speeding_score"="Hastighedsresultat";
 "dk_challenge_start"="Udfordringen starter om";
 "dk_challenge_synthesis_my_stats"="Din statistik under udfordringen.";
-"dk_challenge_synthesis_ranked_percentage"="%d af de registrede brugere blev rangeret.";
+"dk_challenge_synthesis_ranked_percentage"="%@ af de registrede brugere blev rangeret.";
 "dk_challenge_synthesis_ranked_plural"="klassificeret";
 "dk_challenge_synthesis_ranked_singular"="klassificeret";
 "dk_challenge_synthesis_registered_plural"="registreret";

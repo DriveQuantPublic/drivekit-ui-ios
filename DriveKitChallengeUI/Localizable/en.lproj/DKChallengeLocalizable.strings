@@ -38,7 +38,7 @@
 "dk_challenge_speeding_score"="Speeding score";
 "dk_challenge_start"="Start of challenge in";
 "dk_challenge_synthesis_my_stats"="Your stats during the challenge.";
-"dk_challenge_synthesis_ranked_percentage"="%d of registered users were ranked.";
+"dk_challenge_synthesis_ranked_percentage"="%@ of registered users were ranked.";
 "dk_challenge_synthesis_ranked_plural"="ranked";
 "dk_challenge_synthesis_ranked_singular"="ranked";
 "dk_challenge_synthesis_registered_plural"="registered";

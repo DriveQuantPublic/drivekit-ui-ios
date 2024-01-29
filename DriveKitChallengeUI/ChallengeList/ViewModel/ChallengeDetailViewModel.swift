@@ -22,8 +22,7 @@ protocol ChallengeDetailViewModelDelegate: AnyObject {
 class ChallengeDetailViewModel {
     private let challenge: DKChallenge
     private var challengeDetail: DKChallengeDetail
-    private let challengeType: ChallengeType
-    private let challengeTheme: ChallengeTheme
+    private let challengeType: DKChallengeType
     private var sortedTrips: [DKTripsByDate] = []
     private(set) var ranks = [ChallengeDriverRank]()
     private(set) var nbDrivers = 0
@@ -33,41 +32,7 @@ class ChallengeDetailViewModel {
     init(challenge: DKChallenge, challengeDetail: DKChallengeDetail) {
         self.challenge = challenge
         self.challengeDetail = challengeDetail
-        switch challenge.themeCode {
-        case 101, 102, 103, 104: 
-            self.challengeType = .score
-            self.challengeTheme = .ecoDriving
-        case 201, 202, 203, 204:
-            self.challengeType = .score
-            self.challengeTheme = .safety
-        case 205, 206, 207, 208:
-            self.challengeType = .score
-            self.challengeTheme = .braking
-        case 209, 210, 211, 212:
-            self.challengeType = .score
-            self.challengeTheme = .acceleration
-        case 213, 214, 215, 216:
-            self.challengeType = .score
-            self.challengeTheme = .adherence
-        case 221:
-            self.challengeType = .score
-            self.challengeTheme = .distraction
-        case 301:
-            self.challengeType = .nbTrips
-            self.challengeTheme = .none
-        case 302, 303, 304, 305:
-            self.challengeType = .distance
-            self.challengeTheme = .none
-        case 306, 307, 308, 309:
-            self.challengeType = .duration
-            self.challengeTheme = .none
-        case 401:
-            self.challengeType = .score
-            self.challengeTheme = .speeding
-        default:
-            self.challengeType = .distance
-            self.challengeTheme = .none
-        }
+        self.challengeType = challenge.challengeType
         updateTripsAndRanks()
     }
 
@@ -89,20 +54,8 @@ class ChallengeDetailViewModel {
                 }
                 let scoreString: String
                 let totalScoreString: String
-                switch challengeType {
-                case .score:
-                    scoreString = self.formatScore(driverRanked.score)
-                    totalScoreString = " / 10"
-                case .distance:
-                    scoreString = driverRanked.distance.formatKilometerDistance(appendingUnit: true, minDistanceToRemoveFractions: 10)
-                    totalScoreString = ""
-                case .duration:
-                    scoreString = (driverRanked.score * 3_600).ceilSecondDuration(ifGreaterThan: 600).formatSecondDuration(maxUnit: .hour)
-                    totalScoreString = ""
-                case .nbTrips:
-                    scoreString = driverRanked.score.format()
-                    totalScoreString = ""
-                }
+                scoreString = self.formatScore(driverRanked.score)
+                totalScoreString = " / 10"
                 if driverRanked.rank == challengeDetail.userIndex {
                     return CurrentChallengeDriverRank(
                         nbDrivers: challengeDetail.nbDriverRanked,
@@ -135,7 +88,7 @@ class ChallengeDetailViewModel {
     }
 
     func getResultsViewModel() -> ChallengeResultsViewModel {
-        let resultsVM = ChallengeResultsViewModel(challengeDetail: challengeDetail, challengeType: challengeType, challengeTheme: challengeTheme)
+        let resultsVM = ChallengeResultsViewModel(challengeDetail: challengeDetail, challengeType: challengeType)
         self.resultsViewModel = resultsVM
         return resultsVM
     }
@@ -211,23 +164,16 @@ extension ChallengeDetailViewModel: DKTripList {
 
     func getTripData() -> TripData {
         switch challengeType {
-        case .score:
-            switch challengeTheme {
+            case .safety, .hardBraking, .hardAcceleration:
+                return .safety
             case .ecoDriving:
                 return .ecoDriving
-            case .adherence, .braking, .acceleration, .safety:
-                return .safety
             case .distraction:
                 return .distraction
-            default:
+            case .speeding:
+                return .speeding
+            case .deprecated, .unknown:
                 return .safety
-            }
-        case .distance:
-            return .distance
-        case .duration:
-            return .duration
-        default:
-            return .distance
         }
     }
 
@@ -261,17 +207,12 @@ extension ChallengeDetailViewModel: DKDriverRanking {
     }
 
     func getTitle() -> String {
-        if challengeType == .score {
-            return challengeTheme.scoreTitle
-        } else {
-            return challengeType.overviewTitle
-        }
+        return challengeType.scoreTitle
     }
 
     func getImage() -> UIImage? {
-        var imageName: String?
-        switch challengeTheme {
-        case .acceleration, .adherence, .braking, .safety:
+        switch challengeType {
+        case .hardAcceleration, .hardBraking, .safety:
             return DKChallengeImages.leaderboardSafety.image
         case .distraction:
             return DKChallengeImages.leaderboardDistraction.image
@@ -279,21 +220,7 @@ extension ChallengeDetailViewModel: DKDriverRanking {
             return DKChallengeImages.leaderboardEcodriving.image
         case .speeding:
             return DKChallengeImages.leaderboardSpeeding.image
-        case .none:
-            switch challengeType {
-            case .distance:
-                imageName = "dk_challenge_leaderboard_distance"
-            case .duration:
-                imageName = "dk_challenge_leaderboard_duration"
-            case .nbTrips:
-                imageName = "dk_challenge_leaderboard_trips_number"
-            default:
-                return DKChallengeImages.leaderboardSafety.image
-            }
-        }
-        if let imageName = imageName {
-            return UIImage(named: imageName, in: Bundle.challengeUIBundle, compatibleWith: nil)
-        } else {
+        case .deprecated, .unknown:
             return nil
         }
     }
@@ -315,16 +242,7 @@ extension ChallengeDetailViewModel: DKDriverRanking {
     }
 
     func getScoreTitle() -> String {
-        switch challengeType {
-        case .score:
-            return DKCommonLocalizable.rankingScore.text()
-        case .distance:
-            return DKCommonLocalizable.distance.text()
-        case .duration:
-            return DKCommonLocalizable.duration.text()
-        case .nbTrips:
-            return DKCommonLocalizable.tripPlural.text().capitalizeFirstLetter()
-        }
+        return DKCommonLocalizable.rankingScore.text()
     }
 
     func hasInfoButton() -> Bool {

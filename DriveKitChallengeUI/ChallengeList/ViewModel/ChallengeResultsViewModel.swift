@@ -49,7 +49,8 @@ class ChallengeResultsViewModel {
 
         let name = getDriverPseudo()
         let stringRank = String(challengeDetail.userIndex)
-        let stringMaxRank = String(challengeDetail.challengeStats.numberDriver)
+
+        let stringMaxRank = String(challengeDetail.nbDriverRegistered)
         
         let scoreHeaderString = "\n" + name + " "
         let headerAttributedString = NSMutableAttributedString(string: scoreHeaderString, attributes: titleAttributes)
@@ -61,8 +62,8 @@ class ChallengeResultsViewModel {
 
         // Add stars
         let rank = challengeDetail.driverStats.rank
-        let nbrDrivers = challengeDetail.challengeStats.numberDriver
-        let percentage: Double = Double(100 * rank) / Double(nbrDrivers)
+        let nbDriverRanked = challengeDetail.nbDriverRanked
+        let percentage: Double = Double(100 * rank) / Double(nbDriverRanked)
         let goldStarsNbr: Int
         if rank == 0 {
             goldStarsNbr = 0

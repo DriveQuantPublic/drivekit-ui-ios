@@ -58,7 +58,7 @@ class ChallengeDetailViewModel {
                 totalScoreString = " / 10"
                 if driverRanked.rank == challengeDetail.userIndex {
                     return CurrentChallengeDriverRank(
-                        nbDrivers: challengeDetail.nbDriverRanked,
+                        nbDrivers: challengeDetail.nbDriverRegistered,
                         position: driverRanked.rank,
                         positionString: String(driverRanked.rank),
                         positionImageName: self.getImageName(fromPosition: driverRanked.rank),
@@ -71,7 +71,7 @@ class ChallengeDetailViewModel {
                         totalScoreString: totalScoreString
                     )
                 } else {
-                    return ChallengeDriverRank(nbDrivers: challengeDetail.nbDriverRanked,
+                    return ChallengeDriverRank(nbDrivers: challengeDetail.nbDriverRegistered,
                                                position: driverRanked.rank,
                                                positionString: String(driverRanked.rank),
                                                positionImageName: self.getImageName(fromPosition: driverRanked.rank),
@@ -232,11 +232,11 @@ extension ChallengeDetailViewModel: DKDriverRanking {
     func getDriverGlobalRankAttributedText() -> NSAttributedString {
         if challengeDetail.userIndex > 0, challengeDetail.userIndex <= challengeDetail.nbDriverRanked {
             let driverRankString = String(challengeDetail.userIndex).dkAttributedString().font(dkFont: .primary, style: .highlightBig).color(.secondaryColor).build()
-            let rankString = " / \(challengeDetail.nbDriverRanked)".dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
+            let rankString = " / \(challengeDetail.nbDriverRegistered)".dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
             return "%@%@".dkAttributedString().buildWithArgs(driverRankString, rankString)
         } else {
             let driverRankString = "-".dkAttributedString().font(dkFont: .primary, style: .highlightBig).color(.secondaryColor).build()
-            let rankString = " / \(nbDrivers)".dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
+            let rankString = " / \(challengeDetail.nbDriverRegistered)".dkAttributedString().font(dkFont: .primary, style: .highlightNormal).color(.mainFontColor).build()
             return "%@%@".dkAttributedString().buildWithArgs(driverRankString, rankString)
         }
     }

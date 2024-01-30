@@ -13,16 +13,13 @@ import DriveKitDBChallengeAccessModule
 
 class ChallengeResultsViewModel {
     private var challengeDetail: DKChallengeDetail
-    let challengeType: ChallengeType
-    let challengeTheme: ChallengeTheme
+    let challengeType: DKChallengeType
     private let goldColor = UIColor(red: 255, green: 215, blue: 0)
     private let lightGoldColor = UIColor(red: 1, green: 215.0 / 255, blue: 0, alpha: 0.2)
 
     init(challengeDetail: DKChallengeDetail,
-         challengeType: ChallengeType = .score,
-         challengeTheme: ChallengeTheme = .safety) {
+         challengeType: DKChallengeType = .safety) {
         self.challengeDetail = challengeDetail
-        self.challengeTheme = challengeTheme
         self.challengeType = challengeType
     }
 
@@ -52,7 +49,8 @@ class ChallengeResultsViewModel {
 
         let name = getDriverPseudo()
         let stringRank = String(challengeDetail.userIndex)
-        let stringMaxRank = String(challengeDetail.challengeStats.numberDriver)
+
+        let stringMaxRank = String(challengeDetail.nbDriverRegistered)
         
         let scoreHeaderString = "\n" + name + " "
         let headerAttributedString = NSMutableAttributedString(string: scoreHeaderString, attributes: titleAttributes)
@@ -64,8 +62,8 @@ class ChallengeResultsViewModel {
 
         // Add stars
         let rank = challengeDetail.driverStats.rank
-        let nbrDrivers = challengeDetail.challengeStats.numberDriver
-        let percentage: Double = Double(100 * rank) / Double(nbrDrivers)
+        let nbDriverRanked = challengeDetail.nbDriverRanked
+        let percentage: Double = Double(100 * rank) / Double(nbDriverRanked)
         let goldStarsNbr: Int
         if rank == 0 {
             goldStarsNbr = 0
@@ -92,87 +90,67 @@ class ChallengeResultsViewModel {
 
     func getStatAttributedString(challengeStatType: ChallengeStatType) -> NSAttributedString {
         let titleAttributes = [
-            NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 14),
-            NSAttributedString.Key.foregroundColor: UIColor.black
+            NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 15),
+            NSAttributedString.Key.foregroundColor: DKUIColors.complementaryFontColor.color
         ]
         let majorAttributes = [
-            NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 18).with(.traitBold),
+            NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 22).with(.traitBold),
             NSAttributedString.Key.foregroundColor: DKUIColors.primaryColor.color
         ]
         switch challengeStatType {
-        case .duration:
-            let duration = challengeDetail.driverStats.duration * 3_600
-            let formattedDuration = duration.ceilSecondDuration(ifGreaterThan: 600).formatSecondDuration(maxUnit: .hour)
-            let durationString = String(format: "dk_challenge_driver_duration".dkChallengeLocalized(), formattedDuration)
-            let rangeDuration = (durationString as NSString).range(of: formattedDuration)
-            let attributedDuration = NSMutableAttributedString(string: durationString, attributes: titleAttributes)
-            attributedDuration.setAttributes(majorAttributes, range: rangeDuration)
-            return attributedDuration
-        case .distance:
-            let formattedDistance = challengeDetail.driverStats.distance.formatKilometerDistance(appendingUnit: true, minDistanceToRemoveFractions: 10)
-            let distanceString = String(format: "dk_challenge_driver_distance".dkChallengeLocalized(), formattedDistance)
-            let rangeDistance = (distanceString as NSString).range(of: formattedDistance)
-            let attributedDistance = NSMutableAttributedString(string: distanceString, attributes: titleAttributes)
-            attributedDistance.setAttributes(majorAttributes, range: rangeDistance)
-            return attributedDistance
-        case .nbTrips:
-            let trip = challengeDetail.driverStats.numberTrip > 1 ? DKCommonLocalizable.tripPlural.text() : DKCommonLocalizable.tripSingular.text()
-            let tripsFormatted = String(challengeDetail.driverStats.numberTrip) + " " + trip
-            let tripsString = String(format: "dk_challenge_driver_trips".dkChallengeLocalized(), tripsFormatted)
-            let rangeTrips = (tripsString as NSString).range(of: tripsFormatted)
-            let attributedTrips = NSMutableAttributedString(string: tripsString, attributes: titleAttributes)
-            attributedTrips.setAttributes(majorAttributes, range: rangeTrips)
-            return attributedTrips
+            case .distanceTrips:
+                let formattedDistance = challengeDetail.driverStats.distance.formatKilometerDistance(appendingUnit: true, minDistanceToRemoveFractions: 10)
+                let trip = challengeDetail.driverStats.numberTrip > 1 ? DKCommonLocalizable.tripPlural.text() : DKCommonLocalizable.tripSingular.text()
+                let formattedTrips = String(challengeDetail.driverStats.numberTrip) + " " + trip
+                let distanceTripsString = "\(formattedDistance) - \(formattedTrips)"
+                return NSAttributedString(string: distanceTripsString, attributes: majorAttributes)
+            case .totalDistance:
+                let formattedDistance = challengeDetail.challengeStats.distance.formatKilometerDistance(appendingUnit: true, minDistanceToRemoveFractions: 10)
+                return NSAttributedString(string: formattedDistance, attributes: majorAttributes)
+            case .rankedRegistered:
+                let rankedString = challengeDetail.nbDriverRanked > 1 
+                ? "dk_challenge_synthesis_ranked_plural".dkChallengeLocalized()
+                : "dk_challenge_synthesis_ranked_singular".dkChallengeLocalized()
+                let registeredString = challengeDetail.nbDriverRegistered > 1
+                ? "dk_challenge_synthesis_registered_plural".dkChallengeLocalized()
+                : "dk_challenge_synthesis_registered_singular".dkChallengeLocalized()
+                let rankedRegisteredString = "\(challengeDetail.nbDriverRanked) \(rankedString) / \(challengeDetail.nbDriverRegistered) \(registeredString)"
+                let attributedResult = NSMutableAttributedString(string: rankedRegisteredString, attributes: majorAttributes)
+                let rangeRanked = (rankedRegisteredString as NSString).range(of: rankedString)
+                let rangeRegistered = (rankedRegisteredString as NSString).range(of: registeredString)
+                attributedResult.setAttributes(titleAttributes, range: rangeRanked)
+                attributedResult.setAttributes(titleAttributes, range: rangeRegistered)
+                return attributedResult
         }
     }
 
-    func getGlobalStatAttributedString(challengeStatType: ChallengeStatType) -> NSAttributedString {
+    func getStatDescriptionAttributedString(challengeStatType: ChallengeStatType) -> NSAttributedString {
         let titleAttributes = [
             NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 12),
             NSAttributedString.Key.foregroundColor: DKUIColors.complementaryFontColor.color
         ]
         let majorAttributes = [
-            NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 14).with(.traitBold),
+            NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 12).with(.traitBold),
             NSAttributedString.Key.foregroundColor: DKUIColors.primaryColor.color
         ]
         switch challengeStatType {
-        case .duration:
-            let duration = challengeDetail.challengeStats.duration * 3_600
-            let formattedDuration = duration.ceilSecondDuration(ifGreaterThan: 600).formatSecondDuration(maxUnit: .hour)
-            let durationString = String(format: "dk_challenge_competitors_duration".dkChallengeLocalized(), formattedDuration)
-            let rangeDuration = (durationString as NSString).range(of: formattedDuration)
-            let attributedDuration = NSMutableAttributedString(string: durationString, attributes: titleAttributes)
-            attributedDuration.setAttributes(majorAttributes, range: rangeDuration)
-            return attributedDuration
-        case .distance:
-            let formattedDistance = challengeDetail.challengeStats.distance.formatKilometerDistance(appendingUnit: true, minDistanceToRemoveFractions: 10)
-            let distanceString = String(format: "dk_challenge_competitors_distance".dkChallengeLocalized(), formattedDistance)
-            let rangeDistance = (distanceString as NSString).range(of: formattedDistance)
-            let attributedDistance = NSMutableAttributedString(string: distanceString, attributes: titleAttributes)
-            attributedDistance.setAttributes(majorAttributes, range: rangeDistance)
-            return attributedDistance
-        case .nbTrips:
-            let trip = challengeDetail.challengeStats.numberTrip > 1 ? DKCommonLocalizable.tripPlural.text() : DKCommonLocalizable.tripSingular.text()
-            let tripsFormatted = String(challengeDetail.challengeStats.numberTrip) + " " + trip
-            let tripsString = String(format: "dk_challenge_competitors_trips".dkChallengeLocalized(), tripsFormatted)
-            let rangeTrips = (tripsString as NSString).range(of: tripsFormatted)
-            let attributedTrips = NSMutableAttributedString(string: tripsString, attributes: titleAttributes)
-            attributedTrips.setAttributes(majorAttributes, range: rangeTrips)
-            return attributedTrips
+            case .distanceTrips:
+                return NSAttributedString(string: "dk_challenge_synthesis_my_stats".dkChallengeLocalized(), attributes: titleAttributes)
+            case .totalDistance:
+                return NSAttributedString(string: "dk_challenge_synthesis_total_distance".dkChallengeLocalized(), attributes: titleAttributes)
+            case .rankedRegistered:
+                let percentageString = self.nbDriverRankedPercentage
+                let rankedPercentageString = String(format: "dk_challenge_synthesis_ranked_percentage".dkChallengeLocalized(), percentageString)
+                let attributedResult = NSMutableAttributedString(string: rankedPercentageString, attributes: titleAttributes)
+
+                let rangePercentage = (rankedPercentageString as NSString).range(of: percentageString)
+                attributedResult.setAttributes(majorAttributes, range: rangePercentage)
+                return attributedResult
         }
     }
 
     var challengeStats: [ChallengeStatType] {
-        switch challengeType {
-        case .distance:
-            return [.duration, .nbTrips]
-        case .duration:
-            return [.distance, .nbTrips]
-        case .score:
-            return [.distance, .duration, .nbTrips]
-        case .nbTrips:
-            return [.distance, .duration]
-        }
+        return [.distanceTrips, .totalDistance, .rankedRegistered]
     }
 
     var minScore: Double {
@@ -186,5 +164,15 @@ class ChallengeResultsViewModel {
     }
     var numberTrip: Int {
         return challengeDetail.driverStats.numberTrip
+    }
+
+    var nbDriverRankedPercentage: String {
+        let nbrRanked = challengeDetail.nbDriverRanked
+        let nbrRegistered = challengeDetail.nbDriverRegistered
+        guard nbrRegistered > 0 else {
+            return "-"
+        }
+        let percent: Double = (Double(nbrRanked) / Double(nbrRegistered)) * 100.0
+        return percent.formatPercentage()
     }
 }

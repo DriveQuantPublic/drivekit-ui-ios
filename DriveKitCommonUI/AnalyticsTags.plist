@@ -56,8 +56,10 @@
 	<string>drivekit-permissions-onboarding</string>
 	<key>dk_tag_challenge_list_active</key>
 	<string>drivekit-challenge-list-active</string>
-	<key>dk_tag_challenge_list_finished</key>
-	<string>drivekit-challenge-list-finished</string>
+	<key>dk_tag_challenge_list_ranked</key>
+	<string>drivekit-challenge-list-ranked</string>
+	<key>dk_tag_challenge_list_all</key>
+	<string>drivekit-challenge-list-all</string>
 	<key>dk_tag_challenge_join</key>
 	<string>drivekit-challenge-join</string>
 	<key>dk_tag_challenge_detail</key>

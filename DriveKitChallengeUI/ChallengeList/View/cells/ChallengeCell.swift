@@ -26,7 +26,7 @@ class ChallengeCell: UICollectionViewCell {
     private func setup() {
         self.whiteBackgroundView?.layer.cornerRadius = 8.0
         self.whiteBackgroundView?.layer.masksToBounds = false
-        self.whiteBackgroundView?.layer.shadowOpacity = 0.5
+        self.whiteBackgroundView?.layer.shadowOpacity = 0.3
         self.whiteBackgroundView?.layer.shadowColor = UIColor.black.cgColor
         self.whiteBackgroundView?.layer.shadowOffset = CGSize(width: 1, height: 1)
 

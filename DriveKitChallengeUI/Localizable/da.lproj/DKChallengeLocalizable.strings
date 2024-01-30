@@ -1,16 +1,13 @@
 "dk_challenge_acceleration_score"="Accelerationsscore";
 "dk_challenge_active"="Aktiv";
-"dk_challenge_adherence_score"="Hårde sving-score";
 "dk_challenge_all"="Alle";
 "dk_challenge_braking_score"="Bremsescore";
 "dk_challenge_consult_rule_button"="Tjek regler og vilkår";
 "dk_challenge_distance_kilometer"="Afstand (km)";
 "dk_challenge_distraction_score"="Distraktionsscore";
-"dk_challenge_driving_time"="Køretid";
 "dk_challenge_eco_driving_score"="Øko-kørselsscore";
 "dk_challenge_failed_to_join"="Kan ikke deltage i udfordringen, sørg for, at du er tilsluttet internettet eller prøv igen senere.";
 "dk_challenge_failed_to_sync_challenges"="Kunne ikke synkronisere udfordringsdata, prøv igen senere.";
-"dk_challenge_finished"="Færdig";
 "dk_challenge_list_join"="Deltag i udfordringen 🏆";
 "dk_challenge_list_join_among"="Slut dig til de %d deltagere 🏆";
 "dk_challenge_list_not_ranked"="Du er ikke blevet rangeret";
@@ -23,7 +20,7 @@
 "dk_challenge_no_active_challenge"="Der er ingen aktuelle udfordringer.";
 "dk_challenge_no_all_challenge"="Der har endnu ikke været nogen udfordring.";
 "dk_challenge_no_ranked_challenge_empty_list"="Der har endnu ikke været nogen udfordring.";
-"dk_challenge_no_ranked_challenge_not_ranked_yet"="Du har ikke deltaget i en udfordring endnu.";
+"dk_challenge_no_ranked_challenge_not_ranked_yet"="Du er endnu ikke blevet rangeret i en udfordring.";
 "dk_challenge_no_ranked_challenge_not_registered_yet"="Du har ikke deltaget i en udfordring endnu.";
 "dk_challenge_not_a_participant"="Du deltog ikke i denne udfordring, eller du opfyldte ikke betingelserne for at deltage.";
 "dk_challenge_optin_title"="Accepter reglerne";
@@ -33,8 +30,6 @@
 "dk_challenge_rule_title"="Regler";
 "dk_challenge_safety_score"="Sikkerhedsscore";
 "dk_challenge_score_alert_message"="Resultaterne af denne udfordring analyseres, prøv igen senere.";
-"dk_challenge_score_alert_title"="Udfordring under analyse";
-"dk_challenge_signin_in_progress"="Tilmelder dig ...";
 "dk_challenge_speeding_score"="Hastighedsresultat";
 "dk_challenge_start"="Udfordringen starter om";
 "dk_challenge_synthesis_my_stats"="Din statistik under udfordringen.";
@@ -44,5 +39,4 @@
 "dk_challenge_synthesis_registered_plural"="registreret";
 "dk_challenge_synthesis_registered_singular"="registreret";
 "dk_challenge_synthesis_total_distance"="Samlet distance tilbagelagt af alle deltagere.";
-"dk_challenge_traveled_distance"="Tilbagelagt afstand";
 "dk_challenge_unranked_conditions_info"="For at komme på ranglisten skal du opfylde betingelserne nedenfor:";

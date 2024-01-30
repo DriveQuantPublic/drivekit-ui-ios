@@ -75,8 +75,8 @@ final class ChallengeResultOverviewCell: UITableViewCell, Nibable {
             minValue = score
         }
 
-        let minText = minString + " " + self.indiceValue
-        let maxText = maxString + " " + self.indiceValue
+        let minText = minString + self.indiceValue
+        let maxText = maxString + self.indiceValue
         self.progressBarMaxLabel?.attributedText = NSAttributedString(string: maxText, attributes: indiceAttributes)
         self.progressBarMinLabel?.attributedText = NSAttributedString(string: minText, attributes: indiceAttributes)
 

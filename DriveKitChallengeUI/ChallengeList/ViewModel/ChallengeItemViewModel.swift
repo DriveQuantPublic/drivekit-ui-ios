@@ -32,7 +32,7 @@ struct ChallengeItemViewModel {
         self.type = challenge.challengeType
         self.image = self.type.icon
         self.registered = challenge.isRegistered
-        self.conditionsFilled = (challenge.conditionsFilled && challenge.rank > 0)
+        self.conditionsFilled = challenge.conditionsFilled
         self.rank = challenge.rank
         self.nbDriverRegistered = challenge.nbDriverRegistered
     }

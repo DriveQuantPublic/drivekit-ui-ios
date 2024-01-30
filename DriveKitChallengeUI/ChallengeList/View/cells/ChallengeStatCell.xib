@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k4h-ej-NVD" customClass="CardView" customModule="DriveKitCommonUI">
-                        <rect key="frame" x="17" y="1" width="287" height="92"/>
+                        <rect key="frame" x="17" y="1" width="287" height="82"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XMP-Ux-YZ5">
                                 <rect key="frame" x="17" y="16" width="270" height="20.5"/>
@@ -35,7 +35,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="92" id="BSa-rg-eRe"/>
+                            <constraint firstAttribute="height" constant="82" id="BSa-rg-eRe"/>
                             <constraint firstItem="XMP-Ux-YZ5" firstAttribute="top" secondItem="k4h-ej-NVD" secondAttribute="top" constant="16" id="PcB-Mk-hfp"/>
                             <constraint firstItem="xkP-qg-jya" firstAttribute="leading" secondItem="k4h-ej-NVD" secondAttribute="leading" constant="17" id="Sp9-At-lCI"/>
                             <constraint firstItem="xkP-qg-jya" firstAttribute="top" secondItem="XMP-Ux-YZ5" secondAttribute="bottom" constant="8" id="WD9-89-g3R"/>

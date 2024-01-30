@@ -93,7 +93,7 @@ class ChallengeResultsViewModel {
             NSAttributedString.Key.foregroundColor: DKUIColors.complementaryFontColor.color
         ]
         let majorAttributes = [
-            NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 24).with(.traitBold),
+            NSAttributedString.Key.font: DKUIFonts.primary.fonts(size: 22).with(.traitBold),
             NSAttributedString.Key.foregroundColor: DKUIColors.primaryColor.color
         ]
         switch challengeStatType {

@@ -63,15 +63,15 @@ class ChallengeResultsViewModel {
         // Add stars
         let rank = challengeDetail.driverStats.rank
         let nbDriverRanked = challengeDetail.nbDriverRanked
-        let percentage: Double = Double(100 * rank) / Double(nbDriverRanked)
+        let percentage: Int = Int((Double(100 * rank) / Double(nbDriverRanked)).rounded())
         let goldStarsNbr: Int
         if rank == 0 {
             goldStarsNbr = 0
-        } else if rank == 1 || percentage <= 25 {
+        } else if rank == 1 || percentage < 25 {
             goldStarsNbr = 4
-        } else if percentage <= 50 {
+        } else if percentage < 50 {
             goldStarsNbr = 3
-        } else if percentage <= 75 {
+        } else if percentage < 75 {
             goldStarsNbr = 2
         } else {
             goldStarsNbr = 1

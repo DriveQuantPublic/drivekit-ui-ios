@@ -23,6 +23,8 @@ extension DKChallengeType {
                 return DKImages.speedingFlat.image
             case .deprecated, .unknown:
                 return nil
+            @unknown default:
+                return nil
         }
     }
 
@@ -41,6 +43,8 @@ extension DKChallengeType {
         case .speeding:
             return "dk_challenge_speeding_score".dkChallengeLocalized()
         case .deprecated, .unknown:
+            return ""
+        @unknown default:
             return ""
         }
     }

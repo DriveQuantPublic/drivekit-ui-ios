@@ -19,6 +19,8 @@ extension Array where Element: DKChallenge {
                     return true
                 case .deprecated, .unknown:
                     return false
+                @unknown default:
+                    return false
             }
         }
     }

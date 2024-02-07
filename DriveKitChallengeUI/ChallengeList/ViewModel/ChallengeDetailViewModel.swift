@@ -174,6 +174,8 @@ extension ChallengeDetailViewModel: DKTripList {
                 return .speeding
             case .deprecated, .unknown:
                 return .safety
+            @unknown default:
+                return .safety
         }
     }
 
@@ -221,6 +223,8 @@ extension ChallengeDetailViewModel: DKDriverRanking {
         case .speeding:
             return DKChallengeImages.leaderboardSpeeding.image
         case .deprecated, .unknown:
+            return nil
+        @unknown default:
             return nil
         }
     }

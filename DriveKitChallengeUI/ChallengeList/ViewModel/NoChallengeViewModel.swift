@@ -11,18 +11,4 @@ import DriveKitCommonUI
 
 struct NoChallengeViewModel {
     let text: String
-    let image: UIImage?
-    let backgroundColor: UIColor
-    let textColor: UIColor
-
-    init(text: String,
-         image: UIImage?,
-         backgroundColor: UIColor = DKDefaultColors.driveKitBackgroundColor,
-         textColor: UIColor = .black ) {
-
-        self.text = text
-        self.image = image
-        self.backgroundColor = backgroundColor
-        self.textColor = textColor
-    }
 }

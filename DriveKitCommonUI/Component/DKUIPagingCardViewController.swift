@@ -243,6 +243,7 @@ extension DKUIPagingCardViewController {
         configuredWith pagingViewModel: PagingViewModel,
         pagingControl: UIPageControl,
         embededIn pagingContainer: UIView,
+        withCardStyle hasCardStyle: Bool,
         of parentViewController: UIViewController
     ) -> Self {
         let pagingViewController = Self.init(
@@ -263,10 +264,13 @@ extension DKUIPagingCardViewController {
             pagingControl.isHidden = true
         }
 
+        if hasCardStyle {
+            displayedViewController.view.roundCorners(clipping: true)
+            pagingContainer.applyCardStyle()
+        }
+
         parentViewController.addChild(displayedViewController)
         pagingContainer.embedSubview(displayedViewController.view)
-        pagingContainer.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
-        pagingContainer.clipsToBounds = true
         displayedViewController.didMove(toParent: parentViewController)
         
         return pagingViewController

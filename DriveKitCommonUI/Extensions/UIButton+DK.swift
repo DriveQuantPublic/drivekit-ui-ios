@@ -108,12 +108,7 @@ public enum DKButtonStyle {
     func configureButton(button: UIButton) {
         switch self {
         case .full:
-            button.layer.cornerRadius = 2
-            button.layer.shadowColor = UIColor.black.cgColor
-            button.layer.shadowOpacity = 0.3
-            button.layer.shadowRadius = 4
-            button.layer.shadowOffset = CGSize(width: 0, height: 2)
-            button.layer.masksToBounds = false
+            button.applyCardStyle()
             button.setBackgroundImage(UIImage(color: DKUIColors.secondaryColor.color), for: .normal)
             button.setBackgroundImage(UIImage(color: DKUIColors.secondaryColor.color.withAlphaComponent(0.5)), for: .disabled)
         case .empty:

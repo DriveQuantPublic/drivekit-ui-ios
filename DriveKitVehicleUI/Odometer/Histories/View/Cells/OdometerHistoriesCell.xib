@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -36,7 +36,6 @@
                                                 </constraints>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="OWq-fh-2OS" firstAttribute="centerX" secondItem="qOO-WM-drm" secondAttribute="centerX" id="2pm-fK-Eu8"/>
                                             <constraint firstAttribute="width" constant="60" id="5p7-Of-R3H"/>
@@ -50,7 +49,6 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="qOO-WM-drm" firstAttribute="leading" secondItem="ffX-g7-5aC" secondAttribute="leading" id="0r4-NG-LAB"/>
                                     <constraint firstItem="41r-h9-WXb" firstAttribute="leading" secondItem="qOO-WM-drm" secondAttribute="trailing" id="6ht-Ui-5s8"/>
@@ -70,7 +68,6 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="nau-nd-Srd" firstAttribute="centerY" secondItem="fcH-GH-myr" secondAttribute="centerY" id="5QO-c1-tXX"/>
                                     <constraint firstItem="nau-nd-Srd" firstAttribute="leading" secondItem="fcH-GH-myr" secondAttribute="leading" constant="8" id="Kle-EN-AZ1"/>

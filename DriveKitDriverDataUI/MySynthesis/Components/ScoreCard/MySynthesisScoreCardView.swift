@@ -58,7 +58,8 @@ class MySynthesisScoreCardView: UIView {
 extension MySynthesisScoreCardView {
     public static func createScoreCardView(
         configuredWith viewModel: MySynthesisScoreCardViewModel,
-        embededIn containerView: UIView
+        embededIn containerView: UIView,
+        withCardStyle hasCardStyle: Bool
     ) {
         guard let scoreCardView = Bundle.driverDataUIBundle?.loadNibNamed(
             "MySynthesisScoreCardView",
@@ -72,7 +73,10 @@ extension MySynthesisScoreCardView {
         }
         scoreCardView.configure(viewModel: viewModel)
         containerView.embedSubview(scoreCardView)
-        containerView.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
-        containerView.clipsToBounds = true
+
+        if hasCardStyle {
+            scoreCardView.roundCorners()
+            containerView.applyCardStyle()
+        }
     }
 }

@@ -31,7 +31,8 @@ class DrivingConditionsContextViewController: DKUIViewController, DKUIPageViewMo
     override func viewDidLoad() {
         super.viewDidLoad()
         self.cardView.configure(viewModel: self.viewModel)
-        self.view.embedSubview(self.cardView)
-        self.view.backgroundColor = .white
+        self.cardView.applyCardStyle()
+        let margin: CGFloat = 8
+        self.view.embedSubview(self.cardView, margins: UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin))
     }
 }

@@ -15,11 +15,7 @@ class VehiclePickerTableViewCell: UITableViewCell {
     @IBOutlet weak var coloredBackgroundView: UIView!
 
     func configure(text: String) {
-        self.coloredBackgroundView.layer.cornerRadius = 2
-        self.coloredBackgroundView.layer.shadowColor = UIColor.black.cgColor
-        self.coloredBackgroundView.layer.shadowOpacity = 0.3
-        self.coloredBackgroundView.layer.shadowRadius = 4
-        self.coloredBackgroundView.layer.shadowOffset = .zero
+        self.coloredBackgroundView.applyCardStyle()
         self.coloredBackgroundView.backgroundColor = DKUIColors.secondaryColor.color
         self.titleLabel.attributedText = text.dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.fontColorOnSecondaryColor).build()
     }

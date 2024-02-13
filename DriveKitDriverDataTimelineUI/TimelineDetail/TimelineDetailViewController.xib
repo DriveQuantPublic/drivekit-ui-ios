@@ -53,7 +53,7 @@
                     <rect key="frame" x="0.0" y="383" width="393" height="435"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gxw-ug-vpJ" userLabel="Graph Stack View">
-                            <rect key="frame" x="8" y="0.0" width="377" height="50"/>
+                            <rect key="frame" x="8" y="2" width="377" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" placeholder="YES" id="Ngf-j1-mEa"/>
                             </constraints>
@@ -63,8 +63,8 @@
                         <constraint firstItem="gxw-ug-vpJ" firstAttribute="width" secondItem="tN0-bj-kbw" secondAttribute="width" constant="-16" id="CSh-7g-iBO"/>
                         <constraint firstItem="gxw-ug-vpJ" firstAttribute="trailing" secondItem="JuR-WX-Pjx" secondAttribute="trailing" id="LID-od-6Be"/>
                         <constraint firstItem="gxw-ug-vpJ" firstAttribute="leading" secondItem="JuR-WX-Pjx" secondAttribute="leading" constant="8" id="PiI-fC-Hx2"/>
-                        <constraint firstItem="gxw-ug-vpJ" firstAttribute="bottom" secondItem="JuR-WX-Pjx" secondAttribute="bottom" id="Uda-0K-oRa"/>
-                        <constraint firstItem="gxw-ug-vpJ" firstAttribute="top" secondItem="JuR-WX-Pjx" secondAttribute="top" id="ZhH-7o-rkM"/>
+                        <constraint firstItem="gxw-ug-vpJ" firstAttribute="bottom" secondItem="JuR-WX-Pjx" secondAttribute="bottom" constant="-4" id="Uda-0K-oRa"/>
+                        <constraint firstItem="gxw-ug-vpJ" firstAttribute="top" secondItem="JuR-WX-Pjx" secondAttribute="top" constant="2" id="ZhH-7o-rkM"/>
                     </constraints>
                     <viewLayoutGuide key="contentLayoutGuide" id="JuR-WX-Pjx"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="tN0-bj-kbw"/>

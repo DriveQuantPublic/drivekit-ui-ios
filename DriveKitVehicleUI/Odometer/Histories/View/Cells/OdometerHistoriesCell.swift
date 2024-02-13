@@ -39,5 +39,6 @@ final class OdometerHistoriesCell: UITableViewCell, Nibable {
     private func configure() {
         self.referenceImage.image = DKImages.ecoAccel.image?.withRenderingMode(.alwaysTemplate)
         self.referenceImage.tintColor = DKUIColors.mainFontColor.color
+        self.roundCorners(clipping: true)
     }
 }

@@ -72,12 +72,17 @@ public class DKTripRecordingButton: UIButton {
         self.contentView.heightAnchor.constraint(
             equalToConstant: minimumHeigthToAvoidSubtitleTruncating
         ).isActive = true
-        self.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
         self.clipsToBounds = true
         self.setBackgroundImage(UIImage(color: DKUIColors.secondaryColor.color), for: .normal)
         self.updateUI()
     }
-    
+
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        let divider: CGFloat = 2
+        self.layer.cornerRadius = bounds.height / divider
+    }
+
     private func updateUI() {
         guard let viewModel else { return }
         self.isHidden = viewModel.isHidden

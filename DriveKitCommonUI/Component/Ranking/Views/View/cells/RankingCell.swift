@@ -21,7 +21,7 @@ class RankingCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        self.scoreLabel.layer.cornerRadius = 5
+        self.scoreLabel.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
         self.scoreLabel.clipsToBounds = true
         self.separator.backgroundColor = DKUIColors.neutralColor.color
     }

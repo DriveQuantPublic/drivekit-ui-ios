@@ -16,7 +16,7 @@ class RoadContextView: UIView {
     
     override init(frame: CGRect) {
         self.roadContextDataView = DKContextCardView.createView()
-        
+
         guard let emptyRoadContextView = Bundle.driverDataTimelineUIBundle?.loadNibNamed(
             "EmptyRoadContextView",
             owner: nil,
@@ -25,7 +25,7 @@ class RoadContextView: UIView {
             preconditionFailure("Can't find bundle or nib for EmptyRoadContextView")
         }
         self.emptyRoadContextView = emptyRoadContextView
-        
+
         super.init(frame: frame)
     }
     
@@ -62,11 +62,14 @@ extension RoadContextView: RoadContextViewModelDelegate {
 extension RoadContextView {
     static func createRoadContextView(
         configuredWith viewModel: RoadContextViewModel,
-        embededIn containerView: UIView
+        embededIn containerView: UIView,
+        withCardStyle hasCardStyle: Bool
     ) {
         let roadContextView = RoadContextView()
-        containerView.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
-        containerView.clipsToBounds = true
+        if hasCardStyle {
+            roadContextView.roundCorners(clipping: true)
+            containerView.applyCardStyle()
+        }
         viewModel.delegate = roadContextView
         roadContextView.configure(viewModel: viewModel)
         containerView.embedSubview(roadContextView)

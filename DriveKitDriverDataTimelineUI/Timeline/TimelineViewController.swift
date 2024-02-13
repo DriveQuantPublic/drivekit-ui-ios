@@ -54,7 +54,6 @@ class TimelineViewController: DKUIViewController {
     }
 
     @IBAction private func openScoreDetailScreen() {
-        
         let timelineDetailVC = TimelineDetailViewController(viewModel: viewModel.timelineDetailViewModel)
         self.navigationController?.pushViewController(timelineDetailVC, animated: true)
     }
@@ -91,14 +90,16 @@ class TimelineViewController: DKUIViewController {
     private func setupGraphView() {
         TimelineGraphView.createTimelineGraphView(
             configuredWith: viewModel.timelineGraphViewModel,
-            embededIn: timelineGraphViewContainer
+            embededIn: timelineGraphViewContainer,
+            withCardStyle: true
         )
     }
 
     private func setupRoadContext() {
         RoadContextView.createRoadContextView(
             configuredWith: viewModel.roadContextViewModel,
-            embededIn: roadContextContainer
+            embededIn: roadContextContainer,
+            withCardStyle: true
         )
     }
     

@@ -32,7 +32,6 @@ class TimelineGraphView: UIView {
         let rightSwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(handleRightSwipe(_:)))
         rightSwipeGestureRecognizer.direction = .right
         self.addGestureRecognizer(rightSwipeGestureRecognizer)
-
     }
     
     @objc private func handleLeftSwipe(_ swipeGestureRecognizer: UISwipeGestureRecognizer) {
@@ -101,7 +100,8 @@ extension TimelineGraphView: GraphViewDelegate {
 extension TimelineGraphView {
     static func createTimelineGraphView(
         configuredWith viewModel: TimelineGraphViewModel,
-        embededIn containerView: UIView
+        embededIn containerView: UIView,
+        withCardStyle hasCardStyle: Bool
     ) {
         guard let timelineGraphView = Bundle.driverDataTimelineUIBundle?.loadNibNamed(
             "TimelineGraphView",
@@ -113,15 +113,16 @@ extension TimelineGraphView {
         
         timelineGraphView.viewModel = viewModel
         timelineGraphView.delegate = viewModel
-        
+
+        if hasCardStyle {
+            timelineGraphView.roundCorners()
+            containerView.applyCardStyle()
+        }
+
         if let stackView = containerView as? UIStackView {
-            timelineGraphView.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
-            timelineGraphView.clipsToBounds = true
             timelineGraphView.heightAnchor.constraint(equalToConstant: 275).isActive = true
             stackView.addArrangedSubview(timelineGraphView)
         } else {
-            containerView.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
-            containerView.clipsToBounds = true
             containerView.embedSubview(timelineGraphView)
         }
     }

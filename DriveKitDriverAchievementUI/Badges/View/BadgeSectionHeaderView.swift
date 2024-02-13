@@ -17,7 +17,7 @@ final class BadgeSectionHeaderView: UIView, Nibable {
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundView.backgroundColor = DKUIColors.neutralColor.color
-        backgroundView.layer.cornerRadius = 4
+        backgroundView.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
     }
     
     func configure(theme: String) {

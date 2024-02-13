@@ -44,7 +44,7 @@ class ShortTripPageVC: UIViewController {
         timeSlotLabel.attributedText = self.viewModel.timeSlotLabelText.dkAttributedString().font(dkFont: .primary, style: .normalText).color(.primaryColor).build()
         
         messageBackGround.backgroundColor = DKUIColors.warningColor.color
-        messageBackGround.layer.cornerRadius = 4
+        messageBackGround.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
         messageBackGround.layer.masksToBounds = true
         
         messageImage.image = DKImages.info.image

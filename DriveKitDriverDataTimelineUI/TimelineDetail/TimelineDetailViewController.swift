@@ -53,7 +53,8 @@ class TimelineDetailViewController: DKUIViewController {
     private func setupRoadContext() {
         RoadContextView.createRoadContextView(
             configuredWith: viewModel.roadContextViewModel,
-            embededIn: roadContextContainerView
+            embededIn: roadContextContainerView,
+            withCardStyle: true
         )
     }
     
@@ -66,7 +67,8 @@ class TimelineDetailViewController: DKUIViewController {
             
             TimelineGraphView.createTimelineGraphView(
                 configuredWith: viewModel,
-                embededIn: scoreItemGraphStackView
+                embededIn: scoreItemGraphStackView,
+                withCardStyle: true
             )
         }
     }

@@ -18,10 +18,6 @@ final public class DKFilterView: UIView, Nibable {
     var viewModel: DKFilterViewModel!
     weak var parentViewController: UIViewController?
     
-    public override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
     public override func layoutSubviews() {
         super.layoutSubviews()
         if let imageView = self.image {

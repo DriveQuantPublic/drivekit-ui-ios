@@ -1,4 +1,3 @@
-// swiftlint:disable no_magic_numbers
 //
 //  ShortTripPageVC.swift
 //  drivekit-test-app
@@ -56,5 +55,4 @@ class ShortTripPageVC: UIViewController {
             .color(.white)
             .build()
     }
-
 }

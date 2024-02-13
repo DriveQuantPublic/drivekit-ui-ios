@@ -9,7 +9,6 @@
 import UIKit
 
 final public class DKFilterView: UIView, Nibable {
-
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var pickerImage: UIImageView!

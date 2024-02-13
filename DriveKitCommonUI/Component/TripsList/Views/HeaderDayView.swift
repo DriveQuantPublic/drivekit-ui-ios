@@ -1,4 +1,3 @@
-// swiftlint:disable no_magic_numbers
 //
 //  HeaderDayView.swift
 //  drivekit-test-app

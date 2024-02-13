@@ -104,7 +104,7 @@
                     <viewLayoutGuide key="frameLayoutGuide" id="8X4-m8-GZT"/>
                 </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoK-8w-e2I">
-                    <rect key="frame" x="16" y="767.66666666666663" width="361" height="34.333333333333371"/>
+                    <rect key="frame" x="12" y="767.66666666666663" width="369" height="34.333333333333371"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Button"/>
                 </button>
@@ -113,9 +113,9 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="ljY-Ge-B8E" secondAttribute="top" id="9F6-2q-clD"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eoK-8w-e2I" secondAttribute="trailing" constant="16" id="DQK-Bw-ZR5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eoK-8w-e2I" secondAttribute="trailing" constant="12" id="DQK-Bw-ZR5"/>
                 <constraint firstItem="ljY-Ge-B8E" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="MPx-oS-wRL"/>
-                <constraint firstItem="eoK-8w-e2I" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="aCi-u9-4p8"/>
+                <constraint firstItem="eoK-8w-e2I" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="aCi-u9-4p8"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="eoK-8w-e2I" secondAttribute="bottom" constant="16" id="l9N-UB-VNu"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ljY-Ge-B8E" secondAttribute="trailing" id="vyk-f7-uPU"/>
                 <constraint firstItem="ljY-Ge-B8E" firstAttribute="bottom" secondItem="eoK-8w-e2I" secondAttribute="top" constant="-10" id="ylV-n2-yPU"/>

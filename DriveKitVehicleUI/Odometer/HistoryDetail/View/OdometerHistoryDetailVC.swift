@@ -53,8 +53,8 @@ class OdometerHistoryDetailVC: DKUIViewController {
             .color(.secondaryColor)
             .build()
         self.validateButton.configure(title: DKCommonLocalizable.validate.text(), style: .full)
-        self.cancelButton.configure(title: DKCommonLocalizable.cancel.text(), style: .empty)
-        self.deleteButton.configure(title: DKCommonLocalizable.delete.text(), style: .empty)
+        self.cancelButton.configure(title: DKCommonLocalizable.cancel.text(), style: .bordered)
+        self.deleteButton.configure(title: DKCommonLocalizable.delete.text(), style: .bordered)
 
         self.title = self.viewModel.getTitle()
         self.tableView.separatorStyle = .none

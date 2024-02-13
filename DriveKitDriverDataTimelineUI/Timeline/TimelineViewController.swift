@@ -104,7 +104,7 @@ class TimelineViewController: DKUIViewController {
     }
     
     private func setupDetailButton() {
-        showTimelineDetailButton.configure(title: viewModel.timelineDetailButtonTitle, style: .empty)
+        showTimelineDetailButton.configure(title: viewModel.timelineDetailButtonTitle, style: .bordered)
         showTimelineDetailButton.isHidden = viewModel.shouldHideDetailButton
     }
 }

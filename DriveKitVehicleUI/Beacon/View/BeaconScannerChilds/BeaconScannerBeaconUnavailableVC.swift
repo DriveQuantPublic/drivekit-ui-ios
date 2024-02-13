@@ -34,7 +34,7 @@ class BeaconScannerBeaconUnavailableVC: UIViewController {
     
     private func configureButton() {
         cancelButton.configure(title: DKCommonLocalizable.cancel.text(), style: .empty)
-        retryButton.configure(title: DKCommonLocalizable.confirm.text(), style: .full)
+        retryButton.configure(title: DKCommonLocalizable.confirm.text(), style: .bordered)
     }
     
     private func configureDescription() {

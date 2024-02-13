@@ -61,7 +61,7 @@ class DriverProfileViewController: DKUIViewController {
         self.configureDistanceEstimationPagingContexts()
         self.configureCommonTripPagingContexts()
                 
-        drivingConditionsButton.configure(title: "dk_driverdata_drivingconditions_show".dkDriverDataLocalized(), style: .empty)
+        drivingConditionsButton.configure(title: "dk_driverdata_drivingconditions_show".dkDriverDataLocalized(), style: .bordered)
         
         drivingConditionsButton.addTarget(self, action: #selector(drivingConditionsButtonTapped), for: .touchUpInside)
     }

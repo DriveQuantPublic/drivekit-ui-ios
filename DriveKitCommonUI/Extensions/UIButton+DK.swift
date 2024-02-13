@@ -108,9 +108,11 @@ public enum DKButtonStyle {
     func configureButton(button: UIButton) {
         switch self {
         case .full:
-            button.applyCardStyle()
             button.setBackgroundImage(UIImage(color: DKUIColors.secondaryColor.color), for: .normal)
             button.setBackgroundImage(UIImage(color: DKUIColors.secondaryColor.color.withAlphaComponent(0.5)), for: .disabled)
+            button.layer.cornerRadius = button.bounds.size.height / 2
+            button.layer.masksToBounds = false
+            button.clipsToBounds = true
         case .empty:
             break
         case .multilineBordered:

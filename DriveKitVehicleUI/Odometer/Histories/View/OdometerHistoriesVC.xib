@@ -25,7 +25,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Tx-eh-zJL">
-                    <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                    <rect key="frame" x="12" y="812" width="390" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="P6q-ys-WUr"/>
                     </constraints>
@@ -40,8 +40,8 @@
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JO9-bu-d6S" secondAttribute="trailing" constant="12" id="Cyp-AT-Eki"/>
                 <constraint firstItem="JO9-bu-d6S" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="Nyz-Fk-b9F"/>
-                <constraint firstItem="2Tx-eh-zJL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="OIl-yf-BvF"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2Tx-eh-zJL" secondAttribute="trailing" id="XJn-TF-HW2"/>
+                <constraint firstItem="2Tx-eh-zJL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="OIl-yf-BvF"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2Tx-eh-zJL" secondAttribute="trailing" constant="12" id="XJn-TF-HW2"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="2Tx-eh-zJL" secondAttribute="bottom" id="YjZ-eh-ZsH"/>
                 <constraint firstItem="2Tx-eh-zJL" firstAttribute="top" secondItem="JO9-bu-d6S" secondAttribute="bottom" id="nJ5-9g-niX"/>
                 <constraint firstItem="JO9-bu-d6S" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="vv0-Xr-dww"/>

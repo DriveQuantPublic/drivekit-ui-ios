@@ -14,8 +14,13 @@ class VehiclePickerTableViewCell: UITableViewCell {
     @IBOutlet weak var coloredBackgroundView: UIView!
 
     func configure(text: String) {
-        self.coloredBackgroundView.applyCardStyle()
         self.coloredBackgroundView.backgroundColor = DKUIColors.secondaryColor.color
         self.titleLabel.attributedText = text.dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.fontColorOnSecondaryColor).build()
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let divider: CGFloat = 2
+        self.coloredBackgroundView.layer.cornerRadius = self.coloredBackgroundView.bounds.size.height / divider
     }
 }

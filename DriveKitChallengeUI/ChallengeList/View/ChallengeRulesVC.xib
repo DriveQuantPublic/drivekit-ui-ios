@@ -22,10 +22,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="zfm-M0-Afz">
-                    <rect key="frame" x="0.0" y="48" width="414" height="814"/>
+                    <rect key="frame" x="0.0" y="48" width="414" height="806"/>
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wuI-KJ-5es">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="764"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="756"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <color key="textColor" systemColor="labelColor"/>
                             <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
@@ -33,7 +33,7 @@
                             <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                         </textView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYF-QI-kQG">
-                            <rect key="frame" x="12" y="764" width="390" height="50"/>
+                            <rect key="frame" x="12" y="756" width="390" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="vaC-dm-mGe"/>
                             </constraints>
@@ -54,7 +54,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zfm-M0-Afz" secondAttribute="trailing" id="T27-GG-gGH"/>
                 <constraint firstItem="zfm-M0-Afz" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="kIe-bt-Bx5"/>
                 <constraint firstItem="zfm-M0-Afz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="m20-49-ntY"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="zfm-M0-Afz" secondAttribute="bottom" id="wDn-z4-NlV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="zfm-M0-Afz" secondAttribute="bottom" constant="8" id="wDn-z4-NlV"/>
             </constraints>
             <point key="canvasLocation" x="103" y="64"/>
         </view>

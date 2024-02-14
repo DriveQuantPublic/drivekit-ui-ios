@@ -117,6 +117,7 @@ public enum DKButtonStyle {
         case .multilineBordered:
             button.layer.borderColor = DKUIColors.secondaryColor.color.cgColor
             button.layer.borderWidth = 2
+            button.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
             button.contentVerticalAlignment = .top
             button.contentHorizontalAlignment = .leading
             button.contentEdgeInsets = .init(

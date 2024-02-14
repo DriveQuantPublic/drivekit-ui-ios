@@ -15,5 +15,6 @@ public enum DKUIConstants {
         public static let shadowOpacity: Float = 0.5
         public static let shadowOffset = CGSize(width: 0, height: 1)
         public static let shadowRadius = 1.5
+        public static let marginBorder: CGFloat = 12
     }
 }

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -47,14 +48,14 @@ Vous êtes définitivement accro aux trails.
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="aAL-ui-VkG">
-                                    <rect key="frame" x="16" y="452" width="382" height="96"/>
+                                    <rect key="frame" x="12" y="452" width="390" height="96"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="96" id="JzH-Hm-srK"/>
                                     </constraints>
                                     <state key="normal" title="Button"/>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="7Cz-fs-Xgx">
-                                    <rect key="frame" x="16" y="573" width="382" height="96"/>
+                                    <rect key="frame" x="12" y="573" width="390" height="96"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="96" id="7OD-vq-Z7k"/>
                                     </constraints>
@@ -66,18 +67,18 @@ Vous êtes définitivement accro aux trails.
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="7Cz-fs-Xgx" firstAttribute="leading" secondItem="9aF-wB-hd6" secondAttribute="leading" constant="16" id="551-kS-wjO"/>
+                                <constraint firstItem="7Cz-fs-Xgx" firstAttribute="leading" secondItem="9aF-wB-hd6" secondAttribute="leading" constant="12" id="551-kS-wjO"/>
                                 <constraint firstItem="aAL-ui-VkG" firstAttribute="top" secondItem="EA2-2r-yKq" secondAttribute="bottom" constant="32" id="5y9-qN-f4t"/>
                                 <constraint firstAttribute="trailing" secondItem="EA2-2r-yKq" secondAttribute="trailing" constant="16" id="J4d-RG-sJd"/>
-                                <constraint firstAttribute="trailing" secondItem="7Cz-fs-Xgx" secondAttribute="trailing" constant="16" id="JSc-8j-gfr"/>
-                                <constraint firstItem="aAL-ui-VkG" firstAttribute="leading" secondItem="9aF-wB-hd6" secondAttribute="leading" constant="16" id="NRX-fr-7af"/>
+                                <constraint firstAttribute="trailing" secondItem="7Cz-fs-Xgx" secondAttribute="trailing" constant="12" id="JSc-8j-gfr"/>
+                                <constraint firstItem="aAL-ui-VkG" firstAttribute="leading" secondItem="9aF-wB-hd6" secondAttribute="leading" constant="12" id="NRX-fr-7af"/>
                                 <constraint firstItem="EA2-2r-yKq" firstAttribute="leading" secondItem="9aF-wB-hd6" secondAttribute="leading" constant="16" id="Rw0-jG-c8e"/>
                                 <constraint firstAttribute="bottom" secondItem="7Cz-fs-Xgx" secondAttribute="bottom" constant="20" symbolic="YES" id="UWL-It-rf7"/>
                                 <constraint firstItem="ixQ-dX-CKH" firstAttribute="centerX" secondItem="9aF-wB-hd6" secondAttribute="centerX" id="bZD-Ss-TY4"/>
                                 <constraint firstItem="7Cz-fs-Xgx" firstAttribute="top" secondItem="aAL-ui-VkG" secondAttribute="bottom" constant="25" id="d1W-jG-fZZ"/>
                                 <constraint firstItem="ixQ-dX-CKH" firstAttribute="top" secondItem="9aF-wB-hd6" secondAttribute="top" constant="16" id="rS3-Fg-Ljf"/>
                                 <constraint firstItem="EA2-2r-yKq" firstAttribute="top" secondItem="ixQ-dX-CKH" secondAttribute="bottom" constant="32" id="rvR-8k-MSs"/>
-                                <constraint firstAttribute="trailing" secondItem="aAL-ui-VkG" secondAttribute="trailing" constant="16" id="sEy-9s-Puf"/>
+                                <constraint firstAttribute="trailing" secondItem="aAL-ui-VkG" secondAttribute="trailing" constant="12" id="sEy-9s-Puf"/>
                             </constraints>
                         </view>
                     </subviews>

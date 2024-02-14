@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -24,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hMJ-zC-3Qc">
-                    <rect key="frame" x="0.0" y="64" width="414" height="180"/>
+                    <rect key="frame" x="0.0" y="68" width="414" height="180"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f3q-A2-oIX">
                             <rect key="frame" x="117" y="0.0" width="180" height="180"/>
@@ -43,13 +44,13 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kF8-to-t92">
-                    <rect key="frame" x="16" y="264" width="382" height="20.5"/>
+                    <rect key="frame" x="16" y="268" width="382" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eg-d6-2hG">
-                    <rect key="frame" x="16" y="406.5" width="382" height="50"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eg-d6-2hG">
+                    <rect key="frame" x="12" y="410.5" width="390" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="0AB-SG-VHL"/>
                     </constraints>
@@ -59,21 +60,22 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TDf-u3-tPM">
-                    <rect key="frame" x="16" y="320.5" width="382" height="50"/>
+                    <rect key="frame" x="16" y="324.5" width="382" height="50"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="7Ad-FA-w0N"/>
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <viewLayoutGuide key="safeArea" id="Fia-Lz-M9g"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="TDf-u3-tPM" firstAttribute="leading" secondItem="Fia-Lz-M9g" secondAttribute="leading" constant="16" id="1sw-bn-UPW"/>
                 <constraint firstItem="hMJ-zC-3Qc" firstAttribute="top" secondItem="Fia-Lz-M9g" secondAttribute="top" constant="20" id="2Lc-Q2-q5a"/>
-                <constraint firstItem="1eg-d6-2hG" firstAttribute="leading" secondItem="Fia-Lz-M9g" secondAttribute="leading" constant="16" id="Ah6-Ki-bNa"/>
+                <constraint firstItem="1eg-d6-2hG" firstAttribute="leading" secondItem="Fia-Lz-M9g" secondAttribute="leading" constant="12" id="Ah6-Ki-bNa"/>
                 <constraint firstItem="Fia-Lz-M9g" firstAttribute="trailing" secondItem="kF8-to-t92" secondAttribute="trailing" constant="16" id="IbA-B4-ldg"/>
                 <constraint firstItem="TDf-u3-tPM" firstAttribute="top" secondItem="kF8-to-t92" secondAttribute="bottom" constant="36" id="Rdp-zW-8W8"/>
-                <constraint firstItem="Fia-Lz-M9g" firstAttribute="trailing" secondItem="1eg-d6-2hG" secondAttribute="trailing" constant="16" id="UDN-gV-fQq"/>
+                <constraint firstItem="Fia-Lz-M9g" firstAttribute="trailing" secondItem="1eg-d6-2hG" secondAttribute="trailing" constant="12" id="UDN-gV-fQq"/>
                 <constraint firstItem="kF8-to-t92" firstAttribute="leading" secondItem="Fia-Lz-M9g" secondAttribute="leading" constant="16" id="bzD-xw-3i1"/>
                 <constraint firstItem="Fia-Lz-M9g" firstAttribute="trailing" secondItem="TDf-u3-tPM" secondAttribute="trailing" constant="16" id="d5J-Az-fCz"/>
                 <constraint firstItem="kF8-to-t92" firstAttribute="top" secondItem="hMJ-zC-3Qc" secondAttribute="bottom" constant="20" id="eA5-pI-NkK"/>
@@ -81,8 +83,12 @@
                 <constraint firstItem="hMJ-zC-3Qc" firstAttribute="leading" secondItem="Fia-Lz-M9g" secondAttribute="leading" id="wZH-S5-LGE"/>
                 <constraint firstItem="hMJ-zC-3Qc" firstAttribute="trailing" secondItem="Fia-Lz-M9g" secondAttribute="trailing" id="x0j-me-Jim"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="Fia-Lz-M9g"/>
             <point key="canvasLocation" x="-391.304347826087" y="-33.482142857142854"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

@@ -44,7 +44,7 @@ class DashboardViewController: UIViewController {
         addAllFeatureView()
         self.setupStartStopButton()
 
-        self.simulateTripButton.configure(title: "simulate_trip".keyLocalized(), style: .full)
+        self.simulateTripButton.configure(title: "simulate_trip".keyLocalized(), style: .bordered)
         configureNavBar()
         updateBanners()
     }

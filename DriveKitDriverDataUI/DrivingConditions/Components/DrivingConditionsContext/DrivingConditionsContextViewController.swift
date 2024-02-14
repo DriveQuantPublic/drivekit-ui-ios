@@ -32,7 +32,9 @@ class DrivingConditionsContextViewController: DKUIViewController, DKUIPageViewMo
         super.viewDidLoad()
         self.cardView.configure(viewModel: self.viewModel)
         self.cardView.applyCardStyle()
-        let margin: CGFloat = 12
-        self.view.embedSubview(self.cardView, margins: UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin))
+        let horizontalMargin: CGFloat = 12
+        let topMargin: CGFloat = 1
+        let bottomMargin: CGFloat = 2
+        self.view.embedSubview(self.cardView, margins: UIEdgeInsets(top: topMargin, left: horizontalMargin, bottom: bottomMargin, right: horizontalMargin))
     }
 }

@@ -18,8 +18,8 @@ class VehiclePickerTableViewCell: UITableViewCell {
         self.titleLabel.attributedText = text.dkAttributedString().font(dkFont: .primary, style: .bigtext).color(.fontColorOnSecondaryColor).build()
     }
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
         let divider: CGFloat = 2
         self.coloredBackgroundView.layer.cornerRadius = self.coloredBackgroundView.bounds.size.height / divider
     }

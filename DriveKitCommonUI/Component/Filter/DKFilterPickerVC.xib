@@ -21,12 +21,12 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B7R-L3-7Nh">
-                    <rect key="frame" x="8" y="48" width="398" height="764"/>
+                    <rect key="frame" x="8" y="48" width="398" height="756"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHO-tF-lma">
-                    <rect key="frame" x="12" y="812" width="390" height="50"/>
+                    <rect key="frame" x="12" y="804" width="390" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="3L0-0f-VsN"/>
                     </constraints>
@@ -39,7 +39,7 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="aHO-tF-lma" secondAttribute="bottom" id="GBM-Kt-0FQ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="aHO-tF-lma" secondAttribute="bottom" constant="8" id="GBM-Kt-0FQ"/>
                 <constraint firstItem="B7R-L3-7Nh" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="HYe-6x-hAv"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aHO-tF-lma" secondAttribute="trailing" constant="12" id="MUM-KR-juR"/>
                 <constraint firstItem="aHO-tF-lma" firstAttribute="top" secondItem="B7R-L3-7Nh" secondAttribute="bottom" id="Sdc-R6-YMb"/>

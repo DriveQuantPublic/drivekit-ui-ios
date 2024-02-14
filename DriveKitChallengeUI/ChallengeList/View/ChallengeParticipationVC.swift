@@ -112,9 +112,7 @@ class ChallengeParticipationVC: DKUIViewController {
 
     func setupJoinButton() {
         if viewModel?.getDisplayState() == .join {
-            joinButton?.configure(style: .full)
-            joinButton?.setTitle("dk_challenge_participate_button".dkChallengeLocalized(), for: .normal)
-            joinButton?.titleLabel?.font = DKUIFonts.primary.fonts(size: 20).with(.traitBold)
+            joinButton?.configure(title: "dk_challenge_participate_button".dkChallengeLocalized(), style: .full)
         }
     }
 

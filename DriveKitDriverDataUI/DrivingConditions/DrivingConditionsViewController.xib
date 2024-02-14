@@ -47,42 +47,51 @@
                     <rect key="frame" x="0.0" y="201" width="393" height="617"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="klr-93-qyQ" userLabel="ContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="646.66666666666663"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="408.66666666666669"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xpa-AX-kUu" userLabel="DrivingConditionsSummaryContainer">
-                                    <rect key="frame" x="12" y="1" width="369" height="85"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="jI6-W3-pGI">
+                                    <rect key="frame" x="0.0" y="1" width="393" height="405.66666666666669"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xpa-AX-kUu" userLabel="DrivingConditionsSummaryContainer">
+                                            <rect key="frame" x="12" y="0.0" width="369" height="85"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" priority="800" constant="85" id="Dh9-G9-6WZ"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="85" id="d4G-Ho-Vau"/>
+                                            </constraints>
+                                        </view>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ddL-W1-ohZ">
+                                            <rect key="frame" x="0.0" y="105" width="393" height="300.66666666666669"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="vno-hC-RNm" userLabel="ContextPagingContainer">
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="270"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="270" id="hZJ-40-NJw"/>
+                                                    </constraints>
+                                                </view>
+                                                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="z4P-r6-mQf">
+                                                    <rect key="frame" x="0.0" y="275" width="393" height="25.666666666666686"/>
+                                                </pageControl>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="height" priority="800" constant="85" id="Dh9-G9-6WZ"/>
-                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="85" id="d4G-Ho-Vau"/>
+                                        <constraint firstAttribute="trailing" secondItem="ddL-W1-ohZ" secondAttribute="trailing" id="2vA-3L-uIb"/>
+                                        <constraint firstAttribute="trailing" secondItem="xpa-AX-kUu" secondAttribute="trailing" constant="12" id="LCC-C0-0p9"/>
+                                        <constraint firstItem="ddL-W1-ohZ" firstAttribute="leading" secondItem="jI6-W3-pGI" secondAttribute="leading" id="Vv0-Df-lHL"/>
+                                        <constraint firstItem="xpa-AX-kUu" firstAttribute="leading" secondItem="jI6-W3-pGI" secondAttribute="leading" constant="12" id="odg-8d-gyK"/>
                                     </constraints>
-                                </view>
-                                <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="vno-hC-RNm" userLabel="ContextPagingContainer">
-                                    <rect key="frame" x="0.0" y="106" width="393" height="270"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="270" id="hZJ-40-NJw"/>
-                                    </constraints>
-                                </view>
-                                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="z4P-r6-mQf">
-                                    <rect key="frame" x="20" y="381" width="353" height="25.666666666666686"/>
-                                </pageControl>
+                                </stackView>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="vno-hC-RNm" firstAttribute="top" secondItem="xpa-AX-kUu" secondAttribute="bottom" constant="20" id="FRj-Lw-0YU"/>
-                                <constraint firstItem="z4P-r6-mQf" firstAttribute="leading" secondItem="klr-93-qyQ" secondAttribute="leading" constant="20" id="HIL-lt-6Ol"/>
-                                <constraint firstItem="xpa-AX-kUu" firstAttribute="top" secondItem="klr-93-qyQ" secondAttribute="top" constant="1" id="MNh-D3-j6o"/>
-                                <constraint firstAttribute="trailing" secondItem="z4P-r6-mQf" secondAttribute="trailing" constant="20" id="OYT-jM-LLU"/>
-                                <constraint firstItem="xpa-AX-kUu" firstAttribute="leading" secondItem="klr-93-qyQ" secondAttribute="leading" constant="12" id="PiI-2r-0gX"/>
-                                <constraint firstAttribute="trailing" secondItem="xpa-AX-kUu" secondAttribute="trailing" constant="12" id="V9f-lL-4HT"/>
-                                <constraint firstAttribute="bottom" secondItem="z4P-r6-mQf" secondAttribute="bottom" constant="240" id="l5b-eM-k3m"/>
-                                <constraint firstAttribute="trailing" secondItem="vno-hC-RNm" secondAttribute="trailing" id="mTD-et-KRD"/>
-                                <constraint firstItem="z4P-r6-mQf" firstAttribute="top" secondItem="vno-hC-RNm" secondAttribute="bottom" constant="5" id="pUY-1j-ZFg"/>
-                                <constraint firstItem="vno-hC-RNm" firstAttribute="leading" secondItem="klr-93-qyQ" secondAttribute="leading" id="xaD-3H-Qah"/>
+                                <constraint firstItem="jI6-W3-pGI" firstAttribute="leading" secondItem="klr-93-qyQ" secondAttribute="leading" id="0TA-SB-oyw"/>
+                                <constraint firstAttribute="bottom" secondItem="jI6-W3-pGI" secondAttribute="bottom" constant="2" id="74R-aw-vQJ"/>
+                                <constraint firstAttribute="trailing" secondItem="jI6-W3-pGI" secondAttribute="trailing" id="W2S-Wd-CUF"/>
+                                <constraint firstItem="jI6-W3-pGI" firstAttribute="top" secondItem="klr-93-qyQ" secondAttribute="top" constant="1" id="bTK-cp-0lB"/>
                             </constraints>
                         </view>
                     </subviews>
                     <constraints>
                         <constraint firstItem="yqi-2U-bvz" firstAttribute="top" secondItem="klr-93-qyQ" secondAttribute="top" id="9nn-ZN-nWH"/>
-                        <constraint firstItem="klr-93-qyQ" firstAttribute="height" relation="greaterThanOrEqual" secondItem="Pwc-MT-8XB" secondAttribute="height" id="AwE-62-9K8"/>
                         <constraint firstItem="klr-93-qyQ" firstAttribute="trailing" secondItem="yqi-2U-bvz" secondAttribute="trailing" id="Cet-Nj-0zZ"/>
                         <constraint firstItem="klr-93-qyQ" firstAttribute="bottom" secondItem="yqi-2U-bvz" secondAttribute="bottom" id="ML6-aH-Rug"/>
                         <constraint firstItem="klr-93-qyQ" firstAttribute="width" secondItem="2dj-b3-S1d" secondAttribute="width" id="oD3-la-R5s"/>

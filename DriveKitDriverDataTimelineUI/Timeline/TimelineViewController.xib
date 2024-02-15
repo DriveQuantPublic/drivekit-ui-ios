@@ -71,9 +71,9 @@
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLR-Ok-Rvv">
-                                    <rect key="frame" x="12" y="715" width="366" height="40"/>
+                                    <rect key="frame" x="12" y="705" width="366" height="50"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="40" id="U0Z-lJ-CCQ"/>
+                                        <constraint firstAttribute="height" constant="50" id="U0Z-lJ-CCQ"/>
                                     </constraints>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                     <state key="normal" title="Button"/>

@@ -12,6 +12,7 @@ import UIKit
 class DKTripStopConfirmationViewController: UIViewController {
     static let overlayAnimationDuration: CGFloat = 0.1
     static let overlayOpacityLevel: CGFloat = 0.5
+    @IBOutlet private weak var buttonsContainer: UIView!
     @IBOutlet private weak var endTripButton: UIButton!
     @IBOutlet private weak var continueTripButton: UIButton!
     @IBOutlet private weak var cancelTripButton: UIButton!
@@ -32,6 +33,7 @@ class DKTripStopConfirmationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        buttonsContainer.roundCorners(clipping: true)
         endTripButton.addTarget(self, action: #selector(didTapEndTripButton), for: .touchUpInside)
         continueTripButton.addTarget(self, action: #selector(didTapContinueTripButton), for: .touchUpInside)
         cancelTripButton.addTarget(self, action: #selector(didTapCancelTripButton), for: .touchUpInside)

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -27,37 +27,30 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aU5-Nr-ksb">
-                    <rect key="frame" x="0.0" y="44" width="414" height="45"/>
+                    <rect key="frame" x="0.0" y="48" width="414" height="50"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jfo-rA-h8J">
-                            <rect key="frame" x="0.0" y="44" width="414" height="1"/>
-                            <color key="backgroundColor" systemColor="separatorColor"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="1" id="Sl4-ct-Hea"/>
-                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="wyJ-ZU-Z4H"/>
-                            </constraints>
-                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gbf-jN-oal">
-                            <rect key="frame" x="-1" y="43" width="103.5" height="2"/>
+                            <rect key="frame" x="-1" y="48" width="103.5" height="2"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="2" id="b3H-AX-fKo"/>
                             </constraints>
                         </view>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="gQO-41-hG0">
-                            <rect key="frame" x="8" y="6" width="398" height="33"/>
+                            <rect key="frame" x="8" y="6" width="398" height="38"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uur-eX-Ga8">
-                                    <rect key="frame" x="0.0" y="0.0" width="33.5" height="33"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="31" height="38"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1l-hr-6wS">
-                                    <rect key="frame" x="33.5" y="0.0" width="33" height="33"/>
+                                    <rect key="frame" x="31" y="0.0" width="38" height="38"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="j1l-hr-6wS" secondAttribute="height" multiplier="1:1" id="kuD-Ai-6Yy"/>
                                     </constraints>
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
                                     <state key="normal" image="dk_challenge_result">
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                     </state>
@@ -66,13 +59,14 @@
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x6e-aO-w7T">
-                                    <rect key="frame" x="66.5" y="0.0" width="66.5" height="33"/>
+                                    <rect key="frame" x="69" y="0.0" width="61.5" height="38"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wut-Xd-8RO">
-                                    <rect key="frame" x="133" y="0.0" width="33" height="33"/>
+                                    <rect key="frame" x="130.5" y="0.0" width="38" height="38"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
                                     <state key="normal" image="dk_challenge_leaderboard">
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                     </state>
@@ -84,13 +78,14 @@
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dsI-dy-ylB">
-                                    <rect key="frame" x="166" y="0.0" width="66.5" height="33"/>
+                                    <rect key="frame" x="168.5" y="0.0" width="61.5" height="38"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gO-2o-cTK">
-                                    <rect key="frame" x="232.5" y="0.0" width="33" height="33"/>
+                                    <rect key="frame" x="230" y="0.0" width="38" height="38"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
                                     <state key="normal" image="dk_common_trip">
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                     </state>
@@ -99,13 +94,14 @@
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Em8-Pa-j5t">
-                                    <rect key="frame" x="265.5" y="0.0" width="66.5" height="33"/>
+                                    <rect key="frame" x="268" y="0.0" width="61.5" height="38"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7r-PE-odn">
-                                    <rect key="frame" x="332" y="0.0" width="33" height="33"/>
+                                    <rect key="frame" x="329.5" y="0.0" width="38" height="38"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
                                     <state key="normal" image="dk_challenge_rules">
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                     </state>
@@ -114,7 +110,7 @@
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ML-22-DfG">
-                                    <rect key="frame" x="365" y="0.0" width="33" height="33"/>
+                                    <rect key="frame" x="367.5" y="0.0" width="30.5" height="38"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                             </subviews>
@@ -142,21 +138,18 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="Jfo-rA-h8J" firstAttribute="leading" secondItem="aU5-Nr-ksb" secondAttribute="leading" id="4wk-TT-2mQ"/>
-                        <constraint firstAttribute="height" constant="45" id="8oW-ED-eaz"/>
+                        <constraint firstAttribute="height" constant="50" id="8oW-ED-eaz"/>
                         <constraint firstAttribute="bottom" secondItem="gQO-41-hG0" secondAttribute="bottom" constant="6" id="S4g-tW-g1i"/>
-                        <constraint firstAttribute="bottom" secondItem="Jfo-rA-h8J" secondAttribute="bottom" id="Tws-J5-i3Y"/>
                         <constraint firstAttribute="trailing" secondItem="gQO-41-hG0" secondAttribute="trailing" constant="8" id="YjT-gM-drD"/>
                         <constraint firstItem="gQO-41-hG0" firstAttribute="top" secondItem="aU5-Nr-ksb" secondAttribute="top" constant="6" id="ZCW-F0-Aju"/>
                         <constraint firstItem="Gbf-jN-oal" firstAttribute="width" secondItem="aU5-Nr-ksb" secondAttribute="width" multiplier="1:4" id="g7U-nt-8vB"/>
                         <constraint firstItem="gQO-41-hG0" firstAttribute="leading" secondItem="aU5-Nr-ksb" secondAttribute="leading" constant="8" id="j0D-WY-LFe"/>
-                        <constraint firstAttribute="trailing" secondItem="Jfo-rA-h8J" secondAttribute="trailing" id="oCW-Hz-T4p"/>
                         <constraint firstItem="Gbf-jN-oal" firstAttribute="leading" secondItem="aU5-Nr-ksb" secondAttribute="leading" constant="-1" id="tIh-8L-JKq"/>
                         <constraint firstAttribute="bottom" secondItem="Gbf-jN-oal" secondAttribute="bottom" id="uTZ-R7-IXK"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uvc-TM-bTh">
-                    <rect key="frame" x="0.0" y="89" width="414" height="773"/>
+                    <rect key="frame" x="0.0" y="98" width="414" height="764"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
             </subviews>
@@ -166,7 +159,7 @@
                 <constraint firstItem="Uvc-TM-bTh" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="5Tg-XP-q7Z"/>
                 <constraint firstItem="aU5-Nr-ksb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="LSr-0H-8KA"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Uvc-TM-bTh" secondAttribute="bottom" id="bdi-bO-vai"/>
-                <constraint firstItem="Uvc-TM-bTh" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="45" id="bf7-9A-8W0"/>
+                <constraint firstItem="Uvc-TM-bTh" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="bf7-9A-8W0"/>
                 <constraint firstItem="aU5-Nr-ksb" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="gyB-Vk-bZM"/>
                 <constraint firstItem="Uvc-TM-bTh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jb8-V7-xCZ"/>
                 <constraint firstAttribute="trailing" secondItem="aU5-Nr-ksb" secondAttribute="trailing" id="yEP-aM-R3w"/>
@@ -179,9 +172,6 @@
         <image name="dk_challenge_result" width="160" height="160"/>
         <image name="dk_challenge_rules" width="160" height="160"/>
         <image name="dk_common_trip" width="60" height="60"/>
-        <systemColor name="separatorColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

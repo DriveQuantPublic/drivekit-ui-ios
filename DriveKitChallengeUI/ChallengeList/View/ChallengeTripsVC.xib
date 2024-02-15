@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,32 +22,32 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PvB-3v-74E">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="0.0" y="48" width="414" height="818"/>
                     <subviews>
                         <view contentMode="scaleToFill" id="Lcv-0u-Wps">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClP-go-fhG">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="408"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClP-go-fhG">
+                                    <rect key="frame" x="24" y="14" width="366" height="397"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="LZT-nx-MSd"/>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="58" id="LZT-nx-MSd"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="Oswald-Bold" family="Oswald" pointSize="22"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POL-OZ-WMR">
-                                    <rect key="frame" x="0.0" y="410" width="414" height="408"/>
+                                    <rect key="frame" x="0.0" y="421" width="414" height="397"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="ttd-Mq-SfA"/>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="ttd-Mq-SfA"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
@@ -56,14 +56,14 @@
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="POL-OZ-WMR" firstAttribute="top" secondItem="ClP-go-fhG" secondAttribute="bottom" constant="2" id="1df-ud-Pqi"/>
-                                <constraint firstAttribute="trailing" secondItem="ClP-go-fhG" secondAttribute="trailing" id="7ul-vU-VWQ"/>
+                                <constraint firstItem="POL-OZ-WMR" firstAttribute="top" secondItem="ClP-go-fhG" secondAttribute="bottom" constant="10" id="1df-ud-Pqi"/>
+                                <constraint firstAttribute="trailing" secondItem="ClP-go-fhG" secondAttribute="trailing" constant="24" id="7ul-vU-VWQ"/>
                                 <constraint firstAttribute="bottom" secondItem="POL-OZ-WMR" secondAttribute="bottom" id="RNh-40-zvf"/>
                                 <constraint firstItem="POL-OZ-WMR" firstAttribute="leading" secondItem="Lcv-0u-Wps" secondAttribute="leading" id="VtZ-dK-DaQ"/>
-                                <constraint firstItem="ClP-go-fhG" firstAttribute="top" secondItem="Lcv-0u-Wps" secondAttribute="top" id="W7X-P6-zmH"/>
+                                <constraint firstItem="ClP-go-fhG" firstAttribute="top" secondItem="Lcv-0u-Wps" secondAttribute="top" constant="14" id="W7X-P6-zmH"/>
                                 <constraint firstAttribute="trailing" secondItem="POL-OZ-WMR" secondAttribute="trailing" id="orP-gT-jGS"/>
                                 <constraint firstItem="ClP-go-fhG" firstAttribute="height" secondItem="POL-OZ-WMR" secondAttribute="height" id="sno-t4-uUS"/>
-                                <constraint firstItem="ClP-go-fhG" firstAttribute="leading" secondItem="Lcv-0u-Wps" secondAttribute="leading" id="vaF-HO-tY3"/>
+                                <constraint firstItem="ClP-go-fhG" firstAttribute="leading" secondItem="Lcv-0u-Wps" secondAttribute="leading" constant="24" id="vaF-HO-tY3"/>
                             </constraints>
                         </view>
                     </subviews>

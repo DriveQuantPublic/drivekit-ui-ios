@@ -36,6 +36,25 @@ public extension UIView {
             view.removeFromSuperview()
         }
     }
+
+    func applyCardStyle() {
+        roundCorners()
+        addShadow()
+    }
+
+    func roundCorners(clipping clipsToBounds: Bool = false) {
+        self.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
+        self.layer.masksToBounds = false
+        self.clipsToBounds = clipsToBounds
+    }
+
+    func addShadow() {
+        self.layer.shadowColor = DKUIConstants.UIStyle.shadowColor
+        self.layer.shadowOpacity = DKUIConstants.UIStyle.shadowOpacity
+        self.layer.shadowOffset = DKUIConstants.UIStyle.shadowOffset
+        self.layer.shadowRadius = DKUIConstants.UIStyle.shadowRadius
+        self.layer.masksToBounds = false
+    }
 }
 
 public extension UIStackView {

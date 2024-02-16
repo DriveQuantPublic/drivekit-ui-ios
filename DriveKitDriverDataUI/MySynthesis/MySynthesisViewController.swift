@@ -54,12 +54,14 @@ class MySynthesisViewController: DKUIViewController {
         
         MySynthesisScoreCardView.createScoreCardView(
             configuredWith: self.viewModel.scoreCardViewModel,
-            embededIn: scoreViewContainer
+            embededIn: scoreViewContainer,
+            withCardStyle: true
         )
         
         MySynthesisCommunityCardView.createCommunityCardView(
             configuredWith: viewModel.communityCardViewModel,
-            embededIn: communityViewContainer
+            embededIn: communityViewContainer,
+            withCardStyle: true
         )
 
         moreDetailsButton.isHidden = true

@@ -39,7 +39,7 @@ class UserInfoViewController: UIViewController {
     func setupView() {
         self.title = "user_info_header".keyLocalized()
         sendButton.configure(title: "button_validation".keyLocalized(), style: .full)
-        skipButton.configure(title: "button_next_step".keyLocalized(), style: .empty)
+        skipButton.configure(title: "button_next_step".keyLocalized(), style: .bordered)
         topLabel.attributedText = viewModel.getTitleAttributedText()
         descriptionLabel.attributedText = viewModel.getDescriptionAttibutedText()
         firstNameTextField.placeholder = "firstname".keyLocalized()

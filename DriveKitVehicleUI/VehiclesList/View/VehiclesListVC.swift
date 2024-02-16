@@ -44,12 +44,7 @@ public class VehiclesListVC: DKUIViewController {
 
     func configure() {
         if (DriveKitVehicleUI.shared.canAddVehicle && !viewModel.maxVehiclesReached()) || viewModel.shouldReplaceVehicle() {
-            addReplaceVehicleButton.backgroundColor = DKUIColors.secondaryColor.color
-            let addReplaceTitle = viewModel.getAddReplaceButtonTitle().uppercased().dkAttributedString().font(
-                dkFont: .primary,
-                style: .button
-            ).color(.fontColorOnSecondaryColor).build()
-            addReplaceVehicleButton.setAttributedTitle(addReplaceTitle, for: .normal)
+            addReplaceVehicleButton.configure(title: viewModel.getAddReplaceButtonTitle(), style: .full)
             addReplaceVehicleButton.isHidden = false
         } else {
             addReplaceVehicleButton.isHidden = true

@@ -24,13 +24,7 @@ class ChallengeCell: UICollectionViewCell {
     }
 
     private func setup() {
-        if let layer = self.whiteBackgroundView?.layer {
-            layer.cornerRadius = 2
-            layer.masksToBounds = false
-            layer.shadowOpacity = 0.3
-            layer.shadowColor = UIColor.black.cgColor
-            layer.shadowOffset = CGSize(width: 1, height: 1)
-        }
+        self.whiteBackgroundView?.applyCardStyle()
 
         challengeDatesLabel.textColor = DKUIColors.complementaryFontColor.color
         challengeDatesLabel.font = DKUIFonts.primary.fonts(size: 14)

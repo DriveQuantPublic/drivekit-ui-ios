@@ -52,13 +52,15 @@ class DrivingConditionsViewController: DKUIViewController {
         
         DrivingConditionsSummaryCardView.createSummaryCardView(
             configuredWith: viewModel.drivingConditionsSummaryViewModel,
-            embededIn: self.drivingConditionsSummaryContainer
+            embededIn: self.drivingConditionsSummaryContainer,
+            withCardStyle: true
         )
         
         self.contextPagingViewController = ContextPagingViewController.createPagingViewController(
             configuredWith: viewModel,
             pagingControl: self.pagingControl,
             embededIn: contextPagingContainer,
+            withCardStyle: false,
             of: self
         )
     }
@@ -70,14 +72,6 @@ class DrivingConditionsViewController: DKUIViewController {
         } else {
             hideRefreshControl()
         }
-    }
-    
-    private func embedContextViewController(_ contextViewController: UIViewController) {
-        self.addChild(contextViewController)
-        contextPagingContainer.embedSubview(contextViewController.view)
-        contextPagingContainer.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
-        contextPagingContainer.clipsToBounds = true
-        contextViewController.didMove(toParent: self)
     }
     
     @objc private func refresh(_ sender: Any) {

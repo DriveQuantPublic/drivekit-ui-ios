@@ -39,12 +39,12 @@ class DashboardViewController: UIViewController {
         self.view.backgroundColor = DKUIColors.backgroundView.color
         self.viewModel.delegate = self
         self.title = "dashboard_header".keyLocalized()
-        self.synthesisCardViewContainer.addShadow()
-        self.lastTripsViewContainer.addShadow()
+        self.synthesisCardViewContainer.applyCardStyle()
+        self.lastTripsViewContainer.applyCardStyle()
         addAllFeatureView()
         self.setupStartStopButton()
 
-        self.simulateTripButton.configure(title: "simulate_trip".keyLocalized(), style: .full)
+        self.simulateTripButton.configure(title: "simulate_trip".keyLocalized(), style: .bordered)
         configureNavBar()
         updateBanners()
     }
@@ -81,7 +81,7 @@ class DashboardViewController: UIViewController {
         featureView.translatesAutoresizingMaskIntoConstraints = false
         featureView.update(viewModel: FeatureViewViewModel(type: .all), parentViewController: self)
         self.featureListViewContainer.addSubview(featureView)
-        self.featureListViewContainer.addShadow()
+        self.featureListViewContainer.applyCardStyle()
         NSLayoutConstraint.activate([
             featureView.topAnchor.constraint(equalTo: self.featureListViewContainer.topAnchor),
             featureView.bottomAnchor.constraint(equalTo: self.featureListViewContainer.bottomAnchor),

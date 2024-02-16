@@ -153,7 +153,7 @@ fileprivate extension TripTipFeedbackVC {
         commentTextView.inputAccessoryView = doneToolBar
         commentTextView.layer.borderWidth = 1
         commentTextView.layer.borderColor = DKUIColors.mainFontColor.color.cgColor
-        commentTextView.layer.cornerRadius = 5
+        commentTextView.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
     }
 
     @objc func doneButtonAction() {

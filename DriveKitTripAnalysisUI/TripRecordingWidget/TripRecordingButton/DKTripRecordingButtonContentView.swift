@@ -10,7 +10,6 @@ import DriveKitCommonUI
 import UIKit
 
 class DKTripRecordingButtonContentView: UIView {
-    let iconContainerCornerRadius: CGFloat = 5.0
     let iconContainerBorderWidth: CGFloat = 1.5
     let darkerBorderColorValue: Int = 0x5DB089
     @IBOutlet private weak var iconContainer: UIView!
@@ -26,9 +25,14 @@ class DKTripRecordingButtonContentView: UIView {
         super.awakeFromNib()
         setupView()
     }
-    
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let divider: CGFloat = 2
+        iconContainer.layer.cornerRadius = iconContainer.bounds.height / divider
+    }
+
     func setupView() {
-        iconContainer.layer.cornerRadius = iconContainerCornerRadius
         iconContainer.layer.borderWidth = iconContainerBorderWidth
         iconContainer.layer.borderColor = UIColor(
             hex: darkerBorderColorValue

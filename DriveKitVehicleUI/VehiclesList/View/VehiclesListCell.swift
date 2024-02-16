@@ -58,6 +58,7 @@ class VehiclesListCell: UITableViewCell {
             .color(.mainFontColor)
             .build()
         autoStartSelectView.backgroundColor = DKUIColors.neutralColor.color
+        autoStartSelectView.roundCorners(clipping: true)
         autoStartDelimiter.backgroundColor = DKUIColors.neutralColor.color
         autoStartSelectImage.image = DKImages.arrowDown.image
         autoStartSelectImage.tintColor = DKUIColors.complementaryFontColor.color

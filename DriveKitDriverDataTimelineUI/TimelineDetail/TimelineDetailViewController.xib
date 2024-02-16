@@ -24,23 +24,23 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="RxC-Gi-X5O">
-                    <rect key="frame" x="8" y="79" width="377" height="284"/>
+                    <rect key="frame" x="12" y="79" width="369" height="284"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TX2-cJ-UOX" userLabel="Period selector">
-                            <rect key="frame" x="0.0" y="0.0" width="377" height="36"/>
+                            <rect key="frame" x="0.0" y="0.0" width="369" height="36"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="36" id="d0w-0p-UC1"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E2Z-NE-APt" userLabel="Date selector">
-                            <rect key="frame" x="0.0" y="56" width="377" height="38"/>
+                            <rect key="frame" x="0.0" y="56" width="369" height="38"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="38" id="3q1-M0-9Wi"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fPt-G9-IFu" userLabel="Road context">
-                            <rect key="frame" x="0.0" y="114" width="377" height="170"/>
+                            <rect key="frame" x="0.0" y="114" width="369" height="170"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="height" relation="lessThanOrEqual" constant="170" id="9bh-qv-fBN"/>
@@ -53,18 +53,18 @@
                     <rect key="frame" x="0.0" y="383" width="393" height="435"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gxw-ug-vpJ" userLabel="Graph Stack View">
-                            <rect key="frame" x="8" y="0.0" width="377" height="50"/>
+                            <rect key="frame" x="12" y="2" width="369" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" placeholder="YES" id="Ngf-j1-mEa"/>
                             </constraints>
                         </stackView>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="gxw-ug-vpJ" firstAttribute="width" secondItem="tN0-bj-kbw" secondAttribute="width" constant="-16" id="CSh-7g-iBO"/>
+                        <constraint firstItem="gxw-ug-vpJ" firstAttribute="width" secondItem="tN0-bj-kbw" secondAttribute="width" constant="-24" id="CSh-7g-iBO"/>
                         <constraint firstItem="gxw-ug-vpJ" firstAttribute="trailing" secondItem="JuR-WX-Pjx" secondAttribute="trailing" id="LID-od-6Be"/>
-                        <constraint firstItem="gxw-ug-vpJ" firstAttribute="leading" secondItem="JuR-WX-Pjx" secondAttribute="leading" constant="8" id="PiI-fC-Hx2"/>
-                        <constraint firstItem="gxw-ug-vpJ" firstAttribute="bottom" secondItem="JuR-WX-Pjx" secondAttribute="bottom" id="Uda-0K-oRa"/>
-                        <constraint firstItem="gxw-ug-vpJ" firstAttribute="top" secondItem="JuR-WX-Pjx" secondAttribute="top" id="ZhH-7o-rkM"/>
+                        <constraint firstItem="gxw-ug-vpJ" firstAttribute="leading" secondItem="JuR-WX-Pjx" secondAttribute="leading" constant="12" id="PiI-fC-Hx2"/>
+                        <constraint firstItem="gxw-ug-vpJ" firstAttribute="bottom" secondItem="JuR-WX-Pjx" secondAttribute="bottom" constant="-4" id="Uda-0K-oRa"/>
+                        <constraint firstItem="gxw-ug-vpJ" firstAttribute="top" secondItem="JuR-WX-Pjx" secondAttribute="top" constant="2" id="ZhH-7o-rkM"/>
                     </constraints>
                     <viewLayoutGuide key="contentLayoutGuide" id="JuR-WX-Pjx"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="tN0-bj-kbw"/>
@@ -73,13 +73,13 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="RxC-Gi-X5O" secondAttribute="trailing" constant="8" id="9Yr-S4-o6e"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="RxC-Gi-X5O" secondAttribute="trailing" constant="12" id="9Yr-S4-o6e"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="rfR-pb-R4i" secondAttribute="bottom" id="BNG-sY-cI7"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="rfR-pb-R4i" secondAttribute="trailing" id="Ucy-fg-srZ"/>
                 <constraint firstItem="rfR-pb-R4i" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ezT-Vu-4sf"/>
                 <constraint firstItem="RxC-Gi-X5O" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="iHI-jb-uxn"/>
                 <constraint firstItem="rfR-pb-R4i" firstAttribute="top" secondItem="RxC-Gi-X5O" secondAttribute="bottom" constant="20" id="q3x-CY-IyB"/>
-                <constraint firstItem="RxC-Gi-X5O" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="usf-8q-p3Y"/>
+                <constraint firstItem="RxC-Gi-X5O" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="usf-8q-p3Y"/>
             </constraints>
             <point key="canvasLocation" x="61" y="21"/>
         </view>

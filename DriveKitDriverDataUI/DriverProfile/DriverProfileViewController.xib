@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,56 +28,56 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ljY-Ge-B8E">
-                    <rect key="frame" x="0.0" y="59" width="393" height="698.66666666666663"/>
+                    <rect key="frame" x="0.0" y="59" width="393" height="683"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dXp-VG-L4i" userLabel="ContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="615"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="614"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="W6i-Ja-Bfd">
-                                    <rect key="frame" x="8" y="16" width="377" height="583"/>
+                                    <rect key="frame" x="12" y="16" width="369" height="582"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="3ha-QK-G6A" userLabel="Profile Feature Stack View">
-                                            <rect key="frame" x="0.0" y="0.0" width="377" height="181"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="369" height="180.66666666666666"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="BgF-nh-ocs" userLabel="DriverProfileFeaturePagingContainer">
-                                                    <rect key="frame" x="0.0" y="0.0" width="377" height="150"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="369" height="150"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="150" id="hUB-ci-DJq"/>
                                                     </constraints>
                                                 </view>
                                                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ZCj-t4-Mft">
-                                                    <rect key="frame" x="0.0" y="155" width="377" height="26"/>
+                                                    <rect key="frame" x="0.0" y="155" width="369" height="25.666666666666657"/>
                                                 </pageControl>
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="q0Q-UN-5BE" userLabel="Distance Estimation Stack View">
-                                            <rect key="frame" x="0.0" y="201" width="377" height="201"/>
+                                            <rect key="frame" x="0.0" y="200.66666666666669" width="369" height="200.66666666666669"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="9TG-j2-gAJ" userLabel="DriverDistanceEstimationPagingContainer">
-                                                    <rect key="frame" x="0.0" y="0.0" width="377" height="170"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="369" height="170"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="170" id="r0S-zt-s4y"/>
                                                     </constraints>
                                                 </view>
                                                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="MNY-xA-IbB">
-                                                    <rect key="frame" x="0.0" y="175" width="377" height="26"/>
+                                                    <rect key="frame" x="0.0" y="175" width="369" height="25.666666666666657"/>
                                                 </pageControl>
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="aL6-tD-ccV" userLabel="Common Trip Stack View">
-                                            <rect key="frame" x="0.0" y="422" width="377" height="161"/>
+                                            <rect key="frame" x="0.0" y="421.33333333333331" width="369" height="160.66666666666669"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="5E6-Za-7bn" userLabel="DriverCommonTripPagingContainer">
-                                                    <rect key="frame" x="0.0" y="0.0" width="377" height="130"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="369" height="130"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="130" id="3AL-S3-fbP"/>
                                                     </constraints>
                                                 </view>
                                                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="7nW-MO-7Rv">
-                                                    <rect key="frame" x="0.0" y="135" width="377" height="26"/>
+                                                    <rect key="frame" x="0.0" y="135.00000000000006" width="369" height="25.666666666666657"/>
                                                 </pageControl>
                                             </subviews>
                                         </stackView>
@@ -85,10 +85,10 @@
                                 </stackView>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="leadingMargin" secondItem="W6i-Ja-Bfd" secondAttribute="leading" id="1OX-0e-pLS"/>
                                 <constraint firstItem="W6i-Ja-Bfd" firstAttribute="top" secondItem="dXp-VG-L4i" secondAttribute="top" constant="16" id="7er-gB-u78"/>
                                 <constraint firstAttribute="bottom" secondItem="W6i-Ja-Bfd" secondAttribute="bottom" constant="16" id="LHk-Gi-ATe"/>
-                                <constraint firstAttribute="trailingMargin" secondItem="W6i-Ja-Bfd" secondAttribute="trailing" id="pfg-ck-rCp"/>
+                                <constraint firstAttribute="trailing" secondItem="W6i-Ja-Bfd" secondAttribute="trailing" constant="12" id="VWz-aV-O5v"/>
+                                <constraint firstItem="W6i-Ja-Bfd" firstAttribute="leading" secondItem="dXp-VG-L4i" secondAttribute="leading" constant="12" id="XG7-15-cFd"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -104,7 +104,10 @@
                     <viewLayoutGuide key="frameLayoutGuide" id="8X4-m8-GZT"/>
                 </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoK-8w-e2I">
-                    <rect key="frame" x="16" y="767.66666666666663" width="361" height="34.333333333333371"/>
+                    <rect key="frame" x="12" y="752" width="369" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="PgJ-eT-gfK"/>
+                    </constraints>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Button"/>
                 </button>
@@ -113,9 +116,9 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="ljY-Ge-B8E" secondAttribute="top" id="9F6-2q-clD"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eoK-8w-e2I" secondAttribute="trailing" constant="16" id="DQK-Bw-ZR5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eoK-8w-e2I" secondAttribute="trailing" constant="12" id="DQK-Bw-ZR5"/>
                 <constraint firstItem="ljY-Ge-B8E" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="MPx-oS-wRL"/>
-                <constraint firstItem="eoK-8w-e2I" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="aCi-u9-4p8"/>
+                <constraint firstItem="eoK-8w-e2I" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="aCi-u9-4p8"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="eoK-8w-e2I" secondAttribute="bottom" constant="16" id="l9N-UB-VNu"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ljY-Ge-B8E" secondAttribute="trailing" id="vyk-f7-uPU"/>
                 <constraint firstItem="ljY-Ge-B8E" firstAttribute="bottom" secondItem="eoK-8w-e2I" secondAttribute="top" constant="-10" id="ylV-n2-yPU"/>

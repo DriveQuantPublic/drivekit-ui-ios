@@ -61,7 +61,7 @@ class DriverProfileViewController: DKUIViewController {
         self.configureDistanceEstimationPagingContexts()
         self.configureCommonTripPagingContexts()
                 
-        drivingConditionsButton.configure(title: "dk_driverdata_drivingconditions_show".dkDriverDataLocalized(), style: .empty)
+        drivingConditionsButton.configure(title: "dk_driverdata_drivingconditions_show".dkDriverDataLocalized(), style: .bordered)
         
         drivingConditionsButton.addTarget(self, action: #selector(drivingConditionsButtonTapped), for: .touchUpInside)
     }
@@ -88,6 +88,7 @@ class DriverProfileViewController: DKUIViewController {
             configuredWith: viewModel.driverProfileFeaturePagingViewModel,
             pagingControl: self.driverProfileFeaturePagingControl,
             embededIn: driverProfileFeaturePagingContainer,
+            withCardStyle: true,
             of: self
         )
     }
@@ -98,6 +99,7 @@ class DriverProfileViewController: DKUIViewController {
             configuredWith: viewModel.driverDistanceEstimationPagingViewModel,
             pagingControl: self.driverDistanceEstimationPagingControl,
             embededIn: driverDistanceEstimationPagingContainer,
+            withCardStyle: true,
             of: self
         )
     }
@@ -108,6 +110,7 @@ class DriverProfileViewController: DKUIViewController {
             configuredWith: viewModel.driverCommonTripPagingViewModel,
             pagingControl: self.driverCommonTripPagingControl,
             embededIn: driverCommonTripPagingContainer,
+            withCardStyle: true,
             of: self
         )
     }

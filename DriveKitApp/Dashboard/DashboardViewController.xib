@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,7 +26,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="b3T-ew-1Ac">
-                    <rect key="frame" x="0.0" y="48" width="414" height="750"/>
+                    <rect key="frame" x="0.0" y="48" width="414" height="744"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="q2B-qo-pKK" userLabel="Banners container">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -41,27 +41,27 @@
                             </subviews>
                         </stackView>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CFE-AG-lEd">
-                            <rect key="frame" x="0.0" y="50" width="414" height="700"/>
+                            <rect key="frame" x="0.0" y="50" width="414" height="694"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7X0-8I-mgV">
-                                    <rect key="frame" x="8" y="8" width="398" height="487"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="7X0-8I-mgV">
+                                    <rect key="frame" x="12" y="12" width="390" height="499"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTW-BE-ahw" userLabel="SynthesisCardViewContainer">
-                                            <rect key="frame" x="0.0" y="0.0" width="398" height="221"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="221"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="221" id="H3p-HG-2aA"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rzu-AD-EMr" userLabel="LastTripsViewContainer">
-                                            <rect key="frame" x="0.0" y="231" width="398" height="126"/>
+                                            <rect key="frame" x="0.0" y="237" width="390" height="126"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="126" id="usO-KX-qfR"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaH-AM-F6U" userLabel="FeatureListContainer">
-                                            <rect key="frame" x="0.0" y="367" width="398" height="120"/>
+                                            <rect key="frame" x="0.0" y="379" width="390" height="120"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" priority="750" constant="120" id="luv-Rf-dNB"/>
@@ -79,21 +79,21 @@
                                 <constraint firstAttribute="bottom" secondItem="7X0-8I-mgV" secondAttribute="bottom" constant="12" id="2Ad-Qc-uOl"/>
                                 <constraint firstItem="7X0-8I-mgV" firstAttribute="centerX" secondItem="CFE-AG-lEd" secondAttribute="centerX" id="FCn-Ys-oFk"/>
                                 <constraint firstAttribute="trailing" secondItem="7X0-8I-mgV" secondAttribute="trailing" id="Q3N-Ff-e76"/>
-                                <constraint firstItem="7X0-8I-mgV" firstAttribute="top" secondItem="CFE-AG-lEd" secondAttribute="top" constant="8" id="vYl-tZ-RBJ"/>
+                                <constraint firstItem="7X0-8I-mgV" firstAttribute="top" secondItem="CFE-AG-lEd" secondAttribute="top" constant="12" id="vYl-tZ-RBJ"/>
                             </constraints>
                         </scrollView>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="7X0-8I-mgV" firstAttribute="width" secondItem="b3T-ew-1Ac" secondAttribute="width" constant="-16" id="bM4-Mn-JOq"/>
+                        <constraint firstItem="7X0-8I-mgV" firstAttribute="width" secondItem="b3T-ew-1Ac" secondAttribute="width" constant="-24" id="bM4-Mn-JOq"/>
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2bH-08-Xsh">
-                    <rect key="frame" x="20" y="798" width="374" height="44"/>
+                    <rect key="frame" x="12" y="792" width="390" height="50"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tfa-kl-Cbd" userLabel="SimulateTripButton">
-                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="50"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="44" id="0qm-7x-unk"/>
+                                <constraint firstAttribute="height" constant="50" id="0qm-7x-unk"/>
                             </constraints>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <state key="normal" title="Button"/>
@@ -111,9 +111,9 @@
                 <constraint firstItem="b3T-ew-1Ac" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="MO6-Nu-2xj"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="b3T-ew-1Ac" secondAttribute="trailing" id="Peh-1b-fZY"/>
                 <constraint firstItem="2bH-08-Xsh" firstAttribute="top" secondItem="b3T-ew-1Ac" secondAttribute="bottom" id="T82-Zg-z33"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="2bH-08-Xsh" secondAttribute="trailing" constant="20" id="UpG-Ac-QWI"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="2bH-08-Xsh" secondAttribute="trailing" constant="12" id="UpG-Ac-QWI"/>
                 <constraint firstItem="b3T-ew-1Ac" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="mk5-U3-Nl4"/>
-                <constraint firstItem="2bH-08-Xsh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="zFZ-9E-6Sc"/>
+                <constraint firstItem="2bH-08-Xsh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="zFZ-9E-6Sc"/>
             </constraints>
             <point key="canvasLocation" x="139" y="126"/>
         </view>

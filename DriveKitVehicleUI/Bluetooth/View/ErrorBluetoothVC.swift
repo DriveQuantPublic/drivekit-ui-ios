@@ -38,15 +38,7 @@ class ErrorBluetoothVC: DKUIViewController {
             .build()
         
         cancelButton.configure(title: DKCommonLocalizable.cancel.text(), style: .full)
-        settingsButton.setAttributedTitle(
-            "dk_vehicle_open_bluetooth_settings"
-                .dkVehicleLocalized()
-                .dkAttributedString()
-                .font(dkFont: .primary, style: DKStyle(size: 15, traits: nil))
-                .color(.secondaryColor)
-                .uppercased()
-                .build(),
-            for: .normal)
+        settingsButton.configure(title: "dk_vehicle_open_bluetooth_settings".dkVehicleLocalized(), style: .bordered)
     }
 
     @IBAction func cancelAction(_ sender: Any) {

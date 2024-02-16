@@ -39,7 +39,7 @@ public class UserPseudoViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.contentView.layer.cornerRadius = 10
+        self.contentView.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
         self.contentView.backgroundColor = .white
 
         self.errorLabelHeightConstraint.constant = 0

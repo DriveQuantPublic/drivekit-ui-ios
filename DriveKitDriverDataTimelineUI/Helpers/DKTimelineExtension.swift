@@ -236,11 +236,7 @@ extension DKRawTimeline {
         for selectedScore: DKScoreType,
         at index: Int
     ) -> Bool {
-        // Distraction and Speeding can have score for short trip which
-        // are not counted in `numberTripScored`. `numberTripScored` only
-        // count fully scored trip for all four scores
-        return selectedScore == .distraction
-            || selectedScore == .speeding
-            || self.allContext.numberTripScored[index, default: 0] > 0
+        // check if there are fully scored trip (same behaviour for all four scores)
+        return self.allContext.numberTripScored[index, default: 0] > 0
     }
 }

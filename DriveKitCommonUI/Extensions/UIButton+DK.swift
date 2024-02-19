@@ -145,5 +145,6 @@ public enum DKButtonStyle {
             button.setBackgroundImage(UIImage(color: bgColor), for: .normal)
             button.setBackgroundImage(UIImage(color: bgColor), for: .disabled)
         }
+        button.titleLabel?.numberOfLines = 0
     }
 }

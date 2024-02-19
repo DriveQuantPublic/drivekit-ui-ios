@@ -43,6 +43,8 @@
                         </button>
                     </subviews>
                     <constraints>
+                        <constraint firstItem="wuI-KJ-5es" firstAttribute="leading" secondItem="zfm-M0-Afz" secondAttribute="leading" id="WHI-Mh-ndN"/>
+                        <constraint firstAttribute="trailing" secondItem="wuI-KJ-5es" secondAttribute="trailing" id="dNU-rf-bae"/>
                         <constraint firstItem="bYF-QI-kQG" firstAttribute="leading" secondItem="zfm-M0-Afz" secondAttribute="leading" constant="12" id="eeD-Pz-NHJ"/>
                         <constraint firstAttribute="trailing" secondItem="bYF-QI-kQG" secondAttribute="trailing" constant="12" id="yCH-ZQ-mee"/>
                     </constraints>

@@ -1,4 +1,3 @@
-"NSLocationAlwaysUsageDescription"="Die Bewerbung muss Ihre Position kennen, um Ihre Reisen zu analysieren, Fahrspitzen zu liefern und den automatischen modus aktiviert.";
 "NSLocationWhenInUseUsageDescription"="Damit Ihre Fahrten automatisch erkannt und analysiert werden können, muss die Anwendung jederzeit Zugriff auf Ihre Position haben.";
 "NSLocationAlwaysAndWhenInUseUsageDescription"="Um von der automatischen Erkennung und Analyse Ihres Fahrens zu profitieren, ohne Ihr iPhone zu manipulieren, wählen Sie die Option \"Immer erlauben\". Gute Straße ...";
 "NSBluetoothAlwaysUsageDescription"="Die Anwendung muss Bluetooth verwenden, um den Akku von ibeacon abzurufen";

@@ -1,4 +1,3 @@
-"NSLocationAlwaysUsageDescription"="La aplicación necesita saber su posición para analizar sus viajes, calcular los puntajes de conducción y activar el modo de inicio automático.";
 "NSLocationWhenInUseUsageDescription"="Para detectar y analizar sus viajes de forma automática, la aplicación necesita acceder a su posición en todo momento.";
 "NSLocationAlwaysAndWhenInUseUsageDescription"="Para habilitar la detección automática de viajes y el análisis de conducción sin tener que manipular su teléfono, seleccione la opción \"Permitir siempre\". Buen camino...";
 "NSBluetoothAlwaysUsageDescription"="La aplicación necesita usar bluetooth para recuperar el nivel de batería de ibeacon";

@@ -72,7 +72,6 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="Qa0-ek-CNC" firstAttribute="top" secondItem="EuP-L7-gEP" secondAttribute="top" id="35b-JV-bos"/>
                         <constraint firstItem="Qa0-ek-CNC" firstAttribute="width" secondItem="E6z-ve-7Pl" secondAttribute="width" multiplier="1:1" id="7zG-3z-MlU"/>

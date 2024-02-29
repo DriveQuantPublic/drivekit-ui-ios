@@ -44,24 +44,24 @@
                             <rect key="frame" x="0.0" y="50" width="414" height="694"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="7X0-8I-mgV">
-                                    <rect key="frame" x="12" y="12" width="390" height="499"/>
+                                    <rect key="frame" x="12" y="12" width="390" height="492"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTW-BE-ahw" userLabel="SynthesisCardViewContainer">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="221"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="215"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="221" id="H3p-HG-2aA"/>
+                                                <constraint firstAttribute="height" constant="215" id="H3p-HG-2aA"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rzu-AD-EMr" userLabel="LastTripsViewContainer">
-                                            <rect key="frame" x="0.0" y="237" width="390" height="126"/>
+                                            <rect key="frame" x="0.0" y="231" width="390" height="125"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="126" id="usO-KX-qfR"/>
+                                                <constraint firstAttribute="height" constant="125" id="usO-KX-qfR"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaH-AM-F6U" userLabel="FeatureListContainer">
-                                            <rect key="frame" x="0.0" y="379" width="390" height="120"/>
+                                            <rect key="frame" x="0.0" y="372" width="390" height="120"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" priority="750" constant="120" id="luv-Rf-dNB"/>

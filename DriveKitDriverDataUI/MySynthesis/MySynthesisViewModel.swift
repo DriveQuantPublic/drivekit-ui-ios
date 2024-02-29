@@ -115,16 +115,7 @@ class MySynthesisViewModel {
             if let selectedDate, item.date == selectedDate {
                 return true
             }
-            switch self.scoreSelectorViewModel.selectedScore {
-                case .safety:
-                    return item.safety != nil
-                case .ecoDriving:
-                    return item.ecoDriving != nil
-                case .distraction, .speeding:
-                    return true
-                @unknown default:
-                    return false
-            }
+            return item.numberTripScored > 0
         }.map(\.date)
         
         if allDates.isEmpty {

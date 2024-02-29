@@ -119,7 +119,7 @@ final class TripTableViewCell: UITableViewCell, Nibable {
             }
             tripInfoView.setText(trip.infoText() ?? "", style: style)
             tripInfoView.backgroundColor = DKUIColors.secondaryColor.color
-            tripInfoView.layer.cornerRadius = 5
+            tripInfoView.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
             tripInfoView.layer.masksToBounds = true
             accessoryView = tripInfoView
             self.tripInfoView = tripInfoView

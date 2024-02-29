@@ -1,4 +1,3 @@
-"NSLocationAlwaysUsageDescription"="Pour bénéficier de l'analyse de vos trajets et du mode automatique, sélectionnez l'option \"Toujours autoriser\". Bonne route...";
 "NSLocationWhenInUseUsageDescription"="Pour détecter et analyser vos trajets automatiquement, l\'application a besoin d\'accéder à votre position en permanence.";
 "NSLocationAlwaysAndWhenInUseUsageDescription"="Pour bénéficier de la détection et de l'analyse automatique de votre conduite sans avoir à manipuler votre iPhone, sélectionnez l'option \"Toujours autoriser\". Bonne route...";
 "NSBluetoothAlwaysUsageDescription"="L'application a besoin du Bluetooth afin de récupérer le niveau de batterie du beacon";

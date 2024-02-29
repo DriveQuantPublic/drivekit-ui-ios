@@ -33,7 +33,7 @@ class SensorInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.contentView.layer.cornerRadius = 10
+        self.contentView.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
         self.contentView.backgroundColor = DKUIColors.backgroundView.color
         self.titleContainer.backgroundColor = DKUIColors.primaryColor.color
         self.actionButton.titleLabel?.numberOfLines = 0

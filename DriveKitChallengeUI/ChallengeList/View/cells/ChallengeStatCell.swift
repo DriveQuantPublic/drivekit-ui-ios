@@ -1,4 +1,3 @@
-// swiftlint:disable no_magic_numbers
 //
 //  ChallengeStatCell.swift
 //  DriveKitChallengeUI
@@ -18,7 +17,7 @@ final class ChallengeStatCell: UITableViewCell, Nibable {
     override func awakeFromNib() {
         super.awakeFromNib()
         clipsToBounds = false
-        layer.cornerRadius = 8
+        layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
         self.backgroundColor = DKDefaultColors.driveKitBackgroundColor
     }
     

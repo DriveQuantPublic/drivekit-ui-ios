@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SJQ-aO-uad">
-                        <rect key="frame" x="8" y="8" width="349" height="150"/>
+                        <rect key="frame" x="12" y="8" width="341" height="150"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X6m-ye-n7b">
                                 <rect key="frame" x="0.0" y="0.0" width="80" height="150"/>
@@ -38,10 +38,10 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aD2-Dc-vxf">
-                                <rect key="frame" x="80" y="14" width="261" height="122"/>
+                                <rect key="frame" x="80" y="14" width="253" height="122"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="750" verticalCompressionResistancePriority="749" text="Ceci est un nom de challenge tres tres long" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQC-TV-7rs">
-                                        <rect key="frame" x="0.0" y="0.0" width="261" height="41"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="228.5" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -97,8 +97,8 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="SJQ-aO-uad" secondAttribute="trailing" constant="8" id="0Ie-Jc-Mer"/>
-                <constraint firstItem="SJQ-aO-uad" firstAttribute="leading" secondItem="fwd-hP-u13" secondAttribute="leading" constant="8" id="OoA-rc-rMo"/>
+                <constraint firstAttribute="trailing" secondItem="SJQ-aO-uad" secondAttribute="trailing" constant="12" id="0Ie-Jc-Mer"/>
+                <constraint firstItem="SJQ-aO-uad" firstAttribute="leading" secondItem="fwd-hP-u13" secondAttribute="leading" constant="12" id="OoA-rc-rMo"/>
                 <constraint firstItem="SJQ-aO-uad" firstAttribute="top" secondItem="fwd-hP-u13" secondAttribute="top" constant="8" id="Teo-Vm-1mr"/>
                 <constraint firstAttribute="bottom" secondItem="SJQ-aO-uad" secondAttribute="bottom" constant="8" id="o3a-QC-bb6"/>
             </constraints>

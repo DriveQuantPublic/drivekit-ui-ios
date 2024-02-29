@@ -1,4 +1,3 @@
-"NSLocationAlwaysUsageDescription"="O aplicativo precisa conhecer sua localização para analisar suas viagens, fornecer pontuações de direção e ativar o uso do modo de início automático.";
 "NSLocationWhenInUseUsageDescription"="Para detectar e analisar automaticamente suas viagens, o aplicativo precisa de acesso à sua posição o tempo todo.";
 "NSLocationAlwaysAndWhenInUseUsageDescription"="Para ativar a detecção automática de viagem e a análise de direção sem precisar manipular o telefone, selecione a opção \"sempre permita\". Estrada boa...";
 "NSBluetoothAlwaysUsageDescription"="O aplicativo precisa usar o Bluetooth para recuperar o nível da bateria do dispositivo.";

@@ -31,6 +31,7 @@ class WorkingHoursSlotCell: UITableViewCell {
         self.slotTypeButton.setTitleColor(DKUIColors.mainFontColor.color, for: .normal)
         self.slotTypeButton.backgroundColor = DKUIColors.neutralColor.color
         self.slotTypeButton.titleLabel?.font = DKStyles.button.withSizeDelta(-2).applyTo(font: .primary)
+        self.slotTypeButton.roundCorners()
         self.selectImageView.image = DKImages.arrowDown.image
         self.selectImageView.tintColor = DKUIColors.complementaryFontColor.color
 

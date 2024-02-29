@@ -9,7 +9,6 @@
 import UIKit
 
 final public class DKFilterView: UIView, Nibable {
-
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var pickerImage: UIImageView!
@@ -18,10 +17,6 @@ final public class DKFilterView: UIView, Nibable {
     var viewModel: DKFilterViewModel!
     weak var parentViewController: UIViewController?
     
-    public override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
     public override func layoutSubviews() {
         super.layoutSubviews()
         if let imageView = self.image {

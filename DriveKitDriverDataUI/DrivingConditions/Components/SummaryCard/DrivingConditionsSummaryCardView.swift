@@ -63,7 +63,8 @@ class DrivingConditionsSummaryCardView: UIView {
 extension DrivingConditionsSummaryCardView {
     public static func createSummaryCardView(
         configuredWith viewModel: DrivingConditionsSummaryCardViewModel,
-        embededIn containerView: UIView
+        embededIn containerView: UIView,
+        withCardStyle hasCardStyle: Bool
     ) {
         let summaryCardView = DrivingConditionsSummaryCardView()
         
@@ -72,7 +73,10 @@ extension DrivingConditionsSummaryCardView {
         }
         summaryCardView.configure(viewModel: viewModel)
         containerView.embedSubview(summaryCardView)
-        containerView.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
-        containerView.clipsToBounds = true
+
+        if hasCardStyle {
+            summaryCardView.roundCorners(clipping: true)
+            containerView.applyCardStyle()
+        }
     }
 }

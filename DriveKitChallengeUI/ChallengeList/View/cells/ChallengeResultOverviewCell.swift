@@ -39,7 +39,7 @@ final class ChallengeResultOverviewCell: UITableViewCell, Nibable {
 
     func configureContainer() {
         clipsToBounds = false
-        layer.cornerRadius = 5
+        layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
         self.backgroundColor = DKDefaultColors.driveKitBackgroundColor
     }
 

@@ -10,7 +10,6 @@
 import UIKit
 
 public extension UIButton {
-    
     func configure(title: String, subtitle: String? = nil, style: DKButtonStyle) {
         style.configureButton(button: self)
         style.configureText(title: title, subtitle: subtitle, button: self)
@@ -22,7 +21,7 @@ public extension UIButton {
 }
 
 public enum DKButtonStyle {
-    case full, empty, multilineBordered
+    case full, empty, bordered, multilineBordered
     case rounded(
         color: UIColor,
         radius: Double = 8,
@@ -33,49 +32,44 @@ public enum DKButtonStyle {
 
     func configureText(title: String, subtitle: String? = nil, button: UIButton) {
         let attributedText: NSAttributedString
+        let disabledAttributedText: NSAttributedString
         switch self {
         case .full:
             attributedText = title.dkAttributedString()
-                .font(
-                    dkFont: .primary,
-                    style: .button
-                )
-                .color(
-                    .fontColorOnSecondaryColor
-                )
+                .font(dkFont: .primary, style: .button)
+                .color(.fontColorOnSecondaryColor)
                 .uppercased()
                 .build()
-        case .empty:
+            disabledAttributedText = attributedText
+        case .empty, .bordered:
             attributedText = title.dkAttributedString()
-                .font(
-                    dkFont: .primary,
-                    style: .button
-                )
-                .color(
-                    .secondaryColor
-                )
+                .font(dkFont: .primary, style: .button)
+                .color(.secondaryColor)
+                .uppercased()
+                .build()
+            disabledAttributedText = title.dkAttributedString()
+                .font(dkFont: .primary, style: .button)
+                .color(.complementaryFontColor)
                 .uppercased()
                 .build()
         case .multilineBordered:
             let titleAttributedText = title.dkAttributedString()
-                .font(
-                    dkFont: .primary,
-                    style: .headLine1
-                )
-                .color(
-                    .secondaryColor
-                )
+                .font(dkFont: .primary, style: .headLine1)
+                .color(.secondaryColor)
+                .uppercased()
+                .build()
+            let disabledTitleAttributedText = title.dkAttributedString()
+                .font(dkFont: .primary, style: .headLine1)
+                .color(.complementaryFontColor)
                 .uppercased()
                 .build()
             guard let subtitle else {
                 attributedText = titleAttributedText
+                disabledAttributedText = disabledTitleAttributedText
                 break
             }
             let subtitleAttributedText = subtitle.dkAttributedString()
-                .font(
-                    dkFont: .primary,
-                    style: .smallText
-                )
+                .font(dkFont: .primary, style: .smallText)
                 .color(.complementaryFontColor)
                 .build()
             
@@ -86,41 +80,47 @@ public enum DKButtonStyle {
                     titleAttributedText,
                     subtitleAttributedText
                 )
+            disabledAttributedText = "%@\n%@"
+                .dkAttributedString()
+                .font(dkFont: .primary, style: .smallText)
+                .buildWithArgs(
+                    titleAttributedText,
+                    subtitleAttributedText
+                )
         case let .rounded(color, _, _, style, textColor):
+            let normalColor = textColor ?? color
             attributedText = title.dkAttributedString()
-                .font(
-                    dkFont: .primary,
-                    style: style
-                )
-                .color(
-                    textColor ?? color
-                )
+                .font(dkFont: .primary, style: style)
+                .color(normalColor)
+                .build()
+            disabledAttributedText = title.dkAttributedString()
+                .font(dkFont: .primary, style: style)
+                .color(normalColor.withAlphaComponent(0.5))
                 .build()
         }
         
-        self.configureAttributedText(attributedText, button: button)
+        self.configureAttributedText(attributedText, disabledAttributedText: disabledAttributedText, button: button)
     }
     
-    func configureAttributedText(_ attributedText: NSAttributedString, button: UIButton) {
+    func configureAttributedText(_ attributedText: NSAttributedString, disabledAttributedText: NSAttributedString, button: UIButton) {
         button.setAttributedTitle(attributedText, for: .normal)
+        button.setAttributedTitle(disabledAttributedText, for: .disabled)
     }
 
     func configureButton(button: UIButton) {
         switch self {
         case .full:
-            button.layer.cornerRadius = 2
-            button.layer.shadowColor = UIColor.black.cgColor
-            button.layer.shadowOpacity = 0.3
-            button.layer.shadowRadius = 4
-            button.layer.shadowOffset = CGSize(width: 0, height: 2)
-            button.layer.masksToBounds = false
             button.setBackgroundImage(UIImage(color: DKUIColors.secondaryColor.color), for: .normal)
             button.setBackgroundImage(UIImage(color: DKUIColors.secondaryColor.color.withAlphaComponent(0.5)), for: .disabled)
+            button.layer.cornerRadius = button.bounds.size.height / 2
+            button.layer.masksToBounds = false
+            button.clipsToBounds = true
         case .empty:
             break
         case .multilineBordered:
             button.layer.borderColor = DKUIColors.secondaryColor.color.cgColor
             button.layer.borderWidth = 2
+            button.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
             button.contentVerticalAlignment = .top
             button.contentHorizontalAlignment = .leading
             button.contentEdgeInsets = .init(
@@ -130,6 +130,12 @@ public enum DKButtonStyle {
                 right: 12
             )
             button.titleLabel?.textAlignment = .left
+        case .bordered:
+            button.layer.borderColor = DKUIColors.secondaryColor.color.cgColor
+            button.layer.borderWidth = 2
+            button.layer.cornerRadius = button.bounds.size.height / 2
+            button.layer.masksToBounds = false
+            button.clipsToBounds = true
         case let .rounded(color, radius, borderWidth, _, _):
             button.layer.cornerRadius = radius
             button.layer.masksToBounds = true
@@ -139,5 +145,6 @@ public enum DKButtonStyle {
             button.setBackgroundImage(UIImage(color: bgColor), for: .normal)
             button.setBackgroundImage(UIImage(color: bgColor), for: .disabled)
         }
+        button.titleLabel?.numberOfLines = 0
     }
 }

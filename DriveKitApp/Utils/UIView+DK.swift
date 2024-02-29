@@ -10,14 +10,6 @@
 import UIKit
 
 extension UIView {
-    func addShadow() {
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOpacity = 0.3
-        self.layer.shadowOffset = CGSize(width: 0, height: 2)
-        self.layer.shadowRadius = 4
-        self.layer.masksToBounds = false
-    }
-
     static func reducePageControl(in view: UIView) {
         for subview in view.subviews {
             if subview is UIPageControl {

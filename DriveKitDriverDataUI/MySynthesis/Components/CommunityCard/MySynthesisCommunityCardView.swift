@@ -52,7 +52,8 @@ class MySynthesisCommunityCardView: UIStackView {
 extension MySynthesisCommunityCardView {
     public static func createCommunityCardView(
         configuredWith viewModel: MySynthesisCommunityCardViewModel,
-        embededIn containerView: UIView
+        embededIn containerView: UIView,
+        withCardStyle hasCardStyle: Bool
     ) {
         guard let communityCardView = Bundle.driverDataUIBundle?.loadNibNamed(
             "MySynthesisCommunityCardView",
@@ -66,7 +67,10 @@ extension MySynthesisCommunityCardView {
         }
         communityCardView.configure(viewModel: viewModel)
         containerView.embedSubview(communityCardView)
-        containerView.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
-        containerView.clipsToBounds = true
+
+        if hasCardStyle {
+            communityCardView.roundCorners()
+            containerView.applyCardStyle()
+        }
     }
 }

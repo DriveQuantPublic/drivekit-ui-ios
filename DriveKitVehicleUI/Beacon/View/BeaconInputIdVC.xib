@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,20 +22,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awg-zc-KWc">
-                    <rect key="frame" x="32" y="104" width="350" height="20.5"/>
+                    <rect key="frame" x="32" y="108" width="350" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hpa-f9-1ga">
-                    <rect key="frame" x="32" y="156.5" width="350" height="50"/>
+                    <rect key="frame" x="12" y="160.5" width="390" height="50"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="fzO-8B-lfN"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBR-f7-YBa">
-                    <rect key="frame" x="32" y="222.5" width="350" height="50"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBR-f7-YBa">
+                    <rect key="frame" x="12" y="226.5" width="390" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="sdP-gb-Ora"/>
                     </constraints>
@@ -45,19 +45,19 @@
                     </connections>
                 </button>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="rM8-bW-RqA"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="awg-zc-KWc" firstAttribute="leading" secondItem="rM8-bW-RqA" secondAttribute="leading" constant="32" id="1xh-dv-mRK"/>
-                <constraint firstItem="rM8-bW-RqA" firstAttribute="trailing" secondItem="mBR-f7-YBa" secondAttribute="trailing" constant="32" id="BX5-rZ-ZDW"/>
-                <constraint firstItem="rM8-bW-RqA" firstAttribute="trailing" secondItem="Hpa-f9-1ga" secondAttribute="trailing" constant="32" id="Lbr-aD-mBD"/>
+                <constraint firstItem="rM8-bW-RqA" firstAttribute="trailing" secondItem="mBR-f7-YBa" secondAttribute="trailing" constant="12" id="BX5-rZ-ZDW"/>
+                <constraint firstItem="rM8-bW-RqA" firstAttribute="trailing" secondItem="Hpa-f9-1ga" secondAttribute="trailing" constant="12" id="Lbr-aD-mBD"/>
                 <constraint firstItem="Hpa-f9-1ga" firstAttribute="top" secondItem="awg-zc-KWc" secondAttribute="bottom" constant="32" id="RwR-cW-OYw"/>
-                <constraint firstItem="Hpa-f9-1ga" firstAttribute="leading" secondItem="rM8-bW-RqA" secondAttribute="leading" constant="32" id="bMx-gB-dVK"/>
+                <constraint firstItem="Hpa-f9-1ga" firstAttribute="leading" secondItem="rM8-bW-RqA" secondAttribute="leading" constant="12" id="bMx-gB-dVK"/>
                 <constraint firstItem="mBR-f7-YBa" firstAttribute="top" secondItem="Hpa-f9-1ga" secondAttribute="bottom" constant="16" id="dKc-UG-HSM"/>
                 <constraint firstItem="rM8-bW-RqA" firstAttribute="trailing" secondItem="awg-zc-KWc" secondAttribute="trailing" constant="32" id="dnk-3w-HeI"/>
                 <constraint firstItem="awg-zc-KWc" firstAttribute="top" secondItem="rM8-bW-RqA" secondAttribute="top" constant="60" id="fGS-dv-DnO"/>
-                <constraint firstItem="mBR-f7-YBa" firstAttribute="leading" secondItem="rM8-bW-RqA" secondAttribute="leading" constant="32" id="zaB-uM-Ter"/>
+                <constraint firstItem="mBR-f7-YBa" firstAttribute="leading" secondItem="rM8-bW-RqA" secondAttribute="leading" constant="12" id="zaB-uM-Ter"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="rM8-bW-RqA"/>
             <point key="canvasLocation" x="131.8840579710145" y="-510.26785714285711"/>
         </view>
     </objects>

@@ -28,6 +28,5 @@ class EmptyRoadContextView: UIView {
         self.descriptionLabel.font = DKStyles.smallText.style.applyTo(font: .primary)
         self.titleLabel.textColor = DKUIColors.primaryColor.color
         self.descriptionLabel.textColor = DKUIColors.complementaryFontColor.color
-
     }
 }

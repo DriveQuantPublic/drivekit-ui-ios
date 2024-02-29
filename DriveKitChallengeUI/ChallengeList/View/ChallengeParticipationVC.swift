@@ -18,6 +18,7 @@ class ChallengeParticipationVC: DKUIViewController {
     @IBOutlet private weak var conditionsLabelView: UIView?
     @IBOutlet private weak var rulesButton: UIButton?
     @IBOutlet private weak var rulesView: UIView?
+    @IBOutlet private weak var joinButtonContainer: UIView?
     @IBOutlet private weak var joinButton: UIButton?
     @IBOutlet private weak var participationAttributedLabel: UILabel?
     @IBOutlet private weak var countDownAttributedLabel: UILabel?
@@ -111,9 +112,7 @@ class ChallengeParticipationVC: DKUIViewController {
 
     func setupJoinButton() {
         if viewModel?.getDisplayState() == .join {
-            joinButton?.configure(style: .full)
-            joinButton?.setTitle("dk_challenge_participate_button".dkChallengeLocalized(), for: .normal)
-            joinButton?.titleLabel?.font = DKUIFonts.primary.fonts(size: 20).with(.traitBold)
+            joinButton?.configure(title: "dk_challenge_participate_button".dkChallengeLocalized(), style: .full)
         }
     }
 
@@ -121,17 +120,17 @@ class ChallengeParticipationVC: DKUIViewController {
         if viewModel?.getDisplayState() == .rulesTab {
             participationAttributedLabel?.isHidden = true
             countDownAttributedLabel?.isHidden = true
-            joinButton?.isHidden = true
+            joinButtonContainer?.isHidden = true
             footerHeightConstraint?.constant = 0
         } else if viewModel?.getDisplayState() == .join {
             participationAttributedLabel?.isHidden = true
             countDownAttributedLabel?.isHidden = true
-            joinButton?.isHidden = false
+            joinButtonContainer?.isHidden = false
             footerHeightConstraint?.constant = 50
             footerView?.backgroundColor = DKDefaultColors.driveKitBackgroundColor
         } else {
             participationAttributedLabel?.isHidden = false
-            joinButton?.isHidden = true
+            joinButtonContainer?.isHidden = true
             footerView?.backgroundColor = DKUIColors.primaryColor.color
             participationAttributedLabel?.attributedText = viewModel?.getSubscriptionAttributedString()
             if viewModel?.getDisplayState() == .countDown {

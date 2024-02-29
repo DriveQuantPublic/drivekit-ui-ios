@@ -78,8 +78,8 @@ class TransportationModeVC: DKUIViewController {
         
         self.messageLabel.attributedText = "dk_driverdata_transportation_mode_declaration_text".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.white).build()
         self.messageBackground.backgroundColor = DKUIColors.warningColor.color
-        self.messageBackground.layer.cornerRadius = 4
-        
+        self.messageBackground.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
+
         self.transportationModeTitle.attributedText = "dk_driverdata_transportation_mode".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
         self.passengerDriverTitle.attributedText = "dk_driverdata_transportation_mode_passenger_driver".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
         self.passengerDriverTitle.isHidden = true
@@ -90,7 +90,7 @@ class TransportationModeVC: DKUIViewController {
         self.commentTextView.font = DKStyles.normalText.withSizeDelta(-2).applyTo(font: .primary)
         self.commentTextView.layer.borderWidth = 1
         self.commentTextView.layer.borderColor = UIColor.lightGray.cgColor
-        self.commentTextView.layer.cornerRadius = 4
+        self.commentTextView.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
         self.commentTextView.delegate = self
         
         let transportationModeButtons: [TransportationModeIcon] = [self.carTransportationModeButton, self.motoTransportationModeButton, self.truckTransportationModeButton, self.busTransportationModeButton, self.trainTransportationModeButton, self.bikeTransportationModeButton, self.boatTransportationModeButton, self.planeTransportationModeButton, self.onFootTransportationModeButton, self.skiingTransportationModeButton, self.idleTransportationModeButton, self.otherTransportationModeButton]

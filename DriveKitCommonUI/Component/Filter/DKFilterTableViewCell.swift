@@ -19,6 +19,8 @@ class DKFilterTableViewCell: UITableViewCell {
         super.awakeFromNib()
         self.itemImage.tintColor = .black
         self.itemImage.clipsToBounds = true
+
+        self.roundCorners(clipping: true)
     }
     
     override func layoutSubviews() {

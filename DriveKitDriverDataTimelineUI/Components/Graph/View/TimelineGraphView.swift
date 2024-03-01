@@ -8,7 +8,7 @@
 //
 
 import UIKit
-import ChartsForDK
+import DGCharts
 import DriveKitCommonUI
 
 class TimelineGraphView: UIView {

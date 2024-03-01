@@ -8,7 +8,7 @@
 //
 
 import UIKit
-import ChartsForDK
+import DGCharts
 import DriveKitCommonUI
 
 class GraphViewBase: UIView {
@@ -40,14 +40,15 @@ class GraphViewBase: UIView {
     }
 }
 
-class GraphAxisFormatter: IAxisValueFormatter {
+class GraphAxisFormatter: IndexAxisValueFormatter {
     private let config: GraphAxisConfig
 
     init(config: GraphAxisConfig) {
         self.config = config
+        super.init()
     }
 
-    func stringForValue(_ value: Double, axis: ChartsForDK.AxisBase?) -> String {
+    override func stringForValue(_ value: Double, axis: DGCharts.AxisBase?) -> String {
         if let labels = self.config.labels.titles {
             let index = Int(value - self.config.min)
             if index >= 0 && index < labels.count {
@@ -67,9 +68,9 @@ class DKXAxisRenderer: XAxisRenderer {
         return renderer
     }
 
-    init(config: GraphAxisConfig, viewPortHandler: ViewPortHandler, xAxis: XAxis?, transformer: Transformer?) {
+    init(config: GraphAxisConfig, viewPortHandler: ViewPortHandler, xAxis: XAxis, transformer: Transformer?) {
         self.config = config
-        super.init(viewPortHandler: viewPortHandler, xAxis: xAxis, transformer: transformer)
+        super.init(viewPortHandler: viewPortHandler, axis: xAxis, transformer: transformer)
     }
 
     override func drawLabel(
@@ -78,7 +79,7 @@ class DKXAxisRenderer: XAxisRenderer {
         x: CGFloat,
         y: CGFloat,
         attributes: [NSAttributedString.Key: Any],
-        constrainedToSize: CGSize, 
+        constrainedTo constrainedToSize: CGSize, 
         anchor: CGPoint,
         angleRadians: CGFloat) {
         var textAttributes = attributes
@@ -108,7 +109,7 @@ class DKXAxisRenderer: XAxisRenderer {
             x: x,
             y: y,
             attributes: textAttributes,
-            constrainedToSize: constrainedToSize,
+            constrainedTo: constrainedToSize,
             anchor: anchor,
             angleRadians: angleRadians
         )

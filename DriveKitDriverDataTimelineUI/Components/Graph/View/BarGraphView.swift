@@ -8,7 +8,7 @@
 //
 
 import UIKit
-import ChartsForDK
+import DGCharts
 
 class BarGraphView: GraphViewBase {
     private let chartView: BarChartView
@@ -43,7 +43,7 @@ class BarGraphView: GraphViewBase {
             }
         }
 
-        let bar = BarChartDataSet(entries: entries, label: nil)
+        let bar = BarChartDataSet(entries: entries, label: "")
         bar.colors = [.white]
         bar.barBorderColor = GraphConstants.defaultLineColor
         bar.barBorderWidth = 2
@@ -53,8 +53,8 @@ class BarGraphView: GraphViewBase {
         bar.drawValuesEnabled = false
 
         let data = BarChartData()
-        data.addDataSet(bar)
-        data.highlightEnabled = true
+        data.append(bar)
+        data.isHighlightEnabled = true
         data.barWidth = 0.5
 
         self.chartView.data = data

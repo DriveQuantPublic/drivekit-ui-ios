@@ -25,7 +25,7 @@ class TripSimulatorViewModel {
         .crashTrip(.confirmed10KmH),
         .crashTrip(.confirmed20KmH),
         .crashTrip(.confirmed30KmH),
-        .crashTrip(.confirmedStillDriving)
+        .crashTrip(.confirmed30kmHStillDriving)
     ]
     private var selectedItemIndex: Int = 0
 

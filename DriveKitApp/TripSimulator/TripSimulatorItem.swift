@@ -50,7 +50,7 @@ enum TripSimulatorItem {
                         return "trip_simulator_crash_20_title".keyLocalized()
                     case .confirmed30KmH:
                         return "trip_simulator_crash_30_title".keyLocalized()
-                    case .confirmed30kmHStillDriving:
+                    case .confirmed30KmHStillDriving:
                         return "trip_simulator_crash_followed_by_driving_title".keyLocalized()
                     @unknown default:
                         return ""
@@ -94,7 +94,7 @@ enum TripSimulatorItem {
                         return "trip_simulator_crash_20_description".keyLocalized()
                     case .confirmed30KmH:
                         return "trip_simulator_crash_30_description".keyLocalized()
-                    case .confirmed30kmHStillDriving:
+                    case .confirmed30KmHStillDriving:
                         return "trip_simulator_crash_followed_by_driving_description".keyLocalized()
                     @unknown default:
                         return ""

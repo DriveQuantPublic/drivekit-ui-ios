@@ -8,7 +8,7 @@
 //
 
 import UIKit
-import ChartsForDK
+import DGCharts
 import DriveKitCommonUI
 
 class LineGraphView: GraphViewBase {
@@ -50,7 +50,7 @@ class LineGraphView: GraphViewBase {
             }
         }
 
-        let line = LineChartDataSet(entries: entries, label: nil)
+        let line = LineChartDataSet(entries: entries, label: "")
         line.colors = [GraphConstants.defaultLineColor]
         line.drawVerticalHighlightIndicatorEnabled = false
         line.drawHorizontalHighlightIndicatorEnabled = false
@@ -60,8 +60,8 @@ class LineGraphView: GraphViewBase {
         line.lineWidth = 2
 
         let data = LineChartData()
-        data.addDataSet(line)
-        data.highlightEnabled = true
+        data.append(line)
+        data.isHighlightEnabled = true
 
         self.chartView.data = data
         self.chartView.highlightPerTapEnabled = true

@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 
   s.dependency 'DriveKitCommonUI', s.version.to_s
   s.dependency 'DriveKitDriverData'
-  s.dependency 'ChartsForDK', '3.6.1'
+  s.dependency 'DGCharts', '5.1.0'
 
   s.pod_target_xcconfig = {
     'PRODUCT_BUNDLE_IDENTIFIER': 'com.drivequant.drivekit-driverdata-timeline-ui'

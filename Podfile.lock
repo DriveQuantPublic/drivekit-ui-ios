@@ -1,7 +1,7 @@
 PODS:
-  - ChartsForDK (3.6.1):
-    - ChartsForDK/Core (= 3.6.1)
-  - ChartsForDK/Core (3.6.1)
+  - DGCharts (5.1.0):
+    - DGCharts/Core (= 5.1.0)
+  - DGCharts/Core (5.1.0)
   - DriveKitBeaconUtils (1.41.0):
     - DriveKitCore (= 1.41.0)
   - DriveKitChallenge (1.41.0):
@@ -37,7 +37,7 @@ PODS:
   - WARangeSlider (1.2.0)
 
 DEPENDENCIES:
-  - ChartsForDK (= 3.6.1)
+  - DGCharts (= 5.1.0)
   - DriveKitChallenge (= 1.41.0)
   - DriveKitCore (= 1.41.0)
   - DriveKitDriverAchievement (= 1.41.0)
@@ -50,6 +50,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - DGCharts
     - DriveKitBeaconUtils
     - DriveKitChallenge
     - DriveKitCore
@@ -65,11 +66,9 @@ SPEC REPOS:
     - DriveKitVehicle
     - SwiftLint
     - WARangeSlider
-  https://gitlab.com/drivequant/drivekit/drivekit-specs.git:
-    - ChartsForDK
 
 SPEC CHECKSUMS:
-  ChartsForDK: 7cc086c740de7b2533a483e5d44f333362b57815
+  DGCharts: 1c6daf585b6cfc78807af44ea690d357c410627f
   DriveKitBeaconUtils: 8818f2afbd718c2e77a4ea4a37bfc9d9b1e48a3a
   DriveKitChallenge: ce750db3d1c657782b2362f16e34afb70b559203
   DriveKitCore: cb6e12a74b381435eaf55c758a967554cc55de71
@@ -86,6 +85,6 @@ SPEC CHECKSUMS:
   SwiftLint: 1cc5cd61ba9bacb2194e340aeb47a2a37fda00b3
   WARangeSlider: 03f195d4dc5419e6b0d9043cc94fdf418dfe804d
 
-PODFILE CHECKSUM: 6c4ded31c1b4c9d21baa6d73319a93a4753667fb
+PODFILE CHECKSUM: e93de0315d4446e9e793eec9db7cd4d9d0e9384c
 
 COCOAPODS: 1.15.2

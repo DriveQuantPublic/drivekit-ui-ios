@@ -28,8 +28,8 @@ class TimelineGraphViewModel: GraphViewModel {
     private var indexOfLastPointInTimeline: Int?
     private static let graphPointNumber: Int = 8
     
-    func configure(timeline: DKRawTimeline, timelineSelectedIndex: Int, graphItem: GraphItem, period: DKPeriod) {
-        let sourceDates = timeline.allContext.date
+    func configure(timeline: DKDriverTimeline, dates: [Date], timelineSelectedIndex: Int, graphItem: GraphItem, period: DKPeriod) {
+        let sourceDates = dates
         let dates: [Date] = sourceDates.map { date in
             date.dateByRemovingTime() ?? date
         }
@@ -208,7 +208,7 @@ class TimelineGraphViewModel: GraphViewModel {
         dateComponent: Calendar.Component,
         dates: [Date],
         graphItem: GraphItem,
-        timeline: DKRawTimeline,
+        timeline: DKDriverTimeline,
         xLabelDate: Date
     ) -> GraphPoint? {
         // Find next valid index
@@ -257,7 +257,7 @@ class TimelineGraphViewModel: GraphViewModel {
         dateComponent: Calendar.Component,
         dates: [Date],
         graphItem: GraphItem,
-        timeline: DKRawTimeline,
+        timeline: DKDriverTimeline,
         xLabelDate: Date
     ) -> GraphPoint? {
         // Find previous valid index
@@ -305,7 +305,7 @@ class TimelineGraphViewModel: GraphViewModel {
     private func interpolateSelectableDateWithoutValue(
         fromDateIndex dateIndex: Int,
         graphItem: GraphItem,
-        timeline: DKRawTimeline,
+        timeline: DKDriverTimeline,
         dates: [Date],
         dateComponent: Calendar.Component,
         pointX: Double,
@@ -383,102 +383,71 @@ class TimelineGraphViewModel: GraphViewModel {
         return dateFormat
     }
     
-    private func getValue(atIndex index: Int, for graphItem: GraphItem, in timeline: DKRawTimeline) -> Double? {
-        let totalDuration = timeline.allContext.duration[safe: index].map(Double.init) ?? 0
-        let totalDistance = timeline.allContext.distance[safe: index] ?? 0
-        
+    private func getValue(atIndex index: Int, for graphItem: GraphItem, in timeline: DKDriverTimeline) -> Double? {
+        let allContextItem = timeline.allContext[index]
+        let totalDuration = Double(allContextItem.duration)
+        let totalDistance = allContextItem.distance
+
         switch graphItem {
         case .score(let scoreType):
             switch scoreType {
             case .safety:
-                if let numberTripScored = timeline.allContext.numberTripScored[safe: index],
-                   numberTripScored > 0 {
-                    return timeline.allContext.safety[safe: index]
-                } else {
-                    return nil
-                }
+                return allContextItem.safety?.score
             case .distraction:
-                return timeline.allContext.phoneDistraction[safe: index]
+                return allContextItem.phoneDistraction?.score
             case .ecoDriving:
-                if let numberTripScored = timeline.allContext.numberTripScored[safe: index],
-                   numberTripScored > 0 {
-                    return timeline.allContext.efficiency[safe: index]
-                } else {
-                    return nil
-                }
+                return allContextItem.ecoDriving?.score
             case .speeding:
-                return timeline.allContext.speeding[safe: index]
+                return allContextItem.speeding?.score
             @unknown default:
                 return nil
             }
         case .scoreItem(let scoreItemType):
             switch scoreItemType {
             case .speeding_duration:
-                guard
-                    let speedingDuration = timeline.allContext.speedingDuration[safe: index]
-                else { return nil }
+                guard let speedingDuration = allContextItem.speeding?.speedingDuration else { return nil }
                 guard totalDuration > 0 else { return 0 }
-                
                 return (Double(speedingDuration) / 60) / totalDuration * 100
             case .speeding_distance:
-                guard
-                    let speedingDistance = timeline.allContext.speedingDistance[safe: index]
-                else { return nil }
+                guard let speedingDistance = allContextItem.speeding?.speedingDistance else { return nil }
                 guard totalDuration > 0 else { return 0 }
-                
                 return (speedingDistance / 1_000) / totalDistance * 100
             case .safety_braking:
-                guard
-                    let braking = timeline.allContext.braking[safe: index]
-                else { return nil }
+                guard let braking = allContextItem.safety?.braking else { return nil }
                 guard totalDistance > 0 else { return 0 }
-                
                 return Double(braking) / (totalDistance / 100)
             case .safety_adherence:
-                guard
-                    let adherence = timeline.allContext.adherence[safe: index]
-                else { return nil }
+                guard let adherence = allContextItem.safety?.adherence else { return nil }
                 guard totalDistance > 0 else { return 0 }
-                
                 return Double(adherence) / (totalDistance / 100)
             case .safety_acceleration:
-                guard
-                    let acceleration = timeline.allContext.acceleration[safe: index]
-                else { return nil }
+                guard let acceleration = allContextItem.safety?.acceleration else { return nil }
                 guard totalDistance > 0 else { return 0 }
-                
                 return Double(acceleration) / (totalDistance / 100)
             case .ecoDriving_fuelVolume:
-                return timeline.allContext.fuelVolume[safe: index]
+                return allContextItem.ecoDriving?.fuelVolume
             case .ecoDriving_efficiencySpeedMaintain:
-                return timeline.allContext.efficiencySpeedMaintain[safe: index]
+                return allContextItem.ecoDriving?.efficiencySpeedMaintain
             case .ecoDriving_efficiencyBrake:
-                return timeline.allContext.efficiencyBrake[safe: index]
+                return allContextItem.ecoDriving?.efficiencyBrake
             case .ecoDriving_efficiencyAcceleration:
-                return timeline.allContext.efficiencyAcceleration[safe: index]
+                return allContextItem.ecoDriving?.efficiencyAcceleration
             case .ecoDriving_fuelSavings:
-                return timeline.allContext.fuelSaving[safe: index]
+                return allContextItem.ecoDriving?.fuelSaving
             case .ecoDriving_co2mass:
-                return timeline.allContext.co2Mass[safe: index]
+                return allContextItem.ecoDriving?.co2Mass
             case .distraction_unlock:
-                guard
-                    let unlock = timeline.allContext.unlock[safe: index]
-                else { return nil }
+                guard let unlock = allContextItem.phoneDistraction?.unlock else { return nil }
                 guard totalDistance > 0 else { return 0 }
-                
                 return Double(unlock) / (totalDistance / 100)
             case .distraction_percentageOfTripsWithForbiddenCall:
-                guard
-                    let numberTripWithForbiddenCall = timeline.allContext.numberTripWithForbiddenCall[safe: index],
-                    let numberTripTotal = timeline.allContext.numberTripTotal[safe: index]
-                else { return nil }
+                guard let phoneDistraction = allContextItem.phoneDistraction else { return nil }
+                let numberTripTotal = allContextItem.numberTripTotal
                 guard numberTripTotal > 0 else { return 0 }
-                
+                let numberTripWithForbiddenCall = phoneDistraction.numberTripWithForbiddenCall
                 return Double(numberTripWithForbiddenCall) / Double(numberTripTotal) * 100
             case .distraction_callForbiddenDuration:
-                guard
-                    let callForbiddenDuration = timeline.allContext.callForbiddenDuration[safe: index]
-                else { return nil }
+                guard let callForbiddenDuration = allContextItem.phoneDistraction?.callForbiddenDuration else { return nil }
                 guard totalDistance > 0 else { return 0 }
                 // The result is converted in minute and rounded up to greater integer value
                 return ceil(Double(callForbiddenDuration / 60) / (totalDistance / 100))
@@ -493,7 +462,7 @@ class TimelineGraphViewModel: GraphViewModel {
         dates: [Date],
         dateComponent: Calendar.Component,
         graphItem: GraphItem,
-        timeline: DKRawTimeline
+        timeline: DKDriverTimeline
     ) -> Double? {
         let previousValidDate: Date = dates[previousValidIndex]
         let nextValidDate: Date = dates[nextValidIndex]

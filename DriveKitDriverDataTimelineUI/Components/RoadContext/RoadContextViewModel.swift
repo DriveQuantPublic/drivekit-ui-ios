@@ -64,22 +64,25 @@ class RoadContextViewModel {
 
     func configure(
         with selectedScore: DKScoreType,
-        timeline: DKRawTimeline?,
-        selectedIndex: Int? = nil
+        timeline: DKDriverTimeline?,
+        selectedDate: Date? = nil
     ) {
-        if let timeline, let selectedIndex, timeline.hasData {
+        if let timeline, let selectedDate/*, timeline.hasData*/ {
             var distanceByContext: [TimelineRoadContext: Double] = [:]
             var totalDistanceForAllContexts: Double = 0
             
-            distanceByContext = timeline.distanceByRoadContext(
-                selectedScore: selectedScore,
-                selectedIndex: selectedIndex
-            )
-            totalDistanceForAllContexts = timeline.totalDistanceForAllContexts(
-                selectedScore: selectedScore,
-                selectedIndex: selectedIndex
-            )
-            
+            distanceByContext = timeline.roadContexts.reduce(into: [TimelineRoadContext: Double]()) { partialResult, roadContextElement in
+                let distance = roadContextElement.value.first { roadContextItem in
+                    roadContextItem.date == selectedDate
+                }?.distance ?? 0
+                if distance > 0, let timelineRoadContext = TimelineRoadContext(roadContext: roadContextElement.key) {
+                    partialResult[timelineRoadContext] = distance
+                }
+            }
+            totalDistanceForAllContexts = timeline.allContext.first { allContextItem in
+                allContextItem.date == selectedDate
+            }?.distance ?? 0
+
             if distanceByContext.isEmpty {
                 switch selectedScore {
                 case .distraction, .speeding:

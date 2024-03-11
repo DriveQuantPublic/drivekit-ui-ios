@@ -173,7 +173,7 @@ private struct GaugeConfiguration: DKGaugeConfiguration {
     private let gaugeType: DKGaugeType
 
     init(trips: [Trip], scoreType: DKScoreType) {
-        self.trips = trips.filter { scoreType.rawValue(trip: $0) <= 10 }
+        self.trips = trips.filter { !$0.unscored }
         self.scoreType = scoreType
         if self.trips.isEmpty {
             self.value = Double(0)

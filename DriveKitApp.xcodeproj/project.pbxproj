@@ -677,7 +677,6 @@
 		E34302972A1CE65700F5C765 /* DKTripRecordingUserMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34302962A1CE65700F5C765 /* DKTripRecordingUserMode.swift */; };
 		E3559EB729479F8100AAB747 /* TimelineDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3559EB629479F8100AAB747 /* TimelineDetailViewController.xib */; };
 		E3559EBB2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3559EBA2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift */; };
-		E3559EBD294868CB00AAB747 /* DKTimelineExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3559EBC294868CB00AAB747 /* DKTimelineExtension.swift */; };
 		E366C3A22A4B0B9F008BA9DD /* DKUIPagingCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E366C3A12A4B0B9F008BA9DD /* DKUIPagingCardViewController.swift */; };
 		E366C3AC2A4B2423008BA9DD /* DriverProfileFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = E366C3AA2A4B1B8D008BA9DD /* DriverProfileFeature.swift */; };
 		E366C3AE2A4B2423008BA9DD /* DriverProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E363159A2A49C77400EFDB63 /* DriverProfileViewModel.swift */; };
@@ -1614,7 +1613,6 @@
 		E34302962A1CE65700F5C765 /* DKTripRecordingUserMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripRecordingUserMode.swift; sourceTree = "<group>"; };
 		E3559EB629479F8100AAB747 /* TimelineDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimelineDetailViewController.xib; sourceTree = "<group>"; };
 		E3559EBA2948650A00AAB747 /* TimelineDetailViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineDetailViewModelDelegate.swift; sourceTree = "<group>"; };
-		E3559EBC294868CB00AAB747 /* DKTimelineExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTimelineExtension.swift; sourceTree = "<group>"; };
 		E36085012948C37C0097A639 /* DKUIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKUIConstants.swift; sourceTree = "<group>"; };
 		E363159A2A49C77400EFDB63 /* DriverProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverProfileViewModel.swift; sourceTree = "<group>"; };
 		E363159C2A49C83000EFDB63 /* DriverProfileViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverProfileViewModelDelegate.swift; sourceTree = "<group>"; };
@@ -3922,7 +3920,6 @@
 			isa = PBXGroup;
 			children = (
 				63F8B2DA28FD5B250084B53A /* DKScoreTypeExtension.swift */,
-				E3559EBC294868CB00AAB747 /* DKTimelineExtension.swift */,
 				E341FCA52951AF2B00FC5262 /* DoubleExtension.swift */,
 			);
 			path = Helpers;
@@ -5214,7 +5211,6 @@
 				63454B982906B4B200A9B10F /* GraphItem.swift in Sources */,
 				63454B9A2906C76700A9B10F /* TimelineGraphView.swift in Sources */,
 				E341FCA62951AF2B00FC5262 /* DoubleExtension.swift in Sources */,
-				E3559EBD294868CB00AAB747 /* DKTimelineExtension.swift in Sources */,
 				63F8B2AD28F960260084B53A /* GraphType.swift in Sources */,
 				638E683E291A3E2000A5CC81 /* TimelineDetailViewModel.swift in Sources */,
 				67D6CD8C290912640055632B /* EmptyRoadContextView.swift in Sources */,

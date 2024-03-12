@@ -12,7 +12,6 @@ import DriveKitDBTripAccessModule
 import Foundation
 
 class TimelineDetailViewModel {
-    let configuredPeriods: [DKPeriod]
     weak var delegate: TimelineDetailViewModelDelegate?
     private let selectedScore: DKScoreType
     private var selectedPeriod: DKPeriod
@@ -34,7 +33,6 @@ class TimelineDetailViewModel {
         selectedDate: Date,
         timelineByPeriod: [DKPeriod: DKDriverTimeline]
     ) {
-        self.configuredPeriods = configuredPeriods
         self.selectedScore = selectedScore
         self.selectedPeriod = selectedPeriod
         self.selectedDate = selectedDate
@@ -68,7 +66,6 @@ class TimelineDetailViewModel {
             self.dateSelectorViewModel.delegate = self
             
             self.roadContextViewModel.configure(
-                with: selectedScore,
                 timeline: timeline,
                 selectedDate: selectedDate
             )

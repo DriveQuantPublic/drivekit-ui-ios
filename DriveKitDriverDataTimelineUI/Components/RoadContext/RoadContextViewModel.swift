@@ -37,16 +37,6 @@ enum RoadContextType {
             return [:]
         }
     }
-    
-    var totalDistanceForAllContexts: Double {
-        switch self {
-        case let .data(_, totalDistanceForAllContexts),
-            let .noData(totalDistanceForAllContexts):
-            return totalDistanceForAllContexts
-        case .emptyData:
-            return 0
-        }
-    }
 }
 
 class RoadContextViewModel {
@@ -61,11 +51,10 @@ class RoadContextViewModel {
     private var roadContextItems: [TimelineRoadContext] = []
 
     func configure(
-        with selectedScore: DKScoreType,
         timeline: DKDriverTimeline?,
         selectedDate: Date? = nil
     ) {
-        if let timeline, let selectedDate/*, timeline.hasData*/ {
+        if let timeline, let selectedDate {
             var distanceByContext: [TimelineRoadContext: Double] = [:]
             var totalDistanceForAllContexts: Double = 0
             

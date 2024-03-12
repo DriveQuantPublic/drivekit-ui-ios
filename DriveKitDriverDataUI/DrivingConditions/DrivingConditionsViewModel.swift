@@ -269,10 +269,6 @@ extension DrivingConditionsViewModel: DKUIPagingViewModel {
         configuredContexts
     }
     
-    var hasNoData: Bool {
-        return hasData == false
-    }
-    
     func pageViewModel(for pageId: DKContextKind) -> DKContextCard? {
         if pageId != .road && drivingConditions == nil {
             return nil

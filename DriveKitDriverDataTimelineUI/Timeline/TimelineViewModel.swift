@@ -126,7 +126,6 @@ class TimelineViewModel {
                     period: self.periodSelectorViewModel.selectedPeriod
                 )
                 self.roadContextViewModel.configure(
-                    with: scoreSelectorViewModel.selectedScore,
                     timeline: timeline,
                     selectedDate: self.selectedDate
                 )
@@ -161,10 +160,7 @@ class TimelineViewModel {
                 graphItem: .score(self.scoreSelectorViewModel.selectedScore),
                 period: self.periodSelectorViewModel.selectedPeriod
             )
-            roadContextViewModel.configure(
-                with: scoreSelectorViewModel.selectedScore,
-                timeline: getTimelineSource()
-            )
+            roadContextViewModel.configure(timeline: getTimelineSource())
         }
         self.shouldHideDetailButton = true
     }

@@ -125,7 +125,6 @@
 "dk_driverdata_mysynthesis_no_trip_prev_month"="Non avete guidato nel mese precedente";
 "dk_driverdata_mysynthesis_no_trip_prev_week"="Non avete guidato la settimana precedente";
 "dk_driverdata_mysynthesis_no_trip_prev_year"="Non avete guidato l\'anno precedente";
-"dk_driverdata_mysynthesis_not_enough_data"="Non ci sono dati sufficienti per calcolare la distribuzione dei contesti stradali.";
 "dk_driverdata_mysynthesis_previous_month"="Il mese precedente :";
 "dk_driverdata_mysynthesis_previous_week"="La settimana precedente :";
 "dk_driverdata_mysynthesis_previous_year"="Nel %@ :";

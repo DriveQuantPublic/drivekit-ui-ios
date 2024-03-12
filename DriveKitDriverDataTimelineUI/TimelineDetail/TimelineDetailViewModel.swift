@@ -107,9 +107,7 @@ extension TimelineDetailViewModel: DKPeriodSelectorDelegate {
                 in: oldPeriod,
                 switchingAmongst: timeline.allContext.map(\.date),
                 in: selectedPeriod
-            ) { _, _ in
-                return true
-            }
+            )
             updateViewModels()
             self.delegate?.didUpdate(selectedPeriod: selectedPeriod)
         }

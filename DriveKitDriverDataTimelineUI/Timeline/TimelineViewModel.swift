@@ -187,9 +187,7 @@ class TimelineViewModel {
                 in: oldPeriod,
                 switchingAmongst: getTimelineSource(for: selectedPeriod)?.allContext.map(\.date) ?? [],
                 in: selectedPeriod
-            ) { period, _ in
-                return getTimelineSource(for: period) != nil
-            }
+            )
         }
         update()
     }

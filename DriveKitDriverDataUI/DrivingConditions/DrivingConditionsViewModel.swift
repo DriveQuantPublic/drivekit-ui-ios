@@ -193,7 +193,7 @@ class DrivingConditionsViewModel {
             in: oldPeriod,
             switchingAmongst: self.timelines[selectedPeriod]?.allDates ?? [],
             in: selectedPeriod
-        ) { _, _ in true }
+        )
         update()
         parentDelegate?.didUpdate(selectedPeriod: selectedPeriod)
     }

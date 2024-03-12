@@ -28,8 +28,7 @@ class TimelineGraphViewModel: GraphViewModel {
     private var indexOfLastPointInTimeline: Int?
     private static let graphPointNumber: Int = 8
     
-    func configure(timeline: DKDriverTimeline, dates: [Date], timelineSelectedIndex: Int, graphItem: GraphItem, period: DKPeriod) {
-        let sourceDates = dates
+    func configure(timeline: DKDriverTimeline, dates sourceDates: [Date], timelineSelectedIndex: Int, graphItem: GraphItem, period: DKPeriod) {
         let dates: [Date] = sourceDates.map { date in
             date.dateByRemovingTime() ?? date
         }

@@ -1,4 +1,3 @@
-// swiftlint:disable no_magic_numbers
 //
 //  EvoDrivingPageVC.swift
 //  drivekit-test-app

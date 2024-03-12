@@ -16,10 +16,6 @@ final class BadgeLevelView: UIView, Nibable {
     @IBOutlet weak var badgeImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
     @objc func goToDetailView(sender: DetailTapGestureRecognizer) {
         NotificationCenter.default.post(name: NSNotification.Name("goToDetailView"),
                                         object: nil,

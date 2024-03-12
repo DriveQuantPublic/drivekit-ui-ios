@@ -15,10 +15,6 @@ final class TripInfoView: UIView, Nibable {
 
     var trip: DKTripListItem?
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
     func setText(_ text: String, style: DKStyle) {
         self.text.attributedText = text.dkAttributedString().font(dkFont: .primary, style: style).color(.fontColorOnSecondaryColor).build()
     }

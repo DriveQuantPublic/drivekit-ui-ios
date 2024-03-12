@@ -199,7 +199,7 @@
 "dk_driverdata_profile_mobility_wide"="Ihr Mobilitätsbereich ist weitläufig";
 "dk_driverdata_profile_regularity_intermittent_text"="Ihre Fahrgewohnheiten ändern sich von einer Woche zur nächsten. Sie fahren selten die gleiche Strecke und die Anzahl Ihrer Fahrten pro Woche schwankt.";
 "dk_driverdata_profile_regularity_intermittent_title"="Ihre Fahrgewohnheiten sind unregelmäßig";
-"dk_driverdata_profile_regularity_regular_text"="Sie sind ein routinierter Fahrer und Ihre Wochen ähneln sich. Im Durchschnitt machen Sie %1$ Fahrten und legen %@ km zurück.";
+"dk_driverdata_profile_regularity_regular_text"="Sie sind ein routinierter Fahrer und Ihre Wochen ähneln sich. Im Durchschnitt machen Sie %@ Fahrten und legen %@ km zurück.";
 "dk_driverdata_profile_regularity_regular_title"="Ihre Fahrgewohnheiten sind regelmäßig";
 "dk_driverdata_profile_roadcontext_city_text"="%@ %% der Strecke, die Sie zurücklegen, ist in der Stadt bei eher flüssigem Verkehr.";
 "dk_driverdata_profile_roadcontext_city_title"="Sie fahren hauptsächlich in der Stadt";

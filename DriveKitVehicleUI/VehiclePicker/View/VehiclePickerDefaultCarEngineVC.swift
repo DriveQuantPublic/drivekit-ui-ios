@@ -21,7 +21,7 @@ class VehiclePickerDefaultCarEngineVC: VehiclePickerStepView {
 
     private var selectedRow: Int = 1
 
-    init (viewModel: VehiclePickerViewModel) {
+    init (viewModel: VehiclePickerStepViewModel) {
         super.init(nibName: String(describing: VehiclePickerDefaultCarEngineVC.self), bundle: .vehicleUIBundle)
         self.viewModel = viewModel
     }
@@ -56,8 +56,8 @@ class VehiclePickerDefaultCarEngineVC: VehiclePickerStepView {
     }
 
     @IBAction func didConfirmInput(_ sender: Any) {
-        self.viewModel.isElectric = (selectedRow == 0)
-        self.viewModel.nextStep(.defaultCarEngine)
+        self.viewModel.pickerViewModel.isElectric = (selectedRow == 0)
+        self.viewModel.pickerViewModel.nextStep(.defaultCarEngine)
     }
 }
 

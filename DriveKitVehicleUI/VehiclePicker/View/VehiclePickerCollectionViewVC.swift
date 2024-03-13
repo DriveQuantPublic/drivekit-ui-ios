@@ -18,7 +18,7 @@ private enum Constants {
 class VehiclePickerCollectionViewVC: VehiclePickerStepView {
     @IBOutlet weak var collectionView: UICollectionView!
 
-    init(viewModel: VehiclePickerViewModel) {
+    init(viewModel: VehiclePickerStepViewModel) {
         super.init(nibName: String(describing: VehiclePickerCollectionViewVC.self), bundle: .vehicleUIBundle)
         self.viewModel = viewModel
     }
@@ -44,7 +44,7 @@ class VehiclePickerCollectionViewVC: VehiclePickerStepView {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.collectionView.reloadData()
-        self.viewModel.vehicleDataDelegate = self
+        self.viewModel.pickerViewModel.vehicleDataDelegate = self
     }
 }
 
@@ -113,7 +113,7 @@ extension VehiclePickerCollectionViewVC: VehicleDataDelegate {
             self.hideLoader()
             switch status {
                 case .noError:
-                    self.viewModel.showStep()
+                    self.viewModel.pickerViewModel.showStep()
                 case .noData:
                     self.showAlertMessage(title: nil, message: "dk_vehicle_no_data".dkVehicleLocalized(), back: false, cancel: false)
                 case .failedToRetreiveData:

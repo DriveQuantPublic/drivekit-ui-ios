@@ -9,6 +9,7 @@
 import Foundation
 import DriveKitVehicleModule
 import DriveKitCommonUI
+import DriveKitCoreModule
 
 extension VehiclePickerStep: VehiclePickerTableViewDelegate {
 
@@ -110,7 +111,19 @@ extension VehiclePickerStep: VehiclePickerTableViewDelegate {
     }
 
     private func getTableViewItem<T: VehiclePickerTableViewItem>(pos: Int, viewModel: VehiclePickerViewModel) -> T {
-        guard let item = self.getTableViewItems(viewModel: viewModel)[pos] as? T else {
+        let items = self.getTableViewItems(viewModel: viewModel)
+        guard !items.isEmpty else {
+            fatalError("Empty vehicle picker items")
+        }
+
+        let position: Int
+        if pos < items.count {
+            position = pos
+        } else {
+            DriveKitLog.shared.errorLog(tag: DriveKitVehicleUI.tag, message: "Vehicle picker items count is less than index")
+            position = 0
+        }
+        guard let item = self.getTableViewItems(viewModel: viewModel)[position] as? T else {
             fatalError("failed to cast item of type \(T.self)")
         }
         return item

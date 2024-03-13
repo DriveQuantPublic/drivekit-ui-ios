@@ -439,7 +439,7 @@ class VehiclePickerViewModel {
 
     func showStep() {
         DispatchQueue.dispatchOnMainThread {
-            self.vehicleNavigationDelegate?.showStep(viewController: self.getViewController())
+            self.vehicleNavigationDelegate?.showStep(viewController: self.createViewController())
         }
     }
 
@@ -453,26 +453,6 @@ class VehiclePickerViewModel {
             vehicleName = String(format: "%@ %@ %@", self.vehicleBrand?.name ?? "", self.vehicleModel ?? "", self.vehicleVersion?.version ?? "")
         }
         return vehicleName ?? ""
-    }
-
-    func getViewController() -> UIViewController {
-        return currentStep.getViewController(viewModel: self)
-    }
-
-    func getTableViewItems() -> [VehiclePickerTableViewItem] {
-        return currentStep.getTableViewItems(viewModel: self)
-    }
-
-    func onTableViewItemSelected(pos: Int) {
-        self.currentStep.onTableViewItemSelected(pos: pos, viewModel: self)
-    }
-
-    func getCollectionViewItems() -> [VehiclePickerCollectionViewItem] {
-        self.currentStep.getCollectionViewItems(viewModel: self)
-    }
-
-    func onCollectionViewItemSelected(pos: Int, completion: (StepStatus) -> Void) {
-        self.currentStep.onCollectionViewItemSelected(pos: pos, viewModel: self, completion: completion)
     }
 
     func getCategoryItem() -> VehiclePickerTextDelegate? {
@@ -562,15 +542,8 @@ class VehiclePickerViewModel {
         }
     }
 
-    func getStepDescription() -> String? {
-        return currentStep.description()
-    }
-
-    func showStepLabel() -> Bool {
-        return currentStep.showLabel()
-    }
-
-    func getTitle() -> String {
-        return currentStep.getTitle(viewModel: self)
+    func createViewController() -> UIViewController {
+        let stepViewModel = VehiclePickerStepViewModel(step: currentStep, pickerViewModel: self)
+        return currentStep.getViewController(viewModel: stepViewModel)
     }
 }

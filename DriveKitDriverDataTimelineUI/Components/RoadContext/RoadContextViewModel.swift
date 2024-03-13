@@ -55,20 +55,14 @@ class RoadContextViewModel {
         selectedDate: Date? = nil
     ) {
         if let timeline, let selectedDate {
-            var distanceByContext: [TimelineRoadContext: Double] = [:]
-            var totalDistanceForAllContexts: Double = 0
-            
-            distanceByContext = timeline.roadContexts.reduce(into: [TimelineRoadContext: Double]()) { partialResult, roadContextElement in
-                let distance = roadContextElement.value.first { roadContextItem in
-                    roadContextItem.date == selectedDate
-                }?.distance ?? 0
-                if distance > 0, let timelineRoadContext = TimelineRoadContext(roadContext: roadContextElement.key) {
-                    partialResult[timelineRoadContext] = distance
+            let distanceByContext = timeline.roadContexts.reduce(into: [TimelineRoadContext: Double]()) { partialResult, roadContextsElement in
+                if let distance = roadContextsElement.value.first(where: { $0.date == selectedDate })?.distance, distance > 0 {
+                    if let timelineRoadContext = TimelineRoadContext(roadContext: roadContextsElement.key) {
+                        partialResult[timelineRoadContext] = distance
+                    }
                 }
             }
-            totalDistanceForAllContexts = timeline.allContext.first { allContextItem in
-                allContextItem.date == selectedDate
-            }?.distance ?? 0
+            let totalDistanceForAllContexts = timeline.allContext.first { $0.date == selectedDate }?.distance ?? 0
 
             if distanceByContext.isEmpty {
                 roadContextType = .noData(totalDistanceForAllContexts: totalDistanceForAllContexts)

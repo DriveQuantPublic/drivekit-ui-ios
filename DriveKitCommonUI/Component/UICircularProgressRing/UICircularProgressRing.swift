@@ -241,12 +241,4 @@ final public class UICircularProgressRing: UICircularRing {
         ringLayer.minValue = minValue
         ringLayer.valueFormatter = valueFormatter
     }
-
-    override func didUpdateValue(newValue: CGFloat) {
-        super.didUpdateValue(newValue: newValue)
-    }
-
-    override func willDisplayLabel(label: UILabel) {
-        super.willDisplayLabel(label: label)
-    }
 }

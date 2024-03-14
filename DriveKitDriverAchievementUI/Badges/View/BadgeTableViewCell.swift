@@ -14,10 +14,6 @@ import DriveKitDBAchievementAccessModule
 class BadgeTableViewCell: UITableViewCell {
     @IBOutlet weak var levelsStackView: UIStackView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
     private func addLevelView(level: DKBadgeCharacteristics) {
         let levelView = BadgeLevelView.viewFromNib
         levelsStackView.addArrangedSubview(levelView)

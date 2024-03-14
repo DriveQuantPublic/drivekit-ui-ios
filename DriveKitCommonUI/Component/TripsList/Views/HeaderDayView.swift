@@ -13,10 +13,6 @@ public final class HeaderDayView: UIView, Nibable {
     @IBOutlet var rightLabel: UILabel!
     @IBOutlet var backgroundView: UIView!
     
-    public override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
     public func configure<TripsListItem: DKTripListItem> (trips: [TripsListItem], date: Date, headerDay: HeaderDay, dkHeader: DKHeader?) {
         var rightText = ""
         if let dkHeader = dkHeader {

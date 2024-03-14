@@ -45,6 +45,7 @@ class MySynthesisViewModel {
         
         DriveKitDriverData.shared.getDriverTimelines(
             periods: self.configuredPeriods,
+            ignoreItemsWithoutTripScored: true,
             type: .cache
         ) { [weak self] status, timelines in
             guard let self else { return }
@@ -72,6 +73,7 @@ class MySynthesisViewModel {
         self.delegate?.willUpdateData()
         DriveKitDriverData.shared.getDriverTimelines(
             periods: configuredPeriods,
+            ignoreItemsWithoutTripScored: true,
             type: .defaultSync
         ) { [weak self] status, timelines in
             guard let self else { return }
@@ -111,12 +113,7 @@ class MySynthesisViewModel {
             selectedPeriod: currentTimeline.period
         )
 
-        let allDates = currentTimeline.allContext.filter { item in
-            if let selectedDate, item.date == selectedDate {
-                return true
-            }
-            return item.numberTripScored > 0
-        }.map(\.date)
+        let allDates = currentTimeline.allContext.map(\.date)
         
         if allDates.isEmpty {
             configureWithNoData()
@@ -145,14 +142,11 @@ class MySynthesisViewModel {
             self.scoreCardViewModel.configure(
                 with: scoreSynthesis,
                 period: periodSelectorViewModel.selectedPeriod,
-                previousPeriodDate: previousPeriodContext?.date,
-                hasOnlyShortTripsForPreviousPeriod: previousPeriodContext?.hasOnlyShortTrips ?? false,
-                hasOnlyShortTripsForCurrentPeriod: currentPeriodContext?.hasOnlyShortTrips ?? false
+                previousPeriodDate: previousPeriodContext?.date
             )
             
             self.communityCardViewModel.configure(
                 with: scoreSynthesis,
-                hasOnlyShortTripsForCurrentPeriod: currentPeriodContext?.hasOnlyShortTrips ?? false,
                 userTripCount: currentPeriodContext?.numberTripTotal ?? 0,
                 userDistanceCount: currentPeriodContext?.distance ?? 0,
                 communityStatistics: communityStatistics ?? .default
@@ -182,15 +176,12 @@ class MySynthesisViewModel {
             self.scoreCardViewModel.configure(
                 with: .init(scoreType: self.scoreSelectorViewModel.selectedScore),
                 period: periodSelectorViewModel.selectedPeriod,
-                previousPeriodDate: nil,
-                hasOnlyShortTripsForPreviousPeriod: false,
-                hasOnlyShortTripsForCurrentPeriod: false
+                previousPeriodDate: nil
             )
         }
 
         self.communityCardViewModel.configure(
             with: .init(scoreType: self.scoreSelectorViewModel.selectedScore),
-            hasOnlyShortTripsForCurrentPeriod: false,
             userTripCount: 0,
             userDistanceCount: 0,
             communityStatistics: communityStatistics ?? .default
@@ -203,11 +194,7 @@ class MySynthesisViewModel {
             in: oldPeriod,
             switchingAmongst: self.timelines[selectedPeriod]?.allDates ?? [],
             in: selectedPeriod
-        ) { period, date in
-            self.timelines[period]?.allContext[date: date]?.hasValue(
-                for: scoreSelectorViewModel.selectedScore
-            ) ?? false
-        }
+        )
         update()
     }
 }

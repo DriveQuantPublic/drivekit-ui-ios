@@ -19,14 +19,12 @@ enum RoadContextType {
     )
     case emptyData
     case noData(totalDistanceForAllContexts: Double)
-    case noDataSafety
-    case noDataEcodriving
-    
+
     var hasData: Bool {
         switch self {
         case .data:
             return true
-        case .noData, .emptyData, .noDataSafety, .noDataEcodriving:
+        case .noData, .emptyData:
             return false
         }
     }
@@ -35,18 +33,8 @@ enum RoadContextType {
         switch self {
         case let .data(distanceByContext, _):
             return distanceByContext
-        case .noData, .emptyData, .noDataSafety, .noDataEcodriving:
+        case .noData, .emptyData:
             return [:]
-        }
-    }
-    
-    var totalDistanceForAllContexts: Double {
-        switch self {
-        case let .data(_, totalDistanceForAllContexts),
-            let .noData(totalDistanceForAllContexts):
-            return totalDistanceForAllContexts
-        case .emptyData, .noDataSafety, .noDataEcodriving:
-            return 0
         }
     }
 }
@@ -63,34 +51,21 @@ class RoadContextViewModel {
     private var roadContextItems: [TimelineRoadContext] = []
 
     func configure(
-        with selectedScore: DKScoreType,
-        timeline: DKRawTimeline?,
-        selectedIndex: Int? = nil
+        timeline: DKDriverTimeline?,
+        selectedDate: Date? = nil
     ) {
-        if let timeline, let selectedIndex, timeline.hasData {
-            var distanceByContext: [TimelineRoadContext: Double] = [:]
-            var totalDistanceForAllContexts: Double = 0
-            
-            distanceByContext = timeline.distanceByRoadContext(
-                selectedScore: selectedScore,
-                selectedIndex: selectedIndex
-            )
-            totalDistanceForAllContexts = timeline.totalDistanceForAllContexts(
-                selectedScore: selectedScore,
-                selectedIndex: selectedIndex
-            )
-            
-            if distanceByContext.isEmpty {
-                switch selectedScore {
-                case .distraction, .speeding:
-                    roadContextType = .noData(totalDistanceForAllContexts: totalDistanceForAllContexts)
-                case .safety:
-                    roadContextType = .noDataSafety
-                case .ecoDriving:
-                    roadContextType = .noDataEcodriving
-                @unknown default:
-                    roadContextType = .noData(totalDistanceForAllContexts: totalDistanceForAllContexts)
+        if let timeline, let selectedDate {
+            let distanceByContext = timeline.roadContexts.reduce(into: [TimelineRoadContext: Double]()) { partialResult, roadContextsElement in
+                if let distance = roadContextsElement.value.first(where: { $0.date == selectedDate })?.distance, distance > 0 {
+                    if let timelineRoadContext = TimelineRoadContext(roadContext: roadContextsElement.key) {
+                        partialResult[timelineRoadContext] = distance
+                    }
                 }
+            }
+            let totalDistanceForAllContexts = timeline.allContext.first { $0.date == selectedDate }?.distance ?? 0
+
+            if distanceByContext.isEmpty {
+                roadContextType = .noData(totalDistanceForAllContexts: totalDistanceForAllContexts)
             } else {
                 roadContextType = .data(
                     distanceByContext: distanceByContext,
@@ -147,10 +122,6 @@ extension RoadContextViewModel: DKContextCard {
             )
             case .emptyData:
                 return DKCommonLocalizable.noDataYet.text()
-            case .noDataSafety:
-                return "dk_timeline_road_context_title_no_data".dkDriverDataTimelineLocalized()
-            case .noDataEcodriving:
-                return "dk_timeline_road_context_title_no_data".dkDriverDataTimelineLocalized()
         }
     }
     
@@ -163,10 +134,6 @@ extension RoadContextViewModel: DKContextCard {
                 return "dk_timeline_road_context_description_empty_data".dkDriverDataTimelineLocalized()
             case .noData:
                 return "dk_timeline_road_context_no_context_description".dkDriverDataTimelineLocalized()
-            case .noDataSafety:
-                return "dk_timeline_road_context_description_no_data_safety".dkDriverDataTimelineLocalized()
-            case .noDataEcodriving:
-                return "dk_timeline_road_context_description_no_data_ecodriving".dkDriverDataTimelineLocalized()
         }
     }
     func contextCardDidUpdate(_ completionHandler: (() -> Void)?) {

@@ -13,7 +13,6 @@ import Foundation
 
 public class MySynthesisCommunityCardViewModel {
     private var scoreSynthesis: DKScoreSynthesis?
-    private var hasOnlyShortTripsForCurrentPeriod: Bool = false
     private var userTripCount: Int?
     private var userDistanceCount: Double?
     private var communityStatistics: DKCommunityStatistics?
@@ -27,15 +26,6 @@ public class MySynthesisCommunityCardViewModel {
         switch tripKind {
             case .noTrip:
                 return "dk_driverdata_mysynthesis_no_driving".dkDriverDataLocalized()
-            case .onlyShortTrips:
-                switch scoreSynthesis?.scoreType {
-                    case .safety, .ecoDriving, .none:
-                        return "dk_driverdata_mysynthesis_not_enough_data".dkDriverDataLocalized()
-                    case .distraction, .speeding:
-                        return userCommunityRelatedPositionDescription
-                    case .some:
-                        return ""
-                }
             case .scoredTrips:
                 return userCommunityRelatedPositionDescription
         }
@@ -45,15 +35,6 @@ public class MySynthesisCommunityCardViewModel {
         switch tripKind {
             case .noTrip:
                 return .complementaryFontColor
-            case .onlyShortTrips:
-                switch scoreSynthesis?.scoreType {
-                    case .safety, .ecoDriving, .none:
-                        return .complementaryFontColor
-                    case .distraction, .speeding:
-                        return .mainFontColor
-                    case .some:
-                        return .complementaryFontColor
-                }
             case .scoredTrips:
                 return .mainFontColor
         }
@@ -61,13 +42,11 @@ public class MySynthesisCommunityCardViewModel {
         
     public func configure(
         with scoreSynthesis: DKScoreSynthesis,
-        hasOnlyShortTripsForCurrentPeriod: Bool,
         userTripCount: Int,
         userDistanceCount: Double,
         communityStatistics: DKCommunityStatistics
     ) {
         self.scoreSynthesis = scoreSynthesis
-        self.hasOnlyShortTripsForCurrentPeriod = hasOnlyShortTripsForCurrentPeriod
         self.userTripCount = userTripCount
         self.userDistanceCount = userDistanceCount
         self.communityStatistics = communityStatistics
@@ -104,17 +83,13 @@ public class MySynthesisCommunityCardViewModel {
     
     // MARK: - Private Helpers
     private enum TripKind {
-        case noTrip, onlyShortTrips, scoredTrips
+        case noTrip, scoredTrips
     }
     
     private var tripKind: TripKind {
         guard let userTripCount else { return .noTrip }
         
-        return userTripCount == 0
-            ? .noTrip
-            : hasOnlyShortTripsForCurrentPeriod
-                ? .onlyShortTrips
-                : .scoredTrips
+        return userTripCount == 0 ? .noTrip : .scoredTrips
     }
     
     private var userCommunityRelatedPositionDescription: String {

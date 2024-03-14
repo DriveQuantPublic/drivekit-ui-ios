@@ -15,9 +15,6 @@ final class CalloutView: UIView, Nibable {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subtitleLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()    }
-    
     func configure(viewModel: TripEventCalloutViewModel) {
         timeLabel.attributedText = viewModel.time.dkAttributedString().font(dkFont: .primary, style: .smallText).color(.complementaryFontColor).build()
         titleLabel.attributedText = viewModel.title.dkAttributedString().font(dkFont: .primary, style: .highlightSmall).color(.primaryColor).build()

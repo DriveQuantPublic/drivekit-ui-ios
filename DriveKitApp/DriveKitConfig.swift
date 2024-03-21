@@ -37,25 +37,13 @@ enum DriveKitConfig {
     private static let vehicleBrands: [DKVehicleBrand] = DKVehicleBrand.allCases
 
     static func initialize(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-        // DriveKit modules initialization:
-        initializeModules(launchOptions: launchOptions)
+        // DriveKit modules are now initialized automatically
 
         // DriveKit modules configuration:
         configureModules()
 
         // Configure trip notifications:
         NotificationManager.configure()
-    }
-
-    private static func initializeModules(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-        // DriveKit Initialization:
-        DriveKit.shared.initialize()
-
-        // TripAnalysis initialization:
-        DriveKitTripAnalysis.shared.initialize(tripListener: nil, appLaunchOptions: launchOptions)
-
-        // Initialize DriverData:
-        DriveKitDriverData.shared.initialize()
     }
 
     private static func configureModules() {

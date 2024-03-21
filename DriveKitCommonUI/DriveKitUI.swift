@@ -13,8 +13,8 @@ import UIKit
     @objc public static let shared = DriveKitUI()
     public static let calendar = Calendar(identifier: .gregorian)
 
-    @objc public private(set) var colors: DKColors!
-    @objc public private(set) var fonts: DKFonts!
+    @objc public private(set) var colors: DKColors = DKDefaultColors()
+    @objc public private(set) var fonts: DKFonts = DKDefaultFonts()
     @objc public private(set) var overridedStringFileName: String?
     @objc public private(set) var analytics: DKAnalytics?
     private var tagKeyFromScreen: [String: String]

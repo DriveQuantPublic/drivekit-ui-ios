@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.resource = ['DriveKitDriverDataUI/DriverData.xcassets', 'DriveKitDriverDataUI/Localizable/*', 'DriveKitDriverDataUI/**/*.xib', 'DriveKitDriverDataUI/**/*.storyboard', 'DriveKitDriverDataUI/PrivacyInfo.xcprivacy']
 
   s.dependency 'DriveKitCommonUI', s.version.to_s
-  s.dependency 'DriveKitDriverData', '1.42-beta2'
+  s.dependency 'DriveKitDriverData', '2.0-beta1'
 
   s.pod_target_xcconfig = {
     'PRODUCT_BUNDLE_IDENTIFIER': 'com.drivequant.drivekit-driverdata-ui'

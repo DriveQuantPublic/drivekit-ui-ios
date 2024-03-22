@@ -11,6 +11,7 @@ import DriveKitBeaconUtilsModule
 import DriveKitCommonUI
 import DriveKitDBVehicleAccessModule
 import DriveKitVehicleModule
+import DriveKitCoreModule
 
 public class DriveKitVehicleUI {
     public static let shared = DriveKitVehicleUI()
@@ -204,4 +205,11 @@ extension DriveKitVehicleUI: DriveKitVehicleUIEntryPoint {
 @available(*, deprecated, message: "This protocol is not used anymore.")
 public protocol DKVehiclePickerExtraStep {
     func viewController(vehicleId: String) -> UIViewController?
+}
+
+@objc(DKUIVehicleInitializer)
+class DKUIVehicleInitializer: NSObject {
+    @objc static func initUI() {
+        DriveKitVehicleUI.shared.initialize()
+    }
 }

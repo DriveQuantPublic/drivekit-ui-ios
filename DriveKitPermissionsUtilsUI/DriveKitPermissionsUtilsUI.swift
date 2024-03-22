@@ -233,3 +233,10 @@ extension DriveKitPermissionsUtilsUI {
         self.configureContactType(.web(contactUrl))
     }
 }
+
+@objc(DKUIPermissionsUtilsInitializer)
+class DKUIPermissionsUtilsInitializer: NSObject {
+    @objc static func initUI() {
+        DriveKitPermissionsUtilsUI.shared.initialize()
+    }
+}

@@ -158,3 +158,10 @@ extension String {
         return self.dkLocalized(tableName: "DKTripAnalysisLocalizable", bundle: Bundle.tripAnalysisUIBundle ?? .main)
     }
 }
+
+@objc(DKUITripAnalysisInitializer)
+class DKUITripAnalysisInitializer: NSObject {
+    @objc static func initUI() {
+        DriveKitTripAnalysisUI.shared.initialize()
+    }
+}

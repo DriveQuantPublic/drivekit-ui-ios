@@ -154,3 +154,10 @@ extension UIColor {
     public static let dkMapTraceAuthorizedCall = UIColor(hex: 0x93c47d)
     public static let dkMapTraceWarning = UIColor(hex: 0xed4f3b)
 }
+
+@objc(DKUIDriverDataInitializer)
+class DKUIDriverDataInitializer: NSObject {
+    @objc static func initUI() {
+        DriveKitDriverDataUI.shared.initialize()
+    }
+}

@@ -120,3 +120,10 @@ extension String {
         return self.dkLocalized(tableName: "DKChallengeLocalizable", bundle: Bundle.challengeUIBundle ?? .main)
     }
 }
+
+@objc(DKUIChallengeInitializer)
+class DKUIChallengeInitializer: NSObject {
+    @objc static func initUI() {
+        DriveKitChallengeUI.shared.initialize()
+    }
+}

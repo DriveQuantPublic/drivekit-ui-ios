@@ -102,3 +102,10 @@ extension DriveKitDriverAchievementUI {
         configureRankingSelector(.period(rankingPeriods: periods.map { DKRankingPeriod(rawValue: $0)! }))
     }
 }
+
+@objc(DKUIDriverAchievementInitializer)
+class DKUIDriverAchievementInitializer: NSObject {
+    @objc static func initUI() {
+        DriveKitDriverAchievementUI.shared.initialize()
+    }
+}

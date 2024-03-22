@@ -41,3 +41,10 @@ extension String {
         return self.dkLocalized(tableName: "DriverDataTimelineLocalizable", bundle: Bundle.driverDataTimelineUIBundle ?? .main)
     }
 }
+
+@objc(DKUIDriverDataTimelineInitializer)
+class DKUIDriverDataTimelineInitializer: NSObject {
+    @objc static func initUI() {
+        DriveKitDriverDataTimelineUI.shared.initialize()
+    }
+}

@@ -11,6 +11,8 @@ import DriveKitCoreModule
 import UIKit
 
 @objc public class DriveKitDriverDataTimelineUI: NSObject {
+    static let tag = "DriveKit DriverDataTimelineUI"
+
     @objc public static let shared = DriveKitDriverDataTimelineUI()
 
     @available(*, deprecated, message: "You should use DriveKitUI.shared.scores now")
@@ -20,7 +22,13 @@ import UIKit
     }
     
     public func initialize() {
+        DriveKitLog.shared.infoLog(tag: DriveKitDriverDataTimelineUI.tag, message: "Initialization")
+
         DriveKitNavigationController.shared.driverDataTimelineUI = self
+    }
+
+    private override init() {
+        super.init()
     }
 }
 

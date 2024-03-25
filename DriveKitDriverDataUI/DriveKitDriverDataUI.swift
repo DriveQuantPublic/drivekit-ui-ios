@@ -13,6 +13,8 @@ import DriveKitCommonUI
 import DriveKitDBTripAccessModule
 
 public class DriveKitDriverDataUI: AccessRightListener {
+    static let tag = "DriveKit DriverDataUI"
+
     public private(set) var tripData: TripData = .safety
     private(set) var sourceMapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .speeding, .interactiveMap, .synthesis]
     private(set) var mapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .speeding, .interactiveMap, .synthesis]
@@ -33,6 +35,8 @@ public class DriveKitDriverDataUI: AccessRightListener {
     private init() {}
 
     public func initialize(tripData: TripData = .safety, mapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .speeding, .interactiveMap, .synthesis]) {
+        DriveKitLog.shared.infoLog(tag: DriveKitDriverDataUI.tag, message: "Initialization")
+
         self.tripData = tripData
         self.sourceMapItems = mapItems
         filterMapItems()

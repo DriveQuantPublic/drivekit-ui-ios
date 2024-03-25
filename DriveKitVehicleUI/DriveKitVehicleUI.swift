@@ -14,8 +14,9 @@ import DriveKitVehicleModule
 import DriveKitCoreModule
 
 public class DriveKitVehicleUI {
-    public static let shared = DriveKitVehicleUI()
     static let tag: String = "DriveKit VehiculeUI"
+
+    public static let shared = DriveKitVehicleUI()
 
     public private(set) var vehicleTypes: [DKVehicleType] = DKVehicleType.allCases
     public private(set) var brands: [DKVehicleBrand] = DKVehicleBrand.allCases
@@ -41,6 +42,8 @@ public class DriveKitVehicleUI {
     private init() {}
 
     public func initialize() {
+        DriveKitLog.shared.infoLog(tag: DriveKitVehicleUI.tag, message: "Initialization")
+
         DriveKitNavigationController.shared.vehicleUI = self
     }
 

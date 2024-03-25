@@ -12,6 +12,8 @@ import DriveKitCoreModule
 import DriveKitCommonUI
 
 @objc public class DriveKitPermissionsUtilsUI: NSObject {
+    static let tag = "DriveKit PermissionsUtilsUI"
+
     @objc public static let shared = DriveKitPermissionsUtilsUI()
     
     public var isBluetoothNeeded: Bool {
@@ -37,6 +39,8 @@ import DriveKitCommonUI
     }
 
     @objc public func initialize() {
+        DriveKitLog.shared.infoLog(tag: DriveKitPermissionsUtilsUI.tag, message: "Initialization")
+
         DriveKitNavigationController.shared.permissionsUtilsUI = self
     }
 

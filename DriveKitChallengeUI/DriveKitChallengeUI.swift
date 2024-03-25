@@ -14,15 +14,18 @@ import DriveKitCommonUI
 import UIKit
 
 @objc public class DriveKitChallengeUI: NSObject {
+    static let tag: String = "DriveKit ChallengeUI"
 
     @objc public static let shared = DriveKitChallengeUI()
     private var challengeListVC: ChallengeListVC?
     
     @objc public func initialize() {
+        DriveKitLog.shared.infoLog(tag: DriveKitChallengeUI.tag, message: "Initialization")
+
         DriveKitNavigationController.shared.challengeUI = self
     }
 
-    public override init() {
+    private override init() {
         super.init()
         DriveKitChallenge.shared.addListener(listener: self)
     }

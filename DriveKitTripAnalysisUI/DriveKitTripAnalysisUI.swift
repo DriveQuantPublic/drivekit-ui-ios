@@ -14,7 +14,8 @@ import DriveKitCommonUI
 import DriveKitTripAnalysisModule
 
 @objc public class DriveKitTripAnalysisUI: NSObject {
-    private let tag: String = "DriveKit TripAnalysisUI"
+    static let tag: String = "DriveKit TripAnalysisUI"
+
     private(set) var roadsideAssistanceNumber: String?
     @objc public static let shared = DriveKitTripAnalysisUI()
     @objc public var defaultWorkingHours: DKWorkingHours = DriveKitTripAnalysisUI.getDefaultWorkingHours()
@@ -37,8 +38,13 @@ import DriveKitTripAnalysisModule
     }
 
     @objc public func initialize() {
+        DriveKitLog.shared.infoLog(tag: DriveKitTripAnalysisUI.tag, message: "Initialization")
+
         DriveKitNavigationController.shared.tripAnalysisUI = self
         DriveKit.shared.registerNotificationDelegate(self)
+    }
+    private override init() {
+        super.init()
     }
 
     private static func getDefaultWorkingHours() -> DKWorkingHours {
@@ -131,7 +137,7 @@ extension DriveKitTripAnalysisUI: UNUserNotificationCenterDelegate {
         if categoryIdentifier == TripAnalysisConstant.crashFeedbackNotificationCategoryIdentifier {
             if let crashId = content.userInfo[TripAnalysisConstant.crashFeedbackNotificationCrashIdKey] as? String {
                 if let crashInfo = DriveKitTripAnalysis.shared.crashFeedbackNotificationOpened(crashId: crashId) {
-                    DriveKitLog.shared.infoLog(tag: self.tag, message: "crashFeedbackNotification opened with success")
+                    DriveKitLog.shared.infoLog(tag: DriveKitTripAnalysisUI.tag, message: "crashFeedbackNotification opened with success")
                     DispatchQueue.main.async { [weak self] in
                         if let crashFeedbackVC = self?.getCrashFeedbackViewController(crashInfo: crashInfo) {
                             let navController = UINavigationController(rootViewController: crashFeedbackVC)
@@ -142,7 +148,7 @@ extension DriveKitTripAnalysisUI: UNUserNotificationCenterDelegate {
                         }
                     }
                 } else {
-                    DriveKitLog.shared.infoLog(tag: self.tag, message: "crashFeedbackNotification opened with error")
+                    DriveKitLog.shared.infoLog(tag: DriveKitTripAnalysisUI.tag, message: "crashFeedbackNotification opened with error")
                 }
             }
         }

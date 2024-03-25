@@ -13,6 +13,8 @@ import DriveKitCommonUI
 import DriveKitDBAchievementAccessModule
 
 @objc public class DriveKitDriverAchievementUI: NSObject {
+    static let tag = "DriveKit DriverAchievementUI"
+
     @objc public static let shared = DriveKitDriverAchievementUI()
 
     public private(set) var streakThemes: [DKStreakTheme] = [.phoneDistraction, .safety, .acceleration, .brake, .adherence, .speedLimits, .call]
@@ -24,6 +26,8 @@ import DriveKitDBAchievementAccessModule
     private override init() {}
 
     @objc public func initialize() {
+        DriveKitLog.shared.infoLog(tag: DriveKitDriverAchievementUI.tag, message: "Initialization")
+
         DriveKitNavigationController.shared.driverAchievementUI = self
     }
 

@@ -15,10 +15,10 @@ public class DKVehiclePickerNavigationController: UINavigationController {
     
     public init(parentView: UIViewController, detectionMode: DKDetectionMode = .disabled, vehicle: DKVehicle? = nil, showCancel: Bool = true, completion: (() -> Void)? = nil) {
         self.completion = completion
-        let viewModel = VehiclePickerViewModel(detectionMode: detectionMode, previousVehicle: vehicle, showCancel: showCancel)
-        let firstViewController = viewModel.getViewController()
+        let pickerViewModel = VehiclePickerViewModel(detectionMode: detectionMode, previousVehicle: vehicle, showCancel: showCancel)
+        let firstViewController = pickerViewModel.createViewController()
         super.init(nibName: nil, bundle: .vehicleUIBundle)
-        viewModel.vehicleNavigationDelegate = self
+        pickerViewModel.vehicleNavigationDelegate = self
         self.setupNavigationBar(parentView: parentView)
         self.modalPresentationStyle = .overFullScreen
         self.pushViewController(firstViewController, animated: true)

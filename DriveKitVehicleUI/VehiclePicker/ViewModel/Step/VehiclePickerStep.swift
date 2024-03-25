@@ -12,7 +12,7 @@ import UIKit
 enum VehiclePickerStep {
     case type, truckType, category, categoryDescription, brandsIcons, brandsFull, engine, models, years, versions, name, defaultCarEngine
 
-    func getViewController(viewModel: VehiclePickerViewModel) -> UIViewController {
+    func getViewController(viewModel: VehiclePickerStepViewModel) -> UIViewController {
         switch self {
             case .type:
                 return VehiclePickerTableViewVC(viewModel: viewModel)

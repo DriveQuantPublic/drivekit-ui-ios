@@ -18,7 +18,7 @@ class VehiclePickerInputVC: VehiclePickerStepView {
 
     var textFieldView: DKTextField = DKTextField.viewFromNib
 
-    init (viewModel: VehiclePickerViewModel) {
+    init (viewModel: VehiclePickerStepViewModel) {
         super.init(nibName: String(describing: VehiclePickerInputVC.self), bundle: .vehicleUIBundle)
         self.viewModel = viewModel
     }
@@ -53,18 +53,18 @@ class VehiclePickerInputVC: VehiclePickerStepView {
         textFieldView.title = placeholder
         textFieldView.enable = true
         textFieldView.keyBoardType = .asciiCapable
-        if let name = viewModel.vehicleName {
+        if let name = viewModel.pickerViewModel.vehicleName {
             textFieldView.value = name
         } else {
-             textFieldView.value = viewModel.getDefaultName()
+            textFieldView.value = viewModel.pickerViewModel.getDefaultName()
         }
         inputTextField.embedSubview(textFieldView)
     }
 
     @IBAction func didConfirmInput(_ sender: Any) {
         self.showLoader()
-        self.viewModel.vehicleName = textFieldView.getTextFieldValue()
-        self.viewModel.addVehicle { status, vehicleId in
+        self.viewModel.pickerViewModel.vehicleName = textFieldView.getTextFieldValue()
+        self.viewModel.pickerViewModel.addVehicle { status, vehicleId in
             DispatchQueue.main.async {
                 self.hideLoader()
                 switch status {
@@ -101,6 +101,6 @@ class VehiclePickerInputVC: VehiclePickerStepView {
 
 extension VehiclePickerInputVC: DKTextFieldDelegate {
     func userDidEndEditing(textField: DKTextField) {
-        self.viewModel.vehicleName = textField.getTextFieldValue()
+        self.viewModel.pickerViewModel.vehicleName = textField.getTextFieldValue()
     }
 }

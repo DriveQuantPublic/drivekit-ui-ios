@@ -19,7 +19,7 @@ class VehiclePickerTextVC: VehiclePickerStepView {
     @IBOutlet weak var textContinueButton: UIButton!
     @IBOutlet weak var confirmButtonHeightConstraint: NSLayoutConstraint!
     
-    init (viewModel: VehiclePickerViewModel) {
+    init (viewModel: VehiclePickerStepViewModel) {
         super.init(nibName: String(describing: VehiclePickerTextVC.self), bundle: .vehicleUIBundle)
         self.viewModel = viewModel
     }
@@ -34,7 +34,7 @@ class VehiclePickerTextVC: VehiclePickerStepView {
     }
     
     func setup() {
-        if let category = self.viewModel.vehicleCategory {
+        if let category = self.viewModel.pickerViewModel.vehicleCategory {
             textImageView.image = category.categoryImage()
             textDescriptionLabel.attributedText = category.categoryDescription().dkAttributedString().font(dkFont: .primary, style: .normalText).color(.mainFontColor).build()
             if DriveKitVehicleUI.shared.categoryConfigType == .liteConfigOnly {
@@ -64,11 +64,11 @@ class VehiclePickerTextVC: VehiclePickerStepView {
     }
 
     @IBAction func liteConfigSelected(_ sender: Any) {
-        self.viewModel.vehicleCategory?.onLiteConfigSelected(viewModel: viewModel)
+        self.viewModel.pickerViewModel.vehicleCategory?.onLiteConfigSelected(viewModel: viewModel.pickerViewModel)
     }
     
     @IBAction func fullConfigSelected(_ sender: Any) {
-        self.viewModel.vehicleCategory?.onFullConfigSelected(viewModel: viewModel)
+        self.viewModel.pickerViewModel.vehicleCategory?.onFullConfigSelected(viewModel: viewModel.pickerViewModel)
     }
     
 }

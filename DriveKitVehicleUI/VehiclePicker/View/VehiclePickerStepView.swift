@@ -10,7 +10,7 @@ import UIKit
 import DriveKitCommonUI
 
 class VehiclePickerStepView: DKUIViewController {
-    var viewModel: VehiclePickerViewModel!
+    var viewModel: VehiclePickerStepViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,7 @@ class VehiclePickerStepView: DKUIViewController {
     }
 
     func setupNavigation() {
-        if viewModel.showCancel {
+        if viewModel.pickerViewModel.showCancel {
             let dismissItem = UIBarButtonItem(title: DKCommonLocalizable.cancel.text(), style: .plain, target: self, action: #selector(self.didDismissManually))
             dismissItem.tintColor = DKUIColors.navBarElementColor.color
             navigationItem.rightBarButtonItem = dismissItem
@@ -28,9 +28,9 @@ class VehiclePickerStepView: DKUIViewController {
     }
 
     @objc private func showPreviousStep() {
-        if let step = self.viewModel.previousSteps.last {
-            self.viewModel.currentStep = step
-            self.viewModel.previousSteps.removeLast(1)
+        if let step = self.viewModel.pickerViewModel.previousSteps.last {
+            self.viewModel.pickerViewModel.currentStep = step
+            self.viewModel.pickerViewModel.previousSteps.removeLast(1)
             (self.navigationController as? DKVehiclePickerNavigationController)?.showPrevious()
         } else {
             self.navigationController?.dismiss(animated: true, completion: nil)

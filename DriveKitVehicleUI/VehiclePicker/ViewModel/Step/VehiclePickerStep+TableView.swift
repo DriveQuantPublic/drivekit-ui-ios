@@ -9,6 +9,7 @@
 import Foundation
 import DriveKitVehicleModule
 import DriveKitCommonUI
+import DriveKitCoreModule
 
 extension VehiclePickerStep: VehiclePickerTableViewDelegate {
 

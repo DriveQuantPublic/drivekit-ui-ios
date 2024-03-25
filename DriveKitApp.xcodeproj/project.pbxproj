@@ -486,6 +486,7 @@
 		67A2E17D26559F0B005F26AE /* ChallengeRulesVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67A2E17B26559F0B005F26AE /* ChallengeRulesVC.xib */; };
 		67A5F6F82B286CB0002FCF7F /* VehiclePickerDefaultCarEngineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A5F6F62B286CB0002FCF7F /* VehiclePickerDefaultCarEngineVC.swift */; };
 		67A5F6F92B286CB0002FCF7F /* VehiclePickerDefaultCarEngineVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67A5F6F72B286CB0002FCF7F /* VehiclePickerDefaultCarEngineVC.xib */; };
+		67ABC2872BA1C9C40089BF09 /* VehiclePickerStepViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ABC2862BA1C9C40089BF09 /* VehiclePickerStepViewModel.swift */; };
 		67B5837528040B330065C2E7 /* UserIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B5837328040B330065C2E7 /* UserIdViewController.swift */; };
 		67B5837628040B330065C2E7 /* UserIdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67B5837428040B330065C2E7 /* UserIdViewController.xib */; };
 		67B5837828040B730065C2E7 /* UserIdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B5837728040B730065C2E7 /* UserIdViewModel.swift */; };
@@ -1395,6 +1396,7 @@
 		67A2E17B26559F0B005F26AE /* ChallengeRulesVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeRulesVC.xib; sourceTree = "<group>"; };
 		67A5F6F62B286CB0002FCF7F /* VehiclePickerDefaultCarEngineVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclePickerDefaultCarEngineVC.swift; sourceTree = "<group>"; };
 		67A5F6F72B286CB0002FCF7F /* VehiclePickerDefaultCarEngineVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VehiclePickerDefaultCarEngineVC.xib; sourceTree = "<group>"; };
+		67ABC2862BA1C9C40089BF09 /* VehiclePickerStepViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclePickerStepViewModel.swift; sourceTree = "<group>"; };
 		67B5837328040B330065C2E7 /* UserIdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIdViewController.swift; sourceTree = "<group>"; };
 		67B5837428040B330065C2E7 /* UserIdViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserIdViewController.xib; sourceTree = "<group>"; };
 		67B5837728040B730065C2E7 /* UserIdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIdViewModel.swift; sourceTree = "<group>"; };
@@ -2102,6 +2104,7 @@
 				3FF68F0F241501D20071D74C /* VehiclePickerStep.swift */,
 				3FF68F1F24150E5F0071D74C /* VehiclePickerStep+TableView.swift */,
 				3FF68F36241534220071D74C /* VehiclePickerStep+CollectionView.swift */,
+				67ABC2862BA1C9C40089BF09 /* VehiclePickerStepViewModel.swift */,
 			);
 			path = Step;
 			sourceTree = "<group>";
@@ -5069,6 +5072,7 @@
 				3FE6A45624213EC600E24C1C /* BeaconDetailViewModel.swift in Sources */,
 				63CDB12D273C7B9C00881976 /* OdometerInitVC.swift in Sources */,
 				671FF4922B29E35200865474 /* VehiclePickerDefaultCarEngineCell.swift in Sources */,
+				67ABC2872BA1C9C40089BF09 /* VehiclePickerStepViewModel.swift in Sources */,
 				3FE6A4462420C72800E24C1C /* PicturedIndicatorView.swift in Sources */,
 				3FA3C4562416A96500BD4E14 /* DKCategoryConfigType.swift in Sources */,
 				3FF68F10241501D20071D74C /* VehiclePickerStep.swift in Sources */,

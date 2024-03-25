@@ -13,7 +13,7 @@ import DriveKitCommonUI
 import DriveKitDBAchievementAccessModule
 
 @objc public class DriveKitDriverAchievementUI: NSObject {
-    static let tag = "DriveKit DriverAchievementUI"
+    static let tag = "DriveKit Driver Achievement UI"
 
     @objc public static let shared = DriveKitDriverAchievementUI()
 

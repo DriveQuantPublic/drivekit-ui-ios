@@ -14,7 +14,7 @@ import DriveKitCommonUI
 import UIKit
 
 @objc public class DriveKitChallengeUI: NSObject {
-    static let tag: String = "DriveKit ChallengeUI"
+    static let tag = "DriveKit Challenge UI"
 
     @objc public static let shared = DriveKitChallengeUI()
     private var challengeListVC: ChallengeListVC?

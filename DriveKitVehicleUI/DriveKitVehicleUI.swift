@@ -14,7 +14,7 @@ import DriveKitVehicleModule
 import DriveKitCoreModule
 
 public class DriveKitVehicleUI {
-    static let tag: String = "DriveKit VehiculeUI"
+    static let tag = "DriveKit Vehicule UI"
 
     public static let shared = DriveKitVehicleUI()
 

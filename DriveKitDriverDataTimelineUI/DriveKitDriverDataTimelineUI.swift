@@ -11,7 +11,7 @@ import DriveKitCoreModule
 import UIKit
 
 @objc public class DriveKitDriverDataTimelineUI: NSObject {
-    static let tag = "DriveKit DriverDataTimelineUI"
+    static let tag = "DriveKit Driver Data Timeline UI"
 
     @objc public static let shared = DriveKitDriverDataTimelineUI()
 

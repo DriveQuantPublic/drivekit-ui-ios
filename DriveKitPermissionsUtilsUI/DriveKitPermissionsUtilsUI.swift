@@ -12,7 +12,7 @@ import DriveKitCoreModule
 import DriveKitCommonUI
 
 @objc public class DriveKitPermissionsUtilsUI: NSObject {
-    static let tag = "DriveKit PermissionsUtilsUI"
+    static let tag = "DriveKit Permissions Utils UI"
 
     @objc public static let shared = DriveKitPermissionsUtilsUI()
     

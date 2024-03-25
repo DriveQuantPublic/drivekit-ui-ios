@@ -13,7 +13,7 @@ import DriveKitCommonUI
 import DriveKitDBTripAccessModule
 
 public class DriveKitDriverDataUI: AccessRightListener {
-    static let tag = "DriveKit DriverDataUI"
+    static let tag = "DriveKit Driver Data UI"
 
     public private(set) var tripData: TripData = .safety
     private(set) var sourceMapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .speeding, .interactiveMap, .synthesis]

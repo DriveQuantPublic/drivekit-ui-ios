@@ -14,7 +14,7 @@ import DriveKitCommonUI
 import DriveKitTripAnalysisModule
 
 @objc public class DriveKitTripAnalysisUI: NSObject {
-    static let tag: String = "DriveKit TripAnalysisUI"
+    static let tag = "DriveKit Trip Analysis UI"
 
     private(set) var roadsideAssistanceNumber: String?
     @objc public static let shared = DriveKitTripAnalysisUI()

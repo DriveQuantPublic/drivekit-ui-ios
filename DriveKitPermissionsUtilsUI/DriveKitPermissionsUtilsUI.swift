@@ -109,7 +109,12 @@ import DriveKitCommonUI
             let bluetoothStatus = getStatusString(statusType: .bluetooth, titleKey: "dk_perm_utils_app_diag_email_bluetooth")
             info.append(bluetoothStatus)
         }
-        let batteryOptimizationStatus = getStatusString("dk_perm_utils_app_diag_email_battery", isValid: !DKDiagnosisHelper.shared.isLowPowerModeEnabled(), validValue: "dk_perm_utils_app_diag_email_battery_disabled".dkPermissionsUtilsLocalized(), invalidValue: "dk_perm_utils_app_diag_email_battery_enabled".dkPermissionsUtilsLocalized())
+        let batteryOptimizationStatus = getStatusString(
+            "dk_perm_utils_app_diag_email_battery",
+            isValid: !DKDiagnosisHelper.shared.isLowPowerModeEnabled(),
+            validValue: "dk_perm_utils_app_diag_email_battery_disabled".dkPermissionsUtilsLocalized(),
+            invalidValue: "dk_perm_utils_app_diag_email_battery_enabled".dkPermissionsUtilsLocalized()
+        )
         info.append(batteryOptimizationStatus)
         return info.joined(separator: "\n")
     }
@@ -118,7 +123,12 @@ import DriveKitCommonUI
         return getStatusString(titleKey, isValid: self.stateByType[statusType] ?? false)
     }
 
-    private func getStatusString(_ titleKey: String, isValid: Bool, validValue: String = DKCommonLocalizable.yes.text(), invalidValue: String = DKCommonLocalizable.no.text()) -> String {
+    private func getStatusString(
+        _ titleKey: String,
+        isValid: Bool,
+        validValue: String = DKCommonLocalizable.yes.text(),
+        invalidValue: String = DKCommonLocalizable.no.text()
+    ) -> String {
         return "\(titleKey.dkPermissionsUtilsLocalized()) \(isValid ? validValue : invalidValue)"
     }
 

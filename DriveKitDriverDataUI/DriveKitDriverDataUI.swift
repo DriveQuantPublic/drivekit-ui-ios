@@ -32,7 +32,9 @@ public class DriveKitDriverDataUI: AccessRightListener {
 
     public static let shared = DriveKitDriverDataUI()
     
-    private init() {}
+    private init() {
+        DriveKitAccess.shared.addAccessRightListener(self)
+    }
 
     public func initialize(tripData: TripData = .safety, mapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .speeding, .interactiveMap, .synthesis]) {
         DriveKitLog.shared.infoLog(tag: DriveKitDriverDataUI.tag, message: "Initialization")
@@ -40,7 +42,6 @@ public class DriveKitDriverDataUI: AccessRightListener {
         self.tripData = tripData
         self.sourceMapItems = mapItems
         filterMapItems()
-        DriveKitAccess.shared.addAccessRightListener(self)
         DriveKitNavigationController.shared.driverDataUI = self
     }
 
@@ -50,6 +51,11 @@ public class DriveKitDriverDataUI: AccessRightListener {
 
     public func configureTripData(_ tripData: TripData) {
         self.tripData = tripData
+    }
+
+    public func configureMapItems(_ mapItems: [MapItem]) {
+        self.sourceMapItems = mapItems
+        filterMapItems()
     }
 
     public func configureContextKinds(_ contextKinds: [DKContextKind]) {

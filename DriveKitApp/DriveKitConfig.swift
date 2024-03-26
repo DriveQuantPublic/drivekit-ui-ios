@@ -36,9 +36,7 @@ enum DriveKitConfig {
     private static let vehicleTypes: [DKVehicleType] = DKVehicleType.allCases
     private static let vehicleBrands: [DKVehicleBrand] = DKVehicleBrand.allCases
 
-    static func initialize(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-        // DriveKit modules are now initialized automatically
-
+    static func configure() {
         // DriveKit modules configuration:
         configureModules()
 
@@ -54,12 +52,10 @@ enum DriveKitConfig {
         // UI modules configuration:
         configureCommonUI()
         configureDriverDataUI()
-        configureDriverDataTimelineUI()
         configureVehicleUI()
         configureTripAnalysisUI()
         configureDriverAchievementUI()
         configurePermissionsUtilsUI()
-        configureChallengeUI()
     }
 
     static func isTripAnalysisAutoStartEnabled() -> Bool {
@@ -137,10 +133,6 @@ enum DriveKitConfig {
         DriveKitDriverDataUI.shared.enableAlternativeTrips(DriveKitConfig.enableAlternativeTrips)
     }
 
-    private static func configureDriverDataTimelineUI() {
-        // nothing to configure
-    }
-
     private static func configureVehicleUI() {
         DriveKitVehicleUI.shared.enableOdometer(DriveKitConfig.enableVehicleOdometer)
         DriveKitVehicleUI.shared.configureVehicleTypes(types: DriveKitConfig.vehicleTypes)
@@ -166,10 +158,6 @@ enum DriveKitConfig {
 
     private static func configurePermissionsUtilsUI() {
         DriveKitPermissionsUtilsUI.shared.configureContactType(DKContactType.email(ContentMail()))
-    }
-
-    private static func configureChallengeUI() {
-        // nothing to configure
     }
 
     static func getApiKey() -> String {

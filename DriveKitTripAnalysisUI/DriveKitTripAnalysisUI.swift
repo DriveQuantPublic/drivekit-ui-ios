@@ -41,10 +41,15 @@ import DriveKitTripAnalysisModule
         DriveKitLog.shared.infoLog(tag: DriveKitTripAnalysisUI.tag, message: "Initialization")
 
         DriveKitNavigationController.shared.tripAnalysisUI = self
-        DriveKit.shared.registerNotificationDelegate(self)
     }
+
     private override init() {
         super.init()
+        DriveKit.shared.registerNotificationDelegate(self)
+    }
+
+    deinit {
+        DriveKit.shared.unregisterNotificationDelegate(self)
     }
 
     private static func getDefaultWorkingHours() -> DKWorkingHours {

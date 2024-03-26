@@ -36,12 +36,11 @@ import DriveKitCommonUI
         updateState()
 
         NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
+        DriveKitNavigationController.shared.permissionsUtilsUI = self
     }
 
     @objc public func initialize() {
         DriveKitLog.shared.infoLog(tag: DriveKitPermissionsUtilsUI.tag, message: "Initialization")
-
-        DriveKitNavigationController.shared.permissionsUtilsUI = self
     }
 
     public func showPermissionViews(_ permissionViews: [DKPermissionView], parentViewController: UIViewController, completionHandler: @escaping () -> Void) {

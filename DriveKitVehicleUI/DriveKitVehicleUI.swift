@@ -39,12 +39,12 @@ public class DriveKitVehicleUI {
     var beaconDiagnosticEmail: DKContentMail?
     var beaconDiagnosticSupportLink: String?
 
-    private init() {}
+    private init() {
+        DriveKitNavigationController.shared.vehicleUI = self
+    }
 
     public func initialize() {
         DriveKitLog.shared.infoLog(tag: DriveKitVehicleUI.tag, message: "Initialization")
-
-        DriveKitNavigationController.shared.vehicleUI = self
     }
 
     public func configureVehicleTypes(types: [DKVehicleType]) {

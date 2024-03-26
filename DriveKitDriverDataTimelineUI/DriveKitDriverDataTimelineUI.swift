@@ -23,12 +23,11 @@ import UIKit
     
     public func initialize() {
         DriveKitLog.shared.infoLog(tag: DriveKitDriverDataTimelineUI.tag, message: "Initialization")
-
-        DriveKitNavigationController.shared.driverDataTimelineUI = self
     }
 
     private override init() {
         super.init()
+        DriveKitNavigationController.shared.driverDataTimelineUI = self
     }
 }
 

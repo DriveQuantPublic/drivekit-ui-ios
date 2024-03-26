@@ -23,12 +23,13 @@ import DriveKitDBAchievementAccessModule
     public private(set) var rankingSelector: DKRankingSelectorType = .period(rankingPeriods: [.weekly, .monthly, .allTime])
     public private(set) var rankingDepth: Int = 5
 
-    private override init() {}
+    private override init() {
+        super.init()
+        DriveKitNavigationController.shared.driverAchievementUI = self
+    }
 
     @objc public func initialize() {
         DriveKitLog.shared.infoLog(tag: DriveKitDriverAchievementUI.tag, message: "Initialization")
-
-        DriveKitNavigationController.shared.driverAchievementUI = self
     }
 
     public func configureStreakThemes(streakThemes: [DKStreakTheme]) {

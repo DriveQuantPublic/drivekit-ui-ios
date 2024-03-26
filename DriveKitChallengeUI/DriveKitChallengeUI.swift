@@ -21,13 +21,12 @@ import UIKit
     
     @objc public func initialize() {
         DriveKitLog.shared.infoLog(tag: DriveKitChallengeUI.tag, message: "Initialization")
-
-        DriveKitNavigationController.shared.challengeUI = self
     }
 
     private override init() {
         super.init()
         DriveKitChallenge.shared.addListener(listener: self)
+        DriveKitNavigationController.shared.challengeUI = self
     }
 
     deinit {

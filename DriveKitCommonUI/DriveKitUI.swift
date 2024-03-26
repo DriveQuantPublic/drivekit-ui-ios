@@ -59,15 +59,14 @@ import UIKit
     }
 
     public func initialize(colors: DKColors = DKDefaultColors(), fonts: DKFonts = DKDefaultFonts(), overridedStringsFileName: String? = nil) {
-        self.colors = colors
-        self.fonts = fonts
-        self.overridedStringFileName = overridedStringsFileName
+        configureColors(colors)
+        configureFonts(fonts)
+        if let overridedStringsFileName = overridedStringsFileName {
+            configureStringsFileName(overridedStringsFileName)
+        }
     }
 
     @objc(initialize) public func objc_initialize() {
-        self.colors = DKDefaultColors()
-        self.fonts = DKDefaultFonts()
-        self.overridedStringFileName = nil
     }
 
     @objc public func configureColors(_ colors: DKColors) {

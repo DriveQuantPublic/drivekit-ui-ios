@@ -34,15 +34,14 @@ public class DriveKitDriverDataUI: AccessRightListener {
     
     private init() {
         DriveKitAccess.shared.addAccessRightListener(self)
+        DriveKitNavigationController.shared.driverDataUI = self
     }
 
     public func initialize(tripData: TripData = .safety, mapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .speeding, .interactiveMap, .synthesis]) {
         DriveKitLog.shared.infoLog(tag: DriveKitDriverDataUI.tag, message: "Initialization")
 
-        self.tripData = tripData
-        self.sourceMapItems = mapItems
-        filterMapItems()
-        DriveKitNavigationController.shared.driverDataUI = self
+        self.configureTripData(tripData)
+        self.configureMapItems(mapItems)
     }
 
     deinit {

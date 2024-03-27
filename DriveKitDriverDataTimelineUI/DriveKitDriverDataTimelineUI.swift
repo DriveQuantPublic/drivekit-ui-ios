@@ -11,6 +11,8 @@ import DriveKitCoreModule
 import UIKit
 
 @objc public class DriveKitDriverDataTimelineUI: NSObject {
+    static let tag = "DriveKit Driver Data Timeline UI"
+
     @objc public static let shared = DriveKitDriverDataTimelineUI()
 
     @available(*, deprecated, message: "You should use DriveKitUI.shared.scores now")
@@ -20,6 +22,11 @@ import UIKit
     }
     
     public func initialize() {
+        DriveKitLog.shared.infoLog(tag: DriveKitDriverDataTimelineUI.tag, message: "Initialization")
+    }
+
+    private override init() {
+        super.init()
         DriveKitNavigationController.shared.driverDataTimelineUI = self
     }
 }
@@ -39,5 +46,12 @@ extension Bundle {
 extension String {
     public func dkDriverDataTimelineLocalized() -> String {
         return self.dkLocalized(tableName: "DriverDataTimelineLocalizable", bundle: Bundle.driverDataTimelineUIBundle ?? .main)
+    }
+}
+
+@objc(DKUIDriverDataTimelineInitializer)
+class DKUIDriverDataTimelineInitializer: NSObject {
+    @objc static func initUI() {
+        DriveKitDriverDataTimelineUI.shared.initialize()
     }
 }

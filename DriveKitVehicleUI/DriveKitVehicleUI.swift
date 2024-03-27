@@ -11,10 +11,12 @@ import DriveKitBeaconUtilsModule
 import DriveKitCommonUI
 import DriveKitDBVehicleAccessModule
 import DriveKitVehicleModule
+import DriveKitCoreModule
 
 public class DriveKitVehicleUI {
+    static let tag = "DriveKit Vehicule UI"
+
     public static let shared = DriveKitVehicleUI()
-    static let tag: String = "DriveKit VehiculeUI"
 
     public private(set) var vehicleTypes: [DKVehicleType] = DKVehicleType.allCases
     public private(set) var brands: [DKVehicleBrand] = DKVehicleBrand.allCases
@@ -37,10 +39,12 @@ public class DriveKitVehicleUI {
     var beaconDiagnosticEmail: DKContentMail?
     var beaconDiagnosticSupportLink: String?
 
-    private init() {}
+    private init() {
+        DriveKitNavigationController.shared.vehicleUI = self
+    }
 
     public func initialize() {
-        DriveKitNavigationController.shared.vehicleUI = self
+        DriveKitLog.shared.infoLog(tag: DriveKitVehicleUI.tag, message: "Initialization")
     }
 
     public func configureVehicleTypes(types: [DKVehicleType]) {
@@ -204,4 +208,11 @@ extension DriveKitVehicleUI: DriveKitVehicleUIEntryPoint {
 @available(*, deprecated, message: "This protocol is not used anymore.")
 public protocol DKVehiclePickerExtraStep {
     func viewController(vehicleId: String) -> UIViewController?
+}
+
+@objc(DKUIVehicleInitializer)
+class DKUIVehicleInitializer: NSObject {
+    @objc static func initUI() {
+        DriveKitVehicleUI.shared.initialize()
+    }
 }

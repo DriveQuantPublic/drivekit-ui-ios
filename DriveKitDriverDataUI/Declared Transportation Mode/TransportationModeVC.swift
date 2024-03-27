@@ -93,7 +93,20 @@ class TransportationModeVC: DKUIViewController {
         self.commentTextView.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
         self.commentTextView.delegate = self
         
-        let transportationModeButtons: [TransportationModeIcon] = [self.carTransportationModeButton, self.motoTransportationModeButton, self.truckTransportationModeButton, self.busTransportationModeButton, self.trainTransportationModeButton, self.bikeTransportationModeButton, self.boatTransportationModeButton, self.planeTransportationModeButton, self.onFootTransportationModeButton, self.skiingTransportationModeButton, self.idleTransportationModeButton, self.otherTransportationModeButton]
+        let transportationModeButtons: [TransportationModeIcon] = [
+            self.carTransportationModeButton,
+            self.motoTransportationModeButton,
+            self.truckTransportationModeButton,
+            self.busTransportationModeButton,
+            self.trainTransportationModeButton,
+            self.bikeTransportationModeButton,
+            self.boatTransportationModeButton,
+            self.planeTransportationModeButton,
+            self.onFootTransportationModeButton,
+            self.skiingTransportationModeButton,
+            self.idleTransportationModeButton,
+            self.otherTransportationModeButton
+        ]
         for transportationModeButton in transportationModeButtons {
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(transportationModeDidTouch(sender:)))
             transportationModeButton.addGestureRecognizer(tapGestureRecognizer)
@@ -237,25 +250,40 @@ class TransportationModeVC: DKUIViewController {
                 }
                 if let itinId = self.viewModel.itinId {
                     showLoader()
-                    DriveKitDriverData.shared.declareTransportationMode(itinId: itinId, mode: selectedTransportationMode, passenger: passenger ?? false, comment: comment, completionHandler: { [weak self] status in
-                        DispatchQueue.main.async {
-                            if let self = self {
-                                switch status {
-                                    case .noError:
-                                        if let parentView = self.parentView, parentView is AlternativeTripDetailInfoVC {
-                                            (parentView as! AlternativeTripDetailInfoVC).update()
-                                        }
-                                        self.navigationController?.popViewController(animated: true)
-                                    case .failedToDeclareTransportationMode:
-                                        self.showAlertMessage(title: nil, message: "dk_driverdata_failed_to_declare_transportation".dkDriverDataLocalized(), back: false, cancel: false)
-                                    case .commentTooLong:
-                                        self.showAlertMessage(title: nil, message: "dk_driverdata_transportation_mode_declaration_comment_error".dkDriverDataLocalized(), back: false, cancel: false)
-                                    @unknown default:
-                                        break
+                    DriveKitDriverData.shared.declareTransportationMode(
+                        itinId: itinId,
+                        mode: selectedTransportationMode,
+                        passenger: passenger ?? false,
+                        comment: comment,
+                        completionHandler: { [weak self] status in
+                            DispatchQueue.main.async {
+                                if let self = self {
+                                    switch status {
+                                        case .noError:
+                                            if let parentView = self.parentView, parentView is AlternativeTripDetailInfoVC {
+                                                (parentView as? AlternativeTripDetailInfoVC)?.update()
+                                            }
+                                            self.navigationController?.popViewController(animated: true)
+                                        case .failedToDeclareTransportationMode:
+                                            self.showAlertMessage(
+                                                title: nil,
+                                                message: "dk_driverdata_failed_to_declare_transportation".dkDriverDataLocalized(),
+                                                back: false,
+                                                cancel: false
+                                            )
+                                        case .commentTooLong:
+                                            self.showAlertMessage(
+                                                title: nil,
+                                                message: "dk_driverdata_transportation_mode_declaration_comment_error".dkDriverDataLocalized(),
+                                                back: false,
+                                                cancel: false
+                                            )
+                                        @unknown default:
+                                            break
+                                    }
                                 }
                             }
-                        }
-                    })
+                        })
                 }
             }
         }

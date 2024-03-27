@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable cyclomatic_complexity
 //
 //  FeatureViewViewModel.swift
 //  DriveKitApp

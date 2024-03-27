@@ -24,8 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // The following line is specific to DriveQuant. Do not copy this code into your project:
         drivequantSpecific(launchOptions: launchOptions)
 
-        // Initialisation of DriveKit:
-        DriveKitConfig.initialize(launchOptions: launchOptions)
+        // Configuration of DriveKit:
+        DriveKitConfig.configure()
         return true
     }
     

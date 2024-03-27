@@ -13,8 +13,8 @@ import UIKit
     @objc public static let shared = DriveKitUI()
     public static let calendar = Calendar(identifier: .gregorian)
 
-    @objc public private(set) var colors: DKColors!
-    @objc public private(set) var fonts: DKFonts!
+    @objc public private(set) var colors: DKColors = DKDefaultColors()
+    @objc public private(set) var fonts: DKFonts = DKDefaultFonts()
     @objc public private(set) var overridedStringFileName: String?
     @objc public private(set) var analytics: DKAnalytics?
     private var tagKeyFromScreen: [String: String]
@@ -59,15 +59,14 @@ import UIKit
     }
 
     public func initialize(colors: DKColors = DKDefaultColors(), fonts: DKFonts = DKDefaultFonts(), overridedStringsFileName: String? = nil) {
-        self.colors = colors
-        self.fonts = fonts
-        self.overridedStringFileName = overridedStringsFileName
+        configureColors(colors)
+        configureFonts(fonts)
+        if let overridedStringsFileName = overridedStringsFileName {
+            configureStringsFileName(overridedStringsFileName)
+        }
     }
 
     @objc(initialize) public func objc_initialize() {
-        self.colors = DKDefaultColors()
-        self.fonts = DKDefaultFonts()
-        self.overridedStringFileName = nil
     }
 
     @objc public func configureColors(_ colors: DKColors) {

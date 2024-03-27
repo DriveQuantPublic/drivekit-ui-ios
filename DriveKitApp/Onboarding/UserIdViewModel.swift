@@ -54,8 +54,4 @@ extension UserIdViewModel: DriveKitDelegate {
         self.completionHandler?(false, error)
         self.completionHandler = nil
     }
-
-    func userIdUpdateStatusChanged(status: UpdateUserIdStatus, userId: String?) {
-        // Nothing to do.
-    }
 }

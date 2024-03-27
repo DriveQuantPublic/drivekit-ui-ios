@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable force_cast
 //
 //  ResistantLayer.swift
 //  drivekit-test-app
@@ -47,10 +47,11 @@ extension ResistantAnnotationView {
         
         switch event.type {
         case .adherence, .acceleration, .brake, .unlock, .lock, .pickUp, .hangUp:
+            let expectedImageWidth: CGFloat = 30.0
             let image = DKImages.info.image
             let imageButton = UIButton(type: .custom)
-            imageButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-            let img = image?.resizeImage(30, opaque: false).withRenderingMode(.alwaysTemplate)
+            imageButton.frame = CGRect(x: 0, y: 0, width: expectedImageWidth, height: expectedImageWidth)
+            let img = image?.resizeImage(expectedImageWidth, opaque: false).withRenderingMode(.alwaysTemplate)
             imageButton.setImage(img, for: .normal)
             imageButton.tintColor = DKUIColors.secondaryColor.color
             rightCalloutAccessoryView = imageButton

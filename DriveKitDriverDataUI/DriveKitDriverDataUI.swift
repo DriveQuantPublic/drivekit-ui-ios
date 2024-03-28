@@ -36,6 +36,7 @@ public class DriveKitDriverDataUI: AccessRightListener {
         DriveKitLog.shared.infoLog(tag: DriveKitDriverDataUI.tag, message: "Initialization")
         DriveKitAccess.shared.addAccessRightListener(self)
         DriveKitNavigationController.shared.driverDataUI = self
+        filterMapItems()
     }
 
     public func initialize() {

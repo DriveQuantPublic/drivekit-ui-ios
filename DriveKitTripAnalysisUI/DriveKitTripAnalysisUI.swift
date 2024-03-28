@@ -38,11 +38,12 @@ import DriveKitTripAnalysisModule
     }
 
     @objc public func initialize() {
-        DriveKitLog.shared.infoLog(tag: DriveKitTripAnalysisUI.tag, message: "Initialization")
+        // Nothing to do currently.
     }
 
     private override init() {
         super.init()
+        DriveKitLog.shared.infoLog(tag: DriveKitTripAnalysisUI.tag, message: "Initialization")
         DriveKit.shared.registerNotificationDelegate(self)
         DriveKitNavigationController.shared.tripAnalysisUI = self
     }

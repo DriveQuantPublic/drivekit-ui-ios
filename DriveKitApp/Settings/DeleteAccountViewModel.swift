@@ -14,11 +14,11 @@ class DeleteAccountViewModel {
     private var completionHandler: ( (DeleteAccountStatus) -> Void)?
 
     init() {
-        DriveKitDelegateManager.shared.register(delegate: self)
+        DriveKit.shared.addDriveKitDelegate(self)
     }
 
     deinit {
-        DriveKitDelegateManager.shared.unregister(delegate: self)
+        DriveKit.shared.removeDriveKitDelegate(self)
     }
 
     func logout() {

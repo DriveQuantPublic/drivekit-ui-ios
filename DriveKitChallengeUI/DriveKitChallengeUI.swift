@@ -20,11 +20,12 @@ import UIKit
     private var challengeListVC: ChallengeListVC?
     
     @objc public func initialize() {
-        DriveKitLog.shared.infoLog(tag: DriveKitChallengeUI.tag, message: "Initialization")
+        // Nothing to do currently.
     }
 
     private override init() {
         super.init()
+        DriveKitLog.shared.infoLog(tag: DriveKitChallengeUI.tag, message: "Initialization")
         DriveKitChallenge.shared.addListener(listener: self)
         DriveKitNavigationController.shared.challengeUI = self
     }

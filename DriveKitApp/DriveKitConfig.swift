@@ -85,11 +85,6 @@ enum DriveKitConfig {
     static func reset() {
         // Reset DriveKit:
         DriveKit.shared.reset()
-        DriveKitTripAnalysis.shared.reset()
-        DriveKitDriverData.shared.reset()
-        DriveKitVehicle.shared.reset()
-        DriveKitDriverAchievement.shared.reset()
-        DriveKitChallenge.shared.reset()
 
         // Clear all UserDefaults:
         if let bundleID = Bundle.main.bundleIdentifier {

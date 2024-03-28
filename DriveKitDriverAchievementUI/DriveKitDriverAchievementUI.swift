@@ -25,11 +25,12 @@ import DriveKitDBAchievementAccessModule
 
     private override init() {
         super.init()
+        DriveKitLog.shared.infoLog(tag: DriveKitDriverAchievementUI.tag, message: "Initialization")
         DriveKitNavigationController.shared.driverAchievementUI = self
     }
 
     @objc public func initialize() {
-        DriveKitLog.shared.infoLog(tag: DriveKitDriverAchievementUI.tag, message: "Initialization")
+        // Nothing to do currently.
     }
 
     public func configureStreakThemes(streakThemes: [DKStreakTheme]) {

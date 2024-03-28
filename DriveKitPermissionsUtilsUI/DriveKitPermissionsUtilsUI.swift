@@ -31,6 +31,7 @@ import DriveKitCommonUI
 
     private override init() {
         super.init()
+        DriveKitLog.shared.infoLog(tag: DriveKitPermissionsUtilsUI.tag, message: "Initialization")
 
         DKDiagnosisHelper.shared.delegate = self
         updateState()
@@ -40,7 +41,7 @@ import DriveKitCommonUI
     }
 
     @objc public func initialize() {
-        DriveKitLog.shared.infoLog(tag: DriveKitPermissionsUtilsUI.tag, message: "Initialization")
+        // Nothing to do currently.
     }
 
     public func showPermissionViews(_ permissionViews: [DKPermissionView], parentViewController: UIViewController, completionHandler: @escaping () -> Void) {

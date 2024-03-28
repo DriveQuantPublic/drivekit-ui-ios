@@ -10,6 +10,8 @@ import DriveKitCoreModule
 import UIKit
 
 @objc public class DriveKitUI: NSObject {
+    static let tag = "DriveKit UI"
+
     @objc public static let shared = DriveKitUI()
     public static let calendar = Calendar(identifier: .gregorian)
 
@@ -37,6 +39,7 @@ import UIKit
     }
 
     private override init() {
+        DriveKitLog.shared.infoLog(tag: DriveKitUI.tag, message: "Initialization")
         var tagKeyFromScreen = [String: String]()
         let screenTagsFilePath = Bundle.driveKitCommonUIBundle?.path(forResource: "AnalyticsScreenToTagKey", ofType: "plist")
         if let screenTagsFilePath = screenTagsFilePath, let screenTagsRootDictionary = NSDictionary(contentsOfFile: screenTagsFilePath) as? [String: [String: String]] {
@@ -56,14 +59,11 @@ import UIKit
             print("Unable to load default AnalyticsTags")
         }
         self.tagFromKey = tagFromKey
+        super.init()
     }
 
-    public func initialize(colors: DKColors = DKDefaultColors(), fonts: DKFonts = DKDefaultFonts(), overridedStringsFileName: String? = nil) {
-        configureColors(colors)
-        configureFonts(fonts)
-        if let overridedStringsFileName = overridedStringsFileName {
-            configureStringsFileName(overridedStringsFileName)
-        }
+    public func initialize() {
+        // Nothing to do currently.
     }
 
     @objc(initialize) public func objc_initialize() {

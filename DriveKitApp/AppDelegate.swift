@@ -24,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // The following line is specific to DriveQuant. Do not copy this code into your project:
         drivequantSpecific(launchOptions: launchOptions)
 
+        // Add AppDelegate as DriveKitDelegate
+        DriveKit.shared.addDriveKitDelegate(self)
+
         // Configuration of DriveKit:
         DriveKitConfig.configure()
         return true
@@ -42,5 +45,16 @@ private extension AppDelegate {
 
         let options = launchOptions?.map { $0.key.rawValue }.joined(separator: " ") ?? "none"
         DriveKitLog.shared.infoLog(tag: AppDelegate.tag, message: "Application started with options: \(options)")
+    }
+}
+
+extension AppDelegate: DriveKitDelegate {
+    func driveKitDidDisconnect(_ driveKit: DriveKit) {
+        DriveKitConfig.logout()
+        DispatchQueue.main.async {
+            if let appDelegate = UIApplication.shared.delegate, let appNavigationController = appDelegate.window??.rootViewController as? AppNavigationController {
+                appNavigationController.setViewControllers([ApiKeyViewController()], animated: true)
+            }
+        }
     }
 }

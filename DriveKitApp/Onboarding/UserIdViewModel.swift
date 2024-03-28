@@ -38,7 +38,7 @@ class UserIdViewModel {
 
 extension UserIdViewModel: DriveKitDelegate {
     func driveKitDidConnect(_ driveKit: DriveKit) {
-        DriveKit.shared.addDriveKitDelegate(self)
+        DriveKit.shared.removeDriveKitDelegate(self)
         self.completionHandler?(true, nil)
         self.completionHandler = nil
     }

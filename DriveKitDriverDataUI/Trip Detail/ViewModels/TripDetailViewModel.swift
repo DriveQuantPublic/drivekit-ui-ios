@@ -230,7 +230,8 @@ class TripDetailViewModel: DKTripDetailViewModel {
 
     private func addCallEvent(type: EventType, phoneCall: Call, callTime: Int, trip: Trip, latitude: Double, longitude: Double) {
         let event = TripEvent(
-            type: type, date: trip.tripStartDate.addingTimeInterval(Double(callTime)),
+            type: type, 
+            date: trip.tripStartDate.addingTimeInterval(Double(callTime)),
             position: CLLocationCoordinate2D(latitude: latitude, longitude: longitude),
             value: Double(phoneCall.duration),
             isForbidden: phoneCall.isForbidden

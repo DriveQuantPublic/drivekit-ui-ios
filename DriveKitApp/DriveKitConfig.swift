@@ -36,26 +36,12 @@ enum DriveKitConfig {
     private static let vehicleTypes: [DKVehicleType] = DKVehicleType.allCases
     private static let vehicleBrands: [DKVehicleBrand] = DKVehicleBrand.allCases
 
-    static func initialize(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-        // DriveKit modules initialization:
-        initializeModules(launchOptions: launchOptions)
-
+    static func configure() {
         // DriveKit modules configuration:
         configureModules()
 
         // Configure trip notifications:
         NotificationManager.configure()
-    }
-
-    private static func initializeModules(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-        // DriveKit Initialization:
-        DriveKit.shared.initialize()
-
-        // TripAnalysis initialization:
-        DriveKitTripAnalysis.shared.initialize(tripListener: nil, appLaunchOptions: launchOptions)
-
-        // Initialize DriverData:
-        DriveKitDriverData.shared.initialize()
     }
 
     private static func configureModules() {
@@ -66,12 +52,10 @@ enum DriveKitConfig {
         // UI modules configuration:
         configureCommonUI()
         configureDriverDataUI()
-        configureDriverDataTimelineUI()
         configureVehicleUI()
         configureTripAnalysisUI()
         configureDriverAchievementUI()
         configurePermissionsUtilsUI()
-        configureChallengeUI()
     }
 
     static func isTripAnalysisAutoStartEnabled() -> Bool {
@@ -101,11 +85,6 @@ enum DriveKitConfig {
     static func reset() {
         // Reset DriveKit:
         DriveKit.shared.reset()
-        DriveKitTripAnalysis.shared.reset()
-        DriveKitDriverData.shared.reset()
-        DriveKitVehicle.shared.reset()
-        DriveKitDriverAchievement.shared.reset()
-        DriveKitChallenge.shared.reset()
 
         // Clear all UserDefaults:
         if let bundleID = Bundle.main.bundleIdentifier {
@@ -138,28 +117,24 @@ enum DriveKitConfig {
     }
 
     private static func configureCommonUI() {
-        DriveKitUI.shared.initialize(colors: DefaultColors(), fonts: DefaultFonts(), overridedStringsFileName: "Localizable")
+        DriveKitUI.shared.configureColors(DefaultColors())
+        DriveKitUI.shared.configureFonts(DefaultFonts())
+        DriveKitUI.shared.configureStringsFileName("Localizable")
         DriveKitUI.shared.configureAnalytics(Analytics())
     }
 
     private static func configureDriverDataUI() {
-        DriveKitDriverDataUI.shared.initialize(tripData: DriveKitConfig.tripData)
+        DriveKitDriverDataUI.shared.configureTripData(DriveKitConfig.tripData)
         DriveKitDriverDataUI.shared.enableAlternativeTrips(DriveKitConfig.enableAlternativeTrips)
     }
 
-    private static func configureDriverDataTimelineUI() {
-        DriveKitDriverDataTimelineUI.shared.initialize()
-    }
-
     private static func configureVehicleUI() {
-        DriveKitVehicleUI.shared.initialize()
         DriveKitVehicleUI.shared.enableOdometer(DriveKitConfig.enableVehicleOdometer)
         DriveKitVehicleUI.shared.configureVehicleTypes(types: DriveKitConfig.vehicleTypes)
         DriveKitVehicleUI.shared.configureBrands(brands: DriveKitConfig.vehicleBrands)
     }
 
     private static func configureTripAnalysisUI() {
-        DriveKitTripAnalysisUI.shared.initialize()
         let crashFeedbackConfig = DKCrashFeedbackConfig(notification: DKCrashFeedbackNotification(
             title: "dk_crash_detection_feedback_notif_title".dkTripAnalysisLocalized(),
             message: "dk_crash_detection_feedback_notif_message".dkTripAnalysisLocalized(),
@@ -169,7 +144,6 @@ enum DriveKitConfig {
     }
 
     private static func configureDriverAchievementUI() {
-        DriveKitDriverAchievementUI.shared.initialize()
         DriveKitDriverAchievementUI.shared.configureRankingTypes(DKRankingType.allCases)
         DriveKitDriverAchievementUI.shared.configureRankingSelector(DKRankingSelectorType.period(rankingPeriods: [.weekly, .monthly, .allTime]))
         DriveKitDriverAchievementUI.shared.configureBadgeCategories(badgeCategories: [.generic, .ecodriving, .safety, .phoneDistraction, .call])
@@ -178,12 +152,7 @@ enum DriveKitConfig {
     }
 
     private static func configurePermissionsUtilsUI() {
-        DriveKitPermissionsUtilsUI.shared.initialize()
         DriveKitPermissionsUtilsUI.shared.configureContactType(DKContactType.email(ContentMail()))
-    }
-
-    private static func configureChallengeUI() {
-        DriveKitChallengeUI.shared.initialize()
     }
 
     static func getApiKey() -> String {

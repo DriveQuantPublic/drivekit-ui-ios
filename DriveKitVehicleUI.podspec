@@ -13,12 +13,12 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '12.0'
 
-  s.source_files = 'DriveKitVehicleUI/**/*.swift'
+  s.source_files = ['DriveKitVehicleUI/**/*.swift', 'DriveKitVehicleUI/**/*.m']
   s.resource = ['DriveKitVehicleUI/DriveKitVehicle.xcassets', 'DriveKitVehicleUI/Localizable/*', 'DriveKitVehicleUI/**/*.xib', 'DriveKitVehicleUI/PrivacyInfo.xcprivacy']
 
   s.dependency 'DriveKitCommonUI', s.version.to_s
-  s.dependency 'DriveKitVehicle', '1.42-beta2'
-  s.dependency 'DriveKitTripAnalysis', '1.42-beta2'
+  s.dependency 'DriveKitVehicle', '2.0-beta2'
+  s.dependency 'DriveKitTripAnalysis', '2.0-beta2'
 
   s.pod_target_xcconfig = {
     'PRODUCT_BUNDLE_IDENTIFIER': 'com.drivequant.drivekit-vehicle-ui'

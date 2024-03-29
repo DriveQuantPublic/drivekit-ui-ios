@@ -14,17 +14,20 @@ import DriveKitCommonUI
 import UIKit
 
 @objc public class DriveKitChallengeUI: NSObject {
+    static let tag = "DriveKit Challenge UI"
 
     @objc public static let shared = DriveKitChallengeUI()
     private var challengeListVC: ChallengeListVC?
     
     @objc public func initialize() {
-        DriveKitNavigationController.shared.challengeUI = self
+        // Nothing to do currently.
     }
 
-    public override init() {
+    private override init() {
         super.init()
+        DriveKitLog.shared.infoLog(tag: DriveKitChallengeUI.tag, message: "Initialization")
         DriveKitChallenge.shared.addListener(listener: self)
+        DriveKitNavigationController.shared.challengeUI = self
     }
 
     deinit {
@@ -118,5 +121,12 @@ extension Bundle {
 extension String {
     public func dkChallengeLocalized() -> String {
         return self.dkLocalized(tableName: "DKChallengeLocalizable", bundle: Bundle.challengeUIBundle ?? .main)
+    }
+}
+
+@objc(DKUIChallengeInitializer)
+class DKUIChallengeInitializer: NSObject {
+    @objc static func initUI() {
+        DriveKitChallengeUI.shared.initialize()
     }
 }

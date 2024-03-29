@@ -13,11 +13,11 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '12.0'
 
-  s.source_files = 'DriveKitPermissionsUtilsUI/**/*.swift'
+  s.source_files = ['DriveKitPermissionsUtilsUI/**/*.swift', 'DriveKitPermissionsUtilsUI/**/*.m']
   s.resource = ['DriveKitPermissionsUtilsUI/PermissionsUtils.xcassets', 'DriveKitPermissionsUtilsUI/Localizable/*', 'DriveKitPermissionsUtilsUI/**/*.xib', 'DriveKitPermissionsUtilsUI/PrivacyInfo.xcprivacy']
 
   s.dependency 'DriveKitCommonUI', s.version.to_s
-  s.dependency 'DriveKitCore', '1.42-beta2'
+  s.dependency 'DriveKitCore', '2.0-beta2'
 
   s.pod_target_xcconfig = {
     'PRODUCT_BUNDLE_IDENTIFIER': 'com.drivequant.drivekit-permissions-utils-ui'

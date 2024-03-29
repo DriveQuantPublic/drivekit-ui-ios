@@ -13,11 +13,11 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '12.0'
 
-  s.source_files = 'DriveKitDriverDataTimelineUI/**/*.swift'
+  s.source_files = ['DriveKitDriverDataTimelineUI/**/*.swift', 'DriveKitDriverDataTimelineUI/**/*.m']
   s.resource = ['DriveKitDriverDataTimelineUI/Localizable/*', 'DriveKitDriverDataTimelineUI/**/*.xib', 'DriveKitDriverDataTimelineUI/**/*.storyboard', 'DriveKitDriverDataTimelineUI/PrivacyInfo.xcprivacy']
 
   s.dependency 'DriveKitCommonUI', s.version.to_s
-  s.dependency 'DriveKitDriverData', '1.42-beta2'
+  s.dependency 'DriveKitDriverData', '2.0-beta2'
   s.dependency 'DGCharts', '5.1.0'
 
   s.pod_target_xcconfig = {

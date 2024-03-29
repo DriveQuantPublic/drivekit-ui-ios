@@ -1,4 +1,4 @@
-// swiftlint:disable all
+// swiftlint:disable force_cast
 //
 //  File.swift
 //  drivekit-test-app

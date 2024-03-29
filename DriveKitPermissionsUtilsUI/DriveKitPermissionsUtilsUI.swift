@@ -12,6 +12,8 @@ import DriveKitCoreModule
 import DriveKitCommonUI
 
 @objc public class DriveKitPermissionsUtilsUI: NSObject {
+    static let tag = "DriveKit Permissions Utils UI"
+
     @objc public static let shared = DriveKitPermissionsUtilsUI()
     
     public var isBluetoothNeeded: Bool {
@@ -29,15 +31,17 @@ import DriveKitCommonUI
 
     private override init() {
         super.init()
+        DriveKitLog.shared.infoLog(tag: DriveKitPermissionsUtilsUI.tag, message: "Initialization")
 
         DKDiagnosisHelper.shared.delegate = self
         updateState()
 
         NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
+        DriveKitNavigationController.shared.permissionsUtilsUI = self
     }
 
     @objc public func initialize() {
-        DriveKitNavigationController.shared.permissionsUtilsUI = self
+        // Nothing to do currently.
     }
 
     public func showPermissionViews(_ permissionViews: [DKPermissionView], parentViewController: UIViewController, completionHandler: @escaping () -> Void) {
@@ -105,7 +109,12 @@ import DriveKitCommonUI
             let bluetoothStatus = getStatusString(statusType: .bluetooth, titleKey: "dk_perm_utils_app_diag_email_bluetooth")
             info.append(bluetoothStatus)
         }
-        let batteryOptimizationStatus = getStatusString("dk_perm_utils_app_diag_email_battery", isValid: !DKDiagnosisHelper.shared.isLowPowerModeEnabled(), validValue: "dk_perm_utils_app_diag_email_battery_disabled".dkPermissionsUtilsLocalized(), invalidValue: "dk_perm_utils_app_diag_email_battery_enabled".dkPermissionsUtilsLocalized())
+        let batteryOptimizationStatus = getStatusString(
+            "dk_perm_utils_app_diag_email_battery",
+            isValid: !DKDiagnosisHelper.shared.isLowPowerModeEnabled(),
+            validValue: "dk_perm_utils_app_diag_email_battery_disabled".dkPermissionsUtilsLocalized(),
+            invalidValue: "dk_perm_utils_app_diag_email_battery_enabled".dkPermissionsUtilsLocalized()
+        )
         info.append(batteryOptimizationStatus)
         return info.joined(separator: "\n")
     }
@@ -114,7 +123,12 @@ import DriveKitCommonUI
         return getStatusString(titleKey, isValid: self.stateByType[statusType] ?? false)
     }
 
-    private func getStatusString(_ titleKey: String, isValid: Bool, validValue: String = DKCommonLocalizable.yes.text(), invalidValue: String = DKCommonLocalizable.no.text()) -> String {
+    private func getStatusString(
+        _ titleKey: String,
+        isValid: Bool,
+        validValue: String = DKCommonLocalizable.yes.text(),
+        invalidValue: String = DKCommonLocalizable.no.text()
+    ) -> String {
         return "\(titleKey.dkPermissionsUtilsLocalized()) \(isValid ? validValue : invalidValue)"
     }
 
@@ -231,5 +245,12 @@ extension DriveKitPermissionsUtilsUI {
     @objc(configureWebContactType:)
     public func objc_configureContactType(contactUrl: URL) {
         self.configureContactType(.web(contactUrl))
+    }
+}
+
+@objc(DKUIPermissionsUtilsInitializer)
+class DKUIPermissionsUtilsInitializer: NSObject {
+    @objc static func initUI() {
+        DriveKitPermissionsUtilsUI.shared.initialize()
     }
 }

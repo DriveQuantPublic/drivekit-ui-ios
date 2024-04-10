@@ -13,6 +13,8 @@ import DriveKitCommonUI
 import DriveKitDBTripAccessModule
 
 public class DriveKitDriverDataUI: AccessRightListener {
+    static let tag = "DriveKit Driver Data UI"
+
     public private(set) var tripData: TripData = .safety
     private(set) var sourceMapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .speeding, .interactiveMap, .synthesis]
     private(set) var mapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .speeding, .interactiveMap, .synthesis]
@@ -30,14 +32,15 @@ public class DriveKitDriverDataUI: AccessRightListener {
 
     public static let shared = DriveKitDriverDataUI()
     
-    private init() {}
-
-    public func initialize(tripData: TripData = .safety, mapItems: [MapItem] = [.safety, .ecoDriving, .distraction, .speeding, .interactiveMap, .synthesis]) {
-        self.tripData = tripData
-        self.sourceMapItems = mapItems
-        filterMapItems()
+    private init() {
+        DriveKitLog.shared.infoLog(tag: DriveKitDriverDataUI.tag, message: "Initialization")
         DriveKitAccess.shared.addAccessRightListener(self)
         DriveKitNavigationController.shared.driverDataUI = self
+        filterMapItems()
+    }
+
+    public func initialize() {
+        // Nothing to do currently.
     }
 
     deinit {
@@ -46,6 +49,11 @@ public class DriveKitDriverDataUI: AccessRightListener {
 
     public func configureTripData(_ tripData: TripData) {
         self.tripData = tripData
+    }
+
+    public func configureMapItems(_ mapItems: [MapItem]) {
+        self.sourceMapItems = mapItems
+        filterMapItems()
     }
 
     public func configureContextKinds(_ contextKinds: [DKContextKind]) {
@@ -153,4 +161,11 @@ extension UIColor {
     public static let dkMapTrace = UIColor(hex: 0x116ea9)
     public static let dkMapTraceAuthorizedCall = UIColor(hex: 0x93c47d)
     public static let dkMapTraceWarning = UIColor(hex: 0xed4f3b)
+}
+
+@objc(DKUIDriverDataInitializer)
+class DKUIDriverDataInitializer: NSObject {
+    @objc static func initUI() {
+        DriveKitDriverDataUI.shared.initialize()
+    }
 }

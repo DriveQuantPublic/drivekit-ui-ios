@@ -125,7 +125,6 @@
 "dk_driverdata_mysynthesis_no_trip_prev_month"="You did not drive the previous month";
 "dk_driverdata_mysynthesis_no_trip_prev_week"="You did not drive the previous week";
 "dk_driverdata_mysynthesis_no_trip_prev_year"="You didn\'t drive the previous year";
-"dk_driverdata_mysynthesis_not_enough_data"="There is not enough data to evaluate your driving.";
 "dk_driverdata_mysynthesis_previous_month"="The previous month:";
 "dk_driverdata_mysynthesis_previous_week"="The previous week:";
 "dk_driverdata_mysynthesis_previous_year"="In %@:";

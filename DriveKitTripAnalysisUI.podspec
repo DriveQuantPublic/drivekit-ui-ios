@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '12.0'
 
-  s.source_files = 'DriveKitTripAnalysisUI/**/*.swift'
+  s.source_files = ['DriveKitTripAnalysisUI/**/*.swift', 'DriveKitTripAnalysisUI/**/*.m']
   s.resource = ['DriveKitTripAnalysisUI/Localizable/*', 'DriveKitTripAnalysisUI/**/*.xib', 'DriveKitTripAnalysisUI/DriveKitTripAnalysis.xcassets', 'DriveKitTripAnalysisUI/PrivacyInfo.xcprivacy']
 
   s.dependency 'WARangeSlider'

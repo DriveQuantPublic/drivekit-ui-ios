@@ -193,7 +193,7 @@ class DrivingConditionsViewModel {
             in: oldPeriod,
             switchingAmongst: self.timelines[selectedPeriod]?.allDates ?? [],
             in: selectedPeriod
-        ) { _, _ in true }
+        )
         update()
         parentDelegate?.didUpdate(selectedPeriod: selectedPeriod)
     }
@@ -267,10 +267,6 @@ extension DKDriverTimeline {
 extension DrivingConditionsViewModel: DKUIPagingViewModel {
     var allPageIds: [DKContextKind] {
         configuredContexts
-    }
-    
-    var hasNoData: Bool {
-        return hasData == false
     }
     
     func pageViewModel(for pageId: DKContextKind) -> DKContextCard? {

@@ -125,7 +125,6 @@
 "dk_driverdata_mysynthesis_no_trip_prev_month"="Sie sind im vorherigen Monat nicht gefahren";
 "dk_driverdata_mysynthesis_no_trip_prev_week"="Sie sind in der vorherigen Woche nicht gefahren";
 "dk_driverdata_mysynthesis_no_trip_prev_year"="Sie sind im vorherigen Jahr nicht gefahren";
-"dk_driverdata_mysynthesis_not_enough_data"="Es gibt nicht genügend Daten, um Ihre Fahrweise zu bewerten.";
 "dk_driverdata_mysynthesis_previous_month"="Der vorherige Monat :";
 "dk_driverdata_mysynthesis_previous_week"="Die vorige Woche :";
 "dk_driverdata_mysynthesis_previous_year"="Im Jahr %@ :";
@@ -199,7 +198,7 @@
 "dk_driverdata_profile_mobility_wide"="Ihr Mobilitätsbereich ist weitläufig";
 "dk_driverdata_profile_regularity_intermittent_text"="Ihre Fahrgewohnheiten ändern sich von einer Woche zur nächsten. Sie fahren selten die gleiche Strecke und die Anzahl Ihrer Fahrten pro Woche schwankt.";
 "dk_driverdata_profile_regularity_intermittent_title"="Ihre Fahrgewohnheiten sind unregelmäßig";
-"dk_driverdata_profile_regularity_regular_text"="Sie sind ein routinierter Fahrer und Ihre Wochen ähneln sich. Im Durchschnitt machen Sie %1$ Fahrten und legen %@ km zurück.";
+"dk_driverdata_profile_regularity_regular_text"="Sie sind ein routinierter Fahrer und Ihre Wochen ähneln sich. Im Durchschnitt machen Sie %@ Fahrten und legen %@ km zurück.";
 "dk_driverdata_profile_regularity_regular_title"="Ihre Fahrgewohnheiten sind regelmäßig";
 "dk_driverdata_profile_roadcontext_city_text"="%@ %% der Strecke, die Sie zurücklegen, ist in der Stadt bei eher flüssigem Verkehr.";
 "dk_driverdata_profile_roadcontext_city_title"="Sie fahren hauptsächlich in der Stadt";

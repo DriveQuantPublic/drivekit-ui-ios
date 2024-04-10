@@ -16,8 +16,6 @@ public class MySynthesisScoreCardViewModel {
     private var period: DKPeriod?
     private var previousPeriodDate: Date?
     private var scoreSynthesis: DKScoreSynthesis?
-    private var hasOnlyShortTripsForCurrentPeriod: Bool = false
-    private var hasOnlyShortTripsForPreviousPeriod: Bool = false
     var scoreCardViewModelDidUpdate: (() -> Void)?
     
     public init() {}
@@ -40,8 +38,7 @@ public class MySynthesisScoreCardViewModel {
     
     public var currentScoreText: String {
         guard let scoreValue = scoreSynthesis?.scoreValue else {
-            return "- "
-            + DKCommonLocalizable.unitScore.text()
+            return "- " + DKCommonLocalizable.unitScore.text()
         }
         
         return scoreOutOfTenText(for: scoreValue)
@@ -57,9 +54,7 @@ public class MySynthesisScoreCardViewModel {
         }
         
         guard
-            let previousValue = scoreSynthesis?.previousScoreValue,
-            hasCurrentScore ||
-            hasOnlyShortTripsForCurrentPeriod
+            let previousValue = scoreSynthesis?.previousScoreValue, hasCurrentScore
         else {
             return localisationKeyPrefix.dkDriverDataLocalized()
                 .dkAttributedString()
@@ -122,28 +117,24 @@ public class MySynthesisScoreCardViewModel {
     public func configure(
         with scoreSynthesis: DKScoreSynthesis,
         period: DKPeriod,
-        previousPeriodDate: Date?,
-        hasOnlyShortTripsForPreviousPeriod: Bool,
-        hasOnlyShortTripsForCurrentPeriod: Bool
+        previousPeriodDate: Date?
     ) {
         self.scoreSynthesis = scoreSynthesis
         self.period = period
         self.previousPeriodDate = previousPeriodDate
-        self.hasOnlyShortTripsForPreviousPeriod = hasOnlyShortTripsForPreviousPeriod
-        self.hasOnlyShortTripsForCurrentPeriod = hasOnlyShortTripsForCurrentPeriod
         self.scoreCardViewModelDidUpdate?()
     }
     
     // MARK: - Private Helpers
-    
+
     private var hasCurrentScore: Bool {
         self.scoreSynthesis?.scoreValue != nil
     }
-    
+
     private var hasPreviousScore: Bool {
         self.scoreSynthesis?.previousScoreValue != nil
     }
-    
+
     private var localisationKeySuffixForPeriod: String {
         switch period {
             case .week:
@@ -160,36 +151,23 @@ public class MySynthesisScoreCardViewModel {
     
     private var localisationKeyPrefixForEvolutionText: String? {
         enum TripKind {
-            case noTrip, onlyShortTrips, scoredTrips
+            case noTrip, scoredTrips
         }
         
-        let previousPeriod: TripKind = hasPreviousScore
-            ? .scoredTrips
-            : hasOnlyShortTripsForPreviousPeriod
-                ? .onlyShortTrips
-                : .noTrip
-        let currentPeriod: TripKind = hasCurrentScore
-            ? .scoredTrips
-            : hasOnlyShortTripsForCurrentPeriod
-                ? .onlyShortTrips
-                : .noTrip
-        
+        let previousPeriod: TripKind = hasPreviousScore ? .scoredTrips : .noTrip
+        let currentPeriod: TripKind = hasCurrentScore ? .scoredTrips : .noTrip
+
         // No current score + only short trips = safety or ecodriving with no score while speeding and distraction have one
         // current score + only short trips = speeding and distraction with a score while safety or ecodriving have not
         // no current score + no trips at all = impossible
         switch (previousPeriod, currentPeriod) {
-            case (.noTrip, .noTrip),
-                (.onlyShortTrips, .onlyShortTrips),
-                (.onlyShortTrips, .scoredTrips):
+            case (.noTrip, .noTrip):
                 return "dk_driverdata_mysynthesis_no_trip_at_all"
-            case (.noTrip, .scoredTrips),
-                (.noTrip, .onlyShortTrips):
+            case (.noTrip, .scoredTrips):
                 return "dk_driverdata_mysynthesis_no_trip_prev_" + localisationKeySuffixForPeriod
-            case (.scoredTrips, .scoredTrips),
-                (.scoredTrips, .onlyShortTrips):
+            case (.scoredTrips, .scoredTrips):
                 return "dk_driverdata_mysynthesis_previous_" + localisationKeySuffixForPeriod
-            case (.scoredTrips, .noTrip),
-                (.onlyShortTrips, .noTrip):
+            case (.scoredTrips, .noTrip):
                 assertionFailure("We can't have previous score but no current score and no trips at all")
                 return nil
         }

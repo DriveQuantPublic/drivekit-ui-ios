@@ -19,14 +19,11 @@
 "dk_timeline_overspeeding_duration"="Überdrehzahl relative Dauer: %@";
 "dk_timeline_road_context_city"="Städtisch";
 "dk_timeline_road_context_description_empty_data"="Machen Sie eine erste Fahrt, um zu sehen, wie Ihre ersten Grafiken angezeigt werden.";
-"dk_timeline_road_context_description_no_data_ecodriving"="Die Fahrten für die ausgewählten Daten sind zu kurz, um einen Eco-Drive-Score zu erhalten.";
-"dk_timeline_road_context_description_no_data_safety"="Die Fahrten für die ausgewählten Daten sind zu kurz, um eine Sicherheitsbewertung zu erhalten.";
 "dk_timeline_road_context_expressways"="Autobahnen";
 "dk_timeline_road_context_heavy_urban_traffic"="dichtem Stadtverkehr";
 "dk_timeline_road_context_no_context_description"="In diesem Zeitraum gibt es nicht genügend Daten, um die Verteilung der Straßenkontexte zu berechnen.";
 "dk_timeline_road_context_suburban"="Extra städtlig";
 "dk_timeline_road_context_title"="Straßenkontext (%@)";
-"dk_timeline_road_context_title_no_data"="Keine Daten anzeigen";
 "dk_timeline_safety_score"="Sicherheitspunkte: %@";
 "dk_timeline_speeding_score"="Geschwindigkeitswert: %@";
 "dk_timeline_title"="Zeitleiste";

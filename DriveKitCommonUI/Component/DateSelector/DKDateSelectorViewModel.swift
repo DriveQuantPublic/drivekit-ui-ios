@@ -174,8 +174,7 @@ extension DKDateSelectorViewModel {
         from selectedDate: Date,
         in currentPeriod: DKPeriod,
         switchingAmongst nextPeriodDates: [Date],
-        in nextPeriod: DKPeriod,
-        isValidDate: (DKPeriod, Date) -> Bool
+        in nextPeriod: DKPeriod
     ) -> Date {
         let compareDate: Date?
         var newSelectedDate = selectedDate
@@ -197,7 +196,6 @@ extension DKDateSelectorViewModel {
             let newDate = dates.last { date in
                 let compareResult = date.calendar.compare(date, to: compareDate, toGranularity: .day)
                 return (compareResult == .orderedAscending || compareResult == .orderedSame)
-                    && isValidDate(nextPeriod, date)
             }
             if let newDate {
                 newSelectedDate = newDate

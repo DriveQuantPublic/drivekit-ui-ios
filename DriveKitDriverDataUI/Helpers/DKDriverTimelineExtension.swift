@@ -15,9 +15,3 @@ public extension DKDriverTimeline {
         self.allContext.map(\.date)
     }
 }
-
-extension DKDriverTimeline.DKAllContextItem {
-    var hasOnlyShortTrips: Bool {
-        self.numberTripScored == 0 && self.numberTripTotal > 0
-    }
-}

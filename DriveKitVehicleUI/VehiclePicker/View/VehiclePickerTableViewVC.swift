@@ -13,7 +13,7 @@ import DriveKitCommonUI
 class VehiclePickerTableViewVC: VehiclePickerStepView {
     @IBOutlet weak var tableView: UITableView!
 
-    init(viewModel: VehiclePickerViewModel) {
+    init(viewModel: VehiclePickerStepViewModel) {
         super.init(nibName: String(describing: VehiclePickerTableViewVC.self), bundle: .vehicleUIBundle)
         self.viewModel = viewModel
     }
@@ -32,13 +32,13 @@ class VehiclePickerTableViewVC: VehiclePickerStepView {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
-        self.viewModel.vehicleDataDelegate = self
+        self.viewModel.pickerViewModel.vehicleDataDelegate = self
     }
 }
 
 extension VehiclePickerTableViewVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if self.viewModel.currentStep == .type {
+        if self.viewModel.step == .type {
             return 96
         }
         return 66
@@ -69,7 +69,7 @@ extension VehiclePickerTableViewVC: UITableViewDataSource {
             let horizontalMargin = CGFloat(24)
             let label = UILabel()
             label.frame = CGRect.init(x: horizontalMargin, y: 0.0, width: headerView.frame.width - 2 * horizontalMargin, height: headerView.frame.height)
-            if viewModel.currentStep == .type {
+            if viewModel.step == .type {
                 label.textAlignment = .left
             } else {
                 label.textAlignment = .center
@@ -96,7 +96,7 @@ extension VehiclePickerTableViewVC: VehicleDataDelegate {
             self.hideLoader()
             switch status {
                 case .noError:
-                    self.viewModel.showStep()
+                    self.viewModel.pickerViewModel.showStep()
                 case .noData:
                     self.showAlertMessage(title: nil, message: "dk_vehicle_no_data".dkVehicleLocalized(), back: false, cancel: false)
                 case .failedToRetreiveData:

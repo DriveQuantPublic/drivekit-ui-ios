@@ -14,7 +14,8 @@ import DriveKitCommonUI
 import DriveKitTripAnalysisModule
 
 @objc public class DriveKitTripAnalysisUI: NSObject {
-    private let tag: String = "DriveKit TripAnalysisUI"
+    static let tag = "DriveKit Trip Analysis UI"
+
     private(set) var roadsideAssistanceNumber: String?
     @objc public static let shared = DriveKitTripAnalysisUI()
     @objc public var defaultWorkingHours: DKWorkingHours = DriveKitTripAnalysisUI.getDefaultWorkingHours()
@@ -37,8 +38,18 @@ import DriveKitTripAnalysisModule
     }
 
     @objc public func initialize() {
-        DriveKitNavigationController.shared.tripAnalysisUI = self
+        // Nothing to do currently.
+    }
+
+    private override init() {
+        super.init()
+        DriveKitLog.shared.infoLog(tag: DriveKitTripAnalysisUI.tag, message: "Initialization")
         DriveKit.shared.registerNotificationDelegate(self)
+        DriveKitNavigationController.shared.tripAnalysisUI = self
+    }
+
+    deinit {
+        DriveKit.shared.unregisterNotificationDelegate(self)
     }
 
     private static func getDefaultWorkingHours() -> DKWorkingHours {
@@ -131,7 +142,7 @@ extension DriveKitTripAnalysisUI: UNUserNotificationCenterDelegate {
         if categoryIdentifier == TripAnalysisConstant.crashFeedbackNotificationCategoryIdentifier {
             if let crashId = content.userInfo[TripAnalysisConstant.crashFeedbackNotificationCrashIdKey] as? String {
                 if let crashInfo = DriveKitTripAnalysis.shared.crashFeedbackNotificationOpened(crashId: crashId) {
-                    DriveKitLog.shared.infoLog(tag: self.tag, message: "crashFeedbackNotification opened with success")
+                    DriveKitLog.shared.infoLog(tag: DriveKitTripAnalysisUI.tag, message: "crashFeedbackNotification opened with success")
                     DispatchQueue.main.async { [weak self] in
                         if let crashFeedbackVC = self?.getCrashFeedbackViewController(crashInfo: crashInfo) {
                             let navController = UINavigationController(rootViewController: crashFeedbackVC)
@@ -142,7 +153,7 @@ extension DriveKitTripAnalysisUI: UNUserNotificationCenterDelegate {
                         }
                     }
                 } else {
-                    DriveKitLog.shared.infoLog(tag: self.tag, message: "crashFeedbackNotification opened with error")
+                    DriveKitLog.shared.infoLog(tag: DriveKitTripAnalysisUI.tag, message: "crashFeedbackNotification opened with error")
                 }
             }
         }
@@ -156,5 +167,12 @@ extension Bundle {
 extension String {
     public func dkTripAnalysisLocalized() -> String {
         return self.dkLocalized(tableName: "DKTripAnalysisLocalizable", bundle: Bundle.tripAnalysisUIBundle ?? .main)
+    }
+}
+
+@objc(DKUITripAnalysisInitializer)
+class DKUITripAnalysisInitializer: NSObject {
+    @objc static func initUI() {
+        DriveKitTripAnalysisUI.shared.initialize()
     }
 }

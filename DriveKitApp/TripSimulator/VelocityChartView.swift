@@ -8,7 +8,7 @@
 //
 
 import Foundation
-import ChartsForDK
+import DGCharts
 import DriveKitCommonUI
 
 class VelocityChartView: LineChartView {
@@ -50,7 +50,7 @@ class VelocityChartView: LineChartView {
         xAxis.axisLineColor = .black
         xAxis.drawGridLinesEnabled = false
 
-        self.chartDescription?.text = "trip_simulator_graph_time".keyLocalized()
+        self.chartDescription.text = "trip_simulator_graph_time".keyLocalized()
         
         let dataSet = LineChartDataSet(entries: self.graphData, label: "trip_simulator_graph_velocity".keyLocalized())
         dataSet.mode = .linear
@@ -67,7 +67,7 @@ class VelocityChartView: LineChartView {
         let dataSetIndex = 0
         let newPoint = ChartDataEntry(x: timestamp, y: velocity)
         graphData.append(newPoint)
-        self.data?.addEntry(newPoint, dataSetIndex: dataSetIndex)
+        self.data?.appendEntry(newPoint, toDataSet: dataSetIndex)
         if graphData.count > self.maxPoints {
             let oldEntry = graphData.removeFirst()
             self.data?.removeEntry(oldEntry, dataSetIndex: dataSetIndex)

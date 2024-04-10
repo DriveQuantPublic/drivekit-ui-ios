@@ -13,6 +13,8 @@ import DriveKitCommonUI
 import DriveKitDBAchievementAccessModule
 
 @objc public class DriveKitDriverAchievementUI: NSObject {
+    static let tag = "DriveKit Driver Achievement UI"
+
     @objc public static let shared = DriveKitDriverAchievementUI()
 
     public private(set) var streakThemes: [DKStreakTheme] = [.phoneDistraction, .safety, .acceleration, .brake, .adherence, .speedLimits, .call]
@@ -21,10 +23,14 @@ import DriveKitDBAchievementAccessModule
     public private(set) var rankingSelector: DKRankingSelectorType = .period(rankingPeriods: [.weekly, .monthly, .allTime])
     public private(set) var rankingDepth: Int = 5
 
-    private override init() {}
+    private override init() {
+        super.init()
+        DriveKitLog.shared.infoLog(tag: DriveKitDriverAchievementUI.tag, message: "Initialization")
+        DriveKitNavigationController.shared.driverAchievementUI = self
+    }
 
     @objc public func initialize() {
-        DriveKitNavigationController.shared.driverAchievementUI = self
+        // Nothing to do currently.
     }
 
     public func configureStreakThemes(streakThemes: [DKStreakTheme]) {
@@ -100,5 +106,12 @@ extension DriveKitDriverAchievementUI {
     @objc(configureRankingSelectorPeriods:) // Usage example: [DriveKitDriverAchievementUI.shared configureRankingSelectorPeriod:@[ @(DKRankingPeriodWeekly), @(DKRankingPeriodLegacy), @(DKRankingPeriodMonthly) ]];
     public func objc_configureRankingSelectorPeriods(_ periods: [Int]) {
         configureRankingSelector(.period(rankingPeriods: periods.map { DKRankingPeriod(rawValue: $0)! }))
+    }
+}
+
+@objc(DKUIDriverAchievementInitializer)
+class DKUIDriverAchievementInitializer: NSObject {
+    @objc static func initUI() {
+        DriveKitDriverAchievementUI.shared.initialize()
     }
 }

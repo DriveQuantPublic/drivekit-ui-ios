@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '12.0'
 
-  s.source_files = 'DriveKitDriverAchievementUI/**/*.swift'
+  s.source_files = ['DriveKitDriverAchievementUI/**/*.swift', 'DriveKitDriverAchievementUI/**/*.m']
   s.resource = ['DriveKitDriverAchievementUI/Localizable/*', 'DriveKitDriverAchievementUI/**/*.xib', 'DriveKitDriverAchievementUI/DriverAchievement.xcassets', 'DriveKitDriverAchievementUI/PrivacyInfo.xcprivacy']
 
   s.dependency 'DriveKitCommonUI', s.version.to_s

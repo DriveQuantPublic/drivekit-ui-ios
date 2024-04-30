@@ -18,7 +18,6 @@ class RankingViewController: DKUIViewController {
     @IBOutlet private weak var loadingView: UIActivityIndicatorView!
     @IBOutlet private weak var viewContainer: UIView!
     private let viewModel: RankingViewModel
-    private var rankingSelectors: RankingSelectorsView?
     private var ranks: [DKDriverRankingItem] = []
 
     public init(groupName: String?) {
@@ -63,9 +62,7 @@ class RankingViewController: DKUIViewController {
                 self.headerContainer.addArrangedSubview(rankingSelectors)
                 rankingSelectors.update(viewModel: self.viewModel)
             }
-            self.rankingSelectors = rankingSelectors
         } else {
-            self.rankingSelectors = nil
             self.headerContainer.addArrangedSubview(UIView(frame: CGRect.zero))
         }
     }

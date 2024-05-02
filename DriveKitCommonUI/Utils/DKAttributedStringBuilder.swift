@@ -40,17 +40,24 @@ public class DKAttributedStringBuilder {
         attributes[.foregroundColor] = color
         return self
     }
+
+    public func center() -> DKAttributedStringBuilder {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .center
+        attributes[.paragraphStyle] = paragraphStyle
+        return self
+    }
     
     public func build() -> NSMutableAttributedString {
         return NSMutableAttributedString(string: text, attributes: attributes)
     }
     
-    public func buildWithArgs(_ args: NSMutableAttributedString...) -> NSMutableAttributedString {
-        self.buildWithArgs(args)
+    public func buildWithArgs(_ args: NSMutableAttributedString..., specifier: String = "%@") -> NSMutableAttributedString {
+        self.buildWithArgs(args, specifier: specifier)
     }
     
-    public func buildWithArgs(_ args: [NSMutableAttributedString]) -> NSMutableAttributedString {
-        let stringsPart = self.text.components(separatedBy: "%@")
+    public func buildWithArgs(_ args: [NSMutableAttributedString], specifier: String = "%@") -> NSMutableAttributedString {
+        let stringsPart = self.text.components(separatedBy: specifier)
         let attributedString = NSMutableAttributedString(string: stringsPart[0], attributes: attributes)
         for i in 0...stringsPart.count {
             if args.count > i {

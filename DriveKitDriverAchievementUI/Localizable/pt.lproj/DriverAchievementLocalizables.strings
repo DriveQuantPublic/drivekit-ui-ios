@@ -315,4 +315,9 @@
 "dk_achievements_streaks_speeding_reset"="Você excedeu o limite de velocidade em sua última viagem.";
 "dk_achievements_streaks_speeding_text"="Tente fazer uma série de viagens dentro dos limites de velocidade. A pontuação do limite de velocidade deve ser superior a 9,8/10. \n\n Na sua melhor sequência de sucesso, é memorizado e você pode tentar superá -lo.";
 "dk_achievements_streaks_speeding_title"="Sem velocidade";
+"dk_badge_bronze"="Bronze";
+"dk_badge_earned_badges_number_title_plural"="Ganhou %d crachás";
+"dk_badge_earned_badges_number_title_singular"="Ganhou %d crachá";
+"dk_badge_gold"="Ouro";
+"dk_badge_silver"="Prata";
 "menu_mybadges"="Meus crachás";

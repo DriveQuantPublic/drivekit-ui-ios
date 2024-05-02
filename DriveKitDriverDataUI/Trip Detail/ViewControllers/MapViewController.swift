@@ -516,14 +516,6 @@ class MapViewController: DKUIViewController {
         }
     }
     
-   func setupAdviceButton() {
-        self.adviceButton.layer.cornerRadius = adviceButton.bounds.size.width / 2
-        adviceButton.setTitle("", for: .normal)
-        adviceButton.layer.masksToBounds = true
-        adviceButton.backgroundColor = DKUIColors.secondaryColor.color
-        adviceButton.tintColor = .white
-    }
-    
     func zoomToEvent(event: TripEvent) {
         self.zoom(to: event.position)
     }
@@ -549,15 +541,7 @@ class MapViewController: DKUIViewController {
         self.mapView.removeAnnotations(annotations)
         self.mapView.addAnnotations(annotations)
     }
-    
-    func updateTipsButton() {
-        if let currentItem = self.viewModel.displayMapItem {
-            self.adviceButton.isHidden = true
-            let image = currentItem.adviceImage()
-            self.adviceButton.setImage(image, for: .normal)
-            self.adviceButton.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
-        }
-    }
+
 }
 
 extension MapViewController: MapViewControllerDelegate {

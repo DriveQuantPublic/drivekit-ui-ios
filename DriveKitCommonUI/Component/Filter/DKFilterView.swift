@@ -28,6 +28,7 @@ final public class DKFilterView: UIView, Nibable {
     public func configure(viewModel: DKFilterViewModel, parentViewController: UIViewController) {
         self.viewModel = viewModel
         self.parentViewController = parentViewController
+        self.pickerImage.image = DKImages.arrowDown.image?.withRenderingMode(.alwaysTemplate)
         self.pickerImage.isHidden = !viewModel.showPicker
         self.pickerImage.tintColor = DKUIColors.mainFontColor.color
         self.name.attributedText = viewModel.getName().dkAttributedString().color(.complementaryFontColor).font(dkFont: .primary, style: .normalText).build()

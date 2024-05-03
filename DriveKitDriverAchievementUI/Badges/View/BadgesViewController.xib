@@ -25,10 +25,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kXv-d9-yVW" customClass="CardView" customModule="DriveKitCommonUI">
-                    <rect key="frame" x="10" y="10" width="394" height="116"/>
+                    <rect key="frame" x="10" y="10" width="394" height="106"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Cv5-9x-Vyv">
-                            <rect key="frame" x="25" y="10" width="344" height="96"/>
+                            <rect key="frame" x="25" y="0.0" width="344" height="96"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0l-HL-bLr">
                                     <rect key="frame" x="0.0" y="0.0" width="344" height="48"/>
@@ -67,14 +67,14 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="Cv5-9x-Vyv" secondAttribute="trailing" constant="25" id="BPf-wq-GZ7"/>
-                        <constraint firstAttribute="height" constant="116" id="RHw-7H-uFd"/>
+                        <constraint firstAttribute="height" constant="106" id="RHw-7H-uFd"/>
                         <constraint firstItem="Cv5-9x-Vyv" firstAttribute="leading" secondItem="kXv-d9-yVW" secondAttribute="leading" constant="25" id="rC0-VU-3zY"/>
                         <constraint firstAttribute="bottom" secondItem="Cv5-9x-Vyv" secondAttribute="bottom" constant="10" id="td9-c3-Bdj"/>
-                        <constraint firstItem="Cv5-9x-Vyv" firstAttribute="top" secondItem="kXv-d9-yVW" secondAttribute="top" constant="10" id="vt5-fD-9dj"/>
+                        <constraint firstItem="Cv5-9x-Vyv" firstAttribute="top" secondItem="kXv-d9-yVW" secondAttribute="top" id="vt5-fD-9dj"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ots-IH-n2r">
-                    <rect key="frame" x="0.0" y="136" width="414" height="634"/>
+                    <rect key="frame" x="0.0" y="126" width="414" height="644"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>

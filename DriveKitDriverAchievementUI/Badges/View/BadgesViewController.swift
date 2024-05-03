@@ -75,7 +75,7 @@ public class BadgesViewController: DKUIViewController, UITableViewDelegate {
 
     private func setupCountHeader() {
         let cornerRadius: CGFloat = 4
-        let borderWidth: CGFloat = 2
+        let borderWidth: CGFloat = 1.5
         self.bronzeCountLabel.layer.borderColor = self.viewModel.darkColorForLevel(.bronze).cgColor
         self.bronzeCountLabel.layer.borderWidth = borderWidth
         self.bronzeCountLabel.layer.cornerRadius = cornerRadius

@@ -88,11 +88,11 @@ class BadgeViewModel {
         let badgeStats = self.badgeStatistics
         switch level {
             case .bronze:
-                return "\(badgeStats.acquiredBronze)/\(badgeStats.totalBronze)"
+                return "\(badgeStats.acquiredBronze) / \(badgeStats.totalBronze)"
             case .silver:
-                return "\(badgeStats.acquiredSilver)/\(badgeStats.totalSilver)"
+                return "\(badgeStats.acquiredSilver) / \(badgeStats.totalSilver)"
             case .gold:
-                return "\(badgeStats.acquiredGold)/\(badgeStats.totalGold)"
+                return "\(badgeStats.acquiredGold) / \(badgeStats.totalGold)"
         }
     }
 
@@ -108,7 +108,7 @@ class BadgeViewModel {
         let countAttributedString = levelCount(level)
             .dkAttributedString()
             .center()
-            .font(dkFont: .primary, style: .highlightSmall)
+            .font(dkFont: .primary, style: .headLine1)
             .color(color)
             .build()
         return "%@\n%@".dkAttributedString().buildWithArgs(levelAttributedString, countAttributedString)
@@ -121,14 +121,14 @@ class BadgeViewModel {
         
         let countAttributedText = "\(badgeStats.acquired)"
             .dkAttributedString()
-            .font(dkFont: .primary, style: .highlightNormal)
+            .font(dkFont: .primary, style: .headLine1)
             .color(.primaryColor)
             .build()
 
         return textKey
             .dkAchievementLocalized()
             .dkAttributedString()
-            .font(dkFont: .primary, style: .normalText)
+            .font(dkFont: .primary, style: .bigtext)
             .color(.primaryColor)
             .buildWithArgs(countAttributedText, specifier: "%d")
     }

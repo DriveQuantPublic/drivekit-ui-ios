@@ -20,10 +20,6 @@ class SafetyPageViewModel {
         self.trip = trip
     }
     
-    func getScore() -> Double {
-        return self.scoreType.rawValue(trip: trip)
-    }
-    
     func getAccelerations() -> Int {
         let nbAccelCrit = Int(self.trip.safety?.nbAccelCrit ?? 0)
         let nbAccel = Int(self.trip.safety?.nbAccel ?? 0)

@@ -10,20 +10,6 @@ import Foundation
 import DriveKitCommonUI
 import UIKit
 
-protocol AnyDriverRank {
-    var nbDrivers: Int { get }
-    var position: Int { get }
-    var positionString: String { get }
-    var positionImageName: String? { get }
-    var rankString: String { get }
-    var name: String { get }
-    var distance: Double { get }
-    var distanceString: String { get }
-    var score: Double { get }
-    var scoreString: String { get }
-    var totalScoreString: String { get }
-}
-
 class DriverRank: DKDriverRankingItem {
     let nbDrivers: Int
     let position: Int

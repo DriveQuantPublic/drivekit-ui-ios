@@ -455,10 +455,6 @@ class VehiclePickerViewModel {
         return vehicleName ?? ""
     }
 
-    func getCategoryItem() -> VehiclePickerTextDelegate? {
-        return vehicleCategory
-    }
-
     // swiftlint:disable:next cyclomatic_complexity
     func addVehicle(completion: @escaping (DKVehicleManagerStatus, String?) -> Void) {
         if let characteristics = self.vehicleCharacteristics {

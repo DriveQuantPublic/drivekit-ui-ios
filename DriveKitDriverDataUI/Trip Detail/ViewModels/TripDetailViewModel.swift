@@ -49,7 +49,6 @@ class TripDetailViewModel: DKTripDetailViewModel {
     private(set) var distractionEvents: [TripEvent] = []
     private(set) var phoneCallEvents: [TripEvent] = []
     
-    private var selection: Int?
     private var selectedMapTrace: DKMapTraceType = .unlockScreen
     
     weak var delegate: TripDetailDelegate? {
@@ -283,7 +282,6 @@ class TripDetailViewModel: DKTripDetailViewModel {
     }
 
     public func setSelectedEvent(position: Int?) {
-        selection = position
         if let pos = position {
             delegate?.onEventSelected(event: events[pos], position: pos)
         }

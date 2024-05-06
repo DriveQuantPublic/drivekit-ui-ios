@@ -61,20 +61,6 @@ public extension UIImage {
         }
     }
 
-    // fills the alpha channel of the source image with the given color
-    // any color information except to the alpha channel will be ignored
-    private func fillAlpha(fillColor: UIColor) -> UIImage {
-        return modifiedImage { context, rect in
-            // draw tint color
-            context.setBlendMode(.normal)
-            fillColor.setFill()
-            context.fill(rect)
-            // mask by alpha values of original image
-            context.setBlendMode(.destinationIn)
-            context.draw(self.cgImage!, in: rect)
-        }
-    }
-
     private func modifiedImage(draw: (CGContext, CGRect) -> Void) -> UIImage {
         // using scale correctly preserves retina images
         UIGraphicsBeginImageContextWithOptions(size, false, scale)

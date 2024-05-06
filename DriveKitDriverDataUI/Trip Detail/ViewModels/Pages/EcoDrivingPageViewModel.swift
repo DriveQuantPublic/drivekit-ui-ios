@@ -20,10 +20,6 @@ class EcoDrivingPageViewModel {
         self.trip = trip
     }
     
-    func getScore() -> Double {
-        return self.scoreType.rawValue(trip: trip)
-    }
-    
     func getAccelerations() -> String {
         let score = trip.ecoDriving?.scoreAccel ?? 0.0
         return score.getAccelerationDescription()

@@ -107,12 +107,6 @@ protocol WorkingHoursDayCellViewModelDelegate: AnyObject {
 }
 
 extension WorkingHoursDayCellViewModel {
-    func dateFromSliderValue(sliderValue: Double, date: Date) -> Date {
-        let components = hourFormatter(sliderValue: sliderValue)
-        let result = dateFromComponents(input: components, date: date)
-        return result
-    }
-
     func dateFromComponents(input: Input, date: Date) -> Date {
         var dateComponents = Calendar.current.dateComponents([.day, .month, .year, .hour, .minute], from: date)
         dateComponents.hour = input.1

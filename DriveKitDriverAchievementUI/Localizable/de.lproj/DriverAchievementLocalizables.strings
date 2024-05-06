@@ -317,4 +317,9 @@
 "dk_achievements_streaks_speeding_reset"="Sie haben auf Ihrer letzten Reise die Geschwindigkeitsbegrenzung überschritten";
 "dk_achievements_streaks_speeding_text"="Versuchen Sie, eine Reihe von Fahrten innerhalb der Geschwindigkeitsbegrenzung zu machen. Das Tempolimit muss höher als 9,8/10 sein.\n\nMit jedem Erfolg steigt der Zähler der Anzahl der Fahrten.\n\nWenn es fehlschlägt, wird der Zähler zurückgesetzt und Sie müssen neu beginnen.\n\nDie Anzahl der Fahrten in Ihrer besten Passfolge wird im Speicher abgelegt und Sie können versuchen, diese zu überschreiten.";
 "dk_achievements_streaks_speeding_title"="Keine Geschwindigkeitsübertretung";
+"dk_badge_bronze"="Bronze";
+"dk_badge_earned_badges_number_title_plural"="Sie haben %d Abzeichen gewonnen";
+"dk_badge_earned_badges_number_title_singular"="Sie haben %d Abzeichen gewonnen";
+"dk_badge_gold"="Gold";
+"dk_badge_silver"="Silber";
 "menu_mybadges"="Meine Elemente";

@@ -11,30 +11,17 @@ import UIKit
 import DriveKitCommonUI
 
 class ChallengeDriverRank: DKDriverRankingItem {
-    let nbDrivers: Int
     let position: Int
-    let positionString: String
     let positionImageName: String?
-    let rankString: String
     let name: String
-    let distance: Double
     let distanceString: String
-    let score: Double
     let scoreString: String
     let totalScoreString: String
     
-    init(nbDrivers: Int, position: Int, positionString: String,
-         positionImageName: String?, rankString: String, name: String,
-         distance: Double, distanceString: String, score: Double, scoreString: String,
-         totalScoreString: String) {
-        self.nbDrivers = nbDrivers
+    init(position: Int, positionImageName: String?, name: String, distanceString: String, scoreString: String, totalScoreString: String) {
         self.position = position
-        self.positionString = positionString
         self.positionImageName = positionImageName
-        self.rankString = rankString
-        self.distance = distance
         self.distanceString = distanceString
-        self.score = score
         self.scoreString = scoreString
         self.totalScoreString = totalScoreString
         self.name = name

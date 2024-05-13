@@ -20,6 +20,7 @@ import DriveKitTripAnalysisModule
     @objc public static let shared = DriveKitTripAnalysisUI()
     @objc public var defaultWorkingHours: DKWorkingHours = DriveKitTripAnalysisUI.getDefaultWorkingHours()
     public var tripRecordingUserMode: DKTripRecordingUserMode = .startStop
+    private(set) var crashNotifReceivedInForeground: Bool = false
     public var isUserAllowedToStartTripManually: Bool {
         switch tripRecordingUserMode {
         case .startStop, .startOnly:
@@ -129,11 +130,13 @@ extension DriveKitTripAnalysisUI: UNUserNotificationCenterDelegate {
         willPresent notification: UNNotification,
         withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
     ) {
+        self.crashNotifReceivedInForeground = false // reset value for new crash
         let isForeground = UIApplication.shared.applicationState == .active
         if isForeground {
             let content = notification.request.content
             self.handleNotificationContent(content: content)
         }
+        self.crashNotifReceivedInForeground = isForeground
         completionHandler(UNNotificationPresentationOptions())
     }
 
@@ -143,6 +146,10 @@ extension DriveKitTripAnalysisUI: UNUserNotificationCenterDelegate {
             if let crashId = content.userInfo[TripAnalysisConstant.crashFeedbackNotificationCrashIdKey] as? String {
                 if let crashInfo = DriveKitTripAnalysis.shared.crashFeedbackNotificationOpened(crashId: crashId) {
                     DriveKitLog.shared.infoLog(tag: DriveKitTripAnalysisUI.tag, message: "crashFeedbackNotification opened with success")
+                    guard !crashNotifReceivedInForeground else {
+                        // Crash Feedback View Controller already displayed
+                        return
+                    }
                     DispatchQueue.main.async { [weak self] in
                         if let crashFeedbackVC = self?.getCrashFeedbackViewController(crashInfo: crashInfo) {
                             let navController = UINavigationController(rootViewController: crashFeedbackVC)

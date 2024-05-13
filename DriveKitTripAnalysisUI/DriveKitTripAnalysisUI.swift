@@ -130,13 +130,16 @@ extension DriveKitTripAnalysisUI: UNUserNotificationCenterDelegate {
         willPresent notification: UNNotification,
         withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
     ) {
-        self.crashNotifReceivedInForeground = false // reset value for new crash
-        let isForeground = UIApplication.shared.applicationState == .active
-        if isForeground {
-            let content = notification.request.content
-            self.handleNotificationContent(content: content)
+        let content = notification.request.content
+        let categoryIdentifier = content.categoryIdentifier
+        if categoryIdentifier == TripAnalysisConstant.crashFeedbackNotificationCategoryIdentifier {
+            self.crashNotifReceivedInForeground = false // reset value for new crash
+            let isForeground = UIApplication.shared.applicationState == .active
+            if isForeground {
+                self.handleNotificationContent(content: content)
+            }
+            self.crashNotifReceivedInForeground = isForeground
         }
-        self.crashNotifReceivedInForeground = isForeground
         completionHandler(UNNotificationPresentationOptions())
     }
 

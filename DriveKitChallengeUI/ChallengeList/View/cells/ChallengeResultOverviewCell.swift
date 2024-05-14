@@ -1,4 +1,4 @@
-// swiftlint:disable no_magic_numbers function_parameter_count
+// swiftlint:disable no_magic_numbers
 //
 //  ChallengeResultOverviewCell.swift
 //  DriveKitChallengeUI
@@ -65,7 +65,7 @@ final class ChallengeResultOverviewCell: UITableViewCell, Nibable {
         }
     }
 
-    func configureProgressBar(maxValue: Double, minValue: Double, score: Double, value: String, maxString: String, minString: String) {
+    func configureProgressBar(maxValue: Double, minValue: Double, score: Double, maxString: String, minString: String) {
         var maxValue = maxValue
         var minValue = minValue
         if score > maxValue {
@@ -104,7 +104,6 @@ final class ChallengeResultOverviewCell: UITableViewCell, Nibable {
         configureProgressBar(maxValue: viewModel.maxScore,
                              minValue: viewModel.minScore,
                              score: viewModel.driverScore,
-                             value: viewModel.driverScore.format(maximumFractionDigits: 2, minimumFractionDigits: 0),
                              maxString: viewModel.maxScore.format(maximumFractionDigits: 2, minimumFractionDigits: 0),
                              minString: viewModel.minScore.format(maximumFractionDigits: 2, minimumFractionDigits: 0))
     }

@@ -10,6 +10,8 @@ import UIKit
 
 final class LastTripsView: UIView, Nibable {
     @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var collectionContainerView: UIView!
+    @IBOutlet private weak var cardContainerView: UIView!
     @IBOutlet private weak var pageControl: UIPageControl!
     private let sections: [LastTripsViewSection] = [.trips, .showAllTrips]
 
@@ -29,6 +31,8 @@ final class LastTripsView: UIView, Nibable {
     private func setupCollectionView() {
         self.collectionView.register(LastTripsViewCell.nib, forCellWithReuseIdentifier: "LastTripsViewCell")
         self.collectionView.register(MoreTripsViewCell.nib, forCellWithReuseIdentifier: "MoreTripsViewCell")
+        self.cardContainerView.applyCardStyle()
+        self.collectionContainerView.roundCorners(clipping: true)
     }
 
     private func setupPageControl() {

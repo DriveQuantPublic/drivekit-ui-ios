@@ -36,7 +36,7 @@ final class LastTripsView: UIView, Nibable {
     }
 
     private func setupPageControl() {
-        self.pageControl.pageIndicatorTintColor = DKUIColors.neutralColor.color
+        self.pageControl.pageIndicatorTintColor = .dkPageIndicatorTintColor
         self.pageControl.currentPageIndicatorTintColor = DKUIColors.secondaryColor.color
     }
 

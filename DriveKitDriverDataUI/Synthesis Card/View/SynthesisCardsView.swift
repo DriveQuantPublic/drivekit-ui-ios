@@ -27,7 +27,7 @@ final class SynthesisCardsView: UIView, Nibable {
         self.collectionView.register(SynthesisCardViewCell.self, forCellWithReuseIdentifier: "SynthesisCardViewCell")
         self.cardContainerView.applyCardStyle()
         self.collectionContainerView.roundCorners(clipping: true)
-        self.pageControl.pageIndicatorTintColor = DKUIColors.neutralColor.color
+        self.pageControl.pageIndicatorTintColor = .dkPageIndicatorTintColor
         self.pageControl.currentPageIndicatorTintColor = DKUIColors.secondaryColor.color
     }
 

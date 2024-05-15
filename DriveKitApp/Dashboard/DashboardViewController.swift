@@ -24,7 +24,7 @@ class DashboardViewController: UIViewController {
     private var lastTripsView: UIView?
     private var viewModel: DashboardViewModel = DashboardViewModel()
     private let verticalMargin: CGFloat = 4
-    private let horizontalMargin: CGFloat = 16
+    private let horizontalMargin: CGFloat = 12
 
     init() {
         super.init(nibName: String(describing: DashboardViewController.self), bundle: nil)

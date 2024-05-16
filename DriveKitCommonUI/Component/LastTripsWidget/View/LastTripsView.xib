@@ -21,10 +21,10 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="264"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qXL-2k-gy6">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="254"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="410" height="254"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="cG6-00-BTn">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="254"/>
+                                            <rect key="frame" x="4" y="4" width="406" height="250"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bym-Qf-p0Z">
                                                 <size key="itemSize" width="128" height="128"/>
@@ -40,9 +40,9 @@
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstItem="cG6-00-BTn" firstAttribute="leading" secondItem="qXL-2k-gy6" secondAttribute="leading" id="SIf-rh-mSE"/>
+                                        <constraint firstItem="cG6-00-BTn" firstAttribute="leading" secondItem="qXL-2k-gy6" secondAttribute="leading" constant="4" id="SIf-rh-mSE"/>
                                         <constraint firstAttribute="trailing" secondItem="cG6-00-BTn" secondAttribute="trailing" id="Zk5-ps-fCZ"/>
-                                        <constraint firstItem="cG6-00-BTn" firstAttribute="top" secondItem="qXL-2k-gy6" secondAttribute="top" id="gAZ-2G-LU2"/>
+                                        <constraint firstItem="cG6-00-BTn" firstAttribute="top" secondItem="qXL-2k-gy6" secondAttribute="top" constant="4" id="gAZ-2G-LU2"/>
                                         <constraint firstAttribute="bottom" secondItem="cG6-00-BTn" secondAttribute="bottom" id="kl8-XV-53v"/>
                                     </constraints>
                                 </view>
@@ -51,7 +51,7 @@
                             <constraints>
                                 <constraint firstItem="qXL-2k-gy6" firstAttribute="leading" secondItem="gLh-6a-IRc" secondAttribute="leading" id="I6E-l5-gBK"/>
                                 <constraint firstItem="qXL-2k-gy6" firstAttribute="top" secondItem="gLh-6a-IRc" secondAttribute="top" id="MWe-nl-9et"/>
-                                <constraint firstAttribute="trailing" secondItem="qXL-2k-gy6" secondAttribute="trailing" id="WWd-PJ-Bc3"/>
+                                <constraint firstAttribute="trailing" secondItem="qXL-2k-gy6" secondAttribute="trailing" constant="4" id="WWd-PJ-Bc3"/>
                                 <constraint firstAttribute="bottom" secondItem="qXL-2k-gy6" secondAttribute="bottom" constant="10" id="nqi-YJ-C4b"/>
                             </constraints>
                         </view>

@@ -12,6 +12,8 @@ import DriveKitCommonUI
 final class SynthesisCardsView: UIView, Nibable {
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var pageControl: UIPageControl!
+    @IBOutlet private weak var collectionContainerView: UIView!
+    @IBOutlet private weak var cardContainerView: UIView!
 
     var viewModel: SynthesisCardsViewModel? {
         didSet {
@@ -23,7 +25,9 @@ final class SynthesisCardsView: UIView, Nibable {
         super.awakeFromNib()
 
         self.collectionView.register(SynthesisCardViewCell.self, forCellWithReuseIdentifier: "SynthesisCardViewCell")
-        self.pageControl.pageIndicatorTintColor = DKUIColors.neutralColor.color
+        self.cardContainerView.applyCardStyle()
+        self.collectionContainerView.roundCorners(clipping: true)
+        self.pageControl.pageIndicatorTintColor = .dkPageIndicatorTintColor
         self.pageControl.currentPageIndicatorTintColor = DKUIColors.secondaryColor.color
     }
 

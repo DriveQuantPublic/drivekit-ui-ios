@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,30 +14,60 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gtI-a7-KL0">
+                <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="gtI-a7-KL0">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                     <subviews>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="cG6-00-BTn">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="272.5"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jjb-aS-Oy5">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="264"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QyI-2C-fvl">
+                                    <rect key="frame" x="4" y="0.0" width="406" height="264"/>
+                                    <subviews>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="cG6-00-BTn">
+                                            <rect key="frame" x="0.0" y="5" width="406" height="249"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bym-Qf-p0Z">
+                                                <size key="itemSize" width="128" height="128"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            </collectionViewFlowLayout>
+                                            <connections>
+                                                <outlet property="dataSource" destination="iN0-l3-epB" id="JX0-oF-Dm6"/>
+                                                <outlet property="delegate" destination="iN0-l3-epB" id="ki7-I5-uDz"/>
+                                            </connections>
+                                        </collectionView>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="cG6-00-BTn" secondAttribute="trailing" id="A9g-vJ-RbF"/>
+                                        <constraint firstAttribute="bottom" secondItem="cG6-00-BTn" secondAttribute="bottom" constant="10" id="eLh-O4-OwB"/>
+                                        <constraint firstItem="cG6-00-BTn" firstAttribute="leading" secondItem="QyI-2C-fvl" secondAttribute="leading" id="wSH-39-dJ3"/>
+                                        <constraint firstItem="cG6-00-BTn" firstAttribute="top" secondItem="QyI-2C-fvl" secondAttribute="top" constant="5" id="zX0-Br-s9z"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bym-Qf-p0Z">
-                                <size key="itemSize" width="128" height="128"/>
-                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            </collectionViewFlowLayout>
-                            <connections>
-                                <outlet property="dataSource" destination="iN0-l3-epB" id="JX0-oF-Dm6"/>
-                                <outlet property="delegate" destination="iN0-l3-epB" id="ki7-I5-uDz"/>
-                            </connections>
-                        </collectionView>
+                            <constraints>
+                                <constraint firstItem="QyI-2C-fvl" firstAttribute="leading" secondItem="jjb-aS-Oy5" secondAttribute="leading" constant="4" id="0yZ-UV-dUS"/>
+                                <constraint firstAttribute="trailing" secondItem="QyI-2C-fvl" secondAttribute="trailing" constant="4" id="WxR-cC-fbS"/>
+                                <constraint firstItem="QyI-2C-fvl" firstAttribute="top" secondItem="jjb-aS-Oy5" secondAttribute="top" id="aAQ-e6-OU1"/>
+                                <constraint firstAttribute="bottom" secondItem="QyI-2C-fvl" secondAttribute="bottom" id="dou-rX-RMM"/>
+                            </constraints>
+                        </view>
                         <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="mQY-Ft-IUE">
-                            <rect key="frame" x="0.0" y="272.5" width="414" height="27.5"/>
+                            <rect key="frame" x="0.0" y="270" width="414" height="30"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </pageControl>
                     </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="jjb-aS-Oy5" secondAttribute="trailing" id="A8N-Ae-TjK"/>
+                        <constraint firstItem="jjb-aS-Oy5" firstAttribute="leading" secondItem="gtI-a7-KL0" secondAttribute="leading" id="mUR-FX-bzx"/>
+                    </constraints>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="gtI-a7-KL0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="3r8-fc-SXB"/>
                 <constraint firstAttribute="trailing" secondItem="gtI-a7-KL0" secondAttribute="trailing" id="o8n-bN-dHe"/>
@@ -46,6 +76,8 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="cardContainerView" destination="jjb-aS-Oy5" id="ZRH-g1-5J3"/>
+                <outlet property="collectionContainerView" destination="QyI-2C-fvl" id="iM0-w8-JHy"/>
                 <outlet property="collectionView" destination="cG6-00-BTn" id="Erl-KK-hBz"/>
                 <outlet property="pageControl" destination="mQY-Ft-IUE" id="esl-JH-Vsn"/>
             </connections>

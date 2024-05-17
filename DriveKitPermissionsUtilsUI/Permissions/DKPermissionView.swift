@@ -10,7 +10,7 @@ import UIKit
 import DriveKitCoreModule
 
 @objc public enum DKPermissionView: Int {
-    case activity, location
+    case activity, location, notifications
 
     func getViewController(permissionViews: [DKPermissionView], completionHandler: @escaping () -> Void) -> PermissionViewController {
         switch self {
@@ -18,6 +18,12 @@ import DriveKitCoreModule
                 return ActivityPermissionViewController(nibName: "ActivityPermissionViewController", permissionViews: permissionViews, completionHandler: completionHandler)
             case .location:
                 return LocationPermissionViewController(nibName: "LocationPermissionViewController", permissionViews: permissionViews, completionHandler: completionHandler)
+            case .notifications:
+                return NotificationsPermissionViewController(
+                    nibName: "NotificationsPermissionViewController",
+                    permissionViews: permissionViews,
+                    completionHandler: completionHandler
+                )
         }
     }
 
@@ -27,6 +33,8 @@ import DriveKitCoreModule
                 return .activity
             case .location:
                 return .location
+            case .notifications:
+                return .notifications
         }
     }
 }

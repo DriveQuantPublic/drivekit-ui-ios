@@ -315,4 +315,9 @@
 "dk_achievements_streaks_speeding_reset"="Du overskred hastighedsgrænsen på din sidste tur.";
 "dk_achievements_streaks_speeding_text"="Kør nogle ture og sørg for at overholde for hastighedsgrænserne. Din score skal være højere end 9,8/10.\n\nHver gang du gør det, stiger dit streak.\n\nHvis du overskrider hastighedsgrænsen, nulstilles dit streak, og du skal starte forfra.\n\nDit bedste streak gemmes, så du kan forsøge at overgå det.";
 "dk_achievements_streaks_speeding_title"="Overholdt hastighedsgrænserne";
+"dk_badge_bronze"="Bronze";
+"dk_badge_earned_badges_number_title_plural"="Du har vundet %d udmærkelse";
+"dk_badge_earned_badges_number_title_singular"="Du har vundet %d udmærkelse";
+"dk_badge_gold"="Guld";
+"dk_badge_silver"="Sølv";
 "menu_mybadges"="Mine udmærkelser";

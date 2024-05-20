@@ -113,7 +113,7 @@ extension WorkingHoursViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch self.viewModel.sections[indexPath.row] {
             case .slot:
-                return 70
+                return 76
             case .separator:
                 return 1
             case .day:

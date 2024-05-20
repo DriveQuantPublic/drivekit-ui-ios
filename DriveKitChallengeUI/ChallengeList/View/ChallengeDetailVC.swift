@@ -11,10 +11,6 @@ import UIKit
 import DriveKitCommonUI
 import DriveKitCoreModule
 
-enum ChallengeDetaiItem {
-    case results, ranking, tripList, rules
-}
-
 class ChallengeDetailVC: DKUIViewController {
     private let viewModel: ChallengeDetailViewModel
     private var resultsVC: ChallengeResultsVC?

@@ -315,4 +315,9 @@
 "dk_achievements_streaks_speeding_reset"="Avete superato il limite di velocità durante l\'ultimo viaggio";
 "dk_achievements_streaks_speeding_text"="Cercate di fare una serie di viaggi entro il limite di velocità. Il punteggio del limite di velocità deve essere superiore a 9,8/10. Ad ogni successo, il contatore del numero di viaggi aumenta.\n\nIn caso di fallimento, il contatore si resetta e si deve ricominciare da capo.\n\nIl numero di viaggi nella vostra migliore sequenza di passaggi è memorizzato e potete tentare di superarlo.";
 "dk_achievements_streaks_speeding_title"="Nessuna velocità";
+"dk_badge_bronze"="Bronzo";
+"dk_badge_earned_badges_number_title_plural"="Hai vinto %d badge";
+"dk_badge_earned_badges_number_title_singular"="Hai vinto %d badge";
+"dk_badge_gold"="Oro";
+"dk_badge_silver"="Argento";
 "menu_mybadges"="I miei distintivi";

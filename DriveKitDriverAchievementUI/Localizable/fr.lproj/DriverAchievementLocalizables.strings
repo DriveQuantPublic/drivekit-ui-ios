@@ -315,4 +315,9 @@
 "dk_achievements_streaks_speeding_reset"="Vous avez dépassé la limite de vitesse autorisée lors de votre dernier trajet";
 "dk_achievements_streaks_speeding_text"="Essayez d\'enchaîner une série de trajets en respectant les limitations de vitesse. Le score de limite de vitesse doit être supérieur à 9.8/10.\n\nA chaque succès, le compteur du nombre de trajets augmente.\n\nEn cas d\'échec, le compteur est réinitialisé et vous devez reprendre à zéro.\n\nLe nombre de trajets de votre meilleure séquence de succès est mémorisé et vous pouvez tenter de le dépasser.";
 "dk_achievements_streaks_speeding_title"="Pas d\'excès de vitesse";
+"dk_badge_bronze"="Bronze";
+"dk_badge_earned_badges_number_title_plural"="Vous avez remporté %d badges";
+"dk_badge_earned_badges_number_title_singular"="Vous avez remporté %d badge";
+"dk_badge_gold"="Or";
+"dk_badge_silver"="Argent";
 "menu_mybadges"="Mes badges";

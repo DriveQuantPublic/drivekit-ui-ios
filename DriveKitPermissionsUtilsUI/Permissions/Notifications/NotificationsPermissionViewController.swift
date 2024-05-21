@@ -13,6 +13,7 @@ class NotificationsPermissionViewController: PermissionViewController {
     @IBOutlet weak var topImageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var actionButton: UIButton!
+    @IBOutlet weak var skipButton: UIButton!
 
     private let viewModel = NotificationsPermissionViewModel()
 
@@ -34,6 +35,10 @@ class NotificationsPermissionViewController: PermissionViewController {
         self.viewModel.openSettings()
     }
 
+    @IBAction func skipStep() {
+        self.next()
+    }
+
     private func updateView() {
         self.titleLabel.attributedText = "dk_perm_utils_app_diag_notification_title"
             .dkPermissionsUtilsLocalized()
@@ -50,6 +55,9 @@ class NotificationsPermissionViewController: PermissionViewController {
             .build()
 
         self.actionButton.configure(title: "dk_perm_utils_permissions_phone_settings_notifications_button".dkPermissionsUtilsLocalized(), style: .full)
+        
+        self.skipButton.configure(title: "dk_perm_utils_permissions_text_button_skip".dkPermissionsUtilsLocalized(), style: .empty)
+
     }
 
 }

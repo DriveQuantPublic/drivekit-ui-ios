@@ -11,8 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NotificationsPermissionViewController" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
             <connections>
-                <outlet property="actionButton" destination="tWy-CV-4WP" id="p2X-g6-hqY"/>
+                <outlet property="actionButton" destination="5cs-AX-zan" id="EFP-CZ-RO8"/>
                 <outlet property="descriptionLabel" destination="Yys-Dj-tq1" id="NHx-F3-Tjb"/>
+                <outlet property="skipButton" destination="tWy-CV-4WP" id="BtC-Ua-YRg"/>
                 <outlet property="titleLabel" destination="ZnE-g0-Ele" id="smO-gM-tZH"/>
                 <outlet property="topImageView" destination="TD4-tl-QB3" id="Hg2-nT-64T"/>
                 <outlet property="view" destination="53X-3n-HjK" id="xKI-W4-xYl"/>
@@ -49,7 +50,17 @@
                     </constraints>
                     <state key="normal" title="Button"/>
                     <connections>
-                        <action selector="openSettings" destination="-1" eventType="touchUpInside" id="YEJ-xf-HWY"/>
+                        <action selector="skipStep" destination="-1" eventType="touchUpInside" id="mL1-0R-ERe"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cs-AX-zan">
+                    <rect key="frame" x="16" y="702" width="361" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="eHO-ov-tYf"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="openSettings" destination="-1" eventType="touchUpInside" id="Bbv-Ms-lP9"/>
                     </connections>
                 </button>
             </subviews>
@@ -59,10 +70,13 @@
                 <constraint firstItem="tWy-CV-4WP" firstAttribute="leading" secondItem="guc-PH-Bai" secondAttribute="leading" constant="16" id="0SY-9i-Zm5"/>
                 <constraint firstItem="TD4-tl-QB3" firstAttribute="top" secondItem="guc-PH-Bai" secondAttribute="top" constant="20" id="3je-qI-clr"/>
                 <constraint firstItem="guc-PH-Bai" firstAttribute="bottom" secondItem="tWy-CV-4WP" secondAttribute="bottom" constant="8" id="8h5-dg-jjC"/>
+                <constraint firstItem="tWy-CV-4WP" firstAttribute="leading" secondItem="5cs-AX-zan" secondAttribute="leading" id="BNY-n7-zTI"/>
+                <constraint firstItem="tWy-CV-4WP" firstAttribute="trailing" secondItem="5cs-AX-zan" secondAttribute="trailing" id="BOI-I0-x4x"/>
                 <constraint firstItem="TD4-tl-QB3" firstAttribute="centerX" secondItem="guc-PH-Bai" secondAttribute="centerX" id="Gga-A4-d4z"/>
                 <constraint firstItem="guc-PH-Bai" firstAttribute="trailing" secondItem="tWy-CV-4WP" secondAttribute="trailing" constant="16" id="Gqy-bZ-huR"/>
                 <constraint firstItem="ZnE-g0-Ele" firstAttribute="leading" secondItem="guc-PH-Bai" secondAttribute="leading" constant="16" id="NgR-CK-9dz"/>
                 <constraint firstItem="Yys-Dj-tq1" firstAttribute="top" secondItem="ZnE-g0-Ele" secondAttribute="bottom" constant="20" id="Pts-hS-Nmm"/>
+                <constraint firstItem="tWy-CV-4WP" firstAttribute="top" secondItem="5cs-AX-zan" secondAttribute="bottom" constant="8" id="Qfw-En-1rv"/>
                 <constraint firstItem="ZnE-g0-Ele" firstAttribute="top" secondItem="TD4-tl-QB3" secondAttribute="bottom" constant="30" id="fnn-bq-MmJ"/>
                 <constraint firstItem="guc-PH-Bai" firstAttribute="trailing" secondItem="ZnE-g0-Ele" secondAttribute="trailing" constant="16" id="neo-IF-LZm"/>
                 <constraint firstItem="Yys-Dj-tq1" firstAttribute="leading" secondItem="ZnE-g0-Ele" secondAttribute="leading" id="wQI-Pu-kfv"/>

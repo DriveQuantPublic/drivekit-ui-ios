@@ -32,7 +32,11 @@ class NotificationsPermissionViewController: PermissionViewController {
     }
 
     @IBAction func openSettings() {
-        self.viewModel.openSettings()
+        if self.viewModel.displaySettingsButton {
+            self.viewModel.openSettings()
+        } else {
+            self.viewModel.requestPermission()
+        }
     }
 
     @IBAction func skipStep() {
@@ -53,11 +57,27 @@ class NotificationsPermissionViewController: PermissionViewController {
             .font(dkFont: .primary, style: .normalText)
             .color(.mainFontColor)
             .build()
-
-        self.actionButton.configure(title: "dk_perm_utils_permissions_phone_settings_notifications_button".dkPermissionsUtilsLocalized(), style: .full)
         
         self.skipButton.configure(title: "dk_perm_utils_permissions_text_button_skip".dkPermissionsUtilsLocalized(), style: .empty)
 
+        configureMainButton()
     }
 
+    func configureMainButton() {
+        if self.viewModel.displaySettingsButton {
+            self.actionButton.configure(title: "dk_perm_utils_permissions_text_button_notifications_settings".dkPermissionsUtilsLocalized(), style: .full)
+        } else {
+            self.actionButton.configure(title: "dk_perm_utils_permissions_phone_settings_notifications_button".dkPermissionsUtilsLocalized(), style: .full)
+        }
+    }
+}
+
+extension NotificationsPermissionViewController: NotificationPermissionView {
+    func updateUI() {
+        configureMainButton()
+    }
+}
+
+protocol NotificationPermissionView: PermissionView {
+    func updateUI()
 }

@@ -11,7 +11,8 @@ import DriveKitCoreModule
 
 class NotificationsPermissionViewModel {
 
-    weak var view: PermissionView?
+    weak var view: NotificationPermissionView?
+    private(set) var displaySettingsButton: Bool = false
 
     init() {
         NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
@@ -20,13 +21,15 @@ class NotificationsPermissionViewModel {
     @objc func checkState() {
         switch DKDiagnosisHelper.shared.getPermissionStatus(.notifications) {
             case .notDetermined:
-                requestPermission()
+                displaySettingsButton = false
+                self.view?.updateUI()
             case .valid:
                 // swiftlint:disable:next notification_center_detachment
                 NotificationCenter.default.removeObserver(self)
                 self.view?.next()
             case .invalid, .phoneRestricted:
-                break
+                displaySettingsButton = true
+                self.view?.updateUI()
             @unknown default:
                 break
         }
@@ -36,7 +39,7 @@ class NotificationsPermissionViewModel {
         DKDiagnosisHelper.shared.openSettings()
     }
 
-    @objc private func requestPermission() {
+    @objc func requestPermission() {
         DKDiagnosisHelper.shared.requestPermission(.notifications)
     }
 

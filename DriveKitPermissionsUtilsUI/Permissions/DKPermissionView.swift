@@ -37,4 +37,28 @@ import DriveKitCoreModule
                 return .notifications
         }
     }
+
+    func shouldIgnore() -> Bool {
+        if let key = getIgnoreUserDefauktsKey(),
+           let shouldIgnore: Bool = DriveKitCoreUserDefaults.getPrimitiveType(key: key) {
+            return shouldIgnore
+        } else {
+            return false
+        }
+    }
+
+    private func getIgnoreUserDefauktsKey() -> String? {
+        switch self {
+            case .activity, .location:
+                return nil
+            case .notifications:
+                return "dk_ignore_permission_notifications_key"
+        }
+    }
+
+    func ignore() {
+        if self == .notifications, let key = getIgnoreUserDefauktsKey() {
+            DriveKitCoreUserDefaults.setPrimitiveType(key: key, value: true)
+        }
+    }
 }

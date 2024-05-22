@@ -46,4 +46,8 @@ class NotificationsPermissionViewModel {
     @objc private func appDidBecomeActive() {
         checkState()
     }
+    
+    func skip() {
+        DKPermissionView.notifications.ignore()
+    }
 }

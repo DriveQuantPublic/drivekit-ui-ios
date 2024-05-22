@@ -40,6 +40,7 @@ class NotificationsPermissionViewController: PermissionViewController {
     }
 
     @IBAction func skipStep() {
+        self.viewModel.skip()
         self.next()
     }
 

@@ -57,7 +57,7 @@ import DriveKitCommonUI
                 case .bluetooth:
                     return false
                 case .notifications:
-                    return DKDiagnosisHelper.shared.getPermissionStatus(.notifications) != .valid
+                    return DKDiagnosisHelper.shared.getPermissionStatus(.notifications) != .valid && !DKPermissionView.notifications.shouldIgnore()
                 @unknown default:
                     return false
             }

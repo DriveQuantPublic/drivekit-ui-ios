@@ -44,6 +44,7 @@ import DriveKitCommonUI
         // Nothing to do currently.
     }
 
+    // swiftlint:disable:next cyclomatic_complexity
     public func showPermissionViews(_ permissionViews: [DKPermissionView], parentViewController: UIViewController, completionHandler: @escaping () -> Void) {
         // Keep only needed permission views.
         let neededPermissionViews = permissionViews.filter { permissionView in
@@ -55,6 +56,8 @@ import DriveKitCommonUI
                     return !DKDiagnosisHelper.shared.isLocationValid()
                 case .bluetooth:
                     return false
+                case .notifications:
+                    return DKDiagnosisHelper.shared.getPermissionStatus(.notifications) != .valid && !DKPermissionView.notifications.shouldIgnore()
                 @unknown default:
                     return false
             }

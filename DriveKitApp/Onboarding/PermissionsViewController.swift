@@ -38,7 +38,7 @@ class PermissionsViewController: UIViewController {
     }
 
     @IBAction func openPermissions() {
-        DriveKitPermissionsUtilsUI.shared.showPermissionViews([.location, .activity], parentViewController: self) {
+        DriveKitPermissionsUtilsUI.shared.showPermissionViews([.location, .activity, .notifications], parentViewController: self) {
             self.goToVehicles()
         }
     }

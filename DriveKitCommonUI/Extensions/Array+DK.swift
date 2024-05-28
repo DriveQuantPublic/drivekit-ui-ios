@@ -13,6 +13,7 @@ extension Array {
     ///  exemple: `myArray[safe: index]`
     public subscript(safe index: Index) -> Element? {
         guard index >= 0 && index < self.count else {
+            DriveKitUI.shared.analytics?.logNonFatalError("Non fatal out of range error: index=\(index), count=\(self.count)")
             return nil
         }
         return self[index]

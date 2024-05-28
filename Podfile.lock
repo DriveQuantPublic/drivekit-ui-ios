@@ -49,10 +49,6 @@ DEPENDENCIES:
   - WARangeSlider
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - DGCharts
-    - SwiftLint
-    - WARangeSlider
   https://gitlab.com/drivequant/drivekit/drivekit-specs.git:
     - DriveKitBeaconUtils
     - DriveKitChallenge
@@ -67,6 +63,10 @@ SPEC REPOS:
     - DriveKitTripAnalysis
     - DriveKitTripSimulator
     - DriveKitVehicle
+  trunk:
+    - DGCharts
+    - SwiftLint
+    - WARangeSlider
 
 SPEC CHECKSUMS:
   DGCharts: 1c6daf585b6cfc78807af44ea690d357c410627f

@@ -66,7 +66,9 @@ extension MySynthesisCommunityCardView {
             communityCardView.refreshView()
         }
         communityCardView.configure(viewModel: viewModel)
-        containerView.embedSubview(communityCardView)
+        let verticalMargin: CGFloat = 3.0
+        let horizontalMargin: CGFloat = 4.0
+        containerView.embedSubview(communityCardView, margins: UIEdgeInsets(top: verticalMargin, left: horizontalMargin, bottom: verticalMargin, right: horizontalMargin))
 
         if hasCardStyle {
             communityCardView.roundCorners()

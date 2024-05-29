@@ -24,7 +24,7 @@
                                     <rect key="frame" x="4" y="0.0" width="406" height="264"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="cG6-00-BTn">
-                                            <rect key="frame" x="0.0" y="5" width="406" height="249"/>
+                                            <rect key="frame" x="0.0" y="7" width="406" height="247"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bym-Qf-p0Z">
                                                 <size key="itemSize" width="128" height="128"/>
@@ -43,7 +43,7 @@
                                         <constraint firstAttribute="trailing" secondItem="cG6-00-BTn" secondAttribute="trailing" id="A9g-vJ-RbF"/>
                                         <constraint firstAttribute="bottom" secondItem="cG6-00-BTn" secondAttribute="bottom" constant="10" id="eLh-O4-OwB"/>
                                         <constraint firstItem="cG6-00-BTn" firstAttribute="leading" secondItem="QyI-2C-fvl" secondAttribute="leading" id="wSH-39-dJ3"/>
-                                        <constraint firstItem="cG6-00-BTn" firstAttribute="top" secondItem="QyI-2C-fvl" secondAttribute="top" constant="5" id="zX0-Br-s9z"/>
+                                        <constraint firstItem="cG6-00-BTn" firstAttribute="top" secondItem="QyI-2C-fvl" secondAttribute="top" constant="7" id="zX0-Br-s9z"/>
                                     </constraints>
                                 </view>
                             </subviews>

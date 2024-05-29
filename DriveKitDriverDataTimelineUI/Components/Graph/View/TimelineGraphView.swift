@@ -120,7 +120,7 @@ extension TimelineGraphView {
         }
 
         if let stackView = containerView as? UIStackView {
-            timelineGraphView.heightAnchor.constraint(equalToConstant: 275).isActive = true
+            timelineGraphView.heightAnchor.constraint(equalToConstant: 279).isActive = true
             stackView.addArrangedSubview(timelineGraphView)
         } else {
             containerView.embedSubview(timelineGraphView)

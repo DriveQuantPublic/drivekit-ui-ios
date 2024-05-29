@@ -27,7 +27,7 @@ class FeaturesViewController: UITableViewController {
         configureBackButton()
         self.tableView.register(FeatureViewCell.nib, forCellReuseIdentifier: "FeatureViewCell")
         // swiftlint:disable:next no_magic_numbers
-        self.tableView.estimatedRowHeight = 150
+        self.tableView.estimatedRowHeight = 158
         self.tableView.rowHeight = UITableView.automaticDimension
     }
 

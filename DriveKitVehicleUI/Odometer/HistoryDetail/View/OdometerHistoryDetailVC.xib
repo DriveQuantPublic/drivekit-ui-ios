@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,10 +31,10 @@
                     <rect key="frame" x="12" y="64" width="390" height="250"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p0q-6I-Lut" customClass="CardView" customModule="DriveKitCommonUI">
-                            <rect key="frame" x="1" y="1" width="387" height="247"/>
+                            <rect key="frame" x="8" y="1" width="374" height="247"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ShX-e1-Lxz">
-                                    <rect key="frame" x="8" y="0.0" width="379" height="50"/>
+                                    <rect key="frame" x="8" y="0.0" width="366" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="L4N-dN-a8p"/>
                                     </constraints>
@@ -43,7 +43,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zu1-53-3VM">
-                                    <rect key="frame" x="8" y="50" width="371" height="197"/>
+                                    <rect key="frame" x="8" y="50" width="358" height="197"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </tableView>
                             </subviews>
@@ -64,8 +64,8 @@
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="p0q-6I-Lut" secondAttribute="bottom" constant="2" id="RMf-mB-LNv"/>
                         <constraint firstItem="p0q-6I-Lut" firstAttribute="top" secondItem="lNJ-CM-lUb" secondAttribute="top" constant="1" id="dkF-MV-8KJ"/>
-                        <constraint firstItem="p0q-6I-Lut" firstAttribute="leading" secondItem="lNJ-CM-lUb" secondAttribute="leading" constant="1" id="hGU-DL-PgP"/>
-                        <constraint firstAttribute="trailing" secondItem="p0q-6I-Lut" secondAttribute="trailing" constant="2" id="mMY-nK-CVK"/>
+                        <constraint firstItem="p0q-6I-Lut" firstAttribute="leading" secondItem="lNJ-CM-lUb" secondAttribute="leading" constant="8" id="hGU-DL-PgP"/>
+                        <constraint firstAttribute="trailing" secondItem="p0q-6I-Lut" secondAttribute="trailing" constant="8" id="mMY-nK-CVK"/>
                         <constraint firstAttribute="height" constant="250" id="tVY-Aw-GQd"/>
                     </constraints>
                 </view>

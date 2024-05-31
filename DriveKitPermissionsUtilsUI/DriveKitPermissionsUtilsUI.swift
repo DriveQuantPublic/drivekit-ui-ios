@@ -44,7 +44,8 @@ import DriveKitCommonUI
         // Nothing to do currently.
     }
 
-    public func showPermissionViews(_ permissionViews: [DKPermissionView], parentViewController: UIViewController, completionHandler: @escaping () -> Void) {
+    // swiftlint:disable:next cyclomatic_complexity
+    public func showPermissionViews(_ permissionViews: [DKPermissionView], parentViewController: UIViewController, manageNavigation: Bool = true, completionHandler: @escaping () -> Void) {
         // Keep only needed permission views.
         let neededPermissionViews = permissionViews.filter { permissionView in
             let permissionType = permissionView.getPermissionType()
@@ -55,6 +56,8 @@ import DriveKitCommonUI
                     return !DKDiagnosisHelper.shared.isLocationValid()
                 case .bluetooth:
                     return false
+                case .notifications:
+                    return DKDiagnosisHelper.shared.getPermissionStatus(.notifications) != .valid && !DKPermissionView.notifications.shouldIgnore()
                 @unknown default:
                     return false
             }
@@ -70,7 +73,7 @@ import DriveKitCommonUI
                 navigationController = parentNavigationController
             }
             let permissionViewController = permissionView.getViewController(permissionViews: neededPermissionViews, completionHandler: completionHandler)
-            permissionViewController.manageNavigation = true
+            permissionViewController.manageNavigation = manageNavigation
             if let navigationController = navigationController {
                 // A UINavigationController has been found, push screen inside.
                 permissionViewController.isPresentedByModule = false

@@ -109,7 +109,7 @@ class FeatureViewViewModel {
                 if DKDiagnosisHelper.shared.isLocationValid() && DKDiagnosisHelper.shared.isActivityValid() {
                     parentViewController.showAlertMessage(title: nil, message: "feature_permission_onboarding_ok".keyLocalized(), back: false, cancel: false)
                 } else {
-                    DriveKitPermissionsUtilsUI.shared.showPermissionViews([.location, .activity], parentViewController: parentViewController) {
+                    DriveKitPermissionsUtilsUI.shared.showPermissionViews([.location, .activity, .notifications], parentViewController: parentViewController) {
                         // Nothing to do.
                     }
                 }

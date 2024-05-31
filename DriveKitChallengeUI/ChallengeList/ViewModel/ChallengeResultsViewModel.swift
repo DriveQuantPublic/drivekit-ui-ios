@@ -162,9 +162,6 @@ class ChallengeResultsViewModel {
     var driverScore: Double {
         return challengeDetail.driverStats.score
     }
-    var numberTrip: Int {
-        return challengeDetail.driverStats.numberTrip
-    }
 
     var nbDriverRankedPercentage: String {
         let nbrRanked = challengeDetail.nbDriverRanked

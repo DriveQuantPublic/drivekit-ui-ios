@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -43,26 +43,26 @@
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CFE-AG-lEd">
                             <rect key="frame" x="0.0" y="50" width="414" height="694"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="7X0-8I-mgV">
-                                    <rect key="frame" x="12" y="12" width="390" height="492"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7X0-8I-mgV">
+                                    <rect key="frame" x="0.0" y="12" width="414" height="506"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTW-BE-ahw" userLabel="SynthesisCardViewContainer">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="215"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="225"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="215" id="H3p-HG-2aA"/>
+                                                <constraint firstAttribute="height" constant="225" id="H3p-HG-2aA"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rzu-AD-EMr" userLabel="LastTripsViewContainer">
-                                            <rect key="frame" x="0.0" y="231" width="390" height="125"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <rect key="frame" x="0.0" y="233" width="414" height="145"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="125" id="usO-KX-qfR"/>
+                                                <constraint firstAttribute="height" constant="145" id="usO-KX-qfR"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaH-AM-F6U" userLabel="FeatureListContainer">
-                                            <rect key="frame" x="0.0" y="372" width="390" height="120"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <rect key="frame" x="0.0" y="386" width="414" height="120"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" priority="750" constant="120" id="luv-Rf-dNB"/>
                                             </constraints>
@@ -84,7 +84,7 @@
                         </scrollView>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="7X0-8I-mgV" firstAttribute="width" secondItem="b3T-ew-1Ac" secondAttribute="width" constant="-24" id="bM4-Mn-JOq"/>
+                        <constraint firstItem="7X0-8I-mgV" firstAttribute="width" secondItem="b3T-ew-1Ac" secondAttribute="width" id="bM4-Mn-JOq"/>
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2bH-08-Xsh">

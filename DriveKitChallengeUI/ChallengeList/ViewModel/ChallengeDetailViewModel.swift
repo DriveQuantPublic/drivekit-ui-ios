@@ -25,7 +25,6 @@ class ChallengeDetailViewModel {
     private let challengeType: DKChallengeType
     private var sortedTrips: [DKTripsByDate] = []
     private(set) var ranks = [ChallengeDriverRank]()
-    private(set) var nbDrivers = 0
     public weak var delegate: ChallengeDetailViewModelDelegate?
     private var resultsViewModel: ChallengeResultsViewModel?
 
@@ -58,28 +57,18 @@ class ChallengeDetailViewModel {
                 totalScoreString = " / 10"
                 if driverRanked.rank == challengeDetail.userIndex {
                     return CurrentChallengeDriverRank(
-                        nbDrivers: challengeDetail.nbDriverRegistered,
                         position: driverRanked.rank,
-                        positionString: String(driverRanked.rank),
                         positionImageName: self.getImageName(fromPosition: driverRanked.rank),
-                        rankString: " / \(challengeDetail.nbDriverRanked)",
                         name: name,
-                        distance: driverRanked.distance,
                         distanceString: driverRanked.distance.formatKilometerDistance(appendingUnit: true, minDistanceToRemoveFractions: 10),
-                        score: driverRanked.score,
                         scoreString: scoreString,
                         totalScoreString: totalScoreString
                     )
                 } else {
-                    return ChallengeDriverRank(nbDrivers: challengeDetail.nbDriverRegistered,
-                                               position: driverRanked.rank,
-                                               positionString: String(driverRanked.rank),
+                    return ChallengeDriverRank(position: driverRanked.rank,
                                                positionImageName: self.getImageName(fromPosition: driverRanked.rank),
-                                               rankString: " / \(challengeDetail.nbDriverRanked)",
                                                name: name,
-                                               distance: driverRanked.distance,
                                                distanceString: driverRanked.distance.formatKilometerDistance(appendingUnit: true, minDistanceToRemoveFractions: 10),
-                                               score: driverRanked.score,
                                                scoreString: scoreString,
                                                totalScoreString: totalScoreString)
                 }

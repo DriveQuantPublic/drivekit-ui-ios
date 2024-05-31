@@ -26,9 +26,6 @@ class NotificationManager: NSObject {
         // Configure NotificationManager shared instance:
         NotificationManager.shared.configure()
 
-        // Request permission to present notifications:
-        requestNotificationPermission()
-
         // Configure notifications, adding actions to some notifications:
         configureNotifications()
     }
@@ -69,17 +66,6 @@ class NotificationManager: NSObject {
     static func removeNotifications(_ identifiers: [String]) {
         UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: identifiers)
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: identifiers)
-    }
-
-    private static func requestNotificationPermission() {
-        let options: UNAuthorizationOptions = [.alert, .badge, .sound]
-        UNUserNotificationCenter.current().requestAuthorization(options: options) { granted, _ in
-            if granted {
-                DispatchQueue.main.async {
-                    UIApplication.shared.registerForRemoteNotifications()
-                }
-            }
-        }
     }
 
     private static func configureNotifications() {

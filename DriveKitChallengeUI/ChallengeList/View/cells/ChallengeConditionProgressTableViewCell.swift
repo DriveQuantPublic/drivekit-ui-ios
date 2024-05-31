@@ -14,7 +14,7 @@ final class ChallengeConditionProgressTableViewCell: UITableViewCell, Nibable {
     @IBOutlet private var label: UILabel?
     @IBOutlet private var progressView: UIProgressView?
 
-    var viewModel: ChallengeConditionProgressViewModel!
+    private var viewModel: ChallengeConditionProgressViewModel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,8 +23,8 @@ final class ChallengeConditionProgressTableViewCell: UITableViewCell, Nibable {
 
     func configure(viewModel: ChallengeConditionProgressViewModel) {
         self.viewModel = viewModel
-        label?.attributedText = viewModel.progressAttributedString
-        progressView?.progress = viewModel.progressValue
+        label?.attributedText = self.viewModel.progressAttributedString
+        progressView?.progress = self.viewModel.progressValue
     }
 
     private func setup() {

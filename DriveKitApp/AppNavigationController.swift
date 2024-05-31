@@ -52,7 +52,7 @@ class AppNavigationController: UINavigationController {
                 }, completion: { [weak self] _ in
                     if let self = self {
                         self.hideLoader()
-                        DriveKitPermissionsUtilsUI.shared.showPermissionViews([.location, .activity], parentViewController: self) {
+                        DriveKitPermissionsUtilsUI.shared.showPermissionViews([.location, .activity, .notifications], parentViewController: self) {
                             self.isNavigationBarHidden = false
                             DriveKitVehicle.shared.getVehiclesOrderByNameAsc(type: .cache) { _, vehicles in
                                 DispatchQueue.dispatchOnMainThread {

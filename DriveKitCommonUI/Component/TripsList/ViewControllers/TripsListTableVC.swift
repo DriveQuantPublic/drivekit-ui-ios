@@ -71,9 +71,10 @@ public class TripsListTableVC<TripsListItem: DKTripListItem>: UITableViewControl
     
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell: TripTableViewCell = tableView.dequeueReusableCell(withIdentifier: "TripTableViewCell") as? TripTableViewCell {
-            if let trip = self.viewModel?.tripList?.getTripsList()[indexPath.section].trips[indexPath.row] {
+            if let tripList = self.viewModel?.tripList,
+               let trip = tripList.getTripsList()[safe: indexPath.section]?.trips[safe: indexPath.row] {
                 cell.selectionStyle = .none
-                cell.configure(trip: trip, tripData: self.viewModel?.tripList?.getTripData() ?? .safety, isFirst: indexPath.row == 0, separatorColor: tableView.separatorColor)
+                cell.configure(trip: trip, tripData: tripList.getTripData(), isFirst: indexPath.row == 0, separatorColor: tableView.separatorColor)
                 if let tripInfoView = cell.tripInfoView {
                     let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tripInfoAction(_:)))
                     tripInfoView.addGestureRecognizer(gestureRecognizer)

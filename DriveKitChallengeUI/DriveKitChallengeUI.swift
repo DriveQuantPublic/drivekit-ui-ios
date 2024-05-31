@@ -98,7 +98,7 @@ extension DriveKitChallengeUI: DriveKitChallengeUIEntryPoint {
         if let challengeDetail = challengeDetail, challenge.isRegistered, challenge.conditionsFilled {
             let challengeDetailsViewModel = ChallengeDetailViewModel(challenge: challenge, challengeDetail: challengeDetail)
             let challengeDetailsVC: ChallengeDetailVC = ChallengeDetailVC(viewModel: challengeDetailsViewModel)
-            challengeDetailsVC.needUpdate = true
+            challengeDetailsVC.needUpdate = needUpdate
             return challengeDetailsVC
         } else {
             let challengeParticipationViewModel = ChallengeParticipationViewModel(challenge: challenge)

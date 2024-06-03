@@ -9,6 +9,7 @@
 import DriveKitCommonUI
 import DriveKitDBTripAccessModule
 import Foundation
+import DriveKitCoreModule
 
 class DriverCommonTripPagingViewModel: DKUIPagingViewModel {
     private var pageViewModels: [DKCommonTripType: DriverCommonTripViewModel] = [:]
@@ -40,7 +41,10 @@ class DriverCommonTripPagingViewModel: DKUIPagingViewModel {
         self.commonTripByType = commonTripByType
         for pageViewModel in pageViewModels.values {
             guard let commonTrip = commonTripByType[pageViewModel.commonTripType] else {
-                assertionFailure("We should have a commonTrip info for each common trip type (\(pageViewModel.commonTripType) not found!)")
+                DriveKitLog.shared.errorLog(
+                    tag: DriveKitDriverDataUI.tag,
+                    message: "We should have a commonTrip info for each common trip type. (\(pageViewModel.commonTripType) not found!)"
+                )
                 return self.configureWithNoData()
             }
             pageViewModel.configure(with: commonTrip)

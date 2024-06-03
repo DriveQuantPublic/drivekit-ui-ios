@@ -183,7 +183,7 @@
                     <rect key="frame" x="258" y="77.666666666666671" width="55" height="15"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="55" id="Yf0-sW-lWs"/>
+                        <constraint firstAttribute="width" priority="250" constant="55" id="Yf0-sW-lWs"/>
                     </constraints>
                 </view>
             </subviews>

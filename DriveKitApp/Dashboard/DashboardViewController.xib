@@ -44,7 +44,7 @@
                             <rect key="frame" x="0.0" y="50" width="414" height="694"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7X0-8I-mgV">
-                                    <rect key="frame" x="0.0" y="12" width="414" height="545"/>
+                                    <rect key="frame" x="0.0" y="12" width="414" height="549"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTW-BE-ahw" userLabel="SynthesisCardViewContainer">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="243"/>
@@ -61,10 +61,10 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gaH-AM-F6U" userLabel="FeatureListContainer">
-                                            <rect key="frame" x="0.0" y="409" width="414" height="136"/>
+                                            <rect key="frame" x="0.0" y="409" width="414" height="140"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" priority="750" constant="136" id="luv-Rf-dNB"/>
+                                                <constraint firstAttribute="height" priority="750" constant="140" id="luv-Rf-dNB"/>
                                             </constraints>
                                         </view>
                                     </subviews>

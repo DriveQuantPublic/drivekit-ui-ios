@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,10 +24,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="158.5" height="44"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qOO-WM-drm">
-                                        <rect key="frame" x="0.0" y="0.0" width="60" height="44"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="64" height="44"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OWq-fh-2OS">
-                                                <rect key="frame" x="10" y="2" width="40" height="40"/>
+                                                <rect key="frame" x="12" y="2" width="40" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="95t-yr-chw"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="NFk-2e-WUH"/>
@@ -38,12 +38,12 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="OWq-fh-2OS" firstAttribute="centerX" secondItem="qOO-WM-drm" secondAttribute="centerX" id="2pm-fK-Eu8"/>
-                                            <constraint firstAttribute="width" constant="60" id="5p7-Of-R3H"/>
+                                            <constraint firstAttribute="width" constant="64" id="5p7-Of-R3H"/>
                                             <constraint firstItem="OWq-fh-2OS" firstAttribute="centerY" secondItem="qOO-WM-drm" secondAttribute="centerY" id="ENm-Xo-YCD"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="41r-h9-WXb">
-                                        <rect key="frame" x="60" y="11.5" width="98.5" height="21"/>
+                                        <rect key="frame" x="64" y="11.5" width="94.5" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -62,7 +62,7 @@
                                 <rect key="frame" x="158.5" y="0.0" width="158.5" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nau-nd-Srd">
-                                        <rect key="frame" x="8" y="12" width="142.5" height="20.5"/>
+                                        <rect key="frame" x="8" y="12" width="136.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -71,7 +71,7 @@
                                 <constraints>
                                     <constraint firstItem="nau-nd-Srd" firstAttribute="centerY" secondItem="fcH-GH-myr" secondAttribute="centerY" id="5QO-c1-tXX"/>
                                     <constraint firstItem="nau-nd-Srd" firstAttribute="leading" secondItem="fcH-GH-myr" secondAttribute="leading" constant="8" id="Kle-EN-AZ1"/>
-                                    <constraint firstAttribute="trailing" secondItem="nau-nd-Srd" secondAttribute="trailing" constant="8" id="fxb-od-PMZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="nau-nd-Srd" secondAttribute="trailing" constant="14" id="fxb-od-PMZ"/>
                                 </constraints>
                             </view>
                         </subviews>

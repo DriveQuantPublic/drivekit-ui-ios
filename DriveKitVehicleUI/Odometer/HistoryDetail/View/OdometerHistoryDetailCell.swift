@@ -28,6 +28,9 @@ final class OdometerHistoryDetailCell: UITableViewCell, Nibable {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = UIColor(hex: 0xfafafa)
+        self.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
+        self.clipsToBounds = true
+
         self.textField.font = DKStyles.smallText.style.applyTo(font: DKUIFonts.primary)
         self.textField.textColor = self.textColor
         self.textField.keyboardType = .numberPad

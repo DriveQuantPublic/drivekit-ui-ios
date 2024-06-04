@@ -41,10 +41,6 @@ class DriverCommonTripPagingViewModel: DKUIPagingViewModel {
         self.commonTripByType = commonTripByType
         for pageViewModel in pageViewModels.values {
             guard let commonTrip = commonTripByType[pageViewModel.commonTripType] else {
-                DriveKitLog.shared.errorLog(
-                    tag: DriveKitDriverDataUI.tag,
-                    message: "We should have a commonTrip info for each common trip type. (\(pageViewModel.commonTripType) not found!)"
-                )
                 return self.configureWithNoData()
             }
             pageViewModel.configure(with: commonTrip)

@@ -63,7 +63,7 @@ class EcoDrivingPageVC: UIViewController {
     @IBAction func infoAction(_ sender: UIButton) {
         let alert = UIAlertController(
             title: "dk_driverdata_ecodriving_score".dkDriverDataLocalized(),
-            message: "dk_driverdata_ecodriving_score_info".dkDriverDataLocalized(),
+            message: String(format: "dk_driverdata_ecodriving_score_info".dkDriverDataLocalized()),
             preferredStyle: .alert
         )
         alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))

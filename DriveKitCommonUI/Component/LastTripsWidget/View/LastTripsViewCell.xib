@@ -27,7 +27,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sgL-GX-t81">
-                        <rect key="frame" x="6" y="42" width="308" height="60"/>
+                        <rect key="frame" x="6" y="34" width="308" height="68"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                 </subviews>
@@ -37,7 +37,7 @@
                     <constraint firstItem="zF7-Po-2hS" firstAttribute="top" secondItem="ovf-dK-zyR" secondAttribute="top" constant="4" id="HAh-WO-9LN"/>
                     <constraint firstAttribute="trailing" secondItem="zF7-Po-2hS" secondAttribute="trailing" constant="12" id="WCh-m2-XBJ"/>
                     <constraint firstItem="zF7-Po-2hS" firstAttribute="leading" secondItem="ovf-dK-zyR" secondAttribute="leading" constant="12" id="erS-01-rHh"/>
-                    <constraint firstItem="sgL-GX-t81" firstAttribute="top" secondItem="zF7-Po-2hS" secondAttribute="bottom" constant="8" id="lUy-6T-1eK"/>
+                    <constraint firstItem="sgL-GX-t81" firstAttribute="top" secondItem="zF7-Po-2hS" secondAttribute="bottom" id="lUy-6T-1eK"/>
                     <constraint firstAttribute="trailing" secondItem="sgL-GX-t81" secondAttribute="trailing" priority="750" constant="6" id="pzI-aB-8n9"/>
                     <constraint firstAttribute="bottom" secondItem="sgL-GX-t81" secondAttribute="bottom" id="uJP-H4-hNr"/>
                 </constraints>

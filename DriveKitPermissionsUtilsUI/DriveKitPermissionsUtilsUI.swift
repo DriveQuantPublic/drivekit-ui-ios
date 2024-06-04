@@ -45,7 +45,7 @@ import DriveKitCommonUI
     }
 
     // swiftlint:disable:next cyclomatic_complexity
-    public func showPermissionViews(_ permissionViews: [DKPermissionView], parentViewController: UIViewController, completionHandler: @escaping () -> Void) {
+    public func showPermissionViews(_ permissionViews: [DKPermissionView], parentViewController: UIViewController, manageNavigation: Bool = true, completionHandler: @escaping () -> Void) {
         // Keep only needed permission views.
         let neededPermissionViews = permissionViews.filter { permissionView in
             let permissionType = permissionView.getPermissionType()
@@ -73,7 +73,7 @@ import DriveKitCommonUI
                 navigationController = parentNavigationController
             }
             let permissionViewController = permissionView.getViewController(permissionViews: neededPermissionViews, completionHandler: completionHandler)
-            permissionViewController.manageNavigation = true
+            permissionViewController.manageNavigation = manageNavigation
             if let navigationController = navigationController {
                 // A UINavigationController has been found, push screen inside.
                 permissionViewController.isPresentedByModule = false

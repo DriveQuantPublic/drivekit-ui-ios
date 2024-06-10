@@ -47,9 +47,9 @@ class PermissionViewController: DKUIViewController {
 extension PermissionViewController: PermissionView {
 
     func next() {
-        // Remove current permission view from the list.
-        if !self.permissionViews.isEmpty {
-            self.permissionViews.removeFirst()
+        // remove already accepted permissions
+        self.permissionViews = self.permissionViews.filter { permissionView in
+            permissionView.isDisplayAllowed
         }
 
         if let nextPermissionView = self.permissionViews.first {

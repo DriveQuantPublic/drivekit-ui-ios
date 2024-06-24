@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,7 +15,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feg-JG-Sr7">
-                    <rect key="frame" x="10" y="0.0" width="41.5" height="28"/>
+                    <rect key="frame" x="12" y="0.0" width="41.5" height="28"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="28" id="pIC-0f-qFT"/>
                     </constraints>
@@ -24,7 +24,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FYW-ef-yuT">
-                    <rect key="frame" x="51.5" y="0.0" width="28" height="28"/>
+                    <rect key="frame" x="53.5" y="0.0" width="28" height="28"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="FYW-ef-yuT" secondAttribute="height" multiplier="1:1" id="LEo-yd-tyx"/>
                     </constraints>
@@ -89,11 +89,11 @@
                 <constraint firstItem="FYW-ef-yuT" firstAttribute="height" secondItem="feg-JG-Sr7" secondAttribute="height" id="GuC-tv-mWB"/>
                 <constraint firstAttribute="bottom" secondItem="Fwq-Df-0Ac" secondAttribute="bottom" id="Vn5-Dd-lXa"/>
                 <constraint firstItem="Fwq-Df-0Ac" firstAttribute="top" secondItem="feg-JG-Sr7" secondAttribute="bottom" constant="2" id="atI-Uu-OFw"/>
-                <constraint firstItem="feg-JG-Sr7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="e3p-Wv-tbU"/>
+                <constraint firstItem="feg-JG-Sr7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="e3p-Wv-tbU"/>
                 <constraint firstAttribute="trailing" secondItem="Fwq-Df-0Ac" secondAttribute="trailing" id="l6a-Wa-Yee"/>
                 <constraint firstItem="FYW-ef-yuT" firstAttribute="centerY" secondItem="feg-JG-Sr7" secondAttribute="centerY" id="ljI-3C-MfL"/>
                 <constraint firstItem="FYW-ef-yuT" firstAttribute="leading" secondItem="feg-JG-Sr7" secondAttribute="trailing" id="nXz-CI-N5Z"/>
-                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FYW-ef-yuT" secondAttribute="trailing" constant="8" id="tAS-Nf-5Or"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FYW-ef-yuT" secondAttribute="trailing" constant="12" id="tAS-Nf-5Or"/>
                 <constraint firstItem="feg-JG-Sr7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ufC-S9-oaS"/>
                 <constraint firstItem="Fwq-Df-0Ac" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="vnM-op-ivh"/>
             </constraints>

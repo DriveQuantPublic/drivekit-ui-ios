@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -54,26 +54,26 @@
                     <rect key="frame" x="0.0" y="265" width="393" height="553"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YXg-z3-FCb" userLabel="ContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="585"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="595"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9yM-rr-Xai" userLabel="ScoreCardContainer">
-                                    <rect key="frame" x="12" y="2" width="369" height="150"/>
+                                    <rect key="frame" x="13" y="2" width="367" height="156"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="9bv-e1-P4h"/>
-                                        <constraint firstAttribute="height" priority="800" constant="150" placeholder="YES" id="Oes-bP-fcR"/>
+                                        <constraint firstAttribute="height" priority="800" constant="156" placeholder="YES" id="Oes-bP-fcR"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UhZ-CC-Ejn" userLabel="CommunityCardContainer">
-                                    <rect key="frame" x="12" y="172" width="369" height="345"/>
+                                    <rect key="frame" x="13" y="178" width="367" height="349"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="345" id="A33-fV-WIg"/>
+                                        <constraint firstAttribute="height" constant="349" id="A33-fV-WIg"/>
                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="345" id="p8X-s3-Wej"/>
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VdD-2S-fMh">
-                                    <rect key="frame" x="20" y="537" width="353" height="40"/>
+                                    <rect key="frame" x="20" y="547" width="353" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="hlo-Ph-HgS"/>
                                     </constraints>
@@ -83,16 +83,16 @@
                             </subviews>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="VdD-2S-fMh" secondAttribute="trailing" constant="20" id="0cI-YU-9dw"/>
-                                <constraint firstAttribute="trailing" secondItem="9yM-rr-Xai" secondAttribute="trailing" constant="12" id="42m-9J-sGh"/>
+                                <constraint firstAttribute="trailing" secondItem="9yM-rr-Xai" secondAttribute="trailing" constant="13" id="42m-9J-sGh"/>
                                 <constraint firstItem="VdD-2S-fMh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="UhZ-CC-Ejn" secondAttribute="bottom" constant="20" id="7N1-fA-uDk"/>
                                 <constraint firstItem="UhZ-CC-Ejn" firstAttribute="top" secondItem="9yM-rr-Xai" secondAttribute="bottom" constant="20" id="88e-sQ-ji9"/>
                                 <constraint firstItem="9yM-rr-Xai" firstAttribute="top" secondItem="YXg-z3-FCb" secondAttribute="top" constant="2" id="CA9-mu-ezq"/>
-                                <constraint firstAttribute="trailing" secondItem="UhZ-CC-Ejn" secondAttribute="trailing" constant="12" id="CXf-Fn-MBh"/>
+                                <constraint firstAttribute="trailing" secondItem="UhZ-CC-Ejn" secondAttribute="trailing" constant="13" id="CXf-Fn-MBh"/>
                                 <constraint firstItem="VdD-2S-fMh" firstAttribute="top" secondItem="UhZ-CC-Ejn" secondAttribute="bottom" priority="800" constant="20" id="QN0-uW-F0Y"/>
                                 <constraint firstItem="VdD-2S-fMh" firstAttribute="leading" secondItem="YXg-z3-FCb" secondAttribute="leading" constant="20" id="WP0-H3-eBV"/>
-                                <constraint firstItem="9yM-rr-Xai" firstAttribute="leading" secondItem="YXg-z3-FCb" secondAttribute="leading" constant="12" id="ZlH-VL-eC2"/>
+                                <constraint firstItem="9yM-rr-Xai" firstAttribute="leading" secondItem="YXg-z3-FCb" secondAttribute="leading" constant="13" id="ZlH-VL-eC2"/>
                                 <constraint firstAttribute="bottom" secondItem="VdD-2S-fMh" secondAttribute="bottom" constant="8" id="iB6-gG-KTq"/>
-                                <constraint firstItem="UhZ-CC-Ejn" firstAttribute="leading" secondItem="YXg-z3-FCb" secondAttribute="leading" constant="12" id="sg7-Sl-Sed"/>
+                                <constraint firstItem="UhZ-CC-Ejn" firstAttribute="leading" secondItem="YXg-z3-FCb" secondAttribute="leading" constant="13" id="sg7-Sl-Sed"/>
                             </constraints>
                         </view>
                     </subviews>

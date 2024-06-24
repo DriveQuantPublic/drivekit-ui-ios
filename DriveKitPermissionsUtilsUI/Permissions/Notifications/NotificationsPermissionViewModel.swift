@@ -6,8 +6,8 @@
 //  Copyright © 2024 DriveQuant. All rights reserved.
 //
 
-import Foundation
 import DriveKitCoreModule
+import UIKit
 
 class NotificationsPermissionViewModel {
 

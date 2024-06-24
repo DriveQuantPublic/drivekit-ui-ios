@@ -61,4 +61,21 @@ import DriveKitCoreModule
             DriveKitCoreUserDefaults.setPrimitiveType(key: key, value: true)
         }
     }
+
+    var isDisplayAllowed: Bool {
+        let permissionType = self.getPermissionType()
+        switch permissionType {
+            case .activity:
+                // swiftlint:disable:next line_length
+                return !DKDiagnosisHelper.shared.isActivityValid() && DKDiagnosisHelper.shared.getPermissionStatus(permissionType) != .phoneRestricted // For activity permission, allow `.phoneRestricted` status because of a system bug (if the user allows access to Motion & Fitness in global settings, on coming back to the app, the status of this permission is still "restricted" instead of something else).
+            case .location:
+                return !DKDiagnosisHelper.shared.isLocationValid()
+            case .bluetooth:
+                return false
+            case .notifications:
+                return DKDiagnosisHelper.shared.getPermissionStatus(.notifications) != .valid && !DKPermissionView.notifications.shouldIgnore()
+            @unknown default:
+                return false
+        }
+    }
 }

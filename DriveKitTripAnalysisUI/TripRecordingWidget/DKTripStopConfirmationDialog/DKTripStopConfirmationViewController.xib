@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DKTripStopConfirmationViewController" customModule="DriveKitTripAnalysisUI" customModuleProvider="target">
             <connections>
-                <outlet property="buttonsContainer" destination="A5z-05-gIW" id="aSk-jQ-OlH"/>
+                <outlet property="buttonsContainer" destination="SYi-aZ-DRS" id="1a7-bt-U9S"/>
                 <outlet property="cancelTripButton" destination="H3t-Mk-tWH" id="fy3-Tx-yQF"/>
                 <outlet property="continueTripButton" destination="ycs-kk-qOd" id="kuk-Dg-8k3"/>
                 <outlet property="endTripButton" destination="2A9-8l-80c" id="fDG-8Z-uNc"/>
@@ -22,37 +22,48 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="A5z-05-gIW">
-                    <rect key="frame" x="20" y="326.66666666666669" width="353" height="224.00000000000006"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SYi-aZ-DRS">
+                    <rect key="frame" x="20" y="314" width="353" height="224"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2A9-8l-80c">
-                            <rect key="frame" x="20" y="33" width="313" height="34.333333333333343"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycs-kk-qOd">
-                            <rect key="frame" x="20" y="92.333333333333314" width="313" height="34.333333333333343"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3t-Mk-tWH">
-                            <rect key="frame" x="20" y="151.66666666666663" width="313" height="34.333333333333343"/>
-                            <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                        </button>
+                        <stackView clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="A5z-05-gIW">
+                            <rect key="frame" x="0.0" y="0.0" width="353" height="224"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2A9-8l-80c">
+                                    <rect key="frame" x="20" y="33" width="313" height="34.333333333333343"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycs-kk-qOd">
+                                    <rect key="frame" x="20" y="92.333333333333314" width="313" height="34.333333333333343"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3t-Mk-tWH">
+                                    <rect key="frame" x="20" y="151.66666666666669" width="313" height="34.333333333333343"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <edgeInsets key="layoutMargins" top="33" left="20" bottom="38" right="20"/>
+                        </stackView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <edgeInsets key="layoutMargins" top="33" left="20" bottom="38" right="20"/>
-                </stackView>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="A5z-05-gIW" secondAttribute="trailing" id="3td-7c-chv"/>
+                        <constraint firstAttribute="bottom" secondItem="A5z-05-gIW" secondAttribute="bottom" id="JBM-w1-tp0"/>
+                        <constraint firstItem="A5z-05-gIW" firstAttribute="top" secondItem="SYi-aZ-DRS" secondAttribute="top" id="TKy-lF-UqE"/>
+                        <constraint firstItem="A5z-05-gIW" firstAttribute="leading" secondItem="SYi-aZ-DRS" secondAttribute="leading" id="unw-sp-gBK"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="A5z-05-gIW" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="3dP-Xe-Owi"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="A5z-05-gIW" secondAttribute="trailing" constant="20" id="Lza-sj-ZrJ"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="A5z-05-gIW" secondAttribute="bottom" constant="20" id="RQM-a9-Xcx"/>
-                <constraint firstItem="A5z-05-gIW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="f9D-7W-355"/>
-                <constraint firstItem="A5z-05-gIW" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="vwH-VX-yk6"/>
+                <constraint firstItem="SYi-aZ-DRS" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5eH-Jl-Cik"/>
+                <constraint firstItem="SYi-aZ-DRS" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="7TC-AE-N9w"/>
+                <constraint firstItem="SYi-aZ-DRS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="9up-QW-CSS"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="SYi-aZ-DRS" secondAttribute="trailing" constant="20" id="KOp-aH-Mao"/>
             </constraints>
             <point key="canvasLocation" x="79" y="20"/>
         </view>

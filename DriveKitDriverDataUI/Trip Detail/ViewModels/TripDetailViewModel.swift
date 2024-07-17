@@ -165,7 +165,8 @@ class TripDetailViewModel: DKTripDetailViewModel {
                         let screenLockedTime = route.screenLockedTime, screenLockedTime.count > 2 {
                         for i in 1...screenLockedIndex.count - 2 {
                             let screenLockedIndexValue = screenLockedIndex[i]
-                            if screenLockedIndexValue != 0 {
+                            let lastIndex = route.lastIndex
+                            if screenLockedIndexValue >= 0 && screenLockedIndexValue <= lastIndex {
                                 let eventType: EventType = screenStatus[i] == 1 ? .unlock : .lock
                                 events.append(TripEvent(
                                     type: eventType,

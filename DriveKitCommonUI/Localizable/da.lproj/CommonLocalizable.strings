@@ -49,12 +49,12 @@
 "dk_common_no_pseudo_set"="For at dele din ranglisteplacering med de andre deltagere kan du vælge et brugernavn. Uden et brugernavn vises du som anonym.";
 "dk_common_no_trip"="Ingen rejse";
 "dk_common_no_trips_yet"="App\'en har endnu ikke analyseret din kørsel.";
+"dk_common_no_value"="-";
 "dk_common_ok"="Ok";
 "dk_common_period_selector_month"="Måned";
 "dk_common_period_selector_week"="Uge";
 "dk_common_period_selector_year"="År";
 "dk_common_permission_camera_rationale"="Appen har brug for tilladelse til din smartphones kamera at bruge denne funktion.";
-"dk_common_permission_storage_rationale"="Appen har brug for tilladelse til din smartphones lagring for at bruge denne funktion.";
 "dk_common_permissions"="Tilladelser";
 "dk_common_pseudo"="Brugernavn";
 "dk_common_ranking_driver"="Chauffør";

@@ -104,7 +104,7 @@
 "dk_perm_utils_permissions_location_ios13_ko"="For at lave automatisk optagelse af dine ture skal appen have adgang til telefonens position. For at gøre dette skal du vælge \"Altid \" i telefonindstillingerne ved at følge nedenstående trin";
 "dk_perm_utils_permissions_location_ios14_ko"="For at lave automatisk optagelse af dine ture skal applikationen have adgang til den nøjagtige telefonplacering. For at gøre dette skal du følge nedenstående trin.";
 "dk_perm_utils_permissions_location_popup_title"="Tilladelser";
-"dk_perm_utils_permissions_location_pre_ios13_ko"="Du skal give appen mulighed for at få adgang til telefonens placering, så den kan registrere og måle dine ture.\n\nTre indstillinger er tilgængelige:\n(1) aldrig\n(2), mens du bruger appen\n(3) altid\n\nDet er vigtig at vælge mulighed (3) altid, ellers vil appen ikke fungere.";
+"dk_perm_utils_permissions_location_pre_ios13_ko"="Du skal give appen mulighed for at få adgang til telefonens placering, så den kan registrere og måle dine ture.\n\nTre indstillinger er tilgængelige:\n(1) aldrig\n(2), mens du bruger appen\n(3) altid \n\n Det er vigtig at vælge mulighed (3) altid, ellers vil appen ikke fungere.";
 "dk_perm_utils_permissions_location_text1_android"="Appen skal have adgang til telefonens placering for at registrere og analysere dine ture, når den kører i baggrunden.";
 "dk_perm_utils_permissions_location_text1_android11"="Appen skal have adgang til telefonens position til at registrere og analysere dine ture.";
 "dk_perm_utils_permissions_location_text1_android12"="Appen skal have adgang til telefonens nøjagtige lokation for at registrere og analysere dine ture.";

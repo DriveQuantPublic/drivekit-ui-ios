@@ -26,7 +26,7 @@
 "dk_perm_utils_app_diag_email_comment"="Commentaar :";
 "dk_perm_utils_app_diag_email_email"="E-mail :";
 "dk_perm_utils_app_diag_email_firstname"="Voornaam :";
-"dk_perm_utils_app_diag_email_intro"="Hallo, ik heb problemen met de applicatie %@ en ik wil teruggebeld worden. \n\n";
+"dk_perm_utils_app_diag_email_intro"="Hallo, ik heb problemen met de applicatie %@ en ik wil teruggebeld worden.\n\n";
 "dk_perm_utils_app_diag_email_lastname"="Naam :";
 "dk_perm_utils_app_diag_email_location"="Toestemming voor toegang tot de locatie:";
 "dk_perm_utils_app_diag_email_location_accuracy"="Precieze locatie:";

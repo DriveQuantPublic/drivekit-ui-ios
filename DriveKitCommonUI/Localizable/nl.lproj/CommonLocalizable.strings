@@ -49,12 +49,12 @@
 "dk_common_no_pseudo_set"="Om je rangschikking te delen met de andere deelnemers, nodigen we je uit om een pseudoniem te kiezen. Zonder pseudoniem word je als \'anoniem\' weergegeven.";
 "dk_common_no_trip"="Geen rit";
 "dk_common_no_trips_yet"="De app heeft je rijgedrag nog niet geanalyseerd.";
+"dk_common_no_value"="-";
 "dk_common_ok"="OK";
 "dk_common_period_selector_month"="Maand";
 "dk_common_period_selector_week"="Week";
 "dk_common_period_selector_year"="Jaar";
 "dk_common_permission_camera_rationale"="De app heeft toestemming nodig om de camera van je smartphone te gebruiken.";
-"dk_common_permission_storage_rationale"="De app heeft toestemming nodig om toegang te krijgen tot de opslag van je smartphone om deze functie te kunnen gebruiken.";
 "dk_common_permissions"="Machtigingen";
 "dk_common_pseudo"="Pseudoniem";
 "dk_common_ranking_driver"="Bestuurder";

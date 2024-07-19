@@ -16,14 +16,14 @@
 "dk_driverdata_beginning_authorized_call_info_content"="De app heeft het begin van een geautoriseerde oproep gedetecteerd, dit betekent dat er een oproep is gedaan naar je handsfree carkit. Deze actie is niet nadelig voor je telefoongebruikscore, omdat het wettelijk is toegestaan. Het blijft echter een afleiding tijdens het rijden, voor jouw veiligheid en die van andere weggebruikers wordt het sterk aangeraden om te wachten met bellen tot je voertuig geparkeerd is.";
 "dk_driverdata_beginning_unauthorized_call"="Begin van niet-geautoriseerd gesprek";
 "dk_driverdata_beginning_unauthorized_call_info_content"="De app heeft het begin van een niet-geautoriseerde oproep gedetecteerd. Dit betekent dat het gesprek niet werd gevoerd met een handsfree-kit. Je telefoon gebruiken tijdens het rijden is erg gevaarlijk. Vergeet niet om jezelf, je passagiers en andere weggebruikers te beschermen. Als je moet bellen, ga je beter met het voertuig op een parkeerplaats staan met de motor uit.";
-"dk_driverdata_calling_time"="Tijd bellen = ";
+"dk_driverdata_calling_time"="Tijd bellen =";
 "dk_driverdata_change_transportation_mode"="Wijzigen?";
 "dk_driverdata_confirm_delete_trip"="Rit verwijderen? De rit is definitief verwijderd en zal niet meer zichtbaar zijn. Let op: dit verandert niets aan de gemiddelde waarden van je rijscores of die van een huidige challenge.";
 "dk_driverdata_day"="Rit overdag";
 "dk_driverdata_declared_transportation_mode"="Aangegeven modus:";
 "dk_driverdata_default_filter_item"="Al mijn ritten";
 "dk_driverdata_dense_urban"="%@ in sterk vertraagd verkeer";
-"dk_driverdata_detected_transportation_mode"="Gedetecteerde modus: ";
+"dk_driverdata_detected_transportation_mode"="Gedetecteerde modus:";
 "dk_driverdata_distance_card_current_month"="Huidige maand";
 "dk_driverdata_distance_card_current_week"="Huidige week";
 "dk_driverdata_distance_card_current_year"="Huidig jaar";
@@ -43,7 +43,7 @@
 "dk_driverdata_drivingconditions_empty_data"="Rij met de app en neem je ritten op om een samenvatting van je rijomstandigheden te bekijken.";
 "dk_driverdata_drivingconditions_fog"="Mistig";
 "dk_driverdata_drivingconditions_ice"="Ijzig";
-"dk_driverdata_drivingconditions_interval_distance"="%d - %d km";
+"dk_driverdata_drivingconditions_interval_distance"="%1$d - %2$d km";
 "dk_driverdata_drivingconditions_long_trips"="> 100 km";
 "dk_driverdata_drivingconditions_main_city"="Je rijdt voornamelijk in de stad";
 "dk_driverdata_drivingconditions_main_cloud"="Je rijdt meestal op bewolkte dagen";
@@ -51,7 +51,7 @@
 "dk_driverdata_drivingconditions_main_expressways"="Je rijdt meestal op snelwegen";
 "dk_driverdata_drivingconditions_main_fog"="Je rijdt meestal op mistige dagen";
 "dk_driverdata_drivingconditions_main_ice"="Je rijdt meestal op ijzige wegen";
-"dk_driverdata_drivingconditions_main_interval_distance"="De meeste ritten zijn tussen %d en %d kilometer";
+"dk_driverdata_drivingconditions_main_interval_distance"="De meeste ritten zijn tussen %1$d en %2$d kilometer";
 "dk_driverdata_drivingconditions_main_long_trips"="Je maakt voornamelijk lange ritten";
 "dk_driverdata_drivingconditions_main_night"="Je rijdt vaak\'s nachts";
 "dk_driverdata_drivingconditions_main_rain"="Je rijdt meestal in regenachtige omstandigheden";
@@ -121,7 +121,7 @@
 "dk_driverdata_mysynthesis_minimum"="min.";
 "dk_driverdata_mysynthesis_my_community"="Mijn organisatie";
 "dk_driverdata_mysynthesis_no_driving"="Je hebt in deze periode niet gereden";
-"dk_driverdata_mysynthesis_no_trip_at_all"=" ";
+"dk_driverdata_mysynthesis_no_trip_at_all"="";
 "dk_driverdata_mysynthesis_no_trip_prev_month"="Je hebt de afgelopen maand niet gereden";
 "dk_driverdata_mysynthesis_no_trip_prev_week"="Je hebt de week ervoor niet gereden";
 "dk_driverdata_mysynthesis_no_trip_prev_year"="Je hebt het jaar ervoor niet gereden";
@@ -230,7 +230,7 @@
 "dk_driverdata_screen_unlock_text"="De app heeft een schermontgrendeling gedetecteerd. Je telefoon gebruiken tijdens het rijden is erg gevaarlijk. Denk er altijd aan om jezelf, je passagiers en andere weggebruikers te beschermen. Als je moet bellen of een bericht moet versturen, dan sta je beter op een parkeerplaats met de motor uit.";
 "dk_driverdata_speeding_event"="Te snel rijden";
 "dk_driverdata_speeding_event_info_content"="De app heeft gedetecteerd dat de maximumsnelheid op dit deel van de rit is overschreden. Te snel rijden is de belangrijkste factor bij dodelijke verkeersongevallen. Voor jouw veiligheid en die van je passagiers is het essentieel om de snelheidslimieten te respecteren.";
-"dk_driverdata_speeding_events_distance"="Relatieve afstand van de overschrijding ";
+"dk_driverdata_speeding_events_distance"="Relatieve afstand van de overschrijding";
 "dk_driverdata_speeding_events_duration"="Relatieve duur van de overschrijding";
 "dk_driverdata_speeding_events_trip_description"="of %@ van je rit";
 "dk_driverdata_speeding_score"="Snelheidsscore";

@@ -7,6 +7,7 @@
 //  Copyright © 2021 DriveQuant. All rights reserved.
 //
 
+import DriveKitCommonUI
 import DriveKitCoreModule
 import DriveKitTripAnalysisModule
 import Foundation
@@ -21,10 +22,11 @@ class WorkingHoursDayCellViewModel {
         static let sliderEnd: Double = 24
 
         enum Wording {
+            private static let hourUnit = DKCommonLocalizable.unitHour.text()
             static let weekdaySymbolByDay: [DKDay: String] = DateFormatter().weekdaySymbolByDay()
-            static let hourFormatter = "h00"
-            static let halfHourFormatter = "h30"
-            static let maxHour = "23h59"
+            static let hourFormatter = "\(hourUnit)00"
+            static let halfHourFormatter = "\(hourUnit)30"
+            static let maxHour = "23\(hourUnit)59"
         }
     }
 

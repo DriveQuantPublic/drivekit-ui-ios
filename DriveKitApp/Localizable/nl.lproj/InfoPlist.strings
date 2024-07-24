@@ -1,0 +1,7 @@
+"NSLocationWhenInUseUsageDescription"="Om je ritten automatisch te detecteren en te analyseren, moet de app altijd toegang hebben tot je locatie.";
+"NSLocationAlwaysAndWhenInUseUsageDescription"="Als je de automatische ritdetectie en rijanalyse wilt inschakelen zonder je telefoon te hoeven bedienen, selecteer dan de optie \"Altijd toestaan\".";
+"NSBluetoothAlwaysUsageDescription"="De app moet bluetooth gebruiken om het batterijniveau van het baken op te halen";
+"NSBluetoothPeripheralUsageDescription"="De app moet bluetooth gebruiken om het batterijniveau van het baken op te halen";
+"NSMotionUsageDescription"="Deze app moet bewegingsgegevens gebruiken om de vervoerswijze te detecteren";
+"NSCameraUsageDescription"="De app heeft toegang tot de camera nodig";
+"NSPhotoLibraryUsageDescription"="De app heeft toegang nodig tot je fotogalerij";

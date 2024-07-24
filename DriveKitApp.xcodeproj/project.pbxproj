@@ -1242,6 +1242,16 @@
 		63E2FB2C278C1AB200733B51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63E75EBF26DD2347005A9FDB /* MoreTripsViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoreTripsViewCell.xib; sourceTree = "<group>"; };
 		63E75EC126DD23D7005A9FDB /* MoreTripsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTripsViewCell.swift; sourceTree = "<group>"; };
+		63E7FDFB2C454F6A008626E5 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		63E7FDFC2C454F6B008626E5 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		63E7FDFD2C454F6B008626E5 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/CommonLocalizable.strings; sourceTree = "<group>"; };
+		63E7FDFE2C454F6B008626E5 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/DriverDataLocalizables.strings; sourceTree = "<group>"; };
+		63E7FDFF2C454F6B008626E5 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/DriverDataTimelineLocalizable.strings; sourceTree = "<group>"; };
+		63E7FE002C454F6B008626E5 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/DriverAchievementLocalizables.strings; sourceTree = "<group>"; };
+		63E7FE012C454F6B008626E5 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/PermissionsUtilsLocalizables.strings; sourceTree = "<group>"; };
+		63E7FE022C454F6B008626E5 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/DKVehicleLocalizable.strings; sourceTree = "<group>"; };
+		63E7FE032C454F6B008626E5 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/DKChallengeLocalizable.strings; sourceTree = "<group>"; };
+		63E7FE042C454F6C008626E5 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/DKTripAnalysisLocalizable.strings; sourceTree = "<group>"; };
 		63E95A40282A39CE003DC276 /* DriveQuantSpecific.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveQuantSpecific.swift; sourceTree = "<group>"; };
 		63E95A42282AA901003DC276 /* InfoBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBannerView.swift; sourceTree = "<group>"; };
 		63E95A44282AAAFA003DC276 /* InfoBannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBannerViewModel.swift; sourceTree = "<group>"; };
@@ -4293,6 +4303,7 @@
 				fr,
 				da,
 				pt,
+				nl,
 			);
 			mainGroup = A3B7B377235F124F0065A332;
 			productRefGroup = A3B7B381235F124F0065A332 /* Products */;
@@ -5620,6 +5631,7 @@
 				3FF68E7624083E500071D74C /* fr */,
 				63DD51BF28763BEB009D0D02 /* da */,
 				63220ABC2AB460FE0043D6BB /* pt */,
+				63E7FE002C454F6B008626E5 /* nl */,
 			);
 			name = DriverAchievementLocalizables.strings;
 			sourceTree = "<group>";
@@ -5634,6 +5646,7 @@
 				3FF68E6A2407F5730071D74C /* es */,
 				63DD51BD28763BEA009D0D02 /* da */,
 				63220AB92AB460FE0043D6BB /* pt */,
+				63E7FDFD2C454F6B008626E5 /* nl */,
 			);
 			name = CommonLocalizable.strings;
 			sourceTree = "<group>";
@@ -5648,6 +5661,7 @@
 				3FF68F0B2414FD8A0071D74C /* es */,
 				63DD51C128763BEB009D0D02 /* da */,
 				63220ABE2AB460FF0043D6BB /* pt */,
+				63E7FE022C454F6B008626E5 /* nl */,
 			);
 			name = DKVehicleLocalizable.strings;
 			sourceTree = "<group>";
@@ -5662,6 +5676,7 @@
 				616946FE2433A34C00C8A965 /* es */,
 				63DD51C028763BEB009D0D02 /* da */,
 				63220ABD2AB460FE0043D6BB /* pt */,
+				63E7FE012C454F6B008626E5 /* nl */,
 			);
 			name = PermissionsUtilsLocalizables.strings;
 			sourceTree = "<group>";
@@ -5676,6 +5691,7 @@
 				63F8B2D628F9B2850084B53A /* it */,
 				63F8B2D728F9B2870084B53A /* es */,
 				63220ABB2AB460FE0043D6BB /* pt */,
+				63E7FDFF2C454F6B008626E5 /* nl */,
 			);
 			name = DriverDataTimelineLocalizable.strings;
 			sourceTree = "<group>";
@@ -5690,6 +5706,7 @@
 				678130B9276C048B00701CF1 /* es */,
 				63DD51C328763BEC009D0D02 /* da */,
 				63220AC02AB460FF0043D6BB /* pt */,
+				63E7FE042C454F6C008626E5 /* nl */,
 			);
 			name = DKTripAnalysisLocalizable.strings;
 			sourceTree = "<group>";
@@ -5704,6 +5721,7 @@
 				67C43D18263AE23F00DBB09D /* es */,
 				63DD51C228763BEC009D0D02 /* da */,
 				63220ABF2AB460FF0043D6BB /* pt */,
+				63E7FE032C454F6B008626E5 /* nl */,
 			);
 			name = DKChallengeLocalizable.strings;
 			sourceTree = "<group>";
@@ -5718,6 +5736,7 @@
 				A34238A42361A2800001E15D /* es */,
 				63DD51BE28763BEA009D0D02 /* da */,
 				63220ABA2AB460FE0043D6BB /* pt */,
+				63E7FDFE2C454F6B008626E5 /* nl */,
 			);
 			name = DriverDataLocalizables.strings;
 			sourceTree = "<group>";
@@ -5748,6 +5767,7 @@
 				E32BC45329A3727E006BE5F8 /* it */,
 				E32BC45529A3727E006BE5F8 /* fr */,
 				63220AB72AB460FE0043D6BB /* pt */,
+				63E7FDFB2C454F6A008626E5 /* nl */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -5762,6 +5782,7 @@
 				E32BC45429A3727E006BE5F8 /* it */,
 				E32BC45629A3727E006BE5F8 /* fr */,
 				63220AB82AB460FE0043D6BB /* pt */,
+				63E7FDFC2C454F6B008626E5 /* nl */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

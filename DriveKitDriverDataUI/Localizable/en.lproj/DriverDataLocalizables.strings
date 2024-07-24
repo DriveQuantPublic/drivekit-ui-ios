@@ -43,7 +43,7 @@
 "dk_driverdata_drivingconditions_empty_data"="Drive with the app and record your trips to view and get a summary of your driving conditions.";
 "dk_driverdata_drivingconditions_fog"="Foggy";
 "dk_driverdata_drivingconditions_ice"="Icy";
-"dk_driverdata_drivingconditions_interval_distance"="%d - %d km";
+"dk_driverdata_drivingconditions_interval_distance"="%1$d - %2$d km";
 "dk_driverdata_drivingconditions_long_trips"="> 100 km";
 "dk_driverdata_drivingconditions_main_city"="You mainly drive in the city";
 "dk_driverdata_drivingconditions_main_cloud"="You drive mostly on cloudy days";
@@ -51,7 +51,7 @@
 "dk_driverdata_drivingconditions_main_expressways"="You drive mostly on highways";
 "dk_driverdata_drivingconditions_main_fog"="You drive mostly on foggy days";
 "dk_driverdata_drivingconditions_main_ice"="You drive mostly on icy roads";
-"dk_driverdata_drivingconditions_main_interval_distance"="Most of your trips are between %d and %d kilometers";
+"dk_driverdata_drivingconditions_main_interval_distance"="Most of your trips are between %1$d and %2$d kilometers";
 "dk_driverdata_drivingconditions_main_long_trips"="You mainly make long trips";
 "dk_driverdata_drivingconditions_main_night"="You often drive at night";
 "dk_driverdata_drivingconditions_main_rain"="You drive mostly in rainy conditions";

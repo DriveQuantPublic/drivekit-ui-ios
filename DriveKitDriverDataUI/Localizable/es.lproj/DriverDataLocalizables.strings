@@ -43,7 +43,7 @@
 "dk_driverdata_drivingconditions_empty_data"="Conduce con la aplicación y graba tus viajes para ver y obtener un resumen de tus condiciones de conducción.";
 "dk_driverdata_drivingconditions_fog"="Niebla";
 "dk_driverdata_drivingconditions_ice"="Hielo";
-"dk_driverdata_drivingconditions_interval_distance"="%d - %d km";
+"dk_driverdata_drivingconditions_interval_distance"="%1$d - %2$d km";
 "dk_driverdata_drivingconditions_long_trips"="> 100 km";
 "dk_driverdata_drivingconditions_main_city"="Conduces principalmente por ciudad";
 "dk_driverdata_drivingconditions_main_cloud"="Conduce sobre todo en días nublados";
@@ -51,7 +51,7 @@
 "dk_driverdata_drivingconditions_main_expressways"="Conduces principalmente por vías rápidas";
 "dk_driverdata_drivingconditions_main_fog"="Conduce sobre todo en días con niebla";
 "dk_driverdata_drivingconditions_main_ice"="Conduce sobre todo por carreteras heladas";
-"dk_driverdata_drivingconditions_main_interval_distance"="Sueles hacer trayectos de %d a %d kilómetros";
+"dk_driverdata_drivingconditions_main_interval_distance"="Sueles hacer trayectos de %1$d a %2$d kilómetros";
 "dk_driverdata_drivingconditions_main_long_trips"="Sueles hacer viajes largos";
 "dk_driverdata_drivingconditions_main_night"="Conduces a menudo de noche";
 "dk_driverdata_drivingconditions_main_rain"="Conduce sobre todo en mojado";

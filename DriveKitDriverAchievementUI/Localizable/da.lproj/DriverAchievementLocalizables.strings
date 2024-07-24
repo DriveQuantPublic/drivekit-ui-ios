@@ -295,7 +295,7 @@
 "dk_achievements_streaks_adherence_title"="Ingen hårde sving";
 "dk_achievements_streaks_best_title"="Bedste streak siden du startede:";
 "dk_achievements_streaks_brake_reset"="Der blev målt en hård opbremsning under din sidste tur.";
-"dk_achievements_streaks_brake_text"="Prøv at køre så mange ture, som du kan uden hårde opbremsninger.\n\nHver gang du gør bremser hårdt, øges dit streak.\n\nHvis du træder for hårdt på bremsen, nulstilles din score. Dit bedste streak gemmes, så du kan forsøge at overgå det.";
+"dk_achievements_streaks_brake_text"="Prøv at køre så mange ture, som du kan uden hårde opbremsninger.\n\nHver gang du gør bremser hårdt, øges dit streak.\n\nHvis du træder for hårdt på bremsen, nulstilles din score.\n\nDit bedste streak gemmes, så du kan forsøge at overgå det.";
 "dk_achievements_streaks_brake_title"="Ingen hårde opbremsninger";
 "dk_achievements_streaks_call_reset"="Du foretog et telefonopkald på din sidste tur";
 "dk_achievements_streaks_congrats"="Godt klaret!";

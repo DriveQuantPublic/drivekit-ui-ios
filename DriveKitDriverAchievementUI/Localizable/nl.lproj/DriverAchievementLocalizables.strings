@@ -308,7 +308,7 @@
 "dk_achievements_streaks_phone_distraction_text"="Probeer een reeks ritten te maken zonder je smartphone te gebruiken tijdens het rijden.\n\nElke keer dat je slaagt, loopt de ritteller op.\n\nAls je faalt, wordt de teller gereset en moet je weer van voren af aan beginnen.";
 "dk_achievements_streaks_phone_distraction_title"="Geen telefoongebruik";
 "dk_achievements_streaks_safety_reset"="De veiligheidsscore van je laatste rit is minder dan 9,8/10";
-"dk_achievements_streaks_safety_text"="Probeer een reeks ritten te maken met een veiligheidsscore hoger dan 9.8/10.\n\nTelkens als je slaagt, loopt de ritteller op.\n\nAls je faalt, wordt de teller gereset en moet je helemaal opnieuw beginnen. Het aantal ritten in je beste succesreeks wordt onthouden en je kunt proberen dit te overtreffen.";
+"dk_achievements_streaks_safety_text"="Probeer een reeks ritten te maken met een veiligheidsscore hoger dan 9.8/10.\n\nTelkens als je slaagt, loopt de ritteller op.\n\nAls je faalt, wordt de teller gereset en moet je helemaal opnieuw beginnen.\n\nHet aantal ritten in je beste succesreeks wordt onthouden en je kunt proberen dit te overtreffen.";
 "dk_achievements_streaks_safety_title"="Veilig rijden";
 "dk_achievements_streaks_since"="Aangezien de %@";
 "dk_achievements_streaks_since_to"="%@ naar %@";

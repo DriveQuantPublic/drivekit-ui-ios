@@ -43,7 +43,7 @@
 "dk_driverdata_drivingconditions_empty_data"="Fahren Sie mit der App und zeichnen Sie Ihre Fahrten auf, um Ihre Fahrbedingungen anzuzeigen und eine Übersicht zu erhalten.";
 "dk_driverdata_drivingconditions_fog"="Nebel";
 "dk_driverdata_drivingconditions_ice"="Eis";
-"dk_driverdata_drivingconditions_interval_distance"="%d - %d km";
+"dk_driverdata_drivingconditions_interval_distance"="%1$d - %2$d km";
 "dk_driverdata_drivingconditions_long_trips"="> 100 km";
 "dk_driverdata_drivingconditions_main_city"="Sie fahren hauptsächlich in der Stadt";
 "dk_driverdata_drivingconditions_main_cloud"="Sie fahren überwiegend bei bewölktem Wetter";
@@ -51,7 +51,7 @@
 "dk_driverdata_drivingconditions_main_expressways"="Sie fahren hauptsächlich auf Schnellstraßen";
 "dk_driverdata_drivingconditions_main_fog"="Sie fahren überwiegend bei nebligem Wetter";
 "dk_driverdata_drivingconditions_main_ice"="Sie fahren überwiegend auf vereisten Straßen";
-"dk_driverdata_drivingconditions_main_interval_distance"="Sie legen überwiegend Fahrten von %d bis %d Kilometer zurück";
+"dk_driverdata_drivingconditions_main_interval_distance"="Sie legen überwiegend Fahrten von %1$d bis %2$d Kilometer zurück";
 "dk_driverdata_drivingconditions_main_long_trips"="Sie legen vor allem lange Strecken zurück";
 "dk_driverdata_drivingconditions_main_night"="Sie fahren oft nachts";
 "dk_driverdata_drivingconditions_main_rain"="Sie fahren vorwiegend bei regnerischem Wetter";

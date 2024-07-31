@@ -313,7 +313,7 @@
 "dk_achievements_streaks_since"="Desde el %@";
 "dk_achievements_streaks_since_to"="Del %@ al %@";
 "dk_achievements_streaks_speeding_reset"="Excedió el límite de velocidad en su último viaje";
-"dk_achievements_streaks_speeding_text"="Intente hacer una serie de viajes dentro del límite de velocidad. La puntuación del límite de velocidad debe ser superior a 9,8/10. Con cada éxito, el contador del número de viajes aumenta.\n\nSi falla, el contador se reinicia y tienes que empezar de nuevo.\n\nEl número de viajes en su mejor secuencia de pases se almacena en la memoria y puede intentar superarlo.";
+"dk_achievements_streaks_speeding_text"="Intente hacer una serie de viajes dentro del límite de velocidad. La puntuación del límite de velocidad debe ser superior a 9,8/10.\n\nCon cada éxito, el contador del número de viajes aumenta.\n\nSi falla, el contador se reinicia y tienes que empezar de nuevo.\n\nEl número de viajes en su mejor secuencia de pases se almacena en la memoria y puede intentar superarlo.";
 "dk_achievements_streaks_speeding_title"="Sin exceso de velocidad";
 "dk_badge_bronze"="Bronce";
 "dk_badge_earned_badges_number_title_plural"="Has ganado %d insignias";

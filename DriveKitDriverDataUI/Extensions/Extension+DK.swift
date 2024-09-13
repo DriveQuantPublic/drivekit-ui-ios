@@ -82,10 +82,10 @@ extension Route {
     
     func coordinate(at index: Int) -> CLLocationCoordinate2D? {
         guard
-            let longitude,
-            let latitude,
-            longitude.indexRange.contains(index),
-            latitude.indexRange.contains(index)
+            let longitudeArray = longitude as? [Double],
+            let latitudeArray = latitude as? [Double],
+            longitudeArray.indexRange.contains(index),
+            latitudeArray.indexRange.contains(index)
         else {
             DriveKitUI.shared.analytics?.logNonFatalError(
                 "Route's longitude and/or latitude is nil or index \(index) out of bounds (Route: \(self))",
@@ -95,7 +95,7 @@ extension Route {
             )
             return nil
         }
-        return CLLocationCoordinate2DMake(latitude[index], longitude[index])
+        return CLLocationCoordinate2DMake(latitudeArray[index], longitudeArray[index])
     }
 }
 

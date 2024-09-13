@@ -12,7 +12,7 @@ import DriveKitCommonUI
 import DriveKitCoreModule
 import DriveKitDBTripAccessModule
 
-extension Trip: DKTripListItem {
+extension Trip: @retroactive DKTripListItem {
     public func getItinId() -> String {
         return self.itinId ?? ""
     }

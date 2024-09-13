@@ -177,7 +177,7 @@ extension DKVehicle {
     }
 }
 
-extension DKVehicle: DKFilterItem {
+extension DKVehicle: @retroactive DKFilterItem {
     public func getImage() -> UIImage? {
         return self.getVehicleImage()
     }

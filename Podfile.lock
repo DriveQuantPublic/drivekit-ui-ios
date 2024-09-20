@@ -2,54 +2,55 @@ PODS:
   - DGCharts (5.1.0):
     - DGCharts/Core (= 5.1.0)
   - DGCharts/Core (5.1.0)
-  - DriveKitBeaconUtils (2.5.0):
-    - DriveKitCore (= 2.5.0)
-  - DriveKitChallenge (2.5.0):
-    - DriveKitDBChallengeAccess (= 2.5.0)
-    - DriveKitDBTripAccess (= 2.5.0)
-  - DriveKitCore (2.5.0):
-    - DriveKitNetworking (= 2.5.0)
-  - DriveKitDBAchievementAccess (2.5.0):
-    - DriveKitCore (= 2.5.0)
-  - DriveKitDBChallengeAccess (2.5.0):
-    - DriveKitCore (= 2.5.0)
-  - DriveKitDBTripAccess (2.5.0):
-    - DriveKitCore (= 2.5.0)
-  - DriveKitDBVehicleAccess (2.5.0):
-    - DriveKitBeaconUtils (= 2.5.0)
-    - DriveKitCore (= 2.5.0)
-  - DriveKitDriverAchievement (2.5.0):
-    - DriveKitDBAchievementAccess (= 2.5.0)
-  - DriveKitDriverData (2.5.0):
-    - DriveKitDBTripAccess (= 2.5.0)
-  - DriveKitNetworking (2.5.0)
-  - DriveKitTripAnalysis (2.5.0):
-    - DriveKitBeaconUtils (= 2.5.0)
-    - DriveKitCore (= 2.5.0)
-    - DriveKitDBTripAccess (= 2.5.0)
-    - DriveKitDBVehicleAccess (= 2.5.0)
-  - DriveKitTripSimulator (2.5.0):
-    - DriveKitTripAnalysis (= 2.5.0)
-  - DriveKitVehicle (2.5.0):
-    - DriveKitBeaconUtils (= 2.5.0)
-    - DriveKitDBVehicleAccess (= 2.5.0)
+  - DriveKitBeaconUtils (2.5.1):
+    - DriveKitCore (= 2.5.1)
+  - DriveKitChallenge (2.5.1):
+    - DriveKitDBChallengeAccess (= 2.5.1)
+    - DriveKitDBTripAccess (= 2.5.1)
+  - DriveKitCore (2.5.1):
+    - DriveKitNetworking (= 2.5.1)
+  - DriveKitDBAchievementAccess (2.5.1):
+    - DriveKitCore (= 2.5.1)
+  - DriveKitDBChallengeAccess (2.5.1):
+    - DriveKitCore (= 2.5.1)
+  - DriveKitDBTripAccess (2.5.1):
+    - DriveKitCore (= 2.5.1)
+  - DriveKitDBVehicleAccess (2.5.1):
+    - DriveKitBeaconUtils (= 2.5.1)
+    - DriveKitCore (= 2.5.1)
+  - DriveKitDriverAchievement (2.5.1):
+    - DriveKitDBAchievementAccess (= 2.5.1)
+  - DriveKitDriverData (2.5.1):
+    - DriveKitDBTripAccess (= 2.5.1)
+  - DriveKitNetworking (2.5.1)
+  - DriveKitTripAnalysis (2.5.1):
+    - DriveKitBeaconUtils (= 2.5.1)
+    - DriveKitCore (= 2.5.1)
+    - DriveKitDBTripAccess (= 2.5.1)
+    - DriveKitDBVehicleAccess (= 2.5.1)
+  - DriveKitTripSimulator (2.5.1):
+    - DriveKitTripAnalysis (= 2.5.1)
+  - DriveKitVehicle (2.5.1):
+    - DriveKitBeaconUtils (= 2.5.1)
+    - DriveKitDBVehicleAccess (= 2.5.1)
   - SwiftLint (0.54.0)
   - WARangeSlider (1.2.0)
 
 DEPENDENCIES:
   - DGCharts (= 5.1.0)
-  - DriveKitChallenge (= 2.5.0)
-  - DriveKitCore (= 2.5.0)
-  - DriveKitDriverAchievement (= 2.5.0)
-  - DriveKitDriverData (= 2.5.0)
-  - DriveKitTripAnalysis (= 2.5.0)
-  - DriveKitTripSimulator (= 2.5.0)
-  - DriveKitVehicle (= 2.5.0)
+  - DriveKitChallenge (= 2.5.1)
+  - DriveKitCore (= 2.5.1)
+  - DriveKitDriverAchievement (= 2.5.1)
+  - DriveKitDriverData (= 2.5.1)
+  - DriveKitTripAnalysis (= 2.5.1)
+  - DriveKitTripSimulator (= 2.5.1)
+  - DriveKitVehicle (= 2.5.1)
   - SwiftLint
   - WARangeSlider
 
 SPEC REPOS:
-  https://gitlab.com/drivequant/drivekit/drivekit-specs.git:
+  trunk:
+    - DGCharts
     - DriveKitBeaconUtils
     - DriveKitChallenge
     - DriveKitCore
@@ -63,29 +64,27 @@ SPEC REPOS:
     - DriveKitTripAnalysis
     - DriveKitTripSimulator
     - DriveKitVehicle
-  trunk:
-    - DGCharts
     - SwiftLint
     - WARangeSlider
 
 SPEC CHECKSUMS:
   DGCharts: 1c6daf585b6cfc78807af44ea690d357c410627f
-  DriveKitBeaconUtils: 6d84b6b4aaf5368a267177895fe278c3e9d66f61
-  DriveKitChallenge: e3397ab36ca377de9c13044d4e205c86c5f6f46f
-  DriveKitCore: aeaad8a0e61215fda93277f9e5f9f200c25f18aa
-  DriveKitDBAchievementAccess: e4dd851506be3fa39bb336e5ec18b070013e6b70
-  DriveKitDBChallengeAccess: f99eb4b7764ac9a5a337e92954bdaaed7091c067
-  DriveKitDBTripAccess: 6a28f63c4211eee5175f89d3ec54008b7b67e731
-  DriveKitDBVehicleAccess: d38103142597c7a1e4036a984ee296f366236fc2
-  DriveKitDriverAchievement: e092381ca46c8bca69d0d8f374ede538742e448e
-  DriveKitDriverData: bc78c9c571203c1e46e356a1c9deb33945ff2552
-  DriveKitNetworking: c564a9e532305b9ac3299c74c1591931f84e27db
-  DriveKitTripAnalysis: 2959a3ccf155d8af36960c34878abab363877ce5
-  DriveKitTripSimulator: f070020814cfc81c0427601931e2d23c1aa435e7
-  DriveKitVehicle: 327932ec89a1ea785df4934362263250063dddf7
+  DriveKitBeaconUtils: 8b788b9ee09795a230f1430f685093d0afc14b2c
+  DriveKitChallenge: 557640eab7b8b9b623b991679204e828c68af883
+  DriveKitCore: a7c7cf9b22def0b733279b5b04fecde1ea304f91
+  DriveKitDBAchievementAccess: d74ce4e5df3665b87aefb47cd8956d9535b924a7
+  DriveKitDBChallengeAccess: a1d1a5b4053c56160bea2635dde020a88ea2ce0b
+  DriveKitDBTripAccess: 6254b4989f14af3b38bd8c5b66a6b104e1eb41ce
+  DriveKitDBVehicleAccess: bb239fd0145a645544df2877a8f218565e103409
+  DriveKitDriverAchievement: 9c4f94427bccb3eb22d2231dd4c0f33cb00ea805
+  DriveKitDriverData: 1dc7338ca9a6fbac5d7615d3f21823e3dadd2254
+  DriveKitNetworking: 2b40baa101b903d726a5ec763b52f29a7954bb0e
+  DriveKitTripAnalysis: 9c281146d7b295f028cf41e95ff125e764413dde
+  DriveKitTripSimulator: f214a863ff012c2b69d7a27b1ced68642f5aa328
+  DriveKitVehicle: 4375fb28250a398d032eb8aa356635c797e2771e
   SwiftLint: c1de071d9d08c8aba837545f6254315bc900e211
   WARangeSlider: 03f195d4dc5419e6b0d9043cc94fdf418dfe804d
 
-PODFILE CHECKSUM: 321f07e37a8907bb17bdcdb8185548316a2fe0df
+PODFILE CHECKSUM: 3751c4f46c82cbf9c7cc09e9e052bc83b615ab54
 
 COCOAPODS: 1.15.2

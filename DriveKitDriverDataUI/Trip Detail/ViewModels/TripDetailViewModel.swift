@@ -159,10 +159,10 @@ class TripDetailViewModel: DKTripDetailViewModel {
                         }
                     }
                 }
-                if let route = self.route, mapItems.contains(MapItem.distraction), let latitude = route.latitude as? [Double], let longitude = route.longitude as? [Double] {
-                    if let screenLockedIndex = route.screenLockedIndex as? [Int],
-                        let screenStatus = route.screenStatus as? [Int],
-                        let screenLockedTime = route.screenLockedTime as? [Int], screenLockedTime.count > 2 {
+                if let route = self.route, mapItems.contains(MapItem.distraction), let latitude = route.latitude, let longitude = route.longitude {
+                    if let screenLockedIndex = route.screenLockedIndex, 
+                        let screenStatus = route.screenStatus,
+                        let screenLockedTime = route.screenLockedTime, screenLockedTime.count > 2 {
                         for i in 1...screenLockedIndex.count - 2 {
                             let screenLockedIndexValue = screenLockedIndex[i]
                             let lastIndex = route.lastIndex
@@ -177,8 +177,8 @@ class TripDetailViewModel: DKTripDetailViewModel {
                             }
                         }
                     }
-                    if let callIndex = route.callIndex as? [Int],
-                        let callTime = route.callTime as? [Int],
+                    if let callIndex = route.callIndex, 
+                        let callTime = route.callTime,
                         let calls = self.calls,
                         callIndex.count == 2 * calls.count,
                         callTime.count == 2 * calls.count {

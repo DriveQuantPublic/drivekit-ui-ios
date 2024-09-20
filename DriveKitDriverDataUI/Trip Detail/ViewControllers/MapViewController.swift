@@ -60,8 +60,8 @@ class MapViewController: DKUIViewController {
         guard let route = viewModel.route else { return }
         
         if self.polyLine == nil {
-            if let longitudes = route.longitude as? [Double],
-               let latitudes = route.latitude as? [Double],
+            if let longitudes = route.longitude,
+               let latitudes = route.latitude,
                longitudes.count == latitudes.count {
                 self.polyLine = MKPolyline.init(
                     coordinates: self.getPolyline(
@@ -147,9 +147,9 @@ class MapViewController: DKUIViewController {
     
     private func getDistractionPolyline(route: Route) -> [[CLLocationCoordinate2D]] {
         guard
-            let longitudes = route.longitude as? [Double],
-            let latitudes = route.latitude as? [Double],
-            let screenStatuses = route.screenStatus as? [Int],
+            let longitudes = route.longitude,
+            let latitudes = route.latitude,
+            let screenStatuses = route.screenStatus,
             longitudes.count == latitudes.count
         else {
             DriveKitUI.shared.analytics?.logNonFatalError(
@@ -163,7 +163,7 @@ class MapViewController: DKUIViewController {
         var distractionPolylines: [[CLLocationCoordinate2D]] = []
 
         let routePolyline = self.getPolyline(longitude: longitudes, latitude: latitudes)
-        if let indexes = route.screenLockedIndex as? [Int], indexes.count > 1, indexes.count == screenStatuses.count {
+        if let indexes = route.screenLockedIndex, indexes.count > 1, indexes.count == screenStatuses.count {
             let upperBound = longitudes.count - 1
             for i in 1..<indexes.count {
                 if screenStatuses[i - 1] == 1 {
@@ -181,8 +181,8 @@ class MapViewController: DKUIViewController {
 
     private func getPhoneCallPolylines(route: Route) -> ([[CLLocationCoordinate2D]], [[CLLocationCoordinate2D]]) {
         guard
-            let longitudes = route.longitude as? [Double],
-            let latitudes = route.latitude as? [Double],
+            let longitudes = route.longitude,
+            let latitudes = route.latitude,
             longitudes.count == latitudes.count
         else {
             DriveKitUI.shared.analytics?.logNonFatalError(
@@ -196,7 +196,7 @@ class MapViewController: DKUIViewController {
         var phoneCallPolylines: [[CLLocationCoordinate2D]] = []
         var authorizedPhoneCallPolylines: [[CLLocationCoordinate2D]] = []
         let routePolyline = self.getPolyline(longitude: longitudes, latitude: latitudes)
-        if let indexes = route.callIndex as? [Int] {
+        if let indexes = route.callIndex {
             for i in stride(from: 1, to: indexes.count, by: 2) {
                 if let call = self.viewModel.getCallFromIndex(i) {
                     let minValue = min(indexes[i - 1], indexes[i])
@@ -215,8 +215,8 @@ class MapViewController: DKUIViewController {
 
     private func getSpeedingPolylines(route: Route) -> [[CLLocationCoordinate2D]] {
         guard
-            let longitudes = route.longitude as? [Double],
-            let latitudes = route.latitude as? [Double],
+            let longitudes = route.longitude,
+            let latitudes = route.latitude,
             longitudes.count == latitudes.count
         else {
             DriveKitUI.shared.analytics?.logNonFatalError(
@@ -229,7 +229,7 @@ class MapViewController: DKUIViewController {
         }
         var speedingPolylines: [[CLLocationCoordinate2D]] = []
         let routePolyline = self.getPolyline(longitude: longitudes, latitude: latitudes)
-        if let indexes = route.speedingIndex as? [Int], indexes.count > 1 {
+        if let indexes = route.speedingIndex, indexes.count > 1 {
             for i in 1..<indexes.count {
                 if i % 2 == 1 {
                     let minValue = min(indexes[i - 1], indexes[i])

@@ -300,22 +300,21 @@ extension NotificationManager: TripListener {
         sendNotification(.tripStarted(canPostpone: DriveKitTripAnalysisUI.shared.isUserAllowedToCancelTrip))
     }
 
-    func tripFinished(post: PostGeneric, response: PostGenericResponse) {
-        let responseStatus = DriveKitTripAnalysis.shared.getTripResponseStatus(response)
-        switch responseStatus.status {
-            case .tripValid:
-                responseStatus.info.forEach { info in
-                    DriveKitLog.shared.infoLog(tag: "App", message: "Trip response info: \(info.getComment())")
-                }
-                if responseStatus.hasSafetyAndEcoDrivingScore {
-                    manageTripFinishedAndValid(response)
-                } else if let itinId = response.itinId {
-                    sendNotification(.tripTooShort, itinId: itinId)
-                }
-            case .tripError:
-                guard let error = responseStatus.error else { return }
+    func tripFinished(responseStatus: TripResponseStatus) {
+        switch responseStatus.toResult() {
+            case let .tripError(error):
+                guard let error else { return }
                 DriveKitLog.shared.errorLog(tag: "App", message: "Trip response error: \(String(describing: error))")
                 sendErrorNotification(error)
+            case let .tripValid(itinId, hasSafetyAndEcoDrivingScore, info):
+                info.forEach { info in
+                    DriveKitLog.shared.infoLog(tag: "App", message: "Trip response info: \(info.getComment())")
+                }
+                if hasSafetyAndEcoDrivingScore {
+                    manageTripFinishedAndValid(responseStatus.getTrip())
+                } else {
+                    sendNotification(.tripTooShort, itinId: itinId)
+                }
             @unknown default:
                 break
         }
@@ -342,56 +341,51 @@ extension NotificationManager: TripListener {
         sendNotification(.noNetwork)
     }
 
-    private func manageTripFinishedAndValid(_ response: PostGenericResponse) {
-        guard let itinId = response.itinId, let distance = response.itineraryStatistics?.distance, distance > 0 else {
+    private func manageTripFinishedAndValid(_ trip: Trip?) {
+        guard let trip, let distance = trip.tripStatistics?.distance, distance > 0 else {
             return
         }
-        let transportationMode: TransportationMode
-        if let rawTransporationMode = response.itineraryStatistics?.transportationMode {
-            transportationMode = TransportationMode(rawValue: rawTransporationMode) ?? .unknown
-        } else {
-            transportationMode = .unknown
-        }
+        let transportationMode: TransportationMode = TransportationMode(rawValue: Int(trip.transportationMode)) ?? .unknown
         let message: String?
         let hasAdvices: Bool
         if transportationMode.isAlternative() && transportationMode.isAlternativeNotificationManaged {
             message = nil
             hasAdvices = false
         } else {
-            if let tripAdvicesData: [TripAdviceData] = response.tripAdvicesData {
+            if let tripAdvices = trip.tripAdvices?.allObjects as? [TripAdvice], !tripAdvices.isEmpty {
                 let adviceString: String
-                if tripAdvicesData.count > 1 {
+                if tripAdvices.count > 1 {
                     adviceString = "notif_trip_finished_advices".keyLocalized()
                 } else {
                     adviceString = "notif_trip_finished_advice".keyLocalized()
                 }
                 message = "\("notif_trip_finished".keyLocalized())\n\(adviceString)"
-                hasAdvices = !tripAdvicesData.isEmpty
+                hasAdvices = !tripAdvices.isEmpty
             } else {
                 var messagePart2: String?
                 switch DriveKitDriverDataUI.shared.tripData {
                     case .safety:
-                        if let safetyScore = response.safety?.safetyScore {
+                        if let safetyScore = trip.safety?.safetyScore {
                             messagePart2 = "\("notif_trip_finished_safety".keyLocalized()) : \(safetyScore.formatDouble(places: 1))/10"
                         }
                     case .ecoDriving:
-                        if let ecoDrivingScore = response.ecoDriving?.score {
+                        if let ecoDrivingScore = trip.ecoDriving?.score {
                             messagePart2 = "\("notif_trip_finished_efficiency".keyLocalized()) : \(ecoDrivingScore.formatDouble(places: 1))/10"
                         }
                     case .distraction:
-                        if let distractionScore = response.driverDistraction?.score {
+                        if let distractionScore = trip.driverDistraction?.score {
                             messagePart2 = "\("notif_trip_finished_distraction".keyLocalized()) : \(distractionScore.formatDouble(places: 1))/10"
                         }
                     case .speeding:
                         break
                     case .distance:
-                        if let itineraryStatistics = response.itineraryStatistics {
-                            let distance = Int(ceil(itineraryStatistics.distance / 1_000.0))
+                        if let tripStatistics = trip.tripStatistics {
+                            let distance = Int(ceil(tripStatistics.distance / 1_000.0))
                             messagePart2 = "\(DKCommonLocalizable.distance.text()) : \(distance) \(DKCommonLocalizable.unitKilometer.text())"
                         }
                     case .duration:
-                        if let itineraryStatistics = response.itineraryStatistics {
-                            let duration = Int(ceil(itineraryStatistics.tripDuration / 60))
+                        if let tripStatistics = trip.tripStatistics {
+                            let duration = Int(tripStatistics.duration / 60)
                             messagePart2 = "\(DKCommonLocalizable.duration.text()) : \(duration) \(DKCommonLocalizable.unitMinute.text())"
                         }
                 }
@@ -403,7 +397,7 @@ extension NotificationManager: TripListener {
                 }
             }
         }
-        sendNotification(.tripEnded(message: message, transportationMode: transportationMode, hasAdvices: hasAdvices), itinId: itinId)
+        sendNotification(.tripEnded(message: message, transportationMode: transportationMode, hasAdvices: hasAdvices), itinId: trip.itinId)
     }
     
     private enum PostGenericResponseError: Int {

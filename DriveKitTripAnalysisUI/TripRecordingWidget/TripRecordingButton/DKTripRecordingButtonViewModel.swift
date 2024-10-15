@@ -273,8 +273,6 @@ extension DKTripRecordingButtonViewModel: TripListener {
         }
     }
     
-    func tripFinished(post: DriveKitTripAnalysisModule.PostGeneric, response: DriveKitTripAnalysisModule.PostGenericResponse) { }
-    
     func tripCancelled(cancelTrip: DriveKitTripAnalysisModule.CancelTrip) {
         DispatchQueue.dispatchOnMainThread { [weak self] in
             guard let self else { return }

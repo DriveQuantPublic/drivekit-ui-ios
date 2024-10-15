@@ -171,23 +171,23 @@ extension TripSimulatorDetailViewModel: DKTripSimulatorDelegate {
 extension TripSimulatorDetailViewModel: TripListener {
     func tripStarted(startMode: StartMode) {
     }
-    
-    func tripFinished(post: PostGeneric, response: PostGenericResponse) {
+
+    func tripFinished(responseStatus: TripResponseStatus) {
         tripSimulationDidEnd()
     }
-    
+
     func tripCancelled(cancelTrip: CancelTrip) {
     }
-    
+
     func tripSavedForRepost() {
         tripSimulationDidEnd()
     }
-    
+
     func sdkStateChanged(state: State) {
         updateStoppingTime(state: state)
         updateNeeded()
     }
-    
+
     private func tripSimulationDidEnd() {
         if currentDuration >= simulatedItem.getSimulationDuration() {
             stopSimulation()

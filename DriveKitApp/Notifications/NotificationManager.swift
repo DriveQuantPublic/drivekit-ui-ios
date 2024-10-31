@@ -302,11 +302,11 @@ extension NotificationManager: TripListener {
 
     func tripFinished(responseStatus: TripResponseStatus) {
         switch responseStatus.toResult() {
-            case let .tripError(error):
+            case let .tripError(_, error):
                 guard let error else { return }
                 DriveKitLog.shared.errorLog(tag: "App", message: "Trip response error: \(String(describing: error))")
                 sendErrorNotification(error)
-            case let .tripValid(itinId, hasSafetyAndEcoDrivingScore, info):
+            case let .tripValid(itinId, _, hasSafetyAndEcoDrivingScore, info):
                 info.forEach { info in
                     DriveKitLog.shared.infoLog(tag: "App", message: "Trip response info: \(info.getComment())")
                 }

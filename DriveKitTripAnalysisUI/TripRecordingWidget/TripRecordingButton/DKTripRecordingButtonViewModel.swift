@@ -74,7 +74,7 @@ class DKTripRecordingButtonViewModel {
     private var timer: Timer?
     
     static var isTripConfirmed: Bool {
-        DriveKitTripAnalysis.shared.getCurrentStartMode() == .manual ||
+        DriveKitTripAnalysis.shared.getCurrentTripInfo()?.startMode == .manual ||
         [.running, .stopping].contains(DriveKitTripAnalysis.shared.getRecorderState())
     }
     
@@ -83,9 +83,9 @@ class DKTripRecordingButtonViewModel {
     ) {
         self.tripRecordingUserMode = tripRecordingUserMode
         if Self.isTripConfirmed {
-            if let lastTripPoint = DriveKitTripAnalysis.shared.getLastTripPoint() {
+            if let lastTripPoint = DriveKitTripAnalysis.shared.getLastTripPointOfCurrentTrip() {
                 self.updateState(with: lastTripPoint)
-            } else if let startingDate = DriveKitTripAnalysis.shared.getCurrentTripStartDate() {
+            } else if let startingDate = DriveKitTripAnalysis.shared.getCurrentTripInfo()?.date {
                 self.updateState(
                     with: startingDate
                 )

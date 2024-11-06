@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.resource = ['DriveKitDriverDataTimelineUI/Localizable/*', 'DriveKitDriverDataTimelineUI/**/*.xib', 'DriveKitDriverDataTimelineUI/**/*.storyboard', 'DriveKitDriverDataTimelineUI/PrivacyInfo.xcprivacy']
 
   s.dependency 'DriveKitCommonUI', s.version.to_s
-  s.dependency 'DriveKitDriverData', '2.8-beta1'
+  s.dependency 'DriveKitDriverData'
   s.dependency 'DGCharts', '5.1.0'
 
   s.pod_target_xcconfig = {

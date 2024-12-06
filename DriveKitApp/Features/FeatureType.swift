@@ -91,7 +91,7 @@ enum FeatureType {
             case .tripAnalysis_workingHours:
                 title = "feature_working_hours_title"
             case .tripAnalysis_tripSharing:
-                title = "feature_trip_sharing_title"
+                title = "feature_location_sharing_title"
             case .vehicle_list:
                 title = "feature_vehicle_title"
             case .vehicle_odometer:
@@ -128,7 +128,7 @@ enum FeatureType {
             case .tripAnalysis_workingHours:
                 description = "feature_working_hours_description"
             case .tripAnalysis_tripSharing:
-                description = "feature_trip_sharing_description"
+                description = "feature_location_sharing_description"
             case .vehicle_list:
                 description = "feature_vehicle_description"
             case .vehicle_odometer:

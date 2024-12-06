@@ -7,6 +7,7 @@
 //
 
 import DriveKitTripAnalysisModule
+import DriveKitCommonUI
 
 class TripSharingViewModel {
     var status: SharingLinkViewStatus = .loading
@@ -19,9 +20,9 @@ class TripSharingViewModel {
             return
         }
 
-        DriveKitTripAnalysis.shared.tripSharing.getLink(synchronizationType: .defaultSync) { status, data in
+        DriveKitTripAnalysis.shared.tripSharing.getLink(synchronizationType: .defaultSync) { _, data in
             self.link = data
-            if let link = self.link {
+            if self.link != nil {
                 self.status = .active
             } else {
                 self.status = .notActive
@@ -51,8 +52,12 @@ class TripSharingViewModel {
             case .oneMonth:
                 durationInSeconds = oneMonthInSeconds
         }
-        DriveKitTripAnalysis.shared.tripSharing.createLink(durationInSeconds: durationInSeconds) { _, link in
-            if let link = link {
+        DriveKitTripAnalysis.shared.tripSharing.createLink(durationInSeconds: durationInSeconds) { status, link in
+            if status == .activeLinkAlreadyExists {
+                self.updateStatus {
+                    completion()
+                }
+            } else if let link = link {
                 self.link = link
                 self.status = .active
             } else {
@@ -66,6 +71,152 @@ class TripSharingViewModel {
         DriveKitTripAnalysis.shared.tripSharing.revokeLink { _ in
             self.status = .notActive
             completion()
+        }
+    }
+    
+    func getAttributedText(for status: SharingLinkViewStatus) -> NSAttributedString {
+        switch status {
+            case .loading:
+                return "".dkAttributedString().build()
+            case .notAvailable:
+                return "".dkAttributedString().build()
+            case .notActive:
+                return "\n%@\n\n%@\n\n%@"
+                    .dkAttributedString()
+                    .buildWithArgs(
+                        "dk_location_sharing_select_description_1"
+                            .dkTripAnalysisLocalized()
+                            .dkAttributedString()
+                            .font(dkFont: .primary, style: .normalText)
+                            .color(.complementaryFontColor)
+                            .build(),
+                        "dk_location_sharing_inactive_description_2"
+                            .dkTripAnalysisLocalized()
+                            .dkAttributedString()
+                            .font(dkFont: .primary, style: .normalText)
+                            .color(.complementaryFontColor)
+                            .build(),
+                        "dk_location_sharing_inactive_description_3"
+                            .dkTripAnalysisLocalized()
+                            .dkAttributedString()
+                            .font(dkFont: .primary, style: .normalText)
+                            .color(.complementaryFontColor)
+                            .build()
+                    )
+            case .selectingPeriod:
+                return "\n%@\n\n%@"
+                    .dkAttributedString()
+                    .buildWithArgs(
+                        "dk_location_sharing_select_description_1"
+                            .dkTripAnalysisLocalized()
+                            .dkAttributedString()
+                            .font(dkFont: .primary, style: .normalText)
+                            .color(.complementaryFontColor)
+                            .build(),
+                        "dk_location_sharing_select_description_2"
+                            .dkTripAnalysisLocalized()
+                            .dkAttributedString()
+                            .font(dkFont: .primary, style: .normalText)
+                            .color(.complementaryFontColor)
+                            .build()
+                    )
+            case .active:
+                let remaingTimeText = getRemaingTimeAttributedText()
+                return "\n%@\n\n%@\n\n%@"
+                    .dkAttributedString()
+                    .buildWithArgs(
+                        "dk_location_sharing_active_status"
+                            .dkTripAnalysisLocalized()
+                            .dkAttributedString()
+                            .font(dkFont: .primary, style: .normalText)
+                            .color(.complementaryFontColor)
+                            .build(),
+                        "dk_location_sharing_active_info"
+                            .dkTripAnalysisLocalized()
+                            .dkAttributedString()
+                            .font(dkFont: .primary, style: .normalText)
+                            .color(.complementaryFontColor)
+                            .build(),
+                        remaingTimeText
+                    )
+        }
+    }
+    
+    func getRemaingTimeAttributedText() -> NSMutableAttributedString {
+        guard let remaingTime = self.link?.endDate.timeIntervalSinceNow else {
+            return "".dkAttributedString().build()
+        }
+        let remainingTimeInSeconds = Int(remaingTime)
+        let oneDayInSeconds = 86_400 // 60*60*24
+        let oneHourInSeconds = 3_600 // 60*60
+        let oneMinuteInSeconds = 60
+        
+        let remaingDays = remainingTimeInSeconds / oneDayInSeconds
+        if remaingDays > 1 {
+            return "dk_location_sharing_active_info_days"
+                .dkTripAnalysisLocalized()
+                .dkAttributedString()
+                .font(dkFont: .primary, style: .headLine2)
+                .color(.complementaryFontColor)
+                .buildWithArgs(
+                    "\(remaingDays)"
+                        .dkAttributedString()
+                        .font(dkFont: .primary, style: .headLine2)
+                        .color(.complementaryFontColor)
+                        .build()
+                )
+        } else if remaingDays == 1 {
+            return "dk_location_sharing_active_info_day".dkTripAnalysisLocalized()
+                .dkAttributedString()
+                .font(dkFont: .primary, style: .headLine2)
+                .color(.complementaryFontColor)
+                .build()
+        } else {
+            let remaingHours = remainingTimeInSeconds / oneHourInSeconds
+            if remaingHours > 1 {
+                return "dk_location_sharing_active_info_hours"
+                    .dkTripAnalysisLocalized()
+                    .dkAttributedString()
+                    .font(dkFont: .primary, style: .headLine2)
+                    .color(.complementaryFontColor)
+                    .buildWithArgs(
+                        "\(remaingHours)"
+                            .dkAttributedString()
+                            .font(dkFont: .primary, style: .headLine2)
+                            .color(.complementaryFontColor)
+                            .build()
+                    )
+            } else if remaingHours == 1 {
+                return "dk_location_sharing_active_info_hour"
+                    .dkTripAnalysisLocalized()
+                    .dkAttributedString()
+                    .font(dkFont: .primary, style: .headLine2)
+                    .color(.complementaryFontColor)
+                    .build()
+            } else {
+                let remaingMinutes = remainingTimeInSeconds / oneMinuteInSeconds
+                if remaingMinutes > 1 {
+                    return "dk_location_sharing_active_info_minutes"
+                        .dkTripAnalysisLocalized()
+                        .dkAttributedString()
+                        .font(dkFont: .primary, style: .headLine2)
+                        .color(.complementaryFontColor)
+                        .buildWithArgs(
+                            "\(remaingMinutes)"
+                                .dkAttributedString()
+                                .font(dkFont: .primary, style: .headLine2)
+                                .color(.complementaryFontColor)
+                                .build()
+                        )
+                } else /*if remaingMinutes == 1*/ {
+                    return "dk_location_sharing_active_info_minute"
+                        .dkTripAnalysisLocalized()
+                        .dkAttributedString()
+                        .font(dkFont: .primary, style: .headLine2)
+                        .color(.complementaryFontColor)
+                        .build()
+                }
+            }
         }
     }
 }

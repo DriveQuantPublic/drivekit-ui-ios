@@ -11,6 +11,7 @@ import DriveKitCommonUI
 
 class TripSharingViewController: DKUIViewController {
     
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var activateShareButton: UIButton!
     @IBOutlet weak var oneDayButton: UIButton!
     @IBOutlet weak var oneWeekButton: UIButton!
@@ -100,6 +101,7 @@ class TripSharingViewController: DKUIViewController {
                 self.notActiveStackView.isHidden = true
                 self.selectPeriodStackView.isHidden = true
         }
+        self.descriptionLabel.attributedText = self.viewModel.getAttributedText(for: status)
     }
     
     @IBAction func switchToPeriodSelection() {
@@ -137,12 +139,7 @@ class TripSharingViewController: DKUIViewController {
     }
 
     @IBAction func shareLink() {
-        guard let link = viewModel.link?.url,
-              let linkUrl = URL(string: link) else {
-                  return
-              }
-        let items = [linkUrl, "Text to share"] as [Any]
-        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        let ac = UIActivityViewController(activityItems: [self], applicationActivities: nil)
         present(ac, animated: true)
     }
     
@@ -151,6 +148,27 @@ class TripSharingViewController: DKUIViewController {
             DispatchQueue.dispatchOnMainThread {
                 self.updateView()
             }
+        }
+    }
+}
+
+extension TripSharingViewController: UIActivityItemSource {
+    
+    func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
+        return "hello"
+    }
+    
+    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
+        guard let link = viewModel.link?.url,
+              let linkUrl = URL(string: link) else {
+                  return nil
+        }
+        let appName: String = Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String ?? ""
+        let textToShare = String(format: "dk_location_sharing_sharesheet_content".dkTripAnalysisLocalized(), appName, link)
+        if activityType == .copyToPasteboard {
+            return linkUrl
+        } else {
+            return textToShare
         }
     }
 }

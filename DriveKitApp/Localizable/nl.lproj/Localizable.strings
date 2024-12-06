@@ -63,6 +63,8 @@
 "feature_challenges_title"="Challenge | Lijst en resultaten";
 "feature_list"="Lijst met functies";
 "feature_list_description"="DriveKit is een veelzijdige SDK die functies bevat voor het analyseren van telefoonsensoren, het weergeven van rijgegevens, coaching van bestuurders en gamification. Ontdek ze voordat je ze in je app integreert 🚀.";
+"feature_location_sharing_description"="Het onderdeel Ritanalyse bevat een functie om familie en vrienden tijdens het rijden gerust te stellen, dankzij een deelbare link die de positie van het voertuig tijdens het rijden weergeeft.";
+"feature_location_sharing_title"="Locatie delen";
 "feature_permission_onboarding_ok"="Rechten verzamelen is niet beschikbaar omdat je alle rechten al hebt toegekend.";
 "feature_permission_utils_description"="De component Permissions Utils bevat een diagnosefunctie om de status van sensoren en permissies te controleren. Deze component waarschuwt de gebruiker en begeleidt hem bij het instellen van zijn telefoon.";
 "feature_permission_utils_onboarding_description"="De component Permissions Utils bevat schermen die de toestemmingsaanvragen weergeven die nodig zijn voor de werking van de automatische modus en gegevensanalyse. We nodigen je uit om deze component te gebruiken of te repliceren in je app.";

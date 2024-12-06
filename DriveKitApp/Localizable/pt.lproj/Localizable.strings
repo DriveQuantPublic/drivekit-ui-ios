@@ -63,6 +63,8 @@
 "feature_challenges_title"="Challenge | List and results";
 "feature_list"="Lista de funcionalidades";
 "feature_list_description"="O DriveKit é um SDK rico e versátil que inclui funcionalidades de análise de sensores do telemóvel, apresentação de dados de condução, treino de condutores e gamificação. Descubra estas funcionalidades antes de as incorporar na sua aplicação 🚀.";
+"feature_location_sharing_description"="A componente Análise de viagem inclui uma função para tranquilizar a família e os amigos do utilizador durante a condução, graças a uma ligação partilhável que apresenta a posição do veículo durante as viagens.";
+"feature_location_sharing_title"="Partilha de localização";
 "feature_permission_onboarding_ok"="As permissões de integração não estão disponíveis porque já concedeu todas as permissões.";
 "feature_permission_utils_description"="O componente Permissions Utils contém uma função de diagnóstico para verificar o estado dos sensores e das permissões. Este componente alerta o utilizador e orienta-o na configuração do seu telefone.";
 "feature_permission_utils_onboarding_description"="O componente Permissions Utils contém ecrãs que apresentam os pedidos de permissão essenciais para o funcionamento em modo automático e para a análise de dados. Recomendamos que utilize este componente ou que o replique na sua aplicação.";

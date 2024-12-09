@@ -63,6 +63,8 @@
 "feature_challenges_title"="Challenge | List and results";
 "feature_list"="List of features";
 "feature_list_description"="DriveKit is a rich and versatile SDK that includes phone sensor analysis, driving data display, driver coaching and gamification features. Discover these features before embedding in your app 🚀.";
+"feature_location_sharing_description"="The Trip Analysis component includes a function to reassure the user\'s family and friends while driving, thanks to a shared link that displays the vehicle\'s location during trips.";
+"feature_location_sharing_title"="Location Sharing";
 "feature_permission_onboarding_ok"="The onboarding permissions is not available because you have already granted all permissions.";
 "feature_permission_utils_description"="The Permissions Utils component contains a diagnostic function to check the status of sensors and permissions. This component alerts the user and guides him to set up his phone.";
 "feature_permission_utils_onboarding_description"="The Permissions Utils component contains screens that display the permission requests that are essential for automatic mode operation and data analysis. We recommend that you use this component or replicate it in your app.";

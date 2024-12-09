@@ -39,7 +39,7 @@ class TripSharingViewModel {
         self.status = .notActive
     }
     
-    func activateLinkSharing(period: SharingLinkPeriod, completion: @escaping() -> Void) {
+    func activateLinkSharing(period: SharingLinkPeriod, completion: @escaping(_ success: Bool) -> Void) {
         let durationInSeconds: Int
         let oneDayInSeconds = 86_400 // 60*60*24
         let oneWeekInSeconds = 604_800 // 60*60*24*7
@@ -55,15 +55,16 @@ class TripSharingViewModel {
         DriveKitTripAnalysis.shared.tripSharing.createLink(durationInSeconds: durationInSeconds) { status, link in
             if status == .activeLinkAlreadyExists {
                 self.updateStatus {
-                    completion()
+                    completion(true)
                 }
             } else if let link = link {
                 self.link = link
                 self.status = .active
+                completion(true)
             } else {
                 self.status = .notActive
+                completion(false)
             }
-            completion()
         }
     }
         
@@ -150,25 +151,26 @@ class TripSharingViewModel {
         let oneDayInSeconds = 86_400 // 60*60*24
         let oneHourInSeconds = 3_600 // 60*60
         let oneMinuteInSeconds = 60
+        let style: DKStyles = .normalText
         
         let remaingDays = remainingTimeInSeconds / oneDayInSeconds
         if remaingDays > 1 {
             return "dk_location_sharing_active_info_days"
                 .dkTripAnalysisLocalized()
                 .dkAttributedString()
-                .font(dkFont: .primary, style: .headLine2)
+                .font(dkFont: .primary, style: style)
                 .color(.complementaryFontColor)
                 .buildWithArgs(
                     "\(remaingDays)"
                         .dkAttributedString()
-                        .font(dkFont: .primary, style: .headLine2)
+                        .font(dkFont: .primary, style: style)
                         .color(.complementaryFontColor)
                         .build()
                 )
         } else if remaingDays == 1 {
             return "dk_location_sharing_active_info_day".dkTripAnalysisLocalized()
                 .dkAttributedString()
-                .font(dkFont: .primary, style: .headLine2)
+                .font(dkFont: .primary, style: style)
                 .color(.complementaryFontColor)
                 .build()
         } else {
@@ -177,12 +179,12 @@ class TripSharingViewModel {
                 return "dk_location_sharing_active_info_hours"
                     .dkTripAnalysisLocalized()
                     .dkAttributedString()
-                    .font(dkFont: .primary, style: .headLine2)
+                    .font(dkFont: .primary, style: style)
                     .color(.complementaryFontColor)
                     .buildWithArgs(
                         "\(remaingHours)"
                             .dkAttributedString()
-                            .font(dkFont: .primary, style: .headLine2)
+                            .font(dkFont: .primary, style: style)
                             .color(.complementaryFontColor)
                             .build()
                     )
@@ -190,7 +192,7 @@ class TripSharingViewModel {
                 return "dk_location_sharing_active_info_hour"
                     .dkTripAnalysisLocalized()
                     .dkAttributedString()
-                    .font(dkFont: .primary, style: .headLine2)
+                    .font(dkFont: .primary, style: style)
                     .color(.complementaryFontColor)
                     .build()
             } else {
@@ -199,12 +201,12 @@ class TripSharingViewModel {
                     return "dk_location_sharing_active_info_minutes"
                         .dkTripAnalysisLocalized()
                         .dkAttributedString()
-                        .font(dkFont: .primary, style: .headLine2)
+                        .font(dkFont: .primary, style: style)
                         .color(.complementaryFontColor)
                         .buildWithArgs(
                             "\(remaingMinutes)"
                                 .dkAttributedString()
-                                .font(dkFont: .primary, style: .headLine2)
+                                .font(dkFont: .primary, style: style)
                                 .color(.complementaryFontColor)
                                 .build()
                         )
@@ -212,7 +214,7 @@ class TripSharingViewModel {
                     return "dk_location_sharing_active_info_minute"
                         .dkTripAnalysisLocalized()
                         .dkAttributedString()
-                        .font(dkFont: .primary, style: .headLine2)
+                        .font(dkFont: .primary, style: style)
                         .color(.complementaryFontColor)
                         .build()
                 }

@@ -110,27 +110,48 @@ class TripSharingViewController: DKUIViewController {
     }
     
     @IBAction func selectOneDay() {
-        self.viewModel.activateLinkSharing(period: .oneDay) {
+        showLoader()
+        self.viewModel.activateLinkSharing(period: .oneDay) {success in 
             DispatchQueue.dispatchOnMainThread {
                 self.updateView()
+                self.hideLoader()
+                if !success {
+                    self.showErrorPopup()
+                }
             }
         }
     }
 
     @IBAction func selectOneWeek() {
-        self.viewModel.activateLinkSharing(period: .oneWeek) {
+        showLoader()
+        self.viewModel.activateLinkSharing(period: .oneWeek) {success in 
             DispatchQueue.dispatchOnMainThread {
                 self.updateView()
+                self.hideLoader()
+                if !success {
+                    self.showErrorPopup()
+                }
             }
         }
     }
 
     @IBAction func selectOneMonth() {
-        self.viewModel.activateLinkSharing(period: .oneMonth) {
+        showLoader()
+        self.viewModel.activateLinkSharing(period: .oneMonth) {success in 
             DispatchQueue.dispatchOnMainThread {
                 self.updateView()
+                self.hideLoader()
+                if !success {
+                    self.showErrorPopup()
+                }
             }
         }
+    }
+    
+    private func showErrorPopup() {
+        let alert = UIAlertController(title: "", message: DKCommonLocalizable.error.text(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: DKCommonLocalizable.ok.text(), style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func cancelPeriodSelection() {
@@ -144,9 +165,11 @@ class TripSharingViewController: DKUIViewController {
     }
     
     @IBAction func revokeLink() {
+        showLoader()
         self.viewModel.revokeLink {
             DispatchQueue.dispatchOnMainThread {
                 self.updateView()
+                self.hideLoader()
             }
         }
     }

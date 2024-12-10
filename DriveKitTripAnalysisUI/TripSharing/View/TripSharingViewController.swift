@@ -165,13 +165,22 @@ class TripSharingViewController: DKUIViewController {
     }
     
     @IBAction func revokeLink() {
-        showLoader()
-        self.viewModel.revokeLink {
-            DispatchQueue.dispatchOnMainThread {
-                self.updateView()
-                self.hideLoader()
+        let alert = UIAlertController(title: nil,
+                                      message: "dk_location_sharing_active_disable_confirmation".dkTripAnalysisLocalized(),
+                                      preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: DKCommonLocalizable.cancel.text(), style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        let revokeAction = UIAlertAction(title: "dk_location_sharing_active_disable".dkTripAnalysisLocalized(), style: .destructive, handler: {[weak self] _ in
+            self?.showLoader()
+            self?.viewModel.revokeLink {
+                DispatchQueue.dispatchOnMainThread {
+                    self?.updateView()
+                    self?.hideLoader()
+                }
             }
-        }
+        })
+        alert.addAction(revokeAction)
+        self.present(alert, animated: true)
     }
 }
 

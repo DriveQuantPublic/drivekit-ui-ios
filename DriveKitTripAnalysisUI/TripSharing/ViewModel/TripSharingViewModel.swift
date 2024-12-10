@@ -85,7 +85,7 @@ class TripSharingViewModel {
                 return "\n%@\n\n%@\n\n%@"
                     .dkAttributedString()
                     .buildWithArgs(
-                        "dk_location_sharing_select_description_1"
+                        "dk_location_sharing_inactive_description_1"
                             .dkTripAnalysisLocalized()
                             .dkAttributedString()
                             .font(dkFont: .primary, style: .normalText)

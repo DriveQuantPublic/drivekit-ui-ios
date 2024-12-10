@@ -117,14 +117,14 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="htb-89-Zgb">
-                            <rect key="frame" x="0.0" y="0.0" width="369" height="759"/>
+                            <rect key="frame" x="0.0" y="0.0" width="369" height="742"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JBw-sX-RKM">
-                                    <rect key="frame" x="0.0" y="0.0" width="369" height="639"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="369" height="622"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zln-vX-Wuw">
-                                    <rect key="frame" x="0.0" y="649" width="369" height="50"/>
+                                    <rect key="frame" x="0.0" y="632" width="369" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="1ax-zy-XIk"/>
                                     </constraints>
@@ -134,7 +134,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6l-E5-i78">
-                                    <rect key="frame" x="0.0" y="709" width="369" height="50"/>
+                                    <rect key="frame" x="0.0" y="692" width="369" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="Pi8-1S-Cov"/>
                                     </constraints>
@@ -145,6 +145,13 @@
                                 </button>
                             </subviews>
                         </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GU7-8u-8Wk">
+                            <rect key="frame" x="0.0" y="742" width="369" height="17"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="17" id="0VY-yg-I6m"/>
+                            </constraints>
+                        </view>
                     </subviews>
                 </stackView>
             </subviews>

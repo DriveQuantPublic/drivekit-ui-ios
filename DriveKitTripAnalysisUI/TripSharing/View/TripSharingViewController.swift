@@ -50,7 +50,7 @@ class TripSharingViewController: DKUIViewController {
 
     func setup() {
         self.title = "dk_location_sharing_title".dkTripAnalysisLocalized()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = DKUIColors.backgroundView.color
         
         self.activateShareButton.configure(title: "dk_location_sharing_inactive_enable".dkTripAnalysisLocalized(), style: .full)
         self.oneDayButton.configure(title: "dk_location_sharing_select_day".dkTripAnalysisLocalized(), style: .full)
@@ -65,7 +65,7 @@ class TripSharingViewController: DKUIViewController {
                 .build(),
             for: .normal
         )
-        self.shareLinkButton.configure(title: "dk_location_sharing_active_share_link".dkTripAnalysisLocalized().uppercased(), style: .full)
+        self.shareLinkButton.configure(title: "dk_location_sharing_active_share_link".dkTripAnalysisLocalized(), style: .full)
         self.revokeLinkButton.setAttributedTitle(
             "dk_location_sharing_active_disable"
                 .dkTripAnalysisLocalized()
@@ -111,40 +111,22 @@ class TripSharingViewController: DKUIViewController {
     
     @IBAction func selectOneDay() {
         showLoader()
-        self.viewModel.activateLinkSharing(period: .oneDay) {success in 
-            DispatchQueue.dispatchOnMainThread {
-                self.updateView()
-                self.hideLoader()
-                if !success {
-                    self.showErrorPopup()
-                }
-            }
+        self.viewModel.activateLinkSharing(period: .oneDay) {success in
+            self.updateViewAndHideLoader(showError: !success)
         }
     }
 
     @IBAction func selectOneWeek() {
         showLoader()
         self.viewModel.activateLinkSharing(period: .oneWeek) {success in 
-            DispatchQueue.dispatchOnMainThread {
-                self.updateView()
-                self.hideLoader()
-                if !success {
-                    self.showErrorPopup()
-                }
-            }
+            self.updateViewAndHideLoader(showError: !success)
         }
     }
 
     @IBAction func selectOneMonth() {
         showLoader()
         self.viewModel.activateLinkSharing(period: .oneMonth) {success in 
-            DispatchQueue.dispatchOnMainThread {
-                self.updateView()
-                self.hideLoader()
-                if !success {
-                    self.showErrorPopup()
-                }
-            }
+            self.updateViewAndHideLoader(showError: !success)
         }
     }
     
@@ -172,34 +154,40 @@ class TripSharingViewController: DKUIViewController {
         alert.addAction(cancelAction)
         let revokeAction = UIAlertAction(title: "dk_location_sharing_active_disable".dkTripAnalysisLocalized(), style: .destructive, handler: {[weak self] _ in
             self?.showLoader()
-            self?.viewModel.revokeLink {
-                DispatchQueue.dispatchOnMainThread {
-                    self?.updateView()
-                    self?.hideLoader()
-                }
+            self?.viewModel.revokeLink { success in
+                self?.updateViewAndHideLoader(showError: !success)
             }
         })
         alert.addAction(revokeAction)
         self.present(alert, animated: true)
     }
+    
+    private func updateViewAndHideLoader(showError: Bool = false) {
+        DispatchQueue.dispatchOnMainThread {
+            self.updateView()
+            self.hideLoader()
+            if showError {
+                self.showErrorPopup()
+            }
+        }
+    }
 }
 
 extension TripSharingViewController: UIActivityItemSource {
-    
     func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
-        return "hello"
+        return "dk_location_sharing_sharesheet_title".dkTripAnalysisLocalized()
     }
-    
+        
     func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
         guard let link = viewModel.link?.url,
               let linkUrl = URL(string: link) else {
                   return nil
         }
-        let appName: String = Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String ?? ""
-        let textToShare = String(format: "dk_location_sharing_sharesheet_content".dkTripAnalysisLocalized(), appName, link)
         if activityType == .copyToPasteboard {
             return linkUrl
         } else {
+            let appName: String = Bundle.main.appName ?? ""
+            let textToShare = String(format: "dk_location_sharing_sharesheet_content".dkTripAnalysisLocalized(), appName, link)
             return textToShare
         }
     }

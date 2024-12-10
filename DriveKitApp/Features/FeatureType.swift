@@ -52,7 +52,7 @@ enum FeatureType {
             case .tripAnalysis_workingHours:
                 imageName = "feature_icon_tripAnalysis_workingHours"
             case .tripAnalysis_tripSharing:
-                imageName = nil
+                imageName = "feature_icon_location_sharing"
             case .vehicle_list, .vehicle_odometer:
                 imageName = "feature_icon_vehicle"
         }

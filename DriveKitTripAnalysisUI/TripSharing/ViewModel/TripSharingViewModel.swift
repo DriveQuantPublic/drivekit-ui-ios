@@ -57,7 +57,7 @@ class TripSharingViewModel {
                 self.updateStatus {
                     completion(true)
                 }
-            } else if let link = link {
+            } else if let link {
                 self.link = link
                 self.status = .active
                 completion(true)
@@ -68,10 +68,14 @@ class TripSharingViewModel {
         }
     }
         
-    func revokeLink(completion: @escaping() -> Void) {
-        DriveKitTripAnalysis.shared.tripSharing.revokeLink { _ in
-            self.status = .notActive
-            completion()
+    func revokeLink(completion: @escaping(_ revoked: Bool) -> Void) {
+        DriveKitTripAnalysis.shared.tripSharing.revokeLink { revokeStatus in
+            if revokeStatus == .success || revokeStatus == .noActiveLink {
+                self.status = .notActive
+                completion(true)
+            } else {
+                completion(false)
+            }
         }
     }
     

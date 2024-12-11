@@ -24,6 +24,7 @@ enum FeatureType {
     case driverAchievement_badges
     case driverAchievement_streaks
     case tripAnalysis_workingHours
+    case tripAnalysis_tripSharing
 
     func getIcon() -> UIImage? {
         let imageName: String?
@@ -50,6 +51,8 @@ enum FeatureType {
                 imageName = "feature_icon_permissionsUtils"
             case .tripAnalysis_workingHours:
                 imageName = "feature_icon_tripAnalysis_workingHours"
+            case .tripAnalysis_tripSharing:
+                imageName = "feature_icon_location_sharing"
             case .vehicle_list, .vehicle_odometer:
                 imageName = "feature_icon_vehicle"
         }
@@ -87,6 +90,8 @@ enum FeatureType {
                 title = "feature_permission_utils_onboarding_title"
             case .tripAnalysis_workingHours:
                 title = "feature_working_hours_title"
+            case .tripAnalysis_tripSharing:
+                title = "feature_location_sharing_title"
             case .vehicle_list:
                 title = "feature_vehicle_title"
             case .vehicle_odometer:
@@ -122,6 +127,8 @@ enum FeatureType {
                 description = "feature_permission_utils_onboarding_description"
             case .tripAnalysis_workingHours:
                 description = "feature_working_hours_description"
+            case .tripAnalysis_tripSharing:
+                description = "feature_location_sharing_description"
             case .vehicle_list:
                 description = "feature_vehicle_description"
             case .vehicle_odometer:
@@ -157,6 +164,8 @@ enum FeatureType {
                 docKey = "drivekit_doc_ios_permissions_management"
             case .tripAnalysis_workingHours:
                 docKey = "drivekit_doc_ios_working_hours"
+            case .tripAnalysis_tripSharing:
+                docKey = "drivekit_doc_ios_location_sharing"
             case .vehicle_list:
                 docKey = "drivekit_doc_ios_vehicle_list"
             case .vehicle_odometer:
@@ -180,6 +189,7 @@ enum FeatureType {
                 .permissionsUtils_diagnosis,
                 .permissionsUtils_onboarding,
                 .tripAnalysis_workingHours,
+                .tripAnalysis_tripSharing,
                 .vehicle_list,
                 .vehicle_odometer:
                 return "button_see_feature".keyLocalized()

@@ -165,7 +165,7 @@ enum FeatureType {
             case .tripAnalysis_workingHours:
                 docKey = "drivekit_doc_ios_working_hours"
             case .tripAnalysis_tripSharing:
-                docKey = "drivekit_doc_ios_trip_sharing"
+                docKey = "drivekit_doc_ios_location_sharing"
             case .vehicle_list:
                 docKey = "drivekit_doc_ios_vehicle_list"
             case .vehicle_odometer:

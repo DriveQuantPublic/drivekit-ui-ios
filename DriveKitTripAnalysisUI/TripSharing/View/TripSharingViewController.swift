@@ -12,6 +12,7 @@ import DriveKitCommonUI
 class TripSharingViewController: DKUIViewController {
     
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var descriptionImage: UIImageView!
     @IBOutlet weak var activateShareButton: UIButton!
     @IBOutlet weak var oneDayButton: UIButton!
     @IBOutlet weak var oneWeekButton: UIButton!
@@ -102,6 +103,7 @@ class TripSharingViewController: DKUIViewController {
                 self.selectPeriodStackView.isHidden = true
         }
         self.descriptionLabel.attributedText = self.viewModel.getAttributedText(for: status)
+        self.descriptionImage.image = self.viewModel.getImage(for: status)
     }
     
     @IBAction func switchToPeriodSelection() {

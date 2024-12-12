@@ -225,6 +225,23 @@ class TripSharingViewModel {
             }
         }
     }
+
+    func getImage(for status: SharingLinkViewStatus) -> UIImage? {
+        let iconName: String
+        switch status {
+            case .loading, .notActive, .notAvailable:
+                iconName = "dk_location_sharing_inactive"
+            case .selectingPeriod:
+                iconName = "dk_location_sharing_set_duration"
+            case .active:
+                iconName = "dk_location_sharing_active"
+        }
+        return UIImage(
+            named: iconName,
+            in: .tripAnalysisUIBundle,
+            compatibleWith: nil
+        )
+    }
 }
 
 enum SharingLinkViewStatus {

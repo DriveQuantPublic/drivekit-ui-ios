@@ -264,8 +264,6 @@ class DKTripRecordingButtonViewModel {
 }
 
 extension DKTripRecordingButtonViewModel: TripListener {
-    func tripStarted(startMode: DriveKitTripAnalysisModule.StartMode) {}
-    
     func tripPoint(tripPoint: DriveKitTripAnalysisModule.TripPoint) {
         DispatchQueue.dispatchOnMainThread { [weak self] in
             guard let self else { return }
@@ -281,9 +279,7 @@ extension DKTripRecordingButtonViewModel: TripListener {
             }
         }
     }
-    
-    func tripSavedForRepost() {}
-    
+
     func sdkStateChanged(state: DriveKitTripAnalysisModule.State) {
         DispatchQueue.dispatchOnMainThread { [weak self] in
             guard let self else { return }

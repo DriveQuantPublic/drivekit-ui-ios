@@ -295,8 +295,7 @@ extension NotificationManager: TripListener {
             sendNotification(.tripAnalysisError(tripResponseErrorNotification))
         }
     }
-
-    func tripStarted(startMode: StartMode) {
+    func tripRecordingConfirmed(state: any DKTripRecordingConfirmedState) {
         sendNotification(.tripStarted(canPostpone: DriveKitTripAnalysisUI.shared.isUserAllowedToCancelTrip))
     }
 

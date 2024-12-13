@@ -273,10 +273,12 @@ extension DKTripRecordingButtonViewModel: TripListener {
         }
     }
     
-    func tripCancelled(cancelTrip: DriveKitTripAnalysisModule.CancelTrip) {
-        DispatchQueue.dispatchOnMainThread { [weak self] in
-            guard let self else { return }
-            self.state = .stopped
+    func tripRecordingCanceled(state: any DKTripRecordingCanceledState) {
+        if state.cancelationReason != .appKilled {
+            DispatchQueue.dispatchOnMainThread { [weak self] in
+                guard let self else { return }
+                self.state = .stopped
+            }
         }
     }
     

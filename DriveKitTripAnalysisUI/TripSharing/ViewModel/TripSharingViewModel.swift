@@ -151,13 +151,13 @@ class TripSharingViewModel {
         guard let remaingTime = self.link?.endDate.timeIntervalSinceNow else {
             return "".dkAttributedString().build()
         }
-        let remainingTimeInSeconds = Int(remaingTime)
-        let oneDayInSeconds = 86_400 // 60*60*24
-        let oneHourInSeconds = 3_600 // 60*60
-        let oneMinuteInSeconds = 60
+        let remainingTimeInSeconds = remaingTime
+        let oneDayInSeconds = 86_400.0 // 60*60*24
+        let oneHourInSeconds = 3_600.0 // 60*60
+        let oneMinuteInSeconds = 60.0
         let style: DKStyles = .normalText
         
-        let remaingDays = remainingTimeInSeconds / oneDayInSeconds
+        let remaingDays = Int((remainingTimeInSeconds / oneDayInSeconds).rounded(.up))
         if remaingDays > 1 {
             return "dk_location_sharing_active_info_days"
                 .dkTripAnalysisLocalized()
@@ -178,7 +178,7 @@ class TripSharingViewModel {
                 .color(.complementaryFontColor)
                 .build()
         } else {
-            let remaingHours = remainingTimeInSeconds / oneHourInSeconds
+            let remaingHours = Int((remainingTimeInSeconds / oneHourInSeconds).rounded(.up))
             if remaingHours > 1 {
                 return "dk_location_sharing_active_info_hours"
                     .dkTripAnalysisLocalized()
@@ -200,7 +200,7 @@ class TripSharingViewModel {
                     .color(.complementaryFontColor)
                     .build()
             } else {
-                let remaingMinutes = remainingTimeInSeconds / oneMinuteInSeconds
+                let remaingMinutes = Int((remainingTimeInSeconds / oneMinuteInSeconds).rounded(.up))
                 if remaingMinutes > 1 {
                     return "dk_location_sharing_active_info_minutes"
                         .dkTripAnalysisLocalized()

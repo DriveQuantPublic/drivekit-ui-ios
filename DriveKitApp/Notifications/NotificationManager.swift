@@ -295,8 +295,7 @@ extension NotificationManager: TripListener {
             sendNotification(.tripAnalysisError(tripResponseErrorNotification))
         }
     }
-
-    func tripStarted(startMode: StartMode) {
+    func tripRecordingConfirmed(state: any DKTripRecordingConfirmedState) {
         sendNotification(.tripStarted(canPostpone: DriveKitTripAnalysisUI.shared.isUserAllowedToCancelTrip))
     }
 
@@ -320,17 +319,17 @@ extension NotificationManager: TripListener {
         }
     }
 
-    func tripCancelled(cancelTrip: CancelTrip) {
-        switch cancelTrip {
-            case .highspeed:
+    func tripRecordingCanceled(state: any DKTripRecordingCanceledState) {
+        switch state.cancelationReason {
+            case .highSpeed:
                 sendCancelNotification(.highSpeed)
             case .noBeacon:
                 sendCancelNotification(.noBeacon)
             case .noBluetoothDevice:
                 sendCancelNotification(.noBluetoothDevice)
-            case .noGPSData:
+            case .noLocationData:
                 sendCancelNotification(.noGpsPoint)
-            case .user, .noSpeed, .missingConfiguration, .reset, .beaconNoSpeed, .bluetoothDeviceNoSpeed:
+            case .user, .noSpeed, .missingConfiguration, .reset, .beaconNoSpeed, .bluetoothDeviceNoSpeed, .appKilled:
                 NotificationManager.removeNotification(.tripStarted(canPostpone: DriveKitTripAnalysisUI.shared.isUserAllowedToCancelTrip))
             @unknown default:
                 break

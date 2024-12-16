@@ -169,17 +169,7 @@ extension TripSimulatorDetailViewModel: DKTripSimulatorDelegate {
 }
 
 extension TripSimulatorDetailViewModel: TripListener {
-    func tripStarted(startMode: StartMode) {
-    }
-
-    func tripFinished(responseStatus: TripResponseStatus) {
-        tripSimulationDidEnd()
-    }
-
-    func tripCancelled(cancelTrip: CancelTrip) {
-    }
-
-    func tripSavedForRepost() {
+    func tripRecordingFinished(state: any DKTripRecordingFinishedState) {
         tripSimulationDidEnd()
     }
 

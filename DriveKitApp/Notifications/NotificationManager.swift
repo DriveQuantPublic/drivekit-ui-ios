@@ -398,15 +398,6 @@ extension NotificationManager: TripListener {
         }
         sendNotification(.tripEnded(message: message, transportationMode: transportationMode, hasAdvices: hasAdvices), itinId: trip.itinId)
     }
-    
-    private enum PostGenericResponseError: Int {
-        case unknown = -1
-        case noError = 0
-        case noApiKey = 21
-        case noBeaconDetected = 29
-        case invalidBeaconDetected = 30
-        case duplicateTrip = 31
-    }
 }
 
 extension NotificationManager: DKDeviceConfigurationDelegate {

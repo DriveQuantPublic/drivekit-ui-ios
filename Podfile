@@ -2,7 +2,7 @@
 platform :ios, '12.0'
 use_frameworks!
 
-source 'https://gitlab.com/drivequant/drivekit/drivekit-specs.git'
+#source 'https://gitlab.com/drivequant/drivekit/drivekit-specs.git'
 source 'https://cdn.cocoapods.org/'
 
 def swiftlint

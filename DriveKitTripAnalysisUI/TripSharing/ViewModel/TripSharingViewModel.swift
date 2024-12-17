@@ -8,12 +8,13 @@
 
 import DriveKitTripAnalysisModule
 import DriveKitCommonUI
+import UIKit
 
 class TripSharingViewModel {
     var status: SharingLinkViewStatus = .loading
     var link: DKTripSharingLink?
     
-    func updateStatus(completion: @escaping() -> Void) {
+    func updateStatus(completion: @escaping () -> Void) {
         guard DriveKitTripAnalysis.shared.tripSharing.isAvailable() == true else {
             self.status = .notAvailable
             completion()
@@ -39,7 +40,7 @@ class TripSharingViewModel {
         self.status = .notActive
     }
     
-    func activateLinkSharing(period: SharingLinkPeriod, completion: @escaping(_ success: Bool) -> Void) {
+    func activateLinkSharing(period: SharingLinkPeriod, completion: @escaping (_ success: Bool) -> Void) {
         let durationInSeconds: Int
         let oneDayInSeconds = 86_400 // 60*60*24
         let oneWeekInSeconds = 604_800 // 60*60*24*7
@@ -68,7 +69,7 @@ class TripSharingViewModel {
         }
     }
         
-    func revokeLink(completion: @escaping(_ revoked: Bool) -> Void) {
+    func revokeLink(completion: @escaping (_ revoked: Bool) -> Void) {
         DriveKitTripAnalysis.shared.tripSharing.revokeLink { revokeStatus in
             if revokeStatus == .success || revokeStatus == .noActiveLink {
                 self.status = .notActive
@@ -238,7 +239,7 @@ class TripSharingViewModel {
         } else {
             let remaingHours = Int((remainingTimeInSeconds / oneHourInSeconds).rounded(.toNearestOrAwayFromZero))
             if remaingHours < hoursInDay {
-                return (remaingHours, .day)
+                return (remaingHours, .hour)
             } else {
                 let remaingDays = Int((remainingTimeInSeconds / oneDayInSeconds).rounded(.toNearestOrAwayFromZero))
                 return (remaingDays, .day)

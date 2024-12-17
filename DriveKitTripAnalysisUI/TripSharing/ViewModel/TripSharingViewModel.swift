@@ -151,70 +151,26 @@ class TripSharingViewModel {
         guard let remaingTime = self.link?.endDate.timeIntervalSinceNow else {
             return "".dkAttributedString().build()
         }
-        let remainingTimeInSeconds = remaingTime
-        let oneDayInSeconds = 86_400.0 // 60*60*24
-        let oneHourInSeconds = 3_600.0 // 60*60
-        let oneMinuteInSeconds = 60.0
         let style: DKStyles = .normalText
-        
-        let remaingDays = Int((remainingTimeInSeconds / oneDayInSeconds).rounded(.up))
-        if remaingDays > 1 {
-            return "dk_location_sharing_active_info_days"
-                .dkTripAnalysisLocalized()
-                .dkAttributedString()
-                .font(dkFont: .primary, style: style)
-                .color(.complementaryFontColor)
-                .buildWithArgs(
-                    "\(remaingDays)"
-                        .dkAttributedString()
-                        .font(dkFont: .primary, style: style)
-                        .color(.complementaryFontColor)
-                        .build()
-                )
-        } else if remaingDays == 1 {
-            return "dk_location_sharing_active_info_day".dkTripAnalysisLocalized()
-                .dkAttributedString()
-                .font(dkFont: .primary, style: style)
-                .color(.complementaryFontColor)
-                .build()
-        } else {
-            let remaingHours = Int((remainingTimeInSeconds / oneHourInSeconds).rounded(.up))
-            if remaingHours > 1 {
-                return "dk_location_sharing_active_info_hours"
-                    .dkTripAnalysisLocalized()
-                    .dkAttributedString()
-                    .font(dkFont: .primary, style: style)
-                    .color(.complementaryFontColor)
-                    .buildWithArgs(
-                        "\(remaingHours)"
-                            .dkAttributedString()
-                            .font(dkFont: .primary, style: style)
-                            .color(.complementaryFontColor)
-                            .build()
-                    )
-            } else if remaingHours == 1 {
-                return "dk_location_sharing_active_info_hour"
-                    .dkTripAnalysisLocalized()
-                    .dkAttributedString()
-                    .font(dkFont: .primary, style: style)
-                    .color(.complementaryFontColor)
-                    .build()
-            } else {
-                let remaingMinutes = Int((remainingTimeInSeconds / oneMinuteInSeconds).rounded(.up))
-                if remaingMinutes > 1 {
+        let result = roundRemaingTime(remaingTime)
+        switch result.unit {
+            case .second:
+                return "".dkAttributedString().build()
+            case .minute:
+                if result.time > 1 {
                     return "dk_location_sharing_active_info_minutes"
                         .dkTripAnalysisLocalized()
                         .dkAttributedString()
                         .font(dkFont: .primary, style: style)
                         .color(.complementaryFontColor)
                         .buildWithArgs(
-                            "\(remaingMinutes)"
+                            "\(result.time)"
                                 .dkAttributedString()
                                 .font(dkFont: .primary, style: style)
                                 .color(.complementaryFontColor)
                                 .build()
                         )
-                } else /*if remaingMinutes == 1*/ {
+                } else {
                     return "dk_location_sharing_active_info_minute"
                         .dkTripAnalysisLocalized()
                         .dkAttributedString()
@@ -222,6 +178,70 @@ class TripSharingViewModel {
                         .color(.complementaryFontColor)
                         .build()
                 }
+            case .hour:
+                if result.time == 1 {
+                    return "dk_location_sharing_active_info_hour"
+                        .dkTripAnalysisLocalized()
+                        .dkAttributedString()
+                        .font(dkFont: .primary, style: style)
+                        .color(.complementaryFontColor)
+                        .build()
+                } else {
+                    return "dk_location_sharing_active_info_hours"
+                        .dkTripAnalysisLocalized()
+                        .dkAttributedString()
+                        .font(dkFont: .primary, style: style)
+                        .color(.complementaryFontColor)
+                        .buildWithArgs(
+                            "\(result.time)"
+                                .dkAttributedString()
+                                .font(dkFont: .primary, style: style)
+                                .color(.complementaryFontColor)
+                                .build()
+                        )
+                }
+            case .day:
+                if result.time == 1 {
+                    return "dk_location_sharing_active_info_day".dkTripAnalysisLocalized()
+                        .dkAttributedString()
+                        .font(dkFont: .primary, style: style)
+                        .color(.complementaryFontColor)
+                        .build()
+                } else {
+                    return "dk_location_sharing_active_info_days"
+                        .dkTripAnalysisLocalized()
+                        .dkAttributedString()
+                        .font(dkFont: .primary, style: style)
+                        .color(.complementaryFontColor)
+                        .buildWithArgs(
+                            "\(result.time)"
+                                .dkAttributedString()
+                                .font(dkFont: .primary, style: style)
+                                .color(.complementaryFontColor)
+                                .build()
+                        )
+                }
+        }
+    }
+    
+    func roundRemaingTime(_ remaingTimeInterval: TimeInterval) -> (time: Int, unit: DurationUnit) {
+        let remainingTimeInSeconds = remaingTimeInterval
+        let oneDayInSeconds = 86_400.0 // 60*60*24
+        let oneHourInSeconds = 3_600.0 // 60*60
+        let oneMinuteInSeconds = 60.0
+        let minutesInHour = 60
+        let hoursInDay = 24
+
+        let remaingMinutes = Int((remainingTimeInSeconds / oneMinuteInSeconds).rounded(.up))
+        if remaingMinutes < minutesInHour {
+            return (remaingMinutes, .minute)
+        } else {
+            let remaingHours = Int((remainingTimeInSeconds / oneHourInSeconds).rounded(.toNearestOrAwayFromZero))
+            if remaingHours < hoursInDay {
+                return (remaingHours, .day)
+            } else {
+                let remaingDays = Int((remainingTimeInSeconds / oneDayInSeconds).rounded(.toNearestOrAwayFromZero))
+                return (remaingDays, .day)
             }
         }
     }

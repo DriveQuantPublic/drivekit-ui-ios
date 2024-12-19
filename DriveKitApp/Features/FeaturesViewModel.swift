@@ -23,6 +23,7 @@ class FeaturesViewModel {
         FeatureViewViewModel(type: .driverAchievement_ranking),
         FeatureViewViewModel(type: .driverAchievement_badges),
         FeatureViewViewModel(type: .driverAchievement_streaks),
-        FeatureViewViewModel(type: .tripAnalysis_workingHours)
+        FeatureViewViewModel(type: .tripAnalysis_workingHours),
+        FeatureViewViewModel(type: .tripAnalysis_tripSharing)
     ].filter { $0.hasAccess }
 }

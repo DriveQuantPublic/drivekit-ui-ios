@@ -26,6 +26,7 @@
 "drivekit_doc_android_diag"="https://docs.drivequant.com/permissions-utils/permission-utils/android/main-configuration#sdk-diagnosis";
 "drivekit_doc_android_driver_data"="https://docs.drivequant.com/driver-data/user-interface/android/get-started";
 "drivekit_doc_android_github_ui"="https://github.com/DriveQuantPublic/drivekit-ui-android";
+"drivekit_doc_android_location_sharing"="https://docs.drivequant.com/trip-analysis/user-interface/android/get-started#trip-sharing";
 "drivekit_doc_android_odometer"="https://docs.drivequant.com/vehicle/user-interface/android/main-configurations#vehicle-mileage-tracking-and-editing";
 "drivekit_doc_android_permissions_management"="https://docs.drivequant.com/permissions-utils/permission-utils/android/main-configuration#permission-management";
 "drivekit_doc_android_permissions_utils"="https://docs.drivequant.com/permissions-utils/permission-utils/android/main-configuration#permission-management";
@@ -44,6 +45,7 @@
 "drivekit_doc_ios_diag"="https://docs.drivequant.com/permissions-utils/permission-utils/ios/main-configurations#sdk-diagnosis";
 "drivekit_doc_ios_driver_data"="https://docs.drivequant.com/driver-data/user-interface/ios/get-started";
 "drivekit_doc_ios_github_ui"="https://github.com/DriveQuantPublic/drivekit-ui-ios";
+"drivekit_doc_ios_location_sharing"="https://docs.drivequant.com/trip-analysis/user-interface/ios/get-started#trip-sharing";
 "drivekit_doc_ios_odometer"="https://docs.drivequant.com/vehicle/user-interface/ios/main-configurations#vehicle-mileage-tracking-and-editing";
 "drivekit_doc_ios_permissions_management"="https://docs.drivequant.com/permissions-utils/permission-utils/ios/main-configurations#permission-management";
 "drivekit_doc_ios_permissions_utils"="https://docs.drivequant.com/permissions-utils/permission-utils/ios/main-configurations#permission-management";
@@ -63,6 +65,8 @@
 "feature_challenges_title"="Challenge | List and results";
 "feature_list"="Liste over funktioner";
 "feature_list_description"="DriveKit er et rigt og alsidigt SDK, der inkluderer analyse af telefonsensorer, visning af kørselsdata, chaufførcoaching og gamification-funktioner. Oplev disse funktioner, før du integrerer dem i din app 🚀.";
+"feature_location_sharing_description"="Trip Analysis-komponenten indeholder en funktion til at berolige brugerens familie og venner under kørslen takket være et link, der kan deles, og som viser bilens position under kørslen.";
+"feature_location_sharing_title"="Trip Analysis | Deling af placering";
 "feature_permission_onboarding_ok"="Onboarding-tilladelserne er ikke tilgængelige, fordi du allerede har givet alle tilladelser.";
 "feature_permission_utils_description"="Komponenten Permissions Utils indeholder en diagnostisk funktion til at tjekke status for sensorer og tilladelser. Denne komponent advarer brugeren og guider ham til at konfigurere sin telefon.";
 "feature_permission_utils_onboarding_description"="Komponenten Permissions Utils indeholder skærmbilleder, der viser de tilladelsesanmodninger, der er nødvendige for automatisk drift og dataanalyse. Vi anbefaler, at du bruger denne komponent eller kopierer den i din app.";

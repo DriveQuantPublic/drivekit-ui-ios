@@ -103,6 +103,10 @@ import DriveKitTripAnalysisModule
 }
 
 extension DriveKitTripAnalysisUI: DriveKitTripAnalysisUIEntryPoint {
+    public func getTripSharingViewController() -> UIViewController {
+        return TripSharingViewController()
+    }
+
     public func getWorkingHoursViewController() -> UIViewController {
         let workingHoursVC = WorkingHoursViewController()
         return workingHoursVC

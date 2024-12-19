@@ -33,7 +33,7 @@ PODS:
   - DriveKitVehicle (2.9.0):
     - DriveKitBeaconUtils (= 2.9.0)
     - DriveKitDBVehicleAccess (= 2.9.0)
-  - SwiftLint (0.54.0)
+  - SwiftLint (0.57.1)
   - WARangeSlider (1.2.0)
 
 DEPENDENCIES:
@@ -82,9 +82,9 @@ SPEC CHECKSUMS:
   DriveKitTripAnalysis: 6aa5c8551f70fc17b0c92ab551428b62a4ff39d4
   DriveKitTripSimulator: 6af97e28cf61df939490c7367aa04d86f25c0888
   DriveKitVehicle: d362d87858bc27a425c2e887517bf269eead6f76
-  SwiftLint: c1de071d9d08c8aba837545f6254315bc900e211
+  SwiftLint: 92196976e597b9afec5dbe374810103e6c1d9d7c
   WARangeSlider: 03f195d4dc5419e6b0d9043cc94fdf418dfe804d
 
 PODFILE CHECKSUM: f19f8cd63ee92d06ff9b859d81fb72b4af58cb32
 
-COCOAPODS: 1.15.2
+COCOAPODS: 1.16.2

@@ -13,10 +13,10 @@ import DriveKitDBTripAccessModule
 import DriveKitCommonUI
 
 class SynthesisPageViewModel {
-    let trip: Trip
+    let trip: DKTrip
     let unknown = "dk_driverdata_unknown".dkDriverDataLocalized()
     
-    init(trip: Trip) {
+    init(trip: DKTrip) {
         self.trip = trip
     }
 
@@ -128,8 +128,8 @@ class SynthesisPageViewModel {
     }
     
     var contextValue: String {
-        if let contexts = trip.ecoDrivingContexts?.allObjects as? [EcoDrivingContext] {
-            var mainContext: EcoDrivingContext = contexts[0]
+        if let contexts = trip.ecoDrivingContexts {
+            var mainContext: DKEcoDrivingContext = contexts[0]
             
             for context in contexts where context.distance > mainContext.distance {
                 mainContext = context

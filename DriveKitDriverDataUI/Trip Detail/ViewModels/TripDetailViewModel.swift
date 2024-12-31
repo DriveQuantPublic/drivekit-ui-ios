@@ -17,15 +17,9 @@ class TripDetailViewModel: DKTripDetailViewModel {
     let itinId: String
     private let mapItems: [DKMapItem]
 
-    private var internalTrip: Trip?
-    var trip: Trip? {
+    private var internalTrip: DKTrip?
+    var trip: DKTrip? {
         get {
-            if let internalTrip = self.internalTrip, !internalTrip.isValid() {
-                self.internalTrip = internalTrip.attachedTrip(itinId: self.itinId)
-                DispatchQueue.main.async { [weak self] in
-                    self?.fetchTripData()
-                }
-            }
             return internalTrip
         }
         set {
@@ -33,8 +27,8 @@ class TripDetailViewModel: DKTripDetailViewModel {
             self.calls = self.trip?.sortedCalls
         }
     }
-    var route: Route?
-    private var calls: [Call]?
+    var route: DKRoute?
+    private var calls: [DKCall]?
     private var routeSync: Bool?
     private var tripSyncStatus: TripSyncStatus?
     
@@ -73,7 +67,7 @@ class TripDetailViewModel: DKTripDetailViewModel {
         }
     }
 
-    func getCallFromIndex(_ index: Int) -> Call? {
+    func getCallFromIndex(_ index: Int) -> DKCall? {
         if let calls = self.calls, index < 2 * calls.count {
             return calls[index / 2]
         }
@@ -91,7 +85,7 @@ class TripDetailViewModel: DKTripDetailViewModel {
             self.computeEvents()
         })
         DriveKitDriverData.shared.getTrip(itinId: itinId, completionHandler: { status, trip in
-            if let trip = trip?.attachedTrip(itinId: self.itinId) {
+            if let trip = trip {
                 DispatchQueue.main.async {
                     self.configurableMapItems = []
                     self.tripSyncStatus = status
@@ -128,7 +122,7 @@ class TripDetailViewModel: DKTripDetailViewModel {
                 addStartEvent(trip: trip)
                 if let safetyEvents = trip.safetyEvents, mapItems.contains(MapItem.safety) {
                     for safetyEvent in safetyEvents {
-                        let event = safetyEvent as! SafetyEvents
+                        let event = safetyEvent
                         switch event.type {
                         case 1:
                             events.append(TripEvent(
@@ -227,7 +221,7 @@ class TripDetailViewModel: DKTripDetailViewModel {
         }
     }
 
-    private func addCallEvent(type: EventType, phoneCall: Call, callTime: Int, trip: Trip, latitude: Double, longitude: Double) {
+    private func addCallEvent(type: EventType, phoneCall: DKCall, callTime: Int, trip: DKTrip, latitude: Double, longitude: Double) {
         let event = TripEvent(
             type: type, 
             date: trip.tripStartDate.addingTimeInterval(Double(callTime)),
@@ -238,14 +232,14 @@ class TripDetailViewModel: DKTripDetailViewModel {
         self.events.append(event)
     }
 
-    private func addStartAndEndEvents(trip: Trip) {
+    private func addStartAndEndEvents(trip: DKTrip) {
         if self.route != nil {
             self.addStartEvent(trip: trip)
             self.addEndEvent(trip: trip)
         }
     }
 
-    private func addStartEvent(trip: Trip) {
+    private func addStartEvent(trip: DKTrip) {
         guard
             let route = self.route,
             let startLocation = route.startLocation
@@ -263,7 +257,7 @@ class TripDetailViewModel: DKTripDetailViewModel {
         self.startEvent = startEvent
     }
 
-    private func addEndEvent(trip: Trip) {
+    private func addEndEvent(trip: DKTrip) {
         guard
             let route = self.route,
             let endLocation = route.endLocation

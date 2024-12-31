@@ -22,14 +22,14 @@ class TripTipFeedbackViewModel {
     var selectedChoice: Int
     var adviceID: String
     var itinId: String
-    var advice: TripAdvice
+    var advice: DKTripAdvice
     var evaluation: Int
     var comment: String = ""
     var feedBack: Int = 0
 
     let noChoice = -1
 
-    init(trip: Trip, tripAdvice: TripAdvice) {
+    init(trip: DKTrip, tripAdvice: DKTripAdvice) {
         self.title = "dk_driverdata_advice_feedback_disagree_title".dkDriverDataLocalized()
         self.content = "dk_driverdata_advice_feedback_disagree_desc".dkDriverDataLocalized()
         self.cancel = DKCommonLocalizable.cancel.text()

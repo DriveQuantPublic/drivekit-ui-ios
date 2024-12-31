@@ -29,11 +29,11 @@ class AlternativeTripMapItem: DKMapItem {
         return nil
     }
     
-    func getAdvice(trip: Trip) -> TripAdvice? {
+    func getAdvice(trip: DKTrip) -> DKTripAdvice? {
         return nil
     }
     
-    func viewController(trip: Trip, parentViewController: UIViewController, tripDetailViewModel: DKTripDetailViewModel) -> UIViewController {
+    func viewController(trip: DKTrip, parentViewController: UIViewController, tripDetailViewModel: DKTripDetailViewModel) -> UIViewController {
         return AlternativeTripDetailInfoVC(viewModel: AlternativeTripViewModel(trip: trip), parentView: parentViewController)
     }
     
@@ -49,7 +49,7 @@ class AlternativeTripMapItem: DKMapItem {
         return []
     }
     
-    func canShowMapItem(trip: Trip) -> Bool {
+    func canShowMapItem(trip: DKTrip) -> Bool {
         return true
     }
     

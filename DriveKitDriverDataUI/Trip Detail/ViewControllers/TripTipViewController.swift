@@ -25,11 +25,11 @@ class TripTipViewController: DKUIViewController {
     @IBOutlet var noImage: UIImageView!
     @IBOutlet var noLabel: UILabel!
     
-    private let advice: TripAdvice
-    private let trip: Trip
+    private let advice: DKTripAdvice
+    private let trip: DKTrip
     private let tripDetailVC: TripDetailVC
     
-    init(trip: Trip, advice: TripAdvice, tripDetailVC: TripDetailVC) {
+    init(trip: DKTrip, advice: DKTripAdvice, tripDetailVC: TripDetailVC) {
         self.trip = trip
         self.tripDetailVC = tripDetailVC
         self.advice = advice

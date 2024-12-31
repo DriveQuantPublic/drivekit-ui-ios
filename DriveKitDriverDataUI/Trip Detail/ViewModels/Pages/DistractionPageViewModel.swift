@@ -14,7 +14,7 @@ import DriveKitDBTripAccessModule
 import UIKit
 
 struct DistractionPageViewModel {
-    let trip: Trip
+    let trip: DKTrip
     let tripDetailViewModel: DKTripDetailViewModel
     let scoreType: DKScoreType = .distraction
 
@@ -98,7 +98,7 @@ struct DistractionPageViewModel {
     }
 
     func getPhoneCallsDuration() -> String {
-        if let calls = self.trip.calls as? Set<Call> {
+        if let calls = self.trip.calls {
             let duration = calls.reduce(into: 0) { result, call in
                 result += call.duration
             }
@@ -108,7 +108,7 @@ struct DistractionPageViewModel {
     }
 
     func getPhoneCallsDistance() -> String {
-        if let calls = self.trip.calls as? Set<Call> {
+        if let calls = self.trip.calls {
             let distance = calls.reduce(into: 0) { result, call in
                 result += call.distance
             }

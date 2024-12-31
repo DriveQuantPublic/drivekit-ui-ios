@@ -17,10 +17,10 @@ public protocol DKSynthesisCardInfo {
 }
 
 public enum SynthesisCardInfo: DKSynthesisCardInfo {
-    case activeDays(trips: [Trip])
-    case count(trips: [Trip])
-    case distance(trips: [Trip])
-    case duration(trips: [Trip])
+    case activeDays(trips: [DKTrip])
+    case count(trips: [DKTrip])
+    case distance(trips: [DKTrip])
+    case duration(trips: [DKTrip])
 
     public func getIcon() -> UIImage? {
         let image: DKImages

@@ -40,7 +40,7 @@ public class TripListVC: DKUIViewController {
         self.view.backgroundColor = .white
         self.title = "dk_driverdata_trips_list_title".dkDriverDataLocalized()
         tripListTableViewModel = DKTripListViewModel(tripList: self)
-        let tripsListTableVC = TripsListTableVC<Trip>(viewModel: tripListTableViewModel!)
+        let tripsListTableVC = TripsListTableVC<DKTrip>(viewModel: tripListTableViewModel!)
         self.addChild(tripsListTableVC)
         if let tripsTableView = tripsListTableVC.tableView {
             self.tripsTableView = tripsTableView

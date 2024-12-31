@@ -11,10 +11,10 @@ import Foundation
 import DriveKitDBTripAccessModule
 
 class AlternativeTripViewModel {
-    private let trip: Trip
+    private let trip: DKTrip
     let unknown = "dk_driverdata_unknown".dkDriverDataLocalized()
     
-    init(trip: Trip) {
+    init(trip: DKTrip) {
         self.trip = trip
     }
     
@@ -63,12 +63,12 @@ class AlternativeTripViewModel {
     }
 
     func detectedTransportationMode() -> TransportationMode {
-        return TransportationMode(rawValue: Int(trip.transportationMode)) ?? .unknown
+        return trip.transportationMode
     }
 
     func declaredTransportationMode() -> TransportationMode? {
         if let declaredTransportation = trip.declaredTransportationMode?.transportationMode {
-            return TransportationMode(rawValue: Int(declaredTransportation))
+            return declaredTransportation
         } else {
             return nil
         }

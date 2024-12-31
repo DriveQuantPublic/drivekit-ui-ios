@@ -12,7 +12,7 @@ import DriveKitDBTripAccessModule
 import CoreLocation
 import DriveKitCommonUI
 
-extension Trip {    
+extension DKTrip {
     var duration: Int {
         guard let duration = self.tripStatistics?.duration else {
             return 0
@@ -33,11 +33,11 @@ extension Trip {
     }
     
     var declaredTransportationModeInt: Int32? {
-        return self.declaredTransportationMode?.transportationMode
+        return Int32(self.declaredTransportationMode?.transportationMode.rawValue ?? 0)
     }
 
-    var sortedCalls: [Call]? {
-        if let calls = self.calls as? Set<Call> {
+    var sortedCalls: [DKCall]? {
+        if let calls = self.calls {
             let sortedCalls = calls.sorted(by: { call1, call2 -> Bool in
                 call1.start < call2.start
             })
@@ -54,16 +54,16 @@ extension Trip {
     }()
 }
 
-extension Array where Element: Trip {
+extension Array where Element: DKTrip {
     var totalActiveDays: Int {
         let keys = reduce(into: Set<String>()) { keys, trip in
-            keys.insert(Trip.activeDayDateFormatter.string(from: trip.tripEndDate))
+            keys.insert(DKTrip.activeDayDateFormatter.string(from: trip.tripEndDate))
         }
         return keys.count
     }
 }
 
-extension Route {
+extension DKRoute {
     var startLocation: CLLocationCoordinate2D? {
         return coordinate(at: 0)
     }
@@ -99,7 +99,7 @@ extension Route {
     }
 }
 
-extension TripAdvice {
+extension DKTripAdvice {
     func adviceImage() -> UIImage? {
         if self.theme == "SAFETY" {
             return DKImages.safetyAdvice.image
@@ -111,13 +111,13 @@ extension TripAdvice {
     }
 }
 
-public extension SafetyContext {
+public extension DKSafetyContext {
     var roadCondition: DKRoadCondition? {
         return DKRoadCondition(rawValue: Int(self.contextId))
     }
 }
 
-public extension EcoDrivingContext {
+public extension DKEcoDrivingContext {
     var roadCondition: DKRoadCondition? {
         return DKRoadCondition(rawValue: Int(self.contextId))
     }

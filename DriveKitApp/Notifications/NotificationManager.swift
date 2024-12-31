@@ -340,18 +340,18 @@ extension NotificationManager: TripListener {
         sendNotification(.noNetwork)
     }
 
-    private func manageTripFinishedAndValid(_ trip: Trip?) {
+    private func manageTripFinishedAndValid(_ trip: DKTrip?) {
         guard let trip, let distance = trip.tripStatistics?.distance, distance > 0 else {
             return
         }
-        let transportationMode: TransportationMode = TransportationMode(rawValue: Int(trip.transportationMode)) ?? .unknown
+        let transportationMode: TransportationMode = trip.transportationMode
         let message: String?
         let hasAdvices: Bool
         if transportationMode.isAlternative() && transportationMode.isAlternativeNotificationManaged {
             message = nil
             hasAdvices = false
         } else {
-            if let tripAdvices = trip.tripAdvices?.allObjects as? [TripAdvice], !tripAdvices.isEmpty {
+            if let tripAdvices = trip.tripAdvices, !tripAdvices.isEmpty {
                 let adviceString: String
                 if tripAdvices.count > 1 {
                     adviceString = "notif_trip_finished_advices".keyLocalized()

@@ -12,7 +12,7 @@ import DriveKitCommonUI
 import UIKit
 
 struct ChallengeTrip: DKTripListItem {
-    let trip: Trip
+    let trip: DKTrip
 
     public func getItinId() -> String {
         return trip.itinId ?? ""
@@ -84,10 +84,10 @@ struct ChallengeTrip: DKTripListItem {
     }
 
     public func isAlternative() -> Bool {
-        guard let transportationMode = TransportationMode(rawValue: Int(trip.transportationMode)) else {
+        guard trip.transportationMode != .unknown else {
             return true
         }
-        switch transportationMode {
+        switch trip.transportationMode {
             case .unknown,
                  .car,
                  .moto,
@@ -109,7 +109,7 @@ struct ChallengeTrip: DKTripListItem {
     }
 
     public func infoText() -> String? {
-        guard let tripAdvices: Set<TripAdvice> = trip.tripAdvices as? Set<TripAdvice> else {
+        guard let tripAdvices: [DKTripAdvice] = trip.tripAdvices else {
             return nil
         }
         if tripAdvices.count > 1 {
@@ -120,7 +120,7 @@ struct ChallengeTrip: DKTripListItem {
     }
 
     public func infoImage() -> UIImage? {
-        guard let tripAdvices: [TripAdvice] = trip.tripAdvices?.allObjects as? [TripAdvice] else {
+        guard let tripAdvices: [DKTripAdvice] = trip.tripAdvices else {
             return nil
         }
         if tripAdvices.count > 1 {
@@ -137,7 +137,7 @@ struct ChallengeTrip: DKTripListItem {
     }
 
     public func infoClickAction(parentViewController: UIViewController) {
-        let showAdvice = (trip.tripAdvices as? Set<TripAdvice>)?.count ?? 0 > 0
+        let showAdvice = trip.tripAdvices?.count ?? 0 > 0
         if let tripId = trip.itinId {
             if let challengeTripsVC: ChallengeTripsVC = parentViewController.parent as? ChallengeTripsVC {
                 challengeTripsVC.didSelectTrip(itinId: tripId, showAdvice: showAdvice)
@@ -150,7 +150,7 @@ struct ChallengeTrip: DKTripListItem {
     }
 
     public func isInfoDisplayable() -> Bool {
-        guard let tripAdvices: Set<TripAdvice> = trip.tripAdvices as? Set<TripAdvice> else {
+        guard let tripAdvices: [DKTripAdvice] = trip.tripAdvices else {
             return false
         }
         return !tripAdvices.isEmpty

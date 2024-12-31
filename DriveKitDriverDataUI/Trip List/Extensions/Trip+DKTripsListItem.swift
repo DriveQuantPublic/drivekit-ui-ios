@@ -12,7 +12,7 @@ import DriveKitCommonUI
 import DriveKitCoreModule
 import DriveKitDBTripAccessModule
 
-extension Trip: @retroactive DKTripListItem {
+extension DKTrip: @retroactive DKTripListItem {
     public func getItinId() -> String {
         return self.itinId ?? ""
     }
@@ -79,11 +79,11 @@ extension Trip: @retroactive DKTripListItem {
     }
 
     public func getTransportationModeImage() -> UIImage? {
-        return TransportationMode(rawValue: Int(self.declaredTransportationMode?.transportationMode ?? self.transportationMode))?.getImage()
+        return self.declaredTransportationMode?.transportationMode.getImage() ?? self.transportationMode.getImage()
     }
 
     public func isAlternative() -> Bool {
-        guard let transportationMode = TransportationMode(rawValue: Int(self.transportationMode)) else {
+        guard self.transportationMode != .unknown else {
             return true
         }
         return transportationMode.isAlternative()
@@ -93,7 +93,7 @@ extension Trip: @retroactive DKTripListItem {
         if let customTripInfo = DriveKitDriverDataUI.shared.customTripInfo {
             return customTripInfo.infoText(trip: self)
         } else {
-            guard let tripAdvices: Set<TripAdvice> = self.tripAdvices as? Set<TripAdvice> else {
+            guard let tripAdvices: [DKTripAdvice] = self.tripAdvices else {
                 return nil
             }
             if tripAdvices.count > 1 {
@@ -108,7 +108,7 @@ extension Trip: @retroactive DKTripListItem {
         if let customTripInfo = DriveKitDriverDataUI.shared.customTripInfo {
             return customTripInfo.infoImage(trip: self)
         } else {
-            guard let tripAdvices: [TripAdvice] = self.tripAdvices?.allObjects as? [TripAdvice] else {
+            guard let tripAdvices: [DKTripAdvice] = self.tripAdvices else {
                 return nil
             }
             if tripAdvices.count > 1 {
@@ -126,7 +126,7 @@ extension Trip: @retroactive DKTripListItem {
         if let customTripInfo = DriveKitDriverDataUI.shared.customTripInfo {
             return customTripInfo.infoClickAction(parentViewController: parentViewController, trip: self)
         } else {
-            let showAdvice = (self.tripAdvices as? Set<TripAdvice>)?.count ?? 0 > 0
+            let showAdvice = self.tripAdvices?.count ?? 0 > 0
             if let itinId = self.itinId {
                 if let navigationController = parentViewController.navigationController {
                     let tripDetail = TripDetailVC(itinId: itinId, showAdvice: showAdvice, listConfiguration: .motorized())
@@ -150,7 +150,7 @@ extension Trip: @retroactive DKTripListItem {
         if let customTripInfo = DriveKitDriverDataUI.shared.customTripInfo {
             return customTripInfo.isInfoDisplayable(trip: self)
         } else {
-            guard let tripAdvices: Set<TripAdvice> = self.tripAdvices as? Set<TripAdvice> else {
+            guard let tripAdvices: [DKTripAdvice] = self.tripAdvices else {
                 return false
             }
             return !tripAdvices.isEmpty

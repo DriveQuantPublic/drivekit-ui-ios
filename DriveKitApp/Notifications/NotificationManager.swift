@@ -219,7 +219,7 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
         if let appDelegate = UIApplication.shared.delegate, 
             let rootViewController = appDelegate.window??.rootViewController,
             let trip = DriveKitDBTripAccess.shared.find(itinId: identifier) {
-            let transportationMode: TransportationMode = TransportationMode(rawValue: Int(trip.transportationMode)) ?? .unknown
+            let transportationMode: TransportationMode = trip.transportationMode
             let isAlternative = transportationMode.isAlternative()
             let showAdvice = !isAlternative && hasAdvices
             let detailVC = DriveKitDriverDataUI.shared.getTripDetailViewController(itinId: identifier, showAdvice: showAdvice, alternativeTransport: isAlternative)

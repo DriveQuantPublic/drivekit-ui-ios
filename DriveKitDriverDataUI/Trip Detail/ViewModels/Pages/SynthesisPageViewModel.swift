@@ -97,19 +97,19 @@ class SynthesisPageViewModel {
     }
     
     var weatherValue: String {
-        if let meteo = trip.tripStatistics?.meteo {
+        if let meteo = trip.tripStatistics?.weather {
             switch meteo {
-                case 1:
+                case .sun:
                     return "dk_driverdata_weather_sun".dkDriverDataLocalized()
-                case 2:
+                case .cloud:
                     return "dk_driverdata_weather_cloud".dkDriverDataLocalized()
-                case 3:
+                case .fog:
                     return "dk_driverdata_weather_fog".dkDriverDataLocalized()
-                case 4:
+                case .rain:
                     return "dk_driverdata_weather_rain".dkDriverDataLocalized()
-                case 5:
+                case .snow:
                     return "dk_driverdata_weather_snow".dkDriverDataLocalized()
-                case 6:
+                case .ice:
                     return "dk_driverdata_weather_hail".dkDriverDataLocalized()
                 default:
                     return "dk_driverdata_weather_sun".dkDriverDataLocalized()

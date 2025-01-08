@@ -171,8 +171,8 @@ class TripListViewModel {
     private func filterTrips(transportationMode: TransportationMode?) {
         if let transportationMode = transportationMode {
             self.filterTrips {
-                if let declaredMode = $0.declaredTransportationModeInt {
-                    return declaredMode == transportationMode.rawValue
+                if let declaredMode = $0.declaredTransportationMode?.transportationMode {
+                    return declaredMode == transportationMode
                 } else if transportationMode.isAlternative() {
                     return $0.transportationMode == transportationMode
                 } else {

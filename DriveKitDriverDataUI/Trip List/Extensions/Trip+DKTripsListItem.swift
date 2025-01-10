@@ -14,7 +14,7 @@ import DriveKitDBTripAccessModule
 
 extension DKTrip: @retroactive DKTripListItem {
     public func getItinId() -> String {
-        return self.itinId ?? ""
+        return self.itinId
     }
     public func getDuration() -> Double {
         return Double(self.duration)
@@ -127,14 +127,13 @@ extension DKTrip: @retroactive DKTripListItem {
             return customTripInfo.infoClickAction(parentViewController: parentViewController, trip: self)
         } else {
             let showAdvice = self.tripAdvices?.count ?? 0 > 0
-            if let itinId = self.itinId {
+            let itinId = self.itinId
                 if let navigationController = parentViewController.navigationController {
                     let tripDetail = TripDetailVC(itinId: itinId, showAdvice: showAdvice, listConfiguration: .motorized())
                     navigationController.pushViewController(tripDetail, animated: true)
                 } else {
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DKShowTripDetail"), object: nil, userInfo: ["itinId": itinId])
                 }
-            }
         }
     }
 

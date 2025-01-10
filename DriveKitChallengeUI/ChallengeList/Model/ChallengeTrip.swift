@@ -15,7 +15,7 @@ struct ChallengeTrip: DKTripListItem {
     let trip: DKTrip
 
     public func getItinId() -> String {
-        return trip.itinId ?? ""
+        return trip.itinId
     }
     public func getDuration() -> Double {
         return Double(trip.tripStatistics?.duration ?? 0)
@@ -138,11 +138,10 @@ struct ChallengeTrip: DKTripListItem {
 
     public func infoClickAction(parentViewController: UIViewController) {
         let showAdvice = trip.tripAdvices?.count ?? 0 > 0
-        if let tripId = trip.itinId {
+        let tripId = trip.itinId
             if let challengeTripsVC: ChallengeTripsVC = parentViewController.parent as? ChallengeTripsVC {
                 challengeTripsVC.didSelectTrip(itinId: tripId, showAdvice: showAdvice)
             }
-        }
     }
 
     public func hasInfoActionConfigured() -> Bool {

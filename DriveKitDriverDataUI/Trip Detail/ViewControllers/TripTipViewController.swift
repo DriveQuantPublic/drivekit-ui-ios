@@ -128,13 +128,13 @@ class TripTipViewController: DKUIViewController {
     @objc func tapOnYesButton(_ sender: UITapGestureRecognizer) {
         let feedbackViewModel = TripTipFeedbackViewModel(trip: self.trip, tripAdvice: self.advice)
         feedbackViewModel.evaluation = 1
-        feedbackViewModel.itinId = self.trip.itinId ?? ""
+        feedbackViewModel.itinId = self.trip.itinId
 
         feedbackViewModel.sendFeedback(completion: { status in
             if status {
                 DispatchQueue.main.async {
                     self.showAlertMessage(title: nil, message: "dk_driverdata_advice_feedback_success".dkDriverDataLocalized(), back: true, cancel: false, completion: {
-                        DriveKitDriverData.shared.getTrip(itinId: self.trip.itinId ?? "", completionHandler: { _, trip in
+                        DriveKitDriverData.shared.getTrip(itinId: self.trip.itinId, completionHandler: { _, trip in
                             self.tripDetailVC.viewModel.trip = trip
                         })
                     })

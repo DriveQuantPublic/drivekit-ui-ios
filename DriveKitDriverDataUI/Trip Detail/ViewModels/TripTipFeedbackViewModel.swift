@@ -45,7 +45,7 @@ class TripTipFeedbackViewModel {
         selectedChoice = noChoice
         advice = tripAdvice
         adviceID = advice.id ?? ""
-        itinId = trip.itinId ?? ""
+        itinId = trip.itinId
         evaluation = 0
     }
 

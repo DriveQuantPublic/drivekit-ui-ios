@@ -127,7 +127,7 @@ class TripSharingViewModel {
                             .build()
                     )
             case .active:
-                let remaingTimeText = getRemaingTimeAttributedText()
+                let remainingTimeText = getRemainingTimeAttributedText()
                 return "\n%@\n\n%@\n\n%@"
                     .dkAttributedString()
                     .buildWithArgs(
@@ -143,17 +143,17 @@ class TripSharingViewModel {
                             .font(dkFont: .primary, style: .normalText)
                             .color(.complementaryFontColor)
                             .build(),
-                        remaingTimeText
+                        remainingTimeText
                     )
         }
     }
     
-    func getRemaingTimeAttributedText() -> NSMutableAttributedString {
-        guard let remaingTime = self.link?.endDate.timeIntervalSinceNow else {
+    func getRemainingTimeAttributedText() -> NSMutableAttributedString {
+        guard let remainingTime = self.link?.endDate.timeIntervalSinceNow else {
             return "".dkAttributedString().build()
         }
         let style: DKStyles = .normalText
-        let result = roundRemaingTime(remaingTime)
+        let result = roundRemainingTime(remainingTime)
         switch result.unit {
             case .second:
                 return "".dkAttributedString().build()
@@ -225,24 +225,24 @@ class TripSharingViewModel {
         }
     }
     
-    func roundRemaingTime(_ remaingTimeInterval: TimeInterval) -> (time: Int, unit: DurationUnit) {
-        let remainingTimeInSeconds = remaingTimeInterval
+    func roundRemainingTime(_ remainingTimeInterval: TimeInterval) -> (time: Int, unit: DurationUnit) {
+        let remainingTimeInSeconds = remainingTimeInterval
         let oneDayInSeconds = 86_400.0 // 60*60*24
         let oneHourInSeconds = 3_600.0 // 60*60
         let oneMinuteInSeconds = 60.0
         let minutesInHour = 60
         let hoursInDay = 24
 
-        let remaingMinutes = Int((remainingTimeInSeconds / oneMinuteInSeconds).rounded(.up))
-        if remaingMinutes < minutesInHour {
-            return (remaingMinutes, .minute)
+        let remainingMinutes = Int((remainingTimeInSeconds / oneMinuteInSeconds).rounded(.up))
+        if remainingMinutes < minutesInHour {
+            return (remainingMinutes, .minute)
         } else {
-            let remaingHours = Int((remainingTimeInSeconds / oneHourInSeconds).rounded(.toNearestOrAwayFromZero))
-            if remaingHours < hoursInDay {
-                return (remaingHours, .hour)
+            let remainingHours = Int((remainingTimeInSeconds / oneHourInSeconds).rounded(.toNearestOrAwayFromZero))
+            if remainingHours < hoursInDay {
+                return (remainingHours, .hour)
             } else {
-                let remaingDays = Int((remainingTimeInSeconds / oneDayInSeconds).rounded(.toNearestOrAwayFromZero))
-                return (remaingDays, .day)
+                let remainingDays = Int((remainingTimeInSeconds / oneDayInSeconds).rounded(.toNearestOrAwayFromZero))
+                return (remainingDays, .day)
             }
         }
     }

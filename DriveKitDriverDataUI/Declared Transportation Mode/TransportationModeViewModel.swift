@@ -32,10 +32,6 @@ class TransportationModeViewModel {
     }
     
     func declaredTransportationMode() -> TransportationMode? {
-        if let declaredTransportation = trip.declaredTransportationMode?.transportationMode {
-            return declaredTransportation
-        } else {
-            return nil
-        }
+        return trip.declaredTransportationMode?.transportationMode
     }
 }

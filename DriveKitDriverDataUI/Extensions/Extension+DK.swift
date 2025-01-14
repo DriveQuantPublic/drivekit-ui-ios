@@ -31,19 +31,11 @@ extension DKTrip {
     var tripEndDate: Date {
         return self.endDate ?? Date()
     }
-    
-    var declaredTransportationModeInt: Int32? {
-        return Int32(self.declaredTransportationMode?.transportationMode.rawValue ?? 0)
-    }
 
     var sortedCalls: [DKCall]? {
-        if let calls = self.calls {
-            let sortedCalls = calls.sorted(by: { call1, call2 -> Bool in
-                call1.start < call2.start
-            })
-            return sortedCalls
-        }
-        return nil
+        return self.calls?.sorted(by: { call1, call2 -> Bool in
+            call1.start < call2.start
+        })
     }
 
     fileprivate static let activeDayDateFormatter: DateFormatter = {

@@ -97,8 +97,8 @@ class SynthesisPageViewModel {
     }
     
     var weatherValue: String {
-        if let meteo = trip.tripStatistics?.weather {
-            switch meteo {
+        if let weather = trip.tripStatistics?.weather {
+            switch weather {
                 case .sun:
                     return "dk_driverdata_weather_sun".dkDriverDataLocalized()
                 case .cloud:

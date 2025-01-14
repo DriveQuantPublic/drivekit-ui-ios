@@ -26,8 +26,8 @@ class AlternativeTripViewModel {
     }
     
     var weatherValue: String {
-        if let meteo = trip.tripStatistics?.weather {
-            switch meteo {
+        if let weather = trip.tripStatistics?.weather {
+            switch weather {
                 case .sun:
                     return "dk_driverdata_weather_sun".dkDriverDataLocalized()
                 case .cloud:
@@ -66,11 +66,7 @@ class AlternativeTripViewModel {
     }
 
     func declaredTransportationMode() -> TransportationMode? {
-        if let declaredTransportation = trip.declaredTransportationMode?.transportationMode {
-            return declaredTransportation
-        } else {
-            return nil
-        }
+        return trip.declaredTransportationMode?.transportationMode
     }
 
     func getTransportationModeViewModel() -> TransportationModeViewModel {

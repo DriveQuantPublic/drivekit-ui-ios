@@ -17,13 +17,8 @@ class TripDetailViewModel: DKTripDetailViewModel {
     let itinId: String
     private let mapItems: [DKMapItem]
 
-    private var internalTrip: DKTrip?
     var trip: DKTrip? {
-        get {
-            return internalTrip
-        }
-        set {
-            internalTrip = newValue
+        didSet {
             self.calls = self.trip?.sortedCalls
         }
     }

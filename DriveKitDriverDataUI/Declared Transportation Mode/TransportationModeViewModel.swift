@@ -27,7 +27,7 @@ class TransportationModeViewModel {
         return trip.declaredTransportationMode?.passenger
     }
     
-    var itinId: String? {
+    var itinId: String {
         return trip.itinId
     }
     

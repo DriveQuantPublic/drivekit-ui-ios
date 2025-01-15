@@ -13,7 +13,7 @@ import DriveKitDriverDataModule
 
 enum LastTripsWidgetUtils {
 
-    public static func getLastTrips(limit: Int) -> [Trip] {
+    public static func getLastTrips(limit: Int) -> [DKTrip] {
         let transportationModes: [TransportationMode] = [.unknown, .car, .moto, .truck]
         let tripsQuery = getTripsQuery(forTransportationModes: transportationModes)
         let lastTrips = tripsQuery
@@ -24,7 +24,7 @@ enum LastTripsWidgetUtils {
         return lastTrips
     }
 
-    private static func getTripsQuery(forTransportationModes transportationModes: [TransportationMode]) -> Query<Trip, Trip> {
+    private static func getTripsQuery(forTransportationModes transportationModes: [TransportationMode]) -> Query<DBTrip, DKTrip> {
         let transportationModesValues = transportationModes.map { $0.rawValue }
         let tripsQuery = DriveKitDriverData.shared.tripsQuery()
             .whereIn(field: "transportationMode", value: transportationModesValues)

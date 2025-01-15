@@ -145,7 +145,7 @@ class MapViewController: DKUIViewController {
         return line
     }
     
-    private func getDistractionPolyline(route: Route) -> [[CLLocationCoordinate2D]] {
+    private func getDistractionPolyline(route: DKRoute) -> [[CLLocationCoordinate2D]] {
         guard
             let longitudes = route.longitude,
             let latitudes = route.latitude,
@@ -179,7 +179,7 @@ class MapViewController: DKUIViewController {
         return distractionPolylines
     }
 
-    private func getPhoneCallPolylines(route: Route) -> ([[CLLocationCoordinate2D]], [[CLLocationCoordinate2D]]) {
+    private func getPhoneCallPolylines(route: DKRoute) -> ([[CLLocationCoordinate2D]], [[CLLocationCoordinate2D]]) {
         guard
             let longitudes = route.longitude,
             let latitudes = route.latitude,
@@ -213,7 +213,7 @@ class MapViewController: DKUIViewController {
         return (phoneCallPolylines, authorizedPhoneCallPolylines)
     }
 
-    private func getSpeedingPolylines(route: Route) -> [[CLLocationCoordinate2D]] {
+    private func getSpeedingPolylines(route: DKRoute) -> [[CLLocationCoordinate2D]] {
         guard
             let longitudes = route.longitude,
             let latitudes = route.latitude,
@@ -282,7 +282,7 @@ class MapViewController: DKUIViewController {
         }
     }
 
-    private func drawDistraction(route: Route) {
+    private func drawDistraction(route: DKRoute) {
         if let distractionPolyLines = self.distractionPolyLines {
             for distractionPolyline in distractionPolyLines {
                 if let line = self.polyLine {
@@ -306,7 +306,7 @@ class MapViewController: DKUIViewController {
         }
     }
 
-    private func drawPhoneCalls(route: Route) {
+    private func drawPhoneCalls(route: DKRoute) {
         if let phoneCallPolylines = self.phoneCallPolylines, let authorizedPhoneCallPolylines = self.authorizedPhoneCallPolylines {
             for phoneCallPolyline in phoneCallPolylines {
                 if let line = self.polyLine {
@@ -347,7 +347,7 @@ class MapViewController: DKUIViewController {
         }
     }
 
-    private func drawSpeeding(route: Route) {
+    private func drawSpeeding(route: DKRoute) {
         if let speedingPolylines = self.speedingPolylines {
             for speedingPolyline in speedingPolylines {
                 if let line = self.polyLine {
@@ -371,7 +371,7 @@ class MapViewController: DKUIViewController {
         }
     }
 
-    private func drawMarker(mapItem: DKMapItem?, route: Route, mapTraceType: DKMapTraceType) {
+    private func drawMarker(mapItem: DKMapItem?, route: DKRoute, mapTraceType: DKMapTraceType) {
         cleanAllMarkers()
         cleanSafetyAndDistractionMarkers()
         if let mapItem = mapItem {
@@ -435,7 +435,7 @@ class MapViewController: DKUIViewController {
         }
     }
     
-    private func drawStartEndMarker(route: Route) {
+    private func drawStartEndMarker(route: DKRoute) {
         if let startLocation = route.startLocation, startAnnotation == nil {
             let start = MKPointAnnotation()
             start.coordinate = startLocation

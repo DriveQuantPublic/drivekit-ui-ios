@@ -77,8 +77,8 @@ public enum MapItem: DKMapItem {
         }
     }
     
-    public func getAdvice(trip: Trip) -> TripAdvice? {
-        if let advices = trip.tripAdvices?.allObjects as? [TripAdvice] {
+    public func getAdvice(trip: DKTrip) -> DKTripAdvice? {
+        if let advices = trip.tripAdvices {
             if !advices.isEmpty {
                 switch self {
                 case .safety:
@@ -102,7 +102,7 @@ public enum MapItem: DKMapItem {
         }
     }
     
-    public func viewController(trip: Trip, parentViewController: UIViewController, tripDetailViewModel: DKTripDetailViewModel) -> UIViewController {
+    public func viewController(trip: DKTrip, parentViewController: UIViewController, tripDetailViewModel: DKTripDetailViewModel) -> UIViewController {
         switch self {
             case .ecoDriving:
                 let ecoDrivingViewModel = EcoDrivingPageViewModel(trip: trip)
@@ -158,7 +158,7 @@ public enum MapItem: DKMapItem {
         }
     }
     
-    public func canShowMapItem(trip: Trip) -> Bool {
+    public func canShowMapItem(trip: DKTrip) -> Bool {
         let maxScore: Double = 10
         switch self {
             case .ecoDriving:

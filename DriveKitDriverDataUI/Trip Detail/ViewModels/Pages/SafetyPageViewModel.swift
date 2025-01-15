@@ -14,9 +14,9 @@ import UIKit
 
 class SafetyPageViewModel {
     var scoreType: DKScoreType = .safety
-    var trip: Trip
+    var trip: DKTrip
     
-    init(trip: Trip) {
+    init(trip: DKTrip) {
         self.trip = trip
     }
     

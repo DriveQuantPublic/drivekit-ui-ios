@@ -248,10 +248,10 @@ class TransportationModeVC: DKUIViewController {
                         }
                     }
                 }
-                if let itinId = self.viewModel.itinId {
+                if !self.viewModel.itinId.isEmpty {
                     showLoader()
                     DriveKitDriverData.shared.declareTransportationMode(
-                        itinId: itinId,
+                        itinId: self.viewModel.itinId,
                         mode: selectedTransportationMode,
                         passenger: passenger ?? false,
                         comment: comment,

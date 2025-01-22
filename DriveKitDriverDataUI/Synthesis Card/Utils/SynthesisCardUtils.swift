@@ -14,7 +14,7 @@ import DriveKitDriverDataModule
 // swiftlint:disable:next convenience_type
 public struct SynthesisCardUtils {
 
-    public static func getLastTrip(withTransportationModes transportationModes: [TransportationMode] = [.unknown, .car, .moto, .truck]) -> Trip? {
+    public static func getLastTrip(withTransportationModes transportationModes: [TransportationMode] = [.unknown, .car, .moto, .truck]) -> DKTrip? {
         let tripsQuery = getTripsQuery(forTransportationModes: transportationModes)
         let lastTrip = tripsQuery
             .orderBy(field: "endDate", ascending: false)
@@ -24,7 +24,7 @@ public struct SynthesisCardUtils {
         return lastTrip.first
     }
 
-    public static func getLastTrips(withTransportationModes transportationModes: [TransportationMode] = [.unknown, .car, .moto, .truck]) -> [Trip] {
+    public static func getLastTrips(withTransportationModes transportationModes: [TransportationMode] = [.unknown, .car, .moto, .truck]) -> [DKTrip] {
         if let lastTrip = getLastTrip(withTransportationModes: transportationModes), let lastDate = lastTrip.endDate {
             let sevenDaysInSeconds: TimeInterval = 604_800// 7 * 24 * 3_600
             let oneWeekBeforeDate = lastDate.addingTimeInterval(-sevenDaysInSeconds)
@@ -41,7 +41,7 @@ public struct SynthesisCardUtils {
         }
     }
 
-    public static func getMainRoadCondition(ofTrips trips: [Trip], forType type: RoadConditionType = .ecoDriving) -> (DKRoadCondition, Double) {
+    public static func getMainRoadCondition(ofTrips trips: [DKTrip], forType type: RoadConditionType = .ecoDriving) -> (DKRoadCondition, Double) {
         let roadConditionStats = RoadConditionStats(type: type, trips: trips)
         return roadConditionStats.roadConditionPercentages
             .filter { $0.key != .trafficJam }
@@ -49,7 +49,7 @@ public struct SynthesisCardUtils {
             .max { $0.value < $1.value }!
     }
 
-    private static func getTripsQuery(forTransportationModes transportationModes: [TransportationMode]) -> Query<Trip, Trip> {
+    private static func getTripsQuery(forTransportationModes transportationModes: [TransportationMode]) -> Query<DBTrip, DKTrip> {
         let transportationModesValues = transportationModes.map { $0.rawValue }
         let tripsQuery = DriveKitDriverData.shared.tripsQuery()
             .whereIn(field: "transportationMode", value: transportationModesValues)
@@ -61,7 +61,7 @@ public struct RoadConditionStats {
     public let roadConditionType: RoadConditionType
     public let roadConditionPercentages: [DKRoadCondition: Double]
 
-    init(type: RoadConditionType, trips: [Trip]) {
+    init(type: RoadConditionType, trips: [DKTrip]) {
         self.roadConditionType = type
         let tripNumber = Double(trips.count)
         if tripNumber > 0 {
@@ -70,9 +70,9 @@ public struct RoadConditionStats {
                 let roadConditionObjects: [RoadConditionObject]?
                 switch type {
                     case .ecoDriving:
-                        roadConditionObjects = trip.ecoDrivingContexts?.allObjects as? [EcoDrivingContext]
+                        roadConditionObjects = trip.ecoDrivingContexts
                     case .safety:
-                        roadConditionObjects = trip.safetyContexts?.allObjects as? [SafetyContext]
+                        roadConditionObjects = trip.safetyContexts
                 }
 
                 var mainRoadCondition: DKRoadCondition?
@@ -115,5 +115,5 @@ private protocol RoadConditionObject: AnyObject {
     var roadCondition: DKRoadCondition? { get }
 }
 
-extension SafetyContext: RoadConditionObject { }
-extension EcoDrivingContext: RoadConditionObject { }
+extension DKSafetyContext: RoadConditionObject { }
+extension DKEcoDrivingContext: RoadConditionObject { }

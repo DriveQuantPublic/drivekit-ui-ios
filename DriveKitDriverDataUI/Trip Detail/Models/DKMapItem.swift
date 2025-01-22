@@ -15,12 +15,12 @@ public protocol DKMapItem {
     func normalImage() -> UIImage?
     func selectedImage() -> UIImage?
     func adviceImage() -> UIImage?
-    func getAdvice(trip: Trip) -> TripAdvice?
-    func viewController(trip: Trip, parentViewController: UIViewController, tripDetailViewModel: DKTripDetailViewModel) -> UIViewController
+    func getAdvice(trip: DKTrip) -> DKTripAdvice?
+    func viewController(trip: DKTrip, parentViewController: UIViewController, tripDetailViewModel: DKTripDetailViewModel) -> UIViewController
     func shouldShowDistractionArea() -> Bool
     func shouldShowPhoneDistractionArea() -> Bool
     func displayedMarkers() -> [DKMarkerType]
-    func canShowMapItem(trip: Trip) -> Bool
+    func canShowMapItem(trip: DKTrip) -> Bool
     func overrideShortTrip() -> Bool
     func shouldShowSpeedingArea() -> Bool
 }

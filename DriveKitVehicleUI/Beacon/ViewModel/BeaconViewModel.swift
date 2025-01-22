@@ -137,12 +137,7 @@ public class BeaconViewModel {
                 self.beaconRssi = rssi
                 self.beaconTxPower = txPower
                 if let beaconBattery = self.beaconBattery, let clBeacon = self.clBeacon {
-                    let uuid: String
-                    if #available(iOS 13.0, *) {
-                        uuid = clBeacon.uuid.uuidString
-                    } else {
-                        uuid = clBeacon.proximityUUID.uuidString
-                    }
+                    let uuid: String = clBeacon.uuid.uuidString
                     let beacon = DKBeacon(uniqueId: nil, proximityUuid: uuid, major: clBeacon.major.intValue, minor: clBeacon.minor.intValue)
                     DriveKitVehicle.shared.updateBeaconBatteryLevel(batteryLevel: beaconBattery, beacon: beacon) { _ in }
                 }

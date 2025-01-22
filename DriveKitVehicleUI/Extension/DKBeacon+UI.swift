@@ -29,7 +29,6 @@ extension DKBeacon {
         return region
     }
     
-    @available(iOS 13.0, *)
     func toCLBeaconIdentityConstraint(noMajorMinor: Bool) -> CLBeaconIdentityConstraint {
         let uuid = UUID(uuidString: self.proximityUuid)!
         let constraint: CLBeaconIdentityConstraint

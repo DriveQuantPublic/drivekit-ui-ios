@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TripSharingViewController" customModule="DriveKitTripAnalysisUI" customModuleProvider="target">
+            <connections>
+                <outlet property="activateShareButton" destination="XTO-TO-vOw" id="149-7k-Vgc"/>
+                <outlet property="activeStackView" destination="htb-89-Zgb" id="WRl-mg-A9M"/>
+                <outlet property="cancelButton" destination="eNx-Bj-IJ6" id="vhN-dx-Alv"/>
+                <outlet property="descriptionImage" destination="ULO-ex-hft" id="g4Y-oQ-Knh"/>
+                <outlet property="descriptionLabel" destination="X6Z-sP-Wka" id="LJk-bH-W5p"/>
+                <outlet property="notActiveStackView" destination="Efz-73-HdR" id="N2i-uX-qFx"/>
+                <outlet property="oneDayButton" destination="qjZ-PF-fGk" id="TsP-SV-HVw"/>
+                <outlet property="oneMonthButton" destination="0g7-pf-pDq" id="jUa-mj-ild"/>
+                <outlet property="oneWeekButton" destination="pt6-M9-pmM" id="WuA-aZ-9QT"/>
+                <outlet property="revokeLinkButton" destination="h6l-E5-i78" id="SVP-q4-kq5"/>
+                <outlet property="selectPeriodStackView" destination="Ixy-b0-vRc" id="QyL-KB-e5s"/>
+                <outlet property="shareLinkButton" destination="zln-vX-Wuw" id="aEE-Hv-lMo"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zg9-Br-GsZ">
+                    <rect key="frame" x="12" y="59" width="369" height="759"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8bu-jU-ypj">
+                            <rect key="frame" x="0.0" y="0.0" width="369" height="165"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IFb-6b-uhc">
+                                    <rect key="frame" x="0.0" y="0.0" width="369" height="15"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="15" id="6rz-en-hPA"/>
+                                    </constraints>
+                                </view>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ULO-ex-hft">
+                                    <rect key="frame" x="0.0" y="15" width="369" height="140"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="140" id="oYo-sv-CWG"/>
+                                    </constraints>
+                                </imageView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q3F-O4-tWD">
+                                    <rect key="frame" x="0.0" y="155" width="369" height="10"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="10" id="dcs-CL-Vqe"/>
+                                    </constraints>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X6Z-sP-Wka">
+                                    <rect key="frame" x="0.0" y="165" width="369" height="0.0"/>
+                                    <attributedString key="attributedText"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Efz-73-HdR">
+                            <rect key="frame" x="0.0" y="165" width="369" height="60"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h2V-Wc-TTF">
+                                    <rect key="frame" x="0.0" y="0.0" width="369" height="0.0"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTO-TO-vOw">
+                                    <rect key="frame" x="0.0" y="10" width="369" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="SKI-Re-E1B"/>
+                                    </constraints>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Button"/>
+                                    <connections>
+                                        <action selector="switchToPeriodSelection" destination="-1" eventType="touchUpInside" id="qYl-Qr-kN4"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ixy-b0-vRc">
+                            <rect key="frame" x="0.0" y="165" width="369" height="240"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GND-7x-9qr">
+                                    <rect key="frame" x="0.0" y="0.0" width="369" height="0.0"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qjZ-PF-fGk">
+                                    <rect key="frame" x="0.0" y="10" width="369" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="2XA-py-cos"/>
+                                    </constraints>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Button"/>
+                                    <connections>
+                                        <action selector="selectOneDay" destination="-1" eventType="touchUpInside" id="7Mw-WQ-8mg"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pt6-M9-pmM">
+                                    <rect key="frame" x="0.0" y="70" width="369" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="ZiD-dv-sdm"/>
+                                    </constraints>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Button"/>
+                                    <connections>
+                                        <action selector="selectOneWeek" destination="-1" eventType="touchUpInside" id="smY-tK-Nhf"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0g7-pf-pDq">
+                                    <rect key="frame" x="0.0" y="130" width="369" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="eoa-af-Iv1"/>
+                                    </constraints>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Button"/>
+                                    <connections>
+                                        <action selector="selectOneMonth" destination="-1" eventType="touchUpInside" id="Jox-4z-3JU"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNx-Bj-IJ6">
+                                    <rect key="frame" x="0.0" y="190" width="369" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="Xg0-jM-VQk"/>
+                                    </constraints>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Button"/>
+                                    <connections>
+                                        <action selector="cancelPeriodSelection" destination="-1" eventType="touchUpInside" id="CoJ-TB-Vq7"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="htb-89-Zgb">
+                            <rect key="frame" x="0.0" y="165" width="369" height="577"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JBw-sX-RKM">
+                                    <rect key="frame" x="0.0" y="0.0" width="369" height="457"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zln-vX-Wuw">
+                                    <rect key="frame" x="0.0" y="467" width="369" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="1ax-zy-XIk"/>
+                                    </constraints>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <connections>
+                                        <action selector="shareLink" destination="-1" eventType="touchUpInside" id="8oH-2E-9h8"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6l-E5-i78">
+                                    <rect key="frame" x="0.0" y="527" width="369" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="Pi8-1S-Cov"/>
+                                    </constraints>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <connections>
+                                        <action selector="revokeLink" destination="-1" eventType="touchUpInside" id="KAc-jF-E6A"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GU7-8u-8Wk">
+                            <rect key="frame" x="0.0" y="742" width="369" height="17"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="17" id="0VY-yg-I6m"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="zg9-Br-GsZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Hu6-HB-dvN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="zg9-Br-GsZ" secondAttribute="bottom" id="JN9-A4-V9F"/>
+                <constraint firstItem="zg9-Br-GsZ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-12" id="lV5-kz-7AY"/>
+                <constraint firstItem="zg9-Br-GsZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="12" id="pQz-QZ-7bw"/>
+            </constraints>
+            <point key="canvasLocation" x="6" y="21"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

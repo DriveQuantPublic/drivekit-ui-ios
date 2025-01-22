@@ -62,14 +62,16 @@ extension PermissionViewController: PermissionView {
             permissionViewController.isPresentedByModule = self.isPresentedByModule
             permissionViewController.manageNavigation = self.manageNavigation
             var updatedViewControllers = navigationController.viewControllers
-            if updatedViewControllers.last as? PermissionViewController != nil {
+            if updatedViewControllers.last is PermissionViewController {
                 updatedViewControllers[updatedViewControllers.count - 1] = permissionViewController
                 navigationController.setViewControllers(updatedViewControllers, animated: true)
             } else {
                 navigationController.pushViewController(permissionViewController, animated: true)
             }
         } else {
-            if self.manageNavigation, let navigationController = self.navigationController, navigationController.viewControllers.last as? PermissionViewController != nil {
+            if self.manageNavigation,
+                let navigationController = self.navigationController,
+                navigationController.viewControllers.last is PermissionViewController {
                 navigationController.popViewController(animated: true)
             }
             if self.isPresentedByModule && self.presentingViewController != nil {

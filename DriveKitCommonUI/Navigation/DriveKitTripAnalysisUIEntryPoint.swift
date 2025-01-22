@@ -11,4 +11,5 @@ import UIKit
 
 public protocol DriveKitTripAnalysisUIEntryPoint {
     func getWorkingHoursViewController() -> UIViewController
+    func getTripSharingViewController() -> UIViewController
 }

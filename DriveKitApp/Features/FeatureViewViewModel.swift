@@ -22,10 +22,13 @@ class FeatureViewViewModel {
     }
     
     var hasAccess: Bool {
-        guard type == .driverData_driver_profile else {
+        if type == .driverData_driver_profile {
+            return DriveKitAccess.shared.hasAccess(.driverProfile)
+        } else if type == .tripAnalysis_tripSharing {
+            return DriveKitAccess.shared.hasAccess(.tripSharing)
+        } else {
             return true
         }
-        return DriveKitAccess.shared.hasAccess(.driverProfile)
     }
 
     func getIcon() -> UIImage? {
@@ -115,11 +118,9 @@ class FeatureViewViewModel {
                 }
                 viewController = nil
             case .tripAnalysis_workingHours:
-                if let tripAnalysisUI = DriveKitNavigationController.shared.tripAnalysisUI {
-                    viewController = tripAnalysisUI.getWorkingHoursViewController()
-                } else {
-                    viewController = nil
-                }
+                viewController = DriveKitNavigationController.shared.tripAnalysisUI?.getWorkingHoursViewController()
+            case .tripAnalysis_tripSharing:
+                viewController = DriveKitNavigationController.shared.tripAnalysisUI?.getTripSharingViewController()
             case .vehicle_list:
                 viewController = VehiclesListVC()
             case .vehicle_odometer:

@@ -278,7 +278,7 @@ extension TripDetailVC {
                 if #available(iOS 15.0, *) {
                     navigationTripTip.navigationBar.standardAppearance = navigationController.navigationBar.standardAppearance
                     navigationTripTip.navigationBar.scrollEdgeAppearance = navigationController.navigationBar.scrollEdgeAppearance
-                } else /*if #available(iOS 13.0, *)*/ {
+                } else {
                     navigationTripTip.navigationBar.standardAppearance = navigationController.navigationBar.standardAppearance
                 }
                 navigationTripTip.navigationBar.barTintColor = navigationController.navigationBar.barTintColor

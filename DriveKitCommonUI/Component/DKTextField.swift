@@ -182,12 +182,10 @@ extension DKTextField: UITextFieldDelegate {
         let moveDuration = 0.3
         let movement: CGFloat = CGFloat(up ? moveDistance : -moveDistance)
 
-        UIView.beginAnimations("animateTextField", context: nil)
-        UIView.setAnimationBeginsFromCurrentState(true)
-        UIView.setAnimationDuration(moveDuration)
-        if let targetView = target {
-            targetView.frame = targetView.frame.offsetBy(dx: 0, dy: movement)
+        UIView.animate(withDuration: moveDuration) {
+            if let targetView = self.target {
+                targetView.frame = targetView.frame.offsetBy(dx: 0, dy: movement)
+            }
         }
-        UIView.commitAnimations()
     }
 }

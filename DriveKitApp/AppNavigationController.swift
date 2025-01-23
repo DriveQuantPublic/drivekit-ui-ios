@@ -29,9 +29,6 @@ class AppNavigationController: UINavigationController {
         setupViewController()
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
     func setupViewController() {
         configure()
         if DriveKit.shared.isUserConnected() {

@@ -154,7 +154,7 @@ public class BeaconViewModel {
     }
 
     private func isBeaconValid(beacon: DKBeacon, clBeacon: CLBeacon) -> Bool {
-        beacon.proximityUuid.uppercased() == clBeacon.proximityUUID.uuidString.uppercased()
+        beacon.proximityUuid.uppercased() == clBeacon.uuid.uuidString.uppercased()
         && beacon.major == Int(truncating: clBeacon.major)
         && beacon.minor == Int(truncating: clBeacon.minor)
     }

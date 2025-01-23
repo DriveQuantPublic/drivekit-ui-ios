@@ -57,7 +57,7 @@ class LocationPermissionViewController: PermissionViewController {
 
         if #available(iOS 14.0, *) {
             updateViewIOS14()
-        } else /*if #available(iOS 13.0, *)*/ {
+        } else {
             updateViewIOS13()
         }
     }

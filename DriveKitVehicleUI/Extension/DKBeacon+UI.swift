@@ -19,12 +19,12 @@ extension DKBeacon {
         let region: CLBeaconRegion
         if !noMajorMinor && self.major >= 0 {
             if self.minor >= 0 {
-                region = CLBeaconRegion(proximityUUID: proximityUuid, major: CLBeaconMajorValue(self.major), minor: CLBeaconMinorValue(self.minor), identifier: identifier)
+                region = CLBeaconRegion(uuid: proximityUuid, major: CLBeaconMajorValue(self.major), minor: CLBeaconMinorValue(self.minor), identifier: identifier)
             } else {
-                region = CLBeaconRegion(proximityUUID: proximityUuid, major: CLBeaconMajorValue(self.major), identifier: identifier)
+                region = CLBeaconRegion(uuid: proximityUuid, major: CLBeaconMajorValue(self.major), identifier: identifier)
             }
         } else {
-            region = CLBeaconRegion(proximityUUID: proximityUuid, identifier: identifier)
+            region = CLBeaconRegion(uuid: proximityUuid, identifier: identifier)
         }
         return region
     }

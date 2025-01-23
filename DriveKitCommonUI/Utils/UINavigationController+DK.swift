@@ -27,7 +27,7 @@ public extension UINavigationController {
             appearance.buttonAppearance.normal.titleTextAttributes = buttonTextAttributes
             self.navigationBar.standardAppearance = appearance
             self.navigationBar.scrollEdgeAppearance = appearance
-        } else /*if #available(iOS 13.0, *)*/ {
+        } else {
             self.navigationBar.standardAppearance.titleTextAttributes = titleTextAttributes
             self.navigationBar.standardAppearance.buttonAppearance.normal.titleTextAttributes = buttonTextAttributes
             self.navigationBar.standardAppearance.backgroundColor = DKUIColors.primaryColor.color
@@ -39,7 +39,7 @@ public extension UINavigationController {
         if #available(iOS 15.0, *) {
             self.navigationBar.standardAppearance = navigationController.navigationBar.standardAppearance
             self.navigationBar.scrollEdgeAppearance = navigationController.navigationBar.scrollEdgeAppearance
-        } else /*if #available(iOS 13.0, *)*/ {
+        } else {
             self.navigationBar.standardAppearance = navigationController.navigationBar.standardAppearance
         }
         self.navigationBar.barTintColor = navigationController.navigationBar.barTintColor

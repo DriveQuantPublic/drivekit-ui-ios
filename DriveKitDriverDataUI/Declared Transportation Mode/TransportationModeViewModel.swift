@@ -11,10 +11,10 @@ import Foundation
 import DriveKitDBTripAccessModule
 
 class TransportationModeViewModel {
-    private let trip: Trip
+    private let trip: DKTrip
     var selectedTransportationMode: TransportationMode?
     
-    init(trip: Trip) {
+    init(trip: DKTrip) {
         self.trip = trip
         self.selectedTransportationMode = self.declaredTransportationMode()
     }
@@ -27,15 +27,11 @@ class TransportationModeViewModel {
         return trip.declaredTransportationMode?.passenger
     }
     
-    var itinId: String? {
+    var itinId: String {
         return trip.itinId
     }
     
     func declaredTransportationMode() -> TransportationMode? {
-        if let declaredTransportation = trip.declaredTransportationMode?.transportationMode {
-            return TransportationMode(rawValue: Int(declaredTransportation))
-        } else {
-            return nil
-        }
+        return trip.declaredTransportationMode?.transportationMode
     }
 }

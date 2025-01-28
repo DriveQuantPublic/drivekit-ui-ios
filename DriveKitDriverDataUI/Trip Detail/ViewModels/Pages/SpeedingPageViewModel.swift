@@ -14,9 +14,9 @@ import Foundation
 
 class SpeedingPageViewModel {
     let scoreType: DKScoreType = .speeding
-    var trip: Trip
+    var trip: DKTrip
 
-    init(trip: Trip) {
+    init(trip: DKTrip) {
         self.trip = trip
     }
 

@@ -28,7 +28,7 @@ public enum LastTripsSynthesisCard {
     case safety
     case speeding
 
-    public func getDKSynthesisCard(trips: [Trip], showBottomText: Bool = true) -> DKSynthesisCard {
+    public func getDKSynthesisCard(trips: [DKTrip], showBottomText: Bool = true) -> DKSynthesisCard {
         switch self {
             case .distraction:
                 return SynthesisCard.distraction(trips: trips, showBottomText: showBottomText)
@@ -43,10 +43,10 @@ public enum LastTripsSynthesisCard {
 }
 
 public enum SynthesisCard: DKSynthesisCard {
-    case distraction(trips: [Trip], showBottomText: Bool = true)
-    case ecodriving(trips: [Trip], showBottomText: Bool = true)
-    case safety(trips: [Trip], showBottomText: Bool = true)
-    case speeding(trips: [Trip], showBottomText: Bool = true)
+    case distraction(trips: [DKTrip], showBottomText: Bool = true)
+    case ecodriving(trips: [DKTrip], showBottomText: Bool = true)
+    case safety(trips: [DKTrip], showBottomText: Bool = true)
+    case speeding(trips: [DKTrip], showBottomText: Bool = true)
 
     public func getTitle() -> String {
         let titleKey: String
@@ -143,7 +143,7 @@ public enum SynthesisCard: DKSynthesisCard {
         }
     }
 
-    private func getTrips() -> [Trip] {
+    private func getTrips() -> [DKTrip] {
         switch self {
             case let .distraction(trips, _),
                  let .ecodriving(trips, _),
@@ -166,13 +166,13 @@ public enum SynthesisCard: DKSynthesisCard {
 }
 
 private struct GaugeConfiguration: DKGaugeConfiguration {
-    let trips: [Trip]
+    let trips: [DKTrip]
     let scoreType: DKScoreType
     let value: Double
     private let progress: Double
     private let gaugeType: DKGaugeType
 
-    init(trips: [Trip], scoreType: DKScoreType) {
+    init(trips: [DKTrip], scoreType: DKScoreType) {
         self.trips = trips.filter { !$0.unscored }
         self.scoreType = scoreType
         if self.trips.isEmpty {

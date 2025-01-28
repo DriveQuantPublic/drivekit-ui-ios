@@ -14,9 +14,9 @@ import UIKit
 
 class EcoDrivingPageViewModel {
     var scoreType: DKScoreType = .ecoDriving
-    var trip: Trip
+    var trip: DKTrip
     
-    init(trip: Trip) {
+    init(trip: DKTrip) {
         self.trip = trip
     }
     

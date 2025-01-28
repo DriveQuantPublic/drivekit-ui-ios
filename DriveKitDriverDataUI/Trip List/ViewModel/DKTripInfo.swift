@@ -11,9 +11,9 @@ import DriveKitDBTripAccessModule
 import UIKit
 
 public protocol DKTripInfo {
-    func infoText(trip: Trip) -> String?
-    func infoImage(trip: Trip) -> UIImage?
-    func infoClickAction(parentViewController: UIViewController, trip: Trip)
-    func hasInfoActionConfigured(trip: Trip) -> Bool
-    func isInfoDisplayable(trip: Trip) -> Bool
+    func infoText(trip: DKTrip) -> String?
+    func infoImage(trip: DKTrip) -> UIImage?
+    func infoClickAction(parentViewController: UIViewController, trip: DKTrip)
+    func hasInfoActionConfigured(trip: DKTrip) -> Bool
+    func isInfoDisplayable(trip: DKTrip) -> Bool
 }

@@ -49,7 +49,7 @@ class TripListViewModel {
                             query = query.and().whereGreaterThanOrEqual(field: "endDate", value: limitDate)
                         }
                         let alternativeTrips = query.orderBy(field: "endDate", ascending: false).query().execute()
-                        var allTrips: [Trip] = trips
+                        var allTrips: [DKTrip] = trips
                         allTrips.append(contentsOf: alternativeTrips)
                         DispatchQueue.main.async {
                             self.status = status
@@ -68,7 +68,7 @@ class TripListViewModel {
                 })
     }
 
-    private func sortTrips(trips: [Trip]) -> [DKTripsByDate] {
+    private func sortTrips(trips: [DKTrip]) -> [DKTripsByDate] {
         let tripSorted = trips.orderByDay(descOrder: DriveKitDriverDataUI.shared.dayTripDescendingOrder)
         return tripSorted
     }
@@ -171,10 +171,10 @@ class TripListViewModel {
     private func filterTrips(transportationMode: TransportationMode?) {
         if let transportationMode = transportationMode {
             self.filterTrips {
-                if let declaredMode = $0.declaredTransportationModeInt {
-                    return declaredMode == transportationMode.rawValue
+                if let declaredMode = $0.declaredTransportationMode?.transportationMode {
+                    return declaredMode == transportationMode
                 } else if transportationMode.isAlternative() {
-                    return $0.transportationMode == transportationMode.rawValue
+                    return $0.transportationMode == transportationMode
                 } else {
                     return false
                 }
@@ -186,10 +186,10 @@ class TripListViewModel {
         }
     }
     
-    private func filterTrips(_ isIncluded: (Trip) -> Bool) {
+    private func filterTrips(_ isIncluded: (DKTrip) -> Bool) {
         self.filteredTrips = []
         for tripsByDate in self.trips {
-            if let trips = tripsByDate.trips as? [Trip] {
+            if let trips = tripsByDate.trips as? [DKTrip] {
                 let dayFilteredTrips = trips.filter(isIncluded)
                 if !dayFilteredTrips.isEmpty {
                     self.filteredTrips.append(DKTripsByDate(date: tripsByDate.date, trips: dayFilteredTrips))

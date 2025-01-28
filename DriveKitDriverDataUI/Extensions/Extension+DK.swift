@@ -12,7 +12,7 @@ import DriveKitDBTripAccessModule
 import CoreLocation
 import DriveKitCommonUI
 
-extension Trip {    
+extension DKTrip {
     var duration: Int {
         guard let duration = self.tripStatistics?.duration else {
             return 0
@@ -31,19 +31,11 @@ extension Trip {
     var tripEndDate: Date {
         return self.endDate ?? Date()
     }
-    
-    var declaredTransportationModeInt: Int32? {
-        return self.declaredTransportationMode?.transportationMode
-    }
 
-    var sortedCalls: [Call]? {
-        if let calls = self.calls as? Set<Call> {
-            let sortedCalls = calls.sorted(by: { call1, call2 -> Bool in
-                call1.start < call2.start
-            })
-            return sortedCalls
-        }
-        return nil
+    var sortedCalls: [DKCall]? {
+        return self.calls?.sorted(by: { call1, call2 -> Bool in
+            call1.start < call2.start
+        })
     }
 
     fileprivate static let activeDayDateFormatter: DateFormatter = {
@@ -54,16 +46,16 @@ extension Trip {
     }()
 }
 
-extension Array where Element: Trip {
+extension Array where Element: DKTrip {
     var totalActiveDays: Int {
         let keys = reduce(into: Set<String>()) { keys, trip in
-            keys.insert(Trip.activeDayDateFormatter.string(from: trip.tripEndDate))
+            keys.insert(DKTrip.activeDayDateFormatter.string(from: trip.tripEndDate))
         }
         return keys.count
     }
 }
 
-extension Route {
+extension DKRoute {
     var startLocation: CLLocationCoordinate2D? {
         return coordinate(at: 0)
     }
@@ -99,7 +91,7 @@ extension Route {
     }
 }
 
-extension TripAdvice {
+extension DKTripAdvice {
     func adviceImage() -> UIImage? {
         if self.theme == "SAFETY" {
             return DKImages.safetyAdvice.image
@@ -111,13 +103,13 @@ extension TripAdvice {
     }
 }
 
-public extension SafetyContext {
+public extension DKSafetyContext {
     var roadCondition: DKRoadCondition? {
         return DKRoadCondition(rawValue: Int(self.contextId))
     }
 }
 
-public extension EcoDrivingContext {
+public extension DKEcoDrivingContext {
     var roadCondition: DKRoadCondition? {
         return DKRoadCondition(rawValue: Int(self.contextId))
     }

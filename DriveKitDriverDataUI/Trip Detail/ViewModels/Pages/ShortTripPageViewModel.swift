@@ -10,9 +10,9 @@ import UIKit
 import DriveKitDBTripAccessModule
 
 class ShortTripPageViewModel {
-    var trip: Trip
+    var trip: DKTrip
     
-    init(trip: Trip) {
+    init(trip: DKTrip) {
         self.trip = trip
     }
     

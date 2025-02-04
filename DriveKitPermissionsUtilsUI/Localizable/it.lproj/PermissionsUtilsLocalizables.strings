@@ -51,7 +51,6 @@
 "dk_perm_utils_app_diag_location_full_link"="Utilizzare la posizione esatta";
 "dk_perm_utils_app_diag_location_ko_android"="È necessario consentire all\'app di accedere alla posizione del telefono affinché possa rilevare e scansionare i propri viaggi.";
 "dk_perm_utils_app_diag_location_ko_android12"="È necessario consentire all\'app di accedere alla posizione esatta del telefono affinché possa rilevare e scansionare i propri viaggi.";
-"dk_perm_utils_app_diag_location_ko_ios"="È necessario consentire all\'app di accedere alla posizione del telefono affinché possa rilevare e scansionare i propri viaggi. Nelle impostazioni del telefono sono disponibili tre opzioni: (1) mai, (2) quando l\'app è attiva e (3) sempre. È essenziale selezionare sempre l\'opzione (3) altrimenti, l\'applicazione non funzionerà.";
 "dk_perm_utils_app_diag_location_ko_ios13"="È necessario consentire all\'applicazione di accedere alla posizione del telefono in modo che possa rilevare e analizzare i percorsi. Nelle impostazioni del telefono sono disponibili quattro opzioni: (1) mai, (2) chiedere la prossima volta, (3) mentre si utilizza l\'applicazione e (4) sempre. È necessario selezionare sempre l\'opzione (4), altrimenti l\'applicazione non funzionerà.";
 "dk_perm_utils_app_diag_location_link"="Consentire l\'accesso alla posizione";
 "dk_perm_utils_app_diag_location_ok"="L\'applicazione utilizza la posizione del telefono per rilevare e analizzare i tuoi viaggi. Non può funzionare se non si consente all\'app di accedere alla posizione.";

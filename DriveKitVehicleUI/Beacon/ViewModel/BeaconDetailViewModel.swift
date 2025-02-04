@@ -28,8 +28,8 @@ class BeaconDetailViewModel {
                     .build()
             ])
         }
-        let idx = beacon.proximityUUID.uuidString.index(beacon.proximityUUID.uuidString.startIndex, offsetBy: 7)
-        let uuid = String(beacon.proximityUUID.uuidString.lowercased()[...idx]) + "..."
+        let idx = beacon.uuid.uuidString.index(beacon.uuid.uuidString.startIndex, offsetBy: 7)
+        let uuid = String(beacon.uuid.uuidString.lowercased()[...idx]) + "..."
         let rssiValue: Int
         if let rssi = rssi {
             rssiValue = Int(rssi)

@@ -51,7 +51,6 @@
 "dk_perm_utils_app_diag_location_full_link"="Gebruik de exacte locatie";
 "dk_perm_utils_app_diag_location_ko_android"="Om je ritten te kunnen detecteren en analyseren, moet de applicatie toegang hebben tot de locatie van de telefoon.";
 "dk_perm_utils_app_diag_location_ko_android12"="Om je ritten te kunnen detecteren en analyseren, moet de app toegang hebben tot de exacte locatie van de telefoon.";
-"dk_perm_utils_app_diag_location_ko_ios"="Je moet de app toegang geven tot de locatie van de telefoon om je ritten te kunnen detecteren en scannen. In de telefooninstellingen zijn drie opties beschikbaar: (1) nooit, (2) wanneer de app actief is en (3) altijd. Het is essentieel om altijd optie (3) te selecteren, anders werkt de app niet.";
 "dk_perm_utils_app_diag_location_ko_ios13"="U moet de app toegang geven tot de positie van de telefoon zodat deze je routes kan detecteren en analyseren. In de telefooninstellingen zijn vier opties beschikbaar: (1) nooit, (2) vraag het de volgende keer, (3) tijdens het gebruik van de app en (4) altijd. Het is noodzakelijk om altijd optie (4) te selecteren, anders werkt de app niet.";
 "dk_perm_utils_app_diag_location_link"="Toegang verlenen tot de locatie";
 "dk_perm_utils_app_diag_location_ok"="De app gebruikt de locatie van je telefoon om je ritten te detecteren en analyseren. De app kan niet werken als je geen toegang geeft tot de locatie.";

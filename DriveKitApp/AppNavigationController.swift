@@ -26,17 +26,9 @@ class AppNavigationController: UINavigationController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if #available(iOS 13.0, *) {
-            setupViewController()
-        }
+        setupViewController()
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        if #unavailable(iOS 13.0) {
-            setupViewController()
-        }
-    }
     func setupViewController() {
         configure()
         if DriveKit.shared.isUserConnected() {

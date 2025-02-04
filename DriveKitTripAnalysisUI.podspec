@@ -11,14 +11,14 @@ Pod::Spec.new do |s|
   s.swift_version    = '5.0'
   s.source           = { :git => 'https://github.com/DriveQuantPublic/drivekit-ui-ios.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '12.0'
+  s.ios.deployment_target = '13.0'
 
   s.source_files = ['DriveKitTripAnalysisUI/**/*.swift', 'DriveKitTripAnalysisUI/**/*.m']
   s.resource = ['DriveKitTripAnalysisUI/Localizable/*', 'DriveKitTripAnalysisUI/**/*.xib', 'DriveKitTripAnalysisUI/DriveKitTripAnalysis.xcassets', 'DriveKitTripAnalysisUI/PrivacyInfo.xcprivacy']
 
   s.dependency 'WARangeSlider'
   s.dependency 'DriveKitCommonUI', s.version.to_s
-  s.dependency 'DriveKitTripAnalysis'
+  s.dependency 'DriveKitTripAnalysis', '2.11-beta1'
 
   s.pod_target_xcconfig = {
     'PRODUCT_BUNDLE_IDENTIFIER': 'com.drivequant.drivekit-trip-analysis-ui'

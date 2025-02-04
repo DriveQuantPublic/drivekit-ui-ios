@@ -51,7 +51,6 @@
 "dk_perm_utils_app_diag_location_full_link"="Use o local preciso";
 "dk_perm_utils_app_diag_location_ko_android"="Para detectar e analisar suas viagens, o aplicativo deve poder acessar o local do telefone.";
 "dk_perm_utils_app_diag_location_ko_android12"="Para detectar e analisar suas viagens, o aplicativo deve poder acessar o local preciso do telefone.";
-"dk_perm_utils_app_diag_location_ko_ios"="Você deve permitir que o aplicativo acesse o local do telefone para detectar e digitalizar suas viagens. Nas configurações do telefone, três opções estão disponíveis: (1) nunca, (2) quando o aplicativo está ativo e (3) sempre. É essencial selecionar a opção (3) sempre, caso contrário, o aplicativo não funcionará.";
 "dk_perm_utils_app_diag_location_ko_ios13"="Você deve permitir que o aplicativo acesse a posição do telefone para que ele possa detectar e analisar suas rotas. Nas configurações do telefone, quatro opções estão disponíveis: (1) nunca, (2) pergunte na próxima vez, (3) enquanto usa o aplicativo e (4) sempre. É necessário selecionar a opção (4) sempre, caso contrário, o aplicativo não funcionará.";
 "dk_perm_utils_app_diag_location_link"="Permitir acesso ao local";
 "dk_perm_utils_app_diag_location_ok"="O aplicativo usa a localização do seu telefone para detectar e analisar suas viagens. Não pode funcionar se você não permitir que o aplicativo acesse o local.";

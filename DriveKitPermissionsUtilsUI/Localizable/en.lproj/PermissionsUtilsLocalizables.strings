@@ -51,7 +51,6 @@
 "dk_perm_utils_app_diag_location_full_link"="Use the precise location";
 "dk_perm_utils_app_diag_location_ko_android"="To detect and analyze your trips, the application must be able to access the phone\'s location.";
 "dk_perm_utils_app_diag_location_ko_android12"="To detect and analyze your trips, the application must be able to access the phone\'s precise location.";
-"dk_perm_utils_app_diag_location_ko_ios"="You must allow the app to access the phone\'s location for it to detect and scan your trips. In the phone settings, three options are available: (1) never, (2) when the app is active and (3) always. It is essential to select option (3) always otherwise, the application will not work.";
 "dk_perm_utils_app_diag_location_ko_ios13"="You must allow the application to access the phone\'s position so that it can detect and analyze your routes. In the phone settings, four options are available: (1) never, (2) ask next time, (3) while using the app and (4) always. It is necessary to select option (4) always otherwise the application will not work.";
 "dk_perm_utils_app_diag_location_link"="Allow access to the location";
 "dk_perm_utils_app_diag_location_ok"="The application uses the location of your phone to detect and analyze your trips. It can not work if you do not allow the app to access the location.";

@@ -55,7 +55,6 @@ end
 
 target 'DriveKitTripAnalysisUI' do
   pod 'DriveKitTripAnalysis', '2.11-beta1'
-
   pod 'WARangeSlider'
   swiftlint
 end

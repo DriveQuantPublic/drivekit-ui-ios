@@ -57,10 +57,8 @@ class LocationPermissionViewController: PermissionViewController {
 
         if #available(iOS 14.0, *) {
             updateViewIOS14()
-        } else if #available(iOS 13.0, *) {
-            updateViewIOS13()
         } else {
-            updateViewPreIOS13()
+            updateViewIOS13()
         }
     }
 
@@ -117,19 +115,4 @@ class LocationPermissionViewController: PermissionViewController {
 
         self.settingsContainer4.isHidden = true
     }
-
-    private func updateViewPreIOS13() {
-        self.descriptionLabel.attributedText = "dk_perm_utils_permissions_location_pre_ios13_ko"
-            .dkPermissionsUtilsLocalized()
-            .dkAttributedString()
-            .font(dkFont: .primary, style: .normalText)
-            .color(.mainFontColor)
-            .build()
-
-        self.settingsContainer1.isHidden = true
-        self.settingsContainer2.isHidden = true
-        self.settingsContainer3.isHidden = true
-        self.settingsContainer4.isHidden = true
-    }
-
 }

@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.swift_version    = '5.0'
   s.source           = { :git => 'https://github.com/DriveQuantPublic/drivekit-ui-ios.git', :tag => s.version.to_s }
 
-  s.ios.deployment_target = '12.0'
+  s.ios.deployment_target = '13.0'
 
   s.source_files = ['DriveKitDriverDataUI/**/*.swift', 'DriveKitDriverDataUI/**/*.m']
   s.resource = ['DriveKitDriverDataUI/DriverData.xcassets', 'DriveKitDriverDataUI/Localizable/*', 'DriveKitDriverDataUI/**/*.xib', 'DriveKitDriverDataUI/**/*.storyboard', 'DriveKitDriverDataUI/PrivacyInfo.xcprivacy']

@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '12.0'
+platform :ios, '13.0'
 use_frameworks!
 
 #source 'https://gitlab.com/drivequant/drivekit/drivekit-specs.git'
@@ -11,50 +11,50 @@ end
 
 target 'DriveKitApp' do
   pod 'DGCharts', '5.1.0'
-  pod 'DriveKitTripSimulator', '2.10.0'
+  pod 'DriveKitTripSimulator', '2.11.0'
   swiftlint
 end
 
 
 target 'DriveKitDriverDataUI' do
-  pod 'DriveKitDriverData', '2.10.0'
+  pod 'DriveKitDriverData', '2.11.0'
   swiftlint
 end
 
 target 'DriveKitDriverDataTimelineUI' do
-  pod 'DriveKitDriverData', '2.10.0'
+  pod 'DriveKitDriverData', '2.11.0'
   pod 'DGCharts', '5.1.0'
   swiftlint
 end
 
 target 'DriveKitDriverAchievementUI' do
-  pod 'DriveKitDriverAchievement', '2.10.0'
+  pod 'DriveKitDriverAchievement', '2.11.0'
   swiftlint
 end
 
 target 'DriveKitCommonUI' do
-  pod 'DriveKitCore', '2.10.0'
+  pod 'DriveKitCore', '2.11.0'
   swiftlint
 end
 
 target 'DriveKitVehicleUI' do
-  pod 'DriveKitVehicle', '2.10.0'
-  pod 'DriveKitTripAnalysis', '2.10.0'
+  pod 'DriveKitVehicle', '2.11.0'
+  pod 'DriveKitTripAnalysis', '2.11.0'
   swiftlint
 end
 
 target 'DriveKitPermissionsUtilsUI' do
-  pod 'DriveKitCore', '2.10.0'
+  pod 'DriveKitCore', '2.11.0'
   swiftlint
 end
 
 target 'DriveKitChallengeUI' do
-  pod 'DriveKitChallenge', '2.10.0'
+  pod 'DriveKitChallenge', '2.11.0'
   swiftlint
 end
 
 target 'DriveKitTripAnalysisUI' do
-  pod 'DriveKitTripAnalysis', '2.10.0'
+  pod 'DriveKitTripAnalysis', '2.11.0'
   pod 'WARangeSlider'
   swiftlint
 end
@@ -63,8 +63,8 @@ end
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
-      if config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'].to_f < 12.0
-        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
+      if config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'].to_f < 13.0
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
       end
     end
   end

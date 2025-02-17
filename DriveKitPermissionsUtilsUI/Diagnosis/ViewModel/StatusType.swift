@@ -60,10 +60,8 @@ enum StatusType {
                 } else {
                     if DKDiagnosisHelper.shared.getLocationAccuracy() == .approximative {
                         descriptionKey = "dk_perm_utils_app_diag_location_full_ko_ios14"
-                    } else if #available(iOS 13.0, *) {
-                        descriptionKey = "dk_perm_utils_app_diag_location_ko_ios13"
                     } else {
-                        descriptionKey = "dk_perm_utils_app_diag_location_ko_ios"
+                        descriptionKey = "dk_perm_utils_app_diag_location_ko_ios13"
                     }
                 }
             case .network:

@@ -51,7 +51,6 @@
 "dk_perm_utils_app_diag_location_full_link"="Verwenden Sie die genaue Standort";
 "dk_perm_utils_app_diag_location_ko_android"="Sie müssen der App erlauben, auf den Standort des Telefons zuzugreifen, damit Ihre Fahrten erkannt und gescannt werden können.";
 "dk_perm_utils_app_diag_location_ko_android12"="Sie müssen der App erlauben, auf den genauen Standort des Telefons zuzugreifen, damit Ihre Fahrten erkannt und gescannt werden können.";
-"dk_perm_utils_app_diag_location_ko_ios"="Sie müssen der App erlauben, auf den Standort des Telefons zuzugreifen, damit Ihre Reisen erkannt und gescannt werden können. In den Telefoneinstellungen sind drei Optionen verfügbar: (1) nie, (2) wenn die App aktiv ist und (3) immer. Es ist wichtig, die Option (3) zu wählen, sonst funktioniert die Anwendung nicht.";
 "dk_perm_utils_app_diag_location_ko_ios13"="Sie müssen der Anwendung erlauben, auf die Position des Telefons zuzugreifen, damit sie Ihre Routen erkennen und analysieren kann. In den Telefoneinstellungen stehen vier Optionen zur Verfügung: (1) nie, (2) beim nächsten Mal fragen, (3) bei der Nutzung der App und (4) immer. Es ist notwendig, die Option (4) immer zu wählen, da sonst die Anwendung nicht funktioniert.";
 "dk_perm_utils_app_diag_location_link"="Zugriff auf den Standort zulassen";
 "dk_perm_utils_app_diag_location_ok"="Die Anwendung verwendet den Standort Ihres Telefons, um Ihre Reisen zu erkennen und zu analysieren. Es kann nicht funktionieren, wenn Sie der App nicht den Zugriff auf den Standort erlauben.";

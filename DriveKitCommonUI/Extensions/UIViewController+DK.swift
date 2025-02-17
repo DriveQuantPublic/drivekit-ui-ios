@@ -28,7 +28,7 @@ public extension UIViewController {
             loaderView.backgroundColor = UIColor.darkGray.withAlphaComponent(0.7)
             loaderView.tag = UIViewController.loaderViewTag
 
-            let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
+            let activityIndicator = UIActivityIndicatorView(style: .large)
             activityIndicator.autoresizingMask = [.flexibleLeftMargin, .flexibleTopMargin, .flexibleRightMargin, .flexibleBottomMargin]
             activityIndicator.center = loaderView.center
             activityIndicator.startAnimating()

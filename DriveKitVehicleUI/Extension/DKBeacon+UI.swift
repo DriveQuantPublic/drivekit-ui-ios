@@ -12,24 +12,7 @@ import DriveKitBeaconUtilsModule
 import DriveKitDBVehicleAccessModule
 import DriveKitVehicleModule
 
-extension DKBeacon {
-    func toCLBeaconRegion(noMajorMinor: Bool) -> CLBeaconRegion {
-        let identifier = "DKscannedBeacon"
-        let proximityUuid = UUID(uuidString: self.proximityUuid)!
-        let region: CLBeaconRegion
-        if !noMajorMinor && self.major >= 0 {
-            if self.minor >= 0 {
-                region = CLBeaconRegion(proximityUUID: proximityUuid, major: CLBeaconMajorValue(self.major), minor: CLBeaconMinorValue(self.minor), identifier: identifier)
-            } else {
-                region = CLBeaconRegion(proximityUUID: proximityUuid, major: CLBeaconMajorValue(self.major), identifier: identifier)
-            }
-        } else {
-            region = CLBeaconRegion(proximityUUID: proximityUuid, identifier: identifier)
-        }
-        return region
-    }
-    
-    @available(iOS 13.0, *)
+extension DKBeacon {    
     func toCLBeaconIdentityConstraint(noMajorMinor: Bool) -> CLBeaconIdentityConstraint {
         let uuid = UUID(uuidString: self.proximityUuid)!
         let constraint: CLBeaconIdentityConstraint

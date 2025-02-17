@@ -69,6 +69,8 @@ class BadgeViewModel {
                 return UIColor(hex: 0x858681)
             case .gold:
                 return UIColor(hex: 0xb4831f)
+            @unknown default:
+                return UIColor.black
         }
         // swiftlint:enable no_magic_numbers
     }
@@ -81,6 +83,8 @@ class BadgeViewModel {
                 return "dk_badge_silver".dkAchievementLocalized()
             case .gold:
                 return "dk_badge_gold".dkAchievementLocalized()
+            @unknown default:
+                return ""
         }
     }
 
@@ -93,6 +97,8 @@ class BadgeViewModel {
                 return "\(badgeStats.acquiredSilver) / \(badgeStats.totalSilver)"
             case .gold:
                 return "\(badgeStats.acquiredGold) / \(badgeStats.totalGold)"
+            @unknown default:
+                return ""
         }
     }
 

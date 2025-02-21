@@ -9,6 +9,7 @@
 
 import Foundation
 import DriveKitTripSimulatorModule
+import DriveKitTripSimulatorApiModule
 
 enum TripSimulatorItem {
     case trip(PresetTrip)

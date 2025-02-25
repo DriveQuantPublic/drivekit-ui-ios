@@ -10,6 +10,7 @@
 import DriveKitCommonUI
 import DriveKitPermissionsUtilsUI
 import DriveKitTripAnalysisUI
+import DriveKitTripSimulatorModule
 import UIKit
 
 class DashboardViewController: UIViewController {
@@ -44,6 +45,7 @@ class DashboardViewController: UIViewController {
         self.setupStartStopButton()
 
         self.simulateTripButton.configure(title: "simulate_trip".keyLocalized(), style: .bordered)
+        self.simulateTripButton.isHidden = DriveKitTripSimulator.shared.isNoop
         configureNavBar()
         updateBanners()
     }

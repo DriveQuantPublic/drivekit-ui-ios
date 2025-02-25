@@ -2,55 +2,55 @@ PODS:
   - DGCharts (5.1.0):
     - DGCharts/Core (= 5.1.0)
   - DGCharts/Core (5.1.0)
-  - DriveKitBeaconUtils (2.12-beta1):
-    - DriveKitCore (= 2.12-beta1)
-  - DriveKitChallenge (2.12-beta1):
-    - DriveKitDBChallengeAccess (= 2.12-beta1)
-    - DriveKitDBTripAccess (= 2.12-beta1)
-  - DriveKitCore (2.12-beta1):
-    - DriveKitNetworking (= 2.12-beta1)
-  - DriveKitDBAchievementAccess (2.12-beta1):
-    - DriveKitCore (= 2.12-beta1)
-  - DriveKitDBChallengeAccess (2.12-beta1):
-    - DriveKitCore (= 2.12-beta1)
-  - DriveKitDBTripAccess (2.12-beta1):
-    - DriveKitCore (= 2.12-beta1)
-  - DriveKitDBVehicleAccess (2.12-beta1):
-    - DriveKitBeaconUtils (= 2.12-beta1)
-    - DriveKitCore (= 2.12-beta1)
-  - DriveKitDriverAchievement (2.12-beta1):
-    - DriveKitDBAchievementAccess (= 2.12-beta1)
-  - DriveKitDriverData (2.12-beta1):
-    - DriveKitDBTripAccess (= 2.12-beta1)
-  - DriveKitNetworking (2.12-beta1)
-  - DriveKitTripAnalysis (2.12-beta1):
-    - DriveKitBeaconUtils (= 2.12-beta1)
-    - DriveKitCore (= 2.12-beta1)
-    - DriveKitDBTripAccess (= 2.12-beta1)
-    - DriveKitDBVehicleAccess (= 2.12-beta1)
-  - DriveKitTripSimulator (2.12-beta1):
-    - DriveKitTripAnalysis (= 2.12-beta1)
-    - DriveKitTripSimulatorApi (= 2.12-beta1)
-  - DriveKitTripSimulatorApi (2.12-beta1)
-  - DriveKitTripSimulatorNoop (2.12-beta1):
-    - DriveKitCore (= 2.12-beta1)
-    - DriveKitTripSimulatorApi (= 2.12-beta1)
-  - DriveKitVehicle (2.12-beta1):
-    - DriveKitBeaconUtils (= 2.12-beta1)
-    - DriveKitDBVehicleAccess (= 2.12-beta1)
+  - DriveKitBeaconUtils (2.12-beta2):
+    - DriveKitCore (= 2.12-beta2)
+  - DriveKitChallenge (2.12-beta2):
+    - DriveKitDBChallengeAccess (= 2.12-beta2)
+    - DriveKitDBTripAccess (= 2.12-beta2)
+  - DriveKitCore (2.12-beta2):
+    - DriveKitNetworking (= 2.12-beta2)
+  - DriveKitDBAchievementAccess (2.12-beta2):
+    - DriveKitCore (= 2.12-beta2)
+  - DriveKitDBChallengeAccess (2.12-beta2):
+    - DriveKitCore (= 2.12-beta2)
+  - DriveKitDBTripAccess (2.12-beta2):
+    - DriveKitCore (= 2.12-beta2)
+  - DriveKitDBVehicleAccess (2.12-beta2):
+    - DriveKitBeaconUtils (= 2.12-beta2)
+    - DriveKitCore (= 2.12-beta2)
+  - DriveKitDriverAchievement (2.12-beta2):
+    - DriveKitDBAchievementAccess (= 2.12-beta2)
+  - DriveKitDriverData (2.12-beta2):
+    - DriveKitDBTripAccess (= 2.12-beta2)
+  - DriveKitNetworking (2.12-beta2)
+  - DriveKitTripAnalysis (2.12-beta2):
+    - DriveKitBeaconUtils (= 2.12-beta2)
+    - DriveKitCore (= 2.12-beta2)
+    - DriveKitDBTripAccess (= 2.12-beta2)
+    - DriveKitDBVehicleAccess (= 2.12-beta2)
+  - DriveKitTripSimulator (2.12-beta2):
+    - DriveKitTripAnalysis (= 2.12-beta2)
+    - DriveKitTripSimulatorApi (= 2.12-beta2)
+  - DriveKitTripSimulatorApi (2.12-beta2)
+  - DriveKitTripSimulatorNoop (2.12-beta2):
+    - DriveKitCore (= 2.12-beta2)
+    - DriveKitTripSimulatorApi (= 2.12-beta2)
+  - DriveKitVehicle (2.12-beta2):
+    - DriveKitBeaconUtils (= 2.12-beta2)
+    - DriveKitDBVehicleAccess (= 2.12-beta2)
   - SwiftLint (0.57.1)
   - WARangeSlider (1.2.0)
 
 DEPENDENCIES:
   - DGCharts (= 5.1.0)
-  - DriveKitChallenge (= 2.12-beta1)
-  - DriveKitCore (= 2.12-beta1)
-  - DriveKitDriverAchievement (= 2.12-beta1)
-  - DriveKitDriverData (= 2.12-beta1)
-  - DriveKitTripAnalysis (= 2.12-beta1)
-  - DriveKitTripSimulator (= 2.12-beta1)
-  - DriveKitTripSimulatorNoop (= 2.12-beta1)
-  - DriveKitVehicle (= 2.12-beta1)
+  - DriveKitChallenge (= 2.12-beta2)
+  - DriveKitCore (= 2.12-beta2)
+  - DriveKitDriverAchievement (= 2.12-beta2)
+  - DriveKitDriverData (= 2.12-beta2)
+  - DriveKitTripAnalysis (= 2.12-beta2)
+  - DriveKitTripSimulator (= 2.12-beta2)
+  - DriveKitTripSimulatorNoop (= 2.12-beta2)
+  - DriveKitVehicle (= 2.12-beta2)
   - SwiftLint
   - WARangeSlider
 
@@ -78,24 +78,24 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   DGCharts: 1c6daf585b6cfc78807af44ea690d357c410627f
-  DriveKitBeaconUtils: 9a2025b83dc657a2a8d68aadc7d2b2f58327b8f3
-  DriveKitChallenge: 1b990bdec7dcf98ca667d48afc7b7916c9e98183
-  DriveKitCore: 620327053ffe8eac20424d98a4b6305c131b5531
-  DriveKitDBAchievementAccess: 4c8e678ff4e6432b35e428f605474ccbfb063a47
-  DriveKitDBChallengeAccess: 9cb57405ea2c414f4108410186e3c07c5bc408e8
-  DriveKitDBTripAccess: d4d4369ac96ccc52584b41c2070211bc692792cb
-  DriveKitDBVehicleAccess: 6d5cc193d904c1cb7469735e8f0c2e393031484f
-  DriveKitDriverAchievement: fdea352c9832099224ce68063c3786b56dabcb06
-  DriveKitDriverData: c1be84e132fb069bb8505cc7609599d62b2d563f
-  DriveKitNetworking: 1ae764332410dfaff8dd807e11a4ed51004b0576
-  DriveKitTripAnalysis: aeb8bc8c910cc910dd548eba65acb258e584ba93
-  DriveKitTripSimulator: b4cf7463adb1bcda2372010b9783cc93232c5ea6
-  DriveKitTripSimulatorApi: 943da4570c8861fca88eb7217ce0e06835a814cd
-  DriveKitTripSimulatorNoop: b964e089d55823e7ce2d3fe035b8c383b2548f12
-  DriveKitVehicle: 74d75734f10297dcb8397649b7dd6a01589b441d
+  DriveKitBeaconUtils: 6a580bac10505d47365cefb71059e463f5202b53
+  DriveKitChallenge: 0911451566719b0046053b6065f7831e3535a312
+  DriveKitCore: dc3f983b7e33354eaf04a34d47a3d2eac1bf41c6
+  DriveKitDBAchievementAccess: 979521e40d8461aeda0f957b121171cf6567b681
+  DriveKitDBChallengeAccess: 25e7a8ac4610a79244cfb5de14fad7ca6d5c4da4
+  DriveKitDBTripAccess: 311a7de0f5191ed62ad449d4eb7ea67fc5ee56a1
+  DriveKitDBVehicleAccess: 506f25c99210361d941f17f268269509b8d1fad0
+  DriveKitDriverAchievement: e00304a9b2fb4f9c4db19880b44f7000b6d48586
+  DriveKitDriverData: 3030c77f1a5935f7fb3acce4b69e1ecf09fdc9e1
+  DriveKitNetworking: 6b3d2963c0ed10cb9bb96d9e49a9e91d228bf43b
+  DriveKitTripAnalysis: 5e89556b526dad555c92018e5d50306ba2cfe444
+  DriveKitTripSimulator: 8aeb4362bdc6bc25d7b31fdb7743e0d9fa7d6aed
+  DriveKitTripSimulatorApi: 445716157bb3824dd3bd63f19134a5f97dadc936
+  DriveKitTripSimulatorNoop: 25a8b299607a6c9ffdd3dd64d824f24c4a97444e
+  DriveKitVehicle: 594b230cd2f2f3c3781fc2613b695c4029a4042e
   SwiftLint: 92196976e597b9afec5dbe374810103e6c1d9d7c
   WARangeSlider: 03f195d4dc5419e6b0d9043cc94fdf418dfe804d
 
-PODFILE CHECKSUM: 8ba0f34ce81ab9c55a69bb358548047a9551a9fa
+PODFILE CHECKSUM: f3af3be4941778311295e1a22fec800377b0be88
 
 COCOAPODS: 1.16.2

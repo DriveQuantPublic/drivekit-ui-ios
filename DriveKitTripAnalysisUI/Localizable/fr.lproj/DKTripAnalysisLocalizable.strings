@@ -23,7 +23,7 @@
 "dk_location_sharing_inactive_description_1"="Pour rassurer vos proches, l\'application vous permet de partager votre position pendant que vous conduisez.";
 "dk_location_sharing_inactive_description_2"="Votre position est accessible grâce à un lien de suivi et n\'est visible que pendant vos trajets.";
 "dk_location_sharing_inactive_description_3"="Vous pouvez définir la durée de validité du lien de suivi et interrompre le partage de position à tout moment.";
-"dk_location_sharing_inactive_enable"="PARTAGER MA POSTION";
+"dk_location_sharing_inactive_enable"="PARTAGER MA POSITION";
 "dk_location_sharing_select_cancel"="Annuler";
 "dk_location_sharing_select_day"="UNE JOURNÉE";
 "dk_location_sharing_select_description_1"="Pendant combien de temps souhaitez-vous partager votre position ?";

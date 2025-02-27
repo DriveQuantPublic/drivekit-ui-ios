@@ -2,7 +2,7 @@
 platform :ios, '13.0'
 use_frameworks!
 
-#source 'https://gitlab.com/drivequant/drivekit/drivekit-specs.git'
+source 'https://gitlab.com/drivequant/drivekit/drivekit-specs.git'
 source 'https://cdn.cocoapods.org/'
 
 def swiftlint
@@ -11,51 +11,51 @@ end
 
 target 'DriveKitApp' do
   pod 'DGCharts', '5.1.0'
-  pod 'DriveKitTripSimulator', '2.12.1', :configuration => ['Debug']
-  pod 'DriveKitTripSimulatorNoop', '2.12.1', :configuration => ['Release']
+  pod 'DriveKitTripSimulator', '2.13-beta1', :configuration => ['Debug']
+  pod 'DriveKitTripSimulatorNoop', '2.13-beta1', :configuration => ['Release']
   swiftlint
 end
 
 
 target 'DriveKitDriverDataUI' do
-  pod 'DriveKitDriverData', '2.12.1'
+  pod 'DriveKitDriverData', '2.13-beta1'
   swiftlint
 end
 
 target 'DriveKitDriverDataTimelineUI' do
-  pod 'DriveKitDriverData', '2.12.1'
+  pod 'DriveKitDriverData', '2.13-beta1'
   pod 'DGCharts', '5.1.0'
   swiftlint
 end
 
 target 'DriveKitDriverAchievementUI' do
-  pod 'DriveKitDriverAchievement', '2.12.1'
+  pod 'DriveKitDriverAchievement', '2.13-beta1'
   swiftlint
 end
 
 target 'DriveKitCommonUI' do
-  pod 'DriveKitCore', '2.12.1'
+  pod 'DriveKitCore', '2.13-beta1'
   swiftlint
 end
 
 target 'DriveKitVehicleUI' do
-  pod 'DriveKitVehicle', '2.12.1'
-  pod 'DriveKitTripAnalysis', '2.12.1'
+  pod 'DriveKitVehicle', '2.13-beta1'
+  pod 'DriveKitTripAnalysis', '2.13-beta1'
   swiftlint
 end
 
 target 'DriveKitPermissionsUtilsUI' do
-  pod 'DriveKitCore', '2.12.1'
+  pod 'DriveKitCore', '2.13-beta1'
   swiftlint
 end
 
 target 'DriveKitChallengeUI' do
-  pod 'DriveKitChallenge', '2.12.1'
+  pod 'DriveKitChallenge', '2.13-beta1'
   swiftlint
 end
 
 target 'DriveKitTripAnalysisUI' do
-  pod 'DriveKitTripAnalysis', '2.12.1'
+  pod 'DriveKitTripAnalysis', '2.13-beta1'
   pod 'WARangeSlider'
   swiftlint
 end

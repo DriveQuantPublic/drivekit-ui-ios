@@ -16,6 +16,10 @@ let package = Package(
             name: "DriveKitCommonUI",
             targets: ["DriveKitCommonUI"]
         ),
+        .library(
+            name: "DriveKitDriverAchievementUI",
+            targets: ["DriveKitDriverAchievementUI"]
+        ),
     ],
     dependencies: [
         .package(
@@ -66,6 +70,28 @@ let package = Package(
                 .copy("AnalyticsScreenToTagKey.plist"),
                 .copy("AnalyticsTags.plist"),
             ]
+        ),
+
+        .target(
+            name: "DriveKitDriverAchievementUI",
+            dependencies: [
+                .target(name: "DriveKitDriverAchievementUI-Objc"),
+                .target(name: "DriveKitCommonUI"),
+                .product(name: "DriveKitDriverAchievement", package: "DriveKit"),
+            ],
+            path: "DriveKitDriverAchievementUI",
+            exclude: [
+                "DKUIDriverAchievementAutoInit.m",
+                "include",
+            ],
+            resources: [
+                .copy("PrivacyInfo.xcprivacy"),
+            ]
+        ),
+        .target(
+            name: "DriveKitDriverAchievementUI-Objc",
+            path: "DriveKitDriverAchievementUI",
+            sources: ["DKUIDriverAchievementAutoInit.m"]
         ),
     ]
 )

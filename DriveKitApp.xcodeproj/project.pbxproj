@@ -1039,7 +1039,6 @@
 		5CA1D482246E9FF1001DDC34 /* BadgeLevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeLevelViewModel.swift; sourceTree = "<group>"; };
 		5CE33814246C1E7E007E5790 /* BadgeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BadgeTableViewCell.xib; sourceTree = "<group>"; };
 		5CE33816246C27C8007E5790 /* BadgesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BadgesViewController.xib; sourceTree = "<group>"; };
-		5CE33818246C30CE007E5790 /* UICircularProgressRing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UICircularProgressRing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CFCF8B0246D43F3002F9152 /* DriverAchievement.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DriverAchievement.xcassets; sourceTree = "<group>"; };
 		5CFCF8B4246D82E6002F9152 /* BadgeSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeSectionHeaderView.swift; sourceTree = "<group>"; };
 		5CFCF8B6246D82FD002F9152 /* BadgeSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BadgeSectionHeaderView.xib; sourceTree = "<group>"; };
@@ -1758,7 +1757,6 @@
 		0507D67F4F2198BE920311FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5CE33818246C30CE007E5790 /* UICircularProgressRing.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

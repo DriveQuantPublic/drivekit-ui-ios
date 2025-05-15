@@ -8,14 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <DriveKitCoreModule/DriveKitCoreModule-Swift.h>
-#import <DriveKitPermissionsUtilsUI/DriveKitPermissionsUtilsUI-Swift.h>
-
-SWIFT_CLASS("DKUIPermissionsUtilsInitializer")
-@interface DKUIPermissionsUtilsInitializer
-
-+ (void)initUI;
-
-@end
 
 @interface DKUIPermissionsUtilsAutoInit : NSObject
 
@@ -28,8 +20,16 @@ SWIFT_CLASS("DKUIPermissionsUtilsInitializer")
     [super load];
 
     if (DriveKit.shared.isAutoInitEnabled) {
-        [DKUIPermissionsUtilsInitializer initUI];
+        Class class = NSClassFromString(@"DriveKitPermissionsUtilsUI.DKUIPermissionsUtilsInitializer");
+        [self callMethod:@"initUI" onClass:class];
     }
+}
+
++ (void)callMethod:(NSString*)methodName onClass:(Class)class {
+    SEL selector = NSSelectorFromString(methodName);
+    IMP imp = [class methodForSelector:selector];
+    void (*func)(id, SEL) = (void *)imp;
+    func(class, selector);
 }
 
 @end

@@ -28,6 +28,10 @@ let package = Package(
             name: "DriveKitDriverDataUI",
             targets: ["DriveKitDriverDataUI"]
         ),
+        .library(
+            name: "DriveKitPermissionsUtilsUI",
+            targets: ["DriveKitPermissionsUtilsUI"]
+        ),
     ],
     dependencies: [
         .package(
@@ -145,6 +149,28 @@ let package = Package(
             name: "DriveKitDriverDataUI-Objc",
             path: "DriveKitDriverDataUI",
             sources: ["DKUIDriverDataAutoInit.m"]
+        ),
+
+        .target(
+            name: "DriveKitPermissionsUtilsUI",
+            dependencies: [
+                .target(name: "DriveKitPermissionsUtilsUI-Objc"),
+                .target(name: "DriveKitCommonUI"),
+                .product(name: "DriveKitCore", package: "DriveKit"),
+            ],
+            path: "DriveKitPermissionsUtilsUI",
+            exclude: [
+                "DKUIPermissionsUtilsAutoInit.m",
+                "include",
+            ],
+            resources: [
+                .copy("PrivacyInfo.xcprivacy"),
+            ]
+        ),
+        .target(
+            name: "DriveKitPermissionsUtilsUI-Objc",
+            path: "DriveKitPermissionsUtilsUI",
+            sources: ["DKUIPermissionsUtilsAutoInit.m"]
         ),
     ]
 )

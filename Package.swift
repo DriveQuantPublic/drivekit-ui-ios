@@ -32,6 +32,10 @@ let package = Package(
             name: "DriveKitPermissionsUtilsUI",
             targets: ["DriveKitPermissionsUtilsUI"]
         ),
+        .library(
+            name: "DriveKitTripAnalysisUI",
+            targets: ["DriveKitTripAnalysisUI"]
+        ),
     ],
     dependencies: [
         .package(
@@ -171,6 +175,29 @@ let package = Package(
             name: "DriveKitPermissionsUtilsUI-Objc",
             path: "DriveKitPermissionsUtilsUI",
             sources: ["DKUIPermissionsUtilsAutoInit.m"]
+        ),
+
+        .target(
+            name: "DriveKitTripAnalysisUI",
+            dependencies: [
+                .target(name: "DriveKitTripAnalysisUI-Objc"),
+                .target(name: "DriveKitCommonUI"),
+                .product(name: "DriveKitTripAnalysis", package: "DriveKit"),
+                .product(name: "WARangeSlider", package: "RangeSlider"),
+            ],
+            path: "DriveKitTripAnalysisUI",
+            exclude: [
+                "DKUITripAnalysisAutoInit.m",
+                "include",
+            ],
+            resources: [
+                .copy("PrivacyInfo.xcprivacy"),
+            ]
+        ),
+        .target(
+            name: "DriveKitTripAnalysisUI-Objc",
+            path: "DriveKitTripAnalysisUI",
+            sources: ["DKUITripAnalysisAutoInit.m"]
         ),
     ]
 )

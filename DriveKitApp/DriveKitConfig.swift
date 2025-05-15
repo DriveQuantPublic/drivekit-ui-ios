@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import DriveKitChallengeModule
-import DriveKitChallengeUI
 import DriveKitCommonUI
 import DriveKitCoreModule
 import DriveKitDBAchievementAccessModule

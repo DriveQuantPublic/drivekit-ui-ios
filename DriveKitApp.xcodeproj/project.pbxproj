@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		144631166FF6EF95F22253F5 /* Pods_DriveKitApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11883F51C20078FAEA834561 /* Pods_DriveKitApp.framework */; };
-		2BCAA6C1AC3CC1C2B0E98D77 /* Pods_DriveKitVehicleUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20449AFA2A35A174B99296E3 /* Pods_DriveKitVehicleUI.framework */; };
-		3E451910EF2F6740355C1B4D /* Pods_DriveKitDriverDataTimelineUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AF6A878B0B12C9B747FB901 /* Pods_DriveKitDriverDataTimelineUI.framework */; };
 		3F03A4DF242C9983000924A0 /* DriveKitVehicleUIEntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F03A4DE242C9983000924A0 /* DriveKitVehicleUIEntryPoint.swift */; };
 		3F0740DE2403BB65005A8D07 /* DriveKitCommonUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0740DC2403BB65005A8D07 /* DriveKitCommonUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F0740E12403BB65005A8D07 /* DriveKitCommonUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F0740DA2403BB65005A8D07 /* DriveKitCommonUI.framework */; };
@@ -158,7 +155,6 @@
 		3FFB2D9224194909003E6A06 /* BeaconScanFailureVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3FFB2D9024194909003E6A06 /* BeaconScanFailureVC.xib */; };
 		3FFD7FD12363002B00BD2F0D /* DriveKitDriverDataUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */; };
 		3FFD7FD22363002B00BD2F0D /* DriveKitDriverDataUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A34238062361A1FA0001E15D /* DriveKitDriverDataUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		54B194CB4EB9C2225CCB5C02 /* Pods_DriveKitTripAnalysisUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32366A485A279B3F568037E0 /* Pods_DriveKitTripAnalysisUI.framework */; };
 		5C180D66246AFCB8001E95FA /* BadgesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C180D65246AFCB8001E95FA /* BadgesViewModel.swift */; };
 		5C180D68246B000D001E95FA /* BadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C180D67246B000D001E95FA /* BadgesViewController.swift */; };
 		5C180D6A246B0258001E95FA /* BadgeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C180D69246B0258001E95FA /* BadgeTableViewCell.swift */; };
@@ -271,6 +267,18 @@
 		63842D4A2816CC53007F9256 /* FeatureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63842D492816CC53007F9256 /* FeatureType.swift */; };
 		63842D4F2817D3FC007F9256 /* NotificationChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63842D4E2817D3FC007F9256 /* NotificationChannel.swift */; };
 		63842D512817FEDB007F9256 /* DriveKitConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63842D502817FEDB007F9256 /* DriveKitConfig.swift */; };
+		638442AC2DD5F45500C030CC /* DriveKitDriverData in Frameworks */ = {isa = PBXBuildFile; productRef = 638442AB2DD5F45500C030CC /* DriveKitDriverData */; };
+		638442B62DD5F4EC00C030CC /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 638442B52DD5F4EC00C030CC /* DGCharts */; };
+		638442B82DD5F52200C030CC /* DriveKitTripSimulator in Frameworks */ = {isa = PBXBuildFile; productRef = 638442B72DD5F52200C030CC /* DriveKitTripSimulator */; };
+		638442BA2DD5F55800C030CC /* DriveKitDriverData in Frameworks */ = {isa = PBXBuildFile; productRef = 638442B92DD5F55800C030CC /* DriveKitDriverData */; };
+		638442BC2DD5F56100C030CC /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 638442BB2DD5F56100C030CC /* DGCharts */; };
+		638442BE2DD5F57000C030CC /* DriveKitDriverAchievement in Frameworks */ = {isa = PBXBuildFile; productRef = 638442BD2DD5F57000C030CC /* DriveKitDriverAchievement */; };
+		638442C02DD5F57C00C030CC /* DriveKitCore in Frameworks */ = {isa = PBXBuildFile; productRef = 638442BF2DD5F57C00C030CC /* DriveKitCore */; };
+		638442C22DD5F58B00C030CC /* DriveKitTripAnalysis in Frameworks */ = {isa = PBXBuildFile; productRef = 638442C12DD5F58B00C030CC /* DriveKitTripAnalysis */; };
+		638442C42DD5F58E00C030CC /* DriveKitVehicle in Frameworks */ = {isa = PBXBuildFile; productRef = 638442C32DD5F58E00C030CC /* DriveKitVehicle */; };
+		638442C62DD5F59E00C030CC /* DriveKitCore in Frameworks */ = {isa = PBXBuildFile; productRef = 638442C52DD5F59E00C030CC /* DriveKitCore */; };
+		638442C82DD5F5AB00C030CC /* DriveKitTripAnalysis in Frameworks */ = {isa = PBXBuildFile; productRef = 638442C72DD5F5AB00C030CC /* DriveKitTripAnalysis */; };
+		638442CB2DD5F5C100C030CC /* WARangeSlider in Frameworks */ = {isa = PBXBuildFile; productRef = 638442CA2DD5F5C100C030CC /* WARangeSlider */; };
 		63852E1F2821E73800F7CE00 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63852E1E2821E73800F7CE00 /* SettingsViewModel.swift */; };
 		638AC038261F8FFB00602B52 /* SynthesisCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638AC037261F8FFB00602B52 /* SynthesisCardsView.swift */; };
 		638AC03F261F903300602B52 /* SynthesisCardsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638AC03E261F903300602B52 /* SynthesisCardsView.xib */; };
@@ -339,6 +347,9 @@
 		63F44E8A244DDEE000C7F5CC /* GlobalStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F44E88244DDEE000C7F5CC /* GlobalStateView.xib */; };
 		63F44E8C244DF16800C7F5CC /* SeparatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F44E8B244DF16800C7F5CC /* SeparatorView.xib */; };
 		63F44E8E244DF2A200C7F5CC /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F44E8D244DF2A200C7F5CC /* SeparatorView.swift */; };
+		63F4A0262DD60FA300A65B51 /* DriveKitChallengeUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67C43CF6263A910D00DBB09D /* DriveKitChallengeUI.framework */; };
+		63F4A0272DD60FA300A65B51 /* DriveKitChallengeUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 67C43CF6263A910D00DBB09D /* DriveKitChallengeUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		63F4A02D2DD611A600A65B51 /* DriveKitChallenge in Frameworks */ = {isa = PBXBuildFile; productRef = 63F4A02C2DD611A600A65B51 /* DriveKitChallenge */; };
 		63F4C735280DD8B0006396B9 /* FeaturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F4C734280DD8B0006396B9 /* FeaturesViewController.swift */; };
 		63F4C737280DD91D006396B9 /* FeaturesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F4C736280DD91D006396B9 /* FeaturesViewController.xib */; };
 		63F4C739280DD92E006396B9 /* FeaturesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F4C738280DD92E006396B9 /* FeaturesViewModel.swift */; };
@@ -504,9 +515,6 @@
 		67C055C127FDF6CC00B7159D /* ApiKeyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67C055BF27FDF6CC00B7159D /* ApiKeyViewController.xib */; };
 		67C055E727FF2D7200B7159D /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C055E627FF2D7200B7159D /* AppNavigationController.swift */; };
 		67C43CFA263A910D00DBB09D /* DriveKitChallengeUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 67C43CF8263A910D00DBB09D /* DriveKitChallengeUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		67C43CFD263A910D00DBB09D /* DriveKitChallengeUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67C43CF6263A910D00DBB09D /* DriveKitChallengeUI.framework */; };
-		67C43CFE263A910D00DBB09D /* DriveKitChallengeUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 67C43CF6263A910D00DBB09D /* DriveKitChallengeUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		67C43D04263A91E800DBB09D /* DriveKitCommonUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F0740DA2403BB65005A8D07 /* DriveKitCommonUI.framework */; };
 		67C43D0A263A98B600DBB09D /* DriveKitChallengeUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C43D09263A98B600DBB09D /* DriveKitChallengeUI.swift */; };
 		67C43D0C263ADD3300DBB09D /* DriveKitChallengeUIEntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C43D0B263ADD3300DBB09D /* DriveKitChallengeUIEntryPoint.swift */; };
 		67C43D11263AE0C100DBB09D /* DriveKitChallenge.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67C43D10263AE0C100DBB09D /* DriveKitChallenge.xcassets */; };
@@ -567,7 +575,6 @@
 		67F2D3B42631600000ACC69A /* DKDriverRankingCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D3B32631600000ACC69A /* DKDriverRankingCollectionVC.swift */; };
 		67F2D3BC26316D5800ACC69A /* DKDriverRankingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F2D3BB26316D5800ACC69A /* DKDriverRankingViewModel.swift */; };
 		67F7786B2679EEB500CAAC52 /* DKTripInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F7786A2679EEB500CAAC52 /* DKTripInfo.swift */; };
-		6FEDF9ABE856C7367CDBBC69 /* Pods_DriveKitCommonUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0425AC91525E20565C140CA4 /* Pods_DriveKitCommonUI.framework */; };
 		A30F4F1523D5DA08009A37C2 /* SynthesisPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30F4F1423D5DA08009A37C2 /* SynthesisPageViewModel.swift */; };
 		A30F4F1823D5DA14009A37C2 /* SynthesisPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30F4F1623D5DA14009A37C2 /* SynthesisPageVC.swift */; };
 		A30F4F1923D5DA14009A37C2 /* SynthesisPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A30F4F1723D5DA14009A37C2 /* SynthesisPageVC.xib */; };
@@ -641,8 +648,6 @@
 		A3D51F4F241BA3AE006DACE2 /* VehiclesListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3D51F4B241BA3AE006DACE2 /* VehiclesListVC.xib */; };
 		A3D51F50241BA3AE006DACE2 /* VehiclesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D51F4C241BA3AE006DACE2 /* VehiclesListVC.swift */; };
 		A3D51F51241BA3AE006DACE2 /* VehiclesListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3D51F4D241BA3AE006DACE2 /* VehiclesListCell.xib */; };
-		AD2690683829D301D9573CEC /* Pods_DriveKitChallengeUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158BFF3EE484B6293C97E890 /* Pods_DriveKitChallengeUI.framework */; };
-		C2ECBA09D9742158769AE627 /* Pods_DriveKitPermissionsUtilsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A3A98094797ED33BAF53826 /* Pods_DriveKitPermissionsUtilsUI.framework */; };
 		E302B61229ADFC40004CFA0C /* Array+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F0212F29A3A90600664CD2 /* Array+Date.swift */; };
 		E302B61329ADFC40004CFA0C /* Date+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63454B9E2907DC8D00A9B10F /* Date+DK.swift */; };
 		E302B61729AE0DC1004CFA0C /* MySynthesisScoreCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E302B61629AE0DC1004CFA0C /* MySynthesisScoreCardView.swift */; };
@@ -735,8 +740,6 @@
 		E3B8309D294B1DCE00E31848 /* RoadContextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B8309C294B1DCE00E31848 /* RoadContextView.swift */; };
 		E3CDCFF729F68AA700ADAFD0 /* DrivingConditionsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CDCFF629F68AA700ADAFD0 /* DrivingConditionsConstants.swift */; };
 		E3F0213329A3B88400664CD2 /* MySynthesisViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F0213229A3B88400664CD2 /* MySynthesisViewModelDelegate.swift */; };
-		FA5F8336F7F9D6E9CBACE91B /* Pods_DriveKitDriverAchievementUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36173251B2A47392720E8B05 /* Pods_DriveKitDriverAchievementUI.framework */; };
-		FE2C04BD97A78F4B22CD7008 /* Pods_DriveKitDriverDataUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55652B494DACA2423EDB5A8E /* Pods_DriveKitDriverDataUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -748,13 +751,6 @@
 			remoteInfo = DriveKitCommonUI;
 		};
 		3F7524C52406B06C00AC22CC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A3B7B378235F124F0065A332 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3F0740D92403BB65005A8D07;
-			remoteInfo = DriveKitCommonUI;
-		};
-		3F7524C72406B07200AC22CC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A3B7B378235F124F0065A332 /* Project object */;
 			proxyType = 1;
@@ -803,6 +799,27 @@
 			remoteGlobalIDString = 616946D8243337D600C8A965;
 			remoteInfo = DriveKitPermissionsUtilsUI;
 		};
+		638442B22DD5F4B000C030CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3B7B378235F124F0065A332 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F0740D92403BB65005A8D07;
+			remoteInfo = DriveKitCommonUI;
+		};
+		63F4A0282DD60FA300A65B51 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3B7B378235F124F0065A332 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 67C43CF5263A910D00DBB09D;
+			remoteInfo = DriveKitChallengeUI;
+		};
+		63F4A02A2DD6107100A65B51 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3B7B378235F124F0065A332 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F0740D92403BB65005A8D07;
+			remoteInfo = DriveKitCommonUI;
+		};
 		63F8B29328F958B90084B53A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A3B7B378235F124F0065A332 /* Project object */;
@@ -831,27 +848,6 @@
 			remoteGlobalIDString = 3F0740D92403BB65005A8D07;
 			remoteInfo = DriveKitCommonUI;
 		};
-		67C43CFB263A910D00DBB09D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A3B7B378235F124F0065A332 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 67C43CF5263A910D00DBB09D;
-			remoteInfo = DriveKitChallengeUI;
-		};
-		67C43D02263A91CC00DBB09D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A3B7B378235F124F0065A332 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3F0740D92403BB65005A8D07;
-			remoteInfo = DriveKitCommonUI;
-		};
-		67C43D06263A91E800DBB09D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A3B7B378235F124F0065A332 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3F0740D92403BB65005A8D07;
-			remoteInfo = DriveKitCommonUI;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -864,8 +860,8 @@
 				67813097276BB2A100701CF1 /* DriveKitTripAnalysisUI.framework in Embed Frameworks */,
 				3FFAD20223EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework in Embed Frameworks */,
 				61D29B7524361CD70094CA5B /* DriveKitPermissionsUtilsUI.framework in Embed Frameworks */,
-				67C43CFE263A910D00DBB09D /* DriveKitChallengeUI.framework in Embed Frameworks */,
 				3FFD7FD22363002B00BD2F0D /* DriveKitDriverDataUI.framework in Embed Frameworks */,
+				63F4A0272DD60FA300A65B51 /* DriveKitChallengeUI.framework in Embed Frameworks */,
 				3F0740E22403BB65005A8D07 /* DriveKitCommonUI.framework in Embed Frameworks */,
 				3FF68EFA2413ECC00071D74C /* DriveKitVehicleUI.framework in Embed Frameworks */,
 				63F8B29628F958B90084B53A /* DriveKitDriverDataTimelineUI.framework in Embed Frameworks */,
@@ -876,19 +872,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0425AC91525E20565C140CA4 /* Pods_DriveKitCommonUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitCommonUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		091B2099E66B6A8FDD56B7B7 /* Pods-DriveKitPermissionsUtilsUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitPermissionsUtilsUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitPermissionsUtilsUI/Pods-DriveKitPermissionsUtilsUI.debug.xcconfig"; sourceTree = "<group>"; };
-		0DCA7A09AC2410A44084435A /* Pods-DriveKitCommonUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitCommonUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitCommonUI/Pods-DriveKitCommonUI.debug.xcconfig"; sourceTree = "<group>"; };
-		10107C08082CCF492923D28F /* Pods-DriveKitDriverDataUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverDataUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverDataUI/Pods-DriveKitDriverDataUI.debug.xcconfig"; sourceTree = "<group>"; };
-		11883F51C20078FAEA834561 /* Pods_DriveKitApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		158BFF3EE484B6293C97E890 /* Pods_DriveKitChallengeUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitChallengeUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1A1A8A18A79F9D8AA95BDA72 /* Pods-DriveKitPermissionsUtilsUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitPermissionsUtilsUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitPermissionsUtilsUI/Pods-DriveKitPermissionsUtilsUI.release.xcconfig"; sourceTree = "<group>"; };
-		20449AFA2A35A174B99296E3 /* Pods_DriveKitVehicleUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitVehicleUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		20B69960974EEE2DEB3E079F /* Pods-DriveKitDriverAchievementUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverAchievementUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverAchievementUI/Pods-DriveKitDriverAchievementUI.release.xcconfig"; sourceTree = "<group>"; };
-		32366A485A279B3F568037E0 /* Pods_DriveKitTripAnalysisUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitTripAnalysisUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		36173251B2A47392720E8B05 /* Pods_DriveKitDriverAchievementUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitDriverAchievementUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		38FD5C43C51C0CF5151B396D /* Pods-DriveKitVehicleUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitVehicleUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitVehicleUI/Pods-DriveKitVehicleUI.release.xcconfig"; sourceTree = "<group>"; };
-		3AF6A878B0B12C9B747FB901 /* Pods_DriveKitDriverDataTimelineUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitDriverDataTimelineUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F03A4DC242C8BD3000924A0 /* DKContentMail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKContentMail.swift; sourceTree = "<group>"; };
 		3F03A4DE242C9983000924A0 /* DriveKitVehicleUIEntryPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriveKitVehicleUIEntryPoint.swift; sourceTree = "<group>"; };
 		3F0740DA2403BB65005A8D07 /* DriveKitCommonUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DriveKitCommonUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1047,15 +1030,11 @@
 		3FFB2D8C241942FB003E6A06 /* BeaconScannerBeaconUnavailableVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeaconScannerBeaconUnavailableVC.xib; sourceTree = "<group>"; };
 		3FFB2D8F24194909003E6A06 /* BeaconScanFailureVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconScanFailureVC.swift; sourceTree = "<group>"; };
 		3FFB2D9024194909003E6A06 /* BeaconScanFailureVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeaconScanFailureVC.xib; sourceTree = "<group>"; };
-		4CD7037C27E50286ED57032C /* Pods-DriveKitTripAnalysisUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitTripAnalysisUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitTripAnalysisUI/Pods-DriveKitTripAnalysisUI.debug.xcconfig"; sourceTree = "<group>"; };
-		4F4AC1B7FA8DAACDF9BADB1D /* Pods-DriveKitTripAnalysisUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitTripAnalysisUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitTripAnalysisUI/Pods-DriveKitTripAnalysisUI.release.xcconfig"; sourceTree = "<group>"; };
-		55652B494DACA2423EDB5A8E /* Pods_DriveKitDriverDataUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitDriverDataUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C180D65246AFCB8001E95FA /* BadgesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesViewModel.swift; sourceTree = "<group>"; };
 		5C180D67246B000D001E95FA /* BadgesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgesViewController.swift; sourceTree = "<group>"; };
 		5C180D69246B0258001E95FA /* BadgeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeTableViewCell.swift; sourceTree = "<group>"; };
 		5C180D6D246B049B001E95FA /* BadgeLevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeLevelView.swift; sourceTree = "<group>"; };
 		5C180D6F246B05BC001E95FA /* BadgeLevelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BadgeLevelView.xib; sourceTree = "<group>"; };
-		5C2DA71D35693509465E10BC /* Pods-DriveKitApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitApp.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitApp/Pods-DriveKitApp.debug.xcconfig"; sourceTree = "<group>"; };
 		5CA1D480246E97B9001DDC34 /* BadgeLevelDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BadgeLevelDetailViewController.xib; sourceTree = "<group>"; };
 		5CA1D482246E9FF1001DDC34 /* BadgeLevelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeLevelViewModel.swift; sourceTree = "<group>"; };
 		5CE33814246C1E7E007E5790 /* BadgeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BadgeTableViewCell.xib; sourceTree = "<group>"; };
@@ -1065,8 +1044,6 @@
 		5CFCF8B4246D82E6002F9152 /* BadgeSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeSectionHeaderView.swift; sourceTree = "<group>"; };
 		5CFCF8B6246D82FD002F9152 /* BadgeSectionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BadgeSectionHeaderView.xib; sourceTree = "<group>"; };
 		5CFCF8B8246DAE4A002F9152 /* BadgeLevelDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeLevelDetailViewController.swift; sourceTree = "<group>"; };
-		5DCC63E1FD4A8A79E2ED8F27 /* Pods_DriveKitDriverData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitDriverData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E2827ABB27702690C9C0258 /* Pods-DriveKitDriverDataTimelineUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverDataTimelineUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverDataTimelineUI/Pods-DriveKitDriverDataTimelineUI.release.xcconfig"; sourceTree = "<group>"; };
 		610539082434B69800C00CAF /* ActivityPermissionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityPermissionViewController.xib; sourceTree = "<group>"; };
 		6105390A2434B75200C00CAF /* LocationPermissionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationPermissionViewController.xib; sourceTree = "<group>"; };
 		61199C67243B9C5E00F73F37 /* PermissionsUtils.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PermissionsUtils.xcassets; sourceTree = "<group>"; };
@@ -1507,12 +1484,6 @@
 		67F2D3B32631600000ACC69A /* DKDriverRankingCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDriverRankingCollectionVC.swift; sourceTree = "<group>"; };
 		67F2D3BB26316D5800ACC69A /* DKDriverRankingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDriverRankingViewModel.swift; sourceTree = "<group>"; };
 		67F7786A2679EEB500CAAC52 /* DKTripInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKTripInfo.swift; sourceTree = "<group>"; };
-		6BFB98AC1182AE238ABB6CBD /* Pods-DriveKitApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitApp.release.xcconfig"; path = "Target Support Files/Pods-DriveKitApp/Pods-DriveKitApp.release.xcconfig"; sourceTree = "<group>"; };
-		6ECF11F340D0E58FB40AF162 /* Pods-DriveKitChallengeUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitChallengeUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitChallengeUI/Pods-DriveKitChallengeUI.release.xcconfig"; sourceTree = "<group>"; };
-		71C90D9FE8ADAE9597A8BE8A /* Pods-DriveKitDriverAchievementUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverAchievementUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverAchievementUI/Pods-DriveKitDriverAchievementUI.debug.xcconfig"; sourceTree = "<group>"; };
-		88D27862C0BB1621E356D771 /* Pods-DriveKitCommonUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitCommonUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitCommonUI/Pods-DriveKitCommonUI.release.xcconfig"; sourceTree = "<group>"; };
-		8A3A98094797ED33BAF53826 /* Pods_DriveKitPermissionsUtilsUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DriveKitPermissionsUtilsUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		96151588B94F1AEF000E110A /* Pods-DriveKitVehicleUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitVehicleUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitVehicleUI/Pods-DriveKitVehicleUI.debug.xcconfig"; sourceTree = "<group>"; };
 		A30F4F1423D5DA08009A37C2 /* SynthesisPageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynthesisPageViewModel.swift; sourceTree = "<group>"; };
 		A30F4F1623D5DA14009A37C2 /* SynthesisPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SynthesisPageVC.swift; sourceTree = "<group>"; };
 		A30F4F1723D5DA14009A37C2 /* SynthesisPageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SynthesisPageVC.xib; sourceTree = "<group>"; };
@@ -1604,8 +1575,6 @@
 		A3D51F4B241BA3AE006DACE2 /* VehiclesListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VehiclesListVC.xib; sourceTree = "<group>"; };
 		A3D51F4C241BA3AE006DACE2 /* VehiclesListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiclesListVC.swift; sourceTree = "<group>"; };
 		A3D51F4D241BA3AE006DACE2 /* VehiclesListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VehiclesListCell.xib; sourceTree = "<group>"; };
-		C6CF2F88D8CEC4FD0F65BD58 /* Pods-DriveKitChallengeUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitChallengeUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitChallengeUI/Pods-DriveKitChallengeUI.debug.xcconfig"; sourceTree = "<group>"; };
-		DCBF31C151237FEA8EDE3CF0 /* Pods-DriveKitDriverDataUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverDataUI.release.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverDataUI/Pods-DriveKitDriverDataUI.release.xcconfig"; sourceTree = "<group>"; };
 		E302B61629AE0DC1004CFA0C /* MySynthesisScoreCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySynthesisScoreCardView.swift; sourceTree = "<group>"; };
 		E302B61829AE0DD6004CFA0C /* MySynthesisScoreCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MySynthesisScoreCardView.xib; sourceTree = "<group>"; };
 		E302B61A29AE0E7A004CFA0C /* MySynthesisScoreCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySynthesisScoreCardViewModel.swift; sourceTree = "<group>"; };
@@ -1696,7 +1665,6 @@
 		E3CDCFF629F68AA700ADAFD0 /* DrivingConditionsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingConditionsConstants.swift; sourceTree = "<group>"; };
 		E3F0212F29A3A90600664CD2 /* Array+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Date.swift"; sourceTree = "<group>"; };
 		E3F0213229A3B88400664CD2 /* MySynthesisViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySynthesisViewModelDelegate.swift; sourceTree = "<group>"; };
-		FA713DC763C119AEF200C7B2 /* Pods-DriveKitDriverDataTimelineUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DriveKitDriverDataTimelineUI.debug.xcconfig"; path = "Target Support Files/Pods-DriveKitDriverDataTimelineUI/Pods-DriveKitDriverDataTimelineUI.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1704,7 +1672,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FEDF9ABE856C7367CDBBC69 /* Pods_DriveKitCommonUI.framework in Frameworks */,
+				638442C02DD5F57C00C030CC /* DriveKitCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1712,7 +1680,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BCAA6C1AC3CC1C2B0E98D77 /* Pods_DriveKitVehicleUI.framework in Frameworks */,
+				638442C22DD5F58B00C030CC /* DriveKitTripAnalysis in Frameworks */,
+				638442C42DD5F58E00C030CC /* DriveKitVehicle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1720,7 +1689,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA5F8336F7F9D6E9CBACE91B /* Pods_DriveKitDriverAchievementUI.framework in Frameworks */,
+				638442BE2DD5F57000C030CC /* DriveKitDriverAchievement in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1728,7 +1697,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2ECBA09D9742158769AE627 /* Pods_DriveKitPermissionsUtilsUI.framework in Frameworks */,
+				638442C62DD5F59E00C030CC /* DriveKitCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1736,7 +1705,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E451910EF2F6740355C1B4D /* Pods_DriveKitDriverDataTimelineUI.framework in Frameworks */,
+				638442BC2DD5F56100C030CC /* DGCharts in Frameworks */,
+				638442BA2DD5F55800C030CC /* DriveKitDriverData in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1744,7 +1714,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54B194CB4EB9C2225CCB5C02 /* Pods_DriveKitTripAnalysisUI.framework in Frameworks */,
+				638442C82DD5F5AB00C030CC /* DriveKitTripAnalysis in Frameworks */,
+				638442CB2DD5F5C100C030CC /* WARangeSlider in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1752,8 +1723,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67C43D04263A91E800DBB09D /* DriveKitCommonUI.framework in Frameworks */,
-				AD2690683829D301D9573CEC /* Pods_DriveKitChallengeUI.framework in Frameworks */,
+				63F4A02D2DD611A600A65B51 /* DriveKitChallenge in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1761,7 +1731,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE2C04BD97A78F4B22CD7008 /* Pods_DriveKitDriverDataUI.framework in Frameworks */,
+				638442AC2DD5F45500C030CC /* DriveKitDriverData in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1769,15 +1739,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63F4A0262DD60FA300A65B51 /* DriveKitChallengeUI.framework in Frameworks */,
 				3FFD7FD12363002B00BD2F0D /* DriveKitDriverDataUI.framework in Frameworks */,
 				3FFAD20123EDBCD500D1A16C /* DriveKitDriverAchievementUI.framework in Frameworks */,
+				638442B82DD5F52200C030CC /* DriveKitTripSimulator in Frameworks */,
 				61D29B7424361CD70094CA5B /* DriveKitPermissionsUtilsUI.framework in Frameworks */,
 				3F0740E12403BB65005A8D07 /* DriveKitCommonUI.framework in Frameworks */,
 				3FF68EF92413ECC00071D74C /* DriveKitVehicleUI.framework in Frameworks */,
 				67813096276BB2A100701CF1 /* DriveKitTripAnalysisUI.framework in Frameworks */,
-				67C43CFD263A910D00DBB09D /* DriveKitChallengeUI.framework in Frameworks */,
+				638442B62DD5F4EC00C030CC /* DGCharts in Frameworks */,
 				63F8B29528F958B90084B53A /* DriveKitDriverDataTimelineUI.framework in Frameworks */,
-				144631166FF6EF95F22253F5 /* Pods_DriveKitApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1788,16 +1759,6 @@
 			isa = PBXGroup;
 			children = (
 				5CE33818246C30CE007E5790 /* UICircularProgressRing.framework */,
-				5DCC63E1FD4A8A79E2ED8F27 /* Pods_DriveKitDriverData.framework */,
-				55652B494DACA2423EDB5A8E /* Pods_DriveKitDriverDataUI.framework */,
-				36173251B2A47392720E8B05 /* Pods_DriveKitDriverAchievementUI.framework */,
-				0425AC91525E20565C140CA4 /* Pods_DriveKitCommonUI.framework */,
-				8A3A98094797ED33BAF53826 /* Pods_DriveKitPermissionsUtilsUI.framework */,
-				20449AFA2A35A174B99296E3 /* Pods_DriveKitVehicleUI.framework */,
-				158BFF3EE484B6293C97E890 /* Pods_DriveKitChallengeUI.framework */,
-				32366A485A279B3F568037E0 /* Pods_DriveKitTripAnalysisUI.framework */,
-				11883F51C20078FAEA834561 /* Pods_DriveKitApp.framework */,
-				3AF6A878B0B12C9B747FB901 /* Pods_DriveKitDriverDataTimelineUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -3614,7 +3575,6 @@
 				67C43CF7263A910D00DBB09D /* DriveKitChallengeUI */,
 				67813091276BB2A100701CF1 /* DriveKitTripAnalysisUI */,
 				A3B7B381235F124F0065A332 /* Products */,
-				A9BC2334DC2216D3626EE223 /* Pods */,
 				0507D67F4F2198BE920311FE /* Frameworks */,
 				67F1988529B2685E0060EF24 /* Recovered References */,
 			);
@@ -3711,31 +3671,6 @@
 				A3D51F47241BA3A4006DACE2 /* DKVehiclesListViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		A9BC2334DC2216D3626EE223 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				10107C08082CCF492923D28F /* Pods-DriveKitDriverDataUI.debug.xcconfig */,
-				DCBF31C151237FEA8EDE3CF0 /* Pods-DriveKitDriverDataUI.release.xcconfig */,
-				71C90D9FE8ADAE9597A8BE8A /* Pods-DriveKitDriverAchievementUI.debug.xcconfig */,
-				20B69960974EEE2DEB3E079F /* Pods-DriveKitDriverAchievementUI.release.xcconfig */,
-				0DCA7A09AC2410A44084435A /* Pods-DriveKitCommonUI.debug.xcconfig */,
-				88D27862C0BB1621E356D771 /* Pods-DriveKitCommonUI.release.xcconfig */,
-				091B2099E66B6A8FDD56B7B7 /* Pods-DriveKitPermissionsUtilsUI.debug.xcconfig */,
-				1A1A8A18A79F9D8AA95BDA72 /* Pods-DriveKitPermissionsUtilsUI.release.xcconfig */,
-				96151588B94F1AEF000E110A /* Pods-DriveKitVehicleUI.debug.xcconfig */,
-				38FD5C43C51C0CF5151B396D /* Pods-DriveKitVehicleUI.release.xcconfig */,
-				C6CF2F88D8CEC4FD0F65BD58 /* Pods-DriveKitChallengeUI.debug.xcconfig */,
-				6ECF11F340D0E58FB40AF162 /* Pods-DriveKitChallengeUI.release.xcconfig */,
-				4CD7037C27E50286ED57032C /* Pods-DriveKitTripAnalysisUI.debug.xcconfig */,
-				4F4AC1B7FA8DAACDF9BADB1D /* Pods-DriveKitTripAnalysisUI.release.xcconfig */,
-				5C2DA71D35693509465E10BC /* Pods-DriveKitApp.debug.xcconfig */,
-				6BFB98AC1182AE238ABB6CBD /* Pods-DriveKitApp.release.xcconfig */,
-				FA713DC763C119AEF200C7B2 /* Pods-DriveKitDriverDataTimelineUI.debug.xcconfig */,
-				5E2827ABB27702690C9C0258 /* Pods-DriveKitDriverDataTimelineUI.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 		E302B61429AE0D87004CFA0C /* Components */ = {
@@ -4081,16 +4016,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F0740E52403BB65005A8D07 /* Build configuration list for PBXNativeTarget "DriveKitCommonUI" */;
 			buildPhases = (
-				C1EF72F1CA0CA0868C7615F3 /* [CP] Check Pods Manifest.lock */,
 				3F0740D52403BB65005A8D07 /* Headers */,
 				3F0740D62403BB65005A8D07 /* Sources */,
 				3F0740D72403BB65005A8D07 /* Frameworks */,
 				3F0740D82403BB65005A8D07 /* Resources */,
-				E3452F8C29801B7C009AEF2C /* SwiftLint */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				63F4A0232DD60AD300A65B51 /* PBXTargetDependency */,
 			);
 			name = DriveKitCommonUI;
 			productName = DriveKitCommonUI;
@@ -4101,16 +4035,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3FF68EFD2413ECC00071D74C /* Build configuration list for PBXNativeTarget "DriveKitVehicleUI" */;
 			buildPhases = (
-				98C8051E32A90E1567696C92 /* [CP] Check Pods Manifest.lock */,
 				3FF68EED2413ECC00071D74C /* Headers */,
 				3FF68EEE2413ECC00071D74C /* Sources */,
 				3FF68EEF2413ECC00071D74C /* Frameworks */,
 				3FF68EF02413ECC00071D74C /* Resources */,
-				E3452F9229801BC0009AEF2C /* SwiftLint */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				632F55142DD6148F00F3AD50 /* PBXTargetDependency */,
 				3FFB2D622417D202003E6A06 /* PBXTargetDependency */,
 			);
 			name = DriveKitVehicleUI;
@@ -4122,16 +4055,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3FFAD20523EDBCD500D1A16C /* Build configuration list for PBXNativeTarget "DriveKitDriverAchievementUI" */;
 			buildPhases = (
-				C0FE3791E61554BEDF53E708 /* [CP] Check Pods Manifest.lock */,
 				3FFAD1F523EDBCD500D1A16C /* Headers */,
 				3FFAD1F623EDBCD500D1A16C /* Sources */,
 				3FFAD1F723EDBCD500D1A16C /* Frameworks */,
 				3FFAD1F823EDBCD500D1A16C /* Resources */,
-				E3452F8D29801B87009AEF2C /* SwiftLint */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				632F550C2DD6147D00F3AD50 /* PBXTargetDependency */,
 				3F7524C62406B06C00AC22CC /* PBXTargetDependency */,
 			);
 			name = DriveKitDriverAchievementUI;
@@ -4143,16 +4075,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 616946E4243337D600C8A965 /* Build configuration list for PBXNativeTarget "DriveKitPermissionsUtilsUI" */;
 			buildPhases = (
-				8866B0D1490BD5BE61F2A507 /* [CP] Check Pods Manifest.lock */,
 				616946D4243337D600C8A965 /* Headers */,
 				616946D5243337D600C8A965 /* Sources */,
 				616946D6243337D600C8A965 /* Frameworks */,
 				616946D7243337D600C8A965 /* Resources */,
-				E3452F9029801BAB009AEF2C /* SwiftLint */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				632F55102DD6148800F3AD50 /* PBXTargetDependency */,
 				616946F424339C3300C8A965 /* PBXTargetDependency */,
 			);
 			name = DriveKitPermissionsUtilsUI;
@@ -4164,16 +4095,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 63F8B29928F958BA0084B53A /* Build configuration list for PBXNativeTarget "DriveKitDriverDataTimelineUI" */;
 			buildPhases = (
-				9C38E5A85B23DDCF2D6A7A9D /* [CP] Check Pods Manifest.lock */,
 				63F8B28A28F958B90084B53A /* Headers */,
 				63F8B28B28F958B90084B53A /* Sources */,
 				63F8B28C28F958B90084B53A /* Frameworks */,
 				63F8B28D28F958B90084B53A /* Resources */,
-				E3452F8F29801B9E009AEF2C /* SwiftLint */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				632F550E2DD6148500F3AD50 /* PBXTargetDependency */,
 				63F8B29B28F959BA0084B53A /* PBXTargetDependency */,
 			);
 			name = DriveKitDriverDataTimelineUI;
@@ -4185,16 +4115,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 67813098276BB2A100701CF1 /* Build configuration list for PBXNativeTarget "DriveKitTripAnalysisUI" */;
 			buildPhases = (
-				3D74B6267B67A39F5CD36698 /* [CP] Check Pods Manifest.lock */,
 				6781308B276BB2A100701CF1 /* Headers */,
 				6781308C276BB2A100701CF1 /* Sources */,
 				6781308D276BB2A100701CF1 /* Frameworks */,
 				6781308E276BB2A100701CF1 /* Resources */,
-				E3452F9129801BB6009AEF2C /* SwiftLint */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				632F55162DD6157100F3AD50 /* PBXTargetDependency */,
 				678130A0276BC38A00701CF1 /* PBXTargetDependency */,
 			);
 			name = DriveKitTripAnalysisUI;
@@ -4206,18 +4135,16 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 67C43D01263A910D00DBB09D /* Build configuration list for PBXNativeTarget "DriveKitChallengeUI" */;
 			buildPhases = (
-				F5A8D7D49B270F6E988A9EC5 /* [CP] Check Pods Manifest.lock */,
 				67C43CF1263A910D00DBB09D /* Headers */,
 				67C43CF2263A910D00DBB09D /* Sources */,
 				67C43CF3263A910D00DBB09D /* Frameworks */,
 				67C43CF4263A910D00DBB09D /* Resources */,
-				E3452F8B29801B6E009AEF2C /* SwiftLint */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				67C43D03263A91CC00DBB09D /* PBXTargetDependency */,
-				67C43D07263A91E800DBB09D /* PBXTargetDependency */,
+				632F550A2DD6147600F3AD50 /* PBXTargetDependency */,
+				63F4A02B2DD6107100A65B51 /* PBXTargetDependency */,
 			);
 			name = DriveKitChallengeUI;
 			productName = DriveKitChallengeUI;
@@ -4228,17 +4155,16 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A342380F2361A1FA0001E15D /* Build configuration list for PBXNativeTarget "DriveKitDriverDataUI" */;
 			buildPhases = (
-				D63208A8B1F6AD81DE2E763F /* [CP] Check Pods Manifest.lock */,
 				A34238012361A1FA0001E15D /* Headers */,
 				A34238022361A1FA0001E15D /* Sources */,
 				A34238032361A1FA0001E15D /* Frameworks */,
 				A34238042361A1FA0001E15D /* Resources */,
-				E3452F8E29801B92009AEF2C /* SwiftLint */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				3F7524C82406B07200AC22CC /* PBXTargetDependency */,
+				63F4A0252DD60AEB00A65B51 /* PBXTargetDependency */,
+				638442B32DD5F4B000C030CC /* PBXTargetDependency */,
 			);
 			name = DriveKitDriverDataUI;
 			productName = DriveKitDriveDataUI;
@@ -4249,25 +4175,23 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A3B7B397235F12510065A332 /* Build configuration list for PBXNativeTarget "DriveKitApp" */;
 			buildPhases = (
-				68836A5137F68A81D9B16809 /* [CP] Check Pods Manifest.lock */,
 				A3B7B37C235F124F0065A332 /* Sources */,
 				A3B7B37D235F124F0065A332 /* Frameworks */,
 				A3B7B37E235F124F0065A332 /* Resources */,
 				3FFD7FD52363002B00BD2F0D /* Embed Frameworks */,
-				F58AA323DF7FECB1CF79952E /* [CP] Embed Pods Frameworks */,
-				E3452F8A29801B57009AEF2C /* SwiftLint */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				63F4A0212DD60AA900A65B51 /* PBXTargetDependency */,
 				3FFD7FD42363002B00BD2F0D /* PBXTargetDependency */,
 				3FFAD20023EDBCD500D1A16C /* PBXTargetDependency */,
 				3F0740E02403BB65005A8D07 /* PBXTargetDependency */,
 				3FF68EF82413ECC00071D74C /* PBXTargetDependency */,
 				61D29B7724361CD70094CA5B /* PBXTargetDependency */,
-				67C43CFC263A910D00DBB09D /* PBXTargetDependency */,
 				67813095276BB2A100701CF1 /* PBXTargetDependency */,
 				63F8B29428F958B90084B53A /* PBXTargetDependency */,
+				63F4A0292DD60FA300A65B51 /* PBXTargetDependency */,
 			);
 			name = DriveKitApp;
 			productName = DriveKitApp;
@@ -4338,6 +4262,12 @@
 				nl,
 			);
 			mainGroup = A3B7B377235F124F0065A332;
+			packageReferences = (
+				638442B42DD5F4EC00C030CC /* XCRemoteSwiftPackageReference "Charts" */,
+				638442C92DD5F5C100C030CC /* XCRemoteSwiftPackageReference "RangeSlider" */,
+				638442CC2DD5F60C00C030CC /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
+				63F4A01F2DD60A3B00A65B51 /* XCRemoteSwiftPackageReference "drivekit-sdk-spm" */,
+			);
 			productRefGroup = A3B7B381235F124F0065A332 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -4617,419 +4547,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		3D74B6267B67A39F5CD36698 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DriveKitTripAnalysisUI-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		68836A5137F68A81D9B16809 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DriveKitApp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8866B0D1490BD5BE61F2A507 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DriveKitPermissionsUtilsUI-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		98C8051E32A90E1567696C92 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DriveKitVehicleUI-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9C38E5A85B23DDCF2D6A7A9D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DriveKitDriverDataTimelineUI-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C0FE3791E61554BEDF53E708 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DriveKitDriverAchievementUI-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C1EF72F1CA0CA0868C7615F3 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DriveKitCommonUI-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D63208A8B1F6AD81DE2E763F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DriveKitDriverDataUI-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E3452F8A29801B57009AEF2C /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" DriveKitApp\n";
-		};
-		E3452F8B29801B6E009AEF2C /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/SwiftLint/swiftlint",
-				"$(SRCROOT)/.swiftlint.yml",
-				"$(SRCROOT)/DriveKitChallengeUI",
-			);
-			name = SwiftLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" DriveKitChallengeUI\n";
-		};
-		E3452F8C29801B7C009AEF2C /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/SwiftLint/swiftlint",
-				"$(SRCROOT)/.swiftlint.yml",
-				"$(SRCROOT)/DriveKitCommonUI",
-			);
-			name = SwiftLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" DriveKitCommonUI \n";
-		};
-		E3452F8D29801B87009AEF2C /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/SwiftLint/swiftlint",
-				"$(SRCROOT)/.swiftlint.yml",
-				"$(SRCROOT)/DriveKitDriverAchievementUI",
-			);
-			name = SwiftLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" DriveKitDriverAchievementUI\n";
-		};
-		E3452F8E29801B92009AEF2C /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/SwiftLint/swiftlint",
-				"$(SRCROOT)/.swiftlint.yml",
-				"$(SRCROOT)/DriveKitDriverDataUI",
-			);
-			name = SwiftLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" DriveKitDriverDataUI\n";
-		};
-		E3452F8F29801B9E009AEF2C /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/SwiftLint/swiftlint",
-				"$(SRCROOT)/.swiftlint.yml",
-				"$(SRCROOT)/DriveKitDriverDataTimelineUI",
-			);
-			name = SwiftLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" DriveKitDriverDataTimelineUI\n";
-		};
-		E3452F9029801BAB009AEF2C /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/SwiftLint/swiftlint",
-				"$(SRCROOT)/.swiftlint.yml",
-				"$(SRCROOT)/DriveKitPermissionsUtilsUI",
-			);
-			name = SwiftLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" DriveKitPermissionsUtilsUI\n";
-		};
-		E3452F9129801BB6009AEF2C /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/SwiftLint/swiftlint",
-				"$(SRCROOT)/.swiftlint.yml",
-				"$(SRCROOT)/DriveKitTripAnalysisUI",
-			);
-			name = SwiftLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" DriveKitTripAnalysisUI\n";
-		};
-		E3452F9229801BC0009AEF2C /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/SwiftLint/swiftlint",
-				"$(SRCROOT)/.swiftlint.yml",
-				"$(SRCROOT)/DriveKitVehicleUI",
-			);
-			name = SwiftLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" DriveKitVehicleUI\n";
-		};
-		F58AA323DF7FECB1CF79952E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DriveKitApp/Pods-DriveKitApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DriveKitApp/Pods-DriveKitApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DriveKitApp/Pods-DriveKitApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F5A8D7D49B270F6E988A9EC5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DriveKitChallengeUI-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3F0740D62403BB65005A8D07 /* Sources */ = {
@@ -5607,11 +5124,6 @@
 			target = 3F0740D92403BB65005A8D07 /* DriveKitCommonUI */;
 			targetProxy = 3F7524C52406B06C00AC22CC /* PBXContainerItemProxy */;
 		};
-		3F7524C82406B07200AC22CC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3F0740D92403BB65005A8D07 /* DriveKitCommonUI */;
-			targetProxy = 3F7524C72406B07200AC22CC /* PBXContainerItemProxy */;
-		};
 		3FF68EF82413ECC00071D74C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3FF68EF12413ECC00071D74C /* DriveKitVehicleUI */;
@@ -5642,6 +5154,57 @@
 			target = 616946D8243337D600C8A965 /* DriveKitPermissionsUtilsUI */;
 			targetProxy = 61D29B7624361CD70094CA5B /* PBXContainerItemProxy */;
 		};
+		632F550A2DD6147600F3AD50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 632F55092DD6147600F3AD50 /* SwiftLintBuildToolPlugin */;
+		};
+		632F550C2DD6147D00F3AD50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 632F550B2DD6147D00F3AD50 /* SwiftLintBuildToolPlugin */;
+		};
+		632F550E2DD6148500F3AD50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 632F550D2DD6148500F3AD50 /* SwiftLintBuildToolPlugin */;
+		};
+		632F55102DD6148800F3AD50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 632F550F2DD6148800F3AD50 /* SwiftLintBuildToolPlugin */;
+		};
+		632F55142DD6148F00F3AD50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 632F55132DD6148F00F3AD50 /* SwiftLintBuildToolPlugin */;
+		};
+		632F55162DD6157100F3AD50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 632F55152DD6157100F3AD50 /* SwiftLintBuildToolPlugin */;
+		};
+		638442B32DD5F4B000C030CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F0740D92403BB65005A8D07 /* DriveKitCommonUI */;
+			targetProxy = 638442B22DD5F4B000C030CC /* PBXContainerItemProxy */;
+		};
+		63F4A0212DD60AA900A65B51 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 63F4A0202DD60AA900A65B51 /* SwiftLintBuildToolPlugin */;
+		};
+		63F4A0232DD60AD300A65B51 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 63F4A0222DD60AD300A65B51 /* SwiftLintBuildToolPlugin */;
+		};
+		63F4A0252DD60AEB00A65B51 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 63F4A0242DD60AEB00A65B51 /* SwiftLintBuildToolPlugin */;
+		};
+		63F4A0292DD60FA300A65B51 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 67C43CF5263A910D00DBB09D /* DriveKitChallengeUI */;
+			targetProxy = 63F4A0282DD60FA300A65B51 /* PBXContainerItemProxy */;
+		};
+		63F4A02B2DD6107100A65B51 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F0740D92403BB65005A8D07 /* DriveKitCommonUI */;
+			targetProxy = 63F4A02A2DD6107100A65B51 /* PBXContainerItemProxy */;
+		};
 		63F8B29428F958B90084B53A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 63F8B28E28F958B90084B53A /* DriveKitDriverDataTimelineUI */;
@@ -5661,21 +5224,6 @@
 			isa = PBXTargetDependency;
 			target = 3F0740D92403BB65005A8D07 /* DriveKitCommonUI */;
 			targetProxy = 6781309F276BC38A00701CF1 /* PBXContainerItemProxy */;
-		};
-		67C43CFC263A910D00DBB09D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 67C43CF5263A910D00DBB09D /* DriveKitChallengeUI */;
-			targetProxy = 67C43CFB263A910D00DBB09D /* PBXContainerItemProxy */;
-		};
-		67C43D03263A91CC00DBB09D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3F0740D92403BB65005A8D07 /* DriveKitCommonUI */;
-			targetProxy = 67C43D02263A91CC00DBB09D /* PBXContainerItemProxy */;
-		};
-		67C43D07263A91E800DBB09D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3F0740D92403BB65005A8D07 /* DriveKitCommonUI */;
-			targetProxy = 67C43D06263A91E800DBB09D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -5851,7 +5399,6 @@
 /* Begin XCBuildConfiguration section */
 		3F0740E32403BB65005A8D07 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0DCA7A09AC2410A44084435A /* Pods-DriveKitCommonUI.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -5892,7 +5439,6 @@
 		};
 		3F0740E42403BB65005A8D07 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 88D27862C0BB1621E356D771 /* Pods-DriveKitCommonUI.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -5932,7 +5478,6 @@
 		};
 		3FF68EFB2413ECC00071D74C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 96151588B94F1AEF000E110A /* Pods-DriveKitVehicleUI.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -5973,7 +5518,6 @@
 		};
 		3FF68EFC2413ECC00071D74C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38FD5C43C51C0CF5151B396D /* Pods-DriveKitVehicleUI.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -6013,7 +5557,6 @@
 		};
 		3FFAD20323EDBCD500D1A16C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 71C90D9FE8ADAE9597A8BE8A /* Pods-DriveKitDriverAchievementUI.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -6054,7 +5597,6 @@
 		};
 		3FFAD20423EDBCD500D1A16C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 20B69960974EEE2DEB3E079F /* Pods-DriveKitDriverAchievementUI.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -6094,7 +5636,6 @@
 		};
 		616946E2243337D600C8A965 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 091B2099E66B6A8FDD56B7B7 /* Pods-DriveKitPermissionsUtilsUI.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -6135,7 +5676,6 @@
 		};
 		616946E3243337D600C8A965 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1A1A8A18A79F9D8AA95BDA72 /* Pods-DriveKitPermissionsUtilsUI.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -6175,7 +5715,6 @@
 		};
 		63F8B29728F958BA0084B53A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA713DC763C119AEF200C7B2 /* Pods-DriveKitDriverDataTimelineUI.debug.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
@@ -6219,7 +5758,6 @@
 		};
 		63F8B29828F958BA0084B53A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5E2827ABB27702690C9C0258 /* Pods-DriveKitDriverDataTimelineUI.release.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
@@ -6262,7 +5800,6 @@
 		};
 		67813099276BB2A100701CF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4CD7037C27E50286ED57032C /* Pods-DriveKitTripAnalysisUI.debug.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_MODULES = YES;
@@ -6306,7 +5843,6 @@
 		};
 		6781309A276BB2A100701CF1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F4AC1B7FA8DAACDF9BADB1D /* Pods-DriveKitTripAnalysisUI.release.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_MODULES = YES;
@@ -6349,7 +5885,6 @@
 		};
 		67C43CFF263A910D00DBB09D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C6CF2F88D8CEC4FD0F65BD58 /* Pods-DriveKitChallengeUI.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -6390,7 +5925,6 @@
 		};
 		67C43D00263A910D00DBB09D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6ECF11F340D0E58FB40AF162 /* Pods-DriveKitChallengeUI.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -6430,7 +5964,6 @@
 		};
 		A34238102361A1FA0001E15D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 10107C08082CCF492923D28F /* Pods-DriveKitDriverDataUI.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -6471,7 +6004,6 @@
 		};
 		A34238112361A1FA0001E15D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DCBF31C151237FEA8EDE3CF0 /* Pods-DriveKitDriverDataUI.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
@@ -6629,7 +6161,6 @@
 		};
 		A3B7B398235F12510065A332 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5C2DA71D35693509465E10BC /* Pods-DriveKitApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -6650,7 +6181,6 @@
 		};
 		A3B7B399235F12510065A332 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6BFB98AC1182AE238ABB6CBD /* Pods-DriveKitApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -6763,6 +6293,162 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		638442AA2DD5F43D00C030CC /* XCRemoteSwiftPackageReference "drivekit-sdk-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DriveQuantPublic/drivekit-sdk-spm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.16.0;
+			};
+		};
+		638442B42DD5F4EC00C030CC /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
+		638442C92DD5F5C100C030CC /* XCRemoteSwiftPackageReference "RangeSlider" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/warchimede/RangeSlider.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+		638442CC2DD5F60C00C030CC /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SimplyDanny/SwiftLintPlugins";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.59.1;
+			};
+		};
+		63F4A01F2DD60A3B00A65B51 /* XCRemoteSwiftPackageReference "drivekit-sdk-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DriveQuantPublic/drivekit-sdk-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.16.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		632F55092DD6147600F3AD50 /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 638442CC2DD5F60C00C030CC /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+		632F550B2DD6147D00F3AD50 /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 638442CC2DD5F60C00C030CC /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+		632F550D2DD6148500F3AD50 /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 638442CC2DD5F60C00C030CC /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+		632F550F2DD6148800F3AD50 /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 638442CC2DD5F60C00C030CC /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+		632F55132DD6148F00F3AD50 /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 638442CC2DD5F60C00C030CC /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+		632F55152DD6157100F3AD50 /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 638442CC2DD5F60C00C030CC /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+		638442AB2DD5F45500C030CC /* DriveKitDriverData */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 638442AA2DD5F43D00C030CC /* XCRemoteSwiftPackageReference "drivekit-sdk-spm" */;
+			productName = DriveKitDriverData;
+		};
+		638442B52DD5F4EC00C030CC /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 638442B42DD5F4EC00C030CC /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
+		};
+		638442B72DD5F52200C030CC /* DriveKitTripSimulator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 638442AA2DD5F43D00C030CC /* XCRemoteSwiftPackageReference "drivekit-sdk-spm" */;
+			productName = DriveKitTripSimulator;
+		};
+		638442B92DD5F55800C030CC /* DriveKitDriverData */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 638442AA2DD5F43D00C030CC /* XCRemoteSwiftPackageReference "drivekit-sdk-spm" */;
+			productName = DriveKitDriverData;
+		};
+		638442BB2DD5F56100C030CC /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 638442B42DD5F4EC00C030CC /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
+		};
+		638442BD2DD5F57000C030CC /* DriveKitDriverAchievement */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 638442AA2DD5F43D00C030CC /* XCRemoteSwiftPackageReference "drivekit-sdk-spm" */;
+			productName = DriveKitDriverAchievement;
+		};
+		638442BF2DD5F57C00C030CC /* DriveKitCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 638442AA2DD5F43D00C030CC /* XCRemoteSwiftPackageReference "drivekit-sdk-spm" */;
+			productName = DriveKitCore;
+		};
+		638442C12DD5F58B00C030CC /* DriveKitTripAnalysis */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 638442AA2DD5F43D00C030CC /* XCRemoteSwiftPackageReference "drivekit-sdk-spm" */;
+			productName = DriveKitTripAnalysis;
+		};
+		638442C32DD5F58E00C030CC /* DriveKitVehicle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 638442AA2DD5F43D00C030CC /* XCRemoteSwiftPackageReference "drivekit-sdk-spm" */;
+			productName = DriveKitVehicle;
+		};
+		638442C52DD5F59E00C030CC /* DriveKitCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 638442AA2DD5F43D00C030CC /* XCRemoteSwiftPackageReference "drivekit-sdk-spm" */;
+			productName = DriveKitCore;
+		};
+		638442C72DD5F5AB00C030CC /* DriveKitTripAnalysis */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 638442AA2DD5F43D00C030CC /* XCRemoteSwiftPackageReference "drivekit-sdk-spm" */;
+			productName = DriveKitTripAnalysis;
+		};
+		638442CA2DD5F5C100C030CC /* WARangeSlider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 638442C92DD5F5C100C030CC /* XCRemoteSwiftPackageReference "RangeSlider" */;
+			productName = WARangeSlider;
+		};
+		63F4A0202DD60AA900A65B51 /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 638442CC2DD5F60C00C030CC /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+		63F4A0222DD60AD300A65B51 /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 638442CC2DD5F60C00C030CC /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+		63F4A0242DD60AEB00A65B51 /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 638442CC2DD5F60C00C030CC /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+		63F4A02C2DD611A600A65B51 /* DriveKitChallenge */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63F4A01F2DD60A3B00A65B51 /* XCRemoteSwiftPackageReference "drivekit-sdk-spm" */;
+			productName = DriveKitChallenge;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A3B7B378235F124F0065A332 /* Project object */;
 }

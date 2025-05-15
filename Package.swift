@@ -36,6 +36,10 @@ let package = Package(
             name: "DriveKitTripAnalysisUI",
             targets: ["DriveKitTripAnalysisUI"]
         ),
+        .library(
+            name: "DriveKitVehicleUI",
+            targets: ["DriveKitVehicleUI"]
+        ),
     ],
     dependencies: [
         .package(
@@ -198,6 +202,29 @@ let package = Package(
             name: "DriveKitTripAnalysisUI-Objc",
             path: "DriveKitTripAnalysisUI",
             sources: ["DKUITripAnalysisAutoInit.m"]
+        ),
+
+        .target(
+            name: "DriveKitVehicleUI",
+            dependencies: [
+                .target(name: "DriveKitVehicleUI-Objc"),
+                .target(name: "DriveKitCommonUI"),
+                .product(name: "DriveKitTripAnalysis", package: "DriveKit"),
+                .product(name: "DriveKitVehicle", package: "DriveKit"),
+            ],
+            path: "DriveKitVehicleUI",
+            exclude: [
+                "DKUIVehicleAutoInit.m",
+                "include",
+            ],
+            resources: [
+                .copy("PrivacyInfo.xcprivacy"),
+            ]
+        ),
+        .target(
+            name: "DriveKitVehicleUI-Objc",
+            path: "DriveKitVehicleUI",
+            sources: ["DKUIVehicleAutoInit.m"]
         ),
     ]
 )

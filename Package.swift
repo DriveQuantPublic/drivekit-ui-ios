@@ -24,6 +24,10 @@ let package = Package(
             name: "DriveKitDriverDataTimelineUI",
             targets: ["DriveKitDriverDataTimelineUI"]
         ),
+        .library(
+            name: "DriveKitDriverDataUI",
+            targets: ["DriveKitDriverDataUI"]
+        ),
     ],
     dependencies: [
         .package(
@@ -119,6 +123,28 @@ let package = Package(
             name: "DriveKitDriverDataTimelineUI-Objc",
             path: "DriveKitDriverDataTimelineUI",
             sources: ["DKUIDriverDataTimelineAutoInit.m"]
+        ),
+
+        .target(
+            name: "DriveKitDriverDataUI",
+            dependencies: [
+                .target(name: "DriveKitDriverDataUI-Objc"),
+                .target(name: "DriveKitCommonUI"),
+                .product(name: "DriveKitDriverData", package: "DriveKit"),
+            ],
+            path: "DriveKitDriverDataUI",
+            exclude: [
+                "DKUIDriverDataAutoInit.m",
+                "include",
+            ],
+            resources: [
+                .copy("PrivacyInfo.xcprivacy"),
+            ]
+        ),
+        .target(
+            name: "DriveKitDriverDataUI-Objc",
+            path: "DriveKitDriverDataUI",
+            sources: ["DKUIDriverDataAutoInit.m"]
         ),
     ]
 )

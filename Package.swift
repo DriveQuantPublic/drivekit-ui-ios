@@ -1,0 +1,71 @@
+// swift-tools-version:5.6
+import PackageDescription
+
+let package = Package(
+    name: "DriveKitUI",
+    defaultLocalization: "en",
+    platforms: [
+        .iOS(.v13)
+    ],
+    products: [
+        .library(
+            name: "DriveKitChallengeUI",
+            targets: ["DriveKitChallengeUI"]
+        ),
+        .library(
+            name: "DriveKitCommonUI",
+            targets: ["DriveKitCommonUI"]
+        ),
+    ],
+    dependencies: [
+        .package(
+            name: "DriveKit",
+            url: "https://github.com/DriveQuantPublic/drivekit-sdk-spm.git",
+            from: "2.0.0"
+        ),
+        .package(
+            url: "https://github.com/danielgindi/Charts.git",
+            from: "5.1.0"
+        ),
+        .package(
+            url: "https://github.com/warchimede/RangeSlider.git",
+            from: "1.2.0"
+        ),
+    ],
+    targets: [
+        .target(
+            name: "DriveKitChallengeUI",
+            dependencies: [
+                .target(name: "DriveKitChallengeUI-Objc"),
+                .target(name: "DriveKitCommonUI"),
+                .product(name: "DriveKitChallenge", package: "DriveKit"),
+            ],
+            path: "DriveKitChallengeUI",
+            exclude: [
+                "DKUIChallengeAutoInit.m",
+                "include",
+            ],
+            resources: [
+                .copy("PrivacyInfo.xcprivacy"),
+            ]
+        ),
+        .target(
+            name: "DriveKitChallengeUI-Objc",
+            path: "DriveKitChallengeUI",
+            sources: ["DKUIChallengeAutoInit.m"]
+        ),
+
+        .target(
+            name: "DriveKitCommonUI",
+            dependencies: [
+                .product(name: "DriveKitCore", package: "DriveKit"),
+            ],
+            path: "DriveKitCommonUI",
+            resources: [
+                .copy("PrivacyInfo.xcprivacy"),
+                .copy("AnalyticsScreenToTagKey.plist"),
+                .copy("AnalyticsTags.plist"),
+            ]
+        ),
+    ]
+)

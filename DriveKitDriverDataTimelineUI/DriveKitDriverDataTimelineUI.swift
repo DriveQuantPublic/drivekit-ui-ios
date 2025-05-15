@@ -41,7 +41,11 @@ extension DriveKitDriverDataTimelineUI: DriveKitDriverDataTimelineUIEntryPoint {
 }
 
 extension Bundle {
+#if SWIFT_PACKAGE
+    static let driverDataTimelineUIBundle: Bundle? = Bundle.module
+#else
     static let driverDataTimelineUIBundle = Bundle(identifier: "com.drivequant.drivekit-driverdata-timeline-ui")
+#endif
 }
 
 extension String {

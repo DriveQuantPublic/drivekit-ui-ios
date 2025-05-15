@@ -175,7 +175,11 @@ extension DriveKitTripAnalysisUI: UNUserNotificationCenterDelegate {
 }
 
 extension Bundle {
+#if SWIFT_PACKAGE
+    static let tripAnalysisUIBundle: Bundle? = Bundle.module
+#else
     static let tripAnalysisUIBundle = Bundle(identifier: "com.drivequant.drivekit-trip-analysis-ui")
+#endif
 }
 
 extension String {

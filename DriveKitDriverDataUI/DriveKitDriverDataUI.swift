@@ -122,7 +122,11 @@ public class DriveKitDriverDataUI: AccessRightListener {
 }
 
 extension Bundle {
+#if SWIFT_PACKAGE
+    static let driverDataUIBundle: Bundle? = Bundle.module
+#else
     static let driverDataUIBundle = Bundle(identifier: "com.drivequant.drivekit-driverdata-ui")
+#endif
 }
 
 extension String {

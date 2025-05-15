@@ -127,5 +127,9 @@ import UIKit
 }
 
 public extension Bundle {
+#if SWIFT_PACKAGE
+    static let driveKitCommonUIBundle: Bundle? = Bundle.module
+#else
     static let driveKitCommonUIBundle = Bundle(identifier: "com.drivequant.drivekit-common-ui")
+#endif
 }

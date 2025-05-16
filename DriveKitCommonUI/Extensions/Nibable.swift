@@ -20,7 +20,14 @@ public extension Nibable where Self: UIView {
     }
     
     static var nib: UINib {
-        return UINib(nibName: nibName, bundle: Bundle(for: self))
+#if SWIFT_PACKAGE
+        let moduleName = String(reflecting: self).prefix { $0 != "." }
+        let bundlePath = (Bundle.main.resourceURL ?? Bundle(for: self).resourceURL)?.appendingPathComponent("DriveKitUI_\(moduleName).bundle")
+        let bundle = bundlePath.flatMap(Bundle.init(url:))!
+#else
+        let bundle = Bundle(for: self)
+#endif
+        return UINib(nibName: nibName, bundle: bundle)
     }
     
     fileprivate static var nibName: String {

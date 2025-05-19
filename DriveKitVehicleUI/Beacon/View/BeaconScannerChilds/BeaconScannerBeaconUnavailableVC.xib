@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BeaconScannerUnavailableVC" customModule="DriveKitVehicleUI" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BeaconScannerUnavailableVC" customModule="DriveKitVehicleUI">
             <connections>
                 <outlet property="cancelButton" destination="mOo-5T-MQp" id="W6a-zm-7Sf"/>
                 <outlet property="descriptionLabel" destination="u3j-Sf-Q7k" id="JUg-gM-yAR"/>

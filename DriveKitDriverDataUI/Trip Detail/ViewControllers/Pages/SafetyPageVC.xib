@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SafetyPageVC" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SafetyPageVC" customModule="DriveKitDriverDataUI">
             <connections>
                 <outlet property="eventContainer" destination="tgV-37-Td2" id="RHb-IT-xgh"/>
                 <outlet property="infoButton" destination="pd6-tB-jZ4" id="a5e-39-kPN"/>

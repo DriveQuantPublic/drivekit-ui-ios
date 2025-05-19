@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VehiclePickerTruckTypeHeader" translatesAutoresizingMaskIntoConstraints="NO" id="eoN-hV-17B" customClass="VehiclePickerTruckTypeHeader" customModule="DriveKitVehicleUI" customModuleProvider="target">
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VehiclePickerTruckTypeHeader" translatesAutoresizingMaskIntoConstraints="NO" id="eoN-hV-17B" customClass="VehiclePickerTruckTypeHeader" customModule="DriveKitVehicleUI">
             <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="raj-1F-dXV">

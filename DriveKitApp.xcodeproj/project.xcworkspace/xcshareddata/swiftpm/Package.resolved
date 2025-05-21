@@ -13,9 +13,9 @@
     {
       "identity" : "drivekit-sdk-spm",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/DriveQuantPublic/drivekit-sdk-spm",
+      "location" : "https://github.com/DriveQuantPublic/drivekit-sdk-spm.git",
       "state" : {
-        "revision" : "955d0760bed1c13ad441c1aedb2ff119419e8708",
+        "revision" : "3430cd5a5e7d7f19a7edcdcfb411358f93626a47",
         "version" : "2.16.0"
       }
     },
@@ -24,7 +24,7 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/warchimede/RangeSlider.git",
       "state" : {
-        "revision" : "04ddecea8b0b4d267420c72aa8f5005844d841e6",
+        "revision" : "a622cf0a2e18564388a5cd03ddef13e0d7b4f88c",
         "version" : "1.2.0"
       }
     },

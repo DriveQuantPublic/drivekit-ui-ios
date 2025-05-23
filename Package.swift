@@ -144,6 +144,9 @@ let package = Package(
                 .target(name: "DriveKitCommonUI"),
                 .product(name: "DriveKitDriverData", package: "DriveKit"),
             ],
+            linkerSettings: [
+                .linkedFramework("CoreLocation"),
+            ],
             path: "DriveKitDriverDataUI",
             exclude: [
                 "DKUIDriverDataAutoInit.m",
@@ -189,6 +192,9 @@ let package = Package(
                 .product(name: "DriveKitTripAnalysis", package: "DriveKit"),
                 .product(name: "WARangeSlider", package: "RangeSlider"),
             ],
+            linkerSettings: [
+                .linkedFramework("CoreLocation"),
+            ],
             path: "DriveKitTripAnalysisUI",
             exclude: [
                 "DKUITripAnalysisAutoInit.m",
@@ -211,6 +217,9 @@ let package = Package(
                 .target(name: "DriveKitCommonUI"),
                 .product(name: "DriveKitTripAnalysis", package: "DriveKit"),
                 .product(name: "DriveKitVehicle", package: "DriveKit"),
+            ],
+            linkerSettings: [
+                .linkedFramework("CoreLocation"),
             ],
             path: "DriveKitVehicleUI",
             exclude: [

@@ -45,7 +45,7 @@ let package = Package(
         .package(
             name: "DriveKit",
             url: "https://github.com/DriveQuantPublic/drivekit-sdk-spm.git",
-            from: "2.0.0"
+            from: "2.16.0"
         ),
         .package(
             url: "https://github.com/danielgindi/Charts.git",
@@ -144,9 +144,6 @@ let package = Package(
                 .target(name: "DriveKitCommonUI"),
                 .product(name: "DriveKitDriverData", package: "DriveKit"),
             ],
-            linkerSettings: [
-                .linkedFramework("CoreLocation"),
-            ],
             path: "DriveKitDriverDataUI",
             exclude: [
                 "DKUIDriverDataAutoInit.m",
@@ -154,6 +151,9 @@ let package = Package(
             ],
             resources: [
                 .copy("PrivacyInfo.xcprivacy"),
+            ],
+            linkerSettings: [
+                .linkedFramework("CoreLocation"),
             ]
         ),
         .target(
@@ -192,9 +192,6 @@ let package = Package(
                 .product(name: "DriveKitTripAnalysis", package: "DriveKit"),
                 .product(name: "WARangeSlider", package: "RangeSlider"),
             ],
-            linkerSettings: [
-                .linkedFramework("CoreLocation"),
-            ],
             path: "DriveKitTripAnalysisUI",
             exclude: [
                 "DKUITripAnalysisAutoInit.m",
@@ -202,6 +199,9 @@ let package = Package(
             ],
             resources: [
                 .copy("PrivacyInfo.xcprivacy"),
+            ],
+            linkerSettings: [
+                .linkedFramework("CoreLocation"),
             ]
         ),
         .target(
@@ -218,9 +218,6 @@ let package = Package(
                 .product(name: "DriveKitTripAnalysis", package: "DriveKit"),
                 .product(name: "DriveKitVehicle", package: "DriveKit"),
             ],
-            linkerSettings: [
-                .linkedFramework("CoreLocation"),
-            ],
             path: "DriveKitVehicleUI",
             exclude: [
                 "DKUIVehicleAutoInit.m",
@@ -228,6 +225,9 @@ let package = Package(
             ],
             resources: [
                 .copy("PrivacyInfo.xcprivacy"),
+            ],
+            linkerSettings: [
+                .linkedFramework("CoreLocation"),
             ]
         ),
         .target(

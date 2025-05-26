@@ -4264,7 +4264,7 @@
 				638442B42DD5F4EC00C030CC /* XCRemoteSwiftPackageReference "Charts" */,
 				638442C92DD5F5C100C030CC /* XCRemoteSwiftPackageReference "RangeSlider" */,
 				638442CC2DD5F60C00C030CC /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
-				63F4A01F2DD60A3B00A65B51 /* XCRemoteSwiftPackageReference "drivekit-sdk-beta-spm" */,
+				63F4A01F2DD60A3B00A65B51 /* XCRemoteSwiftPackageReference "drivekit-sdk-spm" */,
 			);
 			productRefGroup = A3B7B381235F124F0065A332 /* Products */;
 			projectDirPath = "";
@@ -6325,12 +6325,12 @@
 				minimumVersion = 0.59.1;
 			};
 		};
-		63F4A01F2DD60A3B00A65B51 /* XCRemoteSwiftPackageReference "drivekit-sdk-beta-spm" */ = {
+		63F4A01F2DD60A3B00A65B51 /* XCRemoteSwiftPackageReference "drivekit-sdk-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/DriveQuantPublic/drivekit-sdk-beta-spm.git";
+			repositoryURL = "https://github.com/DriveQuantPublic/drivekit-sdk-spm.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = "2.16.0-beta1";
+				kind = exactVersion;
+				version = "2.16.0-beta2";
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -6443,7 +6443,7 @@
 		};
 		63F4A02C2DD611A600A65B51 /* DriveKitChallenge */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 63F4A01F2DD60A3B00A65B51 /* XCRemoteSwiftPackageReference "drivekit-sdk-beta-spm" */;
+			package = 63F4A01F2DD60A3B00A65B51 /* XCRemoteSwiftPackageReference "drivekit-sdk-spm" */;
 			productName = DriveKitChallenge;
 		};
 /* End XCSwiftPackageProductDependency section */

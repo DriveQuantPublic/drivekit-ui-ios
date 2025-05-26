@@ -43,9 +43,8 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            name: "DriveKit",
             url: "https://github.com/DriveQuantPublic/drivekit-sdk-spm.git",
-            .exact("2.16.0-beta2")
+            exact: "2.16.0-beta2"
         ),
         .package(
             url: "https://github.com/danielgindi/Charts.git",
@@ -62,7 +61,7 @@ let package = Package(
             dependencies: [
                 .target(name: "DriveKitChallengeUI-Objc"),
                 .target(name: "DriveKitCommonUI"),
-                .product(name: "DriveKitChallenge", package: "DriveKit"),
+                .product(name: "DriveKitChallenge", package: "drivekit-sdk-spm"),
             ],
             path: "DriveKitChallengeUI",
             exclude: [
@@ -82,7 +81,7 @@ let package = Package(
         .target(
             name: "DriveKitCommonUI",
             dependencies: [
-                .product(name: "DriveKitCore", package: "DriveKit"),
+                .product(name: "DriveKitCore", package: "drivekit-sdk-spm"),
             ],
             path: "DriveKitCommonUI",
             resources: [
@@ -97,7 +96,7 @@ let package = Package(
             dependencies: [
                 .target(name: "DriveKitDriverAchievementUI-Objc"),
                 .target(name: "DriveKitCommonUI"),
-                .product(name: "DriveKitDriverAchievement", package: "DriveKit"),
+                .product(name: "DriveKitDriverAchievement", package: "drivekit-sdk-spm"),
             ],
             path: "DriveKitDriverAchievementUI",
             exclude: [
@@ -119,7 +118,7 @@ let package = Package(
             dependencies: [
                 .target(name: "DriveKitDriverDataTimelineUI-Objc"),
                 .target(name: "DriveKitCommonUI"),
-                .product(name: "DriveKitDriverData", package: "DriveKit"),
+                .product(name: "DriveKitDriverData", package: "drivekit-sdk-spm"),
                 .product(name: "DGCharts", package: "Charts"),
             ],
             path: "DriveKitDriverDataTimelineUI",
@@ -142,7 +141,7 @@ let package = Package(
             dependencies: [
                 .target(name: "DriveKitDriverDataUI-Objc"),
                 .target(name: "DriveKitCommonUI"),
-                .product(name: "DriveKitDriverData", package: "DriveKit"),
+                .product(name: "DriveKitDriverData", package: "drivekit-sdk-spm"),
             ],
             path: "DriveKitDriverDataUI",
             exclude: [
@@ -167,7 +166,7 @@ let package = Package(
             dependencies: [
                 .target(name: "DriveKitPermissionsUtilsUI-Objc"),
                 .target(name: "DriveKitCommonUI"),
-                .product(name: "DriveKitCore", package: "DriveKit"),
+                .product(name: "DriveKitCore", package: "drivekit-sdk-spm"),
             ],
             path: "DriveKitPermissionsUtilsUI",
             exclude: [
@@ -189,7 +188,7 @@ let package = Package(
             dependencies: [
                 .target(name: "DriveKitTripAnalysisUI-Objc"),
                 .target(name: "DriveKitCommonUI"),
-                .product(name: "DriveKitTripAnalysis", package: "DriveKit"),
+                .product(name: "DriveKitTripAnalysis", package: "drivekit-sdk-spm"),
                 .product(name: "WARangeSlider", package: "RangeSlider"),
             ],
             path: "DriveKitTripAnalysisUI",
@@ -215,8 +214,8 @@ let package = Package(
             dependencies: [
                 .target(name: "DriveKitVehicleUI-Objc"),
                 .target(name: "DriveKitCommonUI"),
-                .product(name: "DriveKitTripAnalysis", package: "DriveKit"),
-                .product(name: "DriveKitVehicle", package: "DriveKit"),
+                .product(name: "DriveKitTripAnalysis", package: "drivekit-sdk-spm"),
+                .product(name: "DriveKitVehicle", package: "drivekit-sdk-spm"),
             ],
             path: "DriveKitVehicleUI",
             exclude: [

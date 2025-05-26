@@ -23,7 +23,7 @@ public extension Nibable where Self: UIView {
 #if SWIFT_PACKAGE
         let moduleName = String(reflecting: self).prefix { $0 != "." }
         let bundlePath = (Bundle.main.resourceURL ?? Bundle(for: self).resourceURL)?.appendingPathComponent("DriveKitUI_\(moduleName).bundle")
-        let bundle = bundlePath.flatMap(Bundle.init(url:))!
+        let bundle = bundlePath.flatMap(Bundle.init(url:)) ?? Bundle(for: self)
 #else
         let bundle = Bundle(for: self)
 #endif

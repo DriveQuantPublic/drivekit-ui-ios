@@ -1,5 +1,5 @@
 {
-  "originHash" : "0c5adeee412a1dd49250b7e81b071116a81323e4eb53e74e6500d97c3f9125dd",
+  "originHash" : "43b90bce3ebed14ddc7adc264ff4e05c6d98458a8ce2557e7b4486a1ac6a54f3",
   "pins" : [
     {
       "identity" : "charts",
@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/DriveQuantPublic/drivekit-sdk-spm.git",
       "state" : {
-        "revision" : "e840f7bc63bff038c71d432852a35f77fd718065",
-        "version" : "2.16.0-beta2"
+        "revision" : "e8060bfaea262c349a8495891a916d065f498497",
+        "version" : "2.16.0-beta3"
       }
     },
     {

@@ -4170,7 +4170,7 @@
 				638442B42DD5F4EC00C030CC /* XCRemoteSwiftPackageReference "Charts" */,
 				638442C92DD5F5C100C030CC /* XCRemoteSwiftPackageReference "RangeSlider" */,
 				638442CC2DD5F60C00C030CC /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
-				6334D9982DE49C69001633C6 /* XCLocalSwiftPackageReference "../drivekit-ui" */,
+				6334D9982DE49C69001633C6 /* XCLocalSwiftPackageReference "." */,
 			);
 			productRefGroup = A3B7B381235F124F0065A332 /* Products */;
 			projectDirPath = "";
@@ -6159,9 +6159,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		6334D9982DE49C69001633C6 /* XCLocalSwiftPackageReference "../drivekit-ui" */ = {
+		6334D9982DE49C69001633C6 /* XCLocalSwiftPackageReference "." */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = "../drivekit-ui";
+			relativePath = .;
 		};
 /* End XCLocalSwiftPackageReference section */
 
@@ -6241,42 +6241,42 @@
 		};
 		6334D9992DE49CB2001633C6 /* DriveKitChallengeUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6334D9982DE49C69001633C6 /* XCLocalSwiftPackageReference "../drivekit-ui" */;
+			package = 6334D9982DE49C69001633C6 /* XCLocalSwiftPackageReference "." */;
 			productName = DriveKitChallengeUI;
 		};
 		6334D99B2DE49CB2001633C6 /* DriveKitCommonUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6334D9982DE49C69001633C6 /* XCLocalSwiftPackageReference "../drivekit-ui" */;
+			package = 6334D9982DE49C69001633C6 /* XCLocalSwiftPackageReference "." */;
 			productName = DriveKitCommonUI;
 		};
 		6334D99D2DE49CB2001633C6 /* DriveKitDriverAchievementUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6334D9982DE49C69001633C6 /* XCLocalSwiftPackageReference "../drivekit-ui" */;
+			package = 6334D9982DE49C69001633C6 /* XCLocalSwiftPackageReference "." */;
 			productName = DriveKitDriverAchievementUI;
 		};
 		6334D99F2DE49CB2001633C6 /* DriveKitDriverDataTimelineUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6334D9982DE49C69001633C6 /* XCLocalSwiftPackageReference "../drivekit-ui" */;
+			package = 6334D9982DE49C69001633C6 /* XCLocalSwiftPackageReference "." */;
 			productName = DriveKitDriverDataTimelineUI;
 		};
 		6334D9A12DE49CB2001633C6 /* DriveKitDriverDataUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6334D9982DE49C69001633C6 /* XCLocalSwiftPackageReference "../drivekit-ui" */;
+			package = 6334D9982DE49C69001633C6 /* XCLocalSwiftPackageReference "." */;
 			productName = DriveKitDriverDataUI;
 		};
 		6334D9A32DE49CB2001633C6 /* DriveKitPermissionsUtilsUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6334D9982DE49C69001633C6 /* XCLocalSwiftPackageReference "../drivekit-ui" */;
+			package = 6334D9982DE49C69001633C6 /* XCLocalSwiftPackageReference "." */;
 			productName = DriveKitPermissionsUtilsUI;
 		};
 		6334D9A52DE49CB2001633C6 /* DriveKitTripAnalysisUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6334D9982DE49C69001633C6 /* XCLocalSwiftPackageReference "../drivekit-ui" */;
+			package = 6334D9982DE49C69001633C6 /* XCLocalSwiftPackageReference "." */;
 			productName = DriveKitTripAnalysisUI;
 		};
 		6334D9A72DE49CB2001633C6 /* DriveKitVehicleUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6334D9982DE49C69001633C6 /* XCLocalSwiftPackageReference "../drivekit-ui" */;
+			package = 6334D9982DE49C69001633C6 /* XCLocalSwiftPackageReference "." */;
 			productName = DriveKitVehicleUI;
 		};
 		638442AB2DD5F45500C030CC /* DriveKitDriverData */ = {

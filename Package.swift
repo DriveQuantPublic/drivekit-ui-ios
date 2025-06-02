@@ -88,6 +88,8 @@ let package = Package(
                 .copy("PrivacyInfo.xcprivacy"),
                 .copy("AnalyticsScreenToTagKey.plist"),
                 .copy("AnalyticsTags.plist"),
+                .process("Graphical/Roboto-Bold.ttf"),
+                .process("Graphical/Roboto-Regular.ttf"),
             ]
         ),
 

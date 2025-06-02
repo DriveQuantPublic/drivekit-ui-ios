@@ -60,6 +60,14 @@ import UIKit
         }
         self.tagFromKey = tagFromKey
         super.init()
+
+        // Install custom fonts.
+        if let paths = Bundle.driveKitCommonUIBundle?.paths(forResourcesOfType: "ttf", inDirectory: "") {
+            for path in paths {
+                let url = NSURL(fileURLWithPath: path)
+                CTFontManagerRegisterFontsForURL(url, .process, nil)
+            }
+        }
     }
 
     public func initialize() {

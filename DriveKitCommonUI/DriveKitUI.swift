@@ -6,8 +6,9 @@
 //  Copyright © 2020 DriveQuant. All rights reserved.
 //
 
-import DriveKitCoreModule
 import UIKit
+import DriveKitCoreModule
+import CoreText
 
 @objc public class DriveKitUI: NSObject {
     static let tag = "DriveKit UI"

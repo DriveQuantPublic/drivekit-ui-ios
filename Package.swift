@@ -90,6 +90,9 @@ let package = Package(
                 .copy("AnalyticsTags.plist"),
                 .process("Graphical/Roboto-Bold.ttf"),
                 .process("Graphical/Roboto-Regular.ttf"),
+            ],
+            linkerSettings: [
+                .linkedFramework("CoreText"),
             ]
         ),
 

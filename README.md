@@ -46,7 +46,6 @@ You can follow the steps below to install, run and experiment with the DriveKit 
 For an integration on iOS you will need the following elements:
 * Latest stable version of Xcode
 * Git
-* CocoaPods (if needed, DriveKit is also available on Swift Package Manager)
 * An iPhone connected to your Mac
 * A valid DriveKit API key
 

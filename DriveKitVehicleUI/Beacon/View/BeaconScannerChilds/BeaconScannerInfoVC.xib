@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BeaconScannerInfoVC" customModule="DriveKitVehicleUI" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BeaconScannerInfoVC" customModule="DriveKitVehicleUI">
             <connections>
                 <outlet property="batteryContainerView" destination="BZb-wj-8It" id="0H2-hQ-aud"/>
                 <outlet property="distanceContainerView" destination="ZeX-ft-QiJ" id="qiA-My-deb"/>

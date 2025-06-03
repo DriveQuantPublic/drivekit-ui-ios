@@ -8,14 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <DriveKitCoreModule/DriveKitCoreModule-Swift.h>
-#import <DriveKitTripAnalysisUI/DriveKitTripAnalysisUI-Swift.h>
-
-SWIFT_CLASS("DKUITripAnalysisInitializer")
-@interface DKUITripAnalysisInitializer
-
-+ (void)initUI;
-
-@end
 
 @interface DKUITripAnalysisAutoInit : NSObject
 
@@ -28,8 +20,16 @@ SWIFT_CLASS("DKUITripAnalysisInitializer")
     [super load];
 
     if (DriveKit.shared.isAutoInitEnabled) {
-        [DKUITripAnalysisInitializer initUI];
+        Class class = NSClassFromString(@"DriveKitTripAnalysisUI.DKUITripAnalysisInitializer");
+        [self callMethod:@"initUI" onClass:class];
     }
+}
+
++ (void)callMethod:(NSString*)methodName onClass:(Class)class {
+    SEL selector = NSSelectorFromString(methodName);
+    IMP imp = [class methodForSelector:selector];
+    void (*func)(id, SEL) = (void *)imp;
+    func(class, selector);
 }
 
 @end

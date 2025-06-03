@@ -115,7 +115,11 @@ extension DriveKitChallengeUI: DriveKitChallengeListener {
 }
 
 extension Bundle {
+#if SWIFT_PACKAGE
+    static let challengeUIBundle: Bundle? = Bundle.module
+#else
     static let challengeUIBundle = Bundle(identifier: "com.drivequant.drivekit-challenge-ui")
+#endif
 }
 
 extension String {

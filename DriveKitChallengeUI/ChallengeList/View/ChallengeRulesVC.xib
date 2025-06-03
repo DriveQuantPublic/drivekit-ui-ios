@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChallengeRulesVC" customModule="DriveKitChallengeUI" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChallengeRulesVC" customModule="DriveKitChallengeUI">
             <connections>
                 <outlet property="acceptButton" destination="bYF-QI-kQG" id="7G3-Et-lXY"/>
                 <outlet property="rulesTextView" destination="wuI-KJ-5es" id="n7H-qZ-74j"/>

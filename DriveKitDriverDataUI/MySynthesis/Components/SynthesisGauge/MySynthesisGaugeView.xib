@@ -16,11 +16,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="IxA-v9-owG" customClass="MySynthesisGaugeView" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="IxA-v9-owG" customClass="MySynthesisGaugeView" customModule="DriveKitDriverDataUI">
             <rect key="frame" x="0.0" y="0.0" width="393" height="160"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ZJ-v5-Q29" customClass="SynthesisGaugeBarView" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ZJ-v5-Q29" customClass="SynthesisGaugeBarView" customModule="DriveKitDriverDataUI">
                     <rect key="frame" x="10" y="80" width="368" height="13"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
@@ -245,7 +245,7 @@
                         <constraint firstItem="MiR-yj-ZPe" firstAttribute="top" secondItem="J6g-Ip-TlO" secondAttribute="top" id="ydv-zc-2yr"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pck-fv-hyL" customClass="SynthesisLevelButton" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pck-fv-hyL" customClass="SynthesisLevelButton" customModule="DriveKitDriverDataUI">
                     <rect key="frame" x="-58.333333333333336" y="3" width="136.66666666666666" height="27"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="27" id="LvM-af-oB9"/>

@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TimelineViewController" customModule="DriveKitDriverDataTimelineUI" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TimelineViewController" customModule="DriveKitDriverDataTimelineUI">
             <connections>
                 <outlet property="dateSelectorContainer" destination="8R3-Dt-1oH" id="uF1-1r-vsm"/>
                 <outlet property="periodSelectorContainer" destination="so8-sZ-4wK" id="4Kf-Gm-xNK"/>

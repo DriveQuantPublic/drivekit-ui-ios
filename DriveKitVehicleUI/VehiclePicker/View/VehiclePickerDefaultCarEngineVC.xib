@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VehiclePickerDefaultCarEngineVC" customModule="DriveKitVehicleUI" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VehiclePickerDefaultCarEngineVC" customModule="DriveKitVehicleUI">
             <connections>
                 <outlet property="confirmButton" destination="jWp-So-yxa" id="sXM-5A-0wG"/>
                 <outlet property="imageView" destination="eIN-BA-WFN" id="MmK-uH-HxB"/>

@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConnectBluetoothVC" customModule="DriveKitVehicleUI" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConnectBluetoothVC" customModule="DriveKitVehicleUI">
             <connections>
                 <outlet property="setupDesc1" destination="vOd-G3-rWT" id="FFh-6i-2JZ"/>
                 <outlet property="setupDesc2" destination="rng-xj-myv" id="9uf-Qy-ODP"/>

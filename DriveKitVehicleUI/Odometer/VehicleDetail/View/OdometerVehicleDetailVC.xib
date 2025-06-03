@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OdometerVehicleDetailVC" customModule="DriveKitVehicleUI" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OdometerVehicleDetailVC" customModule="DriveKitVehicleUI">
             <connections>
                 <outlet property="tableView" destination="jBP-ot-bTa" id="LZX-dn-eh0"/>
                 <outlet property="view" destination="Bgr-Wj-KZy" id="R2R-0O-M3e"/>

@@ -8,14 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <DriveKitCoreModule/DriveKitCoreModule-Swift.h>
-#import <DriveKitDriverAchievementUI/DriveKitDriverAchievementUI-Swift.h>
-
-SWIFT_CLASS("DKUIDriverAchievementInitializer")
-@interface DKUIDriverAchievementInitializer
-
-+ (void)initUI;
-
-@end
 
 @interface DKUIDriverAchievementAutoInit : NSObject
 
@@ -28,8 +20,16 @@ SWIFT_CLASS("DKUIDriverAchievementInitializer")
     [super load];
 
     if (DriveKit.shared.isAutoInitEnabled) {
-        [DKUIDriverAchievementInitializer initUI];
+        Class class = NSClassFromString(@"DriveKitDriverAchievementUI.DKUIDriverAchievementInitializer");
+        [self callMethod:@"initUI" onClass:class];
     }
+}
+
++ (void)callMethod:(NSString*)methodName onClass:(Class)class {
+    SEL selector = NSSelectorFromString(methodName);
+    IMP imp = [class methodForSelector:selector];
+    void (*func)(id, SEL) = (void *)imp;
+    func(class, selector);
 }
 
 @end

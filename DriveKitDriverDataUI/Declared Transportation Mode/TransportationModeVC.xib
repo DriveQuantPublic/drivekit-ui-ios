@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransportationModeVC" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransportationModeVC" customModule="DriveKitDriverDataUI">
             <connections>
                 <outlet property="bikeTransportationModeButton" destination="ewK-vC-iGv" id="R2W-iW-fRW"/>
                 <outlet property="boatTransportationModeButton" destination="4rz-hv-uMa" id="MQ4-QQ-YuS"/>
@@ -71,16 +71,16 @@
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Zs2-qv-Xvu">
                             <rect key="frame" x="12" y="89" width="370" height="50"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_transportation_car" translatesAutoresizingMaskIntoConstraints="NO" id="X5c-fm-mAN" customClass="TransportationModeIcon" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_transportation_car" translatesAutoresizingMaskIntoConstraints="NO" id="X5c-fm-mAN" customClass="TransportationModeIcon" customModule="DriveKitDriverDataUI">
                                     <rect key="frame" x="0.0" y="0.0" width="92.5" height="50"/>
                                 </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_transportation_motorcycle" translatesAutoresizingMaskIntoConstraints="NO" id="AxV-E8-DcP" customClass="TransportationModeIcon" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_transportation_motorcycle" translatesAutoresizingMaskIntoConstraints="NO" id="AxV-E8-DcP" customClass="TransportationModeIcon" customModule="DriveKitDriverDataUI">
                                     <rect key="frame" x="92.5" y="0.0" width="92.5" height="50"/>
                                 </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_transportation_truck" translatesAutoresizingMaskIntoConstraints="NO" id="yTB-Jw-fKf" customClass="TransportationModeIcon" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_transportation_truck" translatesAutoresizingMaskIntoConstraints="NO" id="yTB-Jw-fKf" customClass="TransportationModeIcon" customModule="DriveKitDriverDataUI">
                                     <rect key="frame" x="185" y="0.0" width="92.5" height="50"/>
                                 </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_transportation_bus" translatesAutoresizingMaskIntoConstraints="NO" id="8sN-6h-u4Y" customClass="TransportationModeIcon" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_transportation_bus" translatesAutoresizingMaskIntoConstraints="NO" id="8sN-6h-u4Y" customClass="TransportationModeIcon" customModule="DriveKitDriverDataUI">
                                     <rect key="frame" x="277.5" y="0.0" width="92.5" height="50"/>
                                 </imageView>
                             </subviews>
@@ -91,16 +91,16 @@
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="uqg-Y3-Qez">
                             <rect key="frame" x="12" y="159" width="370" height="50"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_transportation_train" translatesAutoresizingMaskIntoConstraints="NO" id="4Po-FJ-B2u" customClass="TransportationModeIcon" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_transportation_train" translatesAutoresizingMaskIntoConstraints="NO" id="4Po-FJ-B2u" customClass="TransportationModeIcon" customModule="DriveKitDriverDataUI">
                                     <rect key="frame" x="0.0" y="0.0" width="92.5" height="50"/>
                                 </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_transportation_bicycle" translatesAutoresizingMaskIntoConstraints="NO" id="ewK-vC-iGv" customClass="TransportationModeIcon" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_transportation_bicycle" translatesAutoresizingMaskIntoConstraints="NO" id="ewK-vC-iGv" customClass="TransportationModeIcon" customModule="DriveKitDriverDataUI">
                                     <rect key="frame" x="92.5" y="0.0" width="92.5" height="50"/>
                                 </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_transportation_boat" translatesAutoresizingMaskIntoConstraints="NO" id="4rz-hv-uMa" customClass="TransportationModeIcon" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_transportation_boat" translatesAutoresizingMaskIntoConstraints="NO" id="4rz-hv-uMa" customClass="TransportationModeIcon" customModule="DriveKitDriverDataUI">
                                     <rect key="frame" x="185" y="0.0" width="92.5" height="50"/>
                                 </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_transportation_plane" translatesAutoresizingMaskIntoConstraints="NO" id="6D4-VL-izw" customClass="TransportationModeIcon" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_transportation_plane" translatesAutoresizingMaskIntoConstraints="NO" id="6D4-VL-izw" customClass="TransportationModeIcon" customModule="DriveKitDriverDataUI">
                                     <rect key="frame" x="277.5" y="0.0" width="92.5" height="50"/>
                                 </imageView>
                             </subviews>
@@ -108,16 +108,16 @@
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ac1-1U-vMG">
                             <rect key="frame" x="12" y="229" width="370" height="50"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_transportation_on_foot" translatesAutoresizingMaskIntoConstraints="NO" id="KLB-ba-1Ls" customClass="TransportationModeIcon" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_transportation_on_foot" translatesAutoresizingMaskIntoConstraints="NO" id="KLB-ba-1Ls" customClass="TransportationModeIcon" customModule="DriveKitDriverDataUI">
                                     <rect key="frame" x="0.0" y="0.0" width="92.5" height="50"/>
                                 </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_transportation_skiing" translatesAutoresizingMaskIntoConstraints="NO" id="WCx-8G-vVn" customClass="TransportationModeIcon" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_transportation_skiing" translatesAutoresizingMaskIntoConstraints="NO" id="WCx-8G-vVn" customClass="TransportationModeIcon" customModule="DriveKitDriverDataUI">
                                     <rect key="frame" x="92.5" y="0.0" width="92.5" height="50"/>
                                 </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_transportation_idle" translatesAutoresizingMaskIntoConstraints="NO" id="YXg-Fa-1qW" customClass="TransportationModeIcon" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_transportation_idle" translatesAutoresizingMaskIntoConstraints="NO" id="YXg-Fa-1qW" customClass="TransportationModeIcon" customModule="DriveKitDriverDataUI">
                                     <rect key="frame" x="185" y="0.0" width="92.5" height="50"/>
                                 </imageView>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_transportation_other" translatesAutoresizingMaskIntoConstraints="NO" id="xKy-co-sfV" customClass="TransportationModeIcon" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_transportation_other" translatesAutoresizingMaskIntoConstraints="NO" id="xKy-co-sfV" customClass="TransportationModeIcon" customModule="DriveKitDriverDataUI">
                                     <rect key="frame" x="277.5" y="0.0" width="92.5" height="50"/>
                                 </imageView>
                             </subviews>
@@ -134,13 +134,13 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7zx-ly-GDg">
                                     <rect key="frame" x="117" y="28.5" width="160" height="56"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_transportation_driver" translatesAutoresizingMaskIntoConstraints="NO" id="7C7-Lc-ILZ" customClass="TransportationModeIcon" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_transportation_driver" translatesAutoresizingMaskIntoConstraints="NO" id="7C7-Lc-ILZ" customClass="TransportationModeIcon" customModule="DriveKitDriverDataUI">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="7C7-Lc-ILZ" secondAttribute="height" multiplier="1:1" id="OM8-rv-UCX"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_transportation_passenger" translatesAutoresizingMaskIntoConstraints="NO" id="bWj-mK-zAM" customClass="TransportationModeIcon" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dk_transportation_passenger" translatesAutoresizingMaskIntoConstraints="NO" id="bWj-mK-zAM" customClass="TransportationModeIcon" customModule="DriveKitDriverDataUI">
                                             <rect key="frame" x="110" y="0.0" width="50" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="bWj-mK-zAM" secondAttribute="height" multiplier="1:1" id="o30-P5-EGK"/>

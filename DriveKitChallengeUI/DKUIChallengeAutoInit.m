@@ -8,14 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <DriveKitCoreModule/DriveKitCoreModule-Swift.h>
-#import <DriveKitChallengeUI/DriveKitChallengeUI-Swift.h>
-
-SWIFT_CLASS("DKUIChallengeInitializer")
-@interface DKUIChallengeInitializer
-
-+ (void)initUI;
-
-@end
 
 @interface DKUIChallengeAutoInit : NSObject
 
@@ -28,8 +20,16 @@ SWIFT_CLASS("DKUIChallengeInitializer")
     [super load];
 
     if (DriveKit.shared.isAutoInitEnabled) {
-        [DKUIChallengeInitializer initUI];
+        Class class = NSClassFromString(@"DriveKitChallengeUI.DKUIChallengeInitializer");
+        [self callMethod:@"initUI" onClass:class];
     }
+}
+
++ (void)callMethod:(NSString*)methodName onClass:(Class)class {
+    SEL selector = NSSelectorFromString(methodName);
+    IMP imp = [class methodForSelector:selector];
+    void (*func)(id, SEL) = (void *)imp;
+    func(class, selector);
 }
 
 @end

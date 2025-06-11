@@ -13,7 +13,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChallengeTripsVC" customModule="DriveKitChallengeUI" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChallengeTripsVC" customModule="DriveKitChallengeUI">
             <connections>
                 <outlet property="dateAttributedLabel" destination="POL-OZ-WMR" id="Lgw-0Q-aZX"/>
                 <outlet property="titleAttributedLabel" destination="ClP-go-fhG" id="Igl-fC-OCh"/>

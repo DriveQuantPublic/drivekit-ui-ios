@@ -183,7 +183,11 @@ public extension Notification.Name {
 }
 
 extension Bundle {
+#if SWIFT_PACKAGE
+    static let permissionsUtilsUIBundle: Bundle? = Bundle.module
+#else
     static let permissionsUtilsUIBundle = Bundle(identifier: "com.drivequant.drivekit-permissions-utils-ui")
+#endif
 }
 
 extension String {

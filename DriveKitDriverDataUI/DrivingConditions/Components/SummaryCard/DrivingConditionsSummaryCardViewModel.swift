@@ -6,6 +6,7 @@
 //  Copyright © 2023 DriveQuant. All rights reserved.
 //
 
+import Foundation
 import DriveKitCommonUI
 
 class DrivingConditionsSummaryCardViewModel {

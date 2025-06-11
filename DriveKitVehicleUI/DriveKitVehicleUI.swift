@@ -140,7 +140,11 @@ public class DriveKitVehicleUI {
 }
 
 extension Bundle {
+#if SWIFT_PACKAGE
+    static let vehicleUIBundle: Bundle? = Bundle.module
+#else
     static let vehicleUIBundle = Bundle(identifier: "com.drivequant.drivekit-vehicle-ui")
+#endif
 }
 
 extension String {

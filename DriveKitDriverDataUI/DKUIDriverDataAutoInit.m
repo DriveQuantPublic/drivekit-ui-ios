@@ -8,14 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <DriveKitCoreModule/DriveKitCoreModule-Swift.h>
-#import <DriveKitDriverDataUI/DriveKitDriverDataUI-Swift.h>
-
-SWIFT_CLASS("DKUIDriverDataInitializer")
-@interface DKUIDriverDataInitializer
-
-+ (void)initUI;
-
-@end
 
 @interface DKUIDriverDataAutoInit : NSObject
 
@@ -28,8 +20,16 @@ SWIFT_CLASS("DKUIDriverDataInitializer")
     [super load];
 
     if (DriveKit.shared.isAutoInitEnabled) {
-        [DKUIDriverDataInitializer initUI];
+        Class class = NSClassFromString(@"DriveKitDriverDataUI.DKUIDriverDataInitializer");
+        [self callMethod:@"initUI" onClass:class];
     }
+}
+
++ (void)callMethod:(NSString*)methodName onClass:(Class)class {
+    SEL selector = NSSelectorFromString(methodName);
+    IMP imp = [class methodForSelector:selector];
+    void (*func)(id, SEL) = (void *)imp;
+    func(class, selector);
 }
 
 @end

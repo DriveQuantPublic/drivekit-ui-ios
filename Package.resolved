@@ -1,0 +1,32 @@
+{
+  "pins" : [
+    {
+      "identity" : "charts",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/danielgindi/Charts.git",
+      "state" : {
+        "revision" : "dd9c72e3d7e751e769971092a6bd72d39198ae63",
+        "version" : "5.1.0"
+      }
+    },
+    {
+      "identity" : "drivekit-sdk-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/DriveQuantPublic/drivekit-sdk-spm.git",
+      "state" : {
+        "revision" : "e840f7bc63bff038c71d432852a35f77fd718065",
+        "version" : "2.16.0-beta2"
+      }
+    },
+    {
+      "identity" : "rangeslider",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/warchimede/RangeSlider.git",
+      "state" : {
+        "revision" : "a622cf0a2e18564388a5cd03ddef13e0d7b4f88c",
+        "version" : "1.2.0"
+      }
+    }
+  ],
+  "version" : 2
+}

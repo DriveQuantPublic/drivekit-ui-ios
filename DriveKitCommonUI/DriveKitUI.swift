@@ -6,8 +6,9 @@
 //  Copyright © 2020 DriveQuant. All rights reserved.
 //
 
-import DriveKitCoreModule
 import UIKit
+import DriveKitCoreModule
+import CoreText
 
 @objc public class DriveKitUI: NSObject {
     static let tag = "DriveKit UI"
@@ -60,6 +61,14 @@ import UIKit
         }
         self.tagFromKey = tagFromKey
         super.init()
+
+        // Install custom fonts.
+        if let paths = Bundle.driveKitCommonUIBundle?.paths(forResourcesOfType: "ttf", inDirectory: "") {
+            for path in paths {
+                let url = NSURL(fileURLWithPath: path)
+                CTFontManagerRegisterFontsForURL(url, .process, nil)
+            }
+        }
     }
 
     public func initialize() {
@@ -127,5 +136,9 @@ import UIKit
 }
 
 public extension Bundle {
+#if SWIFT_PACKAGE
+    static let driveKitCommonUIBundle: Bundle? = Bundle.module
+#else
     static let driveKitCommonUIBundle = Bundle(identifier: "com.drivequant.drivekit-common-ui")
+#endif
 }

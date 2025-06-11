@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CrashFeedbackStep1VC" customModule="DriveKitTripAnalysisUI" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CrashFeedbackStep1VC" customModule="DriveKitTripAnalysisUI">
             <connections>
                 <outlet property="counterContainer" destination="LpJ-JY-B7X" id="gAq-6G-ClI"/>
                 <outlet property="criticalCrashButton" destination="caE-r7-9pr" id="cyI-oC-nLz"/>
@@ -26,7 +26,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k98-bM-cMg" customClass="ButtonWithRightIcon" customModule="DriveKitTripAnalysisUI" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k98-bM-cMg" customClass="ButtonWithRightIcon" customModule="DriveKitTripAnalysisUI">
                     <rect key="frame" x="40" y="687" width="334" height="55"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="ftn-6H-emN"/>
@@ -37,7 +37,7 @@
                         <action selector="noCrashAction" destination="-1" eventType="touchUpInside" id="K42-uO-6Oa"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="caE-r7-9pr" customClass="ButtonWithRightIcon" customModule="DriveKitTripAnalysisUI" customModuleProvider="target">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="caE-r7-9pr" customClass="ButtonWithRightIcon" customModule="DriveKitTripAnalysisUI">
                     <rect key="frame" x="40" y="776" width="334" height="55"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="uWI-LP-1Ns"/>

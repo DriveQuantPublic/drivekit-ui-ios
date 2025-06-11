@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LocationPermissionViewController" customModule="DriveKitPermissionsUtilsUI" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LocationPermissionViewController" customModule="DriveKitPermissionsUtilsUI">
             <connections>
                 <outlet property="actionButton" destination="dMy-hO-kER" id="sP1-Mn-aaL"/>
                 <outlet property="descriptionLabel" destination="cuq-r3-rvC" id="0op-BF-c7w"/>

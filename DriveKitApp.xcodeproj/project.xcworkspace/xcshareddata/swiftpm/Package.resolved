@@ -1,0 +1,42 @@
+{
+  "originHash" : "dd1512869eb1a735a2149658e224e6475786657a23450260f188d9b44fd52096",
+  "pins" : [
+    {
+      "identity" : "charts",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/danielgindi/Charts.git",
+      "state" : {
+        "revision" : "dd9c72e3d7e751e769971092a6bd72d39198ae63",
+        "version" : "5.1.0"
+      }
+    },
+    {
+      "identity" : "drivekit-sdk-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/DriveQuantPublic/drivekit-sdk-spm.git",
+      "state" : {
+        "revision" : "edf404de5f3d8bf4c30a106c3e8ddc91ee8d249a",
+        "version" : "2.16.1"
+      }
+    },
+    {
+      "identity" : "rangeslider",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/warchimede/RangeSlider.git",
+      "state" : {
+        "revision" : "a622cf0a2e18564388a5cd03ddef13e0d7b4f88c",
+        "version" : "1.2.0"
+      }
+    },
+    {
+      "identity" : "swiftlintplugins",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SimplyDanny/SwiftLintPlugins",
+      "state" : {
+        "revision" : "8545ddf4de043e6f2051c5cf204f39ef778ebf6b",
+        "version" : "0.59.1"
+      }
+    }
+  ],
+  "version" : 3
+}

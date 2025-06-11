@@ -57,7 +57,11 @@ import DriveKitDBAchievementAccessModule
 }
 
 extension Bundle {
+#if SWIFT_PACKAGE
+    static let driverAchievementUIBundle: Bundle? = Bundle.module
+#else
     static let driverAchievementUIBundle = Bundle(identifier: "com.drivequant.drivekit-driver-achievement-ui")
+#endif
 }
 
 extension String {

@@ -17,7 +17,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DriverDistanceEstimationViewController" customModule="DriveKitDriverDataUI" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DriverDistanceEstimationViewController" customModule="DriveKitDriverDataUI">
             <connections>
                 <outlet property="estimationBarView" destination="g9J-8v-jeQ" id="oBm-Oc-q54"/>
                 <outlet property="estimationLabel" destination="prZ-K4-lx7" id="4aQ-Dt-sy6"/>

@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 
   s.dependency 'WARangeSlider'
   s.dependency 'DriveKitCommonUI', s.version.to_s
-  s.dependency 'DriveKitTripAnalysis', '2.17.0-beta2'
+  s.dependency 'DriveKitTripAnalysis', '2.18.0-beta2'
 
   s.pod_target_xcconfig = {
     'PRODUCT_BUNDLE_IDENTIFIER': 'com.drivequant.drivekit-trip-analysis-ui'

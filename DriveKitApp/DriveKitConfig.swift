@@ -124,6 +124,7 @@ enum DriveKitConfig {
     private static func configureDriverDataUI() {
         DriveKitDriverDataUI.shared.configureTripData(DriveKitConfig.tripData)
         DriveKitDriverDataUI.shared.enableAlternativeTrips(DriveKitConfig.enableAlternativeTrips)
+        DriveKitDriverDataUI.shared.enableOccupantDeclaration(true)
     }
 
     private static func configureVehicleUI() {

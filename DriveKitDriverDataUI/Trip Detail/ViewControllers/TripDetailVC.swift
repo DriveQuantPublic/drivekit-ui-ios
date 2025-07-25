@@ -286,7 +286,7 @@ extension TripDetailVC {
             let image = viewModel.getDriverPassengerImage()?.withRenderingMode(.alwaysTemplate)
             driverPassengerButton.setImage(image, for: .normal)
             driverPassengerButton.tintColor = .white
-            driverPassengerButton.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+            driverPassengerButton.imageEdgeInsets = UIEdgeInsets(top: -1, left: -1, bottom: -1, right: -1)
             driverPassengerButton.isHidden = false
             self.mapContainer.bringSubviewToFront(driverPassengerButton)
             

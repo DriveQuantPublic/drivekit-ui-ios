@@ -5,6 +5,7 @@
 "dk_common_app_diag_nearby_link"="Ermöglicht die Erkennung von Geräten in der Nähe";
 "dk_common_back"="Zurück";
 "dk_common_cancel"="Annullierer";
+"dk_common_change"="Bearbeiten";
 "dk_common_close"="schließen";
 "dk_common_confirm"="Bestätigen";
 "dk_common_consumption"="Verbrauch";
@@ -49,6 +50,7 @@
 "dk_common_no_pseudo_set"="Um Ihr Ranking mit den anderen Teilnehmern zu teilen, laden wir Sie ein, ein Pseudo zu wählen. Ohne ein Pseudo erscheinen Sie als anonym.";
 "dk_common_no_trip"="Keine Reise";
 "dk_common_no_trips_yet"="Die App hat Ihr Verhalten noch nicht analysiert.";
+"dk_common_no_value"="-";
 "dk_common_ok"="OK";
 "dk_common_period_selector_month"="Monat";
 "dk_common_period_selector_week"="Woche";

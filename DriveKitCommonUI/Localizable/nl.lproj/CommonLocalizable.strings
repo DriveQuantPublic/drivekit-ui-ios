@@ -5,6 +5,7 @@
 "dk_common_app_diag_nearby_link"="Apparaten in de buurt detecteren";
 "dk_common_back"="Terug";
 "dk_common_cancel"="Annuleren";
+"dk_common_change"="Wijzigen";
 "dk_common_close"="Sluit";
 "dk_common_confirm"="Bevestig";
 "dk_common_consumption"="Verbruik";
@@ -49,6 +50,7 @@
 "dk_common_no_pseudo_set"="Om je rangschikking te delen met de andere deelnemers, nodigen we je uit om een pseudoniem te kiezen. Zonder pseudoniem word je als \'anoniem\' weergegeven.";
 "dk_common_no_trip"="Geen rit";
 "dk_common_no_trips_yet"="De app heeft je rijgedrag nog niet geanalyseerd.";
+"dk_common_no_value"="-";
 "dk_common_ok"="OK";
 "dk_common_period_selector_month"="Maand";
 "dk_common_period_selector_week"="Week";

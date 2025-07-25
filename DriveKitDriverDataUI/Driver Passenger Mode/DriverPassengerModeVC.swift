@@ -207,8 +207,11 @@ class DriverPassengerModeVC: DKUIViewController {
                         if let self = self {
                             switch status {
                                 case .success:
-                                    if let parentView = self.parentView, parentView is AlternativeTripDetailInfoVC {
-                                        (parentView as? AlternativeTripDetailInfoVC)?.update()
+                                    if let tripDetailVC = self.parentView as? TripDetailVC {
+                                        DriveKitDriverData.shared.getTrip(itinId: self.viewModel.itinId, completionHandler: { _, trip in
+                                            tripDetailVC.viewModel.trip = trip
+                                            tripDetailVC.setupDriverPassengerButton()
+                                        })
                                     }
                                     self.navigationController?.popViewController(animated: true)
                                 case .failedToUpdateMode, .invalidItineraryId, .invalidTransportationMode, .userNotConnected:
@@ -237,8 +240,11 @@ class DriverPassengerModeVC: DKUIViewController {
                         if let self = self {
                             switch status {
                                 case .noError:
-                                    if let parentView = self.parentView, parentView is AlternativeTripDetailInfoVC {
-                                        (parentView as? AlternativeTripDetailInfoVC)?.update()
+                                    if let tripDetailVC = self.parentView as? TripDetailVC {
+                                        DriveKitDriverData.shared.getTrip(itinId: self.viewModel.itinId, completionHandler: { _, trip in
+                                            tripDetailVC.viewModel.trip = trip
+                                            tripDetailVC.setupDriverPassengerButton()
+                                        })
                                     }
                                     self.navigationController?.popViewController(animated: true)
                                 case .failedToDeclareTransportationMode:

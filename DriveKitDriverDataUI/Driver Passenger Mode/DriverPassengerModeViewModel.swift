@@ -30,7 +30,7 @@ class DriverPassengerModeViewModel {
         return trip.declaredTransportationMode?.passenger
     }
     
-    private var itinId: String {
+    var itinId: String {
         return trip.itinId
     }
     

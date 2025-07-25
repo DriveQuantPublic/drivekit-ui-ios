@@ -329,6 +329,15 @@ class TripDetailViewModel: DKTripDetailViewModel {
         return DKDriverDataImages.transportationDriver.image
     }
 
+    func getDeclarationBadgeValue() -> DeclarationBadgeValue {
+        if trip?.declaredTransportationMode != nil {
+            return .verified
+        }
+        if trip?.occupantInfo?.role == .passenger {
+            return .unverified
+        }
+        return .none
+    }
 }
 
 protocol TripDetailDelegate: AnyObject {
@@ -339,4 +348,8 @@ protocol TripDetailDelegate: AnyObject {
     func onEventSelected(event: TripEvent, position: Int)
     func onMapTraceSelected(_ mapTrace: DKMapTraceType)
     func didUpdateTripCities()
+}
+
+enum DeclarationBadgeValue {
+    case none, verified, unverified
 }

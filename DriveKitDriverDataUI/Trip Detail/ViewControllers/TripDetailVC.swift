@@ -22,6 +22,7 @@ class TripDetailVC: DKUIViewController {
     @IBOutlet var headerContainer: UIView!
     @IBOutlet var tipButton: UIButton!
     @IBOutlet var driverPassengerButton: UIButton!
+    @IBOutlet var driverPassengerButtonBadgeLabel: UILabel!
 
     var pageViewController: UIPageViewController!
     var viewModel: TripDetailViewModel
@@ -61,7 +62,6 @@ class TripDetailVC: DKUIViewController {
         self.viewModel.delegate = self
         setupMapView()
         self.configureDeleteButton()
-        setupDriverPassengerButton()
     }
     
     private func configureDeleteButton() {
@@ -277,10 +277,10 @@ extension TripDetailVC {
         }
     }
 
-    private func setupDriverPassengerButton() {
+    func setupDriverPassengerButton() {
         if showDriverPassengerButton {
             driverPassengerButton.layer.borderColor = UIColor.black.cgColor
-            driverPassengerButton.layer.cornerRadius = tipButton.bounds.size.width / 2
+            driverPassengerButton.layer.cornerRadius = driverPassengerButton.bounds.size.width / 2
             driverPassengerButton.layer.masksToBounds = true
             driverPassengerButton.backgroundColor = DKUIColors.secondaryColor.color
             let image = viewModel.getDriverPassengerImage()?.withRenderingMode(.alwaysTemplate)
@@ -289,8 +289,28 @@ extension TripDetailVC {
             driverPassengerButton.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
             driverPassengerButton.isHidden = false
             self.mapContainer.bringSubviewToFront(driverPassengerButton)
+            
+            driverPassengerButtonBadgeLabel.layer.borderColor = UIColor.white.cgColor
+            driverPassengerButtonBadgeLabel.layer.borderWidth = 0.5
+            driverPassengerButtonBadgeLabel.layer.cornerRadius = driverPassengerButtonBadgeLabel.bounds.size.width / 2
+            driverPassengerButtonBadgeLabel.layer.masksToBounds = true
+            self.mapContainer.bringSubviewToFront(driverPassengerButtonBadgeLabel)
+            let badgeStatus = viewModel.getDeclarationBadgeValue()
+            switch badgeStatus {
+                case .none:
+                    driverPassengerButtonBadgeLabel.isHidden = true
+                case .verified:
+                    driverPassengerButtonBadgeLabel.text = "✓"
+                    driverPassengerButtonBadgeLabel.backgroundColor = .systemGreen
+                    driverPassengerButtonBadgeLabel.isHidden = false
+                case .unverified:
+                    driverPassengerButtonBadgeLabel.text = "!"
+                    driverPassengerButtonBadgeLabel.backgroundColor = .red
+                    driverPassengerButtonBadgeLabel.isHidden = false
+            }
         } else {
             driverPassengerButton.isHidden = true
+            driverPassengerButtonBadgeLabel.isHidden = true
         }
     }
     
@@ -338,6 +358,7 @@ extension TripDetailVC: TripDetailDelegate {
             self.updateViewToCurrentMapItem()
             self.setupTipButton()
             self.hideLoader()
+            self.setupDriverPassengerButton()
         }
     }
     
@@ -363,6 +384,7 @@ extension TripDetailVC: TripDetailDelegate {
             self.pageViewController.dataSource = nil
             self.updateViewToCurrentMapItem()
             self.hideLoader()
+            self.setupDriverPassengerButton()
         }
     }
     

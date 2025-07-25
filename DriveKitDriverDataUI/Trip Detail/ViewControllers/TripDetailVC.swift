@@ -21,7 +21,9 @@ class TripDetailVC: DKUIViewController {
     @IBOutlet var cameraButton: UIButton!
     @IBOutlet var headerContainer: UIView!
     @IBOutlet var tipButton: UIButton!
-    
+    @IBOutlet var driverPassengerButton: UIButton!
+    @IBOutlet var driverPassengerButtonBadgeImage: UIImageView!
+
     var pageViewController: UIPageViewController!
     var viewModel: TripDetailViewModel
     var swipableViewControllers: [UIViewController] = []
@@ -29,10 +31,16 @@ class TripDetailVC: DKUIViewController {
     var mapItemButtons: [UIButton] = []
     
     private var showAdvice: Bool
+    private let showDriverPassengerButton: Bool
     
     init(itinId: String, showAdvice: Bool, listConfiguration: TripListConfiguration) {
         self.viewModel = TripDetailViewModel(itinId: itinId, listConfiguration: listConfiguration)
         self.showAdvice = showAdvice
+        if case .motorized(let vehicleId) = listConfiguration, DriveKitDriverDataUI.shared.enableOccupantDeclaration {
+            self.showDriverPassengerButton = true
+        } else {
+            self.showDriverPassengerButton = false
+        }
         super.init(nibName: String(describing: TripDetailVC.self), bundle: Bundle.driverDataUIBundle)
 
         if let analytics = DriveKitUI.shared.analytics {
@@ -268,6 +276,37 @@ extension TripDetailVC {
             tipButton.isHidden = true
         }
     }
+
+    func setupDriverPassengerButton() {
+        if showDriverPassengerButton {
+            driverPassengerButton.layer.borderColor = UIColor.black.cgColor
+            driverPassengerButton.layer.cornerRadius = driverPassengerButton.bounds.size.width / 2
+            driverPassengerButton.layer.masksToBounds = true
+            driverPassengerButton.backgroundColor = DKUIColors.secondaryColor.color
+            let image = viewModel.getDriverPassengerImage()?.withRenderingMode(.alwaysTemplate)
+            driverPassengerButton.setImage(image, for: .normal)
+            driverPassengerButton.tintColor = .white
+            driverPassengerButton.imageEdgeInsets = UIEdgeInsets(top: -1, left: -1, bottom: -1, right: -1)
+            driverPassengerButton.isHidden = false
+            self.mapContainer.bringSubviewToFront(driverPassengerButton)
+            self.mapContainer.bringSubviewToFront(driverPassengerButtonBadgeImage)
+            let badgeStatus = viewModel.getDeclarationBadgeValue()
+            switch badgeStatus {
+                case .none:
+                    driverPassengerButtonBadgeImage.image = nil
+                    driverPassengerButtonBadgeImage.isHidden = true
+                case .labelled:
+                    driverPassengerButtonBadgeImage.image = DKDriverDataImages.occupantRoleTripLabelled.image
+                    driverPassengerButtonBadgeImage.isHidden = false
+                case .toLabel:
+                    driverPassengerButtonBadgeImage.image = DKDriverDataImages.occupantRoleTripToLabel.image
+                    driverPassengerButtonBadgeImage.isHidden = false
+            }
+        } else {
+            driverPassengerButton.isHidden = true
+            driverPassengerButtonBadgeImage.isHidden = true
+        }
+    }
     
     @IBAction func clickedAdvices(_ sender: UIButton) {
         if let trip = viewModel.trip, let advice = viewModel.displayMapItem?.getAdvice(trip: trip) {
@@ -287,7 +326,15 @@ extension TripDetailVC {
             self.present(navigationTripTip, animated: true, completion: nil)
         }
     }
-    
+
+    @IBAction func openDriverPassengerModeVC(_ sender: UIButton) {
+        if let trip = viewModel.trip, showDriverPassengerButton {
+            let vm = DriverPassengerModeViewModel(trip: trip)
+            let driverPassengerModeVC = DriverPassengerModeVC(viewModel: vm, parent: self)
+            self.navigationController?.pushViewController(driverPassengerModeVC, animated: true)
+        }
+    }
+
     @objc func tapOnCamera(_ sender: Any) {
         self.viewModel.setSelectedEvent(position: nil)
         self.mapViewController.fitPath()
@@ -305,6 +352,7 @@ extension TripDetailVC: TripDetailDelegate {
             self.updateViewToCurrentMapItem()
             self.setupTipButton()
             self.hideLoader()
+            self.setupDriverPassengerButton()
         }
     }
     
@@ -330,6 +378,7 @@ extension TripDetailVC: TripDetailDelegate {
             self.pageViewController.dataSource = nil
             self.updateViewToCurrentMapItem()
             self.hideLoader()
+            self.setupDriverPassengerButton()
         }
     }
     
@@ -350,6 +399,7 @@ extension TripDetailVC: TripDetailDelegate {
         self.setupPageContainer()
         self.updateViewToCurrentMapItem()
         self.hideLoader()
+        self.setupDriverPassengerButton()
     }
     
     func onEventSelected(event: TripEvent, position: Int) {

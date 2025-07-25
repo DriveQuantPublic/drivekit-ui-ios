@@ -5,6 +5,7 @@
 "dk_common_app_diag_nearby_link"="Permitir la detección de dispositivos cercanos";
 "dk_common_back"="Volver";
 "dk_common_cancel"="Anulador";
+"dk_common_change"="Cambiar";
 "dk_common_close"="Cerrar";
 "dk_common_confirm"="Confirmar";
 "dk_common_consumption"="Consumo";
@@ -49,6 +50,7 @@
 "dk_common_no_pseudo_set"="Para compartir su clasificación con los demás participantes, le invitamos a elegir un pseudo. Sin un pseudo aparecerá como anónimo.";
 "dk_common_no_trip"="Sin viaje";
 "dk_common_no_trips_yet"="La app aún no ha analizado tu conducción.";
+"dk_common_no_value"="-";
 "dk_common_ok"="OK";
 "dk_common_period_selector_month"="Mes";
 "dk_common_period_selector_week"="Semana";

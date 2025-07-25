@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "dk_occupant_role_trip_labelled.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "dk_occupant_role_trip_labelled@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "dk_occupant_role_trip_labelled@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

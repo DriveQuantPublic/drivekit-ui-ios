@@ -97,7 +97,8 @@ public enum DKCommonLocalizable: String {
     periodSelectorYear = "dk_common_period_selector_year",
     noTrips = "dk_common_no_trip",
     noTripsYet = "dk_common_no_trips_yet",
-    noDataYet = "dk_common_no_data_yet"
+    noDataYet = "dk_common_no_data_yet",
+    change = "dk_common_change"
 
     public func text() -> String {
         return self.rawValue.dkLocalized(tableName: "CommonLocalizable", bundle: .driveKitCommonUIBundle ?? .main)

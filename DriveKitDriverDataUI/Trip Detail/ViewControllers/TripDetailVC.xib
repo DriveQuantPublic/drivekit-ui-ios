@@ -14,7 +14,7 @@
                 <outlet property="actionView" destination="ebB-WE-1ZQ" id="rnu-md-l0B"/>
                 <outlet property="cameraButton" destination="8ca-Py-8CR" id="wwD-ku-uQ3"/>
                 <outlet property="driverPassengerButton" destination="k8D-3S-V3e" id="ViB-1m-qUG"/>
-                <outlet property="driverPassengerButtonBadgeLabel" destination="IDN-zN-SIx" id="HGC-B9-vwJ"/>
+                <outlet property="driverPassengerButtonBadgeImage" destination="5fA-Iv-2QF" id="Qxt-ba-4L7"/>
                 <outlet property="headerContainer" destination="jJ1-3V-66M" id="Oh9-nd-ANQ"/>
                 <outlet property="mapContainer" destination="X26-Oo-J45" id="UgS-re-gNT"/>
                 <outlet property="mapItemViewConstraint" destination="mgm-5y-hz9" id="pGw-E9-pxT"/>
@@ -52,22 +52,19 @@
                                 <action selector="openDriverPassengerModeVC:" destination="-1" eventType="touchUpInside" id="8Fg-i4-HKx"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IDN-zN-SIx">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5fA-Iv-2QF">
                             <rect key="frame" x="383" y="51" width="24" height="24"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="24" id="LtP-My-xxd"/>
-                                <constraint firstAttribute="width" constant="24" id="wec-Xc-7Yp"/>
+                                <constraint firstAttribute="width" constant="24" id="Mm0-Ke-fLp"/>
+                                <constraint firstAttribute="height" constant="24" id="a4e-3b-9mB"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="k8D-3S-V3e" firstAttribute="top" secondItem="IDN-zN-SIx" secondAttribute="bottom" constant="-15" id="6XE-oH-wgB"/>
                         <constraint firstAttribute="bottom" secondItem="DLg-Uu-wvA" secondAttribute="bottom" constant="16" id="78x-HE-Me9"/>
-                        <constraint firstItem="IDN-zN-SIx" firstAttribute="leading" secondItem="k8D-3S-V3e" secondAttribute="trailing" constant="-15" id="WIA-Bm-2nt"/>
+                        <constraint firstItem="k8D-3S-V3e" firstAttribute="top" secondItem="5fA-Iv-2QF" secondAttribute="bottom" constant="-15" id="DYl-Ij-obj"/>
+                        <constraint firstItem="5fA-Iv-2QF" firstAttribute="leading" secondItem="k8D-3S-V3e" secondAttribute="trailing" constant="-15" id="Ruw-WA-7qu"/>
                         <constraint firstAttribute="trailing" secondItem="k8D-3S-V3e" secondAttribute="trailing" constant="16" id="fMg-hf-XjZ"/>
                         <constraint firstItem="k8D-3S-V3e" firstAttribute="top" secondItem="X26-Oo-J45" secondAttribute="top" constant="60" id="oYj-08-xPT"/>
                         <constraint firstAttribute="trailing" secondItem="DLg-Uu-wvA" secondAttribute="trailing" constant="16" id="r6f-KT-mpf"/>

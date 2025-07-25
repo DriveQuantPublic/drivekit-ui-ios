@@ -22,7 +22,7 @@ class TripDetailVC: DKUIViewController {
     @IBOutlet var headerContainer: UIView!
     @IBOutlet var tipButton: UIButton!
     @IBOutlet var driverPassengerButton: UIButton!
-    @IBOutlet var driverPassengerButtonBadgeLabel: UILabel!
+    @IBOutlet var driverPassengerButtonBadgeImage: UIImageView!
 
     var pageViewController: UIPageViewController!
     var viewModel: TripDetailViewModel
@@ -289,28 +289,22 @@ extension TripDetailVC {
             driverPassengerButton.imageEdgeInsets = UIEdgeInsets(top: -1, left: -1, bottom: -1, right: -1)
             driverPassengerButton.isHidden = false
             self.mapContainer.bringSubviewToFront(driverPassengerButton)
-            
-            driverPassengerButtonBadgeLabel.layer.borderColor = UIColor.white.cgColor
-            driverPassengerButtonBadgeLabel.layer.borderWidth = 0.5
-            driverPassengerButtonBadgeLabel.layer.cornerRadius = driverPassengerButtonBadgeLabel.bounds.size.width / 2
-            driverPassengerButtonBadgeLabel.layer.masksToBounds = true
-            self.mapContainer.bringSubviewToFront(driverPassengerButtonBadgeLabel)
+            self.mapContainer.bringSubviewToFront(driverPassengerButtonBadgeImage)
             let badgeStatus = viewModel.getDeclarationBadgeValue()
             switch badgeStatus {
                 case .none:
-                    driverPassengerButtonBadgeLabel.isHidden = true
-                case .verified:
-                    driverPassengerButtonBadgeLabel.text = "✓"
-                    driverPassengerButtonBadgeLabel.backgroundColor = .systemGreen
-                    driverPassengerButtonBadgeLabel.isHidden = false
-                case .unverified:
-                    driverPassengerButtonBadgeLabel.text = "!"
-                    driverPassengerButtonBadgeLabel.backgroundColor = .red
-                    driverPassengerButtonBadgeLabel.isHidden = false
+                    driverPassengerButtonBadgeImage.image = nil
+                    driverPassengerButtonBadgeImage.isHidden = true
+                case .labelled:
+                    driverPassengerButtonBadgeImage.image = DKDriverDataImages.occupantRoleTripLabelled.image
+                    driverPassengerButtonBadgeImage.isHidden = false
+                case .toLabel:
+                    driverPassengerButtonBadgeImage.image = DKDriverDataImages.occupantRoleTripToLabel.image
+                    driverPassengerButtonBadgeImage.isHidden = false
             }
         } else {
             driverPassengerButton.isHidden = true
-            driverPassengerButtonBadgeLabel.isHidden = true
+            driverPassengerButtonBadgeImage.isHidden = true
         }
     }
     

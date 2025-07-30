@@ -205,6 +205,7 @@ class DriverPassengerModeVC: DKUIViewController {
                 self.viewModel.declareDriverPassengerMode { [weak self] status in
                     DispatchQueue.main.async {
                         if let self = self {
+                            self.hideLoader()
                             switch status {
                                 case .success:
                                     if let tripDetailVC = self.parentView as? TripDetailVC {
@@ -238,6 +239,7 @@ class DriverPassengerModeVC: DKUIViewController {
                 self.viewModel.declareTransportationMode { [weak self] status in
                     DispatchQueue.main.async {
                         if let self = self {
+                            self.hideLoader()
                             switch status {
                                 case .noError:
                                     if let tripDetailVC = self.parentView as? TripDetailVC {

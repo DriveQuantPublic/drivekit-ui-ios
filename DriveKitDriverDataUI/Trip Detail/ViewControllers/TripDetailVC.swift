@@ -378,7 +378,6 @@ extension TripDetailVC: TripDetailDelegate {
             self.pageViewController.dataSource = nil
             self.updateViewToCurrentMapItem()
             self.hideLoader()
-            self.setupDriverPassengerButton()
         }
     }
     

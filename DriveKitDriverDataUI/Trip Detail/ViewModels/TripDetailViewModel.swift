@@ -325,6 +325,8 @@ class TripDetailViewModel: DKTripDetailViewModel {
                 @unknown default:
                     return nil
             }
+        } else if (trip?.occupantInfo?.role == .passenger) {
+            return DKDriverDataImages.transportationPassenger.image
         }
         return DKDriverDataImages.transportationDriver.image
     }

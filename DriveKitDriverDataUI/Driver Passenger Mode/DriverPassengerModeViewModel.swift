@@ -15,17 +15,15 @@ class DriverPassengerModeViewModel {
     private let trip: DKTrip
     var selectedTransportationMode: TransportationMode?
     var passenger: Bool?
+    var comment: String?
 
     init(trip: DKTrip) {
         self.trip = trip
         self.selectedTransportationMode = self.declaredTransportationMode()
         self.passenger = self.isPassenger
+        self.comment = trip.declaredTransportationMode?.comment
     }
-    
-    var comment: String? {
-        return trip.declaredTransportationMode?.comment
-    }
-    
+        
     private var isPassenger: Bool? {
         return trip.declaredTransportationMode?.passenger
     }

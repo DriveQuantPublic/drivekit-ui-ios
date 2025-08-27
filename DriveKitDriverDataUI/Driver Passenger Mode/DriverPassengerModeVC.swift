@@ -200,6 +200,7 @@ class DriverPassengerModeVC: DKUIViewController {
         let comment: String = self.commentTextView.text
         let commentTextLength = comment.count
         if commentTextLength <= self.maxCommentLength {
+            self.viewModel.comment = comment
             showLoader()
             if self.viewModel.selectedTransportationMode == .car {
                 self.viewModel.declareDriverPassengerMode { [weak self] status in
@@ -277,5 +278,13 @@ class DriverPassengerModeVC: DKUIViewController {
 extension DriverPassengerModeVC: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         self.commentError.isHidden = textView.text.count <= self.maxCommentLength
+    }
+
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
     }
 }

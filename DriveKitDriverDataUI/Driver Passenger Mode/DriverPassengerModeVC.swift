@@ -42,6 +42,10 @@ class DriverPassengerModeVC: DKUIViewController {
         self.viewModel = viewModel
         self.parentView = parent
         super.init(nibName: String(describing: DriverPassengerModeVC.self), bundle: Bundle.driverDataUIBundle)
+        
+        if let analytics = DriveKitUI.shared.analytics {
+            analytics.trackEvent(.driverPassengerOpen, parameters: nil)
+        }
     }
     
     required init?(coder: NSCoder) {

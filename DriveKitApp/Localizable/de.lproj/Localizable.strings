@@ -237,3 +237,4 @@ Um Ihnen bei der Implementierung eines.\n\nTBerechtigungspfads zu helfen, haben 
 "welcome_ok_button"="NÄCHSTER SCHRITT";
 "welcome_ok_description"="Bravo, Sie haben soeben die DriveKit-Demo-App installiert 🎉\n\nDiese App zeigt die Funktionsweise der DriveKit-Komponenten und leitet Sie an, diese in Ihrer App zu installieren.\n\nIhr API-Key ist :\n\n%@\n\nUnter keinen Umständen sollte es gemeinsam genutzt oder in mehreren Anwendungen verwendet werden.";
 "welcome_ok_title"="Willkommen bei der DriveKit-Demoanwendung";
+"passenger_declaration_banner"="Wussten Sie, dass Sie eine Fahrt als Mitfahrer melden können?";

@@ -236,3 +236,4 @@
 "welcome_ok_button"="PRÓXIMO PASSO";
 "welcome_ok_description"="Parabéns, construiu a aplicação de demonstração do DriveKit 🎉\n\nEsta aplicação mostra-lhe como funcionam os componentes do DriveKit e orienta-o para os instalar na sua aplicação.\n\nA sua chave API é:\n\n%@\n\nEm nenhuma circunstância deve ser partilhada ou utilizada em várias aplicações.";
 "welcome_ok_title"="Bem-vindo à aplicação de demonstração do DriveKit";
+"passenger_declaration_banner"="Sabia que pode declarar uma viagem feita como passageiro?";

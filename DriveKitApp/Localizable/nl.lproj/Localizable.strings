@@ -236,3 +236,4 @@
 "welcome_ok_button"="VOLGENDE STAP";
 "welcome_ok_description"="Gefeliciteerd, je hebt zojuist de DriveKit demonstratietoepassing geïnstalleerd 🎉\n\nDeze toepassing legt uit hoe de DriveKit componenten werken en begeleidt je bij het installeren ervan in je toepassing.\n\nJe API-sleutel is:\n\n%@\n\nDeze mag nooit worden gedeeld of in meerdere toepassingen worden gebruikt.";
 "welcome_ok_title"="Welkom bij de DriveKit-demoapplicatie";
+"passenger_declaration_banner"="Wist je dat je een rit als passagier kunt opgeven?";

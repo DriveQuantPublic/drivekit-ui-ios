@@ -236,3 +236,4 @@
 "welcome_ok_button"="NEXT STEP";
 "welcome_ok_description"="Congratulations, you have built the DriveKit demo application 🎉\n\nThis application shows you how the DriveKit components work and guides you to install them in your application.\n\nYour API key is:\n\n%@\n\nUnder no circumstances it shouldn\'t be shared or used in multiple applications.";
 "welcome_ok_title"="Welcome to the DriveKit demo application";
+"passenger_declaration_banner"="Did you know that you can declare a trip taken as a passenger?";

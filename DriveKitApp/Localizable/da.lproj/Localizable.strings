@@ -236,3 +236,4 @@
 "welcome_ok_button"="NÆSTE TRIN";
 "welcome_ok_description"="Tillykke, du har bygget DriveKit-demoapplikationen 🎉\n\nDenne applikation viser dig, hvordan DriveKit-komponenterne fungerer, og guider dig til at installere dem i din applikation.\n\nDin API-nøgle er:\n\n%@\n\nDen må under ingen omstændigheder deles eller bruges i flere applikationer.";
 "welcome_ok_title"="Velkommen til DriveKit demo-applikationen";
+"passenger_declaration_banner"="Vidste du, at du kan registrere en tur som passager?";

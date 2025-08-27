@@ -14,6 +14,8 @@
 		<string>dk_tag_trips_detail</string>
 		<key>TransportationModeVC</key>
 		<string>dk_tag_trips_detail_transportation_mode</string>
+		<key>DriverPassengerModeVC</key>
+		<string>dk_tag_trips_detail_driver_passenger</string>
 	</dict>
 	<key>DriverDataTimeline</key>
 	<dict>

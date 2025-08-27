@@ -15,6 +15,8 @@ class Analytics: DKAnalytics {
     }
 
     func trackEvent(_ event: DKAnalyticsEvent, parameters: [String: Any]?) {
-        // manage event tracking here
+        if event == .driverPassengerOpen {
+            DashboardViewModel.alreadyOpenedDriverPassengerMode = true
+        }
     }
 }

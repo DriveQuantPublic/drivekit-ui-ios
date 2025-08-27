@@ -236,3 +236,4 @@
 "welcome_ok_button"="SIGUIENTE PASO";
 "welcome_ok_description"="Enhorabuena, acabas de instalar la aplicación de demostración de DriveKit 🎉\n\nEsta aplicación muestra cómo funcionan los componentes de DriveKit y te guía en la instalación de los mismos en tu aplicación.\n\nTu key API es :\n\n%@\n\nEn ningún caso debe compartirse o utilizarse en múltiples aplicaciones.";
 "welcome_ok_title"="Bienvenido a la aplicación de demostración de DriveKit";
+"passenger_declaration_banner"="¿Sabías que puedes declarar un trayecto realizado como pasajero?";

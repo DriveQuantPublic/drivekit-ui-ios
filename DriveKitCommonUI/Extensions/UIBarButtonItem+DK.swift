@@ -9,8 +9,11 @@
 import UIKit
 
 public extension UIBarButtonItem {
-    func applyDKStyle() {
-        self.tintColor = DKUIColors.navBarElementColor.color
+    func applyStyle(color: UIColor = DKUIColors.navBarElementColor.color, applyToTitle: Bool = false) {
+        self.tintColor = color
+        if applyToTitle {
+            self.setTitleTextAttributes([.foregroundColor: color], for: .normal)
+        }
         if #available(iOS 26.0, *) {
             self.hidesSharedBackground = true
         }

@@ -36,7 +36,7 @@ open class DKUIViewController: UIViewController {
         backButton.setImage(backImage, for: .normal)
         backButton.addTarget(viewController, action: selector, for: .touchUpInside)
         let backBarButton = UIBarButtonItem(customView: backButton)
-        backBarButton.applyDKStyle()
+        backBarButton.applyStyle()
         viewController.navigationItem.leftBarButtonItem = backBarButton
     }
 

@@ -53,7 +53,7 @@ public class ScoreLevelLegendViewController: UIViewController {
             )
         }
         
-        closeButton.applyDKStyle()
+        closeButton.applyStyle(color: DKUIColors.secondaryColor.color, applyToTitle: true)
         self.navigationItem.rightBarButtonItem = closeButton
     }
 

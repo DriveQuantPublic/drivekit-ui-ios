@@ -162,7 +162,7 @@ extension VehicleDetailVC: VehicleDetailDelegate {
         checkButton.setImage(image, for: .normal)
         checkButton.addTarget(self, action: #selector(updateVehicle), for: .touchUpInside)
         let checkBarButton = UIBarButtonItem(customView: checkButton)
-        checkBarButton.applyDKStyle()
+        checkBarButton.applyStyle()
         self.navigationItem.rightBarButtonItem = checkBarButton
     }
 }

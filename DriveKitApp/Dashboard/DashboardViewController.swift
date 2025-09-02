@@ -148,7 +148,7 @@ class DashboardViewController: UIViewController {
     private func configureNavBar() {
         let image = UIImage(named: "settings", in: Bundle.main, compatibleWith: nil)?.resizeImage(25, opaque: false).withRenderingMode(.alwaysTemplate)
         let settingsButton = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(openSettings))
-        settingsButton.tintColor = DKUIColors.navBarElementColor.color
+        settingsButton.applyDKStyle()
         self.navigationItem.rightBarButtonItem = settingsButton
     }
 

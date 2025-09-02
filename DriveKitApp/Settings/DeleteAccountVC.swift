@@ -10,7 +10,7 @@
 import UIKit
 import DriveKitCommonUI
 
-class DeleteAccountVC: UIViewController {
+class DeleteAccountVC: DKUIViewController {
     private let viewModel: DeleteAccountViewModel = DeleteAccountViewModel()
     @IBOutlet private weak var deleteButton: UIButton!
     @IBOutlet private weak var cancelButton: UIButton!

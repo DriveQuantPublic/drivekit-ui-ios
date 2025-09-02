@@ -53,7 +53,7 @@ public class ScoreLevelLegendViewController: UIViewController {
             )
         }
         
-        closeButton.tintColor = DKUIColors.secondaryColor.color
+        closeButton.applyDKStyle()
         self.navigationItem.rightBarButtonItem = closeButton
     }
 

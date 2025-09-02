@@ -76,7 +76,7 @@ public class TripListVC: DKUIViewController {
             let imageWidth: CGFloat = 25
             let image = DKDriverDataImages.filter.image?.resizeImage(imageWidth, opaque: false).withRenderingMode(.alwaysTemplate)
             let filterButton = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(filterAction))
-            filterButton.tintColor = DKUIColors.navBarElementColor.color
+            filterButton.applyDKStyle()
             self.navigationItem.rightBarButtonItem = filterButton
         }
     }

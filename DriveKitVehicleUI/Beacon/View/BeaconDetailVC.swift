@@ -38,7 +38,7 @@ class BeaconDetailVC: DKUIViewController {
         if DriveKitVehicleUI.shared.beaconDiagnosticEmail != nil {
             let image = DKImages.mail.image?.resizeImage(25, opaque: false)
             let mailButton = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(sendEmail))
-            mailButton.tintColor = DKUIColors.navBarElementColor.color
+            mailButton.applyDKStyle()
             self.navigationItem.rightBarButtonItem = mailButton
         }
     }

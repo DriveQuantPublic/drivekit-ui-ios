@@ -54,3 +54,7 @@ extension AppDelegate: DriveKitDelegate {
         }
     }
 }
+
+class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    var window: UIWindow?
+}

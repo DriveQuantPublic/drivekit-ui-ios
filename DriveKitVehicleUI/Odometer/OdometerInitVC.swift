@@ -42,7 +42,7 @@ class OdometerInitVC: DKUIViewController {
         configureHeaderOdometer()
         configureFieldOdometer()
         let cancelButton = UIBarButtonItem(title: DKCommonLocalizable.cancel.text(), style: .plain, target: self, action: #selector(self.cancelSelector))
-        cancelButton.tintColor = DKUIColors.navBarElementColor.color
+        cancelButton.applyDKStyle()
         navigationItem.rightBarButtonItem = cancelButton
         validateButton.configure(title: DKCommonLocalizable.validate.text(), style: .full)
 

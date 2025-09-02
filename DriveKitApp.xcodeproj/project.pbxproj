@@ -470,6 +470,7 @@
 		6765E72428135A6500FD13F8 /* TripSimulatorDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765E72328135A6500FD13F8 /* TripSimulatorDetailViewModel.swift */; };
 		6765E7292816AB5E00FD13F8 /* VelocityChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765E7282816AB5E00FD13F8 /* VelocityChartView.swift */; };
 		6765E72B2818373300FD13F8 /* UINavigationController+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6765E72A2818373300FD13F8 /* UINavigationController+DK.swift */; };
+		6772CDF92E65F5DA0059C2AA /* UIBarButtonItem+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6772CDF82E65F5D30059C2AA /* UIBarButtonItem+DK.swift */; };
 		6780809928000A4C00A93352 /* ApiKeyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6780809828000A4C00A93352 /* ApiKeyViewModel.swift */; };
 		6780809C2800693600A93352 /* String+DK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6780809B2800693600A93352 /* String+DK.swift */; };
 		67813093276BB2A100701CF1 /* DriveKitTripAnalysisUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 67813092276BB2A100701CF1 /* DriveKitTripAnalysisUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1289,6 +1290,7 @@
 		6765E72328135A6500FD13F8 /* TripSimulatorDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripSimulatorDetailViewModel.swift; sourceTree = "<group>"; };
 		6765E7282816AB5E00FD13F8 /* VelocityChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VelocityChartView.swift; sourceTree = "<group>"; };
 		6765E72A2818373300FD13F8 /* UINavigationController+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+DK.swift"; sourceTree = "<group>"; };
+		6772CDF82E65F5D30059C2AA /* UIBarButtonItem+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+DK.swift"; sourceTree = "<group>"; };
 		6780809828000A4C00A93352 /* ApiKeyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeyViewModel.swift; sourceTree = "<group>"; };
 		6780809B2800693600A93352 /* String+DK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DK.swift"; sourceTree = "<group>"; };
 		67813090276BB2A100701CF1 /* DriveKitTripAnalysisUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DriveKitTripAnalysisUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1726,6 +1728,7 @@
 				3FF68E8B240C0A430071D74C /* UIViewController+DK.swift */,
 				3FF68E95240D58DC0071D74C /* UIView+DK.swift */,
 				3FF68E97240D59000071D74C /* UIImage+DK.swift */,
+				6772CDF82E65F5D30059C2AA /* UIBarButtonItem+DK.swift */,
 				3FCE6338243DF87A00CAB828 /* UIButton+DK.swift */,
 				63454B9E2907DC8D00A9B10F /* Date+DK.swift */,
 				E3F0212F29A3A90600664CD2 /* Array+Date.swift */,
@@ -4485,6 +4488,7 @@
 				67301C3E261D106B006B0432 /* DKTripList.swift in Sources */,
 				67301CC4261FB0CD006B0432 /* AlternativeTripImageView.swift in Sources */,
 				3F0740E72403BB9A005A8D07 /* DriveKitUI.swift in Sources */,
+				6772CDF92E65F5DA0059C2AA /* UIBarButtonItem+DK.swift in Sources */,
 				67301CCC2620D16D006B0432 /* DKHeader.swift in Sources */,
 				E302B61229ADFC40004CFA0C /* Array+Date.swift in Sources */,
 				67301DB026251921006B0432 /* HeaderDayView.swift in Sources */,

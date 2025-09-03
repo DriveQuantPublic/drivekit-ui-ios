@@ -25,6 +25,7 @@ public class DriveKitDriverDataUI: AccessRightListener {
     private(set) var enableAdviceFeedback = true
     public private(set) var enableAlternativeTrips = false
     private(set) var enableVehicleFilter = true
+    private(set) var enableOccupantDeclaration = false
     private(set) var customHeaders: DKHeader?
     private(set) var customTripInfo: DKTripInfo?
     public var alternativeTripsDepthInDays: Int?
@@ -107,6 +108,10 @@ public class DriveKitDriverDataUI: AccessRightListener {
     ) -> UIView {
         let trips = LastTripsWidgetUtils.getLastTrips(limit: lastTripsMaxNumber)
         return DKLastTripsUI.getTripsWidget(trips: trips, headerDay: headerDay, tripData: self.tripData, parentViewController: parentViewController)
+    }
+
+    public func enableOccupantDeclaration(_ enable: Bool) {
+        self.enableOccupantDeclaration = enable
     }
 
     private func filterMapItems() {

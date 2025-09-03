@@ -5,6 +5,7 @@
 "dk_common_app_diag_nearby_link"="Consentire il rilevamento dei dispositivi vicini";
 "dk_common_back"="Indietro";
 "dk_common_cancel"="Annullare";
+"dk_common_change"="Modifica";
 "dk_common_close"="Chiudere";
 "dk_common_confirm"="Conferma";
 "dk_common_consumption"="Consumo";
@@ -49,6 +50,7 @@
 "dk_common_no_pseudo_set"="Per condividere la tua classifica con gli altri partecipanti, ti invitiamo a scegliere uno pseudo. Senza uno pseudo apparirai come anonimo.";
 "dk_common_no_trip"="Nessun viaggio";
 "dk_common_no_trips_yet"="L\'app non ha ancora analizzato la guida.";
+"dk_common_no_value"="-";
 "dk_common_ok"="OK";
 "dk_common_period_selector_month"="Mese";
 "dk_common_period_selector_week"="Settimana";

@@ -1,3 +1,4 @@
+// swiftlint:disable cyclomatic_complexity
 //
 //  DriverPassengerModeVC.swift
 //  DriveKitDriverDataUI
@@ -62,9 +63,19 @@ class DriverPassengerModeVC: DKUIViewController {
         self.planeTransportationModeButton.image = DKDriverDataImages.transportationPlane.image
         self.onFootTransportationModeButton.image = DKDriverDataImages.transportationOnFoot.image
         self.driverButton.image = DKDriverDataImages.transportationDriver.image
-        self.driverLabel.attributedText = "dk_driverdata_transportation_profile_driver".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
+        self.driverLabel.attributedText = "dk_driverdata_transportation_profile_driver"
+            .dkDriverDataLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .driverDataText)
+            .color(.mainFontColor)
+            .build()
         self.passengerButton.image = DKDriverDataImages.transportationPassenger.image
-        self.passengerLabel.attributedText = "dk_driverdata_transportation_profile_passenger".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
+        self.passengerLabel.attributedText = "dk_driverdata_transportation_profile_passenger"
+            .dkDriverDataLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .driverDataText)
+            .color(.mainFontColor)
+            .build()
 
         self.title = "dk_driverdata_ocupant_declaration_title".dkDriverDataLocalized()
         
@@ -72,11 +83,32 @@ class DriverPassengerModeVC: DKUIViewController {
         self.messageBackground.backgroundColor = DKUIColors.warningColor.color
         self.messageBackground.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
 
-        self.transportationModeTitle.attributedText = "dk_driverdata_ocupant_declaration_transportation_question".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
-        self.passengerDriverTitle.attributedText = "dk_driverdata_ocupant_declaration_role_question".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
-        self.commentTitle.attributedText = "dk_driverdata_transportation_mode_declaration_comment".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.mainFontColor).build()
-        self.commentError.attributedText = "dk_driverdata_transportation_mode_declaration_comment_error".dkDriverDataLocalized().dkAttributedString().font(dkFont: .primary, style: .driverDataText).color(.criticalColor).build()
+        self.transportationModeTitle.attributedText = "dk_driverdata_ocupant_declaration_transportation_question"
+            .dkDriverDataLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .driverDataText)
+            .color(.mainFontColor)
+            .build()
+        self.passengerDriverTitle.attributedText = "dk_driverdata_ocupant_declaration_role_question"
+            .dkDriverDataLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .driverDataText)
+            .color(.mainFontColor)
+            .build()
+        self.commentTitle.attributedText = "dk_driverdata_transportation_mode_declaration_comment"
+            .dkDriverDataLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .driverDataText)
+            .color(.mainFontColor)
+            .build()
+        self.commentError.attributedText = "dk_driverdata_transportation_mode_declaration_comment_error"
+            .dkDriverDataLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .driverDataText)
+            .color(.criticalColor)
+            .build()
         self.commentTextView.text = self.viewModel.comment
+        // swiftlint:disable:next no_magic_numbers
         self.commentTextView.font = DKStyles.normalText.withSizeDelta(-2).applyTo(font: .primary)
         self.commentTextView.layer.borderWidth = 1
         self.commentTextView.layer.borderColor = UIColor.lightGray.cgColor

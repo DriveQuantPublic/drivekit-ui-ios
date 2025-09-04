@@ -111,8 +111,6 @@
 "notif_trip_cancelled_highspeed"="Je reis is geannuleerd omdat je in een trein of vliegtuig zit";
 "notif_trip_cancelled_no_beacon"="Je reis is geannuleerd omdat je Bluetooth-apparaat niet is gedetecteerd.";
 "notif_trip_cancelled_no_bluetooth_device"="Je reis is geannuleerd omdat je Bluetooth-apparaat niet is gedetecteerd.";
-"notif_trip_cancelled_no_gps_data"="De reis kon niet worden geanalyseerd omdat de GPS-gegevens niet konden worden opgehaald.";
-"notif_trip_cancelled_no_gps_data_title"="Analyse van de reis is niet mogelijk";
 "notif_trip_cancelled_title"="Reis geannuleerd";
 "notif_trip_error_duplicate_trip"="Je reis is al vastgelegd.";
 "notif_trip_error_unauthorized"="Analyse is niet toegestaan voor jouw team";
@@ -236,3 +234,4 @@
 "welcome_ok_button"="VOLGENDE STAP";
 "welcome_ok_description"="Gefeliciteerd, je hebt zojuist de DriveKit demonstratietoepassing geïnstalleerd 🎉\n\nDeze toepassing legt uit hoe de DriveKit componenten werken en begeleidt je bij het installeren ervan in je toepassing.\n\nJe API-sleutel is:\n\n%@\n\nDeze mag nooit worden gedeeld of in meerdere toepassingen worden gebruikt.";
 "welcome_ok_title"="Welkom bij de DriveKit-demoapplicatie";
+"passenger_declaration_banner"="Wist je dat je een rit als passagier kunt opgeven?";

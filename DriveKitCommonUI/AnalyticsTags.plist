@@ -14,6 +14,8 @@
 	<string>drivekit-trips-detail-advice-efficiency</string>
 	<key>dk_tag_trips_detail_transportation_mode</key>
 	<string>drivekit-trips-detail-transportation_mode</string>
+	<key>dk_tag_trips_detail_driver_passenger</key>
+	<string>drivekit-trips-detail-driver-passenger</string>
 	<key>dk_tag_badges</key>
 	<string>drivekit-badges</string>
 	<key>dk_tag_rankings</key>

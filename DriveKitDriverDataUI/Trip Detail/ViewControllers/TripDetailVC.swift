@@ -36,7 +36,7 @@ class TripDetailVC: DKUIViewController {
     init(itinId: String, showAdvice: Bool, listConfiguration: TripListConfiguration) {
         self.viewModel = TripDetailViewModel(itinId: itinId, listConfiguration: listConfiguration)
         self.showAdvice = showAdvice
-        if case .motorized(let vehicleId) = listConfiguration, DriveKitDriverDataUI.shared.enableOccupantDeclaration {
+        if case .motorized = listConfiguration, DriveKitDriverDataUI.shared.enableOccupantDeclaration {
             self.showDriverPassengerButton = true
         } else {
             self.showDriverPassengerButton = false
@@ -378,7 +378,6 @@ extension TripDetailVC: TripDetailDelegate {
             self.pageViewController.dataSource = nil
             self.updateViewToCurrentMapItem()
             self.hideLoader()
-            self.setupDriverPassengerButton()
         }
     }
     

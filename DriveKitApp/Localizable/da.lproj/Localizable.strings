@@ -111,8 +111,6 @@
 "notif_trip_cancelled_highspeed"="Din rejse er blevet aflyst, fordi du rejser med tog eller fly.";
 "notif_trip_cancelled_no_beacon"="Din rejse er blevet aflyst, fordi dit Bluetooth-badge ikke er blevet genkendt.";
 "notif_trip_cancelled_no_bluetooth_device"="Din rejse er blevet aflyst, fordi din Bluetooth-enhed ikke er blevet genkendt";
-"notif_trip_cancelled_no_gps_data"="Turen kunne ikke analyseres, fordi GPS-dataene ikke kunne hentes.";
-"notif_trip_cancelled_no_gps_data_title"="Turanalyse er ikke mulig";
 "notif_trip_cancelled_title"="Rejsen aflyst";
 "notif_trip_error_duplicate_trip"="Din tur er allerede blevet gemt.";
 "notif_trip_error_unauthorized"="Analysen er ikke tilladt for dit team";

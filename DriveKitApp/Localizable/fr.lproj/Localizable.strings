@@ -111,8 +111,6 @@
 "notif_trip_cancelled_highspeed"="Votre trajet a été annulé car vous êtes en train ou en avion";
 "notif_trip_cancelled_no_beacon"="Votre trajet a été annulé car votre boîtier Bluetooth n\'a pas été détecté";
 "notif_trip_cancelled_no_bluetooth_device"="Votre trajet a été annulé car votre appareil Bluetooth n\'a pas été détecté";
-"notif_trip_cancelled_no_gps_data"="Le trajet n\'a pas pu être analysé car les données GPS n\'ont pas pu être récupérées.";
-"notif_trip_cancelled_no_gps_data_title"="L\'analyse du trajet n\'est pas possible";
 "notif_trip_cancelled_title"="Trajet annulé";
 "notif_trip_error_duplicate_trip"="Votre trajet a déjà été enregistré.";
 "notif_trip_error_unauthorized"="L\'analyse n\'est pas autorisée pour votre équipe";

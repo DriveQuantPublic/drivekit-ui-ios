@@ -111,8 +111,6 @@
 "notif_trip_cancelled_highspeed"="Il tuo viaggio è stato annullato perché viaggi in treno o in aereo";
 "notif_trip_cancelled_no_beacon"="Il tuo viaggio è stato annullato perché il tuo badge Bluetooth non è stato riconosciuto";
 "notif_trip_cancelled_no_bluetooth_device"="Il viaggio è stato annullato perché il dispositivo Bluetooth non è stato rilevato.";
-"notif_trip_cancelled_no_gps_data"="Il viaggio non può essere analizzato perché i dati GPS non possono essere recuperati.";
-"notif_trip_cancelled_no_gps_data_title"="L\'analisi del viaggio non è possibile";
 "notif_trip_cancelled_title"="Viaggio annullato";
 "notif_trip_error_duplicate_trip"="Il tuo viaggio è già stato salvato.";
 "notif_trip_error_unauthorized"="L\'analisi non è consentita per la tua squadra";

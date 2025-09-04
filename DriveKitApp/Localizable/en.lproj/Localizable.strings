@@ -111,8 +111,6 @@
 "notif_trip_cancelled_highspeed"="Your trip has been canceled because you are traveling by train or plane";
 "notif_trip_cancelled_no_beacon"="Your trip has been canceled because your Bluetooth badge has not been recognized";
 "notif_trip_cancelled_no_bluetooth_device"="Your trip has been canceled because your Bluetooth device has not been recognized";
-"notif_trip_cancelled_no_gps_data"="The trip could not be analyzed because the GPS data could not be retrieved.";
-"notif_trip_cancelled_no_gps_data_title"="Trip analysis is not possible";
 "notif_trip_cancelled_title"="Trip cancelled";
 "notif_trip_error_duplicate_trip"="Your trip has already been saved.";
 "notif_trip_error_unauthorized"="The analysis is not allowed for your team";

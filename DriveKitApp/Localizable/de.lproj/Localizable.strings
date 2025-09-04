@@ -111,8 +111,6 @@
 "notif_trip_cancelled_highspeed"="Ihre Fahrt wurde storniert, weil Sie mit dem Zug oder Flugzeug unterwegs sind";
 "notif_trip_cancelled_no_beacon"="Ihre Fahrt wurde abgebrochen, da Ihr Bluetooth-Signalgeber nicht erkannt wurde";
 "notif_trip_cancelled_no_bluetooth_device"="Ihre Fahrt wurde abgebrochen, weil Ihr Bluetooth-Gerät nicht erkannt wurde";
-"notif_trip_cancelled_no_gps_data"="Die Fahrt konnte nicht analysiert werden, da die GPS-Daten nicht abgerufen werden konnten.";
-"notif_trip_cancelled_no_gps_data_title"="Analyse der Fart ist nicht möglich";
 "notif_trip_cancelled_title"="Fahrt abgebrochen";
 "notif_trip_error_duplicate_trip"="Ihre Fahrt wurde bereits gespeichert.";
 "notif_trip_error_unauthorized"="Die Analyse ist für Ihr Team nicht erlaubt";

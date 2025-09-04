@@ -111,8 +111,6 @@
 "notif_trip_cancelled_highspeed"="A sua viagem foi cancelada porque vai viajar de comboio ou de avião";
 "notif_trip_cancelled_no_beacon"="A sua viagem foi cancelada porque o seu cartão Bluetooth não foi reconhecido";
 "notif_trip_cancelled_no_bluetooth_device"="A sua viagem foi cancelada porque o seu dispositivo Bluetooth não foi detectado.";
-"notif_trip_cancelled_no_gps_data"="A viagem não pôde ser analisada porque os dados do GPS não puderam ser recuperados.";
-"notif_trip_cancelled_no_gps_data_title"="Não é possível efetuar uma análise das deslocações";
 "notif_trip_cancelled_title"="Viagem cancelada";
 "notif_trip_error_duplicate_trip"="A sua viagem já foi guardada.";
 "notif_trip_error_unauthorized"="A análise não é permitida para a sua equipa";

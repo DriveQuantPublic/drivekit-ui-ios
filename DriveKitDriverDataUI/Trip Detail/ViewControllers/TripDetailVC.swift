@@ -68,7 +68,7 @@ class TripDetailVC: DKUIViewController {
         if DriveKitDriverDataUI.shared.enableDeleteTrip {
             let image = DKDriverDataImages.trash.image?.resizeImage(25, opaque: false).withRenderingMode(.alwaysTemplate)
             let deleteButton = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(deleteTrip))
-            deleteButton.tintColor = DKUIColors.navBarElementColor.color
+            deleteButton.applyStyle()
             self.navigationItem.rightBarButtonItem = deleteButton
         }
     }

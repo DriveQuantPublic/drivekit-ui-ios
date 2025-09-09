@@ -16,6 +16,7 @@ import UIKit
     func complementaryFontColor() -> UIColor
     func fontColorOnPrimaryColor() -> UIColor
     func fontColorOnSecondaryColor() -> UIColor
+    func informationColor() -> UIColor
     func warningColor() -> UIColor
     func criticalColor() -> UIColor
     func neutralColor() -> UIColor
@@ -46,6 +47,9 @@ open class DKDefaultColors: DKColors {
     open func fontColorOnSecondaryColor() -> UIColor {
         return UIColor.white
     }
+    open func informationColor() -> UIColor {
+        return UIColor(hex: 0x34B2F7)
+    }
     open func warningColor() -> UIColor {
         return UIColor(hex: 0xF7A334)
     }
@@ -70,6 +74,7 @@ public enum DKUIColors {
     complementaryFontColor,
     fontColorOnPrimaryColor,
     fontColorOnSecondaryColor,
+    informationColor,
     warningColor,
     criticalColor,
     neutralColor,
@@ -90,6 +95,8 @@ public enum DKUIColors {
             return DriveKitUI.shared.colors.fontColorOnPrimaryColor()
         case .fontColorOnSecondaryColor:
             return DriveKitUI.shared.colors.fontColorOnSecondaryColor()
+        case .informationColor:
+            return DriveKitUI.shared.colors.informationColor()
         case .warningColor:
             return DriveKitUI.shared.colors.warningColor()
         case .criticalColor:

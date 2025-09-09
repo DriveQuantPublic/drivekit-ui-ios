@@ -288,6 +288,56 @@ class TripDetailViewModel: DKTripDetailViewModel {
     public func getTripEvents() -> [TripEvent] {
         return events
     }
+
+    func getDriverPassengerImage() -> UIImage? {
+        if let transportationMode = trip?.declaredTransportationMode?.transportationMode {
+            switch transportationMode {
+                case .unknown:
+                    return nil
+                case .car:
+                    if trip?.declaredTransportationMode?.passenger == true {
+                        return DKDriverDataImages.transportationPassenger.image
+                    } else {
+                        return DKDriverDataImages.transportationDriver.image
+                    }
+                case .moto:
+                    return DKDriverDataImages.transportationMotorcycle.image
+                case .truck:
+                    return DKDriverDataImages.transportationTruck.image
+                case .bus:
+                    return DKDriverDataImages.transportationBus.image
+                case .train:
+                    return DKDriverDataImages.transportationTrain.image
+                case .boat:
+                    return DKDriverDataImages.transportationBoat.image
+                case .bike:
+                    return DKDriverDataImages.transportationBicyle.image
+                case .flight:
+                    return DKDriverDataImages.transportationPlane.image
+                case .skiing:
+                    return DKDriverDataImages.transportationSkiing.image
+                case .onFoot:
+                    return DKDriverDataImages.transportationOnFoot.image
+                case .idle:
+                    return DKDriverDataImages.transportationIdle.image
+                case .other:
+                    return DKDriverDataImages.transportationOther.image
+                @unknown default:
+                    return nil
+            }
+        }
+        return DKDriverDataImages.transportationDriver.image
+    }
+
+    func getDeclarationBadgeValue() -> DeclarationBadgeStatus {
+        if trip?.declaredTransportationMode != nil {
+            return .labelled
+        }
+        if trip?.occupantInfo?.role == .passenger {
+            return .toLabel
+        }
+        return .none
+    }
 }
 
 protocol TripDetailDelegate: AnyObject {
@@ -298,4 +348,8 @@ protocol TripDetailDelegate: AnyObject {
     func onEventSelected(event: TripEvent, position: Int)
     func onMapTraceSelected(_ mapTrace: DKMapTraceType)
     func didUpdateTripCities()
+}
+
+enum DeclarationBadgeStatus {
+    case none, labelled, toLabel
 }

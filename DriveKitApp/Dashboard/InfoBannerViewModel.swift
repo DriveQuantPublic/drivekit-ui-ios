@@ -7,7 +7,10 @@
 //
 
 import UIKit
+import DriveKitDBTripAccessModule
+import DriveKitDriverDataModule
 import DriveKitPermissionsUtilsUI
+import DriveKitCommonUI
 
 class InfoBannerViewModel {
     private let type: InfoBannerType
@@ -46,6 +49,17 @@ class InfoBannerViewModel {
                 case .diagnosis:
                     let diagnosisVC = DriveKitPermissionsUtilsUI.shared.getDiagnosisViewController()
                     parentViewController.navigationController?.show(diagnosisVC, sender: nil)
+                case .driverPassenger:
+                    if let trip = DriveKitDBTripAccess.shared.tripsQuery()
+                        .whereEqualTo(field: "occupantInfo.role", value: "PASSENGER")
+                        .and()
+                        .whereNil(field: "declaredTransportationMode")
+                        .orderBy(field: "endDate", ascending: false)
+                        .queryOne()
+                        .execute(),
+                       let tripVC = DriveKitNavigationController.shared.driverDataUI?.getTripDetailViewController(itinId: trip.itinId) {
+                        parentViewController.navigationController?.show(tripVC, sender: nil)
+                    }
             }
         }
     }

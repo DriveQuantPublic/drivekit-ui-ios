@@ -55,7 +55,10 @@ public enum DKDriverDataImages: String {
          driverProfileRegularity = "dk_profile_regularity",
          driverProfileActivity = "dk_profile_activity",
          driverProfileDistance = "dk_profile_distance",
-         driverProfileEmpty = "dk_profile_empty"
+         driverProfileEmpty = "dk_profile_empty",
+         occupantRoleTripLabelled = "dk_occupant_role_trip_labelled",
+         occupantRoleTripToLabel = "dk_occupant_role_trip_to_label",
+         passengerDeclaration = "dk_passenger_declaration"
     
     public var image: UIImage? {
         if let image = UIImage(named: self.rawValue, in: .main, compatibleWith: nil) {

@@ -521,6 +521,9 @@
 		67C43D542640529300DBB09D /* ChallengeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67C43D522640529300DBB09D /* ChallengeCell.xib */; };
 		67C43D5626409ACE00DBB09D /* ChallengeItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C43D5526409ACE00DBB09D /* ChallengeItemViewModel.swift */; };
 		67C43D592641262500DBB09D /* DKChallenge+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C43D582641262500DBB09D /* DKChallenge+UI.swift */; };
+		67C7160F2E2E81C40007FCBF /* DriverPassengerModeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67C7160E2E2E81C40007FCBF /* DriverPassengerModeVC.xib */; };
+		67C716102E2E81C40007FCBF /* DriverPassengerModeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C7160D2E2E81C40007FCBF /* DriverPassengerModeVC.swift */; };
+		67C716122E2E82D80007FCBF /* DriverPassengerModeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C716112E2E82C70007FCBF /* DriverPassengerModeViewModel.swift */; };
 		67CFE99F25F6425F004D0AE1 /* SpeedingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE99D25F6425F004D0AE1 /* SpeedingPageVC.swift */; };
 		67CFE9A025F6425F004D0AE1 /* SpeedingPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67CFE99E25F6425F004D0AE1 /* SpeedingPageVC.xib */; };
 		67CFE9A725F645EA004D0AE1 /* SpeedingPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */; };
@@ -1348,6 +1351,9 @@
 		67C43D522640529300DBB09D /* ChallengeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeCell.xib; sourceTree = "<group>"; };
 		67C43D5526409ACE00DBB09D /* ChallengeItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeItemViewModel.swift; sourceTree = "<group>"; };
 		67C43D582641262500DBB09D /* DKChallenge+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DKChallenge+UI.swift"; sourceTree = "<group>"; };
+		67C7160D2E2E81C40007FCBF /* DriverPassengerModeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverPassengerModeVC.swift; sourceTree = "<group>"; };
+		67C7160E2E2E81C40007FCBF /* DriverPassengerModeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverPassengerModeVC.xib; sourceTree = "<group>"; };
+		67C716112E2E82C70007FCBF /* DriverPassengerModeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverPassengerModeViewModel.swift; sourceTree = "<group>"; };
 		67CFE99D25F6425F004D0AE1 /* SpeedingPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageVC.swift; sourceTree = "<group>"; };
 		67CFE99E25F6425F004D0AE1 /* SpeedingPageVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedingPageVC.xib; sourceTree = "<group>"; };
 		67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageViewModel.swift; sourceTree = "<group>"; };
@@ -3128,6 +3134,16 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		67C7160C2E2E79FC0007FCBF /* Driver Passenger Mode */ = {
+			isa = PBXGroup;
+			children = (
+				67C7160D2E2E81C40007FCBF /* DriverPassengerModeVC.swift */,
+				67C7160E2E2E81C40007FCBF /* DriverPassengerModeVC.xib */,
+				67C716112E2E82C70007FCBF /* DriverPassengerModeViewModel.swift */,
+			);
+			path = "Driver Passenger Mode";
+			sourceTree = "<group>";
+		};
 		67E8D96527D6126300BD0343 /* CrashFeedback */ = {
 			isa = PBXGroup;
 			children = (
@@ -3252,6 +3268,7 @@
 				E32BC45B29A38BF0006BE5F8 /* Helpers */,
 				E32BC435299E401B006BE5F8 /* MySynthesis */,
 				3F6B675D2580EC83008B3BA7 /* Declared Transportation Mode */,
+				67C7160C2E2E79FC0007FCBF /* Driver Passenger Mode */,
 				3FF68E94240D4B900071D74C /* Extensions */,
 				3FF68E9A240E493F0071D74C /* Localizable */,
 				6391E0C926072D5B00A168D4 /* Synthesis Card */,
@@ -4385,6 +4402,7 @@
 				67F1988B29B268ED0060EF24 /* MySynthesisGaugeView.xib in Resources */,
 				E39F064E2A4C29E40000A3FD /* DriverCommonTripViewController.xib in Resources */,
 				A34238782361A2440001E15D /* SafetyPageVC.xib in Resources */,
+				67C7160F2E2E81C40007FCBF /* DriverPassengerModeVC.xib in Resources */,
 				E328C6E729E0731900ECD6B4 /* NoDataDrivingConditionsSummaryCardView.xib in Resources */,
 				67CFE9A025F6425F004D0AE1 /* SpeedingPageVC.xib in Resources */,
 				3F6B67612580ECD4008B3BA7 /* TransportationModeVC.xib in Resources */,
@@ -4841,6 +4859,7 @@
 				A342386D2361A2430001E15D /* TripDetailVC.swift in Sources */,
 				E39F064A2A4C29D60000A3FD /* DriverCommonTripViewModel.swift in Sources */,
 				67F1988E29B8E0EE0060EF24 /* MySynthesisConstants.swift in Sources */,
+				67C716102E2E81C40007FCBF /* DriverPassengerModeVC.swift in Sources */,
 				E32BC45A29A377FD006BE5F8 /* MySynthesisViewModel.swift in Sources */,
 				E302B62429B1E66E004CFA0C /* ScoreLevelLegendViewController.swift in Sources */,
 				A317F82C23A137C700AD22A2 /* TripTipFeedbackVC.swift in Sources */,
@@ -4933,6 +4952,7 @@
 				3F6B67402580B95F008B3BA7 /* TransportationMode+DKFilter.swift in Sources */,
 				3F6B67702580ED78008B3BA7 /* TransportationModeViewModel.swift in Sources */,
 				E37BF23529E01C34001B597D /* DrivingConditionsContextViewController.swift in Sources */,
+				67C716122E2E82D80007FCBF /* DriverPassengerModeViewModel.swift in Sources */,
 				A34238762361A2440001E15D /* SafetyPageVC.swift in Sources */,
 				E366C3AE2A4B2423008BA9DD /* DriverProfileViewModel.swift in Sources */,
 				E302B62729B1E67E004CFA0C /* ScoreLevelLegendViewModel.swift in Sources */,

@@ -112,13 +112,8 @@ enum NotificationType {
                 key = "notif_trip_started_title"
             case .tripEnded:
                 key = "notif_trip_finished_title"
-            case .tripCancelled(let reason):
-                switch reason {
-                    case .noBeacon, .noBluetoothDevice, .highSpeed:
-                        key = "notif_trip_cancelled_title"
-                    case .noGpsPoint:
-                        key = "notif_trip_cancelled_no_gps_data_title"
-                }
+            case .tripCancelled:
+                key = "notif_trip_cancelled_title"
             case .tripAnalysisError:
                 return ""
             case .tripTooShort:
@@ -172,8 +167,6 @@ enum NotificationType {
                         key = "notif_trip_cancelled_no_bluetooth_device"
                     case .highSpeed:
                         key = "notif_trip_cancelled_highspeed"
-                    case .noGpsPoint:
-                        key = "notif_trip_cancelled_no_gps_data"
                 }
             case .tripAnalysisError(let tripAnalysisError):
                 return tripAnalysisError.localizedDescription
@@ -192,7 +185,6 @@ enum TripCancellationReason {
     case noBeacon
     case noBluetoothDevice
     case highSpeed
-    case noGpsPoint
 }
 
 enum TripResponseErrorNotification {

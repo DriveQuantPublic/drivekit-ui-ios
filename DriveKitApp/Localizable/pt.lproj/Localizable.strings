@@ -111,8 +111,6 @@
 "notif_trip_cancelled_highspeed"="A sua viagem foi cancelada porque vai viajar de comboio ou de avião";
 "notif_trip_cancelled_no_beacon"="A sua viagem foi cancelada porque o seu cartão Bluetooth não foi reconhecido";
 "notif_trip_cancelled_no_bluetooth_device"="A sua viagem foi cancelada porque o seu dispositivo Bluetooth não foi detectado.";
-"notif_trip_cancelled_no_gps_data"="A viagem não pôde ser analisada porque os dados do GPS não puderam ser recuperados.";
-"notif_trip_cancelled_no_gps_data_title"="Não é possível efetuar uma análise das deslocações";
 "notif_trip_cancelled_title"="Viagem cancelada";
 "notif_trip_error_duplicate_trip"="A sua viagem já foi guardada.";
 "notif_trip_error_unauthorized"="A análise não é permitida para a sua equipa";
@@ -236,3 +234,4 @@
 "welcome_ok_button"="PRÓXIMO PASSO";
 "welcome_ok_description"="Parabéns, construiu a aplicação de demonstração do DriveKit 🎉\n\nEsta aplicação mostra-lhe como funcionam os componentes do DriveKit e orienta-o para os instalar na sua aplicação.\n\nA sua chave API é:\n\n%@\n\nEm nenhuma circunstância deve ser partilhada ou utilizada em várias aplicações.";
 "welcome_ok_title"="Bem-vindo à aplicação de demonstração do DriveKit";
+"passenger_declaration_banner"="Sabia que pode declarar uma viagem feita como passageiro?";

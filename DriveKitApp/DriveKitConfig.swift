@@ -29,6 +29,7 @@ enum DriveKitConfig {
 
     private static let tripData: TripData = .safety
     private static let enableAlternativeTrips = true
+    private static let enableOccupantDeclaration = true
     private static let enableTripAnalysisCrashDetection = true
     private static let enableVehicleOdometer = true
     private static let vehicleTypes: [DKVehicleType] = DKVehicleType.allCases
@@ -124,6 +125,7 @@ enum DriveKitConfig {
     private static func configureDriverDataUI() {
         DriveKitDriverDataUI.shared.configureTripData(DriveKitConfig.tripData)
         DriveKitDriverDataUI.shared.enableAlternativeTrips(DriveKitConfig.enableAlternativeTrips)
+        DriveKitDriverDataUI.shared.enableOccupantDeclaration(DriveKitConfig.enableOccupantDeclaration)
     }
 
     private static func configureVehicleUI() {

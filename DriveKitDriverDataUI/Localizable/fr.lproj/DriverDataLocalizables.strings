@@ -167,6 +167,11 @@
 "dk_driverdata_no_speeding_title_congratulations"="👍 Bravo et merci pour votre prudence !";
 "dk_driverdata_no_trip_placeholder"="Vous n\'avez pas encore réalisé de trajets avec ce véhicule.";
 "dk_driverdata_no_trips_recorded"="L\'application n\'a pas encore analysé vos trajets.\n\nPour mesurer votre style de conduite et recevoir des conseils et indications pour progresser, vérifiez que l\'application est bien configurée et réalisez un trajet.\n\nLorsque le mode automatique est activé, l\'application détecte et analyse vos déplacements même lorsqu\'elle n\'est pas ouverte.";
+"dk_driverdata_ocupant_declaration_info"="Pour améliorer l\'application, indiquez comment ce trajet a été effectué (un seul choix possible)";
+"dk_driverdata_ocupant_declaration_role_question"="Etiez-vous conducteur ou passager d\'une voiture ?";
+"dk_driverdata_ocupant_declaration_thanks"="❤️ Merci d\'avoir déclaré le mode de transport pour ce trajet. Vous pouvez modifier votre choix.";
+"dk_driverdata_ocupant_declaration_title"="Mode de déplacement";
+"dk_driverdata_ocupant_declaration_transportation_question"="Sinon, quel mode de transport avez-vous utilisé ?";
 "dk_driverdata_phone_call_plur"="%@ appels téléphoniques";
 "dk_driverdata_phone_call_sing"="%@ appel téléphonique";
 "dk_driverdata_profile_activity_always_text"="Depuis que vous utilisez l\’app, vous avez utilisé votre voiture toutes les semaines.";

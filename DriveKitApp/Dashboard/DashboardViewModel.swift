@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DriveKitCoreModule
 import DriveKitDriverDataUI
 import DriveKitPermissionsUtilsUI
 import DriveKitTripAnalysisModule
@@ -14,6 +15,18 @@ import DriveKitTripAnalysisModule
 class DashboardViewModel {
     private(set) var bannerViewModels: [InfoBannerViewModel] = []
     weak var delegate: DashboardViewModelDelegate?
+
+    private static let alreadyOpenedDriverPassengerModeKey = "DriveKitApp.alreadyOpenedDriverPassengerMode"
+    static var alreadyOpenedDriverPassengerMode: Bool {
+        get {
+            DriveKitCoreUserDefaults.getPrimitiveType(key: alreadyOpenedDriverPassengerModeKey) ?? false
+        }
+        set {
+            DriveKitCoreUserDefaults.setPrimitiveType(
+                key: alreadyOpenedDriverPassengerModeKey,
+                value: newValue)
+        }
+    }
 
     init() {
         updateBanners()

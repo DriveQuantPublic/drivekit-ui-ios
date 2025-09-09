@@ -116,7 +116,6 @@ class NotificationManager: NSObject {
             .tripAnalysisError(.invalidUser),
             .tripEnded(message: "", transportationMode: .car, hasAdvices: false),
             .tripEnded(message: "", transportationMode: .car, hasAdvices: true),
-            .tripCancelled(reason: .noGpsPoint),
             .tripTooShort,
             .criticalDeviceConfiguration(.none)
         ])
@@ -328,7 +327,7 @@ extension NotificationManager: TripListener {
             case .noBluetoothDevice:
                 sendCancelNotification(.noBluetoothDevice)
             case .noLocationData:
-                sendCancelNotification(.noGpsPoint)
+                break
             case .user, .noSpeed, .missingConfiguration, .reset, .beaconNoSpeed, .bluetoothDeviceNoSpeed, .appKilled:
                 NotificationManager.removeNotification(.tripStarted(canPostpone: DriveKitTripAnalysisUI.shared.isUserAllowedToCancelTrip))
             @unknown default:

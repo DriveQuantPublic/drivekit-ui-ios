@@ -41,7 +41,6 @@ public class DKImagePickerManager: NSObject, UIImagePickerControllerDelegate, UI
         alert.addAction(cameraAction)
         alert.addAction(galleryAction)
         alert.addAction(cancelAction)
-        alert.popoverPresentationController?.sourceView = self.viewController!.view
         viewController.present(alert, animated: true, completion: nil)
     }
     

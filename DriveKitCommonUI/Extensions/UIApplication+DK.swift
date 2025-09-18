@@ -10,9 +10,13 @@ import UIKit
 
 extension UIApplication {
     public var visibleViewController: UIViewController? {
-        guard let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene,
-              let window = scene.windows.first(where: { $0.isKeyWindow }),
-              let rootViewController = window.rootViewController else {
+        let window = UIApplication
+            .shared
+            .connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .flatMap { $0.windows }
+            .last { $0.isKeyWindow }
+        guard let rootViewController = window?.rootViewController else {
                   return nil
         }
         return getVisibleViewController(rootViewController)

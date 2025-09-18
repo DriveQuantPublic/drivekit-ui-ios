@@ -159,9 +159,10 @@ extension WorkingHoursViewController: WorkingHoursViewModelDelegate {
                 let image = DKImages.check.image?.resizeImage(30, opaque: false).withRenderingMode(.alwaysTemplate)
                 checkButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
                 checkButton.setImage(image, for: .normal)
-                checkButton.tintColor = DKUIColors.navBarElementColor.color
                 checkButton.addTarget(self, action: #selector(saveWorkingHours), for: .touchUpInside)
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: checkButton)
+                let checkBarButton = UIBarButtonItem(customView: checkButton)
+                checkBarButton.applyStyle()
+                self.navigationItem.rightBarButtonItem = checkBarButton
             }
         } else {
             self.navigationItem.rightBarButtonItem = nil

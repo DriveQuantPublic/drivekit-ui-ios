@@ -183,8 +183,8 @@
 "trip_simulator_city_title"="Reis naar de stad (8 km)";
 "trip_simulator_crash_0_description"="Dit voorbeeld is een korte rit met een botsing die niet wordt bevestigd door het detectiealgoritme.";
 "trip_simulator_crash_0_title"="Onbevestigd ongeval";
-"trip_simulator_crash_10_description"="Dit voorbeeld is een korte reis met een bevestigd ongeval bij een snelheid van 10 km/u.";
-"trip_simulator_crash_10_title"="Ongeval bevestigd bij 10 km/u";
+"trip_simulator_crash_40_description"="Dit voorbeeld is een korte reis met een bevestigd ongeval bij een snelheid van 40 km/u.";
+"trip_simulator_crash_40_title"="Ongeval bevestigd bij 40 km/u";
 "trip_simulator_crash_20_description"="Dit voorbeeld is een korte reis met een bevestigd ongeval bij een snelheid van 20 km/u.";
 "trip_simulator_crash_20_title"="Ongeval bevestigd bij 20 km/u";
 "trip_simulator_crash_30_description"="Dit voorbeeld is een korte reis met een bevestigd ongeval bij een snelheid van 30 km/u.";

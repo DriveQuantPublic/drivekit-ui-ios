@@ -22,9 +22,9 @@ class TripSimulatorViewModel {
         .trip(.busTrip),
         .trip(.boatTrip),
         .crashTrip(.unconfirmed0KmH),
-        .crashTrip(.confirmed10KmH),
         .crashTrip(.confirmed20KmH),
         .crashTrip(.confirmed30KmH),
+        .crashTrip(.confirmed40KmH),
         .crashTrip(.confirmed30KmHStillDriving)
     ]
     private var selectedItemIndex: Int = 0

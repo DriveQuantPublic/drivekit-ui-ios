@@ -183,8 +183,8 @@
 "trip_simulator_city_title"="Bytur (8 km)";
 "trip_simulator_crash_0_description"="Dette eksempel er en kort tur med en kollision, som detektionsalgoritmen ikke bekræfter.";
 "trip_simulator_crash_0_title"="Tur med ubekræftet kollision";
-"trip_simulator_crash_10_description"="Dette eksempel er en kort tur med et bekræftet uheld ved en hastighed på 10 km/t.";
-"trip_simulator_crash_10_title"="Bekræftet sammenstød ved 10 km/t";
+"trip_simulator_crash_40_description"="Dette eksempel er en kort tur med et bekræftet uheld ved en hastighed på 40 km/t.";
+"trip_simulator_crash_40_title"="Bekræftet sammenstød ved 40 km/t";
 "trip_simulator_crash_20_description"="Dette eksempel er en kort tur med en bekræftet ulykke ved en hastighed på 20 km/t.";
 "trip_simulator_crash_20_title"="Crash bekræftet ved 20 km/t";
 "trip_simulator_crash_30_description"="Dette eksempel er en kort tur med en bekræftet ulykke ved en hastighed på 30 km/t.";

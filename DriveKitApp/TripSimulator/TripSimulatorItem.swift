@@ -44,8 +44,8 @@ enum TripSimulatorItem {
                 switch presetCrashConfiguration {
                     case .unconfirmed0KmH:
                         return "trip_simulator_crash_0_title".keyLocalized()
-                    case .confirmed10KmH:
-                        return "trip_simulator_crash_10_title".keyLocalized()
+                    case .confirmed40KmH:
+                        return "trip_simulator_crash_40_title".keyLocalized()
                     case .confirmed20KmH:
                         return "trip_simulator_crash_20_title".keyLocalized()
                     case .confirmed30KmH:
@@ -88,8 +88,8 @@ enum TripSimulatorItem {
                 switch presetCrashConfiguration {
                     case .unconfirmed0KmH:
                         return "trip_simulator_crash_0_description".keyLocalized()
-                    case .confirmed10KmH:
-                        return "trip_simulator_crash_10_description".keyLocalized()
+                    case .confirmed40KmH:
+                        return "trip_simulator_crash_40_description".keyLocalized()
                     case .confirmed20KmH:
                         return "trip_simulator_crash_20_description".keyLocalized()
                     case .confirmed30KmH:

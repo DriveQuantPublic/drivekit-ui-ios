@@ -183,8 +183,8 @@
 "trip_simulator_city_title"="Percorso in città (8 km)";
 "trip_simulator_crash_0_description"="Questo esempio è un viaggio breve con una collisione che l\'algoritmo di rilevamento non conferma.";
 "trip_simulator_crash_0_title"="Incidente non confermato";
-"trip_simulator_crash_10_description"="Questo esempio è un breve viaggio con un incidente confermato ad una velocità di 10 km/h.";
-"trip_simulator_crash_10_title"="Incidente confermato a 10 km/h";
+"trip_simulator_crash_40_description"="Questo esempio è un breve viaggio con un incidente confermato ad una velocità di 40 km/h.";
+"trip_simulator_crash_40_title"="Incidente confermato a 40 km/h";
 "trip_simulator_crash_20_description"="Questo esempio è un breve viaggio con un incidente confermato ad una velocità di 20 km/h.";
 "trip_simulator_crash_20_title"="Incidente confermato a 20 km/h";
 "trip_simulator_crash_30_description"="Questo esempio è un breve viaggio con un incidente confermato ad una velocità di 30 km/h.";

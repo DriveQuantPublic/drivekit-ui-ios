@@ -184,8 +184,8 @@ Um Ihnen bei der Implementierung eines.\n\nTBerechtigungspfads zu helfen, haben 
 "trip_simulator_city_title"="Fahrt in die Stadt (8 km)";
 "trip_simulator_crash_0_description"="Bei diesem Beispiel handelt es sich um eine Kurzstrecke mit einem Zusammenstoß, den der Erkennungsalgorithmus nicht bestätigt.";
 "trip_simulator_crash_0_title"="Unbestätigter Unfall";
-"trip_simulator_crash_10_description"="Bei diesem Beispiel handelt es sich um eine kurze Strecke mit einem bestätigten Unfall bei einer Geschwindigkeit von 10 km/h.";
-"trip_simulator_crash_10_title"="Unfall bei 10 km/h bestätigt";
+"trip_simulator_crash_40_description"="Bei diesem Beispiel handelt es sich um eine kurze Strecke mit einem bestätigten Unfall bei einer Geschwindigkeit von 40 km/h.";
+"trip_simulator_crash_40_title"="Unfall bei 40 km/h bestätigt";
 "trip_simulator_crash_20_description"="Bei diesem Beispiel handelt es sich um eine kurze Strecke mit einem bestätigten Unfall bei einer Geschwindigkeit von 20 km/h.";
 "trip_simulator_crash_20_title"="Unfall bei 20 km/h bestätigt";
 "trip_simulator_crash_30_description"="Bei diesem Beispiel handelt es sich um eine kurze Strecke mit einem bestätigten Unfall bei einer Geschwindigkeit von 30 km/h.";

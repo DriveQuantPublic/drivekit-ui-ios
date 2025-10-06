@@ -183,8 +183,8 @@
 "trip_simulator_city_title"="Viaje en la ciudad (8 km)";
 "trip_simulator_crash_0_description"="Este ejemplo es un viaje corto con una colisión que el algoritmo de detección no confirma.";
 "trip_simulator_crash_0_title"="Accidente no confirmado";
-"trip_simulator_crash_10_description"="Este ejemplo es un viaje corto con un accidente confirmado a una velocidad de 10 km/h.";
-"trip_simulator_crash_10_title"="Accidente confirmado a 10 km/h";
+"trip_simulator_crash_40_description"="Este ejemplo es un viaje corto con un accidente confirmado a una velocidad de 40 km/h.";
+"trip_simulator_crash_40_title"="Accidente confirmado a 40 km/h";
 "trip_simulator_crash_20_description"="Este ejemplo es un viaje corto con un accidente confirmado a una velocidad de 20 km/h.";
 "trip_simulator_crash_20_title"="Accidente confirmado a 20 km/h";
 "trip_simulator_crash_30_description"="Este ejemplo es un viaje corto con un accidente confirmado a una velocidad de 30 km/h.";

@@ -21,7 +21,7 @@ struct TripEventCalloutViewModel {
     }
 
     var time: String {
-        return event.date.format(pattern: .hourMinuteLetter)
+        return event.date.format(pattern: .hourMinute)
     }
 
     var title: String {

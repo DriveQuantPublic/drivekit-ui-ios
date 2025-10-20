@@ -34,13 +34,13 @@ final class TripTableViewCell: UITableViewCell, Nibable {
     
     private func configureLabels(trip: DKTripListItem) {
         self.departureHourLabel.attributedText = trip.getStartDate()?
-            .format(pattern: .hourMinuteLetter)
+            .format(pattern: .hourMinute)
             .dkAttributedString()
             .font(dkFont: .primary, style: .driverDataText)
             .color(.complementaryFontColor)
             .build()
         self.arrivalHourLabel.attributedText = trip.getEndDate()
-            .format(pattern: .hourMinuteLetter)
+            .format(pattern: .hourMinute)
             .dkAttributedString()
             .font(dkFont: .primary, style: .driverDataText)
             .color(.complementaryFontColor)

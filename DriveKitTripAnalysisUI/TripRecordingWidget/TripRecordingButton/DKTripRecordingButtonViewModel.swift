@@ -139,7 +139,7 @@ class DKTripRecordingButtonViewModel {
                 .color(.white)
                 .build()
         case let .recording(startingDate, _, _):
-            let dateText = startingDate.format(pattern: .hourMinuteLetter)
+            let dateText = startingDate.format(pattern: .hourMinute)
                 .dkAttributedString()
                 .font(dkFont: .primary, style: .headLine2)
                 .color(.white)

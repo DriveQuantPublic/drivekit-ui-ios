@@ -17,6 +17,6 @@ class ShortTripPageViewModel {
     }
     
     var timeSlotLabelText: String {
-        return "\(trip.tripStartDate.format(pattern: .hourMinuteLetter)) - \(trip.tripEndDate.format(pattern: .hourMinuteLetter))"
+        return "\(trip.tripStartDate.format(pattern: .hourMinute)) - \(trip.tripEndDate.format(pattern: .hourMinute))"
     }
 }

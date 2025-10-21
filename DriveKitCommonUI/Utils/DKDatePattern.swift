@@ -12,7 +12,6 @@ public enum DKDatePattern {
     case weekLetter,
          standardDate,
          hourMinute,
-         hourMinuteLetter,
          fullDate,
          dayMonth,
          dayMonthLetterShort,
@@ -33,9 +32,6 @@ public enum DKDatePattern {
                 return "dd/MM/yyyy"
             case .hourMinute:
                 return "HH:mm"
-            case .hourMinuteLetter:
-                let hourUnit = DKCommonLocalizable.unitHour.text()
-                return "HH'\(hourUnit)'mm"
             case .fullDate:
                 return "EEEE d MMMM yyyy"
             case .dayMonth:

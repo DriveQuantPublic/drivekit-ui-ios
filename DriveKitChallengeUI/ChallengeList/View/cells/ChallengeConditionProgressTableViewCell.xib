@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24128" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,13 +18,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpH-3J-9MJ">
-                        <rect key="frame" x="16" y="19" width="288" height="17"/>
+                        <rect key="frame" x="16" y="21" width="288" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qYr-r4-5Ps">
-                        <rect key="frame" x="16" y="53" width="288" height="8"/>
+                        <rect key="frame" x="16" y="51" width="288" height="8"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="8" id="hPf-yX-Mng"/>
                         </constraints>
@@ -34,10 +34,10 @@
                     <constraint firstItem="wpH-3J-9MJ" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="4eU-ox-sv2"/>
                     <constraint firstItem="qYr-r4-5Ps" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="AAR-eN-Tg0"/>
                     <constraint firstItem="qYr-r4-5Ps" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Jm6-J9-suo"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="qYr-r4-5Ps" secondAttribute="bottom" constant="8" id="QMG-A2-sOk"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="qYr-r4-5Ps" secondAttribute="bottom" constant="6" id="QMG-A2-sOk"/>
                     <constraint firstItem="wpH-3J-9MJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="duc-7S-lar"/>
-                    <constraint firstItem="wpH-3J-9MJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="t2A-Gm-Ayd"/>
-                    <constraint firstItem="qYr-r4-5Ps" firstAttribute="top" secondItem="wpH-3J-9MJ" secondAttribute="bottom" constant="17" id="y8N-FH-bUj"/>
+                    <constraint firstItem="wpH-3J-9MJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="6" id="t2A-Gm-Ayd"/>
+                    <constraint firstItem="qYr-r4-5Ps" firstAttribute="top" secondItem="wpH-3J-9MJ" secondAttribute="bottom" constant="14" id="y8N-FH-bUj"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

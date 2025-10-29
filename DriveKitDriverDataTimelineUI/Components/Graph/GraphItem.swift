@@ -248,7 +248,7 @@ extension GraphItem {
                     case .distraction_unlock:
                         return value.formatDouble(places: 1)
                     case .ecoDriving_fuelSavings:
-                        return value.formatLiter()
+                        return value.formatVolume()
                     case .ecoDriving_efficiencyAcceleration:
                         return value.getAccelerationDescription()
                     case .ecoDriving_efficiencyBrake:
@@ -256,7 +256,7 @@ extension GraphItem {
                     case .ecoDriving_efficiencySpeedMaintain:
                         return value.getSpeedMaintainDescription()
                     case .ecoDriving_fuelVolume:
-                        return value.formatLiter()
+                        return value.formatVolume()
                     case .ecoDriving_co2mass:
                         return value.formatCO2Mass(shouldUseNaturalUnit: false)
                     case .safety_acceleration:

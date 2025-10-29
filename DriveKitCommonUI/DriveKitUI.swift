@@ -18,6 +18,7 @@ import CoreText
 
     @objc public private(set) var colors: DKColors = DKDefaultColors()
     @objc public private(set) var fonts: DKFonts = DKDefaultFonts()
+    public private(set) var unitSystem: DKUnitSystem = .international
     @objc public private(set) var overridedStringFileName: String?
     @objc public private(set) var analytics: DKAnalytics?
     private var tagKeyFromScreen: [String: String]
@@ -84,6 +85,10 @@ import CoreText
 
     @objc public func configureFonts(_ fonts: DKFonts) {
         self.fonts = fonts
+    }
+
+    public func configureUnitSystem(_ unitSystem: DKUnitSystem) {
+        self.unitSystem = unitSystem
     }
 
     @objc public func configureStringsFileName(_ overridedStringsFileName: String) {

@@ -9,6 +9,7 @@
 import Foundation
 import DriveKitCoreModule
 import DriveKitDBTripAccessModule
+import DriveKitCommonUI
 
 class DriverDistanceEstimationViewModel {
     private(set) var period: DKPeriod
@@ -22,16 +23,22 @@ class DriverDistanceEstimationViewModel {
     }
 
     func configure(with distanceEstimation: DKDriverDistanceEstimation, and currentDrivenDistances: [DKPeriod: Double]) {
-        self.realDistance = Int(currentDrivenDistances[period]?.rounded() ?? 0)
+        let distanceFactor: Double
+        if DriveKitUI.shared.unitSystem == .imperial {
+            distanceFactor = Measurement(value: 1, unit: UnitLength.kilometers).converted(to: .miles).value
+        } else {
+            distanceFactor = 1
+        }
+        self.realDistance = Int(((currentDrivenDistances[period] ?? 0) * distanceFactor).rounded())
         switch period {
             case .week:
-                self.estimation = distanceEstimation.weekDistance
+                self.estimation = Int((Double(distanceEstimation.weekDistance) * distanceFactor).rounded())
             case .month:
-                self.estimation = distanceEstimation.monthDistance
+                self.estimation = Int((Double(distanceEstimation.monthDistance) * distanceFactor).rounded())
             case .year:
-                self.estimation = distanceEstimation.yearDistance
+                self.estimation = Int((Double(distanceEstimation.yearDistance) * distanceFactor).rounded())
             @unknown default:
-                self.estimation = distanceEstimation.yearDistance
+                self.estimation = Int((Double(distanceEstimation.yearDistance) * distanceFactor).rounded())
         }
         self.hasData = true
         self.viewModelDidUpdate?()

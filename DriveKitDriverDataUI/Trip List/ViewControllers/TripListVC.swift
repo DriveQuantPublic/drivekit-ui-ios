@@ -147,8 +147,9 @@ public class TripListVC: DKUIViewController {
         if self.viewModel.showFilter() {
             self.synthesis.isHidden = false
             let tripNumber = viewModel.tripNumber
-            let synthesisText 
-            = "%@ \(tripNumber > 1 ? DKCommonLocalizable.tripPlural.text() : DKCommonLocalizable.tripSingular.text()) - %@ \(DKCommonLocalizable.unitKilometer.text())"
+            let distanceUnit = DriveKitUI.shared.unitSystem == .imperial ? DKCommonLocalizable.unitMile.text() : DKCommonLocalizable.unitKilometer.text()
+            let synthesisText
+            = "%@ \(tripNumber > 1 ? DKCommonLocalizable.tripPlural.text() : DKCommonLocalizable.tripSingular.text()) - %@ \(distanceUnit)"
             let tripNumberValue = String(tripNumber)
                 .dkAttributedString()
                 .color(.primaryColor)

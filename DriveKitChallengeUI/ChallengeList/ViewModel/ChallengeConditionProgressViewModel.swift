@@ -54,7 +54,13 @@ struct ChallengeConditionProgressViewModel {
         var resultDict: [String: ChallengeConditionProgressViewModel] = [:]
         for key in ChallengeConditionKey.allCases {
             if let value: Double = conditions[key.rawValue] as? Double, let driverValue: Double = driverConditions[key.rawValue] as? Double {
-                resultDict[key.rawValue] = ChallengeConditionProgressViewModel(conditionKey: key, value: driverValue, total: value)
+                let distanceFactor: Double
+                if DriveKitUI.shared.unitSystem == .imperial {
+                    distanceFactor = Measurement(value: 1, unit: UnitLength.kilometers).converted(to: .miles).value
+                } else {
+                    distanceFactor = 1
+                }
+                resultDict[key.rawValue] = ChallengeConditionProgressViewModel(conditionKey: key, value: driverValue * distanceFactor, total: value * distanceFactor)
             }
         }
         return resultDict

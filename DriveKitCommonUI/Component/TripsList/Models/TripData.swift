@@ -30,7 +30,10 @@ public enum TripData: String {
         case .ecoDriving, .safety, .distraction, .speeding:
             return trip.getScore(tripData: self)?.format(maximumFractionDigits: 1) ?? "0"
         case .distance:
-            return trip.getDistance()?.formatMeterDistanceInKm() ?? "0 \(DKCommonLocalizable.unitKilometer.text())"
+            let unit = DriveKitUI.shared.unitSystem == .international
+                ? DKCommonLocalizable.unitKilometer.text()
+                : DKCommonLocalizable.unitMile.text()
+            return trip.getDistance()?.formatMeterDistance() ?? "0 \(unit)"
         case .duration:
             return trip.getDuration().roundUp(step: 60.0).formatSecondDuration()
         }

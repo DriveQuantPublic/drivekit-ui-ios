@@ -74,21 +74,7 @@ public extension Double {
                 formattingTypes = getMeterDistanceInKmFormat()
             }
         } else/* if DriveKitUI.shared.unitSystem == .imperial*/ {
-            let distance = Measurement(value: self, unit: UnitLength.meters)
-            let milesDistance = distance.converted(to: .miles).value
-            if milesDistance < 1 {
-                formattingTypes = [
-                    .value(milesDistance.format(maximumFractionDigits: 2)),
-                    .separator(),
-                    .unit(DKCommonLocalizable.unitMile.text())
-                ]
-            } else {
-                formattingTypes = [
-                    .value(milesDistance.format(maximumFractionDigits: 0)),
-                    .separator(),
-                    .unit(DKCommonLocalizable.unitMile.text())
-                ]
-            }
+            formattingTypes = getMeterDistanceInKmFormat()
         }
         return formattingTypes
     }
@@ -118,7 +104,6 @@ public extension Double {
             }
         } else/* if desiredUnitSystem == .imperial*/ {
             let milesDistance = self.convertKmToMiles()
-
             let formattedDistance: String
             if milesDistance < minDistanceToRemoveFractions {
                 formattedDistance = milesDistance.format(maximumFractionDigits: 1)

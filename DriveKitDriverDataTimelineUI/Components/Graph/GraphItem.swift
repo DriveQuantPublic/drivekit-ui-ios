@@ -75,13 +75,14 @@ extension GraphItem {
                             key = ""
                     }
                 case let .scoreItem(type):
+                    let useImperialUnit = DriveKitUI.shared.unitSystem == .imperial
                     switch type {
                         case .distraction_callForbiddenDuration:
-                            key = "dk_timeline_calls_duration"
+                            key = useImperialUnit ? "dk_timeline_calls_duration_miles" : "dk_timeline_calls_duration"
                         case .distraction_percentageOfTripsWithForbiddenCall:
                             key = "dk_timeline_trips_forbidden_calls"
                         case .distraction_unlock:
-                            key = "dk_timeline_nb_unlocks"
+                            key = useImperialUnit ? "dk_timeline_nb_unlocks_miles" : "dk_timeline_nb_unlocks"
                         case .ecoDriving_fuelSavings:
                             key = "dk_timeline_fuel_savings"
                         case .ecoDriving_efficiencyAcceleration:
@@ -95,11 +96,11 @@ extension GraphItem {
                         case .ecoDriving_co2mass:
                             key = "dk_timeline_co2_mass"
                         case .safety_acceleration:
-                            key = "dk_timeline_accelerations"
+                            key = useImperialUnit ? "dk_timeline_accelerations_miles" : "dk_timeline_accelerations"
                         case .safety_adherence:
-                            key = "dk_timeline_adherence"
+                            key = useImperialUnit ? "dk_timeline_adherence_miles" : "dk_timeline_adherence"
                         case .safety_braking:
-                            key = "dk_timeline_brakings"
+                            key = useImperialUnit ? "dk_timeline_brakings_miles" : "dk_timeline_brakings"
                         case .speeding_distance:
                             key = "dk_timeline_overspeeding_distance"
                         case .speeding_duration:

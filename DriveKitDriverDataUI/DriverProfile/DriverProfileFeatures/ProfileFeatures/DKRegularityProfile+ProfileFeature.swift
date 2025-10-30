@@ -8,6 +8,7 @@
 
 import DriveKitDBTripAccessModule
 import Foundation
+import DriveKitCommonUI
 
 extension DKRegularityProfile {
     var title: String {
@@ -24,10 +25,13 @@ extension DKRegularityProfile {
     func descriptionText(withTripCount tripCount: Int, distance: Int) -> String {
         switch self {
         case .regular:
+            let useImperialUnit = DriveKitUI.shared.unitSystem == .imperial
+            let key = useImperialUnit ? "dk_driverdata_profile_regularity_regular_text_miles" : "dk_driverdata_profile_regularity_regular_text"
+            let convertedDistance = useImperialUnit ? distance.convertKmToMiles() : distance
             return String(
-                format: "dk_driverdata_profile_regularity_regular_text".dkDriverDataLocalized(),
+                format: key.dkDriverDataLocalized(),
                 tripCount.formatWithThousandSeparator(),
-                distance.formatWithThousandSeparator()
+                convertedDistance.formatWithThousandSeparator()
             )
         case .intermittent:
             return "dk_driverdata_profile_regularity_intermittent_text".dkDriverDataLocalized()

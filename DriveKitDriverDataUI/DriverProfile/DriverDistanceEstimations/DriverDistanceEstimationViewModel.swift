@@ -50,13 +50,17 @@ class DriverDistanceEstimationViewModel {
     }
 
     var title: String {
+        let useImperialUnit = DriveKitUI.shared.unitSystem == .imperial
         switch period {
             case .week:
-                return "dk_driverdata_distance_card_title_week".dkDriverDataLocalized()
+                let key = useImperialUnit ? "dk_driverdata_distance_card_title_week_miles" : "dk_driverdata_distance_card_title_week"
+                return key.dkDriverDataLocalized()
             case .month:
-                return "dk_driverdata_distance_card_title_month".dkDriverDataLocalized()
+                let key = useImperialUnit ? "dk_driverdata_distance_card_title_month_miles" : "dk_driverdata_distance_card_title_month"
+                return key.dkDriverDataLocalized()
             case .year:
-                return "dk_driverdata_distance_card_title_year".dkDriverDataLocalized()
+                let key = useImperialUnit ? "dk_driverdata_distance_card_title_year_miles" : "dk_driverdata_distance_card_title_year"
+                return key.dkDriverDataLocalized()
             @unknown default:
                 return ""
         }

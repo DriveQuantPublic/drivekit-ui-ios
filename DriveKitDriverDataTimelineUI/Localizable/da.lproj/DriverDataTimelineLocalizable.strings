@@ -1,9 +1,13 @@
 "dk_timeline_acceleration_score"="Accelerationsscore: %@";
 "dk_timeline_accelerations"="Acceleration / 100 km: %@";
+"dk_timeline_accelerations_miles"="Acceleration / 100 mi: %@";
 "dk_timeline_adherence"="Hårde sving / 100 km: %@";
+"dk_timeline_adherence_miles"="Hårde sving / 100 mi: %@";
 "dk_timeline_brakings"="Bremsning / 100 km: %@";
+"dk_timeline_brakings_miles"="Bremsning / 100 mi: %@";
 "dk_timeline_button_timeline_detail"="Se flere oplysninger om min score";
 "dk_timeline_calls_duration"="Varighed af forbudte opkald / 100 km: %@";
+"dk_timeline_calls_duration_miles"="Varighed af forbudte opkald / 100 mi: %@";
 "dk_timeline_co2_mass"="Masse af CO2: %@";
 "dk_timeline_consumption"="Forbrug: %@";
 "dk_timeline_deceleration_score"="Score for forsinkelse: %@";
@@ -15,6 +19,7 @@
 "dk_timeline_info_maintain_score"="Vedligeholdelsesscore varierer mellem 0 og 5. Hvis scoren er lig med 0, er hastigheden stabil, og energiforbruget er minimalt. Hvis hastigheden ellers svinger, stiger vedligeholdelsesscoren, hvilket indikerer, at der er tale om overforbrug.";
 "dk_timeline_maintain_score"="Holdt score: %@";
 "dk_timeline_nb_unlocks"="Antal udslip / 100 km: %@";
+"dk_timeline_nb_unlocks_miles"="Antal udslip / 100 mi: %@";
 "dk_timeline_overspeeding_distance"="Fartoverskridelse ift. afstand: %@";
 "dk_timeline_overspeeding_duration"="Fartoverskridelse ift. varighed: %@";
 "dk_timeline_road_context_city"="By";

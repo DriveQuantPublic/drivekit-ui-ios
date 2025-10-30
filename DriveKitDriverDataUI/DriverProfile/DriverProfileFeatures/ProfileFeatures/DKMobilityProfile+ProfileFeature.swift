@@ -8,6 +8,7 @@
 
 import DriveKitDBTripAccessModule
 import Foundation
+import DriveKitCommonUI
 
 extension DKMobilityProfile {
     var title: String {
@@ -31,9 +32,12 @@ extension DKMobilityProfile {
     
     func descriptionText(for percentile90th: Int?) -> String {
         guard let percentile90th else { return "" }
+        let useImperialUnit = DriveKitUI.shared.unitSystem == .imperial
+        let key = useImperialUnit ? "dk_driverdata_profile_mobility_text_miles" : "dk_driverdata_profile_mobility_text"
+        let convertedDistance = useImperialUnit ? percentile90th.convertKmToMiles() : percentile90th
         return String(
-            format: "dk_driverdata_profile_mobility_text".dkDriverDataLocalized(),
-            percentile90th.formatWithThousandSeparator()
+            format: key.dkDriverDataLocalized(),
+            convertedDistance.formatWithThousandSeparator()
         )
     }
     

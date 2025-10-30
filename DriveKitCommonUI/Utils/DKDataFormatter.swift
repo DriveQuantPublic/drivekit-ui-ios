@@ -117,8 +117,7 @@ public extension Double {
                 formattingTypes.append(.unit(DKCommonLocalizable.unitKilometer.text()))
             }
         } else/* if desiredUnitSystem == .imperial*/ {
-            let distance = Measurement(value: self, unit: UnitLength.kilometers)
-            let milesDistance = distance.converted(to: .miles).value
+            let milesDistance = self.convertKmToMiles()
 
             let formattedDistance: String
             if milesDistance < minDistanceToRemoveFractions {
@@ -543,6 +542,11 @@ public extension Double {
     func roundUp(step: Double) -> Double {
         return (self / step).rounded(.up) * step
     }
+
+    func convertKmToMiles() -> Double {
+        let distance = Measurement(value: self, unit: UnitLength.kilometers)
+        return distance.converted(to: .miles).value
+    }
 }
 
 public extension Date {
@@ -605,6 +609,10 @@ public extension Int {
         numberFormatter.usesGroupingSeparator = true
         let formattedNumber = numberFormatter.string(from: NSNumber(value: self)) ?? String(self)
         return formattedNumber
+    }
+
+    func convertKmToMiles() -> Int {
+        return Int(Measurement(value: Double(self), unit: UnitLength.kilometers).converted(to: .miles).value.rounded())
     }
 }
 

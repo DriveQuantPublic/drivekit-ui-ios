@@ -4,6 +4,7 @@
 "dk_challenge_braking_score"="Bremsescore";
 "dk_challenge_consult_rule_button"="Tjek regler og vilkår";
 "dk_challenge_distance_kilometer"="Afstand (km)";
+"dk_challenge_distance_miles"="Afstand (mi)";
 "dk_challenge_distraction_score"="Distraktionsscore";
 "dk_challenge_eco_driving_score"="Øko-kørselsscore";
 "dk_challenge_failed_to_join"="Kan ikke deltage i udfordringen, sørg for, at du er tilsluttet internettet eller prøv igen senere.";

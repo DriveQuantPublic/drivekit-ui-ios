@@ -22,7 +22,9 @@ struct ChallengeConditionProgressViewModel {
     var title: String {
         switch conditionKey {
         case .km:
-            return "dk_challenge_distance_kilometer".dkChallengeLocalized()
+            let useImperialUnit = DriveKitUI.shared.unitSystem == .imperial
+            let key = useImperialUnit ? "dk_challenge_distance_miles" : "dk_challenge_distance_kilometer"
+            return key.dkChallengeLocalized()
         case .nbTrip:
             return "dk_challenge_nb_trip".dkChallengeLocalized()
         }

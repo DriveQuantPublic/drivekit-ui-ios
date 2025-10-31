@@ -378,8 +378,14 @@ extension NotificationManager: TripListener {
                         break
                     case .distance:
                         if let tripStatistics = trip.tripStatistics {
-                            let distance = Int(ceil(tripStatistics.distance / 1_000.0))
-                            messagePart2 = "\(DKCommonLocalizable.distance.text()) : \(distance) \(DKCommonLocalizable.unitKilometer.text())"
+                            if DriveKitUI.shared.unitSystem == .metric {
+                                let distance = Int(ceil(tripStatistics.distance / 1_000.0))
+                                messagePart2 = "\(DKCommonLocalizable.distance.text()) : \(distance) \(DKCommonLocalizable.unitKilometer.text())"
+                            } else {
+                                let milesDistance = Measurement(value: tripStatistics.distance, unit: UnitLength.meters).converted(to: .miles).value
+                                let distance = Int(ceil(milesDistance))
+                                messagePart2 = "\(DKCommonLocalizable.distance.text()) : \(distance) \(DKCommonLocalizable.unitMile.text())"
+                            }
                         }
                     case .duration:
                         if let tripStatistics = trip.tripStatistics {

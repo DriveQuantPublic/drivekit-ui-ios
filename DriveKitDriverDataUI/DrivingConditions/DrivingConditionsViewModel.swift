@@ -13,8 +13,13 @@ import DriveKitDriverDataModule
 import Foundation
 
 class DrivingConditionsViewModel {
-    private let defaultContexts: [DKContextKind] = [
+    private let defaultContexts: [DKContextKind] = DriveKitUI.shared.unitSystem == .metric ? [
         .tripDistance,
+        .week,
+        .road,
+        .weather,
+        .dayNight
+    ] : [
         .week,
         .road,
         .weather,

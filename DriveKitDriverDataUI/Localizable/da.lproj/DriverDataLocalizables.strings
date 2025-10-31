@@ -29,8 +29,11 @@
 "dk_driverdata_distance_card_current_year"="Aktuelt år";
 "dk_driverdata_distance_card_estimation"="Anslået";
 "dk_driverdata_distance_card_title_month"="Månedlig distance (km)";
+"dk_driverdata_distance_card_title_month_miles"="Månedlig distance (mi)";
 "dk_driverdata_distance_card_title_week"="Ugentlig afstand (km)";
+"dk_driverdata_distance_card_title_week_miles"="Ugentlig afstand (mi)";
 "dk_driverdata_distance_card_title_year"="Årlig afstand (km)";
+"dk_driverdata_distance_card_title_year_miles"="Årlig afstand (mi)";
 "dk_driverdata_distance_travelled"="%@ rejst";
 "dk_driverdata_distraction_score"="Distraktionsscore";
 "dk_driverdata_distraction_score_info"="Distraktionsscoren handler om, hvorvidt du bruger din telefon under kørslen. Der findes én måde til at få en rigtig høj score hver gang: Læg telefonen i handskerummet eller i tasken, før du starter motoren. Når det er sagt, så er det stadigvæk lovligt at bruge fastmonteret mobiltelefon til fx gps, og brugen af denne vil derfor ikke sænke din score.";
@@ -39,7 +42,9 @@
 "dk_driverdata_drivingconditions_cloud"="Skyet";
 "dk_driverdata_drivingconditions_day"="Dag";
 "dk_driverdata_drivingconditions_distance_plural"="km tilbagelagt";
+"dk_driverdata_drivingconditions_distance_plural_miles"="mi tilbagelagt";
 "dk_driverdata_drivingconditions_distance_singular"="km tilbagelagt";
+"dk_driverdata_drivingconditions_distance_singular_miles"="mi tilbagelagt";
 "dk_driverdata_drivingconditions_empty_data"="Kør med appen, og registrer dine ture for at se og få en oversigt over dine kørselsforhold.";
 "dk_driverdata_drivingconditions_fog"="Tåge";
 "dk_driverdata_drivingconditions_ice"="Is";
@@ -167,6 +172,7 @@
 "dk_driverdata_no_speeding_title_congratulations"="Tillykke og tak for din forsigtighed!";
 "dk_driverdata_no_trip_placeholder"="Du har endnu ikke kørt nogen ture med dette køretøj.";
 "dk_driverdata_no_trips_recorded"="Applikationen har endnu ikke analyseret dine ture.\n\nFor at måle din kørestil og modtage tips og råd om, hvordan du kan forbedre dig, skal du kontrollere, at applikationen er korrekt konfigureret og gennemføre en rejse.\n\nNår automatisk tilstand er aktiveret, registrerer og analyserer applikationen dine bevægelser, selv når den ikke er åben.";
+"dk_driverdata_ocupant_declaration_comment"="Har du kommentarer? (valgfrit)";
 "dk_driverdata_ocupant_declaration_info"="For at forbedre appen, vælg venligst, hvordan denne tur blev gennemført (én mulighed)";
 "dk_driverdata_ocupant_declaration_role_question"="Var du fører eller passager i en bil?";
 "dk_driverdata_ocupant_declaration_thanks"="❤️ Tak fordi du har angivet din rejsetype for denne tur. Du kan ændre dit valg.";
@@ -199,11 +205,13 @@
 "dk_driverdata_profile_mobility_narrow"="Din mobilitetszone er begrænset";
 "dk_driverdata_profile_mobility_small"="Din mobilitetszone er lille";
 "dk_driverdata_profile_mobility_text"="Størstedelen af dine ture foregår inden for en radius af %@ km.";
+"dk_driverdata_profile_mobility_text_miles"="Størstedelen af dine ture foregår inden for en radius af %@ mi.";
 "dk_driverdata_profile_mobility_vast"="Din mobilitetszone er enorm";
 "dk_driverdata_profile_mobility_wide"="Din mobilitetszone er bred";
 "dk_driverdata_profile_regularity_intermittent_text"="Dine kørevaner ændrer sig fra uge til uge. Du kører sjældent den samme distance, og antallet af ugentlige ture svinger.";
 "dk_driverdata_profile_regularity_intermittent_title"="Dine kørevaner er uregelmæssige";
 "dk_driverdata_profile_regularity_regular_text"="Du er en regelmæssig bilist, og dine uger ligner hinanden. I gennemsnit kører du %@ ture og tilbagelægger %@ km.";
+"dk_driverdata_profile_regularity_regular_text_miles"="Du er en regelmæssig bilist, og dine uger ligner hinanden. I gennemsnit kører du %@ ture og tilbagelægger %@ mi.";
 "dk_driverdata_profile_regularity_regular_title"="Dine kørevaner er regelmæssige";
 "dk_driverdata_profile_roadcontext_city_text"="%@ %% af den distance, du kører, er i byen i forholdsvis flydende trafik.";
 "dk_driverdata_profile_roadcontext_city_title"="Du kører primært i byen";

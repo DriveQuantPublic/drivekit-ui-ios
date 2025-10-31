@@ -55,54 +55,79 @@ public extension Double {
         )
     }
 
-    func getMeterDistanceFormat() -> [FormatType] {
+    func getMeterDistanceFormat(_ forcedUnitSystem: DKUnitSystem? = nil
+) -> [FormatType] {
+        let desiredUnitSystem: DKUnitSystem = forcedUnitSystem ?? DriveKitUI.shared.unitSystem
+
         let formattingTypes: [FormatType]
-        if self < 10 {
-            formattingTypes = [
-                .value(format(maximumFractionDigits: 2)),
-                .separator(),
-                .unit(DKCommonLocalizable.unitMeter.text())
-            ]
-        } else if self < 1_000 {
-            formattingTypes = [
-                .value(format(maximumFractionDigits: 0)),
-                .separator(),
-                .unit(DKCommonLocalizable.unitMeter.text())
-            ]
-        } else {
+        if desiredUnitSystem == .metric {
+            if self < 10 {
+                formattingTypes = [
+                    .value(format(maximumFractionDigits: 2)),
+                    .separator(),
+                    .unit(DKCommonLocalizable.unitMeter.text())
+                ]
+            } else if self < 1_000 {
+                formattingTypes = [
+                    .value(format(maximumFractionDigits: 0)),
+                    .separator(),
+                    .unit(DKCommonLocalizable.unitMeter.text())
+                ]
+            } else {
+                formattingTypes = getMeterDistanceInKmFormat()
+            }
+        } else/* if desiredUnitSystem == .imperial*/ {
             formattingTypes = getMeterDistanceInKmFormat()
         }
         return formattingTypes
     }
 
-    func formatMeterDistance() -> String {
-        return getMeterDistanceFormat().toString()
+    func formatMeterDistance(_ forcedUnitSystem: DKUnitSystem? = nil) -> String {
+        return getMeterDistanceFormat(forcedUnitSystem).toString()
     }
 
     func getKilometerDistanceFormat(
         appendingUnit appendUnit: Bool = true,
-        minDistanceToRemoveFractions: Double = defaultMinDistanceToRemoveFractions
+        minDistanceToRemoveFractions: Double = defaultMinDistanceToRemoveFractions,
+        forcedUnitSystem: DKUnitSystem? = nil
     ) -> [FormatType] {
         var formattingTypes: [FormatType] = []
-        let formattedDistance: String
-        if self < minDistanceToRemoveFractions {
-            formattedDistance = self.format(maximumFractionDigits: 1)
-        } else {
-            formattedDistance = Int(self.rounded()).formatWithThousandSeparator()
-        }
-        formattingTypes.append(.value(formattedDistance))
-        if appendUnit {
-            formattingTypes.append(.separator())
-            formattingTypes.append(.unit(DKCommonLocalizable.unitKilometer.text()))
+        let desiredUnitSystem: DKUnitSystem = forcedUnitSystem ?? DriveKitUI.shared.unitSystem
+        if desiredUnitSystem == .metric {
+            let formattedDistance: String
+            if self < minDistanceToRemoveFractions {
+                formattedDistance = self.format(maximumFractionDigits: 1)
+            } else {
+                formattedDistance = Int(self.rounded()).formatWithThousandSeparator()
+            }
+            formattingTypes.append(.value(formattedDistance))
+            if appendUnit {
+                formattingTypes.append(.separator())
+                formattingTypes.append(.unit(DKCommonLocalizable.unitKilometer.text()))
+            }
+        } else/* if desiredUnitSystem == .imperial*/ {
+            let milesDistance = self.convertKmToMiles()
+            let formattedDistance: String
+            if milesDistance < minDistanceToRemoveFractions {
+                formattedDistance = milesDistance.format(maximumFractionDigits: 1)
+            } else {
+                formattedDistance = Int(milesDistance.rounded()).formatWithThousandSeparator()
+            }
+            formattingTypes.append(.value(formattedDistance))
+            if appendUnit {
+                formattingTypes.append(.separator())
+                formattingTypes.append(.unit(DKCommonLocalizable.unitMile.text()))
+            }
         }
         return formattingTypes
     }
 
     func formatKilometerDistance(
         appendingUnit appendUnit: Bool = true,
-        minDistanceToRemoveFractions: Double = defaultMinDistanceToRemoveFractions
+        minDistanceToRemoveFractions: Double = defaultMinDistanceToRemoveFractions,
+        forcedUnitSystem: DKUnitSystem? = nil
     ) -> String {
-        getKilometerDistanceFormat(appendingUnit: appendUnit, minDistanceToRemoveFractions: minDistanceToRemoveFractions).toString()
+        getKilometerDistanceFormat(appendingUnit: appendUnit, minDistanceToRemoveFractions: minDistanceToRemoveFractions, forcedUnitSystem: forcedUnitSystem).toString()
     }
 
     func metersToKilometers(places: Int) -> Double {
@@ -138,17 +163,22 @@ public extension Double {
         return getMassInTonFormat().toString()
     }
 
-    func getLiterFormat() -> [FormatType] {
-        let formattingTypes: [FormatType] = [
+    func getVolumeFormat() -> [FormatType] {
+        let volumeUnit: FormatType
+        if DriveKitUI.shared.unitSystem == .metric {
+            volumeUnit = .unit(DKCommonLocalizable.unitLiter.text())
+        } else/* if DriveKitUI.shared.unitSystem == .imperial*/ {
+            volumeUnit = .unit(DKCommonLocalizable.unitGallon.text())
+        }
+        return [
             .value(format(maximumFractionDigits: 1)),
             .separator(),
-            .unit(DKCommonLocalizable.unitLiter.text())
+            volumeUnit
         ]
-        return formattingTypes
     }
 
-    func formatLiter() -> String {
-        return getLiterFormat().toString()
+    func formatVolume() -> String {
+        return getVolumeFormat().toString()
     }
 
     func getPowerFormat() -> [FormatType] {
@@ -340,12 +370,20 @@ public extension Double {
     }
 
     func getSpeedMeanFormat() -> [FormatType] {
-        let formattingTypes: [FormatType] = [
-            .value(self.format(maximumFractionDigits: 0)),
-            .separator(),
-            .unit(DKCommonLocalizable.unitKmPerHour.text())
-        ]
-        return formattingTypes
+        if DriveKitUI.shared.unitSystem == .metric {
+            return [
+                .value(self.format(maximumFractionDigits: 0)),
+                .separator(),
+                .unit(DKCommonLocalizable.unitKmPerHour.text())
+            ]
+        } else/* if DriveKitUI.shared.unitSystem == .imperial*/ {
+            let mphSpeed = Measurement(value: self, unit: UnitSpeed.kilometersPerHour).converted(to: .milesPerHour).value
+            return [
+                .value(mphSpeed.format(maximumFractionDigits: 0)),
+                .separator(),
+                .unit(DKCommonLocalizable.unitMPH.text())
+            ]
+        }
     }
 
     func formatSpeedMean() -> String {
@@ -367,16 +405,28 @@ public extension Double {
     func getConsumptionFormat(_ type: DKConsumptionType = .fuel) -> [FormatType] {
         let unitText: String
         if type == .electric {
-            unitText = DKCommonLocalizable.unitkWhPer100Km.text()
+            return [
+                .value(self.format(maximumFractionDigits: 1)),
+                .separator(),
+                .unit(DKCommonLocalizable.unitkWhPer100Km.text())
+            ]
         } else {
-            unitText = DKCommonLocalizable.unitLPer100Km.text()
+            if DriveKitUI.shared.unitSystem == .metric {
+                return [
+                    .value(self.format(maximumFractionDigits: 1)),
+                    .separator(),
+                    .unit(DKCommonLocalizable.unitLPer100Km.text())
+                ]
+            } else/* if DriveKitUI.shared.unitSystem == .imperial*/ {
+                let fuelEfficiency = Measurement(value: self, unit: UnitFuelEfficiency.litersPer100Kilometers)
+                let mpgfuelEfficiency = self != 0 ? fuelEfficiency.converted(to: .milesPerImperialGallon).value : 0
+                return [
+                    .value(mpgfuelEfficiency.format(maximumFractionDigits: 1)),
+                    .separator(),
+                    .unit(DKCommonLocalizable.unitMPG.text())
+                ]
+            }
         }
-        let formattingTypes: [FormatType] = [
-            .value(self.format(maximumFractionDigits: 1)),
-            .separator(),
-            .unit(unitText)
-        ]
-        return formattingTypes
     }
 
     func formatConsumption(_ type: DKConsumptionType = .fuel) -> String {
@@ -480,6 +530,11 @@ public extension Double {
     func roundUp(step: Double) -> Double {
         return (self / step).rounded(.up) * step
     }
+
+    func convertKmToMiles() -> Double {
+        let distance = Measurement(value: self, unit: UnitLength.kilometers)
+        return distance.converted(to: .miles).value
+    }
 }
 
 public extension Date {
@@ -542,6 +597,10 @@ public extension Int {
         numberFormatter.usesGroupingSeparator = true
         let formattedNumber = numberFormatter.string(from: NSNumber(value: self)) ?? String(self)
         return formattedNumber
+    }
+
+    func convertKmToMiles() -> Int {
+        return Int(Measurement(value: Double(self), unit: UnitLength.kilometers).converted(to: .miles).value.rounded())
     }
 }
 

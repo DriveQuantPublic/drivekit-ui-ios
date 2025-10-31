@@ -4,6 +4,7 @@
 "dk_challenge_braking_score"="Puntuación de frenado";
 "dk_challenge_consult_rule_button"="Consulta las reglas";
 "dk_challenge_distance_kilometer"="Distancia (km)";
+"dk_challenge_distance_miles"="Distancia (mi)";
 "dk_challenge_distraction_score"="Puntuación de la distracción";
 "dk_challenge_eco_driving_score"="Puntuación de la ecoconducción";
 "dk_challenge_failed_to_join"="No puede participar en el reto, asegúrese de que está conectado a Internet o inténtelo más tarde.";

@@ -525,6 +525,7 @@
 		67C7160F2E2E81C40007FCBF /* DriverPassengerModeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67C7160E2E2E81C40007FCBF /* DriverPassengerModeVC.xib */; };
 		67C716102E2E81C40007FCBF /* DriverPassengerModeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C7160D2E2E81C40007FCBF /* DriverPassengerModeVC.swift */; };
 		67C716122E2E82D80007FCBF /* DriverPassengerModeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C716112E2E82C70007FCBF /* DriverPassengerModeViewModel.swift */; };
+		67CB70192EB10F8A003C6D89 /* DKUnitSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CB70182EB10F82003C6D89 /* DKUnitSystem.swift */; };
 		67CFE99F25F6425F004D0AE1 /* SpeedingPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE99D25F6425F004D0AE1 /* SpeedingPageVC.swift */; };
 		67CFE9A025F6425F004D0AE1 /* SpeedingPageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67CFE99E25F6425F004D0AE1 /* SpeedingPageVC.xib */; };
 		67CFE9A725F645EA004D0AE1 /* SpeedingPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */; };
@@ -1356,6 +1357,7 @@
 		67C7160D2E2E81C40007FCBF /* DriverPassengerModeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverPassengerModeVC.swift; sourceTree = "<group>"; };
 		67C7160E2E2E81C40007FCBF /* DriverPassengerModeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverPassengerModeVC.xib; sourceTree = "<group>"; };
 		67C716112E2E82C70007FCBF /* DriverPassengerModeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverPassengerModeViewModel.swift; sourceTree = "<group>"; };
+		67CB70182EB10F82003C6D89 /* DKUnitSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKUnitSystem.swift; sourceTree = "<group>"; };
 		67CFE99D25F6425F004D0AE1 /* SpeedingPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageVC.swift; sourceTree = "<group>"; };
 		67CFE99E25F6425F004D0AE1 /* SpeedingPageVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpeedingPageVC.xib; sourceTree = "<group>"; };
 		67CFE9A625F645EA004D0AE1 /* SpeedingPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedingPageViewModel.swift; sourceTree = "<group>"; };
@@ -1744,6 +1746,7 @@
 		3F0740F424042BB6005A8D07 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				67CB70182EB10F82003C6D89 /* DKUnitSystem.swift */,
 				E36085012948C37C0097A639 /* DKUIConstants.swift */,
 				3FF68E6F24081F060071D74C /* DKAttributedStringBuilder.swift */,
 				3F7524CD2407A89100AC22CC /* DKCommonLocalizable.swift */,
@@ -4543,6 +4546,7 @@
 				3FF68E752408390A0071D74C /* CardView.swift in Sources */,
 				3FF68E8C240C0A430071D74C /* UIViewController+DK.swift in Sources */,
 				3FED7FC52525B7B900D19E18 /* DKFilterTableViewCell.swift in Sources */,
+				67CB70192EB10F8A003C6D89 /* DKUnitSystem.swift in Sources */,
 				67E807DE2657B855003AFAA8 /* NSAttributedString+DK.swift in Sources */,
 				6765E72B2818373300FD13F8 /* UINavigationController+DK.swift in Sources */,
 				635FC8B626BAECF600B1CABE /* DKAnalyticsEventKey.swift in Sources */,

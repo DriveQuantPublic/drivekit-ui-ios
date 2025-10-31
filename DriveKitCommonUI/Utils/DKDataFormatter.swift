@@ -63,7 +63,7 @@ public extension Double {
                 .separator(),
                 .unit(DKCommonLocalizable.unitMeter.text())
             ]
-        } else if DriveKitUI.shared.unitSystem == .international {
+        } else if DriveKitUI.shared.unitSystem == .metric {
             if self < 1_000 {
                 formattingTypes = [
                     .value(format(maximumFractionDigits: 0)),
@@ -90,7 +90,7 @@ public extension Double {
     ) -> [FormatType] {
         var formattingTypes: [FormatType] = []
         let desiredUnitSystem: DKUnitSystem = forcedUnitSystem ?? DriveKitUI.shared.unitSystem
-        if desiredUnitSystem == .international {
+        if desiredUnitSystem == .metric {
             let formattedDistance: String
             if self < minDistanceToRemoveFractions {
                 formattedDistance = self.format(maximumFractionDigits: 1)
@@ -162,7 +162,7 @@ public extension Double {
 
     func getVolumeFormat() -> [FormatType] {
         let volumeUnit: FormatType
-        if DriveKitUI.shared.unitSystem == .international {
+        if DriveKitUI.shared.unitSystem == .metric {
             volumeUnit = .unit(DKCommonLocalizable.unitLiter.text())
         } else/* if DriveKitUI.shared.unitSystem == .imperial*/ {
             volumeUnit = .unit(DKCommonLocalizable.unitGallon.text())
@@ -367,7 +367,7 @@ public extension Double {
     }
 
     func getSpeedMeanFormat() -> [FormatType] {
-        if DriveKitUI.shared.unitSystem == .international {
+        if DriveKitUI.shared.unitSystem == .metric {
             return [
                 .value(self.format(maximumFractionDigits: 0)),
                 .separator(),
@@ -408,7 +408,7 @@ public extension Double {
                 .unit(DKCommonLocalizable.unitkWhPer100Km.text())
             ]
         } else {
-            if DriveKitUI.shared.unitSystem == .international {
+            if DriveKitUI.shared.unitSystem == .metric {
                 return [
                     .value(self.format(maximumFractionDigits: 1)),
                     .separator(),

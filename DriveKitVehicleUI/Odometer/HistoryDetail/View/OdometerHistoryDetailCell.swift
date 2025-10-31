@@ -99,10 +99,10 @@ final class OdometerHistoryDetailCell: UITableViewCell, Nibable {
 
     @IBAction private func didEnterDistanceField(_ sender: Any) {
         if let newDistance = self.viewModel?.newDistance, newDistance > 0 {
-            self.textField.text = newDistance.formatKilometerDistance(appendingUnit: false, minDistanceToRemoveFractions: 0, forcedUnitSystem: .international)
+            self.textField.text = newDistance.formatKilometerDistance(appendingUnit: false, minDistanceToRemoveFractions: 0, forcedUnitSystem: .metric)
         } else {
             if let initialDistance = self.viewModel?.initialDistance, initialDistance > 0 {
-                self.textField.text = initialDistance.formatKilometerDistance(appendingUnit: false, minDistanceToRemoveFractions: 0, forcedUnitSystem: .international)
+                self.textField.text = initialDistance.formatKilometerDistance(appendingUnit: false, minDistanceToRemoveFractions: 0, forcedUnitSystem: .metric)
             } else {
                 self.textField.text = ""
             }

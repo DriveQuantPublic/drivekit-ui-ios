@@ -13,7 +13,7 @@ import DriveKitDriverDataModule
 import Foundation
 
 class DrivingConditionsViewModel {
-    private let defaultContexts: [DKContextKind] = DriveKitUI.shared.unitSystem == .international ? [
+    private let defaultContexts: [DKContextKind] = DriveKitUI.shared.unitSystem == .metric ? [
         .tripDistance,
         .week,
         .road,

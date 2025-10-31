@@ -7,5 +7,5 @@
 //
 
 public enum DKUnitSystem {
-    case international, imperial
+    case metric, imperial
 }

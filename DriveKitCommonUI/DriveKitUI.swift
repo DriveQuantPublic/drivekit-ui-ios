@@ -18,7 +18,7 @@ import CoreText
 
     @objc public private(set) var colors: DKColors = DKDefaultColors()
     @objc public private(set) var fonts: DKFonts = DKDefaultFonts()
-    public private(set) var unitSystem: DKUnitSystem = .international
+    public private(set) var unitSystem: DKUnitSystem = .metric
     @objc public private(set) var overridedStringFileName: String?
     @objc public private(set) var analytics: DKAnalytics?
     private var tagKeyFromScreen: [String: String]

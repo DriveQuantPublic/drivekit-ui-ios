@@ -18,7 +18,7 @@ struct OdometerHistoriesCellViewModel {
     }
 
     func getDistance() -> String {
-        return self.history.distance.formatKilometerDistance(minDistanceToRemoveFractions: 0, forcedUnitSystem: .international)
+        return self.history.distance.formatKilometerDistance(minDistanceToRemoveFractions: 0, forcedUnitSystem: .metric)
     }
 
     func getDate() -> String {

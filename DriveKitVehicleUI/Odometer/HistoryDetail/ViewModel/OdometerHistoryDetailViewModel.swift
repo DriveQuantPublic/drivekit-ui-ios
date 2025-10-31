@@ -53,7 +53,7 @@ enum HistoryCellType {
         switch self {
             case let .distance(history):
                 if let history = history {
-                    return history.distance.formatKilometerDistance(minDistanceToRemoveFractions: 0, forcedUnitSystem: .international)
+                    return history.distance.formatKilometerDistance(minDistanceToRemoveFractions: 0, forcedUnitSystem: .metric)
                 }
             case let .date(history):
                 let date: Date

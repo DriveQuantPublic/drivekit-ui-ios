@@ -55,16 +55,19 @@ public extension Double {
         )
     }
 
-    func getMeterDistanceFormat() -> [FormatType] {
+    func getMeterDistanceFormat(_ forcedUnitSystem: DKUnitSystem? = nil
+) -> [FormatType] {
+        let desiredUnitSystem: DKUnitSystem = forcedUnitSystem ?? DriveKitUI.shared.unitSystem
+
         let formattingTypes: [FormatType]
-        if self < 10 {
-            formattingTypes = [
-                .value(format(maximumFractionDigits: 2)),
-                .separator(),
-                .unit(DKCommonLocalizable.unitMeter.text())
-            ]
-        } else if DriveKitUI.shared.unitSystem == .metric {
-            if self < 1_000 {
+        if desiredUnitSystem == .metric {
+            if self < 10 {
+                formattingTypes = [
+                    .value(format(maximumFractionDigits: 2)),
+                    .separator(),
+                    .unit(DKCommonLocalizable.unitMeter.text())
+                ]
+            } else if self < 1_000 {
                 formattingTypes = [
                     .value(format(maximumFractionDigits: 0)),
                     .separator(),
@@ -73,14 +76,14 @@ public extension Double {
             } else {
                 formattingTypes = getMeterDistanceInKmFormat()
             }
-        } else/* if DriveKitUI.shared.unitSystem == .imperial*/ {
+        } else/* if desiredUnitSystem == .imperial*/ {
             formattingTypes = getMeterDistanceInKmFormat()
         }
         return formattingTypes
     }
 
-    func formatMeterDistance() -> String {
-        return getMeterDistanceFormat().toString()
+    func formatMeterDistance(_ forcedUnitSystem: DKUnitSystem? = nil) -> String {
+        return getMeterDistanceFormat(forcedUnitSystem).toString()
     }
 
     func getKilometerDistanceFormat(

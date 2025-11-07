@@ -403,7 +403,6 @@ public extension Double {
     }
 
     func getConsumptionFormat(_ type: DKConsumptionType = .fuel) -> [FormatType] {
-        let unitText: String
         if type == .electric {
             return [
                 .value(self.format(maximumFractionDigits: 1)),
@@ -529,6 +528,10 @@ public extension Double {
 
     func roundUp(step: Double) -> Double {
         return (self / step).rounded(.up) * step
+    }
+
+    func roundNearest(step: Double) -> Double {
+        return (self / step).rounded(.toNearestOrAwayFromZero) * step
     }
 
     func convertKmToMiles() -> Double {

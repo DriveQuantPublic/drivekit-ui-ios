@@ -30,6 +30,16 @@
 "dk_detection_mode_gps_title"="GPS";
 "dk_empty_vehicle_name"="Geef de naam van een voertuig";
 "dk_fields_not_valid"="Controleer de ingevoerde gegevens";
+"dk_find_vehicle_date"="U heeft uw voertuig geparkeerd op %@ om %@.";
+"dk_find_vehicle_empty"="Om de positie van uw voertuig te zien, moet u eerst een rit registreren.";
+"dk_find_vehicle_itinerary"="Ga daarheen";
+"dk_find_vehicle_location_far"="Uw voertuig bevindt zich op ongeveer %@ kilometer van uw huidige positie.";
+"dk_find_vehicle_location_far_imperial"="Uw voertuig bevindt zich op ongeveer %@ mijl van uw huidige positie.";
+"dk_find_vehicle_location_nearby"="Uw voertuig bevindt zich op ongeveer %@ meter van uw huidige positie.";
+"dk_find_vehicle_location_nearby_imperial"="Uw voertuig bevindt zich op ongeveer %@ yards van uw huidige positie.";
+"dk_find_vehicle_location_very_close"="Uw voertuig bevindt zich op minder dan 100 meter van uw huidige positie.";
+"dk_find_vehicle_location_very_close_imperial"="Uw voertuig bevindt zich op minder dan 100 yards van uw positie.";
+"dk_find_vehicle_title"="Waar is mijn voertuig?";
 "dk_gearbox"="Versnellingsbak";
 "dk_gearbox_automatic"="Automatisch";
 "dk_gearbox_manual_5"="Handmatig 5 versnellingen";

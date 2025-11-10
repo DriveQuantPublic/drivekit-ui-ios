@@ -47,10 +47,12 @@ class FindVehicleViewController: DKUIViewController {
             setupCenterMapButton()
             mapView.delegate = self
             updateVehicleAnnotation()
+            setupLabels()
+            view.embedSubview(findVehicleView)
+            showLoader()
             viewModel.delegate = self
             viewModel.retrieveUserLocation()
             viewModel.retrieveLastLocationAddress()
-            view.embedSubview(findVehicleView)
         } else {
             setupNoTripView()
             view.embedSubview(noTripView)
@@ -100,17 +102,45 @@ class FindVehicleViewController: DKUIViewController {
         }
     }
 
-    func updateLabels() {
+    func setupLabels() {
         dateLabel.font = DKStyles.smallText.style.applyTo(font: .primary)
         distanceLabel.font = DKStyles.smallText.style.applyTo(font: .primary)
         dateLabel.textColor = DKUIColors.mainFontColor.color
         distanceLabel.textColor = DKUIColors.mainFontColor.color
         dateLabel.text = viewModel.getDateLabelText()
+    }
+
+    func updateDistanceLabel() {
         distanceLabel.text = viewModel.getDistanceLabelText()
     }
 
     @IBAction func openItineraryApp() {
         viewModel.openItineraryApp()
+    }
+
+    func drawLinePath() {
+        guard let userLocationCoordinates = viewModel.userLocationCoordinates,
+              let lastLocationCoordinates = viewModel.lastLocationCoordinates else {
+            return
+        }
+        var coordinates = [userLocationCoordinates, lastLocationCoordinates]
+        // swiftlint:disable:next no_magic_numbers
+        let geodesicPolyline = MKGeodesicPolyline(coordinates: &coordinates, count: 2)
+        mapView.addOverlay(geodesicPolyline)
+        let rect = geodesicPolyline.boundingMapRect
+        self.routeRect = rect
+        centerMap()
+    }
+
+    @IBAction func centerMap() {
+        guard let routeRect else {
+            guard let lastLocationCoordinates = viewModel.lastLocationCoordinates else { return }
+            // swiftlint:disable:next no_magic_numbers
+            let camera = MKMapCamera(lookingAtCenter: lastLocationCoordinates, fromDistance: 1_000, pitch: 0, heading: 0)
+            mapView.setCamera(camera, animated: true)
+            return
+        }
+        mapView.setVisibleMapRect(routeRect, edgePadding: insets, animated: true)
     }
 }
 
@@ -157,7 +187,11 @@ extension FindVehicleViewController: MKMapViewDelegate {
 extension FindVehicleViewController: FindVehicleViewModelDelegate {
     func userLocationUpdateFinished() {
         updateUserAnnotation()
-        updateLabels()
+        updateDistanceLabel()
+        if viewModel.userLocationCoordinates == nil {
+            hideLoader()
+            centerMap()
+        }
     }
     
     func addressGeocodingFinished() {
@@ -165,6 +199,7 @@ extension FindVehicleViewController: FindVehicleViewModelDelegate {
     }
     
     func directionsRequestFinished() {
+        hideLoader()
         guard let polyLine = viewModel.polyLine else {
             drawLinePath()
             return
@@ -173,25 +208,6 @@ extension FindVehicleViewController: FindVehicleViewModelDelegate {
         let rect = polyLine.boundingMapRect
         self.routeRect = rect
         centerMap()
-    }
-
-    func drawLinePath() {
-        guard let userLocationCoordinates = viewModel.userLocationCoordinates,
-              let lastLocationCoordinates = viewModel.lastLocationCoordinates else {
-            return
-        }
-        var coordinates = [userLocationCoordinates, lastLocationCoordinates]
-        // swiftlint:disable:next no_magic_numbers
-        let geodesicPolyline = MKGeodesicPolyline(coordinates: &coordinates, count: 2)
-        mapView.addOverlay(geodesicPolyline)
-        let rect = geodesicPolyline.boundingMapRect
-        self.routeRect = rect
-        centerMap()
-    }
-
-    @IBAction func centerMap() {
-        guard let routeRect else { return }
-        mapView.setVisibleMapRect(routeRect, edgePadding: insets, animated: true)
     }
 }
 

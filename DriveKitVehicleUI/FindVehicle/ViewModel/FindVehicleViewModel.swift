@@ -14,7 +14,7 @@ import DriveKitCommonUI
 class FindVehicleViewModel: NSObject {
     let lastLocationCoordinates: CLLocationCoordinate2D?
     let lastLocationDate: Date?
-    let lastlocationAccuracy: Double?
+    private let lastlocationAccuracy: Double?
     private(set) var userLocationCoordinates: CLLocationCoordinate2D?
     private(set) var addressString: String?
     private(set) var polyLine: MKPolyline?
@@ -22,6 +22,17 @@ class FindVehicleViewModel: NSObject {
     weak var delegate: FindVehicleViewModelDelegate?
     private let locationManager: CLLocationManager = CLLocationManager()
     
+    var shouldDrawAccuracyCircle: Bool {
+        guard let lastlocationAccuracy else { return false }
+        let poorAccuracyLimit: Double = 30
+        return lastlocationAccuracy > poorAccuracyLimit
+    }
+
+    var accuracyCircleRadius: Double {
+        guard let lastlocationAccuracy else { return 0 }
+        return min(100, lastlocationAccuracy)
+    }
+
     override init() {
         if let lastLocation = DriveKitTripAnalysis.shared.getLastTripLocation() {
             self.lastLocationCoordinates = CLLocationCoordinate2D(latitude: lastLocation.latitude, longitude: lastLocation.longitude)
@@ -49,13 +60,26 @@ class FindVehicleViewModel: NSObject {
         }
     }
 
-    func retreiveUserLocation() {
+    func retrieveUserLocation() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestLocation()
     }
 
-    private func retreiveDirections() {
+    private func retrieveDirections() {
+        guard !shouldDrawAccuracyCircle else {
+            // accuracy is poor, draw a line instead
+            self.delegate?.directionsRequestFinished()
+            return
+        }
+
+        let maxDistanceToRequestDirections: Double = 1_000
+        guard let distance = getDistance(), distance <= maxDistanceToRequestDirections else {
+            // too far from destination, draw a line instead
+            self.delegate?.directionsRequestFinished()
+            return
+        }
+        
         guard let lastLocationCoordinates = lastLocationCoordinates, let userLocationCoordinates = userLocationCoordinates else { return }
         let directionRequest = MKDirections.Request()
         directionRequest.source = getMapItem(for: userLocationCoordinates)
@@ -138,7 +162,7 @@ extension FindVehicleViewModel: CLLocationManagerDelegate {
             self.userLocationCoordinates = coordinates
             locationManager.delegate = nil
             delegate?.userLocationUpdateFinished()
-            self.retreiveDirections()
+            self.retrieveDirections()
         }
     }
 

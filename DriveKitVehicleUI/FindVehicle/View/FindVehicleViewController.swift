@@ -16,12 +16,13 @@ class FindVehicleViewController: DKUIViewController {
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var distanceLabel: UILabel!
     @IBOutlet private weak var itineraryButton: UIButton!
+    @IBOutlet private weak var centerMapButton: UIButton!
 
     private var userAnnotation: MKPointAnnotation?
     private var vehicleAnnotation: MKPointAnnotation?
     // swiftlint:disable:next no_magic_numbers
     private let insets = UIEdgeInsets.init(top: 50, left: 50, bottom: 50, right: 50)
-
+    private var routeRect: MKMapRect?
     private let viewModel: FindVehicleViewModel
 
     public init(viewModel: FindVehicleViewModel = FindVehicleViewModel()) {
@@ -39,12 +40,26 @@ class FindVehicleViewController: DKUIViewController {
         itineraryButton.configure(style: .full)
         itineraryButton.setTitle("dk_find_vehicle_itinerary".dkVehicleLocalized(), for: .normal)
         itineraryButton.titleLabel?.font = DKStyles.headLine1.style.applyTo(font: .primary)
+        setupCenterMapButton()
         mapView.delegate = self
         view.embedSubview(findVehicleView)
         updateVehicleAnnotation()
         viewModel.delegate = self
-        viewModel.retreiveUserLocation()
+        viewModel.retrieveUserLocation()
         viewModel.retrieveLastLocationAddress()
+    }
+
+    func setupCenterMapButton() {
+        centerMapButton.layer.borderColor = UIColor.black.cgColor
+        let half = 0.5
+        centerMapButton.layer.cornerRadius = centerMapButton.bounds.size.width * half
+        centerMapButton.layer.masksToBounds = true
+        centerMapButton.backgroundColor = .white
+        centerMapButton.setImage(DKImages.centerMap.image, for: .normal)
+        centerMapButton.tintColor = .black
+        let margin: CGFloat = 12
+        centerMapButton.imageEdgeInsets = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
+        centerMapButton.layer.borderColor = UIColor.lightGray.cgColor
     }
     
     func updateVehicleAnnotation() {
@@ -53,6 +68,11 @@ class FindVehicleViewController: DKUIViewController {
             annotation.title = viewModel.addressString
             vehicleAnnotation = annotation
             self.mapView.addAnnotation(annotation)
+
+            if viewModel.shouldDrawAccuracyCircle {
+                let circle = MKCircle(center: lastLocationCoordinates, radius: viewModel.accuracyCircleRadius)
+                mapView.addOverlay(circle)
+            }
         }
     }
 
@@ -98,15 +118,22 @@ extension FindVehicleViewController: MKMapViewDelegate {
     }
 
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        let renderer = MKPolylineRenderer(overlay: overlay)
-        renderer.strokeColor = UIColor.dkMapTrace
         // swiftlint:disable no_magic_numbers
-        renderer.lineDashPattern = [2, 5]
-        renderer.lineWidth = 3
+        if let circle = overlay as? MKCircle {
+            let circleRenderer = MKCircleRenderer(overlay: circle)
+            circleRenderer.fillColor = UIColor.lightGray.withAlphaComponent(0.1)
+            circleRenderer.strokeColor = UIColor.lightGray.withAlphaComponent(0.4)
+            circleRenderer.lineWidth = 0.5
+            return circleRenderer
+        } else {
+            let renderer = MKPolylineRenderer(overlay: overlay)
+            renderer.strokeColor = UIColor.dkMapTrace
+            renderer.lineDashPattern = [2, 5]
+            renderer.lineWidth = 3
+            return renderer
+        }
         // swiftlint:enable no_magic_numbers
-        return renderer
     }
-
 }
 
 extension FindVehicleViewController: FindVehicleViewModelDelegate {
@@ -126,7 +153,8 @@ extension FindVehicleViewController: FindVehicleViewModelDelegate {
         }
         mapView.addOverlay(polyLine, level: MKOverlayLevel.aboveRoads)
         let rect = polyLine.boundingMapRect
-        mapView.setVisibleMapRect(rect, edgePadding: insets, animated: true)
+        self.routeRect = rect
+        centerMap()
     }
 
     func drawLinePath() {
@@ -139,7 +167,13 @@ extension FindVehicleViewController: FindVehicleViewModelDelegate {
         let geodesicPolyline = MKGeodesicPolyline(coordinates: &coordinates, count: 2)
         mapView.addOverlay(geodesicPolyline)
         let rect = geodesicPolyline.boundingMapRect
-        mapView.setVisibleMapRect(rect, edgePadding: insets, animated: true)
+        self.routeRect = rect
+        centerMap()
+    }
+
+    @IBAction func centerMap() {
+        guard let routeRect else { return }
+        mapView.setVisibleMapRect(routeRect, edgePadding: insets, animated: true)
     }
 }
 

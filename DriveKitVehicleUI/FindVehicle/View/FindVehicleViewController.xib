@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FindVehicleViewController" customModule="DriveKitVehicleUI" customModuleProvider="target">
             <connections>
+                <outlet property="centerMapButton" destination="3MC-ni-Zrk" id="hHZ-1Z-vmk"/>
                 <outlet property="dateLabel" destination="Oce-V1-4eS" id="A7b-hA-oJU"/>
                 <outlet property="distanceLabel" destination="0F2-hm-ke8" id="xsB-nh-vt8"/>
                 <outlet property="findVehicleView" destination="lT6-DW-URg" id="xSN-rT-fpi"/>
@@ -64,6 +65,17 @@
                         <action selector="openItineraryApp" destination="-1" eventType="touchUpInside" id="aYm-Mg-TRn"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3MC-ni-Zrk">
+                    <rect key="frame" x="327" y="410" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="rkl-g0-6jh"/>
+                        <constraint firstAttribute="width" constant="50" id="uZi-1P-O3E"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <connections>
+                        <action selector="centerMap" destination="-1" eventType="touchUpInside" id="Khx-13-fvV"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Vxw-Rl-BR3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -71,6 +83,7 @@
                 <constraint firstItem="Vxw-Rl-BR3" firstAttribute="trailing" secondItem="sjp-rr-sCA" secondAttribute="trailing" constant="62" id="7Dy-Oo-pgf"/>
                 <constraint firstItem="sjp-rr-sCA" firstAttribute="leading" secondItem="Vxw-Rl-BR3" secondAttribute="leading" constant="62" id="BUh-6y-hg6"/>
                 <constraint firstItem="0Hc-Cf-NSb" firstAttribute="top" secondItem="lT6-DW-URg" secondAttribute="top" id="IEZ-9x-2iv"/>
+                <constraint firstItem="0Hc-Cf-NSb" firstAttribute="bottom" secondItem="3MC-ni-Zrk" secondAttribute="bottom" constant="16" id="KxL-vZ-g2E"/>
                 <constraint firstItem="Oce-V1-4eS" firstAttribute="leading" secondItem="Vxw-Rl-BR3" secondAttribute="leading" constant="22" id="NQr-NZ-kWy"/>
                 <constraint firstItem="Vxw-Rl-BR3" firstAttribute="trailing" secondItem="0F2-hm-ke8" secondAttribute="trailing" constant="22" id="OXp-Tr-ifL"/>
                 <constraint firstItem="0Hc-Cf-NSb" firstAttribute="leading" secondItem="Vxw-Rl-BR3" secondAttribute="leading" id="QLD-hC-hfR"/>
@@ -79,6 +92,7 @@
                 <constraint firstItem="sjp-rr-sCA" firstAttribute="bottom" secondItem="Vxw-Rl-BR3" secondAttribute="bottom" constant="8" id="Yc9-vI-Oga"/>
                 <constraint firstItem="0F2-hm-ke8" firstAttribute="leading" secondItem="Vxw-Rl-BR3" secondAttribute="leading" constant="22" id="cz8-T9-oEV"/>
                 <constraint firstItem="Oce-V1-4eS" firstAttribute="top" secondItem="0Hc-Cf-NSb" secondAttribute="bottom" constant="22" id="eer-g8-g1m"/>
+                <constraint firstItem="Vxw-Rl-BR3" firstAttribute="trailing" secondItem="3MC-ni-Zrk" secondAttribute="trailing" constant="16" id="k0d-Vl-gxS"/>
                 <constraint firstItem="0Hc-Cf-NSb" firstAttribute="height" secondItem="lT6-DW-URg" secondAttribute="height" multiplier="0.68" id="mPk-Nq-Kg1"/>
                 <constraint firstItem="0Hc-Cf-NSb" firstAttribute="trailing" secondItem="Vxw-Rl-BR3" secondAttribute="trailing" id="rSv-Dc-01j"/>
             </constraints>

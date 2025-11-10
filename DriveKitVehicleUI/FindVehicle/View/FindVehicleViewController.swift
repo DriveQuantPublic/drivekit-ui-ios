@@ -80,10 +80,12 @@ class FindVehicleViewController: DKUIViewController {
         centerMapButton.layer.borderColor = UIColor.lightGray.cgColor
     }
     
-    func updateVehicleAnnotation() {
+    func updateVehicleAnnotation(address: String? = nil) {
         if let lastLocationCoordinates = viewModel.lastLocationCoordinates {
             let annotation = MKPointAnnotation(coordinate: lastLocationCoordinates)
-            annotation.title = viewModel.addressString
+            if let address {
+                annotation.title = address
+            }
             vehicleAnnotation = annotation
             self.mapView.addAnnotation(annotation)
 
@@ -195,7 +197,7 @@ extension FindVehicleViewController: FindVehicleViewModelDelegate {
     }
     
     func addressGeocodingFinished() {
-        updateVehicleAnnotation()
+        updateVehicleAnnotation(address: viewModel.addressString)
     }
     
     func directionsRequestFinished() {

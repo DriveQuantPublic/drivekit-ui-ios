@@ -17,6 +17,9 @@ class FindVehicleViewController: DKUIViewController {
     @IBOutlet private weak var distanceLabel: UILabel!
     @IBOutlet private weak var itineraryButton: UIButton!
     @IBOutlet private weak var centerMapButton: UIButton!
+    @IBOutlet private weak var noTripView: UIView!
+    @IBOutlet private weak var noTripLabel: UILabel!
+    @IBOutlet private weak var noTripLabelContainer: UIView!
 
     private var userAnnotation: MKPointAnnotation?
     private var vehicleAnnotation: MKPointAnnotation?
@@ -37,16 +40,29 @@ class FindVehicleViewController: DKUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "dk_find_vehicle_title".dkVehicleLocalized()
-        itineraryButton.configure(style: .full)
-        itineraryButton.setTitle("dk_find_vehicle_itinerary".dkVehicleLocalized(), for: .normal)
-        itineraryButton.titleLabel?.font = DKStyles.headLine1.style.applyTo(font: .primary)
-        setupCenterMapButton()
-        mapView.delegate = self
-        view.embedSubview(findVehicleView)
-        updateVehicleAnnotation()
-        viewModel.delegate = self
-        viewModel.retrieveUserLocation()
-        viewModel.retrieveLastLocationAddress()
+        if viewModel.lastLocationCoordinates != nil {
+            itineraryButton.configure(style: .full)
+            itineraryButton.setTitle("dk_find_vehicle_itinerary".dkVehicleLocalized(), for: .normal)
+            itineraryButton.titleLabel?.font = DKStyles.headLine1.style.applyTo(font: .primary)
+            setupCenterMapButton()
+            mapView.delegate = self
+            updateVehicleAnnotation()
+            viewModel.delegate = self
+            viewModel.retrieveUserLocation()
+            viewModel.retrieveLastLocationAddress()
+            view.embedSubview(findVehicleView)
+        } else {
+            setupNoTripView()
+            view.embedSubview(noTripView)
+        }
+    }
+
+    func setupNoTripView() {
+        self.noTripLabelContainer.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
+        self.noTripLabelContainer.backgroundColor = DKUIColors.neutralColor.color
+        noTripLabel.text = "dk_find_vehicle_empty".dkVehicleLocalized()
+        noTripLabel.font = DKStyles.normalText.style.applyTo(font: .primary)
+        noTripLabel.textColor = DKUIColors.mainFontColor.color
     }
 
     func setupCenterMapButton() {
@@ -87,6 +103,8 @@ class FindVehicleViewController: DKUIViewController {
     func updateLabels() {
         dateLabel.font = DKStyles.smallText.style.applyTo(font: .primary)
         distanceLabel.font = DKStyles.smallText.style.applyTo(font: .primary)
+        dateLabel.textColor = DKUIColors.mainFontColor.color
+        distanceLabel.textColor = DKUIColors.mainFontColor.color
         dateLabel.text = viewModel.getDateLabelText()
         distanceLabel.text = viewModel.getDistanceLabelText()
     }

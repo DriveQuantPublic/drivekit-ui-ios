@@ -86,6 +86,7 @@
 "dk_common_unit_liter"="l";
 "dk_common_unit_meter"="m";
 "dk_common_unit_mile"="mi";
+"dk_common_unit_mile_per_kwh"="mi/kWh";
 "dk_common_unit_minute"="min";
 "dk_common_unit_mpg"="mpg";
 "dk_common_unit_mph"="mph";

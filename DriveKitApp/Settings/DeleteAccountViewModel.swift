@@ -23,7 +23,7 @@ class DeleteAccountViewModel {
 
     func logout() {
         DriveKitConfig.logout()
-        if let appDelegate = UIApplication.shared.delegate, let appNavigationController = appDelegate.window??.rootViewController as? AppNavigationController {
+        if let appNavigationController = UIApplication.shared.visibleViewController?.navigationController as? AppNavigationController {
             appNavigationController.setViewControllers([ApiKeyViewController()], animated: true)
         }
     }

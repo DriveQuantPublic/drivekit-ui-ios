@@ -403,13 +403,20 @@ public extension Double {
     }
 
     func getConsumptionFormat(_ type: DKConsumptionType = .fuel) -> [FormatType] {
-        let unitText: String
         if type == .electric {
-            return [
-                .value(self.format(maximumFractionDigits: 1)),
-                .separator(),
-                .unit(DKCommonLocalizable.unitkWhPer100Km.text())
-            ]
+            if DriveKitUI.shared.unitSystem == .metric {
+                return [
+                    .value(self.format(maximumFractionDigits: 1)),
+                    .separator(),
+                    .unit(DKCommonLocalizable.unitkWhPer100Km.text())
+                ]
+            } else/* if DriveKitUI.shared.unitSystem == .imperial*/ {
+                return [
+                    .value(self.convertKWhPer100kmToMiPerkWh().format(maximumFractionDigits: 1)),
+                    .separator(),
+                    .unit(DKCommonLocalizable.unitMilePerKWh.text())
+                ]
+            }
         } else {
             if DriveKitUI.shared.unitSystem == .metric {
                 return [
@@ -534,6 +541,14 @@ public extension Double {
     func convertKmToMiles() -> Double {
         let distance = Measurement(value: self, unit: UnitLength.kilometers)
         return distance.converted(to: .miles).value
+    }
+
+    func convertKWhPer100kmToMiPerkWh() -> Double {
+        if self == 0 {
+            return 0
+        }
+        let distanceFactor = Measurement(value: 1, unit: UnitLength.kilometers).converted(to: .miles).value
+        return (100 / self) * distanceFactor
     }
 }
 

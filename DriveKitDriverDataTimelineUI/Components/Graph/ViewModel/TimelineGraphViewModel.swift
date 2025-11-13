@@ -402,6 +402,18 @@ class TimelineGraphViewModel: GraphViewModel {
                 return nil
             }
         case .scoreItem(let scoreItemType):
+            let distanceFactor: Double
+            if DriveKitUI.shared.unitSystem == .imperial {
+                distanceFactor = Measurement(value: 1, unit: UnitLength.miles).converted(to: .kilometers).value
+            } else {
+                distanceFactor = 1
+            }
+            let volumeFactor: Double
+            if DriveKitUI.shared.unitSystem == .imperial {
+                volumeFactor = Measurement(value: 1, unit: UnitVolume.liters).converted(to: .imperialGallons).value
+            } else {
+                volumeFactor = 1
+            }
             switch scoreItemType {
             case .speeding_duration:
                 guard let speedingDuration = allContextItem.speeding?.speedingDuration else { return nil }
@@ -414,17 +426,18 @@ class TimelineGraphViewModel: GraphViewModel {
             case .safety_braking:
                 guard let braking = allContextItem.safety?.braking else { return nil }
                 guard totalDistance > 0 else { return 0 }
-                return Double(braking) / (totalDistance / 100)
+                return (Double(braking) / (totalDistance / 100)) * distanceFactor
             case .safety_adherence:
                 guard let adherence = allContextItem.safety?.adherence else { return nil }
                 guard totalDistance > 0 else { return 0 }
-                return Double(adherence) / (totalDistance / 100)
+                return (Double(adherence) / (totalDistance / 100)) * distanceFactor
             case .safety_acceleration:
                 guard let acceleration = allContextItem.safety?.acceleration else { return nil }
                 guard totalDistance > 0 else { return 0 }
-                return Double(acceleration) / (totalDistance / 100)
+                return (Double(acceleration) / (totalDistance / 100)) * distanceFactor
             case .ecoDriving_fuelVolume:
-                return allContextItem.ecoDriving?.fuelVolume
+                guard let fuelVolume = allContextItem.ecoDriving?.fuelVolume else { return nil }
+                return fuelVolume * volumeFactor
             case .ecoDriving_efficiencySpeedMaintain:
                 return allContextItem.ecoDriving?.efficiencySpeedMaintain
             case .ecoDriving_efficiencyBrake:
@@ -432,13 +445,14 @@ class TimelineGraphViewModel: GraphViewModel {
             case .ecoDriving_efficiencyAcceleration:
                 return allContextItem.ecoDriving?.efficiencyAcceleration
             case .ecoDriving_fuelSavings:
-                return allContextItem.ecoDriving?.fuelSaving
+                guard let fuelSaving = allContextItem.ecoDriving?.fuelSaving else { return nil }
+                return fuelSaving * volumeFactor
             case .ecoDriving_co2mass:
                 return allContextItem.ecoDriving?.co2Mass
             case .distraction_unlock:
                 guard let unlock = allContextItem.phoneDistraction?.unlock else { return nil }
                 guard totalDistance > 0 else { return 0 }
-                return Double(unlock) / (totalDistance / 100)
+                return (Double(unlock) / (totalDistance / 100)) * distanceFactor
             case .distraction_percentageOfTripsWithForbiddenCall:
                 guard let phoneDistraction = allContextItem.phoneDistraction else { return nil }
                 let numberTripTotal = allContextItem.numberTripTotal
@@ -449,7 +463,7 @@ class TimelineGraphViewModel: GraphViewModel {
                 guard let callForbiddenDuration = allContextItem.phoneDistraction?.callForbiddenDuration else { return nil }
                 guard totalDistance > 0 else { return 0 }
                 // The result is converted in minute and rounded up to greater integer value
-                return ceil(Double(callForbiddenDuration / 60) / (totalDistance / 100))
+                return (ceil(Double(callForbiddenDuration / 60) / (totalDistance / 100))) * distanceFactor
             }
         }
     }

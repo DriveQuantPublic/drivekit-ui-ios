@@ -22,11 +22,10 @@ class WorkingHoursDayCellViewModel {
         static let sliderEnd: Double = 24
 
         enum Wording {
-            private static let hourUnit = DKCommonLocalizable.unitHour.text()
             static let weekdaySymbolByDay: [DKDay: String] = DateFormatter().weekdaySymbolByDay()
-            static let hourFormatter = "\(hourUnit)00"
-            static let halfHourFormatter = "\(hourUnit)30"
-            static let maxHour = "23\(hourUnit)59"
+            static let hourFormatter = ":00"
+            static let halfHourFormatter = ":30"
+            static let maxHour = "23:59"
         }
     }
 

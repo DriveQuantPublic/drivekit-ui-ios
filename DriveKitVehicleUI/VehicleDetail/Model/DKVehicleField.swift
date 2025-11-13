@@ -60,7 +60,8 @@ enum EngineField: DKVehicleField, CaseIterable {
         case .motor:
             return DKVehicleEngineIndex(rawValue: vehicle.engineIndex)?.text()
         case .consumption:
-            return vehicle.consumption.formatConsumption()
+            let consumptionType: DKConsumptionType = vehicle.engineIndex == DKVehicleEngineIndex.electric.rawValue ? .electric : .fuel
+            return vehicle.consumption.formatConsumption(consumptionType)
         }
     }
 

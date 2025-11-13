@@ -29,8 +29,11 @@
 "dk_driverdata_distance_card_current_year"="Anno corrente";
 "dk_driverdata_distance_card_estimation"="Stima";
 "dk_driverdata_distance_card_title_month"="Distanza mensile (km)";
+"dk_driverdata_distance_card_title_month_miles"="Distanza mensile (mi)";
 "dk_driverdata_distance_card_title_week"="Distanza settimanale (km)";
+"dk_driverdata_distance_card_title_week_miles"="Distanza settimanale (mi)";
 "dk_driverdata_distance_card_title_year"="Distanza annuale (km)";
+"dk_driverdata_distance_card_title_year_miles"="Distanza annuale (mi)";
 "dk_driverdata_distance_travelled"="%@ percorsi";
 "dk_driverdata_distraction_score"="Punteggio di distrazione";
 "dk_driverdata_distraction_score_info"="Il punteggio di distrazione (uso del telefono durante la guida) misura le interazioni del conducente con lo smartphone durante la guida. Questo include sia il numero di volte che il telefono è sbloccato che la durata delle telefonate durante il viaggio. L\'uso del telefono può distrarre l\'attenzione del conducente e aumenta significativamente il rischio di incidente d\'auto. Le chiamate fatte con il kit vivavoce del vostro veicolo sono permesse e non abbasseranno il vostro punteggio.";
@@ -39,7 +42,9 @@
 "dk_driverdata_drivingconditions_cloud"="Nuvoloso";
 "dk_driverdata_drivingconditions_day"="Giorno";
 "dk_driverdata_drivingconditions_distance_plural"="km percorsi";
+"dk_driverdata_drivingconditions_distance_plural_miles"="mi percorsi";
 "dk_driverdata_drivingconditions_distance_singular"="km percorso";
+"dk_driverdata_drivingconditions_distance_singular_miles"="mi percorso";
 "dk_driverdata_drivingconditions_empty_data"="Guidate con l\'app e registrate i vostri viaggi per visualizzare e ottenere un riepilogo delle condizioni di guida.";
 "dk_driverdata_drivingconditions_fog"="Nebbia";
 "dk_driverdata_drivingconditions_ice"="Ghiaccio";
@@ -167,6 +172,7 @@
 "dk_driverdata_no_speeding_title_congratulations"="👍 Bravo e grazie per la tua prudenza!";
 "dk_driverdata_no_trip_placeholder"="Non avete ancora effettuato alcun viaggio con questo veicolo.";
 "dk_driverdata_no_trips_recorded"="L\'applicazione non ha ancora analizzato i vostri viaggi.\n\nPer misurare il proprio stile di guida e ricevere suggerimenti e consigli su come migliorare, verificare che l\'applicazione sia configurata correttamente ed effettuare un viaggio.\n\nQuando è attivata la modalità automatica, l\'applicazione rileva e analizza i vostri movimenti anche quando non è aperta.";
+"dk_driverdata_ocupant_declaration_comment"="Hai qualche commento? (facoltativo)";
 "dk_driverdata_ocupant_declaration_info"="Per migliorare l’app, indica come è stato effettuato questo viaggio (una sola scelta possibile)";
 "dk_driverdata_ocupant_declaration_role_question"="Eri guidatore o passeggero in auto?";
 "dk_driverdata_ocupant_declaration_thanks"="❤️ Grazie per aver dichiarato il tuo mezzo di trasporto per questo viaggio. Puoi modificare la tua scelta.";
@@ -199,11 +205,13 @@
 "dk_driverdata_profile_mobility_narrow"="L\'area di mobilità è limitata";
 "dk_driverdata_profile_mobility_small"="L\'area di mobilità è piccola";
 "dk_driverdata_profile_mobility_text"="La maggior parte degli spostamenti avviene in un raggio di %@ km.";
+"dk_driverdata_profile_mobility_text_miles"="La maggior parte degli spostamenti avviene in un raggio di %@ mi.";
 "dk_driverdata_profile_mobility_vast"="L\'area di mobilità è vasta";
 "dk_driverdata_profile_mobility_wide"="L\'area di mobilità è ampia";
 "dk_driverdata_profile_regularity_intermittent_text"="Le sue abitudini di guida cambiano di settimana in settimana. Raramente si percorre la stessa distanza e il numero di viaggi settimanali varia.";
 "dk_driverdata_profile_regularity_intermittent_title"="Le vostre abitudini di guida sono irregolari";
 "dk_driverdata_profile_regularity_regular_text"="Lei è un guidatore abituale e le sue settimane sono simili. In media fate %@ viaggi e percorrete %@ km.";
+"dk_driverdata_profile_regularity_regular_text_miles"="Lei è un guidatore abituale e le sue settimane sono simili. In media fate %@ viaggi e percorrete %@ mi.";
 "dk_driverdata_profile_regularity_regular_title"="Le vostre abitudini di guida sono regolari.";
 "dk_driverdata_profile_roadcontext_city_text"="La %@ %% della distanza percorsa è in città in un traffico abbastanza scorrevole.";
 "dk_driverdata_profile_roadcontext_city_title"="Guidate principalmente in città";

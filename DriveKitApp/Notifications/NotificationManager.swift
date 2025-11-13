@@ -203,8 +203,7 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
     }
     
     func showDashboardWithTripRecordingButton() {
-        if let appDelegate = UIApplication.shared.delegate,
-           let appNavigationController = appDelegate.window??.rootViewController as? AppNavigationController {
+        if let appNavigationController = UIApplication.shared.visibleViewController?.navigationController as? AppNavigationController {
             appNavigationController.popToRootViewController(animated: true)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 if let dashboardVC = appNavigationController.viewControllers.first as? DashboardViewController {
@@ -215,8 +214,7 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
     }
     
     func showTrip(with identifier: String, hasAdvices: Bool) {
-        if let appDelegate = UIApplication.shared.delegate, 
-            let rootViewController = appDelegate.window??.rootViewController,
+        if let rootViewController = UIApplication.shared.visibleViewController,
             let trip = DriveKitDBTripAccess.shared.find(itinId: identifier) {
             let transportationMode: TransportationMode = trip.transportationMode
             let isAlternative = transportationMode.isAlternative()
@@ -229,8 +227,7 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
     }
 
     func showDiagnosis() {
-        if let appDelegate = UIApplication.shared.delegate,
-           let appNavigationController = appDelegate.window??.rootViewController as? AppNavigationController {
+        if let appNavigationController = UIApplication.shared.visibleViewController?.navigationController as? AppNavigationController {
             let diagnosisViewController = DriveKitPermissionsUtilsUI.shared.getDiagnosisViewController()
             let navigationController = UINavigationController(rootViewController: diagnosisViewController)
             navigationController.configure()
@@ -378,8 +375,14 @@ extension NotificationManager: TripListener {
                         break
                     case .distance:
                         if let tripStatistics = trip.tripStatistics {
-                            let distance = Int(ceil(tripStatistics.distance / 1_000.0))
-                            messagePart2 = "\(DKCommonLocalizable.distance.text()) : \(distance) \(DKCommonLocalizable.unitKilometer.text())"
+                            if DriveKitUI.shared.unitSystem == .metric {
+                                let distance = Int(ceil(tripStatistics.distance / 1_000.0))
+                                messagePart2 = "\(DKCommonLocalizable.distance.text()) : \(distance) \(DKCommonLocalizable.unitKilometer.text())"
+                            } else {
+                                let milesDistance = Measurement(value: tripStatistics.distance, unit: UnitLength.meters).converted(to: .miles).value
+                                let distance = Int(ceil(milesDistance))
+                                messagePart2 = "\(DKCommonLocalizable.distance.text()) : \(distance) \(DKCommonLocalizable.unitMile.text())"
+                            }
                         }
                     case .duration:
                         if let tripStatistics = trip.tripStatistics {

@@ -74,7 +74,7 @@ class BeaconScannerInfoVC: UIViewController {
                 .buildWithArgs(minor)
             
             if let distance = self.viewModel.beaconDistance {
-                distanceIndicatorView.configure(title: distance.formatMeterDistance(), image: DKVehicleImages.beaconDistance.image?.withRenderingMode(.alwaysTemplate))
+                distanceIndicatorView.configure(title: distance.formatMeterDistance(.metric), image: DKVehicleImages.beaconDistance.image?.withRenderingMode(.alwaysTemplate))
             }
             let rssi: Int
             if let beaconRssi = self.viewModel.beaconRssi {

@@ -83,11 +83,21 @@ class DrivingConditionsSummaryCardViewModel {
     
     var totalDistanceUnitText: NSAttributedString? {
         if hasNoData { return nil }
-        return (
-            totalDistance <= 1
+        let useImperialUnit = DriveKitUI.shared.unitSystem == .imperial
+        let key: String
+        
+        if useImperialUnit {
+            let totalDistanceInMiles = totalDistance.convertKmToMiles()
+            key = totalDistanceInMiles <= 1
+            ? "dk_driverdata_drivingconditions_distance_singular_miles"
+            : "dk_driverdata_drivingconditions_distance_plural_miles"
+
+        } else {
+            key = totalDistance <= 1
             ? "dk_driverdata_drivingconditions_distance_singular"
             : "dk_driverdata_drivingconditions_distance_plural"
-        )
+        }
+        return key
             .dkDriverDataLocalized()
             .dkAttributedString()
             .color(.complementaryFontColor)

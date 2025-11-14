@@ -68,14 +68,12 @@ class FindMyVehicleViewModel: NSObject {
 
     private func retrieveDirections() {
         guard !shouldDrawAccuracyCircle else {
-            // accuracy is poor, draw a line instead
             self.delegate?.directionsRequestFinished()
             return
         }
 
         let maxDistanceToRequestDirections: Double = 1_000
         guard let distance = getDistance(), distance <= maxDistanceToRequestDirections else {
-            // too far from destination, draw a line instead
             self.delegate?.directionsRequestFinished()
             return
         }
@@ -167,7 +165,6 @@ extension FindMyVehicleViewModel: CLLocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
-        // call delegate callback
         delegate?.userLocationUpdateFinished()
     }
 }

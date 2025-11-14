@@ -1946,7 +1946,7 @@
 		3FF68EF32413ECC00071D74C /* DriveKitVehicleUI */ = {
 			isa = PBXGroup;
 			children = (
-				670CD0BA2EBB949000D2179B /* FindVehicle */,
+				670CD0BA2EBB949000D2179B /* FindMyVehicle */,
 				3FF68F022414FD5B0071D74C /* Localizable */,
 				3F50D7062417ADC9001226F7 /* Extension */,
 				63A6DF622823F56A0096F48E /* Utils */,
@@ -2830,13 +2830,13 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		670CD0BA2EBB949000D2179B /* FindVehicle */ = {
+		670CD0BA2EBB949000D2179B /* FindMyVehicle */ = {
 			isa = PBXGroup;
 			children = (
 				670CD0BC2EBB988100D2179B /* ViewModel */,
 				670CD0BB2EBB987900D2179B /* View */,
 			);
-			path = FindVehicle;
+			path = FindMyVehicle;
 			sourceTree = "<group>";
 		};
 		670CD0BB2EBB987900D2179B /* View */ = {

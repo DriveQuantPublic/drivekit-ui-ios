@@ -177,7 +177,7 @@ extension FindMyVehicleViewController: MKMapViewDelegate {
             return circleRenderer
         } else {
             let renderer = MKPolylineRenderer(overlay: overlay)
-            renderer.strokeColor = UIColor.dkMapTrace
+            renderer.strokeColor = DKUIColors.mapTraceColor.color
             renderer.lineDashPattern = [2, 5]
             renderer.lineWidth = 3
             return renderer
@@ -211,9 +211,4 @@ extension FindMyVehicleViewController: FindMyVehicleViewModelDelegate {
         self.routeRect = rect
         centerMap()
     }
-}
-
-extension UIColor {
-    // swiftlint:disable:next no_magic_numbers
-    public static let dkMapTrace = UIColor(hex: 0x116ea9)
 }

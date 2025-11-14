@@ -128,7 +128,7 @@ class FindMyVehicleViewModel: NSObject {
             let kmDistanceLimit: Double = 950
             let veryCloseDistanceLimit: Double = 100
             if distance < veryCloseDistanceLimit {
-                return String(format:"dk_find_vehicle_location_very_close".dkVehicleLocalized(), "\(Int(veryCloseDistanceLimit))")
+                return String(format: "dk_find_vehicle_location_very_close".dkVehicleLocalized(), "\(Int(veryCloseDistanceLimit))")
             } else if distance < kmDistanceLimit {
                 return String(format: "dk_find_vehicle_location_nearby".dkVehicleLocalized(), "\(Int(distance.roundNearest(step: 100)))")
             } else {
@@ -139,7 +139,7 @@ class FindMyVehicleViewModel: NSObject {
             let milesDistanceLimit: Double = 1_700
             let veryCloseDistanceLimit: Double = 100
             if yardsDistance < veryCloseDistanceLimit {
-                return String(format:"dk_find_vehicle_location_very_close_imperial".dkVehicleLocalized(), "\(Int(veryCloseDistanceLimit))")
+                return String(format: "dk_find_vehicle_location_very_close_imperial".dkVehicleLocalized(), "\(Int(veryCloseDistanceLimit))")
             } else if yardsDistance < milesDistanceLimit {
                 return String(format: "dk_find_vehicle_location_nearby_imperial".dkVehicleLocalized(), "\(Int(yardsDistance.roundNearest(step: 100)))")
             } else {

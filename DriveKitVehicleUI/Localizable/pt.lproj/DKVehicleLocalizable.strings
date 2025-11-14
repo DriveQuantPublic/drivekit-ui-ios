@@ -37,8 +37,8 @@
 "dk_find_vehicle_location_far_imperial"="O seu veículo está a cerca de %@ mi da sua posição atual.";
 "dk_find_vehicle_location_nearby"="O seu veículo está a cerca de %@ m da sua posição atual.";
 "dk_find_vehicle_location_nearby_imperial"="O seu veículo está a cerca de %@ yd da sua posição atual.";
-"dk_find_vehicle_location_very_close"="O seu veículo está a menos de 100 m da sua posição atual.";
-"dk_find_vehicle_location_very_close_imperial"="O seu veículo está a menos de 100 yd da sua posição.";
+"dk_find_vehicle_location_very_close"="O seu veículo está a menos de %@ m da sua posição atual.";
+"dk_find_vehicle_location_very_close_imperial"="O seu veículo está a menos de %@ yd da sua posição.";
 "dk_find_vehicle_title"="Onde está o meu veículo?";
 "dk_gearbox"="Caixa de velocidade";
 "dk_gearbox_automatic"="Automático";

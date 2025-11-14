@@ -37,8 +37,8 @@
 "dk_find_vehicle_location_far_imperial"="Dit køretøj befinder sig cirka %@ mi fra din nuværende position.";
 "dk_find_vehicle_location_nearby"="Dit køretøj befinder sig cirka %@ m fra din nuværende position.";
 "dk_find_vehicle_location_nearby_imperial"="Dit køretøj befinder sig cirka %@ yd fra din nuværende position.";
-"dk_find_vehicle_location_very_close"="Dit køretøj befinder sig mindre end 100 m fra din nuværende position.";
-"dk_find_vehicle_location_very_close_imperial"="Dit køretøj befinder sig mindre end 100 yd fra din position.";
+"dk_find_vehicle_location_very_close"="Dit køretøj befinder sig mindre end %@ m fra din nuværende position.";
+"dk_find_vehicle_location_very_close_imperial"="Dit køretøj befinder sig mindre end %@ yd fra din position.";
 "dk_find_vehicle_title"="Hvor er mit køretøj?";
 "dk_gearbox"="Gearkasse";
 "dk_gearbox_automatic"="Automatisk";

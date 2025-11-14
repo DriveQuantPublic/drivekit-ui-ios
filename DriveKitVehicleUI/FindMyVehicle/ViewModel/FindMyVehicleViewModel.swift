@@ -126,8 +126,9 @@ class FindMyVehicleViewModel: NSObject {
         let yardsDistance = Measurement(value: distance, unit: UnitLength.meters).converted(to: .yards).value
         if DriveKitUI.shared.unitSystem == .metric {
             let kmDistanceLimit: Double = 950
-            if distance < 100 {
-                return "dk_find_vehicle_location_very_close".dkVehicleLocalized()
+            let veryCloseDistanceLimit: Double = 100
+            if distance < veryCloseDistanceLimit {
+                return String(format:"dk_find_vehicle_location_very_close".dkVehicleLocalized(), "\(Int(veryCloseDistanceLimit))")
             } else if distance < kmDistanceLimit {
                 return String(format: "dk_find_vehicle_location_nearby".dkVehicleLocalized(), "\(Int(distance.roundNearest(step: 100)))")
             } else {
@@ -136,8 +137,9 @@ class FindMyVehicleViewModel: NSObject {
             }
         } else /*if DriveKitUI.shared.unitSystem == .imperial*/ {
             let milesDistanceLimit: Double = 1_700
-            if yardsDistance < 100 {
-                return "dk_find_vehicle_location_very_close_imperial".dkVehicleLocalized()
+            let veryCloseDistanceLimit: Double = 100
+            if yardsDistance < veryCloseDistanceLimit {
+                return String(format:"dk_find_vehicle_location_very_close_imperial".dkVehicleLocalized(), "\(Int(veryCloseDistanceLimit))")
             } else if yardsDistance < milesDistanceLimit {
                 return String(format: "dk_find_vehicle_location_nearby_imperial".dkVehicleLocalized(), "\(Int(yardsDistance.roundNearest(step: 100)))")
             } else {

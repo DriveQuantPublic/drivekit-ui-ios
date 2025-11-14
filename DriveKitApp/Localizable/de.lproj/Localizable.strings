@@ -25,6 +25,7 @@
 "drivekit_doc_android_challenges"="https://docs.drivequant.com/challenge/user-interface/android/get-started#display-challenge-list";
 "drivekit_doc_android_diag"="https://docs.drivequant.com/permissions-utils/permission-utils/android/main-configuration#sdk-diagnosis";
 "drivekit_doc_android_driver_data"="https://docs.drivequant.com/driver-data/user-interface/android/get-started";
+"drivekit_doc_android_find_vehicle"="https://docs.drivequant.com/vehicle/user-interface/ios/find-my-vehicle";
 "drivekit_doc_android_github_ui"="https://github.com/DriveQuantPublic/drivekit-ui-android";
 "drivekit_doc_android_location_sharing"="https://docs.drivequant.com/trip-analysis/user-interface/android/location-sharing";
 "drivekit_doc_android_odometer"="https://docs.drivequant.com/vehicle/user-interface/android/main-configurations#vehicle-mileage-tracking-and-editing";
@@ -44,6 +45,7 @@
 "drivekit_doc_ios_challenges"="https://docs.drivequant.com/challenge/user-interface/ios/get-started#display-challenge-list";
 "drivekit_doc_ios_diag"="https://docs.drivequant.com/permissions-utils/permission-utils/ios/main-configurations#sdk-diagnosis";
 "drivekit_doc_ios_driver_data"="https://docs.drivequant.com/driver-data/user-interface/ios/get-started";
+"drivekit_doc_ios_find_vehicle"="https://docs.drivequant.com/vehicle/user-interface/ios/find-my-vehicle";
 "drivekit_doc_ios_github_ui"="https://github.com/DriveQuantPublic/drivekit-ui-ios";
 "drivekit_doc_ios_location_sharing"="https://docs.drivequant.com/trip-analysis/user-interface/ios/location-sharing";
 "drivekit_doc_ios_odometer"="https://docs.drivequant.com/vehicle/user-interface/ios/main-configurations#vehicle-mileage-tracking-and-editing";
@@ -63,6 +65,8 @@
 "feature_badges_title"="Driver Achievement | Badges";
 "feature_challenges_description"="Eine Fahr-Challenge ist ein einmaliges Ereignis, bei dem Fahrer um die höchste Punktzahl im Fahren konkurrieren. Die Challenge-Komponente bietet verschiedene Themen an: Eco-Driving, Sicherheit, Ablenkung und Geschwindigkeitsbegrenzung.";
 "feature_challenges_title"="Challenge | Liste und Ergebnisse";
+"feature_find_vehicle_description"="Die Vehicle-Komponente enthält eine Funktion, mit der der Benutzer den Standort seines geparkten Fahrzeugs ermitteln und mit dem Navigationswerkzeug seiner Wahl dorthin gelangen kann.";
+"feature_find_vehicle_title"="Vehicle | Wo ist mein Fahrzeug?";
 "feature_list"="Liste der Funktionen";
 "feature_list_description"="DriveKit ist ein vielseitiges SDK, das Funktionen zur Analyse der Sensoren des Telefons, zur Anzeige von Fahrdaten, zum Fahrercoaching und zur Gamification enthält. Entdecken Sie sie, bevor Sie sie in Ihre App integrieren 🚀.";
 "feature_location_sharing_description"="Die Komponente Trip Analysis enthält eine Funktion, um die Angehörigen des Nutzers beim Fahren durch einen teilbaren Link zu beruhigen, der die Position des Fahrzeugs während der Fahrten anzeigt.";
@@ -93,6 +97,7 @@
 "firstname"="Vorname";
 "forbidden_error"="Sie haben nicht die nötigen Rechte";
 "info_banner_diagnosis_title"="Ein Problem wurde erkannt! Sie müssen Ihr Telefon einrichten.";
+"info_banner_passenger_declaration_title"="Wussten Sie, dass Sie eine Fahrt als Mitfahrer melden können?";
 "lastname"="Nachname";
 "limit_reached_error"="Die maximale Anzahl an Fahrern auf diesem API-Schlüssel wurde erreicht";
 "logout_confirmation"="Möchten Sie die Verbindung wirklich trennen?";
@@ -184,12 +189,12 @@ Um Ihnen bei der Implementierung eines.\n\nTBerechtigungspfads zu helfen, haben 
 "trip_simulator_city_title"="Fahrt in die Stadt (8 km)";
 "trip_simulator_crash_0_description"="Bei diesem Beispiel handelt es sich um eine Kurzstrecke mit einem Zusammenstoß, den der Erkennungsalgorithmus nicht bestätigt.";
 "trip_simulator_crash_0_title"="Unbestätigter Unfall";
-"trip_simulator_crash_40_description"="Bei diesem Beispiel handelt es sich um eine kurze Strecke mit einem bestätigten Unfall bei einer Geschwindigkeit von 40 km/h.";
-"trip_simulator_crash_40_title"="Unfall bei 40 km/h bestätigt";
 "trip_simulator_crash_20_description"="Bei diesem Beispiel handelt es sich um eine kurze Strecke mit einem bestätigten Unfall bei einer Geschwindigkeit von 20 km/h.";
 "trip_simulator_crash_20_title"="Unfall bei 20 km/h bestätigt";
 "trip_simulator_crash_30_description"="Bei diesem Beispiel handelt es sich um eine kurze Strecke mit einem bestätigten Unfall bei einer Geschwindigkeit von 30 km/h.";
 "trip_simulator_crash_30_title"="Unfall bei 30 km/h bestätigt";
+"trip_simulator_crash_40_description"="Bei diesem Beispiel handelt es sich um eine kurze Strecke mit einem bestätigten Unfall bei einer Geschwindigkeit von 40 km/h.";
+"trip_simulator_crash_40_title"="Unfall bei 40 km/h bestätigt";
 "trip_simulator_crash_followed_by_driving_description"="In diesem Beispiel geht es um einen Unfall, der weniger als zwei Minuten nach Beginn der Fahrt bestätigt wurde und nach dem der Fahrer seine Fahrt fortgesetzt hat.";
 "trip_simulator_crash_followed_by_driving_title"="Unfall bestätigt und Reise fortgesetzt";
 "trip_simulator_description"="Der Simulator soll Ihnen helfen, eine Fahrt nachzuvollziehen und den Lebenszyklus der DriveKit-Komponente Trip Analysis zu verstehen. Wir empfehlen Ihnen, ihn nach der Integration des SDK zu verwenden. Es reproduziert echte GPS-Daten für verschiedene Arten von Fahrten.\n\nEs ist ein Testwerkzeug und sollte nicht in eine Produktionsanwendung eingebaut werden.\n\nWir empfehlen Ihnen außerdem, Ihre Anwendung immer unter realen Bedingungen zu testen, bevor Sie sie veröffentlichen.";
@@ -235,4 +240,3 @@ Um Ihnen bei der Implementierung eines.\n\nTBerechtigungspfads zu helfen, haben 
 "welcome_ok_button"="NÄCHSTER SCHRITT";
 "welcome_ok_description"="Bravo, Sie haben soeben die DriveKit-Demo-App installiert 🎉\n\nDiese App zeigt die Funktionsweise der DriveKit-Komponenten und leitet Sie an, diese in Ihrer App zu installieren.\n\nIhr API-Key ist :\n\n%@\n\nUnter keinen Umständen sollte es gemeinsam genutzt oder in mehreren Anwendungen verwendet werden.";
 "welcome_ok_title"="Willkommen bei der DriveKit-Demoanwendung";
-"passenger_declaration_banner"="Wussten Sie, dass Sie eine Fahrt als Mitfahrer melden können?";

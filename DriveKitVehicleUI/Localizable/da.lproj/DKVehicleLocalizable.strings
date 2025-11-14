@@ -30,6 +30,16 @@
 "dk_detection_mode_gps_title"="GPS";
 "dk_empty_vehicle_name"="Navngiv dit køretøj";
 "dk_fields_not_valid"="Kontroller de data, du har indtastet";
+"dk_find_vehicle_date"="Du parkerede dit køretøj den %@ kl. %@.";
+"dk_find_vehicle_empty"="For at se dit køretøjs position skal du først optage en tur.";
+"dk_find_vehicle_itinerary"="Gå derhen";
+"dk_find_vehicle_location_far"="Dit køretøj befinder sig cirka %@ km fra din nuværende position.";
+"dk_find_vehicle_location_far_imperial"="Dit køretøj befinder sig cirka %@ mi fra din nuværende position.";
+"dk_find_vehicle_location_nearby"="Dit køretøj befinder sig cirka %@ m fra din nuværende position.";
+"dk_find_vehicle_location_nearby_imperial"="Dit køretøj befinder sig cirka %@ yd fra din nuværende position.";
+"dk_find_vehicle_location_very_close"="Dit køretøj befinder sig mindre end %@ m fra din nuværende position.";
+"dk_find_vehicle_location_very_close_imperial"="Dit køretøj befinder sig mindre end %@ yd fra din position.";
+"dk_find_vehicle_title"="Hvor er mit køretøj?";
 "dk_gearbox"="Gearkasse";
 "dk_gearbox_automatic"="Automatisk";
 "dk_gearbox_manual_5"="Manuel 5 gear";

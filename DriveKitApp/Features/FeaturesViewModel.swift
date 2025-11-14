@@ -19,6 +19,7 @@ class FeaturesViewModel {
         FeatureViewViewModel(type: .permissionsUtils_diagnosis),
         FeatureViewViewModel(type: .vehicle_list),
         FeatureViewViewModel(type: .vehicle_odometer),
+        FeatureViewViewModel(type: .vehicle_find),
         FeatureViewViewModel(type: .challenge_list),
         FeatureViewViewModel(type: .driverAchievement_ranking),
         FeatureViewViewModel(type: .driverAchievement_badges),

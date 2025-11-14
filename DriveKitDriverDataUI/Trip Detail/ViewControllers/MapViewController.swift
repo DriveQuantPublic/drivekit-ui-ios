@@ -555,7 +555,7 @@ extension MapViewController: MKMapViewDelegate {
         let polylineRenderer = MKPolylineRenderer(overlay: overlay)
         polylineRenderer.lineWidth = self.lineWidth
         if overlay === self.polyLine {
-            polylineRenderer.strokeColor = UIColor.dkMapTrace
+            polylineRenderer.strokeColor = DKUIColors.mapTraceColor.color
         } else {
             if let polyline = overlay as? MKPolyline, let authorizedPhoneCallPolylines = self.authorizedPhoneCallPolylines, authorizedPhoneCallPolylines.contains(polyline) {
                 polylineRenderer.strokeColor = UIColor.dkMapTraceAuthorizedCall

@@ -66,7 +66,7 @@ enum InfoBannerType: CaseIterable {
             case .diagnosis:
                 return "info_banner_diagnosis_title".keyLocalized()
             case .driverPassenger:
-                return "passenger_declaration_banner".keyLocalized()
+                return "info_banner_passenger_declaration_title".keyLocalized()
         }
     }
 

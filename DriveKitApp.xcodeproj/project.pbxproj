@@ -399,6 +399,10 @@
 		6708ED8329E9C048005652A3 /* DrivingConditionsContextCard+RoadContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED8229E9C048005652A3 /* DrivingConditionsContextCard+RoadContext.swift */; };
 		6708ED8529ED5364005652A3 /* DKContextCardColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED8429ED5364005652A3 /* DKContextCardColor.swift */; };
 		6708ED8729EEE43A005652A3 /* DrivingConditionsContextCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6708ED8629EEE43A005652A3 /* DrivingConditionsContextCard.swift */; };
+		670CD0C12EBB9CCA00D2179B /* FindMyVehicleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 670CD0C02EBB9CCA00D2179B /* FindMyVehicleViewController.xib */; };
+		670CD0C22EBB9CCA00D2179B /* FindMyVehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670CD0BF2EBB9CCA00D2179B /* FindMyVehicleViewController.swift */; };
+		670CD0C42EBB9CDA00D2179B /* FindMyVehicleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670CD0C32EBB9CD200D2179B /* FindMyVehicleViewModel.swift */; };
+		670CD0C82EBCD8DC00D2179B /* FindMyVehicleViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670CD0C72EBCD8D800D2179B /* FindMyVehicleViewModelDelegate.swift */; };
 		670EFB0A2B060BB100F8895D /* DKDeviceConfigurationEventNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670EFB092B060BB100F8895D /* DKDeviceConfigurationEventNotificationManager.swift */; };
 		671087D128072FBE004FA464 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671087CF28072FBE004FA464 /* UserInfoViewController.swift */; };
 		671087D228072FBE004FA464 /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 671087D028072FBE004FA464 /* UserInfoViewController.xib */; };
@@ -1231,6 +1235,10 @@
 		6708ED8229E9C048005652A3 /* DrivingConditionsContextCard+RoadContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DrivingConditionsContextCard+RoadContext.swift"; sourceTree = "<group>"; };
 		6708ED8429ED5364005652A3 /* DKContextCardColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKContextCardColor.swift; sourceTree = "<group>"; };
 		6708ED8629EEE43A005652A3 /* DrivingConditionsContextCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrivingConditionsContextCard.swift; sourceTree = "<group>"; };
+		670CD0BF2EBB9CCA00D2179B /* FindMyVehicleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMyVehicleViewController.swift; sourceTree = "<group>"; };
+		670CD0C02EBB9CCA00D2179B /* FindMyVehicleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FindMyVehicleViewController.xib; sourceTree = "<group>"; };
+		670CD0C32EBB9CD200D2179B /* FindMyVehicleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMyVehicleViewModel.swift; sourceTree = "<group>"; };
+		670CD0C72EBCD8D800D2179B /* FindMyVehicleViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindMyVehicleViewModelDelegate.swift; sourceTree = "<group>"; };
 		670EFB092B060BB100F8895D /* DKDeviceConfigurationEventNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DKDeviceConfigurationEventNotificationManager.swift; sourceTree = "<group>"; };
 		671087CF28072FBE004FA464 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		671087D028072FBE004FA464 /* UserInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
@@ -1938,6 +1946,7 @@
 		3FF68EF32413ECC00071D74C /* DriveKitVehicleUI */ = {
 			isa = PBXGroup;
 			children = (
+				670CD0BA2EBB949000D2179B /* FindMyVehicle */,
 				3FF68F022414FD5B0071D74C /* Localizable */,
 				3F50D7062417ADC9001226F7 /* Extension */,
 				63A6DF622823F56A0096F48E /* Utils */,
@@ -2819,6 +2828,33 @@
 				6708ED8229E9C048005652A3 /* DrivingConditionsContextCard+RoadContext.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		670CD0BA2EBB949000D2179B /* FindMyVehicle */ = {
+			isa = PBXGroup;
+			children = (
+				670CD0BC2EBB988100D2179B /* ViewModel */,
+				670CD0BB2EBB987900D2179B /* View */,
+			);
+			path = FindMyVehicle;
+			sourceTree = "<group>";
+		};
+		670CD0BB2EBB987900D2179B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				670CD0BF2EBB9CCA00D2179B /* FindMyVehicleViewController.swift */,
+				670CD0C02EBB9CCA00D2179B /* FindMyVehicleViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		670CD0BC2EBB988100D2179B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				670CD0C72EBCD8D800D2179B /* FindMyVehicleViewModelDelegate.swift */,
+				670CD0C32EBB9CD200D2179B /* FindMyVehicleViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		670EFB082B060B9F00F8895D /* DeviceConfiguration */ = {
@@ -4263,6 +4299,7 @@
 				3F50D70124179467001226F7 /* SuccessBluetoothVC.xib in Resources */,
 				A3D51F51241BA3AE006DACE2 /* VehiclesListCell.xib in Resources */,
 				637F96B82720B4DD0027AC1F /* OdometerCell.xib in Resources */,
+				670CD0C12EBB9CCA00D2179B /* FindMyVehicleViewController.xib in Resources */,
 				3F50D70324179467001226F7 /* ConnectBluetoothVC.xib in Resources */,
 				3FFB2D8324191BC3003E6A06 /* BeaconScannerSuccessVC.xib in Resources */,
 				3FE6A4432420BEC300E24C1C /* BeaconScannerInfoVC.xib in Resources */,
@@ -4600,6 +4637,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				670CD0C22EBB9CCA00D2179B /* FindMyVehicleViewController.swift in Sources */,
 				3FF68F1D24150D9E0071D74C /* VehiclePickerTableViewDelegate.swift in Sources */,
 				3FF68F5024164E040071D74C /* VehiclePickerInputVC.swift in Sources */,
 				A34FC73A2423EE81000734AB /* VehicleFieldCell.swift in Sources */,
@@ -4661,6 +4699,7 @@
 				A34FC73024227567000734AB /* VehicleDetailViewModel.swift in Sources */,
 				3FF68F3D2415437A0071D74C /* DKVehicleBrand+UI.swift in Sources */,
 				638DDC582726EAAE003ED260 /* OdometerCellType.swift in Sources */,
+				670CD0C42EBB9CDA00D2179B /* FindMyVehicleViewModel.swift in Sources */,
 				637F96D02720B62C0027AC1F /* OdometerHistoriesVC.swift in Sources */,
 				3FF68F2F241532EB0071D74C /* VehiclePickerCollectionViewVC.swift in Sources */,
 				3F50D6FF24179467001226F7 /* SelectBluetoothVC.swift in Sources */,
@@ -4688,6 +4727,7 @@
 				63782D912487997A0079F315 /* DKTruckType+UI.swift in Sources */,
 				3FF68F23241510F50071D74C /* DKVehicleCategory+UI.swift in Sources */,
 				3F50D6FE24179467001226F7 /* SuccessBluetoothVC.swift in Sources */,
+				670CD0C82EBCD8DC00D2179B /* FindMyVehicleViewModelDelegate.swift in Sources */,
 				637517B12727DB0700F7FA4A /* OdometerVehicleCellViewModel.swift in Sources */,
 				3FFB2D752418F719003E6A06 /* BeaconScannerVC.swift in Sources */,
 			);

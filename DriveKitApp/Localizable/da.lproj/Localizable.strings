@@ -25,6 +25,7 @@
 "drivekit_doc_android_challenges"="https://docs.drivequant.com/challenge/user-interface/android/get-started#display-challenge-list";
 "drivekit_doc_android_diag"="https://docs.drivequant.com/permissions-utils/permission-utils/android/main-configuration#sdk-diagnosis";
 "drivekit_doc_android_driver_data"="https://docs.drivequant.com/driver-data/user-interface/android/get-started";
+"drivekit_doc_android_find_vehicle"="https://docs.drivequant.com/vehicle/user-interface/ios/find-my-vehicle";
 "drivekit_doc_android_github_ui"="https://github.com/DriveQuantPublic/drivekit-ui-android";
 "drivekit_doc_android_location_sharing"="https://docs.drivequant.com/trip-analysis/user-interface/android/location-sharing";
 "drivekit_doc_android_odometer"="https://docs.drivequant.com/vehicle/user-interface/android/main-configurations#vehicle-mileage-tracking-and-editing";
@@ -44,6 +45,7 @@
 "drivekit_doc_ios_challenges"="https://docs.drivequant.com/challenge/user-interface/ios/get-started#display-challenge-list";
 "drivekit_doc_ios_diag"="https://docs.drivequant.com/permissions-utils/permission-utils/ios/main-configurations#sdk-diagnosis";
 "drivekit_doc_ios_driver_data"="https://docs.drivequant.com/driver-data/user-interface/ios/get-started";
+"drivekit_doc_ios_find_vehicle"="https://docs.drivequant.com/vehicle/user-interface/ios/find-my-vehicle";
 "drivekit_doc_ios_github_ui"="https://github.com/DriveQuantPublic/drivekit-ui-ios";
 "drivekit_doc_ios_location_sharing"="https://docs.drivequant.com/trip-analysis/user-interface/ios/location-sharing";
 "drivekit_doc_ios_odometer"="https://docs.drivequant.com/vehicle/user-interface/ios/main-configurations#vehicle-mileage-tracking-and-editing";
@@ -63,6 +65,8 @@
 "feature_badges_title"="Driver Achievement | Badges";
 "feature_challenges_description"="Køreudfordringen er en engangsbegivenhed, hvor bilisterne konkurrerer om at få den bedste kørescore. Udfordringskomponenten omfatter flere temaer: øko-kørsel, sikkerhed, distraktion og hastighedsgrænse.";
 "feature_challenges_title"="Challenge | List and results";
+"feature_find_vehicle_description"="Vehicle-komponenten indeholder en funktion, der gør det muligt for brugeren at vide, hvor han/hun har parkeret sit køretøj, og finde vej dertil ved hjælp af det foretrukne navigationsværktøj.";
+"feature_find_vehicle_title"="Vehicle | Hvor er mit køretøj?";
 "feature_list"="Liste over funktioner";
 "feature_list_description"="DriveKit er et rigt og alsidigt SDK, der inkluderer analyse af telefonsensorer, visning af kørselsdata, chaufførcoaching og gamification-funktioner. Oplev disse funktioner, før du integrerer dem i din app 🚀.";
 "feature_location_sharing_description"="Trip Analysis-komponenten indeholder en funktion til at berolige brugerens familie og venner under kørslen takket være et link, der kan deles, og som viser bilens position under kørslen.";
@@ -93,6 +97,7 @@
 "firstname"="Fornavn";
 "forbidden_error"="Du har ikke de nødvendige rettigheder";
 "info_banner_diagnosis_title"="Der er opdaget et problem! Du skal konfigurere din telefon.";
+"info_banner_passenger_declaration_title"="Vidste du, at du kan registrere en tur som passager?";
 "lastname"="Efternavn";
 "limit_reached_error"="Det maksimale antal drivere på denne API-nøgle er nået.";
 "logout_confirmation"="Er du sikker på, at du vil logge ud?";
@@ -183,12 +188,12 @@
 "trip_simulator_city_title"="Bytur (8 km)";
 "trip_simulator_crash_0_description"="Dette eksempel er en kort tur med en kollision, som detektionsalgoritmen ikke bekræfter.";
 "trip_simulator_crash_0_title"="Tur med ubekræftet kollision";
-"trip_simulator_crash_40_description"="Dette eksempel er en kort tur med et bekræftet uheld ved en hastighed på 40 km/t.";
-"trip_simulator_crash_40_title"="Bekræftet sammenstød ved 40 km/t";
 "trip_simulator_crash_20_description"="Dette eksempel er en kort tur med en bekræftet ulykke ved en hastighed på 20 km/t.";
 "trip_simulator_crash_20_title"="Crash bekræftet ved 20 km/t";
 "trip_simulator_crash_30_description"="Dette eksempel er en kort tur med en bekræftet ulykke ved en hastighed på 30 km/t.";
 "trip_simulator_crash_30_title"="Crash bekræftet ved 30 km/t";
+"trip_simulator_crash_40_description"="Dette eksempel er en kort tur med et bekræftet uheld ved en hastighed på 40 km/t.";
+"trip_simulator_crash_40_title"="Bekræftet sammenstød ved 40 km/t";
 "trip_simulator_crash_followed_by_driving_description"="Dette eksempel omfatter en ulykke, der er bekræftet mindre end to minutter efter turens start, hvorefter føreren har fortsat med at køre.";
 "trip_simulator_crash_followed_by_driving_title"="Ulykke bekræftet og turen genoptaget";
 "trip_simulator_description"="Formålet med simulatoren er at hjælpe dig med at reproducere en tur og forstå livscyklussen for Trip Analysis-komponenten i DriveKit. Vi anbefaler, at du bruger den efter SDK-integrationen. Den gengiver ægte GPS-data for flere typer ture.\n\nDet er et testværktøj, du bør ikke integrere det i en produktionsapplikation.\n\nVi anbefaler også, at du altid tester din applikation under virkelige forhold, før du offentliggør den.";
@@ -234,4 +239,3 @@
 "welcome_ok_button"="NÆSTE TRIN";
 "welcome_ok_description"="Tillykke, du har bygget DriveKit-demoapplikationen 🎉\n\nDenne applikation viser dig, hvordan DriveKit-komponenterne fungerer, og guider dig til at installere dem i din applikation.\n\nDin API-nøgle er:\n\n%@\n\nDen må under ingen omstændigheder deles eller bruges i flere applikationer.";
 "welcome_ok_title"="Velkommen til DriveKit demo-applikationen";
-"passenger_declaration_banner"="Vidste du, at du kan registrere en tur som passager?";

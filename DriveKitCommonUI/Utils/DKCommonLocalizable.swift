@@ -25,6 +25,7 @@ public enum DKCommonLocalizable: String {
     unitKmPerHour = "dk_common_unit_km_per_hour",
     unitLPer100Km = "dk_common_unit_l_per_100km",
     unitkWhPer100Km = "dk_common_unit_kwh_per_100km",
+    unitMilePerKWh = "dk_common_unit_mile_per_kwh",
     unitPower = "dk_common_unit_power",
     unitMPG = "dk_common_unit_mpg",
     unitMPH = "dk_common_unit_mph",

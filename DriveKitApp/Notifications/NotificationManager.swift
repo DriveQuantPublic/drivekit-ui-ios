@@ -203,8 +203,7 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
     }
     
     func showDashboardWithTripRecordingButton() {
-        if let appDelegate = UIApplication.shared.delegate,
-           let appNavigationController = appDelegate.window??.rootViewController as? AppNavigationController {
+        if let appNavigationController = UIApplication.shared.visibleViewController?.navigationController as? AppNavigationController {
             appNavigationController.popToRootViewController(animated: true)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 if let dashboardVC = appNavigationController.viewControllers.first as? DashboardViewController {
@@ -215,8 +214,7 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
     }
     
     func showTrip(with identifier: String, hasAdvices: Bool) {
-        if let appDelegate = UIApplication.shared.delegate, 
-            let rootViewController = appDelegate.window??.rootViewController,
+        if let rootViewController = UIApplication.shared.visibleViewController,
             let trip = DriveKitDBTripAccess.shared.find(itinId: identifier) {
             let transportationMode: TransportationMode = trip.transportationMode
             let isAlternative = transportationMode.isAlternative()
@@ -229,8 +227,7 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
     }
 
     func showDiagnosis() {
-        if let appDelegate = UIApplication.shared.delegate,
-           let appNavigationController = appDelegate.window??.rootViewController as? AppNavigationController {
+        if let appNavigationController = UIApplication.shared.visibleViewController?.navigationController as? AppNavigationController {
             let diagnosisViewController = DriveKitPermissionsUtilsUI.shared.getDiagnosisViewController()
             let navigationController = UINavigationController(rootViewController: diagnosisViewController)
             navigationController.configure()

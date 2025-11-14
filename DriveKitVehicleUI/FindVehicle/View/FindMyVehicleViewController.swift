@@ -1,5 +1,5 @@
 //
-//  FindVehicleViewController.swift
+//  FindMyVehicleViewController.swift
 //  DriveKitVehicleUI
 //
 //  Created by Amine Gahbiche on 05/11/2025.
@@ -10,7 +10,7 @@ import UIKit
 import DriveKitCommonUI
 import MapKit
 
-class FindVehicleViewController: DKUIViewController {
+class FindMyVehicleViewController: DKUIViewController {
     @IBOutlet private weak var findVehicleView: UIView!
     @IBOutlet private weak var mapView: MKMapView!
     @IBOutlet private weak var dateLabel: UILabel!
@@ -26,11 +26,11 @@ class FindVehicleViewController: DKUIViewController {
     // swiftlint:disable:next no_magic_numbers
     private let insets = UIEdgeInsets.init(top: 50, left: 50, bottom: 50, right: 50)
     private var routeRect: MKMapRect?
-    private let viewModel: FindVehicleViewModel
+    private let viewModel: FindMyVehicleViewModel
 
-    public init(viewModel: FindVehicleViewModel = FindVehicleViewModel()) {
+    public init(viewModel: FindMyVehicleViewModel = FindMyVehicleViewModel()) {
         self.viewModel = viewModel
-        super.init(nibName: String(describing: FindVehicleViewController.self), bundle: Bundle.vehicleUIBundle)
+        super.init(nibName: String(describing: FindMyVehicleViewController.self), bundle: Bundle.vehicleUIBundle)
     }
     
     required init?(coder: NSCoder) {
@@ -146,7 +146,7 @@ class FindVehicleViewController: DKUIViewController {
     }
 }
 
-extension FindVehicleViewController: MKMapViewDelegate {
+extension FindMyVehicleViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard !(annotation is MKUserLocation) else {
             return nil
@@ -186,7 +186,7 @@ extension FindVehicleViewController: MKMapViewDelegate {
     }
 }
 
-extension FindVehicleViewController: FindVehicleViewModelDelegate {
+extension FindMyVehicleViewController: FindMyVehicleViewModelDelegate {
     func userLocationUpdateFinished() {
         updateUserAnnotation()
         updateDistanceLabel()

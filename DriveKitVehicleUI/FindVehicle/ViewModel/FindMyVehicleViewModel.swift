@@ -1,5 +1,5 @@
 //
-//  FindVehicleViewModel.swift
+//  FindMyVehicleViewModel.swift
 //  DriveKitApp
 //
 //  Created by Amine Gahbiche on 05/11/2025.
@@ -11,7 +11,7 @@ import CoreLocation
 import MapKit
 import DriveKitCommonUI
 
-class FindVehicleViewModel: NSObject {
+class FindMyVehicleViewModel: NSObject {
     let lastLocationCoordinates: CLLocationCoordinate2D?
     let lastLocationDate: Date?
     private let lastlocationAccuracy: Double?
@@ -19,7 +19,7 @@ class FindVehicleViewModel: NSObject {
     private(set) var addressString: String?
     private(set) var polyLine: MKPolyline?
 
-    weak var delegate: FindVehicleViewModelDelegate?
+    weak var delegate: FindMyVehicleViewModelDelegate?
     private let locationManager: CLLocationManager = CLLocationManager()
     
     var shouldDrawAccuracyCircle: Bool {
@@ -156,7 +156,7 @@ class FindVehicleViewModel: NSObject {
     }
 }
 
-extension FindVehicleViewModel: CLLocationManagerDelegate {
+extension FindMyVehicleViewModel: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let coordinates = locations.last?.coordinate {
             self.userLocationCoordinates = coordinates

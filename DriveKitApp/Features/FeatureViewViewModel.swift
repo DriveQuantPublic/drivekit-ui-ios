@@ -126,7 +126,7 @@ class FeatureViewViewModel {
             case .vehicle_odometer:
                 viewController = DriveKitVehicleUI.shared.getOdometerUI()
             case .vehicle_find:
-                viewController = DriveKitVehicleUI.shared.getFindVehicleViewController()
+                viewController = DriveKitVehicleUI.shared.getFindMyVehicleViewController()
         }
         if let viewController = viewController {
             parentViewController.navigationController?.pushViewController(viewController, animated: true)

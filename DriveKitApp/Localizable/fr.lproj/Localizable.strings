@@ -25,6 +25,7 @@
 "drivekit_doc_android_challenges"="https://docs.drivequant.com/challenge/user-interface/android/get-started#display-challenge-list";
 "drivekit_doc_android_diag"="https://docs.drivequant.com/permissions-utils/permission-utils/android/main-configuration#sdk-diagnosis";
 "drivekit_doc_android_driver_data"="https://docs.drivequant.com/driver-data/user-interface/android/get-started";
+"drivekit_doc_android_find_vehicle"="https://docs.drivequant.com/vehicle/user-interface/ios/find-my-vehicle";
 "drivekit_doc_android_github_ui"="https://github.com/DriveQuantPublic/drivekit-ui-android";
 "drivekit_doc_android_location_sharing"="https://docs.drivequant.com/trip-analysis/user-interface/android/location-sharing";
 "drivekit_doc_android_odometer"="https://docs.drivequant.com/vehicle/user-interface/android/main-configurations#vehicle-mileage-tracking-and-editing";
@@ -44,6 +45,7 @@
 "drivekit_doc_ios_challenges"="https://docs.drivequant.com/challenge/user-interface/ios/get-started#display-challenge-list";
 "drivekit_doc_ios_diag"="https://docs.drivequant.com/permissions-utils/permission-utils/ios/main-configurations#sdk-diagnosis";
 "drivekit_doc_ios_driver_data"="https://docs.drivequant.com/driver-data/user-interface/ios/get-started";
+"drivekit_doc_ios_find_vehicle"="https://docs.drivequant.com/vehicle/user-interface/ios/find-my-vehicle";
 "drivekit_doc_ios_github_ui"="https://github.com/DriveQuantPublic/drivekit-ui-ios";
 "drivekit_doc_ios_location_sharing"="https://docs.drivequant.com/trip-analysis/user-interface/ios/location-sharing";
 "drivekit_doc_ios_odometer"="https://docs.drivequant.com/vehicle/user-interface/ios/main-configurations#vehicle-mileage-tracking-and-editing";
@@ -63,6 +65,8 @@
 "feature_badges_title"="Driver Achievement | Badges";
 "feature_challenges_description"="Le challenge de conduite est un événement ponctuel pendant lequel des conducteurs concourent pour obtenir le meilleur score de conduite. Le composant Challenge propose plusieurs thèmes : éco-conduite, sécurité, distraction et limitation de vitesse.";
 "feature_challenges_title"="Challenge | Liste et résultats";
+"feature_find_vehicle_description"="Le composant Vehicle intègre une fonctionnalité qui permet à l\'utilisateur de connaître l\'emplacement où il a stationné son véhicule et de s\'y rendre via l\'outil de navigation de son choix.";
+"feature_find_vehicle_title"="Vehicle | Où est mon véhicule ?";
 "feature_list"="Liste des fonctionnalités";
 "feature_list_description"="DriveKit est un SDK polyvalent qui contient des fonctions d\'analyse des capteurs du téléphone, d\'affichage des données de conduite, de coaching du conducteur et de gamification. Découvrez-les avant de les intégrer dans votre app 🚀.";
 "feature_location_sharing_description"="Le composant Trip Analysis comprend une fonction pour rassurer les proches de l\'utilisateur lorsqu\'il conduit grâce à un lien partageable qui affiche la position du véhicule pendant les trajets.";
@@ -93,6 +97,7 @@
 "firstname"="Prénom";
 "forbidden_error"="Vous n\'avez pas les droits nécessaires";
 "info_banner_diagnosis_title"="Un problème a été détecté ! Vous devez régler votre téléphone.";
+"info_banner_passenger_declaration_title"="Saviez-vous que vous pouvez déclarer un trajet effectué en tant que passager ?";
 "lastname"="Nom";
 "limit_reached_error"="Le nombre maximum de conducteurs sur cette clé API a été atteint";
 "logout_confirmation"="Etes-vous sûr de vouloir vous déconnecter ?";
@@ -183,12 +188,12 @@
 "trip_simulator_city_title"="Trajet en ville (8 km)";
 "trip_simulator_crash_0_description"="Cet exemple est un trajet court avec une collision que l\'algorithme de détection ne confirme pas.";
 "trip_simulator_crash_0_title"="Accident non confirmé";
-"trip_simulator_crash_40_description"="Cet exemple est un trajet court avec un accident confirmé à une vitesse de 40 km/h.";
-"trip_simulator_crash_40_title"="Accident confirmé à 40 km/h";
 "trip_simulator_crash_20_description"="Cet exemple est un trajet court avec un accident confirmé à une vitesse de 20 km/h.";
 "trip_simulator_crash_20_title"="Accident confirmé à 20 km/h";
 "trip_simulator_crash_30_description"="Cet exemple est un trajet court avec un accident confirmé à une vitesse de 30 km/h.";
 "trip_simulator_crash_30_title"="Accident confirmé à 30 km/h";
+"trip_simulator_crash_40_description"="Cet exemple est un trajet court avec un accident confirmé à une vitesse de 40 km/h.";
+"trip_simulator_crash_40_title"="Accident confirmé à 40 km/h";
 "trip_simulator_crash_followed_by_driving_description"="Cet exemple comprend un accident confirmé moins de deux minutes après le début du trajet et après lequel le conducteur a continué son trajet.";
 "trip_simulator_crash_followed_by_driving_title"="Accident confirmé et trajet poursuivi";
 "trip_simulator_description"="Le simulateur a pour objectif de vous aider à reproduire un trajet et à comprendre le cycle de vie du composant Trip Analysis de DriveKit. Nous vous conseillons de l\'utiliser après l\'intégration du SDK. Il reproduit des données GPS réelles pour plusieurs types de trajets.\n\nC\'est un outil de test, il ne faut pas l\'embarquer dans une application de production.\n\nNous vous recommandons également de toujours tester votre application en condition réelles avant de la publier.";
@@ -234,4 +239,3 @@
 "welcome_ok_button"="ÉTAPE SUIVANTE";
 "welcome_ok_description"="Bravo, vous venez d\’installer l\'application de démonstration de DriveKit 🎉\n\nCette application présente le fonctionnement des composants de DriveKit et vous guide pour les installer dans votre application.\n\nVotre clé API est :\n\n%@\n\nElle ne doit en aucun cas être partagée ou utilisée dans plusieurs applications.";
 "welcome_ok_title"="Bienvenue sur l’application de démonstration de DriveKit";
-"passenger_declaration_banner"="Saviez-vous que vous pouvez déclarer un trajet effectué en tant que passager ?";

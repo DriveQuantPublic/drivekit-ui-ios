@@ -83,6 +83,9 @@ class FindMyVehicleViewController: DKUIViewController {
     func updateVehicleAnnotation(address: String? = nil) {
         if let lastLocationCoordinates = viewModel.lastLocationCoordinates {
             let annotation = MKPointAnnotation(coordinate: lastLocationCoordinates)
+            if let vehicleAnnotation {
+                self.mapView.removeAnnotation(vehicleAnnotation)
+            }
             vehicleAnnotation = annotation
             self.mapView.addAnnotation(annotation)
 
@@ -96,8 +99,8 @@ class FindMyVehicleViewController: DKUIViewController {
     func updateUserAnnotation() {
         if let userLocationCoordinates = viewModel.userLocationCoordinates {
             let annotation = MKPointAnnotation(coordinate: userLocationCoordinates)
-            self.mapView.addAnnotation(annotation)
             userAnnotation = annotation
+            self.mapView.addAnnotation(annotation)
         }
     }
 

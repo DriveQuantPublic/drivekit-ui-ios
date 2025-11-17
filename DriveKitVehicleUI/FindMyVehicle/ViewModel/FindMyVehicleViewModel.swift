@@ -37,7 +37,6 @@ class FindMyVehicleViewModel: NSObject {
         if let lastLocation = DriveKitTripAnalysis.shared.getLastTripLocation() {
             self.lastLocationCoordinates = CLLocationCoordinate2D(latitude: lastLocation.latitude, longitude: lastLocation.longitude)
             self.lastLocationDate = lastLocation.date
-            self.addressString = "\(lastLocation.latitude), \(lastLocation.longitude)"
             self.lastlocationAccuracy = lastLocation.accuracyMeter
         } else {
             self.lastLocationCoordinates = nil

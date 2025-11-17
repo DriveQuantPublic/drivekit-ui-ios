@@ -14,19 +14,14 @@ import DriveKitCommonUI
 class FindMyVehicleViewModel: NSObject {
     let lastLocationCoordinates: CLLocationCoordinate2D?
     let lastLocationDate: Date?
+    let shouldDrawAccuracyCircle: Bool
     private let lastlocationAccuracy: Double?
     private(set) var userLocationCoordinates: CLLocationCoordinate2D?
     private(set) var addressString: String?
     private(set) var polyLine: MKPolyline?
-
+     
     weak var delegate: FindMyVehicleViewModelDelegate?
     private let locationManager: CLLocationManager = CLLocationManager()
-    
-    var shouldDrawAccuracyCircle: Bool {
-        guard let lastlocationAccuracy else { return false }
-        let poorAccuracyLimit: Double = 30
-        return lastlocationAccuracy > poorAccuracyLimit
-    }
 
     var accuracyCircleRadius: Double {
         guard let lastlocationAccuracy else { return 0 }
@@ -38,10 +33,12 @@ class FindMyVehicleViewModel: NSObject {
             self.lastLocationCoordinates = CLLocationCoordinate2D(latitude: lastLocation.latitude, longitude: lastLocation.longitude)
             self.lastLocationDate = lastLocation.date
             self.lastlocationAccuracy = lastLocation.accuracyMeter
+            self.shouldDrawAccuracyCircle = lastLocation.getAccuracyLevel() == .poor
         } else {
             self.lastLocationCoordinates = nil
             self.lastLocationDate = nil
             self.lastlocationAccuracy = nil
+            self.shouldDrawAccuracyCircle = false
         }
         self.userLocationCoordinates = CLLocationManager().location?.coordinate
     }

@@ -171,7 +171,7 @@ extension FindMyVehicleViewController: MKMapViewDelegate {
         // swiftlint:disable no_magic_numbers
         if let circle = overlay as? MKCircle {
             let circleRenderer = MKCircleRenderer(overlay: circle)
-            circleRenderer.fillColor = UIColor.lightGray.withAlphaComponent(0.1)
+            circleRenderer.fillColor = DKUIColors.mapTraceColor.color.withAlphaComponent(0.1)
             circleRenderer.strokeColor = UIColor.lightGray.withAlphaComponent(0.4)
             circleRenderer.lineWidth = 0.5
             return circleRenderer

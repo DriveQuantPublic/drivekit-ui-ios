@@ -83,9 +83,6 @@ class FindMyVehicleViewController: DKUIViewController {
     func updateVehicleAnnotation(address: String? = nil) {
         if let lastLocationCoordinates = viewModel.lastLocationCoordinates {
             let annotation = MKPointAnnotation(coordinate: lastLocationCoordinates)
-            if let address {
-                annotation.title = address
-            }
             vehicleAnnotation = annotation
             self.mapView.addAnnotation(annotation)
 
@@ -159,6 +156,12 @@ extension FindMyVehicleViewController: MKMapViewDelegate {
             view.canShowCallout = true
             let targetImage = DKVehicleImages.targetLocation.image
             view.image = targetImage?.resizeImage(expectedImageSize, opaque: false, contentMode: .scaleAspectFit)
+            if let address = viewModel.addressString {
+                let label = UILabel()
+                label.numberOfLines = 0
+                label.text = address
+                view.detailCalloutAccessoryView = label
+            }
         } else {
             view.canShowCallout = false
             let userLocImage = DKVehicleImages.currentLocation.image

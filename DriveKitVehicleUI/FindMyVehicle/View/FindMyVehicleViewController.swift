@@ -129,8 +129,7 @@ class FindMyVehicleViewController: DKUIViewController {
         // swiftlint:disable:next no_magic_numbers
         let geodesicPolyline = MKGeodesicPolyline(coordinates: &coordinates, count: 2)
         mapView.addOverlay(geodesicPolyline)
-        let rect = geodesicPolyline.boundingMapRect
-        self.routeRect = rect
+        self.routeRect = geodesicPolyline.boundingMapRect
         centerMap()
     }
 
@@ -208,13 +207,17 @@ extension FindMyVehicleViewController: FindMyVehicleViewModelDelegate {
     
     func directionsRequestFinished() {
         hideLoader()
-        guard let polyLine = viewModel.polyLine else {
+        
+        if let polyline = viewModel.polyLine {
+            mapView.addOverlay(polyline, level: MKOverlayLevel.aboveRoads)
+            if let rect = viewModel.computeMapRect() {
+                self.routeRect = rect
+            }
+            centerMap()
+        } else {
             drawLinePath()
-            return
         }
-        mapView.addOverlay(polyLine, level: MKOverlayLevel.aboveRoads)
-        let rect = polyLine.boundingMapRect
-        self.routeRect = rect
-        centerMap()
+       
+
     }
 }

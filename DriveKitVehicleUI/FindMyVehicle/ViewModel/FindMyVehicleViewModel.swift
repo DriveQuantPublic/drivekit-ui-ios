@@ -144,7 +144,22 @@ class FindMyVehicleViewModel: NSObject {
             }
         }
     }
-
+    
+    func computeMapRect() -> MKMapRect? {
+        guard
+            let userLocationCoordinates = userLocationCoordinates,
+            let lastLocationCoordinates = lastLocationCoordinates
+        else {
+            return polyLine?.boundingMapRect
+        }
+        
+        var coordinateRect = MKMapRect(from: userLocationCoordinates, to: lastLocationCoordinates)
+        if let polyline = polyLine {
+            coordinateRect = coordinateRect.union(polyline.boundingMapRect)
+        }
+        return coordinateRect
+    }
+    
     func openItineraryApp() {
         guard let lastLocationCoordinates = lastLocationCoordinates else { return }
         let destinationMapItem = getMapItem(for: lastLocationCoordinates)
@@ -164,5 +179,18 @@ extension FindMyVehicleViewModel: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
         delegate?.userLocationUpdateFinished()
+    }
+}
+
+extension MKMapRect {
+    init(from pointA: CLLocationCoordinate2D, to pointB: CLLocationCoordinate2D) {
+        let p1 = MKMapPoint(pointA)
+        let p2 = MKMapPoint(pointB)
+        self.init(
+            x: min(p1.x, p2.x),
+            y: min(p1.y, p2.y),
+            width: abs(p1.x - p2.x),
+            height: abs(p1.y - p2.y)
+        )
     }
 }

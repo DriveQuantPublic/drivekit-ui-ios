@@ -74,6 +74,8 @@
 		<string>dk_tag_vehicles_odometer_histories_list</string>
 		<key>OdometerHistoryDetailVC</key>
 		<string>dk_tag_vehicles_odometer_histories_detail</string>
+		<key>FindMyVehicleViewController</key>
+		<string>dk_tag_vehicles_find_my_vehicle</string>
 	</dict>
 	<key>Challenge</key>
 	<dict>

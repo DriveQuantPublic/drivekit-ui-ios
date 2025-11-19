@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24412" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="24128" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24405"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -36,39 +37,11 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Hc-Cf-NSb">
-                    <rect key="frame" x="0.0" y="0.0" width="393" height="476"/>
+                    <rect key="frame" x="0.0" y="117.99999999999997" width="393" height="407.33333333333326"/>
                     <standardMapConfiguration key="preferredConfiguration"/>
                 </mapView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oce-V1-4eS">
-                    <rect key="frame" x="22" y="498" width="349" height="44"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="44" id="JL7-3N-h6c"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0F2-hm-ke8">
-                    <rect key="frame" x="22" y="564" width="349" height="44"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="44" id="J3O-L0-Vzb"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sjp-rr-sCA">
-                    <rect key="frame" x="62" y="614" width="269" height="60"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="60" id="hBr-EC-qiv"/>
-                    </constraints>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <connections>
-                        <action selector="openItineraryApp" destination="-1" eventType="touchUpInside" id="aYm-Mg-TRn"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3MC-ni-Zrk">
-                    <rect key="frame" x="327" y="410" width="50" height="50"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3MC-ni-Zrk" userLabel="ResetMapRectButton">
+                    <rect key="frame" x="327" y="459.33333333333331" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="rkl-g0-6jh"/>
                         <constraint firstAttribute="width" constant="50" id="uZi-1P-O3E"/>
@@ -78,25 +51,48 @@
                         <action selector="centerMap" destination="-1" eventType="touchUpInside" id="Khx-13-fvV"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oce-V1-4eS">
+                    <rect key="frame" x="16" y="541.33333333333337" width="361" height="20.333333333333371"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0F2-hm-ke8">
+                    <rect key="frame" x="16" y="569.66666666666663" width="361" height="20.333333333333371"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sjp-rr-sCA" userLabel="ItineraryButton">
+                    <rect key="frame" x="16" y="606" width="361" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="hBr-EC-qiv"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Itinerary"/>
+                    <connections>
+                        <action selector="openItineraryApp" destination="-1" eventType="touchUpInside" id="aYm-Mg-TRn"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Vxw-Rl-BR3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="Vxw-Rl-BR3" firstAttribute="trailing" secondItem="sjp-rr-sCA" secondAttribute="trailing" constant="62" id="7Dy-Oo-pgf"/>
-                <constraint firstItem="sjp-rr-sCA" firstAttribute="leading" secondItem="Vxw-Rl-BR3" secondAttribute="leading" constant="62" id="BUh-6y-hg6"/>
-                <constraint firstItem="0Hc-Cf-NSb" firstAttribute="top" secondItem="lT6-DW-URg" secondAttribute="top" id="IEZ-9x-2iv"/>
+                <constraint firstItem="Vxw-Rl-BR3" firstAttribute="bottom" secondItem="sjp-rr-sCA" secondAttribute="bottom" id="7UO-AL-wmm"/>
+                <constraint firstItem="0Hc-Cf-NSb" firstAttribute="top" secondItem="Vxw-Rl-BR3" secondAttribute="top" id="IEZ-9x-2iv"/>
+                <constraint firstItem="Oce-V1-4eS" firstAttribute="leading" secondItem="Vxw-Rl-BR3" secondAttribute="leading" constant="16" id="Inj-Dt-NIf"/>
                 <constraint firstItem="0Hc-Cf-NSb" firstAttribute="bottom" secondItem="3MC-ni-Zrk" secondAttribute="bottom" constant="16" id="KxL-vZ-g2E"/>
-                <constraint firstItem="Oce-V1-4eS" firstAttribute="leading" secondItem="Vxw-Rl-BR3" secondAttribute="leading" constant="22" id="NQr-NZ-kWy"/>
-                <constraint firstItem="Vxw-Rl-BR3" firstAttribute="trailing" secondItem="0F2-hm-ke8" secondAttribute="trailing" constant="22" id="OXp-Tr-ifL"/>
+                <constraint firstItem="0F2-hm-ke8" firstAttribute="leading" secondItem="Vxw-Rl-BR3" secondAttribute="leading" constant="16" id="P58-bi-3WE"/>
+                <constraint firstItem="0F2-hm-ke8" firstAttribute="top" secondItem="Oce-V1-4eS" secondAttribute="bottom" constant="8" id="Peb-dv-I3n"/>
                 <constraint firstItem="0Hc-Cf-NSb" firstAttribute="leading" secondItem="Vxw-Rl-BR3" secondAttribute="leading" id="QLD-hC-hfR"/>
-                <constraint firstItem="Vxw-Rl-BR3" firstAttribute="trailing" secondItem="Oce-V1-4eS" secondAttribute="trailing" constant="22" id="V71-3h-lpm"/>
-                <constraint firstItem="0F2-hm-ke8" firstAttribute="top" secondItem="Oce-V1-4eS" secondAttribute="bottom" constant="22" id="YWw-Xw-HM1"/>
-                <constraint firstItem="sjp-rr-sCA" firstAttribute="bottom" secondItem="Vxw-Rl-BR3" secondAttribute="bottom" constant="8" id="Yc9-vI-Oga"/>
-                <constraint firstItem="0F2-hm-ke8" firstAttribute="leading" secondItem="Vxw-Rl-BR3" secondAttribute="leading" constant="22" id="cz8-T9-oEV"/>
-                <constraint firstItem="Oce-V1-4eS" firstAttribute="top" secondItem="0Hc-Cf-NSb" secondAttribute="bottom" constant="22" id="eer-g8-g1m"/>
+                <constraint firstItem="Vxw-Rl-BR3" firstAttribute="trailing" secondItem="Oce-V1-4eS" secondAttribute="trailing" constant="16" id="Xuh-Zm-EBm"/>
+                <constraint firstItem="sjp-rr-sCA" firstAttribute="top" secondItem="0F2-hm-ke8" secondAttribute="bottom" constant="16" id="aIY-Xq-48V"/>
+                <constraint firstItem="Oce-V1-4eS" firstAttribute="top" secondItem="0Hc-Cf-NSb" secondAttribute="bottom" constant="16" id="i3H-Ji-Cqr"/>
                 <constraint firstItem="Vxw-Rl-BR3" firstAttribute="trailing" secondItem="3MC-ni-Zrk" secondAttribute="trailing" constant="16" id="k0d-Vl-gxS"/>
-                <constraint firstItem="0Hc-Cf-NSb" firstAttribute="height" secondItem="lT6-DW-URg" secondAttribute="height" multiplier="0.68" id="mPk-Nq-Kg1"/>
+                <constraint firstItem="Vxw-Rl-BR3" firstAttribute="trailing" secondItem="0F2-hm-ke8" secondAttribute="trailing" constant="16" id="kQ8-ua-wi2"/>
+                <constraint firstItem="Vxw-Rl-BR3" firstAttribute="trailing" secondItem="sjp-rr-sCA" secondAttribute="trailing" constant="16" id="r4a-KV-qLD"/>
                 <constraint firstItem="0Hc-Cf-NSb" firstAttribute="trailing" secondItem="Vxw-Rl-BR3" secondAttribute="trailing" id="rSv-Dc-01j"/>
+                <constraint firstItem="sjp-rr-sCA" firstAttribute="leading" secondItem="Vxw-Rl-BR3" secondAttribute="leading" constant="16" id="s9c-69-CTr"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>

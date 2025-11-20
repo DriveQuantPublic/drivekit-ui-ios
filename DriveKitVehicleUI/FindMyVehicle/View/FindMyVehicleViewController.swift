@@ -59,7 +59,7 @@ class FindMyVehicleViewController: DKUIViewController {
         }
     }
 
-    func setupNoTripView() {
+    private func setupNoTripView() {
         self.noTripLabelContainer.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
         self.noTripLabelContainer.backgroundColor = DKUIColors.neutralColor.color
         noTripLabel.text = "dk_find_vehicle_empty".dkVehicleLocalized()
@@ -67,7 +67,7 @@ class FindMyVehicleViewController: DKUIViewController {
         noTripLabel.textColor = DKUIColors.mainFontColor.color
     }
 
-    func setupCenterMapButton() {
+    private func setupCenterMapButton() {
         centerMapButton.layer.borderColor = UIColor.black.cgColor
         let half = 0.5
         centerMapButton.layer.cornerRadius = centerMapButton.bounds.size.width * half
@@ -80,7 +80,7 @@ class FindMyVehicleViewController: DKUIViewController {
         centerMapButton.layer.borderColor = UIColor.lightGray.cgColor
     }
     
-    func updateVehicleAnnotation(address: String? = nil) {
+    private func updateVehicleAnnotation(address: String? = nil) {
         if let lastLocationCoordinates = viewModel.lastLocationCoordinates {
             let annotation = MKPointAnnotation(coordinate: lastLocationCoordinates)
             if let vehicleAnnotation {
@@ -96,7 +96,7 @@ class FindMyVehicleViewController: DKUIViewController {
         }
     }
 
-    func updateUserAnnotation() {
+    private func updateUserAnnotation() {
         if let userLocationCoordinates = viewModel.userLocationCoordinates {
             let annotation = MKPointAnnotation(coordinate: userLocationCoordinates)
             userAnnotation = annotation
@@ -104,7 +104,7 @@ class FindMyVehicleViewController: DKUIViewController {
         }
     }
 
-    func setupLabels() {
+    private func setupLabels() {
         dateLabel.font = DKStyles.smallText.style.applyTo(font: .primary)
         distanceLabel.font = DKStyles.smallText.style.applyTo(font: .primary)
         dateLabel.textColor = DKUIColors.mainFontColor.color
@@ -112,7 +112,7 @@ class FindMyVehicleViewController: DKUIViewController {
         dateLabel.text = viewModel.getDateLabelText()
     }
 
-    func updateDistanceLabel() {
+    private func updateDistanceLabel() {
         distanceLabel.text = viewModel.getDistanceLabelText()
     }
 
@@ -120,7 +120,7 @@ class FindMyVehicleViewController: DKUIViewController {
         viewModel.openItineraryApp()
     }
 
-    func drawLinePath() {
+    private func drawLinePath() {
         guard let userLocationCoordinates = viewModel.userLocationCoordinates,
               let lastLocationCoordinates = viewModel.lastLocationCoordinates else {
             return

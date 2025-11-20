@@ -54,12 +54,12 @@ class FindMyVehicleViewController: DKUIViewController {
             viewModel.retrieveUserLocation()
             viewModel.retrieveLastLocationAddress()
         } else {
-            setupNoTripView()
+            setupNoLastTripLocationView()
             view.embedSubview(noTripView)
         }
     }
 
-    private func setupNoTripView() {
+    private func setupNoLastTripLocationView() {
         self.noTripLabelContainer.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
         self.noTripLabelContainer.backgroundColor = DKUIColors.neutralColor.color
         noTripLabel.text = "dk_find_vehicle_empty".dkVehicleLocalized()
@@ -217,7 +217,5 @@ extension FindMyVehicleViewController: FindMyVehicleViewModelDelegate {
         } else {
             drawLinePath()
         }
-       
-
     }
 }

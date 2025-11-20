@@ -52,6 +52,8 @@
 	<string>drivekit-vehicles-odometer-histories-add</string>
 	<key>dk_tag_vehicles_odometer_histories_edit</key>
 	<string>drivekit-vehicles-odometer-histories-edit</string>
+	<key>dk_tag_vehicles_find_my_vehicle</key>
+	<string>drivekit-vehicles-find-my-vehicle</string>
 	<key>dk_tag_permissions_diagnosis</key>
 	<string>drivekit-permissions-diagnosis</string>
 	<key>dk_tag_permissions_onboarding</key>

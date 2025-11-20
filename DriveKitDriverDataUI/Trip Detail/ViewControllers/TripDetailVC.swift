@@ -252,7 +252,7 @@ extension TripDetailVC {
     
     func setupCenterButton() {
         cameraButton.tintColor = DKUIColors.primaryColor.color
-        cameraButton.setImage(UIImage(named: "dk_center_map", in: Bundle.driverDataUIBundle, compatibleWith: nil), for: .normal)
+        cameraButton.setImage(DKImages.centerMap.image, for: .normal)
         cameraButton.addTarget(self, action: #selector(tapOnCamera(_:)), for: .touchUpInside)
     }
     

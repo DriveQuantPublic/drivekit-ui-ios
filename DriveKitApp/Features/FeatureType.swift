@@ -19,6 +19,7 @@ enum FeatureType {
     case permissionsUtils_diagnosis
     case vehicle_list
     case vehicle_odometer
+    case vehicle_find
     case challenge_list
     case driverAchievement_ranking
     case driverAchievement_badges
@@ -53,7 +54,7 @@ enum FeatureType {
                 imageName = "feature_icon_tripAnalysis_workingHours"
             case .tripAnalysis_tripSharing:
                 imageName = "feature_icon_location_sharing"
-            case .vehicle_list, .vehicle_odometer:
+            case .vehicle_list, .vehicle_odometer, .vehicle_find:
                 imageName = "feature_icon_vehicle"
         }
         if let imageName = imageName {
@@ -96,6 +97,8 @@ enum FeatureType {
                 title = "feature_vehicle_title"
             case .vehicle_odometer:
                 title = "feature_vehicle_odometer_title"
+            case .vehicle_find:
+                title = "feature_find_vehicle_title"
         }
         return title.keyLocalized()
     }
@@ -133,6 +136,8 @@ enum FeatureType {
                 description = "feature_vehicle_description"
             case .vehicle_odometer:
                 description = "feature_vehicle_odometer_description"
+            case .vehicle_find:
+                description = "feature_find_vehicle_description"
         }
         return description.keyLocalized()
     }
@@ -170,6 +175,8 @@ enum FeatureType {
                 docKey = "drivekit_doc_ios_vehicle_list"
             case .vehicle_odometer:
                 docKey = "drivekit_doc_ios_odometer"
+            case .vehicle_find:
+                docKey = "drivekit_doc_ios_find_vehicle"
         }
         return docKey?.keyLocalized()
     }
@@ -191,7 +198,8 @@ enum FeatureType {
                 .tripAnalysis_workingHours,
                 .tripAnalysis_tripSharing,
                 .vehicle_list,
-                .vehicle_odometer:
+                .vehicle_odometer,
+                .vehicle_find:
                 return "button_see_feature".keyLocalized()
         }
     }

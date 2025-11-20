@@ -25,6 +25,7 @@
 "drivekit_doc_android_challenges"="https://docs.drivequant.com/challenge/user-interface/android/get-started#display-challenge-list";
 "drivekit_doc_android_diag"="https://docs.drivequant.com/permissions-utils/permission-utils/android/main-configuration#sdk-diagnosis";
 "drivekit_doc_android_driver_data"="https://docs.drivequant.com/driver-data/user-interface/android/get-started";
+"drivekit_doc_android_find_vehicle"="https://docs.drivequant.com/vehicle/user-interface/ios/find-my-vehicle";
 "drivekit_doc_android_github_ui"="https://github.com/DriveQuantPublic/drivekit-ui-android";
 "drivekit_doc_android_location_sharing"="https://docs.drivequant.com/trip-analysis/user-interface/android/location-sharing";
 "drivekit_doc_android_odometer"="https://docs.drivequant.com/vehicle/user-interface/android/main-configurations#vehicle-mileage-tracking-and-editing";
@@ -44,6 +45,7 @@
 "drivekit_doc_ios_challenges"="https://docs.drivequant.com/challenge/user-interface/ios/get-started#display-challenge-list";
 "drivekit_doc_ios_diag"="https://docs.drivequant.com/permissions-utils/permission-utils/ios/main-configurations#sdk-diagnosis";
 "drivekit_doc_ios_driver_data"="https://docs.drivequant.com/driver-data/user-interface/ios/get-started";
+"drivekit_doc_ios_find_vehicle"="https://docs.drivequant.com/vehicle/user-interface/ios/find-my-vehicle";
 "drivekit_doc_ios_github_ui"="https://github.com/DriveQuantPublic/drivekit-ui-ios";
 "drivekit_doc_ios_location_sharing"="https://docs.drivequant.com/trip-analysis/user-interface/ios/location-sharing";
 "drivekit_doc_ios_odometer"="https://docs.drivequant.com/vehicle/user-interface/ios/main-configurations#vehicle-mileage-tracking-and-editing";
@@ -63,6 +65,8 @@
 "feature_badges_title"="Driver Achievement | Badges";
 "feature_challenges_description"="Een driving challenge is een eenmalig evenement waarbij bestuurders strijden om de beste rijscore te behalen. De Challenge-component biedt verschillende thema\'s: ecorijden, veiligheid, afleiding en snelheidslimieten.";
 "feature_challenges_title"="Challenge | Lijst en resultaten";
+"feature_find_vehicle_description"="De Vehicle-component bevat een functie waarmee de gebruiker kan zien waar hij zijn voertuig heeft geparkeerd en ernaartoe kan navigeren met het navigatiemiddel van zijn keuze.";
+"feature_find_vehicle_title"="Vehicle | Waar is mijn voertuig?";
 "feature_list"="Lijst met functies";
 "feature_list_description"="DriveKit is een veelzijdige SDK die functies bevat voor het analyseren van telefoonsensoren, het weergeven van rijgegevens, coaching van bestuurders en gamification. Ontdek ze voordat je ze in je app integreert 🚀.";
 "feature_location_sharing_description"="Het onderdeel Ritanalyse bevat een functie om familie en vrienden tijdens het rijden gerust te stellen, dankzij een deelbare link die de positie van het voertuig tijdens het rijden weergeeft.";
@@ -93,6 +97,7 @@
 "firstname"="Voornaam";
 "forbidden_error"="U heeft niet de benodigde rechten";
 "info_banner_diagnosis_title"="Er is een probleem gedetecteerd! U moet uw telefoon aanpassen.";
+"info_banner_passenger_declaration_title"="Wist je dat je een rit als passagier kunt opgeven?";
 "lastname"="Achternaam";
 "limit_reached_error"="Het maximum aantal drivers voor deze API-sleutel is bereikt.";
 "logout_confirmation"="Weet je zeker dat je de verbinding wilt verbreken?";
@@ -183,12 +188,12 @@
 "trip_simulator_city_title"="Reis naar de stad (8 km)";
 "trip_simulator_crash_0_description"="Dit voorbeeld is een korte rit met een botsing die niet wordt bevestigd door het detectiealgoritme.";
 "trip_simulator_crash_0_title"="Onbevestigd ongeval";
-"trip_simulator_crash_40_description"="Dit voorbeeld is een korte reis met een bevestigd ongeval bij een snelheid van 40 km/u.";
-"trip_simulator_crash_40_title"="Ongeval bevestigd bij 40 km/u";
 "trip_simulator_crash_20_description"="Dit voorbeeld is een korte reis met een bevestigd ongeval bij een snelheid van 20 km/u.";
 "trip_simulator_crash_20_title"="Ongeval bevestigd bij 20 km/u";
 "trip_simulator_crash_30_description"="Dit voorbeeld is een korte reis met een bevestigd ongeval bij een snelheid van 30 km/u.";
 "trip_simulator_crash_30_title"="Ongeval bevestigd bij 30 km/u";
+"trip_simulator_crash_40_description"="Dit voorbeeld is een korte reis met een bevestigd ongeval bij een snelheid van 40 km/u.";
+"trip_simulator_crash_40_title"="Ongeval bevestigd bij 40 km/u";
 "trip_simulator_crash_followed_by_driving_description"="Dit voorbeeld omvat een ongeval dat minder dan twee minuten na het begin van de reis werd bevestigd, waarna de bestuurder zijn reis voortzette.";
 "trip_simulator_crash_followed_by_driving_title"="Ongeval bevestigd en reis voortgezet";
 "trip_simulator_description"="Het doel van de simulator is om je te helpen een reis te reproduceren en de levenscyclus van de ritanalysecomponent van DriveKit te begrijpen. We raden aan dat je het gebruikt na het integreren van de SDK. Het reproduceert echte GPS-gegevens voor verschillende soorten reizen.\n\nHet is een testtool, dus zet het niet in een productietoepassing.\n\nWe raden je ook aan om je applicatie altijd te testen in echte omstandigheden voordat je deze publiceert.";
@@ -234,4 +239,3 @@
 "welcome_ok_button"="VOLGENDE STAP";
 "welcome_ok_description"="Gefeliciteerd, je hebt zojuist de DriveKit demonstratietoepassing geïnstalleerd 🎉\n\nDeze toepassing legt uit hoe de DriveKit componenten werken en begeleidt je bij het installeren ervan in je toepassing.\n\nJe API-sleutel is:\n\n%@\n\nDeze mag nooit worden gedeeld of in meerdere toepassingen worden gebruikt.";
 "welcome_ok_title"="Welkom bij de DriveKit-demoapplicatie";
-"passenger_declaration_banner"="Wist je dat je een rit als passagier kunt opgeven?";

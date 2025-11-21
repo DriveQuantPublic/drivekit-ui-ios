@@ -22,7 +22,7 @@ public enum DKVehicleAction: String, CaseIterable, DKVehicleActionItem {
     case rename
     case replace
     case delete
-    case findMyVehicle
+    case find
 
     public func title() -> String {
         switch self {
@@ -36,7 +36,7 @@ public enum DKVehicleAction: String, CaseIterable, DKVehicleActionItem {
                 return "dk_vehicle_rename".dkVehicleLocalized()
             case .odometer:
                 return "dk_vehicle_odometer".dkVehicleLocalized()
-            case .findMyVehicle:
+            case .find:
                 return "dk_find_vehicle_title".dkVehicleLocalized()
         }
     }
@@ -67,7 +67,7 @@ public enum DKVehicleAction: String, CaseIterable, DKVehicleActionItem {
                     let odometerVehicleListVC = OdometerVehicleListVC(viewModel: odometerVehicleListViewModel)
                     viewModel.delegate?.pushViewController(odometerVehicleListVC, animated: true)
                 }
-            case .findMyVehicle:
+            case .find:
                 completionHandler = { _ in
                     viewModel.delegate?.pushViewController(FindMyVehicleViewController(viewModel: FindMyVehicleViewModel()), animated: true)
                 }
@@ -79,7 +79,7 @@ public enum DKVehicleAction: String, CaseIterable, DKVehicleActionItem {
         switch self {
             case .show:
                 return !vehicle.liteConfig
-            case .rename, .replace, .delete, .odometer, .findMyVehicle:
+            case .rename, .replace, .delete, .odometer, .find:
                 return true
         }
     }

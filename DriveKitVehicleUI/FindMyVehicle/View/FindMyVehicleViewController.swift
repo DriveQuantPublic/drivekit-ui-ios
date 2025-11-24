@@ -235,7 +235,7 @@ class ButtonWithLeftIcon: UIButton {
             self.configuration?.baseForegroundColor = .white
             self.configuration?.cornerStyle = .capsule
             self.configuration?.imagePlacement = .leading
-            self.configuration?.imagePadding = 8.0
+            self.configuration?.imagePadding = horizontalSpacePadding
         }
     }
     override func layoutSubviews() {

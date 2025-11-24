@@ -223,7 +223,7 @@ class ButtonWithLeftIcon: UIButton {
     let verticalPadding: CGFloat = 5
     let horizontalEdgePadding: CGFloat = 16
     let horizontalSpacePadding: CGFloat = 8
-    let imageWidth: CGFloat = 32
+    let imageWidth: CGFloat = 25
 
     override func awakeFromNib() {
         super.awakeFromNib()

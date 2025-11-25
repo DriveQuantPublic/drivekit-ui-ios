@@ -48,7 +48,7 @@ class FindMyVehicleViewController: DKUIViewController {
             updateVehicleAnnotation()
             setupLabels()
             view.embedSubview(findVehicleView)
-            showLoader()
+            centerMap()
             viewModel.delegate = self
             viewModel.retrieveUserLocation()
             viewModel.retrieveLastLocationAddress()
@@ -195,7 +195,6 @@ extension FindMyVehicleViewController: FindMyVehicleViewModelDelegate {
         updateUserAnnotation()
         updateDistanceLabel()
         if viewModel.userLocationCoordinates == nil {
-            hideLoader()
             centerMap()
         }
     }
@@ -205,8 +204,6 @@ extension FindMyVehicleViewController: FindMyVehicleViewModelDelegate {
     }
     
     func directionsRequestFinished() {
-        hideLoader()
-        
         if let polyline = viewModel.polyLine {
             mapView.addOverlay(polyline, level: MKOverlayLevel.aboveRoads)
             if let rect = viewModel.computeMapRect() {

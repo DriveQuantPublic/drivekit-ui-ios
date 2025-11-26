@@ -194,9 +194,6 @@ extension FindMyVehicleViewController: FindMyVehicleViewModelDelegate {
     func userLocationUpdateFinished() {
         updateUserAnnotation()
         updateDistanceLabel()
-        if viewModel.userLocationCoordinates == nil {
-            centerMap()
-        }
     }
     
     func addressGeocodingFinished() {

@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.resource = ['DriveKitCommonUI/Graphical/DKImages.xcassets','DriveKitCommonUI/Graphical/*.ttf', 'DriveKitCommonUI/Localizable/*','DriveKitCommonUI/**/*.xib','DriveKitCommonUI/AnalyticsScreenToTagKey.plist','DriveKitCommonUI/AnalyticsTags.plist', 'DriveKitCommonUI/PrivacyInfo.xcprivacy']
   s.frameworks = "CoreText"
 
-  s.dependency 'DriveKitCore'
+  s.dependency 'DriveKitCore', '2.23.1-beta1'
 
   s.pod_target_xcconfig = {
     'PRODUCT_BUNDLE_IDENTIFIER': 'com.drivequant.drivekit-common-ui'

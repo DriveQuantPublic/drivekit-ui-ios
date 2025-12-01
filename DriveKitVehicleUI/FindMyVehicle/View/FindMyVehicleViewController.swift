@@ -15,7 +15,7 @@ class FindMyVehicleViewController: DKUIViewController {
     @IBOutlet private weak var mapView: MKMapView!
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var distanceLabel: UILabel!
-    @IBOutlet private weak var itineraryButton: UIButton!
+    @IBOutlet private weak var itineraryButton: ButtonWithLeftIcon!
     @IBOutlet private weak var centerMapButton: UIButton!
     @IBOutlet private weak var noTripView: UIView!
     @IBOutlet private weak var noTripLabel: UILabel!
@@ -41,15 +41,14 @@ class FindMyVehicleViewController: DKUIViewController {
         super.viewDidLoad()
         self.title = "dk_find_vehicle_title".dkVehicleLocalized()
         if viewModel.lastLocationCoordinates != nil {
-            itineraryButton.configure(style: .full)
-            itineraryButton.setTitle("dk_find_vehicle_itinerary".dkVehicleLocalized(), for: .normal)
+            itineraryButton.configure(title: "dk_find_vehicle_itinerary".dkVehicleLocalized(), style: .full)
             itineraryButton.titleLabel?.font = DKStyles.headLine1.style.applyTo(font: .primary)
             setupCenterMapButton()
             mapView.delegate = self
             updateVehicleAnnotation()
             setupLabels()
             view.embedSubview(findVehicleView)
-            showLoader()
+            centerMap()
             viewModel.delegate = self
             viewModel.retrieveUserLocation()
             viewModel.retrieveLastLocationAddress()
@@ -195,10 +194,6 @@ extension FindMyVehicleViewController: FindMyVehicleViewModelDelegate {
     func userLocationUpdateFinished() {
         updateUserAnnotation()
         updateDistanceLabel()
-        if viewModel.userLocationCoordinates == nil {
-            hideLoader()
-            centerMap()
-        }
     }
     
     func addressGeocodingFinished() {
@@ -206,8 +201,6 @@ extension FindMyVehicleViewController: FindMyVehicleViewModelDelegate {
     }
     
     func directionsRequestFinished() {
-        hideLoader()
-        
         if let polyline = viewModel.polyLine {
             mapView.addOverlay(polyline, level: MKOverlayLevel.aboveRoads)
             if let rect = viewModel.computeMapRect() {
@@ -216,6 +209,61 @@ extension FindMyVehicleViewController: FindMyVehicleViewModelDelegate {
             centerMap()
         } else {
             drawLinePath()
+        }
+    }
+}
+
+class ButtonWithLeftIcon: UIButton {
+    let verticalPadding: CGFloat = 5
+    let horizontalEdgePadding: CGFloat = 16
+    let horizontalSpacePadding: CGFloat = 8
+    let imageWidth: CGFloat = 25
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.setImage(DKVehicleImages.itinerary.image?.resizeImage(imageWidth, opaque: false), for: .normal)
+        self.setImage(DKVehicleImages.itinerary.image?.resizeImage(imageWidth, opaque: false), for: .highlighted)
+        if #available(iOS 15.0, *) {
+            self.configuration = UIButton.Configuration.filled()
+            self.configuration?.baseBackgroundColor = DKUIColors.secondaryColor.color
+            self.configuration?.baseForegroundColor = .white
+            self.configuration?.cornerStyle = .capsule
+            self.configuration?.imagePlacement = .leading
+            self.configuration?.imagePadding = horizontalSpacePadding
+        }
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        guard imageView != nil else {
+            return
+        }
+        if #unavailable(iOS 15.0) {
+            imageEdgeInsets = UIEdgeInsets(
+                top: verticalPadding,
+                left: horizontalEdgePadding,
+                bottom: verticalPadding,
+                right: bounds.width - imageWidth - horizontalEdgePadding
+            )
+            titleEdgeInsets = UIEdgeInsets(
+                top: verticalPadding,
+                left: horizontalEdgePadding,
+                bottom: verticalPadding,
+                right: horizontalEdgePadding
+            )
+            invalidateIntrinsicContentSize()
+        }
+    }
+
+    override var intrinsicContentSize: CGSize {
+        if #unavailable(iOS 15.0) {
+            let labelSize = titleLabel?.sizeThatFits(CGSize(width: frame.size.width, height: CGFloat.greatestFiniteMagnitude)) ?? .zero
+            let desiredButtonSize = CGSize(
+                width: labelSize.width + titleEdgeInsets.left + titleEdgeInsets.right + imageWidth + horizontalSpacePadding,
+                height: labelSize.height + titleEdgeInsets.top + titleEdgeInsets.bottom
+            )
+            return desiredButtonSize
+        } else {
+            return super.intrinsicContentSize
         }
     }
 }

@@ -47,7 +47,7 @@ class FindMyVehicleViewModel: NSObject {
         if let lastLocationCoordinates = self.lastLocationCoordinates {
             ReverseGeocoder().getAddress(location: CLLocation(latitude: lastLocationCoordinates.latitude, longitude: lastLocationCoordinates.longitude)) { address in
                 if let address {
-                    self.addressString = address.address?.replacingOccurrences(of: ",", with: "\n") ?? "\(address.postalCode) \(address.city)"
+                    self.addressString = address.address?.replacingOccurrences(of: ", ", with: "\n") ?? "\(address.postalCode) \(address.city)"
                 }
                 self.delegate?.addressGeocodingFinished()
             }

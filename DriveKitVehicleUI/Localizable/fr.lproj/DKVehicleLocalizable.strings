@@ -30,6 +30,16 @@
 "dk_detection_mode_gps_title"="GPS";
 "dk_empty_vehicle_name"="Veuillez renseigner un nom pour le véhicule";
 "dk_fields_not_valid"="Veuillez vérifier les données saisies";
+"dk_find_vehicle_date"="Vous avez garé votre véhicule le %@ à %@.";
+"dk_find_vehicle_empty"="Pour voir la position de votre véhicule, vous devez d\'abord enregistrer un premier trajet.";
+"dk_find_vehicle_itinerary"="Y aller";
+"dk_find_vehicle_location_far"="Votre véhicule se trouve à environ %@ km de votre position actuelle.";
+"dk_find_vehicle_location_far_imperial"="Votre véhicule se trouve à environ %@ mi de votre position actuelle.";
+"dk_find_vehicle_location_nearby"="Votre véhicule se trouve à environ %@ m de votre position actuelle.";
+"dk_find_vehicle_location_nearby_imperial"="Votre véhicule se trouve à environ %@ yd de votre position actuelle.";
+"dk_find_vehicle_location_very_close"="Votre véhicule se trouve à moins de %@ m de votre position.";
+"dk_find_vehicle_location_very_close_imperial"="Votre véhicule se trouve à moins de %@ yd de votre position.";
+"dk_find_vehicle_title"="Où est mon véhicule ?";
 "dk_gearbox"="Boîte de vitesses";
 "dk_gearbox_automatic"="Automatique";
 "dk_gearbox_manual_5"="Manuelle-5";

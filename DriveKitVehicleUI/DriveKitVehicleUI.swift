@@ -175,6 +175,10 @@ extension DriveKitVehicleUI: DriveKitVehicleUIEntryPoint {
         })
     }
 
+    public func getFindMyVehicleViewController() -> UIViewController {
+        return FindMyVehicleViewController()
+    }
+
     public func getVehicleNameWith(vehicleId: String, completion: @escaping (String?) -> Void) {
         DriveKitVehicle.shared.getVehicle(vehicleId: vehicleId, completionHandler: {_, vehicle in
             completion(vehicle?.computeName())

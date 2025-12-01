@@ -538,6 +538,10 @@ public extension Double {
         return (self / step).rounded(.up) * step
     }
 
+    func roundNearest(step: Double) -> Double {
+        return (self / step).rounded(.toNearestOrAwayFromZero) * step
+    }
+
     func convertKmToMiles() -> Double {
         let distance = Measurement(value: self, unit: UnitLength.kilometers)
         return distance.converted(to: .miles).value

@@ -7,6 +7,7 @@
 //
 import DriveKitCoreModule
 import DriveKitTripAnalysisModule
+import DriveKitVehicleModule
 import CoreLocation
 import MapKit
 import DriveKitCommonUI
@@ -29,7 +30,21 @@ class FindMyVehicleViewModel: NSObject {
     }
 
     override init() {
-        if let lastLocation = DriveKitTripAnalysis.shared.getLastTripLocation() {
+        if let lastLocation = DriveKitTripAnalysis.shared.getLastVehicleTripLocation() {
+            self.lastLocationCoordinates = CLLocationCoordinate2D(latitude: lastLocation.latitude, longitude: lastLocation.longitude)
+            self.lastLocationDate = lastLocation.date
+            self.lastlocationAccuracy = lastLocation.accuracyMeter
+            self.shouldDrawAccuracyCircle = lastLocation.getAccuracyLevel() == .poor
+        } else {
+            self.lastLocationCoordinates = nil
+            self.lastLocationDate = nil
+            self.lastlocationAccuracy = nil
+            self.shouldDrawAccuracyCircle = false
+        }
+    }
+
+    init(vehicleId: String) {
+        if let lastLocation = DriveKitVehicle.shared.getVehicleLocation(vehicleId) {
             self.lastLocationCoordinates = CLLocationCoordinate2D(latitude: lastLocation.latitude, longitude: lastLocation.longitude)
             self.lastLocationDate = lastLocation.date
             self.lastlocationAccuracy = lastLocation.accuracyMeter

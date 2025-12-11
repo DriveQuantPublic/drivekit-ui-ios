@@ -54,9 +54,6 @@ public class DKVehiclesListViewModel {
         if vehiclesCount <= 1 {
             removeAction(.delete, in: &actions)
         }
-        if vehiclesCount > 1 {
-            removeAction(.find, in: &actions)
-        }
         if !DriveKitVehicleUI.shared.hasOdometer {
             removeAction(.odometer, in: &actions)
         }

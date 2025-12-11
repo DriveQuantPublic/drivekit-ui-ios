@@ -71,7 +71,8 @@ public enum DKVehicleAction: String, CaseIterable, DKVehicleActionItem {
             case .find:
                 completionHandler = { _ in
                     let vehicleId = viewModel.vehicles[pos].vehicleId
-                    viewModel.delegate?.pushViewController(FindMyVehicleViewController(viewModel: FindMyVehicleViewModel(vehicleId: vehicleId)), animated: true)
+                    let findMyVehicleVC = DriveKitVehicleUI.shared.getFindMyVehicleViewController(vehicleId: vehicleId)
+                    viewModel.delegate?.pushViewController(findMyVehicleVC, animated: true)
                 }
             }
         return UIAlertAction(title: self.title(), style: .default, handler: completionHandler)

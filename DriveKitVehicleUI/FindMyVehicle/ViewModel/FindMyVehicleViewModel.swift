@@ -7,6 +7,7 @@
 //
 import DriveKitCoreModule
 import DriveKitTripAnalysisModule
+import DriveKitVehicleModule
 import CoreLocation
 import MapKit
 import DriveKitCommonUI
@@ -22,14 +23,14 @@ class FindMyVehicleViewModel: NSObject {
      
     weak var delegate: FindMyVehicleViewModelDelegate?
     private let locationManager: CLLocationManager = CLLocationManager()
-
+    
     var accuracyCircleRadius: Double {
         guard let lastlocationAccuracy else { return 0 }
         return min(100, lastlocationAccuracy)
     }
 
     override init() {
-        if let lastLocation = DriveKitTripAnalysis.shared.getLastTripLocation() {
+        if let lastLocation = DriveKitTripAnalysis.shared.getLastVehicleTripLocation() {
             self.lastLocationCoordinates = CLLocationCoordinate2D(latitude: lastLocation.latitude, longitude: lastLocation.longitude)
             self.lastLocationDate = lastLocation.date
             self.lastlocationAccuracy = lastLocation.accuracyMeter
@@ -40,7 +41,20 @@ class FindMyVehicleViewModel: NSObject {
             self.lastlocationAccuracy = nil
             self.shouldDrawAccuracyCircle = false
         }
-        self.userLocationCoordinates = CLLocationManager().location?.coordinate
+    }
+
+    init(vehicleId: String) {
+        if let lastLocation = DriveKitVehicle.shared.getVehicleLocation(vehicleId) {
+            self.lastLocationCoordinates = CLLocationCoordinate2D(latitude: lastLocation.latitude, longitude: lastLocation.longitude)
+            self.lastLocationDate = lastLocation.date
+            self.lastlocationAccuracy = lastLocation.accuracyMeter
+            self.shouldDrawAccuracyCircle = lastLocation.getAccuracyLevel() == .poor
+        } else {
+            self.lastLocationCoordinates = nil
+            self.lastLocationDate = nil
+            self.lastlocationAccuracy = nil
+            self.shouldDrawAccuracyCircle = false
+        }
     }
 
     func retrieveLastLocationAddress() {
@@ -57,9 +71,32 @@ class FindMyVehicleViewModel: NSObject {
     }
 
     func retrieveUserLocation() {
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestLocation()
+        if let userLocation = CLLocationManager().location, userLocationIsAcceptable(userLocation) {
+            self.userLocationCoordinates = userLocation.coordinate
+            delegate?.userLocationUpdateFinished()
+            self.retrieveDirections()
+        } else {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestLocation()
+        }
+    }
+
+    func userLocationIsAcceptable(_ location: CLLocation) -> Bool {
+        DriveKitLog.shared.infoLog(
+            tag: DriveKitVehicleUI.tag,
+            message: "CLLocationManager().location returned with Date = \(location.timestamp), accuracy = \(location.horizontalAccuracy)"
+        )
+
+        let horizontalAccuracyThresholdInMeters: Double = 100
+        if location.horizontalAccuracy >= horizontalAccuracyThresholdInMeters {
+            return false
+        }
+        let gpsValidityDurationInSeconds: Double = 600
+        if Date().timeIntervalSince(location.timestamp) >= gpsValidityDurationInSeconds {
+            return false
+        }
+        return true
     }
 
     private func retrieveDirections() {

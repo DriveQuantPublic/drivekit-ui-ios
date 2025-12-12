@@ -12,6 +12,7 @@ public protocol DriveKitVehicleUIEntryPoint {
     func getVehicleListViewController() -> UIViewController
     func getVehicleDetailViewController(vehicleId: String, completion: @escaping (UIViewController?) -> Void)
     func getFindMyVehicleViewController() -> UIViewController
+    func getFindMyVehicleViewController(vehicleId: String) -> UIViewController
     func getVehicleNameWith(vehicleId: String, completion: @escaping (String?) -> Void)
     func getBeaconDiagnosticViewController(parentView: UIViewController) -> UIViewController
     func getVehicleFilterItems() -> [DKFilterItem]

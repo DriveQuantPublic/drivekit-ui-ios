@@ -48,7 +48,8 @@ public enum DKVehicleImages: String {
          vehicleIsItElectric = "dk_vehicle_is_it_electric",
          targetLocation = "dk_vehicle_target_location",
          currentLocation = "dk_vehicle_current_location",
-         itinerary = "dk_vehicle_itinerary"
+         itinerary = "dk_vehicle_itinerary",
+         vehicleTrip = "dk_vehicle_trip"
 
     public var image: UIImage? {
         if let image = UIImage(named: self.rawValue, in: .main, compatibleWith: nil) {

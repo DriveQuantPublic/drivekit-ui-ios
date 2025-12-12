@@ -88,12 +88,12 @@ class FindMyVehicleViewModel: NSObject {
             message: "CLLocationManager().location returned with Date = \(location.timestamp), accuracy = \(location.horizontalAccuracy)"
         )
 
-        let oneHundred: Double = 100
-        if location.horizontalAccuracy >= oneHundred {
+        let horizontalAccuracyThresholdInMeters: Double = 100
+        if location.horizontalAccuracy >= horizontalAccuracyThresholdInMeters {
             return false
         }
-        let tenMinutes: Double = 600
-        if Date().timeIntervalSince(location.timestamp) >= tenMinutes {
+        let gpsValidityDurationInSeconds: Double = 600
+        if Date().timeIntervalSince(location.timestamp) >= gpsValidityDurationInSeconds {
             return false
         }
         return true

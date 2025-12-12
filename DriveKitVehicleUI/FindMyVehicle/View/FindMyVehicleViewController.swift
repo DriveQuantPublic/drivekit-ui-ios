@@ -72,7 +72,7 @@ class FindMyVehicleViewController: DKUIViewController {
         centerMapButton.layer.cornerRadius = centerMapButton.bounds.size.width * half
         centerMapButton.layer.masksToBounds = true
         centerMapButton.backgroundColor = .white
-        centerMapButton.setImage(DKImages.centerMap.image, for: .normal)
+        centerMapButton.setImage(DKVehicleImages.vehicleTrip.image, for: .normal)
         centerMapButton.tintColor = .black
         let margin: CGFloat = 12
         centerMapButton.imageEdgeInsets = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)

@@ -27,6 +27,7 @@ class FindMyVehicleViewController: DKUIViewController {
     private let insets = UIEdgeInsets.init(top: 50, left: 50, bottom: 50, right: 50)
     private var routeRect: MKMapRect?
     private let viewModel: FindMyVehicleViewModel
+    private var showReframeToTripFabButton: Bool = false
 
     public init(viewModel: FindMyVehicleViewModel = FindMyVehicleViewModel()) {
         self.viewModel = viewModel
@@ -93,6 +94,7 @@ class FindMyVehicleViewController: DKUIViewController {
                 mapView.addOverlay(circle)
             }
         }
+        centerMap()
     }
 
     private func updateUserAnnotation() {
@@ -138,9 +140,13 @@ class FindMyVehicleViewController: DKUIViewController {
             // swiftlint:disable:next no_magic_numbers
             let camera = MKMapCamera(lookingAtCenter: lastLocationCoordinates, fromDistance: 1_000, pitch: 0, heading: 0)
             mapView.setCamera(camera, animated: true)
+            showReframeToTripFabButton = false
+            centerMapButton.isHidden = true
             return
         }
         mapView.setVisibleMapRect(routeRect, edgePadding: insets, animated: true)
+        showReframeToTripFabButton = false
+        centerMapButton.isHidden = true
     }
 }
 
@@ -187,6 +193,13 @@ extension FindMyVehicleViewController: MKMapViewDelegate {
             return renderer
         }
         // swiftlint:enable no_magic_numbers
+    }
+
+    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+        if !showReframeToTripFabButton {
+            showReframeToTripFabButton = true
+            centerMapButton.isHidden = false
+        }
     }
 }
 

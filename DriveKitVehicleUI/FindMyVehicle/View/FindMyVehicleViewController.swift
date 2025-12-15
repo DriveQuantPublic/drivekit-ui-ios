@@ -130,7 +130,6 @@ class FindMyVehicleViewController: DKUIViewController {
         let geodesicPolyline = MKGeodesicPolyline(coordinates: &coordinates, count: 2)
         mapView.addOverlay(geodesicPolyline)
         self.routeRect = geodesicPolyline.boundingMapRect
-        centerMap()
     }
 
     @IBAction func centerMap() {
@@ -194,7 +193,11 @@ extension FindMyVehicleViewController: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
         if centerMapButton.isHidden {
-            centerMapButton.isHidden = false
+            if let routeRect, MKMapRectEqualToRect(mapView.visibleMapRect, routeRect) {
+                centerMapButton.isHidden = false
+            } else if routeRect == nil {
+                centerMapButton.isHidden = false
+            }
         }
     }
 }

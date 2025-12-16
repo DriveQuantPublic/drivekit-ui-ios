@@ -193,7 +193,7 @@ extension FindMyVehicleViewController: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
         if centerMapButton.isHidden {
-            if let routeRect, MKMapRectEqualToRect(mapView.visibleMapRect, routeRect) {
+            if let routeRect, !MKMapRectEqualToRect(mapView.visibleMapRect, routeRect) {
                 centerMapButton.isHidden = false
             } else if routeRect == nil {
                 centerMapButton.isHidden = false

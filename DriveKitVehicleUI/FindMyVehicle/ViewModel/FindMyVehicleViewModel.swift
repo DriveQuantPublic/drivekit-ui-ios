@@ -111,7 +111,10 @@ class FindMyVehicleViewModel: NSObject {
             return
         }
         
-        guard let lastLocationCoordinates = lastLocationCoordinates, let userLocationCoordinates = userLocationCoordinates else { return }
+        guard let lastLocationCoordinates = lastLocationCoordinates, let userLocationCoordinates = userLocationCoordinates else {
+            self.delegate?.directionsRequestFinished()
+            return
+        }
         let directionRequest = MKDirections.Request()
         directionRequest.source = getMapItem(for: userLocationCoordinates)
         directionRequest.destination = getMapItem(for: lastLocationCoordinates)

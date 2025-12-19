@@ -9,6 +9,7 @@
 import UIKit
 import DriveKitCommonUI
 import DriveKitDBVehicleAccessModule
+import DriveKitVehicleModule
 
 public protocol DKVehicleActionItem {
     func title() -> String
@@ -69,7 +70,9 @@ public enum DKVehicleAction: String, CaseIterable, DKVehicleActionItem {
                 }
             case .find:
                 completionHandler = { _ in
-                    viewModel.delegate?.pushViewController(FindMyVehicleViewController(viewModel: FindMyVehicleViewModel()), animated: true)
+                    let vehicleId = viewModel.vehicles[pos].vehicleId
+                    let findMyVehicleVC = DriveKitVehicleUI.shared.getFindMyVehicleViewController(vehicleId: vehicleId)
+                    viewModel.delegate?.pushViewController(findMyVehicleVC, animated: true)
                 }
             }
         return UIAlertAction(title: self.title(), style: .default, handler: completionHandler)
@@ -79,8 +82,10 @@ public enum DKVehicleAction: String, CaseIterable, DKVehicleActionItem {
         switch self {
             case .show:
                 return !vehicle.liteConfig
-            case .rename, .replace, .delete, .odometer, .find:
+            case .rename, .replace, .delete, .odometer:
                 return true
+            case .find:
+                return DriveKitVehicle.shared.getVehicleLocation(vehicle.vehicleId) != nil
         }
     }
 }

@@ -72,7 +72,7 @@ class FindMyVehicleViewController: DKUIViewController {
         centerMapButton.layer.cornerRadius = centerMapButton.bounds.size.width * half
         centerMapButton.layer.masksToBounds = true
         centerMapButton.backgroundColor = .white
-        centerMapButton.setImage(DKImages.centerMap.image, for: .normal)
+        centerMapButton.setImage(DKVehicleImages.vehicleTrip.image, for: .normal)
         centerMapButton.tintColor = .black
         let margin: CGFloat = 12
         centerMapButton.imageEdgeInsets = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
@@ -93,6 +93,7 @@ class FindMyVehicleViewController: DKUIViewController {
                 mapView.addOverlay(circle)
             }
         }
+        centerMap()
     }
 
     private func updateUserAnnotation() {
@@ -129,7 +130,6 @@ class FindMyVehicleViewController: DKUIViewController {
         let geodesicPolyline = MKGeodesicPolyline(coordinates: &coordinates, count: 2)
         mapView.addOverlay(geodesicPolyline)
         self.routeRect = geodesicPolyline.boundingMapRect
-        centerMap()
     }
 
     @IBAction func centerMap() {
@@ -138,9 +138,11 @@ class FindMyVehicleViewController: DKUIViewController {
             // swiftlint:disable:next no_magic_numbers
             let camera = MKMapCamera(lookingAtCenter: lastLocationCoordinates, fromDistance: 1_000, pitch: 0, heading: 0)
             mapView.setCamera(camera, animated: true)
+            centerMapButton.isHidden = true
             return
         }
         mapView.setVisibleMapRect(routeRect, edgePadding: insets, animated: true)
+        centerMapButton.isHidden = true
     }
 }
 
@@ -187,6 +189,16 @@ extension FindMyVehicleViewController: MKMapViewDelegate {
             return renderer
         }
         // swiftlint:enable no_magic_numbers
+    }
+
+    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+        if centerMapButton.isHidden {
+            if let routeRect, !MKMapRectEqualToRect(mapView.visibleMapRect, routeRect) {
+                centerMapButton.isHidden = false
+            } else if routeRect == nil {
+                centerMapButton.isHidden = false
+            }
+        }
     }
 }
 

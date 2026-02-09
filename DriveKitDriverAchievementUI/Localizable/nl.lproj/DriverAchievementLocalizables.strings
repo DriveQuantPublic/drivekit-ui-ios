@@ -277,8 +277,6 @@
 "dk_achievements_failed_to_sync_rankings"="Synchronisatie van de ranglijsten mislukt, probeer later opnieuw.";
 "dk_achievements_failed_to_sync_streaks"="Synchronisatie van reeksen mislukt, probeer later opnieuw.";
 "dk_achievements_menu_streaks"="Succesreeksen";
-"dk_achievements_ranking_legacy"="Tweemaandelijks";
-"dk_achievements_ranking_legacy_info"="Deze ranglijst wordt berekend op basis van de gemiddelde score van de ritten van de afgelopen twee weken. Om in de ranglijst te verschijnen, moet je minstens één rit hebben voltooid in de afgelopen 14 dagen.";
 "dk_achievements_ranking_menu_ranking"="Mijn rangschikking";
 "dk_achievements_ranking_month"="Maandelijks";
 "dk_achievements_ranking_month_info"="De maandelijkse ranglijst wordt berekend op basis van de gemiddelde score van alle ritten van een maand. Om in dit klassement te komen, moet je minstens 20 km rijden en 5 ritten voltooien.";

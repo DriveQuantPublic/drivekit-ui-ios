@@ -135,8 +135,6 @@ public class DriveKitVehicleUI {
         self.canRemoveBeacon = canRemoveBeacon
     }
 
-    @available(*, deprecated, message: "This method is not used anymore.")
-    public func configureVehiclePickerExtraStep(extraStep: DKVehiclePickerExtraStep) { }
 }
 
 extension Bundle {
@@ -216,11 +214,6 @@ extension DriveKitVehicleUI: DriveKitVehicleUIEntryPoint {
         let viewModel = OdometerVehicleListViewModel(vehicleId: vehicleId)
         return OdometerVehicleListVC(viewModel: viewModel)
     }
-}
-
-@available(*, deprecated, message: "This protocol is not used anymore.")
-public protocol DKVehiclePickerExtraStep {
-    func viewController(vehicleId: String) -> UIViewController?
 }
 
 @objc(DKUIVehicleInitializer)

@@ -15,12 +15,6 @@ import UIKit
 
     @objc public static let shared = DriveKitDriverDataTimelineUI()
 
-    @available(*, deprecated, message: "You should use DriveKitUI.shared.scores now")
-    public var scores: [DKScoreType] {
-        get { DriveKitUI.shared.scores }
-        set { DriveKitUI.shared.scores = newValue }
-    }
-    
     public func initialize() {
         // Nothing to do currently.
     }

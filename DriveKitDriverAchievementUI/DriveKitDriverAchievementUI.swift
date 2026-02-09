@@ -107,7 +107,7 @@ extension DriveKitDriverAchievementUI {
         configureRankingSelector(.none)
     }
 
-    @objc(configureRankingSelectorPeriods:) // Usage example: [DriveKitDriverAchievementUI.shared configureRankingSelectorPeriod:@[ @(DKRankingPeriodWeekly), @(DKRankingPeriodLegacy), @(DKRankingPeriodMonthly) ]];
+    @objc(configureRankingSelectorPeriods:) // Usage example: [DriveKitDriverAchievementUI.shared configureRankingSelectorPeriod:@[ @(DKRankingPeriodWeekly), @(DKRankingPeriodMonthly) ]];
     public func objc_configureRankingSelectorPeriods(_ periods: [Int]) {
         configureRankingSelector(.period(rankingPeriods: periods.map { DKRankingPeriod(rawValue: $0)! }))
     }

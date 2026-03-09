@@ -71,8 +71,6 @@ class RankingViewModel {
                     switch rankingPeriod {
                         case .weekly:
                             titleKey = "dk_achievements_ranking_week"
-                        case .legacy:
-                            titleKey = "dk_achievements_ranking_legacy"
                         case .monthly:
                             titleKey = "dk_achievements_ranking_month"
                         case .allTime:
@@ -417,8 +415,6 @@ extension RankingViewModel: DKDriverRanking {
             return "dk_achievements_ranking_month_info".dkAchievementLocalized()
         case .allTime:
             return "dk_achievements_ranking_permanent_info".dkAchievementLocalized()
-        case .legacy:
-            return "dk_achievements_ranking_legacy_info".dkAchievementLocalized()
         @unknown default:
             return nil
         }

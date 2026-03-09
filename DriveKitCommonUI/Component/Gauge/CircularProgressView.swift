@@ -18,11 +18,6 @@ public final class CircularProgressView: UIView, Nibable {
         configure()
     }
 
-    @available(*, deprecated, message: "This method is in ConfigurationCircularProgressView object now.")
-    public func getScoreColor(value: Double, steps: [Double]) -> UIColor {
-        return UIColor.dkExcellent
-    }
-    
     public func configure(configuration: ConfigurationCircularProgressView) {
         self.configuration = configuration
         configure()

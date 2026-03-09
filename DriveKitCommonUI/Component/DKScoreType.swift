@@ -9,15 +9,7 @@
 import UIKit
 import DriveKitCoreModule
 
-@available(*, deprecated, renamed: "DKScoreType")
-public typealias ScoreType = DKScoreType
-
 extension DKScoreType {
-    @available(*, deprecated, renamed: "gaugeImage")
-    public func image() -> UIImage? {
-        return gaugeImage()
-    }
-    
     public func gaugeImage() -> UIImage? {
         switch self {
         case .ecoDriving:

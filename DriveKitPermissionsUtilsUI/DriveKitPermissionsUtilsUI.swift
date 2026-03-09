@@ -26,9 +26,6 @@ import DriveKitCommonUI
     public private(set) var contactType = DKContactType.none
     private var stateByType = [StatusType: Bool]()
 
-    @available(*, deprecated, message: "Logs are now enabled by default. To disable logging, just call DriveKit.shared.disableLogging()")
-    public private(set) var showDiagnosisLogs = true
-
     private override init() {
         super.init()
         DriveKitLog.shared.infoLog(tag: DriveKitPermissionsUtilsUI.tag, message: "Initialization")
@@ -121,12 +118,6 @@ import DriveKitCommonUI
     ) -> String {
         return "\(titleKey.dkPermissionsUtilsLocalized()) \(isValid ? validValue : invalidValue)"
     }
-
-    @available(*, deprecated, message: "This method is not used anymore.")
-    @objc public func configureBluetooth(needed: Bool) {}
-
-    @available(*, deprecated, message: "Logs are now enabled by default. To disable logging, just call DriveKit.shared.disableLogging()")
-    @objc public func configureDiagnosisLogs(show: Bool) { }
 
     public func configureContactType(_ contactType: DKContactType) {
         self.contactType = contactType

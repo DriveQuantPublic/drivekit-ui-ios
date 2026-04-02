@@ -44,7 +44,7 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/DriveQuantPublic/drivekit-sdk-spm.git",
-            exact: "3.0.0"
+            exact: "3.1.0"
         ),
         .package(
             url: "https://github.com/danielgindi/Charts.git",

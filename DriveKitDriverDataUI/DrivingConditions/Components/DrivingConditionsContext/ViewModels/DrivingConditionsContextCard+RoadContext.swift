@@ -7,7 +7,7 @@
 //
 
 import DriveKitCommonUI
-import DriveKitDBTripAccessModule
+import DriveKitCoreModule
 import UIKit
 
 extension DrivingConditionsContextCard {

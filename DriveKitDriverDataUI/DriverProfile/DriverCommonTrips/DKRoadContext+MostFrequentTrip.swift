@@ -6,7 +6,7 @@
 //  Copyright © 2023 DriveQuant. All rights reserved.
 //
 
-import DriveKitDBTripAccessModule
+import DriveKitCoreModule
 import Foundation
 
 extension DKRoadContext {

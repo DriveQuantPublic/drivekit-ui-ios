@@ -41,9 +41,7 @@ class OdometerVehicleDetailVC: DKUIViewController {
         self.tableView.estimatedRowHeight = 100
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        if #available(iOS 15, *) {
-            self.tableView.sectionHeaderTopPadding = 0
-        }
+        self.tableView.sectionHeaderTopPadding = 0
     }
 
     override func viewWillAppear(_ animated: Bool) {

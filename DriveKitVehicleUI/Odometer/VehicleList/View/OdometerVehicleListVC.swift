@@ -41,9 +41,7 @@ class OdometerVehicleListVC: DKUIViewController {
         self.tableView.estimatedRowHeight = 100
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        if #available(iOS 15, *) {
-            self.tableView.sectionHeaderTopPadding = 0
-        }
+        self.tableView.sectionHeaderTopPadding = 0
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(synchronize), for: .valueChanged)
         self.tableView.refreshControl = refreshControl

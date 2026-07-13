@@ -314,12 +314,8 @@ extension TripDetailVC {
             let navigationTripTip = UINavigationController(rootViewController: tripTipVC)
             if let navigationController = self.navigationController {
                 navigationTripTip.navigationBar.isTranslucent = navigationController.navigationBar.isTranslucent
-                if #available(iOS 15.0, *) {
-                    navigationTripTip.navigationBar.standardAppearance = navigationController.navigationBar.standardAppearance
-                    navigationTripTip.navigationBar.scrollEdgeAppearance = navigationController.navigationBar.scrollEdgeAppearance
-                } else {
-                    navigationTripTip.navigationBar.standardAppearance = navigationController.navigationBar.standardAppearance
-                }
+                navigationTripTip.navigationBar.standardAppearance = navigationController.navigationBar.standardAppearance
+                navigationTripTip.navigationBar.scrollEdgeAppearance = navigationController.navigationBar.scrollEdgeAppearance
                 navigationTripTip.navigationBar.barTintColor = navigationController.navigationBar.barTintColor
                 navigationTripTip.navigationBar.tintColor = navigationController.navigationBar.tintColor
             }

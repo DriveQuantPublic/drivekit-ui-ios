@@ -54,7 +54,7 @@ class VehicleDetailVC: DKUIViewController {
             if !self.viewModel.updateIsInProgress {
                 self.navigationItem.rightBarButtonItem = nil
                 self.showLoader()
-                self.updateField { [weak self] success in
+                self.updateField { [weak self = self] success in
                     if success {
                         self?.navigationController?.popViewController(animated: true)
                     }

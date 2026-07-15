@@ -93,7 +93,7 @@ class WorkingHoursViewModel {
         DriveKitTripAnalysis.shared.updateWorkingHours(workingHours: self.workingHours) { status in
             let success = status == .success
             if success {
-                DriveKitTripAnalysis.shared.getWorkingHours(type: .cache, completion: { [weak self] status, hours in
+                DriveKitTripAnalysis.shared.getWorkingHours(type: .cache, completion: { [weak self = self] status, hours in
                     if let self = self {
                         DispatchQueue.dispatchOnMainThread {
                             if status == .cacheOnly, let hours = hours {

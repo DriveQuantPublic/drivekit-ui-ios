@@ -287,14 +287,23 @@ extension TripDetailVC {
 
     func setupDriverPassengerButton() {
         if showDriverPassengerButton {
-            driverPassengerButton.layer.borderColor = UIColor.black.cgColor
-            driverPassengerButton.layer.cornerRadius = driverPassengerButton.bounds.size.width / 2
-            driverPassengerButton.layer.masksToBounds = true
-            driverPassengerButton.backgroundColor = DKUIColors.secondaryColor.color
-            let image = viewModel.getDriverPassengerImage()?.withRenderingMode(.alwaysTemplate)
-            driverPassengerButton.setImage(image, for: .normal)
-            driverPassengerButton.tintColor = .white
-            driverPassengerButton.imageEdgeInsets = UIEdgeInsets(top: -1, left: -1, bottom: -1, right: -1)
+            
+            let edgeInsets = -1.0
+            let imageWidth = driverPassengerButton.frame.size.width
+            var config = UIButton.Configuration.plain()
+            if let rawImage = viewModel.getDriverPassengerImage() {
+                let targetWdith = imageWidth - 2*edgeInsets
+                let targetSize = CGSize(width: targetWdith, height: targetWdith)
+                config.image = UIGraphicsImageRenderer(size: targetSize).image { _ in
+                    rawImage.draw(in: CGRect(origin: .zero, size: targetSize))
+                }.withRenderingMode(.alwaysTemplate)
+            }
+            config.background.backgroundColor = DKUIColors.secondaryColor.color
+            config.background.cornerRadius = imageWidth/2
+            config.contentInsets = .zero
+            config.baseForegroundColor = .white
+            driverPassengerButton.configuration = config
+
             driverPassengerButton.isHidden = false
             self.mapContainer.bringSubviewToFront(driverPassengerButton)
             self.mapContainer.bringSubviewToFront(driverPassengerButtonBadgeImage)

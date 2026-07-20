@@ -67,16 +67,20 @@ class FindMyVehicleViewController: DKUIViewController {
     }
 
     private func setupCenterMapButton() {
-        centerMapButton.layer.borderColor = UIColor.black.cgColor
-        let half = 0.5
-        centerMapButton.layer.cornerRadius = centerMapButton.bounds.size.width * half
-        centerMapButton.layer.masksToBounds = true
-        centerMapButton.backgroundColor = .white
-        centerMapButton.setImage(DKVehicleImages.vehicleTrip.image, for: .normal)
-        centerMapButton.tintColor = .black
         let margin: CGFloat = 12
-        centerMapButton.imageEdgeInsets = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
-        centerMapButton.layer.borderColor = UIColor.lightGray.cgColor
+        let imageWidth = centerMapButton.frame.size.width
+        var config = UIButton.Configuration.plain()
+        if let rawImage = DKVehicleImages.vehicleTrip.image {
+            let targetWdith = imageWidth - 2*margin
+            let targetSize = CGSize(width: targetWdith, height: targetWdith)
+            config.image = UIGraphicsImageRenderer(size: targetSize).image { _ in
+                rawImage.draw(in: CGRect(origin: .zero, size: targetSize))
+            }.withRenderingMode(.alwaysTemplate)
+        }
+        config.background.backgroundColor = .white
+        config.background.cornerRadius = imageWidth/2
+        config.baseForegroundColor = .black
+        centerMapButton.configuration = config
     }
     
     private func updateVehicleAnnotation(address: String? = nil) {

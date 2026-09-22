@@ -51,7 +51,7 @@
 "dk_motor"="Motortyp";
 "dk_name"="Name";
 "dk_power"="Leistung";
-"dk_vehicle_add"="Eine Fahrt hinzufügen";
+"dk_vehicle_add"="Ein Fahrzeug hinzufügen";
 "dk_vehicle_beacon_already_paired"="Die Beacon ist nicht verfügbar. Sie ist bereits an ein anderes Fahrzeug gekoppelt.";
 "dk_vehicle_beacon_already_paired_to_vehicle"="Diese beacon ist bereits an dieses Fahrzeug gekoppelt.";
 "dk_vehicle_beacon_deactivate_alert"="Das %@ Bake wird vom %@ Fahrzeug getrennt.\nBist du sicher, dass du weitermachen willst?";

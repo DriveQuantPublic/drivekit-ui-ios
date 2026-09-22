@@ -29,12 +29,31 @@ class ButtonWithRightIcon: UIButton {
     let verticalPadding: CGFloat = 2
     let horizontalPadding: CGFloat = 8
     let imageWidth: CGFloat = 40
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setupConfigurationIfNeeded()
+    }
+
+    private func setupConfigurationIfNeeded() {
+        guard var config = configuration else { return }
+        config.imagePlacement = .trailing
+        config.imagePadding = horizontalPadding
+        config.contentInsets = NSDirectionalEdgeInsets(
+            top: verticalPadding,
+            leading: horizontalPadding,
+            bottom: verticalPadding,
+            trailing: horizontalPadding
+        )
+        configuration = config
+    }
+
     override func layoutSubviews() {
         super.layoutSubviews()
-        guard imageView != nil else {
+        guard configuration == nil, imageView != nil else {
             return
         }
         imageEdgeInsets = UIEdgeInsets(top: verticalPadding, left: (bounds.width - imageWidth - horizontalPadding), bottom: verticalPadding, right: horizontalPadding)
-        titleEdgeInsets = UIEdgeInsets(top: verticalPadding, left: horizontalPadding * 2 - imageWidth, bottom: verticalPadding, right: horizontalPadding )
+        titleEdgeInsets = UIEdgeInsets(top: verticalPadding, left: horizontalPadding * 2 - imageWidth, bottom: verticalPadding, right: horizontalPadding)
     }
 }

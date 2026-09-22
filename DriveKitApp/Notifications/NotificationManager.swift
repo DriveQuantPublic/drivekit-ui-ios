@@ -170,11 +170,7 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
         willPresent notification: UNNotification,
         withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         // Used to display notifications while the app is in foreground.
-        if #available(iOS 14, *) {
-            completionHandler([.list, .banner])
-        } else {
-            completionHandler(.alert)
-        }
+        completionHandler([.list, .banner])
     }
 
     private func userDidTapNotification(content: UNNotificationContent, completionHandler: @escaping () -> Void) {

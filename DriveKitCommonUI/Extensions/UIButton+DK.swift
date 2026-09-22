@@ -123,12 +123,7 @@ public enum DKButtonStyle {
             button.layer.cornerRadius = DKUIConstants.UIStyle.cornerRadius
             button.contentVerticalAlignment = .top
             button.contentHorizontalAlignment = .leading
-            button.contentEdgeInsets = .init(
-                top: 12,
-                left: 12,
-                bottom: 12,
-                right: 12
-            )
+            configureInsets(for: button, top: 12, left: 12, bottom: 12, right: 12)
             button.titleLabel?.textAlignment = .left
         case .bordered:
             button.layer.borderColor = DKUIColors.secondaryColor.color.cgColor
@@ -146,5 +141,14 @@ public enum DKButtonStyle {
             button.setBackgroundImage(UIImage(color: bgColor), for: .disabled)
         }
         button.titleLabel?.numberOfLines = 0
+    }
+    
+    private func configureInsets(for button: UIButton, top: CGFloat, left: CGFloat, bottom: CGFloat, right: CGFloat) {
+        if var config = button.configuration {
+            config.contentInsets = NSDirectionalEdgeInsets(top: top, leading: left, bottom: bottom, trailing: right)
+            button.configuration = config
+        } else {
+            button.contentEdgeInsets = UIEdgeInsets(top: top, left: left, bottom: bottom, right: right)
+        }
     }
 }

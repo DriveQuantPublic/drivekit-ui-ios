@@ -47,9 +47,7 @@ class OdometerHistoriesVC: DKUIViewController {
         self.tableView.estimatedRowHeight = 50
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        if #available(iOS 15, *) {
-            self.tableView.sectionHeaderTopPadding = 0
-        }
+        self.tableView.sectionHeaderTopPadding = 0
     }
 
     private func reloadReferences() {

@@ -55,40 +55,10 @@ class LocationPermissionViewController: PermissionViewController {
 
         self.actionButton.configure(title: "dk_perm_utils_permissions_location_button_ios".dkPermissionsUtilsLocalized(), style: .full)
 
-        if #available(iOS 14.0, *) {
-            updateViewIOS14()
-        } else {
-            updateViewIOS13()
-        }
+        updateViewIOS14()
     }
 
     private func updateViewIOS14() {
-        updateViewIOS13()
-
-        self.descriptionLabel.attributedText = "dk_perm_utils_permissions_location_ios14_ko"
-            .dkPermissionsUtilsLocalized()
-            .dkAttributedString()
-            .font(dkFont: .primary, style: .normalText)
-            .color(.mainFontColor)
-            .build()
-
-        self.settingsContainer4.isHidden = false
-        self.settingsDescription4.attributedText = "dk_perm_utils_permissions_phone_settings_location_step4"
-            .dkPermissionsUtilsLocalized()
-            .dkAttributedString()
-            .font(dkFont: .primary, style: .normalText)
-            .color(.mainFontColor)
-            .build()
-    }
-
-    private func updateViewIOS13() {
-        self.descriptionLabel.attributedText = "dk_perm_utils_permissions_location_ios13_ko"
-            .dkPermissionsUtilsLocalized()
-            .dkAttributedString()
-            .font(dkFont: .primary, style: .normalText)
-            .color(.mainFontColor)
-            .build()
-
         self.settingsContainer1.isHidden = false
         self.settingsDescription1.attributedText = "dk_perm_utils_permissions_phone_settings_location_step1"
             .dkPermissionsUtilsLocalized()
@@ -113,6 +83,19 @@ class LocationPermissionViewController: PermissionViewController {
             .color(.mainFontColor)
             .build()
 
-        self.settingsContainer4.isHidden = true
+        self.descriptionLabel.attributedText = "dk_perm_utils_permissions_location_ios14_ko"
+            .dkPermissionsUtilsLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .normalText)
+            .color(.mainFontColor)
+            .build()
+
+        self.settingsContainer4.isHidden = false
+        self.settingsDescription4.attributedText = "dk_perm_utils_permissions_phone_settings_location_step4"
+            .dkPermissionsUtilsLocalized()
+            .dkAttributedString()
+            .font(dkFont: .primary, style: .normalText)
+            .color(.mainFontColor)
+            .build()
     }
 }

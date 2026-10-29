@@ -17,9 +17,7 @@ public class TripsListTableVC<TripsListItem: DKTripListItem>: UITableViewControl
         super.viewDidLoad()
         self.tableView.register(TripTableViewCell.nib, forCellReuseIdentifier: "TripTableViewCell")
         self.tableView.separatorInset = .zero
-        if #available(iOS 15, *) {
-            self.tableView.sectionHeaderTopPadding = 0
-        }
+        self.tableView.sectionHeaderTopPadding = 0
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.separatorStyle = .none

@@ -233,43 +233,17 @@ class SynthesisLevelButton: UIButton {
             DKImages.info.image?
                 .resizeImage(15, opaque: false).withRenderingMode(.alwaysTemplate)
                 .tintedImage(withColor: DKUIColors.secondaryColor.color), for: .highlighted)
-        if #available(iOS 15.0, *) {
-            self.configuration?.imagePadding = horizontalSpacePadding
-            self.configuration?.imagePlacement = .trailing
-        }
+        self.configuration?.imagePadding = horizontalSpacePadding
+        self.configuration?.imagePlacement = .trailing
     }
     override func layoutSubviews() {
         super.layoutSubviews()
         guard imageView != nil else {
             return
         }
-        if #unavailable(iOS 15.0) {
-            imageEdgeInsets = UIEdgeInsets(
-                top: verticalPadding,
-                left: (bounds.width - horizontalEdgePadding - imageWidth),
-                bottom: verticalPadding,
-                right: horizontalEdgePadding
-            )
-            titleEdgeInsets = UIEdgeInsets(
-                top: verticalPadding,
-                left: horizontalEdgePadding - imageWidth,
-                bottom: verticalPadding,
-                right: horizontalEdgePadding + imageWidth + horizontalSpacePadding )
-            invalidateIntrinsicContentSize()
-        }
-
     }
 
     override var intrinsicContentSize: CGSize {
-        if #unavailable(iOS 15.0) {
-            let labelSize = titleLabel?.sizeThatFits(CGSize(width: frame.size.width, height: CGFloat.greatestFiniteMagnitude)) ?? .zero
-            let desiredButtonSize = CGSize(
-                width: labelSize.width + titleEdgeInsets.left + titleEdgeInsets.right + imageWidth + horizontalSpacePadding,
-                height: labelSize.height + titleEdgeInsets.top + titleEdgeInsets.bottom
-            )
-            return desiredButtonSize
-        } else {
-            return super.intrinsicContentSize
-        }
+        return super.intrinsicContentSize
     }
 }

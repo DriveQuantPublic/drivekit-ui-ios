@@ -120,7 +120,7 @@ class BeaconScannerProgressVC: UIViewController {
             switch self.viewModel.scanType {
             case .pairing:
                 self.viewModel.showLoader()
-                self.viewModel.checkVehiclePaired { [weak self] isSameVehicle in
+                self.viewModel.checkVehiclePaired { [weak self = self] isSameVehicle in
                     DispatchQueue.main.async {
                         self?.viewModel.hideLoader()
                         if self?.viewModel.vehiclePaired != nil {

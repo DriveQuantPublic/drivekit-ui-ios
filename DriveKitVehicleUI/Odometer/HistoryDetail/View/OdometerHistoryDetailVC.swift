@@ -65,9 +65,7 @@ class OdometerHistoryDetailVC: DKUIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
 
-        if #available(iOS 15, *) {
-            self.tableView.sectionHeaderTopPadding = 0
-        }
+        self.tableView.sectionHeaderTopPadding = 0
 
         if self.viewModel.isEditable {
             self.cancelView.isHidden = false

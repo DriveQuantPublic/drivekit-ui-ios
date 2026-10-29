@@ -67,16 +67,20 @@ class FindMyVehicleViewController: DKUIViewController {
     }
 
     private func setupCenterMapButton() {
-        centerMapButton.layer.borderColor = UIColor.black.cgColor
-        let half = 0.5
-        centerMapButton.layer.cornerRadius = centerMapButton.bounds.size.width * half
-        centerMapButton.layer.masksToBounds = true
-        centerMapButton.backgroundColor = .white
-        centerMapButton.setImage(DKVehicleImages.vehicleTrip.image, for: .normal)
-        centerMapButton.tintColor = .black
         let margin: CGFloat = 12
-        centerMapButton.imageEdgeInsets = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
-        centerMapButton.layer.borderColor = UIColor.lightGray.cgColor
+        let imageWidth = centerMapButton.frame.size.width
+        var config = UIButton.Configuration.plain()
+        if let rawImage = DKVehicleImages.vehicleTrip.image {
+            let targetWdith = imageWidth - 2*margin
+            let targetSize = CGSize(width: targetWdith, height: targetWdith)
+            config.image = UIGraphicsImageRenderer(size: targetSize).image { _ in
+                rawImage.draw(in: CGRect(origin: .zero, size: targetSize))
+            }.withRenderingMode(.alwaysTemplate)
+        }
+        config.background.backgroundColor = .white
+        config.background.cornerRadius = imageWidth/2
+        config.baseForegroundColor = .black
+        centerMapButton.configuration = config
     }
     
     private func updateVehicleAnnotation(address: String? = nil) {
@@ -235,47 +239,21 @@ class ButtonWithLeftIcon: UIButton {
         super.awakeFromNib()
         self.setImage(DKVehicleImages.itinerary.image?.resizeImage(imageWidth, opaque: false), for: .normal)
         self.setImage(DKVehicleImages.itinerary.image?.resizeImage(imageWidth, opaque: false), for: .highlighted)
-        if #available(iOS 15.0, *) {
-            self.configuration = UIButton.Configuration.filled()
-            self.configuration?.baseBackgroundColor = DKUIColors.secondaryColor.color
-            self.configuration?.baseForegroundColor = .white
-            self.configuration?.cornerStyle = .capsule
-            self.configuration?.imagePlacement = .leading
-            self.configuration?.imagePadding = horizontalSpacePadding
-        }
+        self.configuration = UIButton.Configuration.filled()
+        self.configuration?.baseBackgroundColor = DKUIColors.secondaryColor.color
+        self.configuration?.baseForegroundColor = .white
+        self.configuration?.cornerStyle = .capsule
+        self.configuration?.imagePlacement = .leading
+        self.configuration?.imagePadding = horizontalSpacePadding
     }
     override func layoutSubviews() {
         super.layoutSubviews()
         guard imageView != nil else {
             return
         }
-        if #unavailable(iOS 15.0) {
-            imageEdgeInsets = UIEdgeInsets(
-                top: verticalPadding,
-                left: horizontalEdgePadding,
-                bottom: verticalPadding,
-                right: bounds.width - imageWidth - horizontalEdgePadding
-            )
-            titleEdgeInsets = UIEdgeInsets(
-                top: verticalPadding,
-                left: horizontalEdgePadding,
-                bottom: verticalPadding,
-                right: horizontalEdgePadding
-            )
-            invalidateIntrinsicContentSize()
-        }
     }
 
     override var intrinsicContentSize: CGSize {
-        if #unavailable(iOS 15.0) {
-            let labelSize = titleLabel?.sizeThatFits(CGSize(width: frame.size.width, height: CGFloat.greatestFiniteMagnitude)) ?? .zero
-            let desiredButtonSize = CGSize(
-                width: labelSize.width + titleEdgeInsets.left + titleEdgeInsets.right + imageWidth + horizontalSpacePadding,
-                height: labelSize.height + titleEdgeInsets.top + titleEdgeInsets.bottom
-            )
-            return desiredButtonSize
-        } else {
-            return super.intrinsicContentSize
-        }
+        return super.intrinsicContentSize
     }
 }

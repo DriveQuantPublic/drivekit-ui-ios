@@ -5,7 +5,7 @@ let package = Package(
     name: "DriveKitUI",
     defaultLocalization: "en",
     platforms: [
-        .iOS(.v13)
+        .iOS(.v15)
     ],
     products: [
         .library(
@@ -44,7 +44,7 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/DriveQuantPublic/drivekit-sdk-spm.git",
-            exact: "3.4.0"
+            exact: "4.0.0"
         ),
         .package(
             url: "https://github.com/danielgindi/Charts.git",

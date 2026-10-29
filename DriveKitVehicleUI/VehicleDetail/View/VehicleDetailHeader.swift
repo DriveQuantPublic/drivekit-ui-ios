@@ -33,16 +33,19 @@ class VehicleDetailHeader: UITableViewCell {
     }
 
     func configureHeaderButton() {
-        addVehicleImageButton.layer.borderColor = UIColor.black.cgColor
-        addVehicleImageButton.layer.cornerRadius = addVehicleImageButton.bounds.size.width / 2
-        addVehicleImageButton.layer.masksToBounds = true
-        addVehicleImageButton.backgroundColor = DKUIColors.secondaryColor.color
-        addVehicleImageButton.titleLabel?.text = ""
-        if let headerIcon = DKVehicleImages.galleryImage.image {
-            headerIcon.withRenderingMode(.alwaysTemplate)
-            addVehicleImageButton.setImage(headerIcon, for: .normal)
-            addVehicleImageButton.tintColor = DKUIColors.fontColorOnSecondaryColor.color
-            addVehicleImageButton.imageEdgeInsets = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+        if let rawImage = DKVehicleImages.galleryImage.image {
+            let imageWidth = addVehicleImageButton.frame.size.width
+            let margin = 15.0
+            let targetWdith = imageWidth - 2*margin
+            let targetSize = CGSize(width: targetWdith, height: targetWdith)
+            var config = UIButton.Configuration.plain()
+            config.image = UIGraphicsImageRenderer(size: targetSize).image { _ in
+                rawImage.draw(in: CGRect(origin: .zero, size: targetSize))
+            }.withRenderingMode(.alwaysTemplate)
+            config.background.backgroundColor = DKUIColors.secondaryColor.color
+            config.background.cornerRadius = imageWidth/2
+            config.baseForegroundColor = DKUIColors.fontColorOnSecondaryColor.color
+            addVehicleImageButton.configuration = config
         } else {
             addVehicleImageButton.isHidden = true
         }
